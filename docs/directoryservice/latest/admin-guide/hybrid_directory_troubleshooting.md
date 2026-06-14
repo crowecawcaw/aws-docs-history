@@ -29,6 +29,7 @@ the AWS Management Console.
    failed hybrid directory assessment.
 3. On the **Assessment Details** page, review the directory assessment and
    identify what test(s) failed.
+
    1. The domain controller's assessment tests will have more information on what
       tests were successful or failed. The **Status** column
       provides more details on what caused the failed test. To view your

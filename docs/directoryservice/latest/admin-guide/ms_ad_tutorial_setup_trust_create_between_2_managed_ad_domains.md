@@ -24,6 +24,7 @@ you will create a two-way forest trust.
    ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the primary Region, and then choose
      the **Networking & security** tab. For more
@@ -59,6 +60,7 @@ create a two-way trust using this AWS Managed Microsoft AD domain.
 2. On the **Directories** page, choose your second AWS Managed Microsoft AD
    ID.
 3. On the **Directory details** page, do one of the following:
+
    - If you have multiple Regions showing under **Multi-Region replication**,
      select the primary Region, and then choose the **Networking & security** tab. For more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
    - If you do not have any Regions showing under **Multi-Region replication**,

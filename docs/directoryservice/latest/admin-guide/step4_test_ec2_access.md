@@ -15,6 +15,7 @@ Use these steps in the directory consumer account.
    You can change the Windows Amazon Machine Image (AMI) from the **Amazon Machine Image (AMI)** dropdown list.
 7. In the **Instance type** section, choose the instance type you would like to use from **Instance type** dropdown list.
 8. In the **Key pair (login)** section, you can either choose to create a new key pair or choose from an existing key pair.
+
    1. To create a new key pair, choose **Create new key pair**.
    2. Enter a name for the key pair and select an option for the **Key pair type** and **Private key file format**.
    3. To save the private key in a format that can be used with OpenSSH, choose **.pem**.
@@ -59,6 +60,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
     **IAM instance profile** dropdown list. To create a new one,
     choose **Create new IAM profile** link, and then do the
     following:
+
     1.  Choose **Create role**.
     2.  Under **Select trusted entity**, choose **AWS
         service**.
@@ -93,6 +95,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
 **Prerequisites**
 
 - Setup AWS Systems Manager.
+
   - For more information about Systems Manager, see [General setup for AWS Systems Manager](../../../systems-manager/latest/userguide/setting_up_prerequisites.md "../../../systems-manager/latest/userguide/setting_up_prerequisites.md").
 
 - Instances you wish to join the AWS Managed Microsoft Active

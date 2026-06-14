@@ -42,6 +42,7 @@ Reference_.
 - `ec2` – Allows the service to describe network resources such as
   VPCs, subnets, security groups, and network interfaces to validate hybrid connectivity
   configurations:
+
   - `ec2:DescribeAvailabilityZones`
   - `ec2:DescribeDhcpOptions`
   - `ec2:DescribeNetworkInterfaces`
@@ -52,6 +53,7 @@ Reference_.
 
 - `ssm` – Allows the service to send and monitor PowerShell guilabels
   to on-premises domain controllers for monitoring and assessment purposes:
+
   - `ssm:Sendguilabel`
   - `ssm:Listguilabels`
   - `ssm:GetguilabelInvocation`

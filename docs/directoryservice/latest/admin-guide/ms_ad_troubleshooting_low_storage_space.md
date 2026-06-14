@@ -68,6 +68,7 @@ the note above, you have exceeded the capacity of your directory.
 Below are the options to resolve this impairment:
 
 1. Cleanup AD
+
    1. Delete any unwanted AD objects.
    2. Remove any objects that are not wanted from the AD Recycling Bin. Note this is
       destructive and the only way to recover those deleted objects will be to perform a
@@ -86,7 +87,6 @@ Below are the options to resolve this impairment:
    $ObjectsToRemove = Get-ADObject -Filter { isDeleted -eq $true } -IncludeDeletedObjects -SearchBase "CN=Deleted Objects,$BaseDn" -Properties 'LastKnownParent','DistinguishedName','msDS-LastKnownRDN' | Where-Object { ($_.LastKnownParent -Like "*OU=$NetBios,$BaseDn") -or ($_.LastKnownParent -Like '*\0ADEL:*') }
    ForEach ($ObjectToRemove in $ObjectsToRemove) { Remove-ADObject -Identity $ObjectToRemove.DistinguishedName -IncludeDeletedObjects }
    ```
-
    4. Open a case with AWS Support to request that Directory Service reclaims the free space.
 
 2. If your directory type is Standard Edition Open a case with AWS Support requesting

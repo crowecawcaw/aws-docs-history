@@ -85,20 +85,19 @@ The fully qualified DNS name of your directory.
 ```
 
 6. Set the SSH service to allow password authentication.
+
    1. Open the `/etc/ssh/sshd_config` file in a text
       editor.
 
    ```
    sudo vi /etc/ssh/sshd_config
    ```
-
    2. Set the `PasswordAuthentication` setting to
       `yes`.
 
    ```
    PasswordAuthentication yes
    ```
-
    3. Restart the SSH service.
 
    ```
@@ -112,12 +111,12 @@ The fully qualified DNS name of your directory.
    ```
 
 7. After the instance has restarted, connect to it with any SSH client and add the AWS Delegated Administrators group to the sudoers list by performing the following steps:
+
    1. Open the `sudoers` file with the following command:
 
    ```
    sudo visudo
    ```
-
    2. Add the following to the bottom of the `sudoers` file and save it.
 
    ```
@@ -178,20 +177,19 @@ The fully qualified DNS name of your directory.
 ```
 
 6. Set the SSH service to allow password authentication.
+
    1. Open the `/etc/ssh/sshd_config` file in a text
       editor.
 
    ```
    sudo vi /etc/ssh/sshd_config
    ```
-
    2. Set the `PasswordAuthentication` setting to
       `yes`.
 
    ```
    PasswordAuthentication yes
    ```
-
    3. Restart the SSH service.
 
    ```
@@ -205,12 +203,12 @@ The fully qualified DNS name of your directory.
    ```
 
 7. After the instance has restarted, connect to it with any SSH client and add the AWS Delegated Administrators group to the sudoers list by performing the following steps:
+
    1. Open the `sudoers` file with the following command:
 
    ```
    sudo visudo
    ```
-
    2. Add the following to the bottom of the `sudoers` file and save it.
 
    ```
@@ -271,20 +269,19 @@ The fully qualified DNS name of your directory.
 ```
 
 6. Set the SSH service to allow password authentication.
+
    1. Open the `/etc/ssh/sshd_config` file in a text
       editor.
 
    ```
    sudo vi /etc/ssh/sshd_config
    ```
-
    2. Set the `PasswordAuthentication` setting to
       `yes`.
 
    ```
    PasswordAuthentication yes
    ```
-
    3. Restart the SSH service.
 
    ```
@@ -298,12 +295,12 @@ The fully qualified DNS name of your directory.
    ```
 
 7. After the instance has restarted, connect to it with any SSH client and add the AWS Delegated Administrators group to the sudoers list by performing the following steps:
+
    1. Open the `sudoers` file with the following command:
 
    ```
    sudo visudo
    ```
-
    2. Add the following to the bottom of the `sudoers` file and save it.
 
    ```
@@ -325,12 +322,12 @@ SUSE
    the AWS Knowledge Center for guidance on setting the persistent DNS server for
    your particular Linux distribution and version.
 3. Make sure your SUSE Linux 15 instance is up to date.
+
    1. Connect the package repository.
 
    ```
    sudo SUSEConnect -p PackageHub/15.1/x86_64
    ```
-
    2. Update SUSE.
 
    ```
@@ -418,6 +415,7 @@ sudo reboot
 
 10. Reconnect to the instance using any SSH client to verify the domain join has
     completed successfully and finalize additional steps.
+
     1.  To confirm the instance has been enrolled on the domain
 
     ```
@@ -439,7 +437,6 @@ sudo reboot
       login-formats: %U@example.com
       login-policy: allow-realm-logins
     ```
-
     2.  To verify the status of SSSD daemon
 
     ```
@@ -478,20 +475,19 @@ sudo realm permit --all
 ```
 
 12. Set the SSH service to allow password authentication.
+
     1.  Open the `/etc/ssh/sshd_config` file in a text
         editor.
 
     ```
     sudo vi /etc/ssh/sshd_config
     ```
-
     2.  Set the `PasswordAuthentication` setting to
         `yes`.
 
     ```
     PasswordAuthentication yes
     ```
-
     3.  Restart the SSH service.
 
     ```
@@ -513,7 +509,6 @@ sudo realm permit --all
     ```
     sudo visudo
     ```
-
     2.  Add the following to the bottom of the sudoers file and save it.
 
     ```
@@ -583,20 +578,19 @@ The fully qualified DNS name of your directory.
 ```
 
 7. Set the SSH service to allow password authentication.
+
    1. Open the `/etc/ssh/sshd_config` file in a text
       editor.
 
    ```
    sudo vi /etc/ssh/sshd_config
    ```
-
    2. Set the `PasswordAuthentication` setting to
       `yes`.
 
    ```
    PasswordAuthentication yes
    ```
-
    3. Restart the SSH service.
 
    ```
@@ -610,12 +604,12 @@ The fully qualified DNS name of your directory.
    ```
 
 8. After the instance has restarted, connect to it with any SSH client and add the AWS Delegated Administrators group to the sudoers list by performing the following steps:
+
    1. Open the `sudoers` file with the following command:
 
    ```
    sudo visudo
    ```
-
    2. Add the following to the bottom of the `sudoers` file and save it.
 
    ```

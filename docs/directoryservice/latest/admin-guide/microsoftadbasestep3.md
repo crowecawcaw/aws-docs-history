@@ -23,6 +23,7 @@ sets](../../../AmazonVPC/latest/UserGuide/VPC_DHCP_Options.md "../../../AmazonVP
    choose **Create DHCP options set**.
 3. On the **Create DHCP options set** page, provide the following
    values for your directory:
+
    - For **Name**, type `AWS DS DHCP`.
    - For **Domain name**, type
      `corp.example.com`.
@@ -117,6 +118,7 @@ administer users, groups, and policies in Active Directory.
    you can choose a larger instance type), and then choose **Next: Configure
    Instance Details**.
 5. On the **Step 3** page, do the following:
+
    - For **Network**, choose the VPC that ends with
      **AWS-DS-VPC01** (for example,
      **vpc-`xxxxxxxxxxxxxxxxx` |
@@ -150,6 +152,7 @@ administer users, groups, and policies in Active Directory.
    **Launch**.
 10. On the **Select an existing key pair or create a new key pair**
     dialog box, do the following:
+
     - Choose **Choose an existing key pair**.
 
     - Under **Select a key pair**, choose
@@ -190,6 +193,7 @@ PowerShell.
 9. On the **Select server roles** page, choose
    **Next**.
 10. On the **Select features** page, do the following:
+
     - Select the **Group Policy Management** check box.
     - Expand **Remote Server Administration Tools**, and then expand
       **Role Administration Tools**.
@@ -201,6 +205,7 @@ PowerShell.
     information, and then choose **Install**. When the feature installation
     is finished, the following new tools or snap-ins will be available in the Windows
     Administrative Tools folder in the Start menu.
+
     - Active Directory Administrative Center
     - Active Directory Domains and Trusts
     - Active Directory Module for PowerShell

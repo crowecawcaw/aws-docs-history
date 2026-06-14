@@ -41,6 +41,7 @@ You can view an AWS Managed Microsoft AD group's details in the AWS Management C
    the **Groups** section. You're directed to the **Group
    details** screen. The **Group details** screen shows
    the following information:
+
    - **Member** tab lists the users and child groups that are
      members of your group.
    - **Parent groups** tab lists the parent groups that your group

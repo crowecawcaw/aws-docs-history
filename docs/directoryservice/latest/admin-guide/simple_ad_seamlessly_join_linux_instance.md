@@ -47,9 +47,11 @@ There are fees associated with Secrets Manager. For more information see, [Prici
 1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
 3. On the **Store a new secret** page, do the following:
+
    1. Under **Secret type**, choose **Other type of
       secrets**.
    2. Under **Key/value pairs**, do the following:
+
       1. In the first box, enter `awsSeamlessDomainUsername`.
          On the same row, in the next box, enter the username for your service
          account. For example, if you used the PowerShell command previously, the

@@ -30,6 +30,7 @@ tools as listed above must also be available for this directory.
   If you need help doing this, see [Amazon Virtual Private Cloud Connectivity Options](../../../whitepapers/latest/aws-vpc-connectivity-options/aws-vpc-connectivity-options.pdf.md "../../../whitepapers/latest/aws-vpc-connectivity-options/aws-vpc-connectivity-options.pdf.md").
 - A correctly set local security policy. Check `Local Security Policy > Local Policies > Security Options > Network access: Named Pipes that can be accessed anonymously`
   and ensure that it contains at least the following three named pipes:
+
   - netlogon
   - samr
   - lsarpc

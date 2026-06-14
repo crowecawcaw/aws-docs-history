@@ -52,12 +52,14 @@ The following metrics are important to monitor on a regular basis. For a full li
 available domain controller metrics in CloudWatch, see [AWS Managed Microsoft AD performance counters](#performance-counters "#performance-counters").
 
 - Domain controller-specific metrics, such as:
+
   - Processor
   - Memory
   - Logical Disk
   - Network Interface
 
 - AWS Managed Microsoft AD directory-specific metrics, such as:
+
   - LDAP searches
   - Binds
   - DNS queries

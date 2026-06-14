@@ -30,6 +30,7 @@ For more information, see [Creating a connector](../../../privateca/latest/userg
 1.  Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2.  On the **Directories** page, choose your directory ID.
 3.  Under the **Application Management** tab and **AWS apps & services** section, view your Private CA connectors and associated Private CA. The following fields display:
+
     1.  **AWS Private CA Connector ID** – The unique identifier for a AWS Private CA connector. Choose it to view the details page.
     2.  **AWS Private CA subject** – Information regarding the distinguished name for the CA. Choose it to view the details page.
     3.  **Status** – Status check results for the AWS Private CA Connector and AWS Private CA:
@@ -41,6 +42,7 @@ For more information, see [Creating a connector](../../../privateca/latest/userg
         For failed status details, hover over the hyperlink to see which check failed.
 
     4.  **DC Certificates Enrollment status** – Status check for domain controller certificate status:
+
         - **Enabled** – Certificate enrollment is enabled
         - **Disabled** – Certificate enrollment is disabled
 

@@ -34,7 +34,9 @@ Windows instance.
 ###### Prerequisites
 
 - Before you can begin this procedure, complete the following:
+
   - You have domain joined an EC2 instance to your Simple AD directory.
+
     - For more information on how to join an EC2 Windows instance to a
       Simple AD, see [Joining an Amazon EC2 Windows instance to your Simple AD Active Directory](simple_ad_launching_instance.md "simple_ad_launching_instance.md").
 

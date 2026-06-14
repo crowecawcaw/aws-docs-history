@@ -55,6 +55,7 @@ updating these settings or revert them to their previous values.
 ###### To resolve failed updated settings
 
 - Under **Directory settings**, choose **Resolve failed settings**. Then, do one of the following:
+
   - To revert your settings back to their original value before the failure state, choose **Revert failed settings**.
     Then, choose **Revert** in the pop-up modal.
   - To retry updating your directory settings, choose **Retry failed settings**. If you want to make additional

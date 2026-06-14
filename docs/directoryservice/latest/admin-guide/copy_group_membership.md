@@ -35,6 +35,7 @@ them to a group.
    You're directed to the **User details** screen.
 6. Choose **Copy all group memberships**. You're directed to a
    procedure where you can specify which groups you want to copy.
+
    1. For **Verify groups to copy**, under **Groups to
       copy**, select the groups with roles and permissions you want to copy, and
       then choose **Next**.
@@ -44,6 +45,7 @@ them to a group.
       account** to create a new user and copy group memberships into the new user
       account. To find a group, enter the group's name in the search box under the
       **Selected groups** section.
+
       1. _(Optional)_ If you choose **Existing user
          account**, select destination accounts where you want to copy the roles
          and permissions into, and then choose **Next**.

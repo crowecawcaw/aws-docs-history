@@ -16,17 +16,22 @@ To seamlessly domain join an EC2 instance, you will need to complete the followi
 - Have an AWS Managed Microsoft AD. To learn more, see [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory").
 - You'll need the following IAM permissions to seamlessly join an EC2
   Windows instance:
+
   - IAM Instance Profile with the following IAM permissions:
+
     - `AmazonSSMManagedInstanceCore`
     - `AmazonSSMDirectoryServiceAccess`
 
   - The user seamlessly domain joining the EC2 to the AWS Managed Microsoft AD needs the
     following IAM permissions:
+
     - Directory Service Permissions:
+
       - `"ds:DescribeDirectories"`
       - `"ds:CreateComputer"`
 
     - Amazon VPC Permissions:
+
       - `"ec2:DescribeVpcs"`
       - `"ec2:DescribeSubnets"`
       - `"ec2:DescribeNetworkInterfaces"`
@@ -34,6 +39,7 @@ To seamlessly domain join an EC2 instance, you will need to complete the followi
       - `"ec2:AttachNetworkInterface"`
 
     - EC2 Permissions:
+
       - `"ec2:DescribeInstances"`
       - `"ec2:DescribeImages"`
       - `"ec2:DescribeInstanceTypes"`
@@ -41,6 +47,7 @@ To seamlessly domain join an EC2 instance, you will need to complete the followi
       - `"ec2:CreateTags"`
 
     - AWS Systems Manager Permissions:
+
       - `"ssm:DescribeInstanceInformation"`
       - `"ssm:SendCommand"`
       - `"ssm:GetCommandInvocation"`
@@ -66,6 +73,7 @@ rules.
 - We recommend to use a DNS server that will resolve your AWS Managed Microsoft AD domain
   name. To do so, you can create a DHCP option set. See [Creating or changing a DHCP options set for AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md") for more
   information.
+
   - If you choose not to create a DHCP option set, then your DNS servers will be
     static and configured to by your AWS Managed Microsoft AD.
 
@@ -82,6 +90,7 @@ instance**
    You can change the Windows Amazon Machine Image (AMI) from the **Amazon Machine Image (AMI)** dropdown list.
 7. In the **Instance type** section, choose the instance type you would like to use from **Instance type** dropdown list.
 8. In the **Key pair (login)** section, you can either choose to create a new key pair or choose from an existing key pair.
+
    1. To create a new key pair, choose **Create new key pair**.
    2. Enter a name for the key pair and select an option for the **Key pair type** and **Private key file format**.
    3. To save the private key in a format that can be used with OpenSSH, choose **.pem**.
@@ -126,6 +135,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
     **IAM instance profile** dropdown list. To create a new one,
     choose **Create new IAM profile** link, and then do the
     following:
+
     1.  Choose **Create role**.
     2.  Under **Select trusted entity**, choose **AWS
         service**.
@@ -166,6 +176,7 @@ You will need the IP addresses of the AWS Managed Microsoft AD DNS servers. This
 
 1. Connect to the instance using any Remote Desktop Protocol client.
 2. Open the TCP/IPv4 properties dialog box on the instance.
+
    1. Open **Network Connections**.
 
    ###### Tip
@@ -177,7 +188,6 @@ You will need the IP addresses of the AWS Managed Microsoft AD DNS servers. This
    ```
    %SystemRoot%\system32\control.exe ncpa.cpl
    ```
-
    2. Open the context menu (right-click) for any enabled network
       connection and then choose **Properties**.
    3. In the connection properties dialog box, open (double-click)

@@ -35,18 +35,22 @@ There are limitations when changing a group scope. The following list and diagra
 
 - Changing group scope from **Domain Local** to
   **Universal** - Yes
+
   - Unless the domain local group is a parent of another domain local group.
 
 - Changing group scope from **Universal** to **Domain
   Local** - Yes
+
   - Unless the universal group is a child group of another universal group.
 
 - Changing group scope from **Universal** to
   **Global** - Yes
+
   - Unless the universal group is a parent of another universal group.
 
 - Changing group scope from **Global** to
   **Universal** - Yes
+
   - Unless the global group is a child of another global group.
 
 For more information about group scopes, see [Microsoft documentation](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope").

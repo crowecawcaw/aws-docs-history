@@ -36,20 +36,26 @@ following:
 
 - You will need the following IAM permissions to seamlessly join an EC2
   Linux instance:
+
   - Have an AWS Managed Microsoft AD. To learn more, see [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory").
   - You'll need the following IAM permissions to seamlessly join an EC2
     Windows instance:
+
     - IAM Instance Profile with the following IAM permissions:
+
       - `AmazonSSMManagedInstanceCore`
       - `AmazonSSMDirectoryServiceAccess`
 
     - The user seamlessly domain joining the EC2 to the AWS Managed Microsoft AD needs the
       following IAM permissions:
+
       - Directory Service Permissions:
+
         - `"ds:DescribeDirectories"`
         - `"ds:CreateComputer"`
 
       - Amazon VPC Permissions:
+
         - `"ec2:DescribeVpcs"`
         - `"ec2:DescribeSubnets"`
         - `"ec2:DescribeNetworkInterfaces"`
@@ -57,6 +63,7 @@ following:
         - `"ec2:AttachNetworkInterface"`
 
       - EC2 Permissions:
+
         - `"ec2:DescribeInstances"`
         - `"ec2:DescribeImages"`
         - `"ec2:DescribeInstanceTypes"`
@@ -64,6 +71,7 @@ following:
         - `"ec2:CreateTags"`
 
       - AWS Systems Manager Permissions:
+
         - `"ssm:DescribeInstanceInformation"`
         - `"ssm:SendCommand"`
         - `"ssm:GetCommandInvocation"`
@@ -74,6 +82,7 @@ following:
   EC2 Linux instance, your VPC where you're launching your instance should allow
   the same ports allowed in your AWS Managed Microsoft AD security group's inbound and outbound
   rules.
+
   - Depending on your network security and firewall settings, you could be
     required to allow additional outbound traffic. This traffic would be for HTTPS
     (port 443) to the following endpoints:
@@ -89,6 +98,7 @@ following:
 - We recommend to use a DNS server that will resolve your AWS Managed Microsoft AD domain
   name. To do so, you can create a DHCP option set. See [Creating or changing a DHCP options set for AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md") for more
   information.
+
   - If you choose not to create a DHCP option set, then your DNS servers will be
     static and configured to by your AWS Managed Microsoft AD.
 
@@ -147,9 +157,11 @@ There are fees associated with Secrets Manager. For more information see, [Prici
 1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
 3. On the **Store a new secret** page, do the following:
+
    1. Under **Secret type**, choose **Other type of
       secrets**.
    2. Under **Key/value pairs**, do the following:
+
       1. In the first box, enter `awsSeamlessDomainUsername`.
          On the same row, in the next box, enter the username for your service
          account. For example, if you used the PowerShell command previously, the

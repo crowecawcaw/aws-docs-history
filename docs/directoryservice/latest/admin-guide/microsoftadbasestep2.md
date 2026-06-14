@@ -12,6 +12,7 @@ procedures to create your directory.
    **AWS Managed Microsoft AD**, and then choose **Next**.
 3. On the **Enter directory information** page, provide the following
    information, and then choose **Next**.
+
    - For **Edition**, select either **Standard
      Edition** or **Enterprise Edition**. For more information
      about editions, see [AWS Directory Service for Microsoft Active Directory](what_is.md#microsoftad "what_is.md#microsoftad").
@@ -27,6 +28,7 @@ Managed`.
      creation process. The password cannot include the word _admin_. The directory administrator password is case sensitive and must
      be between 8 and 64 characters in length, inclusive. It must also contain at least one
      character from three of the following four categories:
+
      - Lowercase letters (a-z)
      - Uppercase letters (A-Z)
      - Numbers (0-9)
@@ -35,6 +37,7 @@ Managed`.
 
 4. On the **Choose VPC and subnets** page, provide the following
    information, and then choose **Next**.
+
    - For **VPC**, choose the option that begins with
      **AWS-DS-VPC01** and ends with
      **(10.0.0.0/16)**.

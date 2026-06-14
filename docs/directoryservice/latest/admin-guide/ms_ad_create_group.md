@@ -39,6 +39,7 @@ group.
 6. The **Specify group details** page opens. Enter a
    **Group name**. Group names must meet the following
    conditions:
+
    - Must be unique group name
    - Can be up to 64 characters long
    - Can only contain alphanumeric characters
@@ -57,9 +58,11 @@ The group name cannot be changed after the group is created. 7. Choose the **Gro
     	+ To learn more, see [Group type](ad_group_type_and_scope.md#ad_group_type "ad_group_type_and_scope.md#ad_group_type").
 
 8. Choose the **Group scope** from one of the following:
+
    - **Domain local**
    - **Universal**
    - **Global**
+
      - You can turn on **Compare scopes** to display a chart
        of the similarities and differences between group scopes. To learn more, see
        [Group scope](ad_group_type_and_scope.md#ad_group_scope "ad_group_type_and_scope.md#ad_group_scope").

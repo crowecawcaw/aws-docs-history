@@ -39,6 +39,7 @@ AWS Managed Microsoft AD:
 - If you intend to use AWS Managed Microsoft AD for external communications, we recommend you
   configure a Network Address Translation (NAT) Internet Gateway or Internet Gateway outside
   of the AWS network for these communications.
+
   - If you wish to support external communications between your AWS Managed Microsoft AD and your
     RADIUS server hosted on the AWS network, please contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
@@ -70,6 +71,7 @@ AWS Managed Microsoft AD.
 4. Choose the directory ID link for your AWS Managed Microsoft AD directory.
 5. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to enable MFA, and then
      choose the **Networking & security** tab. For more

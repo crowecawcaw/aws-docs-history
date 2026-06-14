@@ -163,6 +163,7 @@ automatically. For more information, see [Global vs Regional features](multi-reg
    ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the primary Region, and then choose
      the **Networking & security** tab. For more
@@ -229,6 +230,7 @@ the existing trust relationship, and create a new "Two-way" trust.
    ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the primary Region, and then choose
      the **Networking & security** tab. For more
@@ -253,6 +255,7 @@ Trust](https://technet.microsoft.com/en-us/library/cc753821.aspx "https://techne
    ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the primary Region, and then choose
      the **Networking & security** tab. For more

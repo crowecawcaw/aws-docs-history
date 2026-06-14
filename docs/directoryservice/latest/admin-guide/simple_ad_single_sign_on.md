@@ -92,6 +92,7 @@ correctly.
    the search box, and choose **Internet Options**.
 2. Add your access URL to the list of approved sites for single sign-on
    by performing the following steps:
+
    1. In the **Internet Properties** dialog box,
       select the **Security** tab.
    2. Select **Local intranet** and choose
@@ -104,6 +105,7 @@ correctly.
       **OK**.
 
 3. To enable active scripting, perform the following steps:
+
    1. In the **Security** tab of the
       **Internet Properties** dialog box, choose **Custom
       level**.
@@ -116,6 +118,7 @@ correctly.
       Zone** dialog box, choose **OK**.
 
 4. To enable automatic logon, perform the following steps:
+
    1. In the **Security** tab of the
       **Internet Properties** dialog box, choose **Custom
       level**.
@@ -131,6 +134,7 @@ correctly.
 
 5. To enable integrated authentication, perform the following
    steps:
+
    1. In the **Internet Properties** dialog box,
       select the **Advanced** tab.
    2. Scroll down to **Security** and select
@@ -178,6 +182,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
 
 1. Create a new Group Policy object by performing the following
    steps:
+
    1. Open the Group Policy Management tool, navigate to your domain
       and select **Group Policy Objects**.
    2. From the main menu, choose **Action** and
@@ -190,6 +195,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
 
 2. Add the access URL to the list of approved sites for single sign-on by
    performing the following steps:
+
    1. In the Group Policy Management tool, navigate to your domain,
       select **Group Policy Objects**, open the context (right-click)
       menu for your IAM Identity Center policy, and choose **Edit**.
@@ -237,6 +243,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
    `1`
 
 3. To enable active scripting, perform the following steps:
+
    1. In the Group Policy Management tool, navigate to your domain,
       select **Group Policy Objects**, open the context (right-click)
       menu for your IAM Identity Center policy, and choose **Edit**.
@@ -252,6 +259,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
       choose **Edit**.
    4. In the **Allow active scripting** dialog box,
       enter the following settings and choose **OK**:
+
       - Select the **Enabled** radio
         button.
       - Under **Options** set **Allow
@@ -259,6 +267,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
         **Enable**.
 
 4. To enable automatic logon, perform the following steps:
+
    1. In the Group Policy Management tool, navigate to your domain,
       select Group Policy Objects, open the context (right-click) menu for your SSO
       policy, and choose **Edit**.
@@ -274,6 +283,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
       **Edit**.
    4. In the **Logon options** dialog box, enter
       the following settings and choose **OK**:
+
       - Select the **Enabled** radio
         button.
       - Under **Options** set **Logon
@@ -282,6 +292,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
 
 5. To enable integrated authentication, perform the following
    steps:
+
    1. In the Group Policy Management tool, navigate to your domain,
       select **Group Policy Objects**, open the context (right-click)
       menu for your IAM Identity Center policy, and choose **Edit**.
@@ -322,6 +333,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
 6. Close the **Group Policy Management Editor** window
    if it is still open.
 7. Assign the new policy to your domain by following these steps:
+
    1. In the Group Policy Management tree, open the context
       (right-click) menu for your domain and choose **Link an Existing
       GPO**.

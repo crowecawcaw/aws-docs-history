@@ -19,6 +19,7 @@ following procedures must be applied separately in each Region. For more informa
     share.
 4.  On the **Directory details** page, do one of the
     following:
+
     - If you have multiple Regions showing under **Multi-Region
       replication**, select the Region where you want to share
       your directory, and then choose the **Scale &

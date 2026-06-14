@@ -40,6 +40,7 @@ You can enable Amazon CloudWatch Logs log forwarding for your AWS Managed Micros
 2. Choose the directory ID of the AWS Managed Microsoft AD directory that you want to share.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to enable log forwarding,
      and then choose the **Networking & security** tab.
@@ -51,6 +52,7 @@ You can enable Amazon CloudWatch Logs log forwarding for your AWS Managed Micros
 4. In the **Log forwarding** section, choose **Enable**.
 5. On the **Enable log forwarding to CloudWatch** dialog, choose either of the
    following options:
+
    1. Select **Create a new CloudWatch log group**, under
       **CloudWatch Log group name**, specify a name that you can
       refer to in CloudWatch Logs.

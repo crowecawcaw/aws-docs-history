@@ -97,6 +97,7 @@ Use either of the following methods to register a certificate in Directory Servi
 2. Choose the directory ID link for your directory.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to register your
      certificate, and then choose the **Networking &
@@ -209,6 +210,7 @@ Use either of the following methods to see when a certificate is set to expire.
 2. Choose the directory ID link for your directory.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to view the certificate,
      and then choose the **Networking & security** tab.
@@ -245,6 +247,7 @@ deregister the certificate.
 2. Choose the directory ID link for your directory.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to deregister a
      certificate, and then choose the **Networking &
@@ -279,6 +282,7 @@ Use either of the following methods to disable client-side LDAPS.
 2. Choose the directory ID link for your directory.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to disable client-side
      LDAPS, and then choose the **Networking &

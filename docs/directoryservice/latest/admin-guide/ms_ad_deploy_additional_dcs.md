@@ -76,6 +76,7 @@ AWS Management Console
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under
      **Multi-Region replication**, select the
      Region where you want to add or remove domain controllers, and

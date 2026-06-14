@@ -33,6 +33,7 @@ screen or **Directory details** screen.
    in your AWS Region.
 3. Choose **Actions**, and then choose **Reset user
    password and enable account**.
+
    1. Under **User logon name**, enter the user logon name for
       the user whose password you want to reset.
    2. Under **New password**, enter the user's new password.
@@ -56,6 +57,7 @@ screen or **Directory details** screen.
 5. Select the user whose password you want to reset.
 6. Choose **Actions**, and then choose **Reset user
    password and enable account**.
+
    1. Under **New password**, enter the user's new password.
    2. Under **Confirm password**, enter user's new password
       again.

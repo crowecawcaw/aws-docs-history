@@ -100,6 +100,7 @@ Kerberos Authentication certificate template.
 4. The **Properties of New Template** window will pop up.
 5. In the **Properties of New Template** window, go to the
    **Compatibility** tab, and then do the following:
+
    1. Change **Certification Authority** to the OS
       that matches your CA.
    2. If a **Resulting changes** window pops up, select
@@ -154,6 +155,7 @@ connections.
 4. Choose the **Inbound** tab, and then choose
    **Edit**.
 5. In the **Edit inbound rules** dialog box, do the following:
+
    - Choose **Add Rule**.
    - Choose **All traffic** for **Type** and
      **Custom** for **Source**.
@@ -164,6 +166,7 @@ connections.
 6. Now choose the AWS security group of your AWS Managed Microsoft AD directory. Choose the
    **Outbound** tab and then choose **Edit**.
 7. In the **Edit outbound rules** dialog box, do the following:
+
    - Choose **Add Rule**.
    - Choose **All traffic** for **Type** and
      **Custom** for **Destination**.

@@ -18,6 +18,7 @@ instances. You must log into these instances with a local user account.
    **Application management** tab. In the **AWS apps
    & services** section, you see which AWS applications are enabled
    for your directory.
+
    1. Disable AWS Management Console access. For more information, see [Disabling
       AWS Management Console access](../../../ms_ad_management_console_access.xml.md "../../../ms_ad_management_console_access.xml.md").
    2. To disable Amazon FSx for Windows File Server, you must remove the Amazon

@@ -30,6 +30,7 @@ controllers](https://support.microsoft.com/en-us/topic/kb5014754-certificate-bas
 
 1. Choose one of the following `AltSecurityIdentity` mapping methods
    based on your certificate information:
+
    - **SHA1 hash** – Uses the SHA1 hash
      of the certificate's public key
 
@@ -43,7 +44,6 @@ controllers](https://support.microsoft.com/en-us/topic/kb5014754-certificate-bas
        Select-String -Pattern "Cert").ToString().TrimStart('Cert Hash(sha1): ').Replace(' ','')
    Set-ADUser -Identity $Username -Add @{'altSecurityIdentities'="X509:<SHA1-PUKEY>$CertHash"}
    ```
-
    - **Issuer and Serial Number** –
      Uses the certificate's issuer name and serial number
 
@@ -56,7 +56,6 @@ controllers](https://support.microsoft.com/en-us/topic/kb5014754-certificate-bas
    $SerialNumber = 'YourCertificateSerialNumber'
    Set-ADUser -Identity $Username -Add @{'altSecurityIdentities'="X509:<I>$IssuerName<SR>$SerialNumber"}
    ```
-
    - **Subject Key Identifier** – Uses
      the certificate's subject key identifier extension
 

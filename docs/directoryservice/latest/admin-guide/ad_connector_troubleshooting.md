@@ -249,6 +249,7 @@ information. The following list additional requirements for the CA:
   published to the Active Directory NTAuth store. They must be installed in the
   trusted root authority for all domain controllers, certificate authority
   servers, and WorkSpaces.
+
   - You can use the follow command to publish certificates to the
     Active Directory NTAuth store:
 
@@ -323,6 +324,7 @@ mean:**
   Source and Avoid Widespread Time Skew](https://learn.microsoft.com/en-us/services-hub/unified/health/remediation-steps-ad/configure-the-root-pdc-with-an-authoritative-time-source-and-avoid-widespread-time-skew "https://learn.microsoft.com/en-us/services-hub/unified/health/remediation-steps-ad/configure-the-root-pdc-with-an-authoritative-time-source-and-avoid-widespread-time-skew") in Microsoft documentation.
   For more information about time service and synchronization, see the
   following:
+
   - [How the Windows Time Service Works](https://learn.microsoft.com/en-us/windows-server/networking/windows-time-service/how-the-windows-time-service-works "https://learn.microsoft.com/en-us/windows-server/networking/windows-time-service/how-the-windows-time-service-works")
   - [Maximum tolerance for computer clock
     synchronization](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/maximum-tolerance-for-computer-clock-synchronization "https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/maximum-tolerance-for-computer-clock-synchronization")
@@ -332,6 +334,7 @@ mean:**
   configurations, between the AD Connector and customer managed domain
   controllers, can cause this error due to [network
   fragmentation](https://en.wikipedia.org/wiki/IP_fragmentation "https://en.wikipedia.org/wiki/IP_fragmentation").
+
   - To verify the MTU restriction, you can perform a [Ping test](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/mtu-size-matters/1025286 "https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/mtu-size-matters/1025286") between your customer managed domain
     controller and an Amazon EC2 instance that is launched in one of your
     directory subnets that is connected via AD Connector. The
@@ -355,6 +358,7 @@ mean:**
   Support is disabled when the DisableVLVSupport is set to non-zero value.
   Ensure the [Virtual List View (VLV) Support](<https://learn.microsoft.com/en-us/previous-versions/office/exchange-server-analyzer/cc540446(v=exchg.80)?redirectedfrom=MSDN> "https://learn.microsoft.com/en-us/previous-versions/office/exchange-server-analyzer/cc540446(v=exchg.80)?redirectedfrom=MSDN") is enabled in Active Directory using
   the following steps:
+
   1.  Login to the Domain Controller as the schema master role
       owner using an account with Schema Admin credentials.
   2.  Select **Start** and then

@@ -22,6 +22,7 @@ following steps.
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    1. If you have multiple Regions showing under **Multi-Region
       replication**, select the Region where you want to view
       your assignments, and then choose the **Application

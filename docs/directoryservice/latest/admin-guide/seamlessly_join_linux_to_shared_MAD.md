@@ -35,6 +35,7 @@ you will use to domain join your EC2 Linux instance while signed in to `Account
 5. Under **Use case**, choose **EC2**, and then
    choose **Next**
 6. For **Filter policies**, do the following:
+
    1. Enter `AmazonSSMManagedInstanceCore`. Then select the checkbox for
       that item in the list.
    2. Enter `AmazonSSMDirectoryServiceAccess`. Then select the checkbox
@@ -99,6 +100,7 @@ seamlessly join a EC2 Linux instance to a shared AWS Managed Microsoft AD.
    **Overview** tab, scroll down to **Resource
    permissions**.
 4. Select **Edit permissions**.
+
    1. In the policy field, enter the following policy. The following policy allows
       **LinuxEC2DomainJoin** in `Account 2` to access the
       secret in `Account 1`. Replace the ARN value with the ARN value for

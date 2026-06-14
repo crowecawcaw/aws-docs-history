@@ -9,6 +9,7 @@ and Active Directory on Amazon EC2.
 2. Choose the **corp.example.com** directory.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the primary Region, and then choose
      the **Networking & security** tab. For more

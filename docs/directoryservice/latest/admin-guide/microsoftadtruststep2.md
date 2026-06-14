@@ -73,6 +73,7 @@ automatically. For more information, see [Global vs Regional features](multi-reg
 2.  Choose the **corp.example.com** directory.
 3.  On the **Directory details** page, do one of the
     following:
+
     - If you have multiple Regions showing under **Multi-Region
       replication**, select the primary Region, and then choose
       the **Networking & security** tab. For more
@@ -86,6 +87,7 @@ automatically. For more information, see [Global vs Regional features](multi-reg
     relationship**.
 5.  In the **Add a trust relationship** dialog box, do the
     following:
+
     - Under **Trust type** select **Forest
       trust**.
 
@@ -117,7 +119,6 @@ automatically. For more information, see [Global vs Regional features](multi-reg
          computers) residing in the trusting domain or forest. For
          more information, see [Configuring selective authentication
          settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816580(v=ws.10) "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816580(v=ws.10)").
-
     - For **Conditional forwarder**, type the IP address of
       your DNS server in the **example.local** forest (which
       you noted in the previous procedure).

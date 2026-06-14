@@ -23,6 +23,7 @@ Amazon EC2.
    **t2.large**, and then choose **Next: Configure
    Instance Details**.
 5. On the **Step 3** page, do the following:
+
    - For **Network**, select
      **vpc-`xxxxxxxxxxxxxxxxx`
      AWS-OnPrem-VPC01** (which you previously set up in the
@@ -51,6 +52,7 @@ Amazon EC2.
    **Launch**.
 10. On the **Select an existing key pair or create a new key
     pair** dialog box, do the following:
+
     - Choose **Choose an existing key pair**.
     - Under **Select a key pair**, choose
       **AWS-DS-KP** (which you previously set up in
@@ -126,6 +128,7 @@ controller.
     choose **Next**.
 17. On the **Domain Controller Options** page, do the
     following:
+
     - In both **Forest functional level** and
       **Domain functional level**, choose
       **Windows Server 2016**.

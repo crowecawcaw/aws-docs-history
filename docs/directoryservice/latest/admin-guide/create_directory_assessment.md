@@ -14,6 +14,7 @@ choose **Create assessment**.
 3. Hybrid directory requires a Amazon VPC with at least two subnets. If you don't already
    have these, you can create them. In the **Networking** section,
    provide the following:
+
    1. For **VPC**, choose your VPC identifier.
    2. For **Subnets**, choose the identifier for each of
       the two subnets. Each subnet must be in different Availability Zones.
@@ -26,6 +27,7 @@ choose **Create assessment**.
 
 4. In the **AWS Systems Manager nodes** section, choose two Systems Manager nodes or
    instances based on the following requirements:
+
    - If your Active Directory is **self-managed outside of the
      AWS Cloud**, you will need two Systems Manager node
      for a hybrid and multicloud environment. For more

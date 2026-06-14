@@ -38,6 +38,7 @@ For more information, see [AWS Directory Service Data attributes](ad_data_attrib
 5. The **Specify user details** page opens. Under the
    **Required information** section, enter a user logon name and
    password. User logon names must meet the following conditions:
+
    - Must be a unique logon name
    - Can be up to 20 characters long
    - Can only contain alphanumeric characters
@@ -77,12 +78,14 @@ The user logon name cannot be changed after the user is created.
    procedure.
 8. _(Optional)_ To create a new group, see [Create a AWS Managed Microsoft AD group](ms_ad_create_group.md "ms_ad_create_group.md").
 9. _(Optional)_ To add a new user to an existing group:
+
    1. Select the group you want to add the new user to in the
       **Groups** section. To find groups, enter the group name in
       the search box.
 
 10. _(Optional)_ To copy the group membership of an existing user
     to a new user:
+
     1. Choose the **Copy group membership from user** tab. To find
        a user with a group membership you want to copy, enter the user logon name in
        the search box under the **Users** section.

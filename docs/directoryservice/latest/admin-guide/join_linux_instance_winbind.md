@@ -139,20 +139,19 @@ sudo authconfig --enablewinbind --enablewinbindauth  --enablemkhomedir   --updat
 
 10. Set the SSH service to allow password authentication by editing the
     `/etc/ssh/sshd_config` file..
+
     1.  Open the `/etc/ssh/sshd_config` file in a text
         editor.
 
     ```
     sudo vi /etc/ssh/sshd_config
     ```
-
     2.  Set the `PasswordAuthentication` setting to
         `yes`.
 
     ```
     PasswordAuthentication yes
     ```
-
     3.  Restart the SSH service.
 
     ```
@@ -168,13 +167,13 @@ sudo authconfig --enablewinbind --enablewinbindauth  --enablemkhomedir   --updat
 11. After the instance has restarted, connect to it with any SSH client and add
     the root privileges for a domain user or group to the sudoers list by performing
     the following steps:
+
     1.  Open the `sudoers` file with the following
         command:
 
     ```
     sudo visudo
     ```
-
     2.  Add the required groups or users from your Trusting or Trusted domain as
         follows, and then save it.
 
@@ -200,12 +199,12 @@ SUSE
    the AWS Knowledge Center for guidance on setting the persistent DNS server for
    your particular Linux distribution and version.
 3. Make sure your SUSE Linux 15 instance is up to date.
+
    1. Connect the package repository.
 
    ```
    sudo SUSEConnect -p PackageHub/15.1/x86_64
    ```
-
    2. Update SUSE.
 
    ```
@@ -320,20 +319,19 @@ group:  files winbind
 
 11. Set the SSH service to allow password authentication by editing the
     `/etc/ssh/sshd_config` file..
+
     1.  Open the `/etc/ssh/sshd_config` file in a text
         editor.
 
     ```
     sudo vim /etc/ssh/sshd_config
     ```
-
     2.  Set the `PasswordAuthentication` setting to
         `yes`.
 
     ```
     PasswordAuthentication yes
     ```
-
     3.  Restart the SSH service.
 
     ```
@@ -349,13 +347,13 @@ group:  files winbind
 12. After the instance has restarted, connect to it with any SSH client and add
     root privileges for a domain user or group, to the sudoers list by performing
     the following steps:
+
     1.  Open the `sudoers` file with the following
         command:
 
     ```
     sudo visudo
     ```
-
     2.  Add the required groups or users from your Trusting or Trusted domain as
         follows, and then save it.
 
@@ -494,20 +492,19 @@ shadow: compat winbind
 
 11. Set the SSH service to allow password authentication by editing the
     `/etc/ssh/sshd_config` file..
+
     1.  Open the `/etc/ssh/sshd_config` file in a text
         editor.
 
     ```
     sudo vim /etc/ssh/sshd_config
     ```
-
     2.  Set the `PasswordAuthentication` setting to
         `yes`.
 
     ```
     PasswordAuthentication yes
     ```
-
     3.  Restart the SSH service.
 
     ```
@@ -523,13 +520,13 @@ shadow: compat winbind
 12. After the instance has restarted, connect to it with any SSH client and add
     root privileges for a domain user or group, to the sudoers list by performing
     the following steps:
+
     1.  Open the `sudoers` file with the following
         command:
 
     ```
     sudo visudo
     ```
-
     2.  Add the required groups or users from your Trusting or Trusted domain as
         follows, and then save it.
 

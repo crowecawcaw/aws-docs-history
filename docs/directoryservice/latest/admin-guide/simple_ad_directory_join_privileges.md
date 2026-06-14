@@ -24,6 +24,7 @@ also be logged in as a domain administrator.
    **Group**.
 3. In the **New Object - Group** box, type the following and choose
    **OK**.
+
    - For **Group name**, type `Joiners`.
    - For **Group scope**, choose **Global**.
    - For **Group type**, choose **Security**.

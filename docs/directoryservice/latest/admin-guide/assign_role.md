@@ -26,6 +26,7 @@ groups do not.
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    1. If you do not have any Regions showing under **Multi-Region
       replication**, choose the **Application
       management** tab.

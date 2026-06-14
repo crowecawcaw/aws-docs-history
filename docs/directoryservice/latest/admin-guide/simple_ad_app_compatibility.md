@@ -6,6 +6,7 @@ The following third-party applications are compatible with Simple AD:
 
 - Microsoft Internet Information Services (IIS) on the following
   platforms:
+
   - Windows Server 2003 R2
   - Windows Server 2008 R1
   - Windows Server 2008 R2
@@ -13,6 +14,7 @@ The following third-party applications are compatible with Simple AD:
   - Windows Server 2012 R2
 
 - Microsoft SQL Server:
+
   - SQL Server 2005 R2 (Express, Web, and Standard editions)
   - SQL Server 2008 R2 (Express, Web, and Standard editions)
   - SQL Server 2012 (Express, Web, and Standard editions)

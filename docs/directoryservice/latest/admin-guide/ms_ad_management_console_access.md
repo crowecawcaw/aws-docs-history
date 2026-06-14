@@ -45,6 +45,7 @@ for your directory users and groups, perform the following steps:
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to enable
      access to the AWS Management Console, and then choose the **Application
@@ -79,6 +80,7 @@ the following steps:
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to disable
      access to the AWS Management Console, and then choose the **Application
@@ -114,6 +116,7 @@ procedure to change the length of time to up to 12 hours per session.
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to set the
      login session length, and then choose the **Application

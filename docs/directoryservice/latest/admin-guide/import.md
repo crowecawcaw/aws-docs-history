@@ -33,6 +33,7 @@ automatically. For more information, see [Global vs Regional features](multi-reg
    **Directories**.
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the following:
+
    - If you have multiple Regions showing under **Multi-Region replication**,
      select the primary Region, and then choose the **Maintenance** tab. For more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
    - If you do not have any Regions showing under **Multi-Region replication**,
@@ -59,6 +60,7 @@ directory against errors as it applies the changes in the following order.
    manipulate any object in the domain, AWS Managed Microsoft AD runs checks right after you upload to
    help ensure that the import operation will not fail. These include checks to ensure the
    following:
+
    - The objects to be updated are only held in the schema container
    - The DC (domain controllers) part matches the name of the domain where the LDIF
      script is running

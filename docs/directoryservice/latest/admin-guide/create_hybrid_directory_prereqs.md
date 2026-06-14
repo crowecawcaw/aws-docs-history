@@ -33,6 +33,8 @@ self-managed AD must be in one of these categories:
 You can add additional IP routes for the directory after the hybrid directory
 is created.
 
+- Ensure DNS `_msdcs` zones are modernized. See [DNS `_msdcs` zone modernization](hybrid_directory_msdcs.md "hybrid_directory_msdcs.md").
+
 ### Required information
 
 Gather the following information about your self-managed AD:
@@ -69,6 +71,7 @@ your self-managed AD.
 3. For **Key Usage**, choose **Encrypt and
    decrypt**.
 4. For **Advanced options**:
+
    1. For **Key material origin**, choose
       **KMS**.
    2. For **Regionality**, choose
@@ -111,6 +114,7 @@ To create a secret
 - For **Key/value pairs**, add your two keys:
 
 1. Add the username key
+
    1. For the first key, enter
       `customerAdAdminDomainUsername`.
    2. For the value of the first key, enter only the username
@@ -118,6 +122,7 @@ To create a secret
       domain name as this causes instance creation to fail.
 
 2. Add the password key
+
    1. For the second key, enter
       `customerAdAdminDomainPassword`.
    2. For the value of the second key, enter the password that you
@@ -146,6 +151,7 @@ To create a secret
 Prepare the following infrastructure components:
 
 - Two AWS Systems Manager nodes with administrator privileges for SSM agents
+
   - If your Active Directory is **self-managed outside of the
     AWS Cloud**, you will need two Systems Manager node
     for a hybrid and multicloud environment. For more

@@ -8,6 +8,7 @@ information on log forwarding, see [Using CloudWatch to monitor the performance 
 2. Choose the directory ID of the AWS Managed Microsoft AD directory that you want to share.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to disable log forwarding,
      and then choose the **Networking & security** tab. For

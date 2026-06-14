@@ -10,6 +10,7 @@ assessment reports.
    directory assessments** section, choose the assessment you want to
    view. This opens the assessment details page.
 3. On the assessment details page, you can choose:
+
    - **Download** to download the directory assessment report as a CSV
      file.
    - **Delete** to delete the directory assessment report.
@@ -17,6 +18,7 @@ assessment reports.
 
 4. From the assessment details page, you can view the following
    information:
+
    1. Assessment information, such as the assessment ID, status, whether it
       was created by the customer or system, and when it was last
       updated.

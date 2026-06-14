@@ -85,20 +85,19 @@ The fully qualified DNS name of your directory.
 ```
 
 6. Set the SSH service to allow password authentication.
+
    1. Open the `/etc/ssh/sshd_config` file in a text
       editor.
 
    ```
    sudo vi /etc/ssh/sshd_config
    ```
-
    2. Set the `PasswordAuthentication` setting to
       `yes`.
 
    ```
    PasswordAuthentication yes
    ```
-
    3. Restart the SSH service.
 
    ```
@@ -113,12 +112,12 @@ The fully qualified DNS name of your directory.
 
 7. After the instance has restarted, connect to it with any SSH client and add the domain
    admins group to the sudoers list by performing the following steps:
+
    1. Open the `sudoers` file with the following command:
 
    ```
    sudo visudo
    ```
-
    2. Add the following to the bottom of the `sudoers` file and save it.
 
    ```
@@ -179,20 +178,19 @@ The fully qualified DNS name of your directory.
 ```
 
 6. Set the SSH service to allow password authentication.
+
    1. Open the `/etc/ssh/sshd_config` file in a text
       editor.
 
    ```
    sudo vi /etc/ssh/sshd_config
    ```
-
    2. Set the `PasswordAuthentication` setting to
       `yes`.
 
    ```
    PasswordAuthentication yes
    ```
-
    3. Restart the SSH service.
 
    ```
@@ -207,12 +205,12 @@ The fully qualified DNS name of your directory.
 
 7. After the instance has restarted, connect to it with any SSH client and add the domain
    admins group to the sudoers list by performing the following steps:
+
    1. Open the `sudoers` file with the following command:
 
    ```
    sudo visudo
    ```
-
    2. Add the following to the bottom of the `sudoers` file and save it.
 
    ```
@@ -273,20 +271,19 @@ The fully qualified DNS name of your directory.
 ```
 
 6. Set the SSH service to allow password authentication.
+
    1. Open the `/etc/ssh/sshd_config` file in a text
       editor.
 
    ```
    sudo vi /etc/ssh/sshd_config
    ```
-
    2. Set the `PasswordAuthentication` setting to
       `yes`.
 
    ```
    PasswordAuthentication yes
    ```
-
    3. Restart the SSH service.
 
    ```
@@ -301,12 +298,12 @@ The fully qualified DNS name of your directory.
 
 7. After the instance has restarted, connect to it with any SSH client and add the domain
    admins group to the sudoers list by performing the following steps:
+
    1. Open the `sudoers` file with the following command:
 
    ```
    sudo visudo
    ```
-
    2. Add the following to the bottom of the `sudoers` file and save it.
 
    ```
@@ -380,20 +377,19 @@ The fully qualified DNS name of your directory.
 ```
 
 7. Set the SSH service to allow password authentication.
+
    1. Open the `/etc/ssh/sshd_config` file in a text
       editor.
 
    ```
    sudo vi /etc/ssh/sshd_config
    ```
-
    2. Set the `PasswordAuthentication` setting to
       `yes`.
 
    ```
    PasswordAuthentication yes
    ```
-
    3. Restart the SSH service.
 
    ```
@@ -408,12 +404,12 @@ The fully qualified DNS name of your directory.
 
 8. After the instance has restarted, connect to it with any SSH client and add the domain
    admins group to the sudoers list by performing the following steps:
+
    1. Open the `sudoers` file with the following command:
 
    ```
    sudo visudo
    ```
-
    2. Add the following to the bottom of the `sudoers` file and save it.
 
    ```

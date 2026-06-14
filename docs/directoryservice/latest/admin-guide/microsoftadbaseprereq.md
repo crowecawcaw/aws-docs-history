@@ -13,6 +13,7 @@ configure the following:
   `aws configure`. Note that you need the access key and secret key
   to complete the setup. See the first prerequisite for steps on how to do this. You will be
   prompted for the following:
+
   - AWS access key ID [None]: `AKIAIOSFODNN7EXAMPLE`
   - AWS secret access key [None]:
     `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`

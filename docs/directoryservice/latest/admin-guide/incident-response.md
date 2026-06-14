@@ -9,6 +9,7 @@ can monitor your organization and the activity that happens within it.
   information, see [Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md"). Additionally, you can use CloudWatch
   Metrics to monitor domain controller performance. For more information, see [Determining when to add domain controllers with CloudWatch metrics](ms_ad_monitor_dc_performance.md#scaledcs "ms_ad_monitor_dc_performance.md#scaledcs").
 - AWS CloudTrail
+
   - You can use CloudTrail
     with all Directory Service directory types.
     For more information,

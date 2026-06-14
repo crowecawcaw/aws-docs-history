@@ -25,6 +25,7 @@ the _Amazon Virtual Private Cloud User Guide_.
   want to extend or resize the VPC for your directory, then make sure to select both of the
   domain controller subnets for the extended VPC CIDR range. When you create a Simple AD,
   Directory Service creates two domain controllers and DNS servers on your behalf.
+
   - For more information about the CIDR range, see [IP addressing for your VPCs and
     subnets](../../../vpc/latest/userguide/vpc-ip-addressing.md "../../../vpc/latest/userguide/vpc-ip-addressing.md") in the _Amazon VPC User Guide_.
 
@@ -37,6 +38,7 @@ the _Amazon Virtual Private Cloud User Guide_.
   to configure an LDAPS endpoint for Simple AD](https://aws.amazon.com/blogs/security/how-to-configure-ldaps-endpoint-for-simple-ad/ "https://aws.amazon.com/blogs/security/how-to-configure-ldaps-endpoint-for-simple-ad/") in the _AWS Security
   Blog_.
 - The following encryption types must be enabled in the directory:
+
   - RC4_HMAC_MD5
   - AES128_HMAC_SHA1
   - AES256_HMAC_SHA1
@@ -121,6 +123,7 @@ VPC, and each subnet must be in a different Availability Zone.
 3. Under **VPC settings**, choose **VPC and
    more**.
 4. Complete these fields as follows:
+
    - Keep **Auto-generated** selected under **Name tag
      auto-generation**. Change **project** to `ADS VPC`.
    - The **IPv4 CIDR block** should be `10.0.0.0/16`.

@@ -42,6 +42,7 @@ traffic to your AWS Managed Microsoft AD domain controllers.
 
 - The following are not compatible with this AWS Security Group
   configuration:
+
   - Amazon EC2 instances
   - Amazon FSx
   - Amazon RDS for MySQL
@@ -82,6 +83,7 @@ non-essential traffic to your AWS Managed Microsoft AD domain controllers.
 
 - The following are not compatible with this AWS Security Group
   configuration:
+
   - Amazon EC2 instances
   - Amazon FSx
   - Amazon RDS for MySQL

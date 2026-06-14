@@ -20,6 +20,7 @@ can create an access URL for your directory by performing the following steps.
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Primary Region and then choose the
      **Application management** tab. For more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").

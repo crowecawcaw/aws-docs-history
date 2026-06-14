@@ -24,7 +24,10 @@ A hybrid directory configuration provides several important capabilities:
 ###### Topics
 
 - [Hybrid directory prerequisites](create_hybrid_directory_prereqs.md "create_hybrid_directory_prereqs.md")
+- [DNS \_msdcs zone modernization](hybrid_directory_msdcs.md "hybrid_directory_msdcs.md")
 - [Creating a hybrid directory](hybrid_directory_create.md "hybrid_directory_create.md")
+- [Understanding the hybrid directory creation process](hybrid_directory_understanding_creation_steps.md "hybrid_directory_understanding_creation_steps.md")
+- [What gets created with your hybrid directory](hybrid_directory_what_gets_created.md "hybrid_directory_what_gets_created.md")
 - [Viewing and editing a hybrid directory](hybrid_directory_view_and_edit.md "hybrid_directory_view_and_edit.md")
 - [Deleting a hybrid directory](hybrid_directory_delete.md "hybrid_directory_delete.md")
 - [Directory assessments for hybrid directories](hybrid_directory_assessment.md "hybrid_directory_assessment.md")

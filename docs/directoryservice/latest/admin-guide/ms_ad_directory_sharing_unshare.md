@@ -8,6 +8,7 @@ Use the following procedure to unshare an AWS Managed Microsoft AD directory.
    **Directories**.
 2. Choose the directory ID of the AWS Managed Microsoft AD directory that you want to unshare.
 3. On the **Directory details** page, do one of the following:
+
    - If you have multiple Regions showing under **Multi-Region replication**,
      select the Region where you want to unshare your directory, and then choose the
      **Scale & share** tab. For more information,

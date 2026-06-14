@@ -95,9 +95,11 @@ which has been delegated the following privileges:
   Join and WorkSpaces
 - The service account password should be compliant with AWS
   password requirements. AWS passwords should be:
+
   - Between 8 and 128 characters in length, inclusive.
   - Contain at least one character from three of the following
     four categories:
+
     - Lowercase letters (a-z)
     - Uppercase letters (A-Z)
     - Numbers (0-9)
@@ -215,6 +217,7 @@ need the following:
   Dial-In User Service](https://en.wikipedia.org/wiki/RADIUS "https://en.wikipedia.org/wiki/RADIUS") (RADIUS) server in your existing network
   that has two client endpoints. The RADIUS client endpoints have the
   following requirements:
+
   - To create the endpoints, you need the IP addresses of the Directory Service
     servers. These IP addresses can be obtained from the
     **Directory IP Address** field of your

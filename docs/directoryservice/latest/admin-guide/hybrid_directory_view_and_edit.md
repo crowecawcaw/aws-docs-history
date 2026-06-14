@@ -24,6 +24,7 @@ with AWS infrastructure.
 - Directory ID
 - Directory status
 - Networking details for your self-managed AD, such as:
+
   - VPC
   - Subnets
   - DNS addresses

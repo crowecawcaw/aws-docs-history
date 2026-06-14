@@ -101,6 +101,7 @@ The following prerequisites are required to complete this tutorial:
    administration EC2 instance**.
 6. On the **Launch directory administration EC2 instance** page, under
    **Input parameters**, complete the fields.
+
    1. (Optional) You can provide a key pair for the instance. From the **Key
       Pair Name - _optional_** dropdown list, select a key
       pair.

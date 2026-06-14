@@ -25,6 +25,7 @@ LDIF file.
   which the items in your LDIF file are laid out follow the [Directory Information
   Tree (DIT)](https://en.wikipedia.org/wiki/Directory_information_tree "https://en.wikipedia.org/wiki/Directory_information_tree") from the top down. The general rules for sequencing in an LDIF file
   include the following:
+
   - Separate items with a blank line.
   - List child items after their parent items.
   - Ensure that items such as attributes or object classes exist in the schema. If

@@ -34,6 +34,7 @@ The following walks you through how you can enable Amazon SNS for your AWS Manag
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to enable SNS messaging,
      and then choose the **Maintenance** tab. For more
@@ -83,6 +84,7 @@ messages from an Amazon SNS topic:
 2. On the **Directories** page, choose your directory ID.
 3. On the **Directory details** page, do one of the
    following:
+
    - If you have multiple Regions showing under **Multi-Region
      replication**, select the Region where you want to remove status
      messages, and then choose the **Maintenance** tab. For

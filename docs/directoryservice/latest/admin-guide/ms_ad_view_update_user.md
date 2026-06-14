@@ -40,6 +40,7 @@ You can view an AWS Managed Microsoft AD user's details in the AWS Management Co
 5. Select a user. You're directed to the **User details**
    screen. The **User details** screen shows the following
    information:
+
    - Groups the user is a member of (group memberships)
    - Profile details (such as primary information like user logon name, first
      name, last name, etc.)

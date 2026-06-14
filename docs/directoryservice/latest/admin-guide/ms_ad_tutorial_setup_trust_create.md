@@ -55,6 +55,7 @@ automatically. For more information, see [Global vs Regional features](multi-reg
 1. Return to the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. On the **Directories** page, choose your AWS Managed Microsoft AD ID.
 3. On the **Directory details** page, do one of the following:
+
    - If you have multiple Regions showing under **Multi-Region replication**,
      select the primary Region, and then choose the **Networking & security** tab. For more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
    - If you do not have any Regions showing under **Multi-Region replication**,

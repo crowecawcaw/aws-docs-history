@@ -69,6 +69,7 @@ your AWS Managed Microsoft AD directory in AWS.
 1. On your RADIUS server, create two RADIUS clients to represent both of the AWS Managed Microsoft AD
    domain controllers (DCs) in AWS. You must configure both clients using the following
    common parameters (your RADIUS server may vary):
+
    - **Address (DNS or IP)**: This is the DNS address for
      one of the AWS Managed Microsoft AD DCs. Both DNS addresses can be found in the AWS Directory
      Service Console on the **Details** page of the

@@ -15,10 +15,12 @@ You can still use your directory credentials to log in to these instances.
 1. In the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/") navigation pane, select
    **Directories**. Ensure you are in the AWS Region where your Active Directory is deployed. For more information, see [Choosing a Region](../../../awsconsolehelpdocs/latest/gsg/select-region.md "../../../awsconsolehelpdocs/latest/gsg/select-region.md").
 2. Ensure that no AWS applications are enabled for the directory you intend to delete. Enabled AWS applications will prevent you for deleting your AWS Managed Microsoft AD or Simple AD.
+
    1. On the **Directories** page, choose your directory ID.
    2. On the **Directory details** page, select the
       **Application management** tab. In the **AWS apps & services**
       section, you see which AWS applications are enabled for your directory.
+
       - Disable AWS Management Console access. For more information, see [Disabling AWS Management Console access](ms_ad_management_console_access.md#console_disable "ms_ad_management_console_access.md#console_disable").
       - To disable Amazon WorkSpaces, you must deregister the service from the directory in the
         WorkSpaces console. For more information, see [Delete a directory](../../../workspaces/latest/adminguide/delete-workspaces-directory.md "../../../workspaces/latest/adminguide/delete-workspaces-directory.md") in the

@@ -43,6 +43,7 @@ traffic between both VPCs using private IP addresses.
    Connections**. Then choose **Create Peering
    Connection**.
 3. Configure the following information:
+
    - **Peering connection name tag**:
      Provide a name that clearly identifies this connection with the VPC
      in the directory consumer account.
