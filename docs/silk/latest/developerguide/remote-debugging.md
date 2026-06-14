@@ -55,6 +55,7 @@ If you have an older version of Silk, follow the procedure below.
 3. Swipe down from the top of the screen to open the main menu and locate the ADB setting
    on the device. The location of this setting varies depending on which version of Fire OS
    the device is running.
+
    - **Fire OS (based on Android 4.0.3)** – Select
      **More** > **Security**, and set **Enable
      ADB** to **ON**.

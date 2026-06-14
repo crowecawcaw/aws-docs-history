@@ -223,6 +223,7 @@ customers.
   Responsive Web Design Tools](http://mashable.com/2013/03/18/web-design-tools/ "http://mashable.com/2013/03/18/web-design-tools/") in _Mashable_
 - Rahul Lalmalani's series on responsive web design in _MSDN
   Magazine_:
+
   - [Why the
     Web Is Ready for Responsive Web Design](http://msdn.microsoft.com/en-us/magazine/dn151701.aspx "http://msdn.microsoft.com/en-us/magazine/dn151701.aspx")
   - [Designing
