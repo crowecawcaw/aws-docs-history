@@ -30,17 +30,20 @@ An AWS Labs Model Context Protocol (MCP) server for Aurora DSQL
 - **dsql_search_documentation**
 
 * Search Aurora DSQL documentation
+
   - Parameters: `search_phrase` (required),
     `limit` (optional)
 
 - **dsql_read_documentation** -
   Read specific DSQL documentation pages
+
   - Parameters: `url` (required),
     `start_index` (optional),
     `max_length` (optional)
 
 - **dsql_recommend** - Get
   recommendations for DSQL best practices
+
   - Parameters: `url` (required)
 
 ## Prerequisites
@@ -51,7 +54,9 @@ An AWS Labs Model Context Protocol (MCP) server for Aurora DSQL
 2. This MCP server can only be run locally on the same host as
    your LLM client.
 3. Set up AWS credentials with access to AWS services
+
    - You need an AWS account with a role including these permissions:
+
      - `dsql:DbConnectAdmin` - Connect to DSQL clusters as the admin user
      - `dsql:DbConnect` - Connect to DSQL clusters with custom database roles (only needed if using non-admin users)
 
@@ -143,23 +148,28 @@ slightly different:
 For some of the most common Agentic development tools, you can find your MCP client configurations at the following file paths:
 
 - Kiro:
+
   - User Config: `~/.kiro/settings/mcp.json`
   - Workspace Config: `/path/to/workspace/.kiro/settings/mcp.json`
 
 - Claude Code: Refer to [Claude Code Installation](#claude-code "#claude-code") for detailed setup help
+
   - User Config: `~/.claude.json` in `"mcpServers"`
   - Project Config: `/path/to/project/.mcp.json`
   - Local Config: `~/.claude.json` in `"projects" -> "path/to/project" -> "mcpServers"`
 
 - Cursor:
+
   - Global: `~/.cursor/mcp.json`
   - Project: `/path/to/project/.cursor/mcp.json`
 
 - Codex: `~/.codex/config.toml`
+
   - Each MCP server is configured with a `[mcp_servers.<server-name>]` table in the config file. Refer to
     the [Custom Codex Installation Instructions](#codex "#codex")
 
 - Warp:
+
   - File Editing: `~/.warp/mcp_settings.json`
   - Application Editor: `Settings > AI > Manage MCP Servers` and paste json
 

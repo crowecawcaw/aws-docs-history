@@ -58,10 +58,12 @@ The CLI will guide you through:
 - **Selecting agents** - Choose which agents to install to
   (Kiro, Claude Code, Cursor, Copilot, Gemini, Codex, Roo, Cline, OpenCode, Windsurf, etc.)
 - **Installation scope** - Choose between:
+
   - Project: Install in current directory (committed with your project)
   - Global: Install in home directory (available across all projects)
 
 - **Installation method** - Choose between:
+
   - Symlink (Recommended): Single source of truth, easy updates
   - Copy to all agents: Independent copies for each agent
 
@@ -90,6 +92,7 @@ To setup the Kiro power for Aurora DSQL:
 
 1. Install directly from the [Kiro Powers Registry](https://kiro.dev/launch/powers/add/?name=amazon-aurora-dsql "https://kiro.dev/launch/powers/add/?name=amazon-aurora-dsql")
 2. Once redirected to the Power in the IDE, either:
+
    - Select the **Try Power** button. Suggested for users who want
      the AI to guide MCP server setup or an interactive onboarding experience with Aurora DSQL to create
      a new cluster.

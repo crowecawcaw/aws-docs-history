@@ -23,6 +23,7 @@ Before you can begin using Aurora DSQL, make sure you meet the following prerequ
 - Your IAM identity must have permission to [sign in to the
   console](../../../signin/latest/userguide/console-sign-in-tutorials.md "../../../signin/latest/userguide/console-sign-in-tutorials.md").
 - Your IAM identity must meet the following criteria:
+
   - Access to perform any action on any resource in your AWS account
   - `AmazonAuroraDSQLConsoleFullAccess` AWS managed policy is [attached](../../../aws-managed-policy/latest/reference/AmazonAuroraDSQLConsoleFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonAuroraDSQLConsoleFullAccess.md").
 
@@ -40,6 +41,7 @@ you create a cluster in a single AWS Region.
 4. (Optional) Add additional **Tags** for this cluster.
 5. (Optional) In **Cluster settings**, select any of the following
    options:
+
    - Select **Customize encryption settings (advanced)** to choose or
      create an AWS KMS key. If you use a customer managed key, ensure that the key policy
      grants Aurora DSQL the required permissions. For more information, see
@@ -70,6 +72,7 @@ Editor](getting-started-query-editor.md "getting-started-query-editor.md"), whic
    the Cluster details page.
 3. Choose **Connect with Query editor**.
 4. Choose Connect as **admin** for the cluster that was just created.
+
    - Optionally you can connect with a custom role, see
      [Using database roles and IAM authentication](using-database-and-iam-roles.md "using-database-and-iam-roles.md").
 
@@ -150,6 +153,7 @@ endpoints.
 5. (Optional) Add additional **Tags** for this cluster.
 6. In **Multi-Region settings**, choose the following options for your
    initial cluster:
+
    - In **Witness Region**, choose a Region. Currently, only US-based
      Regions are supported for witness Regions in multi-Region clusters.
    - (Optional) In **Remote Region cluster ARN**, enter an ARN for an
@@ -158,6 +162,7 @@ endpoints.
 
 7. (Optional) In **Cluster settings**, select any of the following options
    for your initial cluster:
+
    - Select **Customize encryption settings (advanced)** to choose or
      create an AWS KMS key. If you use a customer managed key, ensure that the key policy
      grants Aurora DSQL the required permissions. For more information, see
@@ -174,6 +179,7 @@ endpoints.
    multi-Region cluster setup**. This action initiates creation of a second cluster in
    another Region.
 10. Choose one of the following options for your second cluster:
+
     - **Add remote Region cluster ARN** – Choose this option if a
       cluster exists, and you want it to be the second cluster in your multi-Region cluster.
     - **Create cluster in another Region** – Choose this option to

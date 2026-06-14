@@ -10,6 +10,7 @@ _JetBrains_ website.
 1. Choose **New Data Source** and choose PostgreSQL.
 2. In the **Data Sources/General** tab, enter the following
    information:
+
    1. **Host** – Use your cluster endpoint.
 
    **Port** – Aurora DSQL uses the PostgreSQL default:

@@ -23,6 +23,7 @@ The [Aurora DSQL Plugin for DBeaver](https://github.com/awslabs/aurora-dsql-dbea
 1. With DBeaver opened, Go to the Drop down menu **Help** → **Install New Software**
 2. Click **Add** to add a new repository
 3. Enter:
+
    - **Name**: `Aurora DSQL Plugin`
    - **Location**: `https://awslabs.github.io/aurora-dsql-dbeaver-plugin/update-site/`
 
@@ -35,20 +36,23 @@ The [Aurora DSQL Plugin for DBeaver](https://github.com/awslabs/aurora-dsql-dbea
 1. Click the **New Database Connection**
 2. Select **Aurora DSQL**
 3. Under **Server**, select one of the following for the **Connect by** setting
+
    - **Host**
+
      - to enable the user interface text inputs for the following fields:
+
        - **Endpoint:** DSQL Cluster Endpoint
        - **Username:** DSQL username (e.g. admin)
        - **AWS Profile:** e.g. default - The standard profile used when no specific profile is specified
        - **AWS Region (Optional):** must match the region where your DSQL cluster exists, otherwise authentication will fail
 
    - **URL**
+
      - JDBC URL in this format:
 
      ```
      jdbc:aws-dsql:postgresql://{cluster_endpoint}/{database}?user=admin&profile=default&region=us-east-1
      ```
-
      - Note: In this mode, only the URL input is enabled. In order to add parameters to the JDBC connection string, use the URL query parameters format starting with ? as the first parameter and append an & for subsequent parameters.
 
 4. Click **Test Connection** to verify the Aurora DSQL connection works

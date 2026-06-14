@@ -139,6 +139,7 @@ For general considerations, see [Considerations for working with Amazon Aurora D
 - The transaction isolation level is fixed at PostgreSQL `Repeatable
 Read`.
 - Transactions have the following constraints:
+
   - DDL and DML operations require separate transactions
   - A transaction can include only 1 DDL statement
   - A transaction can modify up to 3,000 rows, regardless of the number of

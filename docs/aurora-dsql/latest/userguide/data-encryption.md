@@ -427,6 +427,7 @@ Console
    **Single-Region**.
 4. In the **Cluster encryption settings**, choose one of the
    following options.
+
    - Accept the default settings to encrypt with an AWS owned key at no
      additional cost.
    - Select **Customize encryption settings (advanced)** to
@@ -511,6 +512,7 @@ Console
    **Modify**.
 5. In the **Cluster encryption settings**, choose one of the
    following options to modify your encryption settings.
+
    - If you want to switch from a custom key to an AWS owned key, de-select the
      **Customize encryption settings (advanced)** option. The
      default settings will apply and encrypt your cluster with an AWS owned key at
@@ -594,6 +596,7 @@ appropriately. For examples and more information, see [Key policy for a customer
   encrypt your backup data in AWS Backup using either the AWS owned key or a customer managed
   key.
 - The following data protection states are enabled for Aurora DSQL:
+
   - Data at rest - Aurora DSQL encrypts all static data on
     persistent storage media
   - Data in transit - Aurora DSQL encrypts all
@@ -607,6 +610,7 @@ appropriately. For examples and more information, see [Key policy for a customer
 - When you disable your Customer Managed Key or revoke access for Aurora DSQL to use your
   key, your cluster will go into `IDLE` state.
 - The AWS Management Console and Amazon Aurora DSQL API use different terms for encryption types:
+
   - AWS Console – In the console, you'll see `KMS` when using a
     Customer managed key and `DEFAULT` when using an AWS owned key.
   - API – The Amazon Aurora DSQL API uses `CUSTOMER_MANAGED_KMS_KEY` for

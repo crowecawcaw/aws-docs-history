@@ -58,13 +58,16 @@ guide](authentication-authorization.md "authentication-authorization.md").
 3. In the SQLTools Settings tab select Aurora DSQL Driver from
    the list.
 4. Fill in the connection parameters.
+
    - AWS Region
+
      - Optional - the region will be parsed from the Aurora DSQL
        cluster endpoint.
      - Required when only a cluster ID is specified in the
        DSQL Cluster field.
 
    - AWS Profile
+
      - Used for token generation.
      - Uses the default profile if not specified.
 
