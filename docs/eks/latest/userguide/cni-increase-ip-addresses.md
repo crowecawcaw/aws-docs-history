@@ -37,6 +37,7 @@ Consider the following when you use this feature:
 - IP prefixes assigned to a network interface support high Pod density per node and have the best launch time.
 - IP prefixes and IP addresses are associated with standard Amazon EC2 elastic network interfaces. Pods requiring specific security groups are assigned the primary IP address of a branch network interface. You can mix Pods getting IP addresses, or IP addresses from IP prefixes with Pods getting branch network interfaces on the same node.
 - For clusters with Linux nodes only.
+
   - After you configure the add-on to assign prefixes to network interfaces, you can’t downgrade your Amazon VPC CNI plugin for Kubernetes add-on to a version lower than `1.9.0` (or `1.10.1`) without removing all nodes in all node groups in your cluster.
   - If you’re also using security groups for Pods, with `POD_SECURITY_GROUP_ENFORCING_MODE`=`standard` and `AWS_VPC_K8S_CNI_EXTERNALSNAT`=`false`, when your Pods communicate with endpoints outside of your VPC, the node’s security groups are used, rather than any security groups you’ve assigned to your Pods.
 

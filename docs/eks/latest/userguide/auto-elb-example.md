@@ -218,6 +218,7 @@ This will delete all resources in the namespace, including the deployment, servi
 1. The deployment creates 5 pods running the 2048 game
 2. The service provides stable network access to these pods
 3. EKS Auto Mode:
+
    - Creates an Application Load Balancer in AWS
    - Configures target groups for the pods
    - Sets up routing rules to direct traffic to the service

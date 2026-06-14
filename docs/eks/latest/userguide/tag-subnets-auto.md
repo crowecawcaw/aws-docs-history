@@ -46,6 +46,7 @@ Before you begin, identify which subnets are public (with Internet Gateway acces
 2. Select the subnet to tag.
 3. Choose the **Tags** tab and select **Add tag**.
 4. Add the appropriate tag:
+
    - For public subnets: Key=`kubernetes.io/role/elb`
    - For private subnets: Key=`kubernetes.io/role/internal-elb`
 

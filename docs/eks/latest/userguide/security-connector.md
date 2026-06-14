@@ -17,6 +17,7 @@ This topic describes the differences in the responsibility model if the connecte
 ## Customer responsibilities
 
 - Kubernetes cluster specific security, specifically along the following lines:
+
   - Kubernetes secrets must be properly encrypted and protected.
   - Lock down access to the `eks-connector` namespace.
 

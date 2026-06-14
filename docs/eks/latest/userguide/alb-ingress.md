@@ -30,6 +30,7 @@ If you’re using multiple security groups attached to worker nodes, exactly one
     – `shared` or `owned`
 
 - If you’re using the AWS Load Balancer Controller version `2.1.1` or earlier, subnets must be tagged in the format that follows. If you’re using version `2.1.2` or later, tagging is optional. However, we recommend that you tag a subnet if any of the following is the case. You have multiple clusters that are running in the same VPC, or have multiple AWS services that share subnets in a VPC. Or, you want more control over where load balancers are provisioned for each cluster. Replace `my-cluster` with your cluster name.
+
   - **Key**
     – `kubernetes.io/cluster/<my-cluster>`
   - **Value**
@@ -76,6 +77,7 @@ alb.ingress.kubernetes.io/ip-address-type: dualstack
 ```
 
 - The AWS Load Balancer Controller supports the following traffic modes:
+
   - **Instance**
     – Registers nodes within your cluster as targets for the ALB. Traffic reaching the ALB is routed to `NodePort` for your service and then proxied to your Pods. This is the default traffic mode. You can also explicitly specify it with the `alb.ingress.kubernetes.io/target-type: instance` annotation.
 
@@ -142,7 +144,9 @@ eksctl create fargateprofile \
 ```
 
 2.  Deploy the game [2048](https://play2048.co/ "https://play2048.co/") as a sample application to verify that the AWS Load Balancer Controller creates an AWS ALB as a result of the ingress object. Complete the steps for the type of subnet you’re deploying to.
+
     1. If you’re deploying to Pods in a cluster that you created with the `IPv6` family, skip to the next step.
+
        - **Public**::
 
     ```
@@ -170,20 +174,18 @@ eksctl create fargateprofile \
         	```
         	kubectl apply -f 2048_full.yaml
         	```
-
     2. If you’re deploying to Pods in a cluster that you created with the [IPv6 family](cni-ipv6.md "cni-ipv6.md"), complete the following steps.
+
        1. Download the manifest.
 
        ```
        curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/examples/2048/2048_full.yaml
        ```
-
        2. Open the file in an editor and add the following line to the annotations in the ingress spec.
 
        ```
        alb.ingress.kubernetes.io/ip-address-type: dualstack
        ```
-
        3. If you’re load balancing to internal Pods, rather than internet facing Pods, change the line that says `alb.ingress.kubernetes.io/scheme: `internet-facing``to`alb.ingress.kubernetes.io/scheme: internal`
        4. Save the file.
        5. Apply the manifest to your cluster.

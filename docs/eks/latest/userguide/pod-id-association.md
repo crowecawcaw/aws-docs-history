@@ -97,6 +97,7 @@ Create an IAM policy. You can create your own policy, or copy an AWS managed pol
     ```
 
 2. Create an IAM role and associate it with a Kubernetes service account.
+
    1. If you have an existing Kubernetes service account that you want to assume an IAM role, then you can skip this step.
 
    Create a Kubernetes service account. Copy the following contents to your device. Replace `my-service-account` with your desired name and `default` with a different namespace, if necessary. If you change `default`, the namespace must already exist.
@@ -117,7 +118,6 @@ Create an IAM policy. You can create your own policy, or copy an AWS managed pol
    ```
    kubectl apply -f my-service-account.yaml
    ```
-
    2. Run the following command to create a trust policy file for the IAM role.
 
    ```
@@ -138,13 +138,11 @@ Create an IAM policy. You can create your own policy, or copy an AWS managed pol
        ]
    }
    ```
-
    3. Create the role. Replace `my-role` with a name for your IAM role, and `my-role-description` with a description for your role.
 
    ```
    aws iam create-role --role-name my-role --assume-role-policy-document file://trust-relationship.json --description "my-role-description"
    ```
-
    4. Attach an IAM policy to your role. Replace `my-role` with the name of your IAM role and `my-policy` with the name of an existing policy that you created.
 
    ```

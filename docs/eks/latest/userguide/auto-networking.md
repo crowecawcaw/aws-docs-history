@@ -24,6 +24,7 @@ You can use a `NodeClass` to:
 - Control how nodes are placed on VPC Subnets
 - Set the Node SNAT Policy to `random` or `disabled`
 - Enable Kubernetes _network policies_ including:
+
   - Set the Network Policy to Default Deny or Default Allow
   - Enable Network Event Logging to a file.
 

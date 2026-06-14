@@ -32,6 +32,7 @@ In the following image, Amazon Q generated the lines marked with green.
 2. Select the text you want to revise or the location for new content.
 3. Press **Ctrl+I** or **Cmd+I**.
 4. In the prompt, be specific about:
+
    - The type of content you need.
    - The target audience.
    - Key points to cover.

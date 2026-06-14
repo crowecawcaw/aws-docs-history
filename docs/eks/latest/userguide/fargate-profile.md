@@ -97,6 +97,7 @@ You can use certain wildcards for `my-kubernetes-namespace` and `key=value` labe
 3. Choose the **Compute** tab.
 4. Under **Fargate profiles**, choose **Add Fargate profile**.
 5. On the **Configure Fargate profile** page, do the following:
+
    1. For **Name**, enter a unique name for your Fargate profile, such as `my-profile`.
    2. For **Pod execution role**, choose the Pod execution role to use with your Fargate profile. Only the IAM roles with the `eks-fargate-pods.amazonaws.com` service principal are shown. If you don’t see any roles listed, you must create one. For more information, see [Amazon EKS Pod execution IAM role](pod-execution-role.md "pod-execution-role.md").
    3. Modify the selected **Subnets** as needed.
@@ -106,11 +107,14 @@ You can use certain wildcards for `my-kubernetes-namespace` and `key=value` labe
    Only private subnets are supported for Pods that are running on Fargate. 4. For **Tags**, you can optionally tag your Fargate profile. These tags don’t propagate to other resources that are associated with the profile, such as Pods. 5. Choose **Next**.
 
 6. On the **Configure Pod selection** page, do the following:
+
    1. For **Namespace**, enter a namespace to match for Pods.
+
       - You can use specific namespaces to match, such as `kube-system` or `default`.
       - You can use certain wildcards (for example, `prod-*`) to match multiple namespaces (for example, `prod-deployment` and `prod-test`). For more information, see [Fargate profile wildcards](#fargate-profile-wildcards "#fargate-profile-wildcards").
 
    2. (Optional) Add Kubernetes labels to the selector. Specifically, add them to the one that the Pods in the specified namespace need to match.
+
       - You can add the label `infrastructure: fargate` to the selector so that only Pods in the specified namespace that also have the `infrastructure: fargate` Kubernetes label match the selector.
       - You can use certain wildcards (for example, `key?: value?`) to match multiple namespaces (for example, `keya: valuea` and `keyb: valueb`). For more information, see [Fargate profile wildcards](#fargate-profile-wildcards "#fargate-profile-wildcards").
 

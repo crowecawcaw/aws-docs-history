@@ -58,6 +58,7 @@ spec:
 To update a workload to run on the `system` node pool, you need to:
 
 1. Update the existing workload to add the following configurations described above:
+
    - `nodeSelector`
    - `tolerations`
 

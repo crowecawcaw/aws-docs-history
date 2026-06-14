@@ -131,6 +131,7 @@ kubectl apply -f nodeclass.yaml
 
 - [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md")
 - View more information in the AWS Key Management Service Developer Guide
+
   - [Permissions for AWS services in key policies](../../../kms/latest/developerguide/key-policy-services.md "../../../kms/latest/developerguide/key-policy-services.md")
   - [Change a key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md")
   - [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md")

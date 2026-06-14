@@ -15,6 +15,7 @@ The username in an access entry is used to identify the IAM principal in Kuberne
 If you don’t specify a value for username, Amazon EKS automatically generates a username based on the IAM Identity:
 
 - **For IAM Users**:
+
   - EKS sets the Kubernetes username to the ARN of the IAM User
   - Example:
 
@@ -23,6 +24,7 @@ If you don’t specify a value for username, Amazon EKS automatically generates 
   ```
 
 - **For IAM Roles**:
+
   - EKS sets the Kubernetes username based on the ARN of the IAM Role
   - The STS ARN of the role when it’s assumed. Amazon EKS appends `{{SessionName}}` to the role. If the ARN of the role that you specified contained a path, Amazon EKS removes it in the generated username.
   - Example:
@@ -47,4 +49,5 @@ If you specify a custom username:
 
 - The username can’t start with `system:`, `eks:`, `aws:`, `amazon:`, or `iam:`.
 - If the username is for an IAM role, we recommend that you add `{{SessionName}}` or `{{SessionNameRaw}}` to the end of your username.
+
   - If you add either `{{SessionName}}` or `{{SessionNameRaw}}` to your username, the username must include a colon _before_ {{SessionName}}.

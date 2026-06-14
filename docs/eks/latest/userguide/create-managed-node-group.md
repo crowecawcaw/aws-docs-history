@@ -137,6 +137,7 @@ eksctl create nodegroup --config-file eks-nodegroup.yaml
 4. Select the **Compute** tab.
 5. Choose **Add node group**.
 6. On the **Configure node group** page, fill out the parameters accordingly, and then choose **Next**.
+
    - **Name** – Enter a unique name for your managed node group. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
    - **Node IAM role** – Choose the node instance role to use with your node group. For more information, see [Amazon EKS node IAM role](create-node-role.md "create-node-role.md").
 
@@ -158,6 +159,7 @@ eksctl create nodegroup --config-file eks-nodegroup.yaml
     * **Tags** – (Optional) You can choose to tag your Amazon EKS managed node group. These tags don’t propagate to other resources in the node group, such as Auto Scaling groups or instances. For more information, see [Organize Amazon EKS resources with tags](eks-using-tags.md "eks-using-tags.md").
 
 7.  On the **Set compute and scaling configuration** page, fill out the parameters accordingly, and then choose **Next**.
+
     - **AMI type** – Select an AMI type. If you are deploying Arm instances, be sure to review the considerations in [Amazon EKS optimized Arm Amazon Linux AMIs](eks-optimized-ami.md#arm-ami "eks-optimized-ami.md#arm-ami") before deploying.
 
     If you specified a launch template on the previous page, and specified an AMI in the launch template, then you can’t select a value. The value from the template is displayed. The AMI specified in the template must meet the requirements in [Specifying an AMI](launch-templates.md#launch-template-custom-ami "launch-templates.md#launch-template-custom-ami").
@@ -176,6 +178,7 @@ eksctl create nodegroup --config-file eks-nodegroup.yaml
     - **Minimum size** – Specify the minimum number of nodes that the managed node group can scale in to.
     - **Maximum size** – Specify the maximum number of nodes that the managed node group can scale out to.
     - **Node group update configuration** – (Optional) You can select the number or percentage of nodes to be updated in parallel. These nodes will be unavailable during the update. For **Maximum unavailable**, select one of the following options and specify a **Value**:
+
       - **Number** – Select and specify the number of nodes in your node group that can be updated in parallel.
       - **Percentage** – Select and specify the percentage of nodes in your node group that can be updated in parallel. This is useful if you have a large number of nodes in your node group.
 
@@ -183,6 +186,7 @@ eksctl create nodegroup --config-file eks-nodegroup.yaml
     - **Warm pool configuration** – (Optional) If you activate the **Enable warm pool configuration** checkbox, Amazon EKS will create warm pools on the ASG. For more information, see [Decrease latency for applications with long boot times using warm pools with managed node groups](warm-pools-managed-node-groups.md "warm-pools-managed-node-groups.md").
 
 8.  On the **Specify networking** page, fill out the parameters accordingly, and then choose **Next**.
+
     - **Subnets** – Choose the subnets to launch your managed nodes into.
 
     ###### Important
@@ -193,7 +197,6 @@ eksctl create nodegroup --config-file eks-nodegroup.yaml
 
         + If you choose a public subnet, and your cluster has only the public API server endpoint enabled, then the subnet must have `MapPublicIPOnLaunch` set to `true` for the instances to successfully join a cluster. If the subnet was created using `eksctl` or the [Amazon EKS vended AWS CloudFormation templates](creating-a-vpc.md "creating-a-vpc.md") on or after March 26, 2020, then this setting is already set to `true`. If the subnets were created with `eksctl` or the AWS CloudFormation templates before March 26, 2020, then you need to change the setting manually. For more information, see [Modifying the public IPv4 addressing attribute for your subnet](../../../vpc/latest/userguide/vpc-ip-addressing.md#subnet-public-ip "../../../vpc/latest/userguide/vpc-ip-addressing.md#subnet-public-ip").
         + If you use a launch template and specify multiple network interfaces, Amazon EC2 won’t auto-assign a public `IPv4` address, even if `MapPublicIpOnLaunch` is set to `true`. For nodes to join the cluster in this scenario, you must either enable the cluster’s private API server endpoint, or launch nodes in a private subnet with outbound internet access provided through an alternative method, such as a NAT Gateway. For more information, see [Amazon EC2 instance IP addressing](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md") in the *Amazon EC2 User Guide*.
-
     - **Configure SSH access to nodes** (Optional). Enabling SSH allows you to connect to your instances and gather diagnostic information if there are issues. We highly recommend enabling remote access when you create a node group. You can’t enable remote access after the node group is created.
 
     If you chose to use a launch template, then this option isn’t shown. To enable remote access to your nodes, specify a key pair in the launch template and ensure that the proper port is open to the nodes in the security groups that you specify in the launch template. For more information, see [Using custom security groups](launch-templates.md#launch-template-security-groups "launch-templates.md#launch-template-security-groups").

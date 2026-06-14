@@ -21,15 +21,19 @@ Learn how to manage access to your Amazon EKS cluster. Using Amazon EKS requires
 ## Common Tasks
 
 - Grant developers access to the Kubernetes API. View Kubernetes resources in the AWS Management Console.
+
   - Solution: [Use access entries](access-entries.md "access-entries.md") to associate Kubernetes RBAC permissions with AWS IAM Users or Roles.
 
 - Configure kubectl to talk to an Amazon EKS cluster using AWS Credentials.
+
   - Solution: Use the AWS CLI to [create a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
 
 - Use an external identity provider, such as Ping Identity, to authenticate users to the Kubernetes API.
+
   - Solution: [Link an external OIDC provider](authenticate-oidc-identity-provider.md "authenticate-oidc-identity-provider.md").
 
 - Grant workloads on your Kubernetes cluster the ability to call AWS APIs.
+
   - Solution: [Use Pod Identity](pod-identities.md "pod-identities.md") to associate an AWS IAM Role to a Kubernetes Service Account.
 
 ## Background
@@ -43,6 +47,7 @@ Learn how to manage access to your Amazon EKS cluster. Using Amazon EKS requires
 EKS Auto Mode integrates with EKS Pod Identity and EKS access entries.
 
 - EKS Auto Mode uses access entries to grant the EKS control plane Kubernetes permissions. For example, the access policies enable EKS Auto Mode to read information about network endpoints and services.
+
   - You cannot disable access entries on an EKS Auto Mode cluster.
   - You can optionally enable the `aws-auth`
     `ConfigMap`.
@@ -50,4 +55,5 @@ EKS Auto Mode integrates with EKS Pod Identity and EKS access entries.
   - If you use a NodeClass to create a custom Node IAM Role, you need to create an access entry for the role using the AmazonEKSAutoNodePolicy access policy.
 
 - If you want to grant workloads permissions for AWS services, use EKS Pod Identity.
+
   - You do not need to install the Pod Identity agent on EKS Auto Mode clusters.

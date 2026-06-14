@@ -218,6 +218,7 @@ curl -Lo v2_14_1_full.yaml https://github.com/kubernetes-sigs/aws-load-balancer-
 ```
 
 2. Make the following edits to the file.
+
    1. If you downloaded the `v2_14_1_full.yaml` file, run the following command to remove the `ServiceAccount` section in the manifest. If you don’t remove this section, the required annotation that you made to the service account in a previous step is overwritten. Removing this section also preserves the service account that you created in a previous step if you delete the controller.
 
    ```
@@ -237,14 +238,12 @@ curl -Lo v2_14_1_full.yaml https://github.com/kubernetes-sigs/aws-load-balancer-
      namespace: kube-system
    ---
    ```
-
    2. Replace `your-cluster-name` in the `Deployment`
       `spec` section of the file with the name of your cluster by replacing `my-cluster` with the name of your cluster.
 
    ```
    sed -i.bak -e 's|your-cluster-name|my-cluster|' ./v2_14_1_full.yaml
    ```
-
    3. If your nodes don’t have access to the Amazon EKS Amazon ECR image repositories, then you need to pull the following image and push it to a repository that your nodes have access to. For more information on how to pull, tag, and push an image to your own repository, see [Copy a container image from one repository to another repository](copy-image-to-repository.md "copy-image-to-repository.md").
 
    ```
@@ -256,7 +255,6 @@ curl -Lo v2_14_1_full.yaml https://github.com/kubernetes-sigs/aws-load-balancer-
    ```
    sed -i.bak -e 's|public.ecr.aws/eks/aws-load-balancer-controller|111122223333.dkr.ecr.region-code.amazonaws.com/eks/aws-load-balancer-controller|' ./v2_14_1_full.yaml
    ```
-
    4. (Required only for Fargate or Restricted IMDS)
 
    If you’re deploying the controller to Amazon EC2 nodes that have [restricted access to the Amazon EC2 instance metadata service (IMDS)](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node "https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node"), or if you’re deploying to Fargate or Amazon EKS Hybrid Nodes, then add the `following parameters` under `- args:`.

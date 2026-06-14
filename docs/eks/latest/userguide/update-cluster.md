@@ -40,6 +40,7 @@ The high-level summary of the Amazon EKS cluster upgrade process is as follows:
 3. Upgrade the nodes in the data plane to match that of the control plane.
 4. Upgrade any additional applications that run on the cluster (for example, `cluster-autoscaler`).
 5. Upgrade the add-ons provided by Amazon EKS, such as those included by default:
+
    - [Amazon VPC CNI recommended version](managing-vpc-cni.md "managing-vpc-cni.md")
    - [CoreDNS recommended version](managing-coredns.md "managing-coredns.md")
    - [kube-proxy recommended version](managing-kube-proxy.md "managing-kube-proxy.md")
@@ -78,6 +79,7 @@ Use Amazon EKS upgrade insights to identify issues. For more information, see [V
 
 - Because Amazon EKS runs a highly available control plane, you can update only one minor version at a time. For more information about this requirement, see [Kubernetes Version and Version Skew Support Policy](https://kubernetes.io/docs/setup/version-skew-policy/#kube-apiserver "https://kubernetes.io/docs/setup/version-skew-policy/#kube-apiserver"). Assume that your current cluster version is version `1.28` and you want to update it to version `1.30`. You must first update your version `1.28` cluster to version `1.29` and then update your version `1.29` cluster to version `1.30`.
 - Review the version skew between the Kubernetes `kube-apiserver` and the `kubelet` on your nodes.
+
   - Starting from Kubernetes version `1.28`, `kubelet` may be up to three minor versions older than `kube-apiserver`. See [Kubernetes upstream version skew policy](https://kubernetes.io/releases/version-skew-policy/#kubelet "https://kubernetes.io/releases/version-skew-policy/#kubelet").
   - If the `kubelet` on your managed and Fargate nodes is on Kubernetes version `1.25` or newer, you can update your cluster up to three versions ahead without updating the `kubelet` version. For example, if the `kubelet` is on version `1.25`, you can update your Amazon EKS cluster version from `1.25` to `1.26`, to `1.27`, and to `1.28` while the `kubelet` remains on version `1.25`.
 
@@ -175,6 +177,7 @@ When a `Successful` status is displayed, the update is complete. 4. Continue to 
 
 1. After your cluster update is complete, update your nodes to the same Kubernetes minor version as your updated cluster. For more information, see [Update self-managed nodes for your cluster](update-workers.md "update-workers.md"), [Update a managed node group for your cluster](update-managed-node-group.md "update-managed-node-group.md"), and [Upgrade hybrid nodes for your cluster](hybrid-nodes-upgrade.md "hybrid-nodes-upgrade.md"). Any new Pods that are launched on Fargate have a `kubelet` version that matches your cluster version. Existing Fargate Pods aren’t changed.
 2. (Optional) If you deployed the Kubernetes Cluster Autoscaler to your cluster before updating the cluster, update the Cluster Autoscaler to the latest version that matches the Kubernetes major and minor version that you updated to.
+
    1. Open the Cluster Autoscaler [releases](https://github.com/kubernetes/autoscaler/releases "https://github.com/kubernetes/autoscaler/releases") page in a web browser and find the latest Cluster Autoscaler version that matches your cluster’s Kubernetes major and minor version. For example, if your cluster’s Kubernetes version is `1.30` find the latest Cluster Autoscaler release that begins with `1.30`. Record the semantic version number (`1.30.n`, for example) for that release to use in the next step.
    2. Set the Cluster Autoscaler image tag to the version that you recorded in the previous step with the following command. If necessary, replace `X.XX.X` with your own value.
 
@@ -189,6 +192,7 @@ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/<vX.
 ```
 
 4. Update the Amazon VPC CNI plugin for Kubernetes, CoreDNS, and `kube-proxy` add-ons. We recommend updating the add-ons to the minimum versions listed in [Service account tokens](service-accounts.md#boundserviceaccounttoken-validated-add-on-versions "service-accounts.md#boundserviceaccounttoken-validated-add-on-versions").
+
    - If you are using Amazon EKS add-ons, select **Clusters** in the Amazon EKS console, then select the name of the cluster that you updated in the left navigation pane. Notifications appear in the console. They inform you that a new version is available for each add-on that has an available update. To update an add-on, select the **Add-ons** tab. In one of the boxes for an add-on that has an update available, select **Update now**, select an available version, and then select **Update**.
    - Alternately, you can use the AWS CLI or `eksctl` to update add-ons. For more information, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md").
 

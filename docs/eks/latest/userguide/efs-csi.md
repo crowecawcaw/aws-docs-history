@@ -20,6 +20,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 ## Prerequisites
 
 - The Amazon EFS CSI driver needs AWS Identity and Access Management (IAM) permissions.
+
   - AWS suggests using EKS Pod Identities. For more information, see [Overview of setting up EKS Pod Identities](pod-identities.md#pod-id-setup-overview "pod-identities.md#pod-id-setup-overview").
   - For information about IAM roles for service accounts and setting up an IAM OpenID Connect (OIDC) provider for your cluster, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
 
@@ -93,30 +94,37 @@ Run the following to create an IAM role with AWS Management Console.
 2. In the left navigation pane, choose **Roles**.
 3. On the **Roles** page, choose **Create role**.
 4. On the **Select trusted entity** page, do the following:
+
    1. If using EKS Pod Identities:
+
       1. In the **Trusted entity type** section, choose **AWS service**.
       2. In the **Service or use case** drop down, choose **EKS**.
       3. In the **Use case** section, choose **EKS - Pod Identity**.
       4. Choose **Next**.
 
    2. If using IAM roles for service accounts:
+
       1. In the **Trusted entity type** section, choose **Web identity**.
       2. For **Identity provider**, choose the **OpenID Connect provider URL** for your cluster (as shown under **Overview** in Amazon EKS).
       3. For **Audience**, choose `sts.amazonaws.com`.
       4. Choose **Next**.
 
 5. On the **Add permissions** page, do the following:
+
    1. In the **Filter policies** box, enter `AmazonEFSCSIDriverPolicy`.
    2. Select the check box to the left of the `AmazonEFSCSIDriverPolicy` returned in the search.
    3. Choose **Next**.
 
 6. On the **Name, review, and create** page, do the following:
+
    1. For **Role name**, enter a unique name for your role, such as `AmazonEKS_EFS_CSI_DriverRole`.
    2. Under **Add tags (Optional)**, add metadata to the role by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
    3. Choose **Create role**.
 
 7. After the role is created:
+
    1. If using EKS Pod Identities:
+
       1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
       2. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the EKS Pod Identity association for.
       3. Choose the **Access** tab.
@@ -128,6 +136,7 @@ Run the following to create an IAM role with AWS Management Console.
       9. For more information on creating Pod Identity associations, see [Create a Pod Identity association (AWS Console)](pod-id-association.md#pod-id-association-create "pod-id-association.md#pod-id-association-create").
 
    2. If using IAM roles for service accounts:
+
       1. Choose the role to open it for editing.
       2. Choose the **Trust relationships** tab, and then choose **Edit trust policy**.
       3. Find the line that looks similar to the following line:
@@ -141,7 +150,6 @@ Run the following to create an IAM role with AWS Management Console.
       ```
       "oidc.eks.<region-code>.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>:sub": "system:serviceaccount:kube-system:efs-csi-*",
       ```
-
       4. Modify the `Condition` operator from `"StringEquals"` to `"StringLike"`.
       5. Choose **Update policy** to finish.
 
@@ -152,6 +160,7 @@ Run the following commands to create an IAM role with AWS CLI.
 #### If using Pod Identities
 
 1. Create the IAM role that grants the `AssumeRole` and `TagSession` actions to the `pods.eks.amazonaws.com` service.
+
    1. Copy the following contents to a file named `aws-efs-csi-driver-trust-policy-pod-identity.json`.
 
    ```
@@ -172,7 +181,6 @@ Run the following commands to create an IAM role with AWS CLI.
        ]
    }
    ```
-
    2. Create the role. Replace `my-cluster` with your cluster name. You can also replace `AmazonEKS_EFS_CSI_DriverRole` with a different name.
 
    ```

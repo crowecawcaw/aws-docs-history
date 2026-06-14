@@ -202,6 +202,7 @@ If you are not using Cilium’s kube-proxy replacement, you can still use Cilium
 ### Procedure
 
 1. Create a file named `cilium-lbip-pool-loadbalancer.yaml` with a `CiliumLoadBalancerIPPool` resource to configure the Load Balancer IP address range for your Services of type LoadBalancer.
+
    - Replace `LB_IP_CIDR` with the IP address range to use for the Load Balancer IP addresses. To select a single IP address, use a `/32` CIDR. For more information, see [LoadBalancer IP Address Management](https://docs.cilium.io/en/stable/network/lb-ipam/ "https://docs.cilium.io/en/stable/network/lb-ipam/") in the Cilium documentation.
    - The `serviceSelector` field is configured to match against the name of the Service you will create in a subsequent step. With this configuration, IPs from this pool will only be allocated to Services with the name `tcp-sample-service`.
 
@@ -236,6 +237,7 @@ tcp-service-pool   false      False         1               24m
 ```
 
 4. Create a file named `cilium-bgp-advertisement-loadbalancer.yaml` with a `CiliumBGPAdvertisement` resource to advertise the load balancer IP address for the Service you will create in the next step. If you are not using Cilium BGP, you can skip this step. The load balancer IP address used for your Service must be routable on your on-premises network for you to be able to query the service in the final step.
+
    - The `advertisementType` field is set to `Service` and `service.addresses` is set to `LoadBalancerIP` to only advertise the `LoadBalancerIP` for Services of type `LoadBalancer`.
    - The `selector` field is configured to match against the name of the Service you will create in a subsequent step. With this configuration, only `LoadBalancerIP` for Services with the name `tcp-sample-service` will be advertised.
 
@@ -296,6 +298,7 @@ kubectl apply -f tcp-sample-app.yaml
 ```
 
 8. Define a Service of type LoadBalancer for the deployment in a file named `tcp-sample-service.yaml`.
+
    - You can request a specific IP address from the load balancer IP pool with the `lbipam.cilium.io/ips` annotation on the Service object. You can remove this annotation if you do not want to request a specific IP address for the Service.
    - The `loadBalancerClass` spec field is required to prevent the legacy AWS Cloud Provider from creating a Classic Load Balancer for the Service. In the example below this is configured to `io.cilium/bgp-control-plane` to use Cilium’s BGP Control Plane as the load balancer class. This field can alternatively be configured to `io.cilium/l2-announcer` to use Cilium’s [L2 Announcements feature](https://docs.cilium.io/en/latest/network/l2-announcements/ "https://docs.cilium.io/en/latest/network/l2-announcements/") (currently in beta and not officially supported by AWS).
 

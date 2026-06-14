@@ -13,6 +13,7 @@ Learn how to run GPU-accelerated Windows container workloads on Amazon EKS (Elas
 There are two main approaches to setting up GPU-acceleration for your Windows containers:
 
 - **Option 1**: [Build a custom EKS Windows Optimized AMI](eks-custom-ami-windows.md "eks-custom-ami-windows.md") with the required GPU drivers pre-installed.
+
   - Use this approach when you need a consistent, pre-configured environment ready to run GPU-accelerated Windows containers, and you’re able to invest the additional effort to build and maintain the custom AMI.
 
 - **Option 2**: Install the necessary GPU drivers on your EKS worker nodes after launching your instance.

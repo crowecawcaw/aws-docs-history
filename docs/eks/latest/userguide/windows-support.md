@@ -27,6 +27,7 @@ Before deploying Windows nodes, be aware of the following considerations.
 - When specifying a custom AMI ID for Windows managed node groups, add `eks:kube-proxy-windows` to your AWS IAM Authenticator configuration map. For more information, see [Limits and conditions when specifying an AMI ID](launch-templates.md#mng-ami-id-conditions "launch-templates.md#mng-ami-id-conditions").
 - If preserving your available IPv4 addresses is crucial for your subnet, refer to [EKS Best Practices Guide - Windows Networking IP Address Management](https://aws.github.io/aws-eks-best-practices/windows/docs/networking/#ip-address-management "https://aws.github.io/aws-eks-best-practices/windows/docs/networking/#ip-address-management") for guidance.
 - Considerations for EKS Access Entries
+
   - Access Entries for use with Windows nodes need the type of `EC2_WINDOWS`. For more information, see [Create access entries](creating-access-entries.md "creating-access-entries.md").
 
   To create an access entry for a Windows node:
@@ -75,6 +76,7 @@ aws iam attach-role-policy \
 ```
 
 3. Update the VPC CNI ConfigMap to enable Windows IPAM. Note, if the VPC CNI is installed on your cluster using a Helm chart or as an Amazon EKS Add-on you may not be able to directly modify the ConfigMap. For information on configuring Amazon EKS Add-ons, see [Determine fields you can customize for Amazon EKS add-ons](kubernetes-field-management.md "kubernetes-field-management.md").
+
    1. Create a file named `vpc-resource-controller-configmap.yaml` with the following contents.
 
    ```
@@ -86,7 +88,6 @@ aws iam attach-role-policy \
    data:
      enable-windows-ipam: "true"
    ```
-
    2. Apply the `ConfigMap` to your cluster.
 
    ```
@@ -94,6 +95,7 @@ aws iam attach-role-policy \
    ```
 
 4. If your cluster has the authentication mode set to enable the `aws-auth` configmap:
+
    - Verify that your `aws-auth`
      `ConfigMap` contains a mapping for the instance role of the Windows node to include the `eks:kube-proxy-windows` RBAC permission group. You can verify by running the following command.
 

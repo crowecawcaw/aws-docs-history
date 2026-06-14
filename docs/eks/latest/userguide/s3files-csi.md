@@ -16,6 +16,7 @@ S3 Files is a shared file system that connects any AWS compute directly with you
 ## Prerequisites
 
 - The Amazon EFS CSI driver needs AWS Identity and Access Management (IAM) permissions.
+
   - AWS suggests using EKS Pod Identities. For more information, see [Overview of setting up EKS Pod Identities](pod-identities.md#pod-id-setup-overview "pod-identities.md#pod-id-setup-overview").
   - For information about IAM roles for service accounts and setting up an IAM OpenID Connect (OIDC) provider for your cluster, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
 
@@ -28,6 +29,7 @@ The Amazon EFS CSI driver requires IAM permissions to interact with your file sy
 
 - `efs-csi-controller-sa` — used by the controller, requires `AmazonS3FilesCSIDriverPolicy`.
 - `efs-csi-node-sa` — used by the node daemonset, requires:
+
   - `AmazonS3ReadOnlyAccess` — enables streaming reads directly from your S3 bucket for higher throughput.
   - `AmazonElasticFileSystemsUtils` — enables publishing efs-utils logs to Amazon CloudWatch for visibility into mount operations and easier troubleshooting.
 
@@ -111,30 +113,37 @@ Run the following to create an IAM role with AWS Management Console.
 2. In the left navigation pane, choose **Roles**.
 3. On the **Roles** page, choose **Create role**.
 4. On the **Select trusted entity** page, do the following:
+
    1. If using EKS Pod Identities:
+
       1. In the **Trusted entity type** section, choose **AWS service**.
       2. In the **Service or use case** drop down, choose **EKS**.
       3. In the **Use case** section, choose **EKS - Pod Identity**.
       4. Choose **Next**.
 
    2. If using IAM roles for service accounts:
+
       1. In the **Trusted entity type** section, choose **Web identity**.
       2. For **Identity provider**, choose the **OpenID Connect provider URL** for your cluster (as shown under **Overview** in Amazon EKS).
       3. For **Audience**, choose `sts.amazonaws.com`.
       4. Choose **Next**.
 
 5. On the **Add permissions** page, do the following:
+
    1. In the **Filter policies** box, enter `AmazonS3FilesCSIDriverPolicy`.
    2. Select the check box to the left of the policy returned in the search.
    3. Choose **Next**.
 
 6. On the **Name, review, and create** page, do the following:
+
    1. For **Role name**, enter a unique name for your role, such as `AmazonEKS_EFS_CSI_ControllerRole`.
    2. Under **Add tags (Optional)**, add metadata to the role by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
    3. Choose **Create role**.
 
 7. After the role is created:
+
    1. If using EKS Pod Identities:
+
       1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
       2. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the EKS Pod Identity association for.
       3. Choose the **Access** tab.
@@ -147,6 +156,7 @@ Run the following to create an IAM role with AWS Management Console.
       10. Repeat the above steps to create a second role for the node service account. On the **Add permissions** page, attach `AmazonS3ReadOnlyAccess` and `AmazonElasticFileSystemsUtils` instead. Then create a Pod Identity association with `efs-csi-node-sa` for the **Kubernetes service account** field.
 
    2. If using IAM roles for service accounts:
+
       1. Choose the role to open it for editing.
       2. Choose the **Trust relationships** tab, and then choose **Edit trust policy**.
       3. Find the line that looks similar to the following line:
@@ -160,7 +170,6 @@ Run the following to create an IAM role with AWS Management Console.
       ```
       "oidc.eks.<region-code>.amazonaws.com/id/<EXAMPLED539D4633E53DE1B71EXAMPLE>:sub": "system:serviceaccount:kube-system:efs-csi-controller-sa",
       ```
-
       4. Choose **Update policy** to finish.
       5. Repeat the above steps to create a second role for the node service account. On the **Add permissions** page, attach `AmazonS3ReadOnlyAccess` and `AmazonElasticFileSystemsUtils` instead. In the trust policy, use `efs-csi-node-sa` for the `:sub` condition value.
 
@@ -171,6 +180,7 @@ Run the following commands to create IAM roles with AWS CLI.
 #### If using Pod Identities
 
 1. Create the IAM role that grants the `AssumeRole` and `TagSession` actions to the `pods.eks.amazonaws.com` service.
+
    1. Copy the following contents to a file named `aws-efs-csi-driver-trust-policy-pod-identity.json`.
 
    ```
@@ -191,7 +201,6 @@ Run the following commands to create IAM roles with AWS CLI.
        ]
    }
    ```
-
    2. Create the role. Replace `my-cluster` with your cluster name.
 
    ```
@@ -301,6 +310,7 @@ aws iam attach-role-policy \
 ```
 
 4. Create the IAM role for the node service account.
+
    1. Copy the following contents to a file named `node-trust-policy.json`. Replace `<111122223333>` with your account ID. Replace `<EXAMPLED539D4633E53DE1B71EXAMPLE>` and `<region-code>` with the values returned in step 1.
 
    ```
@@ -323,7 +333,6 @@ aws iam attach-role-policy \
        ]
    }
    ```
-
    2. Create the role.
 
    ```

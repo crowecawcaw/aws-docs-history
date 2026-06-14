@@ -35,14 +35,18 @@ When enabling EKS access entries on existing clusters, keep the following in min
 ## Get started
 
 1. Determine the IAM Identity and Access policy you want to use.
+
    - [Review access policy permissions](access-policy-permissions.md "access-policy-permissions.md")
 
 2. Enable EKS Access Entries on your cluster. Confirm you have a supported platform version.
+
    - [Change authentication mode to use access entries](setting-up-access-entries.md "setting-up-access-entries.md")
 
 3. Create an access entry that associates an IAM Identity with Kubernetes permission.
+
    - [Create access entries](creating-access-entries.md "creating-access-entries.md")
 
 4. Authenticate to the cluster using the IAM identity.
+
    - [Set up AWS CLI](install-awscli.md "install-awscli.md")
    - [Set up kubectl and eksctl](install-kubectl.md "install-kubectl.md")

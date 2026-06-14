@@ -42,6 +42,7 @@ kubectl scale deployments/cluster-autoscaler --replicas=0 -n kube-system
 ```
 
 4. Determine the instance type and desired instance count of your current node group. You enter these values later when you update the AWS CloudFormation template for the group.
+
    1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
    2. In the left navigation pane, choose **Launch Configurations**, and note the instance type for your existing node launch configuration.
    3. In the left navigation pane, choose **Auto Scaling Groups**, and note the **Desired** instance count for your existing node Auto Scaling group.
@@ -56,6 +57,7 @@ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-e
 ```
 
 9. On the **Specify stack details** page, fill out the following parameters, and choose **Next**:
+
    - **NodeAutoScalingGroupDesiredCapacity** – Enter the desired instance count that you recorded in a [previous step](#existing-worker-settings-step "#existing-worker-settings-step"). Or, enter your new desired number of nodes to scale to when your stack is updated.
    - **NodeAutoScalingGroupMaxSize** – Enter the maximum number of nodes to which your node Auto Scaling group can scale out. This value must be at least one node more than your desired capacity. This is so that you can perform a rolling update of your nodes without reducing your node count during the update.
    - **NodeInstanceType** – Choose the instance type your recorded in a [previous step](#existing-worker-settings-step "#existing-worker-settings-step"). Alternatively, choose a different instance type for your nodes. Before choosing a different instance type, review [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md "choosing-instance-type.md"). Each Amazon EC2 instance type supports a maximum number of elastic network interfaces (network interface) and each network interface supports a maximum number of IP addresses. Because each worker node and Pod ,is assigned its own IP address, it’s important to choose an instance type that will support the maximum number of Pods that you want to run on each Amazon EC2 node. For a list of the number of network interfaces and IP addresses supported by instance types, see [IP addresses per network interface per instance type](../../../AWSEC2/latest/UserGuide/using-eni.md#AvailableIpPerENI "../../../AWSEC2/latest/UserGuide/using-eni.md#AvailableIpPerENI"). For example, the `m5.large` instance type supports a maximum of 30 IP addresses for the worker node and Pods.

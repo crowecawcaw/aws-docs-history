@@ -48,6 +48,7 @@ This policy includes the following permissions that allow Amazon EKS to complete
 
 - **`eks`** - Read-only access to EKS dashboard data, resources, and cluster versions information. This allows viewing EKS-related metrics and cluster configuration details.
 - **`organizations`** - Read-only access to AWS Organizations information, including:
+
   - Viewing organization details and service access
   - Listing organizational roots, accounts, and organizational units
   - Viewing organization structure
@@ -110,12 +111,14 @@ This policy grants the permissions required for Amazon EKS to create and manage 
 This policy includes the following permissions that allow Amazon EKS to complete the following tasks:
 
 - **`ec2` Permissions**:
+
   - `ec2:CreateFleet` and `ec2:RunInstances` - Allows creating EC2 instances and using specific EC2 resources (images, security groups, subnets, on-demand capacity reservations, placement groups) for EKS cluster nodes.
   - `ec2:CreateLaunchTemplate` - Allows creating EC2 launch templates for EKS cluster nodes.
   - The policy also includes conditions to restrict the use of these EC2 permissions to resources tagged with the EKS cluster name and other relevant tags.
   - `ec2:CreateTags` - Allows adding tags to EC2 resources created by the `CreateFleet`, `RunInstances`, and `CreateLaunchTemplate` actions.
 
 - **`iam` Permissions**:
+
   - `iam:AddRoleToInstanceProfile` - Allows adding an IAM role to the EKS compute instance profile.
   - `iam:PassRole` - Allows passing the necessary IAM roles to the EC2 service.
 
@@ -132,11 +135,13 @@ This policy is designed to grant the necessary permissions for Amazon EKS to cre
 This policy grants the following permissions to allow Amazon EKS to manage network interfaces for the cluster:
 
 - **`ec2` Network Interface Permissions**:
+
   - `ec2:CreateNetworkInterface` - Allows creating EC2 network interfaces.
   - The policy includes conditions to restrict the use of this permission to network interfaces tagged with the EKS cluster name and the Kubernetes CNI node name.
   - `ec2:CreateTags` - Allows adding tags to the network interfaces created by the `CreateNetworkInterface` action.
 
 - **`ec2` Network Interface Management Permissions**:
+
   - `ec2:AttachNetworkInterface`, `ec2:ModifyNetworkInterfaceAttribute`, `ec2:DetachNetworkInterface` - Allows attaching, modifying network interface attributes and detaching network interfaces to EC2 instances.
   - `ec2:UnassignPrivateIpAddresses`, `ec2:UnassignIpv6Addresses`, `ec2:AssignPrivateIpAddresses`, `ec2:AssignIpv6Addresses` - Allows managing the IP address assignments of the network interfaces.
   - These permissions are restricted to network interfaces tagged with the EKS cluster name.
@@ -154,11 +159,13 @@ This policy grants the necessary permissions for Amazon EKS to create, manage, a
 This IAM policy grants the following permissions to allow Amazon EKS to manage EC2 volumes and snapshots:
 
 - **`ec2` Volume Management Permissions**:
+
   - `ec2:AttachVolume`, `ec2:DetachVolume`, `ec2:ModifyVolume`, `ec2:EnableFastSnapshotRestores` - Allows attaching, detaching, modifying, and enabling fast snapshot restores for EC2 volumes.
   - These permissions are restricted to volumes tagged with the EKS cluster name.
   - `ec2:CreateTags` - Allows adding tags to the EC2 volumes and snapshots created by the `CreateVolume` and `CreateSnapshot` actions.
 
 - **`ec2` Volume Creation Permissions**:
+
   - `ec2:CreateVolume` - Allows creating new EC2 volumes.
   - The policy includes conditions to restrict the use of this permission to volumes tagged with the EKS cluster name and other relevant tags.
   - `ec2:CreateSnapshot` - Allows creating new EC2 volume snapshots.

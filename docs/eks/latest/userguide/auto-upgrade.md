@@ -28,6 +28,7 @@ You are still responsible for updating:
 - Apps and workloads deployed to your cluster
 - Self-managed add-ons and controllers
 - Amazon EKS Add-ons
+
   - Learn how to [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md")
 
 Learn [Best Practices for Cluster Upgrades](../best-practices/cluster-upgrades.md "../best-practices/cluster-upgrades.md")

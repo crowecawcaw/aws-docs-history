@@ -75,9 +75,11 @@ Refer to the [full list of AWS services supported](https://aws-controllers-k8s.g
 ACK integrates with other EKS Managed Capabilities.
 
 - **Argo CD**: Use Argo CD to manage the deployment of ACK resources across multiple clusters, enabling GitOps workflows for your AWS infrastructure.
+
   - ACK extends the benefits of GitOps when paired with Argo CD, but ACK does not require integration with git.
 
 - **kro (Kube Resource Orchestrator)**: Use kro to compose complex resources from ACK resources, creating higher-level abstractions that simplify resource management.
+
   - You can create composite custom resources with kro that define both Kubernetes resources and AWS resources. Team members can use these custom resources to quickly deploy complex applications.
 
 ## Getting started with ACK

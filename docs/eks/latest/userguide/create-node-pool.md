@@ -115,6 +115,7 @@ EKS Auto Mode only supports certain instances, and has minimum size requirements
 EKS Auto Mode does not support the following labels.
 
 - EKS Auto Mode only supports Linux
+
   - `node.kubernetes.io/windows-build`
   - `kubernetes.io/os`
 
@@ -133,6 +134,7 @@ When you create a cluster without built-in node pools, the `default` NodeClass i
 **Overview:**
 
 1. Create an EKS cluster with both `nodePools` and `nodeRoleArn` values empty.
+
    - Sample eksctl `autoModeConfig`:
 
    ```
@@ -145,9 +147,11 @@ When you create a cluster without built-in node pools, the `default` NodeClass i
    For more information, see [Create an EKS Auto Mode Cluster with the eksctl CLI](automode-get-started-eksctl.md "automode-get-started-eksctl.md")
 
 2. Create a custom node class with a node role ARN
+
    - For more information, see [Create a Node Class for Amazon EKS](create-node-class.md "create-node-class.md")
 
 3. Create an access entry for the custom node class
+
    - For more information, see [Create node class access entry](create-node-class.md#auto-node-access-entry "create-node-class.md#auto-node-access-entry")
 
 4. Create a custom node pool, as described above.

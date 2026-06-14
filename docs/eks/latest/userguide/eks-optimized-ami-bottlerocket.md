@@ -21,11 +21,13 @@ Consider the following when using Bottlerocket for your AMI type:
 - Bottlerocket supports Amazon EC2 instances with `x86_64` and `arm64` processors.
 - Bottlerocket supports Amazon EC2 instances with GPUs. For more information, see [Use EKS-optimized accelerated AMIs for GPU instances](ml-eks-optimized-ami.md "ml-eks-optimized-ami.md").
 - Bottlerocket images don’t include an SSH server or a shell. You can employ out-of-band access methods to allow SSH. These approaches enable the admin container and to pass some bootstrapping configuration steps with user data. For more information, refer to the following sections in [Bottlerocket OS](https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md "https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md") on GitHub:
+
   - [Exploration](https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md#exploration "https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md#exploration")
   - [Admin container](https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md#admin-container "https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md#admin-container")
   - [Kubernetes settings](https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md#kubernetes-settings "https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md#kubernetes-settings")
 
 - Bottlerocket uses different container types:
+
   - By default, a [control container](https://github.com/bottlerocket-os/bottlerocket-control-container "https://github.com/bottlerocket-os/bottlerocket-control-container") is enabled. This container runs the [AWS Systems Manager agent](https://github.com/aws/amazon-ssm-agent "https://github.com/aws/amazon-ssm-agent") that you can use to run commands or start shell sessions on Amazon EC2 Bottlerocket instances. For more information, see [Setting up Session Manager](../../../systems-manager/latest/userguide/session-manager-getting-started.md "../../../systems-manager/latest/userguide/session-manager-getting-started.md") in the _AWS Systems Manager User Guide_.
   - If an SSH key is given when creating the node group, an admin container is enabled. We recommend using the admin container only for development and testing scenarios. We don’t recommend using it for production environments. For more information, see [Admin container](https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md#admin-container "https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md#admin-container") on GitHub.
 

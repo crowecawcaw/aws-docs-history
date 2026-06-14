@@ -78,9 +78,11 @@ If you originally deployed a cluster with Kubernetes `1.14` and a platform versi
 Amazon EKS supports shared security groups.
 
 - **Security Group VPC Associations** associate security groups with multiple VPCs in the same account and region.
+
   - Learn how to [Associate security groups with multiple VPCs](../../../vpc/latest/userguide/security-group-assoc.md "../../../vpc/latest/userguide/security-group-assoc.md") in the _Amazon VPC User Guide_.
 
 - **Shared security groups** enable you to share security groups with other AWS accounts. The accounts must be in the same AWS organization.
+
   - Learn how to [Share security groups with organizations](../../../vpc/latest/userguide/security-group-sharing.md "../../../vpc/latest/userguide/security-group-sharing.md") in the _Amazon VPC User Guide_.
 
 - Security groups are always limited to a single AWS region.

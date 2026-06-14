@@ -17,6 +17,7 @@ When the active gateway instance fails, the following sequence occurs:
 1. The standby pod detects that the leader lease has expired.
 2. The standby pod acquires the lease and becomes the new leader.
 3. The new leader runs the leader setup sequence:
+
    - Updates VPC route table entries to point hybrid pod CIDRs to the new leader’s primary ENI.
    - Upserts the `CiliumVTEPConfig` custom resource with the new leader’s node IP and VXLAN MAC address.
 
@@ -210,6 +211,7 @@ A node controller watches `CiliumNode` objects in the cluster. The controller ru
 1. The controller detects the new `CiliumNode` object.
 2. It extracts the node’s internal IP address and pod CIDR from the `CiliumNode` spec.
 3. It programs the following on the VXLAN interface:
+
    - A route for the node’s pod CIDR via the node’s IP through the VXLAN interface.
    - A static ARP entry mapping the node’s IP to a deterministic MAC address.
    - An FDB entry telling the VXLAN module to send encapsulated packets to the node’s IP.

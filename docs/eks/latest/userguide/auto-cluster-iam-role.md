@@ -165,6 +165,7 @@ You can use the AWS Management Console or the AWS CLI to create the cluster role
 4. From the **Use cases for other AWS services** dropdown list, choose **EKS**.
 5. Choose **EKS - Cluster** for your use case, and then choose **Next**.
 6. On the **Add permissions** tab, select the policies and then choose **Next**.
+
    - [AmazonEKSComputePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSComputePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSComputePolicy")
    - [AmazonEKSBlockStoragePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSBlockStoragePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSBlockStoragePolicy")
    - [AmazonEKSLoadBalancingPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSLoadBalancingPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSLoadBalancingPolicy")

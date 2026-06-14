@@ -18,6 +18,7 @@ You can use YAML manifests when installing the agent. Alternatively, you can use
 
 - Ensure the Amazon EKS Connector agent role was created. Follow the steps in [Creating the Amazon EKS connector agent role](connector-iam-role.md#create-connector-role "connector-iam-role.md#create-connector-role").
 - You must have the following permissions to register a cluster:
+
   - `eks:RegisterCluster`
   - `ssm:CreateActivation`
   - `ssm:DeleteActivation`
@@ -70,6 +71,7 @@ You use the `aws-region`, `activationId`, and `activationCode` values in the nex
 1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. Choose **Add cluster** and select **Register** to bring up the configuration page.
 3. On the **Configure cluster** section, fill in the following fields:
+
    - **Name** – A unique name for your cluster.
    - **Provider** – Choose to display the dropdown list of Kubernetes cluster providers. If you don’t know the specific provider, select **Other**.
    - **EKS Connector role** – Select the role to use for connecting the cluster.

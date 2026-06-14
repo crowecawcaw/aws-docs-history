@@ -15,6 +15,7 @@ Amazon EKS Auto Mode builds upon the existing security foundations of Amazon EKS
 Amazon EKS Auto Mode uses AWS platform security mechanisms to secure and authenticate calls to the Amazon EKS API.
 
 - Access to the Kubernetes API is secured through EKS access entries, which integrate with AWS IAM identities.
+
   - For more information, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md "access-entries.md").
 
 - Customers can implement fine-grained access control to the Kubernetes API endpoint through configuration of EKS access entries.
@@ -24,12 +25,14 @@ Amazon EKS Auto Mode uses AWS platform security mechanisms to secure and authent
 Amazon EKS Auto Mode supports multiple layers of network security:
 
 - **VPC integration**
+
   - Operates within your Amazon Virtual Private Cloud (VPC)
   - Supports custom VPC configurations and subnet layouts
   - Enables private networking between cluster components
   - For more information, see [Managing security responsibilities for Amazon Virtual Private Cloud](../../../vpc/latest/userguide/security.md "../../../vpc/latest/userguide/security.md")
 
 - **Network Policies**
+
   - Native support for Kubernetes Network Policies
   - Ability to define granular network traffic rules
   - For more information, see [Limit Pod traffic with Kubernetes network policies](cni-network-policy.md "cni-network-policy.md")
@@ -56,6 +59,7 @@ EC2 managed instances operated by EKS Auto Mode have a maximum lifetime of 21 da
 
 - Amazon EKS Auto Mode automatically applies patches to managed instances.
 - Patches include:
+
   - Operating system updates
   - Security patches
   - Amazon EKS Auto Mode components
@@ -67,6 +71,7 @@ Customers retain responsibility for securing and updating workloads running on t
 ### Access controls
 
 - Direct instance access is restricted:
+
   - SSH access is not available.
   - AWS Systems Manager Session Manager (SSM) access is not available.
 

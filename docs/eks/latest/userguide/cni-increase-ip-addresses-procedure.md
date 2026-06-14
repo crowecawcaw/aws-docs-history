@@ -10,6 +10,7 @@ You can increase the number of IP addresses that nodes can assign to Pods by ass
 
 - You need an existing cluster. To deploy one, see [Create an Amazon EKS cluster](create-cluster.md "create-cluster.md").
 - The subnets that your Amazon EKS nodes are in must have sufficient contiguous `/28` (for `IPv4` clusters) or `/80` (for `IPv6` clusters) Classless Inter-Domain Routing (CIDR) blocks. You can only have Linux nodes in an `IPv6` cluster. Using IP prefixes can fail if IP addresses are scattered throughout the subnet CIDR. We recommend the following:
+
   - Using a subnet CIDR reservation so that even if any IP addresses within the reserved range are still in use, upon their release, the IP addresses aren’t reassigned. This ensures that prefixes are available for allocation without segmentation.
   - Use new subnets that are specifically used for running the workloads that IP prefixes are assigned to. Both Windows and Linux workloads can run in the same subnet when assigning IP prefixes.
 
@@ -23,6 +24,7 @@ kubectl describe daemonset aws-node --namespace kube-system | grep Image | cut -
 If your cluster is configured for the `IPv6` family, you must have version `1.10.1` of the add-on installed. If your plugin version is earlier than the required versions, you must update it. For more information, see the updating sections of [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md "managing-vpc-cni.md").
 
 - **For clusters with Windows nodes only**
+
   - You must have Windows support enabled for your cluster. For more information, see [Deploy Windows nodes on EKS clusters](windows-support.md "windows-support.md").
 
 ## Assign IP address prefixes to nodes
@@ -79,6 +81,7 @@ You can replace the example values with a value greater than zero.
     ```
 
 4. Create one of the following types of node groups with at least one Amazon EC2 Nitro Amazon Linux 2023 instance type. For a list of Nitro instance types, see [Instances built on the Nitro System](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances") in the Amazon EC2 User Guide. This capability is not supported on Windows. For the options that include `110`, replace it with either the value from step 3 (recommended), or your own value.
+
    - **Self-managed** – Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md"). Before creating the CloudFormation stack, open the template file and adjust the `UserData` in the `NodeLaunchTemplate` to be like the following.
 
    ```
@@ -102,8 +105,8 @@ You can replace the example values with a value greater than zero.
    ```
    eksctl create nodegroup --cluster my-cluster --managed=false --max-pods-per-node 110
    ```
-
    - **Managed** – Deploy your node group using one of the following options:
+
      - **Without a launch template or with a launch template without an AMI ID specified** – Complete the procedure in [Create a managed node group for your cluster](create-managed-node-group.md "create-managed-node-group.md"). Managed node groups automatically calculate the Amazon EKS recommended `max-pods` value for you.
      - **With a launch template with a specified AMI ID** – In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes a `NodeConfig` object to be read by the `nodeadm` tool on the node. For more information about `nodeadm`, see [the nodeadm documentation](https://awslabs.github.io/amazon-eks-ami/nodeadm "https://awslabs.github.io/amazon-eks-ami/nodeadm").
 
@@ -144,19 +147,18 @@ If you also want to assign IP addresses to Pods from a different subnet than the
 ### Windows
 
 1. Enable assignment of IP prefixes.
+
    1. Open the `amazon-vpc-cni`
       `ConfigMap` for editing.
 
    ```
    kubectl edit configmap -n kube-system amazon-vpc-cni -o yaml
    ```
-
    2. Add the following line to the `data` section.
 
    ```
      enable-windows-prefix-delegation: "true"
    ```
-
    3. Save the file and close the editor.
    4. Confirm that the line was added to the `ConfigMap`.
 
@@ -177,13 +179,13 @@ If you also want to assign IP addresses to Pods from a different subnet than the
    This can happen due to fragmentation of existing secondary IP addresses spread out across a subnet. To resolve this error, either create a new subnet and launch Pods there, or use an Amazon EC2 subnet CIDR reservation to reserve space within a subnet for use with prefix assignment. For more information, see [Subnet CIDR reservations](../../../vpc/latest/userguide/subnet-cidr-reservation.md "../../../vpc/latest/userguide/subnet-cidr-reservation.md") in the Amazon VPC User Guide.
 
 2. (Optional) Specify additional configuration for controlling the pre-scaling and dynamic scaling behavior for your cluster. For more information, see [Configuration options with Prefix Delegation mode on Windows](https://github.com/aws/amazon-vpc-resource-controller-k8s/blob/master/docs/windows/prefix_delegation_config_options.md "https://github.com/aws/amazon-vpc-resource-controller-k8s/blob/master/docs/windows/prefix_delegation_config_options.md") on GitHub.
+
    1. Open the `amazon-vpc-cni`
       `ConfigMap` for editing.
 
    ```
    kubectl edit configmap -n kube-system amazon-vpc-cni -o yaml
    ```
-
    2. Replace the example values with a value greater than zero and add the entries that you require to the `data` section of the `ConfigMap`. If you set a value for either `warm-ip-target` or `minimum-ip-target`, the value overrides any value set for `warm-prefix-target`.
 
    ```
@@ -191,7 +193,6 @@ If you also want to assign IP addresses to Pods from a different subnet than the
      warm-ip-target: "5"
      minimum-ip-target: "2"
    ```
-
    3. Save the file and close the editor.
 
 3. Create Windows node groups with at least one Amazon EC2 Nitro instance type. For a list of Nitro instance types, see [Instances built on the Nitro System](../../../AWSEC2/latest/WindowsGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/WindowsGuide/instance-types.md#ec2-nitro-instances") in the Amazon EC2 User Guide. By default, the maximum number of Pods that you can deploy to a node is 110. If you want to increase or decrease that number, specify the following in the user data for the bootstrap configuration. Replace `max-pods-quantity` with your max pods value.

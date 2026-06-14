@@ -48,6 +48,7 @@ The us-east-1 AWS region generates the dashboard. You must log in to this region
 ### General overview
 
 1. Access the management account of your AWS Organization.
+
    - The steps to access the management account depend on how you have configured your AWS Organization. For example, you might access the management account via AWS
      [Identity Center](https://aws.amazon.com/iam/identity-center/ "https://aws.amazon.com/iam/identity-center/") or [Okta](https://www.okta.com/partners/aws/ "https://www.okta.com/partners/aws/").
 
@@ -65,6 +66,7 @@ You must be logged in to the Management Account of your AWS Organization to enab
 ### Access EKS Dashboard settings
 
 1. Confirm the following:
+
    1. You have AWS Organizations enabled and configured.
    2. You are logged into the Management account of the organization.
    3. You are viewing the AWS Management Console in the us-east-1 region.
@@ -75,12 +77,15 @@ You must be logged in to the Management Account of your AWS Organization to enab
 ### Set up access to the Amazon EKS Dashboard
 
 1. Find the AWS Account ID of the AWS Account you want to allow to view the EKS Dashboard.
+
    1. This step is optional, but suggested. If you don’t, you can only access the dashboard from the management account. As a best practice, you should limit access to the management account.
 
 2. Click **Enable trusted access**.
+
    1. You can now view the dashboard from the management account.
 
 3. Click **Register delegated administrator** and input the Account ID of the AWS Account you will use to view the dashboard.
+
    1. You can now view the dashboard from the delegated administrator account or the management account.
 
 For information about permissions required to enable the dashboard, see [Minimum IAM policies required](cluster-dashboard-orgs.md#dashboard-iam-policy "cluster-dashboard-orgs.md#dashboard-iam-policy").
@@ -102,16 +107,19 @@ You can configure the view of the dashboard, and filter resources.
 ### Available resources
 
 - **Clusters**: View aggregated information about the status and location of EKS Clusters.
+
   - Clusters with health issues.
   - Clusters on EKS Extended Support.
   - Breakdown of clusters by Kubernetes version.
 
 - **Managed node groups**: Review Managed node groups and EC2 Instances.
+
   - Node groups by AMI type, such as Amazon Linux or Bottlerocket.
   - Node group health issues.
   - Instance type distribution.
 
 - **Add-ons**: Learn about what Amazon EKS Add-ons you have installed, and their status.
+
   - Number of installations per add-on.
   - Add-ons with health issues.
   - Version distribution per add-on.
@@ -119,13 +127,16 @@ You can configure the view of the dashboard, and filter resources.
 ### Available views
 
 - **Graph view**
+
   - A customizable widget view displaying graphs and visualizations of the selected resource.
   - Changes to the Graph view, such as removing a widget, are visible to all users of the EKS Dashboard.
 
 - **Resource view**
+
   - A list view of the selected resource, supporting filters.
 
 - **Map View**
+
   - View the geographic distribution of the selected resource.
 
 ### Filter the EKS dashboard
@@ -139,6 +150,7 @@ You can filter the EKS Dashboard by:
 ## Disable the EKS dashboard using the AWS console
 
 1. Confirm the following:
+
    1. You have AWS Organizations enabled and configured.
    2. You are logged into the Management account of the organization.
    3. You are viewing the AWS Management Console in the us-east-1 region.
@@ -152,6 +164,7 @@ You can filter the EKS Dashboard by:
 ### Issue enabling EKS dashboard
 
 - You must be logged in to the management account of an AWS Organization.
+
   - If you do not have an AWS Organization, create one. Learn how to [Create and configure an organization](../../../organizations/latest/userguide/orgs_tutorials_basic.md "../../../organizations/latest/userguide/orgs_tutorials_basic.md").
   - If your AWS account is already a member of an AWS Organization, identify the administrator of the organization.
 
@@ -160,6 +173,7 @@ You can filter the EKS Dashboard by:
 ### Issue viewing the EKS dashboard
 
 - You must be logged in to one of the following AWS accounts:
+
   - The management account of the AWS Organization
   - A delegated administrator account, identified in the EKS dashboard settings of the management account.
 

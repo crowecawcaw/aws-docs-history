@@ -9,10 +9,12 @@ EKS Auto Mode has two built-in NodePools. You can enable or disable these NodePo
 ## Built-in NodePool Reference
 
 - `system`
+
   - This NodePool has a `CriticalAddonsOnly` taint. Many EKS add-ons, such as CoreDNS, tolerate this taint. Use this system node pool to separate cluster-critical applications.
   - Supports both `amd64` and `arm64` architectures.
 
 - `general-purpose`
+
   - This NodePool provides support for launching nodes for general purpose workloads in your cluster.
   - Uses only `amd64` architecture.
 
@@ -36,6 +38,7 @@ When you remove a built-in NodePool name from `computeConfig.nodePools`, the cor
 ### Prerequisites
 
 - The latest version of the AWS Command Line Interface (AWS CLI) installed and configured on your device. To check your current version, use `aws --version`. To install the latest version, see [Installing](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") and [Quick configuration](../../../cli/latest/userguide/cli-chap-configure.md#cli-configure-quickstart-config "../../../cli/latest/userguide/cli-chap-configure.md#cli-configure-quickstart-config") with aws configure in the AWS Command Line Interface User Guide.
+
   - Login to the CLI with sufficient IAM permissions to create AWS resources including IAM Policies, IAM Roles, and EKS Clusters.
 
 ### Enable with AWS CLI

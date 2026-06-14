@@ -11,6 +11,7 @@ This tutorial will guide you through deploying a sample stateful application to 
 - An EKS Auto Mode cluster
 - The AWS CLI configured with appropriate permissions
 - `kubectl` installed and configured
+
   - For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
 
 ## Step 1: Configure your environment
@@ -195,6 +196,7 @@ kubectl delete deployment/inflate-stateful pvc/auto-ebs-claim storageclass/auto-
 
 1. The PVC requests storage from the `StorageClass`
 2. When the Pod is scheduled:
+
    1. EKS Auto Mode provisions an EBS volume
    2. Creates a PersistentVolume
    3. Attaches the volume to the node

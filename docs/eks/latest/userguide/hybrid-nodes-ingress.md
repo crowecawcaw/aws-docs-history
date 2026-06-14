@@ -67,6 +67,7 @@ helm repo update eks
 ```
 
 5. Install the AWS Load Balancer Controller. Replace the value for cluster name (`CLUSTER_NAME`), AWS Region (`AWS_REGION`), VPC ID (`VPC_ID`), and AWS Load Balancer Controller Helm chart version (`AWS_LBC_HELM_VERSION`) with your settings and run the following command. If you are running a mixed mode cluster with both hybrid nodes and nodes in AWS Cloud, you can run the AWS Load Balancer Controller on cloud nodes following the instructions at [AWS Load Balancer Controller](hybrid-nodes-webhooks.md#hybrid-nodes-mixed-lbc "hybrid-nodes-webhooks.md#hybrid-nodes-mixed-lbc").
+
    - You can find the latest version of the Helm chart by running `helm search repo eks/aws-load-balancer-controller --versions`.
 
    ```
@@ -633,6 +634,7 @@ kubectl patch ingress my-ingress --type=merge -p '{
 ```
 
 2. Create a file named `cilium-lbip-pool-ingress.yaml` with a `CiliumLoadBalancerIPPool` resource to configure the Load Balancer IP address range for your Ingress / Gateway resources.
+
    - If you are using Cilium Ingress, Cilium automatically applies the `cilium.io/ingress: "true"` label to the Services it creates for Ingress resources. You can use this label in the `serviceSelector` field of the `CiliumLoadBalancerIPPool` resource definition to select the Services eligible for LB IPAM.
    - If you are using Cilium Gateway, you can use the `gateway.networking.k8s.io/gateway-name` label in the `serviceSelector` fields of the `CiliumLoadBalancerIPPool` resource definition to select the Gateway resources eligible for LB IPAM.
    - Replace `LB_IP_CIDR` with the IP address range to use for the Load Balancer IP addresses. To select a single IP address, use a `/32` CIDR. For more information, see [LoadBalancer IP Address Management](https://docs.cilium.io/en/stable/network/lb-ipam/ "https://docs.cilium.io/en/stable/network/lb-ipam/") in the Cilium documentation.

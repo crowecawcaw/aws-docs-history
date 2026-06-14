@@ -82,6 +82,7 @@ The following output is an example of what is returned for the add-on named `vpc
     You can learn more about the add-on in the AWS Marketplace with the returned URL. If the add-on requires a subscription, you can subscribe to the add-on through the AWS Marketplace. If you’re going to create an add-on from the AWS Marketplace, then the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") that you’re using to create the add-on must have permission to create the [AWSServiceRoleForAWSLicenseManagerRole](../../../license-manager/latest/userguide/license-manager-role-core.md "../../../license-manager/latest/userguide/license-manager-role-core.md") service-linked role. For more information about assigning permissions to an IAM entity, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the IAM User Guide.
 
 3. Create an Amazon EKS add-on. Copy the command and replace the `user-data` as follows:
+
    - Replace `my-cluster` with the name of your cluster.
    - Replace `name-of-addon` with the name of the add-on that you want to create.
    - If you want a version of the add-on that’s earlier than the latest version, then replace `latest` with the version number returned in the output of a previous step that you want to use.
@@ -144,6 +145,7 @@ If the **AWS Marketplace add-ons** that you want to install aren’t listed, you
 
 8. On the **Review and add** page, choose **Create**. After the add-on installation is complete, you see your installed add-ons.
 9. If any of the add-ons that you installed require a subscription, complete the following steps:
+
    1. Choose the **Subscribe** button in the lower right corner for the add-on. You’re taken to the page for the add-on in the AWS Marketplace. Read the information about the add-on such as its **Product Overview** and **Pricing Information**.
    2. Select the **Continue to Subscribe** button on the top right of the add-on page.
    3. Read through the **Terms and Conditions**. If you agree to them, choose **Accept Terms**. It may take several minutes to process the subscription. While the subscription is processing, the **Return to Amazon EKS Console** button is grayed out.
@@ -240,9 +242,11 @@ Here is an example of valid configuration values, in YAML format, that works wit
 ```
 
 5. Determine if the add-on requires IAM permissions. If so, you need to (1) determine if you want to use EKS Pod Identities or IAM Roles for Service Accounts (IRSA), (2) determine the ARN of the IAM role to use with the add-on, and (3) determine the name of the Kubernetes service account used by the add-on. For more information, see [Retrieve IAM information about an Amazon EKS add-on](retreive-iam-info.md "retreive-iam-info.md").
+
    - Amazon EKS suggests using EKS Pod Identities if the add-on supports it. This requires the [Pod Identity Agent is installed on your cluster](pod-identities.md "pod-identities.md"). For more information about using Pod Identities with Add-ons, see [IAM roles for Amazon EKS add-ons](add-ons-iam.md "add-ons-iam.md").
    - If the add-on or your cluster is not setup for EKS Pod Identities, use IRSA. [Confirm IRSA is setup on your cluster.](iam-roles-for-service-accounts.md "iam-roles-for-service-accounts.md")
    - [Review the Amazon EKS Add-ons documentation to determine if the add-on requires IAM permissions and the name of the associated Kubernetes service account.](eks-add-ons.md "eks-add-ons.md")
+
      1. Create an Amazon EKS add-on. Copy the command that follows to your device. Make the following modifications to the command as needed and then run the modified command:
 
    - Replace `my-cluster` with the name of your cluster.
@@ -251,12 +255,12 @@ Here is an example of valid configuration values, in YAML format, that works wit
    - If you want to install the add-on into a custom Kubernetes namespace, add the `--namespace-config 'namespace=<my-namespace>` option. This option is only available for AWS and community add-ons. For more information, see [Custom namespace for add-ons](eks-add-ons.md#custom-namespace "eks-add-ons.md#custom-namespace")
    - If the add-on doesn’t require IAM permissions, delete `<service-account-configuration>`.
    - Do one of the following:
+
      - If the add-on (1) requires IAM permissions, and (2) your cluster uses EKS Pod Identities, replace `<service-account-configuration>` with the following pod identity association. Replace `<service-account-name>` with the service account name used by the add-on. Replace `<role-arn>` with the ARN of an IAM role. The role must have the trust policy required by EKS Pod Identities.
 
      ```
      --pod-identity-associations 'serviceAccount=<service-account-name>,roleArn=<role-arn>'
      ```
-
      - If the add-on (1) requires IAM permissions, and (2) your cluster uses IRSA, replace `<service-account-configuration>` with the following IRSA configuration. Replace `111122223333` with your account ID and `role-name` with the name of an existing IAM role that you’ve created. For instructions on creating the role, see the documentation for the add-on that you’re creating. For a list of add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md"). Specifying a service account role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
 
      ```

@@ -49,6 +49,7 @@ kubectl get daemonset aws-node -n kube-system -o yaml > aws-k8s-cni-old.yaml
 ```
 
 4. Create the add-on using the AWS CLI. If you want to use the AWS Management Console or `eksctl` to create the add-on, see [Create an Amazon EKS add-on](creating-an-add-on.md "creating-an-add-on.md") and specify `vpc-cni` for the add-on name. Copy the command that follows to your device. Make the following modifications to the command, as needed, and then run the modified command.
+
    - Replace `my-cluster` with the name of your cluster.
    - Replace `v1.20.3-eksbuild.1` with the latest version listed in the latest version table for your cluster version. For the latest version table, see [Amazon VPC CNI versions](managing-vpc-cni.md#vpc-cni-latest-available-version "managing-vpc-cni.md#vpc-cni-latest-available-version").
    - Replace `111122223333` with your account ID and `AmazonEKSVPCCNIRole` with the name of an [existing IAM role](cni-iam-role.md#cni-iam-role-create-role "cni-iam-role.md#cni-iam-role-create-role") that you’ve created. Specifying a role requires that you have an IAM OpenID Connect (OIDC) provider for your cluster. To determine whether you have one for your cluster, or to create one, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").

@@ -217,6 +217,7 @@ Network policy logs require an additional 1 vCPU for the `aws-network-policy-age
 3. Choose the **Add-ons** tab.
 4. Select the box in the top right of the add-on box and then choose **Edit**.
 5. On the **Configure `Amazon VPC CNI`** page:
+
    1. Select a `v1.14.0-eksbuild.3` or later version in the **Version** dropdown list.
    2. Expand the **Optional configuration settings**.
    3. Enter the top-level JSON key `"nodeAgent":` and value is an object with a key `"enablePolicyEventLogs":` and value of `"true"` in **Configuration values**. The resulting text must be a valid JSON object. The following example shows network policy and the network policy logs are enabled, and the network policy logs are sent to CloudWatch Logs:
@@ -321,6 +322,7 @@ Only the network policy logs are sent by the node agent. Other logs made by the 
 3. Choose the **Add-ons** tab.
 4. Select the box in the top right of the add-on box and then choose **Edit**.
 5. On the **Configure `Amazon VPC CNI`** page:
+
    1. Select a `v1.14.0-eksbuild.3` or later version in the **Version** dropdown list.
    2. Expand the **Optional configuration settings**.
    3. Enter the top-level JSON key `"nodeAgent":` and value is an object with a key `"enableCloudWatchLogs":` and value of `"true"` in **Configuration values**. The resulting text must be a valid JSON object. The following example shows network policy and the network policy logs are enabled, and the logs are sent to CloudWatch Logs:

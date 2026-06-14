@@ -233,6 +233,7 @@ Create a file named `my-nodegroup.yaml` with the following contents. Replace eve
 
 - The only required argument is the cluster name (`my-cluster`).
 - To retrieve an optimized AMI ID for `ami-`1234567890abcdef0``, see the following sections:
+
   - [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md "retrieve-ami-id.md")
   - [Retrieve recommended Bottlerocket AMI IDs](retrieve-ami-id-bottlerocket.md "retrieve-ami-id-bottlerocket.md")
   - [Retrieve recommended Microsoft Windows AMI IDs](retrieve-windows-ami-id.md "retrieve-windows-ami-id.md")
@@ -386,6 +387,7 @@ You cannot use dynamic parameter references for AMI IDs in Launch Templates used
 ###### Important
 
 - When specifying an AMI, Amazon EKS does not validate the Kubernetes version embedded in your AMI against your cluster’s control plane version. You are responsible for ensuring that the Kubernetes version of your custom AMI conforms to the [Kubernetes version skew policy](https://kubernetes.io/releases/version-skew-policy "https://kubernetes.io/releases/version-skew-policy"):
+
   - The `kubelet` version on your nodes must not be newer than your cluster version
   - The `kubelet` version on your nodes must be equal to or up to 3 minor versions behind your cluster version (for Kubernetes version `1.28` or higher), or up to 2 minor versions behind your cluster version (for Kubernetes version `1.27` or lower)
 
@@ -403,24 +405,24 @@ The following are the limits and conditions involved with specifying an AMI ID w
 - You must create a new node group to switch between specifying an AMI ID in a launch template and not specifying an AMI ID.
 - You aren’t notified in the console when a newer AMI version is available. To update your node group to a newer AMI version, you need to create a new version of your launch template with an updated AMI ID. Then, you need to update the node group with the new launch template version.
 - The following fields can’t be set in the API if you specify an AMI ID:
+
   - `amiType`
   - `releaseVersion`
   - `version`
 
 - Any `taints` set in the API are applied asynchronously if you specify an AMI ID. To apply taints prior to a node joining the cluster, you must pass the taints to `kubelet` in your user data using the `--register-with-taints` command line flag. For more information, see [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/ "https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/") in the Kubernetes documentation.
 - When specifying a custom AMI ID for Windows managed node groups, add `eks:kube-proxy-windows` to your AWS IAM Authenticator configuration map. This is required for DNS to function properly.
+
   1.  Open the AWS IAM Authenticator configuration map for editing.
 
   ```
   kubectl edit -n kube-system cm aws-auth
   ```
-
   2.  Add this entry to the `groups` list under each `rolearn` associated with Windows nodes. Your configuration map should look similar to [aws-auth-cm-windows.yaml](https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm-windows.yaml "https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm-windows.yaml").
 
   ```
   - eks:kube-proxy-windows
   ```
-
   3.  Save the file and exit your text editor.
 
 - For any AMI that uses a custom launch template, the default `HttpPutResponseHopLimit` for managed node groups is set to `2`.

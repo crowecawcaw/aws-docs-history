@@ -24,17 +24,20 @@ The following **Amazon-managed** components for `eks` include patches for `CVE-2
 This option is the recommended way to build your custom Windows AMIs. The Amazon EKS optimized Windows AMIs we provide are more frequently updated than the Amazon-managed build component.
 
 1. Start a new Image Builder recipe.
+
    1. Open the EC2 Image Builder console at https://console.aws.amazon.com/imagebuilder.
    2. In the left navigation pane, choose **Image recipes**.
    3. Choose **Create image recipe**.
 
 2. In the **Recipe details** section, enter a **Name** and **Version**.
 3. Specify the ID of the Amazon EKS optimized Windows AMI in the **Base image** section.
+
    1. Choose **Enter custom AMI ID**.
    2. Retrieve the AMI ID for the Windows OS version that you require. For more information, see [Retrieve recommended Microsoft Windows AMI IDs](retrieve-windows-ami-id.md "retrieve-windows-ami-id.md").
    3. Enter the custom **AMI ID**. If the AMI ID isn’t found, make sure that the AWS Region for the AMI ID matches the AWS Region shown in the upper right of your console.
 
 4. (Optional) To get the latest security updates, add the `update-windows` component in the **Build components -** section.
+
    1. From the dropdown list to the right of the **Find components by name** search box, choose **Amazon-managed**.
    2. In the **Find components by name** search box, enter `update-windows`.
    3. Select the check box of the **`update-windows`** search result. This component includes the latest Windows patches for the operating system.
@@ -48,19 +51,23 @@ This option is the recommended way to build your custom Windows AMIs. The Amazon
 When using an Amazon EKS optimized Windows AMI as a base isn’t viable, you can use the Amazon-managed build component instead. This option may lag behind the most recent supported Kubernetes versions.
 
 1. Start a new Image Builder recipe.
+
    1. Open the EC2 Image Builder console at https://console.aws.amazon.com/imagebuilder.
    2. In the left navigation pane, choose **Image recipes**.
    3. Choose **Create image recipe**.
 
 2. In the **Recipe details** section, enter a **Name** and **Version**.
 3. Determine which option you will be using to create your custom AMI in the **Base image** section:
+
    - **Select managed images** – Choose **Windows** for your **Image Operating System (OS)**. Then choose one of the following options for **Image origin**.
+
      - **Quick start (Amazon-managed)** – In the **Image name** dropdown, choose an Amazon EKS supported Windows Server version. For more information, see [Create nodes with optimized Windows AMIs](eks-optimized-windows-ami.md "eks-optimized-windows-ami.md").
      - **Images owned by me** – For **Image name**, choose the ARN of your own image with your own license. The image that you provide can’t already have Amazon EKS components installed.
 
    - **Enter custom AMI ID** – For AMI ID, enter the ID for your AMI with your own license. The image that you provide can’t already have Amazon EKS components installed.
 
 4. In the **Build components - Windows** section, do the following:
+
    1. From the dropdown list to the right of the **Find components by name** search box, choose **Amazon-managed**.
    2. In the **Find components by name** search box, enter `eks`.
    3. Select the check box of the **`eks-optimized-ami-windows`** search result, even though the result returned may not be the version that you want.
@@ -68,6 +75,7 @@ When using an Amazon EKS optimized Windows AMI as a base isn’t viable, you can
    5. Select the check box of the **update-windows** search result. This component includes the latest Windows patches for the operating system.
 
 5. In the **Selected components** section, do the following:
+
    1. Choose **Versioning options** for **`eks-optimized-ami-windows`**.
    2. Choose **Specify component version**.
    3. In the **Component Version** field, enter `version.x`, replacing `version` with a supported Kubernetes version. Entering an `x` for part of the version number indicates to use the latest component version that also aligns with the part of the version you explicitly define. Pay attention to the console output as it will advise you on whether your desired version is available as a managed component. Keep in mind that the most recent Kubernetes versions may not be available for the build component. For more information about available versions, see [Retrieving information about eks-optimized-ami-windows component versions](#custom-windows-ami-component-versions "#custom-windows-ami-component-versions").

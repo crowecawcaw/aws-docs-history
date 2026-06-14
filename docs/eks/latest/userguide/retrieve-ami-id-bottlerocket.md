@@ -10,11 +10,13 @@ You can retrieve the image ID of the latest recommended Amazon EKS optimized Bot
 
 - Replace `kubernetes-version` with a supported [platform-version](platform-versions.md "platform-versions.md").
 - Replace `-flavor` with one of the following options.
+
   - Remove `-flavor` for variants without a GPU.
   - Use `-nvidia` for GPU-enabled variants.
   - Use `-fips` for FIPS-enabled variants.
 
 - Replace `architecture` with one of the following options.
+
   - Use `x86_64` for `x86` based instances.
   - Use `arm64` for ARM instances.
 

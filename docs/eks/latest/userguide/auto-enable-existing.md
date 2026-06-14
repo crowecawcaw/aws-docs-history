@@ -26,6 +26,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 2. Under **Cluster IAM role ARN**, select **View in IAM**.
 3. From the **Add Permissions** dropdown, select **Attach Policies**.
 4. Use the **Search** box to find and select the following policies:
+
    - `AmazonEKSComputePolicy`
    - `AmazonEKSBlockStoragePolicy`
    - `AmazonEKSLoadBalancingPolicy`
@@ -60,6 +61,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 2. Under **EKS Auto Mode** select **Manage**
 3. Toggle **EKS Auto Mode** to on.
 4. From the **EKS Node Pool** dropdown, select the default node pools you want to create.
+
    - Learn more about Node Pools in EKS Auto Mode. For more information, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md "create-node-pool.md").
 
 5. If you have previously created an EKS Auto Mode Node IAM role in this AWS account, select it in the **Node IAM Role** dropdown. If you have not created this role before, select **Create recommended Role** and follow the steps.
@@ -69,6 +71,7 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 ### Prerequisites
 
 - The Cluster IAM Role of the existing EKS Cluster must include sufficient permissions for EKS Auto Mode, such as the following policies:
+
   - `AmazonEKSComputePolicy`
   - `AmazonEKSBlockStoragePolicy`
   - `AmazonEKSLoadBalancingPolicy`

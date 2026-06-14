@@ -7,11 +7,13 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 ## AWS Management Console
 
 1. To disable `IPv6` in the EKS Pod Identity Agent, add the following configuration to the **Optional configuration settings** of the EKS Add-on.
+
    1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    2. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the add-on for.
    3. Choose the **Add-ons** tab.
    4. Select the box in the top right of the EKS Pod Identity Agent add-on box and then choose **Edit**.
    5. On the **Configure EKS Pod Identity Agent** page:
+
       1. Select the **Version** that you’d like to use. We recommend that you keep the same version as the previous step, and update the version and configuration in separate actions.
       2. Expand the **Optional configuration settings**.
       3. Enter the JSON key `"agent":` and value of a nested JSON object with a key `"additionalArgs":` in **Configuration values**. The resulting text must be a valid JSON object. If this key and value are the only data in the text box, surround the key and value with curly braces `{ }`. The following example shows network policy is enabled:

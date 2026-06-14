@@ -44,6 +44,7 @@ The `remoteNetworkConfig` JSON object has the following behavior during an updat
 - Any existing part of the configuration that you don’t specify is unchanged. If you don’t specify either of the `remoteNodeNetworks` or `remotePodNetworks`, that part will remain the same.
 - If you are modifying either the `remoteNodeNetworks` or `remotePodNetworks` lists of CIDRs, you must specify the complete list of CIDRs that you want in your final configuration. When you specify a change to either the `remoteNodeNetworks` or `remotePodNetworks` CIDR list, EKS replaces the original list during the update.
 - Your on-premises node and pod CIDR blocks must meet the following requirements:
+
   1.  Be within one of the IPv4 RFC-1918 ranges: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 , or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`
   2.  Not overlap with each other, all CIDRs of the VPC for your Amazon EKS cluster, or your Kubernetes service IPv4 CIDR.
 
@@ -72,6 +73,7 @@ RemoteNetworkConfig:
 ### Enable EKS Hybrid Nodes in an existing cluster - AWS CLI
 
 1. Run the following command to enable `RemoteNetworkConfig` for EKS Hybrid Nodes for your EKS cluster. Before running the command, replace the following with your settings. For a full list of settings, see the [UpdateClusterConfig](../APIReference/API_UpdateClusterConfig.md "../APIReference/API_UpdateClusterConfig.md") in the _Amazon EKS API Reference_.
+
    1. `CLUSTER_NAME`: name of the EKS cluster to update.
    2. `AWS_REGION`: AWS Region where the EKS cluster is running.
    3. `REMOTE_NODE_CIDRS`: the on-premises node CIDR for your hybrid nodes.
@@ -176,6 +178,7 @@ RemoteNetworkConfig:
 ### Disable EKS Hybrid Nodes in an existing cluster - AWS CLI
 
 1. Run the following command to remove `RemoteNetworkConfig` from your EKS cluster. Before running the command, replace the following with your settings. For a full list of settings, see the [UpdateClusterConfig](../APIReference/API_UpdateClusterConfig.md "../APIReference/API_UpdateClusterConfig.md") in the _Amazon EKS API Reference_.
+
    1. `CLUSTER_NAME`: name of the EKS cluster to update.
    2. `AWS_REGION`: AWS Region where the EKS cluster is running.
 

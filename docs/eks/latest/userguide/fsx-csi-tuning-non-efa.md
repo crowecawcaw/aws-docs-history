@@ -49,11 +49,13 @@ The example script defined in this topic performs these operations:
 ### `# 6. Apply tunings`
 
 - LRU (Lock Resource Unit) tunings:
+
   - `lru_max_age=600000`
   - `lru_size` calculated based on CPU count
 
 - Client Cache Control: `max_cached_mb=64`
 - RPC Controls:
+
   - OST `max_rpcs_in_flight=32`
   - MDC `max_rpcs_in_flight=64`
   - MDC `max_mod_rpcs_in_flight=50`
@@ -70,6 +72,7 @@ The example script defined in this topic performs these operations:
 - System starts.
 - `Systemd` starts `lustre-tunings` service (due to `WantedBy=multi-user.target`).
 - Service runs `apply_lustre_tunings.sh` which:
+
   - Checks if filesystem is mounted.
   - Mounts filesystem if not mounted.
   - Waits for successful mount (up to five minutes).
@@ -77,6 +80,7 @@ The example script defined in this topic performs these operations:
 
 - Settings remain active until reboot.
 - Service exits after script completion.
+
   - Systemd marks service as "active (exited)".
 
 - Process repeats on next reboot.

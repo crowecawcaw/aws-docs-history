@@ -10,6 +10,7 @@ You can retrieve the image ID of the latest recommended Amazon EKS optimized Ama
 
 - Replace `<kubernetes-version>` with an [Amazon EKS supported version](kubernetes-versions.md "kubernetes-versions.md").
 - Replace `ami-type` with one of the following options. For information about the types of Amazon EC2 instances, see [Amazon EC2 instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md").
+
   - Use `amazon-linux-2023/x86_64/standard` for Amazon Linux 2023 (AL2023) `x86` based instances.
   - Use `amazon-linux-2023/arm64/standard` for AL2023 ARM instances, such as [AWS Graviton](https://aws.amazon.com/ec2/graviton/ "https://aws.amazon.com/ec2/graviton/") based instances.
   - Use `amazon-linux-2023/x86_64/nvidia` for the latest approved AL2023 NVIDIA `x86` based instances.

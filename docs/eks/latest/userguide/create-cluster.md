@@ -128,12 +128,15 @@ Kubernetes assigns `IPv4` addresses to Pods and services, by default. Before dec
 1.  Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2.  Choose **Add cluster** and then choose **Create**.
 3.  Under **Configuration options** select **Custom configuration**
+
     - For information about quickly creating a cluster with EKS Auto Mode, see [Create an EKS Auto Mode Cluster with the AWS Management Console](automode-get-started-console.md "automode-get-started-console.md").
 
 4.  Under **EKS Auto Mode**, toggle **Use EKS Auto Mode** off.
+
     - For information about creating an EKS Auto Mode cluster with custom configuration, see [Create an Amazon EKS Auto Mode cluster](create-cluster-auto.md "create-cluster-auto.md").
 
 5.  On the **Configure cluster** page, enter the following fields:
+
     - **Name** – A name for your cluster. The name can contain only alphanumeric characters (case-sensitive), hyphens, and underscores. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
     - **Cluster IAM role** – Choose the Amazon EKS cluster IAM role that you created to allow the Kubernetes control plane to manage AWS resources on your behalf.
     - **Kubernetes version** – The version of Kubernetes to use for your cluster. We recommend selecting the latest version, unless you need an earlier version.
@@ -143,6 +146,7 @@ Kubernetes assigns `IPv4` addresses to Pods and services, by default. Before dec
     - **ARC Zonal shift** - (Optional) You can use Route53 Application Recovery controller to mitigate impaired availability zones. For more information, see [Learn about Amazon Application Recovery Controller (ARC) zonal shift in Amazon EKS](zone-shift.md "zone-shift.md").
 
 6.  In the **Cluster access** section of the configure cluster page, enter the following fields:
+
     - **Bootstrap cluster administrator access** — The cluster creator is automatically a Kubernetes administrator. If you want to disable this, select **Disallow cluster administrator access**.
     - **Cluster authentication mode** — Determine how you want to grant IAM users and roles access to Kubernetes APIs. For more information, see [Set Cluster Authentication Mode](grant-k8s-access.md#set-cam "grant-k8s-access.md#set-cam").
 

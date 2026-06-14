@@ -22,6 +22,7 @@ AWS CodeConnections handles the OAuth authentication flow and manages the connec
 **To configure CodeConnections for Argo CD repository access**
 
 1. Create a connection in the CodeConnections console:
+
    1. Open the [CodeConnections console](https://console.aws.amazon.com/codesuite/settings/connections "https://console.aws.amazon.com/codesuite/settings/connections").
    2. Choose **Create connection**.
    3. Select your provider (GitHub, GitLab, or Bitbucket) and follow the authentication flow.

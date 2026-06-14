@@ -79,6 +79,7 @@ Output:
 ## Delete cluster (AWS console)
 
 1. Go through the [prerequisite steps](#prerequisite-steps "#prerequisite-steps"). After doing so, delete all node groups and Fargate profiles.
+
    1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    2. In the left navigation pane, choose Amazon EKS **Clusters**, and then in the tabbed list of clusters, choose the name of the cluster that you want to delete.
    3. Choose the **Compute** tab and choose a node group to delete. Choose **Delete**, enter the name of the node group, and then choose **Delete**. Delete all node groups in the cluster.
@@ -88,16 +89,19 @@ Output:
    The node groups listed are [managed node groups](managed-node-groups.md "managed-node-groups.md") only. 4. Choose a **Fargate Profile** to delete, select **Delete**, enter the name of the profile, and then choose **Delete**. Delete all Fargate profiles in the cluster.
 
 2. Delete all [self-managed node AWS CloudFormation stacks](worker.md "worker.md").
+
    1. Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Choose the node stack to delete, and then choose **Delete**.
    3. In the **Delete stack** confirmation dialog box, choose **Delete stack**. Delete all self-managed node stacks in the cluster.
 
 3. Delete the cluster.
+
    1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    2. choose the cluster to delete and choose **Delete**.
    3. On the delete cluster confirmation screen, choose **Delete**.
 
 4. (Optional) Delete the VPC AWS CloudFormation stack.
+
    1. Open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Select the VPC stack to delete, and then choose **Delete**.
    3. In the **Delete stack** confirmation dialog box, choose **Delete stack**.
@@ -105,6 +109,7 @@ Output:
 ## Delete cluster (AWS CLI)
 
 1. Go through the [prerequisite steps](#prerequisite-steps "#prerequisite-steps"). After doing so, delete all node groups and Fargate profiles.
+
    1. List the node groups in your cluster with the following command.
 
    ```
@@ -118,13 +123,11 @@ Output:
    ```
    aws eks delete-nodegroup --nodegroup-name my-nodegroup --cluster-name my-cluster
    ```
-
    3. List the Fargate profiles in your cluster with the following command.
 
    ```
    aws eks list-fargate-profiles --cluster-name my-cluster
    ```
-
    4. Delete each Fargate profile with the following command. Delete all Fargate profiles in the cluster.
 
    ```
@@ -132,12 +135,12 @@ Output:
    ```
 
 2. Delete all [self-managed node AWS CloudFormation stacks](worker.md "worker.md").
+
    1. List your available AWS CloudFormation stacks with the following command. Find the node template name in the resulting output.
 
    ```
    aws cloudformation list-stacks --query "StackSummaries[].StackName"
    ```
-
    2. Delete each node stack with the following command, replacing `node-stack` with your node stack name. Delete all self-managed node stacks in the cluster.
 
    ```
@@ -151,12 +154,12 @@ aws eks delete-cluster --name my-cluster
 ```
 
 4. (Optional) Delete the VPC AWS CloudFormation stack.
+
    1. List your available AWS CloudFormation stacks with the following command. Find the VPC template name in the resulting output.
 
    ```
    aws cloudformation list-stacks --query "StackSummaries[].StackName"
    ```
-
    2. Delete the VPC stack with the following command, replacing `my-vpc-stack` with your VPC stack name.
 
    ```

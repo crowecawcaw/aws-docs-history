@@ -35,12 +35,12 @@ The Bookinfo application consists of four separate microservices with the follow
 - **details**. The details microservice contains book information.
 - **reviews**. The reviews microservice contains book reviews. It also calls the ratings microservice.
 - **ratings**. The ratings microservice contains book ranking information that accompanies a book review.
+
   1.  Create the sample application.
 
   ```
   kubectl apply -f https://raw.githubusercontent.com/istio/istio/refs/heads/master/samples/bookinfo/platform/kube/bookinfo.yaml
   ```
-
   2.  Confirm the application is running successfully and note the pod IP address for the productpage microservice. You will use this pod IP address to query each microservice in the subsequent steps.
 
   ```
@@ -56,13 +56,11 @@ The Bookinfo application consists of four separate microservices with the follow
   reviews-v2-556d6457d-djktc        1/1     Running   0          7s    10.86.3.58    mi-0daa253999fe92daa
   reviews-v3-564544b4d6-g8hh4       1/1     Running   0          7s    10.86.2.69    mi-09183e8a3d755abf6
   ```
-
   3.  Create a pod that will be used throughout to test the network policies. Note the pod is created in the `default` namespace with the label `access: true`.
 
   ```
   kubectl run curl-pod --image=curlimages/curl -i --tty --labels=access=true --namespace=default --overrides='{"spec": { "nodeSelector": {"eks.amazonaws.com/compute-type": "hybrid"}}}' -- /bin/sh
   ```
-
   4.  Test access to the productpage microservice. In the example below, we use the pod IP address of the productpage pod (`10.86.2.193`) to query the microservice. Replace this with the pod IP address of the productpage pod in your environment.
 
   ```
@@ -72,13 +70,11 @@ The Bookinfo application consists of four separate microservices with the follow
   ```
   <title>Simple Bookstore App</title>
   ```
-
   5.  You can exit the test curl pod by typing `exit` and can reattach to the pod by running the following command.
 
   ```
   kubectl attach curl-pod -c curl-pod -i -t
   ```
-
   6.  To demonstrate the effects of the network policies in the following steps, we first create a network policy that denies all traffic for the BookInfo microservices. Create a file called `network-policy-deny-bookinfo.yaml` that defines the deny network policy.
 
   ```
@@ -97,13 +93,11 @@ The Bookinfo application consists of four separate microservices with the follow
     - Ingress
     - Egress
   ```
-
   7.  Apply the deny network policy to your cluster.
 
   ```
   kubectl apply -f network-policy-default-deny-bookinfo.yaml
   ```
-
   8.  Test access to the BookInfo application. In the example below, we use the pod IP address of the productpage pod (`10.86.2.193`) to query the microservice. Replace this with the pod IP address of the productpage pod in your environment.
 
   ```
@@ -113,8 +107,8 @@ The Bookinfo application consists of four separate microservices with the follow
   ```
   curl: (28) Connection timed out after 10001 milliseconds
   ```
-
   9. Create a file called `network-policy-productpage.yaml` that defines the productpage network policy. The policy has the following rules:
+
      - allows ingress traffic from pods with the label `access: true` (the curl pod created in the previous step)
      - allows egress TCP traffic on port `9080` for the details, reviews, and ratings microservices
      - allows egress TCP/UDP traffic on port `53` for CoreDNS which runs in the `kube-system` namespace
@@ -166,7 +160,6 @@ The Bookinfo application consists of four separate microservices with the follow
   ```
   kubectl apply -f network-policy-productpage.yaml
   ```
-
   11. Connect to the curl pod and test access to the Bookinfo application. Access to the productpage microservice is now allowed, but the other microservices are still denied because they are still subject to the deny network policy. In the examples below, we use the pod IP address of the productpage pod (`10.86.2.193`) to query the microservice. Replace this with the pod IP address of the productpage pod in your environment.
 
   ```
@@ -192,7 +185,6 @@ The Bookinfo application consists of four separate microservices with the follow
   curl -s http://10.86.2.193:9080/api/v1/products/1/ratings
   {"error": "Sorry, product ratings are currently unavailable for this book."}
   ```
-
   12. Create a file called `network-policy-details.yaml` that defines the details network policy. The policy allows only ingress traffic from the productpage microservice.
 
   ```
@@ -213,7 +205,6 @@ The Bookinfo application consists of four separate microservices with the follow
           matchLabels:
             app: productpage
   ```
-
   13. Create a file called `network-policy-reviews.yaml` that defines the reviews network policy. The policy allows only ingress traffic from the productpage microservice and only egress traffic to the ratings microservice and CoreDNS.
 
   ```
@@ -252,7 +243,6 @@ The Bookinfo application consists of four separate microservices with the follow
       - port: 53
         protocol: TCP
   ```
-
   14. Create a file called `network-policy-ratings.yaml` that defines the ratings network policy. The policy allows only ingress traffic from the productpage and reviews microservices.
 
   ```
@@ -275,7 +265,6 @@ The Bookinfo application consists of four separate microservices with the follow
             operator: In
             values: ["productpage", "reviews"]
   ```
-
   15. Apply the details, reviews, and ratings network policies to your cluster.
 
   ```
@@ -283,7 +272,6 @@ The Bookinfo application consists of four separate microservices with the follow
   kubectl apply -f network-policy-reviews.yaml
   kubectl apply -f network-policy-ratings.yaml
   ```
-
   16. Connect to the curl pod and test access to the Bookinfo application. In the examples below, we use the pod IP address of the productpage pod (`10.86.2.193`) to query the microservice. Replace this with the pod IP address of the productpage pod in your environment.
 
   ```
@@ -319,7 +307,6 @@ The Bookinfo application consists of four separate microservices with the follow
   ```
   {"id": 1, "ratings": {"Reviewer1": 5, "Reviewer2": 4}}
   ```
-
   17. Clean up the resources you created in this procedure.
 
   ```

@@ -36,26 +36,32 @@ This topic covers advanced configuration. If you are looking to get started with
 1.  Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2.  Choose **Add cluster** and then choose **Create**.
 3.  Under _Configuration options_, select **Custom configuration**.
+
     - This topic covers custom configuration. For information about Quick configuration, see [Create an EKS Auto Mode Cluster with the AWS Management Console](automode-get-started-console.md "automode-get-started-console.md").
 
 4.  Confirm **Use EKS Auto Mode** is enabled.
+
     - This topic covers creating clusters with EKS Auto Mode. For more information about creating clusters without EKS Auto Mode, see [Create an Amazon EKS cluster](create-cluster.md "create-cluster.md").
 
 5.  On the **Configure cluster** page, enter the following fields:
+
     - **Name** – A name for your cluster. The name can contain only alphanumeric characters (case-sensitive), hyphens, and underscores. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
     - **Cluster IAM role** – Choose the Amazon EKS cluster IAM role that you created to allow the Kubernetes control plane to manage AWS resources on your behalf. If you haven’t previously created a Cluster IAM role for EKS Auto Mode, select the **Create recommended role** button to create the role with the required permissions in the IAM console.
     - **Kubernetes version** – The version of Kubernetes to use for your cluster. We recommend selecting the latest version, unless you need an earlier version.
     - **Upgrade policy** — The Kubernetes version policy you would like to set for your cluster. If you want your cluster to only run on a standard support version, you can choose **Standard**. If you want your cluster to enter extended support at the end of standard support for a version, you can choose **Extended**. If you select a Kubernetes version that is currently in extended support, you can not select standard support as an option.
 
 6.  In the **Auto Mode Compute** section of the configure cluster page, enter the following fields:
+
     - **Node pools** — Determine if you want to use the built-in node pools. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md "set-builtin-node-pools.md").
     - **Node IAM role** — If you enable any of the built-in node pools, you need to select a Node IAM Role. EKS Auto Mode will assign this role to new nodes. You cannot change this value after the cluster is created. If you haven’t previously created a Node IAM role for EKS Auto Mode, select the Create recommended role button to create the role with the required permissions. For more information about this role, see [Learn about identity and access in EKS Auto Mode](auto-learn-iam.md "auto-learn-iam.md").
 
 7.  In the **Cluster access** section of the configure cluster page, enter the following fields:
+
     - **Bootstrap cluster administrator access** — The cluster creator is automatically a Kubernetes administrator. If you want to disable this, select **Disallow cluster administrator access**.
     - **Cluster authentication mode** — EKS Auto Mode requires EKS access entries, the EKS API authentication mode. You can optionally enable the `ConfigMap` authentication mode by selecting **EKS API and ConfigMap**.
 
 8.  Enter the remaining fields on the configure cluster page:
+
     - **Secrets encryption** – (Optional) Choose to enable secrets encryption of Kubernetes secrets using a KMS key. You can also enable this after you create your cluster. Before you enable this capability, make sure that you’re familiar with the information in [Encrypt Kubernetes secrets with KMS on existing clusters](enable-kms.md "enable-kms.md").
     - **ARC Zonal shift** — EKS Auto Mode does not support ARC zonal shift.
     - **Tags** – (Optional) Add any tags to your cluster. For more information, see [Organize Amazon EKS resources with tags](eks-using-tags.md "eks-using-tags.md").
@@ -103,11 +109,13 @@ This topic covers advanced configuration. If you are looking to get started with
         When you’re done with this page, choose **Next**.
 
 10. (Optional) On the **Configure observability** page, choose which **Metrics** and **Control plane logging** options to turn on. By default, each log type is turned off.
+
     - For more information about the Prometheus metrics option, see [Step 1: Turn on Prometheus metrics](prometheus.md#turn-on-prometheus-metrics "prometheus.md#turn-on-prometheus-metrics").
     - For more information about the **Control plane logging** options, see [Send control plane logs to CloudWatch Logs](control-plane-logs.md "control-plane-logs.md").
     - When you’re done with this page, choose **Next**.
 
 11. On the **Select add-ons** page, choose the add-ons that you want to add to your cluster. You can choose as many **Amazon EKS add-ons** and **AWS Marketplace add-ons** as you require. If the **AWS Marketplace add-ons** that you want to install aren’t listed, you can click the page numbering to view additional page results or search for available **AWS Marketplace add-ons** by entering text in the search box. You can also filter by **category**, **vendor**, or **pricing model** and then choose the add-ons from the search results. When creating a cluster, you can view, select, and install any add-on that supports EKS Pod Identities as detailed in [Learn how EKS Pod Identity grants pods access to AWS services](pod-identities.md "pod-identities.md").
+
     - EKS Auto Mode automates the functionality of certain add-ons. If you plan to deploy EKS Managed Node Groups to your EKS Auto Mode Cluster, select **Additional Amazon EKS Add-ons** and review the options. You may need to install add-ons such as CoreDNS and kube-proxy. EKS will only install the add-ons in this section on self-managed nodes and node groups.
     - When you’re done with this page, choose **Next**.
 
@@ -275,6 +283,7 @@ aws iam attach-role-policy \
 ### Create cluster
 
 1.  Create your cluster with the command that follows. Before running the command, make the following replacements:
+
     - Replace `region-code` with the AWS Region that you want to create your cluster in.
     - Replace `my-cluster` with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive), hyphens, and underscores. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
     - Replace `1.30` with any [Amazon EKS supported version](kubernetes-versions.md "kubernetes-versions.md").
@@ -317,7 +326,6 @@ aws iam attach-role-policy \
 
 
         You can only specify this option when using the `IPv4` address family and only at cluster creation. If you don’t specify this, then Kubernetes assigns service IP addresses from either the `10.100.0.0/16` or `172.20.0.0/16` CIDR blocks.
-
     - If you’re creating a cluster and want the cluster to assign `IPv6` addresses to Pods and services instead of `IPv4` addresses, add `--kubernetes-network-config ipFamily=ipv6` to the following command.
 
     Kubernetes assigns `IPv4` addresses to Pods and services, by default. Before deciding to use the `IPv6` family, make sure that you’re familiar with all of the considerations and requirements in the [VPC requirements and considerations](network-reqs.md#network-requirements-vpc "network-reqs.md#network-requirements-vpc"), [Subnet requirements and considerations](network-reqs.md#network-requirements-subnets "network-reqs.md#network-requirements-subnets"), [View Amazon EKS security group requirements for clusters](sec-group-reqs.md "sec-group-reqs.md"), and [Learn about IPv6 addresses to clusters, Pods, and services](cni-ipv6.md "cni-ipv6.md") topics. If you choose the `IPv6` family, you can’t specify an address range for Kubernetes to assign `IPv6` service addresses from like you can for the `IPv4` family. Kubernetes assigns service addresses from the unique local address range (`fc00::/7`).

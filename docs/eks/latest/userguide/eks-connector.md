@@ -22,12 +22,14 @@ Before you use Amazon EKS Connector, understand the following:
 - By default, you can connect up to 10 clusters in a Region. You can request an increase through the [service quota console](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md"). See [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") for more information.
 - Only the Amazon EKS `RegisterCluster`, `ListClusters`, `DescribeCluster`, and `DeregisterCluster` APIs are supported for external Kubernetes clusters.
 - You must have the following permissions to register a cluster:
+
   - eks:RegisterCluster
   - ssm:CreateActivation
   - ssm:DeleteActivation
   - iam:PassRole
 
 - You must have the following permissions to deregister a cluster:
+
   - eks:DeregisterCluster
   - ssm:DeleteActivation
   - ssm:DeregisterManagedInstance

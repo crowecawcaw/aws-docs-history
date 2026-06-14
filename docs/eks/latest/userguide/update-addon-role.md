@@ -7,6 +7,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 Certain Amazon EKS add-ons need IAM roles and permissions. Before you update an Amazon EKS add-on to use a Pod Identity association, verify the role and policy to use. For more information, see [Retrieve IAM information about an Amazon EKS add-on](retreive-iam-info.md "retreive-iam-info.md").
 
 1. Determine:
+
    - `cluster-name` – The name of the cluster to install the add-on onto.
    - `addon-name` – The name of the add-on to install.
    - `service-account-name` – The name of the Kubernetes Service Account used by the add-on.

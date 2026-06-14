@@ -20,6 +20,7 @@ If the multi-NIC feature is enabled, the VPC CNI doesn’t assign IP addresses i
 
 - Ensure that your Kubernetes cluster is running VPC CNI version `1.20.0` and later. The multi-NIC feature is only available in version `1.20.0` of the VPC CNI or later.
 - Enable the `ENABLE_MULTI_NIC` environment variable in the VPC CNI plugin. You can run the following command to set the variable and start a deployment of the DaemonSet.
+
   - `kubectl set env daemonset aws-node -n kube-system ENABLE_MULTI_NIC=true`
 
 - Ensure that you create worker nodes that have multiple network interface cards (NICs). For a list of EC2 instances that have multiple network interface cards, see [Network cards](../../../AWSEC2/latest/UserGuide/using-eni.md#network-cards "../../../AWSEC2/latest/UserGuide/using-eni.md#network-cards") in the **Amazon EC2 User Guide**.

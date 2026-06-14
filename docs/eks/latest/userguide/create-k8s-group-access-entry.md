@@ -25,12 +25,15 @@ This topic does not cover creating access entries for IAM identities used for Am
 ## Step 1: Define access entry
 
 1. Find the ARN of the IAM identity, such as a user or role, that you want to grant permissions to.
+
    - Each IAM identity can have only one EKS access entry.
 
 2. Determine which Kubernetes groups you want to associate with this IAM identity.
+
    - You will need to create or use existing Kubernetes `Role`/`ClusterRole` and `RoleBinding`/`ClusterRoleBinding` resources that reference these groups.
 
 3. Determine if the auto-generated username is appropriate for the access entry, or if you need to manually specify a username.
+
    - AWS auto-generates this value based on the IAM identity. You can set a custom username. This is visible in Kubernetes logs.
    - For more information, see [Set a custom username for EKS access entries](set-custom-username.md "set-custom-username.md").
 

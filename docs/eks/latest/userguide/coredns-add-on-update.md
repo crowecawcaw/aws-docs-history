@@ -27,6 +27,7 @@ kubectl get deployment coredns -n kube-system -o yaml > aws-k8s-coredns-old.yaml
 ```
 
 3. Update your add-on using the AWS CLI. If you want to use the AWS Management Console or `eksctl` to update the add-on, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md"). Copy the command that follows to your device. Make the following modifications to the command, as needed, and then run the modified command.
+
    - Replace `my-cluster` with the name of your cluster.
    - Replace `v1.11.3-eksbuild.1` with the latest version listed in the [latest version table](managing-coredns.md#coredns-versions "managing-coredns.md#coredns-versions") for your cluster version.
    - The `--resolve-conflicts`PRESERVE``option preserves existing configuration values for the add-on. If you’ve set custom values for add-on settings, and you don’t use this option, Amazon EKS overwrites your values with its default values. If you use this option, then we recommend testing any field and value changes on a non-production cluster before updating the add-on on your production cluster. If you change this value to`OVERWRITE`, all settings are changed to Amazon EKS default values. If you’ve set custom values for any settings, they might be overwritten with Amazon EKS default values. If you change this value to `none`, Amazon EKS doesn’t change the value of any settings, but the update might fail. If the update fails, you receive an error message to help you resolve the conflict.

@@ -15,6 +15,7 @@ Before you install the Hybrid Nodes gateway, confirm that your environment meets
 - **Hybrid connectivity** — A private connection between your VPC and on-premises environment is required. You can use AWS Direct Connect, AWS Site-to-Site VPN, or your own VPN solution. For more information, see [Prepare networking for hybrid nodes](hybrid-nodes-networking.md "hybrid-nodes-networking.md").
 - **VXLAN traffic allowed** — The security groups attached to the gateway EC2 instances must allow inbound and outbound UDP traffic on port 8472. On the hybrid node side, the on-premises firewall rules must also permit UDP port 8472 traffic to and from the gateway node IP addresses.
 - **IAM permissions for route table management** — The gateway requires the following EC2 actions to manage VPC route tables:
+
   - `ec2:DescribeRouteTables`
   - `ec2:CreateRoute`
   - `ec2:ReplaceRoute`

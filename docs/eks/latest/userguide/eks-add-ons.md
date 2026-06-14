@@ -86,14 +86,17 @@ If you are planning to enable EKS Auto Mode on an existing cluster, you may need
 AWS publishes multiple types of add-ons with different levels of support.
 
 - **AWS Add-ons:** These add-ons are built and fully supported by AWS.
+
   - Use an AWS add-on to work with other AWS services, such as Amazon EFS.
   - For more information, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md").
 
 - **AWS Marketplace Add-ons:** These add-ons are scanned by AWS and supported by an independent AWS partner.
+
   - Use a marketplace add-on to add valuable and sophisticated features to your cluster, such as monitoring with Splunk.
   - For more information, see [AWS Marketplace add-ons](workloads-add-ons-available-vendors.md "workloads-add-ons-available-vendors.md").
 
 - **Community Add-ons**: These add-ons are scanned by AWS but supported by the open source community.
+
   - Use a community add-on to reduce the complexity of installing common open source software, such as Kubernetes Metrics Server.
   - Community add-ons are packaged from source by AWS. AWS only validates community add-ons for version compatibility.
   - For more information, see [Community add-ons](community-addons.md "community-addons.md").

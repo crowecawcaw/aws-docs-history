@@ -45,6 +45,7 @@ You can use one of the following procedures to install the AWS Load Balancer Con
 - If you have deprecated versions of the AWS Load Balancer Controller installed, see [Migrate apps from deprecated ALB Ingress Controller](lbc-remove.md "lbc-remove.md").
 - Deprecated versions cannot be upgraded. They must be removed and a current version of the AWS Load Balancer Controller installed.
 - Deprecated versions include:
+
   - AWS ALB Ingress Controller for Kubernetes ("Ingress Controller"), a predecessor to the AWS Load Balancer Controller.
   - Any `0.1.`x`` version of the AWS Load Balancer Controller
 

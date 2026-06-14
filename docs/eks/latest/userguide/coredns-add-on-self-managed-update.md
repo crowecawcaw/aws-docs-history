@@ -29,12 +29,12 @@ v1.8.7-eksbuild.2
 ```
 
 3. If your current CoreDNS version is `v1.5.0` or later, but earlier than the version listed in the [CoreDNS versions](managing-coredns.md#coredns-versions "managing-coredns.md#coredns-versions") table, then skip this step. If your current version is earlier than `1.5.0`, then you need to modify the `ConfigMap` for CoreDNS to use the forward add-on, rather than the proxy add-on.
+
    1. Open the `ConfigMap` with the following command.
 
    ```
    kubectl edit configmap coredns -n kube-system
    ```
-
    2. Replace `proxy` in the following line with `forward`. Save the file and exit the editor.
 
    ```

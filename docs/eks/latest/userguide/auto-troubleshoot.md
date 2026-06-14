@@ -113,9 +113,11 @@ Provide    : /bin/ps
 You can use the AWS console to view the status of resources associated with your EKS Auto Mode cluster.
 
 - [EBS Volumes](https://console.aws.amazon.com/ec2/home#Volumes "https://console.aws.amazon.com/ec2/home#Volumes")
+
   - View EKS Auto Mode volumes by searching for the tag key `eks:eks-cluster-name`
 
 - [Load Balancers](https://console.aws.amazon.com/ec2/home#LoadBalancers "https://console.aws.amazon.com/ec2/home#LoadBalancers")
+
   - View EKS Auto Mode load balancers by searching for the tag key `eks:eks-cluster-name`
 
 - [EC2 Instances](https://console.aws.amazon.com/ec2/home#Instances "https://console.aws.amazon.com/ec2/home#Instances")
@@ -143,6 +145,7 @@ For more information, see [Managed resource visibility settings](../../../AWSEC2
 1. Navigate to CloudTrail console
 2. Select "Event History" from the left navigation pane
 3. Apply error code filters:
+
    - AccessDenied
    - UnauthorizedOperation
    - InvalidClientTokenId

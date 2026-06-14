@@ -73,6 +73,7 @@ You can create a cluster by using:
 You need to install the latest version of the `eksctl` command line tool. To install or update `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
 
 1. Create `cluster-config.yaml` to define a hybrid nodes-enabled Amazon EKS IPv4 cluster. Make the following replacements in your `cluster-config.yaml`. For a full list of settings, see the [eksctl documentation](https://eksctl.io/getting-started/ "https://eksctl.io/getting-started/").
+
    1. Replace `CLUSTER_NAME` with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
    2. Replace `AWS_REGION` with the AWS Region that you want to create your cluster in.
    3. Replace `K8S_VERSION` with any [Amazon EKS supported version](kubernetes-versions.md "kubernetes-versions.md").
@@ -82,6 +83,7 @@ You need to install the latest version of the `eksctl` command line tool. To ins
    7. Replace `REMOTE_NODE_CIDRS` with the on-premises node CIDR for your hybrid nodes.
    8. Replace `REMOTE_POD_CIDRS` with the on-premises pod CIDR for workloads running on hybrid nodes or remove the line from your configuration if you are not running webhooks on hybrid nodes. You must configure your `REMOTE_POD_CIDRS` if your CNI does not use Network Address Translation (NAT) or masquerading for pod IP addresses when pod traffic leaves your on-premises hosts. You must configure `REMOTE_POD_CIDRS` if you are running webhooks on hybrid nodes, see [Configure webhooks for hybrid nodes](hybrid-nodes-webhooks.md "hybrid-nodes-webhooks.md") for more information.
    9. Your on-premises node and pod CIDR blocks must meet the following requirements:
+
       1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16` , or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`.
       2. Not overlap with each other, the `VPC CIDR` for your cluster, or your Kubernetes service IPv4 CIDR
 
@@ -130,6 +132,7 @@ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/examp
 ```
 
 2. Create a `cfn-eks-parameters.json` and specify your configuration for each value.
+
    1. `CLUSTER_NAME`: name of the EKS cluster to be created
    2. `CLUSTER_ROLE_NAME`: name of the EKS cluster IAM role to be created. The default in the template is “EKSClusterRole”.
    3. `SUBNET1_ID`: the ID of the first subnet you created in the prerequisite steps
@@ -138,6 +141,7 @@ curl -OL 'https://raw.githubusercontent.com/aws/eks-hybrid/refs/heads/main/examp
    6. `REMOTE_NODE_CIDRS`: the on-premises node CIDR for your hybrid nodes
    7. `REMOTE_POD_CIDRS`: the on-premises pod CIDR for workloads running on hybrid nodes. You must configure your `REMOTE_POD_CIDRS` if your CNI does not use Network Address Translation (NAT) or masquerading for pod IP addresses when pod traffic leaves your on-premises hosts. You must configure `REMOTE_POD_CIDRS` if you are running webhooks on hybrid nodes, see [Configure webhooks for hybrid nodes](hybrid-nodes-webhooks.md "hybrid-nodes-webhooks.md") for more information.
    8. Your on-premises node and pod CIDR blocks must meet the following requirements:
+
       1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`.
       2. Not overlap with each other, the `VPC CIDR` for your cluster, or your Kubernetes service IPv4 CIDR.
 
@@ -187,6 +191,7 @@ aws cloudformation describe-stacks \
 ### Create hybrid nodes-enabled cluster - AWS CLI
 
 1. Run the following command to create a hybrid nodes-enabled EKS cluster. Before running the command, replace the following with your settings. For a full list of settings, see the [Create an Amazon EKS cluster](create-cluster.md "create-cluster.md") documentation.
+
    1. `CLUSTER_NAME`: name of the EKS cluster to be created
    2. `AWS_REGION`: AWS Region where the cluster will be created.
    3. `K8S_VERSION`: the Kubernetes version to use for your cluster. See Amazon EKS supported versions.
@@ -199,6 +204,7 @@ aws cloudformation describe-stacks \
    10. `REMOTE_NODE_CIDRS`: the on-premises node CIDR for your hybrid nodes.
    11. `REMOTE_POD_CIDRS` (optional): the on-premises pod CIDR for workloads running on hybrid nodes.
    12. Your on-premises node and pod CIDR blocks must meet the following requirements:
+
        1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`.
        2. Not overlap with each other, the `VPC CIDR` for your Amazon EKS cluster, or your Kubernetes service IPv4 CIDR.
 
@@ -229,14 +235,17 @@ aws eks describe-cluster \
 1. Open the Amazon EKS console at [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
 2. Choose Add cluster and then choose Create.
 3. On the Configure cluster page, enter the following fields:
+
    1. **Name** – A name for your cluster. The name can contain only alphanumeric characters (case-sensitive), hyphens, and underscores. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
    2. **Cluster IAM role** – Choose the Amazon EKS cluster IAM role that you created to allow the Kubernetes control plane to manage AWS resources on your behalf.
    3. **Kubernetes version** – The version of Kubernetes to use for your cluster. We recommend selecting the latest version, unless you need an earlier version.
    4. **Upgrade policy** - Choose either Extended or Standard.
+
       1. **Extended:** This option supports the Kubernetes version for 26 months after the release date. The extended support period has an additional hourly cost that begins after the standard support period ends. When extended support ends, your cluster will be auto upgraded to the next version.
       2. **Standard:** This option supports the Kubernetes version for 14 months after the release date. There is no additional cost. When standard support ends, your cluster will be auto upgraded to the next version.
 
    5. **Cluster access** - choose to allow or disallow cluster administrator access and select an authentication mode. The following authentication modes are supported for hybrid nodes-enabled clusters.
+
       1. **EKS API**: The cluster will source authenticated IAM principals only from EKS access entry APIs.
       2. **EKS API and ConfigMap**: The cluster will source authenticated IAM principals from both EKS access entry APIs and the `aws-auth` ConfigMap.
 
@@ -246,6 +255,7 @@ aws eks describe-cluster \
    9. When you’re done with this page, choose **Next**.
 
 4. On the **Specify networking** page, select values for the following fields:
+
    1. **VPC** – Choose an existing VPC that meets [View Amazon EKS networking requirements for VPC and subnets](network-reqs.md "network-reqs.md") and [Amazon EKS Hybrid Nodes requirements](hybrid-nodes-prereqs.md "hybrid-nodes-prereqs.md"). Before choosing a VPC, we recommend that you’re familiar with all of the requirements and considerations in View Amazon EKS networking requirements for VPC, subnets, and hybrid nodes. You can’t change which VPC you want to use after cluster creation. If no VPCs are listed, then you need to create one first. For more information, see [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md "creating-a-vpc.md") and the [Amazon EKS Hybrid Nodes networking requirements](hybrid-nodes-prereqs.md "hybrid-nodes-prereqs.md").
    2. **Subnets** – By default, all available subnets in the VPC specified in the previous field are preselected. You must select at least two.
    3. **Security groups** – (Optional) Specify one or more security groups that you want Amazon EKS to associate to the network interfaces that it creates. At least one of the security groups you specify must have inbound rules for your on-premises node and optionally pod CIDRs. See the [Amazon EKS Hybrid Nodes networking requirements](hybrid-nodes-networking.md "hybrid-nodes-networking.md") for more information. Whether you choose any security groups or not, Amazon EKS creates a security group that enables communication between your cluster and your VPC. Amazon EKS associates this security group, and any that you choose, to the network interfaces that it creates. For more information about the cluster security group that Amazon EKS creates, see [View Amazon EKS security group requirements for clusters](sec-group-reqs.md "sec-group-reqs.md") You can modify the rules in the cluster security group that Amazon EKS creates.
@@ -254,6 +264,7 @@ aws eks describe-cluster \
    6. **Choose Configure remote networks to enable hybrid nodes** and specify your on-premises node and pod CIDRs for hybrid nodes.
    7. You must configure your remote pod CIDR if your CNI does not use Network Address Translation (NAT) or masquerading for pod IP addresses when pod traffic leaves your on-premises hosts. You must configure the remote pod CIDR if you are running webhooks on hybrid nodes.
    8. Your on-premises node and pod CIDR blocks must meet the following requirements:
+
       1. Be within one of the IPv4 RFC-1918 ranges: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`, or within the CGNAT range defined by RFC 6598: `100.64.0.0/10`.
       2. Not overlap with each other, the `VPC CIDR` for your cluster, or your Kubernetes service IPv4 CIDR
 
@@ -261,16 +272,19 @@ aws eks describe-cluster \
    10. When you’re done with this page, choose **Next**.
 
 5. (Optional) On the **Configure** observability page, choose which Metrics and Control plane logging options to turn on. By default, each log type is turned off.
+
    1. For more information about the Prometheus metrics option, see [Monitor your cluster metrics with Prometheus](prometheus.md "prometheus.md").
    2. For more information about the EKS control logging options, see [Send control plane logs to CloudWatch Logs](control-plane-logs.md "control-plane-logs.md").
    3. When you’re done with this page, choose **Next**.
 
 6. On the **Select add-ons** page, choose the add-ons that you want to add to your cluster.
+
    1. You can choose as many **Amazon EKS add-ons** and **AWS Marketplace add-ons** as you require. Amazon EKS add-ons that are not compatible with hybrid nodes are marked with “Not compatible with Hybrid Nodes” and the add-ons have an anti-affinity rule to prevent them from running on hybrid nodes. See Configuring add-ons for hybrid nodes for more information. If the **AWS Marketplace** add-ons that you want to install isn’t listed, you can search for available **AWS Marketplace add-ons** by entering text in the search box. You can also search by **category**, **vendor**, or **pricing model** and then choose the add-ons from the search results.
    2. Some add-ons, such as CoreDNS and kube-proxy, are installed by default. If you disable any of the default add-ons, this may affect your ability to run Kubernetes applications.
    3. When you’re done with this page, choose `Next`.
 
 7. On the **Configure selected add-ons settings** page, select the version that you want to install.
+
    1. You can always update to a later version after cluster creation. You can update the configuration of each add-on after cluster creation. For more information about configuring add-ons, see [Update an Amazon EKS add-on](updating-an-add-on.md "updating-an-add-on.md"). For the add-ons versions that are compatible with hybrid nodes, see [Configure add-ons for hybrid nodes](hybrid-nodes-add-ons.md "hybrid-nodes-add-ons.md").
    2. When you’re done with this page, choose Next.
 

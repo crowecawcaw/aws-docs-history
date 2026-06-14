@@ -96,6 +96,7 @@ aws eks describe-cluster --name `CLUSTER_NAME` --region `REGION_NAME` --query cl
 ```
 
 - Verify you’re working with the intended node:
+
   - Confirm you’re on the correct node by checking its hostname and IP address match the one you intend to register with the cluster.
   - Confirm this node is in the correct on-premises network (the one whose CIDR range was registered as `RemoteNodeNetwork` during cluster setup).
 

@@ -50,11 +50,13 @@ This pattern decentralizes operations, with teams managing their own dedicated p
 Combine centralized and decentralized models, with centralized application deployments and resource management based on scope and ownership.
 
 - Hub cluster:
+
   - Argo CD manages GitOps deployments to the local cluster and all remote workload clusters
   - ACK is used on the management cluster for admin-scoped resources (production databases, IAM roles, VPCs)
   - kro is used on the management cluster for reusable platform abstractions
 
 - Spoke clusters:
+
   - Workloads are managed via Argo CD on the centralized hub cluster
   - ACK is used locally for workload-scoped resources (S3 buckets, ElastiCache instances, SQS queues)
   - kro is used locally for resource compositions and building block patterns

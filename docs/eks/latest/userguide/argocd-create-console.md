@@ -18,6 +18,7 @@ Create an Argo CD capability on your Amazon EKS cluster using the AWS Management
 4. In the left navigation, choose **Argo CD**.
 5. Choose **Create Argo CD capability**.
 6. For **IAM Capability Role**:
+
    - If you already have an IAM Capability Role, select it from the dropdown
    - If you need to create a role, choose **Create Argo CD role**
 
@@ -33,6 +34,7 @@ Create an Argo CD capability on your Amazon EKS cluster using the AWS Management
    For IAM policy examples and configuration guidance, see [Manage application secrets with AWS Secrets Manager](integration-secrets-manager.md "integration-secrets-manager.md") and [Connect to Git repositories with AWS CodeConnections](integration-codeconnections.md "integration-codeconnections.md").
 
 7. Configure AWS Identity Center integration:
+
    1. Select **Enable AWS Identity Center integration**.
    2. Choose your Identity Center instance from the dropdown.
    3. Configure role mappings for RBAC by assigning users or groups to Argo CD roles (ADMIN, EDITOR, or VIEWER)

@@ -70,36 +70,32 @@ Follow the steps below to install `kubectl` on macOS. The steps include:
 Procedure:
 
 1. Download the binary for your cluster’s Kubernetes version from Amazon S3.
+
    - Kubernetes `1.35`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/darwin/amd64/kubectl
    ```
-
    - Kubernetes `1.34`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.6/2026-04-08/bin/darwin/amd64/kubectl
    ```
-
    - Kubernetes `1.33`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.10/2026-04-08/bin/darwin/amd64/kubectl
    ```
-
    - Kubernetes `1.32`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.13/2026-04-08/bin/darwin/amd64/kubectl
    ```
-
    - Kubernetes `1.31`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.14/2026-04-08/bin/darwin/amd64/kubectl
    ```
-
    - Kubernetes `1.30`
 
    ```
@@ -107,37 +103,34 @@ Procedure:
    ```
 
 2. (Optional) Verify the downloaded binary with the `SHA-256` checksum for your binary.
+
    1. Download the `SHA-256` checksum for your cluster’s Kubernetes version.
+
       - Kubernetes `1.35`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/darwin/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.34`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.6/2026-04-08/bin/darwin/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.33`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.10/2026-04-08/bin/darwin/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.32`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.13/2026-04-08/bin/darwin/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.31`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.14/2026-04-08/bin/darwin/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.30`
 
       ```
@@ -149,7 +142,6 @@ Procedure:
    ```
    openssl sha1 -sha256 kubectl
    ```
-
    3. Make sure that the generated checksum in the output matches the checksum in the downloaded `kubectl.sha256` file.
 
 3. Apply execute permissions to the binary.
@@ -183,36 +175,32 @@ Follow the steps below to install `kubectl` on Linux (amd64). The steps include:
 Procedure:
 
 1. Download the `kubectl` binary for your cluster’s Kubernetes version from Amazon S3.
+
    - Kubernetes `1.35`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/linux/amd64/kubectl
    ```
-
    - Kubernetes `1.34`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.6/2026-04-08/bin/linux/amd64/kubectl
    ```
-
    - Kubernetes `1.33`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.10/2026-04-08/bin/linux/amd64/kubectl
    ```
-
    - Kubernetes `1.32`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.13/2026-04-08/bin/linux/amd64/kubectl
    ```
-
    - Kubernetes `1.31`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.14/2026-04-08/bin/linux/amd64/kubectl
    ```
-
    - Kubernetes `1.30`
 
    ```
@@ -220,37 +208,34 @@ Procedure:
    ```
 
 2. (Optional) Verify the downloaded binary with the `SHA-256` checksum for your binary.
+
    1. Download the `SHA-256` checksum for your cluster’s Kubernetes version from Amazon S3 using the command for your device’s hardware platform.
+
       - Kubernetes `1.35`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/linux/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.34`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.6/2026-04-08/bin/linux/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.33`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.10/2026-04-08/bin/linux/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.32`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.13/2026-04-08/bin/linux/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.31`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.14/2026-04-08/bin/linux/amd64/kubectl.sha256
       ```
-
       - Kubernetes `1.30`
 
       ```
@@ -268,7 +253,6 @@ Procedure:
    ```
    openssl sha1 -sha256 kubectl
    ```
-
    3. For the first, you should see `kubectl: OK`, for the second, you can check that the generated checksum in the output matches the checksum in the downloaded `kubectl.sha256` file.
 
 3. Apply execute permissions to the binary.
@@ -306,36 +290,32 @@ Follow the steps below to install `kubectl` on Linux (arm64). The steps include:
 Procedure:
 
 1. Download the `kubectl` binary for your cluster’s Kubernetes version from Amazon S3.
+
    - Kubernetes `1.35`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/linux/arm64/kubectl
    ```
-
    - Kubernetes `1.34`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.6/2026-04-08/bin/linux/arm64/kubectl
    ```
-
    - Kubernetes `1.33`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.10/2026-04-08/bin/linux/arm64/kubectl
    ```
-
    - Kubernetes `1.32`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.13/2026-04-08/bin/linux/arm64/kubectl
    ```
-
    - Kubernetes `1.31`
 
    ```
    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.14/2026-04-08/bin/linux/arm64/kubectl
    ```
-
    - Kubernetes `1.30`
 
    ```
@@ -343,37 +323,34 @@ Procedure:
    ```
 
 2. (Optional) Verify the downloaded binary with the `SHA-256` checksum for your binary.
+
    1. Download the `SHA-256` checksum for your cluster’s Kubernetes version from Amazon S3 using the command for your device’s hardware platform.
+
       - Kubernetes `1.35`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/linux/arm64/kubectl.sha256
       ```
-
       - Kubernetes `1.34`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.6/2026-04-08/bin/linux/arm64/kubectl.sha256
       ```
-
       - Kubernetes `1.33`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.10/2026-04-08/bin/linux/arm64/kubectl.sha256
       ```
-
       - Kubernetes `1.32`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.13/2026-04-08/bin/linux/arm64/kubectl.sha256
       ```
-
       - Kubernetes `1.31`
 
       ```
       curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.14/2026-04-08/bin/linux/arm64/kubectl.sha256
       ```
-
       - Kubernetes `1.30`
 
       ```
@@ -391,7 +368,6 @@ Procedure:
    ```
    openssl sha1 -sha256 kubectl
    ```
-
    3. For the first, you should see `kubectl: OK`, for the second, you can check that the generated checksum in the output matches the checksum in the downloaded `kubectl.sha256` file.
 
 3. Apply execute permissions to the binary.
@@ -429,36 +405,32 @@ Procedure:
 
 1. Open a PowerShell terminal.
 2. Download the `kubectl` binary for your cluster’s Kubernetes version from Amazon S3.
+
    - Kubernetes `1.35`
 
    ```
    curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/windows/amd64/kubectl.exe
    ```
-
    - Kubernetes `1.34`
 
    ```
    curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.6/2026-04-08/bin/windows/amd64/kubectl.exe
    ```
-
    - Kubernetes `1.33`
 
    ```
    curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.10/2026-04-08/bin/windows/amd64/kubectl.exe
    ```
-
    - Kubernetes `1.32`
 
    ```
    curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.13/2026-04-08/bin/windows/amd64/kubectl.exe
    ```
-
    - Kubernetes `1.31`
 
    ```
    curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.14/2026-04-08/bin/windows/amd64/kubectl.exe
    ```
-
    - Kubernetes `1.30`
 
    ```
@@ -466,37 +438,34 @@ Procedure:
    ```
 
 3. (Optional) Verify the downloaded binary with the `SHA-256` checksum for your binary.
+
    1. Download the `SHA-256` checksum for your cluster’s Kubernetes version for Windows.
+
       - Kubernetes `1.35`
 
       ```
       curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/windows/amd64/kubectl.exe.sha256
       ```
-
       - Kubernetes `1.34`
 
       ```
       curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.34.6/2026-04-08/bin/windows/amd64/kubectl.exe.sha256
       ```
-
       - Kubernetes `1.33`
 
       ```
       curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.10/2026-04-08/bin/windows/amd64/kubectl.exe.sha256
       ```
-
       - Kubernetes `1.32`
 
       ```
       curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.32.13/2026-04-08/bin/windows/amd64/kubectl.exe.sha256
       ```
-
       - Kubernetes `1.31`
 
       ```
       curl.exe -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.14/2026-04-08/bin/windows/amd64/kubectl.exe.sha256
       ```
-
       - Kubernetes `1.30`
 
       ```
@@ -508,10 +477,10 @@ Procedure:
    ```
    Get-FileHash kubectl.exe
    ```
-
    3. Make sure that the generated checksum in the output matches the checksum in the downloaded `kubectl.sha256` file. The PowerShell output should be an uppercase equivalent string of characters.
 
 4. Copy the binary to a folder in your `PATH`. If you have an existing directory in your `PATH` that you use for command line utilities, copy the binary to that directory. Otherwise, complete the following steps.
+
    1. Create a new directory for your command line binaries, such as `C:\bin`.
    2. Copy the `kubectl.exe` binary to your new directory.
    3. Edit your user or system `PATH` environment variable to add the new directory to your `PATH`.

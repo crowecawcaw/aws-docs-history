@@ -14,6 +14,7 @@ Create an ACK capability on your Amazon EKS cluster using the AWS Management Con
 4. In the left navigation, choose **AWS Controllers for Kubernetes (ACK)**.
 5. Choose **Create AWS Controllers for Kubernetes capability**.
 6. For **IAM Capability Role**:
+
    - If you already have an IAM Capability Role, select it from the dropdown
    - If you need to create a role, choose **Create admin role**
 

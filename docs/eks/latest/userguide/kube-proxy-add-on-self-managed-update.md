@@ -15,6 +15,7 @@ We recommend adding the Amazon EKS type of the add-on to your cluster instead of
 ## Considerations
 
 - `Kube-proxy` on an Amazon EKS cluster has the same [compatibility and skew policy as Kubernetes](https://kubernetes.io/releases/version-skew-policy/#kube-proxy "https://kubernetes.io/releases/version-skew-policy/#kube-proxy"). Learn how to [Verifying Amazon EKS add-on version compatibility with a cluster](addon-compat.md "addon-compat.md").
+
   1.  Confirm that you have the self-managed type of the add-on installed on your cluster. Replace `my-cluster` with the name of your cluster.
 
   ```
@@ -48,7 +49,6 @@ We recommend adding the Amazon EKS type of the add-on to your cluster instead of
   ```
   daemonset.apps/kube-proxy image updated
   ```
-
   4.  Confirm that the new version is now installed on your cluster.
 
   ```
@@ -60,7 +60,6 @@ We recommend adding the Amazon EKS type of the add-on to your cluster instead of
   ```
   v1.30.0-eksbuild.3
   ```
-
   5.  If you’re using `x86` and `Arm` nodes in the same cluster and your cluster was deployed before August 17, 2020. Then, edit your `kube-proxy` manifest to include a node selector for multiple hardware architectures with the following command. This is a one-time operation. After you’ve added the selector to your manifest, you don’t need to add it each time you update the add-on. If your cluster was deployed on or after August 17, 2020, then `kube-proxy` is already multi-architecture capable.
 
   ```
@@ -76,7 +75,6 @@ We recommend adding the Amazon EKS type of the add-on to your cluster instead of
     - amd64
     - arm64
   ```
-
   6.  If your cluster was originally created with Kubernetes version `1.14` or later, then you can skip this step because `kube-proxy` already includes this `Affinity Rule`. If you originally created an Amazon EKS cluster with Kubernetes version `1.13` or earlier and intend to use Fargate nodes in your cluster, then edit your `kube-proxy` manifest to include a `NodeAffinity` rule to prevent `kube-proxy` Pods from scheduling on Fargate nodes. This is a one-time edit. Once you’ve added the `Affinity Rule` to your manifest, you don’t need to add it each time that you update the add-on. Edit your `kube-proxy` DaemonSet.
 
   ```

@@ -7,6 +7,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 Remove the Pod Identity associations from an Amazon EKS add-on.
 
 1. Determine:
+
    - `cluster-name` - The name of the EKS cluster to install the add-on onto.
    - `addon-name` - The name of the Amazon EKS add-on to install.
 

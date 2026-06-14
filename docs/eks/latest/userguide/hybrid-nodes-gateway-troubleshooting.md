@@ -83,6 +83,7 @@ The gateway logs show errors related to VPC route table operations, and routes f
 **Diagnostic steps:**
 
 1. **Verify IAM permissions.** The gateway requires the following IAM actions:
+
    - `ec2:DescribeRouteTables`
    - `ec2:CreateRoute`
    - `ec2:ReplaceRoute`

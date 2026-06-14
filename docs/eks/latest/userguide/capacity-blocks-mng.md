@@ -72,6 +72,7 @@ When creating the Capacity Block managed node group, do the following:
 
 3. Make sure that the nodes join after scale up. Amazon EKS clusters using managed node groups with Capacity Blocks don’t perform any validations that instances launched actually join and register with the cluster.
 4. If you set `desiredSize` to `0` at create time, then you have different options to scale up the node group when the capacity reservation becomes active:
+
    - Create a scheduled scaling policy for the ASG that aligns to the Capacity Block reservation start time. For more information, see [Scheduled scaling for Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-scheduled-scaling.md") in the _Amazon EC2 Auto Scaling User Guide_.
    - Use the Amazon EKS console or `eks update-nodegroup-config` to update the scaling config and set the desired size of the node group.
    - Use the Kubernetes Cluster Autoscaler. For more information, see [Cluster Autoscaler on AWS](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md "https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md").

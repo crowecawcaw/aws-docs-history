@@ -31,6 +31,7 @@ kubectl get deployment coredns -n kube-system -o yaml > aws-k8s-coredns-old.yaml
 ```
 
 4. Create the add-on using the AWS CLI. If you want to use the AWS Management Console or `eksctl` to create the add-on, see [Create an Amazon EKS add-on](creating-an-add-on.md "creating-an-add-on.md") and specify `coredns` for the add-on name. Copy the command that follows to your device. Make the following modifications to the command, as needed, and then run the modified command.
+
    - Replace `my-cluster` with the name of your cluster.
    - Replace `v1.11.3-eksbuild.1` with the latest version listed in the [latest version table](managing-coredns.md#coredns-versions "managing-coredns.md#coredns-versions") for your cluster version.
 

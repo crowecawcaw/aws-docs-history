@@ -102,6 +102,7 @@ https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2023-02-09/amazon-e
 
 6.  Select **Next** twice.
 7.  On the **Quick create stack** page, enter the following parameters accordingly:
+
     - **Stack name**: Choose a stack name for your AWS CloudFormation stack. For example, you can call it `my-cluster-nodes`.
     - **ClusterName**: Enter the name that you used when you created your Amazon EKS cluster.
 
@@ -192,12 +193,12 @@ kubectl describe configmap -n kube-system aws-auth
         3. Save the file and exit your text editor.
 
 3.  If you received an error stating "`Error from server (NotFound): configmaps "aws-auth" not found`, then apply the stock `ConfigMap`.
+
     1. Download the configuration map.
 
     ```
     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm-windows.yaml
     ```
-
     2. In the `aws-auth-cm-windows.yaml` file, set the `rolearn` values to the applicable **NodeInstanceRole** values that you recorded in the previous procedures. You can do this with a text editor, or by replacing the example values and running the following command:
 
     ```
@@ -209,7 +210,6 @@ kubectl describe configmap -n kube-system aws-auth
 
         * Don’t modify any other lines in this file.
         * Don’t use the same IAM role for both Windows and Linux nodes.
-
     3. Apply the configuration. This command might take a few minutes to finish.
 
     ```

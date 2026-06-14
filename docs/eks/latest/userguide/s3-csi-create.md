@@ -124,12 +124,14 @@ eksctl create iamserviceaccount \
 2. In the left navigation pane, choose **Roles**.
 3. On the **Roles** page, choose **Create role**.
 4. On the **Select trusted entity** page, do the following:
+
    1. In the **Trusted entity type** section, choose **Web identity**.
    2. For **Identity provider**, choose the **OpenID Connect provider URL** for your cluster (as shown under **Overview** in Amazon EKS).
 
    If no URLs are shown, review the [Prerequisites](#s3-csi-prereqs "#s3-csi-prereqs"). 3. For **Audience**, choose `sts.amazonaws.com`. 4. Choose **Next**.
 
 5. On the **Add permissions** page, do the following:
+
    1. In the **Filter policies** box, enter AmazonS3CSIDriverPolicy.
 
    ###### Note
@@ -137,6 +139,7 @@ eksctl create iamserviceaccount \
    This policy was created in the previous section. 2. Select the check box to the left of the `AmazonS3CSIDriverPolicy` result that was returned in the search. 3. Choose **Next**.
 
 6. On the **Name, review, and create** page, do the following:
+
    1. For **Role name**, enter a unique name for your role, such as AmazonEKS_S3_CSI_DriverRole.
    2. Under **Add tags (Optional)**, add metadata to the role by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
    3. Choose **Create role**.
@@ -173,6 +176,7 @@ https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
 ```
 
 2. Create the IAM role, granting the Kubernetes service account the `AssumeRoleWithWebIdentity` action.
+
    1. Copy the following contents to a file named `aws-s3-csi-driver-trust-policy.json`. Replace `111122223333` with your account ID. Replace `EXAMPLED539D4633E53DE1B71EXAMPLE` and `region-code` with the values returned in the previous step.
 
    ```
@@ -195,7 +199,6 @@ https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
      ]
    }
    ```
-
    2. Create the role. You can change `AmazonEKS_S3_CSI_DriverRole` to a different name, but if you do, make sure to change it in later steps too.
 
    ```
@@ -291,10 +294,12 @@ addons:
 4. Choose the **Add-ons** tab.
 5. Choose **Get more add-ons**.
 6. On the **Select add-ons** page, do the following:
+
    1. In the **Amazon EKS-addons** section, select the **Mountpoint for Amazon S3 CSI Driver** check box.
    2. Choose **Next**.
 
 7. On the **Configure selected add-ons settings** page, do the following:
+
    1. Select the **Version** you’d like to use.
    2. For **Select IAM role**, select the name of an IAM role that you attached the Mountpoint for Amazon S3 CSI driver IAM policy to.
    3. (Optional) Update the **Conflict resolution method** after expanding the **Optional configuration settings**. If you select **Override**, one or more of the settings for the existing add-on can be overwritten with the Amazon EKS add-on settings. If you don’t enable this option and there’s a conflict with your existing settings, the operation fails. You can use the resulting error message to troubleshoot the conflict. Before selecting this option, make sure that the Amazon EKS add-on doesn’t manage settings that you need to self-manage.

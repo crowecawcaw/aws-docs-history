@@ -42,12 +42,14 @@ EKS Auto Mode streamlines the operation of your Amazon EKS clusters by automatin
 The following is a list of data plane components that are automated:
 
 - **Compute**: For many workloads, with EKS Auto Mode you can forget about many aspects of compute for your EKS clusters. These include:
+
   - **Nodes**: EKS Auto Mode nodes are designed to be treated like appliances. EKS Auto Mode does the following:
+
     - Chooses an appropriate AMI that’s configured with many services needed to run your workloads without intervention.
     - Locks down access to files on the AMI using SELinux enforcing mode and a read-only root file system.
     - Prevents direct access to the nodes by disallowing SSH or SSM access.
     - Includes GPU support, with separate kernel drivers and plugins for NVIDIA and Neuron GPUs, enabling high-performance workloads.
-    - Automatically handles [EC2 Spot Instance interruption notices](../../../AWSEC2/latest/UserGuide/spot-instance-termination-notices.md "../../../AWSEC2/latest/UserGuide/spot-instance-termination-notices.md") and EC2 Instance health events
+    - Automatically handles [EC2 Spot Instance interruption notices](../../../AWSEC2/latest/UserGuide/spot-instance-termination-notices.md "../../../AWSEC2/latest/UserGuide/spot-instance-termination-notices.md"), EC2 instance health/scheduled maintenance events, and EC2 instance status check failures
 
   - **Auto scaling**: Relying on [Karpenter](https://karpenter.sh/docs/ "https://karpenter.sh/docs/") auto scaling, EKS Auto Mode monitors for unschedulable Pods and makes it possible for new nodes to be deployed to run those pods. As workloads are terminated, EKS Auto Mode dynamically disrupts and terminates nodes when they are no longer needed, optimizing resource usage.
   - **Upgrades**: Taking control of your nodes streamlines EKS Auto Mode’s ability to provide security patches and operating system and component upgrades as needed. Those upgrades are designed to provide minimal disruption of your workloads. EKS Auto Mode enforces a 21-day maximum node lifetime to ensure up-to-date software and APIs.
@@ -65,6 +67,7 @@ While EKS Auto Mode will effectively manage most of your data plane services wit
 
 - **Kubernetes DaemonSets**: Rather than modify services installed on your nodes, you can instead use Kubernetes daemonsets. Daemonsets are designed to be managed by Kubernetes, but run on every node in the cluster. In this way, you can add special services for monitoring or otherwise watching over your nodes.
 - **Custom NodePools and NodeClasses**: Default NodePools and NodeClasses are configured by EKS Auto Mode and you should not edit them. To customize node behavior, you can create additional NodePools or NodeClasses for use cases such as:
+
   - Selecting specific instance types (for example, accelerated processors or EC2 Spot instances).
   - Isolating workloads for security or cost-tracking purposes.
   - Configuring ephemeral storage settings like IOPS, size, and throughput.
@@ -76,7 +79,7 @@ For more information about options for configuring EKS Auto Mode, see [Configure
 ## Shared responsibility model
 
 The AWS Shared Responsibility Model defines security and compliance responsibilities between AWS and customers.
-The images and text below compare and contrast how customer and AWS responsibilities differ between EKS Auto Mode and EKS standard mode.
+The following images and text compare and contrast how customer and AWS responsibilities differ between EKS Auto Mode and EKS standard mode.
 
 ![Shared responsibility model with EKS Auto Mode and standard mode](images/eksautosrm.png)
 

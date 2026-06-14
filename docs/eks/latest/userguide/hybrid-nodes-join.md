@@ -71,7 +71,9 @@ Before connecting your hybrid nodes to your cluster, make sure you have allowed 
 The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root access on your host.
 
 1. Create a `nodeConfig.yaml` file on each host with the values for your deployment. For a full description of the available configuration settings, see [Hybrid nodes nodeadm reference](hybrid-nodes-nodeadm.md "hybrid-nodes-nodeadm.md"). If your Hybrid Nodes IAM role does not have permission for the `eks:DescribeCluster` action, you must pass your Kubernetes API endpoint, cluster CA bundle, and Kubernetes service IPv4 CIDR in the cluster section of your `nodeConfig.yaml`.
+
    1. Use the `nodeConfig.yaml` example below if you are using AWS SSM hybrid activations for your on-premises credentials provider.
+
       1. Replace `CLUSTER_NAME` with the name of your cluster.
       2. Replace `AWS_REGION` with the AWS Region hosting your cluster. For example, `us-west-2`.
       3. Replace `ACTIVATION_CODE` with the activation code you received when creating your AWS SSM hybrid activation. See [Prepare credentials for hybrid nodes](hybrid-nodes-creds.md "hybrid-nodes-creds.md") for more information.
@@ -91,6 +93,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
       ```
 
    2. Use the `nodeConfig.yaml` example below if you are using AWS IAM Roles Anywhere for your on-premises credentials provider.
+
       1. Replace `CLUSTER_NAME` with the name of your cluster.
       2. Replace `AWS_REGION` with the AWS Region hosting your cluster. For example, `us-west-2`.
       3. Replace `NODE_NAME` with the name of your node. The node name must match the CN of the certificate on the host if you configured the trust policy of your Hybrid Nodes IAM role with the `"sts:RoleSessionName": "${aws:PrincipalTag/x509Subject/CN}"` resource condition. The `nodeName` you use must not be longer than 64 characters.

@@ -29,6 +29,7 @@ A lot of teams run EKS as the foundation for their platforms, making it the foca
 1. Performance metrics - This feature allows you to scrape network-related system metrics for pods and worker nodes directly from the Network Flow Monitor (NFM) Agent running in your EKS cluster.
 2. Service map - This feature dynamically visualizes intercommunication between workloads in the cluster, allowing you to quickly disclose key metrics (retransmissions - RT, retransmission timeouts - RTO, and data transferred - DT) associated with network flows between communicating pods.
 3. Flow table - With this table, you can monitor the top talkers across the Kubernetes workloads in your cluster from three different angles: AWS service view, cluster view, and external view. For each view, you can see the retransmissions, retransmission timeouts, and data transferred between the source pod and its destination.
+
    - AWS service view: Shows top talkers to AWS services (DynamoDB and S3)
    - Cluster view: Shows top talkers within the cluster (east ← to → west)
    - External view: Shows top talkers to cluster-external destinations outside AWS
@@ -299,6 +300,7 @@ Important note: system metrics are exported in [OpenMetrics](https://openmetrics
 
 1. When installed, the Network Flow Monitor agent runs as a DaemonSet on every worker node and collects the top 500 network flows (based on volume of data transferred) every 30 seconds.
 2. These network flows are sorted into the following categories: Intra AZ, Inter AZ, EC2 → S3, EC2 → DynamoDB (DDB), and Unclassified. Each flow has 3 metrics associated with it: retransmissions, retransmission timeouts, and data transferred (in bytes).
+
    - Intra AZ - network flows between pods in the same AZ
    - Inter AZ - network flows between pods in different AZs
    - EC2 → S3 - network flows from pods to S3
@@ -306,6 +308,7 @@ Important note: system metrics are exported in [OpenMetrics](https://openmetrics
    - Unclassified - network flows from pods to the Internet or on-prem
 
 3. Network flows from the Network Flow Monitor Top Contributors API are used to power the following experiences in the EKS console:
+
    - Service map: Visualization of network flows within the cluster (Intra AZ and Inter AZ).
    - Flow table: Table presentation of network flows within the cluster (Intra AZ and Inter AZ), from pods to AWS services (EC2 → S3 and EC2 → DDB), and from pods to external destinations (Unclassified).
 

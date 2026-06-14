@@ -208,6 +208,7 @@ No. Direct upgrade from v1 to v3 is not supported. You must first upgrade to v2,
 ## Additional Kubecost Features
 
 - The following features are available in Kubecost v1, v2, and v3.
+
   - **Export cost metrics** – Amazon EKS optimized cost monitoring is deployed with Kubecost. In v1 and v2, Kubecost integrates with Prometheus for metrics storage and processing. In v3, Kubecost uses a ClickHouse database for dramatically improved performance while maintaining OpenCost compatibility. For multi-cluster deployments in v3, metrics are stored in S3-compatible object storage (AWS S3 for EKS customers) instead of Prometheus-compatible storage. Kubecost reads metrics, performs cost allocation calculations, and provides data through its APIs and user interface. The architecture varies by version but maintains consistent functionality.
 
   ![Kubecost architecture](images/kubecost-architecture.png)

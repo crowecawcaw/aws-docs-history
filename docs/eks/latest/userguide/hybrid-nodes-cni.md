@@ -49,6 +49,7 @@ AWS provides technical support for the default configurations of the following c
 ## Cilium considerations
 
 - **Helm repository** - AWS hosts the Cilium Helm chart in the Amazon Elastic Container Registry Public (Amazon ECR Public) at [Amazon EKS Cilium/Cilium](https://gallery.ecr.aws/eks/cilium/cilium "https://gallery.ecr.aws/eks/cilium/cilium"). The available versions include:
+
   - Cilium v1.17.9: `oci://public.ecr.aws/eks/cilium/cilium:1.17.9-0`
   - Cilium v1.18.3: `oci://public.ecr.aws/eks/cilium/cilium:1.18.3-0`
 
@@ -65,6 +66,7 @@ AWS provides technical support for the default configurations of the following c
 ### Procedure
 
 1. Create a YAML file called `cilium-values.yaml`. The following example configures Cilium to run only on hybrid nodes by setting affinity for the `eks.amazonaws.com/compute-type: hybrid` label for the Cilium agent and operator.
+
    - Configure `clusterPoolIpv4PodCIDRList` with the same pod CIDRs you configured for your EKS cluster’s _remote pod networks_. For example, `10.100.0.0/24`. The Cilium operator allocates IP address slices from within the configured `clusterPoolIpv4PodCIDRList` IP space. Your pod CIDR must not overlap with your on-premises node CIDR, your VPC CIDR, or your Kubernetes service CIDR.
    - Configure `clusterPoolIpv4MaskSize` based on your required pods per node. For example, `25` for a /25 segment size of 128 pods per node.
    - Do not change `clusterPoolIpv4PodCIDRList` or `clusterPoolIpv4MaskSize` after deploying Cilium on your cluster, see [Expanding the cluster pool](https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/#expanding-the-cluster-pool "https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/#expanding-the-cluster-pool") for more information.
@@ -111,6 +113,7 @@ AWS provides technical support for the default configurations of the following c
    ```
 
 2. Install Cilium on your cluster.
+
    - Replace `CILIUM_VERSION` with a Cilium version (for example `1.17.9-0` or `1.18.3-0`). It is recommended to use the latest patch version for the Cilium minor version.
    - Ensure your nodes meet the kernel requirements for the version you choose. Cilium v1.18.3 requires Linux kernel >= 5.10.
    - If you are using a specific kubeconfig file, use the `--kubeconfig` flag with the Helm install command.

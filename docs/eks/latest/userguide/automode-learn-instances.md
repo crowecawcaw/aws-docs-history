@@ -101,14 +101,17 @@ For more information about the Amazon EC2 Instance Metadata Service (IMDS), see 
 ## Considerations
 
 - If the configured ephemeral storage in the NodeClass is smaller than the NVMe local storage for the instance, EKS Auto Mode eliminates the need for manual configuration by automatically taking the following actions:
+
   - Uses a smaller (20 GiB) Amazon EBS data volume to reduce costs.
   - Formats and configures the NVMe local storage for ephemeral data use. This includes setting up a RAID 0 array if there are multiple NVMe drives.
 
 - When `ephemeralStorage.size` equals or exceeds the local NVMe capacity, the following actions occur:
+
   - Auto Mode skips the small EBS volume.
   - The NVMe drive(s) are exposed directly for your workload.
 
 - Amazon EKS Auto Mode does not support the following AWS Fault Injection Service actions:
+
   - `ec2:RebootInstances`
   - `ec2:SendSpotInstanceInterruptions`
   - `ec2:StartInstances`

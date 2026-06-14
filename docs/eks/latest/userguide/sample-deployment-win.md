@@ -28,6 +28,7 @@ kubectl create namespace eks-sample-app
 This sample deployment pulls a container image from a public repository and deploys three replicas (individual Pods) of it to your cluster. To learn more, see [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/ "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/") in the Kubernetes documentation.
 
 1. Save the following contents to a file named `eks-sample-deployment.yaml`. The containers in the sample application don’t use network storage, but you might have applications that need to. For more information, see [Use application data storage for your cluster](storage.md "storage.md").
+
    - The `kubernetes.io/os: windows`
      `nodeSelector` means that if you had Windows and Linux nodes (for example) in your cluster, the image would only be deployed to Windows nodes. For more information, see [Well-Known Labels, Annotations and Taints](https://kubernetes.io/docs/reference/labels-annotations-taints/ "https://kubernetes.io/docs/reference/labels-annotations-taints/") in the Kubernetes documentation.
 

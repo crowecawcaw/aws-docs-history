@@ -97,6 +97,7 @@ Make sure that the AWS Region shown in the upper right of your console is the AW
     4. Leave the remaining settings at their default values and choose **Next**.
 
 6. On the **Specify networking** page, do the following:
+
    1. Choose the ID of the VPC that you created in a previous step from the **VPC** dropdown list. It is something like `* | my-eks-vpc-stack-VPC`.
    2. Choose the subnets created in a previous step from the **Subnets** dropdown list. The subnets will be something like `* | my-eks-vpc-stack-*`.
    3. Choose the security group created in a previous step from the **Additional security groups** dropdown list. It is something like `* | my-eks-vpc-stack-ControlPlaneSecurityGroup-*`.
@@ -173,6 +174,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
 **To create your EC2 Linux managed node group**
 
 1. Create a node IAM role and attach the required Amazon EKS IAM managed policy to it. The Amazon EKS node `kubelet` daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API calls through an IAM instance profile and associated policies.
+
    1. Copy the following contents to a file named `node-role-trust-policy.json`.
 
    ```
@@ -189,7 +191,6 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
      ]
    }
    ```
-
    2. Create the node IAM role.
 
    ```
@@ -197,7 +198,6 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
      --role-name myAmazonEKSNodeRole \
      --assume-role-policy-document file://"node-role-trust-policy.json"
    ```
-
    3. Attach the required managed IAM policies to the role.
 
    ```
@@ -211,7 +211,6 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
      --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
      --role-name myAmazonEKSNodeRole
    ```
-
    4. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    5. Choose the name of the cluster that you created in [Step 1: Create your Amazon EKS cluster](#eks-create-cluster "#eks-create-cluster"), such as `my-cluster`.
    6. On the **`my-cluster`** page, do the following:
@@ -219,6 +218,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
    8. Choose **Add Node Group**.
 
 2. On the **Configure Node Group** page, do the following:
+
    1. For **Name**, enter a unique name for your managed node group, such as `my-nodegroup`. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
    2. For **Node IAM role name**, choose `myAmazonEKSNodeRole` role that you created in a previous step. We recommend that each node group use its own unique IAM role.
    3. Choose **Next**.
@@ -234,6 +234,7 @@ You can view your nodes and Kubernetes workloads.
 
 1. In the left navigation pane, choose **Clusters**. In the list of **Clusters**, choose the name of the cluster that you created, such as `my-cluster`.
 2. On the **`my-cluster`** page, choose the following:
+
    1. **Compute**
       tab – You see the list of **Nodes** that were deployed for the cluster. You can choose the name of a node to see more information about it.
    2. **Resources** tab
@@ -244,6 +245,7 @@ You can view your nodes and Kubernetes workloads.
 After you’ve finished with the cluster and nodes that you created for this tutorial, you should delete the resources that you created. If you want to do more with this cluster before you delete the resources, see [Next steps](#gs-console-next-steps "#gs-console-next-steps").
 
 1. Delete any node groups or Fargate profiles that you created.
+
    1. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    2. In the left navigation pane, choose **Clusters**. In the list of clusters, choose `my-cluster`.
    3. Choose the **Compute** tab.
@@ -251,16 +253,19 @@ After you’ve finished with the cluster and nodes that you created for this tut
    5. Don’t continue until the node group profiles are deleted.
 
 2. Delete the cluster.
+
    1. In the left navigation pane, choose **Clusters**. In the list of clusters, choose `my-cluster`.
    2. Choose **Delete cluster**.
    3. Enter `my-cluster` and then choose **Delete**. Don’t continue until the cluster is deleted.
 
 3. Delete the VPC AWS CloudFormation stack that you created.
+
    1. Open the CloudFormation console at https://console.aws.amazon.com/cloudformation/.
    2. Choose the `my-eks-vpc-stack` stack, and then choose **Delete**.
    3. In the **Delete `my-eks-vpc-stack`** confirmation dialog box, choose **Delete stack**.
 
 4. Delete the IAM roles that you created.
+
    1. Open the IAM console at https://console.aws.amazon.com/iam/.
    2. In the left navigation pane, choose **Roles**.
    3. Select each role you created from the list (**`myAmazonEKSClusterRole`**, as well as `myAmazonEKSNodeRole`). Choose **Delete**, enter the requested confirmation text, then choose **Delete**.

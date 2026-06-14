@@ -10,6 +10,7 @@ There are several scenarios where it’s useful to update your Amazon EKS manage
 
 - You have updated the Kubernetes version for your Amazon EKS cluster and want to update your nodes to use the same Kubernetes version.
 - A new AMI release version is available for your managed node group. For more information about AMI versions, see these sections:
+
   - [Retrieve Amazon Linux AMI version information](eks-linux-ami-versions.md "eks-linux-ami-versions.md")
   - [Create nodes with optimized Bottlerocket AMIs](eks-optimized-ami-bottlerocket.md "eks-optimized-ami-bottlerocket.md")
   - [Retrieve Windows AMI version information](eks-ami-versions-windows.md "eks-ami-versions-windows.md")
@@ -77,10 +78,12 @@ You won’t see a notification for node groups that were deployed with a custom 
     3. Upgrade the nodes to the new version of the launch template.
 
 4. On the **Update node group version** dialog box, activate or deactivate the following options:
+
    - **Update node group version** – This option is unavailable if you deployed a custom AMI or your Amazon EKS optimized AMI is currently on the latest version for your cluster.
    - **Change launch template version** – This option is unavailable if the node group is deployed without a custom launch template. You can only update the launch template version for a node group that has been deployed with a custom launch template. Select the **Launch template version** that you want to update the node group to. If your node group is configured with a custom AMI, then the version that you select must also specify an AMI. When you upgrade to a newer version of your launch template, every node is recycled to match the new configuration of the launch template version specified.
 
 5. For **Update strategy**, select one of the following options:
+
    - **Rolling update** – This option respects the Pod disruption budgets for your cluster. Updates fail if there’s a Pod disruption budget issue that causes Amazon EKS to be unable to gracefully drain the Pods that are running on this node group.
    - **Force update** – This option doesn’t respect Pod disruption budgets. Updates occur regardless of Pod disruption budget issues by forcing node restarts to occur.
 
@@ -95,7 +98,9 @@ You can modify some of the configurations of a managed node group.
 3. Select the **Compute** tab.
 4. Select the node group to edit, and then choose **Edit**.
 5. (Optional) On the **Edit node group** page, do the following:
+
    1. Edit the **Node group scaling configuration**.
+
       - **Desired size** – Specify the current number of nodes that the managed node group should maintain.
       - **Minimum size** – Specify the minimum number of nodes that the managed node group can scale in to.
       - **Maximum size** – Specify the maximum number of nodes that the managed node group can scale out to. For the maximum number of nodes supported in a node group, see [View and manage Amazon EKS and Fargate service quotas](service-quotas.md "service-quotas.md").
@@ -104,6 +109,7 @@ You can modify some of the configurations of a managed node group.
    3. (Optional) Add or remove **Kubernetes taints** to the nodes in your node group. Added taints can have the effect of either `**NoSchedule**`, `**NoExecute**`, or `**PreferNoSchedule**`. For more information, see [Recipe: Prevent pods from being scheduled on specific nodes](node-taints-managed-node-groups.md "node-taints-managed-node-groups.md").
    4. (Optional) Add or remove **Tags** from your node group resource. These tags are only applied to the Amazon EKS node group. They don’t propagate to other resources, such as subnets or Amazon EC2 instances in the node group.
    5. (Optional) Edit the **Node Group update configuration**. Select either **Number** or **Percentage**.
+
       - **Number** – Select and specify the number of nodes in your node group that can be updated in parallel. These nodes will be unavailable during update.
       - **Percentage** – Select and specify the percentage of nodes in your node group that can be updated in parallel. These nodes will be unavailable during update. This is useful if you have many nodes in your node group.
 

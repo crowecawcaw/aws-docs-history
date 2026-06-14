@@ -28,13 +28,13 @@ During network disconnects, the Kubernetes node lifecycle controller marks unrea
 AWS Identity and Access Management (IAM) isn’t available during network disconnects. You can’t authenticate to your local cluster using IAM credentials while disconnected. However, you can connect to your cluster over your local network using `x509` certificates when disconnected. You need to download and store a client `X509` certificate to use during disconnects. In this topic, you learn how to create and use the certificate to authenticate to your cluster when it’s in a disconnected state.
 
 1. Create a certificate signing request.
+
    1. Generate a certificate signing request.
 
    ```
    openssl req -new -newkey rsa:4096 -nodes -days 365 \
        -keyout admin.key -out admin.csr -subj "/CN=admin"
    ```
-
    2. Create a certificate signing request in Kubernetes.
 
    ```
@@ -91,12 +91,12 @@ admin-csr  11m   kubernetes-admin              Approved
 ```
 
 6. Retrieve and verify the certificate.
+
    1. Retrieve the certificate.
 
    ```
    kubectl get csr admin-csr -o jsonpath='{.status.certificate}' | base64 --decode > admin.crt
    ```
-
    2. Verify the certificate.
 
    ```

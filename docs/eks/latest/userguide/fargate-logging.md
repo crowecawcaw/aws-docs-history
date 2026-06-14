@@ -25,6 +25,7 @@ For logs to be successfully published, there must be network access from the VPC
 In the following steps, replace every `example value` with your own values.
 
 1. Create a dedicated Kubernetes namespace named `aws-observability`.
+
    1. Save the following contents to a file named `aws-observability-namespace.yaml` on your computer. The value for `name` must be `aws-observability` and the `aws-observability: enabled` label is required.
 
    ```
@@ -35,7 +36,6 @@ In the following steps, replace every `example value` with your own values.
      labels:
        aws-observability: enabled
    ```
-
    2. Create the namespace.
 
    ```
@@ -226,6 +226,7 @@ You have two output options when sending logs to Firehose:
     	```
 
 3. Set up permissions for the Fargate Pod execution role to send logs to your destination.
+
    1. Download the IAM policy for your destination to your computer.
 
    ###### Example
@@ -252,13 +253,11 @@ You have two output options when sending logs to Firehose:
    ```
    curl -O https://raw.githubusercontent.com/aws-samples/amazon-eks-fluent-logging-examples/mainline/examples/fargate/kinesis-firehose/permissions.json
    ```
-
    2. Create an IAM policy from the policy file that you downloaded.
 
    ```
    aws iam create-policy --policy-name eks-fargate-logging-policy --policy-document file://permissions.json
    ```
-
    3. Attach the IAM policy to the pod execution role specified for your Fargate profile with the following command. Replace `111122223333` with your account ID. Replace `AmazonEKSFargatePodExecutionRole` with your Pod execution role (for more information, see [Step 2: Create a Fargate Pod execution role](fargate-getting-started.md#fargate-sg-pod-execution-role "fargate-getting-started.md#fargate-sg-pod-execution-role")).
 
    ```
@@ -332,6 +331,7 @@ Shipping Fluent Bit process logs to CloudWatch requires additional log ingestion
 ## Test application
 
 1. Deploy a sample Pod.
+
    1. Save the following contents to a file named `sample-app.yaml` on your computer.
 
    ```
@@ -357,7 +357,6 @@ Shipping Fluent Bit process logs to CloudWatch requires additional log ingestion
                - name: http
                  containerPort: 80
    ```
-
    2. Apply the manifest to the cluster.
 
    ```

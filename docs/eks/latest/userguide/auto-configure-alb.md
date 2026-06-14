@@ -22,6 +22,7 @@ EKS Auto Mode creates and configures Application Load Balancers (ALBs). For exam
 
 - EKS Auto Mode Enabled on an Amazon EKS Cluster
 - Kubectl configured to connect to your cluster
+
   - You can use `kubectl apply -f <filename>` to apply the sample configuration YAML files below to your cluster.
 
 ###### Note

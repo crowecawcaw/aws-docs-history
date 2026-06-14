@@ -539,6 +539,7 @@ The encapsulated packet now enters the regular networking stack of Node 1 and is
 
 1. **Node Network Processing**: Node 1’s network stack routes the packet based on its destination (`10.80.0.3`)
 2. **Local Network Delivery**:
+
    - If both nodes are on the same Layer 2 network, the packet is sent directly to Node 2
    - If they’re on different subnets, the packet is forwarded to the local router first
 

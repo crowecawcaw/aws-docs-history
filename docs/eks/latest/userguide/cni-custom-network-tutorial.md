@@ -28,6 +28,7 @@ account_id=$(aws sts get-caller-identity --query Account --output text)
 ```
 
 2. Create a VPC.
+
    1. If you are deploying to a test system, create a VPC using an Amazon EKS AWS CloudFormation template.
 
    ```
@@ -39,7 +40,6 @@ account_id=$(aws sts get-caller-identity --query Account --output text)
      ParameterKey=PublicSubnet01Block,ParameterValue=192.168.0.0/27 \
      ParameterKey=PublicSubnet02Block,ParameterValue=192.168.0.32/27
    ```
-
    2. The AWS CloudFormation stack takes a few minutes to create. To check on the stack’s deployment status, run the following command.
 
    ```
@@ -54,7 +54,6 @@ account_id=$(aws sts get-caller-identity --query Account --output text)
    subnet_id_2=$(aws cloudformation describe-stack-resources --stack-name my-eks-custom-networking-vpc \
        --query "StackResources[?LogicalResourceId=='PrivateSubnet02'].PhysicalResourceId" --output text)
    ```
-
    4. Define variables with the Availability Zones of the subnets retrieved in the previous step.
 
    ```
@@ -63,6 +62,7 @@ account_id=$(aws sts get-caller-identity --query Account --output text)
    ```
 
 3. Create a cluster IAM role.
+
    1. Run the following command to create an IAM trust policy JSON file.
 
    ```
@@ -79,13 +79,11 @@ account_id=$(aws sts get-caller-identity --query Account --output text)
      ]
    }
    ```
-
    2. Create the Amazon EKS cluster IAM role. If necessary, preface `eks-cluster-role-trust-policy.json` with the path on your computer that you wrote the file to in the previous step. The command associates the trust policy that you created in the previous step to the role. To create an IAM role, the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") that is creating the role must be assigned the `iam:CreateRole` action (permission).
 
    ```
    aws iam create-role --role-name myCustomNetworkingAmazonEKSClusterRole --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
    ```
-
    3. Attach the Amazon EKS managed policy named [AmazonEKSClusterPolicy](../../../aws-managed-policy/latest/reference/AmazonEKSClusterPolicy.md#AmazonEKSClusterPolicy-json "../../../aws-managed-policy/latest/reference/AmazonEKSClusterPolicy.md#AmazonEKSClusterPolicy-json") to the role. To attach an IAM policy to an [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal"), the principal that is attaching the policy must be assigned one of the following IAM actions (permissions): `iam:AttachUserPolicy` or `iam:AttachRolePolicy`.
 
    ```
@@ -93,6 +91,7 @@ account_id=$(aws sts get-caller-identity --query Account --output text)
    ```
 
 4. Create an Amazon EKS cluster and configure your device to communicate with it.
+
    1. Create a cluster.
 
    ```
@@ -183,6 +182,7 @@ vpc_id=$(aws eks describe-cluster --name my-custom-networking-cluster --query "c
     Don’t proceed to the next step until your new CIDR block’s `State` is `associated`.
 
 4.  Create as many subnets as you want to use in each Availability Zone that your existing subnets are in. Specify a CIDR block that’s within the CIDR block that you associated with your VPC in a previous step.
+
     1. Create new subnets. Replace the CIDR block values in the following command. The subnets must be created in a different VPC CIDR block than your existing subnets are in, but in the same Availability Zones as your existing subnets. In this example, one subnet is created in the new CIDR block in each Availability Zone that the current private subnets exist in. The IDs of the subnets created are stored in variables for use in later steps. The `Name` values match the values assigned to the subnets created using the Amazon EKS VPC template in a previous step. Names aren’t required. You can use different names.
 
     ```
@@ -238,6 +238,7 @@ cluster_security_group_id=$(aws eks describe-cluster --name my-custom-networking
 ```
 
 3.  Create an `ENIConfig` custom resource for each subnet that you want to deploy Pods in.
+
     1. Create a unique file for each network interface configuration.
 
     The following commands create separate `ENIConfig` files for the two subnets that were created in a previous step. The value for `name` must be unique. The name is the same as the Availability Zone that the subnet is in. The cluster security group is assigned to the `ENIConfig`.
@@ -287,7 +288,6 @@ cluster_security_group_id=$(aws eks describe-cluster --name my-custom-networking
 
         * `AWS_VPC_K8S_CNI_EXTERNALSNAT=false` is a default setting in the configuration for the Amazon VPC CNI plugin for Kubernetes. If you’re using the default setting, then traffic that is destined for IP addresses that aren’t within one of the CIDR blocks associated with your VPC use the security groups and subnets of your node’s primary network interface. The subnets and security groups defined in your `ENIConfigs` that are used to create secondary network interfaces aren’t used for this traffic. For more information about this setting, see [Enable outbound internet access for Pods](external-snat.md "external-snat.md").
         * If you also use security groups for Pods, the security group that’s specified in a `SecurityGroupPolicy` is used instead of the security group that’s specified in the `ENIConfigs`. For more information, see [Assign security groups to individual Pods](security-groups-for-pods.md "security-groups-for-pods.md").
-
     2. Apply each custom resource file that you created to your cluster with the following commands.
 
     ```
@@ -336,6 +336,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
 ## Step 4: Deploy Amazon EC2 nodes
 
 1. Create a node IAM role.
+
    1. Run the following command to create an IAM trust policy JSON file.
 
    ```
@@ -352,14 +353,12 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
      ]
    }
    ```
-
    2. Create an IAM role and store its returned Amazon Resource Name (ARN) in a variable for use in a later step.
 
    ```
    node_role_arn=$(aws iam create-role --role-name myCustomNetworkingNodeRole --assume-role-policy-document file://"node-role-trust-relationship.json" \
        --query Role.Arn --output text)
    ```
-
    3. Attach three required IAM managed policies to the IAM role.
 
    ```
@@ -379,15 +378,17 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
    For simplicity in this tutorial, the [AmazonEKS_CNI_Policy](../../../aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.md "../../../aws-managed-policy/latest/reference/AmazonEKS_CNI_Policy.md") policy is attached to the node IAM role. In a production cluster however, we recommend attaching the policy to a separate IAM role that is used only with the Amazon VPC CNI plugin for Kubernetes. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md").
 
 2. Create one of the following types of node groups. To determine the instance type that you want to deploy, see [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md "choosing-instance-type.md"). For this tutorial, complete the **Managed**, **Without a launch template or with a launch template without an AMI ID specified** option. If you’re going to use the node group for production workloads, then we recommend that you familiarize yourself with all of the [managed node group](create-managed-node-group.md "create-managed-node-group.md") and [self-managed node group](worker.md "worker.md") options before deploying the node group.
+
    - **Managed** – Deploy your node group using one of the following options:
+
      - **Without a launch template or with a launch template without an AMI ID specified** – Run the following command. For this tutorial, use the example values. For a production node group, replace all example values with your own. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
 
      ```
      aws eks create-nodegroup --cluster-name my-custom-networking-cluster --nodegroup-name my-nodegroup \
          --subnets $subnet_id_1 $subnet_id_2 --instance-types t3.medium --node-role $node_role_arn
      ```
-
      - **With a launch template with a specified AMI ID**
+
        1. Determine the maximum number of Pods for your nodes based on your instance type. For more information, see [How maxPods is determined](choosing-instance-type.md#max-pods-precedence "choosing-instance-type.md#max-pods-precedence"). Note the value for use in the next step.
        2. In your launch template, specify an Amazon EKS optimized AMI ID, or a custom AMI built off the Amazon EKS optimized AMI, then [deploy the node group using a launch template](launch-templates.md "launch-templates.md") and provide the following user data in the launch template. This user data passes arguments into the `NodeConfig` specification. For more information about NodeConfig, see the [NodeConfig API reference](https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/api/#nodeconfig "https://awslabs.github.io/amazon-eks-ami/nodeadm/doc/api/#nodeconfig"). You can replace `20` with either the value from the previous step (recommended) or your own value.
 
@@ -413,6 +414,7 @@ Enable Kubernetes to automatically apply the `ENIConfig` for an Availability Zon
        If you’ve created a custom AMI that is not built off the Amazon EKS optimized AMI, then you need to custom create the configuration yourself.
 
    - **Self-managed**
+
      1. Determine the maximum number of Pods for your nodes based on your instance type. For more information, see [How maxPods is determined](choosing-instance-type.md#max-pods-precedence "choosing-instance-type.md#max-pods-precedence"). Note the value for use in the next step.
      2. Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md").
 
@@ -534,6 +536,7 @@ An error occurred (ResourceNotFoundException) when calling the DescribeNodegroup
 ```
 
 3. If the node group that you created was just for testing, then delete the node IAM role.
+
    1. Detach the policies from the role.
 
    ```
@@ -541,7 +544,6 @@ An error occurred (ResourceNotFoundException) when calling the DescribeNodegroup
    aws iam detach-role-policy --role-name myCustomNetworkingNodeRole --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
    aws iam detach-role-policy --role-name myCustomNetworkingNodeRole --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
    ```
-
    2. Delete the role.
 
    ```
@@ -567,12 +569,12 @@ An error occurred (ResourceNotFoundException) when calling the DescribeCluster o
 ```
 
 5. Delete the cluster IAM role.
+
    1. Detach the policies from the role.
 
    ```
    aws iam detach-role-policy --role-name myCustomNetworkingAmazonEKSClusterRole --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
    ```
-
    2. Delete the role.
 
    ```

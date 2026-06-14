@@ -101,6 +101,7 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-26/
 6.  Select the `amazon-eks-nodegroup.yaml` file that you downloaded.
 7.  Select **Next**.
 8.  On the **Specify stack details** page, enter the following parameters accordingly, and then choose **Next**:
+
     - **Stack name**: Choose a stack name for your AWS CloudFormation stack. For example, you can call it `my-cluster-nodes`. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
     - **ClusterName**: Enter the name that you used when you created your Amazon EKS cluster. This name must equal the cluster name or your nodes can’t join the cluster.
     - **ClusterControlPlaneSecurityGroup**: Choose the **SecurityGroups** value from the AWS CloudFormation output that you generated when you created your [VPC](creating-a-vpc.md "creating-a-vpc.md").
@@ -111,7 +112,6 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-26/
         2. Choose the name of the cluster.
         3. Choose the **Networking** tab.
         4. Use the **Additional security groups** value as a reference when selecting from the **ClusterControlPlaneSecurityGroup** dropdown list.
-
     - **ApiServerEndpoint**: Enter the API Server Endpoint for your EKS Cluster. This can be found in the Details section of the EKS Cluster Console
     - **CertificateAuthorityData**: Enter the base64 encoded Certificate Authority data which can also be found in the EKS Cluster Console’s Details section.
     - **ServiceCidr**: Enter the CIDR range used for allocating IP addresses to Kubernetes services within the cluster. This is found within the networking tab of the EKS Cluster Console.
@@ -187,18 +187,17 @@ kubectl describe configmap -n kube-system aws-auth
         3. Save the file and exit your text editor.
 
 3.  If you received an error stating "`Error from server (NotFound): configmaps "aws-auth" not found`, then apply the stack `ConfigMap`.
+
     1. Download the configuration map.
 
     ```
     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
     ```
-
     2. In the `aws-auth-cm.yaml` file, set the `rolearn` value to the **NodeInstanceRole** value that you recorded in the previous procedure. You can do this with a text editor, or by replacing `my-node-instance-role` and running the following command:
 
     ```
     sed -i.bak -e 's|<ARN of instance role (not instance profile)>|my-node-instance-role|' aws-auth-cm.yaml
     ```
-
     3. Apply the configuration. This command may take a few minutes to finish.
 
     ```

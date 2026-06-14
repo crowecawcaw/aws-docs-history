@@ -26,15 +26,19 @@ This approach is recommended for most use cases because it provides AWS-managed,
 ## Step 1: Define access entry
 
 1. Find the ARN of IAM identity, such as a user or role, that you want to grant permissions to.
+
    - Each IAM identity can have only one EKS access entry.
 
 2. Determine if you want the Amazon EKS access policy permissions to apply to only a specific Kubernetes namespace, or across the entire cluster.
+
    - If you want to limit the permissions to a specific namespace, make note of the namespace name.
 
 3. Select the EKS access policy you want for the IAM identity. This policy gives in-cluster permissions. Note the ARN of the policy.
+
    - For a list of policies, see [available access policies](access-policy-permissions.md "access-policy-permissions.md").
 
 4. Determine if the auto-generated username is appropriate for the access entry, or if you need to manually specify a username.
+
    - AWS auto-generates this value based on the IAM identity. You can set a custom username. This is visible in Kubernetes logs.
    - For more information, see [Set a custom username for EKS access entries](set-custom-username.md "set-custom-username.md").
 

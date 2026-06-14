@@ -106,6 +106,7 @@ The most common issues are the following:
 - One of the new Kubernetes control-plane instances may have experienced an unexpected bootstrapping failure. Please file a ticket with [AWS Support Center](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") for further guidance on troubleshooting and log-collection in this exceptional case.
 
 - AMI issues:
+
   - You’re using an incompatible AMI. Only Amazon EKS optimized Amazon Linux 2023 AMIs are supported. For more information, see [Create Amazon Linux nodes on AWS Outposts](eks-outposts-self-managed-nodes.md "eks-outposts-self-managed-nodes.md").
   - If you used an AWS CloudFormation template to create your nodes, make sure it wasn’t using an unsupported AMI.
 

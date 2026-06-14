@@ -15,6 +15,7 @@ To see the list of insight checks performed and any relevant issues that Amazon 
 3. Choose **Monitor cluster**.
 4. Choose the **Cluster health** tab.
 5. In the **Configuration insights** table, you will see the following columns:
+
    - **Name** – The check that was performed by Amazon EKS against the cluster.
    - **Insight status** – An insight with a status of `Error` means that there is a misconfiguration that is likely impacting cluster functionality. An insight with a status of `Warning` means that the configuration doesn’t match the documented approach, but that cluster functionality might work if you configured it intentionally. An insight with status of `Passing` means Amazon EKS has not found any issues associated with this insight check in your cluster.
    - **Version** – The applicable version.
@@ -29,6 +30,7 @@ To see the list of insight checks performed and any relevant issues that Amazon 
 4. Choose the **Upgrade insights** tab.
 5. To view the latest data, choose the **Refresh insights** button and wait for the refresh operation to complete.
 6. In the **Upgrade insights** table, you will see the following columns:
+
    - **Name** – The check that was performed by Amazon EKS against the cluster.
    - **Insight status** – An insight with a status of "Error" typically means the impacted Kubernetes version is N+1 of the current cluster version, while a status of "Warning" means the insight applies to a future Kubernetes version N+2 or more. An insight with status of "Passing" means Amazon EKS has not found any issues associated with this insight check in your cluster. An insight status of "Unknown" means Amazon EKS is unable to determine if your cluster is impacted by this insight check.
    - **Version** – The Kubernetes version that the insight checked for possible issues.
@@ -39,6 +41,7 @@ To see the list of insight checks performed and any relevant issues that Amazon 
 ## View cluster insights (AWS CLI)
 
 1. To view the latest data, refresh the insights for a specified cluster. Make the following modifications to the command as needed and then run the modified command.
+
    - Replace `region-code` with the code for your AWS Region.
    - Replace `my-cluster` with the name of your cluster.
 
@@ -65,6 +68,7 @@ An example output is as follows.
 ```
 
 3. List the insights for a specified cluster. Make the following modifications to the command as needed and then run the modified command.
+
    - Replace `region-code` with the code for your AWS Region.
    - Replace `my-cluster` with the name of your cluster.
 
@@ -179,6 +183,7 @@ An example output is as follows.
    ```
 
 4. For descriptive information about an insight, run the following command. Make the following modifications to the command as needed and then run the modified command.
+
    - Replace `region-code` with the code for your AWS Region.
    - Replace `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222` with an insight ID retrieved from listing the cluster insights.
    - Replace `my-cluster` with the name of your cluster.

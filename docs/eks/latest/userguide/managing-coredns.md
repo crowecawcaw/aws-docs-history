@@ -34,6 +34,7 @@ If you’re self-managing this add-on, the versions in the table might not be th
 
 - CoreDNS updates utilize a PodDisruptionBudget to help maintain DNS service availability during the update process.
 - To improve the stability and availability of the CoreDNS Deployment, versions `v1.9.3-eksbuild.6` and later and `v1.10.1-eksbuild.3` are deployed with a `PodDisruptionBudget`. If you’ve deployed an existing `PodDisruptionBudget`, your upgrade to these versions might fail. If the upgrade fails, completing one of the following tasks should resolve the issue:
+
   - When doing the upgrade of the Amazon EKS add-on, choose to override the existing settings as your conflict resolution option. If you’ve made other custom settings to the Deployment, make sure to back up your settings before upgrading so that you can reapply your other custom settings after the upgrade.
   - Remove your existing `PodDisruptionBudget` and try the upgrade again.
 

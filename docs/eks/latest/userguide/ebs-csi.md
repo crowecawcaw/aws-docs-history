@@ -32,6 +32,7 @@ aws eks describe-addon-versions --addon-name aws-ebs-csi-driver
 ```
 
 - The EBS CSI driver needs AWS IAM Permissions.
+
   - AWS suggests using EKS Pod Identities. For more information, see [Overview of setting up EKS Pod Identities](pod-identities.md#pod-id-setup-overview "pod-identities.md#pod-id-setup-overview").
   - For information about IAM Roles for Service Accounts, see [Create an IAM OIDC provider for your cluster](enable-iam-roles-for-service-accounts.md "enable-iam-roles-for-service-accounts.md").
 
@@ -73,6 +74,7 @@ eksctl create iamserviceaccount \
 ```
 
 2. You can skip this step if you do not use a custom [KMS key](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/"). If you use one for encryption on your Amazon EBS volumes, customize the IAM role as needed. For example, do the following:
+
    1. Copy and paste the following code into a new `kms-key-for-encryption-on-ebs.json` file. Replace `custom-key-arn` with the custom [KMS key ARN](../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-key "../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-key").
 
    ```
@@ -107,7 +109,6 @@ eksctl create iamserviceaccount \
          ]
        }
    ```
-
    2. Create the policy. You can change `KMS_Key_For_Encryption_On_EBS_Policy` to a different name. However, if you do, make sure to change it in later steps, too.
 
    ```
@@ -115,7 +116,6 @@ eksctl create iamserviceaccount \
          --policy-name KMS_Key_For_Encryption_On_EBS_Policy \
          --policy-document file://kms-key-for-encryption-on-ebs.json
    ```
-
    3. Attach the IAM policy to the role with the following command. Replace `111122223333` with your account ID.
 
    ```
@@ -130,17 +130,20 @@ eksctl create iamserviceaccount \
 2. In the left navigation pane, choose **Roles**.
 3. On the **Roles** page, choose **Create role**.
 4. On the **Select trusted entity** page, do the following:
+
    1. In the **Trusted entity type** section, choose **Web identity**.
    2. For **Identity provider**, choose the **OpenID Connect provider URL** for your cluster (as shown under **Overview** in Amazon EKS).
    3. For **Audience**, choose `sts.amazonaws.com`.
    4. Choose **Next**.
 
 5. On the **Add permissions** page, do the following:
+
    1. In the **Filter policies** box, enter `AmazonEBSCSIDriverPolicyV2`.
    2. Select the check box to the left of the `AmazonEBSCSIDriverPolicyV2` returned in the search.
    3. Choose **Next**.
 
 6. On the **Name, review, and create** page, do the following:
+
    1. For **Role name**, enter a unique name for your role, such as `AmazonEKS_EBS_CSI_DriverRole`.
    2. Under **Add tags (Optional)**, add metadata to the role by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
    3. Choose **Create role**.
@@ -161,6 +164,7 @@ Add a comma to the end of the previous line, and then add the following line aft
 
 10. Choose **Update policy** to finish.
 11. If you use a custom [KMS key](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/") for encryption on your Amazon EBS volumes, customize the IAM role as needed. For example, do the following:
+
     1.  In the left navigation pane, choose **Policies**.
     2.  On the **Policies** page, choose **Create Policy**.
     3.  On the **Create policy** page, choose the **JSON** tab.
@@ -198,7 +202,6 @@ Add a comma to the end of the previous line, and then add the following line aft
           ]
         }
     ```
-
     5.  Choose **Next: Tags**.
     6.  On the **Add tags (Optional)** page, choose **Next: Review**.
     7.  For **Name**, enter a unique name for your policy (for example, `KMS_Key_For_Encryption_On_EBS_Policy`).
@@ -225,6 +228,7 @@ https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
 ```
 
 2. Create the IAM role, granting the `AssumeRoleWithWebIdentity` action.
+
    1. Copy the following contents to a file that’s named `aws-ebs-csi-driver-trust-policy.json`. Replace `111122223333` with your account ID. Replace `EXAMPLED539D4633E53DE1B71EXAMPLE` and `region-code` with the values returned in the previous step.
 
    ```
@@ -247,7 +251,6 @@ https://oidc.eks.region-code.amazonaws.com/id/EXAMPLED539D4633E53DE1B71EXAMPLE
          ]
        }
    ```
-
    2. Create the role. You can change `AmazonEKS_EBS_CSI_DriverRole` to a different name. If you change it, make sure to change it in later steps.
 
    ```
@@ -265,6 +268,7 @@ aws iam attach-role-policy \
 ```
 
 4. If you use a custom [KMS key](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/") for encryption on your Amazon EBS volumes, customize the IAM role as needed. For example, do the following:
+
    1. Copy and paste the following code into a new `kms-key-for-encryption-on-ebs.json` file. Replace `custom-key-arn` with the custom [KMS key ARN](../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-key "../../../service-authorization/latest/reference/list_awskeymanagementservice.md#awskeymanagementservice-key").
 
    ```
@@ -299,7 +303,6 @@ aws iam attach-role-policy \
          ]
        }
    ```
-
    2. Create the policy. You can change `KMS_Key_For_Encryption_On_EBS_Policy` to a different name. However, if you do, make sure to change it in later steps, too.
 
    ```
@@ -307,7 +310,6 @@ aws iam attach-role-policy \
          --policy-name KMS_Key_For_Encryption_On_EBS_Policy \
          --policy-document file://kms-key-for-encryption-on-ebs.json
    ```
-
    3. Attach the IAM policy to the role with the following command. Replace `111122223333` with your account ID.
 
    ```

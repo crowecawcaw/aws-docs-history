@@ -107,6 +107,7 @@ You can add or delete the tags that are associated with your clusters directly f
 4. Choose a specific cluster.
 5. Choose the **Tags** tab, and then choose **Manage tags**.
 6. On the **Manage tags** page, add or delete your tags as necessary.
+
    - To add a tag, choose **Add tag**. Then specify the key and value for each tag.
    - To delete a tag, choose **Remove tag**.
 

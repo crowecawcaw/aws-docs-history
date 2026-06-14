@@ -10,6 +10,7 @@ The [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") is a co
 
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. For single-user or multiple-user accounts:
+
    - **Single-user account –**::
      In the top right, choose your AWS user name to open the navigation menu. For example, choose **`webadmin`**.
    - **Multiple-user account –**::

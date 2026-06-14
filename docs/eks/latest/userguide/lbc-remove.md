@@ -8,6 +8,7 @@ This topic describes how to migrate from deprecated controller versions. More sp
 
 - Deprecated versions cannot be upgraded. You must remove them first, and then install a current version.
 - Deprecated versions include:
+
   - AWS ALB Ingress Controller for Kubernetes ("Ingress Controller"), a predecessor to the AWS Load Balancer Controller.
   - Any `0.1.`x`` version of the AWS Load Balancer Controller
 

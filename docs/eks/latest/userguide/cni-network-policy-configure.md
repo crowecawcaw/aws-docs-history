@@ -73,6 +73,7 @@ Use the following procedure to enable the network policy parameter for the add-o
 3. Choose the **Add-ons** tab.
 4. Select the box in the top right of the add-on box and then choose **Edit**.
 5. On the **Configure `Amazon VPC CNI`** page:
+
    1. Select a `v1.14.0-eksbuild.3` or later version in the **Version** list.
    2. Expand the **Optional configuration settings**.
    3. Enter the JSON key `"enableNetworkPolicy":` and value `"true"` in **Configuration values**. The resulting text must be a valid JSON object. If this key and value are the only data in the text box, surround the key and value with curly braces `{ }`.
@@ -135,6 +136,7 @@ To configure this using the AWS Management Console, follow the below steps:
 3. Choose the **Add-ons** tab.
 4. Select the box in the top right of the add-on box and then choose **Edit**.
 5. On the **Configure `Amazon VPC CNI`** page:
+
    1. Select a `v1.14.0-eksbuild.3` or later version in the **Version** list.
    2. Expand the **Optional configuration settings**.
    3. Enter the JSON key `"enableNetworkPolicy":` and value `"true"` in **Configuration values**. The resulting text must be a valid JSON object. If this key and value are the only data in the text box, surround the key and value with curly braces `{ }`. The following example shows network policy is enabled:

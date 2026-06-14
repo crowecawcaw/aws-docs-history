@@ -43,6 +43,7 @@ You could also use the [AWS CLI](../../../cli/latest/reference/eks/create-cluste
 
 1. Install version `0.215.0` or later of the `eksctl` command line tool on your device or AWS CloudShell. To install or update `eksctl`, see [Installation](https://eksctl.io/installation "https://eksctl.io/installation") in the `eksctl` documentation.
 2. Copy the contents that follow to your device. Replace the following values and then run the modified command to create the `outpost-control-plane.yaml` file:
+
    - Replace `region-code` with the [supported AWS Region](eks-outposts-local-cluster-overview.md#outposts-control-plane-supported-regions "eks-outposts-local-cluster-overview.md#outposts-control-plane-supported-regions") that you want to create your cluster in.
    - Replace `my-cluster` with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
    - Replace `vpc-ExampleID1` and `subnet-ExampleID1` with the IDs of your existing VPC and subnet. The VPC and subnet must meet the requirements in [Create a VPC and subnets for Amazon EKS clusters on AWS Outposts](eks-outposts-vpc-subnet-requirements.md "eks-outposts-vpc-subnet-requirements.md").
@@ -100,6 +101,7 @@ The `eksctl` command automatically created an [access entry](access-entries.md "
 
 1. You need an existing VPC and subnet that meet Amazon EKS requirements. For more information, see [Create a VPC and subnets for Amazon EKS clusters on AWS Outposts](eks-outposts-vpc-subnet-requirements.md "eks-outposts-vpc-subnet-requirements.md").
 2. If you already have a local cluster IAM role, or you’re going to create your cluster with `eksctl`, then you can skip this step. By default, `eksctl` creates a role for you.
+
    1. Run the following command to create an IAM trust policy JSON file.
 
    ```
@@ -116,13 +118,11 @@ The `eksctl` command automatically created an [access entry](access-entries.md "
      ]
    }
    ```
-
    2. Create the Amazon EKS cluster IAM role. To create an IAM role, the [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal") that is creating the role must be assigned the `iam:CreateRole` action (permission).
 
    ```
    aws iam create-role --role-name myAmazonEKSLocalClusterRole --assume-role-policy-document file://"eks-local-cluster-role-trust-policy.json"
    ```
-
    3. Attach the Amazon EKS managed policy named [AmazonEKSLocalOutpostClusterPolicy](../../../aws-managed-policy/latest/reference/AmazonEKSLocalOutpostClusterPolicy.md "../../../aws-managed-policy/latest/reference/AmazonEKSLocalOutpostClusterPolicy.md") to the role. To attach an IAM policy to an [IAM principal](../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal "../../../IAM/latest/UserGuide/id_roles.md#iam-term-principal"), the principal that is attaching the policy must be assigned one of the following IAM actions (permissions): `iam:AttachUserPolicy` or `iam:AttachRolePolicy`.
 
    ```
@@ -133,6 +133,7 @@ The `eksctl` command automatically created an [access entry](access-entries.md "
 4. At the top of the console screen, make sure that you have selected a [supported AWS Region](eks-outposts-local-cluster-overview.md#outposts-control-plane-supported-regions "eks-outposts-local-cluster-overview.md#outposts-control-plane-supported-regions").
 5. Choose **Add cluster** and then choose **Create**.
 6. On the **Configure cluster** page, enter or select values for the following fields:
+
    - **Kubernetes control plane location** – Choose AWS Outposts.
    - **Outpost ID** – Choose the ID of the Outpost that you want to create your control plane on.
    - **Instance type** – Select an instance type. Only the instance types available in your Outpost are displayed. In the dropdown list, each instance type describes how many nodes the instance type is recommended for. Before choosing an instance type, see [Select instance types and placement groups for Amazon EKS clusters on AWS Outposts based on capacity considerations](eks-outposts-capacity-considerations.md "eks-outposts-capacity-considerations.md"). All replicas are deployed using the same instance type. You can’t change the instance type after your cluster is created. Three control plane instances are deployed. You can’t change this number.
@@ -145,13 +146,16 @@ The `eksctl` command automatically created an [access entry](access-entries.md "
    - **Tags** – (Optional) Add any tags to your cluster. For more information, see [Organize Amazon EKS resources with tags](eks-using-tags.md "eks-using-tags.md"). When you’re done with this page, choose **Next**.
 
 7. On the **Specify networking** page, select values for the following fields:
+
    - **VPC** – Choose an existing VPC. The VPC must have a sufficient number of IP addresses available for the cluster, any nodes, and other Kubernetes resources that you want to create. Your VPC must meet the requirements in [VPC requirements and considerations](eks-outposts-vpc-subnet-requirements.md#outposts-vpc-requirements "eks-outposts-vpc-subnet-requirements.md#outposts-vpc-requirements").
    - **Subnets** – By default, all available subnets in the VPC specified in the previous field are preselected. The subnets that you choose must meet the requirements in [Subnet requirements and considerations](eks-outposts-vpc-subnet-requirements.md#outposts-subnet-requirements "eks-outposts-vpc-subnet-requirements.md#outposts-subnet-requirements").
    - **Security groups** – (Optional) Specify one or more security groups that you want Amazon EKS to associate to the network interfaces that it creates. Amazon EKS automatically creates a security group that enables communication between your cluster and your VPC. Amazon EKS associates this security group, and any that you choose, to the network interfaces that it creates. For more information about the cluster security group that Amazon EKS creates, see [View Amazon EKS security group requirements for clusters](sec-group-reqs.md "sec-group-reqs.md"). You can modify the rules in the cluster security group that Amazon EKS creates. If you choose to add your own security groups, you can’t change the ones that you choose after cluster creation. For on-premises hosts to communicate with the cluster endpoint, you must allow inbound traffic from the cluster security group. For clusters that don’t have an ingress and egress internet connection (also known as private clusters), you must do one of the following:
+
      - Add the security group associated with required VPC endpoints. For more information about the required endpoints, see [Using interface VPC endpoints](eks-outposts-vpc-subnet-requirements.md#vpc-subnet-requirements-vpc-endpoints "eks-outposts-vpc-subnet-requirements.md#vpc-subnet-requirements-vpc-endpoints") in [Subnet access to AWS services](eks-outposts-vpc-subnet-requirements.md#subnet-access-to-services "eks-outposts-vpc-subnet-requirements.md#subnet-access-to-services").
      - Modify the security group that Amazon EKS created to allow traffic from the security group associated with the VPC endpoints. When you’re done with this page, choose **Next**.
 
 8. On the **Configure observability** page, you can optionally choose which **Metrics** and **Control plane logging** options that you want to turn on. By default, each log type is turned off.
+
    - For more information on the Prometheus metrics option, see [Step 1: Turn on Prometheus metrics](prometheus.md#turn-on-prometheus-metrics "prometheus.md#turn-on-prometheus-metrics").
    - For more information on the **Control plane logging** options, see [Send control plane logs to CloudWatch Logs](control-plane-logs.md "control-plane-logs.md"). When you’re done with this page, choose **Next**.
 
@@ -210,6 +214,7 @@ kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   28h
 Amazon EKS creates the following resources on your cluster. The resources are for Amazon EKS internal use. For proper functioning of your cluster, don’t edit or modify these resources.
 
 - The following [mirror Pods](https://kubernetes.io/docs/reference/glossary/?all=true#term-mirror-pod "https://kubernetes.io/docs/reference/glossary/?all=true#term-mirror-pod"):
+
   - `aws-iam-authenticator-`node-hostname``
   - `eks-certificates-controller-`node-hostname``
   - `etcd-`node-hostname``
@@ -218,12 +223,14 @@ Amazon EKS creates the following resources on your cluster. The resources are fo
   - `kube-scheduler-`node-hostname``
 
 - The following self-managed add-ons:
+
   - `kube-system/coredns`
   - `kube-system/`
     `kube-proxy` (not created until you add your first node)
   - `kube-system/aws-node` (not created until you add your first node). Local clusters use the Amazon VPC CNI plugin for Kubernetes plugin for cluster networking. Do not change the configuration for control plane instances (Pods named `aws-node-controlplane-*`). There are configuration variables that you can use to change the default value for when the plugin creates new network interfaces. For more information, see the [documentation](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/README.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/README.md") on GitHub.
 
 - The following services:
+
   - `default/kubernetes`
   - `kube-system/kube-dns`
 

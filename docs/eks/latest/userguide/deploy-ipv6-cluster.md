@@ -23,6 +23,7 @@ You can use the eksctl or CLI to deploy an `IPv6` cluster.
 ## Deploy an IPv6 cluster with eksctl
 
 1. Create the `ipv6-cluster.yaml` file. Copy the command that follows to your device. Make the following modifications to the command as needed and then run the modified command:
+
    - Replace `my-cluster` with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
    - Replace `region-code` with any AWS Region that is supported by Amazon EKS. For a list of AWS Regions, see [Amazon EKS endpoints and quotas](../../../general/latest/gr/eks.md "../../../general/latest/gr/eks.md") in the AWS General Reference guide.
    - The value for `version` with the version of your cluster. For more information, see [Amazon EKS supported versions](kubernetes-versions.md "kubernetes-versions.md").
@@ -136,12 +137,12 @@ export account_id=111122223333
 ```
 
 2. Create an Amazon VPC with public and private subnets that meets Amazon EKS and `IPv6` requirements.
+
    1. Run the following command to set a variable for your AWS CloudFormation stack name. You can replace `my-eks-ipv6-vpc` with any name you choose.
 
    ```
    export vpc_stack_name=my-eks-ipv6-vpc
    ```
-
    2. Create an `IPv6` VPC using an AWS CloudFormation template.
 
    ```
@@ -154,7 +155,6 @@ export account_id=111122223333
    ```
    aws cloudformation describe-stacks --region $region_code --stack-name $vpc_stack_name --query Stacks[].StackStatus --output text
    ```
-
    3. Retrieve the IDs of the public subnets that were created.
 
    ```
@@ -167,14 +167,12 @@ export account_id=111122223333
    ```
    subnet-0a1a56c486EXAMPLE,subnet-099e6ca77aEXAMPLE
    ```
-
    4. Enable the auto-assign `IPv6` address option for the public subnets that were created.
 
    ```
    aws ec2 modify-subnet-attribute --region $region_code --subnet-id subnet-0a1a56c486EXAMPLE --assign-ipv6-address-on-creation
    aws ec2 modify-subnet-attribute --region $region_code --subnet-id subnet-099e6ca77aEXAMPLE --assign-ipv6-address-on-creation
    ```
-
    5. Retrieve the names of the subnets and security groups created by the template from the deployed AWS CloudFormation stack and store them in variables for use in a later step.
 
    ```
@@ -191,6 +189,7 @@ export account_id=111122223333
    ```
 
 3. Create a cluster IAM role and attach the required Amazon EKS IAM managed policy to it. Kubernetes clusters managed by Amazon EKS make calls to other AWS services on your behalf to manage the resources that you use with the service.
+
    1. Run the following command to create the `eks-cluster-role-trust-policy.json` file.
 
    ```
@@ -207,25 +206,21 @@ export account_id=111122223333
      ]
    }
    ```
-
    2. Run the following command to set a variable for your role name. You can replace `myAmazonEKSClusterRole` with any name you choose.
 
    ```
    export cluster_role_name=myAmazonEKSClusterRole
    ```
-
    3. Create the role.
 
    ```
    aws iam create-role --role-name $cluster_role_name --assume-role-policy-document file://"eks-cluster-role-trust-policy.json"
    ```
-
    4. Retrieve the ARN of the IAM role and store it in a variable for a later step.
 
    ```
    CLUSTER_IAM_ROLE=$(aws iam get-role --role-name $cluster_role_name --query="Role.Arn" --output text)
    ```
-
    5. Attach the required Amazon EKS managed IAM policy to the role.
 
    ```
@@ -360,6 +355,7 @@ By default, the `config` file is created in `~/.kube` or the new cluster’s con
     ```
 
 7. Create a managed node group.
+
    1. View the IDs of the subnets that you created in a previous step.
 
    ```
@@ -371,7 +367,6 @@ By default, the `config` file is created in `~/.kube` or the new cluster’s con
    ```
    subnet-0a1a56c486EXAMPLE,subnet-099e6ca77aEXAMPLE,subnet-0377963d69EXAMPLE,subnet-0c05f819d5EXAMPLE
    ```
-
    2. Create the node group. Replace `0a1a56c486EXAMPLE`, `099e6ca77aEXAMPLE`, `0377963d69EXAMPLE`, and `0c05f819d5EXAMPLE` with the values returned in the output of the previous step. Be sure to remove the commas between subnet IDs from the previous output in the following command. You can replace `t3.medium` with any [AWS Nitro System instance type](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances").
 
    ```
@@ -420,6 +415,7 @@ kube-dns   ClusterIP   fd30:3087:b6c2::a   <none>        53/UDP,53/TCP   57m   k
 
 10. (Optional) [Deploy a sample application](sample-deployment.md "sample-deployment.md") or deploy the [AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md") and a sample application to load balance HTTP applications with [Route application and HTTP traffic with Application Load Balancers](alb-ingress.md "alb-ingress.md") or network traffic with [Route TCP and UDP traffic with Network Load Balancers](network-load-balancing.md "network-load-balancing.md") to `IPv6` Pods.
 11. After you’ve finished with the cluster and nodes that you created for this tutorial, you should clean up the resources that you created with the following commands. Make sure that you’re not using any of the resources outside of this tutorial before deleting them.
+
     1.  If you’re completing this step in a different shell than you completed the previous steps in, set the values of all the variables used in previous steps, replacing the example values with the values you specified when you completed the previous steps. If you’re completing this step in the same shell that you completed the previous steps in, skip to the next step.
 
     ```
@@ -431,7 +427,6 @@ kube-dns   ClusterIP   fd30:3087:b6c2::a   <none>        53/UDP,53/TCP   57m   k
     export node_role_name=AmazonEKSNodeRole
     export cluster_role_name=myAmazonEKSClusterRole
     ```
-
     2.  Delete your node group.
 
     ```
@@ -443,7 +438,6 @@ kube-dns   ClusterIP   fd30:3087:b6c2::a   <none>        53/UDP,53/TCP   57m   k
     ```
     aws eks list-nodegroups --region $region_code --cluster-name $cluster_name --query nodegroups --output text
     ```
-
     3.  Delete the cluster.
 
     ```
@@ -461,7 +455,6 @@ kube-dns   ClusterIP   fd30:3087:b6c2::a   <none>        53/UDP,53/TCP   57m   k
     ```
     An error occurred (ResourceNotFoundException) when calling the DescribeCluster operation: No cluster found for name: my-cluster.
     ```
-
     4.  Delete the IAM resources that you created. Replace `AmazonEKS_CNI_IPv6_Policy` with the name you chose, if you chose a different name than the one used in previous steps.
 
     ```
@@ -473,7 +466,6 @@ kube-dns   ClusterIP   fd30:3087:b6c2::a   <none>        53/UDP,53/TCP   57m   k
     aws iam delete-role --role-name $cluster_role_name
     aws iam delete-role --role-name $node_role_name
     ```
-
     5.  Delete the AWS CloudFormation stack that created the VPC.
 
     ```

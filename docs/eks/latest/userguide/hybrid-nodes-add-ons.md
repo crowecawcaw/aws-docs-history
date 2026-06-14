@@ -137,6 +137,7 @@ nodeadm init -c file://nodeConfig.yaml
 ```
 
 3. Install `eks-pod-identity-agent` with support for hybrid nodes enabled, by using either the AWS CLI or AWS Management Console.
+
    1. AWS CLI: From the machine that you’re using to administer the cluster, run the following command to install `eks-pod-identity-agent` with support for hybrid nodes enabled. Replace `my-cluster` with the name of your cluster.
 
    ```
@@ -145,7 +146,6 @@ nodeadm init -c file://nodeConfig.yaml
        --addon-name eks-pod-identity-agent \
        --configuration-values '{"daemonsets":{"hybrid":{"create": true}}}'
    ```
-
    2. AWS Management Console: If you are installing the Pod Identity Agent add-on through the AWS console, add the following to the optional configuration to deploy the DaemonSet that targets hybrid nodes.
 
    ```
@@ -155,12 +155,12 @@ nodeadm init -c file://nodeConfig.yaml
 ### Bottlerocket
 
 1. To use the Pod Identity agent on Bottlerocket hybrid nodes, add the `--enable-credentials-file=true` flag to the command used for the Bottlerocket bootstrap container user data, as described in [Connect hybrid nodes with Bottlerocket](hybrid-nodes-bottlerocket.md "hybrid-nodes-bottlerocket.md").
+
    1. If you are using the SSM credential provider, your command should look like this:
 
    ```
    eks-hybrid-ssm-setup --activation-id=<activation-id> --activation-code=<activation-code> --region=<region> --enable-credentials-file=true
    ```
-
    2. If you are using the IAM Roles Anywhere credential provider, your command should look like this:
 
    ```
@@ -170,6 +170,7 @@ nodeadm init -c file://nodeConfig.yaml
    This will configure the bootstrap script to create a credentials file on the node under `/var/eks-hybrid/.aws/credentials`, which will be used by `eks-pod-identity-agent` pods. This credentials file will contain temporary AWS credentials that will be refreshed periodically.
 
 2. Install `eks-pod-identity-agent` with support for Bottlerocket hybrid nodes enabled, by using either the AWS CLI or AWS Management Console.
+
    1. AWS CLI: From the machine that you’re using to administer the cluster, run the following command to install `eks-pod-identity-agent` with support for Bottlerocket hybrid nodes enabled. Replace `my-cluster` with the name of your cluster.
 
    ```
@@ -178,7 +179,6 @@ nodeadm init -c file://nodeConfig.yaml
        --addon-name eks-pod-identity-agent \
        --configuration-values '{"daemonsets":{"hybrid-bottlerocket":{"create": true}}}'
    ```
-
    2. AWS Management Console: If you are installing the Pod Identity Agent add-on through the AWS console, add the following to the optional configuration to deploy the DaemonSet that targets Bottlerocket hybrid nodes.
 
    ```

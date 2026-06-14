@@ -42,6 +42,7 @@ cilium-z7hlb                       1/1     Running   0          6m30s
 ```
 
 3. Create a file called `cilium-bgp-cluster.yaml` with a `CiliumBGPClusterConfig` definition. You may need to obtain the following information from your network administrator.
+
    - Configure `localASN` with the ASN for the nodes running Cilium.
    - Configure `peerASN` with the ASN for your on-premises router.
    - Configure the `peerAddress` with the on-premises router IP that each node running Cilium will peer with.
@@ -112,6 +113,7 @@ kubectl apply -f cilium-bgp-peer.yaml
 ```
 
 7. Create a file named `cilium-bgp-advertisement-pods.yaml` with a `CiliumBGPAdvertisement` resource to advertise the pod CIDRs to your on-premises network.
+
    - The `CiliumBGPAdvertisement` resource is used to define advertisement types and attributes associated with them. The example below configures Cilium to advertise only pod CIDRs. See the examples in [Service type LoadBalancer](hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium-loadbalancer "hybrid-nodes-ingress.md#hybrid-nodes-ingress-cilium-loadbalancer") and [Cilium in-cluster load balancing](hybrid-nodes-load-balancing.md#hybrid-nodes-service-lb-cilium "hybrid-nodes-load-balancing.md#hybrid-nodes-service-lb-cilium") for more information on configuring Cilium to advertise service addresses.
    - Each hybrid node running the Cilium agent peers with the upstream BGP-enabled router. Each node advertises the pod CIDR range that it owns when Cilium’s `advertisementType` is set to `PodCIDR` like in the example below. See the [BGP Advertisements configuration](https://docs.cilium.io/en/stable/network/bgp-control-plane/bgp-control-plane-v2/#bgp-advertisements "https://docs.cilium.io/en/stable/network/bgp-control-plane/bgp-control-plane-v2/#bgp-advertisements") in the Cilium documentation for more information.
 

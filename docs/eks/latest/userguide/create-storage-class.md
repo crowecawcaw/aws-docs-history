@@ -51,13 +51,16 @@ kubectl apply -f storage-class.yaml
 To use a self-managed KMS key to encrypt EBS volumes automated by EKS Auto Mode, you need to:
 
 1. Create a self-managed KMS key.
+
    - For more information, see [Create a symmetric encryption KMS key](../../../kms/latest/developerguide/create-symmetric-cmk.md "../../../kms/latest/developerguide/create-symmetric-cmk.md") or [How Amazon Elastic Block Store (Amazon EBS) uses KMS](../../../kms/latest/developerguide/services-ebs.md "../../../kms/latest/developerguide/services-ebs.md") in the KMS User Guide.
 
 2. Create a new policy that permits access to the KMS key.
+
    - Use the sample IAM policy below to create the policy. Insert the ARN of the new self-managed KMS key. For more information, see
      [Creating roles and attaching policies (console)](../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md "../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md") in the AWS IAM User Guide.
 
 3. Attach the policy to the EKS Cluster Role.
+
    - Use the AWS console to find the ARN of the EKS Cluster Role. The role information is visible in the **Overview** section. For more information, see [Amazon EKS cluster IAM role](cluster-iam-role.md "cluster-iam-role.md").
 
 4. Update the `StorageClass` to reference the KMS Key ID at the `parameters.kmsKeyId` field.
@@ -153,16 +156,20 @@ You can only deploy workloads depending on EKS Auto Mode StorageClasses on EKS A
 The block storage capability of EKS Auto Mode is different from the EBS CSI Driver.
 
 - Static Provisioning
+
   - If you want to use externally-created EBS volumes with EKS Auto Mode, you need to manually add an AWS tag with the key `eks:eks-cluster-name` and the value of the cluster name.
 
 - Node Startup Taint
+
   - You cannot use the node startup taint feature to prevent pod scheduling before storage capability readiness
 
 - Custom Tags on Dynamically Provisioned Volumes
+
   - You cannot use the extra-tag CLI flag to configure custom tags on dynamically provisioned EBS volumes
   - You can use `StorageClass` tagging to add custom tags. EKS Auto Mode will add tags to the associated AWS resources. You will need to update the Cluster IAM Role for custom tags. For more information, see [Custom AWS tags for EKS Auto resources](auto-cluster-iam-role.md#tag-prop "auto-cluster-iam-role.md#tag-prop").
 
 - EBS Detailed Performance Metrics
+
   - You cannot access Prometheus metrics for EBS detailed performance
 
 ## Install CSI Snapshot Controller add-on
@@ -183,6 +190,7 @@ For more information, see:
 2. From the **Add-ons** tab, select **Get more add-ons**
 3. Select the **CSI Snapshot Controller** and then **Next**
 4. On the **Configure selected add-ons settings** page, select **Optional configuration settings** to view the **Add-on configuration schema**
+
    1. Insert the following yaml to associate the snapshot controller with the `system` node pool. The snapshot controller includes a toleration for the `CriticalAddonsOnly` taint.
 
    ```
@@ -192,7 +200,6 @@ For more information, see:
            }
    }
    ```
-
    2. Select **Next**
 
 5. Review the add-on configuration and then select **Create**

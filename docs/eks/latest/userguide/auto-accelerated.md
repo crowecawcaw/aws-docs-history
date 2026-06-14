@@ -198,6 +198,7 @@ The following NodePool defines:
 
 - Only launch instances of `g6e` and `g6` family
 - Consolidate nodes when empty for 1 hour
+
   - The 1 hour value for `consolidateAfter` supports spiky workloads and reduces node churn. You can tune `consolidateAfter` based on your workload requirements.
 
 **Example NodePool with GPU instance family and consolidation**

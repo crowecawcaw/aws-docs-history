@@ -19,7 +19,7 @@ The following tables describe node health issues that can be detected by the nod
 
 ## AcceleratedHardware node health issues
 
-The monitoring condition is `AcceleratedHardwareReady` for issues in the following table that have a severity of “Condition”. The events and conditions in the table below are for NVIDIA and Neuron related node health issues.
+The monitoring condition is `AcceleratedHardwareReady` for issues in the following table that have a severity of “Condition”. The events and conditions in the following table are for NVIDIA and Neuron related node health issues.
 
 | Name                         | Severity  | Description                                                                                                                                                                | Repair Action     |
 | ---------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |

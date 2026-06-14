@@ -46,12 +46,12 @@ kubectl describe configmap -n kube-system aws-auth
 ```
 
 2. If you are shown an `aws-auth` ConfigMap, then update it as needed.
+
    1. Open the ConfigMap for editing.
 
    ```
    kubectl edit -n kube-system configmap/aws-auth
    ```
-
    2. Add a new `mapRoles` entry as needed. Replace `HYBRID_NODES_ROLE_ARN` with the ARN of your Hybrid Nodes IAM role. Note, `{{SessionName}}` is the correct template format to save in the ConfigMap. Do not replace it with other values.
 
    ```
@@ -63,7 +63,6 @@ kubectl describe configmap -n kube-system aws-auth
        rolearn: HYBRID_NODES_ROLE_ARN
        username: system:node:{{SessionName}}
    ```
-
    3. Save the file and exit your text editor.
 
 3. If there is not an existing `aws-auth` ConfigMap for your cluster, create it with the following command. Replace `HYBRID_NODES_ROLE_ARN` with the ARN of your Hybrid Nodes IAM role. Note that `{{SessionName}}` is the correct template format to save in the ConfigMap. Do not replace it with other values.

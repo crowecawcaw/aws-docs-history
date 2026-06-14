@@ -65,11 +65,13 @@ AWS Management Console
 2. In the left navigation pane, choose **Roles**.
 3. On the **Roles** page, choose **Create role**.
 4. On the **Select trusted entity** page, do the following:
+
    1. In the **Trusted entity type** section, choose **AWS service**.
    2. Under **Use case**, choose **EC2**.
    3. Choose **Next**.
 
 5. On the **Add permissions** page, attach a custom policy or do the following:
+
    1. In the **Filter policies** box, enter `AmazonEKSWorkerNodePolicy`.
    2. Select the check box to the left of **AmazonEKSWorkerNodePolicy** in the search results.
    3. Choose **Clear filters**.
@@ -79,6 +81,7 @@ AWS Management Console
    Either the **AmazonEKS_CNI_Policy** managed policy, or an [IPv6 policy](cni-iam-role.md#cni-iam-role-create-ipv6-policy "cni-iam-role.md#cni-iam-role-create-ipv6-policy") that you create must also be attached to either this role or to a different role that’s mapped to the `aws-node` Kubernetes service account. We recommend assigning the policy to the role associated to the Kubernetes service account instead of assigning it to this role. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md"). 6. Choose **Next**.
 
 6. On the **Name, review, and create** page, do the following:
+
    1. For **Role name**, enter a unique name for your role, such as `AmazonEKSNodeRole`.
    2. For **Description**, replace the current text with descriptive text such as `Amazon EKS - Node role`.
    3. Under **Add tags (Optional)**, add metadata to the role by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
@@ -127,6 +130,7 @@ aws iam attach-role-policy \
 ```
 
 4. Attach one of the following IAM policies to the IAM role depending on which IP family you created your cluster with. The policy must be attached to this role or to a role associated to the Kubernetes `aws-node` service account that’s used for the Amazon VPC CNI plugin for Kubernetes. We recommend assigning the policy to the role associated to the Kubernetes service account. To assign the policy to the role associated to the Kubernetes service account, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md").
+
    - IPv4
 
    ```
@@ -134,8 +138,8 @@ aws iam attach-role-policy \
      --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy \
      --role-name AmazonEKSNodeRole
    ```
-
    - IPv6
+
      1. Copy the following text and save it to a file named `vpc-cni-ipv6-policy.json`.
 
      ```
@@ -165,13 +169,11 @@ aws iam attach-role-policy \
          ]
      }
      ```
-
      2. Create the IAM policy.
 
      ```
      aws iam create-policy --policy-name AmazonEKS_CNI_IPv6_Policy --policy-document file://vpc-cni-ipv6-policy.json
      ```
-
      3. Attach the IAM policy to the IAM role. Replace `111122223333` with your account ID.
 
      ```

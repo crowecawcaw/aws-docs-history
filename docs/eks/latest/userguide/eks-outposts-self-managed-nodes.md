@@ -11,6 +11,7 @@ Amazon EKS Local Clusters on Outposts only supports nodes created from the follo
 - Standard Amazon Linux 2023 (`amazon-linux-2023/x86_64/standard`)
 - Accelerated Nvidia Amazon Linux 2023 (`amazon-linux-2023/x86_64/nvidia`)
 - Accelerated Neuron Amazon Linux 2023 (`amazon-linux-2023/x86_64/neuron`)
+- Bottlerocket (only for Outposts backed by EC2 instance store)
 
 AWS ended support for EKS AL2-optimized and AL2-accelerated AMIs, effective November 26, 2025. While you can continue using EKS AL2 AMIs after the end-of-support (EOS) date (November 26, 2025), EKS will no longer release any new Kubernetes versions or updates to AL2 AMIs, including minor releases, patches, and bug fixes after this date. See [this](eks-ami-deprecation-faqs.md "eks-ami-deprecation-faqs.md") for more information on AL2 deprecation.
 
@@ -87,6 +88,7 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/
 3.  Choose **Create stack** and then select **With new resources (standard)**.
 4.  For **Specify template**, select **Upload a template file** and then select **Choose file**. Select the `amazon-eks-outpost-nodegroup.yaml` file that you downloaded in a previous step and then select **Next**.
 5.  On the **Specify stack details** page, enter the following parameters accordingly, and then choose **Next**:
+
     - **Stack name**: Choose a stack name for your AWS CloudFormation stack. For example, you can call it `al-nodes`. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
     - **ApiServerEndpoint**: Enter the Kubernetes API Server endpoint, visible in EKS console or via DescribeCluster API.
     - **ClusterName**: Enter the name of your cluster. If this name doesn’t match your cluster name, your nodes can’t join the cluster.
@@ -101,7 +103,6 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2025-11-24/
         2. Choose the name of the cluster.
         3. Choose the **Networking** tab.
         4. Use the **Additional security groups** value as a reference when selecting from the **ClusterControlPlaneSecurityGroup** dropdown list.
-
     - **NodeGroupName**: Enter a name for your node group. This name can be used later to identify the Auto Scaling node group that’s created for your nodes.
     - **NodeAutoScalingGroupMinSize**: Enter the minimum number of nodes that your node Auto Scaling group can scale in to.
     - **NodeAutoScalingGroupDesiredCapacity**: Enter the desired number of nodes to scale to when your stack is created.
@@ -168,18 +169,17 @@ kubectl describe configmap -n kube-system aws-auth
         3. Save the file and exit your text editor.
 
 3.  If you received an error stating "`Error from server (NotFound): configmaps "aws-auth" not found`, then apply the stock `ConfigMap`.
+
     1. Download the configuration map.
 
     ```
     curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/aws-auth-cm.yaml
     ```
-
     2. In the `aws-auth-cm.yaml` file, set the `rolearn` to the **NodeInstanceRole** value that you recorded in the previous procedure. You can do this with a text editor, or by replacing `my-node-instance-role` and running the following command:
 
     ```
     sed -i.bak -e 's|<ARN of instance role (not instance profile)>|my-node-instance-role|' aws-auth-cm.yaml
     ```
-
     3. Apply the configuration. This command may take a few minutes to finish.
 
     ```

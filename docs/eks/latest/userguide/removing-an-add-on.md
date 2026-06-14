@@ -68,6 +68,7 @@ For more information about removing add-ons, see [Deleting addons](https://eksct
 5. Choose the add-on that you want to remove.
 6. Choose **Remove**.
 7. In the **Remove: `name of addon`** confirmation dialog box, do the following:
+
    1. If you want Amazon EKS to stop managing settings for the add-on, select **Preserve on cluster**. Do this if you want to retain the add-on software on your cluster. This is so that you can manage all of the settings of the add-on on your own.
    2. Enter the add-on name.
    3. Choose **Remove**.

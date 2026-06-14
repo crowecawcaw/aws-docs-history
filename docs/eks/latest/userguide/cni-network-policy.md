@@ -124,6 +124,7 @@ Network policies in the Amazon VPC CNI plugin for Kubernetes are supported in th
 **Admin Network Policies**
 
 1. **Admin tier policies (evaluated first)**: All Admin tier ClusterNetworkPolicies are evaluated before any other policies. Within the Admin tier, policies are processed in priority order (lowest priority number first). The action type determines what happens next.
+
    - **Deny action (highest precedence)**: When an Admin policy with a Deny action matches traffic, that traffic is immediately blocked regardless of any other policies. No further ClusterNetworkPolicy or NetworkPolicy rules are processed. This ensures that organization-wide security controls cannot be overridden by namespace-level policies.
    - **Allow action**: After Deny rules are evaluated, Admin policies with Allow actions are processed in priority order (lowest priority number first). When an Allow action matches, the traffic is accepted and no further policy evaluation occurs. These policies can grant access across multiple namespaces based on label selectors, providing centralized control over which workloads can access specific resources.
    - **Pass action**: Pass actions in Admin tier policies delegate decision-making to lower tiers. When traffic matches a Pass rule, evaluation skips all remaining Admin tier rules for that traffic and proceeds directly to the NetworkPolicy tier. This allows administrators to explicitly delegate control for certain traffic patterns to application teams. For example, you might use Pass rules to delegate intra-namespace traffic management to namespace administrators while maintaining strict controls over external access.
@@ -148,5 +149,6 @@ We recommend that after you remove a network policy solution, then you replace a
 Pods that use _IAM roles for service accounts_ or _EKS Pod Identity_ don’t access EC2 IMDS.
 
 - The Amazon VPC CNI plugin for Kubernetes doesn’t apply network policies to additional network interfaces for each pod, only the primary interface for each pod (`eth0`). This affects the following architectures:
+
   - `IPv6` pods with the `ENABLE_V4_EGRESS` variable set to `true`. This variable enables the `IPv4` egress feature to connect the IPv6 pods to `IPv4` endpoints such as those outside the cluster. The `IPv4` egress feature works by creating an additional network interface with a local loopback IPv4 address.
   - When using chained network plugins such as Multus. Because these plugins add network interfaces to each pod, network policies aren’t applied to the chained network plugins.

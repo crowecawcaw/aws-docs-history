@@ -28,6 +28,7 @@ You can use the following procedure to check and see if your account already has
 2. In the left navigation pane, choose **Roles**.
 3. On the **Roles** page, search the list of roles for **AmazonEKSFargatePodExecutionRole**. If the role doesn’t exist, see [Creating the Amazon EKS Pod execution role](#create-pod-execution-role "#create-pod-execution-role") to create the role. If the role does exist, choose the role.
 4. On the **AmazonEKSFargatePodExecutionRole** page, do the following:
+
    1. Choose **Permissions**.
    2. Ensure that the **AmazonEKSFargatePodExecutionRolePolicy** Amazon managed policy is attached to the role.
    3. Choose **Trust relationships**.
@@ -73,6 +74,7 @@ AWS Management Console
 2. In the left navigation pane, choose **Roles**.
 3. On the **Roles** page, choose **Create role**.
 4. On the **Select trusted entity** page, do the following:
+
    1. In the **Trusted entity type** section, choose **AWS service**.
    2. From the **Use cases for other AWS services** dropdown list, choose **EKS**.
    3. Choose **EKS - Fargate Pod**.
@@ -80,16 +82,19 @@ AWS Management Console
 
 5. On the **Add permissions** page, choose **Next**.
 6. On the **Name, review, and create** page, do the following:
+
    1. For **Role name**, enter a unique name for your role, such as `AmazonEKSFargatePodExecutionRole`.
    2. Under **Add tags (Optional)**, add metadata to the role by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.
    3. Choose **Create role**.
 
 7. On the **Roles** page, search the list of roles for **AmazonEKSFargatePodExecutionRole**. Choose the role.
 8. On the **AmazonEKSFargatePodExecutionRole** page, do the following:
+
    1. Choose **Trust relationships**.
    2. Choose **Edit trust policy**.
 
 9. On the **Edit trust policy** page, do the following:
+
    1. Copy and paste the following contents into the **Edit trust policy** form. Replace `region-code` with the AWS Region that your cluster is in. If you want to use the same role in all AWS Regions in your account, replace `region-code` with `*`. Replace `111122223333` with your account ID and `my-cluster` with the name of your cluster. If you want to use the same role for all clusters in your account, replace `my-cluster` with `*`.
 
    ```
@@ -111,7 +116,6 @@ AWS Management Console
      ]
    }
    ```
-
    2. Choose **Update policy**.
 
 AWS CLI

@@ -16,6 +16,7 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
 ## Node requirements
 
 - Self-managed Linux and Windows nodes must include the following bootstrap arguments before they’re launched. These arguments bypass Amazon EKS introspection and don’t require access to the Amazon EKS API from within the VPC.
+
   1.  Determine the value of your cluster’s endpoint with the following command. Replace `my-cluster` with the name of your cluster.
 
   ```
@@ -27,7 +28,6 @@ If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster 
   ```
   https://EXAMPLE108C897D9B2F1B21D5EXAMPLE.sk1.region-code.eks.amazonaws.com
   ```
-
   2.  Determine the value of your cluster’s certificate authority with the following command. Replace `my-cluster` with the name of your cluster.
 
   ```

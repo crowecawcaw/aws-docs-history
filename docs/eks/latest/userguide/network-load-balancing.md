@@ -28,6 +28,7 @@ Before you can load balance network traffic using the AWS Load Balancer Controll
 - Have the AWS Load Balancer Controller deployed on your cluster. For more information, see [Route internet traffic with AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md"). We recommend version `2.7.2` or later.
 - At least one subnet. If multiple tagged subnets are found in an Availability Zone, the controller chooses the first subnet whose subnet ID comes first lexicographically. The subnet must have at least eight available IP addresses.
 - If you’re using the AWS Load Balancer Controller version `2.1.1` or earlier, subnets must be tagged as follows. If using version `2.1.2` or later, this tag is optional. You might want to tag a subnet if you have multiple clusters running in the same VPC, or multiple AWS services sharing subnets in a VPC, and want more control over where load balancers are provisioned for each cluster. If you explicitly specify subnet IDs as an annotation on a service object, then Kubernetes and the AWS Load Balancer Controller use those subnets directly to create the load balancer. Subnet tagging isn’t required if you choose to use this method for provisioning load balancers and you can skip the following private and public subnet tagging requirements. Replace `my-cluster` with your cluster name.
+
   - **Key**
     – `kubernetes.io/cluster/<my-cluster>`
   - **Value**
@@ -73,6 +74,7 @@ service.beta.kubernetes.io/aws-load-balancer-eip-allocations: eipalloc-xxxxxxxxx
 ```
 
 - Amazon EKS adds one inbound rule to the node’s security group for client traffic and one rule for each load balancer subnet in the VPC for health checks for each Network Load Balancer that you create. Deployment of a service of type `LoadBalancer` can fail if Amazon EKS attempts to create rules that exceed the quota for the maximum number of rules allowed for a security group. For more information, see [Security groups](../../../vpc/latest/userguide/amazon-vpc-limits.md#vpc-limits-security-groups "../../../vpc/latest/userguide/amazon-vpc-limits.md#vpc-limits-security-groups") in Amazon VPC quotas in the Amazon VPC User Guide. Consider the following options to minimize the chances of exceeding the maximum number of rules for a security group:
+
   - Request an increase in your rules per security group quota. For more information, see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") in the Service Quotas User Guide.
   - Use IP targets, rather than instance targets. With IP targets, you can share rules for the same target ports. You can manually specify load balancer subnets with an annotation. For more information, see [Annotations](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/service/annotations/ "https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/service/annotations/") on GitHub.
   - Use an ingress, instead of a service of type `LoadBalancer`, to send traffic to your service. The AWS Application Load Balancer requires fewer rules than Network Load Balancers. You can share an ALB across multiple ingresses. For more information, see [Route application and HTTP traffic with Application Load Balancers](alb-ingress.md "alb-ingress.md"). You can’t share a Network Load Balancer across multiple services.
@@ -151,6 +153,7 @@ Do not edit the annotations after creating your service. If you need to modify i
 
 - At least one public or private subnet in your cluster VPC.
 - Have the AWS Load Balancer Controller deployed on your cluster. For more information, see [Route internet traffic with AWS Load Balancer Controller](aws-load-balancer-controller.md "aws-load-balancer-controller.md"). We recommend version `2.7.2` or later.
+
   1.  If you’re deploying to Fargate, make sure you have an available private subnet in your VPC and create a Fargate profile. If you’re not deploying to Fargate, skip this step. You can create the profile by running the following command or in the [AWS Management Console](fargate-profile.md#create-fargate-profile "fargate-profile.md#create-fargate-profile") using the same values for `name` and `namespace` that are in the command. Replace the example values with your own.
 
   ```
@@ -160,14 +163,13 @@ Do not edit the annotations after creating your service. If you need to modify i
       --name nlb-sample-app \
       --namespace nlb-sample-app
   ```
-
   2.  Deploy a sample application.
+
       1. Create a namespace for the application.
 
       ```
       kubectl create namespace nlb-sample-app
       ```
-
       2. Save the following contents to a file named `sample-deployment.yaml` file on your computer.
 
       ```
@@ -193,7 +195,6 @@ Do not edit the annotations after creating your service. If you need to modify i
                   - name: tcp
                     containerPort: 80
       ```
-
       3. Apply the manifest to the cluster.
 
       ```
@@ -201,6 +202,7 @@ Do not edit the annotations after creating your service. If you need to modify i
       ```
 
   3.  Create a service with an internet-facing Network Load Balancer that load balances to IP targets.
+
       1. Save the following contents to a file named `sample-service.yaml` file on your computer. If you’re deploying to Fargate nodes, remove the `service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing` line.
 
       ```
@@ -222,7 +224,6 @@ Do not edit the annotations after creating your service. If you need to modify i
         selector:
           app: nginx
       ```
-
       2. Apply the manifest to the cluster.
 
       ```
@@ -261,7 +262,6 @@ Do not edit the annotations after creating your service. If you need to modify i
   <title>Welcome to nginx!</title>
   [...]
   ```
-
   8.  When you’re finished with the sample deployment, service, and namespace, remove them.
 
   ```

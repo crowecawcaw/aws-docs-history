@@ -20,6 +20,7 @@ The Cluster IAM role is an AWS Identity and Access Management (IAM) role used by
 - AWS suggests naming this role `AmazonEKSAutoClusterRole`.
 - This role requires permissions for multiple AWS services to manage resources including EBS volumes, Elastic Load Balancers, and EC2 instances.
 - The suggested configuration for this role includes multiple AWS managed IAM policies, related to the different capabilities of EKS Auto Mode.
+
   - `AmazonEKSComputePolicy`
   - `AmazonEKSBlockStoragePolicy`
   - `AmazonEKSLoadBalancingPolicy`
@@ -45,6 +46,7 @@ The Node IAM role is an AWS Identity and Access Management (IAM) role used by Am
 - With EKS Auto Mode, AWS suggests creating a single Node IAM Role per AWS account.
 - This role has limited permissions. The key permissions include assuming a Pod Identity Role, and pulling images from ECR.
 - AWS suggests the following AWS managed IAM policies:
+
   - `AmazonEKSWorkerNodeMinimalPolicy`
   - `AmazonEC2ContainerRegistryPullOnly`
 

@@ -50,15 +50,18 @@ You can create the node IAM role with the AWS Management Console or the AWS CLI.
 2. In the left navigation pane, choose **Roles**.
 3. On the **Roles** page, choose **Create role**.
 4. On the **Select trusted entity** page, do the following:
+
    1. In the **Trusted entity type** section, choose **AWS service**.
    2. Under **Use case**, choose **EC2**.
    3. Choose **Next**.
 
 5. On the **Add permissions** page, attach the following policies:
+
    - [AmazonEKSWorkerNodeMinimalPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSWorkerNodeMinimalPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEKSWorkerNodeMinimalPolicy")
    - [AmazonEC2ContainerRegistryPullOnly](../../../AmazonECR/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerRegistryPullOnly "../../../AmazonECR/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerRegistryPullOnly")
 
 6. On the **Name, review, and create** page, do the following:
+
    1. For **Role name**, enter a unique name for your role, such as `AmazonEKSAutoNodeRole`.
    2. For **Description**, replace the current text with descriptive text such as `Amazon EKS - Node role`.
    3. Under **Add tags (Optional)**, add metadata to the role by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_.

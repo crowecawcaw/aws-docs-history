@@ -21,12 +21,14 @@ When upgrading the nodes in a managed node group, the upgraded nodes are launche
 The scale up phase has these steps:
 
 1.  It increments the Auto Scaling Group’s maximum size and desired size by the larger of either:
+
     - Up to twice the number of Availability Zones that the Auto Scaling Group is deployed in.
     - The maximum unavailable of upgrade.
 
     For example, if your node group has five Availability Zones and `maxUnavailable` as one, the upgrade process can launch a maximum of 10 nodes. However when `maxUnavailable` is 20 (or anything higher than 10), the process would launch 20 new nodes.
 
 2.  After scaling the Auto Scaling Group, it checks if the nodes using the latest configuration are present in the node group. This step succeeds only when it meets these criteria:
+
     - At least one new node is launched in every Availability Zone where the node exists.
     - Every new node should be in `Ready` state.
     - New nodes should have Amazon EKS applied labels.

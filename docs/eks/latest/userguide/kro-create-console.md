@@ -14,6 +14,7 @@ Create a kro capability on your Amazon EKS cluster using the AWS Management Cons
 4. In the left navigation, choose **kro (Kube Resource Orchestrator)**.
 5. Choose **Create kro capability**.
 6. For **IAM Capability Role**:
+
    - If you already have an IAM Capability Role, select it from the dropdown
    - If you need to create a role, choose **Create kro role**
 
