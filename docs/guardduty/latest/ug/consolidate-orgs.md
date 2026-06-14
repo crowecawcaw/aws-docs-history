@@ -59,6 +59,7 @@ API/CLI
    your organization, see [Inviting an AWS account to join your organization](../../../organizations/latest/userguide/orgs_manage_accounts_invites.md "../../../organizations/latest/userguide/orgs_manage_accounts_invites.md").
 2. Make sure all the member accounts are associated with the account
    that you want to designate as the single delegated GuardDuty administrator account.
+
    1. Run [DisassociateMembers](../APIReference/API_DisassociateMembers.md "../APIReference/API_DisassociateMembers.md") to disassociate any member
       account that is still associated with the pre-existing
       administrator accounts.

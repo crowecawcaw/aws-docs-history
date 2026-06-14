@@ -38,6 +38,7 @@ finding:
      compromises the database.
 
 3.  **Begin this step if the behavior is unexpected.**
+
     1. **Restrict database access**
 
     Restrict database access for the suspected accounts and the source of this login
@@ -80,6 +81,7 @@ the database as follows:
      user names.
 
 4. **Begin this step if the behavior is unexpected.**
+
    1. **Restrict database access**
 
    Restrict database access for the suspected accounts and the source of this login

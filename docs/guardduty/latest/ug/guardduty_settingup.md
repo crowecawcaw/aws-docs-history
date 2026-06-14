@@ -195,11 +195,13 @@ account, see [Sample findings](sample_findings.md "sample_findings.md").
    findings are displayed on the **Current findings** page with
    the prefix **[SAMPLE]**.
 5. Select a finding from the list to display details for the finding.
+
    1. You can review the different information fields available in the
       finding details pane. Different types of findings can have different
       fields. For more information about the available fields across all
       finding types see [Finding details](guardduty_findings-summary.md "guardduty_findings-summary.md"). From the details pane
       you can take the following actions:
+
       - Select the **finding ID** at the top of the
         pane to open the complete JSON details for the finding. The
         complete JSON file can also be downloaded from this panel. The
@@ -216,6 +218,7 @@ account, see [Sample findings](sample_findings.md "sample_findings.md").
         finding filters see [Filtering findings in GuardDuty](guardduty_filter-findings.md "guardduty_filter-findings.md").
 
 6. Archive all your sample findings
+
    1. Select all findings by selection the check box at the top of the
       list.
    2. Deselect any findings that you wish to keep.

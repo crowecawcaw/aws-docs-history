@@ -18,7 +18,7 @@ more information about these steps, see the following documents:
 
 ###### Step 1 - To remove existing delegated GuardDuty administrator account in each Region
 
-1. As the existing delegated GuardDuty administrator account, list all the member accounts associated with your
+1. As the existing delegated GuardDuty administrator account, list all the member accounts linked with your
    administrator account. Run [ListMembers](../APIReference/API_ListMembers.md "../APIReference/API_ListMembers.md") with
    `OnlyAssociated=false`.
 2. If the auto-enable preference for GuardDuty or any of the optional protection

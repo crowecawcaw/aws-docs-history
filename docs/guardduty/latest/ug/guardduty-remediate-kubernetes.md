@@ -78,14 +78,17 @@ admin:**
 
 - Identify the `userType` from the `Access Key
 details` section.
+
   - If the `userType` is **Role**
     and the role belongs to an EC2 instance role:
+
     - Identify that instance then follow the
       instructions in [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
   - If the `userType` is **User**,
     or is a **Role** that was assumed by a
     user:
+
     1. [Rotate the access key](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_RotateAccessKey "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_RotateAccessKey") of that
        user.
     2. Rotate any secrets that user had access to.
@@ -167,6 +170,7 @@ data:
 
 4. If the `userType` is **User**, or is a
    **Role** that was assumed by a user:
+
    1. [Rotate the access key](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_RotateAccessKey "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_RotateAccessKey") of that user.
    2. Rotate any secrets that user had access to.
    3. Review the information in [My AWS account may be compromised](https://aws.amazon.com//premiumsupport/knowledge-center/potential-account-compromise/ "https://aws.amazon.com//premiumsupport/knowledge-center/potential-account-compromise/") for further

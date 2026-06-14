@@ -44,6 +44,7 @@ and their free trial availability.
 | [GuardDuty Malware Protection for S3](gdu-malware-protection-s3.md "gdu-malware-protection-s3.md")                                                                              | No                                | No**[1](#protection-plan-exception-free-trial-gdu "#protection-plan-exception-free-trial-gdu")**                             |
 | [RDS Protection](rds-protection.md "rds-protection.md")                                                                                                                         | Yes                               | Yes                                                                                                                          |
 | [Lambda Protection](lambda-protection.md "lambda-protection.md")                                                                                                                | Yes                               | Yes                                                                                                                          |
+| [Malware Protection for AWS Backup](malware-protection-backup.md "malware-protection-backup.md")                                                                                | No                                | No                                                                                                                           |
 
 **2**When you enable
 GuardDuty for the first time, protection plans (except Runtime Monitoring) are automatically

@@ -133,6 +133,7 @@ aws guardduty create-filter \
 
 - For API/CLI, the [Findings severity
   levels](guardduty_findings-severity.md "guardduty_findings-severity.md") are represented as numerals. To filter the findings based on the severity levels, use the following values:
+
   - For `LOW` severity levels, use `{
 "severity": {
 "Equals": ["1", "2", "3"]

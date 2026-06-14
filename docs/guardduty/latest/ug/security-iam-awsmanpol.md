@@ -42,6 +42,7 @@ The AmazonGuardDutyFullAccess_v2 policy includes the following permissions:
 - `GuardDuty` – Allows users full access to all GuardDuty
   actions.
 - `IAM`:
+
   - Allows users to create GuardDuty service-linked role.
   - Allows viewing and managing IAM roles and their policies for GuardDuty.
   - Allows users to pass a role to GuardDuty. GuardDuty uses this role to enable Malware Protection for S3 and scan S3 objects for malware.
@@ -51,6 +52,7 @@ The AmazonGuardDutyFullAccess_v2 policy includes the following permissions:
     service-linked role (SLR) for Malware Protection for EC2 exists in an account.
 
 - `Organizations`:
+
   - Allow users to read (view) GuardDuty organization structure and accounts.
   - Allows users to designate a delegated administrator
     and manage members for a GuardDuty organization.
@@ -78,6 +80,7 @@ This policy includes the following permissions.
 - `GuardDuty` – Allows users full access to all GuardDuty
   actions.
 - `IAM`:
+
   - Allows users to create the GuardDuty service-linked role.
   - Allows an administrator account to enable GuardDuty for member accounts.
   - Allows users to pass a role to GuardDuty. GuardDuty uses this role to enable Malware Protection for S3 and scan S3 objects for malware.

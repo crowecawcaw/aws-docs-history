@@ -34,8 +34,10 @@ Console
 - Under the **EC2 instance runtime coverage** tab, you can view the
   coverage statistics aggregated by the coverage status of each Amazon EC2 instance that is
   available in the **Instances list** table.
+
   - You can filter the **Instance list** table by the following
     columns:
+
     - **Account ID**
     - **Agent management type**
     - **Agent version**
@@ -52,8 +54,10 @@ API/CLI
 - Run the [ListCoverage](../APIReference/API_ListCoverage.md "../APIReference/API_ListCoverage.md") API with
   your own valid detector ID, current Region, and service endpoint. You can filter and sort
   the instance list using this API.
+
   - You can change the example `filter-criteria` with one of the following
     options for `CriterionKey`:
+
     - `ACCOUNT_ID`
     - `RESOURCE_TYPE`
     - `COVERAGE_STATUS`
@@ -74,7 +78,6 @@ API/CLI
       - `COVERAGE_STATUS`
       - `INSTANCE_ID`
       - `UPDATED_AT`
-
   - You can change the `max-results` (up to 50).
   - To find the `detectorId` for your account and current Region, see the
     **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
@@ -86,14 +89,17 @@ aws guardduty --region `us-east-1` list-coverage --detector-id `12abc34d567e8fa9
 
 - Run the [GetCoverageStatistics](../APIReference/API_GetCoverageStatistics.md "../APIReference/API_GetCoverageStatistics.md") API to retrieve coverage aggregated statistics based on the
   `statisticsType`.
+
   - You can change the example `statisticsType` to one of the following
     options:
+
     - `COUNT_BY_COVERAGE_STATUS` – Represents coverage statistics for
       EKS clusters aggregated by coverage status.
     - `COUNT_BY_RESOURCE_TYPE` – Coverage statistics aggregated based
       on the type of AWS resource in the list.
     - You can change the example `filter-criteria` in the command. You can use
       the following options for `CriterionKey`:
+
       - `ACCOUNT_ID`
       - `RESOURCE_TYPE`
       - `COVERAGE_STATUS`

@@ -390,6 +390,7 @@ Availability Zone` – Some Availability zones don't support
   particular instance types. To identify which availability zones support your
   preferred instance type and reattempt to deploy AWS resources, perform the
   following steps:
+
   1.  Choose a preferred method to determine which Availability zones
       support your instance type:
 

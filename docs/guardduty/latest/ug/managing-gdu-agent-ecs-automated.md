@@ -1231,6 +1231,7 @@ For steps to update the service, see the following resources:
 2.  In the navigation pane, choose **Runtime
     Monitoring**.
 3.  Under the **Configuration** tab:
+
     1. ###### To manage Automated agent configuration for all Amazon ECS clusters (account level)
 
     Choose **Enable** in the **Automated
@@ -1240,7 +1241,6 @@ For steps to update the service, see the following resources:
     the security agent.
 
         1. Choose **Save**.
-
     2. ###### To manage Automated agent configuration by excluding some of the Amazon ECS clusters (cluster level)
        1. Add a tag to the Amazon ECS cluster for which you want to
           exclude all of the tasks. The key-value pair must be
@@ -1322,7 +1322,6 @@ For steps to update the service, see the following resources:
        }`
 
        ```
-
        3. Under the **Configuration** tab, choose
           **Enable** in the **Automated
           agent configuration** section.

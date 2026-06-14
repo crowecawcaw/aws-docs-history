@@ -27,6 +27,7 @@ activity**.
 
 3. **Remediate the potentially compromised Lambda
    function**.
+
    1. Disable the execution triggers of the Lambda function involved in the finding. For
       more information, see [DeleteFunctionEventInvokeConfig](../../../lambda/latest/dg/API_DeleteFunctionEventInvokeConfig.md "../../../lambda/latest/dg/API_DeleteFunctionEventInvokeConfig.md").
    2. Review the Lambda code and update the libraries imports and [Lambda function

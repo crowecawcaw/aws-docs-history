@@ -127,6 +127,7 @@ API/CLI
 
 - Invoke [CreateVpcEndpoint](../../../AWSEC2/latest/APIReference/API_CreateVpcEndpoint.md "../../../AWSEC2/latest/APIReference/API_CreateVpcEndpoint.md").
 - Use the following values for the parameters:
+
   - For **Service name**, enter
     `com.amazonaws.`us-east-1`.guardduty-data`.
 

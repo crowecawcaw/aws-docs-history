@@ -182,6 +182,7 @@ S3Object
 - **S3 object details** –
   Includes the following information about the scanned S3
   object:
+
   - **ARN** – Amazon
     Resource Name (ARN) of the scanned S3 object.
   - **Key** – The name
@@ -201,6 +202,7 @@ S3Object
 - **S3 bucket details** –
   Includes the following information about the Amazon S3 bucket associated
   with the scanned S3 object:
+
   - **Name** – Indicates
     the name of the S3 bucket that contains the object.
   - **ARN** – Amazon
@@ -256,6 +258,7 @@ with the cluster.
   belongs to this Kubernetes namespace.
 - **Volumes** – The volumes used
   by the Kubernetes workload.
+
   - **Host path** –
     Represents a preexisting file or directory on the host
     machine that the volume maps to.
@@ -309,6 +312,7 @@ ECSCluster
   both key and value.
 - **Containers** – The details
   about the container that's associated with the task:
+
   - **Container name** –
     The name of the container.
   - **Container image** –
@@ -316,6 +320,7 @@ ECSCluster
 
 - **Task details** – The details
   of a task in a cluster.
+
   - **ARN** – The Amazon
     Resource Name (ARN) of the task.
   - **Definition ARN** –
@@ -419,6 +424,7 @@ Lambda
 - **VPC configuration** – The
   Amazon VPC configuration, including the VPC ID, security group, and
   subnet IDs associated with your Lambda function.
+
   - **VPC ID** – The ID of
     the Amazon VPC that is associated with the Lambda function
     involved in the finding.
@@ -629,6 +635,7 @@ activity.
   ID of the process at the time of the event.
 - **Lineage** – Information about the
   ancestors of the process.
+
   - **Process ID** – The ID assigned
     to the process by operating system.
   - **UUID** – The unique ID assigned
@@ -734,6 +741,7 @@ For more information about the scan engine used to detect malware, see [GuardDut
 
 - **Scan detections** – The complete view of
   details and results for each malware scan.
+
   - **Scanned item count** – The total
     number of scanned files. It provides details such as
     `totalGb`, `files`, and
@@ -796,6 +804,7 @@ details** section in the details panel.
   the GuardDuty finding that initiated this malware scan.
 - The following information is available under the **Volume
   details** section in the details panel.
+
   - **Volume ARN** – The Amazon
     Resource Name (ARN) of the volume.
   - **SnapshotARN** – The ARN of the
@@ -829,6 +838,7 @@ in [S3 object scan result](monitor-with-eventbridge-s3-malware-protection.md#s3-
 
 - **Item path** – A list of nested item path
   and hash details of the scanned S3 object.
+
   - **Nested item path** – Item path
     of the scanned S3 object where the threat was detected.
 
@@ -836,6 +846,13 @@ in [S3 object scan result](monitor-with-eventbridge-s3-malware-protection.md#s3-
   an archive and if threat is detected inside an archive.
   - **Hash** – Hash of the threat
     detected in this finding.
+
+  ###### Note
+
+  In cases where the hash cannot be calculated, the scan
+  result is still delivered and the hash value defaults to the SHA-256
+  of an empty string
+  (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
 
 - **Sources** – The potential values are
   `Bitdefender` and `Amazon`.
@@ -856,10 +873,12 @@ action type:
 - **NETWORK_CONNECTION** – Indicates that
   network traffic was exchanged between the identified EC2 instance and the remote
   host. This action type has the following additional information:
+
   - **Connection direction** – The
     network connection direction observed in the activity that prompted
     GuardDuty to generate the finding. The values can be one of the
     following:
+
     - **INBOUND** – Indicates
       that a remote host initiated a connection to a local port on the
       identified EC2 instance in your account.
@@ -886,6 +905,7 @@ action type:
 - **PORT_PROBE** – Indicates that a remote
   host probed the identified EC2 instance on multiple open ports. This action type
   has the following additional information:
+
   - **Local IP** – The original source
     IP address of the traffic that triggered the finding. This info can be
     used to distinguish between the IP address of an intermediate layer
@@ -899,6 +919,7 @@ action type:
 - **DNS_REQUEST** – Indicates that the
   identified EC2 instance queried a domain name. This action type has the
   following additional information:
+
   - **Protocol** – The network
     connection protocol observed in the activity that prompted GuardDuty to
     generate the finding.
@@ -908,6 +929,7 @@ action type:
 - **AWS_API_CALL** – Indicates that an AWS
   API was invoked. This action type has the following additional
   information:
+
   - **API** – The name of the API
     operation that was invoked and thus prompted GuardDuty to generate this
     finding.
@@ -930,6 +952,7 @@ action type:
 - **RDS_LOGIN_ATTEMPT** – Indicates that a
   login attempt was made to the potentially compromised database from a remote IP
   address.
+
   - **IP address** – The remote IP
     address that was used to make the potentially suspicious login
     attempt.
@@ -1007,6 +1030,7 @@ include the following information:
 - **Agent details** – Details about the
   security agent that is currently deployed on the EKS cluster in your
   AWS account. This is only applicable to EKS Runtime Monitoring finding types.
+
   - **Agent version** – The version of
     the GuardDuty security agent.
   - **Agent Id** – The unique
@@ -1048,6 +1072,7 @@ and are also available in the finding's JSON.
   requests that were invoked by the user identity in proximity to the primary API
   request associated with the finding. This pane further breaks down the details
   of the API event in the following ways.
+
   - The first API listed is the primary API, which is the API request
     associated with the highest-risk observed activity. This is the API that
     triggered the finding and correlates to the attack stage of the finding
@@ -1110,6 +1135,7 @@ The information tracked in this panel includes:
   previously seen this user identity making this API call in this way within the
   training period. The following additional details about the **User
   Identity** are available:
+
   - **ASN Org** – The ASN Org the
     anomalous API call was made from.
   - **User Agent**– The user agent
@@ -1125,6 +1151,7 @@ The information tracked in this panel includes:
   this means the GuardDuty ML model hasn't previously seen API calls made to this
   bucket in this way within the training period. The information tracked in this
   section includes:
+
   - **ASN Org** – The ASN Org the
     anomalous API call was made from.
   - **User Name** – The name of the
@@ -1180,6 +1207,7 @@ account.
   historical, it means that the GuardDuty ML model hasn't previously observed this
   account, cluster, namespace, or username in this way. The information tracked
   for this section in the finding panel includes:
+
   - **Username** – The user that
     called the Kubernetes API associated with the finding.
   - **Impersonated Username** – The

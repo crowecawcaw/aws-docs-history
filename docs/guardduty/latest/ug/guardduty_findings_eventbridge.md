@@ -249,6 +249,7 @@ SNS topic that you created earlier. For more information, see
     rule**.
 4.  On the **Define rule detail** page, do the
     following:
+
     1. For **Name**, enter a name for the
        rule.
     2. (Optional) For **Description**, enter a
@@ -263,6 +264,7 @@ SNS topic that you created earlier. For more information, see
 
 5.  On the **Build event pattern** page, do the
     following:
+
     1. For **Event source**, choose
        **AWS events or EventBridge partner
        events**.

@@ -23,6 +23,7 @@ To resolve the `storage-full` status, you can perform one of the following actio
   in the _Amazon RDS User Guide_.
 - **Monitor your storage utilization** – Check your
   storage utilization using one of the following methods:
+
   - Use CloudWatch metrics to view details about the storage. For more information, see [CloudWatch Database Insights](../../../AmazonCloudWatch/latest/monitoring/Database-Insights.md "../../../AmazonCloudWatch/latest/monitoring/Database-Insights.md")
     in the _Amazon CloudWatch User Guide_.
   - View storage metrics by following the steps in [Monitor

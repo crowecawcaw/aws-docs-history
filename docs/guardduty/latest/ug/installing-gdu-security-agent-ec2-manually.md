@@ -56,6 +56,7 @@ _AWS Systems Manager User Guide_.
    `AmazonGuardDuty-ConfigureRuntimeMonitoringSsmPlugin`.
 4. Choose **Run Command**.
 5. Enter the following Run Command parameters
+
    - Action: Choose **Install**.
    - Installation Type: Choose **Install or
      Uninstall.**
@@ -87,6 +88,7 @@ We recommend verifying the GuardDuty security agent RPM
 signature before installing it on your machine.
 
 1.  Verify the GuardDuty security agent RPM signature
+
     1. ###### Prepare the template
 
     Prepare the commands with appropriate public key,
@@ -195,7 +197,6 @@ signature before installing it on your machine.
     aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-rpm-artifacts/`1.15.0`/publickey.pem ./publickey.pem
 
     ```
-
     3. ###### Import the public key
 
     Use the following command to import the public key
@@ -212,7 +213,6 @@ signature before installing it on your machine.
     gpg: Total number processed: 1
     gpg:               imported: 1  (RSA: 1)
     ```
-
     4. ###### Verify the signature
 
     Use the following command to verify the
@@ -276,6 +276,7 @@ We recommend verifying the GuardDuty security agent Debian
 signature before installing it on your machine.
 
 1.  Verify the GuardDuty security agent Debian signature
+
     1. ###### Prepare templates for the appropriate public key, signature of amd64 Debian package, signature of arm64 Debian package, and the corresponding access link to the Debian scripts hosted in Amazon S3 buckets
 
     In the following templates, replace the value of
@@ -376,7 +377,6 @@ signature before installing it on your machine.
     aws s3 cp s3://`694911143906`-`eu-west-1`-guardduty-agent-deb-artifacts/`1.15.0`/publickey.pem ./publickey.pem
 
     ```
-
     3. Import the public key to the database
 
     ```
@@ -390,7 +390,6 @@ signature before installing it on your machine.
     gpg: Total number processed: 1
     gpg:               imported: 1  (RSA: 1)
     ```
-
     4. Verify the signature
 
     ```

@@ -69,11 +69,13 @@ All the data sources have an equivalent feature object. For more information, se
 
 - Presently, `additionalConfiguration` in the `features` object is
   only available for certain protection types.
+
   - For such protection types, if your feature's `AdditionalConfiguration`
     `status` is set to `ENABLED` but your feature's configuration
     `status` is not set to `ENABLED`, GuardDuty will not take any action in
     this case.
   - The following APIs get impacted by this:
+
     - [UpdateDetector](../APIReference/API_UpdateDetector.md "../APIReference/API_UpdateDetector.md")
     - [UpdateMemberDetectors](../APIReference/API_UpdateMemberDetectors.md "../APIReference/API_UpdateMemberDetectors.md")
     - [UpdateOrganizationConfiguration](../APIReference/API_UpdateOrganizationConfiguration.md "../APIReference/API_UpdateOrganizationConfiguration.md")

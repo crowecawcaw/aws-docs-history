@@ -31,16 +31,16 @@ your management account in the current Region:
 4. Under **Delegated administrator**, enter the
    12-digit AWS account ID of the account that you want to designate
    as the delegated GuardDuty administrator account for the organization.
-
-Make sure to enable GuardDuty for your newly designated delegated GuardDuty administrator account,
-otherwise it won't be able to take any action. 5. Choose **Delegate**. 6. (Recommended) Repeat the preceding steps to designate the delegated GuardDuty administrator account
-in each AWS Region where you have GuardDuty enabled.
+5. Choose **Delegate**.
+6. (Recommended) Repeat the preceding steps to designate the delegated GuardDuty administrator account
+   in each AWS Region where you have GuardDuty enabled.
 
 API/CLI
 
 1. Run [enableOrganizationAdminAccount](../APIReference/API_EnableOrganizationAdminAccount.md "../APIReference/API_EnableOrganizationAdminAccount.md") using
    the credentials of the AWS account of the organization's
    management account.
+
    - Alternatively, you can use AWS Command Line Interface to do this. The
      following AWS CLI command designates a delegated GuardDuty administrator account for your
      current Region only. Run the following AWS CLI command and

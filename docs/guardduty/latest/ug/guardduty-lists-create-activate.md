@@ -34,6 +34,7 @@ Console
     threat list.
 5.  In the dialog box to add either trusted or threat list, do the
     following steps:
+
     1. For **List name**, enter a name for your
        list.
 
@@ -55,7 +56,6 @@ Console
         * http://bucket.s3.amazonaws.com/file.txt
         * http://bucket.s3-aws-region.amazonaws.com/file.txt
         * s3://bucket.name/file.txt
-
     3. (Optional) For **Expected bucket owner**,
        you can enter the AWS account ID that owns the Amazon S3 bucket
        specified in the **Location** field.

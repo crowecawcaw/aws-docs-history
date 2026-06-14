@@ -12,12 +12,15 @@ Security Hub CSPM can then include those findings in its analysis of your securi
 ###### Contents
 
 - [How Amazon GuardDuty sends findings to AWS Security Hub CSPM](securityhub-integration.md#securityhub-integration-sending-findings "securityhub-integration.md#securityhub-integration-sending-findings")
+
   - [Types of findings that GuardDuty sends to Security Hub CSPM](securityhub-integration.md#securityhub-integration-finding-types "securityhub-integration.md#securityhub-integration-finding-types")
+
     - [Latency for sending new findings](securityhub-integration.md#securityhub-integration-finding-latency "securityhub-integration.md#securityhub-integration-finding-latency")
     - [Retrying when Security Hub CSPM is not available](securityhub-integration.md#securityhub-integration-retry-send "securityhub-integration.md#securityhub-integration-retry-send")
     - [Updating existing findings in Security Hub CSPM](securityhub-integration.md#securityhub-integration-finding-updates "securityhub-integration.md#securityhub-integration-finding-updates")
 
 - [Viewing GuardDuty findings in AWS Security Hub CSPM](securityhub-integration.md#findings-in-securityhub "securityhub-integration.md#findings-in-securityhub")
+
   - [Interpreting GuardDuty finding names in AWS Security Hub CSPM](securityhub-integration.md#interpreting-findings-in-securityhub "securityhub-integration.md#interpreting-findings-in-securityhub")
   - [Typical finding from GuardDuty](securityhub-integration.md#securityhub-integration-finding-example "securityhub-integration.md#securityhub-integration-finding-example")
 
@@ -87,6 +90,7 @@ You can now use either of the following ways to view the GuardDuty findings in t
 1. In the left navigation pane, choose **Integrations**.
 2. On the **Integrations** page, check the **Status**
    for **Amazon: GuardDuty**.
+
    - If the **Status** is **Accepting findings**,
      then choose **See findings** next to **Accepting findings**.
    - If not, then for more information about how **Integrations**

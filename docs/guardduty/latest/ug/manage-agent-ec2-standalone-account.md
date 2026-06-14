@@ -29,6 +29,7 @@ Configure for all instances
 6. You can verify that the SSM association that GuardDuty creates will
    install and manage the security agent on all the EC2 resources
    belonging to your account.
+
    1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
    2. Open the **Targets** tab for the SSM
       association

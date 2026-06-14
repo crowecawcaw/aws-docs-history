@@ -26,6 +26,7 @@ The following sections provide details about each of the attack sequences.
 
 - Default severity: Critical
 - Data sources:
+
   - [EKS audit log events](kubernetes-protection.md#guardduty_k8s-audit-logs "kubernetes-protection.md#guardduty_k8s-audit-logs")
   - [Runtime Monitoring for Amazon EKS](how-runtime-monitoring-works-eks.md "how-runtime-monitoring-works-eks.md")
   - [Amazon EKS
@@ -61,6 +62,7 @@ resources that may have been potentially impacted, see [Remediating detected Gua
 
 - Default severity: Critical
 - Data sources:
+
   - [Runtime Monitoring for Amazon ECS Fargate](how-runtime-monitoring-works-ecs-fargate.md "how-runtime-monitoring-works-ecs-fargate.md")
   - [Runtime Monitoring for EC2 Instances in Amazon ECS](how-runtime-monitoring-works-ec2.md "how-runtime-monitoring-works-ec2.md")
   - [GuardDuty Malware Protection for Amazon EC2](malware-protection.md "malware-protection.md")
@@ -85,6 +87,7 @@ For comprehensive remediation guidance covering potentially impacted resources, 
 
 - Default severity: Critical
 - Data sources:
+
   - [Runtime Monitoring for Amazon EC2](how-runtime-monitoring-works-ec2.md "how-runtime-monitoring-works-ec2.md")
   - [Malware detection for Amazon EC2](malware-protection.md "malware-protection.md")
   - [VPC Flow Logs](guardduty_data-sources.md#guardduty_vpc "guardduty_data-sources.md#guardduty_vpc")

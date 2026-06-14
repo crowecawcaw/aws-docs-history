@@ -59,8 +59,10 @@ Console
 - Under the **ECS clusters runtime coverage** tab, you can view the
   coverage statistics aggregated by the coverage status of each Amazon ECS cluster that is
   available in the **Clusters list** table.
+
   - You can filter the **Cluster list** table by the following
     columns:
+
     - **Account ID**
     - **Cluster Name**
     - **Agent management type**
@@ -79,8 +81,10 @@ API/CLI
 - Run the [ListCoverage](../APIReference/API_ListCoverage.md "../APIReference/API_ListCoverage.md") API with
   your own valid detector ID, current Region, and service endpoint. You can filter and sort
   the instance list using this API.
+
   - You can change the example `filter-criteria` with one of the following
     options for `CriterionKey`:
+
     - `ACCOUNT_ID`
     - `ECS_CLUSTER_NAME`
     - `COVERAGE_STATUS`
@@ -88,6 +92,7 @@ API/CLI
 
   - You can change the example `AttributeName` in `sort-criteria`
     with the following options:
+
     - `ACCOUNT_ID`
     - `COVERAGE_STATUS`
     - `ISSUE`
@@ -108,14 +113,17 @@ aws guardduty --region `us-east-1` list-coverage --detector-id `12abc34d567e8fa9
 
 - Run the [GetCoverageStatistics](../APIReference/API_GetCoverageStatistics.md "../APIReference/API_GetCoverageStatistics.md") API to retrieve coverage aggregated statistics based on the
   `statisticsType`.
+
   - You can change the example `statisticsType` to one of the following
     options:
+
     - `COUNT_BY_COVERAGE_STATUS` – Represents coverage statistics for
       ECS clusters aggregated by coverage status.
     - `COUNT_BY_RESOURCE_TYPE` – Coverage statistics aggregated based
       on the type of AWS resource in the list.
     - You can change the example `filter-criteria` in the command. You can use
       the following options for `CriterionKey`:
+
       - `ACCOUNT_ID`
       - `ECS_CLUSTER_NAME`
       - `COVERAGE_STATUS`

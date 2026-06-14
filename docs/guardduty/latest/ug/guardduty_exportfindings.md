@@ -37,6 +37,7 @@ following key concepts:
 - **Exporting findings to Amazon S3 buckets in different
   AWS Regions (cross-Region)** – GuardDuty supports the
   following export settings:
+
   - Your Amazon S3 bucket or object, and AWS KMS key must belong to the same
     AWS Region.
   - For the findings generated in a commercial Region, you can choose to
@@ -139,6 +140,7 @@ permission to use your key.
 6. Edit the policy by replacing the following values that are formatted in
    _`red`_ in the policy
    example:
+
    1. Replace `KMS key ARN` with the Amazon
       Resource Name (ARN) of the KMS key. To locate the key ARN, see [Finding the key ID and
       ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md") in the _AWS Key Management Service Developer Guide_.
@@ -288,6 +290,7 @@ JSON
 3. Edit the policy by replacing the following values that are formatted in
    _`red`_ in the policy
    example:
+
    1. Replace `Amazon S3 bucket ARN` with the Amazon
       Resource Name (ARN) of the Amazon S3 bucket. You can find the
       **Bucket ARN** on the **Edit bucket
@@ -394,6 +397,7 @@ any finding that you update after 12:00 is exported at 18:00.
    **Frequency for updated findings**. This sets the frequency
    for exporting updated Active findings to both EventBridge and Amazon S3. You can choose from
    the following:
+
    - **Update EventBridge and S3 every 15 minutes**
    - **Update EventBridge and S3 every 1 hour**
    - **Update EventBridge and S3 every 6 hours (default)**

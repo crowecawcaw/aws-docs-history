@@ -4,6 +4,7 @@ When GuardDuty generates an Execution:EC2/MaliciousFile!Snapshot finding type, i
 been detected in an Amazon EBS snapshot. Perform the following steps to remediate the potentially compromised snapshot:
 
 1. **Identify the potentially compromised snapshot**
+
    1. Identify the potentially compromised snapshot.
       A GuardDuty finding for an EBS snapshot will list the affected snapshot ID, its Amazon Resource Name (ARN),
       and associated malware scan details in the finding details.
@@ -32,4 +33,5 @@ Review and modify backup vault access policies to restrict recovery point access
     3. For additional CLI options, see [modify-snapshot-attribute CLI documentation](../../../cli/latest/reference/ec2/modify-snapshot-attribute.md "../../../cli/latest/reference/ec2/modify-snapshot-attribute.md").
 
 3. **Take remediation action**
+
    - Before proceeding with deletion, ensure you have identified all dependencies and have proper backups if needed.

@@ -19,6 +19,7 @@ in the **EC2** section, select
 **Enable for all accounts**.
 
 - **Option 2**
+
   - Under **Automated agent
     configuration**, in the
     **EC2** section, select
@@ -130,6 +131,7 @@ accounts** in the Runtime Monitoring section:
    (`GuardDutyRuntimeMonitoring-do-not-delete`)
    will install and manage the security agent on all the EC2
    resources belonging to this account.
+
    1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
    2. Open the **Targets** tab for the
       SSM association. Observe that the **Tag

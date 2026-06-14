@@ -131,6 +131,7 @@ following prerequisites:
   association for a new instance, ensure that the new instance is SSM managed and shows up under
   **Fleet Manager** in the [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/") console.
 - When using exclusion tags with automated agent configuration:
+
   - Add the `GuardDutyManaged`:`false` tag before configuring the
     GuardDuty automated agent for your account.
 
