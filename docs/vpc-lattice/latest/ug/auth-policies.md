@@ -607,6 +607,7 @@ Authorization includes:
 - Collecting all the relevant IAM identity-based policies and auth
   policies.
 - Evaluating the resulting set of policies:
+
   - Verifying that the requester (such as an IAM user or role) has
     permissions to perform the operation from the account to which the
     requester belongs. If there is no explicit allow statement, AWS does

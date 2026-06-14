@@ -29,6 +29,7 @@ You can create a target group and optionally register targets as follows.
    **Target groups**.
 3. Choose **Create target group**.
 4. For **Choose a target type**, do one of the following:
+
    - Choose **Instances** to register targets by instance ID.
    - Choose **IP addresses** to register targets by IP address.
    - Choose **Lambda function** to register a Lambda function as a target.

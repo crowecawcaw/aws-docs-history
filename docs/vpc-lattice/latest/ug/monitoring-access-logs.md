@@ -144,6 +144,7 @@ described in the following procedure.
    settings**.
 4. Turn on the **Access logs** toggle switch.
 5. Add a delivery destination for your access logs as follows:
+
    - Select **CloudWatch Log group** and choose a log
      group. To create a log group, choose **Create a log group in
      CloudWatch**.
@@ -170,6 +171,7 @@ VPC Lattice supports request tracking and correlation across clients, targets, a
 - VPC Lattice automatically generates this header for every request.
 - The value is a randomly generated identifier (UUID-style by default).
 - The generated identifier is:
+
   - Propagated to downstream targets.
   - Returned in response headers to clients.
   - Logged in access logs
@@ -189,10 +191,12 @@ The following is an example of a response sent to client with the default behavi
 
 - Clients can optionally set this header on incoming requests to override the automatically generated value.
 - Considerations
+
   - The header value does not need to follow a UUID format.
   - If the header value exceeds 512 bytes, VPC Lattice will truncate it to 512.
 
 - When overridden successfully, the provided header value will:
+
   - Appear in response headers
   - Be propagated to targets
   - Appear in access logs and metrics

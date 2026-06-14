@@ -17,6 +17,7 @@ their account has the required access. For more information, see [How VPC Lattic
 3. Select the name of the service to open its details page.
 4. Choose the **Service network associations** tab.
 5. To create an association, do the following:
+
    1. Choose **Create associations**.
    2. Select a service network from **VPC Lattice service networks**.
       To create a service network, choose **Create a VPC Lattice network**.

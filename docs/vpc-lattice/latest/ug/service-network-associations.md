@@ -42,6 +42,7 @@ services in the service network.
 3. Select the name of the service network to open its details page.
 4. Choose the **Service associations** tab.
 5. To create an association, do the following:
+
    1. Choose **Create associations**.
    2. Select a service from **Services**. To create a
       service, choose **Create an Amazon VPC Lattice
@@ -92,6 +93,7 @@ resource configuration.
 4. Choose the **Resource configuration associations**
    tab.
 5. To create an association, do the following:
+
    1. Choose **Create associations**.
    2. For **Resource configurations**, select a
       resource configuration.
@@ -145,6 +147,7 @@ services in the service network.
 3. Select the name of the service network to open its details page.
 4. Choose the **VPC associations** tab.
 5. To create a VPC association, do the following:
+
    1. Choose **Create VPC associations**.
    2. Choose **Add VPC association**.
    3. Select a VPC from **VPC** and select up to five
@@ -155,6 +158,7 @@ services in the service network.
       based on the domain name of a resource configuration, for
       **DNS name**, select **Enable DNS
       name** and do the following:
+
       1. For **Private DNS preference**, select a preference.
 
       If you choose **All domains**, VPC Lattice

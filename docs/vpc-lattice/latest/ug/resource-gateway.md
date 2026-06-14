@@ -38,6 +38,7 @@ The following considerations apply to resource gateways:
   information, see [Quotas for VPC Lattice](quotas.md "quotas.md").
 - VPC Lattice might add new ENIs to your resource gateway.
 - Resource gateways with shared VPC subnets:
+
   - A resource gateway can only be deployed into a shared VPC subnet by the account that owns the VPC.
   - A resource configuration for a resource gateway can only be created by the account that owns the resource gateway.
 

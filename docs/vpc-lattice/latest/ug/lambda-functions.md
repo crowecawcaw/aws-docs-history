@@ -70,6 +70,7 @@ VPC Lattice service invokes the registered Lambda function.
    new tag**, and enter the tag key and tag value.
 8. Choose **Next**.
 9. For **Lambda function**, do one of the following:
+
    - Select an existing Lambda function.
    - Create a new Lambda function and select it.
    - Register the Lambda function later.

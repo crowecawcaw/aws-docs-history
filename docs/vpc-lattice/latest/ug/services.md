@@ -48,6 +48,7 @@ configuration and associate it with a service network.
    **Services**.
 3. Choose **Create service**.
 4. For **Identifiers**, do the following:
+
    1. Enter a name for the service. The name must be between 3-40 characters
       and use lowercase letters, numbers, and hyphens. It must begin and end
       with a letter or number. Do not use double hyphens.
@@ -86,6 +87,7 @@ policy to the service, do one of the following for **Auth policy**:
 7. (Optional) To enable [access logs](monitoring-access-logs.md "monitoring-access-logs.md"),
    turn on the **Access logs** toggle switch and specify a destination
    for your access logs as follows:
+
    - Select **CloudWatch Log group** and choose a
      CloudWatch Log group. To create a log group, choose
      **Create a log group in CloudWatch**.

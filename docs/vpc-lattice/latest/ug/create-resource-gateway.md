@@ -12,6 +12,7 @@ Use the console to create a resource gateway.
 4. For **Resource gateway name**, enter a name that is unique within your
    AWS account.
 5. For **IP address type**, choose the IP address type for the resource gateway.
+
    1. If you selected **IPv4** or **Dualstack** for the
       **IP address type**, you can enter the number of IPv4 addresses per ENI for your resource
       gateway.
@@ -24,6 +25,7 @@ Use the console to create a resource gateway.
 7. For **Security groups**, choose up to five security groups to control inbound traffic from the VPC to the service
    network.
 8. For **Resource Config DNS Resolution**, choose how you want DNS to be resolved for domain-name targets.
+
    1. If you are using a private DNS server or your domain-name targets are in a Route53 private hosted zone, set to IN_VPC
 
 9. (Optional) To add a tag, choose **Add new tag** and enter the tag key and

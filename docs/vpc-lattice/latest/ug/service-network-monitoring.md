@@ -22,6 +22,7 @@ streams, and S3 buckets.
 6. When you enable access logs, you must select the type of delivery destination,
    and then create or choose the destination for the access logs. You can also
    change the delivery destination at any time. For example:
+
    - Select **CloudWatch Log group** and choose a
      CloudWatch Log group. To create a log group, choose **Create a
      log group in CloudWatch**.

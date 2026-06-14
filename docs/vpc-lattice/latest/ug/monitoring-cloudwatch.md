@@ -27,6 +27,7 @@ You can view the Amazon CloudWatch metrics for your target groups and services u
 3. Select the `AWS/VpcLattice` namespace.
 4. (Optional) To view a metric across all dimensions, enter its name in the search field.
 5. (Optional) To filter by dimension, select one of the following:
+
    - To display only the metrics reported for your target groups, choose **Target groups**. To view the metrics for a single target group, enter its name in the search field.
    - To display only the metrics reported for your services, choose **Services**. To view the metrics for a single service, enter its name in the search field.
 

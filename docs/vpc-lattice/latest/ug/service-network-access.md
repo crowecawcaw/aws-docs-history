@@ -30,6 +30,7 @@ can be more restrictive. For more information, see [Control access to VPC Lattic
 7. To apply a resource policy to the service network, choose **AWS
    IAM** for **Auth type** and do one the following
    for **Auth policy**:
+
    - Enter a policy in the input field. For example policies that you can
      copy and paste, choose **Policy examples**.
    - Choose **Apply policy template** and select the

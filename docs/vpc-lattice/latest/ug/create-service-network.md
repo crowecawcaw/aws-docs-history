@@ -75,6 +75,7 @@ for **Auth policy**:
 10. (Optional) To turn on [access
     logs](monitoring-access-logs.md "monitoring-access-logs.md"), select the **Access logs** toggle switch and
     specify a destination for your access logs as follows:
+
     - Select **CloudWatch Log group** and choose a
       CloudWatch Log group. To create a log group, choose **Create a
       log group in CloudWatch**.
