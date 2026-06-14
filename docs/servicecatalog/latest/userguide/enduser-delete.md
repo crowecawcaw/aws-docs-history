@@ -26,6 +26,7 @@ For more information on provisioned product status, see [Viewing Provisioned Pro
 2. Select the provisioned product. On the **Actions** menu, choose
    **Terminate**.
 3. In the **Terminate provisioned product** dialog box, do the following:
+
    1. Verify the provisioned product you want to delete, and then enter _terminate_.
    2. (Optional) Select **Ignore errors**. If you select this option, Service Catalog stops managing
       the provisioned product even if it cannot delete the product's underlying resources.
