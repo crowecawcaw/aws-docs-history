@@ -50,31 +50,37 @@ These are the resources available for Outposts racks.
 
 - Allocated Dedicated Hosts – Consumers with
   access to this resource can:
+
   - Launch and run EC2 instances on a Dedicated Host.
 
 - Capacity Reservations – Consumers with access to
   this resource can:
+
   - Identify Capacity Reservations shared with them.
   - Launch and manage instances that consume Capacity Reservations.
 
 - Customer-owned IP address (CoIP) pools –
   Consumers with access to this resource can:
+
   - Allocate and associate customer-owned IP addresses with instances.
 
 - Local gateway route tables – Consumers with
   access to this resource can:
+
   - Create and manage VPC associations to a local gateway.
   - View configurations of local gateway route tables and virtual interfaces.
   - Create a VPC subnet route where the target is a local gateway.
 
 - Outposts – Consumers with access to this
   resource can:
+
   - Create and manage subnets on the Outpost.
   - Create and manage EBS volumes on the Outpost.
   - Use the AWS Outposts API to view information about the Outpost.
 
 - Sites – Consumers with access to this resource
   can:
+
   - Create, manage, and control an Outpost at the site.
 
 - Subnets – Consumers with access to this resource

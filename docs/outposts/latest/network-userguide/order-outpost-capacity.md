@@ -45,6 +45,7 @@ location for your Outposts racks.
 7. Enter a name, description, and operating address for your site.
 8. For **Site details**, provide the requested information about the
    site.
+
    - **Max weight** – The maximum rack weight that this site
      can support, in lbs.
    - **Power draw** – The power draw available at the hardware
@@ -134,6 +135,7 @@ software patches and upgrades.
    capacity needs, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") to request a custom capacity
    configuration.
 5. For **Storage**:
+
    - Choose an Amazon EBS storage tier.
    - (Optional) Choose an Amazon S3 storage tier.
 
@@ -201,6 +203,7 @@ Console steps
    level to optimize your total available capacity.
 6. You can also request AWS Outposts to optimize the instance quantity for a specific
    instance size. To do so:
+
    1. Choose the instance size.
    2. Choose **Auto-balance** at the end of the related
       instance-type section.

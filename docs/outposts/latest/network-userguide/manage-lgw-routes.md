@@ -137,6 +137,7 @@ the VIF group.
 6. In the confirmation dialog box, type `delete` and then choose
    **Delete**.
 7. (Optional) Create a local gateway route table with a new mode.
+
    1. On the navigation pane, choose **Local gateway route
       tables**.
    2. Choose **Create local gateway route table**.

@@ -59,6 +59,7 @@ Do not delete this VPC as it maintains the connection to your Outposts.
 
 - Configure the security group attached to the network interface to allow the
   following inbound traffic:
+
   - ICMP from your specified source
   - TCP port 443 from your specified source
   - UDP port 443 from your specified source

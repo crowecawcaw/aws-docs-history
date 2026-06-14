@@ -17,11 +17,13 @@ must create four local gateway VIFs within each VIF group.
    groups**.
 4. Choose **Create VIF group**.
 5. In the **LGW VIF group settings** section:
+
    - Enter a name for the VIF group.
    - Choose the local gateway.
    - Add your BGP ASN.
 
 6. In the **LGW virtual interface** section:
+
    - Enter a name for the VIF.
    - Choose the link aggregation group (LAG).
    - Add a virtual local area network (VLAN).
@@ -80,6 +82,7 @@ network connectivity.
 5. Choose **Manage LGW VIFs**.
 6. Choose **Add VIF**.
 7. Provide the following information:
+
    - Enter a name for the VIF.
    - Choose the link aggregation group (LAG).
    - Add a virtual local area network (VLAN).
