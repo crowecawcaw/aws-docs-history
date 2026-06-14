@@ -49,10 +49,12 @@ on it to add features.
 
 1. Sign in to the AWS Management Console and open the [AppSync
    console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **Dashboard**, choose **Create API**.
 
 2. Under **API options**, choose **GraphQL APIs**, **Start with an Amazon Aurora
    cluster**, then **Next**.
+
    1. Enter an **API name**. This will be used as an
       identifier for the API in the console.
    2. For **contact details**, you can enter a point
@@ -64,6 +66,7 @@ on it to add features.
    We don't recommend enabling this feature for this example. Choose **Next** after reviewing your inputs.
 
 3. In the **Database** page, choose **Select database**.
+
    1. You need to choose your database from your cluster. The first step is to
       choose the **Region** in which your cluster
       exists.

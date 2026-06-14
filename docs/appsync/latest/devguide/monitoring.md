@@ -43,6 +43,7 @@ To turn on automatic logging on a GraphQL API, use the AWS AppSync console.
 3. On your API's homepage, in the navigation pane, choose
    **Settings**.
 4. Under **Logging**, do the following:
+
    1. Turn on **Enable Logs**.
    2. For detailed request-level logging, select the check box under
       **Include verbose content**. (optional)
@@ -680,6 +681,7 @@ The field-Level logging is configured with the following log levels:
 - \***\*Error** - Logs the following information
   **only** for the fields that are in the
   error category:\*\*
+
   - The error section in the server response
   - Field-level errors
   - The generated request/response functions that got resolved for
@@ -688,6 +690,7 @@ The field-Level logging is configured with the following log levels:
 - \***\*Info** - Logs the following information
   **only** for the fields that are in the info
   and error categories:\*\*
+
   - Info-level messages
   - The user messages sent through `$util.log.info` and
     `console.log`
@@ -704,6 +707,7 @@ The field-Level logging is configured with the following log levels:
 - \***\*Debug** - Logs the following information
   **only** for the fields that are in the
   debug, info, and error categories:\*\*
+
   - Debug-level messages
   - The user messages sent through `$util.log.info`,
     `$util.log.debug`, `console.log`, and
@@ -712,6 +716,7 @@ The field-Level logging is configured with the following log levels:
 
 - \***\*All** - Logs the following information for
   **all** fields in the query:\*\*
+
   - Field-level tracing information
   - The generated request/response functions that were resolved for
     each field
@@ -907,6 +912,7 @@ logging utilities provided by AppSync to log only the necessary information.
 - **version:** The schema version of the
   ExecutionSummary.
 - \***\*parsing:\*\***
+
   - **startOffset:** The start offset for
     parsing, in nanoseconds, relative to the invocation, as an
     integer.
@@ -914,6 +920,7 @@ logging utilities provided by AppSync to log only the necessary information.
     in nanoseconds, as an integer.
 
 - \***\*validation:\*\***
+
   - **startOffset:** The start offset for
     validation, in nanoseconds, relative to the invocation, as an
     integer.

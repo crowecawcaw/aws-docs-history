@@ -70,7 +70,9 @@ needs the following:
 - Headers – Contain information relevant to the AWS AppSync endpoint and
   authorization. AWS AppSync supports the following three methods for providing
   headers:
+
   - Headers via query string
+
     - The header information is encoded as a base64 string,
       derived from a stringified JSON object. This JSON object
       contains details relevant to the AWS AppSync endpoint and
@@ -78,6 +80,7 @@ needs the following:
       depending on the authorization mode.
 
   - Headers via `Sec-WebSocket-Protocol`
+
     - A base64Url-encoded string from the stringified JSON
       object that contains information relevant to the AWS AppSync
       endpoint and authorization is passed as the protocol in the
@@ -86,6 +89,7 @@ needs the following:
       mode.
 
   - Headers via standard HTTP headers:
+
     - Headers can be passed as standard HTTP headers in the
       connection request, similar to how headers are passed for
       GraphQL queries and mutations to AWS AppSync. However, passing
@@ -334,6 +338,7 @@ charset=UTF-8"`: A constant `<string>`
 - `"host":
 <string>`:
   This is the host for the AWS AppSync GraphQL endpoint.
+
   - `"x-amz-date":
 <string>`:
     The timestamp must be in UTC and in the following ISO 8601
@@ -675,8 +680,10 @@ stringified JSON object that contains the following fields:
   parameter.
 - `"payload": <Object>`: An object that contains the
   information relevant to the subscription.
+
   - `"data": <string>`: A stringified JSON object that
     contains a GraphQL query and variables.
+
     - `"query": <string>`: A GraphQL
       operation.
     - `"variables": <Object>`: An object that

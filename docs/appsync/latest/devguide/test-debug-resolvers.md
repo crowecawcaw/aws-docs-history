@@ -38,6 +38,7 @@ This example will use the AWS AppSync console to test resolvers.
 
 1. Sign in to the AWS Management Console and open the [AppSync
    console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose your GraphQL
       API.
    2. In the **Sidebar**, choose **Schema**.

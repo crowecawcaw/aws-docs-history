@@ -28,11 +28,13 @@ Console
 
 1. Sign in to the AWS Management Console and open the [AppSync
    console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose your GraphQL API.
    2. In the **Sidebar**, choose **Data
       sources**.
 
 2. Choose **Create data source**.
+
    1. For **Data source name**, enter a name for your data source, such as
       `myFunction`.
    2. For **Data source type**, choose **AWS Lambda
@@ -122,6 +124,7 @@ Console
 
 1. Sign in to the AWS Management Console and open the [AppSync
    console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose your GraphQL API.
    2. In the **Sidebar**, choose **Schema**.
 

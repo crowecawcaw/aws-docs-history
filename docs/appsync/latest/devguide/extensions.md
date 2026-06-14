@@ -142,18 +142,21 @@ The value can be a different type based on the operator:
 
 - A single number or
   Boolean
+
   - String examples: `"test"`, `"service"`
   - Number examples: `1`, `2`,
     `45.75`
   - Boolean examples: `true`, `false`
 
 - Pairs of numbers or strings
+
   - String pair example: `["test1","test2"]`,
     `["start","end"]`
   - Number pair example: `[1,4]`, `[67,89]`,
     `[12.45, 95.45]`
 
 - Arrays of numbers or strings
+
   - String array example:
     `["test1","test2","test3","test4","test5"]`
   - Number array example: `[1,2,3,4,5]`,
@@ -543,6 +546,7 @@ Note that there are several restrictions for using filters:
 - Each `filterGroup` can have a maximum of 10 `filters`.
   This means that you can combine a maximum of 10 `filters` using OR
   logic.
+
   - The `in` operator is a special case of OR logic. In the
     following example, there are two `filters`:
 

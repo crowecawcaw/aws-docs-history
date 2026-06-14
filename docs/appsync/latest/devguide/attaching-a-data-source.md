@@ -143,11 +143,13 @@ Console
 
 1. Sign in to the AWS Management Console and open the [AppSync
    console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. Choose your API in the **Dashboard**.
    2. In the **Sidebar**, choose **Data
       Sources**.
 
 2. Choose **Create data source**.
+
    1. Give your data source a name. You can also give it a description, but that's
       optional.
    2. Choose your **Data source type**.

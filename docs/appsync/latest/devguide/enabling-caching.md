@@ -114,6 +114,7 @@ The cache key for operation level caching is generated using a combination of
 the following:
 
 - Certain attributes from the request's JSON payload:
+
   - The `query` string
   - The `operationName` string
   - The `variables` map

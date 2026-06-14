@@ -48,11 +48,13 @@ or any other compatible client.
 3. Associate the web ACL with an AWS AppSync API. You can perform this step in the
    [AWS WAF Console](https://console.aws.amazon.com/wafv2/ "https://console.aws.amazon.com/wafv2/") or in the
    [AppSync Console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    - To associate the web ACL with an AWS AppSync API in the AWS WAF Console,
      follow the instructions for [Associating or disassociating a Web ACL with an AWS
      resource](../../../waf/latest/developerguide/web-acl-associating-aws-resource.md "../../../waf/latest/developerguide/web-acl-associating-aws-resource.md") in the AWS WAF Developer Guide.
    - To associate the web ACL with an AWS AppSync API in the AWS AppSync
      Console
+
      1. Sign in to the AWS Management Console and open the [AppSync Console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
      2. Choose the API that you want to associate with a web
         ACL.

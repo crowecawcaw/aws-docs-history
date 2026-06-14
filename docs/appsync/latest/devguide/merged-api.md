@@ -762,14 +762,17 @@ executions required for common operations.
 **To create a Merged API in the console**
 
 1. Sign in to the AWS Management Console and open the [AWS AppSync console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **Dashboard** , choose **Create
       API**.
 
 2. Choose **Merged API**, then choose **Next**.
 3. In the **Specify API details** page, enter in the
    following information:
+
    1. Under **API Details**, enter in the following
       information:
+
       1. Specify your merged API’s **API name**. This
          field is a way to label your GraphQL API to conveniently distinguish it from other
          GraphQL APIs.
@@ -792,8 +795,10 @@ executions required for common operations.
 
 4. Next, you must add the GraphQL APIs that will be used as the foundation for your merged API. In the
    **Select source APIs** page, enter in the following information:
+
    1. In the **APIs from your AWS account** table, choose **Add Source APIs**. In the list of GraphQL APIs, each entry will contain the
       following data:
+
       1. **Name**: The GraphQL API’s **API name** field.
       2. **API ID**: The GraphQL API’s unique ID value.
       3. **Primary auth mode**: The default authorization

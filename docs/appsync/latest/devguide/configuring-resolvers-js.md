@@ -54,6 +54,7 @@ Console
 
 1. Sign in to the AWS Management Console and open the [AppSync
    console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose your GraphQL
       API.
    2. In the **Sidebar**, choose **Schema**.
@@ -525,6 +526,7 @@ contained the actual function details. Inside props, we included:
   (`add_api`) using one of the `GraphqlApi` methods ([`addDynamoDbDataSource`](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.GraphqlApi.md#addwbrdynamowbrdbwbrdatawbrsourceid-table-options "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.GraphqlApi.md#addwbrdynamowbrdbwbrdatawbrsourceid-table-options")). The id value
   (`table-for-posts`) is the name of the data source in the AWS AppSync
   console. For a list of source-specific methods, see the following pages:
+
   - [DynamoDbDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.DynamoDbDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.DynamoDbDataSource.md")
   - [EventBridgeDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.EventBridgeDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.EventBridgeDataSource.md")
   - [HttpDataSource](../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.HttpDataSource.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_appsync.HttpDataSource.md")
@@ -574,6 +576,7 @@ Console
 
 1. Sign in to the AWS Management Console and open the [AppSync
    console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose your GraphQL
       API.
    2. In the **Sidebar**, choose **Schema**.

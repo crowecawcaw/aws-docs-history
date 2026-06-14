@@ -225,9 +225,11 @@ Console
 
 1. Sign in to the AWS Management Console and open the [AppSync
    console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **Dashboard**, choose **Create API**.
    2. Under **API options**, choose **GraphQL APIs**, **Design from
       scratch**, then **Next**.
+
       1. For **API name**, change the prepopulated name to
          what your application needs.
       2. For **contact details**, you can enter a
@@ -254,6 +256,7 @@ Console
 2. You will be in the dashboard of your specific API. You can tell because the API's name
    will be at the top of the dashboard. If this isn't the case, you can select **APIs** in the **Sidebar**, then
    choose your API in the **APIs dashboard**.
+
    1. In the **Sidebar** underneath your API's name,
       choose **Schema**.
 

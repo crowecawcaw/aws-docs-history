@@ -50,6 +50,7 @@ apply:
 - In addition to the list of restricted headers for
   `copyHeaders(Map)`, header names cannot match any of the
   following:
+
   - Access-Control-Allow-Credentials
   - Access-Control-Allow-Origin
   - Access-Control-Expose-Headers

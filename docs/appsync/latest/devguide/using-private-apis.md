@@ -31,6 +31,7 @@ There are some additional factors to consider before enabling Private API featur
   traffic to your VPC (e.g., connection via VPN or over Direct Connect).
 - With a VPC interface endpoint for AWS AppSync, you can access any Private API in the same AWS account and
   Region. To further restrict access to Private APIs, you can consider the following options:
+
   - Ensuring only the required administrators can create VPC endpoint interfaces for AWS AppSync.
   - Using VPC endpoint custom policies to restrict which APIs can be invoked from resources in the VPC.
   - For resources in the VPC, we recommend that you use IAM authorization to invoke AWS AppSync APIs by
@@ -49,6 +50,7 @@ You can enable Private API features only during the creation of the API. This se
 an AWS AppSync API or an AWS AppSync Private API after it has been created.
 
 1. Sign in to the AWS Management Console and open the [AppSync console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **Dashboard**, choose **Create
       API**.
 
@@ -82,6 +84,7 @@ Console
 1.  Sign in to the AWS Management Console and open the [Endpoints](https://console.aws.amazon.com/vpc/home?#Endpoints "https://console.aws.amazon.com/vpc/home?#Endpoints") page of the Amazon VPC
     console.
 2.  Choose **Create endpoint**.
+
     1.  In the **Service category** field, verify that **AWS services** is selected.
     2.  In the **Services** table, choose one of the following services:
 
@@ -383,5 +386,6 @@ AWS AppSync supports AWS PrivateLink for both data plane and control plane opera
 - **VPCE endpoint**
   (`appsync.<region>.vpce.amazonaws.com`): Provides VPC access to data plane
   and control plane operations as follows:
+
   - **appsync** for control plane operations
   - **appsync-api** for data plane operations

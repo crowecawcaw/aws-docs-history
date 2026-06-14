@@ -88,6 +88,7 @@ various parts of the query’s execution:
 - `Query.getPost` represents a type and field (in `Type.field`
   format). It can contain multiple subsegments, depending on the structure of the
   API and the request being traced.
+
   - `DynamoDB` represents the data source that is attached to this
     resolver. It contains the latency for the network call to DynamoDB to resolve
     the field.

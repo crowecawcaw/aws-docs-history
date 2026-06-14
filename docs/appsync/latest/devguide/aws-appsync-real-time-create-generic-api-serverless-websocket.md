@@ -20,6 +20,7 @@ and the client sides.
 To get started, do the following:
 
 1. Sign in to the AWS Management Console and open the [AppSync console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **Dashboard**, choose
       **Create API**.
 

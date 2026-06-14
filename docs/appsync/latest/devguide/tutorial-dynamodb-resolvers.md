@@ -57,11 +57,13 @@ aws cloudformation delete-stack --stack-name AWSAppSyncTutorialForAmazonDynamoDB
 To create the GraphQL API in AWS AppSync:
 
 1. Sign in to the AWS Management Console and open the [AppSync console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose **Create
       API**.
 
 2. Under the **Customize your API or import from Amazon DynamoDB** window,
    choose **Build from scratch**.
+
    1. Choose **Start** to the right of the same window.
 
 3. In the **API name** field, set the name of the API to
@@ -77,9 +79,11 @@ Now that you have created an AWS AppSync GraphQL API, you can set up a basic sch
 creation, retrieval, and deletion of post data.
 
 1. Sign in to the AWS Management Console and open the [AppSync console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose the API you just created.
 
 2. In the **Sidebar**, choose **Schema**.
+
    1. In the **Schema** pane, replace the contents with the following
       code:
 
@@ -128,11 +132,13 @@ First, AWS AppSync needs to be aware of your tables. You do this by setting up a
 AWS AppSync:
 
 1. Sign in to the AWS Management Console and open the [AppSync console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose your GraphQL API.
    2. In the **Sidebar**, choose **Data
       Sources**.
 
 2. Choose **Create data source**.
+
    1. For **Data source name**, enter in `PostDynamoDBTable`.
    2. For **Data source type**, choose **Amazon DynamoDB
       table**.
@@ -190,11 +196,13 @@ A resolver has the following components:
 To set up the resolver:
 
 1. Sign in to the AWS Management Console and open the [AppSync console](https://console.aws.amazon.com/appsync/ "https://console.aws.amazon.com/appsync/").
+
    1. In the **APIs dashboard**, choose your GraphQL API.
    2. In the **Sidebar**, choose **Data
       Sources**.
 
 2. Choose **Create data source**.
+
    1. For **Data source name**, enter in `PostDynamoDBTable`.
    2. For **Data source type**, choose **Amazon DynamoDB
       table**.

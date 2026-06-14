@@ -73,6 +73,7 @@ identities.
 This policy includes the following permissions.
 
 - `AWS AppSync` – Allows the following actions:
+
   - Creating GraphQL schemas
   - Allowing the creation, modification, and deletion of GraphQL
     types, resolvers,
@@ -201,6 +202,7 @@ This policy includes the following permissions.
   AWS AppSync
 - `IAM`
   – Allows the following actions:
+
   - Creating service-linked roles to allow AWS AppSync to analyze
     resources in other services on your behalf
   - Deleting service-linked roles

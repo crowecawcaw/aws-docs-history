@@ -32,6 +32,7 @@ the following:
    **Settings**.
 4. In **API configurations**, choose **Edit**.
 5. Under **Introspection queries**, do the following:
+
    1. Turn on or off **Enable introspection queries**.
 
 6. Choose **Save**.
@@ -78,6 +79,7 @@ To add a query depth limit, do the following:
    **Settings**.
 4. In **API configurations**, choose **Edit**.
 5. Under **Query depth**, do the following:
+
    1. Turn on or off **Enable query depth**.
    2. In **Maximum depth**, set the depth limit. This can be between
       `1` and `75`.
@@ -122,6 +124,7 @@ To add a resolver count limit, do the following:
    **Settings**.
 4. In **API configurations**, choose **Edit**.
 5. Under **Resolver count limit**, do the following:
+
    1. Turn on **Enable resolver count**.
    2. In **Maximum resolver count**, set the count limit. This can be between
       `1` and `10000`.
