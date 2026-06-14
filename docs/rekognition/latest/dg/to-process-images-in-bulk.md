@@ -18,6 +18,7 @@ in an Amazon S3 bucket and it is formatted as follows:
 ## To create a bulk analysis job (CLI)
 
 1. If you haven't already:
+
    1. Create or update a user with
       `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more

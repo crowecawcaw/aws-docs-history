@@ -7,6 +7,7 @@ can then associate multiple faces with the newly created user.
 ###### To create a user (SDK)
 
 1. If you haven't already:
+
    1. Create or update an IAM user account with
       `AmazonRekognitionFullAccess` permissions. For more
       information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").

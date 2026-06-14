@@ -23,6 +23,7 @@ Follow the steps to download and configure the AWS SDKs.
    For information about installing AWS SDKs, see
    [Tools for Amazon Web Services](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/").
 2. Create an access key for the user you created in [Create an AWS Account and User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. In the navigation pane, choose **Users**.
    3. Choose the name of the user you created in [Create an AWS Account and User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").

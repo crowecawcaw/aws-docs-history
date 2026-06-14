@@ -11,6 +11,7 @@ an image stored in an Amazon S3 bucket. For more information, see [Working with 
 ###### To detect PPE on persons in an image
 
 1. If you haven't already:
+
    1. Create or update a user with `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
       information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").

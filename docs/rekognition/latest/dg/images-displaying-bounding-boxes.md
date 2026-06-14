@@ -77,6 +77,7 @@ how to download the image from an Amazon S3 bucket.
 ###### To display a bounding box
 
 1. If you haven't already:
+
    1. Create or update a user with
       `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more

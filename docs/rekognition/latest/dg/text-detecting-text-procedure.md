@@ -7,6 +7,7 @@ and specify the file name.
 ###### To detect text in an image (API)
 
 1. If you haven't already, complete the following prerequisites.
+
    1. Create or update a user with
       `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more

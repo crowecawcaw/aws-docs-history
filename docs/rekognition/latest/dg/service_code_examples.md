@@ -14,8 +14,10 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Amazon Rekognition](example_rekognition_Hello_section.md "example_rekognition_Hello_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CompareFaces](example_rekognition_CompareFaces_section.md "example_rekognition_CompareFaces_section.md")
     - [CreateCollection](example_rekognition_CreateCollection_section.md "example_rekognition_CreateCollection_section.md")
     - [DeleteCollection](example_rekognition_DeleteCollection_section.md "example_rekognition_DeleteCollection_section.md")
@@ -34,6 +36,7 @@ This topic also includes information about getting started and details about pre
     - [SearchFacesByImage](example_rekognition_SearchFacesByImage_section.md "example_rekognition_SearchFacesByImage_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Build a collection and find faces in it](example_rekognition_Usage_FindFacesInCollection_section.md "example_rekognition_Usage_FindFacesInCollection_section.md")
   - [Create a serverless application to manage photos](example_cross_PAM_section.md "example_cross_PAM_section.md")
   - [Detect PPE in images](example_cross_RekognitionPhotoAnalyzerPPE_section.md "example_cross_RekognitionPhotoAnalyzerPPE_section.md")

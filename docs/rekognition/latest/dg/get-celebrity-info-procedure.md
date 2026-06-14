@@ -12,6 +12,7 @@ Use the celebrity ID that you note in [Recognizing celebrities in an image](cele
 ###### To get celebrity information (SDK)
 
 1. If you haven't already:
+
    1. Create or update a user with `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
       information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").

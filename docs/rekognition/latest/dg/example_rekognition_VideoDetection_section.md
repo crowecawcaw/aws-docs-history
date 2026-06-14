@@ -1389,6 +1389,7 @@ public class VideoPersonDetection {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [GetCelebrityRecognition](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetCelebrityRecognition.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetCelebrityRecognition.md")
   - [GetContentModeration](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetContentModeration.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetContentModeration.md")
   - [GetLabelDetection](../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetLabelDetection.md "../../../goto/SdkForJavaV2/rekognition-2016-06-27/GetLabelDetection.md")
@@ -1566,6 +1567,7 @@ suspend fun getModResults() {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [GetCelebrityRecognition](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [GetContentModeration](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [GetLabelDetection](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")

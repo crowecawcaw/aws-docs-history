@@ -109,12 +109,12 @@ aws rekognition start-stream-processor --name `stream-processor-name`
 4. If the value of `Status` is `STARTING`, wait for 2 minutes and check the
    status by repeating step 1. If the value of Status is still
    `STARTING`, do the following:
+
    1. Delete the stream processor with the following command.
 
    ```
    aws rekognition delete-stream-processor --name `stream-processor-name`
    ```
-
    2. Create a new stream processor with the same configuration. For more information, see [Working with streaming video events](streaming-video.md "streaming-video.md").
    3. If you're still having problems, contact AWS Support.
 
@@ -244,6 +244,7 @@ aws kinesis list-streams --region `region`
 3. If the Kinesis data stream doesn't exist, it might exist in another AWS Region. The Kinesis
    data stream must be in the same Region as the stream processor.
 4. If necessary, create a new Kinesis data stream.
+
    1. Create a Kinesis data stream with the same name as the name used by the stream processor. For
       more information, see [Step 1: Create a Data Stream](../../../streams/latest/dev/learning-kinesis-module-one-create-stream.md "../../../streams/latest/dev/learning-kinesis-module-one-create-stream.md").
    2. Start the stream processor with the following AWS CLI command.

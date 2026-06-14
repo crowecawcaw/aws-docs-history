@@ -42,12 +42,14 @@ The image must be less than 5MB in size and must be of JPEG or PNG format.
    [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/ "https://console.aws.amazon.com/rekognition/").
 2. Choose **Face comparison**.
 3. For your source image, do one of the following:
+
    - Upload an image – Choose **Upload** on the left, go to the location
      where you stored your source image, and then select the image.
    - Use a URL – Type the URL of your source image in the text
      box, and then choose **Go**.
 
 4. For your target image, do one of the following:
+
    - Upload an image – Choose **Upload** on the right, go to the location
      where you stored your source image, and then select the image.
    - Use a URL – Type the URL of your source image in the text

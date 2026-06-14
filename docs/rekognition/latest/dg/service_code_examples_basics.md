@@ -7,6 +7,7 @@ SDKs.
 
 - [Hello Amazon Rekognition](example_rekognition_Hello_section.md "example_rekognition_Hello_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [CompareFaces](example_rekognition_CompareFaces_section.md "example_rekognition_CompareFaces_section.md")
   - [CreateCollection](example_rekognition_CreateCollection_section.md "example_rekognition_CreateCollection_section.md")
   - [DeleteCollection](example_rekognition_DeleteCollection_section.md "example_rekognition_DeleteCollection_section.md")

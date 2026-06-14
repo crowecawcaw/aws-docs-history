@@ -44,6 +44,7 @@ endpoint to an AWS service using the console" in [Creating an Interface Endpoint
   services_.
 - Step 4 – For **Service Name**, choose one of the following
   options:
+
   - _com.amazonaws.region.rekognition_ – Creates a VPC endpoint for
     Amazon Rekognition operations.
   - _com.amazonaws.region.rekognition-fips_ – Creates a VPC endpoint

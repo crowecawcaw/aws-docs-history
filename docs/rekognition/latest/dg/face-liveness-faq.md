@@ -113,6 +113,9 @@ currently available in the following AWS regions:
     + US West (Oregon)
     + Europe (Ireland)
     + Asia Pacific (Tokyo, Mumbai)
+    + South America (São Paulo)
+    + Asia Pacific (Malaysia)
+    + Asia Pacific (Thailand)
 
 Even if your AWS account is located in a different region, latency
 difference is not expected to be significant. You can obtain high-quality selfie

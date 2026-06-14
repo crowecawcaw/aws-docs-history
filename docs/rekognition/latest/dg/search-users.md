@@ -9,6 +9,7 @@ CreateUsers operation. For more information, see [Managing users in a collection
 ###### To search users (SDK)
 
 1. If you haven't already:
+
    1. Create or update a user with `AmazonRekognitionFullAccess`
       permissions. For more information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more

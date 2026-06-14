@@ -28,6 +28,7 @@ Kinesis video streams and Kinesis data streams.
 2. [Create an IAM service role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md"), or update an existing IAM
    service role. Use the following information to create the IAM service
    role:
+
    1. Choose **Rekognition** for the service
       name.
    2. Choose **Rekognition** for the service role
@@ -54,6 +55,7 @@ _AmazonRekognition_—for example,
 
 1. [Create an IAM service role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md"). Use the following information
    to create the IAM service role:
+
    1. Choose **Rekognition** for the service
       name.
    2. Choose **Rekognition** for the service role

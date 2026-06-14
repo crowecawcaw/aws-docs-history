@@ -103,6 +103,7 @@ For more information, see [Managing faces in a collection](managing-face-collect
 ###### To add faces to a collection (SDK)
 
 1. If you haven't already:
+
    1. Create or update a user with `AmazonRekognitionFullAccess`
       and `AmazonS3ReadOnlyAccess` permissions. For more
       information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").

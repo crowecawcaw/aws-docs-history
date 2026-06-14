@@ -8,6 +8,7 @@ For more information, see [Searching for faces and users within a collection](co
 ###### To search for a face in a collection using an image (SDK)
 
 1. If you haven't already:
+
    1. Create or update a user with `AmazonRekognitionFullAccess`
       and `AmazonS3ReadOnlyAccess` permissions. For more
       information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").

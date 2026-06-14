@@ -29,6 +29,7 @@ grant access to the bucket that stores your documents.
 2. Choose **Create function**. For more information, see
    [Create a Lambda Function with the Console](../../../lambda/latest/dg/getting-started-create-function.md "../../../lambda/latest/dg/getting-started-create-function.md").
 3. Choose the following options:
+
    - Choose **Author from scratch**.
    - Enter a value for **Function name**.
    - For **Runtime**, choose the most recent version of Python.
@@ -67,6 +68,7 @@ JSON
 12. If you are storing documents for analysis in an Amazon S3 bucket, you must add
     an Amazon S3 access policy. To do this, repeat steps 7 to 11 in the AWS Lambda
     console and make the following changes.
+
     1. For step 8, use the following policy. Replace
        `bucket/folder path` with the Amazon S3
        bucket and folder path to the documents that you want to analyze.
@@ -87,7 +89,6 @@ JSON
     }`
 
     ```
-
     2. For step 10, choose a different policy name, such as _S3Bucket-access_.
 
 ## (Optional) Create a layer (console)
@@ -255,6 +256,7 @@ Functions](../../../lambda/latest/dg/lambda-invocation.md "../../../lambda/lates
 ###### To try your Lambda function
 
 1.  If you haven't already done so, do the following:
+
     1. Make sure that the user has `lambda:InvokeFunction`
        permission. You can use the following policy:
 
@@ -279,7 +281,6 @@ Functions](../../../lambda/latest/dg/lambda-invocation.md "../../../lambda/lates
 
         	+ Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
         	+ (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
-
     2. Install and configure AWS SDK for Python. For more information,
        see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 

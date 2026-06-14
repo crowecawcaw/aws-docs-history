@@ -174,6 +174,7 @@ Create a role for identity federation. Follow the instructions in
 Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the
     instructions in [Creating a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the
     _IAM User

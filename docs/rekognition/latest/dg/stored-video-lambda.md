@@ -98,6 +98,7 @@ requirements and timeout period for the Lambda function.
    **Handler**.
 2. In **Basic settings**, choose **Edit**.
    The **Edit basic settings** dialog is shown.
+
    1. Choose **1024**
       for **Memory**.
    2. Choose **10**
@@ -150,6 +151,7 @@ results for later use.
 ###### To create the AWS Toolkit for Eclipse Lambda project
 
 1. [Create an AWS Toolkit for EclipseAWS Lambda project](../../../toolkit-for-eclipse/v1/user-guide/lambda-tutorial.md#lambda-tutorial-create-handler-class "../../../toolkit-for-eclipse/v1/user-guide/lambda-tutorial.md#lambda-tutorial-create-handler-class").
+
    - For **Project name:**, type a project name of
      your choosing.
    - For **Class Name:**, enter _JobCompletionHandler_.
@@ -281,6 +283,7 @@ public class JobCompletionHandler implements RequestHandler<SNSEvent, String> {
 ```
 
 3. The Rekognition namespaces aren't resolved. To correct this:
+
    - Pause your mouse over the underlined portion of the line
      `import
 com.amazonaws.services.rekognition.AmazonRekognition;`.

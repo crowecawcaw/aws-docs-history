@@ -208,6 +208,7 @@ The image must be less than 5MB in size and must be of JPEG or PNG format.
    [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/ "https://console.aws.amazon.com/rekognition/").
 2. Choose **Label detection**.
 3. Do one of the following:
+
    - Upload an image – Choose **Upload**, go to the location where you stored your image, and then select the image.
    - Use a URL – Type the URL in the text box, and then choose **Go**.
 

@@ -57,6 +57,7 @@ following:
       + Check the other tips for this troubleshooting question.
 
 - Check that you're using the correct Amazon SNS topic:
+
   - If you use an IAM service role to give Amazon Rekognition Video access to a
     single Amazon SNS topic, check that you've given permissions to the
     correct Amazon SNS topic. For more information, see [Giving access to an existing Amazon SNS topic](api-video-roles.md#api-video-roles-single-topics "api-video-roles.md#api-video-roles-single-topics").
