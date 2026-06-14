@@ -21,6 +21,7 @@ This section shows how to download Worker information, edit it, and upload it.
    **CURRENT BlockStatus**, shows the Worker's block
    status.
 5. To update the values, do one or more of the following:
+
    - Indicate which qualification type to assign a Worker by putting a
      qualification score in the
      **UPDATE-`QualName`**

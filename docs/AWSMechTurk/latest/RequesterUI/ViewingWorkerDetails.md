@@ -9,6 +9,7 @@ Worker is good at.
    choose the **Manage** tab and then choose
    **Workers**.
 2. On the **Manage Workers** page, the **Block Status** column can have the following values:
+
    - **Never Blocked** – Worker has never been
      blocked you.
    - **Blocked** – Worker is not allowed to

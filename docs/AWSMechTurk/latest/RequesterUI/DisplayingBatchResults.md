@@ -14,6 +14,7 @@ The following procedure describes how to display information related to your bat
 2. Under **Manage Batches**, choose the arrow next to the batch
    state you want to view. The batches in that state appear and the progress
    bar shows two quantities:
+
    - % submitted – Percentage of
      completed HITs.
    - % published – Percentage of
@@ -74,6 +75,7 @@ submitted, approved, or rejected. By default, only submitted work appears.
    Results**.
 5. On the **Filter Results** page, choose one or both
    filters and specify filter criteria as follows:
+
    - To show assignments of a specified status, select the **Status
      Filter** check box, and then choose the state that you
      want to view from the list.

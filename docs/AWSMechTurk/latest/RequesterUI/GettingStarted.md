@@ -67,12 +67,14 @@ After selecting a template, there are three steps needed to complete creating th
 ![The project completion steps](images/gtsg/AWS_Mechanical_Turk_edit_project.png)
 
 1. In **Section 1: Describing Your Project to Your Workers**, enter the following information:
+
    - **Project Name** – This is for your own reference and will appear in your project list. It will not be shown to workers. It is filled with a default value, but you are encouraged to change it to something more descriptive.
    - **Title** – The title of the HIT that is displayed to workers. Be specific about the task. For example, use "Tag landmark images" instead of "Tag photos."
    - **Description** – Search uses the description you enter here, so use words you think will help Workers find your HITs.
    - **Keywords** – A comma-separated list of words Workers can use to find your HIT.
 
 2. In **Section 2: Rewards and Time Allotments**, enter the following information:
+
    - **Reward per assignment** – Specify how much money you'll pay the worker if you approve an
      assignment.
    - **Number of assignments per
@@ -98,6 +100,7 @@ After selecting a template, there are three steps needed to complete creating th
      ensures Workers get paid in a timely manner.
 
 3. In **Section 3: Requirements and Qualifications**, enter the following information:
+
    - **Require that Workers be Masters to
      do your tasks** – Limit your HITs to workers with a history of excellence across a broad range
      of tasks.
