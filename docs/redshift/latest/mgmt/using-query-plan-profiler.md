@@ -262,6 +262,7 @@ The Child query page has the following components:
   child query streams and the child query text.
 - **Child query streams tab** – This tab of the top panel displays
   the following:
+
   - **Streams** – This pane shows the list of streams in the
     child query. This pane shows information and aggregated data about the streams that Amazon Redshift uses to
     optimize the query. For information about the details in this pane, see

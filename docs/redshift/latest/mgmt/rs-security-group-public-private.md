@@ -33,6 +33,7 @@ following configuration steps to make it publicly accessible. This applies both 
 when you choose the default security group or a custom security group:
 
 1. Find the network settings:
+
    - For a provisioned Amazon Redshift cluster, choose the
      **Properties** tab, and then under
      **Network and security settings**, select the
@@ -105,12 +106,14 @@ inbound and outbound communication. A common security-group configuration is the
 following:
 
 - For a client Amazon EC2 instance:
+
   - An inbound rule that allows the IP address of the client.
   - An outbound rule that allows the IP address range (CIDR block) of
     all subnets provided for Redshift usage. Or your can specify
     0.0.0.0/0, which is all IP address ranges.
 
 - For your Redshift cluster or workgroup:
+
   - An inbound rule that allows the client security group.
   - An outbound rule that allows traffic to 0.0.0.0/0. Typically, the
     outbound rule allows all outbound traffic. Optionally, you can add

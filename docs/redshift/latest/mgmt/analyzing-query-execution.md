@@ -49,6 +49,7 @@ The **Query details** page contains the following sections:
 - A **Query plan** tab that contains the **Query
   plan** steps and other information about the query plan. This table
   also contains graphs about the cluster when the query ran.
+
   - **Cluster health status**
 
   ![The cluster health status section of the console showing the cluster health during the workload.](images/query-details-cluster-health-status.png)

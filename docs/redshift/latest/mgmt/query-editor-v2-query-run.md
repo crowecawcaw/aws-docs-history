@@ -66,6 +66,7 @@ the default is an isolated session.
 ###### To run a query
 
 1. In the query area, do one of the following:
+
    - Enter a query.
    - Paste a query that you copied.
    - Choose the **Queries** folder, open the context menu

@@ -21,6 +21,7 @@ the PingOne portal.
    information, see [Creating a Cluster](create-cluster.md "create-cluster.md").
 2. Add Amazon Redshift as a new SAML application on the PingOne portal. For
    detailed steps, see the [Ping Identity documentation](https://docs.pingidentity.com/ "https://docs.pingidentity.com/").
+
    1. Go to **My Applications**.
    2. Under **Add Application**, choose
       **New SAML Application**.
@@ -52,6 +53,7 @@ the PingOne portal.
 
 3. For **Group Access**, set up the following group
    access, if needed:
+
    - **https://aws.amazon.com/SAML/Attributes/Role**
    - **https://aws.amazon.com/SAML/Attributes/RoleSessionName**
    - **https://redshift.amazon.com/SAML/Attributes/AutoCreate**

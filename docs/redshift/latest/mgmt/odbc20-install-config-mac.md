@@ -10,6 +10,7 @@ minimum requirements:
 
 - Root access on the machine.
 - Apple macOS System Requirements:
+
   - A 64-bit version of Apple macOS version 11.7 or higher (such as Apple macOS Big Sur, Monterey, Ventura or later) is required. The Redshift ODBC driver only supports 64-bit client applications.
   - 150 MB of available disk space.
   - The driver supports applications built with iODBC 3.52.9+ or unixODBC 2.3.7+.

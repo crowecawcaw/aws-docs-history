@@ -301,9 +301,11 @@ For each rule, you specify the following properties:
   within WLM configuration. Rule names can be up to 32
   alphanumeric characters or underscores, and can't contain
   spaces or quotation marks.
+
   - `predicate` – You can have up to
     three predicates per rule. For each predicate, specify
     the following properties.
+
     - `metric_name` – For a list
       of metrics, see [Query monitoring metrics](../dg/cm-c-wlm-query-monitoring-rules.md#cm-c-wlm-query-monitoring-metrics "../dg/cm-c-wlm-query-monitoring-rules.md#cm-c-wlm-query-monitoring-metrics") in the
       _Amazon Redshift Database Developer Guide_.
@@ -316,6 +318,7 @@ For each rule, you specify the following properties:
 
 - `action` – Each rule is associated with one
   action. Valid actions are:
+
   - `log`
   - `hop` (only available with manual
     WLM)

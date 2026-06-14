@@ -200,6 +200,7 @@ The process to configure the grant for copying snapshots is as follows.
 
 1. In the destination AWS Region, create a snapshot copy grant by doing the
    following:
+
    - If you do not already have an AWS KMS key to use, create one. For
      more information about creating AWS KMS keys, see [Creating Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the
      _AWS Key Management Service Developer Guide_.

@@ -61,6 +61,7 @@ Consider the following when calling the Data API:
 - The maximum query statement size is 100 KB.
 - The Data API is available to query single-node and multiple-node clusters
   of the following node types:
+
   - dc2.large
   - dc2.8xlarge
   - rg.xlarge
@@ -217,6 +218,7 @@ an `execute-statement` or `batch-execute-statement` AWS CLI command.
 Consider the following when using named parameters:
 
 - Named parameters can only be used to replace values in SQL statements.
+
   - You can replace the values in an INSERT statement, such as
     `INSERT INTO mytable VALUES(:val1)`.
 
@@ -230,7 +232,6 @@ Consider the following when using named parameters:
   ```
   --sql "insert into mytable values (:id, :address)"
   ```
-
   - You can replace the values in a conditions clause, such as `WHERE
 attr >= :val1`, `WHERE attr BETWEEN :val1 AND
 :val2`, and `HAVING COUNT(attr) > :val`.

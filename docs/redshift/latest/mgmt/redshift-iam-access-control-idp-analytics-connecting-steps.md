@@ -31,6 +31,7 @@ This procedure has several prerequisite steps:
 3. Create a managed AWS IAM Identity Center application for Lake Formation and configure it. This follows
    setting up the connection between AWS IAM Identity Center and Redshift. The steps are the
    following:
+
    1. In the
       AWS CLI,
       use the
@@ -49,6 +50,7 @@ This procedure has several prerequisite steps:
       `––cli-input-json` argument, whose value is the path to
       a JSON file that uses the standard format for all AWS CLI API calls. You must
       include values for the following:
+
       - `CatalogId` – The Lake Formation catalog ID.
       - `InstanceArn` – The AWS IAM Identity Center instance ARN
         value.

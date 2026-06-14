@@ -39,6 +39,7 @@ encryption controls if you have an existing cluster or workgroup:
 1. Create a snapshot of your existing cluster or namespace
 2. Create a new VPC with VPC encryption controls enabled in enforce mode
 3. Restore from the snapshot into the new VPC using one of these operations:
+
    - For provisioned clusters: Use the `restore-from-cluster-snapshot` operation
    - For serverless: Use the `restore-from-snapshot` operation on your workgroup
 

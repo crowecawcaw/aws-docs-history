@@ -13,6 +13,7 @@ In this step, you create an Aurora zero-ETL integration with Amazon Redshift.
 2. From the Amazon RDS console, [create a source Amazon Aurora DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.setting-up.md#zero-etl.create-cluster "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.setting-up.md#zero-etl.create-cluster") as described in the
    _Amazon Aurora User Guide_.
 3. From the Amazon Redshift console: [Create and configure a target Amazon Redshift data warehouse](zero-etl-setting-up.rs-data-warehouse.md "zero-etl-setting-up.rs-data-warehouse.md").
+
    - From the AWS CLI or Amazon Redshift console: [Turn on case sensitivity for your data warehouse](zero-etl-setting-up.case-sensitivity.md "zero-etl-setting-up.case-sensitivity.md").
    - From the Amazon Redshift console: [Configure authorization for your Amazon Redshift data warehouse](zero-etl-using.redshift-iam.md "zero-etl-using.redshift-iam.md").
 

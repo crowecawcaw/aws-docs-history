@@ -16,6 +16,7 @@ browse earlier query versions, save a copy of a query, or restore a query.
    the query.
 4. On the **Version history** page, you can do the
    following:
+
    - Revert to selected – Revert
      to the selected version and continue your work with this
      version.

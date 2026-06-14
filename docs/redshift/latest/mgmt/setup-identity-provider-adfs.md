@@ -17,6 +17,7 @@ The following procedure describes how to set up a trust relationship.
    information, see [Creating a Cluster](create-cluster.md "create-cluster.md").
 2. Set up AD FS to control Amazon Redshift access on the Microsoft Management
    Console:
+
    1. Choose **ADFS 2.0**, and then choose
       **Add Relying Party Trust**. On the
       **Add Relying Party Trust Wizard**
@@ -52,6 +53,7 @@ The following procedure describes how to set up a trust relationship.
        **Transform an Incoming Claim**, and
        then on the **Edit Rule – NameId** page, do
        the following:
+
        - For **Claim rule name**,
          enter **NameId**.
        - For **Incoming claim name**,
@@ -72,6 +74,7 @@ The following procedure describes how to set up a trust relationship.
        Attributes as Claims**.
    12. On the **Configure Rule** page, do the
        following:
+
        - For **Claim rule name**, enter
          **RoleSessionName**.
        - For **Attribute store**, choose
@@ -100,7 +103,6 @@ The following procedure describes how to set up a trust relationship.
                                        types = ("http://temp/variable"), query = ";tokenGroups;{0}",
                                        param = c.Value);
    ```
-
    16. On the **Edit Claim Rules** page, choose
        **Add Rule**. On the **Select
        Rule Template** page, for **Claim rule

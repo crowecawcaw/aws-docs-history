@@ -186,6 +186,7 @@ level, while `GetClusterCredentials` gives credentials for a given username in t
    `redshift:GetClusterCredentials` operation. Depending on
    which optional parameters you specify, you can also allow or restrict
    additional actions and resources in your policy:
+
    - To permit your SQL client to retrieve cluster ID, AWS Region,
      and port, include permission to call the
      `redshift:DescribeClusters` operation with the
@@ -205,7 +206,6 @@ level, while `GetClusterCredentials` gives credentials for a given username in t
    arn:aws:redshift:`region`:`account-id`:dbuser:`cluster-name`/`dbuser-name`
 
    ```
-
    - (Optional) Add an ARN that specifies the Amazon Redshift `dbname`
      resource in the following format. Replace
      `region`,
@@ -219,7 +219,6 @@ level, while `GetClusterCredentials` gives credentials for a given username in t
    arn:aws:redshift:`region`:`account-id`:dbname:`cluster-name`/`database-name`
 
    ```
-
    - If you use the `DbGroups` option, include permission to
      call the `redshift:JoinGroup` operation with the Amazon Redshift
      `dbgroup` resource in the following format. Replace

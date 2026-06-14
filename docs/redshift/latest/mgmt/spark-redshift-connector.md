@@ -19,7 +19,7 @@ of the data. This integration is automatically included in [Amazon EMR](../../..
 Apache Spark jobs that access and load data into Amazon Redshift as part of your data ingestion and
 transformation pipelines.
 
-Currently, you can use the versions 3.3.x, 3.4.x, 3.5.x, and 4.0.0 of Spark with this
+Currently, you can use the versions 3.3.x, 3.4.x, 3.5.x, 4.0.x, and 4.1.x of Spark with this
 integration.
 
 This integration provides the following:

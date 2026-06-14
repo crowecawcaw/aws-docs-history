@@ -27,6 +27,7 @@ the _Amazon Redshift Database Developer Guide_.
 4. (Optional) You can create the database from a datashare or the
    AWS Glue Data Catalog. For more information about AWS Glue, see [What is
    AWS Glue?](../../../glue/latest/dg/what-is-glue.md "../../../glue/latest/dg/what-is-glue.md") in the _AWS Glue Developer Guide_.
+
    - (Optional) Select **Create using a datashare**,
      and choose a **Select a datashare**. The list
      includes producer datashares that can be used to create a consumer
@@ -310,6 +311,7 @@ TABLE statement before you run the query to create the table.
 
 6. For each column, choose the column and choose the options that you
    want:
+
    - Choose a value for **Encoding**.
    - Choose a **Default value**.
    - Turn on **Automatically increment** if you want
@@ -326,6 +328,7 @@ TABLE statement before you run the query to create the table.
 
 7. (Optional) Choose **Table details** and choose any of the
    following options:
+
    - Distribution key column and style.
    - Sort key column and sort type.
    - Turn on **Backup** to include the table in

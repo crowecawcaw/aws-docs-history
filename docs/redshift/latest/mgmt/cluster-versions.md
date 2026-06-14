@@ -109,6 +109,8 @@ Cluster versions in this patch:
 
 Cluster versions in this patch:
 
+- 1.0.326225 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released June 8, 2026
 - 1.0.319797 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released June 3, 2026
 - 1.0.313685 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
@@ -797,6 +799,7 @@ Cluster versions in this patch:
 - Adds support for query hash, a unique identifier for a SQL query based on the textual representation of the query and the values of its parameters.
   It can be used to identify, group, and analyze similar queries. Query hash can now be found in SYS_QUERY_HISTORY view,
   with the addition of two new columns:
+
   - `user_query_hash` – The hash as submitted by the user including the query literals.
   - `generic_query_hash` - The hash as submitted by the user without any query literals.
 
@@ -1020,6 +1023,7 @@ Cluster versions in this patch:
 - Adds support so that federated users
   with appropriate permissions can view row-level
   security and dynamic data masking system views, including:
+
   - SVV_ATTACHED_MASKING_POLICY
   - SVV_MASKING_POLICY
   - SVV_RLS_ATTACHED_POLICY
@@ -1034,6 +1038,7 @@ Cluster versions in this patch:
 - Adds the following system tables to track table
   redistribution status after running classic resize on
   RA3 clusters:
+
   - The SYS_RESTORE_STATE system table
     shows table level redistribution progress.
   - The SYS_RESTORE_LOG system table
@@ -1100,6 +1105,7 @@ Cluster versions in this patch:
   `DELETE FROM streaming_materialized_views WHERE <where filter clause>`.
 - The DECODE function replaces a specific value with either another specific value or a default value,
   depending on the result of an equality condition. DECODE now requires the following three parameters:
+
   - expression
   - search
   - result

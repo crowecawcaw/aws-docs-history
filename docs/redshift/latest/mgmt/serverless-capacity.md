@@ -81,6 +81,7 @@ capacity. For general Redshift Serverless considerations, see [Considerations wh
 - Editing your workgroup's base capacity might cancel some of the queries
   running on your workgroup.
 - Redshift Serverless scales RPUs for your data warehouse using these increments:
+
   - 4 to 8 RPUs: Increases in steps of 4 RPUs.
   - 8 to 512 RPUs: Increases in steps of 8 RPUs.
   - 512 to 1024 RPUs: Increases in steps of 32 RPUs.

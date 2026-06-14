@@ -12,6 +12,7 @@ SDKs.
 - [Hello Amazon Redshift](example_redshift_Hello_section.md "example_redshift_Hello_section.md")
 - [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [CreateCluster](example_redshift_CreateCluster_section.md "example_redshift_CreateCluster_section.md")
   - [DeleteCluster](example_redshift_DeleteCluster_section.md "example_redshift_DeleteCluster_section.md")
   - [DescribeClusters](example_redshift_DescribeClusters_section.md "example_redshift_DescribeClusters_section.md")

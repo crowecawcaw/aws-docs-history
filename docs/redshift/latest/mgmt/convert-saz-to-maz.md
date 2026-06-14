@@ -32,6 +32,7 @@ maintain consistent individual query performance.
    **Activate Multi-AZ**.
 5. When there is an error, do one of the following, then click
    **Activate Multi-AZ**.
+
    - Cluster encryption — Choose
      **Properties** to edit the encryption
      settings in the Database configuration section under the

@@ -92,13 +92,13 @@ truststore.
 
 1. Download [redshift-keytool.jar](https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar "https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar").
 2. Do one of the following:
+
    - To import the Amazon Redshift Certificate Authority bundle into a
      Java TrustStore, run the following command.
 
    ```
    java -jar redshift-keytool.jar -s
    ```
-
    - To import the Amazon Redshift Certificate Authority bundle into your
      private TrustStore, run the following command:
 
@@ -124,6 +124,7 @@ following:
    information, see [SSL](connecting-ssl-support.md#connect-using-ssl "connecting-ssl-support.md#connect-using-ssl").
 2. Place the certificates from the bundle in your `root.crt`
    file.
+
    - On Linux and macOS X operating systems, the file is
      `~/.postgresql/root.crt`.
    - On Microsoft Windows, the file is

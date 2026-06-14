@@ -29,6 +29,7 @@ Spark, see [Built-in
 Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spark.apache.org/docs/latest/api/sql/index.html").
 
 - Aggregation functions
+
   - avg
   - count
   - max
@@ -40,6 +41,7 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
   - var_pop
 
 - Boolean operators
+
   - in
   - isnull
   - isnotnull
@@ -48,11 +50,13 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
   - startswith
 
 - Logical operators
+
   - and
   - or
   - not (or !)
 
 - Mathematical functions
+
   - -
   - -
   - \*
@@ -77,6 +81,7 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
   - tan
 
 - Miscellaneous functions
+
   - cast
   - coalesce
   - decimal
@@ -84,6 +89,7 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
   - in
 
 - Relational operators
+
   - !=
   - =
   - >
@@ -92,6 +98,7 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
   - <=
 
 - String functions
+
   - ascii
   - lpad
   - rpad
@@ -107,6 +114,7 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
   - concat
 
 - Time and date functions
+
   - add_months
   - date
   - date_add
@@ -116,10 +124,12 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
   - trunc
 
 - Mathematical operations
+
   - CheckOverflow
   - PromotePrecision
 
 - Relational operations
+
   - Aliases (for example, AS)
   - CaseWhen
   - Distinct

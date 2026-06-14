@@ -88,6 +88,7 @@ use Cost Explorer for long term analysis. The following procedures demonstrate h
 2. Set Granularity to **Hourly**
 3. Group by **Usage type**
 4. Apply the following filters:
+
    - Service: Redshift
    - Region: Your local region
    - Usage type: Filter for **Redshift:ServerlessUsage**

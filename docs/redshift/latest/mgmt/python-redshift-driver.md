@@ -21,6 +21,7 @@ The Amazon Redshift Python connector provides the following:
 - AWS Identity and Access Management (IAM) authentication. For more information, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 - Identity provider authentication using federated API access. Federated API access
   is supported for corporate identity providers such as the following:
+
   - Azure AD. For more information, see the AWS Big Data blog post [Federate Amazon Redshift access with Microsoft Azure AD single
     sign-on](https://aws.amazon.com/blogs/big-data/federate-amazon-redshift-access-with-microsoft-azure-ad-single-sign-on/ "https://aws.amazon.com/blogs/big-data/federate-amazon-redshift-access-with-microsoft-azure-ad-single-sign-on/").
   - Active Directory Federation Services. For more information, see the AWS

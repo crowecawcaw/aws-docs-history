@@ -422,6 +422,7 @@ echo "Script completed at $(date)"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateCluster](../../../goto/aws-cli/redshift-2012-12-01/CreateCluster.md "../../../goto/aws-cli/redshift-2012-12-01/CreateCluster.md")
   - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
   - [DeleteCluster](../../../goto/aws-cli/redshift-2012-12-01/DeleteCluster.md "../../../goto/aws-cli/redshift-2012-12-01/DeleteCluster.md")

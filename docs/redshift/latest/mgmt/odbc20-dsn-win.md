@@ -70,6 +70,7 @@ following information:
    configuration options to configure standard or IAM authentication.
 8. Choose **SSL Options** and specify a value for the
    following:
+
    - ###### Authentication mode
 
    Choose a mode for handling Secure Sockets Layer (SSL). In a

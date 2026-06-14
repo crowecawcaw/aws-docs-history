@@ -25,9 +25,11 @@ Java TrustStore (typically either `jssecacerts` or `cacerts`).
    certificate.
 5. If you aren't using one of the default Java TrustStores, then do one
    of the following:
+
    - To specify a server certificate, set the SSLRootCert property to
      the full path of the certificate.
    - To specify a TrustStore, do the following:
+
      1. Use the keytool program to add the server certificate to
         the TrustStore that you want to use.
      2. Specify the TrustStore and password to use when starting
@@ -40,6 +42,7 @@ Java TrustStore (typically either `jssecacerts` or `cacerts`).
      ```
 
 6. Choose one:
+
    - To validate the certificate, set the SSLMode property to
      verify-ca.
    - To validate the certificate and verify the host name in the

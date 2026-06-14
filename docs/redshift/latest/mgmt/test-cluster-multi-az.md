@@ -40,6 +40,7 @@ higher high availability and better continuity.
 1. Sign in to the AWS Management Console and open the Amazon Redshift console at
    [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
 2. Do one of the following:
+
    - On the navigation menu, choose **Clusters**.
      Under **Clusters**, choose a cluster. The
      cluster details page appears.

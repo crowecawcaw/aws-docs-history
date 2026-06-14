@@ -68,6 +68,7 @@ the following:
    Federation Services (AD FS)](https://aws.amazon.com/blogs//big-data/federate-access-to-amazon-redshift-query-editor-v2-with-active-directory-federation-services-ad-fs-part-3/ "https://aws.amazon.com/blogs//big-data/federate-access-to-amazon-redshift-query-editor-v2-with-active-directory-federation-services-ad-fs-part-3/") or [Federate single sign-on access to Amazon Redshift query editor v2 with
    Okta](https://aws.amazon.com/blogs//big-data/federate-single-sign-on-access-to-amazon-redshift-query-editor-v2-with-okta/ "https://aws.amazon.com/blogs//big-data/federate-single-sign-on-access-to-amazon-redshift-query-editor-v2-with-okta/").
 2. The user must have the following policy permissions:
+
    - `GetCredentials` – Provides credentials for
      temporary authorization to log in to Amazon Redshift Serverless.
    - `sts:AssumeRoleWithSAML` – Provides a
@@ -113,6 +114,7 @@ database client application through IAM credentials.
 
 1. The user who signs in in this case must be assigned policy permissions
    for the following actions:
+
    - `tag:GetResources` – Returns tagged
      resources associated with specified tags.
    - `tag:GetTagKeys` – Returns tag keys

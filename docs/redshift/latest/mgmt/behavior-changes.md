@@ -16,6 +16,7 @@ The following describes upcoming behavior changes.
 
 ###### Topics
 
+- [Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026](#snapshot-billing-model-jun2026 "#snapshot-billing-model-jun2026")
 - [Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202](#serverless-restore-integrations-patch202 "#serverless-restore-integrations-patch202")
 - [End of support for the Amazon Redshift ODBC 1.x driver on September 30, 2026](#odbc1x-deprecation-jun2026 "#odbc1x-deprecation-jun2026")
 - [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
@@ -23,6 +24,23 @@ The following describes upcoming behavior changes.
 - [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
 - [Minimum Transport Layer Security (TLS) version changes effective starting January 31, 2026](#tls-changes-jan2026 "#tls-changes-jan2026")
 - [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
+
+### Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026
+
+Starting June 08, 2026, Amazon Redshift announces an enhanced billing model for manual
+snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances. With this enhancement, manual snapshots
+are now metered based on unique data blocks stored across all active manual snapshots in your
+account. Shared data blocks that appear in multiple snapshots are counted only once, billed
+at existing manual snapshot rates for your region.
+
+You may be impacted by this if you use manual snapshots on Amazon Redshift Serverless workgroups or
+Amazon Redshift RG clusters. This results in lower manual snapshot costs for customers who maintain
+multiple snapshots.
+
+No action is required. The enhanced billing model automatically applies to both existing
+and new manual snapshots.
+
+For more information about snapshot pricing, see [Amazon Redshift pricing](https://aws.amazon.com//redshift/pricing/ "https://aws.amazon.com//redshift/pricing/").
 
 ### Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202
 
@@ -210,6 +228,7 @@ The following is a list of updates for time zone and time period combinations:
 - `EET`, `CET`, `WET` and `MET` are now
   treated as normal time zones instead of abbreviations.
 - The following time zone names no longer exist in Amazon Redshift:
+
   - `Asia/Riyadh87`
   - `Asia/Riyadh88`
   - `Asia/Riyadh89`

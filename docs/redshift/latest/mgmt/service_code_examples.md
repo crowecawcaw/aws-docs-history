@@ -19,9 +19,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Amazon Redshift](example_redshift_Hello_section.md "example_redshift_Hello_section.md")
   - [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateCluster](example_redshift_CreateCluster_section.md "example_redshift_CreateCluster_section.md")
     - [DeleteCluster](example_redshift_DeleteCluster_section.md "example_redshift_DeleteCluster_section.md")
     - [DescribeClusters](example_redshift_DescribeClusters_section.md "example_redshift_DescribeClusters_section.md")
@@ -32,6 +34,7 @@ This topic also includes information about getting started and details about pre
     - [ModifyCluster](example_redshift_ModifyCluster_section.md "example_redshift_ModifyCluster_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Create a web application to track Amazon Redshift data](example_cross_RedshiftDataTracker_section.md "example_cross_RedshiftDataTracker_section.md")
   - [Get started with Redshift Serverless](example_redshift_GettingStarted_038_section.md "example_redshift_GettingStarted_038_section.md")
   - [Getting started with Amazon Redshift provisioned clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")

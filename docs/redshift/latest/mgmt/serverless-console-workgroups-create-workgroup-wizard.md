@@ -12,6 +12,7 @@ workgroup configuration, see [Workgroup properties](serverless-console-workgroup
 2. Enter the workgroup name.
 3. Choose an **IP address type** for the workgroup.
    Choices include:
+
    - **IPv4** – With this option, your
      AWS resources only communicate over the IPv4 addressing
      protocol.

@@ -18,9 +18,11 @@ Amazon Redshift console
    dashboard. Then, choose **Zero-ETL integrations**.
 3. Select the zero-ETL integration that you want to view. For each integration, the
    following information is provided:
+
    - **Integration ID** is the identifier returned when the
      integration is created.
    - **Status** can be one of the following:
+
      - `Active` – The zero-ETL integration is sending transactional
        data to the target Amazon Redshift data warehouse.
      - `Syncing` – The zero-ETL integration has encountered a
@@ -44,6 +46,7 @@ Amazon Redshift console
    - **Target** is the namespace of the Amazon Redshift data warehouse
      receiving source data.
    - **Database** can be one of the following:
+
      - `No database` – There is no destination database for
        the integration.
      - `Creating` – Amazon Redshift is creating the destination

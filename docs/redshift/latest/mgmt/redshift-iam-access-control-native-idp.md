@@ -71,12 +71,14 @@ These limitations apply:
 
 - Amazon Redshift drivers support `BrowserIdcAuthPlugin` starting from the
   following versions:
+
   - Amazon Redshift JDBC driver v2.1.0.30
   - Amazon Redshift ODBC driver v2.1.3
   - Amazon Redshift Python driver v2.1.3
 
 - Amazon Redshift drivers support `IdpTokenAuthPlugin` starting from the
   following versions:
+
   - Amazon Redshift JDBC driver v2.1.0.19
   - Amazon Redshift ODBC driver v2.0.0.9
   - Amazon Redshift Python driver v2.0.914

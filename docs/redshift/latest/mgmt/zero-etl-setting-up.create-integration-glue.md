@@ -9,6 +9,7 @@ In this step, you create a zero-ETL integration with applications with Amazon Re
 ###### To create a zero-ETL integration with applications with Amazon Redshift
 
 1. From the Amazon Redshift console: [Create and configure a target Amazon Redshift data warehouse](zero-etl-setting-up.rs-data-warehouse.md "zero-etl-setting-up.rs-data-warehouse.md").
+
    - From the AWS CLI or Amazon Redshift console: [Turn on case sensitivity for your data warehouse](zero-etl-setting-up.case-sensitivity.md "zero-etl-setting-up.case-sensitivity.md").
    - From the Amazon Redshift console: [Configure authorization for your Amazon Redshift data warehouse](zero-etl-using.redshift-iam.md "zero-etl-using.redshift-iam.md").
 

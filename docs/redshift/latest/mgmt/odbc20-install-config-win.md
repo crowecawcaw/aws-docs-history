@@ -10,7 +10,9 @@ minimum requirements:
 
 - Administrator rights on the machine.
 - The machine meets the following system requirements:
+
   - One of the following operating systems:
+
     - Windows 10 or 8.1.
     - Windows Server 2025, 2022, 2019, 2016, or 2012.
 

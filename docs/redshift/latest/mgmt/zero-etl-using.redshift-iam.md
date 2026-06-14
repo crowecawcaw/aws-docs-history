@@ -136,6 +136,7 @@ policies for integrations:
   provide another resource policy, the previous resource policy on the resource is
   replaced. Use the previous example resource policy, which grants permissions for the
   following actions:
+
   - `CreateInboundIntegration` – Allows the source principal to
     create an inbound integration for data to be replicated from the source into the
     target data warehouse.

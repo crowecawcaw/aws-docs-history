@@ -22,6 +22,7 @@ relationship.
 2. Add Amazon Redshift as a new application on the Okta portal. For detailed
    steps, see the [Okta
    documentation](https://developer.okta.com/docs/ "https://developer.okta.com/docs/").
+
    - Choose **Add Application**.
    - Under **Add Application**, choose
      **Create New App**.

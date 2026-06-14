@@ -29,10 +29,12 @@ retrieve database user credentials, and connect to the database.
    get-cluster-credentials CLI command or call the
    `GetClusterCredentials` API operation and provide the
    following values:
+
    - **Cluster identifier** – The
      name of the cluster that contains the database.
    - **Database user name** – The
      name of an existing or new database user.
+
      - If the user doesn't exist in the database and
        AutoCreate is true, a new user is created with PASSWORD
        disabled.

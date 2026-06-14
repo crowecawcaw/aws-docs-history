@@ -66,6 +66,7 @@ JSON
 - Users in an AWS account with which a snapshot has been shared cannot perform
   actions on that snapshot unless they have permissions allowing those actions. You can
   do this by assigning the policy to a role and assuming the role.
+
   - To list or describe a snapshot, they must have an IAM policy that allows the
     `DescribeClusterSnapshots` action. The following code shows an
     example:
@@ -89,7 +90,6 @@ JSON
   }`
 
   ```
-
   - To restore a snapshot, a user must assume a role with an IAM policy that
     allows the `RestoreFromClusterSnapshot` action and has a resource
     element that covers both the cluster they are attempting to create and the
@@ -119,7 +119,6 @@ JSON
   }`
 
   ```
-
   - After access to a snapshot has been revoked from an AWS account, no users
     in that account can access the snapshot. This is the case even if those
     accounts have IAM policies that allow actions on the previously shared

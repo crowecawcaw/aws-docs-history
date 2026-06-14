@@ -181,13 +181,13 @@ your private TrustStore.
    command line, if possible.
 2. Download [redshift-keytool.jar](https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar "https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar").
 3. Do one of the following:
+
    - To import the Amazon Redshift Certificate Authority bundle into a Java
      TrustStore, run the following command.
 
    ```
    java -jar redshift-keytool.jar -s
    ```
-
    - To import the Amazon Redshift Certificate Authority bundle into your
      private TrustStore, run the following command:
 

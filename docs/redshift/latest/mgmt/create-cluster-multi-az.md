@@ -52,6 +52,7 @@ Amazon Redshift console or the AWS Command Line Interface.
 7. Under **Number of nodes per AZ**, enter at least two
    nodes for your cluster.
 8. You have the option to load sample data or bring your own data:
+
    - In **Sample data**, choose **Load
      sample data** to load the sample dataset into your
      Amazon Redshift cluster. Amazon Redshift loads the sample dataset Tickit into

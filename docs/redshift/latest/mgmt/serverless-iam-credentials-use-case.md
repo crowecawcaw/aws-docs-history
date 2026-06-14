@@ -48,6 +48,7 @@ GRANT SELECT on TABLE cities to ROLE urban_planning;
    **AWS account**. Then choose **This
    account**. Give the role the following policy
    permissions:
+
    - `AmazonRedshiftReadOnlyAccess`
    - `tag:GetResources`
    - `tag:GetTagKeys`

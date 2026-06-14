@@ -10,6 +10,7 @@ operating system.
 ## Download RSQL
 
 - Linux 64-bit RPM: [RSQL Version 1.1.2](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.2/AmazonRedshiftRsql-1.1.2.rhel.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.2/AmazonRedshiftRsql-1.1.2.rhel.x86_64.rpm")
+
   - Linux Artifact Signature Key: [Key](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.2/AmazonRedshiftRsql-1.1.2-certificate.pem "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.2/AmazonRedshiftRsql-1.1.2-certificate.pem")
   - Linux Artifact Signed Hash: [Hash](https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.2/AmazonRedshiftRsql-1.1.2-signature.bin "https://s3.amazonaws.com/redshift-downloads/amazon-redshift-rsql/1.1.2/AmazonRedshiftRsql-1.1.2-signature.bin")
 

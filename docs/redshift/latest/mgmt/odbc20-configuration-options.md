@@ -1107,6 +1107,7 @@ regular SQL types.
 
 - 1 | TRUE: The Driver returns wide SQL type for character data
   type.
+
   - SQL_WCHAR is returned instead of SQL_CHAR.
   - SQL_WVARCHAR is returned instead of SQL_VARCHAR.
   - SQL_WLONGVARCHAR is returned instead of
@@ -1114,6 +1115,7 @@ regular SQL types.
 
 - 0 | FALSE: The driver returns normal SQL type for character data
   type.
+
   - SQL_CHAR is returned instead of SQL_WCHAR.
   - SQL_VARCHAR is returned instead of SQL_WVARCHAR.
   - SQL_LONGVARCHAR is returned instead of

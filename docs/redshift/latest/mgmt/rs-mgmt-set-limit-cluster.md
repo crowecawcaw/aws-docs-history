@@ -32,6 +32,7 @@ setting a usage limit on a provisioned cluster:
     which is either **Daily**,
     **Weekly**, or **Monthly**.
 6.  Set a **Usage limit**.
+
     - For concurrency scaling and automatic optimizations run using extra compute resources limits,
       the usage limit is the amount of time that Amazon Redshift spends
       using the feature in the given time period. In this case, the

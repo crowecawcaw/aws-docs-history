@@ -227,6 +227,7 @@ Redshift an AWS IAM Identity Center managed application:
 4. Select an IAM role to use. This IAM role should be separate from others used
    for Redshift, and we recommend that it isn't used for other purposes. The specific
    policy permissions required are the following:
+
    - `sso:DescribeApplication` – Required to create an identity
      provider (IdP) entry in the catalog.
    - `sso:DescribeInstance` – Used to manually create IdP

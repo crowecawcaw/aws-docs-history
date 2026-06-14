@@ -15,6 +15,7 @@ scheduling a query in Amazon Redshift query editor v2.
    **Store a new secret**.
 3. Choose **Credentials for Amazon Redshift data warehouse**. Enter your
    information in the steps to create a secret as follows:
+
    - In **Credentials** for **User
      name**, enter the name of the administrative user of the data
      warehouse.
@@ -72,6 +73,7 @@ identifier are stored in the secret. Also, the secret is tagged with the tag key
    **Store a new secret**.
 3. Choose **Credentials for Amazon Redshift data warehouse**. Enter your
    information in the steps to create a secret as follows:
+
    - In **Credentials** for **User
      name**, enter the name of the administrative user of the data
      warehouse.
@@ -114,6 +116,7 @@ AWS CLI commands shown in the following procedure.
    to store the secret that is used to connect to a database or schedule an
    Amazon Redshift query editor v2 query. Replace the following values in the command with values for
    your environment:
+
    - `admin` is the administrator user name for
      the data warehouse.
    - `passw0rd` is the password of the

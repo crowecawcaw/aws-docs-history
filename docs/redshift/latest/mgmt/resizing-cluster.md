@@ -57,6 +57,7 @@ A resize operation comes in two types:
   option. When you perform an elastic resize, it redistributes data slices, which
   are partitions that are allocated memory and disk space in each node. Elastic
   resize is appropriate when you:
+
   - _Add or reduce nodes in an existing cluster, but you don't
     change the node type_ – This is commonly called an
     _in-place_ resize. When you perform this type of

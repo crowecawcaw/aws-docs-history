@@ -28,8 +28,9 @@ For detailed pricing information, see [Amazon Redshift pricing](https://aws.amaz
 
 Primary storage capacity is billed as Redshift Managed Storage (RMS). Storage is
 billed by GB / month. Storage billing is separate from billing for compute capacity.
-Storage used for user snapshots is billed at the standard backup billing rates,
-depending on your usage tier.
+Storage used for manual snapshots is billed based on the total unique data blocks
+across all active manual snapshots at the standard backup billing rates. Recovery
+points retained for less than 24 hours are not charged.
 
 Data transfer costs and machine learning (ML) costs apply separately, the same as
 provisioned clusters. Snapshot replication and data sharing across AWS Regions are
@@ -118,6 +119,7 @@ consistent.
   setting can be changed explicitly for a specific user, such as when you want
   to keep a session open for a long-running query. The topic [CREATE USER](../dg/r_CREATE_USER.md "../dg/r_CREATE_USER.md") shows how to
   adjust `SESSION TIMEOUT` for a user.
+
   - In most cases, we recommend that you don't extend the
     `SESSION TIMEOUT` value, unless you have a use case
     that requires it specifically. If the session remains idle, with an

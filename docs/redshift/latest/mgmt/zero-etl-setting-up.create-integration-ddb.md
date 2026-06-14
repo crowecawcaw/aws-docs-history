@@ -16,6 +16,7 @@ general flow to create a zero-ETL integration from DynamoDB to Amazon Redshift
    policies, identity-based policies, and encryption key permissions as described in the
    _Amazon DynamoDB Developer Guide_.
 3. From the Amazon Redshift console: [Create and configure a target Amazon Redshift data warehouse](zero-etl-setting-up.rs-data-warehouse.md "zero-etl-setting-up.rs-data-warehouse.md").
+
    - From the AWS CLI or Amazon Redshift console: [Turn on case sensitivity for your data warehouse](zero-etl-setting-up.case-sensitivity.md "zero-etl-setting-up.case-sensitivity.md").
    - From the Amazon Redshift console: [Configure authorization for your Amazon Redshift data warehouse](zero-etl-using.redshift-iam.md "zero-etl-using.redshift-iam.md").
 
@@ -36,6 +37,7 @@ Amazon Redshift console
    zero-ETL integration**, **Create DynamoDB integration**.
 2. On the pages to create an integration, enter information about the
    integration as follows:
+
    - Enter an **Integration name** – Which is a
      unique name that can be used to reference your integration.
    - Enter a **Description** – That describes the

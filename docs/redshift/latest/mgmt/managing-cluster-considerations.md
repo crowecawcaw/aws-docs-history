@@ -212,6 +212,7 @@ Consider the following when using single-node RA3 node types.
   change node types, only classic resize is supported. Changing the node type
   with elastic resize or snapshot restore isn't supported. The following
   scenarios are supported:
+
   - Classic resize of a 1-node dc2.xlarge to a 1-node ra3.xlplus, and
     vice versa.
   - Classic resize of a 1-node dc2.xlarge to a multiple-node

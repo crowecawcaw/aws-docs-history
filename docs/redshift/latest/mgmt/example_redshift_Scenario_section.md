@@ -773,6 +773,7 @@ public class RedshiftBasics
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [CreateCluster](../../../goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/CreateCluster.md")
   - [DescribeClusters](../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeClusters.md")
   - [DescribeStatement](../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeStatement.md "../../../goto/DotNetSDKV4/redshift-2012-12-01/DescribeStatement.md")
@@ -1193,6 +1194,7 @@ func (runner *RedshiftBasicsScenario) QueryMoviesByYear(ctx context.Context, clu
 ```
 
 - For API details, see the following topics in _AWS SDK for Go API Reference_.
+
   - [CreateCluster](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.CreateCluster "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.CreateCluster")
   - [DescribeClusters](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeClusters "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeClusters")
   - [DescribeStatement](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeStatement "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/redshift#Client.DescribeStatement")
@@ -2042,6 +2044,7 @@ public class RedshiftActions {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateCluster](../../../goto/SdkForJavaV2/redshift-2012-12-01/CreateCluster.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/CreateCluster.md")
   - [DescribeClusters](../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeClusters.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeClusters.md")
   - [DescribeStatement](../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeStatement.md "../../../goto/SdkForJavaV2/redshift-2012-12-01/DescribeStatement.md")
@@ -2592,6 +2595,7 @@ The wrapper functions used in the scenario.
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateCluster](../../../goto/boto3/redshift-2012-12-01/CreateCluster.md "../../../goto/boto3/redshift-2012-12-01/CreateCluster.md")
   - [DescribeClusters](../../../goto/boto3/redshift-2012-12-01/DescribeClusters.md "../../../goto/boto3/redshift-2012-12-01/DescribeClusters.md")
   - [DescribeStatement](../../../goto/boto3/redshift-2012-12-01/DescribeStatement.md "../../../goto/boto3/redshift-2012-12-01/DescribeStatement.md")

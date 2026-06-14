@@ -79,6 +79,7 @@ annotations.
 2. Turn on **Charts**.
 3. Choose **Trace** and start to visualize your data.
 4. Choose a chart style from one of the following:
+
    - Scatter
    - Bar
    - Area
