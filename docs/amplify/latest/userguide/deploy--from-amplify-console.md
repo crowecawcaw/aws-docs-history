@@ -14,6 +14,7 @@ console.
 4. Choose **Next**.
 5. On the **Start a manual deployment** page, do the
    following.
+
    1. For **App name**, enter the name of your app.
    2. For **Branch name**, enter the name of the branch to deploy.
 

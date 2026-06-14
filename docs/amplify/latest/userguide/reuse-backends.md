@@ -17,6 +17,7 @@ environment.
 
 1. Sign in to the AWS Management Console and open the [Amplify console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/").
 2. To create a new backend to use for this example, do the following:
+
    1. In the navigation pane, choose **All apps**.
    2. Choose **New app**, **Build an
       app**.
@@ -33,6 +34,7 @@ environment.
    **Branch**, select the branch from your repository to
    connect.
 6. On the **Build settings**, page do the following:
+
    1. For **App name**, select the app to use for adding a
       backend environment. You can choose the current app or any other app in the
       current region.

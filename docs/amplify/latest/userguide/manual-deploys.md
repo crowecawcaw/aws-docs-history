@@ -63,7 +63,9 @@ simplified process, see [Deploying a static website to Amplify from an Amazon S3
 6. For **Method**, choose either **Amazon S3** or
    **Any URL**.
 7. The procedure for uploading your files depends on the upload method.
+
    - Amazon S3
+
      1. For **S3 location of objects to
         host**, choose **Browse
         S3**. Then, select the name of the Amazon S3 bucket
@@ -73,6 +75,7 @@ simplified process, see [Deploying a static website to Amplify from an Amazon S3
      3. Choose **Choose prefix**.
 
    - Any URL
+
      1. For **Resource URL**, enter the URL to the .zip file
         to deploy.
 

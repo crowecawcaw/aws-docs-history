@@ -68,6 +68,7 @@ This policy has the following settings:
 - **Maximum TTL:** 31536000 seconds (one year)
 - **Default TTL:** 0 seconds
 - **Headers included in cache key:**
+
   - `Authorization`
   - `Accept`
   - `CloudFront-Viewer-Country`
@@ -93,6 +94,7 @@ This policy has the following settings:
 - **Maximum TTL:** 31536000 seconds (one year)
 - **Default TTL:** 0 seconds
 - **Headers included in cache key:**
+
   - `Authorization`
   - `Accept`
   - `CloudFront-Viewer-Country`
@@ -118,6 +120,7 @@ This policy has the following settings:
 - **Maximum TTL:** 31536000 seconds (one year)
 - **Default TTL:** 0 seconds
 - **Headers included in cache key:**
+
   - `Authorization`
   - `Accept`
   - `Host`
@@ -142,6 +145,7 @@ This policy has the following settings:
 - **Maximum TTL:** 31536000 seconds (one year)
 - **Default TTL:** 0 seconds
 - **Headers included in cache key:**
+
   - `Authorization`
   - `Host`
 

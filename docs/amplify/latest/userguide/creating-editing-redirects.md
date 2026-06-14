@@ -32,6 +32,7 @@ geographical region.
    redirects**.
 5. Manually add or update redirects in the **Rewrites
    and redirects** JSON editor.
+
    1. For `source`, specify the original address
       the user requested.
    2. For `status`, specify the type of redirect.

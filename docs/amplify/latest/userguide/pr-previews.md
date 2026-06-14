@@ -81,6 +81,7 @@ Amplify GitHub App in your account:
 4. On the **Manage preview settings** page, turn on **Pull
    request previews**. Then choose **Confirm**.
 5. For fullstack applications do one of the following:
+
    - Choose, **Create new backend environment for every Pull
      Request**. This option enables you to test changes without
      impacting production.

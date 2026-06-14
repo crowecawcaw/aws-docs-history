@@ -15,6 +15,7 @@ builds using services such as Zapier.
    **Incoming webhooks** section and choose **Create
    webhook**.
 5. In the **Create webhook** dialog box, do the following:
+
    1. For **Webhook name** enter a name for the webhook.
    2. For **Branch to build**, select the branch to build on
       incoming webhook requests.
@@ -22,6 +23,7 @@ builds using services such as Zapier.
 
 6. In the **Incoming webhooks** section, do one of the
    following:
+
    - Copy the webhook URL and provide it to a headless CMS tool or other service
      to initiate builds.
    - Run the curl command in a terminal window to start a new build.

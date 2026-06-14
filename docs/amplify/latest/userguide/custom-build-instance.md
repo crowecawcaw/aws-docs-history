@@ -76,6 +76,7 @@ Amplify application.
 3. On the **Start building with Amplify** page, choose your Git
    repository provider, then choose **Next**.
 4. On the **Add repository branch** page, do the following:
+
    1. In the **Recently updated repositories** list, select the name of
       the repository to connect.
    2. In the **Branch** list, select the name of the repository branch
@@ -90,20 +91,22 @@ Amplify application.
    size to effectively utilize a large instance type. You can do this on the **App
    settings** page by either setting an environment variable or updating the build
    settings. For more information, see [Configuring an application's heap memory to utilize large instance types](#configuring-heap-memory "#configuring-heap-memory").
+
    - Set an environment variable
+
      1. In the **Advanced settings**, **Environment
         variables** section, choose **Add new**.
      2. For **Key** enter `NODE_OPTIONS`.
      3. For **Value**, enter `--max-old-space-size=`memory_size_in_mb``. Replace `memory_size_in_mb` with your desired heap memory size in megabytes.
 
    - Update the build settings
+
      1. In the **Build settings** section, choose **Edit YML file**.
      2. Add the following command to the `preBuild` phase. Replace `memory_size_in_mb` with your desired heap memory size in megabytes.
 
      ```
      export NODE_OPTIONS='--max-old-space-size=`memory_size_in_mb`'
      ```
-
      3. Choose **Save**.
 
 8. Choose, **Next**.
@@ -127,6 +130,7 @@ application.
 6. Choose **Save**. This change will take effect the next time you
    deploy the application.
 7. (Optional) To deploy the updated application immediately, do the following:
+
    1. In the navigation pane, choose **Overview**.
    2. On your application's overview page, choose the branch to redeploy.
    3. On the **Deployment** page, choose a deployment, such as the most

@@ -21,6 +21,7 @@ Use the following instructions to deploy a new Next.js SSR app.
 3. On the **Start building with Amplify** page, choose your Git
    repository provider, then choose **Next**.
 4. On the **Add repository branch** page, do the following:
+
    1. In the **Recently updated repositories** list, select the name
       of the repository to connect.
    2. In the **Branch** list, select the name of the repository
@@ -30,11 +31,14 @@ Use the following instructions to deploy a new Next.js SSR app.
 5. The app requires an IAM service role that Amplify assumes when calling other
    services on your behalf. You can either allow Amplify Hosting compute to automatically
    create a service role for you or you can specify a role that you have created.
+
    - To allow Amplify to automatically create a role and attach it to your
      app:
+
      1. Choose **Create and use a new service role**.
 
    - To attach a service role that you previously created:
+
      1. Choose **Use an existing service role**.
      2. Select the role to use from the list.
 

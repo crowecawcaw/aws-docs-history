@@ -54,6 +54,7 @@ Amplify console or by downloading and editing the
    directory. If you are working with a monorepo, save the file in the root of your
    repo.
 10. Redeploy the app to apply the new custom headers.
+
     - For a CI/CD app, perform a new build from your Git repository that includes the
       new `customHttp.yml` file.
     - For a manual deploy app, deploy the app again in the Amplify console and include

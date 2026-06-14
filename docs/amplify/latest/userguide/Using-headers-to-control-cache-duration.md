@@ -43,6 +43,7 @@ content cached at the CDN edge for 24 hours.
    **Edit**.
 5. In the **Edit custom headers** window, enter the information
    for your custom header as follows:
+
    1. For `pattern`, enter `**/*` for all
       paths.
    2. For `key`, enter `Cache-Control`.

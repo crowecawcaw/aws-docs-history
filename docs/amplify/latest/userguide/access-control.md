@@ -22,12 +22,15 @@ Use the following procedure to set a password to restrict access to an Amplify a
 4. In the **Access control settings** section, choose **Manage
    access**.
 5. On the **Manage access control** page, do one of the following.
+
    - To set a username and password that applies to all connected branches
+
      1. Turn on **Manage access for all branches**. For example, if you have
         **main**, **dev**,
         and **feature** branches connected, you can apply the same username and password for all branches.
 
    - To set a a username and password that applies to an individual branch
+
      1. Turn off **Manage access for all branches**.
      2. Locate the branch that you want to manage. For **Access
         settings** choose **Restricted-password

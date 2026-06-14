@@ -22,6 +22,7 @@ see [Getting started with existing code](getting-started.md "getting-started.md"
    branch.
 5. (Optional) To customize an environment variable specifically for a branch, add a
    branch override as follows:
+
    1. Choose **Actions** and then choose **Add variable
       override**.
    2. You now have a set of environment variables specific to your branch.
@@ -36,7 +37,9 @@ see [Getting started with existing code](getting-started.md "getting-started.md"
    console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/").
 2. The procedure for connecting a branch to an app varies depending on whether you
    are connecting a branch to a new app or an existing app.
+
    - **Connecting a branch to a new app**
+
      1. On the **Build settings** page, locate the
         **Select a backend environment to use with this
         branch** section. For **Environment**,
@@ -56,6 +59,7 @@ see [Getting started with existing code](getting-started.md "getting-started.md"
 
    - **Connecting a branch to an existing
      app**
+
      1. If you are connecting a new branch to an existing app, set the social
         sign-in environment variables before connecting the branch. In the
         navigation pane, choose **App Settings**,

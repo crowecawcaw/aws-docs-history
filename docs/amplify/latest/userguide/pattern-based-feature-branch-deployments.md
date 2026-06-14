@@ -9,6 +9,7 @@ branches that begin with ‘release’ to a shareable URL.
 2. On the **Branch settings** page, choose **Edit**.
 3. Select **Branch autodetection** to automatically connect branches to Amplify that match a pattern set.
 4. In the **Branch autodetection - patterns** box, enter the patterns for automatically deploying branches.
+
    - `*` – Deploys all branches
      in your repository.
    - `release*` – Deploys all

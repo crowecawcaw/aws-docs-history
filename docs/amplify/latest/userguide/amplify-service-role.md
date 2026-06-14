@@ -31,8 +31,10 @@ manage backends.
    `AmplifyConsoleServiceRole-AmplifyRole`.
 5. Accept all the defaults and choose **Create role**.
 6. Return to the Amplify console to attach the role to your app.
+
    - If you are in the process of deploying a new app, do the
      following:
+
      1. Refresh the list of service roles.
      2. Select the role you just created. For this example, it should look
         like
@@ -41,6 +43,7 @@ manage backends.
         your app deployment.
 
    - If you have an existing app, do the following:
+
      1. In the navigation pane, choose **App settings**,
         then choose **IAM roles**.
      2. On the **IAM roles** page, in the

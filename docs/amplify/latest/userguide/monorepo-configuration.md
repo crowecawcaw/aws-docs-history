@@ -215,6 +215,7 @@ environment variable using the app's root folder that you specify in the console
 3. On the **Start building with Amplify** page, choose your Git
    provider, then choose **Next**.
 4. On the **Add repository branch** page, do the following:
+
    1. Choose the name of your repository from the list.
    2. Choose the name of the branch to use.
    3. Select **My app is a monorepo**
@@ -245,6 +246,7 @@ deployed to Amplify, or has been created using CloudFormation.
 4. On the **Environment variables** page, choose **Manage
    variables**.
 5. In the **Manage variables** section, do the following:
+
    1. Choose **Add new**.
    2. For **Variable**, enter the key
       `AMPLIFY_MONOREPO_APP_ROOT`.

@@ -208,13 +208,17 @@ app.
    variables**.
 5. The procedure for configuring the environment variable varies depending on whether
    you are enabling or disabling diff based frontend build and deploy.
+
    - To enable diff based frontend build and deploy
+
      1. In the **Manage variables** section, under
         **Variable**, enter `AMPLIFY_DIFF_DEPLOY`.
      2. For **Value**, enter `true`.
 
    - To disable diff based frontend build and deploy
+
      1. Do one of the following:
+
         - In the **Manage variables** section, locate
           `AMPLIFY_DIFF_DEPLOY`. For **Value**, enter
           `false`.
@@ -257,13 +261,17 @@ must move them to the frontend phase of your build settings in your app's
    variables**.
 5. The procedure for configuring the environment variable varies depending on whether
    you are enabling or disabling diff based backend builds.
+
    - To enable diff based backend builds
+
      1. In the **Manage variables** section, under
         **Variable**, enter `AMPLIFY_DIFF_BACKEND`.
      2. For **Value**, enter `true`.
 
    - To disable diff based backend builds
+
      1. Do one of the following:
+
         - In the **Manage variables** section, locate
           `AMPLIFY_DIFF_BACKEND`. For **Value**, enter
           `false`.

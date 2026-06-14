@@ -47,6 +47,7 @@ key when you are deploying a new app using the Amplify console.
 3. On the **Start building with Amplify** page, choose your Git
    repository provider, then choose **Next**.
 4. On the **Add repository branch** page, do the following:
+
    1. Select the name of the repository to connect.
    2. Select the name of the repository branch to connect.
    3. Choose **Next**.
@@ -54,10 +55,13 @@ key when you are deploying a new app using the Amplify console.
 5. If the app requires an IAM service role, you can either allow Amplify Hosting compute
    to automatically create a service role for you or you can specify a role that you have
    created.
+
    - To allow Amplify to automatically create a role and attach it to your app:
+
      1. Choose **Create and use a new service role**.
 
    - To attach a service role that you previously created:
+
      1. Choose **Use an existing service role**.
      2. Select the role to use from the list.
 

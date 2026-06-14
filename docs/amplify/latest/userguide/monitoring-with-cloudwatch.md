@@ -78,6 +78,7 @@ Use the following procedure to create an alarm in the Amplify console.
    alarm**.
 5. In the **Create alarm** window, configure your alarm as
    follows:
+
    1. For **Metric**, choose the name of the metric to monitor
       from the list.
    2. For **Name of alarm**, enter a meaningful name for the
@@ -86,6 +87,7 @@ Use the following procedure to create an alarm in the Amplify console.
       contain only ASCII characters.
    3. For **Set up notifications**, do one of the
       following:
+
       - 1. Choose **New** to set up a new Amazon SNS
            topic.
         2. For **Email address**, enter the email
@@ -100,6 +102,7 @@ Use the following procedure to create an alarm in the Amplify console.
    4. For **Whenever the _Statistic_ of
       _Metric_**, set the conditions for your
       alarm as follows:
+
       1. Specify whether the metric must be greater than, less than, or
          equal to the threshold value.
       2. Specify the threshold value.

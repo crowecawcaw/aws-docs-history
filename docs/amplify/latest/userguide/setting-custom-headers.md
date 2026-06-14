@@ -17,12 +17,14 @@ directory.
 5. In the **Edit custom headers** window, enter the information for your
    custom headers using the [custom header YAML
    format](custom-header-YAML-format.md "custom-header-YAML-format.md").
+
    1. For `pattern`, enter the pattern to match.
    2. For `key`, enter the name of the custom header.
    3. For `value`, enter the value of the custom header.
 
 6. Choose **Save**.
 7. Redeploy the app to apply the new custom headers.
+
    - For a CI/CD app, navigate to the branch to deploy and choose **Redeploy
      this version**. You can also perform a new build from your Git
      repository.
@@ -39,6 +41,7 @@ directory.
    YML**.
 5. Open the downloaded `customHttp.yml` file in the code editor of
    your choice and enter the information for your custom headers using the [custom header YAML format](custom-header-YAML-format.md "custom-header-YAML-format.md").
+
    1. For `pattern`, enter the pattern to match.
    2. For `key`, enter the name of the custom header.
    3. For `value`, enter the value of the custom header.
@@ -47,6 +50,7 @@ directory.
    directory. If you are working with a monorepo, save the
    `customHttp.yml` file in the root of your repo.
 7. Redeploy the app to apply the new custom headers.
+
    - For a CI/CD app, perform a new build from your Git repository that includes the
      new `customHttp.yml` file.
    - For a manual deploy app, deploy the app again in the Amplify console and include

@@ -13,6 +13,7 @@ Nuxt project without any additional configuration.
 3. On the **Start building with Amplify** page, choose your Git
    repository provider, then choose **Next**.
 4. On the **Add repository branch** page, do the following:
+
    1. Select the name of the repository to connect.
    2. Select the name of the repository branch to connect.
    3. Choose **Next**.

@@ -20,6 +20,7 @@ branches of an Amplify app.
    **Manage notifications**.
 4. On the **Manage notifications** page, choose **Add new**.
 5. Do one of the following:
+
    - To send notifications for a single branch, for **Email**, enter the
      email address to send notifications to. For **Branch**, select the name of
      the branch to send notifications for.

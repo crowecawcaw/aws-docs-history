@@ -23,15 +23,19 @@ that is in use for a domain.
    domain, locate the **Custom SSL certificate** section. The procedure
    for updating your certificate varies depending on the type of change you want to
    make.
+
    - To change from a custom certificate to the default Amplify managed
      certificate
+
      1. Choose **Amplify managed certificate**.
 
    - To change from a managed certificate to a custom certificate
+
      1. Choose **Custom SSL certificate**.
      2. Select the certificate to use from the list.
 
    - To change a custom certificate to a different custom certificate
+
      1. For **Custom SSL certificate**, select the new
         certificate to use from the list.
 

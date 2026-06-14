@@ -18,7 +18,9 @@ If you are using GoDaddy, see [Updating DNS records for a domain managed by GoDa
    `example.com`.
 6. Amplify detects that you are not using a Route 53 domain and gives you the option
    to create a hosted zone in Route 53.
+
    - To create a hosted zone in Route 53
+
      1. Choose **Create hosted zone on Route 53**.
      2. Choose **Configure domain**.
      3. Hosted zone name servers are displayed in the console. Go to your DNS
@@ -28,6 +30,7 @@ If you are using GoDaddy, see [Updating DNS records for a domain managed by GoDa
      5. Proceed to step seven.
 
    - To continue with manual configuration
+
      1. Choose **Manual configuration**
      2. Choose **Configure domain**.
      3. Proceed to step seven.

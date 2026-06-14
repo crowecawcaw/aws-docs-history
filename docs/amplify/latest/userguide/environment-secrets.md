@@ -23,6 +23,7 @@ using the AWS Systems Manager console.
    **Create parameter**.
 4. On the **Create parameter** page, in the **Parameter
    details** section, do the following:
+
    1. For **Name**, enter a parameter in the format
       `/amplify/{your_app_id}/{your_backend_environment_name}/{your_parameter_name}`.
    2. For **Type**, choose

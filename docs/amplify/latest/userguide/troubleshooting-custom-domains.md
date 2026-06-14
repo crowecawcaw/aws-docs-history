@@ -163,6 +163,7 @@ Perform the following steps to diagnose the cause of the **CNAMEAlreadyExistsExc
    be attached to one CloudFront distribution at a time.
 2. If you previously deployed the domain to a CloudFront distribution you must
    remove it.
+
    1. Choose **Distributions** on the left navigation
       menu.
    2. Select the name of the distribution to edit.
@@ -244,6 +245,7 @@ perform.
     Authority Authorization (CAA) problems](../../../acm/latest/userguide/troubleshooting-caa.md "../../../acm/latest/userguide/troubleshooting-caa.md") in the
     _AWS Certificate Manager User Guide_.
 2.  Use one of the following methods to update your SSL certificate:
+
     - Manually update using the Amplify console.
 
     ###### Note
@@ -275,7 +277,6 @@ perform.
         	+ [Adding a custom domain managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md").
         	+ [Adding a custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md").
         	+ [Updating DNS records for a domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md").
-
     - Contact Support to have your SSL certificate reissued.
 
 ## Path components not supported in domain redirects

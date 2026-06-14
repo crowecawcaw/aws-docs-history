@@ -38,13 +38,16 @@ branch.
    configuration**.
 5. In the **Subdomains** section, you can add or delete wildcard
    subdomains.
+
    - To add a new wildcard subdomain
+
      1. Choose **Add new**.
      2. For the subdomain, enter an `*`.
      3. For your app branch, select a branch name from the list.
      4. Choose **Save**.
 
    - To delete a wildcard subdomain
+
      1. Choose **Remove** next to the subdomain name.
         Traffic to a subdomain that is not explicitly configured stops, and
         Amplify Hosting returns a 404 status code to those requests.

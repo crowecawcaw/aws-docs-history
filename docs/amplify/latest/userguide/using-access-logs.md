@@ -42,6 +42,7 @@ Use the following procedure to retrieve access logs for an Amplify app.
    **Access logs**.
 4. Choose **Edit time range**.
 5. In the **Edit time range** window do the following.
+
    1. For **Start date**, specify the first day of the two
       week interval to retrieve logs for.
    2. For **Start time**, choose the time on the first day to

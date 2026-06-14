@@ -44,6 +44,7 @@ following instructions to install and authorize the GitHub App.
    account.
 6. Select the GitHub account where you want to install the Amplify GitHub App.
 7. Do one of the following:
+
    - To apply the installation to all repositories, choose **All
      repositories**.
    - To limit the installation to the specific repositories that you select, choose
@@ -87,6 +88,7 @@ subsequent app migrations.
    AWS Amplify in your GitHub account. Choose **Authorize**.
 6. Select the GitHub account where you want to install the Amplify GitHub App.
 7. Do one of the following:
+
    - To apply the installation to all repositories, choose **All
      repositories**.
    - To limit the installation to the specific repositories that you select, choose
