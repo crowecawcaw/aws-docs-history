@@ -50,12 +50,14 @@ Create three pages in your application to gather or show information.
 2. In the left-hand navigation, there is a single page that was created with your app. Choose **+ Add** twice to create two more pages. The navigation
    pane should show three total pages.
 3. Update the name of the **Page1** page by performing the following steps:
+
    1. Choose the ellipses icon and choose **Page properties**.
    2. In the right-hand **Properties** menu, choose the pencil icon to edit the
       name.
    3. Enter `FileList` and press **Enter**.
 
 4. Repeat the previous steps to update the second and third pages as follows:
+
    - Rename **Page2** to `UploadFile`.
    - Rename **Page3** to `FailUpload`.
 
@@ -84,10 +86,12 @@ Create an automation that will list the files in a specified Amazon S3 bucket.
 4. Update the automation name by choosing the pencil icon. Enter `getFiles`
    and press **Enter**.
 5. Add a **List objects** action by performing the following steps:
+
    1. In the right-hand panel, choose **Actions**.
    2. Choose **List objects** to add an action. The action should be named `ListObjects1`.
 
 6. Configure the action by performing the following steps:
+
    1. Choose the action from the canvas to open the right-hand **Properties** menu.
    2. For **Connector**, choose the Amazon S3 connector that you created from the
       prerequisites.
@@ -109,6 +113,7 @@ Create an automation that will list the files in a specified Amazon S3 bucket.
 7. The output of this automation will be used to populate a table component with objects from
    your Amazon S3 bucket. However, by default, automations don't create outputs. Configure the
    automation to create an automation output by performing the following steps:
+
    1. In the left-hand navigation, choose the **getFiles** automation.
    2. On the right-hand **Properties** menu, in **Automation
       output**, choose **+ Add output**.
@@ -125,16 +130,19 @@ Create an automation that deletes an object from a specified Amazon S3 bucket.
 4. Update the automation name by choosing the pencil icon. Enter
    `deleteFile` and press **Enter**.
 5. Add an automation parameter, used to pass data to an automation, by performing the following steps:
+
    1. On the right-hand **Properties** menu, in **Automation
       parameters**, choose **+ Add**.
    2. Choose the pencil icon to edit the automation parameter. Update the parameter name to
       `fileName` and press **Enter**.
 
 6. Add a **Delete object** action by performing the following steps:
+
    1. In the right-hand panel, choose **Actions**.
    2. Choose **Delete object** to add an action. The action should be named `DeleteObject1`.
 
 7. Configure the action by performing the following steps:
+
    1. Choose the action from the canvas to open the right-hand **Properties** menu.
    2. For **Connector**, choose the Amazon S3 connector that you created from the prerequisites.
    3. For **Configuration**, enter the following text, replacing `bucket_name` with the bucket you created in
@@ -158,16 +166,19 @@ to display the object.
 4.  Update the automation name by choosing the pencil icon. Enter `viewFile`
     and press **Enter**.
 5.  Add an automation parameter, used to pass data to an automation, by performing the following steps:
+
     1. On the right-hand **Properties** menu, in **Automation
        parameters**, choose **+ Add**.
     2. Choose the pencil icon to edit the automation parameter. Update the parameter name to
        `fileName` and press **Enter**.
 
 6.  Add a **Get object** action by performing the following steps:
+
     1. In the right-hand panel, choose **Actions**.
     2. Choose **Get object** to add an action. The action should be named `GetObject1`.
 
 7.  Configure the action by performing the following steps:
+
     1. Choose the action from the canvas to open the right-hand **Properties** menu.
     2. For **Connector**, choose the Amazon S3 connector that you created from the prerequisites.
     3. For **Configuration**, enter the following text, replacing `bucket_name` with the bucket you created in
@@ -182,6 +193,7 @@ to display the object.
 
 8.  By default, automations don't create outputs. Configure the automation to create an automation
     output by performing the following steps:
+
     1. In the left-hand navigation, choose the **viewFile** automation.
     2. On the right-hand **Properties** menu, in **Automation
        output**, choose **+ Add output**.
@@ -231,6 +243,7 @@ the list. To do that, you will do the following:
 6.  Choose the **Automation** dropdown and select the **getFiles** automation. The table will use the output
     of the **getFiles** automation as its content.
 7.  Add a column to be filled with the name of the file.
+
     1. On the right-hand **Properties** menu, next to **Columns**,
        choose **+ Add**.
     2. Choose the arrow icon to the right of the **Column1** column that was just added.
@@ -239,6 +252,7 @@ the list. To do that, you will do the following:
     5. Choose the arrow icon at the top of the panel to return to the main **Properties** panel.
 
 8.  Add a table action to delete the file in a row.
+
     1. On the right-hand **Properties** menu, next to **Actions**,
        choose **+ Add**.
     2. In **Actions**, rename **Button** to `Delete`.
@@ -259,6 +273,7 @@ the list. To do that, you will do the following:
     In this tutorial, you will add and configure the **PDF viewer** component.
 
 10. Add the **PDF viewer** component.
+
     1. On the right-hand **Components** page, find the **PDF
        viewer** component and drag it to the canvas, below the table component.
     2. Choose the **PDF viewer** component that was just added.
@@ -280,6 +295,7 @@ add the **S3 upload** component to the page, which users can use to select and u
     upload** component and drag it to the center of the canvas.
 3.  Choose the S3 upload component that you just added to the page.
 4.  On the right-hand **Properties** menu, configure the component:
+
     1. In the **Connector** dropdown, select the Amazon S3 connector that was created in the
        prerequisites.
     2. For **Bucket**, enter the name of your Amazon S3 bucket.

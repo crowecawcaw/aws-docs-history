@@ -157,6 +157,7 @@ You can access table data and values to perform operations. You can use the foll
   are both used to access table data from other components on the page. For example, setting
   a button's name outside of the table based on the selected row. The values returned are the same, but the differences between
   `selectedRow` and `selectedRowData` are as follows:
+
   - `selectedRow`: This namespace includes the name shown in the column header for each field. You should use `selectedRow` when
     referencing a value from a visible column in the table. For example, if you have a custom or computed column in your table that doesn't exist as a field in the entity.
   - `selectedRowData`: This namespace includes the fields in the entity used as a source for the table. You should use `selectedRowData`

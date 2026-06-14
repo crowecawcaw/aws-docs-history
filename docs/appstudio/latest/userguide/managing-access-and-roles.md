@@ -90,6 +90,7 @@ You must be an Admin to change the role of a group in App Studio.
 1. In the navigation pane, choose **Roles** in the **Manage** section. You will be taken to a page displaying a list of existing groups as well as each group’s assigned role.
 2. Choose the ellipses icon (**...**) and choose **Change role**.
 3. In the **Change role** dialog box, select a new role for the group:
+
    - **Administrator**: Admins can manage users and groups within App Studio, add and manage connectors, and manage applications created by builders. Additionally, users
      with the Admin role have all of the permissions included with the Builder role.
    - **Builder**: Builders can create and build applications. Builders cannot manage users or groups, add or edit connector instances, or manage other builders' applications.

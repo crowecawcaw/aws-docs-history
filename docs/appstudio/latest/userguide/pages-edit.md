@@ -19,16 +19,19 @@ Valid page name characters: **A-Z**, **a-z**, **0-9**, **\_**, **$**
     2. Enter the new name for your page and press Enter.
 
 5. To create, edit, or delete page parameters:
+
    1. To create a page parameter, choose **+ Add new** in the **Page parameters** section.
    2. To edit a page parameter's **Key** or **Description** value, choose input field of the property you want to change and enter a new value.
       Your changes are saved as you edit.
    3. To delete a page parameter, choose the trash icon of the page parameter you want to delete.
 
 6. To add, edit, or remove a page's logo or banner:
+
    1. To add a page logo or banner, enable the respective option in the **Style** section. Configure the
       image's source and optionally provide alt text.
    2. To edit a page logo or banner, update the fields in the **Style** section.
    3. To remove a page logo or banner, disable the respective option in the **Style** section.
 
 7. To edit a page's layout:
+
    1. Update the fields in the **Layout** section.

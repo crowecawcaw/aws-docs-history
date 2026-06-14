@@ -210,6 +210,7 @@ You must have the Admin role in App Studio to create connectors.
 3. Choose **+ Create connector**.
 4. Choose the **Amazon S3** connector.
 5. Configure your connector by filling out the following fields:
+
    - **Name:** Enter a name for your Amazon S3 connector.
    - **Description:** Enter a description for your Amazon S3 connector.
    - **IAM role:** Enter the Amazon Resource Name (ARN) from

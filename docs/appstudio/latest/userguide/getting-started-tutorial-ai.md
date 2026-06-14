@@ -39,6 +39,7 @@ that are tailored to the app that you described:
 - [Prerequisites](getting-started-tutorial-ai.md#getting-started-tutorial-ai-prerequisites "getting-started-tutorial-ai.md#getting-started-tutorial-ai-prerequisites")
 - [Step 1: Create an application](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-create-application "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-create-application")
 - [Step 2: Explore your new application](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore")
+
   - [Explore pages and components](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-pages "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-pages")
   - [Explore automations and actions](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-automations "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-automations")
   - [Explore data with entities](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-data-entities "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-data-entities")
@@ -89,6 +90,7 @@ In the Development environment, you'll find the following resources:
   the resource that is selected.
 - Navigation tabs at the top of the canvas. The tabs are described in the following
   list:
+
   - **Pages**: Where you use pages and components to design the UI of your
     app.
   - **Automations**: Where you use actions in automations to define the
@@ -204,6 +206,7 @@ Now that you've created your first app, here are some next steps:
   experience.
 - To learn more about building apps, check out the [Builder documentation](builder-documentation.md "builder-documentation.md"). Specifically, the following topics might be useful to
   explore:
+
   - [Automation actions reference](automations-actions-reference.md "automations-actions-reference.md")
   - [Components reference](components-reference.md "components-reference.md")
   - [Interacting with Amazon Simple Storage Service with components and automations](automations-s3.md "automations-s3.md")

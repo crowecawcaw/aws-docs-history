@@ -224,6 +224,7 @@ You must have the Admin role in App Studio to create connectors.
 3. Choose **+ Create connector**.
 4. Choose the **Amazon Redshift** connector.
 5. Configure your connector by filling out the following fields:
+
    - **Name:** Provide a name for your connector.
    - **Description:** Provide a description for your connector.
    - **IAM Role:** Enter the Amazon Resource Name (ARN) from

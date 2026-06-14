@@ -29,6 +29,7 @@ Use the following procedure to publish an App Studio application to the Testing 
 2. Choose **Edit** for the application you want to publish.
 3. Choose **Publish** in the top-right corner.
 4. In the **Publish your updates** dialog box:
+
    1. Review the information about publishing an application.
    2. (Optional) In **Version description**, include a description of this version of the application.
    3. Choose the box to acknowledge the information about the environment.
@@ -51,6 +52,7 @@ You can view applications published to the Testing and Production environments t
 ###### To view published applications in the Testing or Production environment
 
 1. If necessary, navigate to the application studio of the application you want to preview:
+
    1. In the navigation pane, choose **My applications** in the **Build** section.
    2. Choose **Edit** for the application.
 

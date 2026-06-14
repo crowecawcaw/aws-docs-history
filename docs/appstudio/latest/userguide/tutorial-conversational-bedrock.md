@@ -14,6 +14,7 @@ a summarized version.
 - [Step 2: Create an application](tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-create-application "tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-create-application")
 - [Step 3: Create and configure an automation](tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-create-automation "tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-create-automation")
 - [Step 4: Create pages and components](tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-user-interface "tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-user-interface")
+
   - [Rename the default page](tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-user-interface-create-page "tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-user-interface-create-page")
   - [Add components to the page](tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-user-interface-add-components "tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-user-interface-add-components")
   - [Configure the page components](tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-user-interface-configure-components "tutorial-conversational-bedrock.md#tutorial-conversational-bedrock-steps-user-interface-configure-components")
@@ -77,6 +78,7 @@ following:
 4. Update the automation name by choosing the pencil icon. Enter `InvokeBedrock` and press **Enter**.
 5. Add a parameter to the automation that will be used to pass the text prompt input from the user into the automation to be
    used in the request to Amazon Bedrock by performing the following steps:
+
    1. In the canvas, in the parameters box, choose **+ Add**.
    2. In **Name**, enter `input`.
    3. In **Description**, enter any description, such as `Text to be sent to Amazon Bedrock`.
@@ -84,10 +86,12 @@ following:
    5. Choose **Add** to create the parameter.
 
 6. Add a **GenAI Prompt** action by performing the following steps:
+
    1. In the right-hand panel, choose **Actions**.
    2. Choose **GenAI Prompt** to add an action.
 
 7. Configure the action by performing the following steps:
+
    1. Choose the action from the canvas to open the right-hand **Properties** menu.
    2. Rename the action to `PromptBedrock` by choosing the pencil icon, entering the name, and pressing enter.
    3. In **Connector**, select the connector that was created in
@@ -101,14 +105,15 @@ following:
    ```
    You are a highly efficient text summarizer. Provide a concise summary of the prompted text, capturing the key points and main ideas.
    ```
-
    7. Choose **Request settings** to expand it, and update the following fields:
+
       - In **Temperature**, enter `0`. The tempearture determines the randomness or creativity of the output on a scale of 0 to 10. The higher the number,
         the more creative the response.
       - In **Max Tokens**, enter `4096` to limit the length of the response.
 
 8. The output of this automation will be the summarized text, however, by default automations do not create outputs.
    Configure the automation to create an automation output by performing the following steps:
+
    1. In the left-hand navigation, choose the **InvokeBedrock** automation.
    2. In the right-hand **Properties** menu, in **Output**, choose **+ Add**.
    3. In **Output**, enter `{{results.PromptBedrock.text}}`.
@@ -150,6 +155,7 @@ Add a **Text input** component to the page that users will use to input a text p
    drag it onto the canvas.
 2. Choose the text input in the canvas to select it.
 3. In the right-side **Properties** panel, update the following settings:
+
    1. Choose the pencil icon to rename the text input to `inputPrompt`.
    2. In **Label**, enter `Prompt`.
    3. In **Placeholder**, enter `Enter text to be summarized`.
@@ -162,6 +168,7 @@ Now, add a **Button** component that users will choose to send the prompt to Ama
    drag it onto the canvas.
 2. Choose the button in the canvas to select it.
 3. In the right-side **Properties** panel, update the following settings:
+
    1. Choose the pencil icon to rename the button to `sendButton`.
    2. In **Button Label**, enter `Send`.
 
@@ -173,6 +180,7 @@ Now, add a **Text area** component that will display the summary returned by Ama
    drag it onto the canvas.
 2. Choose the text area in the canvas to select it.
 3. In the right-side **Properties** panel, update the following settings:
+
    1. Choose the pencil icon to rename the button to `textSummary`.
    2. In **Label**, enter `Summary`.
 

@@ -8,12 +8,14 @@ Use the following procedure to create an application in App Studio.
    to a list of your applications.
 2. Choose **+ Create app**.
 3. In the **Create app** dialog box, give your application a name and choose one of the following app creation methods:
+
    - **Generate an app with AI**: Choose this option to describe your app with natural language, and have AI generate the app and its
      resources for you.
    - **Start from scratch**: Choose this option to start building from an empty app.
 
 4. Choose **Next**.
 5. If you chose **Generate an app with AI**:
+
    1. In the **Connect to existing data** dialog box, add any existing data sources to your app by select the **Connector** that
       provides App Studio access to the data sources, then select the **Tablse**, and choose **Next**. Adding data sources here
       helps AI generate an optimized app for you. You can skip this step and add data sources later by choosing **Skip**.
@@ -29,6 +31,7 @@ Use the following procedure to create an application in App Studio.
       For general information about how building in App Studio works, see [How AWS App Studio works](how-it-works.md "how-it-works.md").
 
 6. If you chose **Start from scratch**:
+
    1. In the **Connect to existing data** dialog box, add any existing data sources to your app by select the **Connector** that
       provides App Studio access to the data sources, then select the **Tablse**, and choose **Next**. You can skip this step and add data sources later by choosing **Skip**.
    2. Once your app is created, choose **Edit app** to start editing your app. To learn about building from an empty app,

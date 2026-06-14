@@ -28,6 +28,7 @@ debugging.
 1. Append `?debug=true` to the end of the URL and press enter. Note that if the URL
    already has a query string (it contains `?`), instead append `&debug=true` to the end of the URL.
 2. Open your browser console to start debugging by exploring your action or API inputs and outputs.
+
    - In Chrome: Right click in your browser and choose **Inspect**. For more information about
      debugging with Chrome DevTools, see the [Chrome DevTools documentation](https://developer.chrome.com/docs/devtools "https://developer.chrome.com/docs/devtools").
    - In Firefox: Press and hold or right-click on a webpage element, then choose **Inspect Element**.
@@ -37,6 +38,7 @@ debugging.
 The following list contains some common issues that produce errors:
 
 - **Runtime errors**
+
   - **Problem:** If an automation or expression is configured incorrectly, it can cause an error when the automation is run. Common
     errors are renaming assets, resulting in incorrect expressions, other JavaScript compilation errors, or attemps to use data or assets
     that are `undefined`.
@@ -44,6 +46,7 @@ The following list contains some common issues that produce errors:
     and make sure there are no compilation errors in the code editor or debug panel.
 
 - **Connector issues**
+
   - **Problem:** Because App Studio apps do not communicate with
     external services with connectors until they are published, errors can occur in the Testing environment that did not occur during preview.
     If an action in an automation that uses a connector fails, it could be from a misconfiguration in the action that sends the request to the

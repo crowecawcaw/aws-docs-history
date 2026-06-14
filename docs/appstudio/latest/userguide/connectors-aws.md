@@ -90,6 +90,7 @@ You must have the Admin role in App Studio to create connectors.
 3. Choose **+ Create connector**.
 4. Choose **Other AWS services** in the **AWS connectors** section of the supported services list.
 5. Configure your AWS service connector by filling out the following fields:
+
    - **Name:** Provide a name for your connector.
    - **Description:** Provide a description for your connector.
    - **IAM role:** Enter the Amazon Resource Name (ARN) from

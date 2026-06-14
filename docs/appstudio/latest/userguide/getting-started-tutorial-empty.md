@@ -81,10 +81,12 @@ The following are high-level steps that describe what you'll do in this tutorial
 - [Prerequisites](getting-started-tutorial-empty.md#getting-started-tutorial-prerequisites "getting-started-tutorial-empty.md#getting-started-tutorial-prerequisites")
 - [Step 1: Create an application](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-application "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-application")
 - [Step 2: Create an entity to define your app's data](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-entity "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-entity")
+
   - [Create a managed entity](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-managed-entity "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-managed-entity")
   - [Add fields to your entity](getting-started-tutorial-empty.md#getting-started-tutorial-steps-add-fields "getting-started-tutorial-empty.md#getting-started-tutorial-steps-add-fields")
 
 - [Step 3: Design the user interface (UI) and logic](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface")
+
   - [Add a meeting request dashboard page](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-create-page "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-create-page")
   - [Add a meeting request creation page](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-add-create-customer-page "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-add-create-customer-page")
 
@@ -187,22 +189,27 @@ accommodate text values.
 ###### To add fields to your `MeetingRequests` entity
 
 - Choose **+ Add field** to add the following four fields:
+
   1.  Add a field that represents a customer's name with the following information:
+
       - **Display name**: `Customer name`
       - **System name**: `customerName`
       - **Data type**: `String`
 
   2.  Add a field that represents the meeting date with the following information:
+
       - **Display name**: `Meeting date`
       - **System name**: `meetingDate`
       - **Data type**: `DateTime`
 
   3.  Add a field that represents the meeting agenda with the following information:
+
       - **Display name**: `Agenda`
       - **System name**: `agenda`
       - **Data type**: `String`
 
   4.  Add a field to represent the meeting attendees with the following information:
+
       - **Display name**: `Attendees`
       - **System name**: `attendees`
       - **Data type**: `String`
@@ -250,6 +257,7 @@ requests.
 2. Choose the table in the canvas to select it.
 3. In the right-side **Properties** panel, update the following
    settings:
+
    1. Choose the pencil icon to rename the table to
       `meetingRequestsTable`.
    2. In the **Source** dropdown, choose **Entity**.
@@ -320,6 +328,7 @@ create a button on the `MeetingRequestsDashboard` page that navigates to the
 4. Choose the newly added button to select it.
 5. In the right-side **Properties** panel, update the following
    settings:
+
    1. Select the pencil icon to rename the button to
       `createMeetingRequestButton`.
    2. **Button label**: `Create Meeting Request`. This
@@ -327,6 +336,7 @@ create a button on the `MeetingRequestsDashboard` page that navigates to the
    3. In the **Icon** dropdown, select **+ Plus**.
    4. Create a trigger that navigates the end user to the
       `MeetingRequestsDashboard` page:
+
       1. In the **Triggers** section, choose **+
          Add**.
       2. In **Action Type**, select **Navigate**.

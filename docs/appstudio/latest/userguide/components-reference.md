@@ -547,6 +547,7 @@ In the **Actions** section, configure the following properties:
   always show on the right of the table, regardless of user scrolling.
 - **Actions**: Add action buttons to the table. You can configure these buttons to do specified
   actions when clicked by a user, such as:
+
   - Run a component action
   - Navigate to a different page
   - Invoke a data action
@@ -1323,12 +1324,14 @@ When the button is clicked, you can configure one or more actions to be triggere
 available action types are:
 
 - **Basic**
+
   - Run component action: Executes a specific action within a component.
   - Navigate: Navigates to another page or view.
   - Invoke Data Action: Triggers a data-related action, such as creating, updating, or
     deleting a record.
 
 - **Advanced**
+
   - JavaScript: Runs custom JavaScript code.
   - Invoke Automation: Starts an existing automation or workflow.
 
@@ -1444,6 +1447,7 @@ This value must match the format of `YYYY-MM-DD`.
 - **Source**: The data source for the dates that should be disabled. For example: None, Expression.
 - **Disabled dates**: An expression that determines which dates should
   be disabled, such as:
+
   - `{{currentRow.column}}`: Disables dates that match what this expression evaluates to.
   - `{{new Date(currentRow.dateColumn) < new Date("2023-01-01")}}`: Disables dates before January 1, 2023
   - `{{new Date(currentRow.dateColumn).getDay() === 0 || new Date(currentRow.dateColumn).getDay() === 6}}`:

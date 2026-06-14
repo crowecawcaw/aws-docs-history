@@ -31,6 +31,7 @@ Use the following procedure to view or edit automation properties.
 3. In the left-hand **Automations** menu, choose the automation for which you want to view or edit properties to open the
    right-side **Properties** menu.
 4. In the **Properties** menu, you can view the following properties:
+
    - **Automation identifier**: The unique name of the automation. To edit it, enter a new identifier
      in the text field.
    - **Automation parameters**: Automation parameters are used to pass dynamic values from your app's UI

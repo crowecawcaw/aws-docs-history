@@ -29,6 +29,7 @@ While page parameters provide a powerful way to pass data between pages, you mus
 sensitive information if not used properly. Here is an important security considerations to keep in mind:
 
 1. **Avoid exposing sensitive data in URLs**
+
    1. **Risk**: URLs, including data action parameters, are often visible in server logs, browser history, and other places. As such, it's essential to
       avoid exposing sensitive data, such as user credentials, personal identifiable information (PII), or any other confidential data, in page parameter values.
    2. **Mitigation**: Consider using identifiers that can be securely mapped to the sensitive data. For example, instead of passing a user's name or email

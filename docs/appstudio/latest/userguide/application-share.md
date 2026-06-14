@@ -12,6 +12,7 @@ build an app, see [Building an app with multiple users](builder-collaboration.md
 
 1. Access the **Share** dialog box from either the application list, or the application studio of your app by using
    the following instructions:
+
    - To access the **Share** dialog box from the application list: In the navigation pane, choose **My applications** in the **Build** section.
      Choose the dropdown in the **Actions** column of the application you want to share and choose **Share**.
    - To access the **Share** dialog box from the application studio: From the application studio of your app, choose **Share** in the top header.

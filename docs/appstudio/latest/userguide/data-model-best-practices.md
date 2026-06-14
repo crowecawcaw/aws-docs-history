@@ -12,6 +12,7 @@ that meets your application's requirements and ensures the long-term reliability
 - **Design for scalability:** Plan your data model with future growth and scalability in mind.
   Consider factors like expected data volume, access patterns, and performance requirements when choosing an appropriate data service and
   database instance type and configuration (such as provisioned capacity).
+
   - For more information about scaling with Aurora serverless, see
     [Performance and scaling for Aurora Serverless V2](../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.md").
 

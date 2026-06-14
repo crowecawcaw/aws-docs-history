@@ -34,7 +34,9 @@ Easy create
     To find more information about IAM Identity Center instances, including the different types and how to find which type you have, see
     [Manage organization and account instances of IAM Identity Center](../../../singlesignon/latest/userguide/identity-center-instances.md "../../../singlesignon/latest/userguide/identity-center-instances.md")
     in the _AWS IAM Identity Center User Guide_.
+
     - If you have an account instance of IAM Identity Center:
+
       1. In **Account permissions**, review the required permissions for enabling App Studio. If your account doesn't have the
          required permissions, you won't be able to enable App Studio.
          You must either get the required permissions added to your account, or switch to an account that has them.
@@ -77,16 +79,20 @@ Standard create
     To find more information about IAM Identity Center instances, including the different types and how to find which type you have, see
     [Manage organization and account instances of IAM Identity Center](../../../singlesignon/latest/userguide/identity-center-instances.md "../../../singlesignon/latest/userguide/identity-center-instances.md")
     in the _AWS IAM Identity Center User Guide_.
+
     - If you have an organization instance of IAM Identity Center:
+
       1. In **Configure access to App Studio with Single Sign-On**, select existing IAM Identity Center groups to provide them with access to App Studio.
          App Studio groups will be created based on the specified configuration. Members of groups added to **Admin groups** will have the
          **Admin** role, and members of groups added to **Builder groups** will have the **Builder**
          role in App Studio. The roles are defined as follows:
+
          - Admins can manage users and groups within App Studio, add and manage connectors, and manage applications created by builders. Additionally, users
            with the Admin role have all of the permissions included with the Builder role.
          - Builders can create and build applications. Builders cannot manage users or groups, add or edit connector instances, or manage other builders' applications.
 
     - If you have an account instance of IAM Identity Center instance:
+
       1. In **Account permissions**, review the required permissions for enabling App Studio. If your account does not have the required permissions, you will not be able to enable App Studio.
          You must either get the required permissions added to your account, or switch to an account that has them.
       2. In **Configure access to App Studio with Single Sign-On**, in **IAM Identity Center account**, choose
@@ -96,6 +102,7 @@ Standard create
          App Studio groups will be created based on the specified configuration. Members of groups added to **Admin groups** will have the
          **Admin** role, and members of groups added to **Builder groups** will have the **Builder**
          role in App Studio. The roles are defined as follows:
+
          - Admins can manage users and groups within App Studio, add and manage connectors, and manage applications created by builders. Additionally, users
            with the Admin role have all of the permissions included with the Builder role.
          - Builders can create and build applications. Builders cannot manage users or groups, add or edit connector instances, or manage other builders' applications.

@@ -9,6 +9,7 @@ be viewed in components such as tables or detail views.
 - [Creating data actions](data-entities-edit-data-actions.md#data-entities-data-action-add "data-entities-edit-data-actions.md#data-entities-data-action-add")
 - [Editing or configuring data actions](data-entities-edit-data-actions.md#data-entities-data-action-edit "data-entities-edit-data-actions.md#data-entities-data-action-edit")
 - [Data action condition operators and examples](data-entities-edit-data-actions.md#data-entities-data-action-operators "data-entities-edit-data-actions.md#data-entities-data-action-operators")
+
   - [Condition operator support by database](data-entities-edit-data-actions.md#data-entities-data-action-operators-support "data-entities-edit-data-actions.md#data-entities-data-action-operators-support")
   - [Data action condition examples](data-entities-edit-data-actions.md#data-entities-data-action-operators-examples "data-entities-edit-data-actions.md#data-entities-data-action-operators-examples")
 
@@ -23,8 +24,10 @@ You can press CTRL+Z to undo the most recent change to your entity.
 1. If necessary, navigate to the entity for which you want to create data actions.
 2. Choose the **Data actions** tab.
 3. There are two methods for creating data actions:
+
    - (Recommended) To use AI to generate data actions for you, based on your entity name, fields, and connected data source,
      choose **Generate data actions**. The following actions will be generated:
+
      1. `getAll`: Retrieves all the records from an entity.
         This action is useful when you need to display a list of records or perform operations on multiple records at once.
      2. `getByID`: Retrieves a single record from an entity based on its unique identifier (ID or primary key).

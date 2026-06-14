@@ -15,6 +15,7 @@ version used in a preview environment.
 ###### To preview your application
 
 1. If necessary, navigate to the application studio of the application you want to preview:
+
    1. In the navigation pane, choose **My applications** in the **Build** section.
    2. Choose **Edit** for the application.
 

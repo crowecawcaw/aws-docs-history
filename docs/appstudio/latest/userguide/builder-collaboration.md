@@ -15,9 +15,11 @@ Use the following instructions to invite other builders to edit an App Studio ap
 3. In the **Development** tab, use the text box to search for and select groups or individual
    users that you want to invite to edit the app.
 4. For each user or group, choose the dropdown and select the permissions to give to that user or group.
+
    - **Co-owner**: Co-owners have the same permissions as app owners.
    - **Edit only**: Users with the **Edit only** role have the
      same permissions as owners and co-owners, except for the following:
+
      - They cannot invite other users to edit the app.
      - They cannot publish the app to the Testing or Production environments.
      - They cannot add data sources to the app.

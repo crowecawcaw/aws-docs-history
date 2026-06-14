@@ -31,9 +31,11 @@ to it.
 3. In the right-hand **Actions** menu, choose **Invoke Lambda** to add the step to your automation.
 4. Choose the new Lambda step in the canvas to view and configure its properties.
 5. In the right-hand **Properties** menu, configure the step by performing the following steps:
+
    1. In **Connector**, select the connector that was created to connect App Studio to your Lambda functions.
    2. In **Function name**, enter the name of your Lambda function.
    3. In **Function event**, enter the event to be passed to the Lambda function. Some common use case examples are provided in the following list:
+
       - Passing an automation parameter's value, such as a file name or other string:
         ``varName`: params.`paramName``
       - Passing the result of a previous action: ``varName`: results.`actionName1`.data[0].`fieldName``

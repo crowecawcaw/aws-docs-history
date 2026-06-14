@@ -13,6 +13,7 @@ provide App Studio apps with access to third-party services, resources, or opera
 5.  **Connector description:** Provide a description for your connector.
 6.  **Base URL:** The website or host of the third-party connection. For example, `www.slack.com`.
 7.  **Authentication method:** Choose the method for authenticating with the target service.
+
     - **None:** Access the target service with no authentication.
     - **Basic:** Access the target service using a **Username** and **Password** obtained from the service being
       connected to.
@@ -21,6 +22,7 @@ provide App Studio apps with access to third-party services, resources, or opera
     - **OAuth 2.0:** Access the target service using the OAuth 2.0 protocol, which grants App Studio access to the service and resources without sharing any
       credentials or identity. To use the OAuth 2.0 authentication method, you must first create an application from the service being connected to that represents
       App Studio to obtain the necessary information. With that information, fill out the following fields:
+
       1.  **Client credentials flow:** Ideal for system-to-system interactions where the application acts on its own behalf without user interaction. For example, a CRM app
           that updates Salesforce records automatically based on new records added by users, or an app that retrieves and displays transaction data in reports.
 
@@ -35,6 +37,7 @@ provide App Studio apps with access to third-party services, resources, or opera
 
       2.  **Authorization code flow:** Ideal for applications that require acting on behalf of a user. For example, a customer support app where users log in and
           view and update support tickets, or a sales app where each team members logs in to view and manage their sales data.
+
           1. In **Client ID**, enter the ID obtained from the OAuth app created in the target service.
           2. In **Client secret**, enter the secret obtained from the OAuth app created in the target service.
           3. In **Authorization URL**, enter the authorization URL from the target service.

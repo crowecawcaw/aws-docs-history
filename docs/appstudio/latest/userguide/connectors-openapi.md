@@ -34,6 +34,7 @@ App Studio supports OpenAPI Specification files that conform to version OpenAPI 
 6.  **Description:** Enter a description for your OpenAPI connector.
 7.  **Base URL:** Enter the base URL for connecting to the service.
 8.  **Authentication method:** Choose the method for authenticating with the target service.
+
     - **None:** Access the target service with no authentication.
     - **Basic:** Access the target service using a **Username** and **Password** obtained from the service being
       connected to.
@@ -42,6 +43,7 @@ App Studio supports OpenAPI Specification files that conform to version OpenAPI 
     - **OAuth 2.0:** Access the target service using the OAuth 2.0 protocol, which grants App Studio access to the service and resources without sharing any
       credentials or identity. To use the OAuth 2.0 authentication method, you must first create an application from the service being connected to that represents
       App Studio to obtain the necessary information. With that information, fill out the following fields:
+
       1.  **Client credentials flow:**
 
               1. In **Client ID**, enter the ID from the target service.
@@ -54,6 +56,7 @@ App Studio supports OpenAPI Specification files that conform to version OpenAPI 
           Add any **Variables** to be sent with the service with each call, and choose **Verify connection** to test the authentication and connection.
 
       2.  **Authorization code flow:**
+
           1. In **Client ID**, enter the ID from the target service.
           2. In **Client secret**, enter the secret from the target service.
           3. In **Authorization URL**, enter the authorization URL from the target service.

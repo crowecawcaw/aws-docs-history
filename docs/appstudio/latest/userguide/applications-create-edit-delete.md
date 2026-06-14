@@ -4,6 +4,7 @@
 
 - [Creating an application](applications-create.md "applications-create.md")
 - [Importing applications](applications-import.md "applications-import.md")
+
   - [Importable apps provided by App Studio](applications-import.md#app-catalog "applications-import.md#app-catalog")
 
 - [Duplicating applications](applications-duplicate.md "applications-duplicate.md")

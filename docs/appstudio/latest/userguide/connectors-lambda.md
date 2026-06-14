@@ -94,6 +94,7 @@ You must have the Admin role in App Studio to create connectors.
 3. Choose **+ Create connector**.
 4. Choose **Other AWS Services** from the list of connector types.
 5. Configure your connector by filling out the following fields:
+
    - **Name:** Enter a name for your Lambda connector.
    - **Description:** Enter a description for your Lambda connector.
    - **IAM role:** Enter the Amazon Resource Name (ARN) from

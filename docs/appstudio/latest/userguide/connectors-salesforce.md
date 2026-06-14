@@ -25,15 +25,18 @@ in Salesforce and create a Salesforce connector in App Studio.
     by App Studio.
 14. Enable **Require Secret for Web Server Flow** and **Require Secret for Refresh Token Flow** to follow the best security practices.
 15. App Studio supports both of the following authentication flows:
+
     - **Client Credentials Flow**: Ideal for server-to-server interactions where the application
       acts on its own behalf without user interaction. For example, listing all leads information for a team of temporary employees who do not have Salesforce access.
     - **Authorization Code Flow**: Suitable for applications that act on behalf of a user, such as
       personal data access or actions. For example, listing each sales manager’s leads sourced or owned by them to perform other tasks through this app.
     - For the Client Credentials Flow:
+
       1. Enable **Enable Client Credentials Flow**. Review and confirm the message.
       2. Save the app.
       3. You must select an execution user, although there is no user interaction in the flow. By selecting an execution user, Salesforce returns access
          tokens on behalf of the user.
+
          1. In the **App Manager**, from the list of apps, choose the arrow of the App Studio app and choose **Manage**.
          2. Choose **Edit Policies**
          3. In **Client Credentials Flow**, add the appropriate user.
@@ -41,6 +44,7 @@ in Salesforce and create a Salesforce connector in App Studio.
     - For the Authorization Code Flow, enable **Enable Authorization Code and Credentials Flow**
 
 16. Salesforce provides a Client ID and Client Secret, which must be used to configure the connector in App Studio in the following steps.
+
     1. In the **App Manager**, choose the arrow of the App Studio app and choose **View**.
     2. In the **API (Enable OAuth Settings)** section, choose **Manage Consumer Details** . This may send an email
        for a verification key, which you need to enter for confirmation.
@@ -53,7 +57,9 @@ in Salesforce and create a Salesforce connector in App Studio.
     `https://`hostname`.salesforce.com/services/data/v60.0`, replacing `hostname` with your Salesforce instance name.
 21. In **Authentication method**, ensure **OAuth 2.0** is selected.
 22. In **OAuth 2.0 Flow**, select the OAuth authentication method and fill out the related fields:
+
     - Select **Client credentials flow** for use in applications that act on their own behalf, for system-to-system integrations.
+
       1. In **Client ID**, enter the **Consumer Key** obtained previously from Salesforce.
       2. In **Client secret**, enter the **Consumer Secret**, obtained previously from Salesforce.
       3. In **Access token URL**, enter the OAuth 2.0 token endpoint. It should look like this:
@@ -61,6 +67,7 @@ in Salesforce and create a Salesforce connector in App Studio.
       4. Choose **Verify connection** to test the authentication and connection.
 
     - Select **Authorization code flow** for use in applications that act on behalf of the user.
+
       1. In **Client ID**, enter the **Consumer Key** obtained previously from Salesforce.
       2. In **Client secret**, enter the **Consumer Secret**, obtained previously from Salesforce.
       3. In **Authorization URL**, enter the authorization endpoint. It should look like this:

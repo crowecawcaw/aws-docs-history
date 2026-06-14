@@ -19,6 +19,7 @@ managed data entities, see [Managed data entities in AWS App Studio](managed-dat
     [Creating an entity with an App Studio managed data source](data-entities-create.md#data-entities-create-managed-data-source "data-entities-create.md#data-entities-create-managed-data-source").
 2.  Add a policy statement with permissions to encrypt and decrypt table data with your CMK to the `AppStudioManagedStorageDDBAccess` IAM role by
     performing the following steps:
+
     1. Open the IAM console at
        [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 
@@ -32,6 +33,7 @@ managed data entities, see [Managed data entities in AWS App Studio](managed-dat
          [Find the key ID and key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md").
 
 3.  Encrypt the DynamoDB tables that are used by your App Studio managed data entities by performing the following steps:
+
     1. Open the Amazon DynamoDB console at [https://console.aws.amazon.com/dynamodbv2/](https://console.aws.amazon.com/dynamodbv2/ "https://console.aws.amazon.com/dynamodbv2/").
     2. Choose the table you want to encrypt. You can find the table name in the **Connection** tab of the corresponding entity in App Studio.
     3. Choose **Additional settings**.
@@ -53,6 +55,7 @@ Use the following procedure to configure encrypted DynamoDB tables to be used in
 
 1. Follow the instructions in
    [Step 1: Create and configure DynamoDB resources](connectors-dynamodb.md#connectors-dynamodb-create-resources "connectors-dynamodb.md#connectors-dynamodb-create-resources") with the following changes:
+
    1. Configure your tables to be encrypted. For more information, see
       [Specifying the
       encryption key for a new table](../../../amazondynamodb/latest/developerguide/encryption.tutorial.md#encryption.tutorial-creating "../../../amazondynamodb/latest/developerguide/encryption.tutorial.md#encryption.tutorial-creating") in the _Amazon DynamoDB Developer Guide_.
@@ -60,9 +63,11 @@ Use the following procedure to configure encrypted DynamoDB tables to be used in
 2. Follow the instructions in
    [Step 2: Create an IAM policy and role with appropriate DynamoDB permissions](connectors-dynamodb.md#connectors-dynamodb-iam "connectors-dynamodb.md#connectors-dynamodb-iam"), and then update the permission policy on the new role by adding a new
    policy statement with permits it to encrypt and decrypt table data using your CMK by performing the following steps:
+
    1. If necessary, navigate to your role in the IAM console.
    2. In **Permissions policies**, choose **Add permissions** and then choose **Create inline policy**.
    3. Choose **JSON** and replace the contents with the following policy, replacing the following:
+
       - Replace `team_account_id` with your App Studio team ID, which can be found in your account settings.
       - Replace `CMK_id` with CMK ID. To find it, see
         [Find the key ID and key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md").

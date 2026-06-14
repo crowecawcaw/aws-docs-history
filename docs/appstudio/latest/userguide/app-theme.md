@@ -7,6 +7,7 @@ Use the following procedure to update the colors in your application by configur
 3. In the left-hand navigation, choose **App theme** to open the right-hand app theme settings.
 4. In **Base theme**, choose **Light mode** or **Dark mode**.
 5. To add custom colors to your application, enable the **Customize** toggle and update the following settings:
+
    1. In **Primary color**, choose the color that is applied to certain components and your app's navigation. You can choose a
       color with the color picker, RGB, HSL, or HEX code.
 
