@@ -84,7 +84,7 @@ You can use one of the following operations:
  --account-name "`New-Account-Name`"**
 ```
 
-- AWS SDKs: [PutAccountName](API_PutAccountName.md "API_PutAccountName.md")
+- AWS SDKs: [PutAccountName](../APIReference/API_PutAccountName.md "../APIReference/API_PutAccountName.md")
 
 ## Update your account name for any AWS account in your organization
 
@@ -153,4 +153,4 @@ You can use one of the following operations:
  --account-name "`New-Account-Name`"**
 ```
 
-- AWS SDKs: [PutAccountName](API_PutAccountName.md "API_PutAccountName.md")
+- AWS SDKs: [PutAccountName](../APIReference/API_PutAccountName.md "../APIReference/API_PutAccountName.md")

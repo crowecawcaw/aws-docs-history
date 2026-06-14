@@ -37,7 +37,7 @@ in CloudTrail logs. For more information, see the following:
 - [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
 
 AWS CloudTrail logs all Account Management API operations found in the [API
-Reference](api-reference.md "api-reference.md") section of this guide. For example, calls to the
+Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") section of this guide. For example, calls to the
 `CreateAccount`, `DeleteAlternateContact`, and
 `PutAlternateContact` operations generate entries in the CloudTrail log
 files.

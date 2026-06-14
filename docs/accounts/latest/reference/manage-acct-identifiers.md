@@ -122,6 +122,7 @@ To perform the following steps, you must have at least the following IAM permiss
 
 - When you run the command as an IAM user or role, then
   you must have:
+
   - `sts:GetCallerIdentity`
 
 Use the [get-caller-identity](../../../cli/latest/reference/sts/get-caller-identity.md "../../../cli/latest/reference/sts/get-caller-identity.md") command as follows.
@@ -153,6 +154,7 @@ To perform the following steps, you must have at least the following IAM permiss
   any IAM permissions.
 - When you sign in as an IAM user, then you must
   have:
+
   - `account:GetAccountInformation`
 
 1. Sign in to the AWS Management Console as the root user or an IAM

@@ -24,6 +24,15 @@ accounts that automatically are a part of your organization, and you can invite
 other accounts to join your organization. You also can attach policies that affect
 some or all of your accounts. For more information, see [When to use AWS Organizations](using-orgs.md "using-orgs.md").
 
+The following account-related API actions are part of the AWS Organizations API, not the
+AWS Account Management API. We include them here because customers commonly look for these
+operations in the Account Management documentation, but they are defined in the
+AWS Organizations namespace.
+
+    + [CreateAccount](../../../organizations/latest/APIReference/API_CreateAccount.md "../../../organizations/latest/APIReference/API_CreateAccount.md")
+    + [CreateGovCloudAccount](../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md "../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md")
+    + [DescribeAccount](../../../organizations/latest/APIReference/API_DescribeAccount.md "../../../organizations/latest/APIReference/API_DescribeAccount.md")
+
 - **AWS Control Tower**
 
 AWS Control Tower provides a simplified way to set up and govern a secure,

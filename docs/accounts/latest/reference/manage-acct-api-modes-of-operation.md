@@ -28,6 +28,7 @@ modes of operation:
 - If you do include the `AccountId` parameter, then the operation runs in
   the organizations context, and the operation works on the specified Organizations
   account.
+
   - If the account calling the operation is the management account or the
     delegated admin account for the Account Management service, then you can specify any
     member account of that organization in the `AccountId` parameter
@@ -66,6 +67,7 @@ policy.
   differently based on whether the account you want to reference is a
   standalone account or an account that is in an organization. See the
   previous section on [Understanding API modes of operation](manage-acct-api-modes-of-operation.md "manage-acct-api-modes-of-operation.md").
+
   - An account ARN for a standalone account:
 
   ```
