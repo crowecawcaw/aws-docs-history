@@ -10,6 +10,7 @@ worksheet.
 1. Open AWS Pricing Calculator at [https://calculator.aws/#/](https://calculator.aws/#/ "https://calculator.aws/#/").
 2. Choose **Create estimate**.
 3. Do one of the following:
+
    - Under **Windows Server and SQL Server on Amazon EC2**, choose
      **Configure**.
    - Search for **Windows Server and SQL Server on Amazon EC2** from the **Find service** search bar.

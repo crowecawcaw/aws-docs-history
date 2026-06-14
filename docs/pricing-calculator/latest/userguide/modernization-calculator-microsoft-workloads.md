@@ -59,6 +59,7 @@ provides further options to analyze your application.
   software systems in an organization. It defines the structural composition of
   the program and the interactions between the elements. In most enterprises, some
   of the commonly found patterns include the following.
+
   - **Multi-tier** pattern has been a cornerstone
     architecture pattern for decades, and remains a popular pattern for
     user-facing applications. Multi-tier generally consists of a
@@ -77,6 +78,7 @@ provides further options to analyze your application.
 - **Use case** includes grouped architecture patterns. This
   grouping represents a collaboration by different teams on performing tasks. Use
   cases are further categorized into the following.
+
   - **Software development** involves several steps
     including creating, testing, staging, and deploying software. In an
     organization, multiple teams collaborate as a group to create

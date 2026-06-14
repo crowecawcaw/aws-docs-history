@@ -25,12 +25,14 @@ AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com
 1. Open AWS Pricing Calculator at [https://calculator.aws/#/](https://calculator.aws/#/ "https://calculator.aws/#/").
 2. Choose **Create estimate**.
 3. Do one of the following:
+
    - Under **Windows Server and SQL Server on Amazon EC2**, choose
      **Configure**.
    - From the **Find service** search bar, search for **Windows Server and SQL Server on Amazon EC2**. Then, choose **Configure**.
 
 4. On the **Configure Windows Server and SQL Server on Amazon EC2**
    page, choose your customized settings.
+
    - For more information about license and tenancy options, see [Licensing and tenancy recommendations](#estimate-workload-tenancy-ec2 "#estimate-workload-tenancy-ec2").
    - For more information about machine specifications, see [Machine specifications](#estimate-workload-configure-ec2 "#estimate-workload-configure-ec2").
    - For more information about pricing strategy options, see [Pricing strategy](#estimate-workload-pricing-ec2 "#estimate-workload-pricing-ec2").

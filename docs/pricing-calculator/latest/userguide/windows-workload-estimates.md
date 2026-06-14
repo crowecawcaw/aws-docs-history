@@ -28,6 +28,7 @@ AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com
    **Configure**.
 4. On the **Configure Windows Server and SQL Server on Amazon EC2**
    page, choose your customized settings.
+
    - For information about your tenancy choices, see [Licensing and tenancy recommendations](#estimate-workload-tenancy "#estimate-workload-tenancy").
    - For information about how to choose your machine specifications, see [Configuring machine specifications](#estimate-workload-configure "#estimate-workload-configure").
    - For information about how to choose your pricing strategy, see [Pricing strategy](#estimate-workload-pricing "#estimate-workload-pricing").
