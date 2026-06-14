@@ -26,6 +26,7 @@ their Connect peer status, and any network events affecting the transit gateway.
 5. On the **Transit gateways** page, choose the **ID** link that you want to view the dashboard for.
 6. The **Overview** page opens by default.
 7. On the **Overview** page, you can view the following sections:
+
    - The **Transit Gateway** details section displays the transit gateway
      **ID**, **Name**,
      **Region**, and **State**. Choose

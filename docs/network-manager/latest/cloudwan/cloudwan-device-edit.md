@@ -10,6 +10,7 @@ Edit the details of a device, including changing whether the location type is ei
 4. In the navigation pane, choose **Devices**.
 5. Choose the device check box, and then choose **Edit**.
 6. Edit any of the following information as needed:
+
    - **Description**
    - **Model**
    - **Serial Number**

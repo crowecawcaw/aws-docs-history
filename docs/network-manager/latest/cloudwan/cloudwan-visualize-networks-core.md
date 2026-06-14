@@ -55,6 +55,7 @@ Use the following legend to understand the icons on your core network map:
    locations of your resources.
 8. The **Throughput** section shows throughput information
    between the core network edges.
+
    - (Optional) Metrics and events use the default time set up in the CloudWatch Events event. To set a custom time frame, choose **Custom** and then choose a **Relative** or **Absolute** time, and then choose if you want to see that date range in **UTC** or the edge location's **Local time zone**.
 
    Choose **Add to dashboard** to add this metric to your CloudWatch dashboard. For more information about using CloudWatch dashboards, see
@@ -71,6 +72,7 @@ Use the following legend to understand the icons on your core network map:
    attachment type** dropdown list. By default all attachment types
    are chosen. Clear the check box for any attachment type that you don't want to
    include in the graph. You can filter by any combination of:
+
    - **VPN**
    - **VPC**
    - **Connect**
@@ -115,6 +117,7 @@ The **Details** page shows the following information:
    choose **Edit tags** and do any of the following. When
    finished, choose **Edit core network** to return to the
    **Details** tab.
+
    1. Choose **Add tag** to add a new tag. Add
       **Key** and **Value** pairs to
       help identify this resource. You can add multiple tags.
@@ -363,6 +366,7 @@ edge locations.
 6. Choose the **Routes** tab.
 7. In the **Routes filter** section, choose one of the
    following:
+
    - Choose **Segment**, and then from the
      **Segment** and **Edge** location
      drop-down lists, choose the segment and edge location.
@@ -409,6 +413,7 @@ for specific segments and edge locations.
    you can select up to 10 additional attribute values to refine your search. From
    the **Attribute** drop-down list, choose any number of the following
    attributes to filter on:
+
    - **MED**
    - **AS Path**
    - **Community**

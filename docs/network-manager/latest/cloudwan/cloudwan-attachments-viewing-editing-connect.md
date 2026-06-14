@@ -17,6 +17,7 @@ the attachment. If you want to add a new Connect attachment, see [Connect attach
 6. Details about the attachment are displayed, as well as any Connect peers and tags
    that are associated with the attachment. Here you can also add a new Connect peer,
    as well as add, edit, or remove tags.
+
    - To add a new GRE or Tunnel-less Connect peer attachment, choose the
      **Connect peers** tab and follow the steps here: [Create an AWS Cloud WAN Connect peer for a core network](cloudwan-connect-peer-attachment.md "cloudwan-connect-peer-attachment.md").
    - To add or edit attachment Tags, choose the **Tags** tab.

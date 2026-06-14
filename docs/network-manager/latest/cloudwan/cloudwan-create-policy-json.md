@@ -20,6 +20,7 @@ Familiarity with creating JSON files is required.
 7. In the JSON editor, create your new policy. You can create a new policy
    version using a blank form, or copy and modify the contents of a policy version
    that you've downloaded.
+
    - For the required and optional parameters in your JSON policy, see
      [Core network policy version parameters in AWS Cloud WAN](cloudwan-policies-json.md "cloudwan-policies-json.md").
    - For the steps to download a previous policy version, see

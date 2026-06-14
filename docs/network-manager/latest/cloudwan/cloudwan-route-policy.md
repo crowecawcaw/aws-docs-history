@@ -27,6 +27,7 @@ Provide policy details to control traffic flow and optimize your network routing
     hyphens (-). White spaces are not allowed.
 11. For the **Routing policy direction** choose one of the
     following:
+
     - **Inbound** - An inbound routing policy contains rules that control routes propagated inbound on an attachment (e.g. from an external network to Cloud WAN) into the CNE
     - **Outbound** - An outbound policy contains rules that control routes advertised from a CNE outbound over an attachment (e.g. from Cloud WAN to an external network).
 
@@ -51,6 +52,7 @@ A routing policy rule consists of a match condition and an action used to contro
    policy.
 8. Set the **Action** for the rule. Available actions
    include:
+
    - **Drop** - Block specified routes
    - **Allow** - Allow specified routes that would otherwise be dropped by a drop rule.
      Allow rules should have a lower rule number than drop rules.
@@ -69,12 +71,14 @@ A routing policy rule consists of a match condition and an action used to contro
      selection (higher value = more preferred path)
 
 9. If adding multiple conditions, choose the logical operator:
+
    - **AND** - All conditions must be met for the rule to
      apply
    - **OR** - Any condition can be met for the rule to
      apply
 
 10. Configure the match conditions for the rule. You can add multiple conditions and specify whether they should be evaluated with AND or OR logic:
+
     - **Prefix equals** - Matches routes with an exact
       network prefix specification.
     - **Prefix in CIDR** - Match propagated routes that fall within a specified CIDR range.

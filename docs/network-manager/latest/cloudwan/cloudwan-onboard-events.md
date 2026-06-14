@@ -42,6 +42,7 @@ JSON
 6. Choose the **Events** tab.
 7. Choose **Onboard to CloudWatch Logs Insights**.
 8. When you onboard to CloudWatch Logs Insights, the following occurs:
+
    - An EventBridge rule with the name
      `DON_NOT_DELETE_networkmanager_rule` is created in the US
      West (Oregon) Region.

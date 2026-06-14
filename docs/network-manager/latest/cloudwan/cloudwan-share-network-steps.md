@@ -17,6 +17,7 @@ The following steps guide you through sharing your core network with other AWS a
    you want to share, and then choose **Create resource share**.
 10. If there are no resources available to share, you'll need to create a new resource
     share:
+
     1. Choose **Create resource share**. See [Create a resource share](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-create "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-create") in the
        _AWS RAM User Guide_.
     2. After creating the resource share in AWS RAM, return to the

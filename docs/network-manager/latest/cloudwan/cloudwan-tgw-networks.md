@@ -26,6 +26,7 @@ transit gateways.
 4. In the navigation pane, choose **Transit Gateway network**.
 5. The **Overview** page opens by default, showing information about your transit gateways.
 6. On the **Overview** page, you can view the following information:
+
    - Your transit gateway **Inventory**:
 
 | Icon                           | Description                                                                                                                                                                                                        |
@@ -233,6 +234,7 @@ Route Analyzer checks the routes on Transit Gateway route tables only.
 5. The **Overview** page opens by default, showing information about your transit gateways.
 6. Choose the **Route Analyzer** tab.
 7. In the **Source** section, do the following:
+
    - Choose the source **Transit Gateway** for the route
      that you want to analyze.
    - Choose the source **Transit Gateway attachment** for
@@ -244,6 +246,7 @@ Route Analyzer checks the routes on Transit Gateway route tables only.
      For more information on middlebox configurations, see [Route analysis with a middlebox configuration](../tgwnm/example-route-analyzer-middlebox.md "../tgwnm/example-route-analyzer-middlebox.md") .
 
 8. In the Destination section, do the following:
+
    - Choose the destination **Transit Gateway**.
    - Choose the destination **Transit Gateway attachment**
      for the route.

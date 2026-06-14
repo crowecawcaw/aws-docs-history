@@ -20,6 +20,7 @@ accounts.
 9. From the **Attachment type** dropdown list, choose
    **VPC**.
 10. Optionally choose any of the following:
+
     - Choose **Appliance mode support** if appliance mode is
       supported. For more information about appliance mode, see [Appliance mode](cloudwan-vpc-attachment.md#cloudwan-appliancemode "cloudwan-vpc-attachment.md#cloudwan-appliancemode").
     - Choose **IPv6 support** if the attachment supports
@@ -46,6 +47,7 @@ accounts.
 13. Choose **Create attachment**.
 14. The **Attachment** page displays the following information about
     your shared attachments:
+
     - **Attachment ID**
     - **Name**
     - **Edge location**

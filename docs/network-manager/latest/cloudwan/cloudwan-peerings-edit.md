@@ -14,6 +14,7 @@ Edit the tags that are associated with transit gateway peering.
    **Tags** tab.
 7. Choose **Edit tags**.
 8. Do any of the following:
+
    - To add a new tag, choose **Add tag**, and then add a
      new **Key** and **Value**.
    - To remove an existing tag, choose **Remove tag** for

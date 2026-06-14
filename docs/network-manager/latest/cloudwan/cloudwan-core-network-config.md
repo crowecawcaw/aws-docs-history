@@ -16,11 +16,14 @@ information about a core network in a policy version, see [Network configuration
 7. The **Network configuration** displays general settings for the
    policy.
 8. In **General settings,** choose **Edit**.
+
    1. The **Version** choose any of the following:
+
       - **2021.12** this version does not support routing policies or bgp community tag propagation through your core network
       - **2025.11** this version enables support for routing policies and bgp community tag propagation through your core network
 
    2. Choose any of the following:
+
       - **VPN ECMP support** if the core network should
         forward traffic over multiple-cost routes using VPN.
       - **DNS support** if you want to use DNS resolution
@@ -33,6 +36,7 @@ information about a core network in a policy version, see [Network configuration
    3. Choose **Edit general settings**.
 
 9. In the **ASN ranges** section, do the following:
+
    1. Choose **Create**.
    2. For **ASN range**, enter the ASN range for the policy
       version. For example, enter `64512-65334`.
@@ -47,12 +51,14 @@ information about a core network in a policy version, see [Network configuration
    `64903` is not included. 3. Choose **Create ASN range**.
 
 10. In the **Inside CIDR blocks** section, do the following:
+
     1. Choose **Create**.
     2. For **CIDR**, enter the CIDR block that you want to use
        for BGP peering on Connect peers.
     3. Choose **Create inside CIDR block**.
 
 11. In the **Edge locations** section, do the following:
+
     1. Choose **Create**.
     2. From the **Location** dropdown list, choose the
        **Region** where you want the Core Network Edge router

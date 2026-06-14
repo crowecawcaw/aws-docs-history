@@ -25,6 +25,7 @@ The following steps create a Connect attachment for a core network using the con
 8. Choose **Connect**.
 9. From the **Connect attachment** section, choose the Connect
    protocol. This will be either:
+
    - **GRE**
    - **Tunnel-less (No encapsulation)**
 

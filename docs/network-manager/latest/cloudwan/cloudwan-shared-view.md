@@ -11,6 +11,7 @@ View details about your shared VPC and transit gateway attachments.
    **Attachments**.
 5. The **Attachment** page displays the following information about
    your shared attachments:
+
    - **Attachment ID**
    - **Name**
    - **Edge location**
@@ -23,6 +24,7 @@ View details about your shared VPC and transit gateway attachments.
 6. Select the check box for the specific attachment that you want to view. Details
    about the attachment are displayed on the lower part of the page.
 7. (Optional) You can edit some of the attachment information:
+
    1. Choose the attachment, and then choose **Edit**.
    2. On the **Edit attachment** page, you can edit the subnet
       configuration and the tags.

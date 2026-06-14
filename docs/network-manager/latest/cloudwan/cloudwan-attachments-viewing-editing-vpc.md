@@ -16,6 +16,7 @@ a new VPC attachment, see [VPC attachments in AWS Cloud WAN](cloudwan-vpc-attach
    displayed in the lower part of the page.
 6. (Optional) Choose **Edit** to modify any of the following options
    for the VPC attachment:
+
    - Enable or disable appliance mode support.
    - Enable or disable IPv6 support.
    - Enable or disable DNS support.

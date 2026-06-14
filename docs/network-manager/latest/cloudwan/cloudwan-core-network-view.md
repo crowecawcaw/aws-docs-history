@@ -10,6 +10,7 @@ View information about a core network within a Cloud WAN global network. On this
 4. In the navigation pane, choose **Core network**.
 5. Choose the **Details** tab.
 6. On the **Details** page, you can edit the following:
+
    - (Optional) To edit the description of your core network, in the
      **Details** section, choose
      **Edit**. In the
@@ -19,6 +20,7 @@ View information about a core network within a Cloud WAN global network. On this
    - (Optional) To edit, add, or delete tags, in the
      **Tags** section, choose **Edit
      tags**.
+
      - To edit any current tag, change the **Key**
        or **Value** text as needed.
      - To add additional **Key** and

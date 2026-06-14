@@ -16,6 +16,7 @@ The following steps guide you through creating a shared Direct Connect gateway a
 8. From the **Attachment type** drop-down list choose
    **Direct Connect gateway attachment**.
 9. For the **Edge locations**, choose one of the following:
+
    - **All** — Choose this option if you want to associate all
      edge locations in your core network with the Direct Connect gateway. When
      choosing this option, any new edge locations deployed in a core network

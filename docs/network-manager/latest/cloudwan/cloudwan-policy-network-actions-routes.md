@@ -40,6 +40,7 @@ Static routes are not propagated between shared segments when using attachment-r
 6. Choose **Segment actions - optional**.
 7. (Optional) In the **Sharing** section, choose
    **Create**, and then do the following:
+
    1. From the **Segment from** dropdown list, choose the
       core network segment that you want to share.
    2. For the **Segment to**, choose if you want to
@@ -48,6 +49,7 @@ Static routes are not propagated between shared segments when using attachment-r
       selected** segments. The default value is to
       **Allow all** segments.
    3. Do one of the following:
+
       - If you chose **Allow selected**, choose the
         segments to allow from the **Allow segment
         list**.
@@ -74,6 +76,7 @@ Create a segment route for a policy version.
 6. Choose **Segment actions - optional**.
 7. (Optional) In the **Routes** section, choose
    **Create**, and then do the following:
+
    1. From the **Segment** dropdown list, choose the core
       network segment that you want to share.
    2. For **Destination CIDR Block**, enter a static route.
@@ -112,6 +115,7 @@ locations.
 7. (Optional) In the **Edge location routing policy
    associations** section, choose **Associate**, and
    then do the following:
+
    1. From the **Segment from** dropdown list, choose the
       segment for the routing policy association.
    2. From the **Edge location** dropdown list, choose the

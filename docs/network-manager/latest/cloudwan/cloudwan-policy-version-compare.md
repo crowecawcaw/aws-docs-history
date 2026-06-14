@@ -19,6 +19,7 @@ highlighted.
    lists, choose the policy versions that you want to compare.
 9. (Optional) From the **Policy section** dropdown list, choose
    a specific policy section to compare. Options are:
+
    - **All** — Compares all policy changes between the two
      policies. This is the default view.
    - **Network configuration** — Compares Border Gateway

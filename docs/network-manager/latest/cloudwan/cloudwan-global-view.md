@@ -10,6 +10,7 @@ can add or modify tags as needed.
 3. On the **Global networks** page, choose the global network ID.
 4. Choose the **Details** tab.
 5. On the **Details** page you can edit the following:
+
    - (Optional) To edit the description of your global network, in the
      **Details** section, choose
      **Edit**. In the
@@ -19,6 +20,7 @@ can add or modify tags as needed.
    - (Optional) To edit, add, or delete tags, in the
      **Tags** section, choose **Edit
      tags**.
+
      - To edit any current tag, change the **Key**
        or **Value** text as needed.
      - To add additional **Key** and

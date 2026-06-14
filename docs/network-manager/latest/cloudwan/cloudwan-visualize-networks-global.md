@@ -41,6 +41,7 @@ Use the following legend to understand the icons on your global network map:
 4. In the navigation pane, choose **Dashboard**.
 5. The **Overview** page opens by default. This page shows
    information about the network resources in your global network:
+
    - The **Inventory** section shows the number of
      **Edge locations** in your global network, the
      number of **Transit gateways**, the number of
@@ -106,6 +107,7 @@ The **Details** page shows the following information:
    choose **Edit tags** and do any of the following. When
    finished, choose **Edit global network** to return to the
    **Details** page.
+
    1. Choose **Add tag** to add a new tag. Add
       **Key** and **Value** pairs to
       help identify this resource. You can add multiple tags.

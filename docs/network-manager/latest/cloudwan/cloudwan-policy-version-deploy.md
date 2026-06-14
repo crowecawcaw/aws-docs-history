@@ -15,6 +15,7 @@ automatically.
    want to deploy.
 6. Choose **View or apply change set**.
 7. (Optional) Do either of the following:
+
    - To review the proposed changes to the policy, choose
      **Details** in the **New values**
      column.
@@ -28,6 +29,7 @@ automatically.
    **Executing policy**.
 10. To view the deployment details and progress, choose the policy link. The
     **Policy version - X** page appears.
+
     - The **Policy details** page displays information
       about the policy that you're deploying.
     - The **JSON** page displays policy information as a

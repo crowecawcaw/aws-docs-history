@@ -10,6 +10,7 @@ An attachment policy requires the following:
 - One or more segments. See [Segments](cloudwan-create-policy-version.md#cloudwan-policy-create-segment "cloudwan-create-policy-version.md#cloudwan-policy-create-segment").
 - If you are optionally creating a service insertion action, you'll first need the
   following:
+
   - A network functions group. See [Network function groups](cloudwan-create-policy-version.md#cloudwan-core-network-function "cloudwan-create-policy-version.md#cloudwan-core-network-function").
   - At least one attachment. Supported attachment types are Connect, Direct
     Connect gateway, transit gateway route table, VPC, and Site-to-Site VPN. For more
@@ -36,6 +37,7 @@ An attachment policy requires the following:
 9. Enter an optional **Description** to identify the attachment policy.
 10. In the **Action** section, choose how you want to associate
     the attachment to the segment. Choose one of the following:
+
     - **Segment name** — associates the attachment by the segment
       name. After choosing this option, the segment to attach to from the
       **Attach to segment** dropdown list.
@@ -49,6 +51,7 @@ An attachment policy requires the following:
       **Type** you can choose the **Tag name** , **Tag value**, or both.
 
 11. Choose one of the following:
+
     - **Inherit segments acceptance value** if the attachment
       inherits the acceptance setting from a segment when a segment was created.
       This can't be changed.

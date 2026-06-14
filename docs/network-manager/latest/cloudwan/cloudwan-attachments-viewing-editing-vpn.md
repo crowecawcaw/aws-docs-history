@@ -18,6 +18,7 @@ new attachment. If you want to add a new VPN attachment, see [Create a Site-to-S
 6. Choose **Edit**.
 7. On the **Edit attachment** page, do any of the
    following:
+
    - Enable or disable appliance mode support.
    - Enable or disable IPv6 support.
    - Add or remove subnets IDs.

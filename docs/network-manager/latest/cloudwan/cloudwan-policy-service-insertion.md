@@ -31,6 +31,7 @@ create using the console:
     * To create a policy version using a JSON file, see [Create an AWS Cloud WAN core network policy version using JSON](cloudwan-create-policy-json.md "cloudwan-create-policy-json.md").
 
 2. Using either the console or within the JSON file you'll do the following:
+
    1. **Configure your core network**. Set the BGP and ASN for
       this core network policy.
    2. **Add segments**. Add segments to your core network
@@ -101,6 +102,7 @@ and north-south traffic.
   and then out to other VPCs. Send via is a bi directional action so if you have a send via action
   from Segment A to Segment B you do not need to also specify a send via action of Segment B
   to Segment A.
+
   - Single hop — Traffic traverses a single intermediate attachment, using
     the deterministically preferred source or destination Region. You can
     set a list of Regions to use, as well as setting a preferred Region to

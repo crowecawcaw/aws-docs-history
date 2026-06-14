@@ -28,6 +28,7 @@ peering has the following permissions:
    the peering.
 10. Choose one of the following **Associate policy table**
     options:
+
     - **New** — Creates a new policy routing table.
     - **Existing** — Allows you to associate this peering with
       an existing policy route table. If you choose this option, choose an

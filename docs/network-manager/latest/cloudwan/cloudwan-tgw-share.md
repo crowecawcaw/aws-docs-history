@@ -31,6 +31,7 @@ The following steps guide you through creating a shared transit gateway attachme
 13. Choose **Create attachment**.
 14. The **Attachment** page displays the following information about
     your shared attachments:
+
     - **Attachment ID**
     - **Name**
     - **Edge location**

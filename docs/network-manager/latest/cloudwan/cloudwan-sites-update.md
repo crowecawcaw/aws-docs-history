@@ -13,6 +13,7 @@ removing tags.
    choose**Edit**.
 6. On the **Edit site** page, you can make changes to the
    following information:
+
    - **Description**
    - **Address**
    - **Latitude**

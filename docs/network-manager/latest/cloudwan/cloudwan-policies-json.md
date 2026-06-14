@@ -51,6 +51,7 @@ The following parameters are used in
 - General settings allow you to create the foundation of a core network,
   including whether VPN ECMP, DNS, and security group referencing are
   supported.
+
   - `vpn-ecmp-support` — (Optional) Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. When set to `true`, traffic can be distributed across multiple VPN tunnels for better throughput and redundancy. The default is `true`.
   - `dns-support` — (Optional) Indicates whether DNS
     resolution is enabled for the core network. The value can be either
@@ -107,6 +108,7 @@ will not attempt to auto assign for any new edge locations.
 - `edge-locations` — An array of AWS Region locations where you're
   creating core network edges. The array is composed of the following
   parameters:
+
   - `location` — An AWS Region code, such as
     `us-east-1`.
   - `asn` — (Optional) The ASN of the core network edge in an
@@ -174,6 +176,7 @@ The following parameters are used in `segments`:
 
 - `segments` — At least one segment must be defined and composed of
   the following parameters:
+
   - `name` — The name of the segment. The `name`
     is a string used in other parts of the policy document, as well as
     in the console for metrics and other reference points. Valid
@@ -330,6 +333,7 @@ The following parameters are used in `segment-actions`:
 - `share` parameters. If the action to take is share, the following
   parameters are required. `share` is the default action
   behavior.
+
   - `segment` — The name of the segment created in the
     `segments` section to share.
   - `mode` — `attachment-route` is the only
@@ -368,7 +372,6 @@ The following parameters are used in `segment-actions`:
         }
       }
   ```
-
   - `routing-policy-names` — (Optional) An array of routing
     policy names to apply to the segment sharing. The routing policies
     control how routes are propagated between the shared segments.
@@ -376,6 +379,7 @@ The following parameters are used in `segment-actions`:
 - `create-route` parameters. If the action is
   `create-route`, the following are the required and optional
   parameters.
+
   - `segment` — The name of the segment created in the
     `segments` section, which must be a static route. If
     you need to duplicate the static route in multiple segments, use
@@ -405,7 +409,6 @@ The following parameters are used in `segment-actions`:
   ###### Note
 
       - AWS Cloud WAN does not propagate blackhole routes.
-
   - `description` — (Optional) A user-defined description to
     help further identify this route.
 
@@ -630,10 +633,12 @@ If you're creating a JSON policy for a network function group
 `condition-logic` options.
 
 - `conditions` — An array composed of one of the following types:
+
   - `type` - Specifies the kind of condition to evaluate
     for matching attachments. The type determines what attribute of the
     attachment will be examined and how the matching logic is
     applied.
+
     - `any` — This matches any request. For example,
       you could use any if you're only using one segment that
       everything should map to. Or, you could use this as a
@@ -643,6 +648,7 @@ If you're creating a JSON policy for a network function group
       the attachment (for example,
       `vpc-1234567890123456`). Supports additional
       parameters:
+
       - `operator` — The operation to perform.
         Must be one of `equals` |
         `not-equals` | `contains` |
@@ -653,6 +659,7 @@ If you're creating a JSON policy for a network function group
     - `region` — Matches based on the AWS region
       where the attachment is located. Supports additional
       parameters:
+
       - `operator` — The operation to perform.
         Must be one of `equals` |
         `not-equals` | `contains` |
@@ -662,6 +669,7 @@ If you're creating a JSON policy for a network function group
 
     - `attachment-type` — Matches based on the type
       of attachment. Supports additional parameters:
+
       - `operator` — The operation to perform.
         Must be one of `equals` |
         `not-equals` | `contains` |
@@ -676,6 +684,7 @@ If you're creating a JSON policy for a network function group
       requesting attachment (for example,
       `111122223333`). Supports additional
       parameters:
+
       - `operator` — The operation to perform.
         Must be one of `equals` |
         `not-equals` | `contains` |
@@ -689,6 +698,7 @@ If you're creating a JSON policy for a network function group
     - `tag-value` — Match attachments based on the
       presence of specific tag values. Supports additional
       parameters:
+
       - `operator` — The operation to perform.
         Must be one of `equals` |
         `not-equals` | `contains` |
@@ -698,6 +708,7 @@ If you're creating a JSON policy for a network function group
 
   - `action` — One of the following actions to when a
     condition is true:
+
     - `association-method` — Defines how a segment is
       mapped. Values can be `constant` or
       `tag`. `constant` statically
@@ -796,6 +807,7 @@ The following parameters are used in `attachment-routing-policy-rules`:
 - `conditions` — An array of conditions that must be
   met. (since attachments can only have a single routing policy label the conditions
   are always applied with an or operator)
+
   - `type` — The type of condition to evaluate. Only
     `routing-policy-label` is supported. This condition
     type enables the core network owner to control routing policy
@@ -807,6 +819,7 @@ The following parameters are used in `attachment-routing-policy-rules`:
     that attachments must have to match this condition.
 
 - `action` — Defines the action to take when conditions are met:
+
   - `associate-routing-policies` — The list of routing
     policy names to be associated with the attachment label.
 
@@ -870,14 +883,18 @@ The following parameters are used in `routing-policies`:
   higher priority and are processed first.
 - `routing-policy-rules` — An array of rules that define the
   match conditions and actions for the routing policy. Each rule contains:
+
   - `rule-number` — An integer from `1` to
     `9999` that determines the processing order within the
     policy. Rules are processed from lowest to highest number.
   - `rule-definition` — Contains the match conditions and
     actions for the rule:
+
     - `match-conditions` — An array of conditions
       that routes must match. Supported condition types include:
+
       - `type` — Specifies the type of match condition.
+
         - `prefix-equals` — Match specific IPv4
           or IPv6 prefixes
         - `prefix-in-cidr` — Match prefixes
@@ -902,6 +919,7 @@ The following parameters are used in `routing-policies`:
       condition must match).
     - `action` — Defines the action to take on
       matching routes.
+
       - `type` — The type of action to take for
         the condition logic. Supported actions
         include:
