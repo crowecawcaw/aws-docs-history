@@ -10,6 +10,7 @@ the AWS CLI.
   data sources.
 - Your web customization artifacts must be of one of the following supported
   content types.
+
   - Custom logo and favicons — `image/svg+xml`,
     `image/x-icon`, and `image/png`. Logo
     files must be 1 MB or smaller.
@@ -28,6 +29,7 @@ the AWS CLI.
     same AWS Region as the application environment of the web experience.
 2.  You can use public or private Amazon S3 buckets to save and store your web
     experience customization.
+
     - ###### Prerequisites for public S3 buckets
       - Ensure all S3 URIs for files to read and folders to store
         are publicly accessible. For managing access to your S3
@@ -134,12 +136,15 @@ console.
 4. Choose either **Managed theming** (for direct
    input of colors and assets) or **Custom
    theming** (for using your own CSS).
+
    1. For **Managed theming**:
+
       - Enter colors for background, and primary title.
       - Provide the S3 URI for the logo file. Logo files must be 1
         MB or smaller.
 
    2. For **Custom theming**:
+
       - Enter your CSS snippet in the editor.
 
 5. Enter the S3 URI to store your customization.

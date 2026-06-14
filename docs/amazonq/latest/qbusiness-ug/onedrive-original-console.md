@@ -16,6 +16,7 @@ Microsoft OneDrive using the original connector with the AWS Management Console.
 5. Then, on the **Microsoft OneDrive** data source page, enter
    the following information:
 6. In **Source**, enter the following information:
+
    - **OneDrive Tenant ID** Enter your
      OneDrive Tenant ID without the protocol. You can find
      your OneDrive Tenant ID under Directory ID in the
@@ -48,6 +49,7 @@ See [Authorization](connector-concepts.md#connector-authorization "connector-con
    _optional_** – Choose
    whether you want to use a VPC. If you do, enter the following
    information:
+
    1. **Subnets** – Select up to 6
       repository subnets that define the subnets and IP ranges
       the repository instance uses in the selected VPC.
@@ -86,6 +88,7 @@ users**, choose between the following options:
 
 12. For **Additional configuration –
     _optional_**:
+
     - For **Filter Patterns** – Add filter
       patterns to include or exclude certain files. You can add up to 100
       patterns.

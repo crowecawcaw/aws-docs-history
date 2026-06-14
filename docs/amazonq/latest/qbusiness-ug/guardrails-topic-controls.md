@@ -98,6 +98,7 @@ Console
    topic control**.
 5. For **Create topic specific controls**,
    enter the following information:
+
    - **Name** – Enter a name
      for your topic-specific control.
    - **Description** – A
@@ -113,6 +114,7 @@ Console
    rule**.
 8. For **Rule 1**, enter the following
    information:
+
    - In **Behavior in response to
      guardrail**, for
      **Behavior** – Choose how

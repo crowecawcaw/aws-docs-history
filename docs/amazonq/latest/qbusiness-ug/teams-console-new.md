@@ -15,6 +15,7 @@ The latest Microsoft Teams connector provides a simplified configuration experie
 5.  Then, on the **Microsoft Teams** data source page, enter
     the following information:
 6.  **Name and description**, do the following:
+
     - For **Data source name** – Name your data
       source for easy tracking.
 
@@ -27,6 +28,7 @@ The latest Microsoft Teams connector provides a simplified configuration experie
       description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7.  In **Source**, enter the following information:
+
     1. **Tenant ID** – Enter your Tenant ID.
 
     ###### Note
@@ -40,6 +42,7 @@ The latest Microsoft Teams connector provides a simplified configuration experie
 8.  For **Authentication**, in **AWS Secrets Manager**
     – Choose between **Create and add new secret** and
     **Use existing secrets**.
+
     1. If you choose **Use existing secrets**, select an
        existing secret.
 
@@ -101,6 +104,7 @@ sync.
 11. In **Additional configuration –
     _optional_**, configure the following simplified
     options:
+
     - **Date Range** – Enter the date range for
       which the connector will crawl your content. End date is optional.
       Rolling window options available: Last [X] Days/Weeks/Months.

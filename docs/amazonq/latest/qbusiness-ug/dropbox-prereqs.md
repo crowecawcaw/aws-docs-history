@@ -13,6 +13,7 @@ prerequisites.
   Dropbox website.
 - Activated **Full Dropbox** permissions on the
   Dropbox console and added the following permissions:
+
   - `files.content.read`
   - `files.metadata.read`
   - `sharing.read`
@@ -41,6 +42,7 @@ prerequisites.
 `&scope=files.metadata.read%20files.content.read`
 
 - Exchange authorization code for tokens by requesting tokens from the Dropbox token endpoint.
+
   - curl https://api.dropboxapi.com/oauth2/token -d code=AUTH_CODE -d grant_type=authorization_code -d client_id=APP_KEY -d client_secret=APP_SECRET
   - Replace AUTH_CODE with the obtained authorization code, APP_KEY and APP_SECRET with your application client ID (App key) and secret key.
 

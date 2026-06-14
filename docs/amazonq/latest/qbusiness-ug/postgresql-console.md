@@ -16,6 +16,7 @@ PostgreSQL using the AWS Management Console.
 5. Then, on the **PostgreSQL** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -28,6 +29,7 @@ PostgreSQL using the AWS Management Console.
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7. In **Source**, enter the following information:
+
    1. **Host** – Enter the database host URL.
    2. **Port** – Enter the database port, for example,
       `5432`.
@@ -54,6 +56,7 @@ information for your **AWS Secrets Manager secret**.
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1.  **Subnets** – Select up to 6
         repository subnets that define the subnets and IP ranges
         the repository instance uses in the selected VPC.

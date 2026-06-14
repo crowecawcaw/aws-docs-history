@@ -16,6 +16,7 @@ SharePoint Server 2019 using the AWS Management Console.
 5.  Then, on the **SharePoint Server 2019** data source page, enter
     the following information:
 6.  **Name and description**, do the following:
+
     - For **Data source name** – Name your data
       source for easy tracking.
 
@@ -28,6 +29,7 @@ SharePoint Server 2019 using the AWS Management Console.
       description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7.  In **Source**, enter the following information:
+
     1. In **Source**, for **Hosting
        Method** – Choose **SharePoint
        Server**.
@@ -56,6 +58,7 @@ SharePoint Server 2019 using the AWS Management Console.
     disabled](setting-up.md#DisableAclOnDataSource "setting-up.md#DisableAclOnDataSource") for more details. See [Authorization](connector-concepts.md#connector-authorization "connector-concepts.md#connector-authorization") for more details. For
     SharePoint Server, you can choose from the following ACL
     options:
+
     1. **Email ID with Domain from IDP** – Access
        control is based on email IDs that are extracted from email domains
        fetched from the underlying identity provider (IdP). You provide the IdP
@@ -71,6 +74,7 @@ SharePoint Server 2019 using the AWS Management Console.
     App-Only authentication**, **NTLM
     authentication**, and **Kerberos authentication**,
     based on your use case.
+
     1. Enter the following information for both **NTLM
        authentication** and **Kerberos
        authentication**:
@@ -101,7 +105,6 @@ SharePoint Server 2019 using the AWS Management Console.
          username.
         * **LDAP Password** – Your LDAP
          password.
-
     2. Enter the following information for **SharePoint App-Only
        authentication**:
 
@@ -147,6 +150,7 @@ SharePoint Server 2019 using the AWS Management Console.
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1. **Subnets** – Select up to 6
        repository subnets that define the subnets and IP ranges
        the repository instance uses in the selected VPC.

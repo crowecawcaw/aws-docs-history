@@ -34,6 +34,7 @@ user's browser via
 - Uninstall the browser extension for all users by updating the policy
   settings using the mobile device management software (MDM) using one of
   the following:
+
   - Firefox policy settings: [https://mozilla.github.io/policy-templates/#extensionsettings](https://mozilla.github.io/policy-templates/#extensionsettings "https://mozilla.github.io/policy-templates/#extensionsettings")
   - Chrome policy settings: [https://chromeenterprise.google/policies/#ExtensionSettings](https://chromeenterprise.google/policies/#ExtensionSettings "https://chromeenterprise.google/policies/#ExtensionSettings")
   - Edge policy settings: [https://learn.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#extensionsettings](https://learn.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#extensionsettings "https://learn.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#extensionsettings")

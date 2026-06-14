@@ -51,6 +51,7 @@ plugin by following best practices for your OpenAPI schema parameters.
   each operation. Though not required, it is recommended to add
   `operationIds` to your API schema. The following outlines
   some Operation ID naming best practices:
+
   - Avoid noun-only `operationIds`, like
     `contacts`. Instead, prefix operation names with
     descriptive verbs like `get`, `find`,
@@ -73,6 +74,7 @@ plugin by following best practices for your OpenAPI schema parameters.
   determining the role and purpose of each input needed for invoking an
   operation. The following outlines some input request naming best
   practices:
+
   - Avoid non-descriptive parameter names like `id`.
     Instead include a descriptive noun, like
     `contactId`.
@@ -85,6 +87,7 @@ plugin by following best practices for your OpenAPI schema parameters.
   properties with the same name should mean the same thing across all
   operations in your schema. The following outlines some parameter naming best
   practices:
+
   - Avoid using different names for parameters with the same meaning.
     For example, `start_date` in one API and
     `begin_date` in another API if they mean the same
@@ -100,6 +103,7 @@ plugin by following best practices for your OpenAPI schema parameters.
 - Descriptions should be self-contained, providing sufficient guidance for
   how and when to use the operation or parameter they describe. The following
   outlines some description creation best practices:
+
   - Operation descriptions should describe what the operation does,
     including when, when not, and how to use it.
   - Avoid verbose descriptions. Parameter descriptions should
@@ -128,6 +132,7 @@ plugin by following best practices for your OpenAPI schema parameters.
   dependency operations by their `operationIds` but should avoid
   providing specific usage examples of the operation. The following outlines
   some referencing best practices:
+
   - Don’t refer to operations by their API paths (e.g.
     `/api/v1/timeoff/requests`). Instead, use
     `operationIds` to refer to operations in
@@ -158,6 +163,7 @@ plugin by following best practices for your OpenAPI schema parameters.
   by alternate criteria.
 - Avoid structurally complex/nested inputs when possible. The following
   outlines some input parameter structure best practices:
+
   - **Instead of**
     `{"start": {"type": "object", "properties": {"date": {...},
  "time": {...}}, "end": {...}}`
@@ -379,6 +385,7 @@ updates:
 - Modify the description of `/api/v1/timeoff/requests` and
   `/api/v1/timeoff/request` to make them self-contained (remove
   URL) and describe what they do and how to use them. For example:
+
   - Change `Existing requests for the authenticated user. See the
 docs <a href=https://example.com>here</a> for more
 details.` to `Return existing time off requests
@@ -392,6 +399,7 @@ authenticated user based on a start and end date
 (inclusive)`.
 
 - Add descriptions for ambiguous parameters. For example:
+
   - For the end date of a request, add a description: `Last day
 for the request (inclusive) in ISO-8601 format (for example,
 YYYY-MM-DD)`.

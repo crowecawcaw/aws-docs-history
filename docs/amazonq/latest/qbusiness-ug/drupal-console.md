@@ -16,6 +16,7 @@ Drupal using the AWS Management Console.
 5. Then, on the **Drupal** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -53,6 +54,7 @@ secret**.
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1.  **Subnets** – Select up to 6
         repository subnets that define the subnets and IP ranges
         the repository instance uses in the selected VPC.
@@ -120,6 +122,7 @@ For more information, see [IAM role](drupal-connector.md#drupal-iam "drupal-conn
     when your data source content changes. When you sync your data source with
     Amazon Q for the first time, all content is synced by
     default.
+
     - **Full sync**—Sync all content regardless of
       the previous sync status.
     - **New, modified, or deleted content

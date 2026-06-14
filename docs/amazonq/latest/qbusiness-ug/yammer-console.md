@@ -16,6 +16,7 @@ Microsoft Yammer using the AWS Management Console.
 5. Then, on the **Microsoft Yammer** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -58,6 +59,7 @@ and **Existing**.
    _optional_** – Choose
    whether you want to use a VPC. If you do, enter the following
    information:
+
    1. **Subnets** – Select up to 6
       repository subnets that define the subnets and IP ranges
       the repository instance uses in the selected VPC.

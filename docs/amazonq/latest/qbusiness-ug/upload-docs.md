@@ -33,6 +33,7 @@ Console
    files**.
 7. Then, in **Upload files**, select one of the
    following methods to add your files:
+
    - Drag and drop the document files that you want to
      upload.
    - Add your documents to the application environment, and then select

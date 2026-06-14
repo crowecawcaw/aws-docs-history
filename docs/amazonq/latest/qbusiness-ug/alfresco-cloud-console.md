@@ -16,6 +16,7 @@ Alfresco (Cloud) using the AWS Management Console.
 5. Then, on the **Alfresco (Cloud)** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -29,6 +30,7 @@ Alfresco (Cloud) using the AWS Management Console.
 
 7. **Source** – Choose **Alfresco
    Cloud**.
+
    1. **Alfresco repository URL** –
       Enter your Alfresco repository URL. For example, if you
       use Alfresco Cloud (PaaS), the repository URL could be
@@ -115,6 +117,7 @@ For more information, see [IAM role](alfresco-cloud-connector.md#alfresco-cloud-
     when your data source content changes. When you sync your data source with
     Amazon Q for the first time, all content is synced by
     default.
+
     - **Full sync** – Sync all content regardless of
       the previous sync status.
     - **New, modified, or deleted content sync** –

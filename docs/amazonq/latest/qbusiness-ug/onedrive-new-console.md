@@ -16,6 +16,7 @@ Microsoft OneDrive using the new connector with the AWS Management Console.
 5. Then, on the **Microsoft OneDrive** data source page, enter
    the following information:
 6. In **Source**, enter the following information:
+
    - **OneDrive Tenant ID** Enter your
      OneDrive Tenant ID without the protocol. You can find
      your OneDrive Tenant ID under Directory ID in the

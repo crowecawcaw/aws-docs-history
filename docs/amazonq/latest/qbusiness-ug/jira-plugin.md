@@ -114,6 +114,7 @@ Console
     **Jira**.
 6.  For **Jira**, enter the following
     information:
+
     1. **Name**, **Plugin
        name** – A name for your Amazon Q plugin. The name can include hyphens (-),
        but not spaces, and can have a maximum of 1,000 alphanumeric

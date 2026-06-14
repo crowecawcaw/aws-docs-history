@@ -16,6 +16,7 @@ Asana using the AWS Management Console.
 5. Then, on the **Asana** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -70,6 +71,7 @@ For more information, see [IAM role](Asana-connector.md#Asana-iam "Asana-connect
 
 14. **Additional configuration – optional** –
     Configure the following settings:
+
     - In Additional configuration – select from the following options
     - Project regex patterns – Choose to include or exclude specific project
       names using regex patterns.

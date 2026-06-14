@@ -15,6 +15,7 @@ The legacy Microsoft Teams connector provides comprehensive configuration option
 5. Then, on the **Microsoft Teams** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -27,6 +28,7 @@ The legacy Microsoft Teams connector provides comprehensive configuration option
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7. In **Source**, enter the following information:
+
    1. **Tenant ID** – Enter your Tenant ID.
 
    ###### Note
@@ -147,6 +149,7 @@ sync.
     file size should be greater than 0MB and less than or equal to 50MB.
 14. In **Additional configuration –
     _optional_**, configure the following comprehensive options:
+
     - **Calendar crawling** – Enter the date range for
       which the connector will crawl your calendar content.
     - **User email** – Enter the emails of the users
@@ -188,6 +191,7 @@ You can choose from two types of fields:
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1.  **Subnets** – Select up to 6
         repository subnets that define the subnets and IP ranges
         the repository instance uses in the selected VPC.

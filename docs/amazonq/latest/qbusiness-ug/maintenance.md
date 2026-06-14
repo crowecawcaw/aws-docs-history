@@ -39,6 +39,7 @@ maintenance activity. Try again later.`
 - For Amazon Q Business applications encrypted with a customer managed KMS
   key, you'll see CloudTrail events for the following APIs while maintenance is going
   on:
+
   - CreateGrant
   - GenerateDataKey
   - Decrypt

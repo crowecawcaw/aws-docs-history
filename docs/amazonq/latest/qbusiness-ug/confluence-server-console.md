@@ -3,6 +3,7 @@
 On the **Confluence** page, enter the following information:
 
 1. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -15,6 +16,7 @@ On the **Confluence** page, enter the following information:
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 2. In **Source**, enter the following information:
+
    1. In **Source**, for **Hosting
       Method** – Choose **Confluence Server/Data
       Center**.
@@ -31,6 +33,7 @@ On the **Confluence** page, enter the following information:
 
 3. **Web proxy – _optional_**, enter
    the following information:
+
    1. **Host name** – Host name for your Confluence
       account.
    2. **Port number** – Port used by the host URL
@@ -79,6 +82,7 @@ Enter the following information in the window:
    _optional_** – Choose
    whether you want to use a VPC. If you do, enter the following
    information:
+
    1. **Subnets** – Select up to 6
       repository subnets that define the subnets and IP ranges
       the repository instance uses in the selected VPC.
@@ -194,6 +198,7 @@ For more information, see [IAM role](confluence-server-connector.md#confluence-s
     when your data source content changes. When you sync your data source with
     Amazon Q for the first time, all content is synced by
     default.
+
     - **Full sync** – Sync all content regardless of
       the previous sync status.
     - **New, modified, or deleted content sync** –

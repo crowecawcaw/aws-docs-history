@@ -29,6 +29,7 @@ the following:
   actions in Amazon Q. To learn how to do this, see [Using OAuth authentication with your application](https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application "https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application") in
   Zendesk Suite Developer Documentation.
 - Make sure the following required scopes are added:
+
   - `tickets:read`
   - `tickets:write, read`
 
@@ -138,6 +139,7 @@ Console
    **Zendesk Suite**.
 6. For **Zendesk Suite**, enter the following
    information:
+
    1. In **Plugin name**, for
       **Name** – A name for your
       Amazon Q plugin. The name can include hyphens
@@ -149,11 +151,13 @@ Console
       `https://`yourInstanceId`.zendesk.com`.
    3. **OAuth 2.0 authentication** – do
       the following:
+
       1. For **AWS Secrets Manager secret** –
          Choose **Create and add a new
          secret** or **Use an existing
          one**. Your secret must contain the
          following information:
+
          - **Secret name** – A
            name for your Secrets Manager secret.
          - **Client ID**

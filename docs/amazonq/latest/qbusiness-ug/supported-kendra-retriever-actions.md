@@ -90,6 +90,7 @@ index**
    **Edit**.
 5. In **Edit index**, choose between the
    following values to update"
+
    - **Storage capacity** –
      Update your storage capacity to a value between 1-50
      units. Each unit contains 20,000 documents. Index
@@ -219,6 +220,7 @@ Console
 4. On the **Data sources** page, under
    **Index** the following settings are
    available:
+
    - **Retriever** – The type
      of retriever that you're using.
    - **Document count** – The

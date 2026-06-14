@@ -21,6 +21,7 @@ have:**
   multiple sitemap XML files into a .zip file.
 - **For websites that require basic, NTLM, or Kerberos
   authentication:**
+
   - Noted your website authentication credentials, which include a
     username and password.
 
@@ -32,6 +33,7 @@ have:**
 
 - **For websites that require SAML or login form
   authentication:**
+
   - Noted your website authentication credentials, which include a
     username and password.
   - Copied the XPaths (XML Path Language) of the username field (and the

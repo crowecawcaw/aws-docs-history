@@ -16,6 +16,7 @@ Amazon S3 using the AWS Management Console.
 5. Then, on the **Amazon S3** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -157,6 +158,7 @@ choose **Create a new role** to avoid errors. 8. **Sync scope**, enter the follo
 
 9. **Sync mode**, choose how you want to update your index when
    your data source content changes. When you sync your data source with Amazon Q for the first time, all content is synced by default.
+
    - **Full sync** – Sync all content regardless of
      the previous sync status.
    - **New, modified, or deleted content sync** –

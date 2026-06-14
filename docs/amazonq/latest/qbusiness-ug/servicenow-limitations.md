@@ -9,6 +9,7 @@ The ServiceNow Online connector has the following known limitations:
 - We don't support ServiceNow access controls.
 - We don't support ServiceNow user criteria.
 - Only the following ServiceNow roles are supported for incidents:
+
   - ITIL: This role provides broad access to incident management
     functionality.
   - Custom roles: You can create custom roles with specific incident

@@ -119,6 +119,7 @@ Console
    **Salesforce**.
 6. For **Salesforce**, enter the following
    information:
+
    1. **Name**, for **Plugin
       name** – A name for your Amazon Q plugin. The name can include hyphens (-),
       but not spaces, and can have a maximum of 1,000 alphanumeric
@@ -135,6 +136,7 @@ Console
       **Create and add a new secret** or
       **Use an existing one**. Your secret
       must contain the following information:
+
       1. **Secret name** – A name
          for your Secrets Manager secret.
       2. **Connected app consumer key**

@@ -7,6 +7,7 @@ with one or more fields, and publish the app.
 2. In the navigation pane, choose **Apps**.
 3. Choose one of four methods to start creating your Q App data collection
    form:
+
    - In **Recently used** choose the pencil icon.
    - Choose a tile that contains a **Data collection**
      pill
@@ -23,6 +24,7 @@ with one or more fields, and publish the app.
 6. For **Title**, give the form a name.
 7. Under **Fields**, add one or more fields with field
    labels.
+
    - Choose **+ Add a field** to add more fields.
    - Choose the trash can icon to delete a field.
 

@@ -20,6 +20,7 @@ Before you begin adding your data source, make sure you've created an Amazon Q B
 5. Then, on the **Web Crawler** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -32,6 +33,7 @@ Before you begin adding your data source, make sure you've created an Amazon Q B
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7. In **Source** choose from the following options:
+
    - **Source URLs** – Add up to 10 seed/starting
      point URLs of the websites you want to crawl. You can also include
      website subdomains.
@@ -168,6 +170,7 @@ Secrets Manager secret:
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1. **Subnets** – Select up to 6
        repository subnets that define the subnets and IP ranges
        the repository instance uses in the selected VPC.
@@ -252,6 +255,7 @@ For more information, see [IAM role](webcrawler-connector.md#webcrawler-iam "web
     when your data source content changes. When you sync your data source with
     Amazon Q for the first time, all content is synced by
     default.
+
     - **Full sync** – Sync all content regardless of
       the previous sync status.
     - **New, modified, or deleted content sync** –

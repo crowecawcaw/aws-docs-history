@@ -16,6 +16,7 @@ Gmail using the legacy connector and the AWS Management Console. The legacy conn
 5. Then, on the **Gmail** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -68,6 +69,7 @@ For more information, see [IAM role](gmail-connector.md#gmail-iam "gmail-connect
     file size should be greater than 0MB and less than or equal to 50MB.
 12. For **Additional configuration –
     _optional_**, configure the comprehensive filtering options available in the original connector:
+
     1.  **Date range** – Enter a date range to specify
         the start and end date of email messages to be crawled.
     2.  **Email domains** – Include or exclude email
@@ -101,6 +103,7 @@ default.
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1.  **Subnets** – Select up to 6
         repository subnets that define the subnets and IP ranges
         the repository instance uses in the selected VPC.

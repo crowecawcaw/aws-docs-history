@@ -26,6 +26,7 @@ To use metrics, you must specify the following information:
   namespace.
 - The metric dimension. A _dimension_ is a name-value pair that
   helps you to uniquely identify a metric. Common dimension names include:
+
   - `ApplicationId` - Identifies the specific Amazon Q Business application
   - `IndexId` - Identifies the specific index (for index-related metrics)
   - `DataSourceId` - Identifies the specific data source (for data source metrics)

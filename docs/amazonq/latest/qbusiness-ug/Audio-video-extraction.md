@@ -93,6 +93,7 @@ you have used previously:
 1. Click **Add data source**
 2. Select any supported data source
 3. Fill in the following information:
+
    1. Enter the data source name
    2. For the IAM role, select from the dropdown menu **Create
       new service role**

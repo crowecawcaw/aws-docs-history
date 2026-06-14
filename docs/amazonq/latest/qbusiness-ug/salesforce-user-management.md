@@ -39,6 +39,7 @@ knowledge articles.
   Only available if the item is posted in the user's feed.
 - `_group_ids` – Group IDs are used as follows. Only available if
   the feed item is posted in a chatter or collaboration group.
+
   - The name of the chatter or collaboration group.
   - If the group is public, `PUBLIC:ALL`.
 

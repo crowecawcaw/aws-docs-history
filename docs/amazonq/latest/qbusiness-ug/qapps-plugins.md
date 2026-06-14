@@ -60,6 +60,7 @@ Q App**
    **Actions**.
 7. From the **Actions** menu that opens up on
    the right, do the following:
+
    - For **Title** – Add a title
      for the card.
    - For **Plugin** – Select the

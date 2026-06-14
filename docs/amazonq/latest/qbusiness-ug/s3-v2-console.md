@@ -16,6 +16,7 @@ Amazon S3 using the AWS Management Console.
 5. Then, on the **Amazon S3** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -44,8 +45,10 @@ choose **Create a new role** to avoid errors. 8. **Data source location** – Ch
     	1. **Account ID** – Specify the ID for the other account that owns the bucket.
 
 9.  **Sync scope**, enter the following information:
+
     1. **Enter the data source location** – The path
        to the Amazon S3 bucket where your data is stored.
+
        - If you selected **This account**, you can select
          **Browse S3** to find and choose your bucket.
        - If you selected **Other account**, you must manually enter the bucket name as the browse option is not available for cross-account buckets.
@@ -64,10 +67,10 @@ choose **Create a new role** to avoid errors. 8. **Data source location** – Ch
         * If you selected **This account**, you can select
          **Browse S3** to locate your ACL file.
         * If you selected **Other account**, you must manually enter the file path as the browse option is not available for cross-account buckets.
-
     4. **Metadata files folder location -
        _optional_** – The path to
        the folder in which your metadata is stored.
+
        - If you selected **This account**, you can select
          **Browse S3** to locate your metadata folder.
        - If you selected **Other account**, you must manually enter the folder path as the browse option is not available for cross-account buckets.

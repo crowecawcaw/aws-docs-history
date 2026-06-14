@@ -135,6 +135,7 @@ solution:
 - [PutGroup](../api-reference/API_PutGroup.md "../api-reference/API_PutGroup.md") –
   Creates, or updates, a mapping of users to groups, or groups to
   subgroups. You can use this API operation to:
+
   - Map a group from groups in the data source to groups in
     your IdP.
   - Map a list of users and sub groups (for example,

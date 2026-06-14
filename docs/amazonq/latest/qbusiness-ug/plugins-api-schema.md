@@ -145,6 +145,7 @@ contains the following information for the response:
   properties that you define in the schema to determine the information it
   needs to return to the end user in order to fulfill a task. Each
   property contains the following fields:
+
   - `type` – (Required for each property) The
     data type of the response field.
   - `description` – (Optional) Describes the
@@ -202,6 +203,7 @@ must get from the end user to perform the plugin's requirements.
   correct parameters Amazon Q populated based on the end user’s request
   or past actions. The following extensions can be used to modify how that
   form is created:
+
   - `x-amzn-form-display-name` – (Optional) This
     can be used at parameter level to override the default name
     visible in the form.
@@ -257,6 +259,7 @@ The following list describes each field:
   properties that you define in the schema to determine the information it
   must get from the end user to make the API request. Each property
   contains the following fields:
+
   - `type` – (Optional) The data type of the
     request field.
   - `description` – (Optional) Describes the

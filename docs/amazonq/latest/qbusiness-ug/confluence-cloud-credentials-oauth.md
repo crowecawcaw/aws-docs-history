@@ -276,6 +276,7 @@ for more details.
 - From the left navigation menu, choose **Settings**.
   Then, scroll down to **Authentication details** section
   and copy and save the following in a text editor of your choice:
+
   - Client ID – You will enter this as **App
     key** in the Amazon Q console.
   - Client Secret – You will enter this as **App

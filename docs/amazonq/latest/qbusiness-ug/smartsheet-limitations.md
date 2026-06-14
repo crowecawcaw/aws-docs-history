@@ -26,5 +26,6 @@ Major?", they would get an accurate response.
   Project Plan” and “Blockchain Integration - Impact Tracker”)—if a query
   mentions just “Blockchain Integration” then you might not get an accurate
   response. To get accurate responses, we recommend:
+
   - providing clearer titles/descriptions of the sheets, or
   - providing more detailed questions to reduce ambiguity.

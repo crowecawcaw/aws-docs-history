@@ -399,6 +399,7 @@ ChatSyncResponse chatSyncResponse = qBusinessClient.chatSync(chatSyncRequest);
 
 1. First, use the [CreateTokenWithIAM](../../../singlesignon/latest/OIDCAPIReference/API_CreateTokenWithIAM.md "../../../singlesignon/latest/OIDCAPIReference/API_CreateTokenWithIAM.md") API call to
    obtain an IAM Identity Center-provided JWT bearer grant token using your:
+
    - `**clientID**`: Your IAM Identity Center
      custom application environment ARN.
    - `**grantType**`: For example,
@@ -409,6 +410,7 @@ ChatSyncResponse chatSyncResponse = qBusinessClient.chatSync(chatSyncRequest);
 
 2. Then, use the [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") API call to obtain user
    decorated AWS Sig V4 credentials using your:
+
    - `**RoleArn**`: The IAM role
      ARN.
    - `**RoleSessionName**`: A

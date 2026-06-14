@@ -96,6 +96,7 @@ time.
 8. Enter your Slack workspace ID. This is a unique identifier of
    your Slack workspace starting and can be found using the Slack
    developer tools app. To find your workspace ID:
+
    1. Navigate to your Slack workspace and in “Apps” search for
       “Slack Developer Tools”.
    2. Open the Slack Developer Tools app and run the command

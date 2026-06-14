@@ -15,6 +15,7 @@ The latest Microsoft Exchange connector provides a simplified configuration expe
 5.  Then, on the **Microsoft Exchange** data source page, enter
     the following information:
 6.  **Name and description**, do the following:
+
     - For **Data source name** – Name your data
       source for easy tracking.
 
@@ -27,6 +28,7 @@ The latest Microsoft Exchange connector provides a simplified configuration expe
       description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7.  In **Source**, enter the following information:
+
     - **Tenant ID** – Enter your tenant ID. Your
       Microsoft tenant ID is a globally unique identifier required to
       configure each connector instance. You can find your tenant ID in the properties section
@@ -34,6 +36,7 @@ The latest Microsoft Exchange connector provides a simplified configuration expe
 
 8.  For **Authentication**, choose between
     **New** and **Existing**.
+
     1. If you choose **Existing**, choose an existing secret
        for **Select secret**.
 

@@ -20,6 +20,7 @@ visitors seeking product information or support. This can be integrated through:
   Console, API, SDK, and AWS CLI. You can only use the application environment with the chat
   APIs. The following are the only chat APIs that support anonymous access
   application environments.
+
   - `Chat`
   - `ChatSync`
   - `PutFeedback`
@@ -77,6 +78,7 @@ application environment**
    **What kind of application environment do you want to
    create?**, enter the following information for your
    Amazon Q Business application environment:
+
    1. **Application name** – A name for
       your Amazon Q Business application environment for easy
       identification. This name is only visible in the AWS Management Console.
@@ -101,6 +103,7 @@ application environment**
    [Amazon Q Business pricing](https://aws.amazon.com/q/business/pricing/ "https://aws.amazon.com/q/business/pricing/").
 4. For **Application details** – Amazon Q Business chooses the following configuration settings for
    your application environment by default:
+
    1. For **Application service access**
       – Amazon Q Business will create a new
       service-linked role for your application environment.
@@ -110,9 +113,11 @@ application environment**
 5. (Optional) To customize **Application details**,
    expand the **Application details section**, and
    then do the following:
+
    1. In **Application service access**, for
       **Choose a method to authorize Amazon Q Business**, choose from the
       following options:
+
       1. **Create and use a new service-linked role
          (SLR)** – Create and use a new
          Amazon Q Business-managed IAM role to
@@ -150,6 +155,7 @@ application environment**
 
 6. For **Web experience service settings**, consider
    the following.
+
    1. **If you will use the web experience feature,
       choose a method to authorize Amazon Q Business** – A service access role assumed by
       your web experience that grants permission to have

@@ -30,6 +30,7 @@ the following:
   App Using Developer Tools" section in [OAuth Walkthrough](https://developers.smartsheet.com/api/smartsheet/guides/advanced-topics/oauth#register-your-app-using-developer-tools "https://developers.smartsheet.com/api/smartsheet/guides/advanced-topics/oauth#register-your-app-using-developer-tools") in the Smartsheet Developer
   Documentation.
 - Make sure you've added following required scopes:
+
   - `readsheet`
   - `writesheet`
 
@@ -139,6 +140,7 @@ Console
    **Smartsheet**.
 6. For **Smartsheet**, enter the following
    information:
+
    1. In **Plugin name**, for
       **Name** – A name for your
       Amazon Q plugin. The name can include hyphens
@@ -150,11 +152,13 @@ Console
       `https://api.smartsheet.com/2.0`.
    3. **OAuth 2.0 authentication** – do
       the following:
+
       1. For **AWS Secrets Manager secret** –
          Choose **Create and add a new
          secret** or **Use an existing
          one**. Your secret must contain the
          following information:
+
          - **Secret name** – A
            name for your Secrets Manager secret.
          - **Client ID**

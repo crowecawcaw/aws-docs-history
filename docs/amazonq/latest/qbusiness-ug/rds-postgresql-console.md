@@ -6,6 +6,7 @@ Amazon RDS (PostgreSQL) using the AWS Management Console.
 ###### Connecting Amazon Q to Amazon RDS (PostgreSQL)
 
 1. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -18,6 +19,7 @@ Amazon RDS (PostgreSQL) using the AWS Management Console.
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 2. In **Source**, enter the following information:
+
    1. **Host** – Enter the database host URL, for example:
       `http://`instance
       URL`.`region`.rds.amazonaws.com`.
@@ -43,6 +45,7 @@ your **AWS Secrets Manager secret**.
    _optional_** – Choose
    whether you want to use a VPC. If you do, enter the following
    information:
+
    1. **Subnets** – Select up to 6
       repository subnets that define the subnets and IP ranges
       the repository instance uses in the selected VPC.

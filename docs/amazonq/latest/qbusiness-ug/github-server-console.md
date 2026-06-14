@@ -16,6 +16,7 @@ GitHub (Server) using the AWS Management Console.
 5. Then, on the **GitHub (Server)** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -29,6 +30,7 @@ GitHub (Server) using the AWS Management Console.
 
 7. **Source** – Choose your GitHub (Server) source
    details.
+
    1. **GitHub (Server) source** – Choose
       GitHub (Server) Enterprise Cloud.
    2. **GitHub (Server) host URL** – Enter the
@@ -60,6 +62,7 @@ for your **AWS Secrets Manager secret**.
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1.  **Subnets** – Select up to 6
         repository subnets that define the subnets and IP ranges
         the repository instance uses in the selected VPC.

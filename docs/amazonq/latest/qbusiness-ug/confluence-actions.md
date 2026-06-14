@@ -135,6 +135,7 @@ Console
    **Atlassian Confluence**.
 6. For **Atlassian Confluence**, enter the following
    information:
+
    1. In **Plugin name**, for
       **Name** – A name for your
       Amazon Q plugin. The name can include hyphens
@@ -146,11 +147,13 @@ Console
       `https://api.atlassian.com/ex/confluence/`yourInstanceId``.
    3. **OAuth 2.0 authentication** – do
       the following:
+
       1. For **AWS Secrets Manager secret** –
          Choose **Create and add a new
          secret** or **Use an existing
          one**. Your secret must contain the
          following information:
+
          - **Secret name** – A
            name for your Secrets Manager secret.
          - **Client ID**

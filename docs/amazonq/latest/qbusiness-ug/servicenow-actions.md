@@ -38,6 +38,7 @@ the following:
   ServiceNow Developer Documentation.
 - Make sure the OAuth plugin is active and the OAuth activation property is set
   to true. Required scopes:
+
   - `read`
   - `write`
   - `useraccount`
@@ -162,6 +163,7 @@ Console
    **ServiceNow**.
 6. For **ServiceNow**, enter the following
    information:
+
    1. In **Plugin name**, for
       **Name** – A name for your
       Amazon Q plugin. The name can include hyphens
@@ -173,11 +175,13 @@ Console
       `https://`yourInstanceId`.service-now.com`.
    3. **OAuth 2.0 authentication** – do
       the following:
+
       1. For **AWS Secrets Manager secret** –
          Choose **Create and add a new
          secret** or **Use an existing
          one**. Your secret must contain the
          following information:
+
          - **Secret name** – A
            name for your Secrets Manager secret.
          - **Client ID**

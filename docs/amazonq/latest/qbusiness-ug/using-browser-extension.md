@@ -63,6 +63,7 @@ The following are some of the common use cases that will help you make the
 best use of your Amazon Q Business browser extension:
 
 1. **Summarize a page**
+
    1. Open the Amazon Q Business browser extension
    2. Login and navigate to the web page that you want to
       summarize.
@@ -74,11 +75,13 @@ best use of your Amazon Q Business browser extension:
       questions.
 
 2. **Add web pages and files as context to an Amazon Q conversation**
+
    1. Switch to General Knowledge mode.
    2. If you have clicked on the summarize button, the current web
       page is already in your conversation context. To add the current
       web page to the conversation without summarizing the
       page:
+
       1. Choose the paperclip icon
       2. Select add current page
 
@@ -94,6 +97,7 @@ best use of your Amazon Q Business browser extension:
 
 3. **Access Amazon Q Business’ Knowledge from your company
    data sources**
+
    1. Switch to Company Knowledge mode
    2. Ask Q Business questions about your company’s data
       sources
@@ -101,6 +105,7 @@ best use of your Amazon Q Business browser extension:
 
 4. **Reset the context of your current
    conversation**
+
    1. To reset the context of your current conversation, choose the
       new chat bubble icon. Your chat will be free of past attachments
       and web page snapshots.

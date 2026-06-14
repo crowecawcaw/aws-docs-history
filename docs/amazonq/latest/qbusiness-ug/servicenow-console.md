@@ -16,6 +16,7 @@ ServiceNow Online using the AWS Management Console.
 5. Then, on the **ServiceNow Online** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -28,6 +29,7 @@ ServiceNow Online using the AWS Management Console.
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7. In **Source**, enter the following information:
+
    - **ServiceNow host** – Enter your
      ServiceNow host name without the protocol. For
      example, `example.service-now.com`.
@@ -60,6 +62,7 @@ secret**.
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1.  **Subnets** – Select up to 6
         repository subnets that define the subnets and IP ranges
         the repository instance uses in the selected VPC.
@@ -202,6 +205,7 @@ sync.
     when your data source content changes. When you sync your data source with
     Amazon Q for the first time, all content is synced by
     default.
+
     - **Full sync** – Sync all content regardless of
       the previous sync status.
     - **New, modified, or deleted content sync** –

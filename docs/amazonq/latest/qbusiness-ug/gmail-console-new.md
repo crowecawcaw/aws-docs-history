@@ -16,6 +16,7 @@ Gmail using the latest connector and the AWS Management Console. The latest conn
 5. Then, on the **Gmail** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -31,8 +32,10 @@ Gmail using the latest connector and the AWS Management Console. The latest conn
    secret** – Choose an existing secret or create a Secrets Manager secret to store your Gmail authentication
    credentials. If you choose to create a secret, an AWS Secrets Manager secret window
    opens.
+
    1. Enter the following information in the **Create an AWS Secrets Manager
       secret window**:
+
       1. **Secret Name** – A name for your
          secret.
       2. **Client email** – The client email
@@ -43,7 +46,6 @@ Gmail using the latest connector and the AWS Management Console. The latest conn
       "{"clientEmailId":"service-account@123.iam.gserviceaccount.com","adminAccountEmailId":"admin@accounthost.com",
       "privateKey":"-----BEGIN PRIVATE KEY-----PRIVATE KEY HERE-----END PRIVATE KEY-----\n"}"
       ```
-
       3. **Admin account email** – The admin
          account email address that you would like to use.
       4. **Private key** – The private key that
@@ -52,8 +54,10 @@ Gmail using the latest connector and the AWS Management Console. The latest conn
 
 8. For **Additional configuration –
    _optional_**, configure the date range filter:
+
    1. **Date range** – Configure the time period for
       crawling email messages. Choose from:
+
       - _Date range_: Specify start and end dates.
         **(optional)** - if
         not provided, the entire inbox is

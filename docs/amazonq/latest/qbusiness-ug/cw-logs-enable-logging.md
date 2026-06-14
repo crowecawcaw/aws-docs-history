@@ -36,6 +36,7 @@ then enable logging to start streaming conversation and feedback data.
    **Admin Controls and Guardrails**.
 4. In **Log delivery**, choose **Add** and choose one
    of the following options.
+
    - **Amazon CloudWatch Logs** – Enter the **Destination log group** where the logs will be stored. To filter out sensitive or personally
      identifiable information, choose **Additional settings - optional**
      and specify the fields to be logged, the output format, and field delimiter.

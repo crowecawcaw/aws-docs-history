@@ -15,6 +15,7 @@ The following procedure outlines how to connect Amazon Q Business to Google Driv
 5.  Then, on the **Google Drive** data source page, enter
     the following information:
 6.  **Name and description**, do the following:
+
     - For **Data source name** – Name your data
       source for easy tracking.
 
@@ -36,6 +37,7 @@ The following procedure outlines how to connect Amazon Q Business to Google Driv
 8.  **AWS Secrets Manager secret** – Choose an existing secret
     or create a secret to store your GoogleDrive authentication credentials. If
     you choose to create a secret, an AWS Secrets Manager secret window opens.
+
     1. If you choose **Existing**, select an existing
        secret for **Select secret**.
 
@@ -65,16 +67,21 @@ The following procedure outlines how to connect Amazon Q Business to Google Driv
          secret**.
 
 9.  In **Identity crawler**, configure identity crawling settings:
+
     1. **Identity crawling has been turned on for your connector as the ACLs are enabled** – This notification appears when ACLs are enabled.
     2. **Manage identity crawling logs** – When enabled, CloudWatch logs will show identities associated with local groups, as crawled during each sync job. If you disable this option post sync job completion (or partial run), you'll need to manually delete any associated identity crawling logs already generated.
+
        - **Enable identity crawling logs** – Identities crawled during data source sync will be logged.
        - **Disable identity crawling logs** – Identities crawled during data source sync will not be logged.
 
 10. **IAM role** – Amazon Q Business requires an IAM role to access repository credentials and application content:
+
     1. **Choose an option** – Select an existing IAM role or create a new one.
 
 11. In **Sync scope**, configure which content to sync:
+
     1. **Sync contents** – Choose the following options to select contents to sync. To further limit the contents that you want to sync for specific folders or files use the 'Entity regex patterns':
+
        - **My Drive** – Selected by
          default. Use this option if you want the files in all of
          your users’ My Drives to be included.
@@ -97,15 +104,19 @@ The following procedure outlines how to connect Amazon Q Business to Google Driv
        **Multi-media content configuration**.
 
 12. In **Additional configuration - _optional_**, configure additional filtering options. All content will be indexed by default. However, you can also limit the scope with these additional options:
+
     1. **Date filter** – Add a date range to filter content based on the last modified date:
+
        - **Start date** – Enter the start date in YYYY/MM/DD format.
        - **End date - _optional_** – Enter the end date in YYYY/MM/DD format.
 
     2. **Shared drives** – Add IDs of shared drives you want to include or exclude in your application:
+
        - **Include shared drives** – Add shared drive IDs to include.
        - **Exclude shared drives** – Add shared drive IDs to exclude.
 
     3. **Mime types** – Add Mime types to include or exclude in Google Drive account:
+
        - **Include mime types** – Add MIME types to include (e.g., `application/vnd.google-apps.document` for Google Docs, `application/pdf` for PDF files).
        - **Exclude mime types** – Add MIME types to exclude.
 

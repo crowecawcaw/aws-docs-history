@@ -75,6 +75,7 @@ output. 3. Next, create the IAM role. To do so, perform the following steps:
 
 4. Next, create the IAM policy for your web experience. To do so, perform
    the following steps:
+
    1. In the `policies` directory, create and save a new file
       named `permspolicyforfederation.json` with the following
       JSON included:

@@ -20,6 +20,7 @@ Before you begin adding your data source, make sure you've created an Amazon Q B
 5. Then, on the **Smartsheet** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -38,6 +39,7 @@ Before you begin adding your data source, make sure you've created an Amazon Q B
    Non-System Admins can ingest only sheets.
 8. **Authentication** – Enter the following information
    for your **AWS Secrets Manager secret**.
+
    1. **Secret name** – A name for your
       secret.
    2. For **Smartsheet API access token** –
@@ -105,6 +107,7 @@ For more information, see [IAM role](smartsheet-connector.md#smartsheet-iam "sma
     when your data source content changes. When you sync your data source with
     Amazon Q for the first time, all content is synced by
     default.
+
     - **Full sync**—Sync all content regardless of
       the previous sync status.
     - **New, modified, or deleted content

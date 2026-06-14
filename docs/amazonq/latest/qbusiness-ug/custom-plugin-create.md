@@ -40,6 +40,7 @@ Console
    plugin**.
 6. In **Custom plugin**, enter the following
    information:
+
    1. In **Name and description**, for
       **Plugin name** – A name for
       your Amazon Q plugin. The name can include hyphens (-) but
@@ -48,6 +49,7 @@ Console
    2. In **API schema**, for **API
       schema source**, choose from the following
       options:
+
       - **Select from Amazon S3** –
         Choose this to select an existing API schema from an
         Amazon S3 bucket. Your API schema must have an API
@@ -60,6 +62,7 @@ Console
         schema editor in the Amazon Q console. A sample
         schema appears that you can edit. Then, you can
         choose to do the following:
+
         - Select the format for the schema, whether
           **JSON** or
           **YAML**.
@@ -80,6 +83,7 @@ Console
       **Create and add a new secret** or
       **Use an existing one**. Your secret
       must contain:
+
       1. **Secret name** – A name
          for your Secrets Manager secret.
       2. **Client ID** – The client

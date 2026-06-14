@@ -56,6 +56,7 @@ Console
     **What kind of application do you want to
     build?**, enter the following information for your
     Amazon Q Business application:
+
     1. **Application name** – A name for
        your Amazon Q Business application environment for easy
        identification. This name is only visible in the AWS Management Console.
@@ -72,6 +73,7 @@ Console
 3.  For **Access management method**, choose
     **IAM Identity Center (recommended)**. Then, complete the
     following steps:
+
     1.  (Optional) **Advanced IAM Identity Center settings –
         _optional_** –
         Activate **Enable cross-region calls** to
@@ -83,8 +85,10 @@ Console
     2.  Then, you will see the following options based on whether
         you have an IAM Identity Center instance already configured, or need to
         create one.
+
         1. If you don't have an IAM Identity Center instance
            configured, you see the following:
+
            1. The region your Amazon Q Business
               application environment is in.
            2. **Specify tags for IAM Identity Center**
@@ -103,6 +107,7 @@ Console
            organization instance and an account instance
            configured, your instances will be auto-detected,
            and you see the following options:
+
            1. **[Organization instance of
               IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")** – Select this
               option to manage access to Amazon Q Business
@@ -145,8 +150,10 @@ Console
     3.  In **Quick start user –
         _optional_**, do the
         following:
+
         1.  In **Select user**, choose from
             the following options:
+
             1.  If you've connected a pre-configured IAM Identity Center
                 instance with users and groups already configured,
                 Amazon Q Business detects the users and
@@ -161,6 +168,7 @@ Console
                 application and IAM Identity Center instance. Choose
                 **Add new users and groups** and
                 then complete the following steps:
+
                 1. In the **Add new users**
                    dialog box that opens, enter the details of your
                    user. Then select **Next** and
@@ -218,6 +226,7 @@ Console
 
 4.  For **Application details** – Amazon Q Business chooses the following configuration settings for
     your application by default:
+
     1. For **Application service access**
        – Amazon Q Business will create a new
        service-linked role for your application.
@@ -232,9 +241,11 @@ Console
 5.  (Optional) To customize **Application details**,
     expand the **Application details section**, and
     then do the following:
+
     1. In **Application service access**, for
        **Choose a method to authorize Amazon Q Business**, choose from the
        following options:
+
        1. **Create and use a new service-linked role
           (SLR)** – Create and use a new
           Amazon Q Business-managed IAM role to
@@ -271,6 +282,7 @@ Console
        one.
     3. In **Web experience service access**,
        enter the following information:
+
        1. For **Choose a method to authorize Amazon Q Business** – A service
           access role assumed by end users when they sign in
           to your web experience that grants them permission

@@ -16,6 +16,7 @@ Salesforce Online using the AWS Management Console.
 5. Then, on the **Salesforce Online** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -28,6 +29,7 @@ Salesforce Online using the AWS Management Console.
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7. In **Source**, enter the following information:
+
    - **Salesforce URL** – Enter your
      Salesforce server URL. For example,
      `https://mysite.salesforce.com`.
@@ -62,6 +64,7 @@ See [Authorization](connector-concepts.md#connector-authorization "connector-con
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1.  **Subnets** – Select up to 6
         repository subnets that define the subnets and IP ranges
         the repository instance uses in the selected VPC.
@@ -119,6 +122,7 @@ For more information, see [IAM role](salesforce-connector.md#salesforce-iam "sal
     and less than or equal to 50MB.
 14. In **Additional configuration –
     _optional_**:
+
     - For **Entity regex patterns** and **Attachment regex
       patterns** – Add regular expression patterns to include or exclude
       certain files. You can add up to 100 patterns.

@@ -56,6 +56,7 @@ application**
    integration](idc-setup.md#cross-region-idc "idc-setup.md#cross-region-idc").
 4. Then, depending on your Amazon Q Business application
    configuration you will see one of the following:
+
    1. If the **Connect to IAM Identity Center** banner on the
       top of the page asks you to activate your ACL and identity
       crawling in preparation for migrating your application, you
@@ -75,8 +76,10 @@ application**
 6. In **Connect Amazon Q Business to IAM Identity Center**,
    you will see the following options based on whether you have an
    IAM Identity Center instance already configured, or need to create one.
+
    1. If you don't have an IAM Identity Center instance configured, you see
       the following:
+
       - The region your Amazon Q Business
         application is in. This is so you can make sure that
         the region for your Amazon Q Business
@@ -93,6 +96,7 @@ application**
       organization instance and an account instance configured,
       your instances will be auto-detected, and you see the
       following options:
+
       - **[Connect to organization
         instance of IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")** –
         Select this option to manage access to Amazon Q Business by assigning users and groups from
@@ -113,6 +117,7 @@ application**
    3. If you have an IAM Identity Center account instance configured, your
       account instance will be auto-detected and you will see the
       following:
+
       - The region your Amazon Q Business
         application is in. This is so you can make sure that
         the region for your Amazon Q Business

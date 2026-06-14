@@ -169,6 +169,7 @@ create an IAM identity provider.
 2. In the navigation pane, choose **Identity providers**,
    and then choose **Add provider**.
 3. For **Configure provider**, do the following:
+
    1. For **Provider type**, choose
       **SAML**.
    2. For **Provider name**, enter a name for your
@@ -183,6 +184,7 @@ create an IAM identity provider.
 4. On the **Identity provider** summary page, from
    **Provider**, select the provider you just added do the
    following:
+
    - From **Summary** copy the
      **ARN** and save the value. You will need it
      when you add your IAM trust policy and when you connect your
@@ -197,6 +199,7 @@ create an IAM identity provider.
    select **Create a new role**.
 6. Then, on the **Selected trusted entity** page, do the
    following:
+
    - For **Trusted entity type** select
      **Custom trust policy**.
    - In **Custom trust policy**, add the following
@@ -264,6 +267,7 @@ application**
 4. From **Required claim**, select **Unique User
    Identifier (Name ID)**.
 5. In **Manage claim**, do the following:
+
    - For **Name identifier format**, choose
      **Persistent**.
    - For **Source attribute**, choose
@@ -273,6 +277,7 @@ application**
 6. Then, from **Attributes & Claims** select
    **Add new claim**, and in **Manage
    claim**, do the following:
+
    - For **Name** – Type
      **PrincipalTag:Email**.
    - For **Namespace**, type
@@ -293,6 +298,7 @@ application**
     navigation menu, select **App roles**, and then select
     **Create app role**. In the **Create app
     role** dialog box that opens, and do the following:
+
     - For **Display name**, add a name for your
       role.
     - For **Allowed member types**, choose
@@ -309,6 +315,7 @@ application**
 11. Then, in the left navigation pane of your application, choose
     **Users and groups**, and do the following
     steps.
+
     1. Choose **+ Add user/group** and select the users
        or groups you want to assign to your application, and then choose
        **Select**.
@@ -320,6 +327,7 @@ application**
     permission**.
 13. In **Add a permission**. Then, on the **Request
     API permissions** section, do the following:
+
     1. Choose **APIs my organization uses** and select
        and open the Entra ID application you created.
     2. For **What type pf permissions does your application
@@ -352,6 +360,7 @@ application**
 3. On the **Create application** page, for **What
    kind of application do you want to create?**, enter the
    following information for your Amazon Q Business application:
+
    1. **Application name** – A name for your
       Amazon Q Business application environment for easy identification.
       This name is only visible in the AWS Management Console. The name can include
@@ -399,6 +408,7 @@ For **SAML**, do the following:
    type by default.
 6. For **Application details** – Amazon Q Business chooses the following configuration settings for your
    application by default:
+
    1. For **Application service access** –
       Amazon Q Business will create a new service-linked role
       for your application.
@@ -412,8 +422,10 @@ For **SAML**, do the following:
 7. (Optional) To customize **Application details**, expand
    the **Application details section**, and then do the
    following:
+
    1. In **Application service access**, for
       **Choose a method to authorize Amazon Q Business**, choose from the following options:
+
       1. **Create and use a new service-linked role
          (SLR)** – Create and use a new Amazon Q Business-managed IAM role to allow it to access
          the AWS resources it needs to create your
@@ -445,6 +457,7 @@ For **SAML**, do the following:
       create a new one.
    3. In **Web experience service access**, enter the
       following information:
+
       1. For **Choose a method to authorize Amazon Q Business** – A service access
          role assumed by end users when they sign in to your web
          experience that grants them permission to start and manage
@@ -501,6 +514,7 @@ application**
    **Edit**.
 4. Update the following fields with your Amazon Q Business web
    experience URL:
+
    1. For **Identifier (Entity ID)**,replace
       `https://sampleurl.com` with your web
       experience URL with the `/saml` suffix added. For

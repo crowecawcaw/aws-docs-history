@@ -15,6 +15,7 @@ The legacy Microsoft Exchange connector provides comprehensive configuration opt
 5. Then, on the **Microsoft Exchange** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -27,6 +28,7 @@ The legacy Microsoft Exchange connector provides comprehensive configuration opt
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7. In **Source**, enter the following information:
+
    - **Tenant ID** – Enter your tenant ID. Your
      Microsoft tenant ID is a globally unique identifier required to
      configure each connector instance. You can find your tenant ID in the properties section
@@ -77,6 +79,7 @@ For more information, see [IAM role](exchange-connector.md#exchange-iam "exchang
     file size must be greater than 0MB and less than or equal to 50MB.
 13. For **Additional configuration –
     _optional_**, configure the following options:
+
     - **Entity types** – Choose whether to
       crawl the following entities: **Calendar**,
       **OneNotes**, and
@@ -140,6 +143,7 @@ You can choose from two types of fields:
    _optional_** – Choose
    whether you want to use a VPC. If you do, enter the following
    information:
+
    1. **Subnets** – Select up to 6
       repository subnets that define the subnets and IP ranges
       the repository instance uses in the selected VPC.

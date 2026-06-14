@@ -221,8 +221,10 @@ guardrail**
    **Edit**.
 5. In **Application guardrails**, do the
    following:
+
    - For **Response settings** do the
      following:
+
      - **Allow end users to send queries directly
        to the LLM** – If you choose to
        activate this option, end users will be able to

@@ -18,6 +18,7 @@ app visibility and usage within organizations.
 
 - Owner: The owner is the user who creates and has full editing rights over
   the Q App. As the owner, you can:
+
   - Privately share the Q App with other users by full email
     address.
   - Revoke access for shared users.
@@ -27,6 +28,7 @@ app visibility and usage within organizations.
 - App User: A shared app user is a user within your organization's Q
   Business environment that the owner has shared the Q App with by email. As a
   shared user, you can:
+
   - View and run the shared Q App.
   - Duplicate the Q App to create an editable version.
   - Cannot directly edit the original shared Q App.

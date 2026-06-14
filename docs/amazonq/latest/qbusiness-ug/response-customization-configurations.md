@@ -37,6 +37,7 @@ Console
    **Edit**.
 5. In **Edit response settings**, in
    **Persona**, do the following:
+
    1. For **Define assistant's identity**,
       define the persona for your assistant. You can choose
       between selecting the default Amazon Q Business
@@ -58,6 +59,7 @@ Console
 6. In **Edit response settings**, in
    **Response preference**, do the
    following:
+
    1. For **Set default response style**,
       choose the formatting style for responses. You can
       choose between selecting the default Amazon Q Business response style or defining a custom

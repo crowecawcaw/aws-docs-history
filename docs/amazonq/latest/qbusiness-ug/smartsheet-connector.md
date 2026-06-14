@@ -21,6 +21,7 @@ like:
 - **Project status updates** – Get quick
   insights into project health without having to open Smartsheet with
   questions like:
+
   - "What's the status of the website redesign project?"
   - "Is the mobile app launch on track for the planned date?"
   - "Which projects are currently behind schedule in the Q3 Roadmap sheet?"

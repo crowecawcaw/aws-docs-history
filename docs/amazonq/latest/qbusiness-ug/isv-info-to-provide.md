@@ -35,6 +35,7 @@ token.
   data accessor when Amazon Q Business customers provide access to their
   Amazon Q index. For more information, see [IAM role terms and concepts](../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts "../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts") and [Create
   a role to delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md").
+
   - **ISV IAM role**
 
   ```
@@ -56,7 +57,6 @@ token.
   }`
 
   ```
-
   - **ISV IAM role trust
     policy**
 
@@ -82,8 +82,8 @@ token.
   }`
 
   ```
-
   - ISV `tenantId`
+
     - What is `tenantId`?
 
     The `tenantID` is a unique identifier

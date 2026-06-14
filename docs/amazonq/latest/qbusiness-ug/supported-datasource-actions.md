@@ -77,6 +77,7 @@ Console
    the data source that you want to view details for.
 5. Under **Data source details**, the
    following details are available:
+
    - **Name** – The name of
      your data source.
    - **Status** – The status of
@@ -112,6 +113,7 @@ connector settings**
    **Settings**.
 6. For **Settings**, the following settings
    are available:
+
    - **IAM role**
      – The ARN of the IAM that's
      associated with your data source.

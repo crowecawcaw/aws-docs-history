@@ -83,6 +83,7 @@ below.
 
 1.  Create a Sharepoint client app to which we will assign the permissions
     needed by your Q Business connector. To register the app:
+
     1.  Log in to the Azure Portal with your Microsoft account.
     2.  1. Provide the name for your application. In the example we
            are using the name TargetApp. The Amazon Q Business
@@ -105,6 +106,7 @@ below.
         9. Navigate to "Add a permission > Microsoft Graph >
            Application permissions"
         10. Search and add the following permissions:
+
             - "Notes.Read.All"
             - "Sites.Read.All"
             - "Sites.FullControl.All (Application)" (required only
@@ -157,12 +159,14 @@ below.
         | User.Read.All (Application) – Read<br>all users' full profiles                        |                                                                   |
 
 2.  Create a client secret for your Sharepoint App:
+
     1. Within your client App navigate to "Clients and secrets > Client
        secrets"
     2. Click on create a new secret.
 
 3.  Generate a new Certificate to be shared between Q Business SharePoint
     Connector and Microsoft Entra ID (formerly Azure AD) App:
+
     1. Use the example command below to generate your own x509
        certificate.
     2. Run the following command:`openssl req -x509 -newkey rsa:2048
@@ -183,8 +187,10 @@ the Sharepoint sites you intend to index, you can take the following steps:
 1.  Create a Sharepoint client app: Create a Sharepoint client app to which we
     will assign the permissions needed by your Q Business connector. To register
     the app:
+
     1.  Log in to the Azure Portal with your Microsoft account.
     2.  Choose "New Registration":
+
         1. Provide the name for your application. In the example we
            are using the name TargetApp. The Amazon Q Business
            application uses TargetApp to connect to the SharePoint
@@ -206,6 +212,7 @@ the Sharepoint sites you intend to index, you can take the following steps:
         9. Navigate to "Add a permission > Microsoft Graph >
            Application permissions"
         10. Search and add the following permissions:
+
             - "Notes.Read.All"
             - "Sites.Selected"
             - "GroupMember.Read.All" (required only if you
@@ -261,12 +268,14 @@ the Sharepoint sites you intend to index, you can take the following steps:
             | Sites.Selected<br>• Have control of selected<br>sites |  |
 
 2.  Create a client secret for your Sharepoint App:
+
     1. Within your client App navigate to "Clients and secrets > Client
        secrets"
     2. Click on create a new secret.
 
 3.  Generate a new Certificate to be shared between Q Business SharePoint
     Connector and Microsoft Entra ID (formerly Azure AD) App:
+
     1. Run the following command: `openssl req -x509 -newkey
 rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
 /tmp/sharepoint.crt -nodes -set_serial 1 -days 365 -subj
@@ -280,6 +289,7 @@ rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
        will also need this certificate for the next step.
 
 4.  Update your Sharepoint Client App’s Certificate:
+
     1. Navigate to the Sharepoint client app you created in step 1.
     2. Navigate to “Certificates and secrets > Certificates > Upload
        certificate” and upload the certificate (.crt file) you generated in
@@ -289,8 +299,10 @@ rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
     necessary site read permissions for the client OAuth App you created in the
     previous step. You can delete this admin app after you have completed all
     the steps. To register the app:
+
     1. Log in to the Azure Portal with your Microsoft account.
     2. Choose “New Registration”:
+
        1. Provide the name for your application.
        2. Choose "Accounts" in the organizational directory. (Tenant
           name only - Single tenant).
@@ -337,6 +349,7 @@ rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
 8.  Obtain a Site ID for each of your Sharepoint sites: Repeat the following
     steps for each of the Sharepoint sites you want your Q Business connector to
     crawl:
+
     1. Visit
        `https://{yourcompany}.sharepoint.com/sites/{SiteName}`in
        a browser. Enter the appropriate login credentials if needed.
@@ -354,7 +367,9 @@ rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
     have a list of site ids, you are ready to grant your client app the
     necessary permissions to access these sites. Repeat the following steps for
     each of the site ids you obtained from step 4.
+
     1. Modify the code snippet below to provide the following:
+
        1. clientAppId: The Application (client) ID from step
        1.
        1. clientAppName: The display name of your Sharepoint client
@@ -389,7 +404,6 @@ rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
 
     echo $grantPermissionResponse
     ```
-
     3. If the command was successful, you'll see a response as
        follows:
 
@@ -455,6 +469,7 @@ To register the app:
 
 1.  Log in to the Azure Portal with your Microsoft account.
 2.  Choose "New Registration":
+
     1. Provide the name for your application. In the example we are using
        the name TargetApp. The Amazon Q Business application uses
        TargetApp to connect to the SharePoint Online site to crawl and
@@ -475,6 +490,7 @@ To register the app:
     9. Navigate to "Add a permission > Microsoft Graph > Application
        permissions"
     10. Search and add the following permissions:
+
         - "Notes.Read.All"
         - "Sites.Read.All"
         - "Sites.FullControl.All" (required only if you intend to
@@ -532,6 +548,7 @@ To register the app:
          only if Identity crawler is activated.
 
 3.  Create a client secret for your Sharepoint App:
+
     1. Within your client App navigate to "Clients and secrets > Client
        secrets"
     2. Click on create a new secret.
@@ -544,8 +561,10 @@ limited permissions, the following steps provide the necessary setup:
 1. Create a Sharepoint client app for OAuth: Now create a Sharepoint client
    OAuth app to which we will assign the permissions needed by your Q Business
    connector. To register the app:
+
    1. Log in to the Azure Portal with your Microsoft account.
    2. Choose "New Registration":
+
       1. Provide the name for your application. In the example we
          are using the name TargetApp. The Amazon Q Business
          application uses TargetApp to connect to the SharePoint
@@ -567,6 +586,7 @@ limited permissions, the following steps provide the necessary setup:
       9. Navigate to "Add a permission > Microsoft Graph >
          Application permissions"
       10. Search and add the following permissions:
+
           - "Notes.Read.All"
           - "Sites.Selected"
           - "GroupMember.Read.All" (required only if you
@@ -614,6 +634,7 @@ limited permissions, the following steps provide the necessary setup:
       required only if Identity crawler is activated.
 
 2. Create a client secret for your Sharepoint App:
+
    1. Within your client App navigate to "Clients and secrets > Client
       secrets"
    2. Click on create a new secret.
@@ -622,8 +643,10 @@ limited permissions, the following steps provide the necessary setup:
    necessary site read permissions for the client OAuth App you created in the
    previous step. You can delete this admin app after you have completed all
    the steps. To register the app:
+
    1. Log in to the Azure Portal with your Microsoft account.
    2. Choose "New Registration":
+
       1. Provide the name for your application.
       2. Choose "Accounts" in the organizational directory. (Tenant
          name only - Single tenant).
@@ -670,6 +693,7 @@ limited permissions, the following steps provide the necessary setup:
 6. Obtain a Site ID for each of your Sharepoint sites: Repeat the following
    steps for each of the Sharepoint sites you want your Q Business connector to
    crawl:
+
    1. Visit https://{yourcompany}.sharepoint.com/sites/{SiteName} in a
       browser. Enter the appropriate login credentials if needed. Validate
       that you are able to see your SharePoint site
@@ -686,7 +710,9 @@ limited permissions, the following steps provide the necessary setup:
    have a list of site ids, you are ready to grant your client app the
    necessary permissions to access these sites. Repeat the following steps for
    each of the site ids you obtained from step 4.
+
    1. Modify the code snippet below to provide the following:
+
       1. clientAppId: The Application (client) ID from step
          1
       2. clientAppName: The display name of your Sharepoint client

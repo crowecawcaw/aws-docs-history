@@ -15,6 +15,7 @@ console, you choose your application environment and navigate to the Analytics d
    or[Amazon Q Apps Analytics dashboard metrics](q-apps-analytics-dashboard-metrics.md "q-apps-analytics-dashboard-metrics.md").
 5. Use the date picker to specify the time interval for the graphs. You can choose from
    the following preset intervals.
+
    - Last week – This interval starts from the previous Sunday at 00:00 and goes
      until the following Sunday at 00:00 in the UTC time zone.
    - This week – This interval starts this Sunday at 00:00 and goes until 00:00

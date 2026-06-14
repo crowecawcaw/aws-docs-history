@@ -61,6 +61,7 @@ following values for Amazon Q Business to use:
 - **Outbound rules** – Add one
   rule to allow all outbound traffic so that Amazon Q Business
   can initiate the requests to sync from your data source.
+
   - **IP version** –
     IPv4
   - **Type** – All

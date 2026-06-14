@@ -12,6 +12,7 @@ prerequisites.
   password.
 - (Optional) Added the following OAuth scopes if you're using OAuth 2.0
   authentication:
+
   - **Profile** – Needed to get user
     and groups related data, like email ID and username.
   - **Replicate** – Needed to get data

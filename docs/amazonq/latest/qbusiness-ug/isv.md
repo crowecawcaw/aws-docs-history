@@ -213,6 +213,7 @@ aws sso-oidc create-token-with-iam --client-id "${idc_application_arn}" \
    `CreateTokenWithIAM`. Then, decode the
    `idToken` and extract
    `sts:identity_context` field from it.
+
    1. Using command line:
 
    ```
@@ -222,7 +223,6 @@ aws sso-oidc create-token-with-iam --client-id "${idc_application_arn}" \
    echo "ID_CONTEXT=$ID_CONTEXT\n"
 
    ```
-
    2. Using Python:
 
    ```

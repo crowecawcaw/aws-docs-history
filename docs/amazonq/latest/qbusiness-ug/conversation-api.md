@@ -448,6 +448,7 @@ Each message contains the following components:
 
 - **Prelude**: Consists of two, 4-byte fields, for a
   fixed total of 8 bytes.
+
   - _First 4 bytes_: The big-endian integer
     byte-length of the entire message, inclusive of this 4-byte
     length field.
@@ -485,6 +486,7 @@ frame.
 - **Header value type**: A number indicating the header
   value. The following list shows the possible values for the header and
   what they indicate.
+
   - `0` – TRUE
   - `1` – FALSE
   - `2` – BYTE

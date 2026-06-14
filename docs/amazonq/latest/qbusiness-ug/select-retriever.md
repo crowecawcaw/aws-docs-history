@@ -79,6 +79,7 @@ retriever**
 6.  From the **Add index** page, choose
     **Create a new index** and then do the
     following:
+
     1. In **Name your index with a unique
        identifier**, for **Index
        name**, input a name for your Amazon Q Business application.
@@ -207,6 +208,7 @@ index**
 6. From the **Add index** page, choose
    **Use an existing Amazon Kendra index** and then do
    the following:
+
    1. In **Select an index**, select an
       existing Amazon Kendra index. All data sources
       synced to your Amazon Kendra index will be

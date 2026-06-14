@@ -16,6 +16,7 @@ Box using the AWS Management Console.
 5. Then, on the **Box** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -79,6 +80,7 @@ information:
      instances are required.For more information, see [VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc").
 
 13. In **Sync scope**, enter the following information:
+
     1.  **Select additional kinds of content to index**
         – Choose whether to include **Web links**,
         **Comments**, and
@@ -98,7 +100,6 @@ information:
         * **Regex patterns** – Regular
          expression patterns to include or exclude certain files. You can
          add up to 100 patterns.
-
     4.  **Advanced settings**
 
     **Document deletion safeguard** - _optional_–To safeguard
@@ -111,6 +112,7 @@ information:
     when your data source content changes. When you sync your data source with
     Amazon Q for the first time, all content is synced by
     default.
+
     - **Full sync** – Sync all content regardless of
       the previous sync status.
     - **New, modified, or deleted content sync** –

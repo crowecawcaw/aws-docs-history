@@ -89,6 +89,7 @@ Console
 4. On the **Data sources** page, under
    **Index** the following settings are
    available:
+
    - **Index name** – The name
      of the index.
    - **Index status** – The

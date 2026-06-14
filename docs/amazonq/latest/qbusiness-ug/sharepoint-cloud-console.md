@@ -16,6 +16,7 @@ SharePoint (Online) using the AWS Management Console.
 5. Then, on the **SharePoint (Online)** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -28,6 +29,7 @@ SharePoint (Online) using the AWS Management Console.
      description for your data source. This text is viewed only by Amazon Q Business administrators and can be edited later.
 
 7. In **Source**, enter the following information:
+
    1. In **Source**, for **Hosting
       Method** – Choose **SharePoint
       Online**.

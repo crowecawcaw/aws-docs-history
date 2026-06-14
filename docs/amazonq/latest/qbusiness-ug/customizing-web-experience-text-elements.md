@@ -29,6 +29,7 @@ console.
    right navigation panel.
 4. Choose **Text** and enter the following
    information:
+
    - **Title**: A title for your web
      experience (visible to end users).
    - **Subtitle** (optional): Additional

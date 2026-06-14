@@ -97,6 +97,7 @@ SAML
    **Next**.
 5. In **Configure SAML**, do the
    following:
+
    1. For **Single sign-on URL**, enter
       your web application endpoint.
 
@@ -160,6 +161,7 @@ SAML
    select **Assignments**, and then select
    **Assign**. Then, complete the following
    steps:
+
    1. To assign users to your Okta app,
       choose between **Assign to People** and
       **Assign to Groups**.
@@ -218,6 +220,7 @@ OIDC
    **Create App Integration**.
 3. On the **Create a new app integration** page,
    do the following:
+
    - Choose **OIDC – OpenID
      Connect**.
    - Choose **Web application**.
@@ -225,6 +228,7 @@ OIDC
 
 4. On the **New Web App Integration** page, do
    the following:
+
    - In **General Settings**, for
      **App name**, enter a name for the
      application.
@@ -266,6 +270,7 @@ OIDC
 
 5. From the application summary page, from
    **General**, do the following:
+
    - From **Client Credentials**, copy and
      save the **Client ID**. You will input
      this as the **Audience** when you
@@ -283,6 +288,7 @@ OIDC
    **API**.
 7. Then, from **Authorization Servers**, do the
    following:
+
    - Copy the **Issuer URI**, for example
      `https://trial-`okta-instance-id`.okta.com/oauth2/default`.
      You will need to input this value as the
@@ -293,6 +299,7 @@ OIDC
 
 8. In **Claims**, select **Add
    claim**, and then do the following:
+
    - For **Name**, add
      `https://aws.amazon.com/tags`.
    - For **Include in token type**, choose
@@ -354,6 +361,7 @@ SAML
 4. In **Add an identity provider**, for
    **Configure provider** do the
    following:
+
    - For **Provider type** – Select
      **SAML**.
    - For **Provider name** – Add a
@@ -370,6 +378,7 @@ SAML
 5. On the **Identity provider** summary page,
    from **Provider**, select the provider you just
    added do the following:
+
    - From **Summary** copy the
      **ARN** and save the value. You
      will need it when you add your trust policy and when you
@@ -386,6 +395,7 @@ SAML
    role**.
 7. Then, on the **Selected trusted entity**
    page, do the following:
+
    - For **Trusted entity type** select
      **SAML 2.0 federation**.
    - In **SAML 2.0 federation**, from the
@@ -493,6 +503,7 @@ OIDC
 4. In **Add an identity provider**, for
    **Configure provider** do the
    following:
+
    - For **Provider type** – Select
      **OpenID Connect**.
    - For **Provider URL** – Paste
@@ -511,6 +522,7 @@ OIDC
 5. On the **Identity provider** summary page,
    from **Provider**, select the provider you
    added do the following:
+
    - From **Summary** copy the
      **ARN** and save the value. You
      will need it when you add your trust policy and when you
@@ -527,6 +539,7 @@ OIDC
    new role**.
 7. Then, on the **Selected trusted entity**
    page, do the following:
+
    - For **Trusted entity type** select
      **Web identity**.
    - In **Web identity**, from the
@@ -701,6 +714,7 @@ Console
    **What kind of application do you want to
    create?**, enter the following information for your
    Amazon Q Business application:
+
    1. **Application name** – A name
       for your Amazon Q Business application environment for easy
       identification. This name is only visible in the
@@ -789,6 +803,7 @@ Connect (OIDC)**.
    will be assigned this subscription type by default.
 5. For **Application details** – Amazon Q Business chooses the following configuration settings
    for your application by default:
+
    1. For **Application service access**
       – Amazon Q Business will create a new
       service-linked role for your application.
@@ -802,9 +817,11 @@ Connect (OIDC)**.
 6. (Optional) To customize **Application
    details**, expand the **Application details
    section**, and then do the following:
+
    1. In **Application service access**,
       for **Choose a method to authorize Amazon Q Business**, choose from the
       following options:
+
       1. **Create and use a new service-linked
          role (SLR)** – Create and use a
          new Amazon Q Business-managed IAM role to
@@ -841,6 +858,7 @@ Connect (OIDC)**.
       create a new one.
    3. In **Web experience service access**,
       enter the following information:
+
       1. For **Choose a method to authorize
          Amazon Q Business** – A
          service access role assumed by end users when they

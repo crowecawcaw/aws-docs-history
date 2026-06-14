@@ -34,6 +34,7 @@ fields**
    field**.
 4. From the **Add metadata field** dialog box that opens
    up, do the following:
+
    1. For **Metadata field name** – Add a
       name for the metadata field you're adding to the index.
    2. For **Data type** – Select the data

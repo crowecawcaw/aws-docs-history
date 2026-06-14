@@ -29,6 +29,7 @@ prerequisites.
   Amazon Q.
 - Added the following permissions in your Drupal account using an
   administrator role:
+
   - administer blocks
   - administer block_content display
   - administer block_content fields

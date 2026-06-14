@@ -162,6 +162,7 @@ Console
    that you want to see details for.
 5. On the **Plugin settings** page, the following
    details are available:
+
    - **Name** – The name of your
      plugin.
    - **Type** – The type of your

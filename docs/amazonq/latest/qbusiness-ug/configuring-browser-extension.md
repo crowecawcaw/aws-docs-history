@@ -32,6 +32,7 @@ extension, you must complete the following steps.
    application environment](create-application-iam.md "create-application-iam.md") and create your Amazon Q Business web
    experience.
 3. To use this feature, do the following
+
    - Enable **Allow end users to send queries directly to
      the LLM** in your Admin controls and guardrails.
      For more information, see the [Response settings](guardrails-global-controls.md#guardrails-global-response "guardrails-global-controls.md#guardrails-global-response") topic in
@@ -78,11 +79,14 @@ After enabling the browser extension, complete these steps to activate and
 deploy it:
 
 1. Allow-list URLs. If you are using
+
    1. An OIDC provider like Okta: you must configure your identity
       provider (IdP) to support browser extension as follows. You will
       need to consult your provider on how to do this.
+
       1. Make sure you enable refresh grants
       2. Allow-list the following URLs with the IdP
+
          1. Mozilla based browsers —
             `https://ba6e8e6e4fa44c1057cf5f26fba9b2e788dfc34f.extensions.allizom.org`
          2. Chromium based browsers —
@@ -96,6 +100,7 @@ deploy it:
    deployment processes of your organization. The following is some
    information about policy settings from the browser vendors using mobile
    device management (MDM) software that may be helpful:
+
    1. Firefox policy settings: [https://mozilla.github.io/policy-templates/#extensionsettings](https://mozilla.github.io/policy-templates/#extensionsettings "https://mozilla.github.io/policy-templates/#extensionsettings")
    2. Chrome policy settings: [https://chromeenterprise.google/policies/#ExtensionSettings](https://chromeenterprise.google/policies/#ExtensionSettings "https://chromeenterprise.google/policies/#ExtensionSettings")
    3. Edge policy settings: [https://learn.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#extensionsettings](https://learn.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#extensionsettings "https://learn.microsoft.com/en-us/DeployEdge/microsoft-edge-policies#extensionsettings")

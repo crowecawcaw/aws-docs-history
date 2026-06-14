@@ -16,6 +16,7 @@ AEM (Cloud) using the AWS Management Console.
 5. Then, on the **AEM (Cloud)** data source page, enter
    the following information:
 6. **Name and description**, do the following:
+
    - For **Data source name** – Name your data
      source for easy tracking.
 
@@ -29,6 +30,7 @@ AEM (Cloud) using the AWS Management Console.
 
 7. **Source** – Choose **AEM as a Cloud
    Service**.
+
    1. **AEM host URL** – Enter your **AEM
       host URL**. If you use AEM as a Cloud Service, you can use
       the author URL. For example:
@@ -53,6 +55,7 @@ secret**.
     _optional_** – Choose
     whether you want to use a VPC. If you do, enter the following
     information:
+
     1.  **Subnets** – Select up to 6
         repository subnets that define the subnets and IP ranges
         the repository instance uses in the selected VPC.

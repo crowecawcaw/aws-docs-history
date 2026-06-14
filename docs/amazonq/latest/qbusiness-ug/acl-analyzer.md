@@ -22,6 +22,7 @@ This makes it particularly useful for administrators who need to validate access
 
 1. In the navigation pane, choose **Applications**.
 2. Do one of the following:
+
    - Choose an existing application from the list.
    - Create a new application.
 
@@ -51,6 +52,7 @@ The application you select or create will be used as the context for checking do
 2. Select your desired data source type from the available options.
 3. Follow the configuration prompts specific to your selected data source type.
 4. Configure the ACL settings for your data source. For detailed instructions, see:
+
    - [Setting up data sources](s3-connector.md "s3-connector.md")
    - [Managing user access](s3-user-management.md "s3-user-management.md")
 
@@ -66,6 +68,7 @@ The application you select or create will be used as the context for checking do
 1. On the data source details page, choose the **Troubleshooting tools** tab.
 2. Locate the **ACL Analyzer** section.
 3. Enter the following required information:
+
    - For **Document ID**, enter the unique identifier of the document you want to check.
 
    ###### Note

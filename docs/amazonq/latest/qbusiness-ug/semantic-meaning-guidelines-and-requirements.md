@@ -11,6 +11,7 @@ images:
   Microsoft Word docs, Webpages (for Webcrawler), Google Slides and Google Docs
   (for Google Drive)
 - You can use the following connectors:
+
   - [Amazon S3](web-experience-iam-role-idc.md "web-experience-iam-role-idc.md")
   - [Google
     Drive](google-connector.md "google-connector.md") - Supports embedded images for Google Slides and

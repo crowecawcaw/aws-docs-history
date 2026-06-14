@@ -145,6 +145,7 @@ The Amazon Q Apps IAM policy allows your web experience users permissions to do
 the following:
 
 - **Amazon Q Apps capabilities:**
+
   - Create a Q App ([API](../api-reference/API_qapps_CreateQApp.md "../api-reference/API_qapps_CreateQApp.md"))
   - Get the status and other information on a Q App ([API](../api-reference/API_qapps_GetQApp.md "../api-reference/API_qapps_GetQApp.md"))
   - Update a Q App ([API](../api-reference/API_qapps_UpdateQApp.md "../api-reference/API_qapps_UpdateQApp.md"))
@@ -158,6 +159,7 @@ the following:
   - Convert a problem statement into a proposed Q App ([API](../api-reference/API_qapps_PredictQApp.md "../api-reference/API_qapps_PredictQApp.md"))
 
 - **Amazon Q Apps library capabilities:**
+
   - Publish a Q App by adding items to your Q Apps library ([API](../api-reference/API_qapps_CreateLibraryItem.md "../api-reference/API_qapps_CreateLibraryItem.md"))
   - Get the status and other information on a Q App (item) in your
     Q Apps library ([API](../api-reference/API_qapps_GetLibraryItem.md "../api-reference/API_qapps_GetLibraryItem.md"))

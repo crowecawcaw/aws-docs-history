@@ -5,6 +5,7 @@ prerequisites.
 
 - **In Smartsheet, make sure you
   have:**
+
   - Access to the Smartsheet Event Reporting API. Use the [Events API Access Request](https://app.smartsheet.com/b/form/5db2cf1b981f445cabaa22d9421cc19d "https://app.smartsheet.com/b/form/5db2cf1b981f445cabaa22d9421cc19d") form to request access for your
     organization.
   - An Smartsheet system admin user or a licensed user for

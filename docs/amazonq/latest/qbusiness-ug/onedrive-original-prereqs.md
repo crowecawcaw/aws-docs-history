@@ -13,6 +13,7 @@ have:**
 - Copied the AD domain of the organization.
 - Added the following Application API permissions to your AD application on the Microsoft Graph
   option:
+
   - Read files in all site collections
     (`Files.Read.All`)
   - Read all users' full profiles (`User.Read.All`)

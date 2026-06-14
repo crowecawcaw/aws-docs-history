@@ -53,6 +53,7 @@ tags**
    _optional_**, select **Add
    new tag** to add tags to your Amazon Q Business
    resource. Then, enter the following information for each tag:
+
    - **Key** – Add a key for your
      tag.
    - **Value - _optional_**

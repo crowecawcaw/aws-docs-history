@@ -31,6 +31,7 @@ The overall process of document enrichment is as follows:
   Amazon Q Business data source, or add or upload your documents
   directly into Amazon Q Business index. The exact process for
   configuration depends on the methods you choose:
+
   - If you use the API and want to configure document enrichment
     for a data source connector, you use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md")
     and [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md")

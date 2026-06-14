@@ -40,6 +40,7 @@ Console
 2. From conversation settings, choose **Use a
    plugin**.
 3. You can choose to enact plugin actions in two ways:
+
    1. Ask to perform an action directly. For example: Create a
       Jira ticket for a broken mouse. See [Quick create](using-plugins.md#quick-create "using-plugins.md#quick-create") for more
       details.

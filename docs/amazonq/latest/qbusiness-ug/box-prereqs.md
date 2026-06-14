@@ -14,6 +14,7 @@ prerequisites.
   as-user header**.
 - Used the admin user to add the following **Application
   Scopes** in your Box app:
+
   - Write all files and folders stored in a Box
   - Manage users
   - Manage groups

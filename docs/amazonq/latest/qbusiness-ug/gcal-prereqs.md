@@ -21,6 +21,7 @@ On the Google Cloud website:
   key to use for authentication.
 - Added the following Oauth scopes, using an admin role, for your user and the
   shared directories you want to index:
+
   - https://www.googleapis.com/auth/admin.directory.user.readonly
   - https://www.googleapis.com/auth/gmail.readonly
 
