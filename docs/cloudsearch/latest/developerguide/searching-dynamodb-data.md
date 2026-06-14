@@ -55,6 +55,7 @@ start key to begin reading from a particular item.
    **Configuration wizard**.
 5. Select **Amazon DynamoDB**.
 6. Select the DynamoDB table that you want to analyze.
+
    - To limit the read capacity units that can be consumed while
      reading from the table, enter the maximum percentage of read
      capacity units you want to use.
@@ -99,6 +100,7 @@ When Amazon CloudSearch generates documents for table items:
 - DynamoDB binary attributes are ignored.
 - Attribute names are modified to conform to the Amazon CloudSearch naming conventions for
   field names:
+
   - All uppercase letters are converted to lowercase.
   - If the DynamoDB attribute name does not begin with a letter, the field
     name is prefixed with `f_`.
@@ -118,6 +120,7 @@ When Amazon CloudSearch generates documents for table items:
 
 - Number attributes are mapped to Amazon CloudSearch int fields and the values are transformed
   to 32-bit unsigned integers:
+
   - If a number attribute contains a decimal value, only the integral part
     of the value is stored. Everything to the right of the decimal point is
     dropped.
@@ -139,6 +142,7 @@ search domain.
    documents**.
 5. Select **Amazon DynamoDB**.
 6. From the dropdown, select the DynamoDB table that contains your data.
+
    - To limit the read capacity units that can be consumed while
      reading from the table, enter the maximum percentage of read
      capacity units.

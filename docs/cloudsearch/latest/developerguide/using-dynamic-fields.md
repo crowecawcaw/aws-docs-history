@@ -96,6 +96,7 @@ selectively ignore fields that match a particular pattern, such as `*_n`.
    results.
 2. Add a dynamic field that matches any other fields that are found in the
    documents and disables all indexing options for them:
+
    - Specify `*` as the name of the field, with no prefix or
      suffix string. (You can also specify a more specific pattern to
      selectively disable fields.)

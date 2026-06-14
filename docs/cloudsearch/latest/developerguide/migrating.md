@@ -32,6 +32,7 @@ Access to the Amazon CloudSearch configuration service is managed through IAM an
 
 - **Analysis Scheme**—you configure language-specific text-processing on a per field basis by specifying an analysis scheme for each `text` and `text-array` field. For more information, see [Configuring Analysis Schemes](configuring-analysis-schemes.md "configuring-analysis-schemes.md").
 - **Field Types**—Amazon CloudSearch now supports 11 field types:
+
   - date—contains a timestamp. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. In UTC, for example, 5:00 PM August 23, 1970 is: 1970-08-23T17:00:00Z.
   - date-array—a date field that can contain multiple values.
   - double—contains a double-precision 64-bit floating point value.
