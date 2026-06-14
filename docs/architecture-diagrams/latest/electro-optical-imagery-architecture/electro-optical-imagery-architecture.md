@@ -12,9 +12,11 @@ This architecture enables you to process electro-optical imagery on AWS.
 2. Convert into raw sensor data: Decommutate signal frames; decrypt data
    .
 3. Process Raw Images: Process Raw Images and Perform QA Review
+
    - QA Review: Confirm Images are sufficient for processing
    - **AWS Batch**: Run multiple jobs in parallel
    - **AWS Fargate** and **AWS Lambda**:
+
      - Sensor Correction: Apply corrections for optical distortions
      - Orthorectify: Sensor perspective
      - Georeference: Apply image to spatial grid and assign known coordinate system
@@ -24,6 +26,7 @@ This architecture enables you to process electro-optical imagery on AWS.
    .
 5. Storage: Store preprocessed images in a variety of **Amazon S3** services by balancing cost savings and time of retrieval.
 6. Post Processing and Analysis: Complete imagery processing.
+
    - Feature Extraction: Identify features in images (such as ships)
    - Naming/Tagging of Features: Tag features by name/identification system
    - Time Series Creation: Tag images to sort
@@ -42,9 +45,11 @@ This architecture enables you to process electro-optical imagery on AWS.
    .
 4. Optional Classified Processing: Throughout the image processing, move data to the appropriate regions for classified processing.
 5. Process Raw Images: Process Raw Images and Perform QA Review
+
    - QA Review: Confirm Images are sufficient for processing
    - **AWS Batch**: Run multiple jobs in parallel
    - **AWS Fargate** and **AWS Lambda**:
+
      - Sensor Correction: Apply corrections for optical distortions
      - Orthorectify: Sensor perspective
      - Georeference: Apply image to spatial grid and assign known coordinate system
@@ -54,6 +59,7 @@ This architecture enables you to process electro-optical imagery on AWS.
    .
 7. Storage: Store preprocessed images in a variety of **Amazon S3** services by balancing cost savings and time of retrieval.
 8. Post Processing and Analysis: Complete imagery processing.
+
    - Feature Extraction: Identify features in images (such as ships)
    - Naming/Tagging of Features: Tag features by name/identification system
    - Time Series Creation: Tag images to sort
