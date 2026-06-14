@@ -9,6 +9,7 @@ instructions:
 - Create one team of exactly five hunters.
 - Create a separate team of exactly one monster.
 - Include the following player attributes:
+
   - A player’s skill level (if not provided, default to 10).
   - A player’s preferred monster skill level (if not provided, default to
     10).
@@ -16,11 +17,13 @@ instructions:
     to 0 or false).
 
 - Choose a player to be the monster based on the following criteria:
+
   - Player must request the monster role.
   - Player must meet or exceed the highest skill level preferred by the
     players who are already added to the hunter team.
 
 - Choose players for the hunter team based on the following criteria:
+
   - Players who request a monster role cannot join the hunter team.
   - If the monster role is already filled, player must want a monster
     skill level that is lower than the skill of the proposed monster.

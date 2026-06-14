@@ -18,6 +18,7 @@ This example sets out the following instructions:
 - When evaluating a new player to add to a proposed match (or to backfill a spot
   in an existing match), the player might be rejected for either of the following
   reasons:
+
   - If the new player is on a block list for any players that are already
     selected for the match.
   - If any players that are already selected for the match are on the new

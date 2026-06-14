@@ -14,6 +14,7 @@ Console
 4. On the **Define configuration details** page,
    under **Matchmaking configuration details**, do the
    following:
+
    1. For **Name**, enter a matchmaker name
       that can help you identify it in a list and in metrics. The
       matchmaker name must be unique within the Region.
@@ -38,12 +39,14 @@ Console
 6. On the **Configure settings** page, under
    **Matchmaking settings**, do the
    following:
+
    1. For **Request timeout**, set the maximum
       amount of time, in seconds, for the matchmaker to complete a
       match for each request. FlexMatch cancels matchmaking requests
       that exceed this time.
    2. For **Backfill mode**, choose a mode for
       handling match backfills.
+
       - To turn on the automatic backfill feature, choose
         **Automatic**.
       - To create your own backfill request management or
@@ -66,6 +69,7 @@ Console
 
 7. (Optional) Under **Event notification settings**,
    do the following:
+
    1. (Optional) For **SNS topic**, choose an
       Amazon Simple Notification Service (Amazon SNS) topic for receiving matchmaking event
       notifications. If you haven't yet set up an SNS topic, you
@@ -78,6 +82,7 @@ Console
 
 8. (Optional) Expand **Additional game data**, and
    then do the following:
+
    1. (Optional) For **Game session data**,
       enter any additional game-related information that you want
       FlexMatch to deliver to new game sessions started with matches

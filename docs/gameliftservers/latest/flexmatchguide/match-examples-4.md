@@ -9,6 +9,7 @@ instructions:
 - Create two teams of players.
 - Include exactly three players in each team.
 - Include the following player attributes:
+
   - Experience level (if not provided, default to 50).
   - Preferred game modes (can list multiple values) (if not provided,
     default to “coop” and “deathmatch”).
@@ -17,6 +18,7 @@ instructions:
     100).
 
 - Set up presorting:
+
   - Sort players based on their preference for the same game map as the
     anchor player. Players can have multiple favorite game maps, so this
     example uses a preference value.

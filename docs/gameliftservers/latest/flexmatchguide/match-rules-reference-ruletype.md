@@ -148,6 +148,7 @@ might then require the team to have at least one of a certain character.
 - **`operation`** – The value
   that determines how to compare a collection of measurements. Valid operations
   include the following:
+
   - `intersection` – This operation measures the number
     of values that are the same in all players' collections. For an example
     of a rule that uses the intersection operation, see [Example: Use explicit sorting to find best matches](match-examples-4.md "match-examples-4.md").
@@ -267,6 +268,7 @@ attribute compared to the first ticket added to the batch.
   player attribute to sort tickets by.
 - **`mapKey`** – The options to
   sort the player attribute if it's a map. Valid options include:
+
   - `minValue` – The key with the lowest value is
     first.
   - `maxValue` – The key with the highest value is
@@ -314,6 +316,7 @@ specified player attribute from the first ticket added to the batch.
   player attribute to sort tickets by.
 - **`mapKey`** – The options to
   sort the player attribute if it's a map. Valid options include:
+
   - `minValue` – For the first ticket added to the
     batch, find the key with the lowest value.
   - `maxValue` – For the first ticket added to the

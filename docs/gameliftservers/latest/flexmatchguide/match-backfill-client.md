@@ -30,6 +30,7 @@ tasks.
     Whatever you use for a trigger, at a minimum you'll need to the following
     information. You can get this information from the game session object ([GameSession](../../../gamelift/latest/apireference/API_GameSession.md "../../../gamelift/latest/apireference/API_GameSession.md")) by calling
     [DescribeGameSessions](../../../gamelift/latest/apireference/API_DescribeMatchmaking.md "../../../gamelift/latest/apireference/API_DescribeMatchmaking.md") with a game session ID.
+
     - _Number of currently empty player
       slots_. This value can be calculated from a game session's
       maximum player limit and the current player count. Current player count

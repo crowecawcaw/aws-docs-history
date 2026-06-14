@@ -16,6 +16,7 @@ The example rule set describes a match with the following characteristics:
 
 - Team structure: One team of five players
 - Player attributes:
+
   - _myCharacter_: The player's chosen
     character.
   - _preferredOpponents_: List of

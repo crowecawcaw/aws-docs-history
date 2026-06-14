@@ -15,6 +15,7 @@ Console
 5. On the **Define configuration details** page,
    under **Matchmaking configuration details**, do the
    following:
+
    1. For **Name**, enter a matchmaker name
       that can help you identify it in a list and in metrics. The
       matchmaker name must be unique within the Region.
@@ -34,6 +35,7 @@ Console
 7. On the **Configure settings** page, under
    **Matchmaking settings**, do the
    following:
+
    1. For **Request timeout**, set the maximum
       amount of time, in seconds, for the matchmaker to complete a
       match for each request. Matchmaking requests that exceed
@@ -50,6 +52,7 @@ Console
 
 8. (Optional) Under **Event notification settings**,
    do the following:
+
    1. (Optional) For **SNS topic**, choose an
       Amazon SNS topic for receiving matchmaking event notifications.
       If you haven't yet set up an SNS topic, you can choose this

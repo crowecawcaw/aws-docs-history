@@ -15,6 +15,7 @@ This example illustrates how to set up a rule set for matches with two teams usi
   requested the same `mode`.
 - The `CompoundRuleMatchmaker` rule ensures a match if at least one
   of the following conditions is true:
+
   - Players in a match have requested the same `map` and the
     same `mode`.
   - Players in a match have comparable `skill` and

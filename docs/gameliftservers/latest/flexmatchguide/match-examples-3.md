@@ -7,21 +7,25 @@ maximums can be relaxed over time to complete the match. This example sets out t
 following instructions:
 
 - Create three teams of players.
+
   - Include between three and five players in each team.
   - Final teams must contain the same or nearly the same number of players
     (within one).
 
 - Include the following player attributes:
+
   - A player’s skill level (if not provided, default to 10).
   - A player’s character role (if not provided, default to
     “peasant”).
 
 - Choose players based on whether their skill level is similar to other players
   in the match.
+
   - Ensure that each team has an average player skill within 10 points of
     each other.
 
 - Limit teams to the following number of “medic” characters:
+
   - An entire match can have a maximum of five medics.
 
 - Only match players who report latency of 50 milliseconds or less.
@@ -43,6 +47,7 @@ following instructions:
   for all players and checks against the maximum counts. Use `flatten`
   to create a list for all players in all teams.
 - When evaluating based on latency, note the following:
+
   - Latency data is provided in the matchmaking request as part of the
     Player object. It is not a player attribute, so it does not need to be
     listed as one.

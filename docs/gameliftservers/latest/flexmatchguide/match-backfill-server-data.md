@@ -13,6 +13,7 @@ server integration:
 
 1. Implement the `onUpdateGameSession` function. This function must be
    able to handle the following status messages (`updateReason`):
+
    - MATCHMAKING_DATA_UPDATED – New players were successfully
      matched to the game session. The `GameSession` object
      contains updated matchmaker data, including player data on existing

@@ -38,8 +38,10 @@ The example rule set creates a match using the following instructions:
   options. We don't need to relax this requirement.
 - Here's how FlexMatch fills matches for this rule set before any expansions take
   effect:
+
   - No teams have reached minPlayers count yet. Hunter teams have 15 open
     slots, while Monster team has 5 open slots.
+
     - The first 100 players are assigned (10 each) to the ten hunter
       teams.
     - The next 22 players are assigned sequentially (2 each) to
@@ -47,11 +49,13 @@ The example rule set creates a match using the following instructions:
 
   - Hunter teams have reached minPlayers count of 12 players each. Monster
     team has 2 players and has not reached minPlayers count.
+
     - The next three players are assigned to the monster
       team.
 
   - All teams have reached minPlayers count. Hunter teams each have three
     open slots. Monster team is full.
+
     - The final 30 players are assigned sequentially to the hunter
       teams, ensuring that all hunter teams have nearly the same size
       (plus or minus one player).

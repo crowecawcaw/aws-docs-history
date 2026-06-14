@@ -38,6 +38,7 @@ Before you can add client-side functionality to your game, you need to do these 
   use any string format, up to a maximum of 128 characters.
 - **Collect information about your matchmaker.**
   Get the following information from your matchmaking configuration and rule set.
+
   - Name of the matchmaking configuration resource.
   - The list of player attributes, which are defined in the rule
     set.

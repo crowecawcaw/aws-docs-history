@@ -4,6 +4,7 @@ This example illustrates how to set up two equally matched teams of players with
 following instructions.
 
 - Create two teams of players.
+
   - Include between four and eight players in each team.
   - Final teams must have the same number of players.
 

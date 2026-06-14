@@ -18,6 +18,7 @@ Amazon GameLift Servers FlexMatch matchmakers and rule sets can be done using th
    in a match. These requirements might apply to individual players. You can also
    customize the FlexMatch algorithm in the rule set, such as to build large matches with
    up to 200 players. See these topics:
+
    - [Build a FlexMatch rule set](match-rulesets.md "match-rulesets.md")
    - [FlexMatch rule set examples](match-examples.md "match-examples.md")
 
@@ -27,6 +28,7 @@ Amazon GameLift Servers FlexMatch matchmakers and rule sets can be done using th
    proposed match. Since matchmaking requests are asynchronous, you need a way to track
    the status of requests. Using notifications is the preferred option for this. See
    these topics:
+
    - [Set up FlexMatch event notifications](match-notification.md "match-notification.md")
    - [FlexMatch matchmaking events](match-events.md "match-events.md")
 
@@ -34,6 +36,7 @@ Amazon GameLift Servers FlexMatch matchmakers and rule sets can be done using th
    called a matchmaker, this component receives matchmaking requests and processes
    them. You configure a matchmaker by specifying a rule set, notification target, and
    maximum wait time. You can also enable optional features. See these topics:
+
    - [Design a FlexMatch matchmaker](match-configuration.md "match-configuration.md")
    - [Create a matchmaking configuration](match-create-configuration.md "match-create-configuration.md")
 
@@ -46,6 +49,7 @@ Amazon GameLift Servers FlexMatch matchmakers and rule sets can be done using th
    player acceptance workflow that requires players to opt in to a proposed match. This
    service must also monitor matchmaking events to get match results and initiate game
    session placement for successful matches. See this topic:
+
    - [Add FlexMatch to a game client](match-client.md "match-client.md")
 
 5. **Build a match placement service.** Create a

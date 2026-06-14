@@ -6,6 +6,7 @@ The example rule set describes a match with the following characteristics:
 
 - Team structure: Two single-player teams
 - Player attributes:
+
   - _gameMode_: Type of game chosen by
     the player (if not provided, default to "turn-based").
   - _gameMap_: Game world chosen by the

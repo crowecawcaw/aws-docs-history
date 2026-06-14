@@ -24,6 +24,7 @@ Console
    **Create rule set**.
 5. On the **Create matchmaking rule set** page, do the
    following:
+
    1. Under **Rule set settings**, for
       **Name**, enter a unique descriptive name
       that you can use to identify it in a list or in events and
