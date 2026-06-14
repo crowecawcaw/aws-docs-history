@@ -18,6 +18,7 @@ following three different use cases:
    you want to view.
 2. View code examples by choosing **How to embed it** in the menu
    bar. Then choose each of the following from the navigation pane at left:
+
    - Configure permissions
    - Get embedding URL (code samples in Java, JavaScript, and Python)
    - Embed URL in your application

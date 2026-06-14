@@ -308,6 +308,7 @@ based on your IDE and platform.
    the `nuget` folder and choose **Add Source**.
 6. Choose **OK**. Then, with `QuickSightSDK` selected, select all
    three Quick Sight packages:
+
    - `AWSSDK.QuickSight`
    - `AWSSDK.Extensions.NETCore.Setup`
    - `AWSSDK.Extensions.CognitoAuthentication`

@@ -55,6 +55,7 @@ The following statements apply to asset bundle import permissions.
 
 - Asset bundle import operations support up to 64 principals.
 - The final state of an asset bundle's permissions are determined by the following.
+
   - If the `OverridePermissions` parameter is provided in the input, all existing permissions are replaced by the permissions that are specified in the `OverridePermissions` parameter.
   - If the asset bundle was exported with permissions, all existing permissions are replaced by the permissions that are in the exported asset bundle's file.
   - If neither of the above conditions are met, no changes are made to the asset's permissions.
