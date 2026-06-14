@@ -298,6 +298,7 @@ while True:
 To use this script, follow these steps:
 
 1. Replace the placeholder values in the script with your specific information:
+
    - `output_file_path`: Directory where chunk files will be saved
    - `vault_name`: Name of your S3 Glacier vault
    - `notify_queue_name`: Name for the job notification queue

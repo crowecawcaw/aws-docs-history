@@ -204,6 +204,7 @@ def retrieve_demo(glacier, vault_name):
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [DeleteArchive](../../../goto/boto3/glacier-2012-06-01/DeleteArchive.md "../../../goto/boto3/glacier-2012-06-01/DeleteArchive.md")
   - [DeleteVault](../../../goto/boto3/glacier-2012-06-01/DeleteVault.md "../../../goto/boto3/glacier-2012-06-01/DeleteVault.md")
   - [GetJobOutput](../../../goto/boto3/glacier-2012-06-01/GetJobOutput.md "../../../goto/boto3/glacier-2012-06-01/GetJobOutput.md")

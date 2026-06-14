@@ -34,6 +34,7 @@ The following are the vault-naming requirements:
 
 6. Under **Event notifications**, to turn on or off notifications on a vault
    for when a job is completed, choose one of the following settings:
+
    - **Turn off notifications** – Notifications are turned off, and
      notifications are not sent to an Amazon Simple Notification Service (Amazon SNS) topic when a
      specified job is completed.

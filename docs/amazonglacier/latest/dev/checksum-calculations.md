@@ -41,6 +41,7 @@ You compute the SHA-256 tree hash as follows:
    and then compute the SHA-256 hash of the remaining 0.2 MB data. These hash
    values form the leaf nodes of the tree.
 2. Build the next level of the tree.
+
    1. Concatenate two consecutive child node hash values and compute the SHA-256 hash of the
       concatenated hash values. This concatenation and generation of the
       SHA-256 hash produces a parent node for the two child nodes.

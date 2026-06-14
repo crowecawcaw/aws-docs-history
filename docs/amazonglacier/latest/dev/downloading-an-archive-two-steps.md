@@ -20,6 +20,7 @@ AWS CLI, or the AWS SDKs.
 ###### To retrieve an archive
 
 1. Initiate an archive retrieval job.
+
    1. Get the ID of the archive that you want to retrieve. You can get the archive ID from an
       inventory of the vault. You can get the archive ID with the REST API,
       AWS CLI, or AWS SDKs. For more information, see [Downloading a Vault Inventory in Amazon Glacier](vault-inventory.md "vault-inventory.md").

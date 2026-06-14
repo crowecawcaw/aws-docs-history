@@ -31,6 +31,7 @@ notifications in the job-initiation request, then two notifications are sent.
 
 7. Under **Events**, select one or both events that you want to send
    notifications:
+
    - To send a notification only when archive retrieval jobs are complete, select
      **Archive Retrieval Job Complete**.
    - To send a notification only when vault inventory jobs are complete, select **Vault

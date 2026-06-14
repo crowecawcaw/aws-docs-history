@@ -53,6 +53,7 @@ profile are used.
 
 - Use the `delete-vault` command to delete a vault that contains no
   archives.
+
   - ```
     aws glacier delete-vault --vault-name `awsexamplevault` --account-id `111122223333`
     ```

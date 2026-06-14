@@ -91,6 +91,7 @@ these considerations, then
   most _k_ tree-hash aligned ranges that start with
   _P_. _X_ is an integer greater
   than 0. The tree-hash aligned ranges fall in the following categories:
+
   - For each _i_, where (0 <=
     _i_ <= _k_) and
     where _P_ +
