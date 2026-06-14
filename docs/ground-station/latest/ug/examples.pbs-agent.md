@@ -625,6 +625,7 @@ The `DirectBroadcastSatelliteWbDigIfEc2DataDelivery` template includes the follo
   This attaches to the receiver instance or elastic network interface.
 
 - One of the following Elastic IP associations:
+
   - **Receiver Instance to Elastic IP Association**
   * The association of the Elastic IP to your receiver instance, if **PublicSubnetId** is not specified. This requires that **SubnetId** reference a public subnet.
   - **Receiver Instance Elastic Network Interface to Elastic IP

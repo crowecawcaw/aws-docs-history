@@ -117,6 +117,7 @@ aws cloudwatch get-metric-statistics \
 ```
 
 3. If throttling is detected, consider:
+
    - Switching to on-demand capacity mode for automatic scaling.
    - Using a dedicated stream for AWS Ground Station telemetry.
    - If using provisioned mode, increasing the number of shards.

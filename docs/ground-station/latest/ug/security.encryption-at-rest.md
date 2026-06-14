@@ -17,6 +17,7 @@ such as ephemerides, you can choose to use a customer managed key in place of th
 - _Customer managed keys_ -- AWS Ground Station supports the use of a symmetric customer managed key
   that you create, own, and manage in place of the existing AWS owned encryption. Because you have
   full control of this layer of encryption, you can perform such tasks as:
+
   - Establishing and maintaining key policies
   - Establishing and maintaining IAM policies and grants
   - Enabling and disabling key policies

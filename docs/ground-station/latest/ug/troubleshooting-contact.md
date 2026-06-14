@@ -17,6 +17,7 @@ see [Getting Started](getting-started.md "getting-started.md").
 The following procedure shows how to find your Amazon EC2 instance in the console and start it if it's not running.
 
 1. Locate the Amazon EC2 instance that was used for the contact you are troubleshooting. Use the following steps:
+
    1. In your **CloudFormation** dashboard, select the stack that contains your Amazon EC2 instance.
    2. Choose the **Resources** tab and locate your Amazon EC2
       instance in the **Logical ID** column. Verify that the instance is created in the **Status** column.
@@ -24,6 +25,7 @@ The following procedure shows how to find your Amazon EC2 instance in the consol
 
 2. In the Amazon EC2 management console, ensure that your Amazon EC2 **Instance State** is _running_.
 3. If your instance is running, continue to the next step. If your instance is not running, start the instance by using the following step:
+
    1. With your Amazon EC2 instance selected, choose **Actions > Instance State > Start**.
 
 ## Step 2: Determine type of dataflow application used
@@ -97,6 +99,7 @@ If DataDefender is running after checking your Amazon VPC settings, continue to 
 2. On the **DataDefender** dashboard, choose **Go to Details**.
 3. Select your stream from the list of streams, and choose **Edit Stream**.
 4. In the **Stream Wizard** dialog box, do the following:
+
    1. In the **WAN Transport** pane, ensure **WAN to LAN** is selected for **Stream Direction**.
    2. In the **Port** box, ensure the WAN port you have chosen for your dataflow endpoint group is present. By default, this port is 55888.
       Then, choose **Next**.
@@ -115,6 +118,7 @@ You have now ensured that your Amazon EC2 instance and DataDefender are both run
 The following procedure shows how to find the number of available IP addresses in an Amazon EC2 reciever instance in the console.
 
 1. For each Amazon EC2 receiver instance that was used for the contact you are troubleshooting. Use the following steps:
+
    1. In your **CloudFormation** dashboard, select the stack that contains your Amazon EC2 instance.
    2. Choose the **Resources** tab and locate your Amazon EC2
       instance in the **Logical ID** column. Verify that the instance is created in the **Status** column.
@@ -122,6 +126,7 @@ The following procedure shows how to find the number of available IP addresses i
 
 2. In the Amazon EC2 management console, find and click the **Subnet ID** link in your Amazon EC2 receiver instance's **Instance Summary**. This will take you to the corresponding Amazon VPC management console.
 3. Select the matching subnet in the Amazon VPC management console and check the **Details** of your subnet for **Available IPv4 addresses**. If this number is not at least as many as dataflow endpoints that use this Amazon EC2 receiver instance do the following:
+
    1. Update your CloudFormation template's corresponding subnet **CidrBlock** to be sized correctly. For more details on subnet sizing see, [Subnet CIDR blocks](../../../vpc/latest/userguide/subnet-sizing.md "../../../vpc/latest/userguide/subnet-sizing.md").
    2. Redeploy your stack with your updated CloudFormation template.
 

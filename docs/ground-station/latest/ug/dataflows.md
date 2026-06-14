@@ -31,15 +31,19 @@ dataflow. Details of these formats are provided to you during the onboarding of 
 satellites. The following summarizes the formats used for each type of dataflow.
 
 - **antenna-downlink**
+
   - (Bandwidth less-than-or-equal-to 40MHz) data is delivered as [VITA-49 Signal Data/IP](https://www.vita.com/Standards "https://www.vita.com/Standards") Format packets.
   - (Bandwidth greater-than 40MHz) data is delivered as AWS Ground Station Class 2
     packets.
 
 - **antenna-downlink-demod-decode**
+
   - Data is delivered as Demodulated/Decoded Data/IP Format packets.
 
 - **antenna-uplink**
+
   - Data must be delivered as [VITA-49 Signal Data/IP](https://www.vita.com/Standards "https://www.vita.com/Standards") Format packets.
 
 - **antenna-uplink-echo**
+
   - Data is delivered as [VITA-49 Signal Data/IP](https://www.vita.com/Standards "https://www.vita.com/Standards") Format packets.

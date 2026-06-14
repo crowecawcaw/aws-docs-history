@@ -14,8 +14,10 @@ To use AWS Ground Station without requiring an administrative user, you need to 
 
 1. Sign in to the AWS Management Console and open the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
 2. Create a new policy. Use the following steps:
+
    1. In the navigation pane, choose **Policies** and then choose **Create Policy**.
    2. In the **JSON** tab, edit the JSON with one of the following values. Use the JSON that works best for your application.
+
       - For Ground Station administrative privileges, set **Action** to **groundstation:\*** as follows:
 
       JSON
@@ -37,7 +39,6 @@ To use AWS Ground Station without requiring an administrative user, you need to 
       }`
 
       ```
-
       - For Read-only privileges, set **Action** to **groundstation:Get\***, **groundstation:List\***, and **groundstation:Describe\*** as follows:
 
       JSON
@@ -61,7 +62,6 @@ To use AWS Ground Station without requiring an administrative user, you need to 
       }`
 
       ```
-
       - For additional security through multifactor authentication, set **Action** to **groundstation:\***, and **Condition/Bool** to **aws:MultiFactorAuthPresent:true** as follows:
 
       JSON
