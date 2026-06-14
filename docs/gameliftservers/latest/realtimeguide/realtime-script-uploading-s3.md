@@ -33,6 +33,7 @@ Console
    script**.
 3. On the **Create script** page, under
    **Script settings**, do the following:
+
    1. For **Name**, enter a script name.
    2. (Optional) For **Version**, enter version
       information. Because you can update the content of a script,

@@ -70,6 +70,7 @@ To migrate existing Amazon GameLift Servers Realtime servers from Node.js 10 to
 
 1. **Review your fleets** - Check if you have existing fleets
    from scripts running on Node.js 10. You can identify affected fleets using several methods:
+
    - In the Amazon GameLift Servers console, navigate to the AWS Health Dashboard, look for the Node.js 10 end of support notification,
      and choose the **Affected resources** tab to see a list of your fleets using scripts
      with Node.js 10 runtime.
@@ -80,6 +81,7 @@ To migrate existing Amazon GameLift Servers Realtime servers from Node.js 10 to
 2. **Create a new script** - Create and upload your existing
    script and choose the new target `NodeJsVersion` i.e., `24.x` for Node.js 24.
    If there are any errors uploading or starting your script, follow these steps:
+
    1. Review the changes between Amazon Linux 2 and Amazon Linux 2023. For more information on Amazon Linux 2023 and
       the architectural differences with Amazon Linux 2, see [Comparing AL2 and AL2023](../../../linux/al2023/ug/compare-with-al2.md "../../../linux/al2023/ug/compare-with-al2.md").
    2. Review the changes between Node.js versions. For more information on Node.js version changes,
