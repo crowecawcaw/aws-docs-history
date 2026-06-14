@@ -23,6 +23,7 @@ Review the settings for your browser. For more information, see the
 
 - Ensure that you've configured your network so that you can use
   AWS Support:
+
   - Your network can access the `*.connect.us-east-1.amazonaws.com`
     endpoint.
 

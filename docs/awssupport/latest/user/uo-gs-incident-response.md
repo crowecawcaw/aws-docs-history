@@ -11,11 +11,14 @@ Use this method regardless of whether you use proactive monitoring or not, or wh
 3. For **Category**, choose the option that best matches your issue.
 4. For **Severity**, choose **Business-critical system down**.
 5. In the **Description**, include the following information
+
    1. Technical information
+
       - Workload name
       - Affected AWS Resource ARN(s)
 
    2. Business information
+
       - Description of impact to the business
       - (Optional) Customer bridge details
 

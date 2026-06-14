@@ -316,6 +316,7 @@ echo "Log file: $LOG_FILE"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AddCommunicationToCase](../../../goto/aws-cli/support-2013-04-15/AddCommunicationToCase.md "../../../goto/aws-cli/support-2013-04-15/AddCommunicationToCase.md")
   - [CreateCase](../../../goto/aws-cli/support-2013-04-15/CreateCase.md "../../../goto/aws-cli/support-2013-04-15/CreateCase.md")
   - [DescribeCases](../../../goto/aws-cli/support-2013-04-15/DescribeCases.md "../../../goto/aws-cli/support-2013-04-15/DescribeCases.md")

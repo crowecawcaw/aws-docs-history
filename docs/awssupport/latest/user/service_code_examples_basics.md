@@ -8,6 +8,7 @@ SDKs.
 - [Hello Support](example_support_Hello_section.md "example_support_Hello_section.md")
 - [Learn the basics](example_support_Scenario_GetStartedSupportCases_section.md "example_support_Scenario_GetStartedSupportCases_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [AddAttachmentsToSet](example_support_AddAttachmentsToSet_section.md "example_support_AddAttachmentsToSet_section.md")
   - [AddCommunicationToCase](example_support_AddCommunicationToCase_section.md "example_support_AddCommunicationToCase_section.md")
   - [CreateCase](example_support_CreateCase_section.md "example_support_CreateCase_section.md")

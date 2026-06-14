@@ -5,6 +5,7 @@ You can use [AWS User Notifications](../../../notifications/latest/userguide/wha
 ###### Configure promotional support plan expiration notifications
 
 1. Open User Notifications in the [AWS Management Console](https://console.aws.amazon.com/notifications/ "https://console.aws.amazon.com/notifications/"):
+
    1. Choose the bell icon in the top navigation bar.
    2. Choose **Notification center**.
    3. In the navigation pane, choose **Notification configuration**.
@@ -12,6 +13,7 @@ You can use [AWS User Notifications](../../../notifications/latest/userguide/wha
    5. Select at least one **Configuration hub**. For more information, see [Storing, processing, and replicating notifications using notification hubs in AWS User Notifications](../../../notifications/latest/userguide/notification-hubs.md "../../../notifications/latest/userguide/notification-hubs.md").
 
 2. For **Event Rule**, enter the following information:
+
    - For **AWS service name**, enter **Support Plans**.
    - For **Event type**, enter **Support Plan Promotion Expiration**.
    - For **Regions**, select the source AWS Regions where you want to receive notifications. For this option, choose US East (N. Virginia), US East (Ohio), US West (N. California), and US West (Oregon).

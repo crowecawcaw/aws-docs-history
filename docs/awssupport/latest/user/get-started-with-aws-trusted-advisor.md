@@ -46,6 +46,7 @@ information, see [Manage access to AWS Trusted Advisor](security-trusted-advisor
 1. Sign in to the Trusted Advisor console at [https://console.aws.amazon.com/trustedadvisor/home](https://console.aws.amazon.com/trustedadvisor/home "https://console.aws.amazon.com/trustedadvisor/home").
 2. On the **Trusted Advisor Recommendations** page, view the summary for each check
    category:
+
    - Action recommended (red) – Trusted Advisor recommends an action for
      the check. For example, a check that detects a security issue for your IAM resources might
      recommend urgent steps.
@@ -57,6 +58,7 @@ information, see [Manage access to AWS Trusted Advisor](security-trusted-advisor
      example, this might be Amazon EC2 instances that you don't want the check to evaluate.
 
 3. You can do the following on the **Trusted Advisor Recommendations** page:
+
    - To refresh all checks in your account, choose **Refresh all
      checks**.
    - To create an .xls file that includes all check results, choose **Download all
@@ -99,6 +101,7 @@ You can view the check descriptions and results for the following check categori
 1. Sign in to the Trusted Advisor console at [https://console.aws.amazon.com/trustedadvisor/home](https://console.aws.amazon.com/trustedadvisor/home "https://console.aws.amazon.com/trustedadvisor/home").
 2. In the navigation pane, choose the check category.
 3. On the category page, view the summary for each check category:
+
    - Action recommended (red) – Trusted Advisor recommends an
      action for the check.
    - Investigation recommended (yellow) – Trusted Advisor
@@ -132,6 +135,7 @@ steps, and links to more information.
 2. In the navigation pane, choose a check category.
 3. Choose
    the check name to view the description and the following details:
+
    - **Alert Criteria** – Describes the threshold when a check will
      change status.
    - **Recommended Action** – Describes the recommended actions for
@@ -142,10 +146,12 @@ steps, and links to more information.
      items from check results.
 
 4. (Optional) To exclude items so that they don't appear in check results:
+
    1. Select an item and choose **Exclude & Refresh**.
    2. To view all excluded items, choose **Excluded items**.
 
 5. (Optional) To include items so that the check evaluates them again:
+
    1. Choose **Excluded items**, select an item, and then choose
       **Include & Refresh**.
    2. To view all included items, choose **Included items**.
@@ -181,6 +187,7 @@ tag filters to only show items that have the specified tag.
 3. For **Search by keyword**, enter a keyword from the check name or
    description to filter your results.
 4. For the **View** list, specify which checks to view:
+
    - **All checks** – List all checks for this category.
    - **Action recommended** – List checks that recommend that you
      take action. These checks are highlighted in red.
@@ -245,6 +252,7 @@ download results for all checks or a specific check.
 ###### To download check results from Trusted Advisor Recommendations
 
 1. Navigate to the AWS Trusted Advisor console at [https://console.aws.amazon.com/trustedadvisor](https://console.aws.amazon.com/trustedadvisor/ "https://console.aws.amazon.com/trustedadvisor/").
+
    - To download all check results, in the **Trusted Advisor Recommendations** or a
      check category page, choose **Download all checks**.
    - To download a check result for a specific check, choose the check name, and then choose

@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Support](example_support_Hello_section.md "example_support_Hello_section.md")
   - [Learn the basics](example_support_Scenario_GetStartedSupportCases_section.md "example_support_Scenario_GetStartedSupportCases_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [AddAttachmentsToSet](example_support_AddAttachmentsToSet_section.md "example_support_AddAttachmentsToSet_section.md")
     - [AddCommunicationToCase](example_support_AddCommunicationToCase_section.md "example_support_AddCommunicationToCase_section.md")
     - [CreateCase](example_support_CreateCase_section.md "example_support_CreateCase_section.md")
@@ -34,4 +36,5 @@ This topic also includes information about getting started and details about pre
     - [ResolveCase](example_support_ResolveCase_section.md "example_support_ResolveCase_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Getting started with Support](example_support_GettingStarted_062_section.md "example_support_GettingStarted_062_section.md")

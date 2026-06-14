@@ -10,6 +10,7 @@ AWS Unified Operations pricing is based on your specific requirements and worklo
 
 - [Benefits of Unified Operations](unified-operations-benefits.md "unified-operations-benefits.md")
 - [Unified Operations Team](unified-operations-team.md "unified-operations-team.md")
+
   - [Technical Account Manager](unified-operations-team.md#uo-personas-tam "unified-operations-team.md#uo-personas-tam")
   - [Domain Specialist Engineer](unified-operations-team.md#uo-key-personas-dse "unified-operations-team.md#uo-key-personas-dse")
   - [Senior Billing and Account Specialist](unified-operations-team.md#uo-personas-sbas "unified-operations-team.md#uo-personas-sbas")
@@ -19,6 +20,7 @@ AWS Unified Operations pricing is based on your specific requirements and worklo
   - [Specialist Support Engineer](unified-operations-team.md#uo-personas-sse "unified-operations-team.md#uo-personas-sse")
 
 - [Unified Operations life cycle](unified-operations-phases.md "unified-operations-phases.md")
+
   - [Unified Operations pre-onboarding](uops-pre-onboarding.md "uops-pre-onboarding.md")
   - [Unified Operations onboarding](uops-onboarding.md "uops-onboarding.md")
   - [Unified Operations Pre-event or migration planning](uops-pre-event-planning.md "uops-pre-event-planning.md")
@@ -29,6 +31,7 @@ AWS Unified Operations pricing is based on your specific requirements and worklo
   - [Unified Operations Continuous improvement](uops-continuous-improvement.md "uops-continuous-improvement.md")
 
 - [Getting started with Unified Operations](unified-operations-getting-started.md "unified-operations-getting-started.md")
+
   - [Unified Operations Getting started: Prerequisites](uops-gs-prerequisites.md "uops-gs-prerequisites.md")
   - [Unified Operations Getting started: Onboard critical alarms to rapid incident management](uops-gs-onboard-alarms.md "uops-gs-onboard-alarms.md")
   - [Unified Operations Getting started: How to request 5-minute incident response](uo-gs-incident-response.md "uo-gs-incident-response.md")

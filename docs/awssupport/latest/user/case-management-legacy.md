@@ -95,12 +95,14 @@ case, such as the following:
 10. On the **Contact us** page, choose your preferred language.
 11. Choose your preferred contact method. You can choose one of the following
     options:
+
     1. **Web** – Receive a reply in Support Center.
     2. **Chat** – Start a live chat with a support
        agent. If you can't connect to a chat, see [Troubleshooting](troubleshooting-support-cases.md "troubleshooting-support-cases.md").
     3. **Phone** – Receive a phone call from a
        support agent. If you choose this option, enter the following
        information:
+
        - **Country or region**
        - **Phone number**
        - **(Optional) Extension**###### Notes
@@ -240,6 +242,7 @@ In the AWS Management Console, you can also choose the question mark icon (
 5. For **Reason for case severity change**, choose from the available options for why you're changing the case severity.
 6. (Optional) For **Tell us more**, enter additional information about this change.
 7. Do one of the following:
+
    - If you're lowering the support case severity, or if you're raising it
      from **General guidance** to **System
      impaired** or **Production system

@@ -92,6 +92,7 @@ the Support Center Console. For more information, see [Authorize a Slack workspa
 3. In a text editor, paste the template into a new file.
 4. In the template, specify the parameters that you want. At a minimum,
    replace the values for the following fields:
+
    - `TeamId` with your Slack workspace ID
    - `ChannelId` with the Slack channel ID
    - `ChannelName` with a name to identify the Slack channel
@@ -128,6 +129,7 @@ configuring the management account to use the AWS Support App.
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. If you haven't already, in the **Region selector**,
    choose one of the following AWS Regions:
+
    - Europe (Frankfurt)
    - Europe (Ireland)
    - Europe (London)
@@ -167,6 +169,7 @@ accounts.
 5. Choose **Create StackSet**.
 6. On the **Choose a template** page, keep the default
    options for the following options:
+
    - For **Permissions**, keep
      **Service-managed permissions**.
    - For **Prerequisite - Prepare template**, keep
@@ -189,6 +192,7 @@ accounts.
     enter the OU ID.
 13. For **Specify regions**, enter only
     _one_ of the following AWS Regions:
+
     - Europe (Frankfurt)
     - Europe (Ireland)
     - Europe (London)

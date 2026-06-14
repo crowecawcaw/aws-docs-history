@@ -33,6 +33,7 @@ configure the same Slack channel for another workspace.
 1. From your Slack application, choose the Slack channel that you want to use with
    the AWS Support App.
 2. Complete the following steps to invite the AWS Support App to your channel:
+
    1. Open the context (right-click) menu on the channel name, and then choose **View channel details**.
    2. Choose the **Integrations** tab, and then choose **Add an App**.
    3. To search for the app, enter **AWS Support App**.
@@ -125,6 +126,7 @@ role or case notification.
    want.
 3. On the `**channelName**` page, you
    can do the following tasks:
+
    - Choose **Rename** to update your channel
      configuration name. This name only appears in your AWS account and
      won't appear in Slack.

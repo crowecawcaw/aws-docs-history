@@ -129,6 +129,7 @@ deletes the earliest report. You can't recover deleted reports.
    use the filter options to customize your report. For example, you can clear the
    **All** option for **Region**, and then
    specify the individual Regions to include in the report.
+
    1. Enter a **Name** for the report.
    2. For **Format**, choose **JSON** or **CSV**.
    3. For **Region**, specify the AWS Regions or choose

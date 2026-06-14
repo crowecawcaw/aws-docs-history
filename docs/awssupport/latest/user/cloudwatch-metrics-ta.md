@@ -146,6 +146,7 @@ You can sign in to the CloudWatch console and view the available metrics for Tru
 5. Choose a metric dimension, such as **Check Metrics**.
 6. The **All metrics** tab shows metrics for that dimension in the
    namespace. You can do the following:
+
    1. To sort the table, choose the column heading.
    2. To graph a metric, select the check box next to the metric. To select all
       metrics, select the check box in the heading row of the table.

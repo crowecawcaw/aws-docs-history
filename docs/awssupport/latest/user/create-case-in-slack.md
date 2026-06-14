@@ -27,6 +27,7 @@ following:
 3. Choose **Next**.
 4. On the **Create a support case** dialog box, specify the
    following options:
+
    1. Choose the **Issue type**.
    2. Choose the **Service**.
    3. Choose the **Category**.
@@ -81,8 +82,10 @@ The following example shows how to choose a live chat in Slack.
 8. Choose **Review**.
 9. In the Slack channel, review the case details. You can do the
    following:
+
    - Choose **Edit** to change the case details.
    - Add a file to your case. To do so, follow these steps:
+
      1. Choose **Attach file**, choose the
         **+**
         icon

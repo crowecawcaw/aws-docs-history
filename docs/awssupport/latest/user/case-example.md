@@ -52,6 +52,7 @@ how you want to be contacted.
    Currently you can choose Chinese, English, Japanese, or Korean. The customized contact options in your preferred language will be shown by your support plan.
 2. Choose a contact method. The contact options that appear depend on the type of
    case and your support plan.
+
    - If you choose **Web**, you can read and respond to the
      case progress in Support Center.
    - Choose

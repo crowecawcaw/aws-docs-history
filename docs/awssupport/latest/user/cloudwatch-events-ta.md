@@ -66,10 +66,12 @@ problems detected (green) to recommended action (red).
 10. For **Event type**, choose **Check Item Refresh
     Status**.
 11. Choose one of the following options for check statuses:
+
     - Choose **Any status** to create a rule that monitors
       for any status change.
     - Choose **Specific status(es)**, and then choose the values that you
       want your rule to monitor.
+
       - **ERROR** – Trusted Advisor recommends an action for the
         check.
       - **INFO** – Trusted Advisor can't determine the status of the
@@ -79,11 +81,13 @@ problems detected (green) to recommended action (red).
         check and recommends investigation.
 
 12. Choose one of the following options for your checks:
+
     - Choose **Any check**.
     - Choose **Specific check(s)**, and then choose one or more check
       names from the list.
 
 13. Choose one of the following options for AWS resources:
+
     - Choose **Any resource ID** to create a rule that monitors all
       resources.
     - Choose **Specific resource ID(s) by ARN**, and then enter the

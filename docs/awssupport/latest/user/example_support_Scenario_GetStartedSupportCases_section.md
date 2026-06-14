@@ -664,6 +664,7 @@ public class SupportWrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [AddAttachmentsToSet](../../../goto/DotNetSDKV3/support-2013-04-15/AddAttachmentsToSet.md "../../../goto/DotNetSDKV3/support-2013-04-15/AddAttachmentsToSet.md")
   - [AddCommunicationToCase](../../../goto/DotNetSDKV3/support-2013-04-15/AddCommunicationToCase.md "../../../goto/DotNetSDKV3/support-2013-04-15/AddCommunicationToCase.md")
   - [CreateCase](../../../goto/DotNetSDKV3/support-2013-04-15/CreateCase.md "../../../goto/DotNetSDKV3/support-2013-04-15/CreateCase.md")
@@ -1095,6 +1096,7 @@ public class SupportScenario {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [AddAttachmentsToSet](../../../goto/SdkForJavaV2/support-2013-04-15/AddAttachmentsToSet.md "../../../goto/SdkForJavaV2/support-2013-04-15/AddAttachmentsToSet.md")
   - [AddCommunicationToCase](../../../goto/SdkForJavaV2/support-2013-04-15/AddCommunicationToCase.md "../../../goto/SdkForJavaV2/support-2013-04-15/AddCommunicationToCase.md")
   - [CreateCase](../../../goto/SdkForJavaV2/support-2013-04-15/CreateCase.md "../../../goto/SdkForJavaV2/support-2013-04-15/CreateCase.md")
@@ -1444,6 +1446,7 @@ const main = async () => {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [AddAttachmentsToSet](../../../AWSJavaScriptSDK/v3/latest/client/support/command/AddAttachmentsToSetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/AddAttachmentsToSetCommand.md")
   - [AddCommunicationToCase](../../../AWSJavaScriptSDK/v3/latest/client/support/command/AddCommunicationToCaseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/AddCommunicationToCaseCommand.md")
   - [CreateCase](../../../AWSJavaScriptSDK/v3/latest/client/support/command/CreateCaseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/support/command/CreateCaseCommand.md")
@@ -1761,6 +1764,7 @@ suspend fun displayServices(): List<String> {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [AddAttachmentsToSet](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [AddCommunicationToCase](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreateCase](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -2321,6 +2325,7 @@ class SupportWrapper:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [AddAttachmentsToSet](../../../goto/boto3/support-2013-04-15/AddAttachmentsToSet.md "../../../goto/boto3/support-2013-04-15/AddAttachmentsToSet.md")
   - [AddCommunicationToCase](../../../goto/boto3/support-2013-04-15/AddCommunicationToCase.md "../../../goto/boto3/support-2013-04-15/AddCommunicationToCase.md")
   - [CreateCase](../../../goto/boto3/support-2013-04-15/CreateCase.md "../../../goto/boto3/support-2013-04-15/CreateCase.md")

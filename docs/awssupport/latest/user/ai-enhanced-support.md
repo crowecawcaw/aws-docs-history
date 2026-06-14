@@ -22,6 +22,8 @@ AI-enhanced troubleshooting in the AWS Support console provides the following ke
 - **Context preservation:** Import your previous Amazon Q conversations to maintain troubleshooting context.
 - **Streamlined case creation:** Use natural language to describe issues instead of navigating multiple form fields.
 - **Intelligent follow-up:** Receive relevant follow-up questions based on your specific AWS environment.
+- **AI-powered guidance for account, billing, and technical issues:** AI-enhanced troubleshooting provides contextual recommendations across all supported issue types. For account and billing questions, AI-enhanced troubleshooting surfaces relevant responses, walks you through common resolutions, and helps you navigate account settings. For technical issues, it analyzes your environment context, asks targeted follow-up questions, and delivers step-by-step troubleshooting guidance informed by AWS best practices, helping you resolve issues without creating a support case.
+- **Autonomous investigation for operational issues:** For operational issues such as performance degradation, elevated error rates, or post-deployment regressions, customers can invoke [AWS DevOps Agent](../../../devopsagent/latest/userguide.md "../../../devopsagent/latest/userguide.md") to autonomously query observability services in your account, identify root cause, and generate a mitigation plan, streaming progress directly in your support interaction. On first use, the Support Center Console prompts you to get explicit consent to enable the DevOps Agent. To learn more, see [Using AWS DevOps Agent with your AWS Support plan](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
   For a complete list of the capabilities available in your Support plan, see [Compare AWS Support Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
 
 ###### Notes
@@ -39,6 +41,7 @@ _AWS Billing User Guide_.
   related issues. AWS Support can't assist with non-technical issues for
   Resold Support, such as billing and account management. For more
   information, see the following topics:
+
   - [How AWS Partners can determine AWS Support
     plans in an organization](https://aws.amazon.com/blogs/mt/aws-partners-determine-aws-support-plans-in-organization/ "https://aws.amazon.com/blogs/mt/aws-partners-determine-aws-support-plans-in-organization/")
   - [AWS Partner-Led Support](https://aws.amazon.com/premiumsupport/partner-led-support/ "https://aws.amazon.com/premiumsupport/partner-led-support/")

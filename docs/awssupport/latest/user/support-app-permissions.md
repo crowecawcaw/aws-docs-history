@@ -211,6 +211,7 @@ Verify that you chose the correct role for your channel configuration.
 2. Choose the channel that you configured with the AWS Support App.
 3. From the **Permissions** section, find the IAM role
    name that you chose.
+
    - To change the role, choose **Edit**, choose
      another role, and then choose **Save**.
    - To update the role or the policy attached to the role, sign in to

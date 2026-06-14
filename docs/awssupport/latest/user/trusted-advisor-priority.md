@@ -95,7 +95,9 @@ If you're using an AWS Organizations Management or Delegated Administrator accou
    recommendations** show recommendations that your account team
    prioritized for you. The **Closed** tab shows resolved or
    dismissed recommendations.
+
    1. To filter your results, use the following options:
+
       - **Recommendation** – Enter keywords to
         search by name. This can be a check name, or a custom name that
         your account team created.
@@ -488,11 +490,13 @@ Only the management account or delegated administrator can set up Trusted Adviso
    **Notifications**.
 3. Under **Priority**, you can select the following
    options.
+
    1. **Daily** – Receive an email notification
       daily.
    2. **Weekly** – Receive an email notification
       once a week.
    3. Choose the notifications to receive:
+
       - Summary of prioritized recommendations
       - Resolution dates
 

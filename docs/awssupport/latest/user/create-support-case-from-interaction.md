@@ -14,6 +14,7 @@ After you choose **Create case**, enter or verify the following information:
    to your case, such as error logs or screenshots. You can attach up to three
    files. Each file can be up to 5 MB.
 4. For **Case type**, choose one of the following options:
+
    - **Account and billing**
    - **Technical**
    - **Service quotas**. You can only request certain types of service quota increases from the Support Center Console. For more information, see

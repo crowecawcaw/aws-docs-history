@@ -52,6 +52,15 @@ You can explicitly allow-list specific actions instead of using wildcards. The f
 
 ```
 
+For AWS DevOps Agent permissions required by your IAM identity, attach the following AWS managed policies:
+
+- `AIDevOpsAgentFullAccess`. Provides full access to DevOps Agent management actions.
+- `AIDevOpsAgentAccessPolicy`. Required to create the agent space.
+- `AIDevOpsOperatorAppAccessPolicy`. Required to enable Operator App access.
+  For the full list of actions, see [DevOps Agent IAM permissions](../../../devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.md "../../../devopsagent/latest/userguide/aws-devops-agent-security-devops-agent-iam-permissions.md") in the _AWS DevOps Agent User Guide_.
+
+Your IAM identity needs `iam:PassRole` on the `DevOpsAgentRole-AgentSpace` and `DevOpsAgentRole-WebappAdmin` roles so that the Support Center Console can pass these roles to DevOps Agent when creating them on your behalf during first-time setup. For investigations on Amazon Elastic Kubernetes Service clusters, your IAM identity also needs `eks:DescribeAccessEntry`, `eks:CreateAccessEntry`, and `eks:AssociateAccessPolicy` so that the Support Center Console can create the read-only access entry on the target cluster. For more information about access entries, see [Grant IAM users access to Kubernetes with Amazon EKS access entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md") in the _Amazon Elastic Kubernetes Service User Guide_.
+
 ###### Note
 
 Using a custom policy requires ongoing maintenance as AWS Support releases new features. For more information about the Support Center Console API operations, see [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md "support-console-access-control.md"). For more information about each of the Support API operations, see [Manage access to AWS Support Center](accessing-support.md "accessing-support.md").

@@ -2,11 +2,12 @@
 
 To access AI-enhanced troubleshooting capabilities in Support Center, you need specific AWS Identity and Access Management permissions. This section describes the necessary IAM permissions and explains how to configure them so that you can fully use these capabilities.
 
-AI-enhanced troubleshooting requires permissions beyond traditional support case management. The required permissions fall into three categories:
+AI-enhanced troubleshooting requires permissions beyond traditional support case management. The required permissions fall into four categories:
 
 - **Support interaction permissions:** Enable the new interaction-based workflow in Support Center.
 - **AI-powered classification permissions:** Allow access to AI-powered issue classification features.
 - **Amazon Q integration permissions:** Enable conversation import from Amazon Q Developer.
+- **AWS DevOps Agent permissions:** Enable operations investigations by DevOps Agent during a support interaction.
 
 These permissions supplement your existing AWS Support permissions and don't replace them.
 
