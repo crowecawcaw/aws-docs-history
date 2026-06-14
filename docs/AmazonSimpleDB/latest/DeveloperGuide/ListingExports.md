@@ -133,6 +133,7 @@ Each item object contains:
 
 - `itemName` – The unique identifier for the item in the domain
 - `attributes` – An array of attribute objects, each containing:
+
   - `name` – The attribute name
   - `values` – An array of values (supporting multi-value attributes)
 

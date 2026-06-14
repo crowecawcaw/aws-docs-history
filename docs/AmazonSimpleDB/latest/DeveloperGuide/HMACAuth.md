@@ -76,6 +76,7 @@ should move to signature version 2 immediately.
 
 1.  Create the canonicalized query string that you need later in this
     procedure:
+
     1. Sort the UTF-8 query string components by parameter name with natural byte ordering.
 
     The parameters can come from the GET URI or from the POST body (when `Content-Type` is `application/x-www-form-urlencoded` ). 2. URL encode the parameter name and values according to the following rules:
