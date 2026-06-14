@@ -29,6 +29,7 @@ The AWSServiceRoleForDeviceFarm service-linked role trusts the following service
 The role permissions policy allows Device Farm to complete the following actions:
 
 - For your account
+
   - Create network interfaces
   - Describe network interfaces
   - Describe VPCs
@@ -38,9 +39,11 @@ The role permissions policy allows Device Farm to complete the following actions
   - Modify network interfaces
 
 - For network interfaces
+
   - Create tags
 
 - For EC2 network interfaces managed by Device Farm
+
   - Create network interface permissions
 
 The full IAM policy reads:

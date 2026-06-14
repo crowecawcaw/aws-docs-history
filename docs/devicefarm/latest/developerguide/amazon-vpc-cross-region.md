@@ -131,6 +131,7 @@ sent.
 
 1.  Identify the IP addresses of the service that you want to target in
     _VPC-2_.
+
     - These IP addresses must be members of the subnet used in the peering
       connection.
     - The targeted IP addresses must be static and immutable. If your

@@ -14,6 +14,7 @@ sessions with one or more private devices in your fleet. For more information ab
    **New project**, enter a name for the project, and then choose
    **Submit**.
 4. Do one of the following:
+
    - To create a test run, choose **Automated tests**, and then choose
      **Create a new run**. The wizard guides you through the steps to create
      the run. For the **Select devices** step, you can edit an existing device

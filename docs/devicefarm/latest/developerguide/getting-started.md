@@ -87,6 +87,7 @@ Now that you have a project, you can create and then start a run. For more infor
    If you're uploading an iOS app, be sure to choose **iOS device**, as opposed to a simulator.
 5. Under **Configure test**, in the **Select test framework** section, choose one of the
    testing frameworks or built-in test suites. For information about each option, see [Test frameworks and built-in tests in AWS Device Farm](test-types.md "test-types.md").
+
    - If you have not yet packaged your tests for Device Farm, choose **Built-in:
      Fuzz** to run a standard, built-in test suite. You can keep the default values
      for **Event count**, **Event throttle**, and
@@ -100,6 +101,7 @@ Now that you have a project, you can create and then start a run. For more infor
    **Top Devices**.
 7. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
    In this section, you can do any of the following:
+
    - To provide other data for Device Farm to use during the run, next to **Add extra
      data**, choose **Choose File**, and then browse to and choose
      the .zip file that contains the data.

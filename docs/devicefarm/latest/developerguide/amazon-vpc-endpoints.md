@@ -99,15 +99,18 @@ console**
 5. On the **Create network load balancer** page,
    under **Basic configuration**, do the
    following:
+
    1. Enter a load balancer **Name**.
    2. For **Scheme**, choose
       **Internal**.
 
 6. Under **Network mapping**, do the
    following:
+
    1. Choose the **VPC** for your target
       group.
    2. Select the following **Mappings**:
+
       - `us-west-2a`
       - `us-west-2b`
       - `us-west-2c`
@@ -144,6 +147,7 @@ console**
 5. On the **Configure load balancer** page, under
    **Basic configuration**, do the
    following:
+
    1. Enter a load balancer **Name**.
    2. For **Scheme**, choose
       **Internal**.
@@ -153,10 +157,12 @@ console**
    your target group is using.
 7. Under **Availability zones**, do the
    following:
+
    1. Choose the **VPC** for your target
       group.
    2. Select the following **Availability
       zones**:
+
       - `us-west-2a`
       - `us-west-2b`
       - `us-west-2c`
@@ -168,6 +174,7 @@ console**
    **Next: configure routing**.
 9. On the **Configure Routing** page, do the
    following:
+
    1. For **Target group**, choose
       **Existing target group**.
    2. For **Name**, choose your target
@@ -202,6 +209,7 @@ VPC.
    services**.
 3. Choose **Create endpoint service**.
 4. Do one of the following:
+
    - If you already have a Network Load Balancer that you want the endpoint service to use,
      choose it under **Available load balancers**, and then
      continue to step 5.

@@ -53,6 +53,7 @@ within Jenkins.
 1. Download the `hpi` file directly from [http://updates.jenkins-ci.org/latest/aws-device-farm.hpi](http://updates.jenkins-ci.org/latest/aws-device-farm.hpi "http://updates.jenkins-ci.org/latest/aws-device-farm.hpi").
 2. Ensure that the plugin is owned by the `Jenkins` user.
 3. Install the plugin using one of the following options:
+
    - Upload the plugin by choosing **Manage Jenkins**, **Manage Plugins**,
      **Advanced**, and then choose **Upload plugin**.
    - Place the `hpi` file in the Jenkins plugin directory (usually

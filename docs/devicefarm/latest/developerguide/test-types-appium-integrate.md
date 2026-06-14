@@ -442,13 +442,13 @@ bundle config specific_platform true
 ```
 
 5. Update your .lock file to add the platforms needed to run tests.
+
    - If you're compiling tests to run on Android devices, then run this command to configure the Gemfile to
      use dependencies for the Android test host:
 
    ```
    bundle lock --add-platform x86_64-linux
    ```
-
    - If you're compiling tests to run on iOS devices, then run this command to configure the Gemfile to use
      dependencies for the iOS test host:
 

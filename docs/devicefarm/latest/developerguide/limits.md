@@ -54,6 +54,7 @@ please open a support case.
 - Every Appium command has an execution duration limit of 4 minutes, after which the command times out.
 - The endpoint accepts input payload sizes of up to 20MB, and allows output payload sizes of up to 20MB. Any request with a larger input or output size than this will receive a WebDriver error of `'unsupported operation'`.
 - Requests execute sequentially on the device in the order that they are received. As a result, we highly recommend sending commands sequentially, and waiting for each command's response before sending a new one. That said, certain Appium server commands can be sent in parallel, specifically:
+
   - [getStatus](https://appium.io/docs/en/2.19/commands/base-driver/#getstatus "https://appium.io/docs/en/2.19/commands/base-driver/#getstatus")
   - [getSessions](https://appium.io/docs/en/2.19/commands/base-driver/#getsessions "https://appium.io/docs/en/2.19/commands/base-driver/#getsessions")
 

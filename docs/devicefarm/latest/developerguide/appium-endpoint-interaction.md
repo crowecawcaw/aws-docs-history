@@ -222,6 +222,7 @@ Console
     2. Follow along with the instructions on the page for how to start a session using Appium Inspector.
 
 3. For running an Appium test from your local IDE, do the following:
+
    1. Click the "copy" icon next to the text **Appium endpoint URL**
    2. Paste this URL into your local Appium code wherever you currently specify your remote address or command executor. For language-specific examples, please click one of the tabs in this example window for your language of choice.
 

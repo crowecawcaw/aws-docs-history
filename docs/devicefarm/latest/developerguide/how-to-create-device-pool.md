@@ -24,11 +24,13 @@ You can use the Device Farm console, AWS CLI, or API to create a device pool.
    identify.
 4. If you want to use one or more selection criteria for the devices in this device pool, do the
    following:
+
    1. Choose **Create dynamic device pool**.
    2. Choose **Add a rule**.
    3. For **Field**
       (first
       drop-down list), choose one of the following:
+
       - To include devices by their manufacturer name, choose **Device
         Manufacturer**.
       - To include devices by their form factor (tablet or phone),
@@ -78,6 +80,7 @@ EQUALS AVAILABLE` to include devices that currently
    device variety requirements. 8. To delete a rule, choose **Remove rule**.
 
 5. If you want to manually include or exclude individual devices, do the following:
+
    1. Choose **Create static device pool**.
    2. Select or clear the box next to each device. You can select or clear the boxes only if you
       do not have any rules specified.

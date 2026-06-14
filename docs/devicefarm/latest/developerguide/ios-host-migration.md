@@ -23,6 +23,7 @@ use the new test host.
 1. Sign in to the [AWS Device Farm console](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
 2. Navigate to the Device Farm project containing your automation tests.
 3. Download a copy of the existing test spec your wish to onboard with.
+
    1. Click the "Project Settings" option and navigate to the **Uploads**
       tab.
    2. Navigate to the test spec file that you wish to onboard with.
@@ -36,12 +37,12 @@ use the new test host.
    button.
 7. Modify the test specification that was selected by _default_ in
    the text editor.
+
    1. If not already present, modify the test spec file to select the new host using:
 
    ```
    ios_test_host: macos_sequoia
    ```
-
    2. From the copy of your test spec downloaded in a prior step, review each `phase`.
    3. Copy commands from the old test spec's phases into each respective phase in the
       new test spec, ignoring commands related to installing or selecting Java, Python,

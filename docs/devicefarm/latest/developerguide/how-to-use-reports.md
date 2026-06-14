@@ -173,6 +173,7 @@ The **Logs** section displays the following information:
 
 - **Source** represents the source of a log entry. Possible values
   include:
+
   - **Harness** represents a log entry that Device Farm created. These log
     entries are typically created during start and stop events.
   - **Device** represents a log entry that the device created. For
@@ -190,6 +191,7 @@ The **Logs** section displays the following information:
 - **Level** represents the logging level for the log entry. For example, `Logger.debug("This is a message!")` logs a
   **Level** of `Debug`. These are the possible
   values:
+
   - **Alert**
   - **Critical**
   - **Debug**

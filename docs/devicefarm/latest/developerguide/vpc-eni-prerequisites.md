@@ -20,6 +20,7 @@ You must configure certain Amazon Elastic Compute Cloud (Amazon EC2) permissions
 - DNS resolution is required in the VPC that you use.
 - Once your VPC has been created, you will need the following information about the VPC in the
   `us-west-2` Region:
+
   - VPC ID
   - Subnet IDs (private subnets only)
   - Security group IDs

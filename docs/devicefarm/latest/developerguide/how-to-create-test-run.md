@@ -72,6 +72,7 @@ information, see [Test environments in AWS Device Farm](test-environments.md "te
 
 14. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
     In this section, you can do any of the following:
+
     - To provide an execution role ARN, or override one configured on the parent project, use the Exectuion role ARN field.
     - To provide other data for Device Farm to use during the run, next to **Add extra
       data**, choose **Choose File**, and then browse to and choose

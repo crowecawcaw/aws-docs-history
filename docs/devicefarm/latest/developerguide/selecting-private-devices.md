@@ -122,6 +122,7 @@ ARNs and device instance ARNs), then you need to create the pool through the CLI
    pools** tab.
 5. Choose **Create device pool**, and enter a name and optional description
    for your device pool.
+
    1. To use device ARN rules for your device pool, choose **Create static device
       pool**, then select the specific device types from the list that you would like
       to use in the device pool. Do not select **Private device instances only**

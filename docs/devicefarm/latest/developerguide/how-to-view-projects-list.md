@@ -18,6 +18,7 @@ You can use the AWS Device Farm console, AWS CLI, or AWS Device Farm API to view
 
 1. Sign in to the Device Farm console at [https://console.aws.amazon.com/devicefarm](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
 2. To find the list of available projects, do the following:
+
    - For mobile device testing projects, on the Device Farm navigation menu, choose **Mobile
      Device Testing**, then choose **Projects**.
    - For desktop browser testing projects, on the Device Farm navigation menu, choose
