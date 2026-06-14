@@ -4,16 +4,20 @@ The following instructions walk you through how to schedule your Data Transfer T
 
 1.  Select the **Make reservation** button in the **Upcoming reservations** tab.
 2.  Complete the fields on the **Specify reservation details** page.
+
     1.  **Transfer team selection**: The Transfer team selected as the default appears first. If you would like to choose a different team, click the drop-down arrow to select from the list of Transfer teams available.
     2.  **Process owner**: Select the personnel alias you would like to be responsible for managing the reservation.
+
         - Only one Process owner is allowed for a reservation and they need to be an authorized personnel on your AWS account.
 
         The Process owner can be included as one of the Data transfer specialists to perform the data transfer activity as well.
 
     3.  **Data transfer specialist**: Select the personnel you want to have access to the Data Transfer Terminal facility to complete the data transfer activity. You may select more than one personnel, as needed.
+
         - Best practice is to limit your Transfer team to no more than four (4) Data transfer specialists.
 
     4.  **Data Transfer Terminal information**: Specify the Data Transfer Terminal facility, the desired date, and specific time for the data transfer session.
+
         1. **Data Transfer Terminal facility**: Click the drop-down arrow to select a Data Transfer Terminal facility.
 
         ###### Note

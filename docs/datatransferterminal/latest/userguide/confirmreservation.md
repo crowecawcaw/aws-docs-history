@@ -14,6 +14,7 @@ After the processing period, to view, edit, or delete your reservation, navigate
 
 1. Locate and select the desired reservation on the team’s card.
 2. Click the **Actions** menu and select the desired action.
+
    - **View**: Selecting the view option allows you to view the details of your reservation including the date, time, location, and assigned personnel.
    - **Edit**: You can revise details of the reservation including date, time, location, and assigned personnel. Note that changes must be made 24 hours before the desired reservation date and that the revisions are not immediately accepted and applied. Your Process owner will receive confirmation of the updated request.
    - **Delete**: The delete option allows you to cancel your reservation. The cancellation request must be made a minimum of 24 hours before the scheduled reservation date. The Process owner will receive confirmation of the canceled reservation when the request is approved.

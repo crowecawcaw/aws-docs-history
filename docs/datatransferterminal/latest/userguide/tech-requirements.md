@@ -25,6 +25,7 @@ Ensure your uploading device, server, or appliance (laptop) is prepared to conne
 To maximize the throughput while using the AWS Data Transfer Terminal consider the following recommendations.
 
 - **Recommended hardware**:
+
   - 100 Gbps network interface card
   - 16-core CPU
   - 128 GB RAM

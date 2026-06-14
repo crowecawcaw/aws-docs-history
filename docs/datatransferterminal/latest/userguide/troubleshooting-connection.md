@@ -25,6 +25,7 @@ If you’re able to connect your equipment but are not able to connect to the ne
 - Switch to the other fiber optic cable to connect.
 - Reboot your device while keeping the fiber optic cables connected.
 - Perform basic network diagnostics on the device to ensure the following:
+
   - DHCP is enabled
   - An IP address is assigned to the connected network interface
   - DNS servers are configured

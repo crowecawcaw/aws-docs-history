@@ -5,7 +5,9 @@ Add Process owners and Data transfer specialists to your Transfer team to set up
 1. On the **Transfer teams** page, select the desired Transfer team card from those listed in the **Transfer teams** section. The Transfer team’s summary page will appear.
 2. Choose the **Personnel** tab, and then **Register person** button to add personnel to the Transfer team.
 3. Complete the fields with the necessary information about the person you’re adding to the Transfer team on the **Register personnel** page.
+
    1. **Personnel alias**: Create a unique alias to identify the person.
+
       - The alias is used for identifying personnel while protecting their identity.
       - It can be up to 64 characters long and include letters, numbers, and dashes.
       - Special characters are not permitted.
