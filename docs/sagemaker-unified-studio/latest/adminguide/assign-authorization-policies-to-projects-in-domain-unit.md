@@ -23,6 +23,7 @@ domain unit:
 5. Choose **Add policy grant**.
 6. In the **Add projects** pop up window, do one of the
    following:
+
    - Choose **Selected projects in a domain unit**,
      specify projects to which you want to assign the selected authorization
      policy, and then choose **Add policy grant**.

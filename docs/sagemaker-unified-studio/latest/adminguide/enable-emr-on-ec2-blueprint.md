@@ -10,6 +10,7 @@ of your PEM certificate. To do this, complete the following procedure:
 3. Choose the **Project profiles** tab and then choose
    **All capabilities**.
 4. Choose one of the following instance type configurations:
+
    - OnDemand Amazon EMR on EC2 General Purpose: this configuration uses Amazon EC2
      instances (like m5.xlarge) to provide balanced compute, memory, and
      network resources. Choose this option for standard data processing

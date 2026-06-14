@@ -50,10 +50,12 @@ Complete the following procedure to create a 3P Git connection to GitHub:
 6. Enter in your GitHub credentials if you are prompted to provide them.
 7. Optional - for the app installation, either choose an AWS application to connect to
    Amazon SageMaker Unified Studio that you previously installed, or install a new application.
+
    - If you have installed an AWS application, search for and select that
      application.
    - If you do not have an AWS application, choose **Install a new
      app**. A popup window appears.
+
      - Select the account you want to install the application and establish a
        connection to.
      - Select whether you want the app to connect to **All

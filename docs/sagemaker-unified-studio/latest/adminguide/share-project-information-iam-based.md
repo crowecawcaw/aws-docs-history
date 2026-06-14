@@ -10,6 +10,7 @@ channels.
 3. On the project details page, choose **Share info**.
 4. In the Share project information dialog, review the generated welcome message that
    includes:
+
    - Welcome text explaining the project setup
    - URL - Direct link to the Amazon SageMaker Unified Studio portal
    - IAM role - The specific IAM role the user should use to access the

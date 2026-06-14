@@ -57,6 +57,7 @@ domain.
    a hyperlink. If you choose it, you then navigate to the Amazon SageMaker console for this
    domain as the associated account. You can perform the following configurations for this
    domain in your associated account:
+
    - Configure Data analytics and AI/ML model development capability under the
      **Next steps for your domain**. For more information, see [All capabilities project profile](all-capabilities.md "all-capabilities.md").
    - Configure Generative AI application development capability under the
@@ -133,6 +134,7 @@ domain.
    project profile and review them and modify the following as needed. Note that if you have
    already enabled the Tooling blueprint, you cannot use this procedure to modify any of the
    Tooling blueprint settings.
+
    - Under **Manage access role**, specify a service role that gives
      Amazon SageMaker Unified Studio the authorization to create and configure project resources using AWS
      CloudFormation in the project account and region. If this service role already exists

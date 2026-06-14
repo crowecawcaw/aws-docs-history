@@ -25,6 +25,7 @@ from scratch with your own profile settings and a selection of blueprints.
     you can configure your project profile to allow specifying accounts during project
     creation. Under **Account and region**, choose one of the
     following.
+
     - To create a project profile that will use the same account and region for each
       project created, select **Choose account and region**. Projects
       created with this profile will use the specified account and region and cannot specify
@@ -32,6 +33,7 @@ from scratch with your own profile settings and a selection of blueprints.
     - To create a project profile that will choose from accounts available at project
       creation, select **Choose account and region during project
       creation**.
+
       - Under **Accounts available during project creation**, you can
         choose to create a project profile that will provide a list of all AWS accounts
         associated to the domain for selection at project creation. To choose this option,

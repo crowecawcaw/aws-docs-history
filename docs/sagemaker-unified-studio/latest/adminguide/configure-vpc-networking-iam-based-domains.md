@@ -13,6 +13,7 @@ created after the VPC is modified.
 
 - Domain administrator permissions for Amazon SageMaker Unified Studio
 - An existing VPC that meets the following requirements:
+
   - At least 2 private subnets in different Availability Zones
   - DNS hostname and DNS support enabled
   - At least 5 free IP addresses per Amazon SageMaker Unified Studio project

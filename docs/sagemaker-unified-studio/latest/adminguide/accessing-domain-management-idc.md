@@ -1,7 +1,7 @@
 # Accessing domain management
 
 Access to domain management requires an administration project named
-`admin-`accountID`` to be present in your domain.
+`admin-project-`accountID`` to be present in your domain.
 Amazon SageMaker Unified Studio creates this project automatically, and it controls who can access domain
 management.
 
@@ -40,7 +40,7 @@ not been created. For more information, see
 ## Setting up access to domain management
 
 To access domain management, an administration project named
-`admin-`accountID`` must exist in the domain. This
+`admin-project-`accountID`` must exist in the domain. This
 project controls who can access domain management. You might need to take additional
 steps to set up access to domain management in the following scenarios.
 
@@ -50,14 +50,14 @@ To set up access to domain management, the Tooling blueprint must first be
 enabled. Choose the **Domain management** button in the banner of
 the domain details page in the SageMaker console. You are prompted to enable the
 Tooling blueprint. As part of the blueprint enablement, an administration project
-named `admin-`accountID`` is created. Return to
+named `admin-project-`accountID`` is created. Return to
 the domain details page and choose the **Domain management** button
 in the banner to access domain management.
 
 ### If an administration project exists in the domain
 
 If an administration project (for example,
-`admin-`accountID``) already exists in your
+`admin-project-`accountID``) already exists in your
 domain, take the following steps to set up access to domain management:
 
 - In the AWS SageMaker console on the domain details page, choose the
@@ -83,7 +83,7 @@ steps to create it and set up access to domain management:
   **Domain management** button in the banner at the top. Choose
   **Set up** to create the administration project. This begins
   the process to create the
-  `admin-`accountID`` project for your domain.
+  `admin-project-`accountID`` project for your domain.
   A banner confirmation appears when domain management is successfully set up. You
   can now access domain management using the methods described in
   [Accessing domain management](accessing-domain-management-idc.md "accessing-domain-management-idc.md").

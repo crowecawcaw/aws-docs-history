@@ -10,6 +10,7 @@ review these important considerations to ensure a smooth upgrade process.
   upgrade process from the domain details page of your Amazon DataZone domain.
 - The upgrade process requires the following roles to be configured (you can select
   existing roles or have Amazon SageMaker Unified Studio create the roles on your behalf):
+
   - Domain Execution role - for an Amazon DataZone domain, you're using the [AmazonDataZoneDomainExecutionRole](../../../datazone/latest/userguide/AmazonDataZoneDomainExecutionRole.md "../../../datazone/latest/userguide/AmazonDataZoneDomainExecutionRole.md") that is required by Amazon DataZone
     to catalog, discover, govern, share, and analyze data in your domain. With an
     Amazon SageMaker unified domain, you must either use the existing of create a new
@@ -22,6 +23,7 @@ review these important considerations to ensure a smooth upgrade process.
 - Root domain ownership considerations – You can optionally assign IAM users or
   SSO users and groups as root domain owners during the upgrade process.
 - Associated accounts and AWS Resource Access Manager (AWS RAM) changes:
+
   - Associated accounts use resource shares from AWS RAM to permit API actions
     from the root domain account.
   - The upgrade process changes the underlying managed permissions for the AWS
@@ -96,6 +98,7 @@ domainVersion (values V1 | V2).
 
 - **What happens when the upgrade is rolled
   back?**
+
   - Rolling back the upgrade changes the domain version from V2 to V1. Amazon SageMaker Unified Studio
     will no longer be accessible. The console view for the domain will return to the
     Amazon DataZone view. Resources created before the roll back will remain so long

@@ -15,6 +15,7 @@ settings for any of the supported blueprints.
    blueprint deployment settings.
 5. On the **Add blueprint deployment settings** page, specify the
    following:
+
    - Blueprint deployment settings name.
    - The blueprint deployment settings description.
    - The blueprint to which these deployment settings will apply.

@@ -28,6 +28,7 @@ SageMaker management console:
    This brings up the **Create custom blueprint** page.
 5. In the **Create custom blueprint** page, specify the
    following and then choose **Next**:
+
    - **Name** - the name for your custom blueprint. This
      blueprint name cannot be changed after the blueprint is created.
    - **Description** - optional - the description for your

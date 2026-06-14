@@ -70,6 +70,7 @@ required conditions:
    settings**.
 5. On the Add blueprint deployment settings page, specify the following and then choose Add
    blueprint deployment settings.
+
    - Blueprint deployment settings name
    - Blueprint deployment settings description - optional
    - Under **Blueprint**, use the drop-down menu to choose

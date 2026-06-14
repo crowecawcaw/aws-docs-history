@@ -34,6 +34,7 @@ Prerequisites:
    (advanced)**.
 5. Choose **Choose an AWS KMS key** and select one of the following
    options:
+
    - Select an existing KMS key from the dropdown menu
    - Enter a KMS key ARN directly in the text field
    - Choose **Create new KMS Key** to create a new key

@@ -55,6 +55,7 @@ domain that uses the account pool. For more information about associated account
 - Open a terminal (Linux, macOS, or Unix) or command prompt (Windows) and use the AWS CLI
   to run the `create-account-pool` command with the following
   format, where the following are required arguments:
+
   - `--domain-identifier` - the domain ID in SageMaker
     Unified Studio
   - `--name` - the account pool name

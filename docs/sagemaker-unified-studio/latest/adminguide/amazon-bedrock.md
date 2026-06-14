@@ -158,6 +158,7 @@ default model is preselected for them to begin interacting.
 4. In the **Default models** section, choose
    **Manage**.
 5. On the **Default models - optional** page:
+
    - For the **Chat playground - optional**, select a default model
      from the drop-down menu. The drop-down menu includes only the models that support
      **Text** as the output modality and are enabled for playground use.

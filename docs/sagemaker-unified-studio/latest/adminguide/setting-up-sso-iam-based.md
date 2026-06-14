@@ -20,6 +20,7 @@ Center instance.
    connection status.
 3. Choose **Connect**.
 4. For the instance type, select one of the following options:
+
    - **Organization instance** (recommended) — Uses the
      organization-level IAM Identity Center instance.
    - **Account instance** — Uses an account-level IAM

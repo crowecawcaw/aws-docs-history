@@ -22,8 +22,10 @@ following prerequisites:
 
 - Access to a Amazon SageMaker Unified Studio Domain with proper network connectivity and AWS Identity Center
   setup. To create an Amazon SageMaker Unified Studio domain, see [Domains](working-with-domains.md "working-with-domains.md").
+
   - By default, Amazon SageMaker Unified Studio Projects create Spaces in VpcOnly mode. To support remote
     connection, you have three network configuration options:
+
     - **Public Internet Access**: Configure your Amazon SageMaker Unified Studio
       Projects to allow public internet access by setting
       `sagemakerDomainNetworkType` to `PublicInternetOnly`.

@@ -23,6 +23,7 @@ traffic to flow through the SSH tunnel. The recommended network setup is:
 
 - When you create a Project, the service always creates the Security group on your
   behalf. You can identify the security group by:
+
   - Searching for the Unified Studio `ProjectId` in the AWS VPC console. The
     `projectId` can be found in the project overview page in the portal/URL when
     accessing the Project through CLI/API.

@@ -54,6 +54,7 @@ membership.
 
 1. On the **Users** page, choose the user name from the list.
 2. Modify the user settings as needed:
+
    - **Status** — Set to
      _Active_ to allow the user to log in to Amazon SageMaker Unified Studio, or
      _Inactive_ to prevent access.

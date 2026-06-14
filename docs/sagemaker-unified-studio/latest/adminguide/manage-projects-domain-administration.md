@@ -21,10 +21,12 @@ Prerequisites:
 1. From the domain administration page, choose **Projects** in the
    left navigation pane.
 2. The Projects page displays:
+
    - Domain details section showing account information, region, domain ID, admin
      roles, and creation date
    - Projects section listing all projects in the domain with details
      including:
+
      - Project name
      - Creation date (UTC-08:00)
      - Status (Active, Creating, Deleting)

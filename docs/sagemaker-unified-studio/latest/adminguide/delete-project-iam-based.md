@@ -9,6 +9,7 @@ permanently.
 2. Choose the project name you want to delete from the Projects list.
 3. On the project details page, choose **Delete**.
 4. In the Delete project confirmation dialog:
+
    1. Review the warning message: "Deleting a project is final and removes all
       resources and assets created in the project"
    2. In the confirmation field, type `confirm` to acknowledge

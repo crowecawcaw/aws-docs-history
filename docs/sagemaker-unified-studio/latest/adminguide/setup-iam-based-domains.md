@@ -21,6 +21,7 @@ domain:**
    `SageMakerStudioAdminIAMConsolePolicy`. Select it to add it to your
    existing role.
 4. Do one of the following:
+
    - Add the following inline policy to your Login IAM role if you are choosing to use a new role as the Execution IAM role:
 
    ```
@@ -58,7 +59,6 @@ domain:**
    }
 
    ```
-
    - Add the following inline policy to your Login IAM role if you are choosing to use an existing role as the Execution IAM role:
 
    ```

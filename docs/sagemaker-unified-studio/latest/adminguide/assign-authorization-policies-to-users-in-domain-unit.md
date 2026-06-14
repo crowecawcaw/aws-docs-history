@@ -25,6 +25,7 @@ unit:
 5. Choose **Add policy grant**.
 6. In the **Add users** pop up window, do one of the
    following:
+
    - Choose **Select users and groups**, specify users and
      groups to which you want to assign the selected authorization policy,
      and then choose **Add policy grant**.

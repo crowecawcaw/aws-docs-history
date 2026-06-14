@@ -14,6 +14,7 @@ To view VPC configurations, complete the following steps:
    left navigation pane.
 2. In the **Networking** section, review the configured VPC
    details:
+
    - VPC - Shows the VPC ID and provides a link to view the VPC in the Amazon VPC
      console
    - Subnets - Lists all configured subnets with links to view each subnet in the

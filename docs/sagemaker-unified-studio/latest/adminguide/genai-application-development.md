@@ -238,6 +238,7 @@ blueprints, including the Tooling blueprint.
 6. On the **Create project profile** page, in the **Default
    tooling blueprint deployment settings** section, review the selections for
    the default deployment settings for the Tooling blueprint.
+
    1. On the **Create project profile** page, in the
       **Project files storage** section, choose a storage configuration
       type from Amazon S3 - new and Git repository. For more information on storage types,

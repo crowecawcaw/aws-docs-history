@@ -21,6 +21,7 @@ Before you begin, verify that you have the following:
    tab.
 4. In the Tooling blueprint section, choose **Enable** and then
    specify the following configurations:
+
    - **Provisioning role** — Amazon SageMaker Unified Studio uses this
      role to provision and manage resources defined in the selected blueprints
      in your account. Amazon SageMaker Unified Studio can auto-create this role or you can provide

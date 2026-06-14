@@ -49,6 +49,7 @@ management and governance.
    and choose **Onboard data**.
 4. On the **Onboard your data** page, do the following and then choose
    **Onboard data**.
+
    - Check the AWS Glue (SageMaker Lakehouse) checkbox.
    - Optional - check the **Make your data discoverable** checkbox -
      other users in the domain will be able to find your data in the catalog. This setting
