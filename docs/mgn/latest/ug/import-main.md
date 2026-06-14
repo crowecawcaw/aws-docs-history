@@ -116,6 +116,7 @@ Please note the following considerations regarding the import parameters:
 3. If a resource's ID (mgn:server:id, mgn:app:id, or mgn:wave:id) is provided, the service will look for this resource in
    order to update it. If this resource is not found, the import will fail.
 4. If a resource's ID is not provided, the service will look for a resource's alternative identification:
+
    - For an application: mgn:app:name
    - For a wave: mgn:wave:name
    - For a server: mgn:server:user-provided-id

@@ -35,12 +35,14 @@ server.
 - Edit replication settings
 - Launch settings – edit general launch settings only
 - Post launch
+
   - Deactivate the post-launch feature for this server
   - Change deployment settings (test and cutover, test only, or cutover
     only)
 
 - Start/stop replication
 - Test and cutover drop-down menu:
+
   - Launch test
   - Mark as ready for cutover
   - Revert to ready for testing
@@ -64,12 +66,14 @@ servers.
 - Edit replication settings
 - Launch settings – edit general launch settings only
 - Post launch
+
   - Deactivate the post-launch feature for this server
   - Change deployment settings (test and cutover, test only, or cutover
     only)
 
 - Start/stop replication
 - Test and cutover drop-down menu:
+
   - Launch test
   - Mark as ready for cutover
   - Revert to ready for testing
@@ -88,6 +92,7 @@ applications:
 - Delete application
 - Test and cutover drop-down menu (these actions can also be performed on multiple
   applications):
+
   - Launch test
   - Mark as ready for cutover
   - Revert to ready for testing
@@ -108,6 +113,7 @@ applications:
 - Delete wave
 - Test and cutover drop-down menu (these actions can also be performed on multiple
   waves):
+
   - Launch test
   - Mark as ready for cutover
   - Revert to ready for testing

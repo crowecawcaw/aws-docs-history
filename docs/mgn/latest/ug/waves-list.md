@@ -25,6 +25,7 @@ The columns include:
   wave.
 - **Migration status** – This column shows the migration status for
   each wave.
+
   - **Not started** – If none of the wave's associated servers has
     started replication yet.
   - **In progress** – At least one of the wave's associated

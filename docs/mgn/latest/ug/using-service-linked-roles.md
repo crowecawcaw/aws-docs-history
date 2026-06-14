@@ -83,24 +83,22 @@ by AWSServiceRoleforApplicationMigrationService**
 
 1. Identify and delete any waves and applications in all
    AWS Regions
+
    1. identify any waves:
 
    ```
    aws mgn list-waves
    ```
-
    2. Delete any waves:
 
    ```
    aws mgn delete-wave --wave-id {WaveID}
    ```
-
    3. Identify any application:
 
    ```
    aws mgn list-applications
    ```
-
    4. Delete any application:
 
    ```
@@ -108,24 +106,22 @@ by AWSServiceRoleforApplicationMigrationService**
    ```
 
 2. Identify and delete any source servers in all AWS Regions
+
    1. Identify any active source servers:
 
    ```
    aws mgn describe-source-servers --filters isArchived=False --query "items[*].sourceServerID"
    ```
-
    2. Disconnect any active source servers:
 
    ```
    aws mgn disconnect-from-service --source-server-id {SourceServerID}
    ```
-
    3. Archive any disconnected source servers:
 
    ```
    aws mgn mark-as-archived --source-server-id {SourceServerID}
    ```
-
    4. Delete any archived source server:
 
    ```
@@ -133,12 +129,12 @@ by AWSServiceRoleforApplicationMigrationService**
    ```
 
 3. Identify and delete any MGN jobs in all AWS Regions
+
    1. Identify any MGN jobs
 
    ```
    aws mgn describe-jobs
    ```
-
    2. Delete any MGN jobs:
 
    ```
@@ -146,12 +142,12 @@ by AWSServiceRoleforApplicationMigrationService**
    ```
 
 4. Identify and delete any MGN replication templates
+
    1. Identify any MGN replication template:
 
    ```
    aws mgn describe-replication-configuration-templates
    ```
-
    2. Remove any MGN replication templates:
 
    ```

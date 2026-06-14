@@ -32,6 +32,7 @@ This column is hidden by default.
 
 - **Migration status** – This column shows the
   migration status for each application.
+
   - **Not started** – None of the
     application associated servers has started replication yet.
   - **In progress** – At least one of the

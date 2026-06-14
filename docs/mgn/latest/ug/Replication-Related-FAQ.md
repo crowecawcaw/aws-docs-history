@@ -178,6 +178,7 @@ You can use our SSL bandwidth tool to check for replication bandwidth availabili
 - Browse to the web page using the test server **public** or **private** IP
   according to what you defined in your replication settings.
 - The following are the AMI details per region:
+
   - ami-00b38c08ab3506ea7 – US East (N. Virginia)
   - ami-0bd8423a4d80563fc – US East (Ohio)
   - ami-00b7159e9c985a8da – US West (N. California)

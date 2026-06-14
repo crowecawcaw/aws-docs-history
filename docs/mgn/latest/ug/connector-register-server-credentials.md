@@ -16,6 +16,7 @@ credentials** from the **Actions**
 men.
 
 - Use existing secret
+
   - Using AWS Secrets Manager MGN can use the stored source server
     credentials and API keys in order to connect to the source machine
     and perform actions on it. You must specify the secret that stores
@@ -24,9 +25,11 @@ men.
   - Be sure to add the `AWSApplicationMigrationServiceManaged` tag to the secret with the value set to `True`.
 
 - Create new secret
+
   - **Secret name** - Enter a name for your new secret. The name you specify will be saved in AWS Secret Manager.
   - **Encryption key** - To encrypt, either use the KMS key provided by Secret Manager or create your own customer managed KMS key.
   - **For Windows servers:**
+
     - **Communication protocol** –
       this is the WinRM connection protocol between the MGN Connector and Source Servers used to install the agents.
 
@@ -41,7 +44,6 @@ men.
 
         * **HTTP**
         * **HTTPS**
-
     - **UserName** – A user that is authorized to install the agent and perform actions on the source server.
     - **Password** – The specific source server's password.
     - **CertificateAuthority**
@@ -49,8 +51,10 @@ men.
       certificate's SAN field to enable communication.
 
   - **For Linux servers:**
+
     - **UserName** – A user that is authorized to install the agent and perform actions on the source server.
     - **Provide one of the following:**
+
       - **Password** – The specific source server's password.
       - **PrivateKey** – The source server’s private key.
 

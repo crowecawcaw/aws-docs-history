@@ -4,7 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 The source server **Alerts** metric provides an aggregated
 overview of the alerts related to the wave's associated servers. You can look up an individual
-source server **Alerts** status at the **Source servers** table at the bottom of the page.
+source server **Alerts** status in the **Source servers** table.
 
 ![Pie chart showing server alerts: 2 servers healthy (66.7%), 1 server launched (33.3%).](images/app-7.png)
 

@@ -144,6 +144,7 @@ JSON
 ```
 
 6. Attach the following policies:
+
    1. **AmazonSSMManagedInstanceCore**
    2. **MgnConnectorPolicy**
 

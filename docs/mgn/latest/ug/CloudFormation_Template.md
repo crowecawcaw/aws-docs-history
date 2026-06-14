@@ -8,6 +8,7 @@ deploy these permissions manually.
 1. To configure the required IAM roles and policies, after replacing the described parameters,
    save the following AWS CloudFormation JSON template to a text file called `aws-mgn-connector-iam-principals.json`
    on your local system:
+
    1. Replace the example account number **111122223333** with your account number.
    2. Replace **ROLE-NAME** with the user role that serves as the trusted entity. This user role assumes the **MGNConnectorInstallerRole** role and can install the connector.
    3. Replace the example region **us-east-2** with the Region of the account.

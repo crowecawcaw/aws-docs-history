@@ -39,20 +39,25 @@ Once you have read the notes, proceed to [install the client](client-installatio
   Backup user (sample) ” provides most of these permissions. If that role is used, the
   **Toggle disk change tracking** permission must be
   provided..
+
   - Change configuration
+
     - Acquire disk lease
     - Toggle disk change tracking
 
   - Provisioning
+
     - Allow read-only disk access
     - Allow virtual machine download
 
   - Snapshot management
+
     - Create snapshot
     - Remove snapshot
 
 - The VM on which the MGN vCenter Client is installed should meet these RAM,
   CPU, and memory requirements:
+
   - Minimal requirements (these requirements allow the replication of up to 5
     servers in parallel) – 2 GiB RAM, 1 core, 10 GiB of free disk space
   - Optional performance requirements (these requirements allow the replication of
@@ -65,6 +70,7 @@ Once you have read the notes, proceed to [install the client](client-installatio
   (ingress) traffic.
 - The VM on which the MGN vCenter Client is installed should only allow outgoing
   traffic as following:
+
   - Egress TCP on the port on which the vCenter API is ran.
   - Egress TCP on port 443 for communication with the MGN API.
   - Egress TCP on port 1500 – for the replication server.
@@ -92,6 +98,7 @@ Once you have read the notes, proceed to [install the client](client-installatio
 
 - The MGN vCenter Client installer only supports vCenter 6.7, 7.0 and 8.0.
 - The MGN vCenter Client can be installed on these 64 bit Linux versions:
+
   - Ubuntu 18.x+ (64 bit) - 22.04
   - Amazon Linux 2
   - RHEL 8.x
@@ -99,6 +106,7 @@ Once you have read the notes, proceed to [install the client](client-installatio
 - If you are using a RHEL 8.x environment, ensure that you run the `sudo yum install
 python3` command to install python prior to launching the client installer.
 - These flags are used by the installer:
+
   - usage: aws-vcenter-client-installer-init.py [-h]
   - [--aws-access-key-id AWS\_ACCESS\_KEY\_ID]
   - [--aws-access-key-id AWS\_ACCESS\_KEY\_ID]

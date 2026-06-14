@@ -20,6 +20,7 @@ To create your CloudWatch Events rules:
 3. For **Event source**, select **Event Pattern** as the event source, and then select **Build custom event pattern**.
 4. Paste one following event pattern into the text area, depending on the event rule
    you wish to create:
+
    1. To catch all MGN events:
 
    ```
@@ -27,7 +28,6 @@ To create your CloudWatch Events rules:
      "source": ["aws.mgn"]
    }
    ```
-
    2. To catch all Lifecycle state changes:
 
    ```
@@ -36,7 +36,6 @@ To create your CloudWatch Events rules:
      "source": ["aws.mgn"]
    }
    ```
-
    3. To catch all events relating to a given source server:
 
    ```

@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 The source server's **Migration lifecycle** metric provides
 an aggregated overview of the migration lifecycle of the wave's associated servers . You can
 look up an individual source server's **Migration lifecycle**
-status at the **Source servers** table at the bottom of the page.
+status in the **Source servers** table.
 
 ![Pie chart showing migration lifecycle status with three equal segments at 33.3% each.](images/app-9.png)
 The source server's **Migration lifecycle** can have one of

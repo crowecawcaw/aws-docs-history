@@ -29,6 +29,7 @@ Installation of the MGN Connector also installs the SSM agent.
   in the _AWS Systems Manager User Guide_.
 - A minimum of 200 MB of free disk space and 200 KB of free disk space in the `/var` directory.
 - Installation is not supported on these operating systems:
+
   - CentOS 5.x
   - CentOS 6.x
   - RHEL 6.x

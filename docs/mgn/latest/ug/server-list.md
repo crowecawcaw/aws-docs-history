@@ -33,6 +33,7 @@ The columns include:
   name for each source server.
 - **Alerts** – This column shows whether any alerts exist for
   the server.
+
   - **No indication** – a healthy server for which a test or
     cutover instance has not been launched.
   - **Launched** – a healthy server for which a test of
@@ -50,6 +51,7 @@ The columns include:
   lifecycle state for each source server. This way you can easily know which lifecycle
   step the server is undergoing. Migration lifecycle steps include these: [Learn more about Migration lifecycle
   steps](migration-dashboard.md#initiation "migration-dashboard.md#initiation").
+
   - **Not ready**
   - **Ready for testing**
   - **Test in progress**

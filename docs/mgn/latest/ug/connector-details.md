@@ -16,6 +16,7 @@ The page includes the following details:
 - **Agent installed** – Indicates whether the MGN Agent is installed on the server.
 - **Credential secret** – The secret of the specific source server.
 - **Next step** – What is the new action in the connector installation workflow. Options include:
+
   - **Initiate test** – Test your source server before migration.
   - **Mark as tested** – Mark that the source server is ready for migration.
   - **Check prerequisites** – Ensure that the source server meets the required prerequisites.

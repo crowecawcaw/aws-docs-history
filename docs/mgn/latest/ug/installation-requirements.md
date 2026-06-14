@@ -8,6 +8,7 @@ these requirements:
 ## General requirements
 
 - Ensure that the source server operating system is supported by AWS.
+
   - [Supported Windows operating systems.](Supported-Operating-Systems.md#Supported-Operating-Systems-Windows "Supported-Operating-Systems.md#Supported-Operating-Systems-Windows")
   - [Supported Linux operating systems.](Supported-Operating-Systems.md#Supported-Operating-Systems-Linux "Supported-Operating-Systems.md#Supported-Operating-Systems-Linux")
 
@@ -50,6 +51,7 @@ make gcc perl tar gawk rpm
 ```
 
 - Verify that you meet these disk space requirements:
+
   - At least 2 GB of free disk space on the
     root directory (/) of your source server for the installation. To check the available
     disk space on the root directory, run the `df -h /` command.

@@ -122,6 +122,7 @@ Each disk is composed of the following fields:
 - **Network interfaces** – The network interface is created
   by default based on your replication template. The network interface section is composed of
   the following fields:
+
   - **Device index** – **Do
     not** change or edit this field. The value should always be "**0**".
   - **Network interface** – Use this option only if you want
@@ -165,6 +166,7 @@ Each disk is composed of the following fields:
   the fields you should **not** change or edit in order to allow
   AWS Transform MGN to function properly. **Do not** change or edit any of
   the following fields:
+
   - RAM disk ID
   - Kernel
   - Nitro Enclave

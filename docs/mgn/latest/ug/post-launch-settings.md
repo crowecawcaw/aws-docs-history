@@ -7,7 +7,7 @@ server has been launched in AWS. These settings are created automatically based 
 **Post-launch template**.
 
 To access the template, choose **Post-launch template**
-on the left-hand menu.
+from the navigation menu.
 
 The settings defined in the template are applied to every newly added server. You can
 change the settings for existing and newly added servers individually within the server
@@ -49,6 +49,7 @@ MGN to:
 
 - Installation of the SSM Agent requires a minimum of 200 MB of free disk space and 200 KB of free disk space in the `/var` directory.
 - Installation of the SSM Agent is not supported on these operating systems:
+
   - CentOS 5.x
   - CentOS 6.x
   - RHEL 6.x
@@ -109,10 +110,10 @@ that are executed on your new Amazon EC2 instances.
 - Custom post-launch actions are based on SSM documents that you create
   and upload to your account.
 
-Use the **Filter by** options on the left-hand side
+Use the **Filter by** options
 to filter the available actions according to your preferences.
 
-Click the settings icon in the right-hand corner of the screen to alternate
+Choose the settings icon to alternate
 between card and list view, according to your preferences.
 
 ## Create a custom post-launch action

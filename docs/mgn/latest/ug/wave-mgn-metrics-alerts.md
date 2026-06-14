@@ -4,7 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 The application **Alerts** metric provides an aggregated
 overview of the alerts related to the wave's associated applications. You can look up an
-individual application **Alerts** status at the **Applications** table at the bottom of the page.
+individual application **Alerts** status in the **Applications** table.
 
 ![Pie chart showing 100% healthy status for 2 applications in the Alerts metric.](images/wave-8.png)
 

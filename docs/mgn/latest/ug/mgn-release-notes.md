@@ -4,6 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## June 2026
 
+- Added support for Windows 11.
 - Added support for Oracle Linux 9.7.
 - Added support for CentOS Stream 10.
 
@@ -174,6 +175,7 @@ If you’re managing your own policy, you must include a statement allowing `ec2
 ## August 2023
 
 - Introduced 3 new predefined post-launch actions:
+
   - [Verify tags](predefined-post-launch-actions.md#predefined-verify-tags "predefined-post-launch-actions.md#predefined-verify-tags")
   - [Auto Scaling group setting](predefined-post-launch-actions.md#predefined-autoscaling-group-setting "predefined-post-launch-actions.md#predefined-autoscaling-group-setting")
   - Enable Refactor Spaces
@@ -195,6 +197,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
   [Learn more about the
   import and export feature.](import-export.md "import-export.md")
 - Introduced 4 new predefined post-launch actions:
+
   - [Configure Time Sync](predefined-post-launch-actions.md#predefined-time-sync "predefined-post-launch-actions.md#predefined-time-sync")
   - [Validate disk space](predefined-post-launch-actions.md#predefined-validate-disk-space "predefined-post-launch-actions.md#predefined-validate-disk-space")
   - [Verify HTTP/HTTPS response](predefined-post-launch-actions.md#predefined-verify-http-https-response "predefined-post-launch-actions.md#predefined-verify-http-https-response")
@@ -233,6 +236,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 - Added support for CentOS 5.5–5.11 and RHEL 5.5–5.11.
 - Added support for migration of servers using the Oracle ASM Filter Driver.
 - Introduced 8 new predefined post-launch actions:
+
   - [Conduct EC2 connectivity
     checks](predefined-post-launch-actions.md#predefined-ec2-connectivity-check "predefined-post-launch-actions.md#predefined-ec2-connectivity-check")
   - [Validate volume

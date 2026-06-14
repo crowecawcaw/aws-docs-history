@@ -50,6 +50,7 @@ Create the following interface endpoints:
 5. **`com.amazonaws.`region`.s3`**
    – Systems Manager uses this endpoint to update the SSM Agent and to perform patching operations.
    The MGN connector installer and the AWS Replication Agent installer download installation assets from this endpoint.
+
    1. Note that private DNS names are disabled by default for the S3 endpoint.
    2. If you wish to also **Enable private DNS only for inbound endpoint**,
       you must first create an S3 gateway VPC endpoint. For more information, see

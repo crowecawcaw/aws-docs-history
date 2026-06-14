@@ -31,8 +31,8 @@ There are 2 types of post-launch actions:
 To add a custom post-launch action, see [Create a custom post-launch action](post-launch-settings.md#post-launch-settings-custom-actions-add "post-launch-settings.md#post-launch-settings-custom-actions-add").
 To edit a custom post-launch action, see [Edit custom post-launch actions](post-launch-settings.md#post-launch-settings-custom-actions-edit "post-launch-settings.md#post-launch-settings-custom-actions-edit").
 
-Use the **Filter by** options on the left-hand side to
+Use the **Filter by** options to
 filter the available actions according to your preferences.
 
-Click the settings icon in the right-hand corner of the screen to alternate between card
+Choose the settings icon to alternate between card
 and list view, according to your preferences.

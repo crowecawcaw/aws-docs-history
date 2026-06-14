@@ -27,4 +27,4 @@ All Nitro based instance types can also run on UEFI instead of Legacy BIOS.
 
 UEFI is not supported in CentOS 6 and Rhel 6.
 
-Refer to [this page for a list of supported instance types](../../../AWSEC2/latest/UserGuide/ami-boot.md "../../../AWSEC2/latest/UserGuide/ami-boot.md").
+For a list of supported instance types, see [Boot modes](../../../AWSEC2/latest/UserGuide/ami-boot.md "../../../AWSEC2/latest/UserGuide/ami-boot.md") in the _Amazon EC2 User Guide_.

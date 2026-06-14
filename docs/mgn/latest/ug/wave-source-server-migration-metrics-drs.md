@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 The source server **Data replication status** metric provides
 an aggregated overview of the data replication status of the wave's associated servers. You can
 look up an individual source server **Data replication status**
-status at the **Source servers** table at the bottom of the page.
+status in the **Source servers** table.
 
 ![Pie chart showing data replication status: 66.7% Healthy (2 servers), 33.3% Initial sync (1 server).](images/app-8.png)
 Source server's **Data replication status** can have one of

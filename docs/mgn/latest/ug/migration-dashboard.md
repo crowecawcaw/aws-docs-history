@@ -67,6 +67,7 @@ state until initial sync has been successfully completed.
 Initial sync steps include:
 
 - Initiation
+
   - Creating firewall rules
   - Creating replication server
   - Booting replication server

@@ -28,6 +28,7 @@ values:
      started replication and not all of its applications completed migration.
 
 - **Alerts** – The wave alert.
+
   - A wave that has at least one application that is experiencing significant issues, such
     as a stall, will display a **Stalled** status.
   - A wave that has at least one application that is experiencing a temporary issue such as

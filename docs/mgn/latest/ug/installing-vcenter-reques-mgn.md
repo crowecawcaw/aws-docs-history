@@ -6,6 +6,7 @@ MGN supports VMC on AWS for agentless replication.
 
 - MGN partially supports vMotion, Storage vMotion, and other features based on virtual
   machine migration (such as DRS and Storage DRS) subject to these limitations:
+
   - Migrating a virtual machine to a new ESXi host or datastore after one replication run
     ends, and before the next replication run begins, is supported as long as the vCenter
     account has sufficient permissions on the destination ESXi host, datastores, and datacenter,
