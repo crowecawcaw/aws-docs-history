@@ -6,10 +6,12 @@ The DASH Industry Forum [CPIX 2.3 specification](https://dashif.org/docs/CPIX2.3
 
 - SPEKE follows the Encryptor Consumer workflow.
 - For encrypted content keys, SPEKE applies the following restrictions:
+
   - SPEKE doesn’t support digital signature verification (XMLDSIG) for request or response payloads.
   - SPEKE requires 2048 RSA-based certificates.
 
 - SPEKE leverages only a subset of CPIX functionalities:
+
   - SPEKE omits the `UpdateHistoryItemList` functionality. If the list is present in the response, SPEKE ignores it.
   - SPEKE omits the root/leaf key functionality. If the `ContentKey@dependsOnKey` attribute is present in the response, SPEKE ignores it.
   - SPEKE omits the `BitrateFilter` element and the `VideoFilter@wcg` attribute. If these elements or attributes are present in the CPIX payload, SPEKE ignores it.

@@ -4,6 +4,7 @@ The DASH-IF CPIX specification, https://dashif.org/docs/DASH-IF-CPIX-v2-0.pdf, s
 
 - SPEKE follows the Encryptor Consumer workflow.
 - For encrypted content keys, SPEKE applies the following restrictions:
+
   - SPEKE doesn’t support digital signature verification (XMLDSIG) for request or response payloads.
   - SPEKE requires 2048 RSA-based certificates.
 
