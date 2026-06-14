@@ -75,10 +75,12 @@ For each log type, you can configure up to 3 log deliveries.
 1.  Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
 2.  Select your channel group from the list of channel groups.
 3.  Under **Access Logging**, do the following:
+
     1. For **Log deliveries – Egress Access Logs** or
        **Log deliveries – Ingress Access Logs**,
        choose **Add**, and then do the following:
     2. Choose one of the following logging destinations.
+
        - Amazon CloudWatch Logs
        - Amazon S3
        - Firehose
@@ -97,6 +99,7 @@ For each log type, you can configure up to 3 log deliveries.
     ARN. If you don't have one already, follow the prompts to create one.
 5.  For **Additional settings - _optional_**,
     choose the following:
+
     1. For **Field selection**, select the log fields to
        include in each log record.
     2. For **Output format**, choose the output format for

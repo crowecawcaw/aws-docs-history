@@ -125,6 +125,7 @@ When you're creating a harvest job, don't put sensitive identifying information 
 7. For **Channel group name**, select the channel group that serves the live stream that you're harvesting the live-to-VOD asset from. By default, you can have up to 10 active harvest jobs within a channel group.
 8. For **Channel name**, select the channel that serves the live stream that you're harvesting the live-to-VOD asset from.
 9. For **Origin endpoint name**, select the endpoint that serves the live stream that you're harvesting the live-to-VOD asset from. Note the following considerations:
+
    - Your harvest job start time must fall within your MediaPackage endpoint's startover window. The startover window determines the time frame that assets can be harvested from your endpoint. For example, if your endpoint has a startover window of three days, you can harvest your asset anytime within that time frame. To adjust your endpoint's startover window, see [Viewing an origin endpoint in AWS Elemental MediaPackage](endpoints-view.md "endpoints-view.md").
    - Your harvested live-to-VOD asset can have a maximum duration of 24 hours.
    - Your endpoint must serve either clear (unencrypted) or encrypted DASH, HLS, or CMAF
@@ -132,6 +133,7 @@ When you're creating a harvest job, don't put sensitive identifying information 
 
 10. For **Harvested manifest name**, select the endpoint that serves the live stream that you're harvesting the live-to-VOD asset from. You can set up the manifest filter in your filter configuration, but not clip start time, start time, end time, or time delay seconds. For more information, see [FilterConfiguration](../APIReference/API_FilterConfiguration.md "../APIReference/API_FilterConfiguration.md") in the _MediaPackage V2 Live API Reference_.
 11. For **Schedule configuration**, select a **Start date and time** and **End date and time**. The maximum time range is 24 hours.
+
     - Select a date and time for **When the live-to-VOD asset starts**. The asset's begin time must be at the same time or after the live event started, and it must be in the past. The start time must also be within the startover window on the endpoint. If the endpoint has a window of 5 hours and the start time is 6 hours ago, the harvest job fails.
     - Select a date and time for **When the live-to-VOD asset ends**. The length of the asset can't exceed the startover window on the endpoint. The end time can be in the future.
 

@@ -12,5 +12,6 @@ You can use the MediaPackage console to preview playback from the endpoint.
 1. Access the channel that the endpoint is associated with, as described in [Viewing channel details in AWS Elemental MediaPackage](channels-view.md "channels-view.md").
 2. Under **Origin endpoints**, select the endpoint that you want to preview.
 3. To preview playback, do one of the following:
+
    - Choose **Preview** to play content with the embedded player.
    - Choose **QR code** to view and scan the QR code for playback on a compatible device.

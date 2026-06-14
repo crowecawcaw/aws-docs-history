@@ -47,6 +47,7 @@ Use this guide to determine which protocols you need to implement:
    content.
 2. **Check device compatibility**: If your
    audience includes any of these devices, consider implementing MSS:
+
    - Xbox 360 consoles
    - Legacy smart TVs (especially older Samsung and LG models)
    - Devices with Microsoft Silverlight players
@@ -140,6 +141,7 @@ Make sure your implementation meets these technical requirements:
 When you configure your MSS endpoints, consider these options:
 
 - **Manifest layouts**: Choose between:
+
   - **Full layout**: Better compatibility
     with older players but larger manifest size
   - **Compact layout**: Uses the

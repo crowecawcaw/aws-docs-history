@@ -27,6 +27,7 @@ expected behaviors based on request start and end parameters:
 - If start or end parameters are used that are before the first segment is ingested, or
   after the last segment is ingested, the playback duration won't match the manifest duration as
   requested through the query parameters.
+
   - If the start time is specified and the value is earlier than when the first segment is
     ingested, MediaPackage uses the actual time that the first segment is ingested as the start of the
     manifest.

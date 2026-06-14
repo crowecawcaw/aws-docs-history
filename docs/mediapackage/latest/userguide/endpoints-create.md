@@ -20,6 +20,7 @@ or Amazon CloudWatch Events.
 1. Access the channel that the endpoint will be associated with, as described in [Viewing channel details in AWS Elemental MediaPackage](channels-view.md "channels-view.md").
 2. Choose **Create endpoint** from the **Origin endpoints** list.
 3. Complete the fields as described in the following topics:
+
    - [Endpoint settings fields](#endpoints-settings "#endpoints-settings")
    - [Segment settings fields](#endpoints-segment "#endpoints-segment")
    - [Encryption fields](#endpoints-encryption "#endpoints-encryption")
@@ -144,6 +145,7 @@ The segment settings fields hold general information about the segment.
 7. For **SCTE filtering**, choose the SCTE-35 message types
    that will be ad markers in the output. If you don't make a selection here,
    by default, MediaPackage inserts all ad markers in the output manifest.
+
    - Splice insert
    - Break
    - Provider advertisement
@@ -165,6 +167,7 @@ The segment settings fields hold general information about the segment.
 8. For **SCTE in segments**, choose whether to include
    SCTE-35 messages in the segment files. Choose from the following
    options:
+
    - **None** – SCTE-35 messages are not included in
      segment output. This is the default setting.
    - **All** – All SCTE-35 messages are included in
@@ -182,6 +185,7 @@ The segment settings fields hold general information about the segment.
    default, MediaPackage treats only splice insert and time signal placement
    opportunity events as ads. Use this setting to designate other event types
    as ads. Choose from the following values:
+
    - `PROGRAM`
    - `CHAPTER`
    - `UNSCHEDULED_EVENT`
@@ -208,15 +212,19 @@ To encrypt content, you must have a DRM provider, and be set up to use encryptio
    choose the correct container type. The encryption method you choose impacts
    the DRM system providers you can choose. For supported encryption methods
    and DRM system providers, see [Container and DRM system support with SPEKE](using-encryption.md#encryption-choosing-speke-version "using-encryption.md#encryption-choosing-speke-version").
+
    - The valid encryption methods for TS container types are:
+
      - AES-128
      - Sample AES
 
    - The valid encryption methods for CMAF container types are:
+
      - CENC
      - CBCS
 
    - The valid encryption method for ISM container types is:
+
      - CENC
 
 3. For **DRM systems**, choose the DRM system providers
@@ -322,6 +330,7 @@ You must assign a channel policy to enable content to flow into your channel fro
 1. Under **Endpoint policy**, choose an endpoint policy to enable content to flow into your channel from
    sources outside of your account. For more information about policies,
    see [Resource-based policy examples](using-iam-policies.md "using-iam-policies.md").
+
    - **Don't attach a policy** - Restrict access to only those who have access to this account's credentials.
    - **Attach a custom policy** - Define your own policy and restrict access to as few or as many as you want.
      Enter a valid JSON object with the same structure as other IAM policies.
@@ -413,6 +422,7 @@ based on your specified offset settings.
    this field, select **Enable SCTE support** in the
    origin endpoint segment settings. Choose from the following
    options:
+
    - **Daterange** – Insert `EXT-X-DATERANGE` tags to signal ads and program transition events
      in TS and CMAF output manifests. If you choose daterange, you _must_ also enter a **Program date/time interval
      (sec.)** value of 1 or greater.
@@ -425,6 +435,7 @@ based on your specified offset settings.
 8. For **SCTE in manifests**, choose
    which SCTE-35 events appear in the output manifests. Choose from the
    following options:
+
    - **All** – All SCTE-35 events appear in
      the manifest. This is the default setting.
    - **Matches filter** – Only SCTE-35 events
@@ -436,6 +447,7 @@ based on your specified offset settings.
 9. For **URI path type**, choose how
    MediaPackage generates child manifest and segment URIs. Choose from the
    following options:
+
    - **Leaf** – URIs are relative paths
      (leaf). This is the default setting.
    - **Root** – URIs are absolute paths rooted
@@ -592,6 +604,7 @@ must adhere to the following requirements:
     delay duration.
 6.  For **Segment template format**, choose how
     MediaPackage and playback requests refer to each segment.
+
     - For **Number with timeline**,
       MediaPackage uses the `$Number$` variable to
       refer to the segment in the `media` attribute of
@@ -616,25 +629,43 @@ must adhere to the following requirements:
 
     For more information about the manifest layout options, see [DASH manifest compactness](compacted.md "compacted.md").
 
-8.  For **Profiles**, optionally choose if the output
+8.  For **Audio timeline pattern**, choose how
+    MediaPackage represents audio segment durations in the
+    `SegmentTimeline`.
+
+        * If you choose **None**, MediaPackage
+         lists each audio segment duration individually in the
+         `SegmentTimeline`. This is the default
+         setting.
+        * **Patterned** enables Segment Duration
+         Patternization (SDP). MediaPackage detects repeating
+         cycles in audio segment durations and represents them
+         as `Pattern` elements, reducing manifest
+         size for long time-shift buffers.
+
+    For more information about audio timeline patterns, see [DASH audio timeline pattern](dash-audio-timeline-pattern.md "dash-audio-timeline-pattern.md").
+
+9.  For **Profiles**, optionally choose if the output
     is compliant with DVB-DASH. Review the DVB-DASH requirements to
     ensure the endpoint is compliant with this profile:
+
     - The channel must use CMAF input
     - The endpoint must not use **UTC Direct**
       for UTC timing mode
 
-9.  For **UTC timing**, select the method that the
+10. For **UTC timing**, select the method that the
     player uses to synchronize to coordinated universal time (UTC) wall
     clock time. This enables the player and MediaPackage to run on the
     same UTC wall clock time. This is a requirement, otherwise playback
     timing or synchronization issues can occur. Choose from the
     following options:
+
     - `UTC Direct`
     - `HTTP Head`
     - `HTTP Iso`
     - `HTTP Xsdate`
 
-10. For **UTC timing source**, specify a URI to use
+11. For **UTC timing source**, specify a URI to use
     for UTC synchronization. This is the URI used to fetch the timing
     data according to the scheme defined by **UTC
     timing**. This value is only valid if **UTC
@@ -642,10 +673,11 @@ must adhere to the following requirements:
 DIRECT`. This value will be set as the `@value`
     attribute for the `UTCTiming` element. For information
     about `@value`, see [DASH clock synchronization](https://dashif.org/dash.js/pages/usage/clock-sync.html "https://dashif.org/dash.js/pages/usage/clock-sync.html").
-11. For **DASH period triggers**, choose how
+12. For **DASH period triggers**, choose how
     MediaPackage creates media presentation description (MPD) periods
     in the DASH output manifest. For more information, see [Multi-period DASH in AWS Elemental MediaPackage](multi-period.md "multi-period.md"). Choose
     from the following options:
+
     - **Avails** – Avails that pass the
       `ScteFilter` will create new periods.
     - **DRM key rotation** – Encryption
@@ -658,7 +690,7 @@ DIRECT`. This value will be set as the `@value`
       the manifest as a single period. It doesn't create
       additional periods, unless DRM settings change.
 
-12. Select **Configure subtitle TTML profile** to
+13. Select **Configure subtitle TTML profile** to
     optionally configure the profile that TTML subtitles use.
 
 **Subtitle TTML profile**
@@ -670,7 +702,7 @@ subtitles that are compliant with the EBU-TT-D TTML
 profile. MediaPackage passes through subtitle styles to the
 manifest. For more information about EBU-TT-D subtitles,
 see [EBU-TT-D Subtitling Distribution
-Format](https://tech.ebu.ch/publications/tech3380 "https://tech.ebu.ch/publications/tech3380"). 13. Select **Configure program information** to
+Format](https://tech.ebu.ch/publications/tech3380 "https://tech.ebu.ch/publications/tech3380"). 14. Select **Configure program information** to
 optionally provide details about the content that you want MediaPackage to
 pass through in the manifest to the playback device. To read more
 about program information, see the _Program
@@ -696,7 +728,7 @@ The language code for this manifest.
 **More information URL**
 
 An absolute URL that contains more information about
-this content. 14. Select **Configure DASH base URLs** to optionally
+this content. 15. Select **Configure DASH base URLs** to optionally
 specify one or more locations for the segments. For more
 information, see the _Base URL
 section_ of the [ISO 23009-1 DASH
@@ -721,7 +753,7 @@ URL. Lower values are higher priority.
 **DVB weight**
 
 For endpoints that use the DVB-DASH profile only. The
-weighting for Base URLs with the same priority. 15. For endpoints that use the DVB-DASH profile, select
+weighting for Base URLs with the same priority. 16. For endpoints that use the DVB-DASH profile, select
 **Configure DVB-DASH settings** to optionally
 pass to the player information for downloading subtitle fonts and
 sending error reports to pass through in the manifest to the
@@ -763,7 +795,7 @@ reports.
 The number of playback devices per 1000 that will send
 error reports to the reporting URL. This integer
 represents the probability that the playback device will
-be a reporting player for this session. 16. For **Ad markers**, choose how ad markers are
+be a reporting player for this session. 17. For **Ad markers**, choose how ad markers are
 signaled in the output manifests. All the non-ad markers that you
 include in the content stream in your upstream encoders will also be
 present in the output manifests. Choose from the following
@@ -775,9 +807,10 @@ options:
     * **XML** – The SCTE marker is
      expressed fully in XML.
 
-17. For **SCTE in manifests**, choose
+18. For **SCTE in manifests**, choose
     which SCTE-35 events appear in the output manifests. Choose from the
     following options:
+
     - **All** – All SCTE-35 events appear in
       the manifest. This is the default setting.
     - **Matches filter** – Only SCTE-35 events
@@ -786,15 +819,16 @@ options:
       least one SCTE filter value configured to use this
       option.
 
-18. For **URI path type**, choose how
+19. For **URI path type**, choose how
     MediaPackage generates child manifest and segment URIs. Choose from the
     following options:
+
     - **Leaf** – URIs are relative paths
       (leaf). This is the default setting.
     - **Root** – URIs are absolute paths rooted
       at the endpoint base egress URI.
 
-19. Select **Enable filter configuration** if you
+20. Select **Enable filter configuration** if you
     want to optionally add filters and settings to modify manifests.
     These filters apply to all manifests that originate from this
     endpoint.

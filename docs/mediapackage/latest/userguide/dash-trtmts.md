@@ -48,3 +48,7 @@ description) object. These are the elements of the manifest:
   manifest. You can use the following treatment options on the output live manifest:
 
 - Separate the manifest into multiple periods, to permit ad breaks. See [Multi-period DASH in AWS Elemental MediaPackage](multi-period.md "multi-period.md").
+- Reduce the length of the manifest to make processing and playback more
+  efficient. See [DASH manifest compactness](compacted.md "compacted.md").
+- Compress repeating audio segment durations using Segment Duration
+  Patternization (SDP). See [DASH audio timeline pattern](dash-audio-timeline-pattern.md "dash-audio-timeline-pattern.md").

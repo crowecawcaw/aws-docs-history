@@ -75,12 +75,14 @@ A global media company delivering MSS content to legacy devices across multiple
 regions implemented the following CloudFront configuration:
 
 - **Origin settings**:
+
   - Origin domain: their MediaPackage endpoint domain
   - Origin protocol policy: Match viewer
   - Origin keep-alive timeout: 5 seconds
 
 - **Cache behavior for manifests
   (.ism/Manifest)**:
+
   - Path pattern: \*.ism/Manifest
   - TTL settings: Minimum 0, Default 5, Maximum 10 (seconds)
   - Compress objects automatically: Yes
