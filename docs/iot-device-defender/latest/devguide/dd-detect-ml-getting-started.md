@@ -52,6 +52,7 @@ The following procedures detail how to set up ML Detect in the console.
    profile**.
 3. On the **Set basic configurations** page, do the
    following.
+
    - Under **Target**, choose your target device
      groups.
    - Under **Security profile name**, enter a name for

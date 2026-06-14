@@ -13,6 +13,7 @@ includes those findings in its analysis of your security posture.
 
 - [Enabling and configuring the integration](securityhub-integration.md#securityhub-integration-enable "securityhub-integration.md#securityhub-integration-enable")
 - [How AWS IoT Device Defender sends findings to Security Hub CSPM](securityhub-integration.md#securityhub-integration-sending-findings "securityhub-integration.md#securityhub-integration-sending-findings")
+
   - [Types of findings that AWS IoT Device Defender sends](securityhub-integration.md#securityhub-integration-finding-types "securityhub-integration.md#securityhub-integration-finding-types")
   - [Latency for sending findings](securityhub-integration.md#securityhub-integration-finding-latency "securityhub-integration.md#securityhub-integration-finding-latency")
   - [Retrying when Security Hub CSPM isn't available](securityhub-integration.md#securityhub-integration-retry-send "securityhub-integration.md#securityhub-integration-retry-send")
