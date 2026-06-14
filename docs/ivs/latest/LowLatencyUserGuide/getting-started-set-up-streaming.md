@@ -196,6 +196,7 @@ If you created the channel with the AWS CLI:
    either value chosen by the OBS wizard exceeds the values allowed by Amazon
    IVS, you should manually adjust the values to avoid a failed connection to
    Amazon IVS. After the wizard completes:
+
    1. To adjust video resolution, use **Settings >
       Video > Output (Scaled) Resolution**.
    2. To adjust video bitrate, use **Settings >

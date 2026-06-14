@@ -448,6 +448,7 @@ following steps to troubleshoot the missing content:
 
 1. Ensure that Auto-Record to S3 is enabled for the desired IVS
    channel:
+
    1. Console — On the details page for the relevant channel, in the
       **General configuration** section,
       ensure that Auto-record to S3 is `Enabled`. If it is

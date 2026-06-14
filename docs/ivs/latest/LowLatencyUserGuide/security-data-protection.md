@@ -5,6 +5,7 @@ protections are in place:
 
 - Amazon IVS encrypts data in transit via HTTPS API endpoints, RTMPS ingest, and
   HTTPS playback. No configuration is required for the API endpoints.
+
   - For ingest, streamers can secure their content by using RTMPS. This is
     available by default. See [Getting Started with IVS Low-Latency Streaming](getting-started.md "getting-started.md").
   - IVS channels can be configured to allow insecure RTMP ingest, though

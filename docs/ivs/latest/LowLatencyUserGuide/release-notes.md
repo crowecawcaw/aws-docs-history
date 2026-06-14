@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## June 11, 2026
+
+### IVS Player SDK: Web 1.53.0
+
+| Platform                                                                                                                                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web player 1.53.0](player-web.md "player-web.md") &<br>[Video.js integration](player-videojs.md "player-videojs.md")<br>& [JW player<br>integration](player-jwplayer.md "player-jwplayer.md") | **NPM Package:**<br>[https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player "https://www.npmjs.com/package/amazon-ivs-player")<br>**Script asset:\*<br>• [https://player.live-video.net/1.53.0/amazon-ivs-player.min.js](https://player.live-video.net/1.53.0/amazon-ivs-player.min.js "https://player.live-video.net/1.53.0/amazon-ivs-player.min.js")<br>**Video.js tech asset:_<br>• [https://player.live-video.net/1.53.0/amazon-ivs-videojs-tech.min.js](https://player.live-video.net/1.53.0/amazon-ivs-videojs-tech.min.js "https://player.live-video.net/1.53.0/amazon-ivs-videojs-tech.min.js")<br>\*\*Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.53.0/web/](https://aws.github.io/amazon-ivs-player-docs/1.53.0/web/ "https://aws.github.io/amazon-ivs-player-docs/1.53.0/web/")<br>• Bug fixes and stability improvements. |
+
+## June 11, 2026
+
+### IVS Player SDK: Android 1.53.0, iOS 1.53.0
+
+| Platform                                                          | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android player<br>1.53.0](player-android.md "player-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.53.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.53.0/android/ "https://aws.github.io/amazon-ivs-player-docs/1.53.0/android/")<br>• Added `Player.setUserAgent(String)` API to Android to set custom User-Agent string for all HTTP requests made by the player. An IVS default is used when no override is set.<br>• Bug fixes and stability improvements.                                                                                                                                                                                                                    |
+| [iOS Player 1.53.0](player-ios.md "player-ios.md")                | **Download:**<br>[https://player.live-video.net/1.53.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.53.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.53.0/AmazonIVSPlayer.xcframework.zip")\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-player-docs/1.53.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.53.0/ios/ "https://aws.github.io/amazon-ivs-player-docs/1.53.0/ios/")<br>• Added `IVSPlayer.setUserAgent(_:)` API to iOS to set custom User-Agent string for all HTTP requests made by the player. An IVS default is used when no override is set.<br>• Bug fixes and stability improvements. |
+
+#### Mobile SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 1.531 MB        | 3.930 MB          |
+| armeabi-v7a  | 1.360 MB        | 2.793 MB          |
+| x86_64       | 1.533 MB        | 4.000 MB          |
+| x86          | 1.595 MB        | 4.015 MB          |
+
+#### Mobile SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 0.800 MB        | 1.706 MB          |
+
 ## June 4, 2026
 
 ### Amazon IVS Broadcast SDK: Android 1.43.0, iOS 1.43.0 (Low-Latency Streaming)
@@ -2474,6 +2506,7 @@ information, see:
   updated screenshots.
 - [IVS API
   Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md"):
+
   - In ThumbnailConfiguration, we added `resolution` and
     `storage`. This affects the
     CreateRecordingConfiguration request and response,
@@ -3395,6 +3428,7 @@ page](../../../ivs.md "../../../ivs.md").
 
 - The new **Amazon IVS Chat** section of the
   documentation landing page has two API References:
+
   - [Chat API Reference](../ChatAPIReference.md "../ChatAPIReference.md") – Control-plane API (HTTPS).
   - [Chat Messaging API Reference](../chatmsgapireference.md "../chatmsgapireference.md") – Data-plane API
     (WebSocket).
@@ -3560,6 +3594,7 @@ session. This is the first release of this new functionality. See:
   We updated "Step 3: Create a Channel with Optional Recording."
 - [Auto-Record to Amazon S3](record-to-s3.md "record-to-s3.md") – We made
   several changes:
+
   - We added a note to "Recording Contents" about modifying the
     `thumbnails` folder.
   - We added a new "Thumbnails" section.
@@ -3568,6 +3603,7 @@ session. This is the first release of this new functionality. See:
 
 - [Amazon IVS API
   Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md") – We made several changes:
+
   - New field `(thumbnailConfiguration`) in the
     RecordingConfiguration object. This in turn affects the
     CreateRecordingConfiguration request and response,
@@ -3658,6 +3694,7 @@ Streaming](stream-health.md "stream-health.md").
   – We added two events, Session Created and Session Ended.
 - [Amazon IVS API
   Reference](../LowLatencyAPIReference.md "../LowLatencyAPIReference.md") – Many changes:
+
   - Two new endpoints: GetStreamSession and ListStreamSessions.
   - Seven new objects: AudioConfiguration, IngestConfiguration,
     StreamEvent, StreamFilters, StreamSession, StreamSessionSummary, and

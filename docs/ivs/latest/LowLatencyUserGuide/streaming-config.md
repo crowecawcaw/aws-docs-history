@@ -177,6 +177,7 @@ experience.
 
 - `STANDARD` channels have one, default transcode preset.
 - `ADVANCED` channels have two, selectable transcode presets:
+
   - _Constrained bandwidth delivery_ uses a lower bitrate than
     `STANDARD` for each quality level. Use it if you have low
     download bandwidth and/or simple video content (e.g., talking heads).

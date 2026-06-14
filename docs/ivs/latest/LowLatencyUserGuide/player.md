@@ -40,6 +40,7 @@ Amazon IVS player is required_.
   describes and gives information about other data. With "timed" metadata, a timecode
   accompanies the piece of data about the stream. During playback, the timecode serves
   as a cue point to trigger action based on the data, such as:
+
   - Sending player statistics for a sports stream
   - Sending product details for a live shopping stream
   - Sending questions for a live quiz stream

@@ -34,6 +34,7 @@ the metrics age. Here is the schedule:
   Streaming](getting-started.md "getting-started.md").
 - You must create a channel and start a stream. Relevant information is in the
   [IVS Low-Latency Streaming User Guide](what-is.md "what-is.md"):
+
   - For instructions on creating a channel, see [Create a Channel](getting-started-create-channel.md "getting-started-create-channel.md") in
     _Getting Started with IVS Low-Latency
     Streaming_.
@@ -274,6 +275,7 @@ When you call `getMetricData` you can specify a period of 1, 5
 4. At the bottom of the **Browse** tab, select
    the **IVS** namespace.
 5. Do one of the following:
+
    1. In the search bar, enter your resource ID (part of the ARN,
       `arn:::ivs:channel/<resource id>`).
 

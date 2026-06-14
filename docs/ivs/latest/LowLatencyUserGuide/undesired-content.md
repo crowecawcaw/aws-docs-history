@@ -33,6 +33,7 @@ CCV, follow these steps:
    A 4-step alarm-creation wizard opens.
 6. Wizard: In **Step 1, Specify metric and
    conditions**, specify these settings:
+
    1. **Statistic** = **Maximum**
    2. **Period** = **1
       minute**
@@ -156,6 +157,7 @@ policy’s ARN to your channels.
 #### Console Instructions (Playback Restriction Policy)
 
 1. Create a playback restriction policy
+
    1. [Open the Amazon
       IVS console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs"). On the left navigation pane, select
       **Playback security > Playback restriction
@@ -169,6 +171,7 @@ policy’s ARN to your channels.
    6. Select **Create policy**.
 
 2. Attach this policy to a new or existing channel
+
    1. Create a new channel or edit an existing channel.
    2. In the **Restrict playback section**
       (of the **Create channel** or **Update channel** window), select **Enable playback restriction**.

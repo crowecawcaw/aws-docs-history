@@ -3,6 +3,36 @@
 This document lists known issues that you might encounter when using the Amazon IVS
 Web player SDK and suggests potential workarounds.
 
+- When using the IVS Web Player SDK v1.33.0+ with JW Player on Chrome, playback
+  may fail with error 290000 (MEDIA_ELEMENT_ERROR: Unable to attach MediaSource)
+  after user interaction (e.g., click to unmute, pause/resume, or anywhere else on
+  the page).
+
+**Workaround:** Intercept Web Worker creation to
+disable MSE-in-Workers inside the worker context before adding the amazon-ivs-jw-provider script tag. For example:
+
+```
+<script>
+	(function disableMSEInWorkersForIVS() {
+    		try {
+        		if (typeof window.MediaSource === 'undefined') return;
+        		Object.defineProperty(window.MediaSource, 'canConstructInDedicatedWorker', {
+        		value: false,
+            			configurable: true,
+            			writable: true,
+        		});
+        		console.log('[workaround] canConstructInDedicatedWorker now:',
+
+window.MediaSource.canConstructInDedicatedWorker);
+    		} catch (e) {
+        		console.warn('[workaround] failed to override canConstructInDedicatedWorker', e);
+    		}
+	})();
+</script>
+<script src="https://player.live-video.net/1.53.0/amazon-ivs-jw-provider.min.js">
+</script>
+```
+
 - When playing recorded content (also known as VOD) on an iOS mobile browser
   (e.g. Safari or Chrome), seeking backwards will mute the player.
 

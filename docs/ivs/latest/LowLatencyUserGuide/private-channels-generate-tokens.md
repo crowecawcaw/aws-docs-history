@@ -10,6 +10,7 @@ tokens.
 All JWTs have three fields: header, payload, and signature.
 
 - The **header** specifies:
+
   - `alg` is the signing algorithm. This is ES384, an ECDSA
     signature algorithm that uses the SHA-384 hash algorithm.
   - `typ` is the token type, JWT.
@@ -23,6 +24,7 @@ All JWTs have three fields: header, payload, and signature.
 
 - The **payload** contains data specific to
   Amazon IVS:
+
   - `channel-arn` is a reference for the video-playback
     request.
   - `access-control-allow-origin` is an optional field that

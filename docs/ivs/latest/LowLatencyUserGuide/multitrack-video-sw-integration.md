@@ -157,6 +157,7 @@ The video system disconnects the client in several scenarios:
 
 - The client tries to connect to the RTMP server with multitrack video but does not use the stream key returned by [GetClientConfiguration](../BroadcastSWIntegAPIReference/actions-GetClientConfiguration.md "../BroadcastSWIntegAPIReference/actions-GetClientConfiguration.md").
 - The client provides multitrack video that does not match the specification returned by GetClientConfiguration; for example:
+
   - The number of tracks is mismatched.
   - An individual track has a mismatched codec.
   - An individual track has a mismatched resolution.
@@ -197,6 +198,7 @@ The metrics are collected and sent in-band via SEI (for AVC/HEVC) messages. Two 
   The timestamp sent from the broadcaster is based on a global common reference clock, typically an NTP-synchronized clock using the UTC+0 timezone. RFC3339 is commonly used for this scenario of "Internet time." This provides an absolute reference, making temporal difference calculations trivial.
 
 - _Frame counters_ are collected to measure the performance of the broadcast software and video encoders at the frame level. They are useful for:
+
   - Providing broadcasters with a performance dashboard that includes additional signals, to help them improve their streaming setup.
   - Providing a proactive signal that may correlated with environmental changes like newly released GPU drivers or OS versions/patches.
   - Providing feedback to enable video services to safely iterate and release improvements to GetClientConfiguration, including support for new hardware vendors, new GPU models, new codecs, new driver features, additional video-encoder setting tuning, and new user-controlled presets (e.g., “Dual PC Setup” vs. “Gaming+Streaming Setup”).
