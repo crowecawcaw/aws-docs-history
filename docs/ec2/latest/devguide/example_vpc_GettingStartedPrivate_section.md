@@ -625,6 +625,7 @@ fi
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AllocateAddress](../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md")
   - [AssociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md")
   - [AttachInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md")

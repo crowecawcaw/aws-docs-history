@@ -346,6 +346,7 @@ echo "Script completed. See $LOG_FILE for the complete log."
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
   - [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
   - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")

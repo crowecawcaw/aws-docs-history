@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Amazon EC2](example_ec2_Hello_section.md "example_ec2_Hello_section.md")
   - [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [AcceptVpcPeeringConnection](example_ec2_AcceptVpcPeeringConnection_section.md "example_ec2_AcceptVpcPeeringConnection_section.md")
     - [AllocateAddress](example_ec2_AllocateAddress_section.md "example_ec2_AllocateAddress_section.md")
     - [AllocateHosts](example_ec2_AllocateHosts_section.md "example_ec2_AllocateHosts_section.md")
@@ -207,6 +209,7 @@ This topic also includes information about getting started and details about pre
     - [UpdateSecurityGroupRuleDescriptionsIngress](example_ec2_UpdateSecurityGroupRuleDescriptionsIngress_section.md "example_ec2_UpdateSecurityGroupRuleDescriptionsIngress_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
   - [Configure Amazon ECS Service Connect](example_ecs_ServiceConnect_085_section.md "example_ecs_ServiceConnect_085_section.md")
   - [Create a basic VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")

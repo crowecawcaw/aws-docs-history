@@ -385,6 +385,7 @@ echo "Script completed successfully."
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AddSteps](../../../goto/aws-cli/elasticmapreduce-2009-03-31/AddSteps.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/AddSteps.md")
   - [Cp](../../../goto/aws-cli/s3-2006-03-01/Cp.md "../../../goto/aws-cli/s3-2006-03-01/Cp.md")
   - [CreateCluster](../../../goto/aws-cli/elasticmapreduce-2009-03-31/CreateCluster.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/CreateCluster.md")

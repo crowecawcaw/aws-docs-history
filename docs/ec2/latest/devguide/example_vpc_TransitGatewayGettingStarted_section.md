@@ -435,6 +435,7 @@ echo "Tutorial completed. See $LOG_FILE for detailed logs."
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateRoute](../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md")
   - [CreateSubnet](../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md")
   - [CreateTransitGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateTransitGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateTransitGateway.md")

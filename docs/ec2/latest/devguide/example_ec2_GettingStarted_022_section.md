@@ -310,6 +310,7 @@ echo "Script completed at $(date)"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateSnapshot](../../../goto/aws-cli/ec2-2016-11-15/CreateSnapshot.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSnapshot.md")
   - [CreateVolume](../../../goto/aws-cli/ec2-2016-11-15/CreateVolume.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVolume.md")
   - [DeleteSnapshot](../../../goto/aws-cli/ec2-2016-11-15/DeleteSnapshot.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSnapshot.md")

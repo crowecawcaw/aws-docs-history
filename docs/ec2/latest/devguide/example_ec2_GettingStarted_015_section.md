@@ -483,6 +483,7 @@ echo "Script execution completed. See $LOG_FILE for detailed logs."
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AcceptVpcPeeringConnection](../../../goto/aws-cli/ec2-2016-11-15/AcceptVpcPeeringConnection.md "../../../goto/aws-cli/ec2-2016-11-15/AcceptVpcPeeringConnection.md")
   - [AssociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md")
   - [CreateRoute](../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md")

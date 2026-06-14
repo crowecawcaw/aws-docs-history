@@ -3,7 +3,7 @@
 Amazon EC2 has two types of error codes:
 
 - **Client errors**. These errors are usually caused by
-  something the client did, such as specifying an incorrect or invalid parameter in
+  something the client did. Common causes include specifying an incorrect or invalid parameter in
   the request, or using an action or resource on behalf of a user that doesn't have
   permission to use the action or resource. These errors are accompanied by a
   400-series HTTP response code.
@@ -474,7 +474,7 @@ guidelines:
 - **Check your VPC**: Some resources cannot be shared
   between VPCs; for example, security groups.
 - **Check your credentials**: Ensure that you entered the
-  credentials correctly; and, if you have more than one account, that you are
+  credentials correctly. If you have more than one account, verify that you are
   using the correct credentials for the specific account. If the provided
   credentials are incorrect, you might get the following error:
   `Client.AuthFailure`.

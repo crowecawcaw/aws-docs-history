@@ -359,6 +359,7 @@ echo "Log file: $LOG_FILE" | tee -a "$LOG_FILE"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateService](../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateService.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateService.md")
   - [CreateServiceNetwork](../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetwork.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetwork.md")
   - [CreateServiceNetworkServiceAssociation](../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetworkServiceAssociation.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetworkServiceAssociation.md")

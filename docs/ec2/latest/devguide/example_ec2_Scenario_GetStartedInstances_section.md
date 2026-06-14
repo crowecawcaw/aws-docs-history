@@ -1325,6 +1325,7 @@ public class EC2Wrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [AllocateAddress](../../../goto/DotNetSDKV3/ec2-2016-11-15/AllocateAddress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/AllocateAddress.md")
   - [AssociateAddress](../../../goto/DotNetSDKV3/ec2-2016-11-15/AssociateAddress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/AssociateAddress.md")
   - [AuthorizeSecurityGroupIngress](../../../goto/DotNetSDKV3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
@@ -3418,6 +3419,7 @@ function aws_cli_error_log() {
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AllocateAddress](../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md")
   - [AssociateAddress](../../../goto/aws-cli/ec2-2016-11-15/AssociateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateAddress.md")
   - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
@@ -4746,6 +4748,7 @@ public class EC2Actions {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [AllocateAddress](../../../goto/SdkForJavaV2/ec2-2016-11-15/AllocateAddress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/AllocateAddress.md")
   - [AssociateAddress](../../../goto/SdkForJavaV2/ec2-2016-11-15/AssociateAddress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/AssociateAddress.md")
   - [AuthorizeSecurityGroupIngress](../../../goto/SdkForJavaV2/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
@@ -5604,6 +5607,7 @@ export const logErrors = new ScenarioOutput(
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [AllocateAddress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AllocateAddressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AllocateAddressCommand.md")
   - [AssociateAddress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateAddressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateAddressCommand.md")
   - [AuthorizeSecurityGroupIngress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AuthorizeSecurityGroupIngressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AuthorizeSecurityGroupIngressCommand.md")
@@ -6170,6 +6174,7 @@ suspend fun createKeyPairSc(
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [AllocateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [AssociateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [AuthorizeSecurityGroupIngress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -7379,6 +7384,7 @@ class ElasticIpWrapper:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [AllocateAddress](../../../goto/boto3/ec2-2016-11-15/AllocateAddress.md "../../../goto/boto3/ec2-2016-11-15/AllocateAddress.md")
   - [AssociateAddress](../../../goto/boto3/ec2-2016-11-15/AssociateAddress.md "../../../goto/boto3/ec2-2016-11-15/AssociateAddress.md")
   - [AuthorizeSecurityGroupIngress](../../../goto/boto3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/boto3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
@@ -8736,6 +8742,7 @@ async fn main() {
 ```
 
 - For API details, see the following topics in _AWS SDK for Rust API reference_.
+
   - [AllocateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.allocate_address "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.allocate_address")
   - [AssociateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.associate_address "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.associate_address")
   - [AuthorizeSecurityGroupIngress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress")
@@ -9908,6 +9915,7 @@ struct Main {
 ```
 
 - For API details, see the following topics in _AWS SDK for Swift API reference_.
+
   - [AllocateAddress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/allocateaddress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/allocateaddress(input:)")
   - [AssociateAddress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/associateaddress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/associateaddress(input:)")
   - [AuthorizeSecurityGroupIngress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/authorizesecuritygroupingress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/authorizesecuritygroupingress(input:)")

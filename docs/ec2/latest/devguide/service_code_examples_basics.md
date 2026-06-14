@@ -8,6 +8,7 @@ SDKs.
 - [Hello Amazon EC2](example_ec2_Hello_section.md "example_ec2_Hello_section.md")
 - [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [AcceptVpcPeeringConnection](example_ec2_AcceptVpcPeeringConnection_section.md "example_ec2_AcceptVpcPeeringConnection_section.md")
   - [AllocateAddress](example_ec2_AllocateAddress_section.md "example_ec2_AllocateAddress_section.md")
   - [AllocateHosts](example_ec2_AllocateHosts_section.md "example_ec2_AllocateHosts_section.md")

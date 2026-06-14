@@ -170,6 +170,7 @@ information, see [Enable Amazon EC2 API metrics](#enable-ec2-api-metrics "#enabl
 3. Choose **Create alarm**.
 4. Choose **Select metric**, and the specify the
    following:
+
    1. Choose **EC2/API**.
    2. Choose **Per-Action Metrics**.
    3. Select the check box next to **DescribeInstances**
@@ -180,13 +181,16 @@ information, see [Enable Amazon EC2 API metrics](#enable-ec2-api-metrics "#enabl
 5. The **Specify metric and conditions** page appears,
    showing a graph and other information about the metric and statistic that
    you selected.
+
    1. Under **Metric**, specify the following:
+
       1. For **Statistic**, choose
          **Sum**.
       2. For **Period**, verify that **5
          minutes** is selected.
 
    2. Under **Conditions**, specify the following:
+
       1. For **Threshold type**, choose
          **Static**.
       2. For **Whenever ServerErrors is**, choose
@@ -198,8 +202,10 @@ information, see [Enable Amazon EC2 API metrics](#enable-ec2-api-metrics "#enabl
    3. Choose **Next**.
 
 6. The **Configure actions** page appears.
+
    1. Under **Notification**, specify the
       following:
+
       1. For **Alam state trigger**, choose
          **In alarm**.
       2. For **Select an SNS topic**, choose
@@ -209,6 +215,7 @@ information, see [Enable Amazon EC2 API metrics](#enable-ec2-api-metrics "#enabl
       3. Choose **Next**.
 
 7. The **Add name and description** page appears.
+
    1. For **Alarm name**, enter a name for your alarm.
       The name must contain only ASCII characters.
    2. For **Alarm description**, enter an optional

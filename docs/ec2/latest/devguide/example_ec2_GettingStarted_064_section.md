@@ -312,6 +312,7 @@ echo "Script completed. See $LOG_FILE for details." | tee -a "$LOG_FILE"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AssociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md")
   - [AttachInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md")
   - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")

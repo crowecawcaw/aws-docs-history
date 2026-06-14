@@ -312,6 +312,7 @@ echo "Script completed at $(date)"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
   - [CreateListener](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateListener.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateListener.md")
   - [CreateLoadBalancer](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md")

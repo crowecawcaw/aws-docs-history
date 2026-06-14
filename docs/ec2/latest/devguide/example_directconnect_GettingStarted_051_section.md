@@ -341,6 +341,7 @@ echo "$(date): Script completed"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateConnection](../../../goto/aws-cli/direct-connect-2012-10-25/CreateConnection.md "../../../goto/aws-cli/direct-connect-2012-10-25/CreateConnection.md")
   - [CreatePrivateVirtualInterface](../../../goto/aws-cli/direct-connect-2012-10-25/CreatePrivateVirtualInterface.md "../../../goto/aws-cli/direct-connect-2012-10-25/CreatePrivateVirtualInterface.md")
   - [CreateVpnGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateVpnGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpnGateway.md")
