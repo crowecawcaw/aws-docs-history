@@ -9,6 +9,7 @@ make a purchase.
 2. In the navigation pane, under **Savings Plans**, choose
    **Cart**.
 3. Review your order as follows:
+
    - **Type**: The type of Savings Plan. For more
      information, see [Savings Plans types](plan-types.md "plan-types.md").
    - **Term**: Your term commitment in years. Choose a
@@ -51,6 +52,7 @@ Virginia)`.
 
 4. Review the following contents in the **Summary**
    section:
+
    - **Total commitment**: The sum of all Savings Plans costs
      currently in your cart, regardless of **Start date**
      and **Payment option**.
