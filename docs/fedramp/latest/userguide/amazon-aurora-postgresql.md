@@ -60,12 +60,14 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
 ### MASTER DATABASE USER SECURITY
 
 1. Master User Account Configuration:
+
    - Use strong, randomly generated passwords (minimum 20 characters)
    - Rotate master passwords regularly (every 90 days maximum)
    - Store passwords in AWS Secrets Manager with automatic rotation
    - Never use default or predictable usernames (avoid 'admin', 'root', 'postgres')
 
 2. Authentication Methods:
+
    - Enable IAM database authentication where supported
    - Use AWS Secrets Manager for password management
    - Implement PostgreSQL-specific authentication mechanisms
@@ -73,9 +75,11 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
 ### POSTGRESQL ADMINISTRATIVE SECURITY
 
 - PostgreSQL-Specific Configuration \*\*
+
   - Master user: Create with CREATEDB and CREATEROLE privileges only
   - Disable superuser privileges for application accounts
   - Enable comprehensive logging:
+
     - log_statement = 'all'
     - log_connections = on
     - log_disconnections = on
@@ -84,6 +88,7 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
   - Set connection limits: max_connections appropriate for workload
   - Configure password policies: password_encryption = 'scram-sha-256'
   - Enable pg_audit extension for detailed audit logging:
+
     - shared_preload_libraries = 'pg_audit'
     - pg_audit.log = 'all'
     - pg_audit.log_catalog = on
@@ -91,6 +96,7 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
 ### AWS IAM INTEGRATION
 
 1. IAM Database Authentication:
+
    - Enable IAM database authentication on Aurora cluster
    - Create IAM policies with rds-db:connect permissions
    - Use temporary credentials instead of passwords
@@ -110,6 +116,7 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
    ```
 
 2. Cross-Service Integration:
+
    - Use AWS Secrets Manager for credential rotation
    - Integrate with AWS CloudTrail for API call logging
    - Configure VPC security groups for network-level access control
@@ -118,12 +125,14 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
 ### NETWORK SECURITY
 
 1. VPC Configuration:
+
    - Deploy Aurora in private subnets only
    - Configure DB subnet groups across multiple AZs
    - Use VPC security groups instead of DB security groups
    - Implement least-privilege security group rules
 
 2. Connection Security:
+
    - Enable SSL/TLS encryption in transit for all connections
    - Use VPC endpoints for AWS service communications
    - Configure connection timeouts and limits
@@ -132,12 +141,14 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
 ### MONITORING AND AUDITING
 
 1. Database-Level Auditing:
+
    - Enable pg_audit extension for all administrative actions
    - "Publish logs to CloudWatch Logs and configure retention period (minimum 90 days)
    - Monitor failed login attempts and privilege escalations
    - Set up alerts for suspicious administrative activities
 
 2. AWS-Level Monitoring:
+
    - Enable CloudTrail for all Aurora API calls
    - Configure CloudWatch alarms for administrative events
    - Use AWS Config rules for compliance monitoring
@@ -145,12 +156,14 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
 ### BACKUP AND RECOVERY SECURITY
 
 1. Automated Backups:
+
    - Enable automated backups with encryption
    - Configure backup retention period (7-35 days)
    - Use cross-region backup replication for DR (Use AWS Backups)
    - Encrypt backup snapshots with customer-managed KMS keys
 
 2. Manual Snapshots:
+
    - Encrypt all manual snapshots
    - Encrypted snapshots require customer-managed KMS keys (not default AWS-managed keys) for sharing
    - Regular testing of snapshot restoration procedures
@@ -276,40 +289,47 @@ The master user account in Amazon Aurora PostgreSQL has the `rds_superuser` role
 ### Best Practices for Master User Account Security
 
 1. **Minimize Master User Usage**
+
    - Never use master user directly in applications
    - Create application-specific users with minimal required privileges
    - Reserve master user for administrative tasks only
 
 2. **Secure Master User Credentials**
+
    - Use AWS Secrets Manager for password management
    - Enable automatic password rotation (90 days maximum)
    - Use strong, randomly generated passwords (minimum 20 characters)
    - Never hardcode master credentials in application code
 
 3. **Enable Multi-Factor Authentication**
+
    - Require MFA for AWS Console access to modify master password
    - Implement MFA for IAM users who can modify DB clusters
    - Use IAM database authentication where possible
 
 4. **Audit Master User Activity**
+
    - Enable comprehensive database audit logging
    - Monitor all master user connections and operations
    - Set up CloudWatch alarms for master user activity
    - Review audit logs regularly for unauthorized access
 
 5. **Implement Least Privilege**
+
    - Create role-based access with minimal required privileges
    - Grant privileges at the most granular level possible
    - Regularly review and revoke unnecessary privileges
    - Document all privilege grants and their justifications
 
 6. **Network Security**
+
    - Deploy Aurora in private subnets only
    - Use VPC security groups to restrict database access
    - Never make Aurora clusters publicly accessible
    - Use VPC endpoints for AWS service communications
 
 7. **Compliance and Documentation**
+
    - Document all master user operations
    - Maintain audit trail of privilege changes
    - Conduct quarterly access reviews

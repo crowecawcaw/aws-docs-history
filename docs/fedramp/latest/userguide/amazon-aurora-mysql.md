@@ -62,12 +62,14 @@ Amazon Aurora MySQL administrative access is managed through the Master database
 ### Master Database User Security
 
 1. Master User Account Configuration:
+
    - Use strong, randomly generated passwords (minimum 20 characters)
    - Rotate master passwords regularly (every 90 days maximum)
    - Store passwords in AWS Secrets Manager with automatic rotation
    - Never use default or predictable usernames (avoid 'admin', 'root', 'mysql')
 
 2. Authentication Methods:
+
    - Enable IAM database authentication where supported
    - Use AWS Secrets Manager for password management
    - Implement MySQL-specific authentication mechanisms
@@ -76,19 +78,23 @@ Amazon Aurora MySQL administrative access is managed through the Master database
 ### MySQL Administrative Security
 
 - MySQL-Specific Configuration \*\*
+
   - Master user: Limit to necessary privileges, avoid SUPER privilege, existing priviliged are already limited in RDS, ensure you follow least privilege in your creation
   - Use secure authentication methods = Avoid MySQL native, leverage IAM and Kerberos authentication where possible
   - Enable SSL/TLS: require_secure_transport = ON
   - Enable comprehensive audit logging:
+
     - server_audit_logging = ON
     - server_audit_events = 'CONNECT,QUERY,TABLE'
     - server_audit_incl_users = 'admin,root' - This shoudl reflect your master user name.
 
   - Set connection limits:
+
     - max_connections appropriate for workload
     - max_user_connections per user limits
 
   - Configure password validation if using MySQL native (avoid if possible):
+
     - validate_password.policy = STRONG - Only if not using Kerberos or IAM
     - validate_password.length = 20
     - validate_password.mixed_case_count = 2
@@ -237,40 +243,47 @@ The master user account in Amazon Aurora MySQL has elevated privileges that cann
 ### Best Practices for Master User Account Security
 
 1. **Minimize Master User Usage**
+
    - Never use master user directly in applications
    - Create application-specific users with minimal required privileges
    - Reserve master user for administrative tasks only
 
 2. **Secure Master User Credentials**
+
    - Use AWS Secrets Manager for password management
    - Enable automatic password rotation (90 days maximum)
    - Use strong, randomly generated passwords (minimum 20 characters)
    - Never hardcode master credentials in application code
 
 3. **Enable Multi-Factor Authentication**
+
    - Require MFA for AWS Console access to modify master password
    - Implement MFA for IAM users who can modify DB clusters
    - Use IAM database authentication where possible
 
 4. **Audit Master User Activity**
+
    - Enable comprehensive database audit logging
    - Monitor all master user connections and operations
    - Set up CloudWatch alarms for master user activity
    - Review audit logs regularly for unauthorized access
 
 5. **Implement Least Privilege**
+
    - Create role-based access with minimal required privileges
    - Grant privileges at the most granular level possible
    - Regularly review and revoke unnecessary privileges
    - Document all privilege grants and their justifications
 
 6. **Network Security**
+
    - Deploy Aurora in private subnets only
    - Use VPC security groups to restrict database access
    - Never make Aurora clusters publicly accessible
    - Use VPC endpoints for AWS service communications
 
 7. **Compliance and Documentation**
+
    - Document all master user operations
    - Maintain audit trail of privilege changes
    - Conduct quarterly access reviews

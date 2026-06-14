@@ -60,12 +60,14 @@ Amazon Neptune administrative access is managed through the master user account 
 ### MASTER USER ACCOUNT SECURITY
 
 1. Master User Account Configuration:
+
    - Use strong, randomly generated passwords (minimum 20 characters)
    - Rotate master passwords regularly (every 90 days maximum)
    - Store passwords in AWS Secrets Manager with automatic rotation
    - Never use default or predictable usernames (avoid 'admin', 'root', 'neptune')
 
 2. Authentication Methods:
+
    - Configure master user with appropriate graph database privileges
    - Use AWS Secrets Manager for password management
    - Enable IAM database authentication where supported
@@ -74,6 +76,7 @@ Amazon Neptune administrative access is managed through the master user account 
 ### NEPTUNE GRAPH DATABASE ADMINISTRATIVE SECURITY
 
 - Neptune-Specific Configuration \*\*
+
   - Master User: Create with full administrative privileges for graph operations
   - TLS Encryption: Enable HTTPS/TLS for all client connections (required)
   - Connection Security: Configure connection limits and timeouts
@@ -84,6 +87,7 @@ Amazon Neptune administrative access is managed through the master user account 
 ### AWS IAM INTEGRATION
 
 1. Cluster Management Access:
+
    - Create IAM policies with least privilege Neptune permissions
    - Use IAM roles for administrative operations
    - Implement MFA requirements for privileged operations
@@ -112,12 +116,14 @@ Amazon Neptune administrative access is managed through the master user account 
    ```
 
 2. Graph Database Authentication:
+
    - Enable IAM database authentication for Neptune clusters
    - Use temporary credentials for graph database access
    - Implement fine-grained access controls for graph operations
    - Configure Neptune-specific IAM policies for data access
 
 3. Cross-Service Integration:
+
    - Use AWS Secrets Manager for credential rotation
    - Integrate with AWS CloudTrail for API call logging
    - Configure VPC security groups for network-level access control
@@ -282,24 +288,28 @@ Amazon Neptune uses a dual-layer security model: AWS IAM for cluster management 
 ### Best Practices for Neptune Administrative Security
 
 1. **Separate Cluster and Data Access**
+
    - Use IAM roles for cluster management operations
    - Use IAM database authentication for graph data access
    - Never use AWS root account for Neptune operations
    - Implement separate roles for different access levels
 
 2. **Secure Credential Management**
+
    - Use AWS Secrets Manager for any password-based authentication
    - Enable automatic credential rotation
    - Use temporary credentials via IAM database authentication
    - Never hardcode credentials in application code
 
 3. **Enable Multi-Factor Authentication**
+
    - Require MFA for AWS Console access
    - Implement MFA for IAM users with Neptune permissions
    - Use time-based session restrictions for administrative roles
    - Enforce MFA for all privileged operations
 
 4. **Comprehensive Audit Logging**
+
    - Enable audit logging for all graph operations
    - Export logs to CloudWatch Logs for retention
    - Set up CloudWatch alarms for suspicious activity
@@ -307,6 +317,7 @@ Amazon Neptune uses a dual-layer security model: AWS IAM for cluster management 
    - Maintain logs for minimum 90 days
 
 5. **Implement Least Privilege**
+
    - Grant minimal required IAM permissions
    - Use resource-specific IAM policies where possible
    - Separate read and write permissions
@@ -314,6 +325,7 @@ Amazon Neptune uses a dual-layer security model: AWS IAM for cluster management 
    - Regularly review and audit IAM policies
 
 6. **Network Security**
+
    - Deploy Neptune in private subnets only
    - Use VPC security groups with least privilege rules
    - Never make Neptune clusters publicly accessible
@@ -321,6 +333,7 @@ Amazon Neptune uses a dual-layer security model: AWS IAM for cluster management 
    - Enforce HTTPS/TLS for all connections (mandatory)
 
 7. **Compliance and Documentation**
+
    - Document all administrative operations
    - Maintain audit trail of configuration changes
    - Conduct quarterly access reviews

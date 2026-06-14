@@ -75,6 +75,7 @@ This requirement consolidates guidance for:
 - Master user: Create with CREATEDB and CREATEROLE privileges only
 - Disable superuser privileges for application accounts
 - Configure pg_hba.conf for strict connection controls:
+
   - Require SSL connections: `hostssl all all 0.0.0.0/0 md5`
   - Limit connections by IP range and database
 
@@ -421,15 +422,18 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 **Operations:**
 
 - User and group management via rdsadmin procedures:
+
   - `rdsadmin.add_user` / `rdsadmin.remove_user`
   - `rdsadmin.add_groups` / `rdsadmin.remove_groups`
   - `rdsadmin.change_password`
 
 - Role management:
+
   - `rdsadmin.create_role` / `rdsadmin.drop_role`
   - `rdsadmin.grant_role` / `rdsadmin.revoke_role`
 
 - Database authorization grants:
+
   - `rdsadmin.dbadm_grant` / `rdsadmin.dbadm_revoke`
   - Grant DBADM, ACCESSCTRL, DATAACCESS authorities
 
@@ -524,41 +528,48 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 ### Best Practices for RDS Master User Account Security
 
 1. **Minimize Master User Usage**
+
    - Never use master user directly in applications
    - Create application-specific users with minimal privileges
    - Reserve master user for administrative tasks only
    - Use engine-specific RBAC for fine-grained access
 
 2. **Secure Master User Credentials**
+
    - Use AWS Secrets Manager for password management
    - Enable automatic password rotation (90 days maximum)
    - Use strong, randomly generated passwords (minimum 20 characters)
    - Never hardcode master credentials in application code
 
 3. **Enable Multi-Factor Authentication**
+
    - Require MFA for AWS Console access to modify master password
    - Implement MFA for IAM users who can modify DB instances
    - Use IAM database authentication where supported (PostgreSQL/MySQL)
 
 4. **Audit Master User Activity**
+
    - Enable comprehensive database audit logging
    - Monitor all master user connections and operations
    - Set up CloudWatch alarms for master user activity
    - Review audit logs regularly for unauthorized access
 
 5. **Implement Least Privilege**
+
    - Create role-based access with minimal required privileges
    - Grant privileges at the most granular level possible
    - Use engine-specific roles appropriately
    - Document all privilege grants and their justifications
 
 6. **Network Security**
+
    - Deploy RDS in private subnets only
    - Use VPC security groups to restrict database access
    - Never make RDS instances publicly accessible
    - Enforce SSL/TLS for all client connections
 
 7. **Compliance and Documentation**
+
    - Document all master user operations
    - Maintain audit trail of privilege changes
    - Conduct quarterly access reviews

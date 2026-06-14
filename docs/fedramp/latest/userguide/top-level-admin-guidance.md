@@ -116,6 +116,7 @@ This section establishes consistent naming patterns for administrative roles acr
 
 - **Naming Pattern**: `[Function]-[Scope]-[Environment]Role`
 - **Examples**:
+
   - `SecurityAdmin-Organization-ProdRole`
   - `NetworkAdmin-Account-DevRole`
   - `ComplianceAuditor-ReadOnly-AllRole`
