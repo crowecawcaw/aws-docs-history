@@ -166,6 +166,7 @@ Console
    export** page is displayed.
 3. On the **Create forecast export** page, for **Export
    details**, provide the following information.
+
    - **Export name** – Enter a name for your forecast export
      job.
    - **Generated forecast** – From the drop-down menu, choose

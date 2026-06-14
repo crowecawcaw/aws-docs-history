@@ -25,6 +25,7 @@ Console
 3. In the navigation pane, choose
    **Predictors**.
 4. Choose the predictor and choose the **Monitoring** tab.
+
    - The **Monitoring results** section shows how
      different accuracy metrics have changed over time. Use the dropdown list
      to change which metric the graph tracks.

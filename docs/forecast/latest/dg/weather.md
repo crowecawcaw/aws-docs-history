@@ -418,6 +418,7 @@ The following conditions and restrictions apply when using the Weather Index:
 - **Forecast horizon**: The forecast horizon cannot
   span further than 14 days into the future. For forecast horizon limits for each
   forecast frequency, refer to the list below:
+
   - `1 minute` - 500
   - `5 minutes` - 500
   - `10 minutes` - 500

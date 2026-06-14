@@ -44,6 +44,7 @@ To get predictor monitoring results, you must first use your predictor to genera
 more data. The monitoring workflow is as follows.
 
 1.  Enable predictor monitoring for an auto predictor:
+
     - Create a new predictor with monitoring enabled. See [Enabling Predictor Monitoring for a New Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-new "enabling-predictor-monitoring.md#enabling-predictor-monitoring-new").
     - Or enable monitoring for an existing predictor. See [Enabling Predictor Monitoring for an Existing Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing "enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing").
 

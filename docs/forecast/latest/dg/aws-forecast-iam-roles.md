@@ -41,6 +41,7 @@ You can use the AWS IAM console to do the following:
 1. Sign in to the IAM console ([https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam")).
 2. Choose **Policies** and do the following to create the
    required policy:
+
    1. Click **Create policy**.
    2. On the **Create policy** page, in the policy editor,
       choose the **JSON** tab.
@@ -80,6 +81,7 @@ You can use the AWS IAM console to do the following:
 
 3. In the navigation pane, choose **Roles**. Then do the
    following to create the IAM role:
+
    1. Choose **Create role**.
    2. For **Trusted entity type**, choose **AWS service**.
 

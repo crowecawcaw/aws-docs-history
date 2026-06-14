@@ -34,6 +34,7 @@ monitoring**
 5. In the **Predictor configuration** section,
    choose **Enable monitoring**.
 6. Provide values for the following mandatory fields:
+
    - **Name** - a unique
      predictor name.
    - **Forecast frequency** -

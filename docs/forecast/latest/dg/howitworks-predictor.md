@@ -80,6 +80,7 @@ Console
 3. In the navigation pane, choose **Predictors**.
 4. Choose **Train new predictor**.
 5. Provide values for the following mandatory fields:
+
    - **Name** - a unique predictor name.
    - **Forecast frequency** - the granularity of your
      forecasts.

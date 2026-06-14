@@ -122,6 +122,7 @@ To create a what-if forecast, complete the following steps:
    forecast name** and choose either **Use transformation
    functions** or **Define the what-if forecast with a
    replacement dataset**. For more information, see [Replacement Dataset](replacement-series.md "replacement-series.md") and [Transformation Functions](data-transformations.md "data-transformations.md").
+
    1. If you choose **Use transformation functions**, you
       must use the **Transformation function builder** to select
       and modify the rows that are included in the what-if forecast. All

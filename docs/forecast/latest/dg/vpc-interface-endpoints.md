@@ -49,12 +49,14 @@ You can create two types of VPC endpoints to use with Amazon Forecast:
 
 - A VPC endpoint to use with Amazon Forecast operations. For most users, this is the most suitable
   type of VPC endpoint.
+
   - com.amazonaws.`region`.forecast
   - com.amazonaws.`region`.forecastquery
 
 - A VPC endpoint for Amazon Forecast operations with endpoints that comply with the
   Federal Information Processing Standard (FIPS) Publication 140-2 US government
   standard (available in select regions, see [Amazon Forecast endpoints and quotas](../../../general/latest/gr/forecast.md#forecast_region "../../../general/latest/gr/forecast.md#forecast_region")).
+
   - com.amazonaws.`region`.forecast-fips
   - com.amazonaws.`region`.forecastquery-fips
 
