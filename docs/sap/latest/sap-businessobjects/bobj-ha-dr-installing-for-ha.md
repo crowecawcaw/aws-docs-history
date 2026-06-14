@@ -30,6 +30,7 @@ This guide uses Amazon RDS MySQL for the CMS database. You can create a separate
 
 1. Create a DB subnet group for an RDS instance by following the instructions in the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateVPC.md#CHAP_Tutorials.WebServerDB.CreateVPC.DBSubnetGroup "../../../AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateVPC.md#CHAP_Tutorials.WebServerDB.CreateVPC.DBSubnetGroup"). Use two of the subnets you created earlier to create a DB subnet group.
 2. In the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"), launch an Amazon RDS MySQL DB instance by following the instructions in the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/USER_CreateInstance.md "../../../AmazonRDS/latest/UserGuide/USER_CreateInstance.md").
+
    - Choose a supported DB version based on the [Product Availability Matrix](https://support.sap.com/pam "https://support.sap.com/pam") on the SAP website, and select the instance type and storage based on your sizing output.
    - On the **Specify DB details** page, in the **Instance specifications** section, choose **Create replica in different zone**.
    - The **Choose use case** page asks if you are planning to use the DB instance you are creating for production. If you choose **Production - MySQL**, the Multi-AZ failover option is pre-selected.
@@ -50,6 +51,7 @@ Follow these steps to build and configure EC2 instances before installing SAP Bu
 3. Create and mount a file system by following the instructions in the [Amazon EBS user guide](../../../AWSEC2/latest/UserGuide/ebs-using-volumes.md "../../../AWSEC2/latest/UserGuide/ebs-using-volumes.md"). Instructions include enabling automatic mounting each time you reboot the Linux instance.
 4. Optionally, you can create an AMI of the instance, as described in the [AWS Toolkit for Visual Studio user guide](../../../toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.md "../../../toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.md"), and launch all other SAP BusinessObjects BI Platform nodes by using this AMI.
 5. Launch other EC2 instances according to your design, using one of these methods:
+
    - Manually perform steps 1-3 for all EC2 instances required by your architecture.
    - Create an AWS CloudFormation template, using the AMI you created in step 4 as a resource. Use this template to launch all additional instances in their respective Availability Zones. This option saves time and helps prevent manual errors during instance provisioning.
 

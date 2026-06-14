@@ -15,6 +15,7 @@ In this example we step through setting up a sample environment for the installa
 - using an AWS Launch Wizard for SAP for a multi-AZ deployment of SAP HANA
 - using a landing zone solution like [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/")
 - work with their cloud team (for example a Cloud Center of Excellence or CCoE) to use existing standards
+
   1.  Check the region where you want to deploy your AWS resources:
 
   ###### Note
@@ -86,6 +87,7 @@ You can also launch EC2 instances using the AWS Management Console. For detailed
 ## Step 4. Prepare Each EC2 Instance for SAP Installation
 
 1. Log into the newly-created RDP host in the public subnet. We will call this **jumpbox** for easy reference. Do this by either using the new [Session Manager feature for AWS Systems Manager](../../../systems-manager/latest/userguide/session-manager.md "../../../systems-manager/latest/userguide/session-manager.md") (for command line tasks), or by following these steps:
+
    1. In the AWS Management Console, select the EC2 instance **jumpbox** and choose **Connect**. Download the RDP file from the pop-up that appears.
    2. Choose **Get Password** and provide your private key to decrypt the password. This is the password for the local Administrator user on **jumpbox**.
    3. Open the RDP file in your preferred RDP program, and connect to **jumpbox**. Log in with user Administrator and the password you just retrieved in Step 2.

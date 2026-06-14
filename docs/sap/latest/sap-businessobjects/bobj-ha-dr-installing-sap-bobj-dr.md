@@ -37,6 +37,7 @@ The filestore for the DR region in the Amazon EFS file system must be a copy of 
 When you complete all the steps described in the previous sections, the SAP BusinessObjects BI Platform system will be up and running in the DR region with primary region data. You can shut down the EC2 instances in the DR region when you don’t need them. Monitor the copy of the database and Amazon EFS file system to make sure that they’re active according to your configuration. In the event of a disaster or DR drill, follow these steps:
 
 1. Start the CMS database in the DR region using one of these options:
+
    - If you’re using a Read Replica, open the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") in the DR region, and then choose **Instances**. Select the DB instance that is the Read Replica of the production database, and then choose **Instance Actions**, **Promote Read Replica** to start the CMS database in the DR region.
    - If you’re using snapshots, open the [Amazon RDS console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/") in the DR region, and then choose **Snapshots**. Select the latest snapshot and restore that snapshot to create a CMS database in the DR region.
 

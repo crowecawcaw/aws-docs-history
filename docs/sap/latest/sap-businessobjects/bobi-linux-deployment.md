@@ -15,6 +15,7 @@ In this example we step through setting up a sample environment for the installa
 - using AWS Launch Wizard for SAP in for multi-AZ deployment of SAP HANA
 - using a landing zone solution like [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/")
 - work with their cloud team (for example a Cloud Center of Excellence or CCoE) to use existing standards
+
   1.  Check the region where you want to deploy your AWS resources:
 
   ###### Note
@@ -101,6 +102,7 @@ Alternatively, you can edit the /etc/hosts file and manually add this entry. For
 Your Amazon EC2 instance should have access to the internet to read and download required packages from the SUSE or Redhat repository.
 
 1. As root user, use the following commands to install the Linux packages that are required for SAP installation.
+
    - SUSE syntax:
 
    To install a package: `zypper -n install package-name`
@@ -113,12 +115,12 @@ Your Amazon EC2 instance should have access to the internet to read and download
    To remove a package: `yum remove package-name`
 
 2. Install `nfs-utils`, which is required for mounting the Amazon EFS mounts onto the Linux host.
+
    - SUSE command:
 
    ```
     zypper install nfs-utils
    ```
-
    - RHEL command:
 
    ```
