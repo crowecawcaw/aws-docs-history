@@ -38,6 +38,7 @@ from unnecessary device upgrades.
 - **Define testing
   requirements**: Define your testing requirements and
   plan (like test type, operating systems, and test schedule).
+
   - You can use
     [Amazon CloudWatch RUM](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md") to collect and analyze client-side
     data and shape your testing plan.
@@ -50,6 +51,7 @@ from unnecessary device upgrades.
 - **Use automation:** Use
   automation and continuous integration/continuous deployment
   (CI/CD) to schedule and run your tests.
+
   - [Integrating
     AWS Device Farm with your CI/CD pipeline to run
     cross-browser Selenium tests](https://aws.amazon.com/blogs/devops/integrating-aws-device-farm-with-ci-cd-pipeline-to-run-cross-browser-selenium-tests/ "https://aws.amazon.com/blogs/devops/integrating-aws-device-farm-with-ci-cd-pipeline-to-run-cross-browser-selenium-tests/")

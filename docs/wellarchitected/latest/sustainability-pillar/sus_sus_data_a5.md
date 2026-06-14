@@ -22,6 +22,7 @@ Create block storage and file systems with size allocation, throughput, and late
 - For fixed size storage like [Amazon EBS](https://aws.amazon.com/ebs/ "https://aws.amazon.com/ebs/"), verify that you are monitoring the amount of storage used versus the overall storage size and create automation, if possible, to increase the storage size when reaching a threshold.
 - Use elastic volumes and managed block data services to automate allocation of additional storage as your persistent data grows. As an example, you can use [Amazon EBS Elastic Volumes](../../../AWSEC2/latest/UserGuide/ebs-modify-volume.md "../../../AWSEC2/latest/UserGuide/ebs-modify-volume.md") to change volume size, volume type, or adjust the performance of your Amazon EBS volumes.
 - Choose the right storage class, performance mode, and throughput mode for your file system to address your business need, not exceeding that.
+
   - [Amazon EFS performance](../../../efs/latest/ug/performance.md "../../../efs/latest/ug/performance.md")
   - [Amazon EBS volume performance on Linux instances](../../../AWSEC2/latest/UserGuide/EBSPerformance.md "../../../AWSEC2/latest/UserGuide/EBSPerformance.md")
 

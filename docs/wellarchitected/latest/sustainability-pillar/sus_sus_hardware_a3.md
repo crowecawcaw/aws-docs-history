@@ -31,6 +31,7 @@ workloads such as machine learning training and inference, and video transcoding
 
 - **Learn and explore instance types:** Find instance types
   that can lower your workload's environmental impact.
+
   - Subscribe to [What's New with AWS](https://aws.amazon.com/new/ "https://aws.amazon.com/new/") to
     stay up-to-date with the latest AWS technologies and instances.
   - Learn about different AWS instance types.
@@ -41,6 +42,7 @@ workloads such as machine learning training and inference, and video transcoding
 
 - **Use instance types with the least impact:** Plan and
   transition your workload to instance types with the least impact.
+
   - Define a process to evaluate new features or instances for your workload. Take
     advantage of agility in the cloud to quickly test how new instance types can improve
     your workload environmental sustainability. Use proxy metrics to measure how many
@@ -70,10 +72,12 @@ workloads such as machine learning training and inference, and video transcoding
 
 - **Operate and optimize:** Operate and optimize your
   workload instance.
+
   - For ephemeral workloads, evaluate [instance Amazon CloudWatch metrics](../../../AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics "../../../AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics") such as `CPUUtilization` to identify
     if the instance is idle or under-utilized.
   - For stable workloads, check AWS rightsizing tools such as [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/ "https://aws.amazon.com/compute-optimizer/") at regular intervals to
     identify opportunities to optimize and right-size the instances. For further examples and recommendations, see the following labs:
+
     - [Well-Architected Lab - Rightsizing Recommendations](https://catalog.workshops.aws/well-architected-cost-optimization/en-US/3-cost-effective-resources/40-rightsizing-recommendations-100 "https://catalog.workshops.aws/well-architected-cost-optimization/en-US/3-cost-effective-resources/40-rightsizing-recommendations-100")
     - [Well-Architected Lab - Rightsizing with Compute Optimizer](https://catalog.workshops.aws/well-architected-cost-optimization/en-US/3-cost-effective-resources/50-rightsizing-recommendations-200 "https://catalog.workshops.aws/well-architected-cost-optimization/en-US/3-cost-effective-resources/50-rightsizing-recommendations-200")
     - [Well-Architected Lab - Optimize Hardware Patterns and Observice Sustainability

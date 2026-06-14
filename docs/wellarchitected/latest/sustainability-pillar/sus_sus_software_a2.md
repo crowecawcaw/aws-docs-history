@@ -54,6 +54,7 @@ that increase overall utilization of resources. Retire components that are no lo
   Use [event-driven architectures](../../../lambda/latest/operatorguide/event-driven-architectures.md "../../../lambda/latest/operatorguide/event-driven-architectures.md") to build highly efficient workloads.
 - Leverage [serverless on AWS](https://aws.amazon.com/serverless/ "https://aws.amazon.com/serverless/") to eliminate over-provisioned infrastructure.
 - Right size individual components of your architecture to prevent idling resources waiting for input.
+
   - You can use the [Rightsizing Recommendations in AWS Cost Explorer](../../../cost-management/latest/userguide/ce-rightsizing.md "../../../cost-management/latest/userguide/ce-rightsizing.md") or [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/ "https://aws.amazon.com/compute-optimizer/") to identify rightsizing opportunities.
   - For more detail, see [Right Sizing: Provisioning Instances to Match Workloads](../../../whitepapers/latest/cost-optimization-right-sizing/cost-optimization-right-sizing.md "../../../whitepapers/latest/cost-optimization-right-sizing/cost-optimization-right-sizing.md").
 

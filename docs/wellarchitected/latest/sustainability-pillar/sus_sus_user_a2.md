@@ -61,6 +61,7 @@ Identify periods of low or no utilization and scale resources to remove excess c
   If you are deploying a video transcoding application, 100% CPU utilization is expected and should not be your primary metric.
   You can use a [customized metric](https://aws.amazon.com/blogs/mt/create-amazon-ec2-auto-scaling-policy-memory-utilization-metric-linux/ "https://aws.amazon.com/blogs/mt/create-amazon-ec2-auto-scaling-policy-memory-utilization-metric-linux/") (such as memory utilization) for your
   scaling policy if required. To choose the right metrics, consider the following guidance for Amazon EC2:
+
   - The metric should be a valid utilization metric and describe how busy an instance is.
   - The metric value must increase or decrease proportionally to the number of instances in the Auto Scaling group.
 

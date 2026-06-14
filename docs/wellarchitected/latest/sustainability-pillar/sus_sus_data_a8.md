@@ -28,6 +28,7 @@ Use techniques to minimize data movement and improve the overall efficiency of y
 - **Use efficient file formats:** Use efficient file formats (such as Parquet or ORC) and compress data before you move
   it over the network.
 - **Minimize data movement:** Don't move unused data. Some examples that can help you avoid moving unused data:
+
   - Reduce API responses to only relevant data.
   - Aggregate data where detailed (record-level information is not required).
   - See [Well-Architected Lab - Optimize Data Pattern Using Amazon Redshift Data Sharing](https://catalog.workshops.aws/well-architected-sustainability/en-US/3-data/optimize-data-pattern-using-redshift-data-sharing "https://catalog.workshops.aws/well-architected-sustainability/en-US/3-data/optimize-data-pattern-using-redshift-data-sharing").

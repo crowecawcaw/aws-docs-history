@@ -27,10 +27,12 @@ Analyze the network access patterns in your workload to identify how to use thes
 ## Implementation steps
 
 - Analyze network access patterns in your workload to identify how users use your application.
+
   - Use monitoring tools, such as [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") and [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/"), to gather data on network activities.
   - Analyze the data to identify the network access pattern.
 
 - Select the Regions for your workload deployment based on the following key elements:
+
   - **Your Sustainability goal:** as explained in [Region selection](region-selection.md "region-selection.md").
   - **Where your data is located:** For data-heavy applications (such as big data and machine learning),
     application code should run as close to the data as possible.

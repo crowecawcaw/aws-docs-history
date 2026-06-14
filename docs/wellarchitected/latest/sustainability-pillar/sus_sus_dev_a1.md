@@ -89,6 +89,7 @@ towards a more sustainable future.
   which is a generally-understandable metric. At a minimum,
   use cost as a proxy metric to communicate the resource usage
   and improvements by each team.
+
   - **Enable hourly granularity in
     your Cost Explorer and create a
     [Cost

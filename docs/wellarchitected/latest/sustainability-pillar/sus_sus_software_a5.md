@@ -29,6 +29,7 @@ Understand the devices and equipment used in your architecture, their expected l
 - **Use energy-efficient devices:** Consider using energy-efficient devices in your architecture. Use power management configurations on devices to enter low power mode when not in use.
 - **Run efficient applications:**
   Optimize the application running on the devices:
+
   - Use strategies such as running tasks in the background to reduce their energy consumption.
   - Account for network bandwidth and latency when building payloads, and implement capabilities that help your applications work well on low bandwidth, high latency links.
   - Convert payloads and files into optimized formats required by devices. For example, you can use [Amazon Elastic Transcoder](../../../elastic-transcoder.md "../../../elastic-transcoder.md") or [AWS Elemental MediaConvert](https://aws.amazon.com/mediaconvert/ "https://aws.amazon.com/mediaconvert/") to convert large, high quality digital media files into formats that users can play back on mobile devices, tablets, web browsers, and connected televisions.
@@ -39,6 +40,7 @@ Understand the devices and equipment used in your architecture, their expected l
   Work with device suppliers who use sustainable materials and provide transparency in their supply chains and environmental certifications.
 - **Use over-the-air (OTA) updates:**
   Use automated over-the-air (OTA) mechanism to deploy updates to one or more devices.
+
   - You can use a [CI/CD pipeline](https://aws.amazon.com/blogs/mobile/build-a-cicd-pipeline-for-your-android-app-with-aws-services/ "https://aws.amazon.com/blogs/mobile/build-a-cicd-pipeline-for-your-android-app-with-aws-services/") to update mobile applications.
   - You can use [AWS IoT Device Management](https://aws.amazon.com/iot-device-management/ "https://aws.amazon.com/iot-device-management/") to remotely manage connected devices at scale.
 

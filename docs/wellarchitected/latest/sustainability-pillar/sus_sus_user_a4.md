@@ -24,12 +24,14 @@ Unused assets consume cloud resources like storage space and compute power. By i
 - **Conduct an inventory:** Conduct a comprehensive inventory to identify all assets within your workload.
 - **Analyze usage:** Use continuous monitoring to identify static assets that are no longer required.
 - **Remove unused assets:** Develop a plan to remove assets that are no longer required.
+
   - Before removing any asset, evaluate the impact of removing it on the architecture.
   - Consolidate overlapping generated assets to remove redundant processing.
   - Update your applications to no longer produce and store assets that are not required.
 
 - **Communicate with third parties:** Instruct third parties to stop producing and storing assets managed on your behalf that are no longer required. Ask to consolidate redundant assets.
 - **Use lifecycle policies:** Use lifecycle policies to automatically delete unused assets.
+
   - You can use [Amazon S3 Lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") to manage your objects throughout their lifecycle.
   - You can use [Amazon Data Lifecycle Manager](../../../ebs/latest/userguide/snapshot-lifecycle.md "../../../ebs/latest/userguide/snapshot-lifecycle.md") to automate the creation, retention, and deletion of Amazon EBS snapshots and Amazon EBS-backed AMIs.
 
