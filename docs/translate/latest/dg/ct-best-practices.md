@@ -8,11 +8,13 @@ Use following general best practices when using custom terminologies:
   and non-capitalized versions of a word, include an entry for each version.
 - Custom terminology isn't intended as a tool for controlling spacing, punctuation,
   or capitalization. For example, avoid the following types of entries:
+
   - Adding spaces – EN: USA FR: U S A
   - Adding punctuation – EN: USA FR: U.S.A
   - Changing the capitalization – EN: USA FR: Usa
 
 - Don't include different translations for the same source phrase. For example:
+
   - Entry #1 – EN: Amazon FR: Amazon
   - Entry #2 – EN: Amazon FR: Amazone
 

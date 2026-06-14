@@ -18,6 +18,7 @@ For more information about supported languages, see [Supported languages and lan
 Amazon Translate, supports the following formats for the input content:
 
 - For real-time translations:
+
   - **Input text** – Plain text in UTF-8 format.
     Amazon Translate provides the output content as UTF-8 text.
   - **One input file** – A file containing
@@ -25,6 +26,7 @@ Amazon Translate, supports the following formats for the input content:
     output content as a file in the same format as the input file.
 
 - For batch translation jobs:
+
   - **Collection of input files** – One or more files
     that you upload to an Amazon S3 location. Supported file formats include plain text (.txt),
     HTML (.html), Word (.docx), Excel (.xlsx), PowerPoint (.pptx) and XLIFF 1.2 (.xlf).

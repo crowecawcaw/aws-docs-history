@@ -40,6 +40,7 @@ To get metrics for your Amazon Translate operations, you specify the following i
 
 - The metric dimension. A _dimension_ is a set of name-value pairs that
   you use to identify a metric. Amazon Translate has two dimensions:
+
   - `Operation`
   - `Language pair`
 

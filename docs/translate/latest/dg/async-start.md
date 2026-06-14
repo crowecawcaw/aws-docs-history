@@ -20,6 +20,7 @@ translation** page to create the job:
    job**. The console shows the **Create translation
    job** page.
 4. Under **Job settings**, do the following:
+
    1. For **Name**, enter a custom name for the batch
       translation job.
    2. For **Source language**, select the language of the source files. If
@@ -29,6 +30,7 @@ translation** page to create the job:
       each source file into each target language.
 
 5. Under **Input data**, do the following:
+
    1. For **Input S3 location**, specify the input
       folder that contains the translation source files in Amazon S3. To
       provide the folder by navigating to it in Amazon S3, choose
@@ -37,6 +39,7 @@ translation** page to create the job:
       translation source files.
 
 6. Under **Output data**, do the following:
+
    1. For **Output S3 location**, specify the output
       folder in Amazon S3 where Amazon Translate puts the translation output. To provide
       the folder by navigating to it in Amazon S3, choose **Select

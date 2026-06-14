@@ -109,6 +109,7 @@ parallel data in a TMX file:
   `tu` or `tuv` elements if it encounters
   `seg` elements that are empty or contain only white
   space:
+
   - If the `seg` element corresponds to the source
     language, Amazon Translate skips the `tu` element that the
     `seg` element occupies.
@@ -119,6 +120,7 @@ parallel data in a TMX file:
 - While processing your input file, Amazon Translate skips certain
   `tu` or `tuv` elements if it encounters
   `seg` elements that exceed 1000 bytes:
+
   - If the `seg` element corresponds to the source
     language, Amazon Translate skips the `tu` element that the
     `seg` element occupies.
@@ -128,6 +130,7 @@ parallel data in a TMX file:
 
 - If the input file contains multiple `tu` elements with
   the same source text, Amazon Translate does one of the following:
+
   - If the `tu` elements have the
     `changedate` attribute, it uses the element
     with the most recent date.
@@ -183,6 +186,7 @@ Must be written as:
 - While processing your input file, Amazon Translate will skip certain lines or
   fields if it encounters fields that are empty or contain only white
   space:
+
   - If a source text field is empty, Amazon Translate skips the line that
     it occupies.
   - If a target translation field is empty, Amazon Translate skips only
@@ -190,6 +194,7 @@ Must be written as:
 
 - While processing your input file, Amazon Translate skips certain lines or
   fields if it encounters fields that exceed 1000 bytes:
+
   - If a source text field exceeds the byte limit, Amazon Translate skips
     the line that it occupies.
   - If a target translation field exceeds the byte limit,
@@ -248,6 +253,7 @@ Must be written as:
 - While processing your input file, Amazon Translate skips certain lines or
   fields if it encounters fields that are empty or contain only white
   space:
+
   - If a source text field is empty, Amazon Translate skips the line that
     it occupies.
   - If a target translation field is empty, Amazon Translate skips only
@@ -255,6 +261,7 @@ Must be written as:
 
 - While processing your input file, Amazon Translate skips certain lines or
   fields if it encounters fields that exceed 1000 bytes:
+
   - If a source text field exceeds the byte limit, Amazon Translate skips
     the line that it occupies.
   - If a target translation field exceeds the byte limit,
