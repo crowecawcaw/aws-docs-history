@@ -35,6 +35,7 @@ policy.
 ###### Contents
 
 - [Policy structure](security-iam-policies.md#structure "security-iam-policies.md#structure")
+
   - [Effect](security-iam-policies.md#iam-policies-effect "security-iam-policies.md#iam-policies-effect")
   - [Action](security-iam-policies.md#iam-policies-action "security-iam-policies.md#iam-policies-action")
   - [Resource](security-iam-policies.md#iam-policies-resource "security-iam-policies.md#iam-policies-resource")

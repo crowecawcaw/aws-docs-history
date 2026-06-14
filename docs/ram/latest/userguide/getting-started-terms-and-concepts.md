@@ -84,6 +84,7 @@ shares:
   account** – Some resource types support sharing directly
   with individual IAM roles or users. Specify this principal type by its
   ARN.
+
   - **IAM role** –
     `arn:aws:iam::123456789012:role/rolename`
   - **IAM user** –
@@ -112,6 +113,7 @@ key.
   with all of the accounts in that OU. A sharing account can share only with its
   own organization or OU IDs within its own organization. Specify accounts in an
   organization by the ARN of the organization or the OU.
+
   - **All accounts in an organization**
     – Following is an example ARN of an organization in
     AWS Organizations:

@@ -9,17 +9,20 @@ operators in customer managed permissions.
 The following conditions aren't supported in customer managed permissions:
 
 - Condition keys used to match properties of the principal:
+
   - `aws:PrincipalOrgId`
   - `aws:PrincipalOrgPaths`
   - `aws:PrincipalAccount`
 
 - Condition keys used to restrict access for service principals:
+
   - `aws:SourceArn`
   - `aws:SourceAccount`
   - `aws:SourceOrgPaths`
   - `aws:SourceOrgID`
 
 - System tags:
+
   - `aws:PrincipalTag/aws:`
   - `aws:ResourceTag/aws:`
   - `aws:RequestTag/aws:`

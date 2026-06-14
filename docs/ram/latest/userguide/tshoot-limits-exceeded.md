@@ -19,6 +19,7 @@ sharing account or the account you're sharing the resource with.
 1. To view your quotas, in the AWS account where you are seeing the error,
    navigate to one of the following pages, depending on the type of quota
    you're reaching:
+
    - The [AWS RAM page in the
      Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ram/quotas "https://console.aws.amazon.com/servicequotas/home/services/ram/quotas")
    - The [page

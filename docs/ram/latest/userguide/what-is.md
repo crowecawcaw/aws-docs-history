@@ -110,6 +110,7 @@ create a resource share, you specify the following:
   choose from the **Region** dropdown menu in the upper-right
   corner of the console. In the AWS CLI, you use the `--region`
   parameter.
+
   - A resource share can contain only Regional resources that are in the same
     AWS Region as the resource share.
   - A resource share can contain global resources only if the resource share is in the

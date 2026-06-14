@@ -19,6 +19,7 @@ Console
    want.
 4. For each principal in the list, the console displays the
    following information:
+
    - **Principal ID** – The ID of the
      principal. Choose the ID to open a new browser tab
      to view the principal in its native console.

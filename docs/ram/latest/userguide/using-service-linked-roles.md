@@ -107,6 +107,7 @@ To share resources that you own, create a resource share. Here's an overview of 
 1. Add the resources that you want to share.
 2. For each resource type that you include in the share, specify the [managed permission](getting-started-terms-and-concepts.md#term-managed-permission "getting-started-terms-and-concepts.md#term-managed-permission") to use for that
    resource type.
+
    - You can choose from one of the available AWS managed permissions, an existing customer managed permission, or
      create a new customer managed permission.
    - AWS managed permissions are created by AWS to cover standard use cases.
@@ -145,6 +146,7 @@ as the default. 3. Specify the principals that you want to have access to the re
 - If the sharing is between accounts or principals that are part of an organization,
   then any changes to organization membership dynamically affect access to the
   resource share.
+
   - If you add an AWS account to the organization or an OU that has access
     to a resource share, then that new member account automatically gets access
     to the resource share. The administrator of the account you shared with can
@@ -219,12 +221,14 @@ Console
    **[Shared by me : Resource shares](https://console.aws.amazon.com/ram/home#OwnedResourceShares: "https://console.aws.amazon.com/ram/home#OwnedResourceShares:")** page.
 4. In **Step 1: Specify resource share details**, do the
    following:
+
    1. For **Name**, enter a descriptive name for
       the resource share. The name can contain alphabetic characters,
       numbers, spaces, periods (.), and hyphens (-). It must
       be fewer than 256 characters.
    2. Under **Resources**, choose resources to add
       to the resource share as follows:
+
       - For **Select resource type**, choose
         the type of resource to share. This filters the list of
         shareable resources to only those resources of the

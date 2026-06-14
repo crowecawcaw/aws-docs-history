@@ -14,6 +14,7 @@ Console
 3. Apply a filter to find specific shared resources. You can apply
    multiple filters to narrow your search.
 4. The following information is available:
+
    - **Resource ID** – The ID of the
      resource. Choose the ID of the resource to view it in its
      service console.

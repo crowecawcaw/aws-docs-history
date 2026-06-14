@@ -27,6 +27,7 @@ Console
 ###### To create a customer managed permission
 
 1. Do one of the following:
+
    - Navigate to the **[Managed permissions library](https://console.aws.amazon.com/ram/home#Permissions: "https://console.aws.amazon.com/ram/home#Permissions:")**, and choose
      **Create a customer managed
      permission**.
@@ -39,6 +40,7 @@ Console
    applies.
 4. For **Policy template**, you define which
    operations are allowed to be performed on this resource type.
+
    - You can choose **Import managed
      permission** to use actions from an existing
      managed permission.

@@ -15,6 +15,7 @@ Console
    principals. You can apply multiple filters to narrow your
    search.
 5. The console displays the following information:
+
    - **Principal ID** – The ID of the
      principal who is sharing with you.
    - **Resource shares** – The number of

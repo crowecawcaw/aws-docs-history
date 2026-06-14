@@ -18,6 +18,7 @@ Console
    available values for that field. You can add other attributes or
    keywords until you find the resource you want.
 4. The AWS RAM console displays the following information:
+
    - **Name** – The name of the
      resource share.
    - **ID** – The ID of the resource share. Choose
@@ -26,6 +27,7 @@ Console
      AWS account that created the resource share.
    - **Status** – The current status of the
      resource share. Possible values include:
+
      - `Active` – The resource share is active and
        available for use.
      - `Deleted` – The resource share is deleted and

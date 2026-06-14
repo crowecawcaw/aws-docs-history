@@ -31,6 +31,7 @@ Console
 3. Select the resource share and then choose **Modify**.
 4. In **Step 1: Specify resource share details**, review the resource share
    details, and if required, update any of the following:
+
    1. (Optional) To change the name of the resource share, edit
       **Name**.
    2. (Optional) To add a resource to the resource share, under

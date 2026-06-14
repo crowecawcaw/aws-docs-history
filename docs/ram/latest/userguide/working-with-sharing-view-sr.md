@@ -14,6 +14,7 @@ Console
 2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
 3. For each shared resource, the following information is
    available:
+
    - **Resource ID** – The ID of the
      resource. Choose the ID of a resource to open a new browser tab
      to view the resource in its native service console.
