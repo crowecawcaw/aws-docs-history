@@ -24,6 +24,7 @@ Campaigns won't work until you have the following.
 
 - The Edge Agent software is running in your vehicle. For more information about how to
   develop, install, and work with the Edge Agent software, do the following.
+
   1.  Open the [AWS IoT FleetWise console](https://console.aws.amazon.com/iotfleetwise "https://console.aws.amazon.com/iotfleetwise").
   2.  On the service home page, in the **Get started with AWS IoT FleetWise**
       section, choose **Explore Edge Agent**.
@@ -70,6 +71,7 @@ collection scheme and the time-based collection scheme.
   condition-based collection scheme uses a logical expression to recognize
   what data to collect. The Edge Agent software collects data when the condition is
   met.
+
   - `expression` – the logical expression used
     to recognize what data to collect. For example, if the
     `$variable.`myVehicle.InVehicleTemperature` >
@@ -84,6 +86,7 @@ collection scheme and the time-based collection scheme.
     at a slower rate.
   - (Optional) `triggerMode` – can be one of the
     following values:
+
     - `RISING_EDGE` – the Edge Agent software
       collects data only when the condition is met for the
       first time. For example,
@@ -97,6 +100,7 @@ true`.
   Edge Agent software uses the time period to decide how often to collect
   data. For example, if the time period is 120,000 milliseconds, the Edge
   Agent software collects data once every two minutes.
+
   - `periodMs` – the time period (in
     milliseconds) to decide how often to collect data.
 

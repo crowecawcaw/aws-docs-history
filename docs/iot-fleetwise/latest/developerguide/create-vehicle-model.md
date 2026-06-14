@@ -181,6 +181,7 @@ the signal catalog.
 
 1. In **Add attributes**, specify the following
    metadata for each attribute.
+
    - **Name** – The attribute's
      name.
 

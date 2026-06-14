@@ -143,6 +143,7 @@ JSON
    policy.
 2. To attach the IAM permissions policy to your IAM role, run the following
    command.
+
    - Replace `permissions-policy-arn` with the ARN
      that you copied in the previous step.
    - Replace `IotTopicExecutionRole` with the name
@@ -414,6 +415,7 @@ JSON
    policy.
 2. To attach the IAM permissions policy to your IAM role, run the following
    command.
+
    - Replace `permissions-policy-arn` with the ARN
      that you copied in the previous step.
    - Replace `TimestreamExecutionRole` with the

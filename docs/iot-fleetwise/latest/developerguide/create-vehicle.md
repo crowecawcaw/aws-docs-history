@@ -134,6 +134,7 @@ created. For more information, see [Provision AWS IoT FleetWise vehicles](provis
 
 - Replace `vehicle-name` with one of the
   following.
+
   - The name of your AWS IoT thing if `associationBehavior`
     is configured to `ValidateIotThingExists`.
   - The ID of the vehicle to create if

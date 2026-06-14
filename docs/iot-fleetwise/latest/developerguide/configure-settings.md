@@ -32,12 +32,15 @@ console](https://console.aws.amazon.com/iotfleetwise/ "https://console.aws.amazo
    **Enable**. AWS IoT FleetWise automatically attaches a CloudWatch
    managed policy to the service-linked role and enables CloudWatch metrics.
 4. In **Logging**, choose **Edit**.
+
    1. In the **CloudWatch logging** section, enter the **Log group**.
    2. To save your changes, choose **Submit**.
 
 5. In the **Encryption** section, choose **Edit**.
+
    1. Choose the type of key that you want to use. For more
       information, see [Key management in AWS IoT FleetWise](key-management.md "key-management.md").
+
       1. **Use AWS key** – AWS IoT FleetWise owns and manages the key.
       2. **Choose a different AWS Key Management Service key**
          – You manage AWS KMS keys that are in your

@@ -50,6 +50,7 @@ To complete this getting started tutorial, you first need the following:
   Regions. For more information, see [AWS IoT FleetWise endpoints and
   quotas](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md").
 - Amazon Timestream resources:
+
   - An Amazon Timestream database. For more information, see [Create a database](../../../timestream/latest/developerguide/console_timestream.md#console_timestream.db.using-console "../../../timestream/latest/developerguide/console_timestream.md#console_timestream.db.using-console") in the _Amazon Timestream
     Developer Guide_.
   - An Amazon Timestream table created in Amazon Timestream that will hold your data.
@@ -58,6 +59,7 @@ To complete this getting started tutorial, you first need the following:
 
 - The Edge Agent software demo. (Instructions for setting up the demo are in the next
   step.)
+
   - You can use the Explore Edge Agent quick start demo to explore
     AWS IoT FleetWise and learn how to develop Edge Agent software for AWS IoT FleetWise. This demo
     uses an CloudFormation template. It walks you through reviewing the Edge Agent
@@ -92,6 +94,7 @@ following:
    resources this CloudFormation template creates.
 3. Under **Parameters**, enter your custom values for the
    parameters related to your stack.
+
    1. **Fleetsize** ‐ You can increase the number of
       vehicles in your fleet by updating the Fleetsize parameter.
    2. **IoTCoreRegion** ‐ You can specify the Region
@@ -200,6 +203,7 @@ You can't configure vision system data signals in decoder manifests using the AW
    description for it. Then, choose **Next**.
 2. To add one or more network interfaces, choose either the CAN_INTERFACE or the
    OBD_INTERFACE type.
+
    - **On-board diagnostic (OBD) interface ‐** Choose this interface type
      if you want a protocol that defines how self-diagnostic data is
      communicated between electronic control units (ECUs). This protocol
@@ -235,6 +239,7 @@ must associate all vehicles with a decoder manifest.
 
 1. Verify that you’ve already created the vehicle model and decoder manifest.
    Also, verify that the status of the vehicle model is **ACTIVE**.
+
    1. To verify that the status of the vehicle model is ACTIVE, open the
       AWS IoT FleetWise console.
    2. On the navigation pane, choose **Vehicle
@@ -281,6 +286,7 @@ collection scheme or a time-based collection scheme.
 3. Choose **Create campaign**.
 4. Enter your campaign name and an optional description.
 5. To configure your campaign’s data collection scheme, you can manually define the data collection scheme or upload a .json file from your local device. Uploading a .json file automatically defines the data collection scheme.
+
    1. To manually define the data collection scheme, choose **Define
       Data Collection Scheme** and choose the type of data
       collection scheme you want to use for your campaign. You can choose
@@ -311,6 +317,7 @@ collection scheme or a time-based collection scheme.
 8. Choose **Next**.
 9. Define the storage destination that you want the campaign to transfer data to.
    You can store data in Amazon S3 or Amazon Timestream.
+
    1. Amazon S3 – Choose the S3 bucket that AWS IoT FleetWise has permissions to.
    2. Amazon Timestream – choose the Timestream database and table name.
       Enter an IAM role that allows AWS IoT FleetWise to send data to Timestream.

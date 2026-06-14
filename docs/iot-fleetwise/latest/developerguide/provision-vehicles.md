@@ -25,6 +25,7 @@ You can create AWS IoT Core policies to authenticate your vehicles.
 ###### To authenticate your vehicle
 
 - To create an AWS IoT Core policy, run the following command.
+
   - Replace `policy-name` with the name of
     the policy that you want to create.
   - Replace `file-name` with the name of the
@@ -105,6 +106,7 @@ We recommend that you create a new certificate for each vehicle.
 
 1. To create an RSA key pair and issue an X.509 certificate, run the
    following command.
+
    - Replace `cert` with the name of the file
      that saves the command output contents of certificatePem.
    - Replace `public-key` with the name of the
@@ -125,6 +127,7 @@ aws iot create-keys-and-certificate \
 2. Copy the Amazon Resource Name (ARN) of the certificate from the
    output.
 3. To attach the policy to the certificate, run the following command.
+
    - Replace `policy-name` with the name of
      the AWS IoT Core policy that you created.
    - Replace `certificate-arn` with the ARN of
@@ -137,6 +140,7 @@ aws iot attach-policy \
 ```
 
 4. To attach the certificate to the thing, run the following command.
+
    - Replace `thing-name` with the name of
      your AWS IoT thing or the ID of your vehicle.
    - Replace `certificate-arn` with the ARN of

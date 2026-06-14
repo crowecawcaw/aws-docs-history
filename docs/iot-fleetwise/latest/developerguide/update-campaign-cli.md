@@ -13,6 +13,7 @@ command uses AWS CLI.
 - Replace `campaign-name` with the name of the campaign
   that you're updating.
 - Replace `action` with one of the following:
+
   - `APPROVE` – Approves the campaign to allow AWS IoT FleetWise
     to deploy it to a vehicle or fleet.
   - `SUSPEND` – Suspends the campaign. The campaign is

@@ -44,6 +44,7 @@ resource for a state template:
 - `$stateTemplate.operation` – The operation to be performed
   on the state template. Use one of the following values for this
   parameter:
+
   - `activate` – The Edge Agent starts sending signal
     updates to the cloud based on the
     `stateTemplateUpdateStrategy` you specified (on-change or periodic) when you applied the state template to

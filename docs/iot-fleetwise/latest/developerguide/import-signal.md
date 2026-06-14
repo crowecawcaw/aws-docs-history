@@ -33,7 +33,9 @@ console.
 3. On the signal catalog summary page, choose **Import signal
    catalog**.
 4. Import the file containing the signals.
+
    - To upload a file from an S3 bucket:
+
      1. Choose **Import from S3**.
      2. Choose **Browse S3**.
      3. For **Buckets**, enter the bucket
@@ -44,6 +46,7 @@ console.
         _Amazon S3 User Guide_.
 
    - To upload a file from your computer:
+
      1. Choose **Import from file**.
      2. Upload a .json file in a [Vehicle Signal Specification (VSS)](<https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec> "https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec")
         format.

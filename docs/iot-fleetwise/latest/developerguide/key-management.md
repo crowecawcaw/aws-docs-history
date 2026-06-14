@@ -238,10 +238,12 @@ If you delete an AWS KMS key after enabling encryption with AWS IoT FleetWise, y
 You must clean up resources in the following order.
 
 1. Campaigns
+
    1. List all campaigns with the `listResponseScope` parameter set to `METADATA_ONLY`.
    2. Delete the campaigns.
 
 2. Fleets and vehicles
+
    1. List all fleets with the `listResponseScope` parameter set to `METADATA_ONLY`.
    2. List all vehicles for each fleet with the `listResponseScope` parameter set to `METADATA_ONLY`.
    3. Disassociate all vehicles from each fleet.
@@ -249,17 +251,21 @@ You must clean up resources in the following order.
    5. Delete the vehicles.
 
 3. Decoder manifests
+
    1. List all decoder manifests with the `listResponseScope` parameter set to `METADATA_ONLY`.
    2. Delete all decoder manifests.
 
 4. Vehicle models (model manifests)
+
    1. List all vehicle models with the `listResponseScope` parameter set to `METADATA_ONLY`.
    2. Delete all vehicle models.
 
 5. State templates
+
    1. List all state templates with the `listResponseScope` parameter set to `METADATA_ONLY`.
    2. Delete all state templates.
 
 6. Signal catalogs
+
    1. List all signal catalogs.
    2. Delete all signal catalogs.

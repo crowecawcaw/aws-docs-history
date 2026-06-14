@@ -80,6 +80,7 @@ You can use the AWS IoT FleetWise console to add associated state templates to a
 4. On the **State templates** tab, choose **Manage state templates**.
 5. Choose **Add state template**.
 6. Select a state template and choose its reporting method.
+
    1. **On change** – The state template will report changes to the vehicle's state.
    2. **Periodic** – The state template will report updates on the specified time interval.
 

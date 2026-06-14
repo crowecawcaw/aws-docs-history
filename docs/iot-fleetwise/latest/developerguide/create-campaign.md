@@ -20,6 +20,7 @@ For your campaign to work, you must have the following:
 
 - The Edge Agent software is running in your vehicle. For more information about how
   to develop, install, and work with the Edge Agent software, do the following:
+
   1.  Open the [AWS IoT FleetWise console](https://console.aws.amazon.com/iotfleetwise "https://console.aws.amazon.com/iotfleetwise").
   2.  On the service home page, in the **Get started with AWS IoT FleetWise**
       section, choose **Explore Edge Agent**.
@@ -147,6 +148,7 @@ conditional expression. The default value is
    data.
 5. (Optional) Edit the scheme’s **Advanced
    scheme options**.
+
    1. To save wireless bandwidth and reduce
       network traffic by compressing data, choose
       **Snappy**.
@@ -192,9 +194,11 @@ update the options, if needed.
 To choose if the Edge Agent software will temporarily store data locally when a vehicle isn't connected to the cloud, specify the spooling mode.
 
 - In **Data spooling mode**, choose one of the following:
+
   - **Not stored** – The Edge Agent software collects but doesn't temporarily store data locally when a vehicle is offline. The Edge Agent software transfers data to the cloud when the vehicle reconnects.
   - **Stored to disk** – The Edge Agent software collects and temporarily stores data locally when a vehicle is offline. Collected data is temporarily stored at a location defined by the Edge Agent config file “persistency” section. The Edge Agent transfers data to the cloud when the vehicle reconnects.
   - **Stored to disk with partitions** – The vehicle always temporarily stores data on the Edge in your specified data partition. You can choose when you want to forward your stored data to the cloud.
+
     1. (Optional) Enter a partition ID to designate a particular set of data.
     2. Enter a folder name as the location where data will be stored. The absolute path of the storage location is `{persistency_path} / {vehicle_name} / {campaign_name} / {storage_location}`.
     3. Enter the maximum storage size of the data stored in the partition. Newer data overwrites older data when the partition reaches the maximum size.

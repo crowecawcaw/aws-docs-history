@@ -112,16 +112,19 @@ vision systems data.
 
 - Floating point types. The following types are
   supported.
+
   - Float (32 bits)
   - Double (64 bits)
 
 - Integer (both signed and unsigned). The following integer
   types are supported.
+
   - int8 and uint8
   - int16 and uint16
   - int32 and uint32
 
 - Long. The following long types are supported.
+
   - Long (int64)
   - Unsigned long (uint64)
 
