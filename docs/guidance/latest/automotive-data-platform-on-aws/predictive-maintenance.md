@@ -12,6 +12,7 @@ The solution delivers:
 
 - **Advanced Tire Health Monitoring**: Ingests and analyzes tire-related telemetry data from connected vehicles
 - **Dual Prediction Approaches**:
+
   - Machine learning models using Amazon SageMaker Random Cut Forest algorithm
   - Filter-based algorithmic approach for real-time anomaly detection
 

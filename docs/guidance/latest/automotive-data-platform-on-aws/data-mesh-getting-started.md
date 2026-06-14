@@ -39,6 +39,7 @@ cdk deploy PlatformFoundationStack
 1. Open DataZone console
 2. Create project: "Customer Analytics"
 3. Publish data product:
+
    - Name: `customer-360-analytics`
    - Source: Glue Data Catalog `cx_analytics`
    - Tables: All 11 tables
@@ -48,6 +49,7 @@ cdk deploy PlatformFoundationStack
 
 1. Create project: "Vehicle Intelligence"
 2. Publish data product:
+
    - Name: `predictive-maintenance`
    - Source: Glue Data Catalog `mmt_predictive_maintenance`
    - Tables: All prediction tables

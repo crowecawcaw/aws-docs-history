@@ -76,42 +76,50 @@ This workflow monitors sentiment daily and triggers remediation when critical is
 **Workflow steps**:
 
 1. **Sentiment Analysis** (Bedrock Agent - Steps 1-3)
+
    - Query customer sentiment data from Athena
    - Analyze trends and identify critical issues
    - Generate three agent responses with different perspectives
    - Output: agent_response_41, agent_response_42, agent_response_43
 
 2. **Criticality Check** (Code Block - Step 4.4)
+
    - Combine all agent responses
    - Check for "critical" sentiment indicators
    - Identify needed workflows (Battery Replacement, BMS Repair, Thermal Management)
    - Output: tasks_to_create list with workflow details
 
 3. **Loop Through Critical Items** (Step 4.5)
+
    - Iterate over each workflow needing action
    - Process each issue independently
 
 4. **Prepare Task Data** (Code Block - Steps 4.6-4.7)
+
    - Generate unique reference ID for tracking
    - Build custom data JSON with issue details
    - Calculate revenue at risk
 
 5. **Case Creation** (Step 4.8)
+
    - Create case in Task Center
    - Case Type: Customer Sentiment
    - Store case_id for tracking
 
 6. **Create Approval Tasks** (Step 4.9)
+
    - Create human-in-the-loop (HITL) approval task
    - Assign to appropriate resolver based on issue type
    - Set 24-hour due date for critical issues
    - Include context and revenue at risk
 
 7. **Search and Retrieve Cases** (Steps 4.10-4.11)
+
    - Retrieve all created cases with IDs
    - Prepare data for report generation
 
 8. **Generate Executive Report** (Step 4.12+)
+
    - Agent generates HTML report using natural language prompts
    - Include root causes, revenue impact, and remediation workflows
    - Upload to S3 bucket
@@ -119,6 +127,7 @@ This workflow monitors sentiment daily and triggers remediation when critical is
    - Report includes one-click buttons to launch approval flows
 
 9. **Notification** (Final Step)
+
    - Alert #customer-experience-alerts in Slack
    - Include report link and approval workflows
    - @mention stakeholders based on severity
@@ -264,24 +273,28 @@ Enables marketing managers to instantly notify stakeholders via Slack and route 
 **Flow components**:
 
 1. **Context gathering**
+
    - Retrieve campaign details from executive report
    - Calculate affected customers and segments
    - Pull historical campaign performance
    - Estimate revenue impact
 
 2. **Stakeholder notification**
+
    - Send Slack message to #marketing-campaigns
    - Include campaign summary and approval link
    - Set priority based on urgency and revenue
    - @mention relevant team members
 
 3. **Approval routing**
+
    - Route to marketing manager for campaigns < $10K
    - Route to VP Marketing for campaigns > $10K
    - Escalate to CMO if no response in 4 hours
    - Track approval status in real-time
 
 4. **Action execution**
+
    - On approval: Trigger campaign in marketing automation system
    - On rejection: Log reason and notify requester
    - Update dashboard status automatically
@@ -294,22 +307,26 @@ Empowers service managers to review repair scope, cost estimates, and customer i
 **Flow components**:
 
 1. **Repair scope review**
+
    - Display affected VINs and vehicle models
    - Show cost per vehicle and total program cost
    - Include parts availability and lead times
    - Calculate customer impact and downtime
 
 2. **Cost impact analysis**
+
    - Total program cost
    - Warranty claim impact
    - Customer satisfaction projection
 
 3. **Jira integration**
+
    - Create ticket on approval
    - Assign to service operations
    - Link to quality report
 
 4. **Customer communication**
+
    - Trigger notification workflow
    - Schedule appointments
    - Update customer portal

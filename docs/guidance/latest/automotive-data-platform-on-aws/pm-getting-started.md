@@ -167,34 +167,40 @@ cdk deploy MonitoringStack
 **What gets deployed**:
 
 1. **DataStack**
+
    - S3 buckets: raw, etl, ml-features, predictions
    - Glue database: `mmt_predictive_maintenance`
    - DynamoDB table: `tire-alerts`
 
 2. **EtlStack**
+
    - Lambda: `redshift-query-lambda`
    - Glue job: `root-etl-pipeline`
    - CloudWatch Events: Hourly triggers
    - IAM roles: Glue and Lambda execution roles
 
 3. **MlStack**
+
    - Step Functions: `ml-etl-pipeline`, `ml-training-pipeline`, `ml-inference-pipeline`
    - Lambda: Path resolvers, monitoring functions
    - Glue job: `ml-feature-engineering`
    - SSM Parameter: `/mmt/predictive-maintenance/latest-model`
 
 4. **FilteringStack**
+
    - Step Function: `filtering-pipeline`
    - Lambda: `filtering-algorithm`
    - CloudWatch Events: Daily trigger
 
 5. **AlertsStack**
+
    - Lambda: `generate-alerts`
    - SNS topic: `tire-alert-notifications`
    - API Gateway: `alerts-api`
    - S3 event notifications
 
 6. **MonitoringStack**
+
    - CloudWatch dashboards
    - CloudWatch alarms
    - X-Ray tracing

@@ -99,21 +99,25 @@ ORDER BY aaid, event_timestamp
 **Transformation Steps**:
 
 1. **Data Cleaning**
+
    - Remove rows with null tire pressure or temperature
    - Filter out erroneous values (pressure < 0 or > 100 PSI)
    - Handle missing timestamps
 
 2. **Unit Conversions**
+
    - Convert temperature to Celsius if needed
    - Standardize pressure units to PSI
    - Normalize tire position labels
 
 3. **Data Weaving**
+
    - Merge data from multiple tables based on AAID and timestamp
    - Join vehicle metadata (make, model, year)
    - Create unified telemetry records
 
 4. **Output Formatting**
+
    - Convert to simplified CSV format
    - Add computed columns (e.g., pressure differential)
    - Partition by date and hour
@@ -153,18 +157,21 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
 **Processing Stages**:
 
 1. **Add Metadata**
+
    - Vehicle make, model, year
    - Tire age and mileage
    - Service history flags
    - Alert metadata for downstream processing
 
 2. **Resample Data**
+
    - Group by: AAID, tire position
    - Interval: 1 day (from hourly granularity)
    - Aggregations: Mean, median, mode, std dev, min, max
    - Reduces data volume by 24x
 
 3. **Engineer Features**
+
    - Leak rate: Change in pressure over time
    - Temperature differential: Difference from ambient
    - Pressure variance: Std dev over rolling 7-day window
@@ -172,6 +179,7 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
    - Odometer delta: Miles driven per day
 
 4. **Encode and Normalize**
+
    - Categorical encoding: One-hot encode tire position, vehicle make
    - Normalization: StandardScaler for continuous features
    - Feature scaling: All features scaled to [0, 1] range
@@ -193,10 +201,12 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
 **Steps**:
 
 1. **Generate Training Job ID**
+
    - Lambda: Create unique training job name with timestamp
    - Format: `tire-prediction-rcf-{timestamp}`
 
 2. **Start SageMaker Training**
+
    - Algorithm: Random Cut Forest (built-in SageMaker algorithm)
    - Instance type: ml.m5.xlarge
    - Instance count: 1
@@ -220,17 +230,20 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
 - Input: S3 path to ML features (last 90 days)
 - Content type: text/csv
 - S3 data distribution: FullyReplicated
+
   1.  **Create SageMaker Model**
 
 - Model name: `tire-prediction-model-{timestamp}`
 - Model artifacts: From training job output
 - Inference image: SageMaker RCF inference container
+
   1.  **Update SSM Parameter**
 
 - Parameter: `/mmt/predictive-maintenance/latest-model`
 - Value: Model name
 - Type: String
 - Used by inference pipeline to get latest model
+
   1.  **Send Notification**
 
 - SNS topic: `ml-training-notifications`
@@ -253,11 +266,13 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
 **Steps**:
 
 1. **Determine Input Path and Model**
+
    - Lambda: `ml-inference-path-resolver`
    - Logic: Get previous day’s feature data path
    - Retrieve latest model name from SSM Parameter
 
 2. **Start Batch Transform Job**
+
    - Job name: `tire-prediction-inference-{timestamp}`
    - Model: Retrieved from SSM Parameter
    - Instance type: ml.m5.large
@@ -272,12 +287,14 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
 - Content type: text/csv
 - Split type: Line
 - Compression: None
+
   1.  **Monitor Transform Job**
 
 - Lambda: `monitor-transform-job`
 - Logic: Poll job status every 60 seconds
 - Timeout: 2 hours
 - Error handling: Fail Step Function if job fails
+
   1.  **Process Predictions**
 
 - Lambda: `process-predictions`
@@ -358,26 +375,31 @@ The filtering approach uses a stepwise filter-based algorithm to identify gradua
 **Algorithm Steps**:
 
 1. **Load Historical Data**
+
    - Query last 14 days of ETL data from S3
    - Group by AAID and tire position
    - Sort by timestamp
 
 2. **Apply Filters**
+
    - Moving average filter (7-day window) to smooth pressure readings
    - Temperature compensation to adjust for ambient temperature effects
    - Outlier removal using IQR method
 
 3. **Calculate Leak Rate**
+
    - Linear regression on filtered pressure over time
    - Slope = leak rate (PSI per day)
    - R-squared > 0.7 indicates consistent leak pattern
 
 4. **Detect Leaks**
+
    - Leak detected if: leak_rate < -0.5 PSI/day
    - Gradual leak: -0.5 to -2 PSI/day
    - Fast leak: < -2 PSI/day
 
 5. **Estimate Time to Critical**
+
    - Current pressure - 80 PSI = pressure_delta
    - time_to_critical = pressure_delta / abs(leak_rate)
    - Adjust for confidence interval

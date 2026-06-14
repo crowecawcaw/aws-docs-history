@@ -2,7 +2,7 @@
 
 This chapter provides a high-level overview of the Automotive Data Platform architecture, including the three integrated solutions and their deployment options.
 
-![Automotive Data Platform Architecture Overview](images/mesh.png)
+![Automotive Data Platform Architecture Overview](/images/guidance/latest/automotive-data-platform-on-aws/images/mesh.png)
 
 ## Solution Components
 
