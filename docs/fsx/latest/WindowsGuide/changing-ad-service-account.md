@@ -39,6 +39,7 @@ list policy.
    in your self-managed Microsoft Active Directory.
 2. In a new or existing group policy that applies to all domain controllers in your self-managed Active Directory,
    configure the following settings.
+
    1. Navigate to **Computer Configuration>Policies>Windows Settings>Security Settings>
       Local Policies>Security Options**.
    2. Double-click **Domain controller: Allow computer account re-use during domain join**.

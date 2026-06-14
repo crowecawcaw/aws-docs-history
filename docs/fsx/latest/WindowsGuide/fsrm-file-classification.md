@@ -87,6 +87,7 @@ Classifier provides three ways to match file content:
   need to match complex patterns or variable formats. For example, you can
   use
   regular expressions to detect:
+
   - Social Security numbers in the format 123-45-6789: `\b\d{3}-\d{2}-\d{4}\b`
   - Credit card numbers with optional spaces or dashes: `\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b`
   - Email addresses, phone numbers, or other structured data
@@ -291,6 +292,7 @@ classification rules.
 - `Type (string)` - Required. The type of the classification property. You can specify
   the
   following values:
+
   - `OrderedList`: An ordered list of possible values
   - `MultiChoice`: Multiple choice selection from possible
     values
@@ -305,6 +307,7 @@ classification rules.
   or
   SingleChoice property types. Each configuration has the following
   properties:
+
   - `Name (string)`: The name of the value (required)
   - `Description (string)`: A description of the value
     (optional)
@@ -379,6 +382,7 @@ Modifies the properties of an existing classification property definition.
   MultiChoice,
   or SingleChoice properties. Each configuration has the following
   properties:
+
   - `Name (string)`: The name of the value (required)
   - `Description (string)`: A description of the value
     (optional)
@@ -460,6 +464,7 @@ specified criteria. Each rule sets a value for a single property.
 - `ReevaluateProperty (string)` - Optional. Specifies when to re-evaluate files. You can specify
   the
   following values:
+
   - `Never`: Only evaluate files without existing property
     value
   - `Overwrite`: Re-evaluate when files change and overwrite
@@ -472,6 +477,7 @@ specified criteria. Each rule sets a value for a single property.
 - `Flags (array)` - Optional. Specifies special behaviors for the rule. You can
   specify the
   following values:
+
   - `ClearAutomaticallyClassifiedProperty`
   - `ClearManuallyClassifiedProperty`
   - `Deprecated`
@@ -484,6 +490,7 @@ specified criteria. Each rule sets a value for a single property.
 - `ClassificationMechanism (string)` - Required. The mechanism to use for classifying files. You can
   specify the
   following values:
+
   - `Content Classifier`: Scans file content for specific
     strings or
     regular expression patterns. When you specify Content
@@ -570,6 +577,7 @@ Modifies the properties of existing classification rules.
 - `ReevaluateProperty (string)` - Optional. Changes when to re-evaluate files. You can
   specify the
   following values:
+
   - `Never`: Only evaluate files without existing
     property value
   - `Overwrite`: Re-evaluate when files change and
@@ -582,6 +590,7 @@ Modifies the properties of existing classification rules.
 - `Flags (array)` - Optional. New special behaviors for the rule. You can
   specify the
   following values:
+
   - `ClearAutomaticallyClassifiedProperty`
   - `ClearManuallyClassifiedProperty`
   - `Deprecated`
@@ -592,6 +601,7 @@ Modifies the properties of existing classification rules.
 - `ClassificationMechanism (string)` - Optional. A new classification mechanism to use. You can
   specify the
   following values:
+
   - `Content Classifier`: Scans file content for
     specific strings or
     regular expression patterns. When you specify
@@ -800,6 +810,7 @@ generates a classification report.
   process should run
   before being canceled. Valid values: `-1` to `2147483`. Special
   values:
+
   - `-1`: Run until canceled
   - `0`: Run to completion
   - If not specified, runs to completion.
@@ -851,6 +862,7 @@ classified files.
   command returns but classification continues running in the
   background.
   Valid values: `-1` to `2147483`. Special values:
+
   - `-1`: Wait indefinitely until classification
     completes (default)
   - `0`: Check the current status and return immediately
@@ -878,6 +890,7 @@ Modifies the configuration settings for file classification.
 - `ScheduleConfigurations (hashtable)` - Optional. A hashtable containing schedule configuration
   with the following
   properties:
+
   - `Time (datetime)`: DateTime object
     specifying when to run the task (required)
   - `RunDuration (number)`: Number of hours

@@ -112,12 +112,15 @@ addresses to use when manually adding the DNS A entries.
 
 1. In the [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"), choose the file system that you want to obtain the IP address of to display the file system details page.
 2. In the **Network & security** tab do one of the following:
+
    - For a Single-AZ 1 file system:
+
      - In the **Subnet** panel, choose the elastic network interface shown under
        **Network interface** to open the **Network Interfaces** page in the Amazon EC2 .
      - The IP address for the Single-AZ 1 file system to use is shown in the **Primary private IPv4 IP** column.
 
    - For a Single-AZ 2 or Multi-AZ file system:
+
      - In the **Preferred subnet** panel, choose the elastic network interface shown under
        **Network interface** to open the **Network Interfaces** page in the Amazon EC2 .
      - The IP address for the preferred subnet to use is shown in the **Secondary private IPv4 IP** column.
@@ -131,6 +134,7 @@ If you're unable to access a file system using a DNS alias, use the following pr
 
 1. Verify that the alias is associated with the file system
    by doing either of the following steps:
+
    1. **Using the Amazon FSx console** – Choose the file system that you're
       trying to access. On the **File system details** page, the **DNS aliases** are shown
       on the **Network & security** tab.
@@ -143,6 +147,7 @@ If you're unable to access a file system using a DNS alias, use the following pr
 2. If the DNS alias is not listed, you must associate it with the file system. For more
    information, see [Managing DNS aliases on existing file systems](manage-aliases-existing-fs.md "manage-aliases-existing-fs.md").
 3. If the DNS alias is associated with the file system, verify that you've also configured the following required items:
+
    - Created service principal names (SPNs) corresponding to the DNS alias on your Amazon FSx file
      system's Active Directory computer object.
 
@@ -154,6 +159,7 @@ If you're unable to access a file system using a DNS alias, use the following pr
 
 4. If you created valid SPNs and a DNS CNAME record, verify that the client's DNS has the
    DNS CNAME record that resolves to the correct file system.
+
    1. Run `nslookup` to confirm that the record exists
       and that it resolves to the file system's default DNS name.
    2. If the DNS CNAME resolves to another file system, wait for the client's DNS cache to

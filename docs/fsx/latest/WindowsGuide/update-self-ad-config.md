@@ -45,6 +45,7 @@ You can [monitor the update progress](monitor-self-ad-update.md "monitor-self-ad
 
 - To update the self-managed Active Directory configuration of an FSx for Windows File Server file system, use the AWS CLI command
   [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md"). Set the following parameters:
+
   - `--file-system-id` to the ID of the file system you are updating.
   - `UserName` the new username for the self-managed Active Directory service
     account.

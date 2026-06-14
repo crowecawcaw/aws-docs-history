@@ -8,6 +8,7 @@ You can use the AWS Management Console and AWS CLI to manually copy backups with
 3. In the **Backups** table, choose the backup that you want to copy, and
    then choose **Copy backup**.
 4. In the **Settings** section, do the following:
+
    - In the **Destination Region** list, choose a destination AWS Region to copy the
      backup to. The destination can be in another AWS Region (cross-Region copy) or within the same
      AWS Region (in-Region copy).

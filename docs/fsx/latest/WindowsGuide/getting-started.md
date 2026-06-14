@@ -99,6 +99,7 @@ all possible options. For more information about the advanced options, see [Laun
    Groups**, a security group appears that the wizard created and selected for you. You
    can use this security group, or you can choose the security group that you created when getting
    set up using the following steps:
+
    1. Choose **Edit security groups**.
    2. On the **Configure Security Group** page, ensure that **Select
       an existing security group** is selected.
@@ -185,6 +186,7 @@ Simultaneous Remote Connections Allowed for a Connection](http://technet.microso
    either open or save the .rdp file. Either option is fine. When you have finished, you can
    choose **Close** to dismiss the **Connect to Your Instance**
    dialog box.
+
    - If you opened the .rdp file, you see the **Remote Desktop Connection**
      dialog box.
    - If you saved the .rdp file, navigate to your downloads directory, and open the .rdp file
@@ -237,6 +239,7 @@ your Directory Service directory.
 
 1. Connect to the instance using any Remote Desktop Protocol client.
 2. Open the TCP/IPv4 or IPv6 properties dialog box on the instance.
+
    1. Open **Network Connections**.
 
    ###### Tip
@@ -247,7 +250,6 @@ your Directory Service directory.
    ```
    %SystemRoot%\system32\control.exe ncpa.cpl
    ```
-
    2. Open the context (right-click) menu for any enabled network connection and then choose
       **Properties**.
    3. In the connection properties dialog box, open (double-click) **Internet Protocol Version 4**
@@ -359,6 +361,7 @@ system. For more information, see [Managing throughput capacity](managing-throug
     the same AWS Region as your file system. To ensure that you can connect an EC2 instance
     with your file system, you will need to add the following rules to your
     chosen security group:
+
     1. Add the following inbound and outbound rules to allow the following ports.
 
     | Rules | Ports                                                                |
@@ -510,6 +513,7 @@ name of your file system.
    instance and join it to the AWS Directory Service for Microsoft Active Directory that your file system has joined.
    To perform this action, choose one of the
    following procedures from the AWS Directory Service Administration Guide:
+
    - [Seamlessly join a Windows EC2
      instance](../../../directoryservice/latest/admin-guide/launching_instance.md "../../../directoryservice/latest/admin-guide/launching_instance.md")
    - [Manually join a Windows
@@ -604,6 +608,7 @@ resources and protect your AWS account.
 2. On the Amazon FSx console, delete your file system. All automatic backups are deleted
    automatically. However, you still need to delete the manually created backups. The
    following steps outline this process:
+
    1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
    2. From the console dashboard, choose the name of the file system you created for
       this exercise.

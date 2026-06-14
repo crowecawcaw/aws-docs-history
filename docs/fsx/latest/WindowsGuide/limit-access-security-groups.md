@@ -48,6 +48,7 @@ Group Rules](../../../AWSEC2/latest/UserGuide/using-network-security.md#security
    system to create the security group within that VPC.
 6. Add the following rules to allow outbound network traffic on the following
    ports:
+
    1. For **VPC security groups**, the default security group for your default
       Amazon VPC is already added to your file system in the console. Please ensure that the
       security group and the VPC Network ACLs for the subnet(s) where you're creating your FSx

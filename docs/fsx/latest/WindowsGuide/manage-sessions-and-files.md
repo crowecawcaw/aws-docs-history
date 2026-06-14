@@ -18,6 +18,7 @@ and open files on your Amazon FSx file system using the Microsoft Windows shared
 1. Launch your Amazon EC2 instance and connect it to the Microsoft Active Directory
    that your Amazon FSx file system is joined to. To do this, choose one of the
    following procedures from the _AWS Directory Service Administration Guide_:
+
    - [Seamlessly join a Windows EC2
      instance](../../../directoryservice/latest/admin-guide/launching_instance.md "../../../directoryservice/latest/admin-guide/launching_instance.md")
    - [Manually join a Windows

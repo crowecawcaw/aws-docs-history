@@ -54,14 +54,15 @@ If above returns an error, install it using the following command.
 ```
 
 8. Set required parameters by substituting into the following command your:
+
    - Active Directory domain name (`DOMAINNAME.COM`)
    - Prepare the `$Credential` object for the service account password using one of the following options.
+
      - To generate the credential object interactively, use the following command.
 
      ```
      $Credential = Get-Credential
      ```
-
      - To generate the credential object using an AWS Secrets Manager resource, use the following
        command.
 

@@ -117,19 +117,23 @@ when users exceed quota thresholds.
 - `ThresholdConfigurations (array)` - Optional. An array of threshold configurations that specify actions to
   take at different usage levels. Each configuration has the following
   properties:
+
   - `ThresholdPercentage (number)`:
     The percentage of the quota limit at which to trigger actions.
     Enter a value between 0 and 250.
   - `Action (array)`: One or more
     actions to take when the threshold is reached. Each action has
     the following properties:
+
     - `ActionType`: The type
       of action to perform. You can specify the following
       values:
+
       1.  `Event`: Logs
           an event to the file system's event log. When
           you specify Event, you must also specify the
           following properties:
+
           - `EventType`:
             Information, Warning, or Error
           - `MessageBody`:
@@ -228,19 +232,23 @@ Modifies the configuration of an existing quota.
   the quota.
 - `ThresholdConfigurations (array)` - Optional. An array of new threshold configurations. Each threshold
   configuration has the following properties:
+
   - `ThresholdPercentage (number)`:
     The percentage of the quota limit at which to trigger actions.
     Enter a value between 0 and 250.
   - `Action (array)`: One or more
     actions to take when the threshold is reached. Each action has
     the following properties:
+
     - `ActionType`: The type
       of action to perform. You can specify the following
       values:
+
       1.  `Event`: Logs
           an event to the file system's event log. When
           you specify Event, you must also specify the
           following properties:
+
           - `EventType`:
             Information, Warning, or Error
           - `MessageBody`:
@@ -309,19 +317,23 @@ Creates a new quota template that defines a reusable configuration for quotas.
 - `ThresholdConfigurations (array)` - Optional. An array of threshold configurations that specify actions to
   take at different usage levels. Each configuration has the following
   properties:
+
   - `ThresholdPercentage (number)`:
     The percentage of the quota limit at which to trigger actions.
     Enter a value between 0 and 250.
   - `Action (array)`: One or more
     actions to take when the threshold is reached. Each action has
     the following properties:
+
     - `ActionType`: The type
       of action to perform. You can specify the following
       values:
+
       1.  `Event`: Logs
           an event to the file system's event log. When
           you specify Event, you must also specify the
           following properties:
+
           - `EventType`:
             Information, Warning, or Error
           - `MessageBody`:
@@ -401,19 +413,23 @@ Modifies the properties of a quota template.
 - `ThresholdConfigurations (array)` - Optional. An array of threshold configurations that specify actions to
   take at different usage levels. Each configuration has the following
   properties:
+
   - `ThresholdPercentage (number)`:
     The percentage of the quota limit at which to trigger actions.
     Enter a value between 0 and 250.
   - `Action (array)`: One or more
     actions to take when the threshold is reached. Each action has
     the following properties:
+
     - `ActionType`: The type
       of action to perform. You can specify the following
       values:
+
       1.  `Event`: Logs
           an event to the file system's event log. When
           you specify Event, you must also specify the
           following properties:
+
           - `EventType`:
             Information, Warning, or Error
           - `MessageBody`:

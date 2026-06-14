@@ -22,6 +22,7 @@ following procedures.
 9. Choose **Create selected objects in this folder** and **Delete
    selected objects in this folder**. Then choose **Next**.
 10. For **Permissions**, choose the following:
+
     - **Reset Password**
     - **Read and write Account Restrictions**
     - **Validated write to DNS host name**
@@ -43,6 +44,7 @@ following procedures.
 20. On the **Permission Entry** page, choose **Select a principal** and enter the name of your Amazon FSx service account or group.
     For **Applies to:**, choose
     **This Object and all Descendant Computer**. Ensure that the following are selected:
+
     - **Modify permissions**
     - **Create Computer Objects**
     - **Delete Computer Objects**

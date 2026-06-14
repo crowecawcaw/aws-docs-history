@@ -72,6 +72,7 @@ To resolve this situation, do the following:
    in the Amazon FSx console.
 4. To update the file system's self-managed Active Directory configuration, you
    can use the Amazon FSx console.
+
    1. On the navigation pane, choose **File systems**, and choose the file system to
       update; the **File system details** page appears.
    2. On **File system details** page, choose
@@ -91,6 +92,7 @@ To resolve the misconfiguration, do the following:
    and you are using the correct credentials for that account.
 2. Then update the file system's configuration with the
    correct service account or account credentials using the Amazon FSx console.
+
    1. On the navigation pane, choose **File systems**, and choose the
       misconfigured file system to update.
    2. On the **File system details** page, choose
@@ -106,6 +108,7 @@ To resolve the misconfiguration, do the following:
 
 1. Verify that the secret ARN is correct and follows the proper format: `arn:aws:secretsmanager:region:account-id:secret:secret-name-6chars`.
 2. Verify that the secret contains both required fields with non-empty values:
+
    - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` – Your AD service account username.
    - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD` – Your AD service account password.
    - Verify that the secret and key have a resource-based policy that grants the Amazon FSx service principal `fsx.amazonaws.com` permission to retrieve the secret value.
@@ -123,6 +126,7 @@ To resolve the misconfiguration, do the following:
 2. Then update the file system's self-managed Active Directory configuration with the new
    service account credentials. To update the configuration, you can use the
    Amazon FSx console.
+
    1. On the navigation
       pane, choose **File systems**, and choose the file system to
       update; the **File system details** page appears.
@@ -143,6 +147,7 @@ To resolve the misconfiguration, do the following:
    new computers to the domain.
 2. Then update the file system's self-managed Active Directory configuration
    with the new service account credentials using the Amazon FSx console.
+
    1. On the navigation pane, choose **File systems**, and choose the file system to
       update; the **File system details** page appears.
    2. On **File system details** page, choose
@@ -162,6 +167,7 @@ To resolve the misconfiguration, do the following:
    to the OU.
 2. Then update the file system's self-managed Active Directory configuration
    with the new service account credentials.
+
    1. On the navigation pane, choose **File systems**, and choose the file system to
       update; the **File system details** page appears.
    2. On **File system details** page, choose

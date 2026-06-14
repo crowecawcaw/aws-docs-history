@@ -115,6 +115,7 @@ Use the following steps to troubleshoot and resolve the issue.
 1. Review [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
 2. at the secret ARN is correct and follows the proper format: `arn:aws:secretsmanager:region:account-id:secret:secret-name-6chars`.
 3. Verify that the secret contains both required fields with non-empty values:
+
    - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` – Your AD service account username.
    - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD` – Your AD service account password.
 
@@ -217,6 +218,7 @@ Use the following procedure to troubleshoot and resolve the issue.
   delete computer objects in the OU in the domain to which you're joining
   the file system. The service account also needs, at a minimum, to have
   permissions to do the following:
+
   - Reset passwords
   - Restrict accounts from reading and writing data
   - Validated ability to write to the DNS hostname
@@ -263,6 +265,7 @@ Use the following steps to troubleshoot and resolve the issue.
    delete computer objects in the OU in the domain that you're joining
    the file system to. The service account also needs to have, at a minimum,
    permissions to do the following:
+
    - Reset passwords
    - Restrict accounts from reading and writing data
    - Validated ability to write to the DNS hostname

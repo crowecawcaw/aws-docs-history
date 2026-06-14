@@ -5,6 +5,7 @@ the next step is cutting over your operations to the FSx for Windows File Server
 file system, you perform the following steps:
 
 - Prepare for the cut over.
+
   - Temporarily disconnect SMB clients from the original file system.
   - Perform a final file and file share configuration sync.
 
@@ -80,6 +81,7 @@ SetSPN /Q ("HOST/" + $ALIAS.Split(".")[0])
 ```
 
 2. Delete the existing HOST SPNs returned in the previous step by using the following example script.
+
    - Replace `alias_fqdn` with the full DNS alias
      that you associated with the file system in [Migrating your on-premises DNS configuration to FSx for Windows File Server](migrate-dns-config.md "migrate-dns-config.md").
    - Replace `file_system_DNS_name` with the original file system's DNS name .
@@ -100,6 +102,7 @@ SetSPN /D ("HOST/" + ${Alias}.Split(".")[0]) ${FSxAdComputer}.Name
 ###### To set SPNs on your Amazon FSx file system’s Active Directory computer object
 
 1. Set new SPNs for your Amazon FSx file system by running the following commands.
+
    - Replace `file_system_DNS_name` with the DNS name that
      Amazon FSx assigned to the file system.
 

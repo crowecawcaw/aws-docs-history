@@ -255,6 +255,7 @@ report that analyzes specified directories to generate one or more report types.
 - `Namespace (array)` - Required. An array of paths or folder types to analyze. You can
   specify paths
   in multiple formats:
+
   - Folder Path
   - [Folder classification](fsrm-file-classification.md#fsrm-management-properties "fsrm-file-classification.md#fsrm-management-properties"). For example, [FolderUsage\_MS="User
     Files"]
@@ -262,6 +263,7 @@ report that analyzes specified directories to generate one or more report types.
 - `ReportType (array)` - Required. An array of report types to generate. You can specify
   the following
   values:
+
   - `DuplicateFiles`: Identifies duplicate files based on file
     size and
     content
@@ -279,6 +281,7 @@ report that analyzes specified directories to generate one or more report types.
 
 - `ReportFormat (array)` - Optional. An array of output formats. You can specify the
   following values:
+
   - `DHTML`: Dynamic HTML format
   - `HTML`: Static HTML format
   - `XML`: XML format
@@ -291,6 +294,7 @@ report that analyzes specified directories to generate one or more report types.
 - `ScheduleConfigurations (hashtable)` - Required unless report is Interactive. A hashtable containing
   schedule
   configuration with the following properties:
+
   - `Time (datetime)`: DateTime object specifying when to run
     the task
     (required)
@@ -444,11 +448,13 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 - `Namespace (array)` - Optional. An array of paths or folder types to analyze. You
   can specify
   paths in multiple formats:
+
   - Folder Path
   - [Folder classification](fsrm-file-classification.md#fsrm-management-properties "fsrm-file-classification.md#fsrm-management-properties"). For example,
     [FolderUsage\_MS="User Files"]
 
 - `ReportType (array)` - Optional. An array of report types to generate. You can specify the following values:
+
   - `DuplicateFiles`: Identifies duplicate
     files based on file size and content
   - `FilesByFileGroup`: Groups files by file
@@ -471,6 +477,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 - `ReportFormat (array)` - Optional. An array of output formats. You can specify the
   following
   values:
+
   - `DHTML`: Dynamic HTML format
   - `HTML`: Static HTML format
   - `XML`: XML format
@@ -480,6 +487,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 - `ScheduleConfigurations (hashtable)` - Required unless report is Interactive. A hashtable containing
   schedule
   configuration with the following properties:
+
   - `Time (datetime)`: DateTime object
     specifying when to run the task (required)
   - `RunDuration (number)`: Number of hours to
@@ -627,6 +635,7 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
   but report generation continues running in the background. Valid
   values: `-1`
   to `2147483`. Special values:
+
   - `-1`: Wait indefinitely until reports
     complete (default)
   - `0`: Check the current status and return

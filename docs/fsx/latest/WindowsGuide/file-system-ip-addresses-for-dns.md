@@ -9,12 +9,15 @@ once a file system is created, its IP addresses don't change until the file syst
 
 1. In the [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"), choose the file system that you want to obtain the IP address of to display the file system details page.
 2. In the **Network & security** tab do one of the following:
+
    - For Single-AZ 1 file systems:
+
      - In the **Subnet** panel, choose the elastic network interface shown under
        **Network interface** to open the **Network Interfaces** page in the Amazon EC2 console.
      - The IP address for the Single-AZ 1 file system to use is shown in the **Primary private IPv4 IP** column.
 
    - For Single-AZ 2 or Multi-AZ file systems:
+
      - In the **Preferred subnet** panel, choose the elastic network interface shown under
        **Network interface** to open the **Network Interfaces** page in the Amazon EC2 console.
      - The IP address for the preferred subnet to use is shown in the **Secondary private IPv4 IP** column.

@@ -118,11 +118,14 @@ from saving specified types of files to a folder.
 - `NotificationConfigurations (array)` - Optional. An array
   of configurations for notifications when users attempt to save blocked
   files. Each configuration has the following properties:
+
   - `ActionType (string)`: The type of action to
     perform. You can specify the following values:
+
     1. `Event`: Logs an event
        to the file system's event log. When you specify Event,
        you must also specify the following properties:
+
        - `EventType (string)`: Information,
          Warning, or Error
        - `MessageBody (string)`: The message
@@ -131,6 +134,7 @@ from saving specified types of files to a folder.
     2. `Report`: Generates a
        storage usage report. When you specify Report, you must
        also specify:
+
        - `ReportType (string)`: The type of
          report. You can specify the following values:
          `DuplicateFiles`, `FilesByFileGroup`, `FilesByOwner`, `FilesByProperty`, `LargeFiles`, `LeastRecentlyAccessed`, `MostRecentlyAccessed`, or `QuotaUsage`.
@@ -340,13 +344,16 @@ users attempt to save blocked files.
   attempt to save blocked files. Each configuration has the
   following
   properties:
+
   - `ActionType (string)`:
     The type of action to perform. You can specify the
     following values:
+
     1. `Event`: Logs
        an event to the file system's event log. When
        you specify Event, you must also specify the
        following properties:
+
        - `EventType
 (string)`: Information,
          Warning, or Error
@@ -357,6 +364,7 @@ users attempt to save blocked files.
     2. `Report`:
        Generates a storage usage report. When you
        specify Report, you must also specify:
+
        - `ReportType
 (string)`: The type of report.
          You can specify the following values:

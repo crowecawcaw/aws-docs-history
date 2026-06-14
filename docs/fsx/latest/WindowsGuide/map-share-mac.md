@@ -8,6 +8,7 @@ instance.
 
 1. Launch the EC2 Mac instance. To do this, choose one of the
    following procedures from the _Amazon EC2 User Guide_:
+
    - [Launch a Mac instance using the console](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch")
    - [Launch a Mac instance using the AWS CLI](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch-cli "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch-cli")
 
@@ -16,6 +17,7 @@ instance.
    [Connect to your instance using VNC](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-vnc "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-vnc")
    in the _Amazon EC2 User Guide_.
 3. On your EC2 Mac instance, connect to your Amazon FSx file share, as follows:
+
    1. Open Finder, choose **Go**, and then choose
       **Connect to Server**.
    2. In the **Connect to Server** dialog box, enter either the
@@ -35,6 +37,7 @@ instance.
 
 4. Launch the EC2 Mac instance. To do this, choose one of the
    following procedures from the _Amazon EC2 User Guide_:
+
    - [Launch a Mac instance using the console](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch")
    - [Launch a Mac instance using the AWS CLI](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch-cli "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch-cli")
 

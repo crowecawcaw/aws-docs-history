@@ -200,6 +200,7 @@ information, see [FSx for Windows File Server performance](performance.md "perfo
 Here are a few important items to know about updating a file system's provisioned SSD IOPS:
 
 - Choosing an IOPS mode – there are two IOPS modes to choose from:
+
   - **Automatic** – choose this mode and Amazon FSx will automatically
     scale your SSD IOPS to maintain 3 SSD IOPS per GiB of storage
     capacity, up to 400,000 SSD IOPS per file system.

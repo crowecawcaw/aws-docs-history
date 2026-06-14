@@ -11,6 +11,7 @@ FSRM is supported only on Amazon FSx for Windows File Server file systems with S
 5. Provide the required information
 6. Open the **File Server Resource Manager** block, choose **Enabled**.
 7. For **Event log destination**, choose one of the following options:
+
    - **CloudWatch Logs** - Select a CloudWatch Logs log group to receive FSRM event logs. The name of the CloudWatch Logs log group must begin with the `'/aws/fsx/'` prefix.
    - **Kinesis Data Firehose** - Select a Kinesis Data Firehose delivery stream to receive FSRM event logs
 
@@ -34,6 +35,7 @@ aws fsx create-file-system \
 3. Choose the **Administration** tab.
 4. In the **File Server Resource Manager** section, choose **Manage**.
 5. Make your required changes:
+
    - To change the event log destination, select a different CloudWatch Logs log group or Kinesis Data Firehose delivery stream
    - To enable FSRM, choose **Enabled**
    - To disable FSRM, choose **Disabled**

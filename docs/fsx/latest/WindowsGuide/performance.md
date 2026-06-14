@@ -233,6 +233,7 @@ throughput capacity has the following throughput levels:
 
 - Network throughput – 32 MBps baseline and 600 MBps burst (see throughput capacity table)
 - Disk throughput – 24 MBps baseline and 160 MBps burst, which is the lower of:
+
   - the disk throughput levels of 32 MBps baseline and 260 MBps burst supported by the file server,
     based on the file system's throughput capacity
   - the disk throughput levels of 24 MBps baseline (12 MBps per TB \* 2 TiB) and 160 MBps burst (80 MBps per TiB \* 2 TiB)
