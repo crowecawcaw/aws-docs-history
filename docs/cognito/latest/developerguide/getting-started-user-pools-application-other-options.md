@@ -100,6 +100,7 @@ cd `~/path/to/project/folder/`frontend-client/src
 ```
 
 5. Edit `config.json` and replace the following values:
+
    1. Replace `YOUR_AWS_REGION` with an AWS Region code. For example:
       `us-east-1`.
    2. Replace `YOUR_COGNITO_USER_POOL_ID` with the ID of the user pool
@@ -206,11 +207,13 @@ To set up this application, you user pool must meet the following requirements:
     plugin](https://docs.flutter.dev/get-started/editor?tab=androidstudio "https://docs.flutter.dev/get-started/editor?tab=androidstudio").
 3.  Create a new Android Studio project from the contents of the
     `cognito_flutter_mobile_app` directory in [this example app](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/cognito_flutter_mobile_app "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/cognito_flutter_mobile_app").
+
     1. Edit `assets/config.json` and replace `<<YOUR USER POOL
 ID>>` and `<< YOUR CLIENT ID>>` with the IDs of your user
        pool and app client.
 
 4.  Install [Flutter](https://docs.flutter.dev/get-started/install "https://docs.flutter.dev/get-started/install").
+
     1. Add Flutter to your PATH variable.
     2. Accept licenses with the following command.
 
@@ -220,26 +223,29 @@ ID>>` and `<< YOUR CLIENT ID>>` with the IDs of your user
 
         1. If any components are missing, run `flutter doctor -v` to learn
          how to fix the issue.
-
     4. Change to the directory of your new Flutter project and install
        dependencies.
+
        1. Run `flutter pub add amazon_cognito_identity_dart_2`.
 
     5. Run `flutter pub add flutter_secure_storage`.
 
 5.  Create a virtual Android device.
+
     1. In the Android studio GUI, create a new device with the [device
        manager](https://developer.android.com/studio/run/managing-avds "https://developer.android.com/studio/run/managing-avds").
     2. In the CLI, run `flutter emulators --create --name
 android-device`.
 
 6.  Launch your virtual Android device.
+
     1. In the Android Studio GUI, select the start
        ![Play button icon with a blue triangle pointing to the right.](images/cognito-getting-started-android-virtual-device-start.png)
        icon next to your virtual device.
     2. In the CLI, run `flutter emulators --launch android-device`.
 
 7.  Launch your app on your virtual device.
+
     1. In the Android Studio GUI, select the deploy
        ![Green play button icon representing a start or play action.](images/cognito-getting-started-android-app-start.png)
        icon.

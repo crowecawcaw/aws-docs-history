@@ -405,6 +405,7 @@ Configure encryption at rest in the console
 5. Under **Key type**, select either
    **AWS owned key** or **Customer
    managed key**.
+
    1. If you selected **AWS owned key**,
       no additional configuration is required.
    2. If you selected **Customer managed

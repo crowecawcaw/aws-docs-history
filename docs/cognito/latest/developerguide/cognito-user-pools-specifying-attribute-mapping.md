@@ -82,6 +82,7 @@ user pool.
   updates the mapped attributes with the latest information from the IdP.
   Amazon Cognito only updates mapped attributes when their values change. To ensure that
   Amazon Cognito can update the attributes, check the following requirements:
+
   - All of the user pool custom attributes that you map from your IdP
     must be _mutable_. You can update
     mutable custom attributes at any time. By contrast, you can only set
@@ -118,6 +119,7 @@ user pool.
   longer sent in the provider token or SAML assertion. The following actions
   remove the value of an attribute from a user pool profile for a federated
   user:
+
   1.  The IdP sends a blank value for the source attribute and a mapping
       rule applies the blank value to the destination attribute.
   2.  You clear the value of the mapped attribute with an [DeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md") or [AdminDeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md") request.
@@ -177,6 +179,7 @@ For more information about adding a social IdP, see [Using social identity provi
    choose **Edit**. For more information about adding a SAML
    IdP, see [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
 5. For each attribute you need to map, complete the following steps:
+
    1. Select an attribute from the **User pool
       attribute** column. This is the attribute that is
       assigned to the user profile in your user pool. Custom attributes
@@ -192,7 +195,6 @@ For more information about adding a social IdP, see [Using social identity provi
    ```
    `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
    ```
-
    3. To map additional attributes between your IdP and Amazon Cognito, choose
       **Add another attribute**.
 

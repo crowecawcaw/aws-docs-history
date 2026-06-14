@@ -71,6 +71,7 @@ applies the appropriate trust policy and IAM policy to the role.
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Create a new IAM role for an AWS service. For detailed instructions, see [Creating a role for an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console") in the _AWS Identity and Access Management
    User Guide_.
+
    1. When you select a **Use case** for your **Trusted entity
       type**, choose any service. Amazon Cognito isn't currently listed in service use
       cases.
@@ -225,9 +226,11 @@ see [Working with user attributes](user-pool-settings-attributes.md "user-pool-s
 - All columns in the header must be present, but you don't need to provide values in
   every column.
 - The following attributes are required:
+
   - **cognito:username**
   - **email_verified** or
     **phone_number_verified**
+
     - At least one of the auto-verified attributes must be `true` for
       each user. An auto-verified attribute is an email address or phone number that
       Amazon Cognito automatically sends a code to when a new user joins your user pool.
@@ -321,6 +324,7 @@ The following procedure describes how to import the users from the CSV file.
    name**.
 7. Choose to **Create a new IAM role** or to **Use an existing
    IAM role**.
+
    1. If you chose **Create a new IAM role**, enter a name for your
       new role. Amazon Cognito will automatically create a role with the correct permissions and
       trust relationship. The IAM principal that creates the import job must have
@@ -604,6 +608,7 @@ The following steps describe how to view the user pool import results.
    `JOB_ID`/`JOB_NAME`. The results in
    the log refer to your users by line number. No user data is written to the log. For each
    user, a line similar to the following appears:
+
    - `[SUCCEEDED] Line Number 5956 - The import succeeded.`
    - `[SKIPPED] Line Number 5956 - The user already exists.`
    - `[FAILED] Line Number 5956 - The User Record does not set any of the auto
@@ -665,6 +670,7 @@ option, provide the code from their email or text message, and set a password.
    `PasswordResetRequiredException`.
 3. Your app makes a `ForgotPassword` API request and resets the user's
    password.
+
    1. The app submits the username in a `ForgotPassword` API request.
    2. Amazon Cognito sends a code to the verified email or phone number. The destination depends on
       the values you provided for `email_verified` and

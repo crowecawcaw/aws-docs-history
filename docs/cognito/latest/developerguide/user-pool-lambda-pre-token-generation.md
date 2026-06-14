@@ -37,6 +37,7 @@ parameters for the following.
 2. The ability to customize access tokens.
 3. The ability to pass complex datatypes to ID and access token claim
    values:
+
    - String
    - Number
    - Boolean

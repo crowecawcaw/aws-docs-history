@@ -251,6 +251,7 @@ example of such an exception would be "Error retrieving metadata from
 
 - To get the certificate containing the public key that the IdP uses to verify
   the signed logout request, do the following:
+
   1.  Go to the **Social and external providers** menu of
       your user pool.
   2.  Select your SAML provider,

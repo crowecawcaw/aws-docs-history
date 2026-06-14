@@ -13,8 +13,10 @@ This topic also includes information about getting started and details about pre
 ###### Amazon Cognito Identity Provider
 
 - [Basics](service_code_examples_cognito-identity-provider_basics.md "service_code_examples_cognito-identity-provider_basics.md")
+
   - [Hello Amazon Cognito](cognito-identity-provider_example_cognito-identity-provider_Hello_section.md "cognito-identity-provider_example_cognito-identity-provider_Hello_section.md")
   - [Actions](service_code_examples_cognito-identity-provider_actions.md "service_code_examples_cognito-identity-provider_actions.md")
+
     - [AdminCreateUser](cognito-identity-provider_example_cognito-identity-provider_AdminCreateUser_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminCreateUser_section.md")
     - [AdminGetUser](cognito-identity-provider_example_cognito-identity-provider_AdminGetUser_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminGetUser_section.md")
     - [AdminInitiateAuth](cognito-identity-provider_example_cognito-identity-provider_AdminInitiateAuth_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminInitiateAuth_section.md")
@@ -38,6 +40,7 @@ This topic also includes information about getting started and details about pre
     - [VerifySoftwareToken](cognito-identity-provider_example_cognito-identity-provider_VerifySoftwareToken_section.md "cognito-identity-provider_example_cognito-identity-provider_VerifySoftwareToken_section.md")
 
 - [Scenarios](service_code_examples_cognito-identity-provider_scenarios.md "service_code_examples_cognito-identity-provider_scenarios.md")
+
   - [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md "cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md")
   - [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md "cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md")
   - [Getting started with Amazon Cognito user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md "cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md")

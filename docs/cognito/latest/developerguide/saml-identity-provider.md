@@ -29,9 +29,11 @@ _IAM User Guide_.
    provider** to navigate to the IAM console.
 6. To set the role that Amazon Cognito requests when it issues credentials to users who have
    authenticated with this provider, configure **Role settings**.
+
    1. You can assign users from that IdP the **Default role** that
       you set up when you configured your **Authenticated role**, or you
       can **Choose role with rules**.
+
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -46,6 +48,7 @@ _IAM User Guide_.
 7. To change the principal tags that Amazon Cognito assigns when it issues credentials to users
    who have authenticated with this provider, configure **Attributes for access
    control**.
+
    1. To apply no principal tags, choose **Inactive**.
    2. To apply principal tags based on `sub` and `aud` claims,
       choose **Use default mappings**.

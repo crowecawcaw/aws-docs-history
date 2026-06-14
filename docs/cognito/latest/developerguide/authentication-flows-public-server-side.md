@@ -196,6 +196,7 @@ providers (IdPs). The services that they perform include the following.
    is a set of tools for your web or mobile app to authenticate users after it collects
    sign-in information in your own custom front end. User pools API authentication produces
    the following JSON web tokens.
+
    1. An identity token with verifiable attribute claims from your user.
    2. An access token that authorizes your user to create token-authorized API
       requests to an [AWS service

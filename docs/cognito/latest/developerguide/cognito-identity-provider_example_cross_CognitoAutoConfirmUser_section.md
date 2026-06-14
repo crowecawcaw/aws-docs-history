@@ -857,6 +857,7 @@ func (resources *Resources) Cleanup(ctx context.Context) {
 ```
 
 - For API details, see the following topics in _AWS SDK for Go API Reference_.
+
   - [DeleteUser](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.DeleteUser "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.DeleteUser")
   - [InitiateAuth](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.InitiateAuth "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.InitiateAuth")
   - [SignUp](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.SignUp "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cognitoidentityprovider#Client.SignUp")
@@ -1668,6 +1669,7 @@ export const populateTable = async ({ region, tableName, items }) => {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [DeleteUser](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DeleteUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DeleteUserCommand.md")
   - [InitiateAuth](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/InitiateAuthCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/InitiateAuthCommand.md")
   - [SignUp](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/SignUpCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/SignUpCommand.md")

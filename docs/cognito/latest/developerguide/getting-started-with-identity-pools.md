@@ -38,6 +38,7 @@ follow the guided experience and inline help content.
 3. In **Configure identity pool trust**, choose to set up your
    identity pool for **Authenticated access**, **Guest
    access**, or both.
+
    1. If you chose **Authenticated access**, select one or more
       **Identity types** that you want to set as the source of
       authenticated identities in your identity pool. If you configure a **Custom
@@ -46,6 +47,7 @@ follow the guided experience and inline help content.
 
 4. In **Configure permissions**, choose a default IAM role for
    authenticated or guest users in your identity pool.
+
    1. Choose to **Create a new IAM role** if you want Amazon Cognito to
       create a new role for you with basic permissions and a trust relationship with your
       identity pool. Enter an **IAM role name** to identify your new
@@ -64,12 +66,14 @@ follow the guided experience and inline help content.
    trust**. You might be asked to provide OAuth app client information, choose
    an Amazon Cognito user pool, choose an IAM IdP, or enter a custom identifier for a developer
    provider.
+
    1. Choose the **Role settings** for each IdP. You can assign users
       from that IdP the **Default role** that you set up when you
       configured your **Authenticated role**, or you can **Choose
       role with rules**. With an Amazon Cognito user pool IdP, you can also
       **Choose role with preferred_role in tokens**. For more
       information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -85,6 +89,7 @@ follow the guided experience and inline help content.
       Attributes for access control maps user claims to [principal tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md") that Amazon Cognito
       applies to their temporary session. You can build IAM policies to filter user
       access based on the tags that you apply to their session.
+
       1. To apply no principal tags, choose **Inactive**.
       2. To apply principal tags based on `sub` and `aud`
          claims, choose **Use default mappings**.

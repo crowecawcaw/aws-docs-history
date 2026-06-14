@@ -55,9 +55,11 @@ from user pools, which use **client ID**.
    Amazon](https://developer.amazon.com/apps-and-games/login-with-amazon "https://developer.amazon.com/apps-and-games/login-with-amazon"). For more information, see [Login with Amazon Documentation](https://developer.amazon.com/docs/login-with-amazon/documentation-overview.html "https://developer.amazon.com/docs/login-with-amazon/documentation-overview.html").
 6. To set the role that Amazon Cognito requests when it issues credentials to users who have
    authenticated with this provider, configure **Role settings**.
+
    1. You can assign users from that IdP the **Default role** that
       you set up when you configured your **Authenticated role**, or you
       can **Choose role with rules**.
+
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -72,6 +74,7 @@ from user pools, which use **client ID**.
 7. To change the principal tags that Amazon Cognito assigns when it issues credentials to users
    who have authenticated with this provider, configure **Attributes for access
    control**.
+
    1. To apply no principal tags, choose **Inactive**.
    2. To apply principal tags based on `sub` and `aud` claims,
       choose **Use default mappings**.

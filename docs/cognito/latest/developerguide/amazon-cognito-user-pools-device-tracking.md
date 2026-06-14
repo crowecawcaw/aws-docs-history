@@ -150,6 +150,7 @@ challenge Lambda triggers](user-pool-lambda-challenge.md "user-pool-lambda-chall
    `AuthParameters`, add your user’s device key to the `DEVICE_KEY`
    parameter, and include the other required parameters for your selected sign-in
    flow.
+
    1. You can also pass `DEVICE_KEY` in the parameters of a
       `PASSWORD_VERIFIER` response to an authentication challenge.
 

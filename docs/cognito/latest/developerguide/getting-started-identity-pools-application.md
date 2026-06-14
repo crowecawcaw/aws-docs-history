@@ -247,6 +247,7 @@ credentials for unauthenticated users with two API requests.
 6. After successful authentication, you will see the web
    interface displaying the **Results** panel, and you have two options to
    explore them:
+
    1. **View credentials only**
       button: Choose this button if you want to directly see
       temporary AWS credentials generated without the API
@@ -264,10 +265,10 @@ credentials for unauthenticated users with two API requests.
    }
 
    ```
-
    2. **View detailed API
       flow** button: Choose this button if you
       want to see the step-by-step API requests.
+
       - `GetId()` API request with your
         `identityPoolId`. No authentication
         tokens required for guest access
@@ -287,7 +288,6 @@ credentials for unauthenticated users with two API requests.
         "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
       }
       ```
-
       - `GetCredentialsForIdentity()` with
         the returned `identityPoolId`.
 
@@ -335,6 +335,7 @@ generation.
 6. After successful authentication, you will see the web
    interface displaying the **Results** panel, and you have two options to
    explore them.
+
    1. **View credentials only**
       button: Choose this button if you want to directly see
       temporary AWS credentials generated without the API
@@ -351,10 +352,10 @@ generation.
      }
    }
    ```
-
    2. **View detailed API
       flow** button: Choose this button if you
       want to see the step-by-step API requests.
+
       - `GetId()` API request with your
         identity pool ID. No authentication tokens
         required for guest access.
@@ -375,7 +376,6 @@ generation.
          "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
       }
       ```
-
       - `GetOpenIdToken()` with the returned
         `IdentityID` and the same
         `Logins` map

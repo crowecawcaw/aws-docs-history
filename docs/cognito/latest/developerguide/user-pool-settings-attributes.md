@@ -507,6 +507,7 @@ Use the following procedure to create a new custom attribute.
    attributes** section, choose **Add custom attributes**.
 5. On the **Add custom attributes** page, provide the following details
    about the new attribute:
+
    - Enter a **Name**.
    - Select a **Type** of either **String** or
      **Number**.

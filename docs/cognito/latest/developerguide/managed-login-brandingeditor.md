@@ -18,6 +18,7 @@ To begin, create a style that you can apply to your user pool or an app client.
    **Branding version**, set your domain to use
    **Managed login**.
 2. Delete the existing app client style, if any.
+
    1. In the **App clients** menu, select your app
       client.
    2. Under **Managed login style**, select the syle
@@ -368,6 +369,7 @@ The following is how to programmatically update your branding style.
 
 4. Modify the output of `DescribeManagedLoginBrandingByClient`
    with your customizations.
+
    1. The response body is wrapped in a
       `ManagedLoginBranding` element that isn't part of
       the syntax for create and update operations. Remove this top

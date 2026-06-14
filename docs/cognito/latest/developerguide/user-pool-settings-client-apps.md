@@ -212,6 +212,7 @@ privileges that can be requested for access tokens.
   request the `openid` scope. The `openid` scope authorizes
   structural ID token claims like expiration and key ID, and determines the user
   attributes that you receive in a response from the [userInfo endpoint](userinfo-endpoint.md "userinfo-endpoint.md").
+
   - When `openid` is the only scope that you request, Amazon Cognito populates
     the ID token with all user attributes that the current app client can read. The
     `userInfo` response to an access token with this scope alone

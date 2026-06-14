@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### Amazon Cognito Identity
 
 - [Basics](service_code_examples_cognito-identity_basics.md "service_code_examples_cognito-identity_basics.md")
+
   - [Actions](service_code_examples_cognito-identity_actions.md "service_code_examples_cognito-identity_actions.md")
+
     - [CreateIdentityPool](cognito-identity_example_cognito-identity_CreateIdentityPool_section.md "cognito-identity_example_cognito-identity_CreateIdentityPool_section.md")
     - [DeleteIdentityPool](cognito-identity_example_cognito-identity_DeleteIdentityPool_section.md "cognito-identity_example_cognito-identity_DeleteIdentityPool_section.md")
     - [DescribeIdentityPool](cognito-identity_example_cognito-identity_DescribeIdentityPool_section.md "cognito-identity_example_cognito-identity_DescribeIdentityPool_section.md")
@@ -24,4 +26,5 @@ This topic also includes information about getting started and details about pre
     - [UpdateIdentityPool](cognito-identity_example_cognito-identity_UpdateIdentityPool_section.md "cognito-identity_example_cognito-identity_UpdateIdentityPool_section.md")
 
 - [Scenarios](service_code_examples_cognito-identity_scenarios.md "service_code_examples_cognito-identity_scenarios.md")
+
   - [Create an Amazon Textract explorer application](cognito-identity_example_cross_TextractExplorer_section.md "cognito-identity_example_cross_TextractExplorer_section.md")

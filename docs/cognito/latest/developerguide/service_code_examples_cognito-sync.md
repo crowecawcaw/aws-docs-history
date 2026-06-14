@@ -11,5 +11,7 @@ This topic also includes information about getting started and details about pre
 ###### Amazon Cognito Sync
 
 - [Basics](service_code_examples_cognito-sync_basics.md "service_code_examples_cognito-sync_basics.md")
+
   - [Actions](service_code_examples_cognito-sync_actions.md "service_code_examples_cognito-sync_actions.md")
+
     - [ListIdentityPoolUsage](cognito-sync_example_cognito-sync_ListIdentityPoolUsage_section.md "cognito-sync_example_cognito-sync_ListIdentityPoolUsage_section.md")

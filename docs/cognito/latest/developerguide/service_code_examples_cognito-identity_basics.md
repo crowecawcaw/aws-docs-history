@@ -6,6 +6,7 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_cognito-identity_actions.md "service_code_examples_cognito-identity_actions.md")
+
   - [CreateIdentityPool](cognito-identity_example_cognito-identity_CreateIdentityPool_section.md "cognito-identity_example_cognito-identity_CreateIdentityPool_section.md")
   - [DeleteIdentityPool](cognito-identity_example_cognito-identity_DeleteIdentityPool_section.md "cognito-identity_example_cognito-identity_DeleteIdentityPool_section.md")
   - [DescribeIdentityPool](cognito-identity_example_cognito-identity_DescribeIdentityPool_section.md "cognito-identity_example_cognito-identity_DescribeIdentityPool_section.md")

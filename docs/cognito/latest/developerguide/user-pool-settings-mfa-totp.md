@@ -49,6 +49,7 @@ To add MFA to your user pool, see [Adding MFA to a user pool](user-pool-settings
    receives a one-time access token that your app can use to activate TOTP MFA for the
    user. Subsequent sign-in attempts fail until your user has registered an additional TOTP
    sign-in factor.
+
    - A user who signs up in your user pool with the `SignUp` API operation
      or through managed login receives one-time tokens when the user completes
      sign-up.

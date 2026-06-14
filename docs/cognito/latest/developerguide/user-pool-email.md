@@ -484,6 +484,7 @@ address.
    name** only when you choose **Send email from
    Amazon SES**.
 6. To use a custom FROM address, complete the following steps:
+
    1. Under **SES Region**, choose the Region that contains
       your verified email address.
    2. Under **FROM email address**, choose your email

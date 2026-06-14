@@ -217,6 +217,7 @@ Apple Developer documentation.
    **Continue**.
 8. On the **Register an App ID** page, do the
    following:
+
    1. Under **Description**, enter a
       description.
    2. Under **App ID Prefix**, enter a
@@ -242,6 +243,7 @@ Apple Developer documentation.
     **Continue**.
 12. On the **Register a Services ID** page, do
     the following:
+
     1. Under **Description**, type a
        description.
     2. Under **Identifier**, type an
@@ -253,6 +255,7 @@ Apple Developer documentation.
 
 13. Choose the Services ID you just create from the Identifiers
     page.
+
     1. Select **Sign In with Apple**, and
        then choose **Configure**.
     2. On the **Web Authentication
@@ -268,7 +271,6 @@ Apple Developer documentation.
     ```
     ``mydomain.auth.us-east-1.amazoncognito.com``
     ```
-
     5. Under **Return URLs**, enter the path
        to the `/oauth2/idpresponse` endpoint of your
        user pool domain.
@@ -276,7 +278,6 @@ Apple Developer documentation.
     ```
     `https://`mydomain.auth.us-east-1.amazoncognito.com`/oauth2/idpresponse`
     ```
-
     6. Choose **Next**, and then
        **Done**. You don't need to verify
        the domain.
@@ -289,6 +290,7 @@ Apple Developer documentation.
     **+** icon.
 16. On the **Register a New Key** page, do the
     following:
+
     1. Under **Key Name**, enter a key name.
     2. Choose **Sign In with Apple**, and
        then choose **Configure**.
@@ -321,6 +323,7 @@ Apple Developer documentation.
    **Sign in with Apple**.
 6. Choose from the following steps, based on your choice of social
    IdP:
+
    - **Google** and **Login with Amazon** — Enter the **app
      client ID** and **app client secret**
      generated in the previous section.

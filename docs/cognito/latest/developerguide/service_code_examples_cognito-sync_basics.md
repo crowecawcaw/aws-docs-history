@@ -6,4 +6,5 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_cognito-sync_actions.md "service_code_examples_cognito-sync_actions.md")
+
   - [ListIdentityPoolUsage](cognito-sync_example_cognito-sync_ListIdentityPoolUsage_section.md "cognito-sync_example_cognito-sync_ListIdentityPoolUsage_section.md")

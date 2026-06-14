@@ -324,6 +324,7 @@ indicates unsuccessful authentication.
     ![Green circular icon with a checkmark symbol inside.](images/checkmark.png)
 4.  If the user hasn't set an MFA preference, determine if the user has registered a
     TOTP authenticator.
+
     1. If the user has registered a TOTP authenticator, determine if TOTP MFA is
        available in the user pool (TOTP MFA can be disabled after users have previously set
        up authenticators).
@@ -391,6 +392,7 @@ indicates unsuccessful authentication.
 
 7.  If the user has both an email address and phone number, determine which attribute,
     if any, is the primary method for account-recovery messages for password reset.
+
     1. If self-service account recovery is disabled, either attribute can be used for
        MFA. Determine whether one or both of the email and SMS MFA factors are
        enabled.

@@ -9,8 +9,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Amazon Cognito Identity](service_code_examples_cognito-identity.md "service_code_examples_cognito-identity.md")
+
   - [Basics](service_code_examples_cognito-identity_basics.md "service_code_examples_cognito-identity_basics.md")
+
     - [Actions](service_code_examples_cognito-identity_actions.md "service_code_examples_cognito-identity_actions.md")
+
       - [CreateIdentityPool](cognito-identity_example_cognito-identity_CreateIdentityPool_section.md "cognito-identity_example_cognito-identity_CreateIdentityPool_section.md")
       - [DeleteIdentityPool](cognito-identity_example_cognito-identity_DeleteIdentityPool_section.md "cognito-identity_example_cognito-identity_DeleteIdentityPool_section.md")
       - [DescribeIdentityPool](cognito-identity_example_cognito-identity_DescribeIdentityPool_section.md "cognito-identity_example_cognito-identity_DescribeIdentityPool_section.md")
@@ -21,12 +24,16 @@ This topic also includes information about getting started and details about pre
       - [UpdateIdentityPool](cognito-identity_example_cognito-identity_UpdateIdentityPool_section.md "cognito-identity_example_cognito-identity_UpdateIdentityPool_section.md")
 
   - [Scenarios](service_code_examples_cognito-identity_scenarios.md "service_code_examples_cognito-identity_scenarios.md")
+
     - [Create an Amazon Textract explorer application](cognito-identity_example_cross_TextractExplorer_section.md "cognito-identity_example_cross_TextractExplorer_section.md")
 
 - [Amazon Cognito Identity Provider](service_code_examples_cognito-identity-provider.md "service_code_examples_cognito-identity-provider.md")
+
   - [Basics](service_code_examples_cognito-identity-provider_basics.md "service_code_examples_cognito-identity-provider_basics.md")
+
     - [Hello Amazon Cognito](cognito-identity-provider_example_cognito-identity-provider_Hello_section.md "cognito-identity-provider_example_cognito-identity-provider_Hello_section.md")
     - [Actions](service_code_examples_cognito-identity-provider_actions.md "service_code_examples_cognito-identity-provider_actions.md")
+
       - [AdminCreateUser](cognito-identity-provider_example_cognito-identity-provider_AdminCreateUser_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminCreateUser_section.md")
       - [AdminGetUser](cognito-identity-provider_example_cognito-identity-provider_AdminGetUser_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminGetUser_section.md")
       - [AdminInitiateAuth](cognito-identity-provider_example_cognito-identity-provider_AdminInitiateAuth_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminInitiateAuth_section.md")
@@ -50,6 +57,7 @@ This topic also includes information about getting started and details about pre
       - [VerifySoftwareToken](cognito-identity-provider_example_cognito-identity-provider_VerifySoftwareToken_section.md "cognito-identity-provider_example_cognito-identity-provider_VerifySoftwareToken_section.md")
 
   - [Scenarios](service_code_examples_cognito-identity-provider_scenarios.md "service_code_examples_cognito-identity-provider_scenarios.md")
+
     - [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md "cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md")
     - [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md "cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md")
     - [Getting started with Amazon Cognito user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md "cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md")
@@ -58,6 +66,9 @@ This topic also includes information about getting started and details about pre
     - [Write custom activity data with a Lambda function after Amazon Cognito user authentication](cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md "cognito-identity-provider_example_cross_CognitoCustomActivityLog_section.md")
 
 - [Amazon Cognito Sync](service_code_examples_cognito-sync.md "service_code_examples_cognito-sync.md")
+
   - [Basics](service_code_examples_cognito-sync_basics.md "service_code_examples_cognito-sync_basics.md")
+
     - [Actions](service_code_examples_cognito-sync_actions.md "service_code_examples_cognito-sync_actions.md")
+
       - [ListIdentityPoolUsage](cognito-sync_example_cognito-sync_ListIdentityPoolUsage_section.md "cognito-sync_example_cognito-sync_ListIdentityPoolUsage_section.md")

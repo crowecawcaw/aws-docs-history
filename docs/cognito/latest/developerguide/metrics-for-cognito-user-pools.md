@@ -57,6 +57,7 @@ data source.
    Classification**.
 5. The **All metrics** tab displays all metrics for that choice. You
    can do the following:
+
    - To sort the table, use the column heading.
    - To graph a metric, select the check box next to the metric. To select all
      metrics, select the check box in the heading row of the table.

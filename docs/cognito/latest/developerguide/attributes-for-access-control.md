@@ -101,6 +101,7 @@ in your IAM policies. To prevent user modification, do one of the following:
    users who have authenticated with this provider, choose
    **Edit** in **Attributes for access
    control**.
+
    1. To apply no principal tags, choose
       **Inactive**.
    2. To apply principal tags based on `sub` and `aud`

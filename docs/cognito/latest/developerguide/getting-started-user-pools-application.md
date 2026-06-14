@@ -33,6 +33,7 @@ programming-language options.
    with the default name.
 5. You must make some basic choices under **Configure options** that
    support settings that you can't change after you create your user pool.
+
    1. Under **Options for sign-in identifiers**, tell us how you want
       to identify users when they sign in. You can prefer user-generated usernames, email
       addresses, or phone numbers. You can also allow a combination of multiple options.

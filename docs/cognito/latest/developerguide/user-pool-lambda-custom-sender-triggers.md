@@ -164,6 +164,7 @@ JSON
 3. Create a Lambda function for the custom sender trigger. Amazon Cognito uses the [AWS
    encryption SDK](../../../encryption-sdk/latest/developer-guide/introduction.md "../../../encryption-sdk/latest/developer-guide/introduction.md") to encrypt the secrets, temporary passwords and codes
    that authorize your users' API requests.
+
    1. Assign a [Lambda
       execution role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") that has, at minimum,
       `kms:Decrypt` permissions for your KMS key.
@@ -176,6 +177,7 @@ JSON
       [AWS Encryption SDK programming
       languages](../../../encryption-sdk/latest/developer-guide/programming-languages.md "../../../encryption-sdk/latest/developer-guide/programming-languages.md"). To update the Lambda package, complete the
       following steps.
+
       1. Export your Lambda function as a .zip file in the
          AWS Management Console.
       2. Open your function and add the AWS Encryption SDK. For more

@@ -139,12 +139,15 @@ automate changes to your user pool configuration.
 1. Capture the existing state of your user pool with [DescribeUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.md").
 2. Format the output of `DescribeUserPool` to match the [request parameters](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md#API_UpdateUserPool_RequestSyntax "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.md#API_UpdateUserPool_RequestSyntax") of `UpdateUserPool`. Remove the following
    top-level fields and their child objects from the output JSON.
+
    - `Arn`
    - `CreationDate`
    - `CustomDomain`
+
      - Update this field with the [UpdateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md") API operation.
 
    - `Domain`
+
      - Update this field with the [UpdateUserPoolDomain](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolDomain.md") API operation.
 
    - `EmailConfigurationFailure`

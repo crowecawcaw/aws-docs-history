@@ -53,6 +53,7 @@ Before you begin, you need the following:
   information, see [Create a
   user pool](cognito-user-pool-as-user-directory.md "cognito-user-pool-as-user-directory.md").
 - An OIDC IdP with the following configuration:
+
   - Supports `client_secret_post` client authentication.
     Amazon Cognito doesn't check the
     `token_endpoint_auth_methods_supported` claim at the
@@ -120,6 +121,7 @@ OIDC-compatible IdP such as Salesforce and your user pool.
 2. [Sign in](https://developer.salesforce.com "https://developer.salesforce.com") through your
    developer account that you set up in the previous step.
 3. From your Salesforce page, do one of the following:
+
    - If you’re using Lightning Experience, choose the setup gear icon,
      then choose **Setup Home**.
    - If you’re using Salesforce Classic and you see
@@ -149,7 +151,6 @@ OIDC-compatible IdP such as Salesforce and your user pool.
    ```
    https://`mydomain.auth.us-east-1.amazoncognito.com`/authorize?response_type=code&client_id=`<your_client_id>`&redirect_uri=`https://www.example.com`&identity_provider=`CorpSalesforce`
    ```
-
    3. Enable **OAuth settings** and enter the URL of
       the `/oauth2/idpresponse` endpoint for your user pool
       domain in **Callback URL**. This is the URL where

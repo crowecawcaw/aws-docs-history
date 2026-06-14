@@ -39,6 +39,7 @@ You can customize the CSS for the hosted app pages, with the following
 restrictions:
 
 - You can use any of the following CSS class names:
+
   - `background-customizable`
   - `banner-customizable`
   - `errorMessage-customizable`

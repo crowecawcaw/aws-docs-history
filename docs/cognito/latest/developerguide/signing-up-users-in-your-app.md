@@ -331,6 +331,7 @@ that you create as an administrator, create an [AdminSetUserPassword](../../../c
    account is confirmed.
 3. Confirm the user's account. You must sign in to the AWS Management Console or sign your API request
    with AWS credentials to confirm the account.
+
    1. To confirm a user in the Amazon Cognito console, navigate to the **Users**
       menu, choose the user who you want to confirm, and from the
       **Actions** menu select **Confirm**.

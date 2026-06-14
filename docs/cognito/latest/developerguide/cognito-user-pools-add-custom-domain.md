@@ -197,6 +197,7 @@ target and subdomain using Route 53.**
    root that is a parent of your custom domain. For more information, see
    [Creating
    a public hosted zone](../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md "../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md") in the _Amazon Route 53 Developer Guide_.
+
    1. Choose **Create Hosted Zone**.
    2. Enter the parent domain, for example
       `auth.example.com`, of your custom
@@ -228,6 +229,7 @@ target and subdomain using Route 53.**
 4. Add a DNS record for the parent domain of your custom domain, if you
    don’t already have one. Create a DNS record for the parent domain with
    the following properties:
+
    - **Record name**: Leave blank.
    - **Record type**: `A`.
    - **Alias**: Don't enable.

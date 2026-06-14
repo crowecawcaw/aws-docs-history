@@ -24,6 +24,7 @@ record for validation.
 - **Create an A Record for the Parent Domain:** You
   must create an A record in your DNS configuration for the parent domain of your
   custom domain.
+
   - **Example:** If your custom domain is
     `auth.xyz.yourdomain.com`, the parent domain is
     `xyz.yourdomain.com`. If you want to configure
@@ -36,6 +37,7 @@ record for validation.
 - **Verify DNS Propagation (Optional but
   Recommended):** To ensure your DNS provider has propagated the change,
   you can run a `dig` command.
+
   - If using `auth.xyz.yourdomain.com` as the custom domain:
     `dig A xyz.yourdomain.com +short`
   - If using `xyz.yourdomain.com` as the custom domain: `dig A
@@ -107,6 +109,7 @@ Region.
   selected certificate is not expired.
 - **Imported Certificates:** If you imported the
   certificate into ACM, ensure:
+
   - It was issued by a public certificate authority.
   - It includes the correct certificate chain.
 

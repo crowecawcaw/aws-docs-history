@@ -158,6 +158,7 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
 23. On the **Select a type** page, choose
     **App**, and then choose **Continue**.
 24. On the **Register an App ID** page, do the following:
+
     1.  Under **Description**, enter a description.
     2.  Under **App ID Prefix**, enter a **Bundle
         ID**. Make a note of the value under **App ID
@@ -179,6 +180,7 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
     **Continue**.
 28. On the **Register a Services ID** page, do the
     following:
+
     1.  Under **Description**, enter a description.
     2.  Under **Identifier**, enter an identifier. Make a note of
         this Services ID because you'll need this value after you choose Apple as your
@@ -187,6 +189,7 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
         **Register**.
 
 29. Choose the Services ID that you just created from the Identifiers page.
+
     1.  Select **Sign In with Apple**, and then choose
         **Configure**.
     2.  On the **Web Authentication Configuration** page, select
@@ -200,14 +203,12 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
     ```
     ``<your-user-pool-domain>``
     ```
-
     5.  Under **Return URLs**, enter the path to the
         `/oauth2/idpresponse` endpoint of your user pool domain.
 
     ```
     `https://`<your-user-pool-domain>`/oauth2/idpresponse`
     ```
-
     6.  Choose **Next**, and then choose
         **Done**. You don't need to verify the domain.
     7.  Choose **Continue**, and then choose
@@ -217,6 +218,7 @@ then choose **Edit**. 9. Enter your user pool domain into **Allowed Origins**.
 31. On the **Keys** page, choose the **+**
     icon.
 32. On the **Register a New Key** page, do the following:
+
     1.  Under **Key Name**, enter a key name.
     2.  Choose **Sign In with Apple**, and then choose
         **Configure**.
@@ -252,6 +254,7 @@ client secret from the previous section.
    **Sign in with Apple**.
 6. Choose from the following steps, based on your choice of social identity
    provider:
+
    - **Google** and **Login with
      Amazon** – Enter the **app client ID** and
      **app client secret** that was generated in the previous

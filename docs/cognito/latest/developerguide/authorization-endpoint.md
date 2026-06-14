@@ -563,6 +563,7 @@ HTTP 1.1 302 Found Location: https://client_redirect_uri?error=server_error
 
 - When Amazon Cognito authenticates through federation to third-party IdPs, Amazon Cognito
   might experience connection issues, such as the following:
+
   - If a connection timeout occurs while requesting token from the
     IdP, the authentication server redirects the error to the
     client’s `redirect_uri` as follows:
@@ -570,7 +571,6 @@ HTTP 1.1 302 Found Location: https://client_redirect_uri?error=server_error
   ```
   HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Timeout+occurred+in+calling+IdP+token+endpoint
   ```
-
   - If a connection timeout occurs while calling the
     `jwks_uri` endpoint for ID token validation, the
     authentication server redirects with an error to the client’s
@@ -583,6 +583,7 @@ HTTP 1.1 302 Found Location: https://client_redirect_uri?error=server_error
 - When authenticating by federating to third-party IdPs, the providers
   may return error responses. This can be due to configuration errors or
   other reasons, such as the following:
+
   - If an error response is received from other providers, the
     authentication server redirects the error to the client’s
     `redirect_uri` as follows:
@@ -590,7 +591,6 @@ HTTP 1.1 302 Found Location: https://client_redirect_uri?error=server_error
   ```
   HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=[IdP name]+Error+-+[status code]+error getting token
   ```
-
   - If an error response is received from Google, the
     authentication server redirects the error to the client’s
     `redirect_uri` as follows:
@@ -603,6 +603,7 @@ HTTP 1.1 302 Found Location: https://client_redirect_uri?error=server_error
   an external IdP, the authentication server redirects with an error to
   the client's `redirect_uri` with either of the following
   messages:
+
   - ```
     HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Connection+reset
     ```

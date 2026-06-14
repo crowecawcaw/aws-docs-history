@@ -7,6 +7,7 @@ SDKs.
 
 - [Hello Amazon Cognito](cognito-identity-provider_example_cognito-identity-provider_Hello_section.md "cognito-identity-provider_example_cognito-identity-provider_Hello_section.md")
 - [Actions](service_code_examples_cognito-identity-provider_actions.md "service_code_examples_cognito-identity-provider_actions.md")
+
   - [AdminCreateUser](cognito-identity-provider_example_cognito-identity-provider_AdminCreateUser_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminCreateUser_section.md")
   - [AdminGetUser](cognito-identity-provider_example_cognito-identity-provider_AdminGetUser_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminGetUser_section.md")
   - [AdminInitiateAuth](cognito-identity-provider_example_cognito-identity-provider_AdminInitiateAuth_section.md "cognito-identity-provider_example_cognito-identity-provider_AdminInitiateAuth_section.md")

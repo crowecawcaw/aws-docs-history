@@ -358,6 +358,7 @@ changes**. If you selected **Full function**:
 9. If you chose **Notify user** in the previous step, you can
    customize your email delivery settings and email message templates for adaptive
    authentication.
+
    1. Under **Email configuration**, choose the **SES
       Region**, **FROM email address**, **FROM
       sender name**, and **REPLY-TO email address** that

@@ -475,6 +475,7 @@ public class CognitoWrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [AdminGetUser](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminGetUser.md")
   - [AdminInitiateAuth](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminInitiateAuth.md")
   - [AdminRespondToAuthChallenge](../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/DotNetSDKV3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
@@ -850,6 +851,7 @@ bool AwsDoc::Cognito::adminInitiateAuthorization(const Aws::String &clientID,
 ```
 
 - For API details, see the following topics in _AWS SDK for C++ API Reference_.
+
   - [AdminGetUser](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminGetUser.md")
   - [AdminInitiateAuth](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminInitiateAuth.md")
   - [AdminRespondToAuthChallenge](../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/SdkForCpp/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
@@ -1203,6 +1205,7 @@ public class CognitoMVP {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [AdminGetUser](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminGetUser.md")
   - [AdminInitiateAuth](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminInitiateAuth.md")
   - [AdminRespondToAuthChallenge](../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/SdkForJavaV2/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
@@ -1575,6 +1578,7 @@ const verifySoftwareToken = (totp) => {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [AdminGetUser](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserCommand.md")
   - [AdminInitiateAuth](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminInitiateAuthCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminInitiateAuthCommand.md")
   - [AdminRespondToAuthChallenge](../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminRespondToAuthChallengeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminRespondToAuthChallengeCommand.md")
@@ -1850,6 +1854,7 @@ suspend fun signUp(
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [AdminGetUser](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [AdminInitiateAuth](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [AdminRespondToAuthChallenge](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -2488,6 +2493,7 @@ if __name__ == "__main__":
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [AdminGetUser](../../../goto/boto3/cognito-idp-2016-04-18/AdminGetUser.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminGetUser.md")
   - [AdminInitiateAuth](../../../goto/boto3/cognito-idp-2016-04-18/AdminInitiateAuth.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminInitiateAuth.md")
   - [AdminRespondToAuthChallenge](../../../goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md "../../../goto/boto3/cognito-idp-2016-04-18/AdminRespondToAuthChallenge.md")
@@ -3109,6 +3115,7 @@ struct Main {
 ```
 
 - For API details, see the following topics in _AWS SDK for Swift API reference_.
+
   - [AdminGetUser](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admingetuser(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admingetuser(input:)")
   - [AdminInitiateAuth](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admininitiateauth(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/admininitiateauth(input:)")
   - [AdminRespondToAuthChallenge](<https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/adminrespondtoauthchallenge(input:)> "https://sdk.amazonaws.com/swift/api/awscognitoidentityprovider/latest/documentation/awscognitoidentityprovider/cognitoidentityproviderclient/adminrespondtoauthchallenge(input:)")

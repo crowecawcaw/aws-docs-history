@@ -108,6 +108,7 @@ Use the following procedure to create a new group.
    enter a friendly name for your new group.
 6. You can optionally provide additional information about this group using any of the
    following fields:
+
    - **Description** - Enter details about what this new group will be
      used for.
    - **Precedence** - Amazon Cognito evaluates and applies all group

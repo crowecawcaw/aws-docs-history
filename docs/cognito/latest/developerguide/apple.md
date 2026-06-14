@@ -27,6 +27,7 @@ receive client ID.
 6. On the **Register a New Identifier** page, choose **App
    IDs**, and then choose **Continue**.
 7. On the **Register an App ID** page, do the following:
+
    1. Under **Description**, type a description.
    2. Under **Bundle ID,** type an identifier. Make a note of this
       **Bundle ID** as you need this value to configure Apple as a
@@ -50,6 +51,7 @@ receive client ID.
     **Services IDs**, and then choose
     **Continue**.
 12. On the **Register a Services ID** page, do the following:
+
     1. Under **Description**, type a description.
     2. Under **Identifier**, type an identifier. Make a note of the
        services ID as you need this value to configure Apple as a provider in your identity
@@ -70,6 +72,7 @@ receive client ID.
 14. On the **Keys** page, choose the **+**
     icon.
 15. On the **Register a New Key** page, do the following:
+
     1. Under **Key Name**, type a key name.
     2. Choose **Sign In with Apple**, and then choose
        **Configure**.
@@ -101,9 +104,11 @@ Use the following procedure to configure your external provider.
    in with Apple Documentation_.
 6. To set the role that Amazon Cognito requests when it issues credentials to users who have
    authenticated with this provider, configure **Role settings**.
+
    1. You can assign users from that IdP the **Default role** that
       you set up when you configured your **Authenticated role**, or you
       can **Choose role with rules**.
+
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -118,6 +123,7 @@ Use the following procedure to configure your external provider.
 7. To change the principal tags that Amazon Cognito assigns when it issues credentials to users
    who have authenticated with this provider, configure **Attributes for access
    control**.
+
    1. To apply no principal tags, choose **Inactive**.
    2. To apply principal tags based on `sub` and `aud` claims,
       choose **Use default mappings**.

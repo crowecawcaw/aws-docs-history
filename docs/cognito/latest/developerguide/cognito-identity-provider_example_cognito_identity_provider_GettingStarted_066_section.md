@@ -423,6 +423,7 @@ trap - EXIT ERR
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AdminConfirmSignUp](../../../goto/aws-cli/cognito-idp-2016-04-18/AdminConfirmSignUp.md "../../../goto/aws-cli/cognito-idp-2016-04-18/AdminConfirmSignUp.md")
   - [AdminCreateUser](../../../goto/aws-cli/cognito-idp-2016-04-18/AdminCreateUser.md "../../../goto/aws-cli/cognito-idp-2016-04-18/AdminCreateUser.md")
   - [CreateUserPool](../../../goto/aws-cli/cognito-idp-2016-04-18/CreateUserPool.md "../../../goto/aws-cli/cognito-idp-2016-04-18/CreateUserPool.md")

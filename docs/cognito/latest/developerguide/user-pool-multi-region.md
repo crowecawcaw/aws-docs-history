@@ -38,6 +38,7 @@ infrastructure](https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-adv
 - Regional configurations can differ between replicas. You can configure the following
   settings independently in replicas. All other settings are set in the primary user pool
   and automatically synchronized to the secondary.
+
   - Email configuration
   - Email configuration for threat protection notifications
   - SMS configuration

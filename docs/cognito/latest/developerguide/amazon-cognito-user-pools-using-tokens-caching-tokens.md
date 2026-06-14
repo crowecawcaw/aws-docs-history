@@ -80,6 +80,7 @@ details.](https://aws.amazon.com/api-gateway/pricing "https://aws.amazon.com/api
 1.  Open the [API Gateway console](https://console.aws.amazon.com/apigateway/main/apis "https://console.aws.amazon.com/apigateway/main/apis") and
     create a REST API.
 2.  In **Resources**, create a POST method.
+
     1. Choose the HTTP **Integration type**.
     2. Select **Use HTTP proxy integration**.
     3. Enter an **Endpoint URL** of
@@ -87,6 +88,7 @@ details.](https://aws.amazon.com/api-gateway/pricing "https://aws.amazon.com/api
        domain>`/oauth2/token`.
 
 3.  In **Resources**, configure the cache key.
+
     1. Edit the **Method request** of your POST method.
 
     ###### Note
@@ -112,6 +114,7 @@ details.](https://aws.amazon.com/api-gateway/pricing "https://aws.amazon.com/api
          **Required** and **Caching**.
 
 4.  In **Stages**, configure caching.
+
     1. Choose the stage that you want to modify and choose **Edit**
        from **Stage Details**.
     2. Under **Additional settings**, **Cache

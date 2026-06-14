@@ -37,6 +37,7 @@ messages at production volumes. See the following links for more information:
 
 - To permit users to sign in with email MFA, your user pool must have the following
   configuration options:
+
   1.  You have the Plus or Essentials feature plan in your user pool. For more
       information, see [User pool feature plans](cognito-sign-in-feature-plans.md "cognito-sign-in-feature-plans.md").
   2.  Your user pool sends email messages with your own Amazon SES resources. For more

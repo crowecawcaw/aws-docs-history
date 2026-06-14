@@ -265,6 +265,7 @@ You can also use AWS Lambda to decode user pool JWTs. For more information, see
 ###### To verify JWT claims
 
 1. By one of the following methods, verify that the token hasn't expired.
+
    1. Decode the token and compare the `exp` claim to the current
       time.
    2. If your access token includes an `aws.cognito.signin.user.admin`

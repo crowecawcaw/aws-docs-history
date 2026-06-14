@@ -32,6 +32,7 @@ you can implement identity pool authentication.
 3. In **Configure identity pool trust**, choose to set up your
    identity pool for **Authenticated access**, **Guest
    access**, or both.
+
    1. If you chose **Authenticated access**, select one or more
       **Identity types** that you want to set as the source of
       authenticated identities in your identity pool. If you configure a **Custom
@@ -40,6 +41,7 @@ you can implement identity pool authentication.
 
 4. In **Configure permissions**, choose a default IAM role for
    authenticated or guest users in your identity pool.
+
    1. Choose to **Create a new IAM role** if you want Amazon Cognito to
       create a new role for you with basic permissions and a trust relationship with your
       identity pool. Enter an **IAM role name** to identify your new
@@ -58,12 +60,14 @@ you can implement identity pool authentication.
    trust**. You might be asked to provide OAuth app client information, choose a
    Amazon Cognito user pool, choose an IAM IdP, or enter a custom identifier for a developer
    provider.
+
    1. Choose the **Role settings** for each IdP. You can assign users
       from that IdP the **Default role** that you set up when you
       configured your **Authenticated role**, or you can **Choose
       role with rules**. With a Amazon Cognito user pool IdP, you can also
       **Choose role with preferred_role in tokens**. For more
       information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -79,6 +83,7 @@ you can implement identity pool authentication.
       Attributes for access control maps user claims to [principal tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md") that Amazon Cognito
       applies to their temporary session. You can build IAM policies to filter user
       access based on the tags that you apply to their session.
+
       1. To apply no principal tags, choose **Inactive**.
       2. To apply principal tags based on `sub` and `aud`
          claims, choose **Use default mappings**.
@@ -131,11 +136,14 @@ unauthenticated identities. To learn more, see [Getting started with Amazon Cogn
 3. Locate **Guest access**. In an identity pool that doesn't currently
    support guest access, **Status** is
    **Inactive**.
+
    1. If **Guest access** is **Active** and you want
       to deactivate it, select **Deactivate**.
    2. If **Guest access** is **Inactive** and you
       want to activate it, select **Edit**.
+
       1. Choose a default IAM role for guest users in your identity pool.
+
          1. Choose to **Create a new IAM role** if you want Amazon Cognito
             to create a new role for you with basic permissions and a trust relationship
             with your identity pool. Enter an **IAM role name** to
@@ -181,6 +189,7 @@ see the [AWS IAM Console](https://console.aws.amazon.com/iam/home "https://conso
    **Edit**.
 4. Choose a default IAM role for guest or authenticated users in your identity
    pool.
+
    1. Choose to **Create a new IAM role** if you want Amazon Cognito to
       create a new role for you with basic permissions and a trust relationship with your
       identity pool. Enter an **IAM role name** to identify your new
@@ -221,6 +230,7 @@ from authenticating with that identity pool. For more information, see [Identity
 3. Locate **Identity providers**. Choose the identity provider that
    you want to edit. If you want to add a new IdP, select **Add identity
    provider**.
+
    1. If you chose **Add identity provider**, choose one of the
       **Identity types** that you want to add.
 
@@ -229,11 +239,13 @@ from authenticating with that identity pool. For more information, see [Identity
 5. To change the role that Amazon Cognito requests when it issues credentials to users who have
    authenticated with this provider, choose **Edit** in **Role
    settings**.
+
    1. You can assign users from that IdP the **Default role** that
       you set up when you configured your **Authenticated role**, or you
       can **Choose role with rules**. With a Amazon Cognito user pool IdP, you can
       also **Choose role with preferred_role in tokens**. For more
       information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups "cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups").
+
       1. If you chose **Choose role with rules**, enter the source
          **Claim** from your user's authentication, the
          **Operator** that you want to compare the claim by, the
@@ -248,6 +260,7 @@ from authenticating with that identity pool. For more information, see [Identity
 6. To change the principal tags that Amazon Cognito assigns when it issues credentials to users
    who have authenticated with this provider, choose **Edit** in
    **Attributes for access control**.
+
    1. To apply no principal tags, choose **Inactive**.
    2. To apply principal tags based on `sub` and `aud` claims,
       choose **Use default mappings**.

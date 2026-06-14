@@ -30,6 +30,7 @@ same code challenge that it received in the authorization request.
 3. Choose an existing user pool from the list, or create a user pool. If you
    create a user pool, you will be prompted to set up an app client and
    configure managed login during the wizard.
+
    1. If you create a new user pool, set up an app client and configure
       managed login during the guided setup.
    2. If you configure an existing user pool, add a [domain](cognito-user-pools-assign-domain.md "cognito-user-pools-assign-domain.md") and a
