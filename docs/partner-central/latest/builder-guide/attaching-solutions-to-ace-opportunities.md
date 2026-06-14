@@ -14,6 +14,7 @@ You are required to add a solution to any opportunity. You will not be able to u
 4. Complete the Core Fields in the **Customer Details** and **Project Details** section.
 5. In the **Project Details** Section, scroll down to **Solution Offered** field and click on the field.
 6. Choose the relevant solutions(s) from the drop-down list.
+
    - Note: up to 10 solutions display in the drop-down, to see another solution, search by the solution ID (e.g. soln-abcdefghijklm) or name of your solution. Solution ID is available within your solution in AWS Partner Central.
    - Note: Only solution in "Limited" or "Public" status will be shown in the drop-down list.
 
@@ -29,6 +30,7 @@ You are required to add a solution to any opportunity. You will not be able to u
 5. Select **Edit**.
 6. Scroll down to **solution offered** field and click on the field.
 7. Choose the relevant offering from the drop-down list.
+
    - Note: up to 10 solutions display in the drop-down, to see another solution, search by the solution ID (e.g. soln-abcdefghijklm) or name of your solution. Solution ID is available within your solution in AWS Partner Central.
    - Note: Only solution in "Limited" or "Public" status will be shown in the drop-down list.
 

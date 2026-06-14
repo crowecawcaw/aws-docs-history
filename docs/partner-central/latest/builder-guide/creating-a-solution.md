@@ -9,11 +9,13 @@ When creating a solution, provide as much detail as you can to improve your disc
 1. Sign in to [AWS Partner Central](https://partnercentral.awspartner.com/APNLogin "https://partnercentral.awspartner.com/APNLogin"), choose **Build**, **Solution**.
 2. Choose **Create Solution**.
 3. Complete the solution name for internal use. The external solution title is the same as the solution name, but you can change it to a different title. Complete the following required fields: **Solution title**, and then choose **Continue solution creation**.
+
    1. Enter a description that gives a customer or seller a concise, general idea of the capabilities and advantages of your solution. The description is limited to 1,000 characters. A **Show more** link displays for publicly listed solution descriptions longer than 188 characters.
    2. Enter a value proposition that conveys the business results that customers can expect from adopting this solution. Avoid claims that can't be proven with data, such as "the best" and "number one". Descriptions greater than 1,000 characters have a show more link on the listing page in the catalog. The value proposition is limited to 5,000 characters.
 
 4. Upload logo: upload your company logo, or the logo specific to this solution. The logo will be shown in AWS Marketplace if you're creating multi-product solution and publish on AWS Marketplace.
 5. Tell us what you sell—Add the product information to your solution. You have three options:
+
    1. If this solution has relevant products listed on AWS Marketplace – Enter your product information by selecting the relevant Marketplace product type from the dropdown menu. You only see product listings owned by the AWS account you used to sign in to AWS Partner Central. You only see the products associated with the AWS account that you use to sign in to AWS Partner Central.
    2. If your product for this solution is listed on AWS Marketplace but under a different account, you can choose **Available on AWS Marketplace owned by someone else** and input the product ID.
    3. If this solution doesn't have relevant products listed on AWS Marketplace – Select **No, the product is not listed on AWS Marketplace**. Then choose the product type and enter the following required information: Product name, Simple product description and valid Product URL.**ISV Partner**
