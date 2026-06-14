@@ -8,6 +8,7 @@ shift your perspective in a scene to a targeted entity.
 2. In the scene hierarchy menu, select the entity you want to attach the camera to.
 3. Press the **+** button, and from the drop down options select **Add camera from current view**. To apply a camera with the current perspective to the entity.
 4. In the inspector, you can configure your camera and adjust the following settings:
+
    - A camera **Name**
    - The camera **position** and **rotation**
    - The camera **focal length**

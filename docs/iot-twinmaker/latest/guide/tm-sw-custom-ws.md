@@ -11,6 +11,7 @@ Before using AWS IoT SiteWise, the following must be completed:
   AWS IoT SiteWise. For more information, see [Creating asset models](../../../iot-sitewise/latest/userguide/create-asset-models.md "../../../iot-sitewise/latest/userguide/create-asset-models.md").
 - An existing IAM role with read permissions for the
   following AWS IoT SiteWise actions:
+
   - `ListAssets`
   - `ListAssetModels`
   - `DescribeAsset`

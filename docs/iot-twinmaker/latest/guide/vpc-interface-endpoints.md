@@ -144,6 +144,7 @@ If you disable private DNS for the endpoint, you must do the following to access
 through the endpoint:
 
 - Specify the VPC endpoint URL in API requests.
+
   - For the data plane API operations, use the following endpoint URL.
     Replace `vpc-endpoint-id` and `region`
     with your VPC endpoint ID and
@@ -152,7 +153,6 @@ through the endpoint:
   ```
   `vpc-endpoint-id`.data.iottwinmaker.`region`.vpce.amazonaws.com
   ```
-
   - For the control plane API operations, use the following endpoint URL.
     Replace `vpc-endpoint-id` and `region`
     with your VPC endpoint ID and

@@ -206,6 +206,7 @@ This procedure shows you how to setup a Grafana panel to visualize Athena tabula
 8. Select any number of properties from the property group.
 9. Configure the tabular conditions through a list of filters and property orders.
    With the following options:
+
    - **Filter**: define an expression for a property value
      to filter your data.
    - **OrderBy**: specify whether data should be returned

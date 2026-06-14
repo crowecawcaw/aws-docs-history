@@ -19,6 +19,7 @@ AWS IoT SiteWise.
 
 - The component `TypeId` for the asset model will use
   one of the following patterns:
+
   - **Custom workspace -**
     `iotsitewise.assetmodel:`assetModelId``
   - **Default workspace -**
@@ -40,6 +41,7 @@ AWS IoT SiteWise.
   `RELATIONSHIP` in the component type. The
   hierarchy is mapped to the property with a name prefixed by one
   of the following:
+
   - **Custom workspace -**
     `Hierarchy_hierarchyId`
   - **Default workspace -**

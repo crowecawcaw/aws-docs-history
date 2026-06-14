@@ -40,6 +40,7 @@ AWS IoT TwinMaker scenes let you directly edit properties of entities within the
 1. Navigate to your scene in the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/ "https://console.aws.amazon.com/iottwinmaker/").
 2. Open the scene hierarchy, and select a sub element of an entity you wish to manipulate.
 3. Once the element is selected, press the **+** button, and from the drop down select one of the options:
+
    - **Add empty node**
    - **Add 3D model**
    - **Add light**

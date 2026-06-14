@@ -112,6 +112,7 @@ credentials.
 7. Next, find the **Application integration Management** section, you should see
    your **PME application listed**. Record the following
    information:
+
    - The **Client ID**
    - The **Client Secret**
 
