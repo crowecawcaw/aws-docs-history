@@ -64,6 +64,7 @@ For more information, see [Compatibility for changing the instance type](resize-
    type**. This option is grayed out if the instance state is not
    `stopped`.
 7. On the **Change instance type** page, do the following:
+
    1. For **Instance type**, select the instance type that you
       want.
 

@@ -545,6 +545,7 @@ After you create the `instant` fleet using the preceding configuration,
 the following 10 instances are launched to meet the target capacity:
 
 - The Capacity Reservations are used first to launch 6 On-Demand Instances as follows:
+
   - 3 On-Demand Instances are launched into the 3 `c5.xlarge`
     `targeted` Capacity Reservations in `us-east-1a`
   - 3 On-Demand Instances are launched into the 3 `c5.xlarge`

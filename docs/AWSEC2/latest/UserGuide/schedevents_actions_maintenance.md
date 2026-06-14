@@ -45,6 +45,7 @@ can take one of the following actions:
 - **Launch a replacement instance:** If you
   want to maintain normal operation during the scheduled maintenance
   window:
+
   1.  Launch a replacement instance from your most recent
       AMI.
   2.  Migrate all necessary data to the replacement instance before

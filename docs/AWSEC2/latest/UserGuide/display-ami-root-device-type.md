@@ -16,6 +16,7 @@ Console
 2. In the navigation pane, choose **AMIs**, and select the AMI.
 3. On the **Details** tab, check the value of **Root device
    type** as follows:
+
    - `ebs` – Instances launched from this AMI will get an EBS root
      volume
    - `instance store` – Instances launched from this AMI will get an

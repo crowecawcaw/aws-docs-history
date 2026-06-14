@@ -148,6 +148,7 @@ Console
 3. You can view a version of a specific launch template, or get a
    list of the launch templates whose latest or default version
    matches a specific version number.
+
    - To view a version of a launch template: Choose the
      launch template. On the **Versions**
      tab, from **Version**, choose a version

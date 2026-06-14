@@ -91,6 +91,7 @@ ssh -L 5900:localhost:5900 -i `/path/key-pair-name`.pem ec2-user@`instance-publi
 7. From your local computer, use the ARD client or VNC client that supports ARD
    to connect to `localhost:5900`. For example, use the Screen Sharing
    application on macOS as follows:
+
    1. Open **Finder** and select **Go**.
    2. Select **Connect to Server**.
    3. In the **Server Address** field, enter `vnc://localhost:5900`.

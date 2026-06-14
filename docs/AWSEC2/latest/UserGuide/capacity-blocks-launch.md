@@ -37,6 +37,7 @@ Console
    instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 5. Expand **Advanced details**, and for **Purchasing option**,
    choose **Capacity Blocks**. Then do one of the following:
+
    - To launch the instances into a specific Capacity Block, for **Capacity Reservation**
      choose **Specify Capacity Reservation**, and then select the Capacity Block.
    - (_UltraServers only_) To launch the instances into an UltraServer Capacity Block

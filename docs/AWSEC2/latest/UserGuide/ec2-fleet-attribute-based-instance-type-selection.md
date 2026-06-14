@@ -249,6 +249,7 @@ attribute-based instance type selection, and then do the following:
   protection threshold as a percentage.
 - To specify the Spot Instance price protection threshold, in the JSON configuration
   file, in the `InstanceRequirements` structure, specify _one_ of the following parameters:
+
   - For `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`,
     enter the price protection threshold as a percentage.
   - For `SpotMaxPricePercentageOverLowestPrice`, enter the

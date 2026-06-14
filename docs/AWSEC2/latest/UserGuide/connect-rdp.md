@@ -14,6 +14,7 @@ You must meet the following prerequisites to connect to your Windows instance us
 client.
 
 - Complete the general prerequisites.
+
   - Check that your instance has passed its status checks.
     It can take a few minutes for an instance to be ready to accept connection requests.
     For more information, see [View status checks](viewing_status.md "viewing_status.md").
@@ -22,6 +23,7 @@ client.
   - [(Optional) Get the instance fingerprint](connection-prereqs-general.md#connection-prereqs-fingerprint "connection-prereqs-general.md#connection-prereqs-fingerprint").
 
 - Install an RDP client.
+
   - (Windows) Windows includes an RDP client by default. To verify, type
     **mstsc** at a Command Prompt window. If your
     computer doesn't recognize this command, download the [Microsoft Remote Desktop app](https://apps.microsoft.com/detail/9wzdncrfj3ps "https://apps.microsoft.com/detail/9wzdncrfj3ps")
@@ -67,6 +69,7 @@ For more information, see [Localized Names for Administrator Account in Windows]
    (Other)**.
 6. Choose **Get password**.
 7. On the **Get Windows password** page, do the following:
+
    1. Choose **Upload private key file** and navigate to
       the private key (`.pem`) file that you specified when you launched
       the instance. Select the file and choose **Open** to
@@ -99,6 +102,7 @@ download the RDP file and then see the documentation for the RDP client for the 
 6. Enter the password that you saved previously, and then choose **OK**.
 7. Due to the nature of self-signed certificates, you might get a warning that the security certificate could not be authenticated.
    Do one of the following:
+
    - If you trust the certificate, choose **Yes** to connect to your instance.
    - [Windows] Before you proceed, compare the thumbprint of the certificate with the value in the system log to confirm the identity of the remote computer.
      Choose **View certificate** and then choose **Thumbprint** from the **Details** tab.

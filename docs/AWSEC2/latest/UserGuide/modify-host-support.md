@@ -42,6 +42,7 @@ Console
    host**.
 4. Do one of the following, depending on the current
    configuration of the Dedicated Host:
+
    - If the Dedicated Host currently supports a specific instance
      type, **Support multiple instance
      types** is not enabled, and

@@ -32,6 +32,7 @@ Console
 5. In the **Manage AMI deregistration protection** dialog box,
    you can turn on deregistration protection with or without a cooldown period.
    Choose one of the following options:
+
    - **Enable with a 24-hour cooldown period** – With a
      cooldown period, the AMI can’t be deregistered for 24 hours when
      deregistration protection is turned off.

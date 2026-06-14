@@ -24,6 +24,7 @@ determined, see [Compatibility for changing the instance type](resize-limitation
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Back up any data that you still need as follows:
+
    - Connect to your instance and copy the data on your instance store volumes
      to persistent storage.
    - [Create snapshots](../../../ebs/latest/userguide/ebs-creating-snapshot.md "../../../ebs/latest/userguide/ebs-creating-snapshot.md") of your EBS volumes so that you can create new
@@ -33,6 +34,7 @@ determined, see [Compatibility for changing the instance type](resize-limitation
 3. In the navigation pane, choose **Instances**.
 4. Choose **Launch instances**. When you configure the instance,
    do the following:
+
    1. Select an AMI that supports the instance type that you want. For example,
       you must select an AMI that supports the processor type of the new instance type.
       Also, current generation instance types require an HVM AMI.

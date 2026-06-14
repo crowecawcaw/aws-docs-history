@@ -80,6 +80,7 @@ see [List non-NVMe disks](windows-list-disks.md#windows-disks "windows-list-disk
    minimum and maximum disk space.
 7. On the Assign a Drive Letter or Path screen, do one of the following, and choose
    **Next**.
+
    - To mount the volume with a drive letter, choose **Assign
      the following drive letter** and then choose the drive letter to use.
    - To mount the volume as a folder, choose **Mount in the

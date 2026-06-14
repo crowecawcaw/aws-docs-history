@@ -42,6 +42,7 @@ Console
    **Create Capacity Reservation**.
 3. Configure the following settings in the **Instance
    details** section.
+
    1. **Instance Type** — The
       instance type for which to reserve capacity.
    2. **Platform** — The operating
@@ -67,10 +68,12 @@ Console
 
 4. Configure the following settings in the **Reservation
    details** section:
+
    1. **Capacity Reservation starts** — Choose
       **Immediately**.
    2. **Capacity Reservation ends** — Choose one of
       the following options:
+
       - **Manually** — Reserve
         the capacity until you explicitly cancel
         it.
@@ -80,6 +83,7 @@ Console
 
    3. **Instance eligibility** —
       Choose one of the following options:
+
       - **open** — (Default)
         The Capacity Reservation matches any instance that has matching
         attributes (instance type, platform, Availability
@@ -155,6 +159,7 @@ Console
    **Create Capacity Reservation**.
 3. Configure the following settings in the **Instance
    details** section.
+
    1. **Instance Type** — The
       instance type for which to reserve capacity.
    2. **Platform** — The operating
@@ -176,6 +181,7 @@ Console
 
 4. Configure the following settings in the **Reservation
    details** section:
+
    1. **Capacity Reservation starts** — Choose
       **At a specific time**.
    2. **Start date** — Specify the
@@ -187,6 +193,7 @@ Console
       information, see [Commitment duration](cr-concepts.md#cr-commitment-duration "cr-concepts.md#cr-commitment-duration").
    4. **Capacity Reservation ends** — Choose one of
       the following options:
+
       - **When I cancel it** —
         Reserve the capacity until you explicitly cancel
         it.

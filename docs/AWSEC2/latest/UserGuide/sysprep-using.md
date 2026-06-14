@@ -74,6 +74,7 @@ sysprep.exe /unattend: "C:\Program Files\Amazon\Ec2ConfigService\sysprep2008.xml
   the computer name and the SID. If the instance is a member of a domain,
   it is removed from the domain. The `sysprep2008.xml`
   answer file includes the following settings that affect this phase:
+
   - **PersistAllDeviceInstalls**:
     This setting prevents Windows Setup from removing and
     reconfiguring devices, which speeds up the image preparation
@@ -140,6 +141,7 @@ Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 
 1. Using the EC2Config service answer file, the system specifies the
    following configurations:
+
    - <InputLocale>en-US</InputLocale>
    - <SystemLocale>en-US</SystemLocale>
    - <UILanguage>en-US</UILanguage>
@@ -191,6 +193,7 @@ EC2Config then performs the following actions:
 
 1. Reads the content of the config.xml file and lists all enabled plug-ins.
 2. Executes all “Before Windows is ready” plug-ins at the same time.
+
    - Ec2SetPassword
    - Ec2SetComputerName
    - Ec2InitializeDrives
@@ -204,6 +207,7 @@ EC2Config then performs the following actions:
 3. After it is finished, sends a “Windows is ready” message to the instance
    system logs.
 4. Runs all “After Windows is ready” plug-ins at the same time.
+
    - Amazon CloudWatch Logs
    - UserData
    - AWS Systems Manager (Systems Manager)

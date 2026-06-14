@@ -37,7 +37,7 @@ you can modify the properties of the instance, change its size, or update the ke
 using, or you can attach its root volume to a different running instance for debugging or any
 other purpose. For more information, see [Amazon EBS volumes](../../../ebs/latest/userguide/ebs-volumes.md "../../../ebs/latest/userguide/ebs-volumes.md").
 
-![Root volume and other Amazon EBS volumes of an instance launched from an Amazon EBS-backed AMI](images/ebs_backed_instance.png)
+![An instance launched from an EBS-backed AMI with root volume and additional EBS volumes.](images/ebs_backed_instance.png)
 
 ###### Limitation
 
@@ -52,6 +52,7 @@ one of these methods:
 - Automatically snapshot all relevant volumes and create a new AMI. For more information,
   see [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md "creating-an-ami-ebs.md").
 - Attach the volume to the new instance by following these steps:
+
   1.  Create a snapshot of the root volume.
   2.  Register a new AMI using the snapshot.
   3.  Launch a new instance from the new AMI.
@@ -74,7 +75,7 @@ this data is deleted when the instance is terminated (instances with an instance
 volume do not support the **Stop** action) or if it fails (such as if an
 underlying drive has issues). For more information, see [Instance store temporary block storage for EC2 instances](InstanceStorage.md "InstanceStorage.md").
 
-![Root volume on an Amazon EC2 instance launched from an Amazon S3-backed AMI](images/instance_store_backed_instance.png)
+![Root volume on an Amazon EC2 instance launched from an Amazon S3-backed AMI.](images/instance_store_backed_instance.png)
 
 ###### Supported instance types
 

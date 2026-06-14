@@ -39,6 +39,7 @@ You can find an instance type that meets your needs using the Amazon EC2 console
 5. Use the instance type attributes to filter the list of displayed instance types to only
    the instance types that meet your needs. For example, you can filter on the following
    attributes:
+
    - **Availability zones** – The name of the Availability Zone,
      Local Zone, or Wavelength Zone. For more information, see [Regions and Zones](using-regions-availability-zones.md "using-regions-availability-zones.md").
    - **vCPUs** or **Cores** – The number of vCPUs or cores.

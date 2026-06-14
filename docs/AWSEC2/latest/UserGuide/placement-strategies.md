@@ -55,6 +55,7 @@ to hardware that has capacity for all of the requested instances.
 The following rules apply to cluster placement groups:
 
 - The following instance types are supported:
+
   - Current generation instances, except for [burstable performance](burstable-performance-instances.md "burstable-performance-instances.md") instances
     (for example, T2), [Mac1 instances](ec2-mac-instances.md "ec2-mac-instances.md"),
     and M7i-flex instances.
@@ -67,6 +68,7 @@ The following rules apply to cluster placement groups:
   network connectivity that meets your requirements.
 - For instances that are enabled for enhanced networking, the following
   rules apply:
+
   - Instances within a cluster placement group can use up to 10 Gbps
     for single-flow traffic. Instances that are not within a cluster
     placement group can use up to 5 Gbps for single-flow traffic.

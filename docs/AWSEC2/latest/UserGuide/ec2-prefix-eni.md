@@ -29,6 +29,7 @@ The following assignment options are available:
 - [Basics](ec2-prefix-eni.md#ec2-prefix-basics "ec2-prefix-eni.md#ec2-prefix-basics")
 - [Considerations](ec2-prefix-eni.md#prefix-limit "ec2-prefix-eni.md#prefix-limit")
 - [Manage prefixes](work-with-prefixes.md "work-with-prefixes.md")
+
   - [Assign prefixes during network interface creation](work-with-prefixes.md#assign-auto-creation "work-with-prefixes.md#assign-auto-creation")
   - [Assign prefixes to an existing network interface](work-with-prefixes.md#assign-auto-existing "work-with-prefixes.md#assign-auto-existing")
   - [Remove prefixes from your network interfaces](work-with-prefixes.md#unassign-prefix "work-with-prefixes.md#unassign-prefix")
@@ -41,6 +42,7 @@ The following assignment options are available:
   system.
 - When you choose the option to specify a prefix, the prefix must meet the following
   requirements:
+
   - The IPv4 prefix that you can specify is `/28`.
   - The IPv6 prefix that you can specify is `/80`.
   - The prefix is in the subnet CIDR of the network interface, and does
@@ -52,12 +54,12 @@ The following assignment options are available:
 - You can also assign an Elastic IP address to the IP address part of the assigned prefix.
 - We resolve the private DNS host name of an instance to the primary private IPv4 address.
 - We assign each private IPv4 address for a network interface, including those from prefixes, using the following format:
+
   - `us-east-1` Region
 
   ```
   `ip-private-ipv4-address`.ec2.internal
   ```
-
   - All other Regions
 
   ```
@@ -83,6 +85,7 @@ Take the following into consideration when you use prefixes:
 - Prefixes are included in source/destination checks.
 - You must configure your operating system to work with network interfaces with
   prefixes. Note the following:
+
   - Some Amazon Linux AMIs contain additional scripts installed by AWS, known as
     `ec2-net-utils`. These scripts optionally automate the configuration of your
     network interfaces. They are for use only on Amazon Linux.

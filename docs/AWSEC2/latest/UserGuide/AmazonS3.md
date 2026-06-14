@@ -44,6 +44,7 @@ following:
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Choose **Launch instance**.
 3. Under **Network settings**, do the following:
+
    1. Choose **Edit**.
    2. For **Subnet**, select a subnet.
    3. Select the default security group to make sure that your EC2 instance can
@@ -51,12 +52,14 @@ following:
       (SSH) using this security group. For access by SSH, you can later edit the
       default security group and add a rule to allow SSH, or add a new security group that allows
       SSH. You can use the following settings:
+
       1. **Type:** SSH
       2. **Protocol:** TCP
       3. **Port Range:** 22
       4. **Source:** Anywhere 0.0.0.0/0
 
 4. Under **Configure storage**, do the following:
+
    1. Under **File systems**, choose **S3 Files**.
    2. Choose **Add shared file system**.
    3. For **S3 file system**, your file systems appear in the
@@ -91,20 +94,19 @@ local mount path.
 2. To mount your S3 file system, use the mount helper utility
    `amazon-efs-utils`. Depending on your Linux distribution, use one of the following commands to install the `amazon-efs-utils`
    package:
+
    1. If you’re using Amazon Linux, run the following command to install
       efs-utils from Amazon's repositories:
 
    ```
    sudo yum -y install amazon-efs-utils
    ```
-
    2. If you are using other [supported Linux distributions](https://github.com/aws/efs-utils/?tab=readme-ov-file#efs-utils "https://github.com/aws/efs-utils/?tab=readme-ov-file#efs-utils"), run the
       following command:
 
    ```
    curl https://amazon-efs-utils.aws.com/efs-utils-installer.sh | sudo sh -s -- --install
    ```
-
    3. For other Linux distributions, see the [efs-utils](https://github.com/aws/efs-utils/?tab=readme-ov-file#on-other-linux-distributions "https://github.com/aws/efs-utils/?tab=readme-ov-file#on-other-linux-distributions") repository on _GitHub_.
 
 3. Create a directory for the file system mount point using the following

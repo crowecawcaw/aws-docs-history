@@ -125,12 +125,12 @@ Note that the name of the file system, shown in the example output as
 
 3. (Optional) Create a file in the file system from the instance, and then verify that
    you can view the file from another instance.
+
    1. From the instance, run the following command to create the file.
 
    ```
    `$` `sudo touch `/mnt/efs`/test-file.txt`
    ```
-
    2. From the other instance, run the following command to view the file.
 
    ````

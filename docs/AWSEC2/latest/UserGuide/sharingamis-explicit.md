@@ -28,6 +28,7 @@ Consider the following when sharing AMIs with specific AWS accounts.
   For more information, see [Share an Amazon EBS snapshot](../../../ebs/latest/userguide/ebs-modifying-snapshot-permissions.md "../../../ebs/latest/userguide/ebs-modifying-snapshot-permissions.md") in the _Amazon EBS User Guide_.
 - **Encryption and keys** – You can share AMIs that are
   backed by unencrypted and encrypted snapshots.
+
   - The encrypted snapshots must be encrypted with a KMS key. You can’t share AMIs that
     are backed by snapshots that are encrypted with the default AWS
     managed key.

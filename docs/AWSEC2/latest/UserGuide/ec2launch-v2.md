@@ -81,6 +81,7 @@ You will see the following frequencies in the [EC2Launch v2 task configuration](
   first time (finished Sysprep).
 - Always – The task runs every time that the launch agent
   runs. The launch agent runs when:
+
   - an instance starts or restarts
   - the EC2Launch service runs
   - `EC2Launch.exe run` is invoked
@@ -205,12 +206,14 @@ The `%ProgramFiles%\Amazon\EC2Launch` directory contains binaries and
 supporting libraries. It includes the following subdirectories:
 
 - `settings`
+
   - `EC2LaunchSettingsUI.exe` – user interface for modifying
     the `agent-config.yml` file
   - `YamlDotNet.dll` – DLL for supporting some operations in
     the user interface
 
 - `tools`
+
   - `ebsnvme-id.exe` – tool for examining the metadata of the
     EBS volumes on the instance
   - `AWSAcpiSpcrReader.exe` – tool for determining the correct
@@ -219,6 +222,7 @@ supporting libraries. It includes the following subdirectories:
     Windows event logging for EC2Launch
 
 - `service`
+
   - `EC2LaunchService.exe` – Windows service executable
     that is launched when the launch agent runs as a service
 

@@ -15,15 +15,16 @@ the following procedure to subscribe to these notifications.
 4. Choose **Create subscription**.
 5. In the **Create subscription** dialog box, do the
    following:
+
    1. For **Topic ARN**, use the following Amazon
       Resource Name (ARN) that matches the agent you want to receive
       notifications for:
+
       - **EC2Launch v2**:
 
       ```
       `arn:aws:sns:us-east-1:309726204594:amazon-ec2launch-v2`
       ```
-
       - **EC2Launch or EC2Config**:
 
       ```

@@ -18,6 +18,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. (Optional) To verify that your security group is not associated with an
    instance, do the following:
+
    1. In the navigation pane, choose **Security Groups**.
    2. Copy the ID of the security group to delete.
    3. In the navigation pane, choose **Instances**.

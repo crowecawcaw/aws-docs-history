@@ -37,11 +37,13 @@ The following permissions are required:
 - [Example 1: DescribeInstanceTopology - Instance IDs](ec2-instance-topology-examples.md#instance-topology-ex1 "ec2-instance-topology-examples.md#instance-topology-ex1")
 - [Example 2: DescribeInstanceTopology - Placement group name parameter](ec2-instance-topology-examples.md#instance-topology-ex2 "ec2-instance-topology-examples.md#instance-topology-ex2")
 - [Example 3: DescribeInstanceTopology - Instance type filter](ec2-instance-topology-examples.md#instance-topology-ex3 "ec2-instance-topology-examples.md#instance-topology-ex3")
+
   - [Example 3a – Exact match filter for a specified instance type](ec2-instance-topology-examples.md#instance-topology-ex3a "ec2-instance-topology-examples.md#instance-topology-ex3a")
   - [Example 3b – Wild card filter for an instance family](ec2-instance-topology-examples.md#instance-topology-ex3b "ec2-instance-topology-examples.md#instance-topology-ex3b")
   - [Example 3c – Combined instance family and exact match filters](ec2-instance-topology-examples.md#instance-topology-ex3c "ec2-instance-topology-examples.md#instance-topology-ex3c")
 
 - [Example 4: DescribeInstanceTopology - Zone ID filter](ec2-instance-topology-examples.md#instance-topology-ex4 "ec2-instance-topology-examples.md#instance-topology-ex4")
+
   - [Example 4a – Availability Zone filter](ec2-instance-topology-examples.md#instance-topology-ex4a "ec2-instance-topology-examples.md#instance-topology-ex4a")
   - [Example 4b – Local Zone filter](ec2-instance-topology-examples.md#instance-topology-ex4b "ec2-instance-topology-examples.md#instance-topology-ex4b")
   - [Example 4c – Combined Availability Zone and Local Zone filters](ec2-instance-topology-examples.md#instance-topology-ex4c "ec2-instance-topology-examples.md#instance-topology-ex4c")

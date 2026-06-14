@@ -44,7 +44,7 @@ resides. If you make changes to the source AMI and want those changes to be
 reflected in the AMIs in the target Regions, you must recopy the source AMI to
 the target Regions.
 
-![AMIs copied in different Regions](images/ami_copy.png)
+![AMIs copied in different Regions.](images/ami_copy.png)
 
 When you first copy an Amazon S3-backed AMI to a Region, we create an Amazon S3 bucket for the
 AMIs copied to that Region. All Amazon S3-backed AMIs that you copy to that Region
@@ -82,6 +82,7 @@ as the target AMI.
   in the Region.
 - If you copy an AMI that is shared with your account, you are the owner of
   the target AMI in your account.
+
   - The owner of the source AMI is charged standard Amazon EBS or Amazon S3
     transfer fees.
   - You are charged for the storage of the target AMI in the

@@ -82,6 +82,7 @@ Console
    **Manage detailed monitoring**.
 5. On the **Detailed monitoring** page, for **Detailed
    monitoring**, do one of the following:
+
    - Detailed monitoring – Select **Enable**.
    - Basic monitoring – Clear **Enable**.
 

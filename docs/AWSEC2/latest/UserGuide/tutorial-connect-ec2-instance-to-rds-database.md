@@ -44,7 +44,7 @@ database.
 The following diagram shows the resources that are created and the architectural
 configuration that results from completing all the steps in this tutorial.
 
-![The resources that are created and the architectural configuration that results from completing all the steps in this tutorial.](images/ec2-rds-tutorial-architecture.png)
+![Architecture of the EC2 instance and RDS database created in this tutorial.](images/ec2-rds-tutorial-architecture.png)
 
 The diagram illustrates the following resources that you'll create:
 
@@ -100,6 +100,7 @@ Consider the following when you complete the tasks in this tutorial:
 
 - **Two consoles** – You will use the following two consoles for this
   tutorial:
+
   - Amazon EC2 console – You will use the EC2 console to launch instances, to automatically
     connect an EC2 instance to an RDS database, and for the manual option to
     configure the connection by creating the security groups.

@@ -11,6 +11,7 @@ transfers data using plain text by default.
 Before you connect to your Linux instance using SCP, complete the following tasks:
 
 - Complete the general prerequisites.
+
   - Check that your instance has passed its status checks.
     It can take a few minutes for an instance to be ready to accept connection requests.
     For more information, see [View status checks](viewing_status.md "viewing_status.md").
@@ -40,13 +41,13 @@ instance's public DNS name, or the IPv6 address if your instance has one.
    ec2-user, the public DNS name of the instance is
    `instance-public-dns-name`, and the IPv6 address of the
    instance is `2001:db8::1234:5678:1.2.3.4`.
+
    - (Public DNS) To transfer a file to the destination on the instance,
      enter the following command from your computer.
 
    ```
    scp -i `/path/key-pair-name`.pem `/path/my-file.txt` `ec2-user`@`instance-public-dns-name`:`path/`
    ```
-
    - (IPv6) To transfer a file to the destination on the instance if the
      instance has an IPv6 address, enter the following command from your
      computer. The IPv6 address must be enclosed in square brackets (`[
@@ -83,13 +84,13 @@ my-file.txt                                100%   480     24.4KB/s   00:00
    transfer `my-file.txt` from your EC2 instance to the a
    destination on your local computer as `my-file2.txt`, as
    shown in the following examples.
+
    - (Public DNS) To transfer a file to a destination on your computer,
      enter the following command from your computer.
 
    ```
    scp -i `/path/key-pair-name`.pem `ec2-user`@`instance-public-dns-name`:`path/my-file.txt path/my-file2.txt`
    ```
-
    - (IPv6) To transfer a file to a destination on your computer if the
      instance has an IPv6 address, enter the following command from your
      computer. The IPv6 address must be enclosed in square brackets (`[

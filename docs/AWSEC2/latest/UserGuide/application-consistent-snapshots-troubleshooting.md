@@ -142,6 +142,7 @@ of the backup. The following actions can help you take a successful snapshot:
 - If you have multiple `AWSEC2-CreateVssSnapshot` command scripts
   running at the same time, you can take the following steps to reduce concurrency
   issues.
+
   - Consider scheduling snapshots during periods of lower API activity.
   - If you use **Run Command** in the Systems Manager console (or
     **SendCommand** in the API) to run the command script, you
@@ -158,6 +159,7 @@ of the backup. The following actions can help you take a successful snapshot:
 - When you use smaller instance types like `t2 | t3 | t3a`.nano
   or `t2 | t3 | t3a`.micro, timeouts due to memory and CPU
   constraints can occur. The following actions might help reduce timeout issues.
+
   - Try closing memory or CPU intensive applications before taking snapshots.
   - Try taking snapshots during periods of lower instance activity.
 

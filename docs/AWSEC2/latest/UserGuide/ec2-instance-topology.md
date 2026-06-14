@@ -9,12 +9,14 @@ learning (ML), and generative AI compute infrastructure at scale.
 Amazon EC2 provides two APIs for understanding your EC2 topology:
 
 - [DescribeInstanceTopology](../APIReference/API_DescribeInstanceTopology.md "../APIReference/API_DescribeInstanceTopology.md")
+
   - Shows where your _running_ instances are
     located relative to each other in the network hierarchy.
   - Helps optimize where to run your workloads on your existing
     instances.
 
 - [DescribeCapacityReservationTopology](../APIReference/API_DescribeCapacityReservationTopology.md "../APIReference/API_DescribeCapacityReservationTopology.md")
+
   - Shows where your reserved capacity will be located relative to each other
     in the network hierarchy _before you launch
     instances_.
@@ -33,6 +35,7 @@ EC2 topology provides the following key benefits:
 ###### Considerations
 
 - Topology views are only available for:
+
   - Instances in the `running` state
   - Capacity Reservations in the `pending` or `active` state
 

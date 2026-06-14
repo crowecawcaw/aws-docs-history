@@ -121,6 +121,7 @@ email, text message, or mobile push notification.
 1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2.  Choose **Create rule**.
 3.  For **Define rule detail**, do the following:
+
     1. Enter a **Name** for the rule, and, optionally, a description.
 
     A rule can't have the same name as another rule in the same Region and on the same event bus. 2. For **Event bus**, choose **default**. When an AWS
@@ -129,6 +130,7 @@ email, text message, or mobile push notification.
     pattern**. 4. Choose **Next**.
 
 4.  For **Build event pattern**, do the following:
+
     1. For **Event source**, choose **AWS events or EventBridge
        partner events**.
     2. For **Event pattern**, for this example you’ll specify the following
@@ -169,10 +171,10 @@ Recommendation` event, and then choose
 
         	1. Choose **Custom pattern (JSON editor)**.
         	2. In the **Event pattern** box, add the event pattern for this example.
-
     3. Choose **Next**.
 
 5.  For **Select target(s)**, do the following:
+
     1. For **Target types**, choose **AWS service**.
     2. For **Select a target**, choose **SNS topic** to send an email, text message, or mobile push notification when the event occurs.
     3. For **Topic**, choose an existing topic. You first need to create an
@@ -186,6 +188,7 @@ Recommendation` event, and then choose
 
 6.  (Optional) For **Tags**, you can optionally assign one or more tags to your rule, and then choose **Next**.
 7.  For **Review and create**, do the following:
+
     1. Review the details of the rule and modify them as necessary.
     2. Choose **Create rule**.
 

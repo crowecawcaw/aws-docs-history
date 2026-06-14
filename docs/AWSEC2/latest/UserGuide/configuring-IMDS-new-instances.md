@@ -89,6 +89,7 @@ Console
    **Manage**.
 6. On the **Manage IMDS defaults** page,
    do the following:
+
    1. For **Instance metadata
       service**, choose
       **Enabled**.
@@ -390,6 +391,7 @@ Console
    under **Settings**, choose **Data protection and security**.
 5. Next to **IMDS defaults**, choose **Manage**.
 6. On the **Manage IMDS defaults** page, do the following:
+
    1. For **Metadata version**, choose **V2 only (token
       required)**.
    2. For **Enforce IMDSv2**, choose
@@ -923,6 +925,7 @@ Console
   instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") in the Amazon EC2 console with the following
   specified under **Advanced
   details**:
+
   - For **Metadata IPv6 endpoint**,
     choose **Enabled**.
 
@@ -999,6 +1002,7 @@ Console
   instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") in the Amazon EC2 console with the following
   specified under **Advanced
   details**:
+
   - For **Metadata accessible**,
     choose **Disabled**.
 

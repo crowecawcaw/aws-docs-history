@@ -20,6 +20,7 @@ Console
 4. (Optional) For **Description**, enter a descriptive name.
 5. For **Subnet**, select a subnet. The options available in the subsequent steps change depending on the type of subnet you select (IPv4-only, IPv6-only, or dual-stack (IPv4 and IPv6)).
 6. For **Interface type**, choose one of the following:
+
    - **ENA**: A high-performance network interface designed to handle high throughput and packet-per-second rates for TCP/IP protocols while minimizing CPU usage. This is the default value. For more information about ENA, see [Elastic Network Adapter](enhanced-networking-ena.md "enhanced-networking-ena.md").
    - **EFA with ENA**: A network interface that supports both ENA and EFA devices for traditional TCP/IP based transport along with SRD based transport. If you choose EFA with ENA, the instance you are attaching it to must [support EFA](efa.md#efa-instance-types "efa.md#efa-instance-types"). For more information about EFA, see [Elastic Fabric Adapter](efa.md "efa.md").
    - **EFA-only**: A high-performance network interface designed to handle high
@@ -31,6 +32,7 @@ Console
      IP addresses. For more information about EFA, see [Elastic Fabric Adapter](efa.md "efa.md").
 
 7. For **Private IPv4 address**, do one of the following:
+
    - Choose **Auto-assign** to allow Amazon EC2 to
      select an IPv4 address from the subnet.
    - Choose **Custom** and enter an IPv4 address
@@ -38,6 +40,7 @@ Console
 
 8. (Subnets with IPv6 addresses only) For **IPv6 address**,
    do one of the following:
+
    - Choose **None** if you do not want to assign an
      IPv6 address to the network interface.
    - Choose **Auto-assign** to allow Amazon EC2 to
@@ -66,6 +69,7 @@ Console
     **Enable**.
 11. (Optional) Under **Advanced settings**, you can optionally set
     IP prefix delegation. For more information, see [Prefix delegation](ec2-prefix-eni.md "ec2-prefix-eni.md").
+
     - **Auto-assign** — AWS chooses the prefix
       from the IPv4 or IPv6 CIDR blocks for the subnet, and assigns it to
       the network interface.
@@ -78,8 +82,10 @@ Console
     tracking timeout**, modify the default idle
     connection timeouts. For more information, see
     [Idle connection tracking timeout](security-group-connection-tracking.md#connection-tracking-timeouts "security-group-connection-tracking.md#connection-tracking-timeouts").
+
     - **TCP established timeout**: Timeout (in seconds) for idle TCP
       connections in an established state.
+
       - Min: `60` seconds
       - Max: `432000` seconds
       - Default: `350` seconds for [Nitro v6](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md")
@@ -88,12 +94,14 @@ Console
 
     - **UDP timeout**: Timeout (in seconds) for idle UDP flows that
       have seen traffic only in a single direction or a single request-response transaction.
+
       - Min: `30` seconds
       - Max: `60` seconds
       - Default: `30` seconds
 
     - **UDP stream timeout**: Timeout (in seconds) for idle UDP flows
       classified as streams which have seen more than one request-response transaction.
+
       - Min: `60` seconds
       - Max: `180` seconds
       - Default: `180` seconds

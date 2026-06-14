@@ -22,6 +22,7 @@ Enabling Capacity Manager with AWS Organizations provides the following benefits
   see [Terminology and concepts](../../../organizations/latest/userguide/orgs_getting-started_concepts.md "../../../organizations/latest/userguide/orgs_getting-started_concepts.md") in
   the _AWS Organizations User Guide_.
 - The management account must have permissions for the following IAM actions:
+
   - `organizations:EnableAwsServiceAccess`
   - `organizations:RegisterDelegatedAdministrator` (if using delegated administration)
   - `iam:CreateServiceLinkedRole`

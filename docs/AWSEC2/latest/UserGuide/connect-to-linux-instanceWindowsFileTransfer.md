@@ -22,6 +22,7 @@ Windows
 3. Add the instance host name to the **Computer**
    field and username to the **User name** field, as
    follows:
+
    1. Under **Connection settings**, choose
       **Open...**, and browse to the RDP
       shortcut file that you downloaded from the Amazon EC2 console.

@@ -86,8 +86,10 @@ Console
 6. For **Event window schedule**, choose to
    specify the blocks of time in the event window by using the
    cron schedule builder or by specifying time ranges.
+
    - If you choose **Cron schedule
      builder**, specify the following:
+
      1. For **Days (UTC)**, specify
         the days of the week on which the event window
         occurs.

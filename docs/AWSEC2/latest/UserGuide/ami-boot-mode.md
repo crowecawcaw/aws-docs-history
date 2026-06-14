@@ -18,6 +18,7 @@ Console
 2. In the navigation pane, choose **AMIs**, and then
    select the AMI.
 3. Inspect the **Boot mode** field.
+
    - A value of **uefi** indicates that the
      AMI supports UEFI.
    - A value of **uefi-preferred** indicates

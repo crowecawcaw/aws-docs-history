@@ -11,14 +11,17 @@ depleted. For more information, see [Key concepts for burstable performance inst
 ###### Contents
 
 - [Standard mode concepts for burstable instances](burstable-performance-instances-standard-mode-concepts.md "burstable-performance-instances-standard-mode-concepts.md")
+
   - [How standard burstable performance instances work](burstable-performance-instances-standard-mode-concepts.md#how-burstable-performance-instances-standard-works "burstable-performance-instances-standard-mode-concepts.md#how-burstable-performance-instances-standard-works")
   - [Launch credits](burstable-performance-instances-standard-mode-concepts.md#launch-credits "burstable-performance-instances-standard-mode-concepts.md#launch-credits")
   - [Launch credit limits](burstable-performance-instances-standard-mode-concepts.md#launch-credit-limits "burstable-performance-instances-standard-mode-concepts.md#launch-credit-limits")
   - [Differences between launch credits and earned credits](burstable-performance-instances-standard-mode-concepts.md#burstable-performance-instances-diff-launch-earned-credits "burstable-performance-instances-standard-mode-concepts.md#burstable-performance-instances-diff-launch-earned-credits")
 
 - [Standard mode examples for burstable instances](standard-mode-examples.md "standard-mode-examples.md")
+
   - [Example 1: Explain credit use with T3 Standard](standard-mode-examples.md#t3_standard_example "standard-mode-examples.md#t3_standard_example")
   - [Example 2: Explain credit use with T2 Standard](standard-mode-examples.md#t2-standard-example "standard-mode-examples.md#t2-standard-example")
+
     - [Period 1: 1 – 24 hours](standard-mode-examples.md#period-1 "standard-mode-examples.md#period-1")
     - [Period 2: 25 – 36 hours](standard-mode-examples.md#period-2 "standard-mode-examples.md#period-2")
     - [Period 3: 37 – 61 hours](standard-mode-examples.md#period-3 "standard-mode-examples.md#period-3")

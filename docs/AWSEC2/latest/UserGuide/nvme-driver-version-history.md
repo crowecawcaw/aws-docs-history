@@ -50,6 +50,7 @@ the following procedure to subscribe to these notifications.
 4. Choose **Create subscription**.
 5. In the **Create subscription** dialog box, do the
    following:
+
    1. For **TopicARN**, copy the following Amazon
       Resource Name (ARN):
 

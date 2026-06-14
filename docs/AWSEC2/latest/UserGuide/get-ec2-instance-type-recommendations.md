@@ -27,6 +27,7 @@ using the EC2 instance type finder in the Amazon EC2 console. To view an animati
 ###### To get instance type suggestions using the EC2 instance type finder
 
 1. Start your process using any of the following:
+
    - Follow the procedure to [launch an
      instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md"). Next to **Instance type**, choose the
      **Get advice** link.
@@ -37,11 +38,13 @@ using the EC2 instance type finder in the Amazon EC2 console. To view an animati
 
 2. In the **Get advice on instance type selection** screen, do the
    following:
+
    1. Specify your instance type requirements by selecting options for
       **Workload type**, **Use case**,
       **Priority**, and **CPU manufacturers**.
    2. (Optional) To specify more detailed requirements for your workload, do the
       following:
+
       1. Expand **Advanced parameters**.
       2. To add a parameter, select a parameter, choose **Add**, and
          specify a value for the parameter. Repeat for each additional parameter that you
@@ -67,4 +70,4 @@ instance type you’d like to use. Then, in the launch instance wizard or launch
 for **Instance type**, choose the instance type, and complete the
 procedure to launch an instance or create a launch template.
 
-![This animation shows how to get instance type suggestions using the EC2 instance type finder. For the text version of this animation, see the steps in the preceding procedure.](images/use-ec2-instance-type-finder-animation.gif)
+![Getting instance type suggestions using the instance type finder.](images/use-ec2-instance-type-finder-animation.gif)

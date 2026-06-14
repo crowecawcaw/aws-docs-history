@@ -33,7 +33,7 @@ the StopInstances command, the instance transitions from the `running`
 state, to `stopping`, and finally to `stopped`, as illustrated
 by the following diagram:
 
-![Default stop flow](images/stop-instance-flow-1.png)
+![Default stop flow.](images/stop-instance-flow-1.png)
 
 **Purpose:** Normal instance shutdown with attempted
 graceful OS shutdown.
@@ -57,7 +57,7 @@ When bypassing the graceful OS shutdown is required, the stop with skip OS
 shutdown method can be used to stop an instance and bypass the graceful OS shutdown,
 as illustrated by the following diagram:
 
-![Stop with skip OS shutdown flow](images/stop-instance-flow-3.png)
+![Stop with skip OS shutdown flow.](images/stop-instance-flow-3.png)
 
 ###### Warning
 
@@ -93,7 +93,7 @@ The force stop method first attempts a default stop. If the instance remains stu
 down the instance and transitions the instance to the `stopped` state, as
 indicated by the following diagram:
 
-![Force stop flow](images/stop-instance-flow-2.png)
+![Force stop flow.](images/stop-instance-flow-2.png)
 
 **Purpose:** Handles instances stuck in the
 `stopping` state. Attempts a default stop first. If the instance
@@ -112,7 +112,7 @@ When force stopping and bypassing the graceful OS shutdown is required, the forc
 stop with skip OS shutdown method can be used to bring an instance to the
 `stopped` state, as illustrated in the following diagram:
 
-![Force stop with skip OS shutdown flow](images/stop-instance-flow-4.png)
+![Force stop with skip OS shutdown flow.](images/stop-instance-flow-4.png)
 
 **Purpose:** Combines force stop with bypassing a graceful OS
 shutdown when stopping an instance.

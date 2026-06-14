@@ -124,6 +124,7 @@ completed
 
 5. To create a new AMI, use the [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md") command. Use the value of `SnapshotId`
    from the output of **CreateSnapshot**.
+
    - To set the boot mode to UEFI, add the `--boot-mode` parameter with
      a value of `uefi`.
 
@@ -137,7 +138,6 @@ completed
       --ena-support \
       **--boot-mode uefi**
    ```
-
    - To set the boot mode to `uefi-preferred`, set the value of
      `--boot-mode` to `uefi-preferred`
 
@@ -243,6 +243,7 @@ completed
 5. To create a new AMI, use the [Register-EC2Image](../../../powershell/latest/reference/items/Register-EC2Image.md "../../../powershell/latest/reference/items/Register-EC2Image.md") cmdlet. Use the
    value of `SnapshotId` from the output of
    **New-EC2Snapshot**.
+
    - To set the boot mode to UEFI, add the `-BootMode` parameter with a value
      of `uefi`.
 
@@ -256,7 +257,6 @@ completed
       -EnaSupport $true `
       **-BootMode uefi**
    ```
-
    - To set the boot mode to `uefi-preferred`, set the value of
      `-BootMode` to `uefi-preferred`
 

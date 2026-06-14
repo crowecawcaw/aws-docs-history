@@ -23,13 +23,13 @@ on the Microsoft website.
 
 1. Install WSL. The process that you'll use depends on the version of Windows Server
    running on the instance.
+
    - Windows Server 2022 and later - Run the
      following standard installation command on your EC2 instance.
 
    ```
    wsl --install --enable-wsl1 --no-launch
    ```
-
    - Windows Server 2019 - Enable WSL and then
      install WSL as described in [Install WSL on previous versions of Windows Server](https://learn.microsoft.com/en-us/windows/wsl/install-on-server#install-wsl-on-previous-versions-of-windows-server "https://learn.microsoft.com/en-us/windows/wsl/install-on-server#install-wsl-on-previous-versions-of-windows-server") on the Microsoft website.
 

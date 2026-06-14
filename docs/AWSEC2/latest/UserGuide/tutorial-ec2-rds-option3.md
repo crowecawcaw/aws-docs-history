@@ -24,6 +24,7 @@ You'll need the following to complete this tutorial:
   existing RDS database or follow the steps in Task 2 to create a new
   database.
 - Permissions to call the following operations:
+
   - `ec2:AssociateRouteTable`
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:CreateRouteTable`
@@ -53,6 +54,7 @@ database. The steps in this task configure the EC2 instance as follows:
 - Instance type: `t2.micro`
 - Auto-assign public IP: Enabled
 - Security group with the following three rules:
+
   - Allow SSH from your IP address
   - Allow HTTPS traffic from anywhere
   - Allow HTTP traffic from anywhere
@@ -156,7 +158,7 @@ instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troub
 
 For more information about launching an instance, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
-![This animation shows how to launch an EC2 instance. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-launch-instance.gif)
+![Launching an EC2 instance in the EC2 console.](images/tutorial-launch-instance.gif)
 
 ## Task 2 (_Optional_): Create an RDS database
 
@@ -211,7 +213,7 @@ you can connect to the DB instance. Depending on the DB instance class
 and the amount of storage, it can take up to 20 minutes before the new
 instance is available.
 
-![This animation shows how to create a DB instance. For the text version of this animation, see the steps in the preceding procedure.](/images/AWSEC2/latest/UserGuide/images/tutorial-create-db-step2.gif)
+![Creating a DB instance in the RDS console.](/images/AWSEC2/latest/UserGuide/images/tutorial-create-db-step2.gif)
 
 ## Task 3: Manually connect your EC2 instance to your RDS database by creating security groups and assigning them to the instances
 
@@ -226,6 +228,7 @@ RDS database.
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. First create the security group to add to the EC2 instance, as
    follows:
+
    1. In the navigation pane, choose **Security
       Groups**.
    2. Choose **Create security
@@ -243,6 +246,7 @@ database`.
       database security group.
 
 3. Now, create the security group to add to the RDS database, as follows:
+
    1. In the navigation pane, choose **Security
       Groups**.
    2. Choose **Create security
@@ -258,6 +262,7 @@ database`.
    5. Under **Inbound rules**, choose
       **Add rule**, and do the
       following:
+
       1. For **Type**, choose
          **MYSQL/Aurora**.
       2. For **Source**, choose the EC2 instance security group
@@ -267,6 +272,7 @@ database`.
    6. Choose **Create security group**.
 
 4. Edit the EC2 instance security group to add an outbound rule, as follows:
+
    1. In the navigation pane, choose **Security
       Groups**.
    2. Select the EC2 instance security group (you named it
@@ -274,6 +280,7 @@ database`.
       choose the **Outbound rules** tab.
    3. Choose **Edit outbound rules**.
    4. Choose **Add rule**, and do the following:
+
       1. For **Type**, choose
          **MYSQL/Aurora**.
       2. For **Destination**, choose the RDS database security group
@@ -282,6 +289,7 @@ database`.
       3. Choose **Save rules**.
 
 5. Add the EC2 instance security group to the EC2 instance as follows:
+
    1. In the navigation pane, choose
       **Instances**.
    2. Select your EC2 instance, and choose
@@ -297,6 +305,7 @@ database`.
    4. Choose **Save**.
 
 6. Add the RDS database security group to the RDS database as follows:
+
    1. Open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the navigation pane, choose **Databases** and select your

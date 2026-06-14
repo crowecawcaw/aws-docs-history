@@ -79,6 +79,7 @@ in the _IAM User Guide_.
 
 - **Encryption and keys** – You can share AMIs that are
   backed by unencrypted and encrypted snapshots.
+
   - The encrypted snapshots must be encrypted with a customer managed key. You can’t share
     AMIs that are backed by snapshots that are encrypted with the
     default AWS managed key.

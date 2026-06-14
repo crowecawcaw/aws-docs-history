@@ -73,6 +73,7 @@ instance as a secondary volume.
    this instance, continue with the next step. Otherwise, use the following steps
    to replace the instance with a new instance that you launch with a new key
    pair.
+
    1. Create a new key pair using the Amazon EC2 console. To give your new key
       pair the same name as the one for which you lost the private key, you
       must first delete the existing key pair.
@@ -94,6 +95,7 @@ instance as a secondary volume.
       instance.
 
 5. Detach the root volume from the original instance as follows:
+
    1. Select the original instance and choose the **Storage** tab.
       Note the name of the root device under **Root device name**.
       Find the volume with this device name under **Block devices**,
@@ -117,6 +119,7 @@ the instance you use to modify the configuration file.
 ###### To launch a temporary instance and attach the volume
 
 1. Launch the temporary instance as follows:
+
    1. In the navigation pane, choose **Instances**, choose **Launch instances**, and then select an AMI.
 
    ###### Important
@@ -142,6 +145,7 @@ the instance you use to modify the configuration file.
 
 2. Attach the volume to the temporary instance as a secondary volume as
    follows:
+
    1. In the navigation pane, choose **Volumes**, select the
       volume that you detached from the original instance, and then choose
       **Actions**, **Attach Volume**.
@@ -179,6 +183,7 @@ original instance as the root volume and connect to the instance using its key p
 to retrieve the administrator password.
 
 1. Reattach the volume to the original instance as follows:
+
    1. In the navigation pane, choose **Volumes**, select the volume
       that you detached from the temporary instance, and then choose **Actions**,
       **Attach Volume**.

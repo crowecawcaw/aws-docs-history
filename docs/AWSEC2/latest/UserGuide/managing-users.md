@@ -58,11 +58,10 @@ To find the default username for other Linux distributions, check with the AMI p
 ## Considerations
 
 Using the default user is adequate for many applications. However, you may choose to add
-users so that individuals can have their own files and workspaces. Furthermore,
-creating users for new users is much more secure than granting multiple (possibly
-inexperienced) users access to the default user, because the default user can cause
-a lot of damage to a system when used improperly. For more information, see [Tips for
-Securing Your EC2 Instance](https://aws.amazon.com/articles/tips-for-securing-your-ec2-instance/ "https://aws.amazon.com/articles/tips-for-securing-your-ec2-instance/").
+users so that individuals can have their own files and workspaces. Furthermore, creating
+users for new users is much more secure than granting multiple (possibly inexperienced)
+users access to the default user, because the default user can cause a lot of damage to
+a system when used improperly.
 
 To enable users SSH access to your EC2 instance using a Linux system user, you must share
 the SSH key with the user. Alternatively, you can use EC2 Instance Connect to
@@ -105,6 +104,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQClKsfkNkuSevGj3eYhCe53pcjqP3maAhDFcvBS7O6V
    (with an entry in the `/etc/passwd` file). The command
    also creates a group and a home directory for the user. In this example, the
    user is named `newuser`.
+
    - AL2023 and Amazon Linux 2
 
    With AL2023 and Amazon Linux 2, the user is created with password authentication disabled by
@@ -113,7 +113,6 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQClKsfkNkuSevGj3eYhCe53pcjqP3maAhDFcvBS7O6V
    ```
    `[ec2-user ~]$` `sudo adduser `newuser``
    ```
-
    - Ubuntu
 
    Include the `--disabled-password` parameter to create the user with password

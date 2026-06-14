@@ -17,15 +17,18 @@ on the Linux distribution. If the Linux distribution doesn't have STIG hardening
 settings of its own, Amazon EC2 uses RHEL settings, as follows.
 
 - Red Hat Enterprise Linux (RHEL) 7 STIG settings
+
   - RHEL 7
   - CentOS 7
   - Amazon Linux 2 (AL2)
 
 - RHEL 8 STIG settings
+
   - RHEL 8
   - CentOS 8
 
 - RHEL 9 STIG settings
+
   - RHEL 9
   - CentOS Stream 9
 

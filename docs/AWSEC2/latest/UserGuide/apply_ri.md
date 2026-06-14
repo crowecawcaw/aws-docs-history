@@ -61,6 +61,7 @@ applied, see [Scenario 2: Reserved Instances in a single account using the norma
 - **Not supported:** Instance size
   flexibility is _not supported_ for the
   following Reserved Instances:
+
   - Reserved Instances that are purchased for a specific Availability Zone
     (zonal Reserved Instances)
   - Reserved Instances for G4ad, G4dn, G5, G5g, G6, G6e, G6f, Gr6, Gr6f, hpc7a, P5, Inf1,

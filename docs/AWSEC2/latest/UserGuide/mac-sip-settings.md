@@ -24,6 +24,7 @@ SIP configuration is supported in all AWS Regions where Amazon EC2 Mac instances
 ## Considerations
 
 - The following Amazon EC2 Mac instance types and macOS versions are supported:
+
   - **Mac1 | Mac2 | Mac2-m1ultra** — macOS
     Ventura (version 13.0 or later)
   - **Mac2-m2 | Mac2-m2pro** — macOS Ventura
@@ -167,6 +168,7 @@ When you create a SIP configuration for an Apple silicon Mac instance, you must 
 the following credentials:
 
 - **Internal disk administrative user**
+
   - Username — Only the default administrative user (`aws-managed-user`)
     is supported and it is used by default. You can't specify a different
     administrative user.
@@ -175,6 +177,7 @@ the following credentials:
     is _blank_. Otherwise, specify your password.
 
 - **Amazon EBS root volume administrative user**
+
   - Username — If you did not change the default administrative
     user, specify `ec2-user`. Otherwise, specify the username
     for your administrative user.

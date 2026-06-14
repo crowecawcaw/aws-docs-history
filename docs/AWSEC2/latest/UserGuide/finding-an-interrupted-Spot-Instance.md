@@ -22,6 +22,7 @@ Console
 5. For each Spot Instance, on the **Details** tab, under
    **Instance details**, find **State transition message**.
    The following codes indicate that the Spot Instance was interrupted.
+
    - `Server.SpotInstanceShutdown`
    - `Server.SpotInstanceTermination`
 

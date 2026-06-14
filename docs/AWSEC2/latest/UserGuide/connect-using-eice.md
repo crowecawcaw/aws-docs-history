@@ -8,6 +8,7 @@ RDP.
 - You must have the required IAM permission to connect to an EC2 Instance Connect Endpoint.
   For more information, see [Permissions to use EC2 Instance Connect Endpoint to connect to instances](permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel "permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel").
 - The EC2 Instance Connect Endpoint must be in one of the following states:
+
   - **create-complete** for a new endpoint
   - **update-in-progress**,
     **update-complete**, or
@@ -249,7 +250,7 @@ Note that the following screenshot of the **Edit PC**
 window is from Microsoft Remote Desktop on a Mac. If you are using a Windows
 client, the window might be different.
 
-![The RDP client with the example "localhost:5555" in the PC name field.](images/ec2-instance-connect-endpoint-rdp.png) 6. In the RDP client, right-click the PC (that you just configured) and
+![The RDP client with localhost:5555 in the PC name field.](images/ec2-instance-connect-endpoint-rdp.png) 6. In the RDP client, right-click the PC (that you just configured) and
 choose **Connect** to connect to your instance. 7. At the prompt, enter the decrypted password for the administrator
 account.
 

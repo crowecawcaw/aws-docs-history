@@ -21,6 +21,7 @@ You'll need the following to complete this tutorial:
   existing EC2 instance or follow the steps in Task 1 to create a new
   instance.
 - Permissions to call the following operations:
+
   - `ec2:AssociateRouteTable`
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:CreateRouteTable`
@@ -50,6 +51,7 @@ steps in this task configure the EC2 instance as follows:
 - Instance type: `t2.micro`
 - Auto-assign public IP: Enabled
 - Security group with the following three rules:
+
   - Allow SSH from your IP address
   - Allow HTTPS traffic from anywhere
   - Allow HTTP traffic from anywhere
@@ -155,7 +157,7 @@ instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troub
 
 For more information about launching an instance, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
-![This animation shows how to launch an EC2 instance. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-launch-instance.gif)
+![Launching an EC2 instance in the EC2 console.](images/tutorial-launch-instance.gif)
 
 ## Task 2: Create an RDS database and automatically connect it to your EC2 instance
 
@@ -194,6 +196,7 @@ specific needs.
    **Info** link in the **Free tier**
    box.
 7. Under **Settings**, do the following:
+
    1. For **DB instance identifier**, enter a name for the database. For
       this tutorial, enter
       `tutorial-database`.
@@ -234,7 +237,7 @@ available.
 
 To learn more, see [Configure automatic network connectivity with an EC2 instance](../../../AmazonRDS/latest/UserGuide/USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic "../../../AmazonRDS/latest/UserGuide/USER_CreateDBInstance.md#USER_CreateDBInstance.Prerequisites.VPC.Automatic") in the _Amazon RDS User Guide_.
 
-![This animation shows how to create an RDS database, and then use the automatic connection functionality to connect it to an EC2 instance. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-create-rds-connect-ec2.gif)
+![Creating an RDS database and connecting it to an EC2 instance.](images/tutorial-create-rds-connect-ec2.gif)
 
 ## Task 3: Verify the connection configuration
 
@@ -280,6 +283,7 @@ instance and database, as follows:
 7. Choose the **Inbound rules** tab.
 8. Verify that the following security group rule exists, as
    follows:
+
    - Type: **MYSQL/Aurora**
    - Port range: **3306**
    - Source: **`sg-0987654321example` /
@@ -304,6 +308,7 @@ instance and database, as follows:
 14. Choose the **Outbound rules** tab.
 15. Verify that the following security group rule exists, as
     follows:
+
     - Type: **MYSQL/Aurora**
     - Port range: **3306**
     - Destination: **`sg-1234567890example` /

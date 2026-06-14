@@ -18,6 +18,7 @@ filters provided in the **Search** field.
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **AMIs**.
 3. In the first filter, choose one of the following options:
+
    - **Private images** – Lists all AMIs that are
      shared with you.
    - **Public images** – Lists all public AMIs.

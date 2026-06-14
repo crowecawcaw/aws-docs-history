@@ -130,10 +130,12 @@ During automatic instance recovery attempts, AWS sends events to your Health Das
 on the configured recovery mechanism and its outcome:
 
 - Simplified automatic recovery
+
   - Success event: `AWS_EC2_SIMPLIFIED_AUTO_RECOVERY_SUCCESS`
   - Failure event: `AWS_EC2_SIMPLIFIED_AUTO_RECOVERY_FAILURE`
 
 - CloudWatch action based recovery
+
   - Success event: `AWS_EC2_INSTANCE_AUTO_RECOVERY_SUCCESS`
   - Failure event: `AWS_EC2_INSTANCE_AUTO_RECOVERY_FAILURE`
 

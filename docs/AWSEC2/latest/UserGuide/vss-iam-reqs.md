@@ -69,12 +69,14 @@ VSS based snapshots only through the AWS Backup service, then you can streamline
 the policy statements as follows.
 
 - Omit policy statements identified by the following statement IDs (SIDs):
+
   - `CreateSnapshotsWithTag`
   - `CreateSnapshotsAccessInstance`
   - `CreateSnapshotsAccessVolume`
 
 - Adjust the `CreateTagsOnResourceCreation` statement as
   follows:
+
   - Remove `arn:aws:ec2:*:*:snapshot/*` from
     the resources.
   - Remove `CreateSnapshots` from the
@@ -92,11 +94,13 @@ If you don't use the `CreateAmi` option, then you can streamline
 the policy statements as follows.
 
 - Omit policy statements identified by the following statement IDs (SIDs):
+
   - `CreateImageAccessInstance`
   - `CreateImageWithTag`
 
 - Adjust the `CreateTagsOnResourceCreation` statement as
   follows:
+
   - Remove `arn:aws:ec2:*:*:image/*` from
     the resources.
   - Remove `CreateImage` from the

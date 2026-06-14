@@ -33,7 +33,7 @@ running EC2 instance: Start with an existing AMI, launch an instance, customize 
 create a new AMI from it, and finally launch an instance of your new AMI. The
 numbers in the diagram match the numbers in the description that follows.
 
-![Workflow for creating an AMI from an instance](images/running-instance.png)
+![Workflow for creating an AMI from an instance.](images/running-instance.png)
 
 **1 – AMI #1: Start with an existing
 AMI**
@@ -261,6 +261,7 @@ following information:
      **Create image**.
 
 5. To view the status of your AMI while it is being created:
+
    1. In the navigation pane, choose
       **AMIs**.
    2. Set the filter to **Owned by me**, and
@@ -271,6 +272,7 @@ following information:
 
 6. (Optional) To view the snapshot that was created for the new
    AMI:
+
    1. Note the ID of your AMI that you located in the previous
       step.
    2. In the navigation pane, choose
@@ -340,6 +342,7 @@ Console
    snapshot**.
 4. On the **Create image from snapshot** page,
    specify the following information:
+
    1. For **Image name**, enter a descriptive
       name for the image.
    2. For **Description**, enter a brief

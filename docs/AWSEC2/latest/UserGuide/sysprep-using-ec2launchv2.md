@@ -47,6 +47,7 @@ command:
   domain, it is removed from the domain. The
   `unattend.xml` answer file includes the following
   settings that affect this phase:
+
   - **PersistAllDeviceInstalls**:
     This setting prevents Windows Setup from removing and
     reconfiguring devices, which speeds up the image preparation
@@ -110,6 +111,7 @@ The system runs the following command from your local launch agent directory
 
 1. The system specifies the following configurations using the
    EC2Launch v2 answer file:
+
    - `<InputLocale>en-US</InputLocale>`
    - `<SystemLocale>en-US</SystemLocale>`
    - `<UILanguage>en-US</UILanguage>`
@@ -160,6 +162,7 @@ EC2Launch v2.
 1. In the Amazon EC2 console, locate an AMI that you want to duplicate.
 2. Launch and connect to your Windows instance.
 3. Customize settings
+
    1. From the Windows **Start** menu, search for and choose
       **Amazon EC2Launch settings**. For more information
       about the options and settings in the Amazon **EC2Launch

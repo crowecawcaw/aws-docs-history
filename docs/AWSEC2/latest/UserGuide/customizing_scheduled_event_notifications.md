@@ -47,6 +47,7 @@ Console
    notifications**.
 5. Do one of the following, depending on the tags that you
    want to include in event notifications:
+
    - To include all tags associated with the affected
      instance or Dedicated Host, select **Include all
      tags**.

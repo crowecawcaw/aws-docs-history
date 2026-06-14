@@ -14,15 +14,18 @@ the **Delete on termination** setting of each volume.
 ## Considerations
 
 - **Data persistence**
+
   - Instance store volumes: All data is permanently deleted when the
     instance terminates.
   - EBS root volume:
+
     - When attached at launch, deleted by default when the
       instance terminates.
     - When attached after launch, persists by default when the
       instance terminates.
 
   - EBS data volumes:
+
     - When attached at launch using the console: Persists by
       default when the instance terminates.
     - When attached at launch using the CLI: Deleted by default
@@ -39,6 +42,7 @@ the **Delete on termination** setting of each volume.
 
 - **Protection against accidental
   termination**
+
   - To prevent an instance from being accidentally terminated by
     someone, [enable
     termination protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md").

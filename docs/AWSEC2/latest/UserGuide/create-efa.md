@@ -45,6 +45,7 @@ Console
 3. For **Description**, enter a descriptive name for the EFA.
 4. For **Subnet**, select the subnet in which to create the EFA.
 5. **Interface type**, choose one of the following options:
+
    - **EFA with ENA** — To create a network interface that
      supports both ENA and EFA devices.
    - **EFA-only** — To create a network interface with an EFA

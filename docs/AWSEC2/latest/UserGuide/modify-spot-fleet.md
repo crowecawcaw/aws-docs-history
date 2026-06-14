@@ -41,6 +41,7 @@ Console
    capacity**.
 5. In **Modify target capacity**, do the
    following:
+
    1. Enter the new target capacity and On-Demand
       portion.
    2. (Optional) If you are decreasing the target capacity but

@@ -33,6 +33,7 @@ For other scenarios, see [Security group rules for different use cases](security
 2.  In the navigation pane, choose **Security Groups** and then
     choose **Create security group**.
 3.  In the **Create security group** window, do the following:
+
     1. For **Security group name**, enter a descriptive
        name for the security group, such as `EFA-enabled security
 group`.
@@ -46,6 +47,7 @@ group`.
     copy the **Security group ID**.
 5.  With the security group still selected, choose **Actions**, **Edit inbound rules**,
     and then do the following:
+
     1. Choose **Add rule**.
     2. For **Type**, choose **All traffic**.
     3. For **Source type**, choose **Custom** and paste the security group ID that
@@ -86,6 +88,7 @@ group`.
    instance.
 7. In the **Network settings** section, choose **Edit**,
    and then do the following:
+
    1. For **Subnet**, choose the subnet in which to launch the
       instance. If you do not select a subnet, you can't enable the instance for EFA.
    2. For **Firewall (security groups)**, choose **Select
@@ -134,13 +137,13 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
 3. To use the Nvidia GPU driver, you must first disable the `nouveau` open
    source drivers.
+
    1. Install the required utilities and the kernel headers package for the version of
       the kernel that you are currently running.
 
    ```
    `$` sudo apt-get install -y gcc make linux-headers-$(uname -r)
    ```
-
    2. Add `nouveau` to the `/etc/modprobe.d/blacklist.conf` deny list
       file.
 
@@ -153,13 +156,11 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
    blacklist rivatv
    EOF
    ```
-
    3. Open `/etc/default/grub` using your preferred text editor and add the following.
 
    ```
    GRUB_CMDLINE_LINUX="rdblacklist=nouveau"
    ```
-
    4. Rebuild the Grub configuration.
 
    ```
@@ -184,6 +185,7 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
 
 6. Reboot the instance and reconnect to it.
 7. (`p4d.24xlarge` and `p5.48xlarge` only) Install the Nvidia Fabric Manager.
+
    1. You must install the version of the Nvidia Fabric Manager that matches the version of the
       Nvidia kernel module that you installed in the previous step.
 
@@ -213,7 +215,6 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
    ```
    `$` sudo apt install -o Dpkg::Options::='--force-overwrite' nvidia-fabricmanager-450
    ```
-
    3. Start the service, and ensure that it starts automatically when the instance starts.
       Nvidia Fabric Manager is required for NV Switch Management.
 
@@ -222,6 +223,7 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
    ```
 
 8. Ensure that the CUDA paths are set each time that the instance starts.
+
    - For _bash_ shells, add the following statements to
      `/home/`username`/.bashrc` and
      `/home/`username`/.bash_profile`.
@@ -230,7 +232,6 @@ Skip Step 3 if your AMI already includes Nvidia GPU drivers, the CUDA toolkit, a
    export PATH=/usr/local/cuda/bin:$PATH
    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
    ```
-
    - For _tcsh_ shells, add the following statements to
      `/home/`username`/.cshrc`.
 
@@ -567,12 +568,12 @@ Follow this tab only if you chose **Build from source** in Step 6.
 ```
 
 3. Install the ETCD CPP API.
+
    1. Install the required dependencies for ETCD CPP API.
 
    ```
    `$` sudo apt install libboost-all-dev libssl-dev libgrpc-dev libgrpc++-dev libprotobuf-dev protobuf-compiler-grpc libcpprest-dev
    ```
-
    2. Clone and install ETCD CPP API.
 
    ```
@@ -614,12 +615,12 @@ Expected output:
 
 3.  Open two terminals for the instance. On both terminals, complete the following steps to run
     nixlbench.
+
     1. Navigate to the directory where nixlbench is installed.
 
     ```
     `$` cd /usr/local/nixlbench/bin/
     ```
-
     2.  Run the test and specify the backend, address of the ETCD server, and initiator segment type.
         The following command uses the ETCD server on the same instance, uses Libfabric as the backend,
         and operates using GPU memory. The environment variables configure the following:
@@ -665,6 +666,7 @@ you can reuse to launch your EFA-enabled instances.
 3. Select the temporary instance that you created and choose **Actions**,
    **Image**, **Create image**.
 4. For **Create image**, do the following:
+
    1. For **Image name**, enter a descriptive name for the
       AMI.
    2. (Optional) For **Image description**, enter a brief
@@ -706,6 +708,7 @@ you can reuse to launch your EFA-enabled instances.
    instance.
 7. In the **Network settings** section, choose **Edit**,
    and then do the following:
+
    1. For **Subnet**, choose the subnet in which to launch the
       instance. If you do not select a subnet, you can't enable the instance for EFA.
    2. For **Firewall (security groups)**, choose **Select
@@ -762,6 +765,7 @@ chmod 600 ~/.ssh/config
 5. Open `~/.ssh/id_rsa.pub` using your preferred text editor and copy
    the key.
 6. For each member node in the cluster, do the following:
+
    1. Connect to the instance.
    2. Open `~/.ssh/authorized_keys` using your preferred text
       editor and add the public key that you copied earlier.

@@ -178,6 +178,7 @@ The procedure that you use depends on the operating system of the instance.
 
 2. (Optional) To persist your network MTU setting after a reboot, modify the
    following configuration files, based on your operating system type.
+
    - Amazon Linux 2023 – Modify the `[Link]` section of the config file.
      The default config file is `/usr/lib/systemd/network/80-ec2.network`,
      or you can update any custom config file created in /run/systemd/network/, where the
@@ -187,7 +188,6 @@ The procedure that you use depends on the operating system of the instance.
    ```
    MTUBytes=`1500`
    ```
-
    - Amazon Linux 2 – Add the following line to the
      `/etc/sysconfig/network-scripts/ifcfg-`eth0``
      file:
@@ -202,7 +202,6 @@ The procedure that you use depends on the operating system of the instance.
    ```
    request subnet-mask, broadcast-address, time-offset, routers, domain-name, domain-search, domain-name-servers, host-name, nis-domain, nis-servers, ntp-servers;
    ```
-
    - Other Linux distributions – Consult their specific
      documentation.
 

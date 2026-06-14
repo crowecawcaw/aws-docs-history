@@ -49,6 +49,7 @@ procedure to install a new version of the driver.
 
 3. Disconnect from your instance by typing **exit** and pressing return.
 4. Use the VNC client to activate the ENA application.
+
    1. Setup the VNC client using [Connect to your instance's graphical user interface (GUI)](connect-to-mac-instance.md#mac-instance-vnc "connect-to-mac-instance.md#mac-instance-vnc").
    2. Once you have connected to your instance using the Screen Sharing
       application, go to the **Applications**
@@ -62,7 +63,6 @@ procedure to install a new version of the driver.
    ```
    systemextensionsctl list;
    ```
-
    5. After you restart the instance, only the new driver will be present.
 
 ### Perform the software update
@@ -79,6 +79,7 @@ Automated volume ownership delegation (Recommended)
 - It can take between 30 and 90 minutes for the volume ownership delegation
   task to complete. During this time, the instance is unreachable.
 - The following macOS versions are supported:
+
   - **Mac2 | Mac2-m1ultra** — macOS
     Ventura (version 13.0 or later)
   - **Mac2-m2 | Mac2-m2pro** — macOS
@@ -129,7 +130,9 @@ To delegate ownership, you must create a volume ownership delegation task.
 1. Use the [create-delegate-mac-volume-ownership-task](../../../cli/latest/reference/ec2/create-delegate-mac-volume-ownership-task.md "../../../cli/latest/reference/ec2/create-delegate-mac-volume-ownership-task.md") command to create the task. For
    `--instance-id`, specify the ID of the instance. For `--mac-credentials`,
    specify the following credentials:
+
    - **Internal disk administrative user**
+
      - **Username** — Only the default administrative
        user (`aws-managed-user`) is supported and it is used by default. You can't
        specify a different administrative user.
@@ -138,6 +141,7 @@ To delegate ownership, you must create a volume ownership delegation task.
        is _blank_. Otherwise, specify your password.
 
    - **Amazon EBS root volume administrative user**
+
      - **Username** — If you did not change the default
        administrative user, specify `ec2-user`. Otherwise, specify the username
        for your administrative user.
@@ -233,6 +237,7 @@ Do not exit this SSH session until the following VNC connection and GUI steps ar
    instance as `ec2-user` with the password you created in
    [Step 3](#passwd-step "#passwd-step").
 8. Access the internal disk, named **InternalDisk**, using one of the following options.
+
    1. For macOS Ventura or above: Open **System
       Settings**, select **General** in the left pane, then **Startup Disk** at the lower right of
       the pane.
@@ -268,12 +273,12 @@ ssh -i `/path/key-pair-name`.pem aws-managed-user@`instance-public-dns-name`
 ```
 
 2. When you receive the warning `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`, use one of the following commands to resolve this issue.
+
    1. Clear out the known hosts using the following command. Then, repeat the previous step.
 
    ```
    rm ~/.ssh/known_hosts
    ```
-
    2. Add the following to the SSH command in the previous step.
 
    ```
@@ -284,6 +289,7 @@ ssh -i `/path/key-pair-name`.pem aws-managed-user@`instance-public-dns-name`
    with the following command. The `aws-managed-user` initial
    password is blank, so you need to overwrite it on your first
    connection.
+
    1. ```
       `[aws-managed-user ~]$` sudo /usr/bin/dscl . -passwd /Users/aws-managed-user `password`
       ```
@@ -321,6 +327,7 @@ ssh -i `/path/key-pair-name`.pem -L 5900:localhost:5900 aws-managed-user@`instan
 ```
 
 7. From your local computer, connect to `localhost:5900` using the following steps:
+
    1. Open **Finder** and select **Go**.
    2. Select **Connect to Server**.
    3. In the **Server Address** field, enter `vnc://localhost:5900`.

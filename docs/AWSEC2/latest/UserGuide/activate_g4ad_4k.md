@@ -192,7 +192,7 @@ Virtual-1 connected 1920x1080+1920+0 (normal left inverted right x axis y axis) 
 9. When you connect into DCV, change the resolution to 2x4K, confirming the dual
    monitor support is registered by DCV.
 
-![DCV resolution changes](images/dm-dcv-example.png)
+![DCV resolution changes.](images/dm-dcv-example.png)
 
 ## Set up an interactive desktop for Linux
 

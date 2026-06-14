@@ -13,8 +13,10 @@ Consider the following when modifying an EC2 Fleet:
   `request` or `instant`.
 - **Fleet parameters** – You can modify
   the following parameters of an EC2 Fleet:
+
   - `target-capacity-specification` – Increase or
     decrease the target capacity for:
+
     - `TotalTargetCapacity`
     - `OnDemandTargetCapacity`
     - `SpotTargetCapacity`
@@ -23,6 +25,7 @@ Consider the following when modifying an EC2 Fleet:
     running instances should be terminated if the total target capacity
     of the EC2 Fleet is decreased below the current size of the fleet. Valid
     values are:
+
     - `no-termination`
     - `termination`
 

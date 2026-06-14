@@ -51,7 +51,7 @@ an _EC2 VSS requester_ and an _EC2 VSS provider_. The
 application-consistent snapshots of EBS volumes. The following diagram illustrates the
 relationship between these software components.
 
-![VSS software components](images/vss_components.png)
+![VSS software components.](images/vss_components.png)
 
 ## How the VSS based Amazon EBS snapshot solution works
 

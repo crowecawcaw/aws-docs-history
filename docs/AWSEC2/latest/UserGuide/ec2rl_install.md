@@ -6,6 +6,7 @@ following prerequisites.
 ###### Prerequisites
 
 - Supported operating systems:
+
   - Amazon Linux 2
   - Amazon Linux 2016.09+
   - SUSE Linux Enterprise Server 12+
@@ -13,6 +14,7 @@ following prerequisites.
   - Ubuntu 16.04+
 
 - Software requirements:
+
   - Python 2.7.9+ or 3.2+
 
 ## Install EC2Rescue

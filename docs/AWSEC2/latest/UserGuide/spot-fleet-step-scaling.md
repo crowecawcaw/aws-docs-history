@@ -101,6 +101,7 @@ description for the alarm and choose **Next**. 14. Choose **Create alarm**.
    these policies, or choose **Remove policy** to delete them.
    You can also choose **Add policy**.
 9. To define a policy, do the following:
+
    1. For **Policy name**, enter a name for the
       policy.
    2. For **Policy trigger**, select an existing alarm,

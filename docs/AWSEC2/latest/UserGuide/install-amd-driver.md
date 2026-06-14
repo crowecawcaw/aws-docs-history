@@ -154,6 +154,7 @@ The response should look like the following:
 
 6. Reconnect to the instance after it reboots.
 7. Install the AMD Linux driver package
+
    - For Ubuntu 20.04:
 
    ```
@@ -161,7 +162,6 @@ The response should look like the following:
    `$` `sudo dpkg --add-architecture i386`
    `$` `sudo apt install ./amdgpu-install_5.4.02.01.50402-1_all.deb`
    ```
-
    - For later Ubuntu versions go to [Linux® Drivers for AMD Radeon™ Graphics](https://www.amd.com/en/support/download/linux-drivers.html "https://www.amd.com/en/support/download/linux-drivers.html") and
      download the latest Ubuntu package and install it.
 

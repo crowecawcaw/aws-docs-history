@@ -59,6 +59,7 @@ partitions_:
 - **Supported source-destination copies** – The location
   of the source AMI determines whether you can copy it and the allowed
   destinations for the new AMI:
+
   - If the source AMI is in a Region, you can copy it within that
     Region, to another Region, to an Outpost associated with that
     Region, or to a Local Zone in that Region.
@@ -116,6 +117,7 @@ Console
     AMI**.
 6.  On the **Copy Amazon Machine Image (AMI)** page, specify the
     following information:
+
     1.  **AMI copy name**: A name for the new
         AMI. You can include the operating system information in
         the name because Amazon EC2 does not provide this information
@@ -134,8 +136,10 @@ Console
     5.  **Time-based copy**: You can specify whether the copy operation
         completes within a specific timeframe or on a best-effort
         basis, as follows:
+
         - To complete the copy within a specific
           timeframe:
+
           - Select **Enable time-based
             copy**.
           - For **Completion
@@ -148,6 +152,7 @@ Console
           _Amazon EBS User Guide_.
 
         - To complete the copy on a best-effort basis:
+
           - Leave **Enable time-based
             copy** unselected.
 

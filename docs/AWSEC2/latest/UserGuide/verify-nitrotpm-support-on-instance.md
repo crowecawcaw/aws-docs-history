@@ -41,4 +41,4 @@ cmdlet.
 The **TPM Management on Local Computer** window opens. 3. Check the **TPM Manufacturer Information** field. It contains the
 manufacturer's name and the version of the NitroTPM on the instance.
 
-![The TPM Management on Local Computer window and the TPM Manufacturer Information field showing the version of the NitroTPM on the instance.](images/tpm-1.png)
+![TPM Management window showing the TPM Manufacturer Information field with the NitroTPM version.](images/tpm-1.png)

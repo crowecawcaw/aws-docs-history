@@ -12,6 +12,7 @@ PTP connection to the PTP hardware clock does not smear time. For more informati
 Your instances can access the local Amazon Time Sync Service as follows:
 
 - Through NTP at the following IP address endpoints:
+
   - IPv4: `169.254.169.123`
   - IPv6: `fd00:ec2::123` (Only accessible on [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type").)
 
@@ -413,6 +414,7 @@ requirements are met:
   Asia Pacific (Tokyo), and Europe (Stockholm)
 - Supported Local Zones: US East (New York City)
 - Supported instance families:
+
   - **General purpose:** M7a, M7g, M7i
   - **Memory optimized:** R7a, R7g, R7i
   - **Storage optimized:** I8g, I8ge

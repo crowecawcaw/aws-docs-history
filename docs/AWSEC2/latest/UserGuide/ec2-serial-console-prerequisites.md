@@ -31,8 +31,10 @@ Supported in all Local Zones.
 Supported instance types:
 
 - **Linux**
+
   - All virtualized instances built on the Nitro System.
   - All bare metal instances except:
+
     - General purpose: `a1.metal`, `mac1.metal`,
       `mac2.metal`, `mac2-m1ultra.metal`,
       `mac2-m2.metal`, `mac2-m2pro.metal`,
@@ -45,8 +47,10 @@ Supported instance types:
       `u-24tb1.metal`
 
 - **Windows**
+
   - All virtualized instances built on the Nitro System.
   - All bare metal instances except:
+
     - General purpose: `a1.metal`, `mac1.metal`,
       `mac2.metal`, `mac2-m1ultra.metal`,
       `mac2-m2.metal`, `mac2-m2pro.metal`,

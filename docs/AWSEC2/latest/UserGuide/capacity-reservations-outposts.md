@@ -31,6 +31,7 @@ User Guide_.
 1. Create a subnet on the Outpost. For more information, see [Create a
    subnet](../../../outposts/latest/userguide/launch-instance.md#create-subnet "../../../outposts/latest/userguide/launch-instance.md#create-subnet") in the _AWS Outposts User Guide_.
 2. Create a Capacity Reservation on the Outpost.
+
    1. Open the AWS Outposts console at [https://console.aws.amazon.com/outposts/](https://console.aws.amazon.com/outposts/home "https://console.aws.amazon.com/outposts/home").
    2. In the navigation pane, choose **Outposts**, and then
       choose **Actions**, **Create Capacity

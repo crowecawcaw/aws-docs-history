@@ -13,6 +13,7 @@ Console
 2. In the navigation pane, choose **AMIs**.
 3. Choose **Public images** for the first filter.
 4. Do one of the following:
+
    - If you know the product code, choose **Product code**, then
      **=**, and then enter the product code.
    - If you do not know the product code, in the Search bar,

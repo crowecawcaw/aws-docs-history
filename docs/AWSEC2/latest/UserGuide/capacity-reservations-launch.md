@@ -25,11 +25,13 @@ Console
    placement group and Capacity Reservation.
 2. Expand **Advanced details** and do the
    following:
+
    1. For **Placement group**, select the
       cluster placement group in which to launch the
       instance.
    2. For **Capacity Reservation**, choose one of the following
       options depending on the configuration of the Capacity Reservation:
+
       - **None** – Prevents the
         instances from launching into a Capacity Reservation. The instances
         run in On-Demand capacity.

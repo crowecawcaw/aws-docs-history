@@ -35,13 +35,17 @@ Public hostnames allow you to:
 To use public hostnames, you have to modify an existing network interface. This section describes the three public hostname type options and helps you decide which to use:
 
 - **Dual-stack - IP based name**
+
   - This is the best option if you are migrating or planning to migrate from IPv4 to IPv6. This option allows for connectivity over both IPv4 and IPv6, giving flexibility to clients that may be using either protocol and enables clients to keep the same hostname throughout the migration to IPv6.
   - Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address (GUA) of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.
   - **Example**
+
     - When you choose this option, a dual-stack FQDN will be generated for this network interface. This is an example of the FQDN that will be generated:
+
       - f5lnz-0khrm-nt2u3-gyqqt-nbdl5-q3cdpO.ap-southeast-2.ip.aws
 
     - Where:
+
       - f5lnz-0khrm-nt2u3-gyqqt-nbdl5-q3cdpO is the hostname that is a [base36](https://en.wikipedia.org/wiki/Base36 "https://en.wikipedia.org/wiki/Base36") representation of the primary public IPv6 address (f5lnz-0khrm-nt2u3-gyqqt-nbdl5) on the network interface along with a base36 representation of the primary public IPv4 address (q3cdpO) on the network interface.
       - f5lnz-0khrm-nt2u3-gyqqt-nbdl5 is resolved by the Amazon DNS resolver to the IPv6 GUA address FFFF:1407:4:f000:81d:2689:1066:4489. This is the first IPv6 GUA assigned to the network interface.
       - q3cdpO is resolved to the IPv4 address of 52.54.55.56. This is the public IPv4 address attached to the primary network interface.
@@ -49,26 +53,34 @@ To use public hostnames, you have to modify an existing network interface. This 
       - ip.aws is the domain provided by AWS.
 
 - **IPv6 - IP based name**
+
   - This is a good option if you have already migrated to IPv6 and require connectivity only over IPv6.
   - Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface.
   - **Example**
+
     - When you choose this option, a FQDN will be generated for this network interface. This is an example of the FQDN that will be generated:
+
       - f5lnz-0khrm-nt2u3-gyqqt-nbdl5.ap-southeast-2.ip.aws
 
     - Where:
+
       - f5lnz-0khrm-nt2u3-gyqqt-nbdl5 is a hostname that is a base36 representation of the primary public IPv6 address on the network interface.
       - f5lnz-0khrm-nt2u3-gyqqt-nbdl5 is resolved by the Amazon DNS resolver to the IPv6 GUA address FFFF:1407:4:f000:81d:2689:1066:4489. This is the first IPv6 GUA assigned to the network interface.
       - ap-southeast-2 is the Region of the subnet that the network interface is in.
       - ip.aws is the domain provided by AWS.
 
 - **IPv4 - IP based name**
+
   - This is a good option if the instance using this network interface need to maintain IPv4 access during the transition to IPv6 or if applications or systems running on the instance only support IPv4. This is the best option if you only need to maintain IPv4 connectivity and your workloads don't require IPv6 support. For example, if you are migrating to IPv6, you may decide to keep some applications on IPv4 while others move to IPv6.
   - Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.
   - **Example**
+
     - If you choose this option, an IPv4-enabled public hostname will be generated for this network interface. This is an example of the DNS name that will be generated:
+
       - ec2-52-54-55-66.ap-southeast-2.compute.amazonaws.com
 
     - Where:
+
       - ec2-52-54-55-66 is a hostname that is a base36 representation of the primary public IPv4 address of a network interface.
       - ec2-52-54-55-66 resolves to the IPv4 address of 52.54.55.56. This is the public IPv4 address attached to the primary network interface.
       - ap-southeast-2 is the Region of the subnet that the network interface is in.
@@ -95,6 +107,7 @@ You can view the public hostnames for an instance or primary network interface.
 3. Select the checkbox for the instance.
 4. On the **Network** tab, under **Hostname and DNS**,
    find the following:
+
    - **Public hostname type**
    - **Public DNS**
    - **IPv4-only IP based name**
@@ -109,6 +122,7 @@ You can view the public hostnames for an instance or primary network interface.
 3. In the search field, enter the ID of the instance. Select the ID of the network interface
    to open its details page.
 4. Under **Hostname and DNS**, find the following:
+
    - **Public hostname type**
    - **Public DNS name**
    - **Public IPv4 DNS name**

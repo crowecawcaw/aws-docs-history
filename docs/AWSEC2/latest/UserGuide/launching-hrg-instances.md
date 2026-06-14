@@ -41,6 +41,7 @@ Console
     pair to associate with the instance.
 6.  In the **Advanced details** section, do the
     following:
+
     1.  For **Tenancy**, select
         **Dedicated Host**.
     2.  For **Target host by**, select

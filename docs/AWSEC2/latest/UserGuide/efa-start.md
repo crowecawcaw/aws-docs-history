@@ -44,6 +44,7 @@ For other scenarios, see [Security group rules for different use cases](security
 2. In the navigation pane, choose **Security Groups** and then
    choose **Create security group**.
 3. In the **Create security group** window, do the following:
+
    1. For **Security group name**, enter a descriptive
       name for the security group, such as `EFA-enabled security
 group`.
@@ -57,6 +58,7 @@ group`.
    copy the **Security group ID**.
 5. With the security group still selected, choose **Actions**, **Edit inbound rules**,
    and then do the following:
+
    1. Choose **Add rule**.
    2. For **Type**, choose **All traffic**.
    3. For **Source type**, choose **Custom** and paste the security group ID that
@@ -68,6 +70,7 @@ group`.
 
 6. With the security group still selected, choose **Actions**, **Edit outbound rules**,
    and then do the following:
+
    1. Choose **Add rule**.
    2. For **Type**, choose **All traffic**.
    3. For **Destination type**, choose **Custom** and paste the security group ID that you copied into the field.
@@ -96,6 +99,7 @@ can launch your EFA-enabled instances.
    instance.
 7. In the **Network settings** section, choose **Edit**,
    and then do the following:
+
    1. For **Subnet**, choose the subnet in which to launch the
       instance.
 
@@ -142,18 +146,17 @@ refer to the [Intel MPI documentation](https://www.intel.com/content/www/us/en/d
 1. Connect to the instance you launched. For more information, see [Connect to your Linux instance using SSH](connect-to-linux-instance.md "connect-to-linux-instance.md").
 2. To ensure that all of your software packages are up to date, perform a quick software update
    on your instance. This process may take a few minutes.
+
    - Amazon Linux 2023, Amazon Linux 2, RHEL 8/9, Rocky Linux 8/9
 
    ```
    `$` sudo yum update -y
    ```
-
    - Ubuntu and Debian
 
    ```
    `$` sudo apt-get update && sudo apt-get upgrade -y
    ```
-
    - SUSE Linux Enterprise
 
    ```
@@ -408,6 +411,7 @@ Ensure that the user performing the following steps has sudo permissions.
 ###### To install Intel MPI
 
 1. To download the Intel MPI installation script, do the following
+
    1. Visit the [Intel website](https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html#mpi "https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html#mpi").
    2. In the **Intel MPI Library** section of the webpage,
       choose the link for the **Intel MPI Library for Linux**
@@ -640,6 +644,7 @@ you can reuse to launch your EFA-enabled instances.
 3. Select the temporary instance that you created and choose **Actions**,
    **Image**, **Create image**.
 4. For **Create image**, do the following:
+
    1. For **Image name**, enter a descriptive name for the
       AMI.
    2. (Optional) For **Image description**, enter a brief
@@ -685,6 +690,7 @@ EFA-enabled security group that you created in **Step
    instance.
 7. In the **Network settings** section, choose **Edit**,
    and then do the following:
+
    1. For **Subnet**, choose the subnet in which to launch the
       instance.
 
@@ -763,6 +769,7 @@ chmod 600 ~/.ssh/config
 5. Open `~/.ssh/id_rsa.pub` using your preferred text editor and copy
    the key.
 6. For each member node in the cluster, do the following:
+
    1. Connect to the instance.
    2. Open `~/.ssh/authorized_keys` using your preferred text
       editor and add the public key that you copied earlier.

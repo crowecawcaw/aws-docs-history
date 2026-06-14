@@ -108,6 +108,7 @@ After you initiate the interruption, the following occurs:
    initial status is `fulfilled`. After the instance is
    interrupted, the status changes as follows, depending on the
    interruption behavior:
+
    - `terminate` – The status changes to
      `instance-terminated-by-experiment`.
    - `stop` – The status changes to
@@ -118,6 +119,7 @@ After you initiate the interruption, the following occurs:
    `Running`. Two minutes after you receive the Spot Instance
    interruption notice, the status changes as follows, depending on the
    interruption behavior:
+
    - `stop` – The status changes to `Stopping` and then
      `Stopped`.
    - `terminate` – The status changes to `Shutting-down`

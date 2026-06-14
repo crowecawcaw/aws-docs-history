@@ -63,7 +63,9 @@ follows the diagram.
 The configuration has three levels:
 
 - **1** – Parameter values
+
   - Multi-value parameters:
+
     - `ImageProviders`
     - `ImageNames`
     - `MarketplaceProductCodes`
@@ -79,10 +81,12 @@ The configuration has three levels:
     for parameter values is not shown in the diagram.)
 
   - Single-value parameters:
+
     - `CreationDateCondition`
     - `DeprecationTimeCondition`
 
 - **2** – `ImageCriterion`
+
   - Groups multiple parameters with **AND** logic.
   - An AMI must match _all_ parameters
     within an `ImageCriterion` to be allowed.
@@ -91,6 +95,7 @@ The configuration has three levels:
     `CreationDateCondition` = 300 days or less
 
 - **3** – `ImageCriteria`
+
   - Groups multiple `ImageCriterion` with **OR** logic.
   - An AMI can match _any_
     `ImageCriterion` to be allowed.
@@ -272,8 +277,10 @@ Using the preceding evaluation rules, let's see how to apply them to the [ImageC
   `OR`
 
 - `ImageCriterion` 4: Allows AMIs that meet both of these criteria:
+
   - Published by Amazon or verified providers (specified by the `amazon`
     alias)
+
     - `AND`
 
   - Not deprecated (maximum days since deprecation is

@@ -96,6 +96,7 @@ The console consists of the following:
 
 - **Region explorer** – This page includes
   the following sections:
+
   - **Summary** – Provides a
     high-level overview of your resources across all Regions.
 

@@ -177,6 +177,7 @@ document, you must perform the following tasks:
 - If the instance does not use a Windows license provided by AWS, then
   specify an Amazon EBS snapshot ID that includes Windows Server 2012 R2
   installation media. To do this:
+
   1.  Verify that the Amazon EC2 instance is running Windows Server 2012
       or later.
   2.  Create a 6 GB Amazon EBS volume in the same Availability Zone where
@@ -218,6 +219,7 @@ Follow these steps to upgrade your Windows Server instance using the [AWSEC2-Clo
    for this document. Leave **Simple execution** selected
    at the top of the page.
 7. Enter the requested parameters based on the following guidance.
+
    - `InstanceID`
 
    **Type:** String
@@ -335,6 +337,7 @@ document, you must perform the following tasks:
   information, see [Working with SSM Agent on Amazon EC2 instances for Windows
   Server](../../../systems-manager/latest/userguide/ssm-agent-windows.md "../../../systems-manager/latest/userguide/ssm-agent-windows.md").
 - Verify that the instance has enough free disk space:
+
   - If you are upgrading from Windows Server 2008 R2 to 2012 R2,
     or from Windows Server 2012 R2 to a later operating system,
     verify that you have 20 GB of free disk space in the instance
@@ -345,8 +348,10 @@ document, you must perform the following tasks:
 
 - For instances that use a Bring Your Own License (BYOL) SQL Server
   version, the following additional prerequisites apply:
+
   - Provide an Amazon EBS snapshot ID that includes the target SQL
     Server installation media. To do this:
+
     1. Verify that the Amazon EC2 instance is running Windows
        Server 2008 R2 or later.
     2. Create a 6 GB Amazon EBS volume in the same Availability
@@ -404,6 +409,7 @@ Follow these steps to upgrade your SQL Server using the [AWSEC2-CloneInstanceAnd
 10. Ensure that the **Simple execution** option is
     selected.
 11. Enter the requested parameters based on the following guidance.
+
     - `InstanceId`
 
     **Type:** String

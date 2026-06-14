@@ -131,6 +131,7 @@ the following:
    When token usage is set to `required`, requests without a valid
    token or with an expired token receive a `401 - Unauthorized`
    HTTP error code.
+
    - The token is an instance-specific key. The token is not valid on
      other EC2 instances and will be rejected if you attempt to use it
      outside of the instance on which it was generated.

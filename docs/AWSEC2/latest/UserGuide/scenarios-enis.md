@@ -30,6 +30,7 @@ The following overview describes a management network created using multiple net
   balancer.
 - The secondary network interface has an associated security group that allows
   SSH access only, initiated from one of the following locations:
+
   - An allowed range of IP addresses, either within the VPC, or from the
     internet.
   - A private subnet within the same Availability Zone as the primary network
@@ -42,7 +43,7 @@ To ensure failover capabilities, consider using a secondary private IPv4 for inc
 traffic on a network interface. In the event of an instance failure, you can move
 the interface and/or secondary private IPv4 address to a standby instance.
 
-![Creating a management network](images/EC2_ENI_management_network.png)
+![Creating a management network.](images/EC2_ENI_management_network.png)
 
 ## Network and security appliances
 

@@ -71,7 +71,7 @@ extension `.ppk`. To locate your
 `.pem` file, choose the option to display files
 of all types.
 
-![Select all file types.](images/puttygen-load-key.png) 4. Select your `.pem` file for the key pair that you specified when you
+![File type filter set to All Files.](images/puttygen-load-key.png) 4. Select your `.pem` file for the key pair that you specified when you
 launched your instance and choose **Open**. PuTTYgen
 displays a notice that the `.pem` file was
 successfully imported. Choose **OK**. 5. To save the key in the format that PuTTY can use, choose **Save private
@@ -149,6 +149,7 @@ Last tested version – PuTTY .78
 8.  If this is the first time you have connected to this instance, PuTTY displays a
     security alert dialog box that asks whether you trust the host to which you
     are connecting.
+
     1. (Optional) Verify that the fingerprint in the security alert dialog box matches the
        fingerprint that you previously obtained in [(Optional) Get the instance fingerprint](connection-prereqs-general.md#connection-prereqs-fingerprint "connection-prereqs-general.md#connection-prereqs-fingerprint"). If these fingerprints
        don't match, someone might be attempting a "man-in-the-middle" attack. If

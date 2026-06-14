@@ -104,6 +104,7 @@ Console
    **Specify CPU options** checkbox.
 3. To get 4 vCPUs, specify 2 CPU cores and 2 threads per core, as
    follows:
+
    - For **Core count**, choose
      **2**.
    - For **Threads per core**, choose
@@ -195,6 +196,7 @@ Console
    **Specify CPU options** checkbox.
 3. To get 4 vCPUs, specify 2 CPU cores and 2 threads per core, as
    follows:
+
    - For **Core count**, choose
      **2**.
    - For **Threads per core**, choose

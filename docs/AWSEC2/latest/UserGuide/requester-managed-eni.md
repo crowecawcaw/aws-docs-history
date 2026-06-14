@@ -37,6 +37,7 @@ Console
 3. Select the ID of the network interface to open its details page.
 4. The following are the key fields that you can use to determine the purpose
    of the network interface:
+
    - **Description**: A description provided by the
      AWS service that created the interface. For example, "VPC Endpoint
      Interface vpce 089f2123488812123".

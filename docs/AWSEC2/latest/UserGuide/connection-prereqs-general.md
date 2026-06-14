@@ -124,6 +124,7 @@ convert the `.pem` file to `.ppk`, see [Convert your private key using PuTTYgen]
 
 - (Linux instances) Set the permissions of your private key so that only
   you can read it.
+
   - Connect from macOS or Linux
 
   If you plan to use an SSH client on a macOS or Linux computer to connect to your Linux

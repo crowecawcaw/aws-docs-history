@@ -183,6 +183,7 @@ For more information, see [Free Tier benefits before and after July 15, 2025](ec
   attributes and let Amazon EC2 identify the instance types with those attributes,
   choose **Advanced**, and then choose **Specify instance
   type attributes**.
+
   - **Number of vCPUs**: Enter the minimum and maximum
     number of vCPUs for your compute requirements. To indicate no limits,
     enter a minimum of `0`, and leave the maximum
@@ -228,6 +229,7 @@ default network settings or configure them as needed.
 - **Subnet**: Choose a subnet for your instance or choose
   **Create new subnet** to create a new subnet using the Amazon VPC
   console.
+
   - You can create a subnet in any Availability Zone, Local Zone,
     Wavelength Zone, or Outpost Zone for the selected VPC.
   - To launch the instance in an IPv6-only subnet, the instance must be a
@@ -270,6 +272,7 @@ interfaces, but you can't remove the one that you select here.
   choose **Add network interface**. The number of network interfaces
   that you can add depends on the instance type that you selected. Note that this
   section is available only if you choose a subnet.
+
   - **Device index**: The device index. The
     primary network interface must be assigned to index 0.
   - **Network interface**: The network interface. Select
@@ -346,6 +349,7 @@ interfaces, but you can't remove the one that you select here.
     network interface is deleted when the instance is deleted.
   - **Interface type**: The network interface
     type:
+
     - **ENA**: A high-performance network interface designed to handle high throughput and packet-per-second rates for TCP/IP protocols while minimizing CPU usage. This is the default value. For more information about ENA, see [Elastic Network Adapter](enhanced-networking-ena.md "enhanced-networking-ena.md").
     - **EFA with ENA**: A network interface that supports both ENA and EFA devices for traditional TCP/IP based transport along with SRD based transport. For more information about EFA, see [Elastic Fabric Adapter](efa.md "efa.md").
     - **EFA-only**: A high-performance network interface designed to handle high

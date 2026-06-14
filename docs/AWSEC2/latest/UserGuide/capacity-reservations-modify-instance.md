@@ -22,6 +22,7 @@ Console
    Settings**.
 4. For **Capacity Reservation**, choose one of the following
    options:
+
    - **Open** – Launches the instances
      into any Capacity Reservation that has matching attributes and sufficient
      capacity for the number of instances you selected. If there

@@ -43,6 +43,7 @@ Console
    options**.
 5. In the **Modify instance metadata
    options** dialog box, do the following:
+
    1. For **Instance metadata
       service**, select
       **Enable**.
@@ -129,6 +130,7 @@ Console
    options**.
 5. In the **Modify instance metadata
    options** dialog box, do the following:
+
    1. For **Instance metadata
       service**, make sure that
       **Enable** is selected.
@@ -291,6 +293,7 @@ Console
    options**.
 5. In the **Modify instance metadata
    options** dialog box, do the following:
+
    1. For **Instance metadata
       service**, select
       **Enable**.
@@ -348,6 +351,7 @@ Console
    options**.
 5. In the **Modify instance metadata
    options** dialog box, do the following:
+
    1. For **Instance metadata
       service**, clear
       **Enable**.

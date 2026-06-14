@@ -14,13 +14,13 @@ You can't convert an AMI that you don't own.
 2. Upload the X.509 private key that you used to bundle your Amazon S3-backed AMI to your
    instance. We use this key to ensure that only you and Amazon EC2 can access your
    AMI.
+
    1. Create a temporary directory on your instance for your X.509 private
       key as follows:
 
    ```
    `[ec2-user ~]$` mkdir /tmp/cert
    ```
-
    2. Copy your X.509 private key from your computer to the
       `/tmp/cert` directory on your instance, using a
       secure copy tool such as [scp](linux-file-transfer-scp.md "linux-file-transfer-scp.md"). The `my-private-key` parameter
@@ -34,6 +34,7 @@ You can't convert an AMI that you don't own.
 
 3. Configure your environment variables to use the AWS CLI. For more information,
    see [Environment variables](../../../cli/latest/userguide/cli-configure-envvars.md "../../../cli/latest/userguide/cli-configure-envvars.md").
+
    1. (Recommended) Set environment variables for your AWS access key, secret key, and
       session token.
 
@@ -42,7 +43,6 @@ You can't convert an AMI that you don't own.
    `[ec2-user ~]$` export AWS_SECRET_ACCESS_KEY=`your_secret_access_key`
    `[ec2-user ~]$` export AWS_SESSION_TOKEN=`your_session_token`
    ```
-
    2. Set environment variables for your AWS access key, and secret key.
 
    ```
@@ -51,6 +51,7 @@ You can't convert an AMI that you don't own.
    ```
 
 4. Prepare an Amazon Elastic Block Store (Amazon EBS) volume for your new AMI.
+
    1. Create an empty EBS volume in the same Availability Zone as your instance using the
       [create-volume](../../../cli/latest/reference/ec2/create-volume.md "../../../cli/latest/reference/ec2/create-volume.md") command. Note the volume ID in the command
       output.
@@ -66,7 +67,6 @@ You can't convert an AMI that you don't own.
        --region `us-west-2` \
        --availability-zone `us-west-2b`
    ```
-
    2. Attach the volume to your Amazon EBS-backed instance using the [attach-volume](../../../cli/latest/reference/ec2/attach-volume.md "../../../cli/latest/reference/ec2/attach-volume.md")
       command.
 
@@ -92,12 +92,12 @@ You can't convert an AMI that you don't own.
 ```
 
 7. Reconstitute the image file from the bundle using the [ec2-unbundle](ami-tools-commands.md#ami-unbundle "ami-tools-commands.md#ami-unbundle") command.
+
    1. Change directories to the bundle folder.
 
    ```
    `[ec2-user ~]$` cd /tmp/bundle/
    ```
-
    2. Run the [ec2-unbundle](ami-tools-commands.md#ami-unbundle "ami-tools-commands.md#ami-unbundle")
       command.
 
@@ -163,18 +163,17 @@ In this example, the last line should be removed. 13. Unmount the volume and det
 ```
 
 14. Create an AMI from the new EBS volume as follows.
+
     1.  Create a snapshot of the new EBS volume.
 
     ```
     `[ec2-user bundle]$` aws ec2 create-snapshot --region `us-west-2` --description "`your_snapshot_description`" --volume-id `vol-01234567890abcdef`
     ```
-
     2.  Check to see that your snapshot is complete.
 
     ```
     `[ec2-user bundle]$` aws ec2 describe-snapshots --region `us-west-2` --snapshot-id `snap-0abcdef1234567890`
     ```
-
     3.  Identify the processor architecture, virtualization type, and the kernel image
         (`aki`) used on the original AMI with the
         **describe-images** command. You need the AMI ID of

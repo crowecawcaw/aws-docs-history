@@ -166,6 +166,7 @@ Console
    **View referenced resources**.
 5. On the **View resources referencing selected AMIs**
    page:
+
    1. For **Resource types**, select one or more
       resource types.
    2. Choose **View resources**.
@@ -173,6 +174,7 @@ Console
 6. The **Resources referencing selected AMIs** section
    appears. The list displays the resources referencing the specified AMIs.
    Each row provides the following information:
+
    - **AMI ID** – The ID of the referenced
      AMI.
    - **Resource type** – The resource type

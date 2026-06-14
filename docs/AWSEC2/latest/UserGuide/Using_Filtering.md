@@ -17,9 +17,11 @@ certain criteria.
 
 - [List resources using the console](Using_Filtering.md#listing-resources "Using_Filtering.md#listing-resources")
 - [Filter resources using the console](Using_Filtering.md#console-filter "Using_Filtering.md#console-filter")
+
   - [Supported filters](Using_Filtering.md#console-filters "Using_Filtering.md#console-filters")
 
 - [Save filter sets using the console](Using_Filtering.md#saved-filter-sets-in-the-ec2-console "Using_Filtering.md#saved-filter-sets-in-the-ec2-console")
+
   - [Key features](Using_Filtering.md#saved-filter-sets-key-features "Using_Filtering.md#saved-filter-sets-key-features")
   - [Create a filter set](Using_Filtering.md#create-saved-filter-sets "Using_Filtering.md#create-saved-filter-sets")
   - [Modify a filter set](Using_Filtering.md#modify-saved-filter-sets "Using_Filtering.md#modify-saved-filter-sets")
@@ -37,7 +39,7 @@ resources, use the command line interface or the API actions.
 2. Amazon EC2 resources are specific to an AWS Region. From the navigation bar,
    choose a Region from the **Regions** selector.
 
-![View your Regions](images/EC2_select_region.png) 3. In the navigation pane, choose the option that corresponds to the resource type. For
+![View your Regions.](images/EC2_select_region.png) 3. In the navigation pane, choose the option that corresponds to the resource type. For
 example, to list all your instances, choose **Instances**.
 
 ### Filter resources using the console
@@ -357,6 +359,7 @@ Saved filter sets are currently only available for **Volumes**. 3. In the search
 3. Choose the arrow next to the **Clear filters** button, and choose
    **Modify filter set**.
 4. In the **Modify filter set** window, do the following:
+
    1. (Optional) To set the filter set as the default filter, select the **Set as
       default** checkbox.
 

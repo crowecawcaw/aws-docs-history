@@ -23,6 +23,7 @@ Console
    placement strategy for the group: **Cluster**,
    **Spread**, or
    **Partition**.
+
    1. If you chose **Spread**, for
       **Spread level**, choose
       **Host** or

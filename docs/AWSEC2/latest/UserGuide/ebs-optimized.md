@@ -58,7 +58,7 @@ to enable EBS optimization and no effect if you disable EBS optimization.
 
 ###### Note
 
-M8a, M8g, M8gd, M8i, M8id, M8i-flex instance types support configurable bandwidth weightings. With
+M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurable bandwidth weightings. With
 these instance types, you can optimize an instance's bandwidth for either networking performance
 or Amazon EBS performance. The following table shows the default Amazon EBS bandwidth performance for these
 instance types. For more information, see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighting.md "configure-bandwidth-weighting.md").
@@ -366,6 +366,8 @@ instance types. For more information, see [EC2 instance bandwidth weighting conf
 | m8in.32xlarge 2      | 40000                     | 5000.0                   | 160000                                  |
 | m8in.48xlarge 2      | 60000                     | 7500.0                   | 240000                                  |
 | m8in.96xlarge 2      | 120000                    | 15000.0                  | 480000                                  |
+| m8in.metal-48xl 2    | 60000                     | 7500.0                   | 240000                                  |
+| m8in.metal-96xl 2    | 120000                    | 15000.0                  | 480000                                  |
 | m8idn.large 1        | 650                       | 10000                    | 81.25                                   | 1250.00                                | 3600                       | 40000                     |
 | m8idn.xlarge 1       | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
 | m8idn.2xlarge 1      | 2500                      | 10000                    | 312.50                                  | 1250.00                                | 12000                      | 40000                     |
@@ -377,6 +379,8 @@ instance types. For more information, see [EC2 instance bandwidth weighting conf
 | m8idn.32xlarge 2     | 40000                     | 5000.0                   | 160000                                  |
 | m8idn.48xlarge 2     | 60000                     | 7500.0                   | 240000                                  |
 | m8idn.96xlarge 2     | 120000                    | 15000.0                  | 480000                                  |
+| m8idn.metal-48xl 2   | 60000                     | 7500.0                   | 240000                                  |
+| m8idn.metal-96xl 2   | 120000                    | 15000.0                  | 480000                                  |
 | m8ine.large 1        | 650                       | 10000                    | 81.25                                   | 1250.00                                | 3600                       | 40000                     |
 | m8ine.xlarge 1       | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
 | m8ine.2xlarge 1      | 2500                      | 10000                    | 312.50                                  | 1250.00                                | 12000                      | 40000                     |
@@ -394,6 +398,8 @@ instance types. For more information, see [EC2 instance bandwidth weighting conf
 | m8ib.32xlarge 2      | 100000                    | 12500.0                  | 480000                                  |
 | m8ib.48xlarge 2      | 150000                    | 18750.0                  | 720000                                  |
 | m8ib.96xlarge 2      | 300000                    | 37500.0                  | 1440000                                 |
+| m8ib.metal-48xl 2    | 150000                    | 18750.0                  | 720000                                  |
+| m8ib.metal-96xl 2    | 300000                    | 37500.0                  | 1440000                                 |
 | m8idb.large 1        | 1563                      | 25000                    | 195.38                                  | 3125.00                                | 7500                       | 120000                    |
 | m8idb.xlarge 1       | 3125                      | 25000                    | 390.62                                  | 3125.00                                | 15000                      | 120000                    |
 | m8idb.2xlarge 1      | 6250                      | 25000                    | 781.25                                  | 3125.00                                | 30000                      | 120000                    |
@@ -405,6 +411,30 @@ instance types. For more information, see [EC2 instance bandwidth weighting conf
 | m8idb.32xlarge 2     | 100000                    | 12500.0                  | 480000                                  |
 | m8idb.48xlarge 2     | 150000                    | 18750.0                  | 720000                                  |
 | m8idb.96xlarge 2     | 300000                    | 37500.0                  | 1440000                                 |
+| m8idb.metal-48xl 2   | 150000                    | 18750.0                  | 720000                                  |
+| m8idb.metal-96xl 2   | 300000                    | 37500.0                  | 1440000                                 |
+| m9g.medium 1         | 380                       | 12000                    | 47.50                                   | 1500.00                                | 2500                       | 48000                     |
+| m9g.large 1          | 760                       | 12000                    | 95.00                                   | 1500.00                                | 3600                       | 48000                     |
+| m9g.xlarge 1         | 1500                      | 12000                    | 187.50                                  | 1500.00                                | 6000                       | 48000                     |
+| m9g.2xlarge 1        | 3000                      | 12000                    | 375.00                                  | 1500.00                                | 12000                      | 48000                     |
+| m9g.4xlarge 1        | 6000                      | 12000                    | 750.00                                  | 1500.00                                | 24000                      | 48000                     |
+| m9g.8xlarge 2        | 12000                     | 1500.0                   | 48000                                   |
+| m9g.12xlarge 2       | 18000                     | 2250.0                   | 72000                                   |
+| m9g.16xlarge 2       | 24000                     | 3000.0                   | 96000                                   |
+| m9g.24xlarge 2       | 36000                     | 4500.0                   | 144000                                  |
+| m9g.48xlarge 2       | 72000                     | 9000.0                   | 288000                                  |
+| m9g.metal-48xl 2     | 72000                     | 9000.0                   | 288000                                  |
+| m9gd.medium 1        | 380                       | 12000                    | 47.50                                   | 1500.00                                | 2500                       | 48000                     |
+| m9gd.large 1         | 760                       | 12000                    | 95.00                                   | 1500.00                                | 3600                       | 48000                     |
+| m9gd.xlarge 1        | 1500                      | 12000                    | 187.50                                  | 1500.00                                | 6000                       | 48000                     |
+| m9gd.2xlarge 1       | 3000                      | 12000                    | 375.00                                  | 1500.00                                | 12000                      | 48000                     |
+| m9gd.4xlarge 1       | 6000                      | 12000                    | 750.00                                  | 1500.00                                | 24000                      | 48000                     |
+| m9gd.8xlarge 2       | 12000                     | 1500.0                   | 48000                                   |
+| m9gd.12xlarge 2      | 18000                     | 2250.0                   | 72000                                   |
+| m9gd.16xlarge 2      | 24000                     | 3000.0                   | 96000                                   |
+| m9gd.24xlarge 2      | 36000                     | 4500.0                   | 144000                                  |
+| m9gd.48xlarge 2      | 72000                     | 9000.0                   | 288000                                  |
+| m9gd.metal-48xl 2    | 72000                     | 9000.0                   | 288000                                  |
 | mac1.metal 2         | 14000                     | 1750.0                   | 80000                                   |
 | mac2.metal 2         | 10000                     | 1250.0                   | 55000                                   |
 | mac2-m1ultra.metal 2 | 10000                     | 1250.0                   | 55000                                   |
@@ -1060,6 +1090,8 @@ these instances.
 | r8in.32xlarge 2        | 40000                     | 5000.0                   | 160000                                  |
 | r8in.48xlarge 2        | 60000                     | 7500.0                   | 240000                                  |
 | r8in.96xlarge 2        | 120000                    | 15000.0                  | 480000                                  |
+| r8in.metal-48xl 2      | 60000                     | 7500.0                   | 240000                                  |
+| r8in.metal-96xl 2      | 120000                    | 15000.0                  | 480000                                  |
 | r8idn.large 1          | 650                       | 10000                    | 81.25                                   | 1250.00                                | 3600                       | 40000                     |
 | r8idn.xlarge 1         | 1250                      | 10000                    | 156.25                                  | 1250.00                                | 6000                       | 40000                     |
 | r8idn.2xlarge 1        | 2500                      | 10000                    | 312.50                                  | 1250.00                                | 12000                      | 40000                     |
@@ -1071,6 +1103,8 @@ these instances.
 | r8idn.32xlarge 2       | 40000                     | 5000.0                   | 160000                                  |
 | r8idn.48xlarge 2       | 60000                     | 7500.0                   | 240000                                  |
 | r8idn.96xlarge 2       | 120000                    | 15000.0                  | 480000                                  |
+| r8idn.metal-48xl 2     | 60000                     | 7500.0                   | 240000                                  |
+| r8idn.metal-96xl 2     | 120000                    | 15000.0                  | 480000                                  |
 | r8ib.large 1           | 1563                      | 25000                    | 195.38                                  | 3125.00                                | 7500                       | 120000                    |
 | r8ib.xlarge 1          | 3125                      | 25000                    | 390.62                                  | 3125.00                                | 15000                      | 120000                    |
 | r8ib.2xlarge 1         | 6250                      | 25000                    | 781.25                                  | 3125.00                                | 30000                      | 120000                    |
@@ -1082,6 +1116,8 @@ these instances.
 | r8ib.32xlarge 2        | 100000                    | 12500.0                  | 480000                                  |
 | r8ib.48xlarge 2        | 150000                    | 18750.0                  | 720000                                  |
 | r8ib.96xlarge 2        | 300000                    | 37500.0                  | 1440000                                 |
+| r8ib.metal-48xl 2      | 150000                    | 18750.0                  | 720000                                  |
+| r8ib.metal-96xl 2      | 300000                    | 37500.0                  | 1440000                                 |
 | r8idb.large 1          | 1563                      | 25000                    | 195.38                                  | 3125.00                                | 7500                       | 120000                    |
 | r8idb.xlarge 1         | 3125                      | 25000                    | 390.62                                  | 3125.00                                | 15000                      | 120000                    |
 | r8idb.2xlarge 1        | 6250                      | 25000                    | 781.25                                  | 3125.00                                | 30000                      | 120000                    |
@@ -1093,6 +1129,8 @@ these instances.
 | r8idb.32xlarge 2       | 100000                    | 12500.0                  | 480000                                  |
 | r8idb.48xlarge 2       | 150000                    | 18750.0                  | 720000                                  |
 | r8idb.96xlarge 2       | 300000                    | 37500.0                  | 1440000                                 |
+| r8idb.metal-48xl 2     | 150000                    | 18750.0                  | 720000                                  |
+| r8idb.metal-96xl 2     | 300000                    | 37500.0                  | 1440000                                 |
 | u-3tb1.56xlarge 2      | 19000                     | 2375.0                   | 80000                                   |
 | u-6tb1.56xlarge 2      | 38000                     | 4750.0                   | 160000                                  |
 | u-6tb1.112xlarge 2     | 38000                     | 4750.0                   | 160000                                  |

@@ -25,6 +25,7 @@ You'll need the following to complete this tutorial:
   existing EC2 instance or follow the steps in Task 2 to create a new EC2
   instance.
 - Permissions to call the following operations:
+
   - `ec2:AssociateRouteTable`
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:CreateRouteTable`
@@ -88,6 +89,7 @@ your specific needs.
    **Info** link in the **Free tier**
    box.
 7. Under **Settings**, do the following:
+
    1. For **DB instance identifier**, enter a name
       for the database. For this tutorial, enter
       `tutorial-database-1`.
@@ -121,7 +123,7 @@ connect to the database. Depending on the database class and the amount
 of storage, it can take up to 20 minutes before the new database is
 available.
 
-![This animation shows how to create an RDS database. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-create-rds-database.gif)
+![Creating an RDS database in the RDS console.](images/tutorial-create-rds-database.gif)
 
 ## Task 2 (_Optional_): Launch an EC2 instance
 
@@ -143,6 +145,7 @@ database. The steps in this task configure the EC2 instance as follows:
 - Instance type: `t2.micro`
 - Auto-assign public IP: Enabled
 - Security group with the following three rules:
+
   - Allow SSH from your IP address
   - Allow HTTPS traffic from anywhere
   - Allow HTTP traffic from anywhere
@@ -251,7 +254,7 @@ instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troub
 
 For more information about launching an instance, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
-![This animation shows how to launch an EC2 instance. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-launch-instance.gif)
+![Launching an EC2 instance in the EC2 console.](images/tutorial-launch-instance.gif)
 
 ## Task 3: Automatically connect your EC2 instance to your RDS database
 
@@ -289,7 +292,7 @@ If you closed the confirmation page, follow these steps:
 The EC2 instance and the RDS database must be in the same VPC in order to connect to
 each other. 4. Choose **Connect**.
 
-![This animation shows how to select an existing EC2 instance in the EC2 console and use the automatic connection feature to connect the EC2 instance to an RDS database. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-connect-new-ec2-rds.gif)
+![Using the automatic connection feature to connect an EC2 instance to an RDS database.](images/tutorial-connect-new-ec2-rds.gif)
 
 ## Task 4: Verify the connection configuration
 
@@ -335,6 +338,7 @@ instance and database, as follows:
 7. Choose the **Inbound rules** tab.
 8. Verify that the following security group rule exists, as
    follows:
+
    - Type: **MYSQL/Aurora**
    - Port range: **3306**
    - Source: **`sg-0987654321example` /
@@ -359,6 +363,7 @@ instance and database, as follows:
 14. Choose the **Outbound rules** tab.
 15. Verify that the following security group rule exists, as
     follows:
+
     - Type: **MYSQL/Aurora**
     - Port range: **3306**
     - Destination: **`sg-1234567890example` /

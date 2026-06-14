@@ -25,6 +25,7 @@ Console
    **Modify instance placement**.
 5. For **Placement group**, do one of the
    following:
+
    - To add the instance to a placement group, choose
      the placement group.
    - To move the instance from one placement group to another,

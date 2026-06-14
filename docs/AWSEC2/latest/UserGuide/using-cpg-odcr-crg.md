@@ -17,6 +17,7 @@ specified cluster placement group.
 - _Specifying only a Capacity Reservation group_ – This will use all available
   capacity within the Capacity Reservation group by specifying only the Capacity Reservation group. While
   launching instances, capacity is used in the following order:
+
   - Capacity Reservations not associated with any cluster placement group.
   - Capacity Reservation in any cluster placement group within the Capacity Reservation group.
   - If the group does not have a Capacity Reservation with matching attributes and available capacity,

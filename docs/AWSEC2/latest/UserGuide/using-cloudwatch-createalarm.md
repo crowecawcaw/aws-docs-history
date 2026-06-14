@@ -24,6 +24,7 @@ Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../.
 7. For **Alarm thresholds**, select the metric and criteria for the alarm. For
    example, to create an alarm that is triggered when CPU utilization reaches 80% for a 5
    minute period, do the following:
+
    1. Keep the default setting for **Group samples by** (**Average**)
       and **Type of data to sample** (**CPU utilization**).
    2. Choose **>=** for **Alarm when** and

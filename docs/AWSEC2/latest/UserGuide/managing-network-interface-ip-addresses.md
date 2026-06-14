@@ -15,6 +15,7 @@ Console
 2. In the navigation pane, choose **Network Interfaces**.
 3. Select the checkbox for the network interface.
 4. To manage the IPv4 and IPv6 addresses, do the following:
+
    1. Choose **Actions**, **Manage IP addresses**.
    2. Expand the network interface.
    3. For **IPv4 addresses**, edit the IP addresses as needed. To assign
@@ -41,6 +42,7 @@ Console
    7. Choose **Save**.
 
 5. To associate an Elastic IP address, do the following:
+
    1. Choose **Actions**, **Associate address**.
    2. For **Elastic IP address**, select the Elastic IP address.
    3. For **Private IPv4 address**, select the private IPv4
@@ -51,6 +53,7 @@ Console
    5. Choose **Associate**.
 
 6. To disassociate an Elastic IP address, do the following:
+
    1. Choose **Actions**, **Disassociate address**.
    2. For **Public IP address**, select the Elastic IP address.
    3. Choose **Disassociate**.

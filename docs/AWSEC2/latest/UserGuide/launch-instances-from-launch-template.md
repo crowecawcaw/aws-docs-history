@@ -38,6 +38,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Use one of the following options to select the launch
    template:
+
    - From the Amazon EC2 console dashboard, choose the down
      arrow next to **Launch instance**,
      choose **Launch instance from

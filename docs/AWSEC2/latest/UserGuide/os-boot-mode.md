@@ -10,6 +10,7 @@ Use the instructions for your instance's operating system.
 
 1. [Connect to your Linux instance using SSH](connect-linux-inst-ssh.md "connect-linux-inst-ssh.md").
 2. To view the boot mode of the operating system, try one of the following:
+
    - Run the following command.
 
    ```
@@ -25,7 +26,6 @@ Use the instructions for your instance's operating system.
    Boot0000* UiApp
    Boot0001* UEFI Amazon Elastic Block Store vol-xyz
    ```
-
    - Run the following command to verify the existence of the `/sys/firmware/efi`
      directory. This directory exists only if the instance boots using UEFI.
      If this directory doesn't exist, the command returns `Legacy BIOS
@@ -46,7 +46,6 @@ Boot Detected`.
    ```
    Legacy BIOS Boot Detected
    ```
-
    - Run the following command to verify that EFI appears in the `dmesg`
      output.
 

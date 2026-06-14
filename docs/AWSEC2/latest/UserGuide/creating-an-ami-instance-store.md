@@ -72,6 +72,7 @@ Before you can create an AMI, you must complete the following tasks:
   AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md").
 - Ensure that you have an S3 bucket for the bundle, and that your bucket has
   ACLs enabled. For more information on configuring ACLs, see [Configuring ACLs](../../../AmazonS3/latest/userguide/managing-acls.md "../../../AmazonS3/latest/userguide/managing-acls.md").
+
   - To create an S3 bucket using the AWS Management Console, open the Amazon S3 console
     at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/") and choose **Create
     Bucket**.
@@ -90,6 +91,7 @@ Before you can create an AMI, you must complete the following tasks:
   in the _AWS Command Line Interface User Guide_.
 - Ensure that you have an X.509 certificate and corresponding private
   key.
+
   - If you need to create an X.509 certificate, see [Manage signing certificates](set-up-ami-tools.md#ami-tools-managing-certs "set-up-ami-tools.md#ami-tools-managing-certs"). The X.509 certificate
     and private key are used to encrypt and decrypt your AMI.
   - [China (Beijing)] Use the
@@ -134,6 +136,7 @@ with your own information.
 
 1. Upload your credentials to your instance. We use these credentials to
    ensure that only you and Amazon EC2 can access your AMI.
+
    1. Create a temporary directory on your instance for your credentials
       as follows:
 
@@ -237,20 +240,19 @@ in the _Amazon EBS User Guide_.
 3. (Optional) To add more instance store volumes, edit the block device
    mappings in the `image.manifest.xml` file for your AMI.
    For more information, see [Block device mappings for volumes on Amazon EC2 instances](block-device-mapping-concepts.md "block-device-mapping-concepts.md").
+
    1. Create a backup of your `image.manifest.xml`
       file.
 
    ```
    `[ec2-user ~]$` sudo cp /tmp/image.manifest.xml /tmp/image.manifest.xml.bak
    ```
-
    2. Reformat the `image.manifest.xml` file so that
       it is easier to read and edit.
 
    ```
    `[ec2-user ~]$` sudo xmllint --format /tmp/image.manifest.xml.bak > /tmp/image.manifest.xml
    ```
-
    3. Edit the block device mappings in `image.manifest.xml` with a text
       editor. The example below shows a new entry for the
       `ephemeral1` instance store volume.
@@ -279,7 +281,6 @@ in the _Amazon EBS User Guide_.
          </mapping>
        </block_device_mapping>
    ```
-
    4. Save the `image.manifest.xml` file and exit
       your text editor.
 

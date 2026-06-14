@@ -13,8 +13,10 @@ You can launch a Mac instance using the AWS Management Console or the AWS CLI.
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Allocate the Dedicated Host, as follows:
+
    1. In the navigation pane, choose **Dedicated Hosts**.
    2. Choose **Allocate Dedicated Host** and then do the following:
+
       1. For **Instance family**, choose a **Mac** Instance
          family. If the instance family doesn’t appear in the list, it’s not supported in the currently
          selected Region.
@@ -26,7 +28,9 @@ You can launch a Mac instance using the AWS Management Console or the AWS CLI.
       5. Choose **Allocate**.
 
 3. Launch the instance on the host, as follows:
+
    1. Select the Dedicated Host that you created and then do the following:
+
       1. Choose **Actions**, **Launch instance(s) onto
          host**.
       2. Under **Application and OS Images (Amazon Machine Image)**,

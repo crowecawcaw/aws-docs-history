@@ -59,7 +59,7 @@ experience), you can run Windows Sysprep with EC2Launch manually or by using the
    It is located in the following directory by default:
    `C:\ProgramData\Amazon\EC2-Windows\Launch\Settings`.
 
-![EC2 Launch Settings application](images/ec2launch-sysprep.png) 5. Select or clear options as needed. These settings are stored in the
+![EC2 Launch Settings application.](images/ec2launch-sysprep.png) 5. Select or clear options as needed. These settings are stored in the
 `LaunchConfig.json` file. 6. For **Administrator Password**, do one of the
 following:
 

@@ -86,6 +86,7 @@ environment, we recommend that your IAM policy is configured to provide [least-p
 ###### To create and attach an IAM policy that allows you to use EC2 Instance Connect to connect to your instances
 
 1. **First create the IAM policy**
+
    1. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. In the navigation pane, choose
@@ -93,6 +94,7 @@ environment, we recommend that your IAM policy is configured to provide [least-p
    3. Choose **Create policy**.
    4. On the **Specify permission** page, do the
       following:
+
       1. For **Service**, choose **EC2
          Instance Connect**.
       2. Under **Actions allowed**, in the search
@@ -114,12 +116,14 @@ environment, we recommend that your IAM policy is configured to provide [least-p
 
    5. On the **Review and create** page, do the
       following:
+
       1. For **Policy name**, enter a name for the
          policy.
       2. Choose **Create policy**.
 
 2. **Then attach the policy to your
    identity**
+
    1. In the IAM console, in the navigation pane, choose
       **Policies**.
    2. In the list of policies, select the option button next to the name
@@ -132,9 +136,9 @@ environment, we recommend that your IAM policy is configured to provide [least-p
       the list of entities.
    5. Choose **Attach policy**.
 
-![This animation shows how to create an IAM policy. For the text version of this animation, see the steps in the preceding procedure.](images/eic-tut1-task1-create-iam-policy.gif)
+![Creating an IAM policy in the IAM console.](images/eic-tut1-task1-create-iam-policy.gif)
 
-![This animation shows how to attach an IAM policy to an IAM identity. For the text version of this animation, see the steps in the preceding procedure.](images/eic-tut1-task1-attach-iam-policy.gif)
+![Attaching an IAM policy to an IAM identity.](images/eic-tut1-task1-attach-iam-policy.gif)
 
 ## Task 2: Allow inbound traffic from the EC2 Instance Connect service to your instance
 
@@ -168,12 +172,14 @@ prefix list in the Region in which your instance is located.
    Groups**.
 3. Choose **Create security group**.
 4. Under **Basic details**, do the following:
+
    1. For **Security group name**, enter a meaningful
       name for your security group.
    2. For **Description**, enter a meaningful
       description for your security group.
 
 5. Under **Inbound rules**, do the following:
+
    1. Choose **Add rule**.
    2. For **Type**, choose
       **SSH**.
@@ -189,7 +195,7 @@ prefix list in the Region in which your instance is located.
 
 6. Choose **Create security group**.
 
-![This animation shows how to configure a security group. For the text version of this animation, see the steps in the preceding procedure.](images/tut1-task2-eic-security-group.gif)
+![Configuring a security group for the EIC endpoint.](images/tut1-task2-eic-security-group.gif)
 
 ## Task 3: Launch your instance
 
@@ -240,6 +246,7 @@ launch your instance.
    instance, EC2 Instance Connect pushes a key pair to the instance's metadata, and it
    is this key pair that is used for the connection.
 8. Under **Network settings**, do the following:
+
    1. For **Auto-assign public IP**, leave
       **Enable**.
 
@@ -253,7 +260,7 @@ launch your instance.
 9. In the **Summary** panel, choose **Launch
    instance**.
 
-![This animation shows how to launch an instance. For the text version of this animation, see the steps in the preceding procedure.](images/tut1-task3-launch-an-instance.gif)
+![Launching an instance with EC2 Instance Connect pre-installed.](images/tut1-task3-launch-an-instance.gif)
 
 ## Task 4: Connect to your instance
 
@@ -291,4 +298,4 @@ steps, see [View an animation: Connect to your instance](#eic-tut1-task4-animati
 A terminal window opens in the browser, and you are connected to your
 instance.
 
-![This animation shows how to connect an instance using EC2 Instance Connect. For the text version of this animation, see the steps in the preceding procedure.](images/eic-tut1-task4-connect.gif)
+![Connecting to an instance using EC2 Instance Connect.](images/eic-tut1-task4-connect.gif)

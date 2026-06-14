@@ -20,11 +20,14 @@ succeeded or failed.
 2. Look for the events associated with automatic instance recovery. The presence of
    these events can confirm whether an attempt at automatic instance recovery occurred and
    its outcome.
+
    - Simplified automatic recovery
+
      - Success event: `AWS_EC2_SIMPLIFIED_AUTO_RECOVERY_SUCCESS`
      - Failure event: `AWS_EC2_SIMPLIFIED_AUTO_RECOVERY_FAILURE`
 
    - CloudWatch action based recovery
+
      - Success event: `AWS_EC2_INSTANCE_AUTO_RECOVERY_SUCCESS`
      - Failure event: `AWS_EC2_INSTANCE_AUTO_RECOVERY_FAILURE`
 
@@ -53,11 +56,13 @@ StatusCheckFailed_System
    occurred.
 7. Choose the **Graphed metrics** tab, and for
    **StatusCheckFailed_System**, do the following:
+
    1. For **Statistic**, choose either **Average**,
       **Maximum**, or **Minimum**.
    2. For **Period**, choose **1 minute**.
 
 8. Check the value for **StatusCheckFailed_System**.
+
    - Value of **0**: The system status check passed, indicating no
      underlying hardware or software issue.
    - Value of **1**: The system status check failed, indicating an

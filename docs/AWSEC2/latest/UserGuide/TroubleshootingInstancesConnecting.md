@@ -70,6 +70,7 @@ Check your instance to make sure it is running and has passed its status checks.
 2. In the navigation pane, choose **Instances**, and then select your
    instance.
 3. Verify the following:
+
    1. In the **Instance state** column, verify
       that your instance is in the `running`
       state.
@@ -179,6 +180,7 @@ destined outside the VPC to the internet gateway for the VPC.
    your instance using its IPv6 address, verify that there is a route
    for all IPv6 traffic (`::/0`) that points to the internet
    gateway. Otherwise, do the following:
+
    1. Choose the ID of the route table (rtb-_xxxxxxxx_) to
       navigate to the route table.
    2. On the **Routes** tab, choose **Edit routes**.

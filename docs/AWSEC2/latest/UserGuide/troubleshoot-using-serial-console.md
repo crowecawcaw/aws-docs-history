@@ -188,7 +188,7 @@ If SAC is enabled on the instance, the serial console displays the
 
 Expected output
 
-![Enter a question mark to display the SAC commands.](images/win-boot-4.png) 3. To create a command prompt channel (such as `cmd0001` or
+![SAC command prompt displaying available commands.](images/win-boot-4.png) 3. To create a command prompt channel (such as `cmd0001` or
 `cmd0002`), enter cmd, and then press **Enter**. 4. To view the command prompt channel, press **ESC**,
 and then press **TAB**.
 

@@ -19,6 +19,7 @@ For significant savings over On-Demand Instances, use [AWS Savings Plans](https:
 ###### Contents
 
 - [On-Demand Instance quotas](ec2-on-demand-instances.md#ec2-on-demand-instances-limits "ec2-on-demand-instances.md#ec2-on-demand-instances-limits")
+
   - [Monitor On-Demand Instance quotas and usage](ec2-on-demand-instances.md#monitoring-on-demand-limits "ec2-on-demand-instances.md#monitoring-on-demand-limits")
   - [Request a quota increase](ec2-on-demand-instances.md#vcpu-limits-request-increase "ec2-on-demand-instances.md#vcpu-limits-request-increase")
 

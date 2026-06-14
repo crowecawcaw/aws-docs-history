@@ -62,6 +62,7 @@ Console
 4. For **Command document**, choose the button next to
    **AWS-ConfigureAWSPackage**.
 5. For **Command parameters**, do the following:
+
    1. Verify that **Action** is set to
       **Install**.
    2. For **Name**, enter
@@ -87,6 +88,7 @@ tips. 7. For **Other parameters**:
      execution.
 
 8. (Optional) For **Rate control**:
+
    - For **Concurrency**, specify either a number or a
      percentage of instances on which to run the command at the same
      time.

@@ -69,10 +69,12 @@ Console
 4.  For **Launch parameters**, you can either
     manually configure the launch parameters or you can use a launch
     template, as follows:
+
     1.  [Manually configure] To define the launch parameters
         in the Amazon EC2 console, choose **Manually
         configure launch parameters**, and then do
         the following:
+
         1. For **AMI**, choose one of
            the basic AMIs provided by AWS, or choose
            **Search for AMI** to use an AMI
@@ -174,6 +176,7 @@ Console
 
 5.  For **Additional request details**, do the
     following:
+
     1. Review the additional request details. To make
        changes, clear **Apply
        defaults**.
@@ -197,6 +200,7 @@ Console
 
 6.  For **Target capacity**, do the
     following:
+
     1. For **Total target capacity**,
        specify the number of units to request. For the type of
        unit, you can choose **Instances**,
@@ -245,6 +249,7 @@ Console
     capacity. For more information, see [Set a spending limit for your EC2 Fleet or Spot Fleet](ec2-fleet-control-spending.md "ec2-fleet-control-spending.md").
 
 7.  For **Network**, do the following:
+
     1. For **Network**, choose an existing
        VPC or create a new one.
 
@@ -267,9 +272,11 @@ Console
     either specify instance attributes and let Amazon EC2 identify the
     optimal instance types with these attributes, or you can specify
     a list of instances. For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
+
     1. If you choose **Specify instance attributes
        that match your compute requirements**,
        specify your instance attributes as follows:
+
        1. For **vCPUs**, enter the
           desired minimum and maximum number of vCPUs. To
           specify no limit, select **No

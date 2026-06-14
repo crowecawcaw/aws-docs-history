@@ -132,12 +132,12 @@ Use the following procedure to connect to your Linux instance using an SSH clien
    prerequisites. For example, you need the location of the private key
    (`.pem` file), the username, and the public DNS name
    or IPv6 address. The following are example commands.
+
    - (Public DNS) To use the public DNS name, enter the following command.
 
    ```
    ssh -i `/path/key-pair-name`.pem `instance-user-name`@`instance-public-dns-name`
    ```
-
    - (IPv6) Alternatively, if your instance has an IPv6 address, enter
      the following command to use the IPv6 address.
 

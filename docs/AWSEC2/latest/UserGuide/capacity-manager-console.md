@@ -32,6 +32,7 @@ Capacity Manager uses a three-level navigation structure for Usage and Reservati
 1. **Overview page** — High-level summary with aggregated metrics.
 2. **Breakdown page** — Detailed analysis with filtering and grouping options
 3. **Detail pages:**
+
    - Usage details — Information about your selected dimension combination, which provides statistics and time-series data to help you understand usage patterns.
    - Reservation details — Information about a specific Capacity Reservation including utilization statistics, usage patterns over time, and configuration details.
 
@@ -51,6 +52,7 @@ in where the navigation links are located within each tab.
 2. In the navigation pane, choose **Capacity Manager**.
 3. Choose the tab for the resource type you want to analyze: **Usage** or **Reservations**.
 4. In the **Aggregations** section, locate the breakdown link:
+
    - **Usage**: In the **Actions** column, choose **View breakdown**.
 
    ###### Note
@@ -62,10 +64,12 @@ in where the navigation links are located within each tab.
 ###### To access the details pages
 
 1. On the breakdown page, navigate to the relevant section:
+
    - **Usage**: The Unique dimension combinations section.
    - **Reservations**: The Reservations section.
 
 2. In the relevant section of your chosen resources, access the details page.
+
    - **Usage**: In the Actions column, choose **View details**.
 
    ###### Note

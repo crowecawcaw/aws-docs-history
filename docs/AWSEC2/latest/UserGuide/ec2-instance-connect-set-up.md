@@ -20,6 +20,7 @@ prerequisites.
 
 - **Verify that the instance uses one of the
   following:**
+
   - Amazon Linux 2 prior to version 2.0.20190618 \*
   - AL2023 minimal AMI or Amazon ECS-optimized AMI
   - CentOS Stream 8 and 9

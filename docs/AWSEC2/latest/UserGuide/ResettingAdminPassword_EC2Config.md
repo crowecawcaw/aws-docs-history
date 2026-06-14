@@ -69,6 +69,7 @@ instance as a secondary volume.
    this instance, continue with the next step. Otherwise, use the following steps
    to replace the instance with a new instance that you launch with a new key
    pair.
+
    1. Create a new key pair using the Amazon EC2 console. To give your new key
       pair the same name as the one for which you lost the private key, you
       must first delete the existing key pair.
@@ -90,6 +91,7 @@ instance as a secondary volume.
       instance.
 
 5. Detach the root volume from the original instance as follows:
+
    1. Select the original instance and choose the **Storage** tab.
       Note the name of the root device under **Root device name**.
       Find the volume with this device name under **Block devices**,
@@ -113,6 +115,7 @@ the configuration file.
 ###### To launch a temporary instance and attach the volume
 
 1. Launch the temporary instance as follows:
+
    1. In the navigation pane, choose **Instances**, choose **Launch instances**, and then select an AMI.
 
    ###### Important
@@ -138,6 +141,7 @@ the configuration file.
 
 2. Attach the volume to the temporary instance as a secondary volume as
    follows:
+
    1. In the navigation pane, choose **Volumes**, select the
       volume that you detached from the original instance, and then choose
       **Actions**, **Attach Volume**.
@@ -154,6 +158,7 @@ After you have attached the volume to the temporary instance as a secondary volu
 ###### To modify the configuration file
 
 1. From the temporary instance, modify the configuration file on the secondary volume as follows:
+
    1. Launch and connect to the temporary instance.
    2. Use the following instructions to bring the drive online: [Make an Amazon EBS
       volume available for use](../../../ebs/latest/userguide/ebs-using-volumes.md "../../../ebs/latest/userguide/ebs-using-volumes.md").
@@ -165,9 +170,10 @@ Files\Amazon\Ec2ConfigService\Settings\config.xml`
       the state from `Disabled` to `Enabled` and
       save the file.
 
-   ![The area of the Config.xml file to change](images/pwreset_config.png)
+   ![The area of the Config.xml file to change.](images/pwreset_config.png)
 
 2. After you have modified the configuration file, detach the secondary volume from the temporary instance as follows:
+
    1. Using the **Disk Management** utility, bring the
       volume offline.
    2. Disconnect from the temporary instance and return to the Amazon EC2 console.
@@ -183,6 +189,7 @@ After you have modified the configuration file, reattach the volume to the origi
 the root volume and connect to the instance using its key pair to retrieve the administrator password.
 
 1. Reattach the volume to the original instance as follows:
+
    1. In the navigation pane, choose **Volumes**, select the volume
       that you detached from the temporary instance, and then choose **Actions**,
       **Attach Volume**.

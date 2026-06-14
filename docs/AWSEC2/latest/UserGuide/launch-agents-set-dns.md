@@ -34,6 +34,7 @@ registry key. The agents use the settings from the following registry keys, to d
 the devolution behavior.
 
 - **`System\CurrentControlSet\Services\Tcpip\Parameters\UseDomainNameDevolution`**
+
   - When not set, disables devolution
   - When set to `1`, enables devolution (default)
   - When set to `0`, disables devolution

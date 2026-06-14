@@ -293,6 +293,7 @@ Console
    checkbox) or in the summary area (if you selected the AMI ID),
    find the **Allowed image**
    field.
+
    - **Yes** – The AMI meets the
      Allowed AMIs criteria. This AMI will be available to
      users in your account after you enable Allowed
@@ -413,6 +414,7 @@ Console
 4. On the **Details** tab, under
    **Instance details**, find
    **Allowed image**.
+
    - **Yes** – The AMI meets the
      Allowed AMIs criteria.
    - **No** – The AMI does not meet

@@ -36,6 +36,7 @@ configure the Spot Instance request.
 4. (Optional) Under **Name and tags**, you can name your instance, and
    tag the Spot Instance request, the instance, the volumes, and the elastic
    graphics. For information about tags, see [Tag your Amazon EC2 resources](Using_Tags.md "Using_Tags.md").
+
    1. For **Name**, enter a descriptive name for your instance.
 
    The instance name is a tag, where the key is **Name**, and the value is the

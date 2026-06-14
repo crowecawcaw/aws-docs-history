@@ -134,6 +134,7 @@ dracut -f -v
    instance. For more information and to see other configuration options, see
    [Predictable Network Interface Names](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/ "https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/") on the freedesktop.org
    website.
+
    1. You can check the **systemd** or
       **udev** versions on RPM-based systems with the
       following command.
@@ -152,7 +153,6 @@ dracut -f -v
    ```
    sudo sed -i '/^GRUB\_CMDLINE\_LINUX/s/\"$/\ net\.ifnames\=0\"/' /etc/default/grub
    ```
-
    3. Rebuild the grub configuration file.
 
    ```
@@ -359,6 +359,7 @@ parm:		   numa_node_override:Enable/Disable numa node override (0=disable)
 ```
 
 3.  From the instance, install the driver as follows:
+
     1. [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/Latest/AwsEnaNetworkDriver.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/ENA/Latest/AwsEnaNetworkDriver.zip") the latest driver to the instance.
     2. Extract the zip archive.
     3. Install the driver by running the `install.ps1`
@@ -377,18 +378,19 @@ parm:		   numa_node_override:Enable/Disable numa node override (0=disable)
 4.  From your local computer, stop the instance using the Amazon EC2 console or one
     of the following commands: [stop-instances](../../../cli/latest/reference/ec2/stop-instances.md "../../../cli/latest/reference/ec2/stop-instances.md") (AWS CLI) or [Stop-EC2Instance](../../../powershell/latest/reference/items/Stop-EC2Instance.md "../../../powershell/latest/reference/items/Stop-EC2Instance.md") (AWS Tools for Windows PowerShell).
 5.  Enable ENA support on your instance as follows:
+
     1.  From your local computer, check the EC2 instance ENA support
         attribute on your instance by running one of the following commands.
         If the attribute is not enabled, the output will be "[]" or blank.
         `EnaSupport` is set to `false` by
         default.
+
         - [describe-instances](../../../cli/latest/reference/ec2/describe-instances.md "../../../cli/latest/reference/ec2/describe-instances.md")
           (AWS CLI)
 
         ```
         aws ec2 describe-instances --instance-ids `i-1234567890abcdef0` --query "Reservations[].Instances[].EnaSupport"
         ```
-
         - [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md")
           (Tools for Windows PowerShell)
 
@@ -450,6 +452,7 @@ parm:		   numa_node_override:Enable/Disable numa node override (0=disable)
     one of the following commands: [start-instances](../../../cli/latest/reference/ec2/start-instances.md "../../../cli/latest/reference/ec2/start-instances.md") (AWS CLI) or [Start-EC2Instance](../../../powershell/latest/reference/items/Start-EC2Instance.md "../../../powershell/latest/reference/items/Start-EC2Instance.md") (AWS Tools for Windows PowerShell).
 7.  On the instance, validate that the ENA driver is installed and enabled as
     follows:
+
     1. Right-click the network icon and choose **Open Network and
        Sharing Center**.
     2. Choose the Ethernet adapter (for example, **Ethernet

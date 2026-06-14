@@ -118,6 +118,7 @@ Console
    Dedicated Host Reservation**.
 3. On the **Find offerings** screen, do the
    following:
+
    1. For **Instance family**, select the
       instance family of the Dedicated Host for which to purchase the
       Dedicated Host Reservation.

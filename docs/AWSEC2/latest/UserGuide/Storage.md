@@ -47,7 +47,7 @@ storage options can be used independently or in combination to suit your require
 
 The following figure shows the relationship between these storage options and your instance.
 
-![Storage options for Amazon EC2](images/architecture_storage.png)
+![Storage options for Amazon EC2.](images/architecture_storage.png)
 
 ## AWS Storage pricing
 

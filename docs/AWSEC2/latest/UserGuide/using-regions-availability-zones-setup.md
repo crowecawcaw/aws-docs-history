@@ -19,7 +19,7 @@ you create an Amazon EC2 resource, you select the Region for the resource.
 2. From the navigation bar, choose the **Regions** selector and
    then choose the Region.
 
-![View your Regions](images/EC2_select_region.png) 3. The Regions selector includes all resources that are available for use in your
+![View your Regions.](images/EC2_select_region.png) 3. The Regions selector includes all resources that are available for use in your
 AWS account. Choose the underlined text near the bottom of the list to view
 the Regions that are not enabled for your account.
 

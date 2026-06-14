@@ -148,6 +148,7 @@ Confirmation`. Follow the directions to confirm your
    event pattern**.
 5. Choose **Next**.
 6. In the **Event pattern**, do the following:
+
    1. For **Event source**, choose **AWS
       services**.
    2. For **AWS service**, choose
@@ -157,6 +158,7 @@ Confirmation`. Follow the directions to confirm your
 
 7. Choose **Next**.
 8. For **Target 1**, do the following:
+
    1. For **Target types**, choose **AWS
       service**.
    2. For **Select a target**, choose **SNS

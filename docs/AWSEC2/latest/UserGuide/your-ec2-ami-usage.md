@@ -67,10 +67,12 @@ Console
    usage**.
 4. On the **Create my AMI usage report** page, do
    the following:
+
    1. For **Resource types**, select one or
       more resource types to report on.
    2. For **Account IDs**, do one of the
       following:
+
       - Choose **Specify accounts IDs**
         and then choose **Add account ID**
         for each account to report on.

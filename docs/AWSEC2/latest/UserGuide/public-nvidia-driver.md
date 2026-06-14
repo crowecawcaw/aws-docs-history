@@ -166,12 +166,12 @@ Remaining steps are the same for both RPM local and RPM network installation.
 5. (_P6-B200 and P6-B300 only_) These instance types
    require installation and configuration of additional packages that come bundled with
    the NVIDIA CUDA Toolkit.
+
    1. Install NVIDIA Link Subnet Manager and `ibstat`.
 
    ```
    `[ec2-user ~]$` sudo dnf install nvlink5
    ```
-
    2. Enable automatic loading of the Infiniband module on startup.
 
    ```
@@ -265,13 +265,13 @@ Remaining steps are the same for both local and network installation.
 5. (_P6-B200 and P6-B300 only_) These instance types
    require installation and configuration of additional packages that come bundled with
    the NVIDIA CUDA Toolkit.
+
    1. Install the latest InfiniBand-specific device driver and diagnostic utilities.
 
    ```
    `$` sudo apt install linux-modules-extra-$(uname -r) -y
    `$` sudo apt install infiniband-diags -y
    ```
-
    2. Install NVIDIA Link Subnet Manager.
 
    ```

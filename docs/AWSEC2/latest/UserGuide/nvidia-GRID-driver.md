@@ -134,6 +134,7 @@ driver and details about the GPUs.
 12. (Optional) Depending on your use case, you might complete the
     following optional steps. If you do not require this
     functionality, do not complete these steps.
+
     1.  To help take advantage of the four displays of up to
         4K resolution, set up the high-performance display
         protocol [Amazon DCV](../../../dcv.md "../../../dcv.md").
@@ -239,6 +240,7 @@ driver and details about the GPUs.
 12. (Optional) Depending on your use case, you might complete the
     following optional steps. If you do not require this
     functionality, do not complete these steps.
+
     1.  To help take advantage of the four displays of up to
         4K resolution, set up the high-performance display
         protocol [Amazon DCV](../../../dcv.md "../../../dcv.md").
@@ -279,6 +281,7 @@ driver and details about the GPUs.
 
 6. Disable the `nouveau` open source driver for NVIDIA
    graphics cards.
+
    1. Add `nouveau` to the
       `/etc/modprobe.d/blacklist.conf`
       blacklist file. Copy the following code block and paste
@@ -293,14 +296,12 @@ driver and details about the GPUs.
    blacklist rivatv
    EOF
    ```
-
    2. Edit the `/etc/default/grub` file
       and add the following line:
 
    ```
    GRUB_CMDLINE_LINUX="rdblacklist=nouveau"
    ```
-
    3. Rebuild the Grub configuration.
 
    ```
@@ -367,6 +368,7 @@ driver and details about the GPUs.
 13. (Optional) Depending on your use case, you might complete the
     following optional steps. If you do not require this
     functionality, do not complete these steps.
+
     1.  To help take advantage of the four displays of up to
         4K resolution, set up the high-performance display
         protocol [Amazon DCV](../../../dcv.md "../../../dcv.md").
@@ -470,6 +472,7 @@ driver and details about the GPUs.
 12. (Optional) Depending on your use case, you might complete the
     following optional steps. If you do not require this
     functionality, do not complete these steps.
+
     1.  To help take advantage of the four displays of up to
         4K resolution, set up the high-performance display
         protocol [Amazon DCV](../../../dcv.md "../../../dcv.md").
@@ -573,6 +576,7 @@ driver and details about the GPUs.
 12. (Optional) Depending on your use case, you might complete the
     following optional steps. If you do not require this
     functionality, do not complete these steps.
+
     1.  To help take advantage of the four displays of up to
         4K resolution, set up the high-performance display
         protocol [Amazon DCV](../../../dcv.md "../../../dcv.md").
@@ -626,6 +630,7 @@ driver and details about the GPUs.
 
 7. Disable the `nouveau` open source driver for NVIDIA
    graphics cards.
+
    1. Add `nouveau` to the
       `/etc/modprobe.d/blacklist.conf`
       blacklist file. Copy the following code block and paste
@@ -640,14 +645,12 @@ driver and details about the GPUs.
    blacklist rivatv
    EOF
    ```
-
    2. Edit the `/etc/default/grub` file
       and add the following line:
 
    ```
    GRUB_CMDLINE_LINUX="rdblacklist=nouveau"
    ```
-
    3. Rebuild the Grub configuration.
 
    ```
@@ -714,6 +717,7 @@ driver and details about the GPUs.
 14. (Optional) Depending on your use case, you might complete the
     following optional steps. If you do not require this
     functionality, do not complete these steps.
+
     1.  To help take advantage of the four displays of up to
         4K resolution, set up the high-performance display
         protocol [Amazon DCV](../../../dcv.md "../../../dcv.md").
@@ -797,6 +801,7 @@ reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\GridLicensing" /v NvCplDisableM
 5. (Optional) Depending on your use case, you might complete the
    following optional steps. If you do not require this functionality, do
    not complete these steps.
+
    1. To help take advantage of the four displays of up to 4K
       resolution, set up the high-performance display protocol, [Amazon DCV](../../../dcv.md "../../../dcv.md").
    2. NVIDIA Quadro Virtual Workstation mode is enabled by default.

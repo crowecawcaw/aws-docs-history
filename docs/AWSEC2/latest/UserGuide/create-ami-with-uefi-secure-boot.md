@@ -14,6 +14,7 @@ boot flow to use these procedures.
 ###### Prerequisites
 
 - The following tools will be used:
+
   - OpenSSL – [https://www.openssl.org/](https://www.openssl.org/ "https://www.openssl.org/")
   - efivar – [https://github.com/rhboot/efivar](https://github.com/rhboot/efivar "https://github.com/rhboot/efivar")
   - efitools – [https://git.kernel.org/pub/scm/linux/kernel/git/jejb/efitools.git/](https://git.kernel.org/pub/scm/linux/kernel/git/jejb/efitools.git/ "https://git.kernel.org/pub/scm/linux/kernel/git/jejb/efitools.git/")

@@ -69,6 +69,7 @@ so it doesn't cover all possible options.
    a descriptive name for your instance.
 5. Under **Application and OS Images (Amazon Machine Image)**,
    do the following:
+
    1. Choose **Quick Start**, and then choose the
       operating system (OS) for your instance. For your first Linux
       instance, we recommend that you choose Amazon Linux.
@@ -240,6 +241,7 @@ For more information, see [Localized Names for Administrator Account in Windows]
 6. Enter the password that you saved previously, and then choose **OK**.
 7. Due to the nature of self-signed certificates, you might get a warning that the security certificate could not be authenticated.
    Do one of the following:
+
    - If you trust the certificate, choose **Yes** to connect to your instance.
    - [Windows] Before you proceed, compare the thumbprint of the certificate with the value in the system log to confirm the identity of the remote computer.
      Choose **View certificate** and then choose **Thumbprint** from the **Details** tab.

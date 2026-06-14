@@ -40,7 +40,7 @@ The following diagram illustrates how tagging works. In this example, you've ass
 tags to each of your instances—one tag with the key `Owner` and
 another with the key `Stack`. Each tag also has an associated value.
 
-![Tag example](images/Tag_Example.png)
+![Tag example.](images/Tag_Example.png)
 
 We recommend that you devise a set of tag keys that meets your needs for each resource type.
 Using a consistent set of tag keys makes it easier for you to manage your resources. You can
@@ -110,6 +110,7 @@ The following basic restrictions apply to tags:
 - Maximum key length – 128 Unicode characters in UTF-8
 - Maximum value length – 256 Unicode characters in UTF-8
 - Allowed characters
+
   - Although EC2 allows for any character in its tags, other AWS services are more restrictive.
     The allowed characters across all AWS services are: letters (`a-z`,
     `A-Z`), numbers (`0-9`), and spaces

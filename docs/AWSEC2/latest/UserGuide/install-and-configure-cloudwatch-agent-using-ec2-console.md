@@ -84,6 +84,7 @@ JSON
 - Instance state: `running`
 - Supported operating system: Linux
 - AWS Systems Manager Agent (SSM Agent): Installed. Two notes about SSM Agent:
+
   - SSM Agent is preinstalled on some Amazon Machine Images (AMIs) provided by AWS and
     trusted third-parties. For information about the supported AMIs and the
     instructions for installing SSM Agent, see [Amazon Machine

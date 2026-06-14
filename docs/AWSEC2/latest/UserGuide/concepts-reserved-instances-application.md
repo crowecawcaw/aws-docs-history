@@ -156,7 +156,7 @@ value of $121.32.
    Instances**.
 3. To display the **Upfront price** column, choose
    settings (
-   ![Settings icon.](images/settings-icon.png)
+   ![](images/settings-icon.png)
    ) in the top-right corner, turn on
    **Upfront price**, and choose
    **Confirm**.

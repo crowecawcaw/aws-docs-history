@@ -81,6 +81,7 @@ email, text message, or mobile push notification.
 2.  Choose **Create rule**.
 3.  For **Define rule detail**, do the
     following:
+
     1. Enter a **Name** for the rule, and,
        optionally, a description.
 
@@ -93,6 +94,7 @@ email, text message, or mobile push notification.
 
 4.  For **Build event pattern**, do the
     following:
+
     1. For **Event source**, choose
        **AWS events or EventBridge partner
        events**.
@@ -137,11 +139,11 @@ email, text message, or mobile push notification.
         	2. In the **Event pattern**
         	 box, add the event pattern for this
         	 example.
-
     3. Choose **Next**.
 
 5.  For **Select target(s)**, do the
     following:
+
     1. For **Target types**, choose
        **AWS service**.
     2. For **Select a target**, choose
@@ -164,6 +166,7 @@ email, text message, or mobile push notification.
     **Next**.
 7.  For **Review and create**, do the
     following:
+
     1. Review the details of the rule and modify them as
        necessary.
     2. Choose **Create rule**.
@@ -199,6 +202,7 @@ _AWS Lambda Developer Guide_.
 2.  Choose **Create rule**.
 3.  For **Define rule detail**, do the
     following:
+
     1. Enter a **Name** for the rule, and,
        optionally, a description.
 
@@ -211,6 +215,7 @@ _AWS Lambda Developer Guide_.
 
 4.  For **Build event pattern**, do the
     following:
+
     1. For **Event source**, choose
        **AWS events or EventBridge partner
        events**.
@@ -261,11 +266,11 @@ _AWS Lambda Developer Guide_.
         	2. In the **Event pattern**
         	 box, add the event pattern for this
         	 example.
-
     3. Choose **Next**.
 
 5.  For **Select target(s)**, do the
     following:
+
     1. For **Target types**, choose
        **AWS service**.
     2. For **Select a target**, choose
@@ -287,6 +292,7 @@ _AWS Lambda Developer Guide_.
     **Next**.
 7.  For **Review and create**, do the
     following:
+
     1. Review the details of the rule and modify them as
        necessary.
     2. Choose **Create rule**.

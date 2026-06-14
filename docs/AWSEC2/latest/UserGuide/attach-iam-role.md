@@ -9,6 +9,7 @@ You can also replace or detach IAM roles.
 2. In the **IAM instance profile** section, choose
    **Create new IAM role**.
 3. An inline role creation form opens, allowing you to:
+
    - Specify **Role name** (for example, `EC2-S3-Access-Role`)
    - Define permissions by selecting AWS managed policies or creating custom
      policies for your instance

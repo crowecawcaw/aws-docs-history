@@ -436,11 +436,13 @@ The `initializeVolume` task performs the following actions.
 - Set disk attributes `offline` and `readonly` to false.
 - Create a partition. If no partition type is specified in the `partition`
   input parameter, the following defaults apply:
+
   - If the disk size is smaller than 2 TB, set the partition type to `mbr`.
   - If the disk size is 2 TB or larger, set the partition type to `gpt`.
 
 - Format the volume as NTFS.
 - Set the volume label as follows:
+
   - Use the value of the `name` input parameter, if specified.
   - If the volume is ephemeral, and no name was specified, set the volume label to
     `Temporary Storage Z`.
@@ -487,6 +489,7 @@ This is required if the `initialize` input parameter is set to
 - **partition (string, optional)** –
   Specify one of the following values for the type of partition
   to create, or let the launch agent default based on volume size:
+
   - mbr
   - gpt
 

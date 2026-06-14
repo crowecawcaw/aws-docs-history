@@ -10,6 +10,7 @@ You can create an EC2 Instance Connect Endpoint to allow secure connection to yo
 - **IP address types** – EC2 Instance Connect Endpoints
   support the following address types, which must be compatible with your
   subnet:
+
   - `ipv4` – Connect only to EC2 instances with private
     IPv4 addresses.
   - `dualstack` – Connect to EC2 instances with either
@@ -31,6 +32,7 @@ Console
 2. In the left navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint**, and then specify the endpoint
    settings as follows:
+
    1. (Optional) For **Name tag**, enter a name for the
       endpoint.
    2. For **Type**, choose **EC2

@@ -64,12 +64,12 @@ any shortcuts to the service.
 1. Launch and connect to your Windows instance.
 2. Start a Windows Command Prompt window.
 3. Run one of the following commands to delete the launch agent.
+
    - Run the following command to delete the EC2Launch or EC2Launch v2:
 
    ```
    `sc delete ec2launch`
    ```
-
    - Run the following command to delete the EC2Config service:
 
    ```

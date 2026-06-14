@@ -119,6 +119,7 @@ information, see [Additional seller requirements for paid products](../../../mar
    AWS credentials.
 2. On the **Manage Bank Account** page, provide the
    following information about the bank through to receive payment:
+
    - Bank account holder name
    - Routing number
    - Account number
@@ -200,6 +201,7 @@ The minimum allowed price in the Reserved Instance Marketplace is $0.00.
 - **Limits** – The following limits for
   selling Reserved Instances apply to the _lifetime_ of
   your AWS account. They are not annual limits and they can't be increased.
+
   - You can sell up to $50,000 in Reserved Instances.
   - You can sell up to 5,000 Reserved Instances.
 

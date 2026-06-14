@@ -134,6 +134,7 @@ to create the Capacity Reservation.
   tenancy), those instances automatically run in the Capacity Reservation.
 - Your request to create a Capacity Reservation could fail if one of the following is
   true:
+
   - Amazon EC2 does not have sufficient capacity to fulfill the
     request. Either try again at a later time, try a different
     Availability Zone, or try a smaller capacity. If your workload
@@ -204,6 +205,7 @@ the following options:
   instance_ – When you provide the ARN of a cluster placement group,
   Amazon EC2 launches the instance into that cluster placement group. You can use one of the
   following methods:
+
   - _Specifying `open`_ – You do not have
     to specify the Capacity Reservation in the instance launch request. If the instance has
     attributes (placement group ARN, instance type, Availability Zone, platform,
@@ -238,12 +240,14 @@ Console
    for the placement group and Capacity Reservation.
 2. Expand **Advanced details** and do the
    following:
+
    1. For **Placement group**, select
       the cluster placement group in which to launch the
       instance.
    2. For **Capacity Reservation**, choose one of the
       following options depending on the configuration of
       the Capacity Reservation:
+
       - **Open** – To launch
         the instances into any `open` Capacity Reservation in
         the cluster placement group that has matching

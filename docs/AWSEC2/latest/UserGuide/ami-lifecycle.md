@@ -56,6 +56,7 @@ Image Builder User Guide](../../../imagebuilder/latest/userguide/what-is-image-b
 - [Copy an AMI](CopyingAMIs.md "CopyingAMIs.md")
 - [Store and restore an AMI](ami-store-restore.md "ami-store-restore.md")
 - [AMI ancestry](ami-ancestry.md "ami-ancestry.md")
+- [AMI watermarks](ami-watermark.md "ami-watermark.md")
 - [AMI usage](ec2-ami-usage.md "ec2-ami-usage.md")
 - [Deprecate an AMI](ami-deprecate.md "ami-deprecate.md")
 - [Disable an AMI](disable-an-ami.md "disable-an-ami.md")

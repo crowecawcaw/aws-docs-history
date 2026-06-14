@@ -84,6 +84,7 @@ instance type.
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation panel, select **Instance Types**.
 3. Apply the following filters:
+
    - _Hypervisor = nitro_
    - _Dedicated Host support = true_
 

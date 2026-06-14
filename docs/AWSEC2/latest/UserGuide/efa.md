@@ -52,7 +52,8 @@ The EFA device provides capabilities like built-in OS-bypass and congestion cont
 the Scalable Reliable Datagram (SRD) protocol. The EFA device features enable low-latency,
 reliable transport functionality that allows EFA interface to provide better application
 performance for HPC and ML applications on Amazon EC2. While the ENA device offers traditional
-IP networking.
+IP networking. For guidance on which instance configuration to use based on your use case, see
+[Maximize network bandwidth](efa-acc-inst-types.md "efa-acc-inst-types.md").
 
 ![Contrasting a traditional HPC software stack with one that uses an EFA.](images/efa_stack.png)
 
@@ -115,7 +116,7 @@ EFAs support the following interfaces and libraries:
 All of the following instance types support EFA. Additionally, the tables
 indicate RDMA read and RDMA write support for the instance types.
 
-Nitro v6
+Nitro v6 (EFA v4)
 
 | Instance type              | RDMA read support | RDMA write support |
 | -------------------------- | ----------------- | ------------------ |
@@ -144,12 +145,24 @@ Nitro v6
 | m8id.metal-96xl            | Yes               | Yes                |
 | m8in.48xlarge              | Yes               | Yes                |
 | m8in.96xlarge              | Yes               | Yes                |
+| m8in.metal-48xl            | Yes               | Yes                |
+| m8in.metal-96xl            | Yes               | Yes                |
 | m8idn.48xlarge             | Yes               | Yes                |
 | m8idn.96xlarge             | Yes               | Yes                |
+| m8idn.metal-48xl           | Yes               | Yes                |
+| m8idn.metal-96xl           | Yes               | Yes                |
 | m8ib.48xlarge              | Yes               | Yes                |
 | m8ib.96xlarge              | Yes               | Yes                |
+| m8ib.metal-48xl            | Yes               | Yes                |
+| m8ib.metal-96xl            | Yes               | Yes                |
 | m8idb.48xlarge             | Yes               | Yes                |
 | m8idb.96xlarge             | Yes               | Yes                |
+| m8idb.metal-48xl           | Yes               | Yes                |
+| m8idb.metal-96xl           | Yes               | Yes                |
+| m9g.48xlarge               | Yes               | Yes                |
+| m9g.metal-48xl             | Yes               | Yes                |
+| m9gd.48xlarge              | Yes               | Yes                |
+| m9gd.metal-48xl            | Yes               | Yes                |
 | Compute Optimized          |
 | c8a.48xlarge               | Yes               | Yes                |
 | c8a.metal-48xl             | Yes               | Yes                |
@@ -202,12 +215,20 @@ Nitro v6
 | r8id.metal-96xl            | Yes               | Yes                |
 | r8in.48xlarge              | Yes               | Yes                |
 | r8in.96xlarge              | Yes               | Yes                |
+| r8in.metal-48xl            | Yes               | Yes                |
+| r8in.metal-96xl            | Yes               | Yes                |
 | r8idn.48xlarge             | Yes               | Yes                |
 | r8idn.96xlarge             | Yes               | Yes                |
+| r8idn.metal-48xl           | Yes               | Yes                |
+| r8idn.metal-96xl           | Yes               | Yes                |
 | r8ib.48xlarge              | Yes               | Yes                |
 | r8ib.96xlarge              | Yes               | Yes                |
+| r8ib.metal-48xl            | Yes               | Yes                |
+| r8ib.metal-96xl            | Yes               | Yes                |
 | r8idb.48xlarge             | Yes               | Yes                |
 | r8idb.96xlarge             | Yes               | Yes                |
+| r8idb.metal-48xl           | Yes               | Yes                |
+| r8idb.metal-96xl           | Yes               | Yes                |
 | x8aedz.24xlarge            | Yes               | Yes                |
 | x8aedz.metal-24xl          | Yes               | Yes                |
 | x8i.48xlarge               | Yes               | Yes                |
@@ -216,8 +237,8 @@ Nitro v6
 | x8i.metal-48xl             | Yes               | Yes                |
 | x8i.metal-96xl             | Yes               | Yes                |
 | Storage Optimized          |
-| i8ge.48xlarge              | Yes               | No                 |
-| i8ge.metal-48xl            | Yes               | No                 |
+| i8ge.48xlarge              | Yes               | Yes                |
+| i8ge.metal-48xl            | Yes               | Yes                |
 | Accelerated Computing      |
 | g7e.8xlarge                | Yes               | Yes                |
 | g7e.12xlarge               | Yes               | Yes                |
@@ -228,48 +249,48 @@ Nitro v6
 | High Performance Computing |
 | hpc8a.96xlarge             | Yes               | Yes                |
 
-Nitro v5
+Nitro v5 (EFA v3)
 
 | Instance type              | RDMA read support | RDMA write support |
 | -------------------------- | ----------------- | ------------------ |
 | General Purpose            |
-| m8g.24xlarge               | Yes               | No                 |
-| m8g.48xlarge               | Yes               | No                 |
-| m8g.metal-24xl             | Yes               | No                 |
-| m8g.metal-48xl             | Yes               | No                 |
-| m8gd.24xlarge              | No                | No                 |
-| m8gd.48xlarge              | No                | No                 |
-| m8gd.metal-24xl            | No                | No                 |
-| m8gd.metal-48xl            | No                | No                 |
+| m8g.24xlarge               | Yes               | Yes                |
+| m8g.48xlarge               | Yes               | Yes                |
+| m8g.metal-24xl             | Yes               | Yes                |
+| m8g.metal-48xl             | Yes               | Yes                |
+| m8gd.24xlarge              | Yes               | Yes                |
+| m8gd.48xlarge              | Yes               | Yes                |
+| m8gd.metal-24xl            | Yes               | Yes                |
+| m8gd.metal-48xl            | Yes               | Yes                |
 | Compute Optimized          |
 | c7gn.16xlarge              | Yes               | No                 |
 | c7gn.metal                 | Yes               | No                 |
-| c8g.24xlarge               | Yes               | No                 |
-| c8g.48xlarge               | Yes               | No                 |
-| c8g.metal-24xl             | Yes               | No                 |
-| c8g.metal-48xl             | Yes               | No                 |
-| c8gd.24xlarge              | No                | No                 |
-| c8gd.48xlarge              | No                | No                 |
-| c8gd.metal-24xl            | No                | No                 |
-| c8gd.metal-48xl            | No                | No                 |
+| c8g.24xlarge               | Yes               | Yes                |
+| c8g.48xlarge               | Yes               | Yes                |
+| c8g.metal-24xl             | Yes               | Yes                |
+| c8g.metal-48xl             | Yes               | Yes                |
+| c8gd.24xlarge              | Yes               | Yes                |
+| c8gd.48xlarge              | Yes               | Yes                |
+| c8gd.metal-24xl            | Yes               | Yes                |
+| c8gd.metal-48xl            | Yes               | Yes                |
 | Memory Optimized           |
-| r8g.24xlarge               | No                | No                 |
-| r8g.48xlarge               | No                | No                 |
-| r8g.metal-24xl             | No                | No                 |
-| r8g.metal-48xl             | No                | No                 |
-| r8gd.24xlarge              | No                | No                 |
-| r8gd.48xlarge              | No                | No                 |
-| r8gd.metal-24xl            | No                | No                 |
-| r8gd.metal-48xl            | No                | No                 |
-| x8g.24xlarge               | No                | No                 |
-| x8g.48xlarge               | No                | No                 |
-| x8g.metal-24xl             | No                | No                 |
-| x8g.metal-48xl             | No                | No                 |
+| r8g.24xlarge               | Yes               | Yes                |
+| r8g.48xlarge               | Yes               | Yes                |
+| r8g.metal-24xl             | Yes               | Yes                |
+| r8g.metal-48xl             | Yes               | Yes                |
+| r8gd.24xlarge              | Yes               | Yes                |
+| r8gd.48xlarge              | Yes               | Yes                |
+| r8gd.metal-24xl            | Yes               | Yes                |
+| r8gd.metal-48xl            | Yes               | Yes                |
+| x8g.24xlarge               | Yes               | Yes                |
+| x8g.48xlarge               | Yes               | Yes                |
+| x8g.metal-24xl             | Yes               | Yes                |
+| x8g.metal-48xl             | Yes               | Yes                |
 | Storage Optimized          |
-| i7ie.48xlarge              | Yes               | No                 |
-| i7ie.metal-48xl            | Yes               | No                 |
-| i8g.48xlarge               | No                | No                 |
-| i8g.metal-48xl             | No                | No                 |
+| i7ie.48xlarge              | Yes               | Yes                |
+| i7ie.metal-48xl            | Yes               | Yes                |
+| i8g.48xlarge               | Yes               | Yes                |
+| i8g.metal-48xl             | Yes               | Yes                |
 | Accelerated Computing      |
 | p5en.48xlarge              | Yes               | Yes                |
 | p6e-gb200.36xlarge         | Yes               | Yes                |
@@ -281,7 +302,7 @@ Nitro v5
 | hpc7g.8xlarge              | Yes               | No                 |
 | hpc7g.16xlarge             | Yes               | No                 |
 
-Nitro v4
+Nitro v4 (EFA v2)
 
 | Instance type              | RDMA read support | RDMA write support |
 | -------------------------- | ----------------- | ------------------ |
@@ -296,14 +317,14 @@ Nitro v4
 | m6idn.metal                | Yes               | Yes                |
 | m6in.32xlarge              | Yes               | Yes                |
 | m6in.metal                 | Yes               | Yes                |
-| m7a.48xlarge               | Yes               | No                 |
-| m7a.metal-48xl             | Yes               | No                 |
-| m7g.16xlarge               | Yes               | No                 |
-| m7g.metal                  | Yes               | No                 |
-| m7gd.16xlarge              | Yes               | No                 |
-| m7gd.metal                 | Yes               | No                 |
-| m7i.48xlarge               | Yes               | No                 |
-| m7i.metal-48xl             | Yes               | No                 |
+| m7a.48xlarge               | Yes               | Yes                |
+| m7a.metal-48xl             | Yes               | Yes                |
+| m7g.16xlarge               | Yes               | Yes                |
+| m7g.metal                  | Yes               | Yes                |
+| m7gd.16xlarge              | Yes               | Yes                |
+| m7gd.metal                 | Yes               | Yes                |
+| m7i.48xlarge               | Yes               | Yes                |
+| m7i.metal-48xl             | Yes               | Yes                |
 | Compute Optimized          |
 | c6a.48xlarge               | Yes               | Yes                |
 | c6a.metal                  | Yes               | Yes                |
@@ -314,14 +335,14 @@ Nitro v4
 | c6id.metal                 | Yes               | Yes                |
 | c6in.32xlarge              | Yes               | Yes                |
 | c6in.metal                 | Yes               | Yes                |
-| c7a.48xlarge               | Yes               | No                 |
-| c7a.metal-48xl             | Yes               | No                 |
+| c7a.48xlarge               | Yes               | Yes                |
+| c7a.metal-48xl             | Yes               | Yes                |
 | c7g.16xlarge               | Yes               | Yes                |
 | c7g.metal                  | Yes               | Yes                |
-| c7gd.16xlarge              | Yes               | No                 |
-| c7gd.metal                 | Yes               | No                 |
-| c7i.48xlarge               | Yes               | No                 |
-| c7i.metal-48xl             | Yes               | No                 |
+| c7gd.16xlarge              | Yes               | Yes                |
+| c7gd.metal                 | Yes               | Yes                |
+| c7i.48xlarge               | Yes               | Yes                |
+| c7i.metal-48xl             | Yes               | Yes                |
 | Memory Optimized           |
 | r6a.48xlarge               | Yes               | Yes                |
 | r6a.metal                  | Yes               | Yes                |
@@ -333,16 +354,16 @@ Nitro v4
 | r6idn.metal                | Yes               | Yes                |
 | r6in.32xlarge              | Yes               | Yes                |
 | r6in.metal                 | Yes               | Yes                |
-| r7a.48xlarge               | No                | No                 |
-| r7a.metal-48xl             | No                | No                 |
-| r7g.16xlarge               | No                | No                 |
-| r7g.metal                  | No                | No                 |
-| r7gd.16xlarge              | No                | No                 |
-| r7gd.metal                 | No                | No                 |
-| r7i.48xlarge               | No                | No                 |
-| r7i.metal-48xl             | No                | No                 |
-| r7iz.32xlarge              | No                | No                 |
-| r7iz.metal-32xl            | No                | No                 |
+| r7a.48xlarge               | Yes               | Yes                |
+| r7a.metal-48xl             | Yes               | Yes                |
+| r7g.16xlarge               | Yes               | Yes                |
+| r7g.metal                  | Yes               | Yes                |
+| r7gd.16xlarge              | Yes               | Yes                |
+| r7gd.metal                 | Yes               | Yes                |
+| r7i.48xlarge               | Yes               | Yes                |
+| r7i.metal-48xl             | Yes               | Yes                |
+| r7iz.32xlarge              | Yes               | Yes                |
+| r7iz.metal-32xl            | Yes               | Yes                |
 | u7i-6tb.112xlarge          | Yes               | Yes                |
 | u7i-8tb.112xlarge          | Yes               | Yes                |
 | u7i-12tb.224xlarge         | Yes               | Yes                |
@@ -358,9 +379,9 @@ Nitro v4
 | i4g.16xlarge               | Yes               | Yes                |
 | i4i.32xlarge               | Yes               | Yes                |
 | i4i.metal                  | Yes               | Yes                |
-| i7i.24xlarge               | Yes               | No                 |
-| i7i.48xlarge               | Yes               | No                 |
-| i7i.metal-48xl             | Yes               | No                 |
+| i7i.24xlarge               | Yes               | Yes                |
+| i7i.48xlarge               | Yes               | Yes                |
+| i7i.metal-48xl             | Yes               | Yes                |
 | im4gn.16xlarge             | Yes               | Yes                |
 | Accelerated Computing      |
 | f2.48xlarge                | Yes               | Yes                |
@@ -383,12 +404,12 @@ Nitro v4
 | High Performance Computing |
 | hpc6a.48xlarge             | Yes               | Yes                |
 | hpc6id.32xlarge            | Yes               | Yes                |
-| hpc7a.12xlarge             | Yes               | No                 |
-| hpc7a.24xlarge             | Yes               | No                 |
-| hpc7a.48xlarge             | Yes               | No                 |
-| hpc7a.96xlarge             | Yes               | No                 |
+| hpc7a.12xlarge             | Yes               | Yes                |
+| hpc7a.24xlarge             | Yes               | Yes                |
+| hpc7a.48xlarge             | Yes               | Yes                |
+| hpc7a.96xlarge             | Yes               | Yes                |
 
-Nitro v3
+Nitro v3 (EFA v1)
 
 | Instance type         | RDMA read support | RDMA write support |
 | --------------------- | ----------------- | ------------------ |
@@ -464,7 +485,6 @@ shows the supported operating systems.
 | Rocky Linux 8 and 9                    | ✓                                   | ✓                                     |
 | Ubuntu 22.04 and 24.04                 | ✓                                   | ✓                                     |
 | SUSE Linux Enterprise 15 SP2 and later | ✓                                   | ✓                                     |
-| OpenSUSE Leap 15.5 and later           | ✓                                   |                                       |
 
 ###### Note
 

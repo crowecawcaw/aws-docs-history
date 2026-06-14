@@ -184,7 +184,6 @@ resolve this issue.
       5. Select the key again, and from the
        **File** menu, choose **Unload
        Hive**.
-
   7.  (Optional) If your temporary instance is based on the same AMI that the original instance is based on,
       you must complete the following steps or you won't be able to boot the original instance after you
       restore its root volume because of a disk signature collision.
@@ -252,7 +251,6 @@ resolve this issue.
       ```
       `DISKPART>` uniqueid disk id=`E9EB3AA5`
       ```
-
   8.  Using the **Disk Management** utility, bring the
       drive offline.
 
@@ -412,6 +410,7 @@ Check for the following issues:
 - You've installed the Windows Remote Desktop Services role.
 - Licensing has expired. If the licensing has expired, you can't connect to
   your Windows instance as a user. You can try the following:
+
   - Connect to the instance from the command line using an
     `/admin` parameter, for example:
 

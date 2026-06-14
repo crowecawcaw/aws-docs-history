@@ -146,6 +146,7 @@ method works for instances with public and private IP addresses.
 ###### Requirements
 
 - Requirements for key pairs
+
   - Supported types: RSA (OpenSSH and SSH2) and ED25519
   - Supported lengths: 2048 and 4096
   - For more information, see [Create a key pair using a third-party tool and import the public key to Amazon EC2](create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws "create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws").

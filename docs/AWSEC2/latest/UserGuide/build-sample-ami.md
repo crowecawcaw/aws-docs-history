@@ -34,6 +34,7 @@ Your IAM identity must have the following permissions to complete this tutorial:
 1. Launch an Amazon EC2 instance using the latest AL2023 AMI. To ensure that your instance has enough storage space
    to build the AMI, ensure that you provision at least 12 GB of storage.
 2. Install the required dependencies. The following command installs the following utilities:
+
    - `kiwi-cli`
    - `veritysetup`
    - `erofs-utils`

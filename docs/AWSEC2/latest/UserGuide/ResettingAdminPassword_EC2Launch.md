@@ -52,6 +52,7 @@ can attach it to a temporary instance as a secondary volume.
    this instance, continue with the next step. Otherwise, use the following steps
    to replace the instance with a new instance that you launch with a new key
    pair.
+
    1. Create a new key pair using the Amazon EC2 console. To give your new key
       pair the same name as the one for which you lost the private key, you
       must first delete the existing key pair.
@@ -73,6 +74,7 @@ can attach it to a temporary instance as a secondary volume.
       instance.
 
 5. Detach the root volume from the original instance as follows:
+
    1. Select the original instance and choose the **Storage** tab.
       Note the name of the root device under **Root device name**.
       Find the volume with this device name under **Block devices**,
@@ -96,6 +98,7 @@ use to run EC2Launch.
 ###### To launch a temporary instance and attach the volume
 
 1. Launch the temporary instance as follows:
+
    1. In the navigation pane, choose **Instances**, choose **Launch instances**, and then select an AMI.
 
    ###### Important
@@ -121,6 +124,7 @@ use to run EC2Launch.
 
 2. Attach the volume to the temporary instance as a secondary volume as
    follows:
+
    1. In the navigation pane, choose **Volumes**, select the
       volume that you detached from the original instance, and then choose
       **Actions**, **Attach Volume**.
@@ -138,6 +142,7 @@ Next, connect to the temporary instance and use EC2Launch to reset the administr
 
 1. Connect to the temporary instance and use the EC2Rescue for Windows Server tool on
    the instance to reset the administrator password as follows:
+
    1. Download the [EC2Rescue for Windows Server](https://s3.amazonaws.com/ec2rescue/windows/EC2Rescue_latest.zip "https://s3.amazonaws.com/ec2rescue/windows/EC2Rescue_latest.zip") zip file, extract the contents, and
       run **EC2Rescue.exe**.
    2. On the **License Agreement** screen, read the license
@@ -168,6 +173,7 @@ Next, connect to the temporary instance and use EC2Launch to reset the administr
 
 2. Detach the secondary (`xvdf`) volume from the temporary instance as
    follows:
+
    1. In the navigation pane, choose **Instances** and
       select the temporary instance.
    2. On the **Storage** tab for the temporary instance, note
@@ -186,6 +192,7 @@ the root volume and connect to the instance using its key pair to retrieve the a
 ###### To restart the original instance
 
 1. Reattach the volume to the original instance as follows:
+
    1. In the navigation pane, choose **Volumes**, select the volume
       that you detached from the temporary instance, and then choose **Actions**,
       **Attach Volume**.

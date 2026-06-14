@@ -288,6 +288,7 @@ needed for each configuration.
 6. You can determine the status of your modification request by
    looking at the **State** column in the Reserved Instances
    screen. The following are the possible states.
+
    - **active _(pending
      modification)_** —
      Transition state for original Reserved Instances
@@ -299,6 +300,7 @@ needed for each configuration.
      successfully modified and replaced
    - **active** — One of
      the following:
+
      - New Reserved Instances created from a successful
        modification request
      - Original Reserved Instances after a failed modification

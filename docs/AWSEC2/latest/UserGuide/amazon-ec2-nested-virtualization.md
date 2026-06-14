@@ -36,6 +36,7 @@ Before you begin using nested virtualization, consider the following:
   and Hyper-V are the supported L1 hypervisors.
 - **Windows instances** – When nested
   virtualization is enabled on a Windows instance:
+
   - **[Credential
     Guard](credential-guard.md "credential-guard.md")** – Virtual Secure Mode (VSM) is
     automatically disabled.
@@ -129,6 +130,7 @@ Console
 5. On the **Change CPU options** page, for
    **Nested virtualization**, choose one of the
    following options:
+
    - **Enable** – Turns on nested
      virtualization for the instance
    - **Disable** – Turns off nested

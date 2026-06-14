@@ -188,6 +188,7 @@ by using a third-party tool and then import the public key to Amazon EC2.
 ###### Requirements for key pairs
 
 - Supported types:
+
   - (Linux and Windows) RSA
   - (Linux only) ED25519
 
@@ -197,6 +198,7 @@ by using a third-party tool and then import the public key to Amazon EC2.
   - Amazon EC2 does not accept DSA keys.
 
 - Supported formats:
+
   - OpenSSH public key format (for Linux, the format in
     `~/.ssh/authorized_keys`)
   - (Linux only) If you connect using SSH while using the EC2 Instance Connect API, the
@@ -206,6 +208,7 @@ by using a third-party tool and then import the public key to Amazon EC2.
   - (RSA only) SSH public key file format as specified in [RFC 4716](https://www.ietf.org/rfc/rfc4716.txt "https://www.ietf.org/rfc/rfc4716.txt")
 
 - Supported lengths:
+
   - 1024, 2048, and 4096.
   - (Linux only) If you connect using SSH while using the EC2 Instance Connect API, the
     supported lengths are 2048 and 4096.

@@ -16,6 +16,7 @@ Use the instructions for the operating system of your instance or device.
 1. Edit `/etc/chrony.conf` (if you use chrony) or
    `/etc/ntp.conf` (if you use ntpd) using a text editor as
    follows:
+
    1. To prevent your instance or device from trying to mix smeared
       and non-smeared servers, remove or comment out lines starting
       with `server` except any existing connection to the
@@ -33,7 +34,6 @@ Use the instructions for the operating system of your instance or device.
    ```
    server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
    ```
-
    2. Add the following line to connect to the public Amazon Time Sync Service.
 
    ```
@@ -41,12 +41,12 @@ Use the instructions for the operating system of your instance or device.
    ```
 
 2. Restart the daemon using one of the following commands.
+
    - chrony
 
    ```
    sudo service chronyd force-reload
    ```
-
    - ntpd
 
    ```

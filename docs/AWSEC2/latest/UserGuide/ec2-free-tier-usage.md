@@ -101,6 +101,7 @@ follows:
 
 5. To avoid incurring further charges, delete any resources that are either incurring charges
    now, or will incur charges if you exceed your Free Tier limit usage.
+
    - For the instructions to delete your instance, see [Terminate Amazon EC2 instances](terminating-instances.md "terminating-instances.md").
    - To check if you have resources in other Regions that might be incurring charges, in the
      **EC2 Free Tier** box, choose **View Global

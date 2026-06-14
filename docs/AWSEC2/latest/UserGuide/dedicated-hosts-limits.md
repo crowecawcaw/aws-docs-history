@@ -84,6 +84,7 @@ instance types:
   the same instance family.
 - When mixing instance types, to maximize host utilization, we recommend
   launching larger instance types first followed by smaller instance types.
+
   - Depending on the combination and launch order of the instance
     types on a Dedicated Host, it may not be physically possible to
     maximize the utilization of the host. When mixing instance types

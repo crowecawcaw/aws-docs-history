@@ -33,6 +33,7 @@ Consider the following before making an AMI public.
   includes one of the following components, you can't make it public (but you
   can [share the AMI with specific
   AWS accounts](sharingamis-explicit.md "sharingamis-explicit.md")):
+
   - Encrypted volumes
   - Snapshots of encrypted volumes
   - Product codes

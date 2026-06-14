@@ -29,6 +29,7 @@ Console
    IPv6 addresses.
 5. Expand **Advanced settings**.
 6. For **IPv4 prefix delegation** do one of the following:
+
    - To automatically assign an IPv4 prefix, choose **Auto-assign**.
      For **Number of IPv4 prefixes**, enter the number
      of prefixes to assign.
@@ -37,6 +38,7 @@ Console
 
 7. For **IPv6 prefix delegation** do one of
    the following:
+
    - To automatically assign an IPv6 prefix, choose **Auto-assign**.
      For **Number of IPv6 prefixes**, enter the number
      of prefixes to assign.
@@ -177,6 +179,7 @@ Console
    prefixes, and choose **Actions**,
    **Manage prefixes**.
 4. For **IPv4 prefix delegation** do one of the following:
+
    - To automatically assign an IPv4 prefix, choose **Auto-assign**.
      For **Number of IPv4 prefixes**, enter the number
      of prefixes to assign.
@@ -184,6 +187,7 @@ Console
      Choose **Add new prefix** and enter the prefix.
 
 5. For **IPv6 prefix delegation** do one of the following:
+
    - To automatically assign an IPv6 prefix, choose **Auto-assign**.
      For **Number of IPv6 prefixes**, enter the number
      of prefixes to assign.

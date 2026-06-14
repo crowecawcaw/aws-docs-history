@@ -16,6 +16,7 @@ all OS versions. However, you can access these tools using any method that you p
 
 - Using the Windows logo key combination: `Windows` + `R`
 - Using the search bar:
+
   - Enter `run` in the search bar.
   - Select the **Run** application from the search results.
 
@@ -26,6 +27,7 @@ actions. There are several ways to do this, depending on your OS version and har
 
 - Using your mouse: right-click an item to bring up its context menu.
 - Using your keyboard:
+
   - Depending on your OS version, use `Shift` + `F10`,
     or `Ctrl` + `Shift` + `F10`.
   - If you have the context key on your keyboard (three horizontal lines
@@ -318,6 +320,7 @@ Follow these steps to update the ENA driver:
 4. Choose **Update Driver**. This opens the
    **Update Driver Software – Amazon Elastic
    Network Adapter** dialog box.
+
    1. On the **How do you want to search for driver software?**
       page, choose **Browse my computer for driver software**.
    2. On the **Browse for driver software on your computer** page,

@@ -13,6 +13,7 @@ This Systems Manager Run Command document performs the following tasks:
 
 - **Command**—The EC2Rescue for Windows Server action. The current
   allowed values are:
+
   - **ResetAccess**—Resets the local Administrator password.
     The local Administrator password of the current instance will be reset and the
     randomly generated password will be securely stored in Parameter Store as

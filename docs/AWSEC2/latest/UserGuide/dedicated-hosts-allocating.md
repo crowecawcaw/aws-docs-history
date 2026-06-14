@@ -24,6 +24,7 @@ Console
 4. Specify whether the Dedicated Host supports multiple instance sizes
    within the selected instance family, or a specific instance type
    only. Do one of the following.
+
    - To configure the Dedicated Host to support multiple instance
      types in the selected instance family, for
      **Support multiple instance

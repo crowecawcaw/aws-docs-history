@@ -135,6 +135,7 @@ runcmd:
 5. In the **Key pair** section, select an existing key pair or create a new
    one.
 6. In the **Network settings** section, do the following:
+
    1. Choose **Edit**.
    2. If you want to **mount an existing file
       system**, for **Subnet**, choose the file
@@ -153,6 +154,7 @@ runcmd:
    an existing file system or create a new one.
 
 7. In the **Storage** section, do the following:
+
    1. Configure the volumes as needed.
    2. Expand the **File systems** section and select **FSx**.
    3. Choose **Add shared file system**.

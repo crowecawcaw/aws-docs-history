@@ -39,6 +39,7 @@ incorrectly, the instance could become unreachable.
 1. Connect to your instance.
 2. Find the IP address, subnet mask, and default gateway addresses for the
    instance by performing the following steps:
+
    1. Run the following command in PowerShell:
 
    ```
@@ -101,7 +102,7 @@ incorrectly, the instance could become unreachable.
 If you set the IP address to any value other than the current IP address,
 you will lose connectivity to the instance.
 
-![IP Addresses](images/windows-ip-static.png)
+![IP Addresses.](images/windows-ip-static.png)
 
 You will lose RDP connectivity to the Windows instance for a few seconds while the
 instance converts from using DHCP to static addressing. The instance retains the same IP
@@ -137,9 +138,9 @@ prepare a second private IP address.
     private IP address in [Step 1: Configure static IP addressing in your instance](#step1 "#step1"), and then
     choose **Add**.
 
-![TCP/IP Address dialog box](images/windows-ip-add.png) 11. Verify the IP address settings and choose **OK**.
+![TCP/IP Address dialog box.](images/windows-ip-add.png) 11. Verify the IP address settings and choose **OK**.
 
-![IP Settings tab](images/windows-ip-advanced-tcpip.png) 12. Choose **OK**, **Close**. 13. To confirm that the secondary IP address has been added to the operating system, run
+![IP Settings tab.](images/windows-ip-advanced-tcpip.png) 12. Choose **OK**, **Close**. 13. To confirm that the secondary IP address has been added to the operating system, run
 the `ipconfig /all` command in PowerShell. Your output should
 resemble the following:
 
@@ -183,4 +184,4 @@ private IP address.
    address**, select the secondary private IP address. (By default, each website
    accepts HTTP requests from all IP addresses.)
 
-![IP Addresses](images/windows-ip-iis-site-binding.png) 7. Choose **OK**, **Close**.
+![IP Addresses.](images/windows-ip-iis-site-binding.png) 7. Choose **OK**, **Close**.

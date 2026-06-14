@@ -21,11 +21,13 @@ Console
 2. In the navigation pane, choose **Network Interfaces**.
 3. Select the checkbox for the network interface.
 4. To change the description, do the following
+
    1. Choose **Actions**, **Change description**.
    2. For **Description**, enter a description.
    3. Choose **Save**.
 
 5. To change the security groups, do the following:
+
    1. Choose **Actions**, **Change security groups**.
    2. For **Associated security groups**, add and remove security
       groups as needed. The security group and network interface must be created for
@@ -33,6 +35,7 @@ Console
    3. Choose **Save**.
 
 6. To change the termination behavior, do the following:
+
    1. Choose **Actions**, **Change
       termination behavior**.
    2. Select or clear **Delete on termination**,
@@ -40,6 +43,7 @@ Console
    3. Choose **Save**.
 
 7. To change source/destination checking, do the following:
+
    1. Choose **Actions**, **Change
       source/dest check**.
    2. Select or clear **Source/destination check**,
@@ -47,12 +51,15 @@ Console
    3. Choose **Save**.
 
 8. To change idle connection tracking timeouts, do the following:
+
    1. Choose **Actions**,
       **Modify idle connection tracking timeout**.
    2. Modify timeout values as needed. For more information, see
       [Idle connection tracking timeout](security-group-connection-tracking.md#connection-tracking-timeouts "security-group-connection-tracking.md#connection-tracking-timeouts").
+
       - **TCP established timeout**: Timeout (in seconds) for idle TCP
         connections in an established state.
+
         - Min: `60` seconds
         - Max: `432000` seconds
         - Default: `350` seconds for [Nitro v6](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md")
@@ -61,12 +68,14 @@ Console
 
       - **UDP timeout**: Timeout (in seconds) for idle UDP flows that
         have seen traffic only in a single direction or a single request-response transaction.
+
         - Min: `30` seconds
         - Max: `60` seconds
         - Default: `30` seconds
 
       - **UDP stream timeout**: Timeout (in seconds) for idle UDP flows
         classified as streams which have seen more than one request-response transaction.
+
         - Min: `60` seconds
         - Max: `180` seconds
         - Default: `180` seconds

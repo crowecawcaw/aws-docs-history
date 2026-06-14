@@ -63,6 +63,7 @@ launch an instance.
 4. Choose the **Storage** tab.
 5. Under **Block devices**, scroll right to check the
    **Delete on termination** column.
+
    - If **Yes**, the volume is deleted when the
      instance is terminated.
    - If **No**, the volume is not be deleted when the

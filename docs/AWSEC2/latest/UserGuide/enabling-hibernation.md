@@ -27,6 +27,7 @@ Console
     completed the following steps to enable hibernation.
 2.  To enable hibernation, configure the following fields in the
     launch instance wizard:
+
     1.  Under **Application and OS Images (Amazon
         Machine Image)**, select an AMI that
         supports hibernation. For more information, see [AMIs](hibernating-prerequisites.md#hibernation-prereqs-supported-amis "hibernating-prerequisites.md#hibernation-prereqs-supported-amis").
@@ -167,6 +168,7 @@ Console
     hibernation.
 2.  To enable hibernation, configure the following fields in the
     launch instance wizard:
+
     1.  Under **Application and OS Images (Amazon
         Machine Image)**, select an AMI that
         supports hibernation. For more information, see [AMIs](hibernating-prerequisites.md#hibernation-prereqs-supported-amis "hibernating-prerequisites.md#hibernation-prereqs-supported-amis").
@@ -199,6 +201,7 @@ Console
     4.  Expand **Advanced details**, and, in
         addition to the fields for configuring a Spot Instance, do the
         following:
+
         1. For **Request
            type**, choose
            **Persistent**.

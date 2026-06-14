@@ -97,24 +97,22 @@ EOF
 ```
 
 11. Use the following command to download and rename the certification file.
+
     - For version 590.48 or later:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-
     - For version 460.39 to 580.95:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
     ```
-
     - For version 440.68 to 445.48:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert-Linux_2020_04.cert"
     ```
-
     - For earlier versions:
 
     ```
@@ -237,24 +235,22 @@ EOF
 
 11. Use the following command to download and rename the
     certification file.
+
     - For version 590.48 or later:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-
     - For version 460.39 to 580.95:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
     ```
-
     - For version 440.68 to 445.48:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert-Linux_2020_04.cert"
     ```
-
     - For earlier versions:
 
     ```
@@ -324,6 +320,7 @@ In the output, search for `vGPU Software Licensed Product`. 15. (Optional) To he
 
 6. Disable the `nouveau` open source driver for NVIDIA
    graphics cards.
+
    1. Add `nouveau` to the
       `/etc/modprobe.d/blacklist.conf`
       blacklist file. Copy the following code block and paste
@@ -338,14 +335,12 @@ In the output, search for `vGPU Software Licensed Product`. 15. (Optional) To he
    blacklist rivatv
    EOF
    ```
-
    2. Edit the `/etc/default/grub` file
       and add the following line:
 
    ```
    GRUB_CMDLINE_LINUX="rdblacklist=nouveau"
    ```
-
    3. Rebuild the Grub configuration.
 
    ```
@@ -400,24 +395,22 @@ EOF
 
 12. Use the following command to download and rename the
     certification file.
+
     - For version 590.48 or later:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-
     - For version 460.39 to 580.95:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
     ```
-
     - For version 440.68 to 445.48:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert-Linux_2020_04.cert"
     ```
-
     - For earlier versions:
 
     ```
@@ -528,24 +521,22 @@ EOF
 
 11. Use the following command to download and rename the
     certification file.
+
     - For version 590.48 or later:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-
     - For version 460.39 to 580.95:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
     ```
-
     - For version 440.68 to 445.48:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert-Linux_2020_04.cert"
     ```
-
     - For earlier versions:
 
     ```
@@ -655,24 +646,22 @@ EOF
 
 11. Use the following command to download and rename the
     certification file.
+
     - For version 590.48 or later:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-
     - For version 460.39 to 580.95:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
     ```
-
     - For version 440.68 to 445.48:
 
     ```
     `[ec2-user ~]$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert-Linux_2020_04.cert"
     ```
-
     - For earlier versions:
 
     ```
@@ -743,6 +732,7 @@ EOF
 
 7. Disable the `nouveau` open source driver for NVIDIA
    graphics cards.
+
    1. Add `nouveau` to the
       `/etc/modprobe.d/blacklist.conf`
       blacklist file. Copy the following code block and paste
@@ -757,14 +747,12 @@ EOF
    blacklist rivatv
    EOF
    ```
-
    2. Edit the `/etc/default/grub` file
       and add the following line:
 
    ```
    GRUB_CMDLINE_LINUX="rdblacklist=nouveau"
    ```
-
    3. Rebuild the Grub configuration.
 
    ```
@@ -819,24 +807,22 @@ EOF
 
 13. Use the following command to download and rename the
     certification file.
+
     - For version 590.48 or later:
 
     ```
     `$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert"
     ```
-
     - For version 460.39 to 580.95:
 
     ```
     `$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertLinux_2024_02_22.cert"
     ```
-
     - For version 440.68 to 445.48:
 
     ```
     `$` sudo curl -o /etc/nvidia/GridSwCert.txt "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert-Linux_2020_04.cert"
     ```
-
     - For earlier versions:
 
     ```
@@ -987,24 +973,22 @@ reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global" /v vGamingMarketplace /t REG_D
    `GridSwCert.txt`, and moves the file to the Public
    Documents folder on your system drive. Typically, the folder path is
    `C:\Users\Public\Documents`.
+
    - For version 591.59 or later:
 
    ```
    Invoke-WebRequest -Uri "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert_2026_03_02.cert" -OutFile "$Env:PUBLIC\Documents\GridSwCert.txt"
    ```
-
    - For version 460.39 to 581.80:
 
    ```
    Invoke-WebRequest -Uri "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCertWindows_2024_02_22.cert" -OutFile "$Env:PUBLIC\Documents\GridSwCert.txt"
    ```
-
    - For version 445.87:
 
    ```
    Invoke-WebRequest -Uri "https://nvidia-gaming.s3.amazonaws.com/GridSwCert-Archive/GridSwCert-Windows_2020_04.cert" -OutFile "$Env:PUBLIC\Documents\GridSwCert.txt"
    ```
-
    - For earlier versions:
 
    ````

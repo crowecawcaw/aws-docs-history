@@ -164,6 +164,8 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8in.32xlarge`     | 32                               | 128                              | 512                             |
 | `m8in.48xlarge`     | 32                               | 128                              | 768                             |
 | `m8in.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| `m8in.metal-48xl`   | 32                               | 128                              | 768                             |
+| `m8in.metal-96xl`   | 32                               | 128                              | 1536 \*                         |
 | **M8idn**           |
 | `m8idn.large`       | 2                                | 2                                | 8                               |
 | `m8idn.xlarge`      | 4                                | 4                                | 16                              |
@@ -176,6 +178,8 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8idn.32xlarge`    | 32                               | 128                              | 512                             |
 | `m8idn.48xlarge`    | 32                               | 128                              | 768                             |
 | `m8idn.96xlarge`    | 32                               | 128                              | 1536 \*                         |
+| `m8idn.metal-48xl`  | 32                               | 128                              | 768                             |
+| `m8idn.metal-96xl`  | 32                               | 128                              | 1536 \*                         |
 | **M8ine**           |
 | `m8ine.large`       | 2                                | 2                                | 8                               |
 | `m8ine.xlarge`      | 4                                | 4                                | 16                              |
@@ -195,6 +199,8 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8ib.32xlarge`     | 32                               | 128                              | 512                             |
 | `m8ib.48xlarge`     | 32                               | 128                              | 768                             |
 | `m8ib.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| `m8ib.metal-48xl`   | 32                               | 128                              | 768                             |
+| `m8ib.metal-96xl`   | 32                               | 128                              | 1536 \*                         |
 | **M8idb**           |
 | `m8idb.large`       | 2                                | 2                                | 8                               |
 | `m8idb.xlarge`      | 4                                | 4                                | 16                              |
@@ -207,6 +213,32 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8idb.32xlarge`    | 32                               | 128                              | 512                             |
 | `m8idb.48xlarge`    | 32                               | 128                              | 768                             |
 | `m8idb.96xlarge`    | 32                               | 128                              | 1536 \*                         |
+| `m8idb.metal-48xl`  | 32                               | 128                              | 768                             |
+| `m8idb.metal-96xl`  | 32                               | 128                              | 1536 \*                         |
+| **M9g**             |
+| `m9g.medium`        | 1                                | 1                                | 2                               |
+| `m9g.large`         | 2                                | 2                                | 6                               |
+| `m9g.xlarge`        | 4                                | 4                                | 16                              |
+| `m9g.2xlarge`       | 8                                | 8                                | 32                              |
+| `m9g.4xlarge`       | 8                                | 16                               | 64                              |
+| `m9g.8xlarge`       | 8                                | 32                               | 128                             |
+| `m9g.12xlarge`      | 16                               | 64                               | 192                             |
+| `m9g.16xlarge`      | 16                               | 64                               | 256                             |
+| `m9g.24xlarge`      | 16                               | 128                              | 384                             |
+| `m9g.48xlarge`      | 32                               | 128                              | 768                             |
+| `m9g.metal-48xl`    | 32                               | 128                              | 768                             |
+| **M9gd**            |
+| `m9gd.medium`       | 1                                | 1                                | 2                               |
+| `m9gd.large`        | 2                                | 2                                | 6                               |
+| `m9gd.xlarge`       | 4                                | 4                                | 16                              |
+| `m9gd.2xlarge`      | 8                                | 8                                | 32                              |
+| `m9gd.4xlarge`      | 8                                | 16                               | 64                              |
+| `m9gd.8xlarge`      | 8                                | 32                               | 128                             |
+| `m9gd.12xlarge`     | 16                               | 64                               | 192                             |
+| `m9gd.16xlarge`     | 16                               | 64                               | 256                             |
+| `m9gd.24xlarge`     | 16                               | 128                              | 384                             |
+| `m9gd.48xlarge`     | 32                               | 128                              | 768                             |
+| `m9gd.metal-48xl`   | 32                               | 128                              | 768                             |
 
 ###### Note
 
@@ -494,6 +526,8 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `r8in.32xlarge`     | 32                               | 128                              | 512                             |
 | `r8in.48xlarge`     | 32                               | 128                              | 768                             |
 | `r8in.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| `r8in.metal-48xl`   | 32                               | 128                              | 768                             |
+| `r8in.metal-96xl`   | 32                               | 128                              | 1536 \*                         |
 | **R8idn**           |
 | `r8idn.large`       | 2                                | 2                                | 8                               |
 | `r8idn.xlarge`      | 4                                | 4                                | 16                              |
@@ -506,6 +540,8 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `r8idn.32xlarge`    | 32                               | 128                              | 512                             |
 | `r8idn.48xlarge`    | 32                               | 128                              | 768                             |
 | `r8idn.96xlarge`    | 32                               | 128                              | 1536 \*                         |
+| `r8idn.metal-48xl`  | 32                               | 128                              | 768                             |
+| `r8idn.metal-96xl`  | 32                               | 128                              | 1536 \*                         |
 | **R8ib**            |
 | `r8ib.large`        | 2                                | 2                                | 8                               |
 | `r8ib.xlarge`       | 4                                | 4                                | 16                              |
@@ -518,6 +554,8 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `r8ib.32xlarge`     | 32                               | 128                              | 512                             |
 | `r8ib.48xlarge`     | 32                               | 128                              | 768                             |
 | `r8ib.96xlarge`     | 32                               | 128                              | 1536 \*                         |
+| `r8ib.metal-48xl`   | 32                               | 128                              | 768                             |
+| `r8ib.metal-96xl`   | 32                               | 128                              | 1536 \*                         |
 | **R8idb**           |
 | `r8idb.large`       | 2                                | 2                                | 8                               |
 | `r8idb.xlarge`      | 4                                | 4                                | 16                              |
@@ -530,6 +568,8 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `r8idb.32xlarge`    | 32                               | 128                              | 512                             |
 | `r8idb.48xlarge`    | 32                               | 128                              | 768                             |
 | `r8idb.96xlarge`    | 32                               | 128                              | 1536 \*                         |
+| `r8idb.metal-48xl`  | 32                               | 128                              | 768                             |
+| `r8idb.metal-96xl`  | 32                               | 128                              | 1536 \*                         |
 | **X8aedz**          |
 | `x8aedz.large`      | 2                                | 2                                | 8                               |
 | `x8aedz.xlarge`     | 4                                | 4                                | 16                              |

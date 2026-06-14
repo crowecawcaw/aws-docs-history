@@ -29,6 +29,7 @@ If you need more than the default quota for AMIs, you can request a quota increa
 2. In the navigation pane, choose **AWS services**.
 3. Choose **Amazon Elastic Compute Cloud (Amazon EC2)** from the list, or type the name of the service in the search box.
 4. Choose the AMI quota to request an increase. The AMI quotas you can select are:
+
    - AMIs
    - Public AMIs
    - AMI sharing

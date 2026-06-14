@@ -113,7 +113,7 @@ introduced these components using the analogy of a rental house. Now, we'll focu
 the actual EC2 components themselves. The numbered labels correspond to the
 descriptions that follow.
 
-![A technical diagram of an EC2 instance with a security group, key pair, and EBS root volume, surrounded by a public subnet, a VPC, and the AWS Cloud.](images/tutorial-test-instance.png)
+![EC2 instance with a security group, key pair, and EBS volume in a public subnet within a VPC.](images/tutorial-test-instance.png)
 
 1. AMI – The AMI is the image you
    choose when launching an instance. It's a template that contains the

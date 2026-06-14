@@ -64,6 +64,7 @@ Console
 4. On the **Details** tab (if you selected the
    checkbox) or in the summary area (if you selected the instance ID),
    find the **Managed** field.
+
    - A value of **true** indicates a managed
      instance.
    - A value of **false** indicates a
@@ -212,6 +213,7 @@ Console
 4. Choose **Modify**.
 5. Under **Default visibility**, choose one
    of the following options:
+
    - **Hidden (default)** – Hides
      all managed resources.
    - **Visible** – Shows all

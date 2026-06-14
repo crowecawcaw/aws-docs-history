@@ -209,6 +209,7 @@ The following is example output.
 
 2.  Create a JSON configuration file using the output from the previous step,
     and configure it as follows:
+
     1. For `TargetCapacity`, enter your desired Spot capacity
        in terms of the number of instances or vCPUs, or the amount of
        memory (MiB).

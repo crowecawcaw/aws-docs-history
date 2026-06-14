@@ -110,6 +110,7 @@ Console
 1. From the source Capacity Reservation details page, choose **Actions**. Then, **Edit
    interruptible Capacity Reservation**.
 2. For **Instances to allocate**, enter the new number:
+
    - Add more capacity to share
    - Reclaim capacity to your source Capacity Reservation
 

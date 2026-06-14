@@ -18,6 +18,7 @@ following benefits:
   and the maximum price per hour for your request exceeds the Spot price.
 - **Increase the availability of Spot Instances.** By using an
   EC2 Fleet of type `instant`, you can launch Spot Instances following [Spot best practices](spot-best-practices.md "spot-best-practices.md") with the resulting benefits:
+
   - **Spot best practice: Be flexible about instance types and
     Availability Zones.**
 
@@ -69,6 +70,7 @@ follows:
    instances at any time.
 6. **Delete fleet request:** The fleet request can
    be deleted either manually or automatically:
+
    - Manual: You can [delete the fleet
      request](delete-fleet.md "delete-fleet.md") after your instances launch.
 
@@ -79,6 +81,7 @@ follows:
    terminate most of the instances manually, leaving 1000 or fewer. Then delete
    the fleet, and the remaining instances will be terminated automatically.
    - Automatic: Amazon EC2 deletes the fleet request some time after either:
+
      - All the instances are terminated.
      - The fleet fails to launch any instances.
 

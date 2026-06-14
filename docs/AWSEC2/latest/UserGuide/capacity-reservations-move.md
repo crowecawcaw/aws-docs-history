@@ -13,6 +13,7 @@ As a prerequisite, the two Capacity Reservations must meet the following require
 - Both reservations must be owned by your AWS account. You cannot move
   capacity between reservations owned by different AWS accounts.
 - Both reservations must have the same:
+
   - Instance type
   - Platform
   - Availability Zone

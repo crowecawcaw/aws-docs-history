@@ -43,6 +43,7 @@ profile registry keys for a deleted user.
 **Option 2**
 
 1. Edit the relevant file, as follows:
+
    - Windows Server 2012 R2 and earlier – Edit the EC2Config answer file
      (`C:\Program
 Files\Amazon\Ec2ConfigService\sysprep2008.xml`).

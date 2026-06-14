@@ -39,6 +39,7 @@ Here are some things to consider when creating a VPC for your EC2 instances.
   required by your application or network.
 - To ensure high availability, create subnets in multiple Availability Zones.
 - If your instances must be accessible from the internet, do one of the following:
+
   - If your instances can be in a public subnet, add public subnets. Keep
     both DNS options enabled. You can optionally add private subnets
     now or later on.

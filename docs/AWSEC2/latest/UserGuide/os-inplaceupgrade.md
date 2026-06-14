@@ -13,6 +13,7 @@ begin your in-place upgrade.
 - Read the Microsoft documentation to understand the upgrade requirements,
   known issues, and restrictions. Also review the official instructions for
   upgrading.
+
   - [Upgrade Options for Windows Server 2012](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574204(v=ws.11)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574204(v=ws.11)")
   - [Upgrade Options for Windows Server 2012 R2](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303416(v=ws.11)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303416(v=ws.11)")
   - [Upgrade and conversion options for Windows Server 2016 and above](https://learn.microsoft.com/en-us/windows-server/get-started/install-upgrade-migrate "https://learn.microsoft.com/en-us/windows-server/get-started/install-upgrade-migrate")
@@ -58,6 +59,7 @@ PV, Intel Network Adapter, or the Enhanced Networking network drivers.
    backup. For more information, see [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md "creating-an-ami-ebs.md").
 2. Ensure that your Windows Server instance is using the latest network
    drivers.
+
    1. To update your AWS PV driver, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
    2. To update your ENA driver, see
       [Install the ENA driver on EC2 Windows instances](ena-adapter-driver-install-upgrade-win.md "ena-adapter-driver-install-upgrade-win.md").
@@ -70,6 +72,7 @@ PV, Intel Network Adapter, or the Enhanced Networking network drivers.
    instance. You need this information later in this procedure.
 5. If you are upgrading from Windows Server 2012 or 2012 R2 to Windows Server
    2016 or later, perform the following on your instance before you proceed.
+
    1. Uninstall the EC2Config service. For more information, see [Windows Service administration for EC2Launch v2 and EC2Config agents](launch-agents-service-admin.md "launch-agents-service-admin.md").
    2. Install EC2Launch v1 or the EC2Launch v2 agent. For more information, see [Use the EC2Launch v1 agent to perform tasks during EC2 Windows instance launch](ec2launch.md "ec2launch.md") and [Use the EC2Launch v2 agent to perform tasks during EC2 Windows instance launch](ec2launch-v2.md "ec2launch-v2.md").
    3. Install the AWS Systems Manager SSM Agent. For more information, see
@@ -78,11 +81,13 @@ PV, Intel Network Adapter, or the Enhanced Networking network drivers.
 
 6. Create a new volume from a Windows Server installation media
    snapshot.
+
    1. In the left navigation pane, under **Elastic Block
       Store**, choose **Snapshots**.
    2. From the filter bar, choose **Public
       snapshots**.
    3. In the search bar, specify the following filters:
+
       - Choose **Owner Alias**, then
         **=**, then
         **amazon**.

@@ -84,6 +84,7 @@ Before you begin, consider the following.
 - You can configure an EC2 Instance Connect Endpoint to preserve the source IP addresses of
   clients when routing requests to the instances. Otherwise, the IP address of the
   network interface becomes the client IP address for all incoming traffic.
+
   - If you turn on client IP preservation, the security groups for the
     instances must allow traffic from the clients. Also, the instances must
     be in the same VPC as the EC2 Instance Connect Endpoint.

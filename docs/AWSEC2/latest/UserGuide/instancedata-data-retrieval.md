@@ -94,6 +94,7 @@ There is a 1024 packet per second (PPS) limit to services that use [link-local](
   upon retrieval. It is up to the instance to interpret and act on user data.
 - User data must be base64-encoded. Depending on the tool or SDK that you're using, the
   base64-encoding might be performed for you. For example:
+
   - The Amazon EC2 console can perform the base64-encoding for you or accept
     base64-encoded input.
   - [AWS CLI version 2](../../../cli/latest/userguide/cliv2-migration-changes.md#cliv2-migration-binaryparam "../../../cli/latest/userguide/cliv2-migration-changes.md#cliv2-migration-binaryparam") performs base64-encoding of binary parameters for you by default.
@@ -358,6 +359,7 @@ Console
 2. In the navigation pane, choose
    **Instances**.
 3. Select your instance and check the following fields:
+
    - **IMDSv2** – The value is either
      **Required** or
      **Optional**.

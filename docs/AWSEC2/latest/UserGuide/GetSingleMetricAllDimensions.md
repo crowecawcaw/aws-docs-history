@@ -31,7 +31,7 @@ statistics that include the data point.
    icon. To change the time range, select one of the predefined values or choose
    **custom**.
 
-![Metrics aggregated across your EC2 instances](images/metric_aggregated_instances.png) 5. To change the statistic or the period for the metric, choose the **Graphed
+![Metrics aggregated across your EC2 instances.](images/metric_aggregated_instances.png) 5. To change the statistic or the period for the metric, choose the **Graphed
 metrics** tab. Choose the column heading or an individual value, and then
 choose a different value.
 

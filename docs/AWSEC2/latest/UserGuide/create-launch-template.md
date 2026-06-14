@@ -44,6 +44,7 @@ Console
    launch template**.
 3. Under **Launch template name and
    description**, do the following:
+
    1. For **Launch template name**, enter a
       descriptive name for the launch template.
    2. For **Template version description**,
@@ -536,6 +537,7 @@ Console
 6.  In the **Specify custom value or Systems Manager
     parameter** dialog box, do the
     following:
+
     1. For **AMI ID or Systems Manager parameter
        string**, enter the Systems Manager parameter name
        using one of the following formats:
@@ -557,7 +559,6 @@ Console
         * `resolve:ssm:`parameter-ARN``
         * `resolve:ssm:`parameter-ARN`:`version-number``
         * `resolve:ssm:`parameter-ARN`:`label``
-
     2. Choose **Save**.
 
 7.  Specify any other launch template parameters as needed,

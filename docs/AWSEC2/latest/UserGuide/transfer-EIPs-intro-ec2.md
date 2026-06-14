@@ -82,6 +82,7 @@ Console
    **Enable transfer**.
 5. If you are transferring multiple Elastic IP addresses, you’ll see the **Transfer
    type** option. Choose one of the following options:
+
    - Choose **Single account** if you are transferring the Elastic IP addresses to
      a single AWS account.
    - Choose **Multiple accounts** if you are transferring the Elastic IP addresses

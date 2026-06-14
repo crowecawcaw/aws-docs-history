@@ -129,6 +129,7 @@ There are three configurable timeouts:
 
 - **TCP established timeout**: Timeout (in seconds) for idle TCP
   connections in an established state.
+
   - Min: `60` seconds
   - Max: `432000` seconds
   - Default: `350` seconds for [Nitro v6](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md")
@@ -137,12 +138,14 @@ There are three configurable timeouts:
 
 - **UDP timeout**: Timeout (in seconds) for idle UDP flows that
   have seen traffic only in a single direction or a single request-response transaction.
+
   - Min: `30` seconds
   - Max: `60` seconds
   - Default: `30` seconds
 
 - **UDP stream timeout**: Timeout (in seconds) for idle UDP flows
   classified as streams which have seen more than one request-response transaction.
+
   - Min: `60` seconds
   - Max: `180` seconds
   - Default: `180` seconds

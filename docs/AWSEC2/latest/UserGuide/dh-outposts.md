@@ -42,6 +42,7 @@ User Guide_.
 ## Supported features
 
 - The following instance families are supported:
+
   - **General purpose:** M5 | M5d | M7i | M8i
   - **Compute optimized:** C5 | C5d | C7i | C8i
   - **Memory optimized:** R5 | R5d | R7i | R8i

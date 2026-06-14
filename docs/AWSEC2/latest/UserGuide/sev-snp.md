@@ -54,6 +54,7 @@ information, see the [OVMF repository](https://github.com/tianocore/tianocore.gi
 To use AMD SEV-SNP, you must do the following:
 
 - Use one of the following supported instance types:
+
   - **General purpose**: `m6a.large` | `m6a.xlarge` | `m6a.2xlarge` | `m6a.4xlarge` | `m6a.8xlarge`
   - **Compute optimized**: `c6a.large` | `c6a.xlarge` | `c6a.2xlarge` | `c6a.4xlarge` | `c6a.8xlarge` | `c6a.12xlarge` | `c6a.16xlarge`
   - **Memory optimized**: `r6a.large` | `r6a.xlarge` | `r6a.2xlarge` | `r6a.4xlarge`

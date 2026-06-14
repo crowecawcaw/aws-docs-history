@@ -46,6 +46,7 @@ Console
    request**.
 5. In the **Cancel Spot request** dialog box, do the
    following:
+
    1. To terminate the associated instances at the same time as
       canceling the Spot Fleet request, leave the **Terminate
       instances** checkbox selected. To cancel the

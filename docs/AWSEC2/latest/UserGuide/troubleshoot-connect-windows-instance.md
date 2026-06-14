@@ -46,6 +46,7 @@ not work`, try typing them manually when prompted. It's possible
 - Verify that Windows Firewall, or other firewall software, is not blocking RDP traffic to
   the instance. We recommend that you disable Windows Firewall and control access
   to your instance using security group rules. Try one of the following options:
+
   - Use [AWSSupport-TroubleshootRDP](#AWSSupport-TroubleshootRDP "#AWSSupport-TroubleshootRDP") to [disable the Windows Firewall profiles using SSM Agent](#disable-firewall "#disable-firewall"). This option requires that the instance
     is configured for AWS Systems Manager.
   - Use [AWSSupport-ExecuteEC2Rescue](#AWSSupport-ExecuteEC2Rescue "#AWSSupport-ExecuteEC2Rescue").
@@ -331,6 +332,7 @@ you can use remote registry to enable Remote Desktop.
 8. For **Key Name**, enter a unique name for the hive and choose
    **OK**.
 9. Back up the registry hive before making any changes to the registry.
+
    1. In the Registry Editor console tree, select the hive that you loaded: **HKEY_LOCAL_MACHINE**\`your-key-name`.
    2. Choose **File**, **Export**.
    3. In the Export Registry File dialog box, choose the location to which you want to save the backup copy, and then type a name for the backup file in the **File name** field.

@@ -31,6 +31,7 @@ parent's parent, and so on, up to the root AMI. Here's how it works:
   parent AMI in sequence.
 - The list of ancestry entries traces back until it reaches the root AMI. The
   root AMI is one of the following:
+
   - A public AMI from a [verified
     provider](sharing-amis.md#verified-ami-provider "sharing-amis.md#verified-ami-provider") (identified by its owner alias, which is either
     `amazon` or `aws-marketplace`).
@@ -48,11 +49,13 @@ parent's parent, and so on, up to the root AMI. Here's how it works:
 - For AMIs created using [CreateImage](creating-an-ami-ebs.md#how-to-create-ebs-ami "creating-an-ami-ebs.md#how-to-create-ebs-ami") (creates an AMI from an instance), the source AMI ID is
   the ID of the AMI used to launch the instance.
 - The source AMI information is not available for:
+
   - AMIs created using [RegisterImage](creating-an-ami-ebs.md#creating-launching-ami-from-snapshot "creating-an-ami-ebs.md#creating-launching-ami-from-snapshot")
     because they were created from snapshots.
   - For some older AMIs.
 
 - The source AMI information is preserved when:
+
   - AMIs are copied across Regions.
   - Source AMIs are deregistered (deleted).
   - You don’t have access to the source AMIs.
@@ -74,6 +77,7 @@ Console
    tab.
 4. The **AMI ancestry entries** table lists all the
    AMIs in the ancestry list.
+
    - **AMI ID** – The identifier of
      each AMI in the ancestry list. The first entry in the table
      is the selected AMI, followed by its ancestors.
@@ -86,6 +90,7 @@ Console
      AWS Region where the source AMI is located.
    - **Ancestry level** – The position
      in the ancestry list, where:
+
      - **0 (input AMI)** indicates the
        selected AMI whose ancestry you want to know.
      - Increasing numbers show older ancestors.

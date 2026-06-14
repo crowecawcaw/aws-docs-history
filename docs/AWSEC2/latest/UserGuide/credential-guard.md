@@ -48,6 +48,7 @@ otherwise: `C5`, `C5d`, `C5n`, `C6i`,
 - Though NitroTPM has some required instance types in common, the instance type
   must be one of the preceding instance types to support Credential Guard.
 - Credential Guard isn't supported for:
+
   - Bare metal instances.
   - The following instance types: `C7i.48xlarge`, `M7i.48xlarge`, and `R7i.48xlarge`.
 

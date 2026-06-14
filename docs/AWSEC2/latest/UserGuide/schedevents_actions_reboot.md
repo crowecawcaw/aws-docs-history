@@ -6,6 +6,7 @@ the instance either stays on the same host, or migrates to a different host,
 depending on the event, as follows:
 
 - `instance-reboot` event
+
   - During the reboot, the instance remains on the host. This is known
     as an _in-place reboot_.
   - The current host undergoes maintenance.
@@ -35,10 +36,12 @@ following actions:
   can manually [reboot](ec2-instance-reboot.md "ec2-instance-reboot.md") the
   instance yourself at a time that suits you. However, the outcome depends
   on the event:
+
   - `instance-reboot` event – Your instance
     remains on the current hardware (in-place reboot), no host
     maintenance takes place, and the event stays open.
   - `system-reboot` event
+
     - If reboot migration is enabled on your instance, a
       user-initiated reboot attempts to migrate your instance
       to new hardware. If successful, the event is cleared. If
@@ -58,9 +61,11 @@ The following applies after AWS reboots your instance:
 - The scheduled event is cleared.
 - The event description is updated.
 - For an `instance-reboot` event:
+
   - Maintenance of the underlying host is complete.
 
 - For a `system-reboot` event:
+
   - The instance moves to a new host.
   - The instance retains its IP address and DNS name.
   - Any data on local instance store volumes is preserved.
@@ -75,6 +80,7 @@ scheduled maintenance window, you can do the following:
 
 - **For an instance with an EBS root
   volume**
+
   - Manually stop and start the instance to migrate it to a new host.
     This is not the same as manually rebooting the instance, where the
     instance stays on the same host.
@@ -90,6 +96,7 @@ stopped. For more information, see [Stop and start Amazon EC2 instances](Stop_St
 
 - **For an instance with an instance store root
   volume**
+
   1.  Launch a replacement instance from your most recent AMI.
   2.  Migrate all necessary data to the replacement instance before the
       scheduled maintenance window.

@@ -33,6 +33,7 @@ T3 instances launched on a Dedicated Host launch as `standard` by default;
 ###### Contents
 
 - [Unlimited mode concepts for burstable instances](burstable-performance-instances-unlimited-mode-concepts.md "burstable-performance-instances-unlimited-mode-concepts.md")
+
   - [How Unlimited burstable performance instances work](burstable-performance-instances-unlimited-mode-concepts.md#how-burstable-performance-instances-unlimited-works "burstable-performance-instances-unlimited-mode-concepts.md#how-burstable-performance-instances-unlimited-works")
   - [When to use unlimited mode versus fixed CPU](burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode "burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode")
   - [Surplus credits can incur charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits")
@@ -43,5 +44,6 @@ T3 instances launched on a Dedicated Host launch as `standard` by default;
   - [Monitor credit usage](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-monitoring-credit-usage "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-monitoring-credit-usage")
 
 - [Unlimited mode examples for burstable instances](unlimited-mode-examples.md "unlimited-mode-examples.md")
+
   - [Example 1: Explain credit use with T3 Unlimited](unlimited-mode-examples.md#t3_unlimited_example "unlimited-mode-examples.md#t3_unlimited_example")
   - [Example 2: Explain credit use with T2 Unlimited](unlimited-mode-examples.md#t2_unlimited_example "unlimited-mode-examples.md#t2_unlimited_example")

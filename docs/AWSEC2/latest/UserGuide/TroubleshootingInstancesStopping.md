@@ -145,6 +145,7 @@ Console
    templates**, **Create image**.
 4. On the **Create image** page, do the
    following:
+
    1. Enter a name and description for the AMI.
    2. Clear **Reboot instance**.
    3. Choose **Create image**.For more information, see [Create an AMI from an instance](creating-an-ami-ebs.md#how-to-create-ebs-ami "creating-an-ami-ebs.md#how-to-create-ebs-ami").

@@ -23,11 +23,11 @@ maximum CPU utilization of a specific EC2 instance.
    the pencil icon. To change the time range, select one of the predefined values or choose
    **custom**.
 
-![Graph a single metric](images/metric_statistics_ec2_instance.png) 6. To change the statistic or the period for the metric, choose the **Graphed
+![Graph a single metric.](images/metric_statistics_ec2_instance.png) 6. To change the statistic or the period for the metric, choose the **Graphed
 metrics** tab. Choose the column heading or an individual value, and then
 choose a different value.
 
-![Change the statistic or period for a metric](images/metric_statistics_ec2_instance_statistic_period.png)
+![Change the statistic or period for a metric.](images/metric_statistics_ec2_instance_statistic_period.png)
 
 ###### To get the CPU utilization for a specific instance (AWS CLI)
 

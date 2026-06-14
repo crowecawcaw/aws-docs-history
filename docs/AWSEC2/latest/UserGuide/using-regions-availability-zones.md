@@ -108,7 +108,7 @@ Availability Zones, and two of its Local Zones. The VPC spans the Availability Z
 one of the Local Zones. Each zone in the VPC has one subnet, and each subnet has an
 instance.
 
-![A VPC with Availability Zones and Local Zones.](images/region-with-lzs.png)
+![VPC with Availability Zones and Local Zones.](images/region-with-lzs.png)
 
 ### Available Local Zones
 
@@ -159,7 +159,7 @@ Availability Zones, and a Wavelength Zone. The VPC spans the Availability Zones 
 Wavelength Zone. Each zone in the VPC has one subnet, and each subnet has an
 instance.
 
-![A VPC with Availability Zones and a Wavelength Zone.](images/region-with-wavelength-zones.png)
+![VPC with Availability Zones and a Wavelength Zone.](images/region-with-wavelength-zones.png)
 
 Wavelength Zones are not available in every Region. For information about the Regions
 that support Wavelength Zones, see [Available Wavelength Zones](../../../wavelength/latest/developerguide/wavelength-quotas.md#concepts-available-zones "../../../wavelength/latest/developerguide/wavelength-quotas.md#concepts-available-zones") in the _AWS Wavelength Developer
@@ -198,7 +198,7 @@ Availability Zones, and an Outpost. The VPC spans the Availability Zones and the
 Outpost. The Outpost is in an on-premises customer data center. Each zone in the VPC has
 one subnet, and each subnet has an instance.
 
-![A VPC with Availability Zones and an Outpost.](images/region-with-outpost.png)
+![VPC with Availability Zones and an Outpost.](images/region-with-outpost.png)
 
 ### Instances on an Outpost
 

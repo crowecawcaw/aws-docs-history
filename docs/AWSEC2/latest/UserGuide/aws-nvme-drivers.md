@@ -58,12 +58,12 @@ version using the following procedure.
 1. Connect to your instance.
 2. Update your package cache to get necessary package updates as
    follows.
+
    - For Amazon Linux 2, Amazon Linux, CentOS, and Red Hat Enterprise Linux:
 
    ```
    `[ec2-user ~]$` `sudo yum update -y`
    ```
-
    - For Ubuntu and Debian:
 
    ```
@@ -113,6 +113,7 @@ must reboot it as the final step.
 
 1.  We recommend that you create an AMI as a backup as follows, in
     case you need to roll back your changes.
+
     1. When you stop an instance, the data on any instance
        store volumes is erased. Before you stop an instance,
        verify that you've copied any data that you need from
@@ -134,6 +135,7 @@ must reboot it as the final step.
     administrator.
 3.  Download the drivers to your instance using one of the
     following options:
+
     - Browser – [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip")
 
     the latest driver package to the
@@ -161,6 +163,7 @@ must reboot it as the final step.
     `nvme_driver` directory
     (`.\install.ps1`). If you get an error, make sure
     you are using PowerShell 3.0 or later.
+
     1. (Optional) Starting with AWS NVMe version
        `1.5.0`, Small Computer System Interface
        (SCSI) persistent reservations are supported for Windows
@@ -188,7 +191,6 @@ must reboot it as the final step.
     ```
     `PS C:\>` ``.\install.ps1` -EnableSCSIPersistentReservations $false`
     ```
-
     2. Starting with AWS NVMe `1.5.0`, the
        `install.ps1` script always
        installs the `ebsnvme-id` tool with the
@@ -247,10 +249,12 @@ NVMe driver package one time or with scheduled updates.
     must be formatted using valid JSON syntax. For examples of how
     to pass additional arguments for the `aws configure`
     package, see the [Command document plugin reference](../../../systems-manager/latest/userguide/documents-command-ssm-plugin-reference.md "../../../systems-manager/latest/userguide/documents-command-ssm-plugin-reference.md").
+
     1. Starting with AWS NVMe `1.5.0`, the
        driver supports SCSI persistent reservations for Windows
        Server 2016 and later. By default, this feature isn't
        enabled during installation.
+
        - To enable this feature, specify
          `{"SSM_EnableSCSIPersistentReservations":
 "true"}`.

@@ -162,6 +162,7 @@ Guide_.
    to **Manual** start-up in the Services console.
 4. Download the drivers to your instance using one of the following
    options:
+
    - Browser – [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/AWSPV/Latest/AWSPVDriver.zip")
 
    the latest driver package to the instance and
