@@ -47,6 +47,7 @@ Before you publish an application to the AWS Serverless Application Repository, 
 - A valid Amazon S3 bucket policy that grants the service read permissions for
   artifacts that were uploaded to Amazon S3 when you packaged your application. To
   set this policy, follow these steps:
+
   1.  Open the Amazon S3 console at
       [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
   2.  Choose the Amazon S3 bucket that you used to package your
@@ -85,7 +86,6 @@ Before you publish an application to the AWS Serverless Application Repository, 
   }`
 
   ```
-
   6.  Choose the **Save** button.
 
 ### Procedure

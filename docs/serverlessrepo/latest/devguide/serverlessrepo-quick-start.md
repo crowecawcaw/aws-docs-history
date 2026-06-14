@@ -71,11 +71,13 @@ sam init --runtime python3.6
 
 2. Review the contents of the directory that the command created
    (`sam-app/`):
+
    - `template.yaml` – Defines two AWS
      resources that the Hello World application needs: a Lambda function
      and an API Gateway endpoint that supports a GET operation. The template
      also defines mapping between the two resources.
    - Content related to the Hello World application code:
+
      - `hello_world/` directory –
        Contains the application code, which returns `hello
 world` when you run it.
