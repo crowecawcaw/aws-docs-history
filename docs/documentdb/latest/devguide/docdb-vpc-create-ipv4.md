@@ -45,6 +45,7 @@ Use the following procedure to create a VPC with both public and private subnets
    To begin creating a VPC, choose **Create VPC**.
 4. For **Resources to create** under **VPC settings**, choose **VPC and more**.
 5. For the **VPC settings**, set these values:
+
    - **Name tag auto-generation** — `example`
    - **IPv4 CIDR block** — `10.0.0.0/16`
    - **IPv6 CIDR block** — **No IPv6 CIDR block**
@@ -71,11 +72,13 @@ These allow traffic to connect from the internet.
 1.  Open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
 2.  Choose **VPC Dashboard**, choose **Security Groups**, and then choose **Create security group**.
 3.  On the **Create security group** page, set these values:
+
     - **Security group name** — `example-securitygroup`
     - **Description** — `Application security group`
     - **VPC** — Choose the VPC that you created earlier, for example: **vpc-example**.
 
 4.  Add inbound rules to the security group.
+
     1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell (SSH).
        To determine your public IP address, in a different browser window or tab, you can use the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
        An example of an IP address is `203.0.113.25/32`.
@@ -93,9 +96,9 @@ These allow traffic to connect from the internet.
 
         * **Type** — `SSH`
         * **Source** — The IP address or range you created from Step a, for example: `203.0.113.25/32`
-
     4. Choose **Add rule**.
     5. Set the following values for your new inbound rule to allow HTTP access to your application:
+
        - **Type** — `HTTP`
        - **Source** — `0.0.0.0/0`
 
@@ -113,20 +116,24 @@ To connect to private clusters in your VPC, you add inbound rules to your VPC se
 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
 2. Choose **VPC Dashboard**, choose **Security Groups**, and then choose **Create security group**.
 3. On the **Create security group** page, set these values:
+
    - **Security group name** — `example-securitygroup`
    - **Description** — `Instance security group`
    - **VPC** — Choose the VPC that you created earlier, for example: **vpc-example**
 
 4. Add inbound rules to the security group.
+
    1. In the **Inbound rules** section, choose **Add rule**.
    2. Set the following values for your new inbound rule to allow DocumentDB traffic on port 27017 from your Amazon EC2 instance.
       After you do this, you can connect from your application to your cluster.
       By doing so, you can store and retrieve data from your application to your database.
+
       - **Type** — `Custom TCP`
       - **Source** — The identifier of the application security group that you created previously in this topic, for example: **sg-9edd5cfb**.
 
    3. Choose **Add rule**.
    4. Set the following values for your new inbound rule to allow HTTP access to your application:
+
       - **Type** — `HTTP`
       - **Source** — `0.0.0.0/0`
 
@@ -140,6 +147,7 @@ A subnet group makes it possible for you to specify a particular VPC when creati
 **To create a subnet group**
 
 1. Identify the private subnets for your database in the VPC.
+
    1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
    2. Choose **VPC Dashboard**, and then choose **Subnets**.
    3. Note the subnet IDs of the subnets you created in Step 1 named, for example: **example-subnet-private1-us-west-2a** and **example-subnet-private2-us-west-2b**.
@@ -153,6 +161,7 @@ Make sure that you connect to the Amazon DocumentDB console, not to the Amazon V
     * **Description** — `Instance security group`
 
 6. In the **Add subnets** section, set these values:
+
    - **VPC** — Choose the VPC that you created earlier, for example: **vpc-example**
    - **Availability Zones** — Select both Availability Zones created in Step 1. Example: **us-west-2a** and **us-west-2b**
    - **Subnets** — Choose the private subnets you created in Step 1.
@@ -180,12 +189,14 @@ For more information, see [Delete your VPC](../../../vpc/latest/userguide/delete
 **To delete a VPC and related resources**
 
 1. Delete the subnet group:
+
    1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
    2. In the navigation pane, choose **Subnet groups**.
    3. Select the subnet group you want to delete, such as **example-db-subnet-group**.
    4. Choose **Delete**, and then choose **Delete** in the confirmation window.
 
 2. Note the VPC ID:
+
    1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
    2. Choose **VPC Dashboard**, and then choose **Your VPCs**.
    3. In the list, identify the VPC that you created, such as **vpc-example**.
@@ -193,6 +204,7 @@ For more information, see [Delete your VPC](../../../vpc/latest/userguide/delete
       You need the VPC ID in later steps.
 
 3. Delete the security groups:
+
    1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
    2. Choose **VPC Dashboard**, and then choose **Security Groups**.
    3. Select the security group for the Amazon DocumentDB cluster, such as **example-securitygroup**.
@@ -201,6 +213,7 @@ For more information, see [Delete your VPC](../../../vpc/latest/userguide/delete
    6. For **Actions**, choose **Delete security groups**, and then choose **Delete** on the confirmation dialog.
 
 4. Delete the VPC:
+
    1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc](https://console.aws.amazon.com//vpc "https://console.aws.amazon.com//vpc").
    2. Choose **VPC Dashboard**, and then choose **Your VPCs**.
    3. Select the VPC you want to delete, such as **vpc-example**.

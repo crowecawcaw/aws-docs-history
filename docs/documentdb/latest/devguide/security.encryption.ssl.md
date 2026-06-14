@@ -23,6 +23,7 @@ Unless you specify differently when you create a cluster, your cluster is create
 
 1.  **Determine the cluster parameter group that your
     cluster is using.**
+
     1. Open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
     2. In the navigation pane, choose
        **Clusters**.
@@ -31,7 +32,7 @@ Unless you specify differently when you create a cluster, your cluster is create
 
     If you don't see the navigation pane on the left side of your screen, choose the menu icon
     (![Menu button.](images/docdb-menu-icon.png))
-    in the upper-left corner of the page. 3. Note that in the **Clusters** navigation box, the column **Cluster Identifier** shows both clusters and instances. Instances are listed underneath clusters. See the screenshot below for reference.
+    in the upper-left corner of the page. 3. Note that in the **Clusters** navigation box, the column **Cluster Identifier** shows both clusters and instances. Instances are listed underneath clusters. See the following screenshot for reference.
 
     ![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/clusters.png) 4. Choose the cluster that
     you're interested in. 5. Choose the **Configuration** tab and scroll down to the bottom of **Cluster details** and locate the **Cluster parameter group**. Note the name of the cluster parameter group.
@@ -47,6 +48,7 @@ Unless you specify differently when you create a cluster, your cluster is create
 
 2.  **Determine the current value of the `tls`
     cluster parameter.**
+
     1. Open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
     2. In the navigation pane, choose **Parameter
        groups**.
@@ -56,6 +58,7 @@ Unless you specify differently when you create a cluster, your cluster is create
        the list of cluster parameters, locate the `tls`
        cluster parameter row. At this point, the following four columns
        are important:
+
        - **Cluster parameter
          name** — The name of the cluster
          parameters. For managing TLS, you're interested in the
@@ -93,7 +96,7 @@ If the value of `tls` is not what is needs to be, modify its value for this clus
 
 
     	* **disabled** — Disables TLS
-    	* **enabled** — Enables TLS. For Amazon DocumentDB 5.0 and earlier, this enables TLS 1.0 through 1.3. For Amazon DocumentDB 8.0 and later, the minimum supported version is TLS 1.2.
+    	* **enabled** — Enables TLS. For Amazon DocumentDB 5.0 and earlier, this enables TLS 1.0 through 1.3, but we recommend TLS 1.2 or higher. Only TLS 1.2 and higher is supported on Amazon DocumentDB 5.0 starting with minor version 5.0.1, Amazon DocumentDB 8.0 and newer.
     	* **fips-140-3** — Enables TLS with FIPS.
     	 The cluster only accepts secure connections per the requirements of the Federal Information Processing Standards (FIPS) publication 140-3.
     	 This is only supported starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.
@@ -244,7 +247,7 @@ To change the value of the `tls` cluster parameter, run the [`modify-db-cluster-
 
 
 
-    		- `enabled` — The cluster accepts secure connections using TLS. For Amazon DocumentDB 5.0 and earlier, this enables TLS 1.0 through 1.3. For Amazon DocumentDB 8.0 and later, the minimum supported version is TLS 1.2.
+    		- `enabled` — The cluster accepts secure connections using TLS. For Amazon DocumentDB 5.0 and earlier, this enables TLS 1.0 through 1.3, but we recommend TLS 1.2 or higher. Only TLS 1.2 and higher is supported on Amazon DocumentDB 5.0 starting with minor version 5.0.1, Amazon DocumentDB 8.0 and newer.
     		- `disabled` — The cluster does not accept secure connections using TLS.
     		- `fips-140-3` — The cluster only accepts secure connections per the requirements of the Federal Information Processing Standards (FIPS) publication 140-3.
     		 This is only supported starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.

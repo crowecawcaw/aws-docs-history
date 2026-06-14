@@ -31,19 +31,23 @@ See [Managing collection-level document compression](doc-compression.md "doc-com
 1. In the DMS console, in the navigation pane, choose **Migrate or replicate**, then choose **Tasks**.
 2. Choose **Create task**.
 3. On the **Create task** page, in the **Task configuration** section:
+
    - Enter a unique and meaningful **Task identifier** (for example, "mongodb-docdb-replication").
    - Choose the source endpoint you created previously in the **Source database endpoint** drop-down menu.
    - Choose the target endpoint you created previously in the **Target database endpoint** drop-down menu.
    - For **Task type**, choose **Migrate and replicate**.
 
 4. In the **Settings** section:
+
    - For **Task logs**, check the **Turn on CloudWatch** logs box.
    - For **Editing mode** (at the top of the section), choose **JSON editor** and set the following attributes:
+
      - Set `ParallelApplyThreads` to 5 (under `TargetMetadata`).
        This enables ~1000 insert/update/delete ops per second in CDC.
      - Set `MaxFullLoadSubTasks` to 16 (under `FullLoadSettings`).
        Consider increasing this depending on your instance size.
      - For large collections (over 100 GB), enable auto-partition (under Table Mapping and under the `parallel-load` attribute):
+
        - "type": "partitions-auto"
        - "number-of-partitions": 16
 

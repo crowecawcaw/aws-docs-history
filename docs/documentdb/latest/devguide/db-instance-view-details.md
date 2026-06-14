@@ -16,7 +16,7 @@ AWS Management Console, follow the steps below.
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
 (![Menu button.](images/docdb-menu-icon.png))
-in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the screenshot below.
+in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the following screenshot.
 
 ![Clusters table showing list of clusters under Cluster identifier column, with instances nested inside clusters.](images/choose-clusters.png) 4. In the list of instances, choose the name of the
 instance that you want to see its details. The
@@ -77,7 +77,7 @@ the following groupings:
 Using the AWS CLI
 To view the details of your Amazon DocumentDB instances using the AWS CLI,
 use the `describe-db-clusters` command as shown in
-the examples below. For more information, see [`DescribeDBInstances`](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")
+the following examples. For more information, see [`DescribeDBInstances`](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md")
 in the _Amazon DocumentDB Resource Management API Reference_.
 
 ###### Note

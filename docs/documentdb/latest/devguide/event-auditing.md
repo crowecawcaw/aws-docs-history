@@ -285,6 +285,7 @@ The following procedure uses the AWS Management Console to disable Amazon Docume
 5. Choose **Continue**.
 6. Review your changes, and then choose when you want this change applied to
    your cluster.
+
    - **Apply during the next scheduled maintenance window**
    - **Apply immediately**
 

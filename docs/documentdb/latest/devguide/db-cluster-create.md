@@ -162,6 +162,7 @@ For more information, see [Amazon DocumentDB cluster storage configurations](db-
     			- `@` (at symbol)
 
 7.  At the bottom of the screen, choose one of the following:
+
     - To create the cluster now, choose **Create cluster**.
     - To not create the cluster, choose **Cancel**.
     - To further configure the cluster before creating, choose **Show additional configurations**, and then continue at [Create a cluster: additional configurations](#db-cluster-create-con-additional-configs "#db-cluster-create-con-additional-configs").

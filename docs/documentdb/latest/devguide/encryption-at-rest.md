@@ -97,6 +97,7 @@ changed after the cluster is created.
 3. Scroll down to the **Encryption-at-rest** section.
 4. Choose the option that you want for encryption at rest. Whichever option you
    choose, you can't change it after the cluster is created.
+
    - To encrypt data at rest in this cluster, choose **Enable
      encryption**.
    - If you don't want to encrypt data at rest in this cluster, choose

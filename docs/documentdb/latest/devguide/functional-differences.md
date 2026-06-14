@@ -15,7 +15,7 @@ MongoDB.
 
 In Amazon DocumentDB, all CRUD statements (`findAndModify`, `update`, `insert`, `delete`) guarantee atomicity and consistency, even for operations that modify multiple documents.
 With the launch of Amazon DocumentDB 4.0, explicit transactions that provide ACID properties for multi-statement and multi-collection operations are now supported.
-For more on using transactions in Amazon DocumentDB, please see [Transactions in Amazon DocumentDB](transactions.md "transactions.md").
+For more on using transactions in Amazon DocumentDB, see [Transactions in Amazon DocumentDB](transactions.md "transactions.md").
 
 The following are examples of operations in Amazon DocumentDB
 that modify multiple documents that satisfy both atomic and
@@ -476,7 +476,7 @@ output
 
 ```
 
-As an alternative to using the `explain()` method, you can use the profiler to review the algorithm that is being utilized with your use of the `$lookup` operator. For more information on the profiler, please see [Profiling Amazon DocumentDB operations](profiling.md "profiling.md").
+As an alternative to using the `explain()` method, you can use the profiler to review the algorithm that is being utilized with your use of the `$lookup` operator. For more information on the profiler, see [Profiling Amazon DocumentDB operations](profiling.md "profiling.md").
 
 #### Using a `planHint`
 

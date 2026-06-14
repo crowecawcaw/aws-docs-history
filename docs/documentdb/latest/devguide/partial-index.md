@@ -297,6 +297,7 @@ db.orders.createIndex(
 ```
 
 - The following operators are not supported in partialFilterExpression field:
+
   - `$all` (array operator)
   - `$mod` (array operator)
   - `$or`

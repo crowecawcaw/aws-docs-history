@@ -1,12 +1,12 @@
 # Modifying Amazon DocumentDB cluster parameter groups
 
 This section explains how to modify a _custom_ Amazon DocumentDB parameter group.
-In Amazon DocumentDB, you cannot modify a `default` cluster parameter group which is created when you first create a cluster with new engine version in a new region.
+In Amazon DocumentDB, you cannot modify a `default` cluster parameter group which is created when you first create a cluster with new engine version in a new Region.
 If your Amazon DocumentDB cluster is using the default cluster parameter group and you want to modify a value in it, you must first [create a new parameter group](cluster_parameter_groups-create.md "cluster_parameter_groups-create.md") or [copy an existing parameter group](cluster_parameter_groups-copy.md "cluster_parameter_groups-copy.md"), modify it, and then apply the modified parameter group to your cluster.
 
 Complete the following steps to modify a custom cluster parameter group.
 Modify actions could take a while to propagate.
-Please wait for the modified cluster paramater group to be available before attaching it to your cluster.
+Wait for the modified cluster parameter group to be available before attaching it to your cluster.
 You can use the AWS Management Console or the AWS CLI `describe-db-cluster-parameters` operation to verify that your cluster parameter group has been modified.
 For more information, see [Describing cluster parameter groups](cluster_parameter_groups-describe.md "cluster_parameter_groups-describe.md").
 
@@ -21,7 +21,7 @@ Follow these steps to modify a custom Amazon DocumentDB parameter group. You can
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](/images/documentdb/latest/devguide/images/docdb-menu-icon.png))
+(![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. For each parameter in the parameter group that you want to modify, do the following:
 
     1. Locate the parameter that you want to modify, and verify that it is modifiable by checking if it is listed as `true` under the **Modifiable** column.
@@ -40,6 +40,7 @@ To modify a custom cluster parameter group's parameters, use the `modify-db-clus
   parameters that you are modifying. For a list of the parameters that apply to
   all instances in an Amazon DocumentDB cluster, see the [Amazon DocumentDB cluster parameters reference](cluster_parameter_groups-list_of_parameters.md "cluster_parameter_groups-list_of_parameters.md"). Each
   parameter entry must include the following:
+
   - `ParameterName` — The name
     of the parameter that you are modifying.
   - `ParameterValue` — The new

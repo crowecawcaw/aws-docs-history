@@ -161,6 +161,7 @@ To view the details of all elastic clusters using the AWS CLI, use the `list-clu
 - `--next-token`—Optional. If the number of items output (`--max-results`) is fewer than the total number of items returned by the underlying API calls, the output includes a `NextToken` that you can pass to a subsequent command to retrieve the next set of items.
 - `--max-results`—Optional. The total number of items to return in the command's output.
   If more results exist than the specified `max-results` value, a pagination token (`next-token`) is included in the response so that the remaining results can be retrieved.
+
   - Default: 100
   - Minimum 20, maximum 100
 

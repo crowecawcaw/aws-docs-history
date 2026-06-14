@@ -174,7 +174,7 @@ For a full list of functional differences, see [Amazon DocumentDB compatibility 
 Using the AWS Management Console
 
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/docdb/home?region=us-east-1 "https://console.aws.amazon.com/docdb/home?region=us-east-1") and open the Amazon DocumentDB console.
-2. In the **Clusters** table, select the source cluster, click **Actions**, and then **Modify**.
+2. In the **Clusters** table, select the source cluster, choose **Actions**, and then **Modify**.
 
 ![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/mvu-cluster-table-2.png) 3. In **Cluster specifications**, choose the target version (for example, **5.0.0** or **8.0.0**) from the **Engine version** dropdown.
 

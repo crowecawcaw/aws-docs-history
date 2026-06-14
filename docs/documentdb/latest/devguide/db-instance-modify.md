@@ -15,7 +15,7 @@ complete the following steps.
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
 (![Menu button.](images/docdb-menu-icon.png))
-in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the screenshot below.
+in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the following screenshot.
 
 ![Clusters table showing list of clusters under Cluster identifier column, with instances nested inside clusters.](images/choose-clusters.png) 4. Check the box to the left of the instance you wish to modify. 5. Choose **Actions**, and then
 choose **Modify**. 6. In the **Modify instance:

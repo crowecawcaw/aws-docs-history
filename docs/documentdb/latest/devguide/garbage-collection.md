@@ -116,6 +116,7 @@ The extended storage segment is particularly beneficial for:
 
 - **Location** — Database collStats command
 - **Description** — Provides detailed breakdown of storage utilization across different storage segments:
+
   - `storageSegmentBase` — Storage used by the base storage segment for standard documents
   - `storageSegmentExtended` — Storage used by the extended storage segment for large documents
 
@@ -126,6 +127,7 @@ The extended storage segment is particularly beneficial for:
 - **Location** — Database collStats command
 - **Description** — Estimates unused storage space in a collection based on sampled statistics.
   It includes space from deleted documents and empty segments. The metric provides both combined totals and per-segment breakdowns:
+
   - Combined `unusedBytes` and `unusedPercent` across all storage segments
   - `storageSegmentBase` — Unused space specifically in the base storage segment
   - `storageSegmentExtended` — Unused space specifically in the extended storage segment
@@ -135,6 +137,7 @@ The extended storage segment is particularly beneficial for:
 - **Location** — Database collStats command
 - **Description** — Provides detailed information about document fragments and dead data within collections.
   Document fragments represent the internal storage units used by the database engine, and dead fragments indicate data that is no longer accessible but hasn't been reclaimed yet. This metric includes:
+
   - `totalDocFragmentsCount` — Total number of document fragments in the collection
   - `deadDocFragmentsCount` — Number of fragments containing dead (inaccessible) data
   - `deadDocFragmentsPercent` — Percentage of fragments that contain dead data

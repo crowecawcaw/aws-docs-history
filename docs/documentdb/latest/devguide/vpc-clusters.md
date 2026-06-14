@@ -221,6 +221,7 @@ You might also need to modify operating system parameter, libraries, or drivers 
 **To modify an IPv4-only cluster to use dual-stack mode**
 
 1. Modify a subnet group to support dual-stack mode, or create a subnet group that supports dual-stack mode:
+
    1. Associate an IPv6 CIDR block with your VPC.
 
    For instructions, see [Add or remove a CIDR block to your VPC](../../../vpc/latest/userguide/add-ipv4-cidr.md "../../../vpc/latest/userguide/add-ipv4-cidr.md") in the _Amazon VPC User Guide_. 2. Attach the IPv6 CIDR block to all of the subnets in your subnet group.
@@ -282,7 +283,7 @@ Dual stack mode for Amazon DocumentDB is currently available in all commercial A
 **Version support**
 
 Dual-stack mode is supported on Amazon DocumentDB version 4.0, 5.0 and 8.0.
-If you are unable to access dual-stack mode on any of these versions, please make sure that you are running the latest engine patch version on your cluster.
+If you are unable to access dual-stack mode on any of these versions, make sure that you are running the latest engine patch version on your cluster.
 
 #### Limitations for dual-stack network clusters
 

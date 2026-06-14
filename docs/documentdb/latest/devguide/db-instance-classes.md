@@ -34,7 +34,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 (![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster
 Identifier**. Your instances are listed under clusters, similar to
-the screenshot below.
+the following screenshot.
 
 ![Clusters table showing how an instance is nested under a cluster.](images/choose-clusters.png) 4. In the list of instances, expand the cluster to find the instances you are
 interested in. Find the instance that you want. Then, look at the

@@ -45,6 +45,7 @@ which specifies the date and time to restore to.
      **Latest restore time**.
 
 5.  Complete the **Configuration** section.
+
     1. **Cluster identifier** —
        Accept the default identifier, or enter an identifier
        that you prefer.
@@ -58,7 +59,6 @@ which specifies the date and time to restore to.
          consecutive hyphens.
         * Must be unique for all clusters across Amazon RDS,
          Neptune and Amazon DocumentDB per AWS account, per Region.
-
     2. **Instance class** — From the
        drop-down list, choose the instance class that you want
        for the cluster's instances.

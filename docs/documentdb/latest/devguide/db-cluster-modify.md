@@ -116,11 +116,13 @@ Naming constraints:
 - `--preferred-backup-window`—Optional.
   The daily time range during which automated backups are
   created, in Universal Coordinated Time (UTC).
+
   - Format: `hh24:mm-hh24:mm`
 
 - `--preferred-maintenance-window`—Optional.
   The weekly time range during which system maintenance can
   occur, in UTC.
+
   - Format: `ddd:hh24:mm-ddd:hh24:mm`
   - Valid days: `Sun`, `Mon`,
     `Tue`, `Wed`, `Thu`,

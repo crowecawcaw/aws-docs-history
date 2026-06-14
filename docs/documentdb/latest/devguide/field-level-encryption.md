@@ -7,7 +7,6 @@ Sensitive data remains encrypted when it is stored and processed in a cluster an
 
 - [Getting started](#fle-getting-started "#fle-getting-started")
 - [Querying in client-side FLE](#fle-querying "#fle-querying")
-- [Limitations](#fle-limitationa "#fle-limitationa")
 
 ## Getting started
 
@@ -25,7 +24,7 @@ The initial configuration of client-side FLE in Amazon DocumentDB is a four-step
 
 Using AWS Key Management Service, create a symmetric key that is used for encrypting and decrypting the sensitive data field and provide it the necessary IAM usage permissions.
 AWS KMS stores the Customer Key (CK) which is used to encrypt Data Keys (DKs).
-We recommend storing the Customer Key in KMS to strengthen your security posture.
+Store the Customer Key in KMS to strengthen your security posture.
 The Data Key is the secondary key which is stored in an Amazon DocumentDB collection and is required to encrypt sensitive fields before storing the document in Amazon DocumentDB.
 The Customer Key encrypts the Data Key which in turn encrypts and decrypts your data.
 If you are using a global cluster, you can create a multi-region key that can be used by different service roles in different regions.
@@ -66,10 +65,10 @@ from pymongo.encryption import (Algorithm,
 my_session = boto3.session.Session()
 
 # get access_key and secret_key programmatically using get_frozen_credentials() method:
- current_credentials = my_session.get_credentials().get_frozen_credentials()
+current_credentials = my_session.get_credentials().get_frozen_credentials()
 ```
 
-1. Specify ‘aws’ as KMS provider type and input your account credentials which were retrieved in the previous step.
+1. Specify ‘aws’ as KMS provider type and enter your account credentials which were retrieved in the previous step.
 
 ```
 provider = "aws"
@@ -147,17 +146,17 @@ Exactly one of "key_id" or "key_alt_name" must be provided.
 encrypted_first_name = client_encryption.encrypt(
     "Jane",
     Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Deterministic,
-    key_alt_name=data_key_id
+    key_id=data_key_id
 )
 encrypted_last_name = client_encryption.encrypt(
     "Doe",
     Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Deterministic,
-    key_alt_name=data_key_id
+    key_id=data_key_id
 )
 encrypted_dob = client_encryption.encrypt(
     "1990-01-01",
     Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Random,
-    key_alt_name=data_key_id
+    key_id=data_key_id
 )
 
 coll.insert_one(
@@ -171,7 +170,7 @@ coll.insert_one(
 
 ### Example: client-side field level encryption configuration file
 
-In the following example, replace each `user input placeholder` with your own information.
+In the following example, replace each `placeholder` with your own information.
 
 ```
 # import python packages:
@@ -209,7 +208,7 @@ def main():
         "key":kms_arn
     }
 
-    # secrets manager is used to strore and retrieve user credentials for connecting to an Amazon DocumentDB cluster.
+    # secrets manager is used to store and retrieve user credentials for connecting to an Amazon DocumentDB cluster.
     # retrieve the secret using the secret name. Replace the example secret key.
     secret_name = "`/dev/secretKey`"
     docdb_credentials = json.loads(my_session.client(service_name = 'secretsmanager', region_name = "us-east-1").get_secret_value(SecretId = secret_name)['SecretString'])
@@ -253,76 +252,31 @@ def main():
     print('Encrypted document: %s' % (doc,))
 
     # explicitly decrypt the field:
-    doc["encryptedField"] = client_encryption.decrypt(doc["encryptedField"])
+    doc["firstName"] = client_encryption.decrypt(doc["firstName"])
     print('Decrypted document: %s' % (doc,))
 
     # cleanup resources:
     client_encryption.close()
     client.close()
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
 ```
 
 ## Querying in client-side FLE
 
-Amazon DocumentDB supports point equality queries with client-side FLE. Inequality and comparison queries can return inaccurate results.
-Read and write operations may have unexpected or incorrect behavior as compared to issuing that same operation against the decrypted value.
+Amazon DocumentDB only supports equality queries with client-side FLE encrypted values.
 
-For example, to query filters for documents where gamerscore is greater than 500:
-
-```
-db.users.find( {
-    "gamerscore" : { $gt : 500 }
-})
-```
-
-The client uses an explicit encryption method to encrypt the query value:
-
-```
-encrypted_gamerscore_filter = client_encryption.encrypt(
-    500,
-        Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Deterministic,
-        key_alt_name=data_key_id
-        )
-
-db.users.find( {
-    "gamerscore" : { $gt : encrypted_gamerscore_filter }
-} )
-```
-
-In the find operation, Amazon DocumentDB compares the encrypted value of 500 to the encrypted field values stored in each document using the greater than inequality check.
-The inequality check in the find operation may return a different result when performed using decrypted data and value, even though the operation succeeds in generating results.
-
-## Limitations
-
-The following limitations apply to Amazon DocumentDB client-side field level encrytion:
-
-- Amazon DocumentDB supports only point equality queries. Inequality and comparison queries can return inaccurate results.
-  Read and write operations may have unexpected or incorrect behavior as compared to issuing that same operation against the decrypted value.
-  To query filters for documents where gamerscore is greater than 500.
-
-```
-db.users.find( {
-    "gamerscore" : { $gt : 500 }
-    })
-```
-
-The client uses an explicit encryption method to encrypt the query value.
+For example, to query for documents where encrypted gamerscore equals 500 the client uses an explicit encryption method to encrypt the query value:
 
 ```
 encrypted_gamerscore_filter = client_encryption.encrypt(
     500,
     Algorithm.AEAD_AES_256_CBC_HMAC_SHA_512_Deterministic,
-    key_alt_name=data_key_id
+    key_id=data_key_id
 )
 
-db.users.find({
-    "gamerscore" : { $gt : encrypted_gamerscore_filter }
-})
+coll.find( {
+    "gamerscore" : { "$eq" : encrypted_gamerscore_filter }
+} )
 ```
-
-In the find operation, Amazon DocumentDB compares the encrypted value of 500 to the encrypted field values stored in each document using the greater than inequality check.
-The inequality check in the find operation may return a different result when performed using decrypted data and value, even though the operation succeeds in generating results.
-
-- Amazon DocumentDB does not support explicit client-side FLE from the Mongo Shell. However, the feature works with any of our supported drivers.

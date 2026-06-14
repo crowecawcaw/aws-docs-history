@@ -8,7 +8,7 @@ The `$arrayToObject` operator in Amazon DocumentDB is the reverse of the `$objec
 
 ## Example (MongoDB Shell)
 
-The example below demonstrates how to use `$arrayToObject` to convert an array of key-value pairs back into a document.
+The following example demonstrates how to use `$arrayToObject` to convert an array of key-value pairs back into a document.
 
 **Create sample documents**
 

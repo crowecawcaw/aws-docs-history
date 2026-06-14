@@ -31,6 +31,7 @@ For more information, see the following:
 
 - [Understanding Amazon DocumentDB cluster fault tolerance](db-cluster-fault-tolerance.md "db-cluster-fault-tolerance.md")
 - [Amazon DocumentDB Failover](failover.md "failover.md")
+
   - [Controlling the failover target](failover.md#failover-target_control "failover.md#failover-target_control")
 
 In Amazon DocumentDB versions 5.0 and 8.0, replica instances don't restart when the primary instance restarts. They continue to serve read requests during primary instance restarts, maintaining improved availability.

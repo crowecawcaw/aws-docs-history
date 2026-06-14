@@ -209,6 +209,7 @@ Use the following procedure to create a provisioned Amazon DocumentDB clone from
 
 - Use the `restore-db-cluster-to-point-in-time` CLI command and specify
   values for the following parameters:
+
   - `--db-cluster-identifier` – Choose a meaningful name for your clone. You name the clone when you use
     the [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md") CLI command.
   - `--restore-type` – Use `copy-on-write` to create a clone of the source DB cluster. Without this

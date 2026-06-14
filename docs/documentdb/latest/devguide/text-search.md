@@ -53,7 +53,7 @@ Only one text index is allowed on each collection.
 
 ### Listing a text index on an Amazon DocumentDB collection
 
-You can use `getIndexes()` on your collection to identify and describe indexes, including text indexes, as shown in the example below:
+You can use `getIndexes()` on your collection to identify and describe indexes, including text indexes, as shown in the following example:
 
 ```
 rs0:PRIMARY> db.test.getIndexes()

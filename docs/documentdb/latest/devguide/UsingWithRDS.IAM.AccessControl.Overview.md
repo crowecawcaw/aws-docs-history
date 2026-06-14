@@ -63,6 +63,7 @@ You can attach policies to IAM identities. For example, you can do the following
   as an instance.
 - **Attach a permissions policy to a role (grant cross-account permissions)** – You can attach an identity-based permissions policy to an IAM role to grant cross-account permissions.
   For example, an administrator can create a role to grant cross-account permissions to another AWS account or an AWS service as follows:
+
   1.  Account A administrator creates an IAM role and attaches a permissions policy to the role that grants permissions on resources in Account A.
   2.  Account A administrator attaches a trust policy to the role identifying Account B as the principal who can assume the role.
   3.  Account B administrator can then delegate permissions to assume the role to any users in Account B. Doing this allows the users in Account B to create or access resources in Account A. The principal in the trust policy can also be an AWS service principal if you want to grant permissions to an AWS service to assume the role.

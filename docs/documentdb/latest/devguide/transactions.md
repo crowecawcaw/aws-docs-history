@@ -39,7 +39,7 @@ Here are some best practices so that you can get the most using transactions wit
 - Retryable writes, retryable commit, and retryable abort commands are not supported in Amazon DocumentDB.
   If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string.
   By default, retryable writes are disabled. Including `retryWrites=false` might cause a failure in normal read commands.
-- Each Amazon DocumentDB instance has an upper bound limit on the number of concurrent transaction open on the instance at one time. For the limits, please see [Instance limits](limits.md#limits.instance "limits.md#limits.instance").
+- Each Amazon DocumentDB instance has an upper bound limit on the number of concurrent transaction open on the instance at one time. For the limits, see [Instance limits](limits.md#limits.instance "limits.md#limits.instance").
 - For a given transaction, the transaction log size must be less than 32MB.
 - Amazon DocumentDB does support `count()` within a transactions, but not all drivers support this capability. An alternative is to use the `countDocuments()` API, which translates the count query into an aggregation query on the client side.
 - Transactions have a one minute execution limit and sessions have a 30-minute timeout. If a transaction times out, it will be aborted, and any subsequent commands issued within the session for the existing transaction will yield the following error:
@@ -76,7 +76,7 @@ Additionally, new fields were added to both `currentOp` `lsid`, `transactionThre
 
 ## Transaction isolation level
 
-When starting a transaction, you have the ability to specify both the `readConcern` and `writeConcern` as shown in the example below:
+When starting a transaction, you have the ability to specify both the `readConcern` and `writeConcern` as shown in the following example:
 
 `mySession.startTransaction({readConcern: {level: 'snapshot'}, writeConcern: {w: 'majority'}});`
 
@@ -1639,7 +1639,7 @@ mySessionObject.find()
 mySession.endSession()
 ```
 
-You can disable causal consistency within a session. Please note, doing so will enable you to utilize the session framework, but will not provide causal consistency guarantees for reads. When using Amazon DocumentDB, reads from the primary will be read-after-write consistent and reads from the replica instances will be eventually consistent. Transactions are the primary use case for utilizing sessions.
+You can disable causal consistency within a session. Note that doing so will enable you to utilize the session framework, but will not provide causal consistency guarantees for reads. When using Amazon DocumentDB, reads from the primary will be read-after-write consistent and reads from the replica instances will be eventually consistent. Transactions are the primary use case for utilizing sessions.
 
 ```
 

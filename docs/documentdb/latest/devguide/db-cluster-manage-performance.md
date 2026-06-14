@@ -32,7 +32,7 @@ You can achieve read scaling for your Amazon DocumentDB cluster by creating up t
 
 For more information, see [Adding an Amazon DocumentDB instance to a cluster](db-instance-add.md "db-instance-add.md").
 
-To read scale with Amazon DocumentDB, we recommend that you connect to your cluster as a replica set and distribute reads to replica instances using the built-in read preference capabilities of your driver. For more information, please see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md").
+To read scale with Amazon DocumentDB, we recommend that you connect to your cluster as a replica set and distribute reads to replica instances using the built-in read preference capabilities of your driver. For more information, see [Connecting to Amazon DocumentDB as a replica set](connect-to-replica-set.md "connect-to-replica-set.md").
 
 ## Write scaling
 
@@ -49,6 +49,7 @@ Depending on your application, you can choose what approach below is best for yo
    cluster at or above your high availability, and read scaling
    targets are added to the cluster as instances, instead of
    being updated in place.
+
    1. Add one or more replicas of the larger instance type
       to your cluster (see [Adding an Amazon DocumentDB instance to a cluster](db-instance-add.md "db-instance-add.md")).
       We recommend all replicas be of the same or larger
@@ -68,7 +69,7 @@ Depending on your application, you can choose what approach below is best for yo
    ###### Note
 
    This will incur ~30 seconds of downtime for your
-   cluster. Please plan accordingly. 4. Remove all replicas of an instance type smaller than
+   cluster. Plan accordingly. 4. Remove all replicas of an instance type smaller than
    your new primary from the cluster. 5. Set the failover tier of all instances back to the
    same priority (usually, this means setting them back to
    1).As an example, suppose that you have a cluster that currently contains three `r5.large` instances (one primary and two replicas), and you want to scale to an `r5.xlarge` instance type. To do so, you would first add three `r5.xlarge` replica instances to your cluster and then set the failover tier of the new `r5.xlarge` replicas to zero. Next, you would initiate a manual failover (understanding that your application will experience ~30 seconds of downtime). Once the failover is complete, you would remove all three `r5.large` instances from your cluster, leaving the cluster scaled to `r5.xlarge` instances.
@@ -90,12 +91,12 @@ It is possible that changing the instance class of a replica will result in that
     ###### Note
 
     This will incur ~30 seconds of downtime for your
-     cluster. Please plan accordingly.
+     cluster. Plan accordingly.
     3. Continue executing steps 1 and 2 until all replicas instances have been scaled, one by one.
     4. Initiate a manual failover. This will promote one of the replicas to be the primary instance. For more information, see [Amazon DocumentDB Failover](failover.md "failover.md").
 
 
     ###### Note
 
-    This will incur up to 30 seconds of downtime for your cluster, but often takes less time than that. Please plan accordingly.
+    This will incur up to 30 seconds of downtime for your cluster, but often takes less time than that. Plan accordingly.
     5. Scale the former primary (now a replica) instance.

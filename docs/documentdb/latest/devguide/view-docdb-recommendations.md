@@ -19,11 +19,11 @@ Amazon DocumentDB also periodically scans your resources and generates recommend
 
 ![Amazon DocumentDB console navigation pane with Recommendations option selected.](images/recommendations-nav-1.png) 3. In the **Recommendations** dialog, expand the section of interest and select the recommended task.
 
-In the example below, the recommended task applies to an Amazon DocumentDB cluster with only one instance.
+In the following example, the recommended task applies to an Amazon DocumentDB cluster with only one instance.
 The recommendation is to add another instance to improve performance and availability.
 
-![The Recommendations form showing a selected recommended task for an Amazon DocumentDB cluster.](images/recommendations-1.png) 4. Click **Apply now**.
+![The Recommendations form showing a selected recommended task for an Amazon DocumentDB cluster.](images/recommendations-1.png) 4. Choose **Apply now**.
 
 For this example, the **Add instances** dialog appears:
 
-![The Add instances form with options for instance settings.](images/add-instances-1.png) 5. Modify your new instance's settings and click **Create**.
+![The Add instances form with options for instance settings.](images/add-instances-1.png) 5. Modify your new instance's settings and choose **Create**.

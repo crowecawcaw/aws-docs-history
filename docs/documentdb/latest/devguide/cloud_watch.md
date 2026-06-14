@@ -159,7 +159,7 @@ complete the following steps.
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
 (![Menu button.](images/docdb-menu-icon.png))
-in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the screenshot below.
+in the upper-left corner of the page. 3. In the Clusters navigation box, you’ll see the column **Cluster Identifier**. Your instances are listed under clusters, similar to the following screenshot.
 
 ![Clusters table showing how an instance is nested under a cluster.](images/choose-clusters.png) 4. From the list of instances, choose the name of the instance that you want metrics for. 5. In the resulting instance summary page, choose the
 **Monitoring** tab to view graphical
@@ -187,6 +187,7 @@ complete the following steps.
    **Cluster Metrics**).
 4. The **All metrics** tab displays all
    metrics for that dimension in **DocDB**.
+
    1. To sort the table, use the column heading.
    2. To graph a metric, select the check box next to
       the metric. To select all metrics, select the check
@@ -194,7 +195,7 @@ complete the following steps.
    3. To filter by metric, hover over the metric name and
       select the dropdown arrow next to the metric name.
       Then, choose **Add to search**, as
-      shown in the image below.
+      shown in the following image.
 
    ![The All metrics tab listing metrics, with a dropdown list appearing for a metric name.](images/cloudwatch-filter-metrics.png)
 

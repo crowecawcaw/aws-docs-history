@@ -55,16 +55,21 @@ The following list describes guidelines for monitoring your elastic clusters.
 
 - Track the peak-to-average ratio of your per-shard metrics to determine if you are driving un-even traffic (have a hot-key/hot-spot).
   Key metrics to track peak-to-average ratios are:
+
   - `PrimaryInstanceCPUUtilization`
+
     - This can be monitored at the per-shard level.
     - At the cluster level you can monitor the average to p99 skew.
 
   - `PrimaryInstanceFreeableMemory`
+
     - This can be monitored at the per-shard level.
     - At the cluster level you can monitor the average to p99 skew.
 
   - `DatabaseCursorsMax`
+
     - This should be monitored at the per-shard level to determine skew.
 
   - `Documents-Inserted/Updated/Returned/Deleted`
+
     - This should be monitored at the per-shard level to determine skew.

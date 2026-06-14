@@ -23,12 +23,14 @@ For certain management features, Amazon DocumentDB uses operational technology t
 Amazon DocumentDB supports on-demand instances and the following instance types:
 
 - NVMe-backed:
+
   - **R6GD instance types:**
     `db.r6gd.xlarge`, `db.r6gd.2xlarge`,
     `db.r6gd.4xlarge`, `db.r6gd.8xlarge`,
     `db.r6gd.12xlarge`, `db.r6gd.16xlarge`.
 
 - Memory optimized:
+
   - **R8G instance types:**
     `db.r8g.large`, `db.r8g.xlarge`, `db.r8g.2xlarge`,
     `db.r8g.4xlarge`, `db.r8g.8xlarge`, `db.r8g.12xlarge`,
@@ -45,6 +47,7 @@ Amazon DocumentDB supports on-demand instances and the following instance types:
     `db.r4.16xlarge`.
 
 - Burstable performance:
+
   - **T4G instance types:**
     `db.t4g.medium`.
   - **T3 instance types:**
@@ -133,7 +136,7 @@ quota is adjustable. Some requests are automatically resolved, while
 others are submitted to Support. You can track the status of a quota
 increase request that is submitted to Support. Requests to increase
 service quotas do not receive priority support. If you have an urgent
-request, please contact [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
+request, contact [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 For more information on Service Quotas, see [What Is Service Quotas?](../../../servicequotas/latest/userguide/intro.md "../../../servicequotas/latest/userguide/intro.md")
 
 ###### To request a quota increase for Amazon DocumentDB:

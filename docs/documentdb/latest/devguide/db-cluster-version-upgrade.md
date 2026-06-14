@@ -3,7 +3,7 @@
 In this section, we will explain how to deploy a patch update using the AWS Management Console or the AWS CLI.
 A patch update is an update within the same engine version (for example, updating a 3.6 engine version to a newer 3.6 engine version).
 You can update it immediately or during your cluster's next maintenance window.
-To determine whether your engine needs an update, see [Determining pending maintenance](db-cluster-determine-pending-maintenance.md "db-cluster-determine-pending-maintenance.md"). Please note that when you apply the update, your cluster will experience some downtime.
+To determine whether your engine needs an update, see [Determining pending maintenance](db-cluster-determine-pending-maintenance.md "db-cluster-determine-pending-maintenance.md"). Note that when you apply the update, your cluster will experience some downtime.
 
 ###### Note
 
@@ -26,7 +26,7 @@ The following procedure applies patch updates to your cluster's engine version u
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
+(![Menu button.](/images/documentdb/latest/devguide/images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. From the **Actions** menu, choose one
 of the following options. These menu options are selectable
 only if the cluster you chose is not running the latest
@@ -44,6 +44,7 @@ engine version.
      it is upgraded to the latest engine version.
 
 4. When the confirmation window opens, choose one of the following:
+
    - **Upgrade**—To upgrade your
      cluster to the latest engine version according to the
      schedule chosen in the previous step.
@@ -61,11 +62,13 @@ You can apply patch updates to your cluster using the AWS CLI and the `apply-pen
 - `--apply-action`—Required.
   The following values are permitted. To upgrade your cluster
   engine version, use `db-upgrade`.
+
   - `db-upgrade`
   - `system-update`
 
 - `--opt-in-type`—Required.
   The following values are permitted.
+
   - `immediate`—Apply the maintenance
     action immediately.
   - `next-maintenance`—Apply the

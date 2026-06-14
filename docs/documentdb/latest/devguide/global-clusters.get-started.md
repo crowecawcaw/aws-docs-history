@@ -80,7 +80,7 @@ Are you ready to build your first global cluster? In this section we will explai
 ![Backup and Log exports forms with default options selected.](images/global-clusters/quick-start/leave-default-2.png) 10. For **Maintenance**, **Tags**, and
 **Deletion protection**, leave at default selections.
 
-![Maintenance, Tags, and Deletion protection forms with default options selected.](images/global-clusters/quick-start/leave-default-3.png) 11. Now click the button that says **Create cluster**.
+![Maintenance, Tags, and Deletion protection forms with default options selected.](images/global-clusters/quick-start/leave-default-3.png) 11. Now choose **Create cluster**.
 
 ![The Create cluster button shown at the end of the cluster creation process.](images/global-clusters/quick-start/create-cluster.png)
 

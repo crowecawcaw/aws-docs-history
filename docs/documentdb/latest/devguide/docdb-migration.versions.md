@@ -97,6 +97,7 @@ Once the data is migrated, the replication instance also streams any change even
 1. Open the AWS DMS [console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2").
 2. In the navigation pane, choose **Replication instances**.
 3. Choose **Create replication instance** and enter the following information:
+
    - For Name, enter a name of your choice. For example, `docdb36todocdb40`.
    - For **Description**, enter a description of your
      choice. For listitem, Amazon DocumentDB 3.6 to Amazon DocumentDB 4.0 replication
@@ -121,6 +122,7 @@ The source endpoint is used for the source Amazon DocumentDB cluster.
 1. Open the AWS DMS [console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2").
 2. In the navigation pane, choose **Endpoints**.
 3. Choose `Create endpoint` and enter the following information:
+
    - For **Endpoint type**, choose
      **Source**.
    - > For **Endpoint identifier**, enter a name that's easy
@@ -169,6 +171,7 @@ The target endpoint is for your target Amazon DocumentDB cluster.
 1. Open the [AWS DMS console](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2").
 2. In the navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint** and enter the following information:
+
    - For **Endpoint type**, choose **Target**.
    - For **Endpoint identifier**, enter a name that's easy to remember,
      for example `docdb-target`.
@@ -204,6 +207,7 @@ Eventually the source and target databases will be in sync, allowing for a minim
 2. In the navigation pane, choose **Database migration tasks**.
 3. Choose **Create database migration task** and enter the
    following information in the **Task configuration** section:
+
    - For **Task identifier**, enter a name that's easy to
      remember, for example `my-dms-upgrade-task`.
    - For **Descriptive Amazon Resource Name (ARN)**,

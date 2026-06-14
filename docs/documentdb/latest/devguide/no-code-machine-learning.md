@@ -22,7 +22,7 @@ Amazon DocumentDB customers can get started with SageMaker AI Canvas by navigati
 You can connect to Amazon DocumentDB clusters from SageMaker AI domains that are running in VPC Only mode.
 By launching a SageMaker AI domain in your VPC, you can control the data flow from your SageMaker AI Studio and Canvas environments.
 This allows you to restrict internet access, monitor and inspect traffic using standard AWS networking and security capabilities, and connect to other AWS resources through VPC endpoints.
-Please refer to [Amazon SageMaker AI Canvas Getting started](../../../sagemaker/latest/dg/canvas-getting-started.md "../../../sagemaker/latest/dg/canvas-getting-started.md") and [Configure Amazon SageMaker AI Canvas in a VPC without internet access](../../../sagemaker/latest/dg/canvas-vpc.md "../../../sagemaker/latest/dg/canvas-vpc.md") located in the _Amazon SageMaker AI Developer Guide_ to create your SageMaker AI domain to connect to your Amazon DocumentDB cluster.
+Refer to [Amazon SageMaker AI Canvas Getting started](../../../sagemaker/latest/dg/canvas-getting-started.md "../../../sagemaker/latest/dg/canvas-getting-started.md") and [Configure Amazon SageMaker AI Canvas in a VPC without internet access](../../../sagemaker/latest/dg/canvas-vpc.md "../../../sagemaker/latest/dg/canvas-vpc.md") located in the _Amazon SageMaker AI Developer Guide_ to create your SageMaker AI domain to connect to your Amazon DocumentDB cluster.
 
 ## Configuring IAM access permissions for Amazon DocumentDB and SageMaker AI Canvas
 
@@ -76,4 +76,4 @@ The regions include:
 - eu-central-1 (Frankfurt)
 - eu-west-1 (Ireland)
 
-Please refer to [Amazon SageMaker AI Canvas](../../../sagemaker/latest/dg/canvas.md "../../../sagemaker/latest/dg/canvas.md") in the _Amazon SageMaker AI Developer Guide_ for the latest region availability.
+Refer to [Amazon SageMaker AI Canvas](../../../sagemaker/latest/dg/canvas.md "../../../sagemaker/latest/dg/canvas.md") in the _Amazon SageMaker AI Developer Guide_ for the latest region availability.

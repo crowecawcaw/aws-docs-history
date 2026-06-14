@@ -23,6 +23,7 @@ operation to view the mapping between event types and Amazon DocumentDB resource
 
 - `--source-type`—Optional. Use the `--source-type` parameter to see the event categories for a
   particular source type. The following are permitted values:
+
   - `db-cluster`
   - `db-instance`
   - `db-parameter-group`
@@ -174,6 +175,7 @@ To see specific Amazon DocumentDB events, use the `describe-events` operation wi
 - `--source-type`—Optional, unless `--source-identifier` is provided, then required.
   If `--source-identifier` is provided, `--source-type` must agree with the type of the
   `--source-identifier`. The following are permitted values:
+
   - `db-cluster`
   - `db-instance`
   - `db-parameter-group`

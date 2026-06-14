@@ -32,6 +32,7 @@ following:
     	3. Choose **Add subnet**.
 
 6. In the confirmation dialog box:
+
    - To make these changes to the subnet group, choose **Modify**.
    - To keep the subnet group unchanged, choose **Cancel**.
 

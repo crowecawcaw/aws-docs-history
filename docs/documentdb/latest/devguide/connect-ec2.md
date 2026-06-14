@@ -43,11 +43,11 @@ requests. For more information, see [Identity and Access Management for Amazon D
 1. In the search bar of the AWS Management Console, type in IAM and select **IAM** in the drop down menu that appears.
 2. Once you're in the IAM console, select **Users** from the navigation pane.
 3. Select your username.
-4. Click the button **Add permissions**.
+4. Choose **Add permissions**.
 5. Select **Attach existing policies directly**.
 6. Type `AmazonDocDBFullAccess` in the search bar and select it once it appears in the search results.
-7. Click the blue button at the bottom that says **Next: Review**.
-8. Click the blue button at the bottom that says **Add permissions**.
+7. Choose **Next: Review**.
+8. Choose **Add permissions**.
 
 **Create an Amazon Virtual Private Cloud (Amazon VPC)**
 

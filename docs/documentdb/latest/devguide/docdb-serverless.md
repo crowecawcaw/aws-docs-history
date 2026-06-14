@@ -32,6 +32,7 @@ DocumentDB serverless is especially useful for the following use cases:
   With DocumentDB serverless, your database automatically scales capacity to meet the needs of the application's peak load and scales back down when the surge of activity is over.
   With DocumentDB serverless, you no longer need to provision for peak or average capacity.
   You can specify an upper capacity limit to handle the worst-case situation, and that capacity isn't used unless it's needed.
+
   - The granularity of scaling in DocumentDB serverless helps you to match capacity closely to your database's needs.
     For a provisioned cluster, scaling up requires adding a whole new instance.
     DocumentDB serverless can add half a DCU when only a little more capacity is needed.
@@ -40,6 +41,7 @@ DocumentDB serverless is especially useful for the following use cases:
 
 - **Multi-tenant applications** — With DocumentDB serverless, you don't have to individually manage database capacity for each application in your fleet.
   DocumentDB serverless manages individual database capacity for you.
+
   - You can create a cluster for each tenant.
     That way, you can use features such as cloning and snapshot restore to enhance high availability and disaster recovery as appropriate for each tenant.
   - Each tenant might have specific busy and idle periods depending on the time of day, time of year, promotional events, and so on.
@@ -55,6 +57,7 @@ DocumentDB serverless is especially useful for the following use cases:
 - **Capacity planning** — Suppose that you usually adjust your database capacity, or verify the optimal database capacity for your workload, by modifying the instance classes of all the instances in a cluster.
   With DocumentDB serverless, you can avoid this administrative overhead.
   You can determine the appropriate minimum and maximum capacity by running the workload and checking how much the instances actually scale.
+
   - You can modify existing instances from provisioned to DocumentDB serverless or from DocumentDB serverless to provisioned.
     You don't need to create a new cluster or a new instance in such cases.
 

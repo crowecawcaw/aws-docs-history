@@ -87,6 +87,7 @@ Using the AWS Management Console
 2. Using an available custom cluster parameter group,
    modify the following parameters. For more information, see
    [Modifying Amazon DocumentDB cluster parameter groups](cluster_parameter_groups-modify.md "cluster_parameter_groups-modify.md").
+
    - `profiler` — Enables or disables
      query profiling. Permitted values are `enabled` and `disabled`. The default value
      is `disabled`. To enable profiling, set
@@ -103,6 +104,7 @@ Using the AWS Management Console
 3. Modify your cluster to use the custom cluster parameter
    group and set the profiler log exports to publish to
    Amazon CloudWatch.
+
    1. In the navigation pane, choose **Clusters** to add your custom parameter group to a
       cluster.
    2. Choose the button to the left of the name of the
@@ -158,6 +160,7 @@ In the following output, only `sample-parameter-group` meets both criteria.
 
 2. Using your custom cluster parameter group, modify the
    following parameters:
+
    - `profiler` — Enables or disables
      query profiling. Permitted values are `enabled` and `disabled`. The default value
      is `disabled`. To enable profiling, set
@@ -317,6 +320,7 @@ Amazon DocumentDB exporting logs to CloudWatch.
 5. Choose **Continue**.
 6. Review your changes, and then choose when you want
    this change applied to your cluster:
+
    - **Apply during the next scheduled
      maintenance window**
    - **Apply immediately**

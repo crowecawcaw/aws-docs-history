@@ -203,7 +203,7 @@ For more info on supported events in auditing, see [Auditing Amazon DocumentDB e
 **Using Amazon CloudWatch metrics**
 
 **`StsGetCallerIdentityCalls`**: This metric shows how many `GetCallerIdentity` calls an Amazon DocumentDB instance is making to the regionalized AWS Security Token Service (AWS STS) endpoint.
-Please refer to the `MONGODB-AWS` authentication specification on why database instances need to make STS `GetCallerIdentity` calls.
+Refer to the `MONGODB-AWS` authentication specification on why database instances need to make STS `GetCallerIdentity` calls.
 
 ## Using IAM authentication
 
@@ -235,7 +235,7 @@ See these pages for sample use cases and configurations:
 
 **I am getting an error while using my Python driver: “pymongo.errors.ConfigurationError: MONGODB-AWS authentication requires pymongo-auth-aws”. How can I resolve this?**
 
-Please make sure you use the following statement while installing the Python driver with IAM authentication:
+Make sure you use the following statement while installing the Python driver with IAM authentication:
 
 `pip install 'pymongo[aws]'`
 

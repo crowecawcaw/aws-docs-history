@@ -45,6 +45,7 @@ You might specify a somewhat lower value to let the instance scale down further 
   Serverless instances can most effectively estimate how much and how fast to scale up when the current capacity isn't drastically lower than the required capacity.
 - If your provisioned workload has memory requirements that are too high for small instance classes such as T3 or T4g, choose a minimum DCU setting that provides memory comparable to an R5 or R6g instance.
 - In particular, we recommend the following minimum `MinCapacity` for use with the specified features (these recommendations are subject to change):
+
   - Performance Insights — 2 DCUs
   - Global clusters — 8 DCUs (applies only to the primary AWS Region)
 
@@ -67,7 +68,7 @@ We recommend that you set the minimum capacity to a value that represents a comp
   If these limits are an issue when your serverless instance is scaled down to its `MinCapacity` value, then consider increasing `MinCapacity` to a higher value.
   For more information, see [Amazon DocumentDB serverless instance limits](docdb-serverless-instance-limits.md "docdb-serverless-instance-limits.md").
 - Furthermore, certain instance limits are capped at a lower maximum value if the `MinCapacity` is set to less than or equal to 1.0 DCUs, such as active connections limit, cursor limit, and open transactions limit.
-  If these capped limits are insufficient for your workload, please use a `MinCapacity` value of at least 1.5 DCUs.
+  If these capped limits are insufficient for your workload, use a `MinCapacity` value of at least 1.5 DCUs.
   For more information, see [Amazon DocumentDB serverless instance limits](docdb-serverless-instance-limits.md "docdb-serverless-instance-limits.md").
 
 For instructions on how to modify a cluster’s scaling configuration, see [Managing Amazon DocumentDB serverless](docdb-serverless-managing.md "docdb-serverless-managing.md").
@@ -113,6 +114,7 @@ You might specify a somewhat higher value to let the instance scale up farther i
   Make sure that the maximum DCU value allows the serverless instances to scale up enough to handle the workload when those feature are being used.
   For information about troubleshooting problems caused by the combination of a low maximum DCU setting and Amazon DocumentDB features that impose memory overhead, see [Avoiding out-of-memory errors](#docdb-serverless-scaling-mem-errors "#docdb-serverless-scaling-mem-errors") (below).
 - In particular, we recommend the following minimum `MaxCapacity` for use with the specified features (these recommendations are subject to change):
+
   - Serverless instance creation on a cluster with a large data volume – 2 DCUs (this includes serverless instance creation as part of a cluster restore.)
 
 - Certain instance limits are determined by the instance’s current capacity, such as connections limit, cursor limit, and open transactions limit.

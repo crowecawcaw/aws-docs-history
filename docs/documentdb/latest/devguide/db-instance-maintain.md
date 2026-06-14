@@ -1,306 +1,60 @@
 # Maintaining Amazon DocumentDB
 
-Periodically, Amazon DocumentDB performs maintenance on Amazon DocumentDB resources.
-Maintenance most often involves updates to the database engine (cluster maintenance) or the instance's underlying operating system (OS) (instance maintenance).
-Database engine updates are required patches and include security fixes, bug fixes, and enhancements to the database engine.
-While most operating system patches are optional, if you don't apply them for a while, the patch may be required and auto applied to maintain your security posture.
-So, we recommend that you apply operating system updates to your Amazon DocumentDB instances as soon as they are available.
+Amazon DocumentDB periodically performs two kinds of maintenance:
 
-Database engine patches require that you take your Amazon DocumentDB clusters offline for a short time.
-Once available, these patches are automatically scheduled to apply during an upcoming scheduled maintenance window of your Amazon DocumentDB cluster.
+- **Cluster maintenance** updates the database engine. Engine updates carry security fixes, bug fixes, new features, and other engine enhancements.
+- **Instance maintenance** updates the operating system (OS) on the instance.
+  Engine patches and OS updates use the same three lifecycle categories—_optional_, _required_, and _forced_—with the same notification and apply behavior for each category. Engine releases also have a fourth category: _minor versions_, which you upgrade to manually. The categories are:
 
-Both cluster and instances maintenance have their own respective maintenance windows.
-Cluster and instance modifications that you have chosen not to apply immediately, are also applied during the maintenance window.
-By default, when you create a cluster, Amazon DocumentDB assigns a maintenance window for both a cluster and each individual instance.
-You can choose the maintenance window when creating a cluster or an instance.
-You can also modify the maintenance windows at any time to fit your business schedules or practices.
-It is generally advised to choose maintenance windows that minimize the impact of the maintenance on your application (for example, on evenings or weekends).
+- **Optional**—contains non-critical improvements. No auto-apply date and no AHD notification; apply when it suits you. (For OS updates, you can subscribe to `RDS-EVENT-0230` to be notified when one becomes available.)
+- **Required**—contains security and other critical fixes. You receive a notification through the Health Dashboard (AHD) and e-mail. A required action auto-applies during your cluster or instance maintenance window after its `AutoAppliedAfterDate`. You can defer by changing the maintenance window before that date.
+- **Forced**—a rare, highly critical fix. Auto-applies outside your maintenance window after its `ForcedApplyDate`. Amazon DocumentDB only designates an action forced when no other option is available.
+- **Minor version** (engine releases only)—a numbered engine release on top of a major version (for example, `5.0.1`). User-driven: you upgrade by modifying the cluster's engine version. Never auto-applies; no AHD notification. Minor versions are not published for major versions earlier than 5.0.
+  Engine patches are released into a single category (optional, required, or forced) and stay there. OS updates progress: most start as optional and, if not applied, transition to required and eventually forced. The exact timing depends on the patch and is published in the AHD notification and the date fields returned by `describe-pending-maintenance-actions` (see [Apply dates](#db-instance-updates-apply-date "#db-instance-updates-apply-date")). The Amazon DocumentDB [Release notes](release-notes.md "release-notes.md") use these category names when announcing engine changes.
+
+Applying any engine patch takes the cluster offline briefly. The rest of this topic walks through how maintenance windows work, how to find pending work, how to apply engine patches and minor versions, how OS updates work, and special handling for global clusters.
 
 ###### Topics
 
+- [Engine version numbering](#engine-version-numbering "#engine-version-numbering")
+- [Managing your Amazon DocumentDB maintenance windows](#maintenance-window "#maintenance-window")
 - [Notifications for Amazon DocumentDB engine patches](#patch-notifications "#patch-notifications")
 - [Viewing pending Amazon DocumentDB maintenance actions](#view-pending-maintenance "#view-pending-maintenance")
 - [Amazon DocumentDB engine updates](#db-instance-updates-apply "#db-instance-updates-apply")
-- [User-initiated updates](#user-initiated-updates "#user-initiated-updates")
-- [Managing your Amazon DocumentDB maintenance windows](#maintenance-window "#maintenance-window")
+- [Minor version upgrades](#minor-version-upgrades "#minor-version-upgrades")
 - [Amazon DocumentDB operating system updates](#os-system-updates "#os-system-updates")
+- [User-initiated updates](#user-initiated-updates "#user-initiated-updates")
 - [Global clusters patching](#global-clusters-patching "#global-clusters-patching")
 
-## Notifications for Amazon DocumentDB engine patches
+## Engine version numbering
 
-You will receive maintenance notifications for required database engine patches through health events in the Health Dashboard (AHD) in the AWS console and through e-mails.
-When an Amazon DocumentDB engine maintenance patch becomes available in a particular AWS region, all impacted Amazon DocumentDB user accounts in the region will receive an AHD and email notification for each Amazon DocumentDB version affected by the patch.
-You can view these notifications under the **Scheduled changes** section of the AHD in the AWS console.
-The notification will have details about timing of patch availability, auto apply schedule, list of impacted clusters, and release notes.
-This notification will also be delivered via e-mail to the AWS account’s root user email address.
+Amazon DocumentDB uses two separate version identifiers:
 
-![Amazon DocumentDB console showing the Scheduled changes tab for engine patch upgrades.](images/scheduled-changes.png)
+- **Engine version**—a three-part number in the form ``major`.`major`.`minor`` (for example, `5.0.0` or `5.0.1`). The first two parts (`5.0`) are the MongoDB compatibility version; the third part is the minor version, incremented when Amazon DocumentDB publishes a minor release containing bug fixes and non-breaking improvements. This is the version you specify when creating or upgrading a cluster.
+- **Engine patch version**—a separate three-part number in the form ``major`.0.`patch`` (for example, `3.0.17983`) that identifies the patch level applied to your cluster. The middle digit is always `0`. Patch versions contain critical security and stability fixes.
 
-Once you receive this notification, you can choose to self-apply these engine patches to your Amazon DocumentDB clusters before the scheduled auto-apply date.
-Or you can wait for the engine patches to get auto-applied during an upcoming maintenance window (default option).
+You can determine the engine version from the engine patch version's prefix, as shown in the following table.
 
-###### Note
+| Engine patch version prefix | Amazon DocumentDB engine version |
+| --------------------------- | -------------------------------- |
+| `1.0.`x``                   | 3.6                              |
+| `2.0.`x``                   | 4.0                              |
+| `3.0.`x``                   | 5.0                              |
+| `4.0.`x``                   | 8.0                              |
 
-The **Status** for the notification in the AHD will be set to 'Ongoing' until a new Amazon DocumentDB engine patch with a new engine patch version is released.
+To check the patch version your cluster is running, connect and run `db.runCommand({getEngineVersion: 1})`.
 
-Once the engine patch is applied to your Amazon DocumentDB cluster, the cluster's engine patch version will be updated to reflect the version in the notification.
-You can run the `db.runCommand({getEngineVersion: 1})` command to verify this update.
-
-AWS Health also integrates with Amazon EventBridge which uses events to build scalable event-driven applications and integrates with over 20 targets, including AWS Lambda, Amazon Simple Queue Service (SQS), and others.
-You can use `AWS_DOCDB_DB_PATCH_UPGRADE_MAINTENANCE_SCHEDULED` event code to setup Amazon EventBridge before engine patches become available.
-You can setup EventBridge to respond to the event and auto-perform actions such as capturing event information, initiating additional events, sending notifications via additional channels such as push notifications to the AWS Console Mobile Application, and taking corrective or other actions, when an Amazon DocumentDB engine patch becomes available in your region.
-
-In the rare scenario of Amazon DocumentDB cancelling an engine patch, you will receive an AHD notification as well as an e-mail informing you about the cancellation.
-Accordingly, you can use the `AWS_DOCDB_DB_PATCH_UPGRADE_MAINTENANCE_CANCELLED` event code to setup Amazon EventBridge to respond to this event.
-View the _Amazon EventBridge User Guide_ to learn more about using [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md").
-
-## Viewing pending Amazon DocumentDB maintenance actions
-
-You can view whether a maintenance update is available for your cluster by using the AWS Management Console or the AWS CLI.
-
-If an update is available, you can do one of the following:
-
-- Defer a maintenance action that is currently scheduled for next maintenance window (for OS patches only).
-- Apply the maintenance actions immediately.
-- Schedule the maintenance actions to start during your next maintenance window.
-
-###### Note
-
-If you take no action, required maintenance actions such as engine patches will be auto applied in an upcoming scheduled maintenance window.
-
-The maintenance window determines when pending operations start, but it does not limit the total execution time of these operations.
-
-Using the AWS Management Console
-
-1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Clusters**.
-3. If an update is available, it is indicated by the word **Available**, **Required**, or **Next Window** in the
-   **Maintenance** column for the cluster on the Amazon DocumentDB console, as shown here:
-
-![Amazon DocumentDB console showing the Maintenance column for clusters.](images/db-cluster-maintenance-updates-status.png) 4. To take an action, choose the cluster to show its details, then choose **Maintenance & backups**.
-The **Pending Maintenance** items appear.
-
-![Amazon DocumentDB console showing the cluster Maintenance window.](images/cluster-maint-3.png)
-
-Using the AWS CLI
-Use the following AWS CLI operation to determine what maintenance actions are pending.
-The output here shows no pending maintenance actions.
-
-```
-aws docdb describe-pending-maintenance-actions
-```
-
-Output from this operation looks something like the following (JSON format).
-
-```
-{
-    "PendingMaintenanceActions": []
-}
-```
-
-## Amazon DocumentDB engine updates
-
-With Amazon DocumentDB, you can choose when to apply maintenance operations.
-You can decide when Amazon DocumentDB applies updates using the AWS Management Console or AWS CLI.
-
-Use the procedures in this topic to immediately upgrade or schedule an upgrade for your cluster.
-
-Using the AWS Management Console
-You can use the console to manage updates for your Amazon DocumentDB clusters.
-
-###### To manage an update for a cluster
-
-1.  Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2.  In the navigation pane, choose **Clusters**.
-3.  In the list of clusters, choose the button next to the name of the cluster that you want to apply the maintenance operation to.
-4.  On the **Actions** menu, choose one of the following:
-
-        * **Upgrade now** to immediately perform the pending maintenance tasks.
-        * **Upgrade at next window** to perform the pending maintenance tasks during the cluster's next maintenance
-         window.
-
-    Alternatively, you can click **Apply now** or **Apply at next maintenance window** in the Pending Maintenance section of the cluster **Maintenance & backups** tab (see **Using the AWS Management Console** in the previous section).
-
-###### Note
-
-If there are no pending maintenance tasks, all of the preceding options are inactive.
-
-Using the AWS CLI
-To apply a pending update to a cluster, use the `apply-pending-maintenance-action` AWS CLI operation.
-
-###### Parameters
-
-- `--resource-identifier`—The Amazon DocumentDB Amazon Resource Name (ARN) of the resource that the pending
-  maintenance action applies to.
-- `--apply-action`—The pending maintenance action to apply to this resource.
-
-Valid values: `system-update` and `db-upgrade`.
-
-- `--opt-in-type`—A value that specifies the type of opt-in request, or undoes an opt-in request. An opt-in request of type `immediate` can't be undone.
-
-Valid values:
-
-    + `immediate`—Apply the maintenance action immediately.
-    + `next-maintenance`—Apply the maintenance action during the next maintenance window for the resource.
-    + `undo-opt-in`—Cancel any existing `next-maintenance` opt-in requests.
-
-###### Example
-
-For Linux, macOS, or Unix:
-
-```
-aws docdb apply-pending-maintenance-action \
-    --resource-identifier arn:aws:rds:us-east-1:`123456789012`:db:docdb \
-    --apply-action system-update \
-    --opt-in-type immediate
-```
-
-For Windows:
-
-```
-aws docdb apply-pending-maintenance-action ^
-    --resource-identifier arn:aws:rds:us-east-1:`123456789012`:db:docdb ^
-    --apply-action system-update ^
-    --opt-in-type immediate
-```
-
-To return a list of resources that have at least one pending update, use the `describe-pending-maintenance-actions` AWS CLI command.
-
-###### Example
-
-For Linux, macOS, or Unix:
-
-```
-aws docdb describe-pending-maintenance-actions \
-    --resource-identifier arn:aws:rds:us-east-1:001234567890:db:docdb
-```
-
-For Windows:
-
-```
-aws docdb describe-pending-maintenance-actions ^
-    --resource-identifier arn:aws:rds:us-east-1:001234567890:db:docdb
-```
-
-Output from this operation looks something like the following (JSON format).
-
-```
-{
-    "PendingMaintenanceActions": [
-        {
-            "ResourceIdentifier": "arn:aws:rds:us-east-1:001234567890:cluster:sample-cluster",
-            "PendingMaintenanceActionDetails": [
-                {
-                    "Action": "system-update",
-                    "CurrentApplyDate": "2019-01-11T03:01:00Z",
-                    "Description": "db-version-upgrade",
-                    "ForcedApplyDate": "2019-01-18T03:01:00Z",
-                    "AutoAppliedAfterDate": "2019-01-11T03:01:00Z"
-                }
-            ]
-        }
-    ]
-}
-```
-
-You can also return a list of resources for a cluster by specifying the `--filters` parameter of the`describe-pending-maintenance-actions` AWS CLI operation.
-The format for the `--filters` operation is `Name=`filter-name`,Values=`resource-id`,...`.
-
-`db-cluster-id` is the acceptable values for the `Name` parameter of the filter.
-This value accepts a list of cluster identifiers or ARNs.
-The returned list only includes pending maintenance actions for the clusters identified by these identifiers or ARNs.
-
-The following example returns the pending maintenance actions for the `sample-cluster1` and `sample-cluster2` clusters.
-
-###### Example
-
-For Linux, macOS, or Unix:
-
-```
-aws docdb describe-pending-maintenance-actions \
-   --filters Name=db-cluster-id,Values=`sample-cluster1`,`sample-cluster2`
-```
-
-For Windows:
-
-```
-aws docdb describe-pending-maintenance-actions ^
-   --filters Name=db-cluster-id,Values=`sample-cluster1`,`sample-cluster2`
-```
-
-### Apply dates
-
-Each maintenance action has a respective apply date that you can find when describing the pending maintenance actions.
-When you read the output of pending maintenance actions from the AWS CLI, three dates are listed.
-These date values are `null` when the maintenance is optional.
-The values populate once the corresponding maintenance action is scheduled or applied.
-
-- `CurrentApplyDate`—The date the maintenance action will get applied either immediately or during the next maintenance window.
-- `ForcedApplyDate`—The date when the maintenance will be automatically applied, independent of your maintenance window.
-- `AutoAppliedAfterDate`—The date after which the maintenance will be applied during the cluster's maintenance window.
-
-## User-initiated updates
-
-As an Amazon DocumentDB user, you can initiate updates to your clusters or instances.
-For example, you can modify an instance's class to one with more or less memory, or you can change a cluster's parameter group. Amazon DocumentDB views these changes differently from Amazon DocumentDB initiated updates.
-For more information about modifying a cluster or instance, see the following:
-
-- [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md")
-- [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md")
-
-To see a list of pending user initiated modifications, run the following command.
-
-###### Example
-
-**To see pending user initiated changes for your instances**
-
-For Linux, macOS, or Unix:
-
-```
-aws docdb describe-db-instances \
-    --query 'DBInstances[*].[DBClusterIdentifier,DBInstanceIdentifier,PendingModifiedValues]'
-```
-
-For Windows:
-
-```
-aws docdb describe-db-instances ^
-    --query 'DBInstances[*].[DBClusterIdentifier,DBInstanceIdentifier,PendingModifiedValues]'
-```
-
-Output from this operation looks something like the following (JSON format).
-
-In this case, `sample-cluster-instance` has a pending change to a `db.r5.xlarge` instance class, while
-`sample-cluster-instance-2` has no pending changes.
-
-```
-[
-    [
-        "sample-cluster",
-        "sample-cluster-instance",
-        {
-            "DBInstanceClass": "db.r5.xlarge"
-        }
-    ],
-    [
-        "sample-cluster",
-        "sample-cluster-instance-2",
-        {}
-    ]
-]
-```
+For the list of released engine patch versions and what each one contains, see [Release notes](release-notes.md "release-notes.md").
 
 ## Managing your Amazon DocumentDB maintenance windows
 
-Each instance and cluster has a weekly maintenance window during which any pending changes are applied.
-The maintenance window is an opportunity to control when modifications and software patching occur, in the event either are requested or required.
-If a maintenance event is scheduled for a given week, it is initiated during the 30-minute maintenance window that you identify.
-Most maintenance events also complete during the 30-minute maintenance window, although larger maintenance events might take more than 30 minutes to complete.
+Every cluster and every instance has its own weekly 30-minute maintenance window—the period when scheduled modifications and software patching run. Most events complete within 30 minutes; larger ones can run longer.
 
-The 30-minute maintenance window is selected at random from an 8-hour block of time per Region.
-If you don't specify a preferred maintenance window when you create the instance or cluster, Amazon DocumentDB assigns a 30-minute maintenance window on a randomly selected day of the week.
+If you don't choose a window when creating the resource, Amazon DocumentDB assigns one at random within an 8-hour daily block defined for the Region, on a randomly selected day. Choose windows that minimize impact to your application—evenings or weekends, for example.
 
-The following table lists the time blocks for each Region from which default maintenance windows are assigned.
+For database engine upgrades, Amazon DocumentDB uses the cluster's window, not the windows of individual instances.
+
+The following table shows the default time blocks per Region.
 
 | Region Name               | Region         | UTC Time Block |
 | ------------------------- | -------------- | -------------- |
@@ -341,73 +95,262 @@ The following table lists the time blocks for each Region from which default mai
 
 ### Changing your Amazon DocumentDB maintenance windows
 
-The maintenance window should fall at the time of lowest usage and thus might need changing from time to time.
-Your cluster or instance is unavailable during this time only if system changes (such as a scale storage operation or an instance class change) are being applied and require an outage.
-And then it is unavailable only for the minimum amount of time required to make the necessary changes.
-
-For upgrades to the database engine, Amazon DocumentDB uses the cluster's preferred maintenance window and not the maintenance window for individual instances.
+Choose the lowest-traffic window you can, and adjust over time as your traffic patterns shift. The cluster or instance is unavailable during the window only if a system change—a scale-storage operation or an instance class change, for example—requires an outage, and only for as long as that change actually needs.
 
 ###### To change the maintenance window
 
 - For a cluster, see [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md").
 - For an instance, see [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md").
 
-## Amazon DocumentDB operating system updates
+## Notifications for Amazon DocumentDB engine patches
 
-Instances in Amazon DocumentDB clusters occasionally require operating system updates.
-Amazon DocumentDB upgrades the operating system to a newer version to improve database performance and customers’ overall security posture.
-Operating system updates don't change the cluster engine version or instance class of an Amazon DocumentDB instance.
+When a _required_ engine patch becomes available in an AWS Region, every AWS account with an affected Amazon DocumentDB cluster in that Region receives a notification through the Health Dashboard (AHD) and through e-mail (sent to the AWS account's root user address). One notification is delivered per affected Amazon DocumentDB engine version. You can find them under **Scheduled changes** in the AHD. Each notification lists the patch availability timing, the auto-apply schedule, the affected clusters, and the release notes.
 
-We recommend that you update the reader instances in a cluster first, then the writer instance to maximize the availability of your cluster.
-We don't recommend updating reader and writer instances at the same time, because you might incur longer downtime in the event of a failover.
+![Amazon DocumentDB console showing the Scheduled changes tab for engine patch upgrades.](images/scheduled-changes.png)
 
-Most operating system updates for Amazon DocumentDB are optional and don't have a set date to apply them.
-However, if you don't apply these updates for a while, they may eventually become required and automatically applied during your instance's maintenance window.
-This is to help maintain the security posture of your database.
-To avoid any unexpected downtime, we recommend that you apply operating system updates to your Amazon DocumentDB instances as soon as they become available and set your instance maintenance window at a time of your convenience as per your business needs.
+Notifications go out approximately two days before the auto-apply window opens. For example, a required patch released Monday at 00:00 UTC becomes eligible for auto-apply on Wednesday at 00:00 UTC. If your cluster's maintenance window is Wednesday at 12:00 UTC, the patch auto-applies that Wednesday—about 12 hours after the auto-apply window opens. If your maintenance window is Tuesday at 12:00 UTC, the patch waits a full week before auto-applying.
 
-To be notified when a new optional update becomes available, you can subscribe to RDS-EVENT-0230 in the security patching event category.
-For information about subscribing to Amazon DocumentDB events, see [Subscribing to Amazon DocumentDB Event Subscriptions](event-subscriptions.subscribe.md "event-subscriptions.subscribe.md").
-
-You should expect that when maintenance is performed on your cluster or instance, if the instance is a primary instance, it will fail over.
-To improve your availability, we recommend that you use more than one instance for your Amazon DocumentDB clusters.
-For more information, see [Amazon DocumentDB Failover](failover.md "failover.md").
+You have two options after receiving the notification: self-apply the patch before the auto-apply date, or wait for it to auto-apply during an upcoming maintenance window (the default). To self-apply, open the cluster's **Maintenance & backups** tab and look for the entry of type `system-update`.
 
 ###### Note
 
-For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon Relational Database Service (Amazon RDS).
+The notification's **Status** in the AHD stays **Ongoing** until Amazon DocumentDB releases another engine patch with a new patch version.
+
+After the patch is applied, the cluster's engine patch version updates to match the version in the notification. Verify the new version by running `db.runCommand({getEngineVersion: 1})`.
+
+Optional patches and new minor versions don't generate AHD or e-mail notifications. To track them, watch the Amazon DocumentDB [Release notes](release-notes.md "release-notes.md").
+
+Forced patches (the rarest category, reserved for the most critical security fixes) are also announced through AHD and e-mail. Unlike required patches, they apply outside your maintenance window, so the auto-apply timing example above does not apply.
+
+### Reacting to patch notifications programmatically
+
+AWS Health integrates with Amazon EventBridge, which lets you build event-driven applications across more than 20 targets, including AWS Lambda and Amazon Simple Queue Service (SQS). To react to engine-patch availability programmatically, configure EventBridge against the `AWS_DOCDB_DB_PATCH_UPGRADE_MAINTENANCE_SCHEDULED` event. From there you can capture event data, raise additional events, send push notifications via the AWS Console Mobile Application, or take any other action you need.
+
+If Amazon DocumentDB cancels a patch (rare), you receive an AHD notification and an e-mail about the cancellation. Use the `AWS_DOCDB_DB_PATCH_UPGRADE_MAINTENANCE_CANCELLED` event code with Amazon EventBridge to handle this case. For more about writing rules, see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md").
+
+## Viewing pending Amazon DocumentDB maintenance actions
+
+Use the AWS Management Console or the AWS CLI to check what maintenance is pending for a cluster or instance.
+
+Pending updates appear with the action type `system-update`, which covers both engine patches and OS updates.
+
+When an update is pending, you can:
+
+- Apply it immediately.
+- Schedule it for the next maintenance window.
+- Defer it (engine patches and OS updates only) by changing your maintenance window before `AutoAppliedAfterDate`. Once that date passes, the action will auto-apply during the next maintenance window. Once `ForcedApplyDate` passes, no further deferral is possible.
+
+###### Note
+
+If you take no action, required maintenance actions such as required engine patches auto-apply during an upcoming maintenance window. Optional patches and minor versions never auto-apply.
+
+The maintenance window controls when pending operations _start_, not how long they take to complete.
+
+Using the AWS Management Console
+
+1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2. In the navigation pane, choose **Clusters**.
+3. The cluster's **Maintenance** column shows **Available**, **Required**, or **Next Window** when an update is pending.
+
+![Amazon DocumentDB console showing the Maintenance column for clusters.](images/db-cluster-maintenance-updates-status.png) 4. Open the cluster, then choose **Maintenance & backups** to see the **Pending Maintenance** items and act on them.
+
+![Amazon DocumentDB console showing the cluster Maintenance window.](images/cluster-maint-3.png)
+
+Using the AWS CLI
+Run `describe-pending-maintenance-actions` to see what's pending. The following example shows an account with no pending actions.
+
+```
+aws docdb describe-pending-maintenance-actions
+```
+
+Output from this operation looks something like the following (JSON format).
+
+```
+{
+    "PendingMaintenanceActions": []
+}
+```
+
+An account with a pending action returns output that looks like this:
+
+```
+{
+    "PendingMaintenanceActions": [
+        {
+            "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
+            "PendingMaintenanceActionDetails": [
+                {
+                    "Action": "system-update",
+                    "Description": "db-version-upgrade",
+                    "CurrentApplyDate": "2026-05-15T03:01:00Z",
+                    "AutoAppliedAfterDate": "2026-05-15T03:01:00Z"
+                }
+            ]
+        }
+    ]
+}
+```
+
+You can scope the listing to specific clusters with `--filters`, in the form `Name=`filter-name`,Values=`resource-id`,...`. The accepted filter `Name` is `db-cluster-id`, which takes a list of cluster identifiers or ARNs.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb describe-pending-maintenance-actions \
+   --filters Name=db-cluster-id,Values=`sample-cluster1`,`sample-cluster2`
+```
+
+For Windows:
+
+```
+aws docdb describe-pending-maintenance-actions ^
+   --filters Name=db-cluster-id,Values=`sample-cluster1`,`sample-cluster2`
+```
+
+### Apply dates
+
+Each pending maintenance action carries up to three apply dates. They appear in the AWS CLI output for `describe-pending-maintenance-actions` and indicate when the action will run. Fields are `null` for optional maintenance.
+
+- `CurrentApplyDate`—when the action is scheduled to run, either now or at the next maintenance window. Populated for required and forced actions.
+- `AutoAppliedAfterDate`—the date after which auto-apply begins during the cluster or instance maintenance window. Populated for required actions.
+- `ForcedApplyDate`—the hard deadline. After this date the action runs automatically, regardless of your maintenance window. Populated for forced actions.
+
+To defer a pending action, move your maintenance window to a later day before `AutoAppliedAfterDate`. Once `AutoAppliedAfterDate` passes, the action will auto-apply during the next maintenance window. Once `ForcedApplyDate` passes, no further deferral is possible. The exact deferral window varies per patch; the dates are published in the AHD notification and the AWS CLI output.
+
+## Amazon DocumentDB engine updates
+
+When you've identified a pending engine patch, use one of the following procedures to apply or schedule it. You can run these procedures from either the AWS Management Console or the AWS CLI.
+
+Using the AWS Management Console
+
+###### To manage an update for a cluster
+
+1.  Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
+2.  In the navigation pane, choose **Clusters**.
+3.  Select the cluster you want to update.
+4.  From the **Actions** menu, choose either:
+
+        * **Upgrade now**—run the pending maintenance immediately.
+        * **Upgrade at next window**—run it during the cluster's next maintenance window.
+
+    You can also use **Apply now** or **Apply at next maintenance window** from the **Pending Maintenance** section of the cluster's **Maintenance & backups** tab (see [Viewing pending Amazon DocumentDB maintenance actions](#view-pending-maintenance "#view-pending-maintenance")).
+
+###### Note
+
+If nothing is pending, all of these options are inactive.
+
+Using the AWS CLI
+Apply a pending update with `apply-pending-maintenance-action`.
+
+###### Parameters
+
+- `--resource-identifier`—the Amazon DocumentDB Amazon Resource Name (ARN) of the resource the pending action targets.
+- `--apply-action`—the pending maintenance action to apply. Valid values: `system-update`, `db-upgrade`.
+- `--opt-in-type`—the type of opt-in request, or whether to undo one. Valid values:
+
+  - `immediate`—apply now. Cannot be undone once submitted.
+  - `next-maintenance`—apply during the resource's next maintenance window.
+  - `undo-opt-in`—cancel an existing `next-maintenance` opt-in.
+
+###### Example
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb apply-pending-maintenance-action \
+    --resource-identifier arn:aws:rds:us-east-1:`123456789012`:db:`sample-cluster-instance-1` \
+    --apply-action system-update \
+    --opt-in-type immediate
+```
+
+For Windows:
+
+```
+aws docdb apply-pending-maintenance-action ^
+    --resource-identifier arn:aws:rds:us-east-1:`123456789012`:db:`sample-cluster-instance-1` ^
+    --apply-action system-update ^
+    --opt-in-type immediate
+```
+
+### Read availability during patching
+
+Amazon DocumentDB engine 5.0 and 8.0 preserve read availability during patching when the cluster has multiple instances. Amazon DocumentDB patches reader instances in a rolling fashion, in three groups, so the remaining readers continue serving traffic. The writer is briefly unavailable while it patches. To achieve zero read downtime, set your read preference so reads can fall back to the writer: `secondaryPreferred` or `primaryPreferred` work; `primary` or `secondary` alone may incur read downtime.
+
+| Read preference mode | During writer upgrade | During reader upgrade              | Minimum number of readers needed for zero read downtime |
+| -------------------- | --------------------- | ---------------------------------- | ------------------------------------------------------- |
+| `primary`            | Read/write downtime   | No impact                          | N/A                                                     |
+| `primaryPreferred`   | Write downtime        | No impact                          | 1                                                       |
+| `secondary`          | Write downtime        | Read downtime (if only one reader) | 2                                                       |
+| `secondaryPreferred` | Write downtime        | No impact                          | 1                                                       |
+| `nearest`            | Write downtime        | No impact                          | 1                                                       |
+
+While readers are patching, overall cluster read throughput drops temporarily. To hold throughput steady, provision additional readers before the upgrade and remove them after it completes.
+
+On engine 3.6 and 4.0, these read-availability features don't apply: an engine patch causes longer downtime that affects both reads and writes. To upgrade to a major version that does, see [Amazon DocumentDB in-place major version upgrade](docdb-mvu.md "docdb-mvu.md").
+
+### Patch downtime length
+
+Engine-patch downtime varies. The biggest factors are CPU utilization and memory pressure on the instance at the time of the patch, so right-sizing your instances matters. To minimize downtime, run the latest Amazon DocumentDB major engine version and spread instances across multiple Availability Zones.
+
+### Patch updates and replacements
+
+Amazon DocumentDB monitors patches after release. In the rare case that an issue is identified, Amazon DocumentDB pauses the rollout while it prepares an updated version. When this happens, clusters that haven't yet received the patch no longer see it as an available maintenance action, and the corresponding scheduled-change notification in the Health Dashboard is withdrawn. Clusters already running the affected version continue to operate normally and require no action from you.
+
+An updated patch follows shortly. When it becomes available in your Region, you receive a fresh notification through the Health Dashboard and e-mail, just as described in [Notifications for Amazon DocumentDB engine patches](#patch-notifications "#patch-notifications").
+
+## Minor version upgrades
+
+Amazon DocumentDB publishes minor versions on top of major version 5.0 and later (for example, `5.0.1`). Minor versions are not published for major versions earlier than 5.0. Minor versions behave differently from required and optional engine patches:
+
+- They don't appear as a pending maintenance action and never auto-apply.
+- They don't generate AHD or e-mail notifications. New minor versions are announced in the Amazon DocumentDB [Release notes](release-notes.md "release-notes.md").
+- To upgrade, you modify the cluster's engine version (immediately or during the next maintenance window). Minor version upgrades require brief downtime and are one-way—you can't downgrade to an earlier minor version. For global clusters, upgrade secondary clusters before the primary.
+
+Read more: [Amazon DocumentDB minor version upgrade](docdb-minor-version-upgrade.md "docdb-minor-version-upgrade.md").
+
+## Amazon DocumentDB operating system updates
+
+Instances occasionally need OS updates. Amazon DocumentDB updates the OS to improve performance and tighten security. OS updates leave the cluster engine version and instance class unchanged. Like engine patches, OS updates use the optional / required / forced lifecycle described at the top of this topic; unlike engine patches, an OS update can transition through these categories over time if you defer it. Apply OS updates as soon as they are available, and set your instance maintenance window to a time that fits your business.
+
+To get an event when a new optional update arrives, subscribe to `RDS-EVENT-0230` in the security patching event category. For details, see [Subscribing to Amazon DocumentDB Event Subscriptions](event-subscriptions.subscribe.md "event-subscriptions.subscribe.md"). After receiving a notification, you can self-apply the OS patch to each instance.
+
+When patching a cluster, update reader instances first and the writer last. Avoid patching readers and the writer simultaneously—a failover during the patch can extend downtime. Maintenance on the primary instance triggers a failover, so run more than one instance per cluster to stay available. For details, see [Amazon DocumentDB Failover](failover.md "failover.md").
 
 ###### Important
 
-Your Amazon DocumentDB instance will be taken offline during the operating system upgrade.
-You can minimize cluster downtime by having a multi-instance cluster.
-If you do not have a multi-instance cluster then you can choose to temporarily create one by adding secondary instance(s) to perform this maintenance, then deleting the additional reader instance(s) once the maintenance is completed (regular charges for the secondary instance will apply).
+Your Amazon DocumentDB instance goes offline for the OS upgrade. Multi-instance clusters minimize the impact. If you run a single-instance cluster, you can temporarily add a secondary for the upgrade and remove it afterwards. The secondary incurs the usual charges while it exists.
 
 ###### Note
 
-Staying current on all optional and mandatory updates might be required to meet various compliance obligations.
-We recommend that you apply all updates made available by Amazon DocumentDB routinely during your maintenance windows.
+Staying current on optional and required updates may be required for compliance. Apply available updates routinely during your maintenance windows.
 
-You can use the AWS Management Console or the AWS CLI to determine whether an update is available.
+OS updates are tied to specific engine versions and instance classes, so different instances become eligible at different times. When an instance is eligible, the update appears in the console; you can also see it via the AWS CLI `describe-pending-maintenance-actions` command or the `DescribePendingMaintenanceActions` API.
+
+###### Note
+
+If your cluster isn't on the latest patch release of its Amazon DocumentDB engine, an OS update may not appear as available. Apply the latest engine patch first, then check again.
+
+Use the AWS Management Console or AWS CLI to check whether an update is available.
 
 Using the AWS Management Console
-To determine whether an update is available using the AWS Management Console:
+To check for an OS update from the console:
 
 1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
-2. In the navigation pane, choose **Clusters**, and then select the instance.
-3. Choose **Maintenance**.
-4. In the **Pending Maintenance** section, find the operating system update.
+2. In the navigation pane, choose **Clusters**. The list shows both clusters and the instances inside them, distinguished by the **Role** column.
+3. Select the row whose **Role** is **Instance** (not the cluster row). OS updates apply to instances, not clusters.
+4. Choose **Maintenance**.
+5. Look under **Pending Maintenance** for the OS update.
 
 ![Amazon DocumentDB console showing the Maintenance column for clusters.](images/maintenance-available-1.png)
 
-You can select the operating system update and click **Apply now** or **Apply at next maintenance window** in the **Pending Maintenance** section.
-If the maintenance value is **next window**, defer the maintenance items by choosing **Defer upgrade**.
-You can't defer a maintenance action if it has already started.
+From the **Pending Maintenance** section, select the OS update and choose **Apply now** or **Apply at next maintenance window**. If the maintenance value is **next window**, you can defer the update with **Defer upgrade** as long as it has not started yet.
 
-Alternatively, you can choose the instance from a list of clusters by clicking on **Clusters** in the navigation pane and select **Apply now** or **Apply at next maintenance window** from the **Actions** menu.
+You can also do this from the cluster list: in the navigation pane, choose **Clusters**, select the row whose **Role** is **Instance**, and choose **Apply now** or **Apply at next maintenance window** from the **Actions** menu.
 
 Using the AWS CLI
-To determine whether an update is available using the AWS CLI, call the `describe-pending-maintenance-actions` command:
+From the AWS CLI, run `describe-pending-maintenance-actions`:
 
 ```
 aws docdb describe-pending-maintenance-actions
@@ -415,50 +358,80 @@ aws docdb describe-pending-maintenance-actions
 
 ```
 {
-  "ResourceIdentifier": "arn:aws:docdb:us-east-1:123456789012:db:mydb2",
-  "PendingMaintenanceActionDetails": [
+  "PendingMaintenanceActions": [
     {
-      "Action": "system-update",
-      "Description": "New Operating System update is available"
+      "ResourceIdentifier": "arn:aws:rds:us-east-1:123456789012:db:sample-cluster-instance-1",
+      "PendingMaintenanceActionDetails": [
+        {
+          "Action": "system-update",
+          "Description": "New Operating System update is available"
+        }
+      ]
     }
   ]
 }
 ```
 
-Operating system updates are specific to Amazon DocumentDB engine versions and instance classes.
-Therefore, Amazon DocumentDB instances receive or require updates at different times.
-When an operating system update is available for your instance based on its engine version and instance class, the update appears in the console.
-It can also be viewed by running the AWS CLI `describe-pending-maintenance-actions` command or by calling the `DescribePendingMaintenanceActions` API operation.
+## User-initiated updates
 
-If you are not running the latest cluster patch release of your Amazon DocumentDB engine, you may not see operating system update listed as available maintenance.
-In order to view and manage the operating system update, you should first upgrade to the latest engine patch version.
+Some changes you start yourself—for example, swapping an instance class for one with more or less memory, or changing the cluster's parameter group. Amazon DocumentDB treats these differently from updates it initiates. For details, see:
+
+- [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md")
+- [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md")
+
+To list user-initiated changes that are still pending:
+
+###### Example
+
+**To list pending user-initiated changes for your instances**
+
+For Linux, macOS, or Unix:
+
+```
+aws docdb describe-db-instances \
+    --query 'DBInstances[*].[DBClusterIdentifier,DBInstanceIdentifier,PendingModifiedValues]'
+```
+
+For Windows:
+
+```
+aws docdb describe-db-instances ^
+    --query 'DBInstances[*].[DBClusterIdentifier,DBInstanceIdentifier,PendingModifiedValues]'
+```
+
+Output from this operation looks something like the following (JSON format).
+
+In this example, `sample-cluster-instance` has a pending change to `db.r5.xlarge`; `sample-cluster-instance-2` has none.
+
+```
+[
+    [
+        "sample-cluster",
+        "sample-cluster-instance",
+        {
+            "DBInstanceClass": "db.r5.xlarge"
+        }
+    ],
+    [
+        "sample-cluster",
+        "sample-cluster-instance-2",
+        {}
+    ]
+]
+```
 
 ## Global clusters patching
 
-Engine patch version of primary and secondary clusters are upgraded during each cluster's maintenance window.
-You will get a notification once a new engine patch version is available in all regions.
-The notification is sent out through Health Dashboard and email.
+In a global cluster, each member cluster—primary and secondary—upgrades during its own maintenance window. When a required engine patch is available in every Region, you receive an AHD and e-mail notification. Optional patches and new minor versions don't generate notifications; check the Amazon DocumentDB [Release notes](release-notes.md "release-notes.md") for those.
 
-Once you receive the notification, you can choose to self-apply these engine patches to your secondary and primary clusters.
-Always patch secondary clusters first, then the primary cluster.
-This order ensures that FailOver and SwitchOver remain available throughout the patching process.
+If you self-apply, always patch secondaries first and the primary last. This order keeps failover and switchover available throughout the rollout.
 
 ###### Important
 
-If you have already patched the primary cluster before the secondary clusters, update all secondary clusters to the same version as soon as possible.
-FailOver and SwitchOver will not work until all secondary and primary clusters are on the same version.
+If you patch the primary first by mistake, bring all secondaries up to the same version as soon as possible. Failover and switchover remain disabled until every cluster is on the same version.
 
-If you do not choose to self-apply, the patch will be applied automatically during each cluster's next maintenance window.
-It will be applied on secondary clusters first.
-Once all secondary clusters are patched, the patch will be applied on the primary cluster during the primary cluster's next maintenance window.
+If you take no action, the patch auto-applies during each cluster's next maintenance window: secondaries first, then the primary at its window once the secondaries are done.
 
-We recommend that you upgrade the primary and secondary DB clusters to the same version.
-You can only perform a managed cross-Region database failover on an Amazon DocumentDB global database if the primary and secondary DB clusters have the same engine version and patch level.
+Keep the primary and secondary DB clusters on the same version. Managed cross-Region failover only works on a global database when every cluster shares the same engine version and patch level. The same applies if you add a new secondary that uses a newer engine version than the primary—create new secondaries on the primary's version before joining them to the global database.
 
-When primary and secondary clusters are on different engine patch versions, FailOver and SwitchOver requests will be rejected to avoid engine version compatibility issues.
-This can also occur when you add a new secondary cluster to a global database using a newer engine version than the primary cluster.
-To avoid this, ensure that any new secondary cluster is created with the same engine version as the primary cluster before adding it to the global database.
-
-Once you receive the patch notification, we recommend upgrading your primary and secondary clusters to the latest version at your earliest opportunity to ensure SwitchOver and FailOver continue to work as expected.
-If your FailOver or SwitchOver request is rejected, check the engine patch version on your primary and secondary clusters.
-If they don't match, check and apply the available patch on your secondary and primary clusters.
+After a patch notification, upgrade primary and secondary to the latest version at your earliest opportunity to keep failover and switchover working. If a failover or switchover request is rejected, compare the engine patch versions across clusters; if they don't match, apply the available patch on the lagging clusters.

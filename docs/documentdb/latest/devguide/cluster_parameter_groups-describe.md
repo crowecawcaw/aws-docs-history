@@ -1,7 +1,7 @@
 # Describing Amazon DocumentDB cluster parameter groups
 
-A `default` cluster parameter group is created automatically when you create the first Amazon DocumentDB cluster in new region or are using a new engine.
-Subsequent clusters, which are created in the same region and have the same engine version, are created with the `default` cluster parameter group.
+A `default` cluster parameter group is created automatically when you create the first Amazon DocumentDB cluster in a new AWS Region or are using a new engine.
+Subsequent clusters, which are created in the same Region and have the same engine version, are created with the `default` cluster parameter group.
 
 ###### Topics
 
@@ -48,11 +48,13 @@ You can use the `describe-db-cluster-parameter-groups` AWS CLI command to view t
 
 - `--describe-db-cluster-parameter-groups`
   — To see a listing of all your cluster parameter groups and their details.
+
   - `--db-cluster-parameter-group-name`
     — Optional. The name of the cluster parameter group that you want described. If this parameter is omitted, all cluster parameter groups are described.
 
 - `--describe-db-cluster-parameters`
   — To list all the parameters inside a parameter group and their values.
+
   - `--db-cluster-parameter-group
 name` — Required. The name of the cluster parameter group that you want described.
 

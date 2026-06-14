@@ -183,6 +183,7 @@ To share a snapshot using the AWS Management Console, complete the following ste
 3. Select the manual snapshot that you want to share.
 4. In the **Actions** drop-down menu, choose Share.
 5. Choose one of the following options for **DB snapshot visibility**:
+
    - If the source is unencrypted, choose **Public** to permit all AWS accounts to restore a cluster from your manual snapshot.
      Or choose **Private** to permit only AWS accounts that you specify to restore a cluster from your manual snapshot.
 

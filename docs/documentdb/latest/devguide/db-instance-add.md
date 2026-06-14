@@ -40,6 +40,7 @@ to 15.
      **Add additional instances** and repeat steps a, b, and c.
 
 6. Finish the operation.
+
    - To add the instances to your cluster,
      choose **Create**.
    - To cancel the operation, choose

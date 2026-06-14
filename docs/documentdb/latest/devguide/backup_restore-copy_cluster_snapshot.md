@@ -143,6 +143,7 @@ snapshot** page, complete the
 
 5.  Complete the **Encryption-at-rest**
     section.
+
     1. **Encryption at rest** —
        If your snapshot is not encrypted, these options are not available to you because you cannot create an encrypted copy from an unencrypted snapshot.
        If your snapshot is encrypted, you can change the AWS KMS key used during encryption at rest.

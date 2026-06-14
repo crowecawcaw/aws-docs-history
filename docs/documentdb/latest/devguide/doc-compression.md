@@ -46,7 +46,7 @@ When this parameter is set to “enabled”, newly created collections on the cl
 ### Compressing existing collections
 
 You can also modify the compression settings for an existing collection using the `collMod` operation and specifying the following `storageEngine` configuration.
-Please note that the change made using this command will only apply to newly inserted/updated documents and the compression on previously inserted documents will not change.
+Note that the change made using this command will only apply to newly inserted/updated documents and the compression on previously inserted documents will not change.
 
 ```
 db.runCommand({
@@ -91,7 +91,7 @@ db.runCommand({
 })
 ```
 
-Please note that the compression threshold can only be set to a value between 128 to 8000 bytes.
+Note that the compression threshold can only be set to a value between 128 to 8000 bytes.
 Additionally, the `enable` option needs to be set to “true” when specifying the compression threshold.
 
 ## Monitoring document compression

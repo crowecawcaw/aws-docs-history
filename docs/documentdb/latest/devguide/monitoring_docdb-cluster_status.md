@@ -40,7 +40,7 @@ procedure.
 2. In the navigation pane, choose **Clusters**.
 3. In the Clusters navigation box, you'll see the column **Cluster
    identifier**. Your instances are listed under clusters, similar to the
-   screenshot below.
+   following screenshot.
 
 ![Clusters table showing how an instance is nested under a cluster.](images/choose-clusters.png) 4. In the **Cluster identifier** column, find the name of the
 instance that you are interested in. Then, to find the status of the instance,

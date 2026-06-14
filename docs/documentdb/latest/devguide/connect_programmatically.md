@@ -8,7 +8,7 @@ default, TLS is enabled on Amazon DocumentDB clusters. However, you can turn off
 TLS if you want. For more information, see [Encrypting data in transit](security.encryption.ssl.md "security.encryption.ssl.md").
 
 If you are attempting to connect to your Amazon DocumentDB from
-outside the VPC in which your cluster resides, please see [Connecting to an Amazon DocumentDB cluster from outside an Amazon VPC](connect-from-outside-a-vpc.md "connect-from-outside-a-vpc.md").
+outside the VPC in which your cluster resides, see [Connecting to an Amazon DocumentDB cluster from outside an Amazon VPC](connect-from-outside-a-vpc.md "connect-from-outside-a-vpc.md").
 
 Before you connect to your cluster, you must know whether TLS is
 enabled on the cluster. The next section shows you how to determine the

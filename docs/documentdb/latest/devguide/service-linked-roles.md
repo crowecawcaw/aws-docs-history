@@ -25,6 +25,7 @@ The AWSServiceRoleForRDS service-linked role trusts the following services to as
 The role permissions policy allows Amazon DocumentDB to complete the following actions on the specified resources:
 
 - Actions on `ec2`:
+
   - `AssignPrivateIpAddresses`
   - `AuthorizeSecurityGroupIngress`
   - `CreateNetworkInterface`
@@ -42,10 +43,12 @@ The role permissions policy allows Amazon DocumentDB to complete the following a
   - `UnassignPrivateIpAddresses`
 
 - Actions on `sns`:
+
   - `ListTopic`
   - `Publish`
 
 - Actions on `cloudwatch`:
+
   - `PutMetricData`
   - `GetMetricData`
   - `CreateLogStream`

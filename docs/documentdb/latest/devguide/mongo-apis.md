@@ -3,9 +3,9 @@
 Amazon DocumentDB (with MongoDB compatibility) is a fast, scalable, highly-available, and fully managed document database service that supports MongoDB workloads.
 Amazon DocumentDB is compatible with the MongoDB 3.6, 4.0, 5.0, and 8.0 APIs.
 This section lists the supported functionality.
-For support using MongoDB APIs and drivers, please consult the MongoDB Community Forums.
-For support using the Amazon DocumentDB service, please contact the appropriate AWS support team.
-For functional differences between Amazon DocumentDB and MongoDB, please see [Functional differences: Amazon DocumentDB and MongoDB](functional-differences.md "functional-differences.md").
+For support using MongoDB APIs and drivers, consult the MongoDB Community Forums.
+For support using the Amazon DocumentDB service, contact the appropriate AWS support team.
+For functional differences between Amazon DocumentDB and MongoDB, see [Functional differences: Amazon DocumentDB and MongoDB](functional-differences.md "functional-differences.md").
 
 MongoDB commands and operators that are internal-only or not applicable to a fully-managed service are not supported and are not included in the list of supported functionality.
 
@@ -455,24 +455,24 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Arithmetic operators
 
-| Command                                | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------------------------------- | --- | --- | --- | --- | --------------- |
-| [$abs](abs.md "abs.md")                | Yes | Yes | Yes | Yes | Yes             |
-| [$add](add.md "add.md")                | Yes | Yes | Yes | Yes | Yes             |
-| [$ceil](ceil.md "ceil.md")             | No  | Yes | Yes | Yes | Yes             |
-| [$divide](divide.md "divide.md")       | Yes | Yes | Yes | Yes | Yes             |
-| [$exp](exp.md "exp.md")                | No  | Yes | Yes | Yes | Yes             |
-| [$floor](floor.md "floor.md")          | No  | Yes | Yes | Yes | Yes             |
-| [$ln](ln.md "ln.md")                   | No  | Yes | Yes | Yes | Yes             |
-| [$log](log.md "log.md")                | No  | Yes | Yes | Yes | Yes             |
-| [$log10](log10.md "log10.md")          | No  | Yes | Yes | Yes | Yes             |
-| [$mod](mod.md "mod.md")                | Yes | Yes | Yes | Yes | Yes             |
-| [$multiply](multiply.md "multiply.md") | Yes | Yes | Yes | Yes | Yes             |
-| [$pow](pow.md "pow.md")                | No  | No  | No  | Yes | No              |
-| $round                                 | -   | -   | No  | No  | No              |
-| [$sqrt](sqrt.md "sqrt.md")             | No  | Yes | Yes | Yes | Yes             |
-| [$subtract](subtract.md "subtract.md") | Yes | Yes | Yes | Yes | Yes             |
-| $trunc                                 | No  | No  | No  | No  | No              |
+| Command                                | 3.6 | 4.0 | 5.0          | 8.0 | Elastic cluster |
+| -------------------------------------- | --- | --- | ------------ | --- | --------------- |
+| [$abs](abs.md "abs.md")                | Yes | Yes | Yes          | Yes | Yes             |
+| [$add](add.md "add.md")                | Yes | Yes | Yes          | Yes | Yes             |
+| [$ceil](ceil.md "ceil.md")             | No  | Yes | Yes          | Yes | Yes             |
+| [$divide](divide.md "divide.md")       | Yes | Yes | Yes          | Yes | Yes             |
+| [$exp](exp.md "exp.md")                | No  | Yes | Yes          | Yes | Yes             |
+| [$floor](floor.md "floor.md")          | No  | Yes | Yes          | Yes | Yes             |
+| [$ln](ln.md "ln.md")                   | No  | Yes | Yes          | Yes | Yes             |
+| [$log](log.md "log.md")                | No  | Yes | Yes          | Yes | Yes             |
+| [$log10](log10.md "log10.md")          | No  | Yes | Yes          | Yes | Yes             |
+| [$mod](mod.md "mod.md")                | Yes | Yes | Yes          | Yes | Yes             |
+| [$multiply](multiply.md "multiply.md") | Yes | Yes | Yes          | Yes | Yes             |
+| [$pow](pow.md "pow.md")                | No  | No  | Yes (5.0.1+) | Yes | No              |
+| $round                                 | -   | -   | No           | No  | No              |
+| [$sqrt](sqrt.md "sqrt.md")             | No  | Yes | Yes          | Yes | Yes             |
+| [$subtract](subtract.md "subtract.md") | Yes | Yes | Yes          | Yes | Yes             |
+| $trunc                                 | No  | No  | No           | No  | No              |
 
 ### Array operators
 
@@ -538,29 +538,29 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Date operators
 
-| Command                                                  | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------------------------------------------------- | --- | --- | --- | --- | --------------- |
-| [$dateAdd](dateAdd.md "dateAdd.md")                      | No  | No  | Yes | Yes | Yes             |
-| [$dateDiff](dateDiff.md "dateDiff.md")                   | -   | -   | Yes | Yes | No              |
-| $dateFromParts                                           | No  | No  | No  | No  | No              |
-| [$dateFromString](dateFromString.md "dateFromString.md") | Yes | Yes | Yes | Yes | Yes             |
-| [$dateSubtract](dateSubtract.md "dateSubtract.md")       | No  | No  | Yes | Yes | Yes             |
-| $dateToParts                                             | No  | No  | No  | No  | No              |
-| [$dateToString](dateToString.md "dateToString.md")       | Yes | Yes | Yes | Yes | Yes             |
-| [$dateTrunc](dateTrunc.md "dateTrunc.md")                | -   | -   | No  | Yes | No              |
-| [$dayOfMonth](dayOfMonth.md "dayOfMonth.md")             | Yes | Yes | Yes | Yes | Yes             |
-| [$dayOfWeek](dayOfWeek.md "dayOfWeek.md")                | Yes | Yes | Yes | Yes | Yes             |
-| [$dayOfYear](dayOfYear.md "dayOfYear.md")                | Yes | Yes | Yes | Yes | Yes             |
-| [$hour](hour.md "hour.md")                               | Yes | Yes | Yes | Yes | Yes             |
-| [$isoDayOfWeek](isoDayOfWeek.md "isoDayOfWeek.md")       | Yes | Yes | Yes | Yes | Yes             |
-| [$isoWeek](isoWeek.md "isoWeek.md")                      | Yes | Yes | Yes | Yes | Yes             |
-| [$isoWeekYear](isoWeekYear.md "isoWeekYear.md")          | Yes | Yes | Yes | Yes | Yes             |
-| [$millisecond](millisecond.md "millisecond.md")          | Yes | Yes | Yes | Yes | Yes             |
-| [$minute](minute.md "minute.md")                         | Yes | Yes | Yes | Yes | Yes             |
-| [$month](month.md "month.md")                            | Yes | Yes | Yes | Yes | Yes             |
-| [$second](second.md "second.md")                         | Yes | Yes | Yes | Yes | Yes             |
-| [$week](week.md "week.md")                               | Yes | Yes | Yes | Yes | Yes             |
-| [$year](year.md "year.md")                               | Yes | Yes | Yes | Yes | Yes             |
+| Command                                                  | 3.6 | 4.0 | 5.0          | 8.0 | Elastic cluster |
+| -------------------------------------------------------- | --- | --- | ------------ | --- | --------------- |
+| [$dateAdd](dateAdd.md "dateAdd.md")                      | No  | No  | Yes          | Yes | Yes             |
+| [$dateDiff](dateDiff.md "dateDiff.md")                   | -   | -   | Yes          | Yes | No              |
+| $dateFromParts                                           | No  | No  | Yes (5.0.1+) | No  | No              |
+| [$dateFromString](dateFromString.md "dateFromString.md") | Yes | Yes | Yes          | Yes | Yes             |
+| [$dateSubtract](dateSubtract.md "dateSubtract.md")       | No  | No  | Yes          | Yes | Yes             |
+| $dateToParts                                             | No  | No  | Yes (5.0.1+) | No  | No              |
+| [$dateToString](dateToString.md "dateToString.md")       | Yes | Yes | Yes          | Yes | Yes             |
+| [$dateTrunc](dateTrunc.md "dateTrunc.md")                | -   | -   | No           | Yes | No              |
+| [$dayOfMonth](dayOfMonth.md "dayOfMonth.md")             | Yes | Yes | Yes          | Yes | Yes             |
+| [$dayOfWeek](dayOfWeek.md "dayOfWeek.md")                | Yes | Yes | Yes          | Yes | Yes             |
+| [$dayOfYear](dayOfYear.md "dayOfYear.md")                | Yes | Yes | Yes          | Yes | Yes             |
+| [$hour](hour.md "hour.md")                               | Yes | Yes | Yes          | Yes | Yes             |
+| [$isoDayOfWeek](isoDayOfWeek.md "isoDayOfWeek.md")       | Yes | Yes | Yes          | Yes | Yes             |
+| [$isoWeek](isoWeek.md "isoWeek.md")                      | Yes | Yes | Yes          | Yes | Yes             |
+| [$isoWeekYear](isoWeekYear.md "isoWeekYear.md")          | Yes | Yes | Yes          | Yes | Yes             |
+| [$millisecond](millisecond.md "millisecond.md")          | Yes | Yes | Yes          | Yes | Yes             |
+| [$minute](minute.md "minute.md")                         | Yes | Yes | Yes          | Yes | Yes             |
+| [$month](month.md "month.md")                            | Yes | Yes | Yes          | Yes | Yes             |
+| [$second](second.md "second.md")                         | Yes | Yes | Yes          | Yes | Yes             |
+| [$week](week.md "week.md")                               | Yes | Yes | Yes          | Yes | Yes             |
+| [$year](year.md "year.md")                               | Yes | Yes | Yes          | Yes | Yes             |
 
 ### Literal operator
 
@@ -699,11 +699,11 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ### Miscellaneous operators
 
-| Command                    | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
-| -------------------------- | --- | --- | --- | --- | --------------- |
-| $getField                  | -   | -   | No  | No  | No              |
-| [$rand](rand.md "rand.md") | -   | -   | No  | Yes | No              |
-| $sampleRate                | -   | -   | No  | No  | No              |
+| Command                    | 3.6 | 4.0 | 5.0          | 8.0 | Elastic cluster |
+| -------------------------- | --- | --- | ------------ | --- | --------------- |
+| $getField                  | -   | -   | No           | No  | No              |
+| [$rand](rand.md "rand.md") | -   | -   | Yes (5.0.1+) | Yes | No              |
+| $sampleRate                | -   | -   | No           | No  | No              |
 
 ## Data types
 

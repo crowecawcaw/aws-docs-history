@@ -28,6 +28,7 @@ The sampling behavior can be modified using connection string or data source
 options.
 
 - _scanMethod=_<option>
+
   - _random - (default) - The sample documents are returned
     in random order._
   - _idForward_ - The sample documents are returned
@@ -152,7 +153,7 @@ Embedded Array - String Field Conflict Example:
 }
 ```
 
-The above example maps to schema for the customer2 table:
+The preceding example maps to schema for the customer2 table:
 
 | Table Name | Column Name    | Data Type | Key |
 | ---------- | -------------- | --------- | --- |
@@ -207,7 +208,7 @@ the JDBC driver.
 }
 ```
 
-The above example maps to schema for customer table:
+The preceding example maps to schema for customer table:
 
 | Table Name | Column Name   | Data Type | Key |
 | ---------- | ------------- | --------- | --- |
@@ -244,7 +245,7 @@ by the JDBC driver.
 }
 ```
 
-The above example maps to schema for customer1 table:
+The preceding example maps to schema for customer1 table:
 
 | Table Name | Column Name    | Data Type | Key |
 | ---------- | -------------- | --------- | --- |

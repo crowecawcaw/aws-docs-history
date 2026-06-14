@@ -24,10 +24,10 @@ The custom connector only supports Amazon DocumentDB username and password for a
 
 ## Connecting using the Amazon DocumentDB custom connector
 
-1. Select Amazon DocumentDB (Beta) from **Get Data** and click **Connect**.
-   If you get a warning for using a third-party service, click **Continue**.
+1. Select Amazon DocumentDB (Beta) from **Get Data** and choose **Connect**.
+   If you get a warning for using a third-party service, choose **Continue**.
 
-![The Get Data interface with Amazon DocumentDB (Beta) option highlighted.](images/get-data-1.png) 2. Enter all necessary information to connect to your Amazon DocumentDB cluster, then click **OK**:
+![The Get Data interface with Amazon DocumentDB (Beta) option highlighted.](images/get-data-1.png) 2. Enter all necessary information to connect to your Amazon DocumentDB cluster, then choose **OK**:
 
 ![Form with connection detail input fields for an Amazon DocumentDB cluster.](images/docdb-form-1.png)
 
@@ -43,9 +43,9 @@ Depending on the configuration of your ODBC driver's Data Source Name (DSN), the
 ###### Note
 
 If you are using a very large dataset, importing all of the data may take a longer period of time. 4. If this is the first time connecting to this data source, select the authentication type and input your credentials when prompted.
-Then click **Connect**:
+Then choose **Connect**:
 
-![Authentication interface showing input fields for username and password credentials.](images/docdb-credentials-1.png) 5. In the **Navigator** dialog, select the database tables you want, then either click **Load** to load the data or **Transform Data** to continue transforming the data.
+![Authentication interface showing input fields for username and password credentials.](images/docdb-credentials-1.png) 5. In the **Navigator** dialog, select the database tables you want, then either choose **Load** to load the data or **Transform Data** to continue transforming the data.
 
 ![Navigator interface showing list of database tables to choose from. The Load and Transform Data buttons are in the bottom right.](images/navigator-1.png)
 

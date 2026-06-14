@@ -38,7 +38,7 @@ You can only perform a managed cross-Region cluster failover on an Amazon Docume
 If your engine versions are incompatible, you can perform the failover manually by following the steps in [Performing a manual failover for an Amazon DocumentDB global cluster](#manual-failover "#manual-failover").
 
 If the region's engine versions do not match, the failover will be blocked.
-Please check for any pending upgrades and apply them to ensure all region's engine versions match and the global cluster failover is unblocked.
+Check for any pending upgrades and apply them to ensure all region's engine versions match and the global cluster failover is unblocked.
 For more information, see [Unblocking a global cluster switchover or failover](#unblocking-gc-so-fo "#unblocking-gc-so-fo").
 
 To minimize data loss, we recommend that you do the following before using this feature:
@@ -219,7 +219,7 @@ To recover from an unplanned outage, follow the appropriate procedure in [Perfor
 
 To perform a switchover, all secondary regions must be running the exact same engine version as the primary.
 If the region's engine versions do not match, the switchover will be blocked.
-Please check for any pending upgrades and apply them to ensure all region's engine versions match and the global cluster switchover is unblocked.
+Check for any pending upgrades and apply them to ensure all region's engine versions match and the global cluster switchover is unblocked.
 For more information, see [Unblocking a global cluster switchover or failover](#unblocking-gc-so-fo "#unblocking-gc-so-fo").
 
 During a switchover, Amazon DocumentDB switches over your primary cluster to your chosen secondary Region while it maintains your global cluster's existing replication topology.
@@ -317,7 +317,7 @@ Global cluster switchovers and failovers are blocked when not all regional clust
 If the versions do not match, you may see this error in response when calling a switchover or failover: **`The target DB cluster specified is running an engine version with a different patch level than the source DB cluster`**.
 We recommended routinely applying the latest engine versions to ensure you are running the latest updates to keep your global clusters in a healthy state.
 
-To resolve this error, please update all secondary regions first, and then the primary region to the same engine version by applying any pending maintenance action items.
+To resolve this error, update all secondary regions first, and then the primary region to the same engine version by applying any pending maintenance action items.
 To view pending maintenance action items, and to apply any needed changes to correct the issue, perform the instructions in one of the following tabs:
 
 Using the AWS Management Console
@@ -329,6 +329,7 @@ Follow these steps to view and apply maintenance actions:
 3. In the **Clusters** table, locate your global cluster in the **Cluster identifier** column.
    Under your global cluster, take note of each secondary cluster and the primary cluster for the given global cluster, and perform the following steps for each.
 4. For each secondary cluster:
+
    1. If an update is available for your cluster, it is indicated as **Available**, **Required**, or **Next Window** in the
       **Maintenance** column.
    2. To take an action, choose the cluster to show it's details, then choose **Maintenance & backups**.
@@ -336,6 +337,7 @@ Follow these steps to view and apply maintenance actions:
    3. Under **Description**, if it indicates that a "New maintenance update is available", select it and then choose **Apply now**.
 
 5. For your primary cluster:
+
    1. If an update is available for your cluster, it is indicated as **Available**, **Required**, or **Next Window** in the
       **Maintenance** column.
    2. To take an action, choose the cluster to show it's details, then choose **Maintenance & backups**.

@@ -35,7 +35,7 @@ To see a full list of the new capabilities, see the [Release notes](release-note
 
 ### Get started with Amazon DocumentDB 8.0
 
-To get started with Amazon DocumentDB 8.0, please see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
+To get started with Amazon DocumentDB 8.0, see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
 You can create a new Amazon DocumentDB 8.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation.
 When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
 
@@ -62,6 +62,7 @@ With the release of Amazon DocumentDB 8.0, there are functional differences betw
 - Planner v1 is the default query planner in Amazon DocumentDB 5.0, whereas the more performant Planner v3 is the default in Amazon DocumentDB 8.0.
 - New features in Amazon DocumentDB 8.0 including Views, Collation and operators like $merge are compatible only with Planner v3.
 - Compression is turned ON by default in Amazon DocumentDB 8.0 and is set to use Zstandard algorithm. Furthermore, in Amazon DocumentDB 8.0 'enabled' is no longer a valid choice; you may select from Zstd, LZ4 and none.
+- Amazon DocumentDB 8.0 only supports TLS 1.2 and higher for database connections.
 
 ###### Important
 
@@ -72,6 +73,7 @@ Amazon DocumentDB 8.0 requires TLS 1.2 or higher. TLS 1.0 and TLS 1.1 are no lon
 ###### Topics
 
 - [What's new in Amazon DocumentDB 5.0](#compatibility-whatsnew-5 "#compatibility-whatsnew-5")
+- [What's new in Amazon DocumentDB 5.0.1](#compatibility-whatsnew-501 "#compatibility-whatsnew-501")
 - [Get started with Amazon DocumentDB 5.0](#compatibility-getstarted-5 "#compatibility-getstarted-5")
 - [Upgrade or migrate to Amazon DocumentDB 5.0](#compatibility-upgrade-5 "#compatibility-upgrade-5")
 - [Functional differences](#compatibility-differences-5 "#compatibility-differences-5")
@@ -84,6 +86,7 @@ To see a full list of the new capabilities, see the [Release notes](release-note
 
 - Increased storage limit to 128 TiB for all instance-based Amazon DocumentDB clusters and shard-based elastic clusters.
 - Introduced Amazon DocumentDB 5.0 Engine Version 3.0.775)
+
   - Support for MongoDB 5.0 API drivers
   - Support for Client-side Field Level Encryption (FLE).
     You can now encrypt fields at the client-side before writing the data to Amazon DocumentDB cluster.
@@ -95,11 +98,25 @@ To see a full list of the new capabilities, see the [Release notes](release-note
 Amazon DocumentDB does not support every MongoDB 5.0 feature.
 When we built Amazon DocumentDB 5.0, we worked backwards from the feature and capabilities that our customers asked us to build the most.
 We will continue to add additional MongoDB 5.0 capabilities based on what customers ask us to build.
-For the latest list of supported APIs, please see [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md "mongo-apis.md").
+For the latest list of supported APIs, see [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md "mongo-apis.md").
+
+### What's new in Amazon DocumentDB 5.0.1
+
+Amazon DocumentDB 5.0.1 is the first minor version release for the Amazon DocumentDB 5.0 major version.
+Minor versions include improvements such as new features, security fixes, and bug fixes.
+You can upgrade to 5.0.1 from 5.0.0 using a minor version upgrade.
+For more information, see [Amazon DocumentDB minor version upgrade](docdb-minor-version-upgrade.md "docdb-minor-version-upgrade.md").
+
+- Enhanced aggregation capabilities with new operators (`$rand`, `$pow`, `$dateToParts`, `$dateFromParts`).
+- Active connections metric to monitor instances. The limits can be found at our [Amazon DocumentDB Quotas and limits](limits.md#limits.instance "limits.md#limits.instance") page.
+- Granular command-level performance metrics in CloudWatch for CRUD operations (`find`, `insert`, `findAndModify`, `update`, `delete`, `aggregate`, `count`, `distinct`, `getMore`, `abortTransaction`, `commitTransaction`), exposing `AvgDuration`, `P100Duration`, and `MaxConcurrent` dimensions for improved operational monitoring.
+- Amazon DocumentDB 5.0.1 only supports TLS 1.2 and higher for database connections.
+- Added `gcRuntimeStats`, `documentFragmentStats`, and breakup of collection level metrics into `storageSegmentBase` and `storageSegmentExtended` in `collstats` to surface more information into the overall health of the garbage collection process.
+- Improved Global Cluster cross region resilience by eliminating secondary cluster reboot with Global Survivable Read Only.
 
 ### Get started with Amazon DocumentDB 5.0
 
-To get started with Amazon DocumentDB 5.0, please see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
+To get started with Amazon DocumentDB 5.0, see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
 You can create a new Amazon DocumentDB 5.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation.
 When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
 
@@ -162,6 +179,7 @@ db.foo.insert(
  With Amazon DocumentDB 5.0, the **find** command with a "$" projection returns documents that match the query parameter containing only the field that matched the "$" projection.
 - In Amazon DocumentDB 5.0, the **find** commands with `$regex` and `$options` query parameters return an error: "Cannot set options in both `$regex` and `$options`".
 - With Amazon DocumentDB 5.0, `$indexOfCP` now returns "-1" when:
+
   - the substring is not found in the string expression, or
   - start is a number greater than end, or
   - start is a number greater than the byte length of the string.
@@ -192,11 +210,11 @@ To see a full list of the capabilities, see the [Release notes](release-notes.md
 - **Operators**: Amazon DocumentDB 4.0 now supports a number of new aggregation operators: `$ifNull`, `$replaceRoot`, `$setIsSubset`, `$setIntersection`, `$setUnion`, `$setEquals`. You can see all the MongoDB APIs, Operations, and Data Types that we support at [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md "mongo-apis.md").
 - **Role based access control** (RBAC): With both `ListCollection` and `ListDatabase` commands you can now optionally use the `authorizedCollections` and `authorizedDatabases` parameters to allow users to list the collections and databases that they have permission to access without requiring the `listCollections` and `listDatabase` roles, respectively. You also have the ability to kill your own cursors without requiring the `KillCursor` role.
 
-Amazon DocumentDB does not support every MongoDB 4.0 feature. When we built Amazon DocumentDB 4.0, we worked backwards from the feature and capabilities that our customers asked us to build the most. We will continue to add additional MongoDB 4.0 capabilities based on what customers ask us to build. For example, Amazon DocumentDB 4.0 does not currently support the type conversion operators or the string operators that were introduced in MongoDB 4.0. For the latest list of supported APIs, please see [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md "mongo-apis.md").
+Amazon DocumentDB does not support every MongoDB 4.0 feature. When we built Amazon DocumentDB 4.0, we worked backwards from the feature and capabilities that our customers asked us to build the most. We will continue to add additional MongoDB 4.0 capabilities based on what customers ask us to build. For example, Amazon DocumentDB 4.0 does not currently support the type conversion operators or the string operators that were introduced in MongoDB 4.0. For the latest list of supported APIs, see [Supported MongoDB APIs, operations, and data types in Amazon DocumentDB](mongo-apis.md "mongo-apis.md").
 
 ### Get started with Amazon DocumentDB 4.0
 
-To get started with Amazon DocumentDB 4.0, please see the [Get Started Guide](get-started-guide.md "get-started-guide.md"). You can create a new Amazon DocumentDB 4.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 4.0 or higher.
+To get started with Amazon DocumentDB 4.0, see the [Get Started Guide](get-started-guide.md "get-started-guide.md"). You can create a new Amazon DocumentDB 4.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 4.0 or higher.
 
 ###### Note
 

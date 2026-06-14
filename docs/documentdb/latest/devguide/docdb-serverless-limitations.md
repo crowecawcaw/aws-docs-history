@@ -22,7 +22,7 @@ DocumentDB serverless is supported by Amazon DocumentDB 5.0 and 8.0 engine versi
 ###### Note
 
 DocumentDB serverless is supported only on newer patch versions of 5.0.0.
-Please ensure that your cluster is updated to a recent engine patch version.
+Ensure that your cluster is updated to a recent engine patch version.
 For more information on maintaining Amazon DocumentDB clusters, see [Maintaining Amazon DocumentDB](db-instance-maintain.md "db-instance-maintain.md")
 
 ### Cluster configuration

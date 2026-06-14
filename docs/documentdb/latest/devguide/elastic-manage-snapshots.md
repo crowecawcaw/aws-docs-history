@@ -133,6 +133,7 @@ To view information about all elastic cluster snapshots using the AWS CLI, use t
 
 - `--snapshot-type`—Optional. The type of cluster snapshots to be returned.
   You can specify one of the following values:
+
   - `automated` - Return all cluster snapshots that Amazon DocumentDB has automatically created for your AWS account.
   - `manual` - Return all cluster snapshots that you have manually created for your AWS account.
   - `shared` - Return all manual cluster snapshots that have been shared to your AWS account.
@@ -142,6 +143,7 @@ To view information about all elastic cluster snapshots using the AWS CLI, use t
   If this parameter is specified, the response includes only records beyond the this token, up to the value specified by `max-results`.
 - `--max-results`—Optional. The maximum number of results to include in the response.
   If more results exist than the specified `max-results` value, a pagination token (`next-token`) is included in the response so that the remaining results can be retrieved.
+
   - Default: 100
   - Minimum 20, maximum 100
 

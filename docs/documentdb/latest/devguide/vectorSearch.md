@@ -16,7 +16,7 @@ The `$vectorSearch` operator in Amazon DocumentDB allows you to perform vector s
 ```
 - `<index>` : Name of the Vector Search index to use.
 - `<limit>` : Number of documents to return in the results.
-- `<numCandidates>` (optional): This field is required if 'exact' is false or omitted. Number of nearest neighbors to use during the search. Value must be less than or equal to (<=) 10000. You can't specify a number less than the number of documents to return ('limit').
+- `<numCandidates>` (optional): This field is required if 'exact' is false or omitted. Number of nearest neighbors to use during the search. Value must be less than or equal to (<=) 1000. You can't specify a number less than the number of documents to return ('limit').
 - `<path>` : Indexed vector type field to search.
 - `<queryVector>` : Array of numbers that represent the query vector.
 ```

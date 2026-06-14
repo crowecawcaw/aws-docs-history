@@ -33,6 +33,7 @@ You can determine where to focus your efforts for optimizing the efficiency of y
   This value is represented as a percentage.
   It's calculated as the value of the `ServerlessDatabaseCapacity` metric divided by the maximum DCU value of the cluster.
   Consider the following guidelines to interpret this metric and take action:
+
   - If this metric approaches a value of `100.0`, the instance has scaled up as high as it can.
     Consider increasing the maximum DCU setting for the cluster.
     That way, both writer and reader instances can scale to a higher capacity.

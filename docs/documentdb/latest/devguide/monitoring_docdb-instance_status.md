@@ -61,7 +61,7 @@ When using the AWS Management Console to determine the status of a cluster, use 
 
 Note that in the Clusters navigation box, the column **Cluster
 identifier** shows both clusters and instances. Instances are listed
-underneath clusters, similar to the image below.
+underneath clusters, similar to the following image.
 
 ![List of clusters and instances on the Clusters page in the Amazon DocumentDB console.](images/clusters.png) 3. Find the name of the instance that you are interested in. Then, to find the
 status of the instance, read across that row to the **Status**
@@ -124,7 +124,7 @@ When using AWS Management Console, use the following steps to understand the ins
 ###### Note
 
 In the **Clusters** navigation box, the column **Cluster identifier** shows both clusters and instances.
-Instances are listed underneath clusters, similar to the image below.
+Instances are listed underneath clusters, similar to the following image.
 
 ![List of clusters and instances on the Clusters page in the Amazon DocumentDB console.](images/clusters.png) 3. Find the name of the instance that you are interested in.
 Then, to find the status of the instance, read across that row to the **Instance health** column, as shown in the following image:

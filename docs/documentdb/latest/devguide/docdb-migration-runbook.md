@@ -80,12 +80,14 @@ The [MongoDB to Amazon DocumentDB Compatibility Tool](https://github.com/awslabs
 **Log-based assessment**
 
 - Pros:
+
   - Captures actual runtime behavior and query patterns
   - Identifies real-world usage frequencies and performance characteristics
   - Detects dynamic queries that might not be visible in source code
   - No access to application source code required
 
 - Cons:
+
   - Requires access to MongoDB logs with profiling enabled
   - Only captures operations that occurred during the logging period
   - May miss infrequently used features or seasonal workloads
@@ -93,12 +95,14 @@ The [MongoDB to Amazon DocumentDB Compatibility Tool](https://github.com/awslabs
 **Source code analysis**
 
 - Pros:
+
   - Comprehensive coverage of all potential MongoDB operations in the codebase
   - Can identify issues in rarely executed code paths
   - Detects client-side logic that might be affected by Amazon DocumentDB differences
   - No need to run the application to perform assessment
 
 - Cons:
+
   - May flag code that exists but is never executed in production
   - Requires access to complete application source code
   - Limited ability to analyze dynamically constructed queries
@@ -181,10 +185,12 @@ To maintain system reliability, workload discovery should also include:
 - **CloudWatch metrics** — Map MongoDB monitoring metrics to Amazon DocumentDB CloudWatch metrics for CPU, memory, connections, and storage.
 - **Performance Insights** — Implement Amazon DocumentDB Performance Insights to visualize database load and analyze performance issues with detailed query analytics.
 - **Profiler** — Configure Amazon DocumentDB profiler to capture slow-running operations (similar to MongoDB's profiler but with Amazon DocumentDB-specific settings).
+
   - Enable through parameter groups with appropriate thresholds.
   - Analyze profiler data to identify optimization opportunities
 
 - **CloudWatch Events** — Set up event-driven monitoring for Amazon DocumentDB cluster events.
+
   - Configure notifications for backup events, maintenance windows, and failovers.
   - Integrate with Amazon SNS for alerting and AWS Lambda for automated responses.
 
@@ -371,6 +377,7 @@ in the upper-left corner of the page. 3. On the Amazon DocumentDB management con
 
 6.  In the **Cluster storage configuration** section, leave the **Amazon DocumentDB Standard** setting as is (this is the default option).
 7.  In the **Instance configuration** section:
+
     - For **DB instance class**, choose **Memory optimized classes (include r classes)** (this is default).
     - For **Instance class**, choose an instance class based on workload. For example:
 
@@ -450,6 +457,7 @@ If you prefer to configure manually, follow these steps:
 
 1. Open the AWS DMS console and choose **Create replication instance**.
 2. Enter replication instance details:
+
    - **Instance name**: Choose a unique name.
    - **Instance class**: Select based on workload. Example: dms.r5.large (small workloads), dms.r5.4xlarge (large workloads).
    - **Engine version**: 3.5.4
@@ -458,7 +466,7 @@ If you prefer to configure manually, follow these steps:
    - Choose the same VPC as Amazon DocumentDB.
    - Ensure **Security groups** allow inbound traffic from source and Amazon DocumentDB.
 
-3. Click **Create replication instance** and wait for the status to be available.
+3. Choose **Create replication instance** and wait for the status to be available.
 
 #### Create DMS endpoints
 
@@ -470,6 +478,7 @@ If you prefer to configure manually, follow these steps:
 2. Choose **Create endpoint**.
 3. On the **Create endpoint** page, choose **Source endpoint**.
 4. In the **Endpoint configuration** section:
+
    - Enter a unique and meaningful **Endpoint identifier** (for example, "mongodb-source").
    - Choose **MongoDB** as the **Source engine**.
    - For **Access to endpoint database**, choose **Provide access information manually**.
@@ -477,12 +486,14 @@ If you prefer to configure manually, follow these steps:
    - For **Port**, enter **27017** (default MongoDB port).
    - For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
    - If **Authentication mode** is **Password**, provide:
+
      - **Username** and **Password**: Enter MongoDB credentials.
      - **Database name**: Your source database name.
      - **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
 
 5. For **Metadata mode**, leave the default setting of **document**.
 6. Additional connection attributes:
+
    - authSource=admin (if authentication database is different)
    - replicaSet=<your-replica-set-name> (required for CDC)
 
@@ -492,6 +503,7 @@ If you prefer to configure manually, follow these steps:
 2. Choose **Create endpoint**.
 3. On the **Create endpoint** page, choose **Source endpoint**.
 4. In the **Endpoint configuration** section:
+
    - Enter a unique and meaningful **Endpoint identifier** (for example, "docdb-source").
    - Choose **Amazon DocumentDB** as the **Source engine**.
    - For **Access to endpoint database**, choose **Provide access information manually**.
@@ -501,6 +513,7 @@ If you prefer to configure manually, follow these steps:
    - For **CA Certificate**, choose the Amazon RDS root CA certificate.
    - For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
    - If **Authentication mode** is **Password**, provide:
+
      - **Username** and **Password**: Enter Amazon DocumentDB credentials.
      - **Database name**: Your source database name.
      - **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
@@ -513,17 +526,21 @@ If you prefer to configure manually, follow these steps:
 2. Choose **Create endpoint**.
 3. On the **Create endpoint** page, choose **Target endpoint**.
 4. In the **Endpoint configuration** section:
+
    - Enter a unique and meaningful **Endpoint identifier** (for example, "docdb-target").
    - Choose **Amazon DocumentDB** as the **Target engine**.
    - For **Access to endpoint database**, choose the method you want to use to authenticate access to the database:
+
      - If you choose **AWS Secrets Manager**, choose the secret where you store your Amazon DocumentDB credentials in the **Secret** field.
      - If you choose **Provide access information manually**:
+
        - For **Server name**, enter your `target Amazon DocumentDB cluster endpoint`.
        - For **Port**, enter **27017** (default Amazon DocumentDB port).
        - For **SSL mode**, choose **verify-full** (recommended for Amazon DocumentDB).
        - For **CA Certificate**, download and specify the CA certificate bundle for SSL verification.
        - For **Authentication mode**, choose the appropriate mode for your application (password/SSL) (default is secrets manager).
        - If **Authentication mode** is **Password**, provide:
+
          - **Username** and **Password**: Enter Amazon DocumentDB credentials.
          - **Database name**: Your source database name.
          - **Authentication mechanism**: SCRAM-SHA-1 (default) or appropriate mechanism
@@ -535,12 +552,14 @@ If you prefer to configure manually, follow these steps:
 1. In the DMS console, in the navigation pane, choose **Migrate or replicate**, then choose **Tasks**.
 2. Choose **Create task**.
 3. On the **Create task** page, in the **Task configuration** section:
+
    - Enter a unique and meaningful **Task identifier** (for example, "mongodb-docdb-replication").
    - Choose the source endpoint you created previously in the **Source database endpoint** drop-down menu.
    - Choose the target endpoint you created previously in the **Target database endpoint** drop-down menu.
    - For **Task type**, choose **Migrate and replicate**.
 
 4. In the **Settings** section:
+
    - For **Target table preparation mode**, leave the default setting.
    - For **Stop task after full load completes**, leave the default setting.
    - For **LOB column settings**, leave the **Limited LOB mode** setting as is.
@@ -562,11 +581,13 @@ If you prefer to configure manually, follow these steps:
 ```
 
 6. In the **Table mappings** section, add a new selection rule:
+
    - For **Schema name**, add the source database to migrate. Use % to specify multiple databases.
    - For **Schema table** name, add the source collection to migrate. Use % to specify multiple collections.
    - For **Action**, leave the default setting of **Include**
 
 7. For large collections (over 100GB), add **Table settings rule**:
+
    - For **Schema name**, add the source database to migrate. Use % to specify multiple databases.
    - For **Schema table** name, add the source collection to migrate. Use % to specify multiple collections.
    - For **Number of partitions**, enter 16 (should be less than `MaxFullLoadSubTask`).
@@ -769,11 +790,13 @@ Create CloudWatch alarms for critical metrics like `CDCLatencyTarget` and `CPUUt
 1. Go to Amazon CloudWatch Logs console.
 2. Find and choose on your log group. It will look similar to "dms-tasks –".
 3. Look for log streams that might contain error information:
+
    - Streams with "error" in the name
    - Streams with task IDs or endpoint names
    - The most recent log streams during the time of your migration
 
 4. Within these streams, search for keywords like:
+
    - "error"
    - "exception"
    - "failed"

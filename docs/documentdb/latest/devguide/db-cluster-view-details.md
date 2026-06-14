@@ -61,7 +61,7 @@ the cluster is organized into the following groupings:
 Using the AWS CLI
 To view the details of your Amazon DocumentDB clusters using the AWS CLI,
 use the `describe-db-clusters` command as shown in the
-examples below. For more information, see [`DescribeDBClusters`](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md")
+following examples. For more information, see [`DescribeDBClusters`](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md")
 in the _Amazon DocumentDB Resource Management API Reference_.
 
 ###### Note

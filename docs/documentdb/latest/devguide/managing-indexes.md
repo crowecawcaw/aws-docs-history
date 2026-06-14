@@ -140,7 +140,7 @@ All other stages will display a single worker.
 
 #### Index build output example
 
-In the output example below (foreground index build), the status of the index creation is shown.
+In the following output example (foreground index build), the status of the index creation is shown.
 The “msg” field summarizes the build progress by indicating the stage and the completion percentage of the build.
 The “workers” field indicates the number of workers used during that stage of the index build.
 The “progress” field shows the actual numbers used to calculate the percentage of completion.

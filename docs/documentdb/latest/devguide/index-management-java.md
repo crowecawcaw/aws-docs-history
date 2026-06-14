@@ -31,7 +31,7 @@ There are three supporting classes:
 **Create single index**
 
 This example shows how to create a single index using the `createIndex(`) method in the background.
-To understand background and foreground index creation, please refer [Index build types](managing-indexes.md#index-build-types "managing-indexes.md#index-build-types").
+To understand background and foreground index creation, refer to [Index build types](managing-indexes.md#index-build-types "managing-indexes.md#index-build-types").
 The following code example uses [`IndexOptions`](https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexOptions.html "https://mongodb.github.io/mongo-java-driver/5.3/apidocs/mongodb-driver-core/com/mongodb/client/model/IndexOptions.html") to create a unique index with a name of “unique_restaurantId_idx” in the background.
 This `IndexOptions` object is then passed to the `createIndex()` method.
 

@@ -35,7 +35,7 @@ must be disabled.
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
 (![Menu button.](images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. Note that in the Clusters navigation box, the **Cluster
-identifier** column shows both clusters and instances. Instances are listed underneath clusters, similar to the screenshot below.
+identifier** column shows both clusters and instances. Instances are listed underneath clusters, similar to the following screenshot.
 
 ![Image: the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/clusters.png) 4. Choose the cluster's name, and select the
 **Configuration** tab. In the
@@ -57,6 +57,7 @@ you are ready to delete the cluster.
    instances. For more information, see [Deleting an Amazon DocumentDB instance](db-instance-delete.md "db-instance-delete.md").
 3. Depending on whether your cluster has any instances, do
    one of the following steps.
+
    - If the cluster has no instances, select the
      button to the left of the cluster name and choose
      **Actions**. From the dropdown menu,
@@ -65,6 +66,7 @@ you are ready to delete the cluster.
      box, and then choose **Delete**.
    - If the cluster has one or more instances, do the
      following:
+
      1. In the navigation pane, choose
         **Clusters**.
      2. Delete each of the cluster's instances by selecting the

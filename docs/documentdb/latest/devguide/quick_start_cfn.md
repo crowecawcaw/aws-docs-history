@@ -170,6 +170,7 @@ Amazon DocumentDB cluster:**
     stack name and parameters for your template. Parameters are
     defined in your template and allow you to input custom values
     when you create or update a stack.
+
     - Under **Stack name**, enter a name for
       your stack or accept the provided name. The stack name can
       include letters (A—Z and a—z), numbers
@@ -227,6 +228,7 @@ Amazon DocumentDB cluster:**
 
 5.  **Configure stack options** —
     Configure your stack's tags, permissions, and additional options.
+
     - **Tags** — Specify tags
       (key-value) pairs to apply to your resources in your stack.
       You can add up to 50 unique tags for each stack.
@@ -251,6 +253,7 @@ Amazon DocumentDB cluster:**
     Ensure that the role grants [least privilege](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege").
     - **Advanced options** — You can
       set the following advanced options:
+
       - **Stack policy** — Optional.
         Defines the resources that you want to protect from
         unintentional updates during a stack update. By
@@ -269,6 +272,7 @@ Amazon DocumentDB cluster:**
         System (SNS).
       - **Stack creation options** —
         Optional. You can specify the following options:
+
         - **Rollback on failure**
           — Whether or not the stack should be
           rolled back if the stack creation fails.
@@ -290,6 +294,7 @@ Amazon DocumentDB cluster:**
     also open a **quick-create link** at the bottom
     of the page to create stacks with the same basic configurations
     as this one.
+
     - Choose **Create** to create the stack.
     - Alternatively, you can choose **Create change
       set**. A change set is a preview of how this stack

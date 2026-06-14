@@ -71,6 +71,7 @@ cluster.
 3. Choose the name of the cluster that you want to add tags to.
 4. Scroll down to the **Tags** section, and then choose **Edit**.
 5. For each tag you that want to add to this resource, do the following:
+
    1. To add a new tag, enter in the name of the tag in the **Key** box. To change a tag's value, find the tag's name in
       the **Key** column.
    2. To give the tag a new or updated value, enter a value for the tag in the **Value** box.
@@ -188,6 +189,7 @@ from a cluster.
 4. Scroll down to the **Tags** section, and then choose **Edit**.
 5. If you want to remove all tags from this resource, choose **Remove all**. Otherwise, for each tag that you want to remove
    from this resource, do the following:
+
    1. Locate the name of the tag in the **Key** column.
    2. Choose **Remove** on the same row as the tag key.
    3. When finished, choose **Save**.

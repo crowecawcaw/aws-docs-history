@@ -14,6 +14,7 @@ Amazon DocumentDB JDBC driver and the DocumentDB Tableau connector.
    JDBC Driver repository](https://github.com/aws/amazon-documentdb-jdbc-driver/releases "https://github.com/aws/amazon-documentdb-jdbc-driver/releases")
    and copy it to one of these
    directories according to your operating system:
+
    - _Windows_ - `C:\Program
 Files\Tableau\Drivers`
    - _MacOS_ -
@@ -22,6 +23,7 @@ Files\Tableau\Drivers`
 2. Download the DocumentDB Tableau connector (a TACO file) from the [Tableau Exchange
    website](https://exchange.tableau.com/products/821 "https://exchange.tableau.com/products/821") and copy it to
    your _My Tableau Repository/Connectors directory_.
+
    - _Windows_ - `C:\Users\[user]\Documents\My
 Tableau Repository\Connectors`
    - _MacOS_ - `/Users/[user]/Documents/My
@@ -51,7 +53,7 @@ cluster, you must setup an SSH tunnel before following the steps below:
 1. Enter the required connection parameters **Hostname**,
    **Port**, **Database**,
    **Username** and **Password**. The
-   connection parameters in the example below are equivalent to the JDBC
+   connection parameters in the following example are equivalent to the JDBC
    connection string :
 
 `jdbc:documentdb://localhost:27019/test?

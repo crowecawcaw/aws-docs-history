@@ -6,6 +6,7 @@ Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, 5.0, and 8.0.
 
 ###### Topics
 
+- [Amazon DocumentDB versions](#how-it-works-versions "#how-it-works-versions")
 - [Amazon DocumentDB endpoints](#how-it-works.endpoints "#how-it-works.endpoints")
 - [TLS support](#how-it-works.ssl "#how-it-works.ssl")
 - [Amazon DocumentDB storage](#how-it-works.storage "#how-it-works.storage")
@@ -14,7 +15,34 @@ Amazon DocumentDB is compatible with MongoDB 3.6, 4.0, 5.0, and 8.0.
 - [Read preference options](#durability-consistency-isolation "#durability-consistency-isolation")
 - [TTL deletes](#how-it-works.ttl-deletes "#how-it-works.ttl-deletes")
 - [Billable resources](#billing "#billing")
-  When you use Amazon DocumentDB, you begin by creating a _cluster_. A cluster consists of zero or more database instances and a cluster volume that manages the data for those instances. An Amazon DocumentDB *cluster volume* is a virtual database storage volume that spans multiple Availability Zones. Each Availability Zone has a copy of the cluster data.
+
+## Amazon DocumentDB versions
+
+###### Note
+
+Minor version numbering applies to Amazon DocumentDB 5.0 and later.
+Amazon DocumentDB 3.6 and 4.0 use only major versions with engine patches.
+
+Starting with Amazon DocumentDB 5.0, the engine version uses a four-level numbering scheme: _major.major.minor.patch_.
+
+- Major version—Identified by the first two numbers of the version (for example, 5.0).
+  The major version represents the MongoDB compatibility level.
+  Major versions introduce new features, performance improvements, and MongoDB compatibility updates.
+  Upgrading between major versions (for example, from 4.0 to 5.0) requires a major version upgrade (MVU).
+  For more information, see [Amazon DocumentDB in-place major version upgrade](docdb-mvu.md "docdb-mvu.md").
+- Minor version—Identified by the third number of the version (for example, the `1` in 5.0.1).
+  Minor versions include improvements such as new features, security fixes, and bug fixes within the same major version.
+  You can upgrade to a new minor version manually.
+  For more information, see [Amazon DocumentDB minor version upgrade](docdb-minor-version-upgrade.md "docdb-minor-version-upgrade.md").
+- Patch version—Engine patches are applied within a minor version and contain critical security fixes and bug fixes.
+  The patch version is tracked by the engine patch version (for example, `3.0.17983`), which you can check by running `db.runCommand({getEngineVersion: 1})`.
+  Patches are applied during your cluster's maintenance window.
+  For more information, see [Maintaining Amazon DocumentDB](db-instance-maintain.md "db-instance-maintain.md").
+
+When you create a new cluster, you can specify any available engine version.
+For information about available versions and support dates, see [Amazon DocumentDB engine version support dates](docdb-version-support-dates.md "docdb-version-support-dates.md").
+
+When you use Amazon DocumentDB, you begin by creating a _cluster_. A cluster consists of zero or more database instances and a cluster volume that manages the data for those instances. An Amazon DocumentDB *cluster volume* is a virtual database storage volume that spans multiple Availability Zones. Each Availability Zone has a copy of the cluster data.
 
 An Amazon DocumentDB cluster consists of two components:
 

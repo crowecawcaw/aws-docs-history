@@ -8,7 +8,7 @@ different use cases, including the following:
 - Change notification
 - Full-text search with Amazon OpenSearch Service (OpenSearch Service)
 - Analytics with Amazon Redshift
-  Applications can use change streams to subscribe to data changes on individual collections. Change streams events are ordered as they occur on the cluster and are stored for 3 hours (by default) after the event has been recorded. The retention period can be extended up to 7 days using the `change_stream_log_retention_duration` parameter. To modify the change stream retention period, please see [Modifying the Change Stream Log Retention Duration](change_streams.md#change_streams-modifying_log_retention "change_streams.md#change_streams-modifying_log_retention") .
+  Applications can use change streams to subscribe to data changes on individual collections. Change streams events are ordered as they occur on the cluster and are stored for 3 hours (by default) after the event has been recorded. The retention period can be extended up to 7 days using the `change_stream_log_retention_duration` parameter. To modify the change stream retention period, see [Modifying the Change Stream Log Retention Duration](change_streams.md#change_streams-modifying_log_retention "change_streams.md#change_streams-modifying_log_retention") .
 
 ###### Topics
 
@@ -64,6 +64,7 @@ Change streams have the following limitations in Amazon DocumentDB:
   change streams.
 - The Ruby driver is currently not supported when using `db.watch()` and `client.watch()` with Amazon DocumentDB 3.6.
 - The output from the `updateDescription` command in change streams is different in Amazon DocumentDB than in MongoDB when the updated value of the field is the same as the previous one:
+
   - Amazon DocumentDB doesn't return a field in the `updateDescription` output if the provided field is specified in the `$set` command and its target value is already equal to the source value.
   - MongoDB returns the field in the output, even if the specified value is equal to the current value.
 
@@ -532,6 +533,7 @@ following parameters:
 - `--parameters` —
   Required. The parameter that you are modifying. Each parameter
   entry must include the following:
+
   - `ParameterName`
     — The name of the parameter that you are modifying.
     In this case, it is `change_stream_log_retention_duration`

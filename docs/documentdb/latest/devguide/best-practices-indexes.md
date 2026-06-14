@@ -22,8 +22,8 @@ For best performance, minimize the number of indexes in your collections, adding
 
 ## Identifying missing indexes
 
-Identifying missing indexes is a best practice that we recommend performing on a regular basis. For more information, please see [How do I identify missing indexes?](user_diagnostics.md#user_diagnostics-identify_missing_indexes "user_diagnostics.md#user_diagnostics-identify_missing_indexes").
+Identifying missing indexes is a best practice that we recommend performing on a regular basis. For more information, see [How do I identify missing indexes?](user_diagnostics.md#user_diagnostics-identify_missing_indexes "user_diagnostics.md#user_diagnostics-identify_missing_indexes").
 
 ## Identifying unused indexes
 
-Identifying and removing unused indexes is a best practice that we recommend performing on a regular basis. For more information, please see [How do I analyze index usage and identify unused indexes?](user_diagnostics.md#user-diag-index-usage "user_diagnostics.md#user-diag-index-usage").
+Identifying and removing unused indexes is a best practice that we recommend performing on a regular basis. For more information, see [How do I analyze index usage and identify unused indexes?](user_diagnostics.md#user-diag-index-usage "user_diagnostics.md#user-diag-index-usage").

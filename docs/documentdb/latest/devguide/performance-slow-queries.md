@@ -15,6 +15,7 @@ filter ns="ecommerce.products" | sort millis desc | limit 10
 ```
 
 2. Use Performance Insights to identify expensive queries in near real-time. Enable Performance Insights if it is not already enabled.
+
    1. Open the AWS Console, navigate to Amazon Amazon DocumentDB, then Performance Insights, and select your cluster instance.
    2. Review the DB Load (AAS) timeline and Top queries (by DB load). Expand a query digest to view literal child statements.
    3. Capture the queries that require analysis.
@@ -122,6 +123,7 @@ In this step, diagnose the query plan to identify potential optimizations. Use t
 When you implement fixes, always validate with explain("executionStats") and monitor Performance Insights DB Load.
 
 1. **planSummary: "COLLSCAN"**
+
    - Create a targeted index.
 
    **Example:** For frequent queries that filter by { category, price } and sort by price descending:
@@ -133,6 +135,7 @@ When you implement fixes, always validate with explain("executionStats") and mon
    ```
 
 2. **aggregation slow with $group / $sort**
+
    - Push $match and $project early to reduce documents flowing into $group / $sort.
    - Limit the number of fields early in the pipeline:
 
@@ -147,11 +150,13 @@ When you implement fixes, always validate with explain("executionStats") and mon
    ```
 
 3. **high latencies while Performance Insights shows DB Load grouped by IO waits**
+
    - Validate if BufferCacheHitRatio is low or ReadIOPS on the instance are high. Increase instance memory (upgrade instance class, e.g., r6g.large → r6g.xlarge) or use NVMe instance class.
    - Reduce index footprint.
    - Add read replicas to offload read traffic (use readPreference setting to redirect traffic on replicas if query is tolerant with eventual consistency).
 
 4. **PI shows CPU wait states, high AAS due to few queries**
+
    - Replace expensive $regex with indexed prefix searches or $text index.
    - Batch writes (insert) to reduce write amplification.
 

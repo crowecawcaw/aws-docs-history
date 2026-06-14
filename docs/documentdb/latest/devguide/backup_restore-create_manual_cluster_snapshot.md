@@ -14,6 +14,7 @@ To create a manual snapshot using the AWS Management Console, you can follow
 either method below.
 
 1.  **Method 1:**
+
     1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
     2. In the navigation pane, choose
        **Snapshots**.
@@ -50,6 +51,7 @@ either method below.
         3. Choose **Create**.
 
 2.  **Method 2:**
+
     1. Sign in to the AWS Management Console, and open the Amazon DocumentDB console at [https://console.aws.amazon.com/docdb](https://console.aws.amazon.com/docdb "https://console.aws.amazon.com/docdb").
     2. In the navigation pane, choose
        **Clusters**.

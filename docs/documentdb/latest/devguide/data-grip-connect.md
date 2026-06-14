@@ -19,12 +19,12 @@ This section walks you through the steps to connect to your Amazon DocumentDB cl
 ![DataGrip welcome screen with New Project option highlighted.](images/welcome.png) 2. Add a new data source using one of the following ways:
 
     1. From the main menu, navigate to **File – New – Data Source** and select **DocumentDB**
-    2. In the **Database Explorer**, click the new icon (**+**) in the toolbar.
+    2. In the **Database Explorer**, choose the new icon (**+**) in the toolbar.
      Navigate to **Data Source** and select **DocumentDB**.
 
 ![The dropdown list for + shows the Data Source submenu. DocumentDB is selected from that submenu.](images/explorer.png) 3. On the **Data Sources** page in the **General** tab, check if there is a **Download missing driver files** link at the
 bottom of the connection settings area.
-Click this link to download drivers that are required to interact with a database.
+Choose this link to download drivers that are required to interact with a database.
 For a direct download link, refer to [JetBrains JDBC drivers](https://www.jetbrains.com/datagrip/jdbc-drivers/ "https://www.jetbrains.com/datagrip/jdbc-drivers/").
 
 ![Data Sources and Drivers interface with Download missing driver files link highlighted.](images/missing-driver.png) 4. In the **General** tab, specify the connection details:
@@ -34,9 +34,9 @@ For a direct download link, refer to [JetBrains JDBC drivers](https://www.jetbra
     3. For **Authentication**, choose **User & Password**.
     4. Enter your user name and password information.
     5. The **Database** field is optional. You can specify the database to which you want to connect.
-    6. The **URL** field auto-completes as you add the above details.
+    6. The **URL** field auto-completes as you add the preceding details.
 
-![Host, port, authentication, database, and URL fields in the General tab on the Data Sources and Drivers interface.](images/connection.png) 5. In the **SSH/SSL** tab, enable **Use SSH tunnel**, then click on the icon to open the **SSH
+![Host, port, authentication, database, and URL fields in the General tab on the Data Sources and Drivers interface.](images/connection.png) 5. In the **SSH/SSL** tab, enable **Use SSH tunnel**, then choose the icon to open the **SSH
 Configuration** dialog. Enter the following information:
 
     1. in the **Host** field, enter the hostname of your Amazon EC2 instance.
@@ -63,9 +63,9 @@ Leave the **Use SSL** option checked and all the other options at their default 
 
 ![SSH/SSL tab in the Data Sources and Drivers interface with SSL settings enabled.](images/use-ssl.png) 7. In the **Schemas** tab, choose **All databases** or enter the filter “\*:\*” in the **Schema
 pattern** field.
-Click on the **Test Connection** link to test the connection.
+Choose **Test Connection** to test the connection.
 
-![The Schemas tab in the Data Sources and Drivers interface with the All databases option selected. A Succeeded message appears above the Test Connection link.](images/schemas.png) 8. Once the connection is successfully tested, click **OK** to save the data source configuration.
+![The Schemas tab in the Data Sources and Drivers interface with the All databases option selected. A Succeeded message appears above the Test Connection link.](images/schemas.png) 8. Once the connection is successfully tested, choose **OK** to save the data source configuration.
 
 ## DataGrip features
 

@@ -63,7 +63,7 @@ For examples of using a CA bundle with your application, see [Encrypting data in
 ###### Note
 
 Currently, the MongoDB Go Driver 1.2.1 only accepts one CA server certificate in
-`sslcertificateauthorityfile`. Please see [Connecting with TLS enabled](connect_programmatically.md#connect_programmatically-tls_enabled "connect_programmatically.md#connect_programmatically-tls_enabled") for connecting to Amazon DocumentDB using Go when TLS is enabled.
+`sslcertificateauthorityfile`. See [Connecting with TLS enabled](connect_programmatically.md#connect_programmatically-tls_enabled "connect_programmatically.md#connect_programmatically-tls_enabled") for connecting to Amazon DocumentDB using Go when TLS is enabled.
 
 ### Step 2: Update the server certificate
 
@@ -82,7 +82,7 @@ Amazon DocumentDB provides the following CAs to sign the DB server certificate f
 
 ###### Note
 
-If you are using the AWS CLI, you can see the validities of the certificate authorities listed above by using [describe-certificates](../../../cli/latest/reference/docdb/describe-certificates.md "../../../cli/latest/reference/docdb/describe-certificates.md").
+If you are using the AWS CLI, you can see the validities of the certificate authorities listed in the preceding section by using [describe-certificates](../../../cli/latest/reference/docdb/describe-certificates.md "../../../cli/latest/reference/docdb/describe-certificates.md").
 
 These CA certificates are included in the regional and global certificate bundle.
 When you use the rds-ca-rsa2048-g1, rds-ca-rsa4096-g1, or rds-ca-ecc384-g1 CA with a database, Amazon DocumentDB manages the DB server certificate on the database.
@@ -114,7 +114,7 @@ for your existing Amazon DocumentDB instances using the AWS Management Console.
    **Certificate authority** column which is located on the far right of the **Clusters** table.
 5. In the **Clusters** table, you’ll see the column
    **Cluster identifier** on the far left. Your instances are listed under
-   clusters, similar to the screenshot below.
+   clusters, similar to the following screenshot.
 
 ![Image of the Clusters navigation box showing a list of existing cluster links and their corresponding instance links.](images/choose-clusters.png) 6. Check the box to the left of the instance you are interested in. 7. Choose **Actions** and then choose
 **Modify**. 8. Under **Certificate authority**, select the new server
