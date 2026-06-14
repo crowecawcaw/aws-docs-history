@@ -367,6 +367,7 @@ For more information, see [Guidelines and quotas in Amazon Rekognition Custom La
 ###### To fix `ERROR_INVALID_IMAGE`
 
 1. Check the following.
+
    - The aspect ratio of the image is less than 20:1.
    - The size of the image is greater than 15 MB
    - The image is in PNG or JPEG format.
@@ -396,6 +397,7 @@ For more information, see [Guidelines and quotas in Amazon Rekognition Custom La
 
 1. Update the image in the Amazon S3 bucket with dimensions that Amazon Rekognition Custom Labels can process.
 2. In the Amazon Rekognition Custom Labels console, do the following:
+
    1. Remove the existing bounding boxes from the image.
    2. Re-add the bounding boxes to the image.
    3. Save your changes.For more information, [Labeling objects with bounding boxes](md-localize-objects.md "md-localize-objects.md").
@@ -591,6 +593,7 @@ The error information is added to the annotation object.
 ###### To fix ERROR_BOUNDING_BOX_TOO_SMALL
 
 - Choose one of the following options.
+
   - Increase the size of bounding boxes that are too small.
   - Remove bounding boxes that are too small. For information about removing a bounding
     box, see [ERROR_TOO_MANY_BOUNDING_BOXES](#tm-error-ERROR_TOO_MANY_BOUNDING_BOXES "#tm-error-ERROR_TOO_MANY_BOUNDING_BOXES").
@@ -769,6 +772,7 @@ For more information, see [Understanding training and testing validation result 
 ###### To fix WARNING_NO_ANNOTATIONS
 
 - Choose one of the following options.
+
   - Add the bounding box (`annotations`) information to the JSON Line.
     For more information, see
     [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
@@ -832,6 +836,7 @@ For more information, see [Understanding training and testing validation result 
 ###### To fix WARNING_NO_ATTRIBUTE_ANNOTATIONS
 
 - Choose one of the following options.
+
   - Add one or more bounding box `annotation` objects to the JSON Line.
     For more information, see
     [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
@@ -936,6 +941,7 @@ For more information, see [Creating a manifest file](md-create-manifest-file.md 
 ###### To fix ERROR_UNSUPPORTED_USE_CASE_TYPE
 
 - Choose one of the following options:
+
   - Change the value of the `type`field to `groundtruth/image-classification` or `groundtruth/object-detection`,
     depending on the type of model that you want to create.
     For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
@@ -950,5 +956,6 @@ The length of a label name is too long. The maximum length is 256 characters.
 ###### To fix ERROR_INVALID_LABEL_NAME_LENGTH
 
 - Choose one of the following options:
+
   - Reduce the length of the label name to 256 characters or less.
   - Remove the image (JSON Line) from the manifest.

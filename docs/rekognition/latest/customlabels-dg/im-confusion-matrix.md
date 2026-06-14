@@ -78,6 +78,7 @@ uses the summary file to display the confusion matrix for the model.
    [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md "su-awscli-sdk.md").
 2. Use the following code to display the confusion matrix for a model. Supply
    the following command line arguments:
+
    - `project_name` – the name of the project you
      want to use. You can get the project name from the projects page in the
      Amazon Rekognition Custom Labels console.

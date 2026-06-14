@@ -34,6 +34,7 @@ The following procedure creates graphs for the following:
 3. In the content pane, choose the **Source** tab.
 4. Make sure that the **Dashboard** button is selected.
 5. In the edit box, replace the existing JSON with the following JSON. Change the following values:
+
    - `Project_Name` — The project that contains the model that you want to graph.
    - `Version_Name` — The version of the model that you want to graph.
    - `AWS_Region` — The AWS Region that contains the

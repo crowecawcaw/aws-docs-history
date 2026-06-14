@@ -8,6 +8,7 @@ provides an AWS CLI command that you can use to upload your images.
 ###### To transform a COCO dataset (SDK)
 
 1. If you haven't already:
+
    1. Make sure you have `AmazonS3FullAccess`
       permissions. For more information, see [Set up SDK permissions](su-sdk-permissions.md "su-sdk-permissions.md").
    2. Install and configure the AWS CLI and the AWS SDKs.
@@ -15,6 +16,7 @@ provides an AWS CLI command that you can use to upload your images.
 
 2. Use the following Python code to transform a COCO dataset. Set
    the following values.
+
    - `s3_bucket` – The name of the S3
      bucket in which you want to store the images and
      Amazon Rekognition Custom Labels manifest file.

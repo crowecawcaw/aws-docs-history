@@ -158,6 +158,7 @@ image represents.
 2. Choose **Start labeling** to enter labeling mode.
 3. Select one or more images that you want to add labels to. You can only select images on a
    single page at a time. To select a contiguous range of images on a page:
+
    1. Select the first image.
    2. Press and hold the shift key.
    3. Select the second image. The images between the first and second image are also selected.
@@ -210,6 +211,7 @@ can restart your model at a later time. For more information, see [Running a tra
 
 1. Choose the **Use model** tab on the model page.
 2. In the **Start or stop model** section do the following:
+
    1. Choose **Start**.
 
    ![User interface showing Start model button and options to start or stop a machine learning model for detecting custom labels. Select number of inference units to increase throughput.](images/get-started-start-model.jpg) 2. In the **Start model** dialog box, choose **Start**.

@@ -34,6 +34,7 @@ Later you add the source code and optionally a layer to the Lambda function.
 2. Choose **Create function**. For more information, see
    [Create a Lambda Function with the Console](../../../lambda/latest/dg/getting-started-create-function.md "../../../lambda/latest/dg/getting-started-create-function.md").
 3. Choose the following options.
+
    - Choose **Author from scratch**.
    - Enter a value for **Function name**.
    - For **Runtime** choose **Python 3.10**.
@@ -79,6 +80,7 @@ JSON
 13. In **Policy details**, enter a name for the policy, such as _DetectCustomLabels-access_.
 14. Choose **Create policy**.
 15. If you are storing images for analysis in an Amazon S3 bucket, repeat steps 10–14.
+
     1.  For step 11, use the following policy. Replace
         `bucket/folder path` with the Amazon S3
         bucket and folder path to the images that you want to analyze.
@@ -99,7 +101,6 @@ JSON
     }`
 
     ```
-
     2.  For step 13, choose a different policy name, such as _S3Bucket-access_.
 
 ## Step 2: (Optional) Create a layer (console)
@@ -161,6 +162,7 @@ image bytes.
 ###### To add Python code (console)
 
 1. If you're not in the Lambda console, do the following:
+
    1. Open the AWS Lambda console at
       [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
    2. Open the Lambda function you created in

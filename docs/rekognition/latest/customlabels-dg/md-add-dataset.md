@@ -28,6 +28,7 @@ console.
    **Datasets**.
 6. If the project doesn't have an existing dataset, the **Create
    dataset** page is shown. Do the following:
+
    1. On the **Create dataset** page, enter the image
       source information. For more information, see [Creating training and test datasets with images](md-create-dataset.md "md-create-dataset.md").
    2. Choose **Create dataset** to create the
@@ -35,6 +36,7 @@ console.
 
 7. If the project has an existing dataset (training or test), the project
    details page is shown. Do the following:
+
    1. On the project details page, choose
       **Actions**.
    2. If you want to add a training dataset, choose **Create

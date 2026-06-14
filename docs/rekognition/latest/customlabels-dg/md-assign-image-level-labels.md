@@ -26,6 +26,7 @@ concept in the image.
 9. In the image gallery, select one or more images that you want to add labels to. You can only
    select images on a single page at a time. To select a contiguous range of
    images on a page:
+
    1. Select the first image in the range.
    2. Press and hold the shift key.
    3. Select the last image range. The images between the first and second image are also selected.

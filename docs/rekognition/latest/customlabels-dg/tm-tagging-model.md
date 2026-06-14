@@ -53,6 +53,7 @@ information, see [Training an Amazon Rekognition Custom Labels model](training-m
 9. On the **Manage tags** page, choose **Add new
    tag**.
 10. Enter a key and a value.
+
     1. For **Key**, enter a name for the key.
     2. For **Value**, enter a value.
 

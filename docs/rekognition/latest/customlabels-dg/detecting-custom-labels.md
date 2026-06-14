@@ -89,6 +89,7 @@ For information about securing `DetectCustomLabels`, see
 ###### To detect custom labels (API)
 
 1. If you haven't already:
+
    1. Make sure you have `DetectCustomLabels` and
       `AmazonS3ReadOnlyAccess` permissions. For more
       information, see [Set up SDK permissions](su-sdk-permissions.md "su-sdk-permissions.md").

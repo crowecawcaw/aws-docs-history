@@ -37,6 +37,7 @@ dialog box is shown. 7. If the project has no associated models:
     2. Choose **Delete** to delete the project.
 
 8. If the project has associated models or datasets:
+
    1. Enter **delete** to confirm that you want to delete the model(s) and datasets.
    2. Choose either **Delete associated models** or **Delete associated datasets** or
       **Delete associated datasets and models**, depending on whether the model has datasets, models, or both.

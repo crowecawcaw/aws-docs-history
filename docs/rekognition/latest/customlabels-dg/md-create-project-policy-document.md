@@ -60,6 +60,7 @@ a JSON string.
 
 1. In a text editor, create the following document. Change the following
    values:
+
    - Effect – Specify `ALLOW` to grant copy
      permission. Specify `DENY` to deny copy permission.
    - Principal – To the principal that you want to allow or deny

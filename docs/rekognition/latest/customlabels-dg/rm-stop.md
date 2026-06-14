@@ -25,6 +25,7 @@ You can stop the model directly from the console or use the AWS SDK code provide
 6. In the **Models** section, choose the model that you want to stop.
 7. Choose the **Use model** tab.
 8. Stop model using the console
+
    1. In the **Start or stop model** section, choose
       **Stop**.
    2. In the **Stop model** dialog box, enter **stop** to confirm that

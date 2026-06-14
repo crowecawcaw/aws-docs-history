@@ -78,8 +78,10 @@ For more information, see
      your key, or choose an existing AWS KMS key. To create a new key, choose **Create an AWS IMS key**.
 
 7. (Optional) if you want to add tags to your model do the following:
+
    1. In the **Tags** section, choose **Add new tag**.
    2. Enter the following:
+
       1. The name of the key in **Key**.
       2. The value of the key in **Value**.
 

@@ -20,6 +20,7 @@ bucket names.
 3. Choose **Get started**.
 4. If this is the first time that you've opened the console in the current AWS Region, do the
    following in the **First Time Set Up** dialog box:
+
    1. Copy down the name of the Amazon S3 bucket that's shown. You'll need this information later.
    2. Choose **Create S3 bucket** to let Amazon Rekognition Custom Labels create an Amazon S3 bucket (console bucket) on your behalf.
 

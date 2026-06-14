@@ -34,6 +34,7 @@ The training or testing manifest file doesn't have a file extension or its conte
 ###### To fix error _ERROR_MANIFEST_INACCESSIBLE_OR_UNSUPPORTED_FORMAT_
 
 - Check the following possible causes in both the training and testing manifest files.
+
   - The manifest file is missing a file extension. By convention the file
     extension is `.manifest`.
   - The Amazon S3 bucket or key for the manifest file couldn't be found.

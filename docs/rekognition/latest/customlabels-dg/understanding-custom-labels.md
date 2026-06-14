@@ -43,7 +43,7 @@ example project, see [Image classification](getting-started.md#gs-image-classifi
 is an example of the kind of image you can recognize objects, scenes, and concepts
 in.
 
-![Tranquil lake reflecting clouds and mountains at sunset or sunrise.](images/pateros.jpg)
+![Tranquil lake reflecting clouds and mountains at sunset or sunrise.](/images/rekognition/latest/customlabels-dg/images/pateros.jpg)
 
 Alternatively, you can train a model that categorizes images into multiple categories.
 For example, the previous image might have
