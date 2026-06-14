@@ -52,6 +52,7 @@ Configure Tool](configure-sdk-5.md "configure-sdk-5.md").
 
 - An Amazon EC2 instance running a Linux operating system with the following software
   installed:
+
   - A web server (either NGINX or Apache)
   - The OpenSSL Dynamic Engine for Client SDK 5
 
@@ -994,12 +995,12 @@ Ubuntu 24.04 LTS
 
 9. Check if the `/etc/sysconfig/nginx` file exists, and then do one
    of the following:
+
    - If the file exists, back up the file by running the following command:
 
    ```
    `$` `sudo cp /etc/sysconfig/nginx /etc/sysconfig/nginx.backup`
    ```
-
    - If the file doesn't exist, open a text editor, and then create a file named
      `nginx` in the `/etc/sysconfig/` folder.
 
@@ -1821,6 +1822,7 @@ connections on port 443. Assign this security group to your web server.
 2. Choose **Security groups** in the navigation pane.
 3. Choose **Create security group**.
 4. For **Create Security Group**, do the following:
+
    1. For **Security group name**, type a name for the security group
       that you are creating.
    2. (Optional) Type a description of the security group that you are creating.

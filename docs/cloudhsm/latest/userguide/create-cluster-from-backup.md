@@ -10,6 +10,7 @@ For more information about managing backups, see [Cluster backups](manage-backup
    [https://console.aws.amazon.com/cloudhsm/home](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home").
 2. Choose **Create cluster**.
 3. In the **Cluster configuration** section, do the following:
+
    1. For **VPC**, choose a VPC for the cluster that you are
       creating.
    2. For **AZ(s)**, choose a private subnet for each Availability Zone
@@ -17,6 +18,7 @@ For more information about managing backups, see [Cluster backups](manage-backup
    3. For **Network type**, choose the IP protocol your HSMs will use for connections.
 
 4. In the **Cluster source** section, do the following:
+
    1. Choose **Restore cluster from existing backup**.
    2. Choose the backup that you are restoring.
 

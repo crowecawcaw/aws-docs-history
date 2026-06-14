@@ -84,6 +84,7 @@ simplicity.
 6. For **Server Selection**, choose **Select a server from the server
    pool**. Then choose **Next**.
 7. For **Server Roles**, do the following:
+
    1. Select **Active Directory Certificate Services**.
    2. For **Add features that are required for Active Directory Certificate
       Services**, choose **Add Features**.
@@ -92,6 +93,7 @@ simplicity.
 8. For **Features**, accept the defaults, and then choose
    **Next**.
 9. For **AD CS**, do the following:
+
    1. Choose **Next**.
    2. Select **Certification Authority**, and then choose
       **Next**.
@@ -124,6 +126,7 @@ Then choose **Next**. 17. For **Cryptography**, do the following:
      CA**, choose one of the hash algorithm options.Choose **Next**.
 
 18. For **CA Name**, do the following:
+
     1.  (Optional) Edit the common name.
     2.  (Optional) Type a distinguished name suffix.Choose **Next**.
 
@@ -173,6 +176,7 @@ you can sign it with your Windows Server CA.
    **Issued Requests** to view the signed certificate.
 10. (Optional) To export the signed certificate to a file, complete the following
     steps:
+
     1. In the **Certification Authority** window, double-click the
        certificate.
     2. Choose the **Details** tab, and then choose **Copy to

@@ -30,6 +30,7 @@ that you can download and install client software, and interact with your HSM.
    **Edit Inbound Rules**.
 5. Select **Add Rule**.
 6. For **Type**, do one of the following:
+
    - For a Windows Server Amazon EC2 instance, choose **RDP**. The
      port `3389` is automatically populated.
    - For a Linux Amazon EC2 instance, choose **SSH**. The port range

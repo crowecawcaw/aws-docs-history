@@ -5,6 +5,7 @@ When this happens, you may see reduced throughput or an increased rate of reject
 Additionally, HSMs may send the following busy errors.
 
 - In PKCS11, busy errors map to `CKR_FUNCTION_FAILED`. This error can happen for multiple reasons, but if HSM throttling causes this error the following log lines will appear in your log:
+
   - `[cloudhsm_provider::hsm1::hsm_connection::e2e_encryption::error] Failed to prepare E2E response. Error: Received error response code from Server. Response Code: 187`
   - `[cloudhsm_pkcs11::decryption::aes_gcm] Received error from the server. Error: This operation is already in progress. Internal error code: 0x000000BB`
 

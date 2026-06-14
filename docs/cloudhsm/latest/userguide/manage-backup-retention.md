@@ -54,6 +54,7 @@ The Change backup retention period dialog box appears. 5. In **Backup retention 
 3. Click the backup ID of a backup in the Ready state to exclude or include.
 4. On the **Backup details** page, take one of the following
    actions.
+
    - To exclude a backup with a date in **Expiration time**,
      choose **Actions, Disable expiration**.
    - To include a backup that does not expire, choose **Actions, Use

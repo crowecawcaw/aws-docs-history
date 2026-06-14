@@ -45,6 +45,7 @@ Configure Tool](configure-sdk-5.md "configure-sdk-5.md").
 
 - An Amazon EC2 instance running a Linux operating system with the following software
   installed:
+
   - A web server (either NGINX or HAProxy)
   - The AWS CloudHSM OpenSSL Provider for Client SDK 5
 
@@ -540,6 +541,7 @@ Use this section to configure NGINX with the OpenSSL Provider.
 ```
 
 6. Configure OpenSSL to use the AWS CloudHSM provider. For more information about configuring the OpenSSL Provider, see [AWS CloudHSM OpenSSL Provider for Client SDK 5](openssl-provider-install.md "openssl-provider-install.md").
+
    1. Locate your OpenSSL configuration file:
 
    ```
@@ -579,13 +581,11 @@ Use this section to configure NGINX with the OpenSSL Provider.
    activate = 1
    `EOF`
    ```
-
    3. Ensure that the `CLOUDHSM_PIN` environment variable is set with your crypto user (CU) credentials:
 
    ```
    `$` `export CLOUDHSM_PIN=`<username>`:`<password>``
    ```
-
    4. Set the `OPENSSL_CONF` environment variable to point to your updated configuration file and verify the provider is loaded:
 
    ```
@@ -882,12 +882,12 @@ Ubuntu 24.04
 
 10. Check if the `/etc/sysconfig/nginx` file exists, and then do one
     of the following:
+
     - If the file exists, back up the file by running the following command:
 
     ```
     `$` `cp /etc/sysconfig/nginx /etc/sysconfig/nginx.backup`
     ```
-
     - If the file doesn't exist, open a text editor, and then create a file named
       `nginx` in the `/etc/sysconfig/` folder.
 
@@ -1185,6 +1185,7 @@ connections on port 443. Assign this security group to your web server.
 2. Choose **Security groups** in the navigation pane.
 3. Choose **Create security group**.
 4. For **Create Security Group**, do the following:
+
    1. For **Security group name**, type a name for the security group
       that you are creating.
    2. (Optional) Type a description of the security group that you are creating.

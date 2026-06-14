@@ -15,6 +15,7 @@ exchange. The process is slightly different when Diffie–Hellman is used instea
 1. The client sends a hello message to the server.
 2. The server responds with a hello message and sends the server's certificate.
 3. The client performs the following actions:
+
    1. Verifies that the SSL/TLS server certificate is signed by a root certificate that
       the client trusts.
    2. Extracts the public key from the server certificate.

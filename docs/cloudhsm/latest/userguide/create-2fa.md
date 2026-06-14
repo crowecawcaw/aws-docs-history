@@ -5,12 +5,12 @@ Use AWS CloudHSM Management Utility CMU (CMU) and the key pair to create a new c
 ###### To create CO users with 2FA enabled
 
 1. In one terminal, perform the following steps:
+
    1. Access your HSM and log in to the CloudHSM Management utility:
 
    ```
    `/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`
    ```
-
    2. Log in as a CO and use the following command to create a new user MFA with 2FA:
 
    ```
@@ -27,16 +27,15 @@ Use AWS CloudHSM Management Utility CMU (CMU) and the key pair to create a new c
    To generate the signatures, use the RSA private key, which is the second factor ofauthentication for this user. Paste the signatures and the corresponding public keyinto the authentication data file and provide
    the file path below.Leave this field blank to use the path initially provided.Enter filename:`
    ```
-
    3. Leave the above terminal in this state. Do not press enter or enter any filename.
 
 2. In another terminal, perform the following steps:
+
    1. Access your HSM and log in to the CloudHSM Management utility:
 
    ```
    `/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/cloudhsm_mgmt_util.cfg`
    ```
-
    2. Generate a public-private key-pair using the following commands:
 
    ```
@@ -46,13 +45,11 @@ Use AWS CloudHSM Management Utility CMU (CMU) and the key pair to create a new c
    ```
    `openssl rsa -pubout -in private_key.pem -out public_key.pem`
    ```
-
    3. Run the following command to install a json querying feature for extracting the Digest from authdata file:
 
    ```
    `sudo yum install jq`
    ```
-
    4. To extract the digest value, first find the following data in the authdata file:
 
    ```
@@ -76,7 +73,6 @@ Use AWS CloudHSM Management Utility CMU (CMU) and the key pair to create a new c
    ```
    cat authdata | jq '.Data[0].Digest' | cut -c2- | rev | cut -c2- | rev | base64 -d > digest1.bin
    ```
-
    5. Convert the public key content, adding "\n" and removing spaces as shown here:
 
    ```
@@ -107,7 +103,6 @@ Use AWS CloudHSM Management Utility CMU (CMU) and the key pair to create a new c
      ]
    }
    ```
-
    7. Sign the token file using the following command:
 
    ```

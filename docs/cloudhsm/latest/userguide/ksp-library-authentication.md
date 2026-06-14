@@ -31,7 +31,9 @@ can use the Python code included in the installer.
 
 - **Using the Credential Manager
   interface**:
+
   1.  Open Credential Manager:
+
       - Enter `credential manager` in the taskbar search
         box
       - Select **Credential Manager**
@@ -40,6 +42,7 @@ can use the Python code included in the installer.
       credentials.
   3.  Select **Add a generic credential**
   4.  Enter the following details:
+
       - **Internet or Network Address**:
         `CLOUDHSM_PIN`.
       - **Username**: `<CU

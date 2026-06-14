@@ -9,6 +9,7 @@ requirements.
 - Key usage: Sign and Verify
 - Key spec: RSA_2048
 - Signing algorithm includes:
+
   - `sha256WithRSAEncryption`
 
 ###### Note

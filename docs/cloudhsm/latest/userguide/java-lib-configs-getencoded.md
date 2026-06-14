@@ -24,9 +24,11 @@ The AWS CloudHSM JCE Provider doesn’t allow extraction of key bytes in clear f
 you can enable extraction of key bytes in clear for **private** or **secret** keys under the following conditions:
 
 1. The `EXTRACTABLE` attribute for private and secret keys is set to **true**.
+
    - By default, the `EXTRACTABLE` attribute for private and secret keys is set to **true**. `EXTRACTABLE` keys are keys that are permitted to be exported out of the HSM.
      For more information see Supported Java attributes for [Client SDK 5](java-lib-attributes_5.md "java-lib-attributes_5.md").
 
 2. The `WRAP_WITH_TRUSTED` attribute for the private and secret keys is set to **false**.
+
    - `getEncoded`, `getPrivateExponent`, and `getS` cannot be used with private keys that cannot be exported in clear. `WRAP_WITH_TRUSTED` doesn't allow your private keys to exported out of the HSM in clear.
      For more information see [Using trusted keys to control key unwraps](manage-keys-using-trusted-keys.md "manage-keys-using-trusted-keys.md").

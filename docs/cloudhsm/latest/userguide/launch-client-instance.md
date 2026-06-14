@@ -25,6 +25,7 @@ VPC and Availability Zone (AZ) in which you create your cluster.
    For more information, see [AWS CloudHSM Client SDK 5 supported platforms](client-supported-platforms.md "client-supported-platforms.md").
 5. In the **Instance Type** section, choose an instance type.
 6. In the **Key pair** section, use an existing key pair or select **Create new key pair** and complete the following steps:
+
    1. For **Key pair name**, enter a name for the key pair.
    2. For **Key pair type**, choose a key pair type.
    3. For **Private key file format**, choose the private key file format.

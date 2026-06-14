@@ -48,6 +48,7 @@ To set up web server SSL/TLS offload with AWS CloudHSM, you need the following:
 - An active AWS CloudHSM cluster with at least one HSM.
 - An Amazon EC2 instance running a Windows operating system with the following software
   installed:
+
   - The AWS CloudHSM client software for Windows.
   - Internet Information Services (IIS) for Windows Server.
 
@@ -97,6 +98,7 @@ Replace `<USERNAME>` and `<PASSWORD>` with the HSM credentials.
 6. For **Server Selection**, choose **Select a server from the
    server pool**. Then choose **Next**.
 7. For **Server Roles**, do the following:
+
    1. Select **Web Server (IIS)**.
    2. For **Add features that are required for Web Server (IIS)**, choose
       **Add Features**.
@@ -121,6 +123,7 @@ To set up web server SSL/TLS offload with AWS CloudHSM, you need the following:
 - An active AWS CloudHSM cluster with at least one HSM.
 - An Amazon EC2 instance running a Windows operating system with the following software
   installed:
+
   - The AWS CloudHSM client software for Windows.
   - Internet Information Services (IIS) for Windows Server.
 
@@ -170,6 +173,7 @@ Replace `<USERNAME>` and `<PASSWORD>` with the HSM credentials.
 6. For **Server Selection**, choose **Select a server from the
    server pool**. Then choose **Next**.
 7. For **Server Roles**, do the following:
+
    1. Select **Web Server (IIS)**.
    2. For **Add features that are required for Web Server (IIS)**, choose
       **Add Features**.
@@ -413,6 +417,7 @@ Email Address []:`
 - Use the following OpenSSL command to use your private key and self-signed certificate
   to sign the CSR. Replace the following with the names of the files that contain the
   corresponding data (if different).
+
   - `IISCertRequest.csr` – The name of the file that
     contains your web server's CSR
   - `SelfSignedCA.crt` – The name of the file that
@@ -534,6 +539,7 @@ connections on port 443. Assign this security group to your web server.
 2. Choose **Security groups** in the navigation pane.
 3. Choose **Create security group**.
 4. For **Create Security Group**, do the following:
+
    1. For **Security group name**, type a name for the security group
       that you are creating.
    2. (Optional) Type a description of the security group that you are creating.

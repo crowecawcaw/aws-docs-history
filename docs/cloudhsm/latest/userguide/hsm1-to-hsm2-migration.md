@@ -47,7 +47,9 @@ AWS CloudHSM automatically reverts the cluster to its original HSM type.
 For a list of known migration issues, see [Known issues for AWS CloudHSM cluster modification](ki-cluster-modification.md "ki-cluster-modification.md")
 
 - In the last 7 days:
+
   - All client connections have used SDK 5.9 or higher.
+
     - If performing ECDSA Verify, all client connections have used SDK 5.13 or higher.
 
   - AWS CloudHSM instances have used only supported (and none of the deprecated)

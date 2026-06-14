@@ -183,6 +183,7 @@ Install the PKCS #11 library for Windows Server on X86_64 architecture:
    certificate. For instructions, see [Specify the location of the issuing certificate](cluster-connect.md#specify-cert-location "cluster-connect.md#specify-cert-location").
 3. To connect to your cluster, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to").
 4. You can find the PKCS #11 library files in the following locations:
+
    - Linux binaries, configuration scripts, and log files:
 
    ```

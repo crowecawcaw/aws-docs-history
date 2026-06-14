@@ -45,6 +45,7 @@ Console
 3.  Choose **Create cluster**.
 4.  In the **Cluster configuration** section, do the
     following:
+
     1. For **VPC**, select the VPC that you created
        in [Create a virtual private cloud (VPC) for AWS CloudHSM](create-vpc.md "create-vpc.md").
     2. For **Availability Zone(s)**, next to each
@@ -85,6 +86,7 @@ Console
 
 5.  Choose **Next**.
 6.  Specify how long the service should retain backups.
+
     1. Accept the default retention period of 90 days or type a new
        value between 7 and 379 days. The service will automatically
        delete backups in this cluster older than the value you specify

@@ -105,6 +105,7 @@ recommendations.
 - **Number of threads**: Number of threads to run the test with.
 - **Time in seconds to run the test (max = 600)**: pkpspeed produces results measured in "OPERATIONS/second" and reports this value for each second that the test is run.
   For example, if the test is run for 5 seconds the output may look like the following sample values:
+
   - `OPERATIONS/second 821/1`
   - `OPERATIONS/second 833/1`
   - `OPERATIONS/second 845/1`

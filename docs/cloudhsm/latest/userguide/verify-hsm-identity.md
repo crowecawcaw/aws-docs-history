@@ -82,6 +82,7 @@ AWS CLI###### To get the CSR and HSM certificates ([AWS CLI](../../../cli/latest
 - At a command prompt, run the **[describe-clusters](../../../cli/latest/reference/cloudhsmv2/describe-clusters.md "../../../cli/latest/reference/cloudhsmv2/describe-clusters.md")**
   command four times, extracting the CSR and different certificates each time and saving
   them to files.
+
   1.  Issue the following command to extract the cluster CSR. Replace
       `<cluster ID>` with the ID of the cluster that you created
       previously.
@@ -92,7 +93,6 @@ AWS CLI###### To get the CSR and HSM certificates ([AWS CLI](../../../cli/latest
    --query 'Clusters[].Certificates.ClusterCsr' \
    > `<cluster ID>`_ClusterCsr.csr`
   ```
-
   2.  Issue the following command to extract the HSM certificate. Replace
       `<cluster ID>` with the ID of the cluster that you created
       previously.
@@ -103,7 +103,6 @@ AWS CLI###### To get the CSR and HSM certificates ([AWS CLI](../../../cli/latest
    --query 'Clusters[].Certificates.HsmCertificate' \
    > `<cluster ID>`_HsmCertificate.crt`
   ```
-
   3.  Issue the following command to extract the AWS hardware certificate. Replace
       `<cluster ID>` with the ID of the cluster that you created
       previously.
@@ -114,7 +113,6 @@ AWS CLI###### To get the CSR and HSM certificates ([AWS CLI](../../../cli/latest
    --query 'Clusters[].Certificates.AwsHardwareCertificate' \
    > `<cluster ID>`_AwsHardwareCertificate.crt`
   ```
-
   4.  Issue the following command to extract the manufacturer hardware certificate.
       Replace `<cluster ID>` with the ID of the cluster that you
       created previously.
@@ -141,6 +139,7 @@ files.
 
 1. Download the AWS CloudHSM root certificate: [AWS_CloudHSM_Root-G1.zip](samples/AWS_CloudHSM_Root-G1.zip.md "samples/AWS_CloudHSM_Root-G1.zip.md")
 2. Download the right manufacturer root certificate for your HSM type:
+
    - hsm1.medium manufacturer root certificate: [liquid_security_certificate.zip](https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquid_security_certificate.zip "https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquid_security_certificate.zip")
    - hsm2m.medium manufacturer root certificate: [liquid_security_certificate.zip](https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquidsecurity2_ar_v1.zip "https://www.marvell.com/content/dam/marvell/en/public-collateral/security-solutions/liquidsecurity2_ar_v1.zip")
 

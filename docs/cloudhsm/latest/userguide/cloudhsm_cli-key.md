@@ -7,10 +7,12 @@ category consists of the following commands:
 - [delete](cloudhsm_cli-key-delete.md "cloudhsm_cli-key-delete.md")
 - [generate-file](cloudhsm_cli-key-generate-file.md "cloudhsm_cli-key-generate-file.md")
 - [key generate-asymmetric-pair](cloudhsm_cli-key-generate-asymmetric-pair.md "cloudhsm_cli-key-generate-asymmetric-pair.md")
+
   - [key generate-asymmetric-pair rsa](cloudhsm_cli-key-generate-asymmetric-pair-rsa.md "cloudhsm_cli-key-generate-asymmetric-pair-rsa.md")
   - [key generate-asymmetric-pair ec](cloudhsm_cli-key-generate-asymmetric-pair-ec.md "cloudhsm_cli-key-generate-asymmetric-pair-ec.md")
 
 - [key generate-symmetric](cloudhsm_cli-key-generate-symmetric.md "cloudhsm_cli-key-generate-symmetric.md")
+
   - [key generate-symmetric aes](cloudhsm_cli-key-generate-symmetric-aes.md "cloudhsm_cli-key-generate-symmetric-aes.md")
   - [key generate-symmetric generic-secret](cloudhsm_cli-key-generate-symmetric-generic-secret.md "cloudhsm_cli-key-generate-symmetric-generic-secret.md")
 

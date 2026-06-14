@@ -41,6 +41,7 @@ includes improved stability and bug fixes for all SDKs.
 - Improved stability and bug fixes.
 - Now supported on ARM architecture with Amazon Linux 2.
 - Algorithms
+
   - CKM_AES_CMAC (sign and verify)
 
 ###### OpenSSL Dynamic Engine
@@ -62,6 +63,7 @@ includes improved stability and bug fixes for all SDKs.
 
 - Improved stability and bug fixes.
 - Mechanisms
+
   - CKM_RSA_X_509, for encrypt, decrypt, sign, and verify
     modes
 
@@ -73,6 +75,7 @@ includes improved stability and bug fixes for all SDKs.
 
 - Improved stability and bug fixes.
 - Ciphers
+
   - RSA/ECB/NoPadding, for encrypt and decrypt modes
 
 ###### Supported keys
@@ -100,6 +103,7 @@ includes improved stability and bug fixes for all SDKs.
 - Support for the Keytool and Jarsigner utilities
 - Support for OpenJDK 11 on all platforms
 - Ciphers
+
   - AES/CBC/NoPadding Encrypt and Decrypt mode
   - AES/ECB/PKCS5Padding Encrypt and Decrypt mode
   - AES/CTR/NoPadding Encrypt and Decrypt mode
@@ -129,6 +133,7 @@ includes improved stability and bug fixes for all SDKs.
     Unwrap mode
 
 - KeyFactory and SecretKeyFactory
+
   - RSA – 2048-bit to 4096-bit RSA keys, in increments of 256
     bits
   - AES – 128, 192, and 256-bit AES keys
@@ -513,12 +518,15 @@ attributes Client SDK version 5.0.0.
 **Attributes**:
 
 - GenerateKeyPair
+
   - All RSA Key attributes
 
 - GenerateKey
+
   - All AES Key attributes
 
 - GetAttributeValue
+
   - All RSA Key attributes
   - All AES Key attributes
 
@@ -841,6 +849,7 @@ Version 3.4.4 adds updates to JCE provider.
   upgrade, you must use a batch command that upgrades the client and
   all the libraries at the same time. For more information, see [Client SDK 3 Upgrade](client-upgrade.md "client-upgrade.md").
 - Key_mgmt_util (KMU) includes the following updates:
+
   - Added two new AES key wrap methods – standards-compliant
     AES key wrap with zero padding and AES key wrap with no
     padding. For more information, see [wrapKey](key_mgmt_util-wrapKey.md "key_mgmt_util-wrapKey.md") and [unwrapKey](key_mgmt_util-unwrapKey.md "key_mgmt_util-unwrapKey.md").

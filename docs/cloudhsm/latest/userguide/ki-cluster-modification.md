@@ -18,6 +18,7 @@ The following issues impact customers attempting to use the modify-cluster API t
 - **Impact:** Customers performing token key based workloads will be unable to start their migration. This is done because the HSM will be placed
   into a limited-write mode to prevent dataloss scenarios during the HSM type modification.
 - **Workaround:** Stop creating and deleting token keys and then wait 7 days. Alternatively, please reach out to support if you
+
   - Cannot handle blocking token key migrations and cannot do a blue/green deployment.
   - Can handle blocking token key operations for the duration of the migration, but can’t wait the full 7 day period.
 

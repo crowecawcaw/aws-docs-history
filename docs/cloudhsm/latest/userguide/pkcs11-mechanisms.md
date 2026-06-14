@@ -124,6 +124,7 @@ The AWS CloudHSM software library for PKCS #11 library supports the following ke
 
 - `CKM_SP800_108_COUNTER_KDF`
 - `CKM_ECDH1_DERIVE` - Supports ECDH key derivation with the following vendor-defined KDF types[6](#kdf6 "#kdf6"):
+
   - `CKD_CLOUDHSM_X963_SHA1_KDF` - X9.63 KDF with SHA1[7](#kdf7 "#kdf7")
   - `CKD_CLOUDHSM_X963_SHA224_KDF` - X9.63 KDF with SHA224[7](#kdf7 "#kdf7")
   - `CKD_CLOUDHSM_X963_SHA256_KDF` - X9.63 KDF with SHA256[7](#kdf7 "#kdf7")

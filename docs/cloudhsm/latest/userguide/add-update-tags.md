@@ -11,12 +11,14 @@ API.
 2. Choose the cluster that you are tagging.
 3. Choose **Tags**.
 4. To add a tag, do the following:
+
    1. Choose **Edit Tag** and then choose **Add Tag**.
    2. For **Key**, type a key for the tag.
    3. (Optional) For **Value**, type a value for the tag.
    4. Choose **Save**.
 
 5. To update a tag, do the following:
+
    1. Choose **Edit Tag**.
 
    ###### Note

@@ -119,6 +119,7 @@ configuration.
 ###### To edit the client configuration
 
 1. If installing Client SDK 3 on cloudhsm_mgmt_util, complete the following steps to ensure all the nodes in the cluster are synced.
+
    1. Run **configure -a `<IP of one of the HSMs>`**.
    2. Restart the client service.
    3. Run **configure -m**.

@@ -26,6 +26,7 @@ To accomplish Oracle TDE integration with AWS CloudHSM, you need the following:
 
 - An active AWS CloudHSM cluster with at least one HSM.
 - An Amazon EC2 instance running the Amazon Linux operating system with the following software installed:
+
   - The AWS CloudHSM client and command line tools.
   - The AWS CloudHSM software library for PKCS #11.
   - Oracle Database. AWS CloudHSM supports Oracle TDE integration. Client SDK 5.6 and higher support Oracle TDE for Oracle Database 19c.
@@ -43,6 +44,7 @@ Complete the following steps to set up all of the prerequisites.
 2. (Optional) Add more HSMs to your cluster. For more information, see
    [Adding an HSM to an AWS CloudHSM cluster](add-hsm.md "add-hsm.md").
 3. Connect to your Amazon EC2 client instance and do the following:
+
    1. [Install the AWS CloudHSM software library for PKCS #11](pkcs11-library-install.md "pkcs11-library-install.md").
    2. Install Oracle Database. For more information, see the
       [Oracle Database documentation](https://docs.oracle.com/en/database/ "https://docs.oracle.com/en/database/").

@@ -17,6 +17,7 @@ to use your VPC to talk to HSMs in your cluster.
   other data. If this happens, data created or modified after the most recent backup is lost and unrecoverable.
   To prevent unauthorized access, ensure that only trusted administrators can modify or access the instances
   in the default security group.
+
   - The hsm2m.medium clusters introduces mTLS feature to restrict unauthorized users from connecting
     to the cluster. Unauthorized users will require a valid mTLS credentials to successfully connect to cluster before
     attempting zeroization.

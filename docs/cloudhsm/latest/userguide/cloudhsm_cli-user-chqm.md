@@ -9,4 +9,5 @@ quorum for users.
 Currently, this category consists of the following category and sub-command:
 
 - [token-sign](cloudhsm_cli-user-chqm-token.md "cloudhsm_cli-user-chqm-token.md")
+
   - [register](cloudhsm_cli-user-chqm-token-reg.md "cloudhsm_cli-user-chqm-token-reg.md")

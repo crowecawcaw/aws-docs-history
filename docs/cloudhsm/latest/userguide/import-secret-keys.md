@@ -25,6 +25,7 @@ Node id 2 and err state 0x00000000 : HSM Return: SUCCESS`
 
 2. Use one of the following commands, depending on the type of secret key that you are
    importing.
+
    - To import a symmetric key, use the [imSymKey](key_mgmt_util-imSymKey.md "key_mgmt_util-imSymKey.md") command. The
      following command imports an AES key from a file named
      `aes256.key` using the wrapping key created in the previous step.
@@ -44,7 +45,6 @@ Node id 2 and err state 0x00000000 : HSM Return: SUCCESS`
    Node id 1 and err state 0x00000000 : HSM Return: SUCCESS
    Node id 2 and err state 0x00000000 : HSM Return: SUCCESS`
    ```
-
    - To import an asymmetric private key, use the [importPrivateKey](key_mgmt_util-importPrivateKey.md "key_mgmt_util-importPrivateKey.md")
      command. The following command imports a private key from a file named
      `rsa2048.key` using the wrapping key created in the previous

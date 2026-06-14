@@ -281,6 +281,7 @@ connections on port 443. Assign this security group to your web server.
 2. Choose **Security groups** in the navigation pane.
 3. Choose **Create security group**.
 4. For **Create Security Group**, do the following:
+
    1. For **Security group name**, type a name for the security group
       that you are creating.
    2. (Optional) Type a description of the security group that you are creating.

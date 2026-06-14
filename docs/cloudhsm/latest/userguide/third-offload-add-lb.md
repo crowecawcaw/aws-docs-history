@@ -23,6 +23,7 @@ that contains your existing web server and AWS CloudHSM cluster.
 1. Open the [**Subnets** section of the Amazon VPC console](https://console.aws.amazon.com/vpc/home#subnets: "https://console.aws.amazon.com/vpc/home#subnets:").
 2. Choose **Create Subnet**.
 3. In the **Create Subnet** dialog box, do the following:
+
    1. For **Name tag**, type a name for your subnet.
    2. For **VPC**, choose the AWS CloudHSM VPC that contains your existing web
       server and AWS CloudHSM cluster.
@@ -53,6 +54,7 @@ your existing web server.
 3. Choose **Actions**, **Image**, and then
    **Create Image**.
 4. In the **Create Image** dialog box, do the following:
+
    1. For **Image name**, type a name for the image.
    2. For **Image description**, type a description for the
       image.
@@ -92,6 +94,7 @@ Details**. 14. For **Step 3: Configure Instance Details**, do the following:
 16. Add or edit tags as preferred. Then choose **Next: Configure Security
     Group**.
 17. For **Step 6: Configure Security Group**, do the following:
+
     1.  For **Assign a security group**, choose **Select an
         existing security group**.
     2.  Select the check box next to the security group named
@@ -163,6 +166,7 @@ your web servers.
 3. In the **Network Load Balancer** section, choose
    **Create**.
 4. For **Step 1: Configure Load Balancer**, do the following:
+
    1. For **Name**, type a name for the load balancer that you are
       creating.
    2. In the **Listeners** section, for **Load Balancer
@@ -174,6 +178,7 @@ your web servers.
    5. Choose **Next: Configure Routing**.
 
 5. For **Step 2: Configure Routing**, do the following:
+
    1. For **Name**, type a name for the target group that you are
       creating.
    2. For **Port**, change the value to
@@ -181,6 +186,7 @@ your web servers.
    3. Choose **Next: Register Targets**.
 
 6. For **Step 3: Register Targets**, do the following:
+
    1. In the **Instances** section, select the check boxes next to your
       web server instances. Then choose **Add to registered**.
    2. Choose **Next: Review**.

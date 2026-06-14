@@ -28,6 +28,7 @@ be unwrapped properly, and this issue does not impact you. Otherwise, see [Actio
 You should take the following three steps:
 
 1. **Immediately upgrade your PKCS #11 library to a newer version**
+
    - [Latest PKCS #11 library for Amazon Linux, CentOS 6 and RHEL
      6](client-upgrade.md "client-upgrade.md")
    - [Latest PKCS #11 library for Amazon Linux 2, CentOS 7 and RHEL

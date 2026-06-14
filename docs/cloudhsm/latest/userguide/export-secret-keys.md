@@ -19,6 +19,7 @@ Node id 2 and err state 0x00000000 : HSM Return: SUCCESS`
 
 2. Use one of the following commands, depending on the type of secret key that you are
    exporting.
+
    - To export a symmetric key, use the [exSymKey](key_mgmt_util-exSymKey.md "key_mgmt_util-exSymKey.md") command. The following command exports an AES key to a file named
      `aes256.key.exp`. To see all available options, use the
      **exSymKey -h** command.

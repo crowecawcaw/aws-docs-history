@@ -25,6 +25,7 @@ Synchronization](manage-key-sync.md "manage-key-sync.md") and [Client SDK 5 Conf
 2. Use the configure tool to specify the location of the issuing certificate. For instructions, see [Specify the location of the issuing certificate](cluster-connect.md#specify-cert-location "cluster-connect.md#specify-cert-location").
 3. To connect to your cluster, see [Bootstrap the Client SDK](cluster-connect.md#connect-how-to "cluster-connect.md#connect-how-to").
 4. You can find the Key Storage Provider (KSP) files in the following locations:
+
    - Windows binaries:
 
    ```

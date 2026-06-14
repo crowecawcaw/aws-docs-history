@@ -27,15 +27,18 @@ Therefore, support for these end on January 1, 2024 in our Federal Information P
 This guidance applies to the following cryptographic operations:
 
 - Triple DES key generation
+
   - `CKM_DES3_KEY_GEN` for the PKCS#11 Library
   - `DESede` Keygen for the JCE Provider
   - `genSymKey` with `-t=21` for the KMU
 
 - Encryption with Triple DES keys (note: decrypt operations are allowed)
+
   - For the PKCS #11 Library: `CKM_DES3_CBC` encrypt, `CKM_DES3_CBC_PAD` encrypt, and `CKM_DES3_ECB` encrypt
   - For the JCE Provider: `DESede/CBC/PKCS5Padding` encrypt, `DESede/CBC/NoPadding` encrypt, `DESede/ECB/Padding` encrypt, and `DESede/ECB/NoPadding` encrypt
 
 - RSA key wrap, unwrap, encrypt, and decrypt with PKCS#1 v1.5 padding
+
   - `CKM_RSA_PKCS` wrap, unwrap, encrypt, and decrypt for the PKCS#11 SDK
   - `RSA/ECB/PKCS1Padding` wrap, unwrap, encrypt, and decrypt for the JCE SDK
   - `wrapKey` and `unWrapKey` with `-m 12` for the KMU (note `12` is the value for mechanism `RSA_PKCS`)

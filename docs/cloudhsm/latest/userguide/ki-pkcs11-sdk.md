@@ -29,6 +29,7 @@ This impacts `C_WrapKey` with `CKM_AES_KEY_WRAP` mechanism only.
 - **Impact:** If you provide an IV that is shorter than 8 bytes in version
   3.0.0 of PKCS #11 library, you may be unable to unwrap the key.
 - **Workarounds:**
+
   - We strongly recommend you upgrade to version 3.0.1 or higher of the PKCS #11 library, which properly
     enforces IV length during AES key wrap. Amend your wrapping code to pass
     a NULL IV, or specify the default IV of `0xA6A6A6A6A6A6A6A6`.
@@ -51,12 +52,14 @@ User-provided IVs were silently ignored.
 This impacts `C_WrapKey` with `CKM_AES_KEY_WRAP` mechanism only.
 
 - **Impact:**
+
   - If you used PKCS#11 SDK 2.0.4 or an earlier version and a user-provided IV, your keys are wrapped
     with the default IV of `0xA6A6A6A6A6A6A6A6`.
   - If you used PKCS#11 SDK 3.0.0 or later and a user-provided IV, your keys are wrapped
     with the user-provided IV.
 
 - **Workarounds:**
+
   - To unwrap keys wrapped with PKCS#11 SDK 2.0.4 or earlier use the default IV of
     `0xA6A6A6A6A6A6A6A6`.
   - To unwrap keys wrapped with PKCS#11 SDK 3.0.0 or later, use the user-provided IV.
