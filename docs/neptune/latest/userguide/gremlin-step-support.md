@@ -165,12 +165,12 @@ g.V().has('code','ANC').properties('code').id()
 - [order( )](http://tinkerpop.apache.org/docs/current/reference/#order-step "http://tinkerpop.apache.org/docs/current/reference/#order-step")
     –   The `order()` step can generally be converted to a native Neptune engine
   operation, unless one of the following is true:
+
   - The `order()` step is within a nested child traversal, like this:
 
   ```
   g.V().has('code','ANC').where(V().out().order().by(id))
   ```
-
   - Local ordering is being used, as for example with `order(local)`.
   - A custom comparator is being used in the `by()` modulation to order by.
     An example is this use of `sack()`:
@@ -181,7 +181,6 @@ g.V().has('code','ANC').properties('code').id()
         repeat(outE().sack(sum).by('dist').inV()).times(2).limit(10).
         order().by(sack())
   ```
-
   - There are multiple orderings on the same element.
 
 - [project( )](http://tinkerpop.apache.org/docs/current/reference/#project-step "http://tinkerpop.apache.org/docs/current/reference/#project-step")
@@ -207,6 +206,7 @@ g.V().has('code','ANC').repeat(out().repeat(out()).times(2)).times(2)
 - [sack( )](http://tinkerpop.apache.org/docs/current/reference/#sack-step "http://tinkerpop.apache.org/docs/current/reference/#sack-step")
     –   The `sack()` step can generally be converted to a native Neptune engine
   operation, except in the following cases:
+
   - If a non-numeric sack operator is being used.
   - If a numeric sack operator other than `+`, `-`,
     `mult`, `div`, `min` and `max` is being used.
@@ -242,13 +242,13 @@ g.V().has('airport','country','IE').aggregate('airport').limit(2)
 - [where( )](http://tinkerpop.apache.org/docs/current/reference/#where-step "http://tinkerpop.apache.org/docs/current/reference/#where-step")
     –   The `where()` step can generally be converted to a native Neptune engine
   operation, except in the following cases:
+
   - When by() modulations are used, like this:
 
   ```
   g.V().hasLabel('airport').as('a')
        .where(gt('a')).by('runways')
   ```
-
   - When comparison operators other than `eq`, `neq`,
     `within`, and `without` are used.
   - When user-supplied aggregations are used.

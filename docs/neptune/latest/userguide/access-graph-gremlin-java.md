@@ -30,20 +30,19 @@ source ~/.bashrc
 
 2. **Install Java.**
    The Gremlin libraries need Java 8 or 11. You can install Java 11 as follows:
+
    - If you're using [Amazon
      Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2 "https://aws.amazon.com/amazon-linux-2"):
 
    ```
    sudo amazon-linux-extras install java-openjdk11
    ```
-
    - If you're using [Amazon
      Linux 2023 (AL2023)](../../../linux/al2023/ug/what-is-amazon-linux.md "../../../linux/al2023/ug/what-is-amazon-linux.md"):
 
    ```
    sudo yum install java-11-amazon-corretto-devel
    ```
-
    - For other distributions, use whichever of the following is appropriate:
 
    ```

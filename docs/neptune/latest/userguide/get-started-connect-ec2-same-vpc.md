@@ -39,6 +39,7 @@ permissions must be set to 400 (`chmod 400 `keypair.pem``).
    VPC Wizard**.
 4. Complete the **VPC Settings** area of the
    **Create VPC** page:
+
    1. Under **Resources to create**, choose **VPC,
       subnets, etc.**.
    2. Leave the default name tag as is, or enter a name of your choosing,

@@ -285,6 +285,7 @@ listed in your DB cluster parameter group or an error will occur.
   using a custom model. The `customModelTransformParameters` object contains
   the following fields, which must have values compatible with the saved model parameters
   from the training job:
+
   - **`sourceS3DirectoryPath`**   –  
     (_Required_) The path to the Amazon S3 location where the Python module
     implementing your model is located. This must point to a valid existing Amazon S3 location

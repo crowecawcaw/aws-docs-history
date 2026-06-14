@@ -17,6 +17,7 @@ formats and how to use the SPARQL HTTP API with Neptune.
 - [Using the HTTP REST endpoint to connect to a Neptune DB instance](access-graph-sparql-http-rest.md "access-graph-sparql-http-rest.md")
 - [Optional HTTP trailing headers for multi-part SPARQL responses](access-graph-sparql-http-trailing-headers.md "access-graph-sparql-http-trailing-headers.md")
 - [RDF media types used by SPARQL in Neptune](sparql-media-type-support.md "sparql-media-type-support.md")
+
   - [RDF serialization formats used by Neptune SPARQL](sparql-media-type-support.md#sparql-serialization-formats "sparql-media-type-support.md#sparql-serialization-formats")
   - [SPARQL result serialization formats used by Neptune SPARQL](sparql-media-type-support.md#sparql-serialization-formats-neptune-output "sparql-media-type-support.md#sparql-serialization-formats-neptune-output")
   - [Media-Types that Neptune can use to import RDF data](sparql-media-type-support.md#sparql-serialization-formats-input "sparql-media-type-support.md#sparql-serialization-formats-input")

@@ -155,6 +155,7 @@ against this solution set, referring it by that name.
   hash index solution set.
 - `sourceType` – (_Required_) The type of
   the source from which the bindings to store in the hash index are obtained:
+
   - `pipeline` – Spools the incoming solutions from
     the downstream operator in the operator pipeline into the hash index.
   - `binding set` – Spools the fixed binding set
@@ -176,6 +177,7 @@ the `solutionSet` argument.
   prior step using the `HashIndexBuild` operator.
 - `joinType` – (_Required_) The type of
   join to be performed:
+
   - `join` – A normal join, requiring an exact match
     between all shared variables.
   - `optional` – An `optional` join that uses the
@@ -234,6 +236,7 @@ tuple pattern defined by the `pattern` argument.
   with these filters.
 - `joinType` – (_Required_) The type of
   join to be performed:
+
   - `join` – A normal join, requiring an exact match
     between all shared variables.
   - `optional` – An `optional` join that uses the
@@ -275,6 +278,7 @@ argument.
   with these filters.
 - `joinType` – (_Required_) The type of
   join to be performed:
+
   - `join` – A normal join, requiring an exact match
     between all shared variables.
   - `optional` – An `optional` join that uses the
@@ -307,6 +311,7 @@ against the hash index.
 - `sourceType`  –   (_Required_)
   The type of the source from which the bindings to store in the hash index are obtained,
   one of:
+
   - `pipeline`  –   Causes `PipelinedHashIndexJoin`
     to spool the incoming solutions from the downstream operator in the operator pipeline
     into the hash index.
@@ -322,6 +327,7 @@ against the hash index.
   specifies the static binding set to be spooled into the hash index.
 - `joinType`  –   (_Required_) The type of
   join to be performed:
+
   - `join` – A normal join, requiring an exact match
     between all shared variables.
   - `optional` – An `optional` join that uses the

@@ -67,6 +67,7 @@ g.V().
   Amazon S3 bucket. Not having this will cause a 400 bad request error "Cluster must have IAM authentication
   enabled for S3 Export".
 - The target Amazon S3 bucket:
+
   - The target Amazon S3 bucket must not be public. `Block public access` must be enabled.
   - The target Amazon S3 destination must be empty.
   - The target Amazon S3 bucket must have a lifecycle rule on `Delete expired object delete 

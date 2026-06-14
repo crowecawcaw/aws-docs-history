@@ -39,6 +39,7 @@ The unified JSON document structure looks like the following.
 
 - `entity_id` – Entity unique ID representing the
   document.
+
   - For SPARQL, this is the subject URI.
   - For Gremlin, this is the `Vertex_ID` or `Edge_ID`.
 

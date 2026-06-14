@@ -52,6 +52,7 @@ A Neptune DB cluster requires at least two VPC subnets.
 4. On the **Create subnet** page, choose the VPC where you
    want to create the subnet.
 5. Under **Subnet settings**, make the following choices:
+
    1. Enter a name for the new subnet under **Subnet name**.
    2. Choose an Availability Zone (AZ) for the subnet, or leave the choice
       at **No preference**.
@@ -111,6 +112,7 @@ than its IP address.
    Neptune DB cluster will reside.
 5. Add an inbound rule for the security group of an Amazon EC2 instance that you want
    connected to your Neptune DB cluster:
+
    1. In the **Inbound rules** area, choose **Add rule**.
    2. In the **Type** list, leave **Custom TCP** selected.
    3. In the **Port range** box, enter **8182**,

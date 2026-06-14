@@ -3,6 +3,7 @@
 Data is replicated to OpenSearch from Neptune using this process:
 
 - If a mapping for the field in question is already present in OpenSearch:
+
   - If the data can be safely converted to the existing mapping using
     data validation rules, then store the field in OpenSearch.
   - If not, drop the corresponding stream update record.
@@ -42,6 +43,7 @@ Datatypes are validated as follows:
   The following rules for Neptune datatypes apply when the OpenSearch mapping
   type is long (in the examples below, it is assumed that `"testLong"` has
   a `long` mapping type):
+
   - `boolean`   –  
     Invalid, cannot be converted, and the corresponding stream update record is dropped.
 
@@ -58,7 +60,6 @@ Datatypes are validated as follows:
     ":testLong" : "true"^^xsd:boolean
     ":testLong" : "false"^^xsd:boolean
   ```
-
   - `datetime`   –  
     Invalid, cannot be converted, and the corresponding stream update record is dropped.
 
@@ -73,7 +74,6 @@ Datatypes are validated as follows:
   ```
     ":testLong" : "2016-01-01"^^xsd:date
   ```
-
   - `float`, `double`, or `decimal`   –  
     If the value in Neptune is an integer that can fit in 64 bits, it is valid and
     is stored in OpenSearch as a long, but if it has a fractional part, or is a
@@ -115,7 +115,6 @@ Datatypes are validated as follows:
     ":testLong" : "123.45"^^xsd:double
     ":testLong" : "123.45"^^xsd:decimal
   ```
-
   - `string`   –  
     If the value in Neptune is a string representation of an integer that can be
     contained in a 64-bit integer, then it it is valid and is converted to a
@@ -158,6 +157,7 @@ Datatypes are validated as follows:
   If the OpenSearch mapping type is `double`, the following
   rules apply (here, the "testDouble" field is assumed to have a
   `double` mapping in OpenSearch):
+
   - `boolean`   –  
     Invalid, cannot be converted, and the corresponding stream update record is dropped.
 
@@ -174,7 +174,6 @@ Datatypes are validated as follows:
     ":testDouble" : "true"^^xsd:boolean
     ":testDouble" : "false"^^xsd:boolean
   ```
-
   - `datetime`   –  
     Invalid, cannot be converted, and the corresponding stream update record is dropped.
 
@@ -189,7 +188,6 @@ Datatypes are validated as follows:
   ```
     ":testDouble" : "2016-01-01"^^xsd:date
   ```
-
   - Floating-point `NaN` or `INF`   –  
     If the value in SPARQL is a floating-point `NaN` or `INF`,
     then it is not valid and the corresponding stream update record is dropped.
@@ -202,7 +200,6 @@ Datatypes are validated as follows:
     ":testDouble" : "INF"^^double
     ":testDouble" : "-INF"^^double
   ```
-
   - number or numeric string   –  
     If the value in Neptune is any other number or numeric string representation
     of a numnber that can safely be expressed as a `double`, then it

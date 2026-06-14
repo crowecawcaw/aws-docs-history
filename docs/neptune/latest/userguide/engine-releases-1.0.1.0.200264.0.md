@@ -51,6 +51,7 @@ If you have any questions or concerns, the AWS Support team is available on the 
 - Improved Gremlin performance for `store()`,
   `sideEffect()`, and `cap().unfold()` steps.
 - Improved support for Gremlin single cardinality properties constraints.
+
   - Improved enforcement of single cardinality for edge properties and
     vertex properties marked as single cardinality properties.
   - Introduced an error if additional property values are specified for an

@@ -70,11 +70,13 @@ There are however, some special column types in the Parquet format that require 
 Below are details on the expected payload associated with these types:
 
 - A column type Any is supported in the user columns. An Any type is a type "syntactic sugar" for all of the other types we support. It is extremely useful if a user column has multiple types in it. The payload of an Any type value is a list of json strings as follows: `{"value": "10", "type": "Int"};{"value": "1.0", "type": "Float"}`, which has a value field and a type field in each individual json string. The cardinality value of an Any column is set, meaning that the column can accept multiple values.
+
   - Neptune supports the following types in an Any type: Bool (or Boolean), Byte, Short, Int, Long, UnsignedByte, UnsignedShort, UnsignedInt, UnsignedLong, Float, Double, Date, dateTime, String, and Geometry.
   - Vector type is not supported in Any type.
   - Nested Any type is not supported. For example, `{"value": {"value": "10", "type": "Int"}, "type": "Any"}`.
 
 - Columns of type Date and Datetime are supported in the user columns. The payload of these columns must be provided as strings following the XSD format or one of the formats below:
+
   - yyyy-MM-dd
   - yyyy-MM-ddTHH:mm
   - yyyy-MM-ddTHH:mm:ss

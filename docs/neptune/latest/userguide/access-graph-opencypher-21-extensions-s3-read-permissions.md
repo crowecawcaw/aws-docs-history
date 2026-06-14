@@ -64,6 +64,7 @@ These permissions and prerequisites ensure secure and reliable integration of S3
 
 - **IAM authentication**: This feature is only supported for Neptune clusters with IAM authentication enabled. See [Securing your Amazon Neptune database](security.md "security.md") for detailed instructions on how to create and connect to IAM authentication-enabled clusters.
 - **VPC endpoint**:
+
   - A Gateway-type VPC endpoint for Amazon S3 is required to allow Neptune to communicate with Amazon S3.
   - To use custom AWS KMS encryption in the query, an Interface-type VPC endpoint for AWS KMS is required to allow Neptune to communicate with AWS KMS.
   - For detailed instructions for how to configure this endpoint, see [Creating the Amazon S3 VPC Endpoint](bulk-load-tutorial-IAM.md "bulk-load-tutorial-IAM.md").

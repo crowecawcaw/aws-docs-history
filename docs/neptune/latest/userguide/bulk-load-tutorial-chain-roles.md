@@ -154,6 +154,7 @@ AWS STS interface VPC endpoints](../../../IAM/latest/UserGuide/id_credentials_st
 6. Select the check box next to the subnet in which your EC2 instance is present.
    You can't select multiple subnets from the same Availability Zone.
 7. For IP address type, choose from the following options:
+
    - **IPv4** – Assign IPv4 addresses to your endpoint
      network interfaces. This option is supported only if all selected subnets have IPv4 address
      ranges.

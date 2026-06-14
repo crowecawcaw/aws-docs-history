@@ -39,6 +39,7 @@ g.V().
 
 - **R7i instances**. R7i instance family, up to 48xlarge, are now available in the following
   regions:
+
   - ap-northeast-1 - Asia Pacific (Tokyo)
   - ap-northeast-2 - Asia Pacific (Seoul)
   - ap-south-1 - Asia Pacific (Mumbai)

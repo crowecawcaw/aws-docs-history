@@ -16,6 +16,7 @@ The migration dataflow using AWS DMS is as follows:
 - Create a Neptune `GraphMappingConfig` to
   specify how the data extracted from the source database should be
   loaded into Neptune.
+
   - For RDF data (queried using SPARQL), the
     `GraphMappingConfig` is written in the W3's standard [R2RML](https://www.w3.org/TR/r2rml/ "https://www.w3.org/TR/r2rml/") mapping
     language.

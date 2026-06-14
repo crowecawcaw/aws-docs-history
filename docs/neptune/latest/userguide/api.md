@@ -17,6 +17,7 @@ backups.
 ###### Contents
 
 - [Neptune DB Clusters API](api-clusters.md "api-clusters.md")
+
   - [CreateDBCluster (action)](api-clusters.md#CreateDBCluster "api-clusters.md#CreateDBCluster")
   - [DeleteDBCluster (action)](api-clusters.md#DeleteDBCluster "api-clusters.md#DeleteDBCluster")
   - [ModifyDBCluster (action)](api-clusters.md#ModifyDBCluster "api-clusters.md#ModifyDBCluster")
@@ -36,6 +37,7 @@ backups.
   - [ClusterPendingModifiedValues (structure)](api-clusters.md#ClusterPendingModifiedValues "api-clusters.md#ClusterPendingModifiedValues")
 
 - [Neptune Global Database API](api-global-dbs.md "api-global-dbs.md")
+
   - [CreateGlobalCluster (action)](api-global-dbs.md#CreateGlobalCluster "api-global-dbs.md#CreateGlobalCluster")
   - [DeleteGlobalCluster (action)](api-global-dbs.md#DeleteGlobalCluster "api-global-dbs.md#DeleteGlobalCluster")
   - [ModifyGlobalCluster (action)](api-global-dbs.md#ModifyGlobalCluster "api-global-dbs.md#ModifyGlobalCluster")
@@ -47,6 +49,7 @@ backups.
   - [GlobalClusterMember (structure)](api-global-dbs.md#GlobalClusterMember "api-global-dbs.md#GlobalClusterMember")
 
 - [Neptune Instances API](api-instances.md "api-instances.md")
+
   - [CreateDBInstance (action)](api-instances.md#CreateDBInstance "api-instances.md#CreateDBInstance")
   - [DeleteDBInstance (action)](api-instances.md#DeleteDBInstance "api-instances.md#DeleteDBInstance")
   - [ModifyDBInstance (action)](api-instances.md#ModifyDBInstance "api-instances.md#ModifyDBInstance")
@@ -63,6 +66,7 @@ backups.
   - [ValidDBInstanceModificationsMessage (structure)](api-instances.md#ValidDBInstanceModificationsMessage "api-instances.md#ValidDBInstanceModificationsMessage")
 
 - [Neptune Parameters API](api-parameters.md "api-parameters.md")
+
   - [CopyDBParameterGroup (action)](api-parameters.md#CopyDBParameterGroup "api-parameters.md#CopyDBParameterGroup")
   - [CopyDBClusterParameterGroup (action)](api-parameters.md#CopyDBClusterParameterGroup "api-parameters.md#CopyDBClusterParameterGroup")
   - [CreateDBParameterGroup (action)](api-parameters.md#CreateDBParameterGroup "api-parameters.md#CreateDBParameterGroup")
@@ -86,6 +90,7 @@ backups.
   - [DBParameterGroupStatus (structure)](api-parameters.md#DBParameterGroupStatus "api-parameters.md#DBParameterGroupStatus")
 
 - [Neptune Subnet API](api-subnets.md "api-subnets.md")
+
   - [CreateDBSubnetGroup (action)](api-subnets.md#CreateDBSubnetGroup "api-subnets.md#CreateDBSubnetGroup")
   - [DeleteDBSubnetGroup (action)](api-subnets.md#DeleteDBSubnetGroup "api-subnets.md#DeleteDBSubnetGroup")
   - [ModifyDBSubnetGroup (action)](api-subnets.md#ModifyDBSubnetGroup "api-subnets.md#ModifyDBSubnetGroup")
@@ -95,6 +100,7 @@ backups.
   - [DBSubnetGroup (structure)](api-subnets.md#DBSubnetGroup "api-subnets.md#DBSubnetGroup")
 
 - [Neptune Snapshots API](api-snapshots.md "api-snapshots.md")
+
   - [CreateDBClusterSnapshot (action)](api-snapshots.md#CreateDBClusterSnapshot "api-snapshots.md#CreateDBClusterSnapshot")
   - [DeleteDBClusterSnapshot (action)](api-snapshots.md#DeleteDBClusterSnapshot "api-snapshots.md#DeleteDBClusterSnapshot")
   - [CopyDBClusterSnapshot (action)](api-snapshots.md#CopyDBClusterSnapshot "api-snapshots.md#CopyDBClusterSnapshot")
@@ -109,6 +115,7 @@ backups.
   - [DBClusterSnapshotAttributesResult (structure)](api-snapshots.md#DBClusterSnapshotAttributesResult "api-snapshots.md#DBClusterSnapshotAttributesResult")
 
 - [Neptune Events API](api-events.md "api-events.md")
+
   - [CreateEventSubscription (action)](api-events.md#CreateEventSubscription "api-events.md#CreateEventSubscription")
   - [DeleteEventSubscription (action)](api-events.md#DeleteEventSubscription "api-events.md#DeleteEventSubscription")
   - [ModifyEventSubscription (action)](api-events.md#ModifyEventSubscription "api-events.md#ModifyEventSubscription")
@@ -123,6 +130,7 @@ backups.
   - [EventSubscription (structure)](api-events.md#EventSubscription "api-events.md#EventSubscription")
 
 - [Other Neptune APIs](api-other-apis.md "api-other-apis.md")
+
   - [AddTagsToResource (action)](api-other-apis.md#AddTagsToResource "api-other-apis.md#AddTagsToResource")
   - [ListTagsForResource (action)](api-other-apis.md#ListTagsForResource "api-other-apis.md#ListTagsForResource")
   - [RemoveTagsFromResource (action)](api-other-apis.md#RemoveTagsFromResource "api-other-apis.md#RemoveTagsFromResource")
@@ -138,6 +146,7 @@ backups.
   - [Tag (structure)](api-other-apis.md#Tag "api-other-apis.md#Tag")
 
 - [Common Neptune Datatypes](api-datatypes.md "api-datatypes.md")
+
   - [AvailabilityZone (structure)](api-datatypes.md#AvailabilityZone "api-datatypes.md#AvailabilityZone")
   - [DBSecurityGroupMembership (structure)](api-datatypes.md#DBSecurityGroupMembership "api-datatypes.md#DBSecurityGroupMembership")
   - [DomainMembership (structure)](api-datatypes.md#DomainMembership "api-datatypes.md#DomainMembership")
@@ -151,6 +160,7 @@ backups.
   - [VpcSecurityGroupMembership (structure)](api-datatypes.md#VpcSecurityGroupMembership "api-datatypes.md#VpcSecurityGroupMembership")
 
 - [Neptune Exceptions Specific to Individual APIs](api-faults.md "api-faults.md")
+
   - [AuthorizationAlreadyExistsFault (structure)](api-faults.md#AuthorizationAlreadyExistsFault "api-faults.md#AuthorizationAlreadyExistsFault")
   - [AuthorizationNotFoundFault (structure)](api-faults.md#AuthorizationNotFoundFault "api-faults.md#AuthorizationNotFoundFault")
   - [AuthorizationQuotaExceededFault (structure)](api-faults.md#AuthorizationQuotaExceededFault "api-faults.md#AuthorizationQuotaExceededFault")

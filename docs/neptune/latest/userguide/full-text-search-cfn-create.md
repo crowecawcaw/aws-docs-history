@@ -144,6 +144,7 @@ Under **Parameters**, provide the following:
 
 - **`Endpoint of source Neptune Stream`** – 
   (_Required_) This takes one of two forms:
+
   - **`https://`your DB cluster`:`port`/propertygraph/stream`**
     (or its alias, `https://`your DB cluster`:`port`/pg/stream`).
   - `https://`your DB cluster`:`port`/sparql/stream`

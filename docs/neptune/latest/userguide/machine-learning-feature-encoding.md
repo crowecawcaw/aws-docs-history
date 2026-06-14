@@ -345,6 +345,7 @@ feature encodings:
 - If the property is known to contain valid Neptune separators such as
   semicolons (";"), then Neptune ML can only treat the property as `MultiNumerical`
   or `MultiCategorical`.
+
   - Neptune ML first tries to encode the values as numeric features.
     if this succeeds, Neptune ML uses numerical encoding to create numeric vector
     features.

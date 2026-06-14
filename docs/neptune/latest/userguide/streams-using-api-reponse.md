@@ -25,6 +25,7 @@ A response to a Neptune Streams REST API request has the following fields:
 - `records`   –  
   An array of serialized change-log stream records included in the response.
   Each record in the `records` array contains these fields:
+
   - `commitTimestamp`   –  
     The time at which the commit for the transaction was requested,
     in milliseconds from the Unix epoch.

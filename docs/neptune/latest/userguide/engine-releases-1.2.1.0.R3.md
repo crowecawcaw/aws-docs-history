@@ -59,6 +59,7 @@ a support case may help you explore additional strategies for bringing it down.
   `aggregate`, `cap`, `limit`, and
   `hasLabel`.
 - Added support for openCypher trignometric functions:
+
   - `acos()`
   - `asin()`
   - `atan()`
@@ -72,6 +73,7 @@ a support case may help you explore additional strategies for bringing it down.
   - `tan()`
 
 - Added support for several openCypher aggregating functions:
+
   - `percentileDisc()`
   - `stDev()`
 
@@ -88,6 +90,7 @@ MATCH (n) RETURN epochMillis(n.someDateTime)
 - Added support for the openCypher Static Debug Explain tool.
 - Added support for the openCypher `randomUUID()` function.
 - Improved openCypher performance:
+
   - Improved the parser and query planner.
   - Improved CPU utilization in the DFE engine.
   - Improved the performance of queries containing multiple update
@@ -100,14 +103,12 @@ MATCH (n) RETURN epochMillis(n.someDateTime)
     *or*
   MERGE (n)-[:knows {since: 2023}]→(m)
   ```
-
   - Optimized query plans for multi-hop query patterns such as:
 
   ```
   MATCH (n)-->()-->()-->(m)
   RETURN n m
   ```
-
   - Improved the performance of list and map injection through
     parameterized queries. For example:
 
@@ -115,7 +116,6 @@ MATCH (n) RETURN epochMillis(n.someDateTime)
   UNWIND $idList as id MATCH (n {`~id`: id})
   RETURN n.name
   ```
-
   - Improved query execution containing `WITH`
     by making it an appropriate barrier.
   - Optimized to avoid redundant materialization of values in

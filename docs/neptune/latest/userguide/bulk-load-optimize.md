@@ -4,12 +4,14 @@ Use the following strategies to keep the load time to a minimum for a Neptune
 bulk load:
 
 - **Clean your data:**
+
   - Be sure to convert your data into a [supported data format](bulk-load-tutorial-format.md "bulk-load-tutorial-format.md") before loading.
   - Remove any duplicates or known errors.
   - Reduce the number of unique predicates (such as properties
     of edges and vertices) as much as you can.
 
 - **Optimize your files:**
+
   - If you load large files such as CSV files from an Amazon S3 bucket,
     the loader manages concurrency for you by parsing them into chunks that it
     can load in parallel. Using a very large number of tiny files can slow this
@@ -25,6 +27,7 @@ bulk load:
     `FROM_OR_TO_VERTEX_ARE_MISSING`. As a best practice, put nodes and edges in separate Amazon S3 prefix.
 
 - **Check your loader settings:**
+
   - If you don't need to perform any other operations during the load,
     use the [OVERSUBSCRIBE
      parallelism](load-api-reference-load.md#load-api-reference-load-syntax "load-api-reference-load.md#load-api-reference-load-syntax") parameter. This parameter setting causes

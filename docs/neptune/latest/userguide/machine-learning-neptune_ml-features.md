@@ -245,6 +245,7 @@ depends on the text encoding method:
 
 - For [text_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
   encoding, this field is required, and must specify one of the following languages:
+
   - `en`   (English)
   - `zh`   (Chinese)
   - `hi`   (Hindi)

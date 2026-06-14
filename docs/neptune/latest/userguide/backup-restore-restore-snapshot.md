@@ -9,6 +9,7 @@ and then provide a name for the new DB cluster that is created by the restore.
 ###### Contents
 
 - [Things to keep in mind about restoring a Neptune DB cluster from a snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-considerations "backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-considerations")
+
   - [You cannot restore to an existing DB cluster](backup-restore-restore-snapshot.md#backup-restore-restores-to-new-cluster "backup-restore-restore-snapshot.md#backup-restore-restores-to-new-cluster")
   - [No instances are restored](backup-restore-restore-snapshot.md#backup-restore-restore-no-restored-instances "backup-restore-restore-snapshot.md#backup-restore-restore-no-restored-instances")
   - [No custom parameter group is restored](backup-restore-restore-snapshot.md#backup-restore-restore-default-parameters "backup-restore-restore-snapshot.md#backup-restore-restore-default-parameters")
@@ -17,6 +18,7 @@ and then provide a name for the new DB cluster that is created by the restore.
   - [A restored DB cluster uses as much storage as before](backup-restore-restore-snapshot.md#backup-restore-restore-same-storage-allocation "backup-restore-restore-snapshot.md#backup-restore-restore-same-storage-allocation")
 
 - [How to restore from a snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring "backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring")
+
   - [Using the Console to Restore from a Snapshot](backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring-console "backup-restore-restore-snapshot.md#backup-restore-restore-snapshot-restoring-console")
 
 ## Things to keep in mind about restoring a Neptune DB cluster from a snapshot
@@ -104,6 +106,7 @@ the AWS CLI, or the Neptune API.
    group. The next steps assume that your DB cluster is in a virtual private cloud (VPC).
    If your DB cluster is not in a VPC, use the Amazon EC2 console to locate the security group
    that you need for the DB cluster.
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. In the navigation pane, choose **Security Groups**.

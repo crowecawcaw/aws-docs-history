@@ -7,6 +7,7 @@ that it takes several days for a new release to become available in every region
 
 - Fixed a bug that causes the engine to become unresponsive in either of these
   situations:
+
   - A bulk load happens at the same time as automatic statistics
     computation is taking place.
   - A statistics computation was requested manually at the same time

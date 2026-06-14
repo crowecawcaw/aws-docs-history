@@ -26,6 +26,7 @@ YIELD row
 - **source** (required) - Amazon S3 URI to a **single** object.
   Amazon S3 prefix to multiple objects is not supported.
 - **format** (required) - `parquet` and `csv` are supported.
+
   - More details on the supported Parquet format can be found in
     [Supported Parquet column types](access-graph-opencypher-21-extensions-s3-read-parquet.md#access-graph-opencypher-21-extensions-s3-read-parquet-column-types "access-graph-opencypher-21-extensions-s3-read-parquet.md#access-graph-opencypher-21-extensions-s3-read-parquet-column-types").
   - For more information on the supported csv format, see
@@ -40,6 +41,7 @@ YIELD row
 The neptune.read returns:
 
 - **row** - type:Map
+
   - Each row in the file, where the keys are the columns and the values are the data found in each column.
   - You can access each column's data like a property access (`row.col`).
 

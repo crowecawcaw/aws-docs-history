@@ -20,6 +20,7 @@ that it takes several days for a new release to become available in every region
 - Improved query performance in cases where variables are constrained by a very large number of constant values (for example, by a SPARQL VALUES clause, or an OpenCypher UNWIND clause)
 - Improvements for low latency insert queries via some optimizations to dictionary inserts
 - Added new Gremlin language steps into the DFE engine (see [Gremlin step coverage in DFE](gremlin-step-coverage-in-DFE.md "gremlin-step-coverage-in-DFE.md")).
+
   - Path and traversal steps: `order(local)`
   - Aggregate and collection steps: `dedup(local)`
 

@@ -77,11 +77,13 @@ previous example allows read queries. For a read/write query, write/delete permi
 - **IAM authentication:** Must be enabled on the Neptune cluster to enforce
   these permissions.
 - **VPC endpoint:**
+
   - A Gateway-type VPC endpoint for Amazon S3 is required to allow Neptune to communicate with Amazon S3.
   - To use custom AWS KMS encryption in the query, an Interface-type VPC endpoint for AWS KMS is required
     to allow Neptune to communicate with AWS KMS.
 
 - **Amazon S3 bucket configuration:**
+
   - Must not be public.
   - Should have a lifecycle rule to clean up incomplete multipart uploads.
   - Will automatically encrypt new objects.

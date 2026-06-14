@@ -44,6 +44,7 @@ Use an AWS CloudFormation template to create the stack:
    **Next**.
 3. On the **Specify Details** page, the template, set the
    following parameters:
+
    - **`VPC`**   –  
      The easiest way to set up the Neptune-Export service is to install it in the same Amazon VPC as
      your Neptune database. If you want to install it in a separate VPC you can use [VPC

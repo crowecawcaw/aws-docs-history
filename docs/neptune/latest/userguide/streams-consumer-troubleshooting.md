@@ -44,6 +44,7 @@ following:
 
 - The stream is enabled on your cluster.
 - The Neptune stream endpoint is in the correct format:
+
   - For Gremlin or openCypher: `https://`your cluster endpoint`:`your cluster port`/propertygraph/stream`
     or its alias, `https://`your cluster endpoint`:`your cluster port`/pg/stream`
   - For SPARQL: `https://`your cluster endpoint`:`your cluster port`/sparql/stream`

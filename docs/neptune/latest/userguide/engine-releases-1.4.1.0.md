@@ -58,6 +58,7 @@ RETURN stopover, destination
 - Fixed an issue with "not" filter optimization in Gremlin queries executing on default execution engine. This issue
   affected queries when edges are filtered using not() step combined with either of outV()/inV()/otherV() steps.
   Sample queries include:
+
   - `g.E().hasLabel("knows").not(outV().hasId("5"))`
   - `g.V().has('airport','code','SDF').outE().where(not(otherV().has(id, within('1','5','7')))).count()`
 

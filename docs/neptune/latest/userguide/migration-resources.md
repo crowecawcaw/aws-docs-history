@@ -7,6 +7,7 @@ Neptune provides several tools and resources that can assist in the migration pr
 - The openCypher [CheatSheet](https://github.com/aws-samples/amazon-neptune-samples/blob/master/opencypher/Cheatsheet.md "https://github.com/aws-samples/amazon-neptune-samples/blob/master/opencypher/Cheatsheet.md").
 - [neo4j-to-neptune](https://github.com/awslabs/amazon-neptune-tools/tree/master/neo4j-to-neptune "https://github.com/awslabs/amazon-neptune-tools/tree/master/neo4j-to-neptune") –
   A command-line utility for migrating data from Neo4j to Neptune. This tool includes the ability to:
+
   - Export the data from a properly configured Neo4j graph.
   - Convert that data into Neptune format.
   - Bulk load that data into Neptune.
@@ -18,6 +19,7 @@ Neptune provides several tools and resources that can assist in the migration pr
 
 - [openCypher
   Query Compatibility Checker](https://github.com/awslabs/amazon-neptune-tools/tree/master/opencypher-compatability-checker "https://github.com/awslabs/amazon-neptune-tools/tree/master/opencypher-compatability-checker") – This tool takes an input of openCypher queries and will:
+
   - Check for compatibility with the selected version of Neptune.
   - Identify specific unsupported functions and clauses with their positions.
   - Suggest replacements if available.

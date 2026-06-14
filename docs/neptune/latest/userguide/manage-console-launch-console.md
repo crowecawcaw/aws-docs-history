@@ -23,6 +23,7 @@ log into the AWS Management Console as that IAM user and follow the steps below 
 3. Under **Settings**, enter a name for your new DB cluster
    or accept the default name that is supplied there. This name is used in the
    endpoint address of the instance, and must satisfy the following constraints:
+
    - It must contain from 1 to 63 alphanumeric characters or hyphens.
    - Its first character must be a letter.
    - It cannot end with a hyphen or contain two consecutive hyphens.
@@ -74,6 +75,7 @@ If you need to, you can further configure connectivity for your cluster under
    [Using Amazon Neptune with graph notebooks](graph-notebooks.md "graph-notebooks.md")
    and [Using the Neptune workbench to host Neptune notebooks](graph-notebooks.md#graph-notebooks-workbench "graph-notebooks.md#graph-notebooks-workbench")).
    You can then choose how the new notebooks should be configured:
+
    1. Under **Notebook instance type**, choose from among
       the available instance classes for your notebook.
    2. Under **Notebook name**, enter a name for your notebook.

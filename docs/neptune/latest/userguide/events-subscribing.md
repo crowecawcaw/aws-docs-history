@@ -9,6 +9,7 @@ You can use the Neptune console to subscribe to event notifications, as follows:
 3. In the **Event subscriptions** pane, choose
    **Create event subscription**.
 4. In the **Create event subscription** dialog box, do the following:
+
    1. For **Name**, enter a name for the event notification subscription.
    2. For **Send notifications to**, choose an existing
       Amazon SNS ARN for an Amazon SNS topic, or choose **create topic** to

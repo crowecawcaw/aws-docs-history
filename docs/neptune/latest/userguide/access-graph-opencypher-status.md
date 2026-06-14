@@ -68,6 +68,7 @@ indicates a specific query to be canceled.
   is longer than that.
 - **queryEvalStats**   –  
   Statistics for this query:
+
   - **waited**   –  
     Indicates how long the query waited, in milliseconds.
   - **elapsed**   –  

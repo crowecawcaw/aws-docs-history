@@ -520,6 +520,7 @@ several metrics about the interaction with ElasticSearch that can help you
 pinpoint performance problems relating to full-text search:
 
 - Summary information about the calls into the ElasticSearch index:
+
   - The total number of milliseconds required by all
     remoteCalls to satisfy the query (`total`).
   - The average number of milliseconds spent in

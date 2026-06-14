@@ -203,6 +203,7 @@ Query plan cache would not be used under the following conditions:
 3. If the query evaluation time is larger than the latency threshold, the query is not cached and is considered a
    long-running query that would not benefit from the query plan cache.
 4. If the query contains a pattern that doesn't return any results.
+
    - i.e. `MATCH (n:nonexistentLabel) return n` when there are zero nodes with the specified label.
    - i.e. `MATCH (n {name: $param}) return n` with `parameters={"param": "abcde"}` when
      there are zero nodes containing `name=abcde`.

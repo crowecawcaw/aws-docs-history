@@ -385,6 +385,7 @@ _Type_: Boolean. _Default_: _False_.
 - **`customModelTrainingParameters`**  –  
   (_Optional_) The configuration for custom model training.
   This is a JSON object with the following fields:
+
   - **`sourceS3DirectoryPath`**   –  
     (_Required_) The path to the Amazon S3 location where the Python module
     implementing your model is located. This must point to a valid existing Amazon S3 location

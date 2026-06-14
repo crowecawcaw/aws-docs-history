@@ -11,6 +11,7 @@ We recommend upgrading to the 1.4.5.1 engine version. Upgrades to 1.4.5.0 have b
 ## New features in this engine release
 
 - Added new Gremlin language steps into the DFE engine.
+
   - **Path and traversal steps:** asDate(), dateAdd(), dateDiff(), fail(),
     Inject(), label(), path(), project(), repeat(), sack(), select(), unfold(), disjunct(), drop(), identity(),
     intersect(), length(), loops(), barrier(), order(), range(), reverse(), sample(), cap(), split(), filter(),
@@ -41,6 +42,7 @@ For details on all available Gremlin steps in DFE, refer to [Gremlin step covera
   locks. They are stored as part of each transaction in case of lazy read-write promotion. These metrics appear in
   the storageCounters section of the slow query logs.
 - Dropped support for the following cipher suites:
+
   - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
   - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
   - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256

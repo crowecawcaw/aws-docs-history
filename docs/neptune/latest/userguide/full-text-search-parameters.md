@@ -5,6 +5,7 @@ in both Gremlin and SPARQL:
 
 - **`queryType`**   –  
   (_Required_) The type of OpenSearch query. (For a list of query types, see the [OpenSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html")). Neptune supports the following OpenSearch query types:
+
   - [simple_query_string](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html")   –  
     Returns documents based on a provided query string, using a parser with a
     limited but fault-tolerant Lucene syntax. This is the default query type.

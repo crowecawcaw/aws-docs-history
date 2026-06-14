@@ -17,10 +17,12 @@ Neptune ML toolkit. The following sections provide more details.
 ###### Contents
 
 - [Overview of custom models in Neptune ML](machine-learning-custom-model-overview.md "machine-learning-custom-model-overview.md")
+
   - [When to use a custom model in Neptune ML](machine-learning-custom-model-overview.md#machine-learning-custom-models-when-to-use "machine-learning-custom-model-overview.md#machine-learning-custom-models-when-to-use")
   - [Workflow for developing and using a custom model in Neptune ML](machine-learning-custom-model-overview.md#machine-learning-custom-model-workflow "machine-learning-custom-model-overview.md#machine-learning-custom-model-workflow")
 
 - [Custom model development in Neptune ML](machine-learning-custom-model-development.md "machine-learning-custom-model-development.md")
+
   - [Custom model training script development in Neptune ML](machine-learning-custom-model-development.md#machine-learning-custom-model-training-script "machine-learning-custom-model-development.md#machine-learning-custom-model-training-script")
   - [Custom model transform script development in Neptune ML](machine-learning-custom-model-development.md#machine-learning-custom-model-transform-script "machine-learning-custom-model-development.md#machine-learning-custom-model-transform-script")
   - [Custom model-hpo-configuration.json file in Neptune ML](machine-learning-custom-model-development.md#machine-learning-custom-model-hpo-configuration-file "machine-learning-custom-model-development.md#machine-learning-custom-model-hpo-configuration-file")

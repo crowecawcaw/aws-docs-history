@@ -65,6 +65,7 @@ version number is prefixed by `"Patch-"`.
   If no transactions are being rolled back, the field doesn't appear at all.
 - **`features`**   –  
   Contains status information about the features enabled on your DB cluster:
+
   - **`lookupCache`**   –   The current status
     of the [Lookup cache](feature-overview-lookup-cache.md "feature-overview-lookup-cache.md"). This field
     only appears on `R5d` instance types, since those are the only
@@ -86,7 +87,6 @@ version number is prefixed by `"Patch-"`.
       - If the disk limit has been reached on the instance, the
        status is listed as `"Read Only Mode - Storage Limit
        Reached"`.
-
   - **`ResultCache`**   –  
     The current status of the [Caching query results](gremlin-results-cache.md "gremlin-results-cache.md"). This field is a JSON object
     in the form:
@@ -101,10 +101,10 @@ version number is prefixed by `"Patch-"`.
        is listed as `"Available"`.
       - If the cache is disabled, the status is listed as
        `"Disabled"`.
-
   - **`IAMAuthentication`**   –  
     Specifies whether or not AWS Identity and Access Management (IAM) authentication has been
     enabled on your DB cluster:
+
     - If IAM authentication been enabled, the status
       is listed as `"enabled"`.
     - If IAM authentication is disabled, the status
@@ -113,6 +113,7 @@ version number is prefixed by `"Patch-"`.
   - **`Streams`**   –  
     Specifies whether or not Neptune streams have been
     enabled on your DB cluster:
+
     - If streams are enabled, the status
       is listed as `"enabled"`.
     - If streams are disabled, the status
@@ -128,6 +129,7 @@ version number is prefixed by `"Patch-"`.
 
 - **`settings`**   –  
   Settings applied to the instance:
+
   - **`clusterQueryTimeoutInMs`**   –  
     The value, in milliseconds, of the query timeout, set for the whole cluster.
   - **`SlowQueryLogsThreshold`**   –  
@@ -135,6 +137,7 @@ version number is prefixed by `"Patch-"`.
 
 - **`serverlessConfiguration`**   –  
   Serverless settings for a cluster if it is running as serverless:
+
   - **`minCapacity`**   –  
     The smallest size to which a serverless instance in your DB cluster can shrink, in
     Neptune Capacity Units (NCUs).

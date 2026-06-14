@@ -31,7 +31,9 @@ Engine release 1.3.2.0 introduced some potential issues that you should be aware
 ###### Gremlin improvements
 
 - TinkerPop 3.7.x upgrade
+
   - Provides a large expansion of the Gremlin language.
+
     - New steps for processing strings, lists and dates.
     - New syntax for specifying cardinality withing the `mergeV()` step.
     - `union()` can now be used as a start step.

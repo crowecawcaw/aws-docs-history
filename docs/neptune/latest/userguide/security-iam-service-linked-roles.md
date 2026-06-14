@@ -37,6 +37,7 @@ The role permissions policy allows Neptune to complete the following actions on
 the specified resources:
 
 - Actions on `ec2`:
+
   - `AssignPrivateIpAddresses`
   - `AuthorizeSecurityGroupIngress`
   - `CreateNetworkInterface`
@@ -54,10 +55,12 @@ the specified resources:
   - `UnassignPrivateIpAddresses`
 
 - Actions on `sns`:
+
   - `ListTopic`
   - `Publish`
 
 - Actions on `cloudwatch`:
+
   - `PutMetricData`
   - `GetMetricData`
   - `CreateLogStream`

@@ -23,6 +23,7 @@ Enterprise or Community Edition:
 - **[Monitoring](monitoring.md "monitoring.md")**   –  
   Neptune provides various methods to monitor the performance and usage of your cluster,
   including:
+
   - Instance status
   - Integration with Amazon CloudWatch and AWS CloudTrail
   - Audit log capabilities

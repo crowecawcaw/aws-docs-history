@@ -21,6 +21,7 @@ This diagram identifies user-interface elements present in the Graph tab:
 ![Graph tab interface elements](images/visualization-interface.png)
 
 1. **Graph search**
+
    1. **UUID toggle**:  
       Toggles inclusion of ID property values in the graph search. By default,
       ID inclusion is enabled. If disabled, matches on ID properties, including
@@ -43,6 +44,7 @@ This diagram identifies user-interface elements present in the Graph tab:
 5. **Fullscreen view**   –    
    Expands the graph tab window to fit the screen. Clicking again minimizes the graph tab.
 6. **Zoom options**
+
    1. **Zoom in**
    2. **Zoom reset**:  
       Sets the zoom to fit all vertices innto the graph tab window.

@@ -470,8 +470,10 @@ keys (access key ID and secret access key)](../../../general/latest/gr/aws-sec-c
   a duplicate or an insertion error (see below).
 - The Neptune loader handles duplicates that it encounters in openCypher
   data as follows:
+
   - If the loader encounters multiple rows with the same node
     ID, they are merged using the following rule:
+
     - All the labels in the rows are added to the node.
     - For each property, only one of the property values is loaded.
       The selection of the one to load is non-deterministic.

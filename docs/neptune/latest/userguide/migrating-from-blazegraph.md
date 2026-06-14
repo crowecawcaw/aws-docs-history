@@ -62,6 +62,7 @@ instead, as described below:
 2. Choose **Launch Stack** in your preferred region.
 3. Set the required parameters (stack name and `EC2SSHKeyPairName`).
    Also set the following optional parameters to ease the migration process:
+
    - Set `AttachBulkloadIAMRoleToNeptuneCluster` to true.
      This parameter allows for creating and attaching the appropriate IAM role to
      your cluster to allow for bulk loading data.
@@ -235,6 +236,7 @@ interface to run the [Neptune Loader Command](load-api-reference-load.md "load-a
    or create a new one using the Python 3 kernel.
 5. In your notebook, open a cell, enter `%load`, and run the cell.
 6. Set the parameters for the bulk loader:
+
    1. For **Source**, enter the location of a source
       file to import: `s3://{bucket_name}/{file_name}`.
    2. For **Format**, choose the appropriate format,

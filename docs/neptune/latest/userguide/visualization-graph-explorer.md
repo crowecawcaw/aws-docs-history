@@ -60,6 +60,7 @@ in Amazon ECS on AWS Fargate:
 
 2.  [Create
     an Amazon ECS cluster](../../../AmazonECS/latest/developerguide/create-cluster-console-v2.md "../../../AmazonECS/latest/developerguide/create-cluster-console-v2.md") with the infrastructure set to FARGATE and the following networking options:
+
     - `VPC`: set to the VPC where your Neptune database is located.
     - `Subnets`: set to the public subnets of that VPC (remove all others).
 
@@ -125,21 +126,26 @@ in Amazon ECS on AWS Fargate:
 ```
 
 4. Start a new task using the default settings, except for the following fields:
+
    - **Environment**
+
      - Compute options => **Launch type**
 
    - **Deployment configuration**
+
      - Application Type => **Task**
      - Family => `(your new JSON task definition)`
      - Revision => `(latest)`
 
    - **Networking**
+
      - VPC => `(the Neptune VPC you want to connect to)`
      - Subnets => `(ONLY the public subnets of the VPC– remove all others)`
      - Security group => **Create a new security group**
      - Security group name => graph-explorer
      - Security group description = Security group for access to graph-explorer
      - Inbound rules for security groups =>
+
        1. 80 Anywhere
        2. 443 Anywhere
 

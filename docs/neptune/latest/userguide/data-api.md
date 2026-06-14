@@ -12,6 +12,7 @@ integrating Neptune into applications.
 ###### Contents
 
 - [Neptune dataplane engine, fast reset, and general structure APIs](data-api-dp-environment-APIs.md "data-api-dp-environment-APIs.md")
+
   - [GetEngineStatus (action)](data-api-dp-environment-APIs.md#GetEngineStatus "data-api-dp-environment-APIs.md#GetEngineStatus")
   - [ExecuteFastReset (action)](data-api-dp-environment-APIs.md#ExecuteFastReset "data-api-dp-environment-APIs.md#ExecuteFastReset")
   - [Engine operation structures:](data-api-dp-environment-APIs.md#data-api-dp-environment-APIs-engine-operation-structures-spacer "data-api-dp-environment-APIs.md#data-api-dp-environment-APIs-engine-operation-structures-spacer")
@@ -19,6 +20,7 @@ integrating Neptune into applications.
   - [FastResetToken (structure)](data-api-dp-environment-APIs.md#FastResetToken "data-api-dp-environment-APIs.md#FastResetToken")
 
 - [Neptune Query APIs](data-api-dp-queries.md "data-api-dp-queries.md")
+
   - [ExecuteGremlinQuery (action)](data-api-dp-queries.md#ExecuteGremlinQuery "data-api-dp-queries.md#ExecuteGremlinQuery")
   - [ExecuteGremlinExplainQuery (action)](data-api-dp-queries.md#ExecuteGremlinExplainQuery "data-api-dp-queries.md#ExecuteGremlinExplainQuery")
   - [ExecuteGremlinProfileQuery (action)](data-api-dp-queries.md#ExecuteGremlinProfileQuery "data-api-dp-queries.md#ExecuteGremlinProfileQuery")
@@ -37,6 +39,7 @@ integrating Neptune into applications.
   - [GremlinQueryStatusAttributes (structure)](data-api-dp-queries.md#GremlinQueryStatusAttributes "data-api-dp-queries.md#GremlinQueryStatusAttributes")
 
 - [Neptune data plane bulk loader APIs](data-api-dp-loader.md "data-api-dp-loader.md")
+
   - [StartLoaderJob (action)](data-api-dp-loader.md#StartLoaderJob "data-api-dp-loader.md#StartLoaderJob")
   - [GetLoaderJobStatus (action)](data-api-dp-loader.md#GetLoaderJobStatus "data-api-dp-loader.md#GetLoaderJobStatus")
   - [ListLoaderJobs (action)](data-api-dp-loader.md#ListLoaderJobs "data-api-dp-loader.md#ListLoaderJobs")
@@ -45,12 +48,14 @@ integrating Neptune into applications.
   - [LoaderIdResult (structure)](data-api-dp-loader.md#LoaderIdResult "data-api-dp-loader.md#LoaderIdResult")
 
 - [Neptune streams dataplane API](data-api-dp-streams.md "data-api-dp-streams.md")
+
   - [GetPropertygraphStream (action)](data-api-dp-streams.md#GetPropertygraphStream "data-api-dp-streams.md#GetPropertygraphStream")
   - [Stream data structures:](data-api-dp-streams.md#data-api-dp-streams-stream-data-structures-spacer "data-api-dp-streams.md#data-api-dp-streams-stream-data-structures-spacer")
   - [PropertygraphRecord (structure)](data-api-dp-streams.md#PropertygraphRecord "data-api-dp-streams.md#PropertygraphRecord")
   - [PropertygraphData (structure)](data-api-dp-streams.md#PropertygraphData "data-api-dp-streams.md#PropertygraphData")
 
 - [Neptune dataplane statistics and graph summary APIs](data-api-dp-statistics.md "data-api-dp-statistics.md")
+
   - [GetPropertygraphStatistics (action)](data-api-dp-statistics.md#GetPropertygraphStatistics "data-api-dp-statistics.md#GetPropertygraphStatistics")
   - [ManagePropertygraphStatistics (action)](data-api-dp-statistics.md#ManagePropertygraphStatistics "data-api-dp-statistics.md#ManagePropertygraphStatistics")
   - [DeletePropertygraphStatistics (action)](data-api-dp-statistics.md#DeletePropertygraphStatistics "data-api-dp-statistics.md#DeletePropertygraphStatistics")
@@ -67,6 +72,7 @@ integrating Neptune into applications.
   - [PropertygraphSummary (structure)](data-api-dp-statistics.md#PropertygraphSummary "data-api-dp-statistics.md#PropertygraphSummary")
 
 - [Neptune ML data-processing API](data-api-dp-ml-data-processing.md "data-api-dp-ml-data-processing.md")
+
   - [StartMLDataProcessingJob (action)](data-api-dp-ml-data-processing.md#StartMLDataProcessingJob "data-api-dp-ml-data-processing.md#StartMLDataProcessingJob")
   - [ListMLDataProcessingJobs (action)](data-api-dp-ml-data-processing.md#ListMLDataProcessingJobs "data-api-dp-ml-data-processing.md#ListMLDataProcessingJobs")
   - [GetMLDataProcessingJob (action)](data-api-dp-ml-data-processing.md#GetMLDataProcessingJob "data-api-dp-ml-data-processing.md#GetMLDataProcessingJob")
@@ -76,6 +82,7 @@ integrating Neptune into applications.
   - [MlConfigDefinition (structure)](data-api-dp-ml-data-processing.md#MlConfigDefinition "data-api-dp-ml-data-processing.md#MlConfigDefinition")
 
 - [Neptune ML model training API](data-api-dp-ml-training.md "data-api-dp-ml-training.md")
+
   - [StartMLModelTrainingJob (action)](data-api-dp-ml-training.md#StartMLModelTrainingJob "data-api-dp-ml-training.md#StartMLModelTrainingJob")
   - [ListMLModelTrainingJobs (action)](data-api-dp-ml-training.md#ListMLModelTrainingJobs "data-api-dp-ml-training.md#ListMLModelTrainingJobs")
   - [GetMLModelTrainingJob (action)](data-api-dp-ml-training.md#GetMLModelTrainingJob "data-api-dp-ml-training.md#GetMLModelTrainingJob")
@@ -84,6 +91,7 @@ integrating Neptune into applications.
   - [CustomModelTrainingParameters (structure)](data-api-dp-ml-training.md#CustomModelTrainingParameters "data-api-dp-ml-training.md#CustomModelTrainingParameters")
 
 - [Neptune ML model transform API](data-api-dp-ml-transform.md "data-api-dp-ml-transform.md")
+
   - [StartMLModelTransformJob (action)](data-api-dp-ml-transform.md#StartMLModelTransformJob "data-api-dp-ml-transform.md#StartMLModelTransformJob")
   - [ListMLModelTransformJobs (action)](data-api-dp-ml-transform.md#ListMLModelTransformJobs "data-api-dp-ml-transform.md#ListMLModelTransformJobs")
   - [GetMLModelTransformJob (action)](data-api-dp-ml-transform.md#GetMLModelTransformJob "data-api-dp-ml-transform.md#GetMLModelTransformJob")
@@ -92,12 +100,14 @@ integrating Neptune into applications.
   - [CustomModelTransformParameters (structure)](data-api-dp-ml-transform.md#CustomModelTransformParameters "data-api-dp-ml-transform.md#CustomModelTransformParameters")
 
 - [Neptune ML inference endpoint API](data-api-dp-inference.md "data-api-dp-inference.md")
+
   - [CreateMLEndpoint (action)](data-api-dp-inference.md#CreateMLEndpoint "data-api-dp-inference.md#CreateMLEndpoint")
   - [ListMLEndpoints (action)](data-api-dp-inference.md#ListMLEndpoints "data-api-dp-inference.md#ListMLEndpoints")
   - [GetMLEndpoint (action)](data-api-dp-inference.md#GetMLEndpoint "data-api-dp-inference.md#GetMLEndpoint")
   - [DeleteMLEndpoint (action)](data-api-dp-inference.md#DeleteMLEndpoint "data-api-dp-inference.md#DeleteMLEndpoint")
 
 - [Neptune dataplane API Exceptions](data-api-dp-errors.md "data-api-dp-errors.md")
+
   - [AccessDeniedException (structure)](data-api-dp-errors.md#AccessDeniedException "data-api-dp-errors.md#AccessDeniedException")
   - [BadRequestException (structure)](data-api-dp-errors.md#BadRequestException "data-api-dp-errors.md#BadRequestException")
   - [BulkLoadIdNotFoundException (structure)](data-api-dp-errors.md#BulkLoadIdNotFoundException "data-api-dp-errors.md#BulkLoadIdNotFoundException")

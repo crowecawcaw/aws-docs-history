@@ -121,6 +121,7 @@ The following procedure works for copying encrypted or unencrypted DB cluster sn
 6. To copy tags and values from the snapshot to the copy of the snapshot, choose
    **Copy Tags**.
 7. For **Enable Encryption**, choose one of the following options:
+
    - Choose **Disable encryption** if the DB cluster snapshot isn't
      encrypted and you don't want to encrypt the copy.
    - Choose **Enable encryption** if the DB cluster snapshot isn't
@@ -147,6 +148,7 @@ parameters to use in copying a snapshot with the AWS CLI.
 
 - `--source-db-cluster-snapshot-identifier`   –  
   The identifier for the source DB snapshot.
+
   - If the source snapshot is in the same AWS Region as the copy,
     specify a valid DB snapshot identifier, like `neptune:instance1-snapshot-20130805`.
   - If the source snapshot is in a different AWS Region than the copy,
@@ -164,6 +166,7 @@ parameters to use in copying a snapshot with the AWS CLI.
 - `--kms-key-id` –   –  
   The AWS KMS key ID for an encrypted DB snapshot. The AWS KMS key ID is the Amazon Resource Name
   (ARN), AWS KMS key identifier, or the AWS KMS key alias for the AWS KMS encryption key.
+
   - If you copy an encrypted DB snapshot from your AWS account,
     you can specify a value for this parameter to encrypt the copy with a new AWS KMS encryption key.
     If you don't specify a value for this parameter, then the copy of the DB snapshot is

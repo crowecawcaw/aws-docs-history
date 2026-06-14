@@ -65,6 +65,7 @@ aws neptune modify-db-cluster \
 2. Make sure the security group attached to the cluster allows inbound traffic for the allowed IP ranges and
    the allowed ports. For example, if you want to allow TCP traffic from all IPs to connect to the Neptune
    instance running on port 8182, the inbound rule should have:
+
    1. Type: All TCP
    2. Protocol: TCP
    3. Port range: 8182

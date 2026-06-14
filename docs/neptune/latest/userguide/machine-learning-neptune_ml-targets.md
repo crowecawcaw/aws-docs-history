@@ -60,6 +60,7 @@ Target objects can contain the following fields:
 ###### Contents
 
 - [Property-graph target fields](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets")
+
   - [node](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-node "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-node")
   - [edge](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-edge "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-edge")
   - [property](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-property "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-property")
@@ -68,6 +69,7 @@ Target objects can contain the following fields:
   - [separator](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-separator "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-separator")
 
 - [RDF target fields](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets")
+
   - [node](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-node "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-node")
   - [subject](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-subject "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-subject")
   - [predicate](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-predicate "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-predicate")

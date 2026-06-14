@@ -56,6 +56,7 @@ that you have created (here named `NeptuneServiceLinked`):
 4.  On the **Set permissions** page, in the **Filter
     policies** box, type "Neptune". Now select the following from the policies
     that are listed:
+
     - **NeptuneFullAccess**
     - **NeptuneConsoleFullAccess**
     - **NeptuneServiceLinked** (assuming that is what

@@ -126,6 +126,7 @@ export SERVICE_REGION=`us-east-1 or us-east-2 or us-west-1 or us-west-2 or ca-ce
 ```
 
 4. Connect using one of the following methods.
+
    - [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md")
    - [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
    - [Connecting to Amazon Neptune databases using IAM authentication with Java and SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")
@@ -163,6 +164,7 @@ export SERVICE_REGION=`us-east-1 or us-east-2 or us-west-1 or us-west-2 or ca-ce
 ```
 
 3. Connect using one of the following methods.
+
    - [Connecting to Amazon Neptune databases using IAM authentication with Gremlin console](iam-auth-connecting-gremlin-console.md "iam-auth-connecting-gremlin-console.md")
    - [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md "iam-auth-connecting-gremlin-java.md")
    - [Connecting to Amazon Neptune databases using IAM authentication with Java and SPARQL](iam-auth-connecting-sparql-java.md "iam-auth-connecting-sparql-java.md")

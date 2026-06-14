@@ -392,10 +392,12 @@ This method uses your local system or Amazon S3 as intermediate storage.
 ###### Steps
 
 1. Download files from source JupyterLab instance:
+
    - Navigate and select the files you want to migrate to the new instance in JupyterLab
    - Right-click and select **Download**
 
 2. Upload to new JupyterLab instance:
+
    - Use the upload button in JupyterLab and select all files that you want to copy to the new instance
    - (Or) drag and drop files directly
 
@@ -548,6 +550,7 @@ a new instance, here are the Neptune-specific changes:
 - On step 4, choose **notebook-al2-v3**.
 - On step 5, re-use the IAM role from the source Neptune notebook.
 - Between steps 7 and 8:
+
   - In **Notebook instance settings**, set a name
     that uses the `aws-neptune-*` format.
   - Open the **Network** settings accordion and
@@ -620,6 +623,7 @@ EOF
 11. In **Permissions and encryption**, under **IAM
     Role**, select the role you created above.
 12. In **Network**, if you are using a private graph endpoint:
+
     1.  Under **VPC**, select the VPC where the Neptune Analytics graph resides.
     2.  Under **Subnet**, select a subnet associated with the Neptune Analytics graph.
     3.  Under **Security Group(s)**, select all the security groups

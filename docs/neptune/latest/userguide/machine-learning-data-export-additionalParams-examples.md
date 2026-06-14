@@ -10,6 +10,7 @@ specific data and modeling requirements, unlocking the full potential of the Nep
 ###### Contents
 
 - [Property-graph examples using additionalParams](machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-examples "machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-examples")
+
   - [Specifying a default split rate for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-default-split-rate-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-default-split-rate-example")
   - [Specifying a node-classification task for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-node-classification-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-node-classification-example")
   - [Specifying a multi-class node classification task for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-multi-class-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-multi-class-example")
@@ -29,6 +30,7 @@ specific data and modeling requirements, unlocking the full potential of the Nep
   - [Specifying an auto feature](machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-auto-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-property-graph-additionalParams-auto-example")
 
 - [RDF examples using additionalParams](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-examples "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-examples")
+
   - [Specifying a default split rate for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-default-split-rate-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-default-split-rate-example")
   - [Specifying a node-classification task for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-node-classification-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-node-classification-example")
   - [Specifying a node regression task for model-training configuration](machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-node-regression-example "machine-learning-data-export-additionalParams-examples.md#machine-learning-RDF-additionalParams-node-regression-example")

@@ -60,6 +60,7 @@ Neptune only supports the following strong cipher suites with TLS 1.2:
 ###### Gremlin Improvements
 
 - Added support in the DFE engine for the following Gremlin steps:
+
   - `FoldStep`
   - `GroupStep`
   - `GroupCountStep`

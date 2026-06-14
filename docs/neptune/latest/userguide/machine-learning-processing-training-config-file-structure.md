@@ -117,6 +117,7 @@ the `prefixname` string.
 - **`features`**   –  
   A JSON array of property-value feature objects. Each property-value feature
   object contains the following fields:
+
   - **feature**   –  
     A JSON array of three strings. The first string contains the header name
     of the column that contains the property value. The second string contains
@@ -129,10 +130,12 @@ the `prefixname` string.
   A JSON array of objects. Each of the objects defines a target feature of the
   edges, and specifies the proportions of the edges that the training and
   validation stages should take. Each object contains the following fields:
+
   - **label**   –  
     A JSON array of two strings. The first string contains the header name
     of the column that contains the target feature property value. The
     second string specifies one of the following target task types:
+
     - `"classification"`   –  
       An edge classification task. The property values provided in
       the column identified by the first string in the `label` array
@@ -217,6 +220,7 @@ in [Possible values of the type field for features](machine-learning-neptune_ml-
 - **`language`**   –  
   The language field specifies the language being used in text property values. Its
   usage depends on the text encoding method:
+
   - For [text_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
     encoding, this field is required, and must specify one of the following languages:
 
@@ -237,7 +241,6 @@ in [Possible values of the type field for features](machine-learning-neptune_ml-
   ```
   "language" : "en_core_web_lg"
   ```
-
   - For [tfidf](machine-learning-feature-encoding.md#machine-learning-tfidf-features "machine-learning-feature-encoding.md#machine-learning-tfidf-features")
     encoding, this field is not used.
 
@@ -325,6 +328,7 @@ stages will use. Each object can contain the following fields:
   A JSON array containing two strings. The first string contains the header name
   of the column that stores the property values for the feature. The second string
   specifies the target task type, which can be:
+
   - `"classification"`   –  
     A node classification task. The property values in the specified column are
     used to create a categorical feature.

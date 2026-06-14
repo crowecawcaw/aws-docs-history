@@ -25,6 +25,7 @@ _IAM User Guide_.
 
 - Set the `SERVICE_REGION` variable to one of the following, indicating the
   Region of your Neptune DB instance:
+
   - US East (N. Virginia):   `us-east-1`
   - US East (Ohio):   `us-east-2`
   - US West (N. California):   `us-west-1`

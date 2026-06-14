@@ -7,6 +7,7 @@ maximizing performance.
 ###### Contents
 
 - [Amazon Neptune basic operational guidelines](best-practices-general-basic.md "best-practices-general-basic.md")
+
   - [Amazon Neptune security best practices](best-practices-general-security.md "best-practices-general-security.md")
   - [Avoid different instance classes in a cluster](best-practices-general-basic.md#best-practices-loader-heterogeneous-instances "best-practices-general-basic.md#best-practices-loader-heterogeneous-instances")
   - [Avoid repeated restarts during bulk loading](best-practices-general-basic.md#best-practices-loader-repeated-restarts "best-practices-general-basic.md#best-practices-loader-repeated-restarts")
@@ -20,6 +21,7 @@ maximizing performance.
   - [Retry upload after data prefetch task interrupted error](best-practices-general-basic.md#load-api-reference-status-interrupted "best-practices-general-basic.md#load-api-reference-status-interrupted")
 
 - [General Best Practices for Using Gremlin with Neptune](best-practices-gremlin.md "best-practices-gremlin.md")
+
   - [Heartbeat Configuration for Neptune Serverless](best-practices-gremlin-heartbeat-serverless.md "best-practices-gremlin-heartbeat-serverless.md")
   - [Structure upsert queries to take advantage of the DFE engine](best-practices-gremlin.md#best-practices-gremlin-upserts "best-practices-gremlin.md#best-practices-gremlin-upserts")
   - [Test Gremlin code in the context where you will deploy it](best-practices-gremlin-console-glv-differences.md "best-practices-gremlin-console-glv-differences.md")
@@ -29,6 +31,7 @@ maximizing performance.
   - [Using Native Date and Time for GLV Time Data](best-practices-gremlin-datetime-glv.md "best-practices-gremlin-datetime-glv.md")
 
 - [Best practices using the Gremlin Java client with Neptune](best-practices-gremlin-java-client.md "best-practices-gremlin-java-client.md")
+
   - [Re-use the client object across multiple threads](best-practices-gremlin-java-reuse.md "best-practices-gremlin-java-reuse.md")
   - [Create separate Gremlin Java client objects for read and write endpoints](best-practices-gremlin-java-separate.md "best-practices-gremlin-java-separate.md")
   - [Add multiple read replica endpoints to a Gremlin Java connection pool](best-practices-gremlin-java-multiple.md "best-practices-gremlin-java-multiple.md")
@@ -43,6 +46,7 @@ maximizing performance.
   - [Troubleshooting java.util.concurrent.TimeoutException](best-practices-gremlin-java-exceptions-TimeoutException.md "best-practices-gremlin-java-exceptions-TimeoutException.md")
 
 - [Neptune Best Practices Using openCypher and Bolt](best-practices-opencypher.md "best-practices-opencypher.md")
+
   - [Create a new connection after failover](best-practices-opencypher.md#best-practices-opencypher-renew-connection "best-practices-opencypher.md#best-practices-opencypher-renew-connection")
   - [Connection handling for long-lived applications](best-practices-opencypher.md#best-practices-opencypher-long-connections "best-practices-opencypher.md#best-practices-opencypher-long-connections")
   - [Connection handling for AWS Lambda](best-practices-opencypher.md#best-practices-opencypher-lambda-connections "best-practices-opencypher.md#best-practices-opencypher-lambda-connections")
@@ -50,11 +54,13 @@ maximizing performance.
   - [Neptune does not support multiple concurrent queries in a transaction](best-practices-opencypher-multiple-queries.md "best-practices-opencypher-multiple-queries.md")
   - [Close driver objects when you're done](best-practices-opencypher-close-driver.md "best-practices-opencypher-close-driver.md")
   - [Use explicit transaction modes for reading and writing](best-practices-opencypher-use-explicit-txs.md "best-practices-opencypher-use-explicit-txs.md")
+
     - [Read-only transactions](best-practices-opencypher-use-explicit-txs.md#best-practices-opencypher-read-txs "best-practices-opencypher-use-explicit-txs.md#best-practices-opencypher-read-txs")
     - [Mutation transactions](best-practices-opencypher-use-explicit-txs.md#best-practices-opencypher-mutation-txs "best-practices-opencypher-use-explicit-txs.md#best-practices-opencypher-mutation-txs")
 
   - [Retry logic for exceptions](best-practices-opencypher-retry-logic.md "best-practices-opencypher-retry-logic.md")
   - [Set multiple properties at once using a single SET clause](best-practices-content-0.md "best-practices-content-0.md")
+
     - [Use the SET clause to remove multiple properties at once](best-practices-content-0.md#best-practices-content-1 "best-practices-content-0.md#best-practices-content-1")
 
   - [Use parameterized queries](best-practices-content-2.md "best-practices-content-2.md")
@@ -75,11 +81,13 @@ maximizing performance.
   - [Updating/Merging multiple nodes](best-practices-merge-multiple-nodes.md "best-practices-merge-multiple-nodes.md")
 
 - [Neptune Best Practices Using SPARQL](best-practices-sparql.md "best-practices-sparql.md")
+
   - [Querying All Named Graphs by Default](best-practices-sparql-query.md "best-practices-sparql-query.md")
   - [Specifying a Named Graph for Load](best-practices-sparql-graph.md "best-practices-sparql-graph.md")
   - [Choosing Between FILTER, FILTER...IN, and VALUES in Your Queries](best-practices-sparql-batch.md "best-practices-sparql-batch.md")
 
 - [Best practices for using Neptune with Amazon ECS and Amazon EKS](best-practices-ecs-eks.md "best-practices-ecs-eks.md")
+
   - [Manage connection pools and lifecycle in containerized environments](best-practices-ecs-eks-connections.md "best-practices-ecs-eks-connections.md")
   - [Handle host replacement and connection stalling](best-practices-ecs-eks-host-replacement.md "best-practices-ecs-eks-host-replacement.md")
   - [Configure networking, security groups, and IAM authentication](best-practices-ecs-eks-networking-iam.md "best-practices-ecs-eks-networking-iam.md")

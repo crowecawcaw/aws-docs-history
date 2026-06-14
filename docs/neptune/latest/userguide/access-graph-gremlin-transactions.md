@@ -6,6 +6,7 @@ within and what its implications are:
 
 - **`Script-based`**   –  
   Requests are made using text-based Gremlin strings, like this:
+
   - Using the Java driver and `Client.submit(`string`)`.
   - Using the Gremlin console and `:remote connect`.
   - Using the HTTP API.

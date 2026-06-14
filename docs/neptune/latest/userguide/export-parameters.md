@@ -27,12 +27,15 @@ The object passed in to the export process has the following top-level fields:
 - [The params object](export-parameters.md#export-parameters-params "export-parameters.md#export-parameters-params")
 - [The additionalParams object](export-parameters.md#export-parameters-additionalParams "export-parameters.md#export-parameters-additionalParams")
 - [Export parameter fields in the params top-level JSON object](export-params-fields.md "export-params-fields.md")
+
   - [List of possible fields in the export parameters params object](export-params-fields.md#export-params-fields-list "export-params-fields.md#export-params-fields-list")
+
     - [List of fields common to all types of export](export-params-fields.md#export-params-common-fields-list "export-params-fields.md#export-params-common-fields-list")
     - [List of fields for property-graph exports](export-params-fields.md#export-params-property-graph-fields-list "export-params-fields.md#export-params-property-graph-fields-list")
     - [List of fields for RDF exports](export-params-fields.md#export-params-RDF-fields-list "export-params-fields.md#export-params-RDF-fields-list")
 
   - [Fields common to all types of export](export-params-fields.md#export-params-common-fields "export-params-fields.md#export-params-common-fields")
+
     - [cloneCluster field in params](export-params-fields.md#export-params-cloneCluster "export-params-fields.md#export-params-cloneCluster")
     - [cloneClusterInstanceType field in params](export-params-fields.md#export-params-cloneClusterInstanceType "export-params-fields.md#export-params-cloneClusterInstanceType")
     - [cloneClusterReplicaCount field in params](export-params-fields.md#export-params-cloneClusterReplicaCount "export-params-fields.md#export-params-cloneClusterReplicaCount")
@@ -45,6 +48,7 @@ The object passed in to the export process has the following top-level fields:
     - [includeLastEventId field in params](export-params-fields.md#export-params-includeLastEventId "export-params-fields.md#export-params-includeLastEventId")
 
   - [Fields for property-graph export](export-params-fields.md#export-params-property-graph-fields "export-params-fields.md#export-params-property-graph-fields")
+
     - [concurrency field in params](export-params-fields.md#export-params-concurrency "export-params-fields.md#export-params-concurrency")
     - [edgeLabels field in params](export-params-fields.md#export-params-edgeLabels "export-params-fields.md#export-params-edgeLabels")
     - [filter field in params](export-params-fields.md#export-params-filter "export-params-fields.md#export-params-filter")
@@ -57,13 +61,16 @@ The object passed in to the export process has the following top-level fields:
     - [scope field in params](export-params-fields.md#export-params-scope "export-params-fields.md#export-params-scope")
 
   - [Fields for RDF export](export-params-fields.md#export-params-rdf-fields "export-params-fields.md#export-params-rdf-fields")
+
     - [format field used for RDF data in params](export-params-fields.md#export-params-format-rdf "export-params-fields.md#export-params-format-rdf")
     - [rdfExportScope field in params](export-params-fields.md#export-params-rdfExportScope "export-params-fields.md#export-params-rdfExportScope")
     - [sparql field in params](export-params-fields.md#export-params-sparql "export-params-fields.md#export-params-sparql")
     - [namedGraph field in params](export-params-fields.md#namedgraph-params-sparql "export-params-fields.md#namedgraph-params-sparql")
 
 - [Examples of filtering what is exported](export-filtering-examples.md "export-filtering-examples.md")
+
   - [Filtering the export of property-graph data](export-filtering-examples.md#export-property-graph-filtering-examples "export-filtering-examples.md#export-property-graph-filtering-examples")
+
     - [Example of using scope to export only edges](export-filtering-examples.md#export-property-graph-filtering-scope-example "export-filtering-examples.md#export-property-graph-filtering-scope-example")
     - [Example of using nodeLabels and edgeLabels to export only nodes and edges having specific labels](export-filtering-examples.md#export-property-graph-filtering-labels-example "export-filtering-examples.md#export-property-graph-filtering-labels-example")
     - [Example of using filter to export only specified nodes, edges and properties](export-filtering-examples.md#export-property-graph-filtering-filter-example "export-filtering-examples.md#export-property-graph-filtering-filter-example")
@@ -73,6 +80,7 @@ The object passed in to the export process has the following top-level fields:
     - [Combining filter, gremlinNodeFilter, nodeLabels, edgeLabels and scope](export-filtering-examples.md#export-property-graph-filtering-combo-example "export-filtering-examples.md#export-property-graph-filtering-combo-example")
 
   - [Filtering the export of RDF data](export-filtering-examples.md#export-RDF-filtering-examples "export-filtering-examples.md#export-RDF-filtering-examples")
+
     - [Using rdfExportScope and sparql to export specific edges](export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-example "export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-example")
     - [Using namedGraph to export a single named graph](export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-namedGraph-example "export-filtering-examples.md#export-RDF-filtering-rdfExportScope-sparql-namedGraph-example")
 

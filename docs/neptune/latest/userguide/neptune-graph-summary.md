@@ -137,12 +137,14 @@ A property graph (PG) summary response has the following fields:
 See [Common graph summary errors](#neptune-graph-summary-errors "#neptune-graph-summary-errors") for a list of common errors.
 
 - **`payload`**
+
   - **`version`**   –  
     The version of this graph summary response.
   - **`lastStatisticsComputationTime`**   –  
     The timestamp, in ISO 8601 format, of the time at which Neptune last
     computed [statistics](neptune-dfe-statistics.md "neptune-dfe-statistics.md").
   - **`graphSummary`**
+
     - **`numNodes`**   –  
       The number of nodes in the graph.
     - **`numEdges`**   –  
@@ -173,6 +175,7 @@ See [Common graph summary errors](#neptune-graph-summary-errors "#neptune-graph-
       _This field is only present when `mode=detailed`
       is specified in the request._ It contains a list of node
       structures, each of which contains the following fields:
+
       - **`count`**   –  
         Number of nodes that have this specific structure.
       - **`nodeProperties`**   –  
@@ -184,6 +187,7 @@ See [Common graph summary errors](#neptune-graph-summary-errors "#neptune-graph-
       _This field is only present when `mode=detailed`
       is specified in the request._ It contains a list of edge
       structures, each of which contains the following fields:
+
       - **`count`**   –  
         Number of edges that have this specific structure.
       - **`edgeProperties`**   –  
@@ -223,12 +227,14 @@ See [Common graph summary errors](#neptune-graph-summary-errors "#neptune-graph-
 of common errors.
 
 - **`payload`**
+
   - **`version`**   –  
     The version of this graph summary response.
   - **`lastStatisticsComputationTime`**   –  
     The timestamp, in ISO 8601 format, of the time at which Neptune last
     computed [statistics](neptune-dfe-statistics.md "neptune-dfe-statistics.md").
   - **`graphSummary`**
+
     - **`numDistinctSubjects`**   –  
       The number of distinct subjects in the graph.
     - **`numDistinctPredicates`**   –  
@@ -245,6 +251,7 @@ of common errors.
       _This field is only present when `mode=detailed`
       is specified in the request._ It contains a list of subject
       structures, each of which contains the following fields:
+
       - **`count`**   –  
         Number of occurrences of this specific structure.
       - **`predicates`**   –  

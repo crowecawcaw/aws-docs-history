@@ -6,6 +6,7 @@ need to take to support non-string indexing:
 1. **Stop the stream poller Lambda function.**
    This ensures that no new updates are copied during export. Do this by disabling
    the cloud event rule that invokes the Lambda function:
+
    - In the AWS Management Console, navigate to CloudWatch.
    - Select **Rules**.
    - Choose the rule with the Lambda stream poller name.
@@ -46,6 +47,7 @@ take the following steps:
 
 5. **Start the stream poller again.**
    Do this by enabling the appropriate CloudWatch rule:
+
    - In the AWS Management Console, navigate to CloudWatch.
    - Select **Rules**.
    - Choose the rule with the Lambda stream poller name.

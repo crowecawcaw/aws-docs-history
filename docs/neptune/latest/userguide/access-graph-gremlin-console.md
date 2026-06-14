@@ -22,20 +22,19 @@ than the instructions here.
 
 1. The Gremlin Console binaries require Java 8 or Java 11. These instructions assume
    usage of Java 11. You can install Java 11 on your EC2 instance as follows:
+
    - If you're using [Amazon
      Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2 "https://aws.amazon.com/amazon-linux-2"):
 
    ```
    sudo amazon-linux-extras install java-openjdk11
    ```
-
    - If you're using [Amazon
      Linux 2023 (AL2023)](../../../linux/al2023/ug/what-is-amazon-linux.md "../../../linux/al2023/ug/what-is-amazon-linux.md"):
 
    ```
    sudo yum install java-11-amazon-corretto-devel
    ```
-
    - For other distributions, use whichever of the following is appropriate:
 
    ```

@@ -137,6 +137,7 @@ The response to a status request contains the following fields:
   the request. If the request succeeded, the code is `200`. See [Common errors](#neptune-dfe-statistics-errors "#neptune-dfe-statistics-errors")
   for a list of common errors.
 - `payload`:
+
   - `autoCompute`  –   (Boolean) Indicates
     whether or not automatic statistics generation is enabled.
   - `active`  –   (Boolean) Indicates
@@ -158,6 +159,7 @@ The response to a status request contains the following fields:
   - `signatureInfo`  –   Contains information about
     the characteristic sets generated in the statistics (prior to [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md"), this field
     was named `summary`). These are generally not directly actionable:
+
     - `signatureCount`  –   The total
       number of signatures across all characteristic sets.
     - `instanceCount`  –   The total

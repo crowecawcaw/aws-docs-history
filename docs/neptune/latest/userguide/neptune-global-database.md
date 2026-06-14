@@ -70,6 +70,7 @@ The following limitations currently apply to global databases:
 
 - Neptune global databases are only available in the following
   AWS Regions:
+
   - US East (N. Virginia):   `us-east-1`
   - US East (Ohio):   `us-east-2`
   - US West (N. California):   `us-west-1`

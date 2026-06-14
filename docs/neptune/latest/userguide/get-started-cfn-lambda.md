@@ -37,8 +37,10 @@ Neptune.
 2. On the **Select Template** page, choose
    **Next**.
 3. On the **Specify Details** page, set the following options:
+
    1. Choose the Lambda runtime, depending on what language you want to use in your Lambda
       function. These CloudFormation templates currently support the following languages:
+
       - **Python 3.9** (maps to `python39` in the Amazon S3
         URL)
       - **NodeJS 18** (maps to `nodejs18x` in the Amazon S3

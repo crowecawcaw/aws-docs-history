@@ -12,6 +12,7 @@ retried.
  the cluster or pass as a parameter to this request.`
 
 - **`InvalidParameterException`**   –   Error messages:
+
   - `Invalid ML instance type.`
   - `Invalid ID provided. ID can be 1-48 alphanumeric characters.`
   - `Invalid ID provided. Must contain only letters, digits, or hyphens.`
@@ -20,6 +21,7 @@ retried.
   - `Failed to stop the job because it has already completed or failed.`
 
 - **`BadRequestException`**   –   Error messages:
+
   - `Invalid S3 URL or incorrect S3 permissions. Please check your S3 configuration.`
   - `Provided ModelTraining job has not completed.`
   - `Provided SageMaker AI Training job has not completed.`

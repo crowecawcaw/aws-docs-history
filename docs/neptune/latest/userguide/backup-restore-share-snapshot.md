@@ -202,6 +202,7 @@ AWS accounts. You can also stop sharing a manual snapshot with one or more accou
 4. Choose **Actions**, **Share Snapshot**.
 5. Choose one of the following options for **DB snapshot
    visibility**.
+
    - If the source is unencrypted, choose **Public** to permit all
      AWS accounts to restore a DB cluster from your manual DB cluster snapshot. Or choose
      **Private** to permit only AWS accounts that you specify to

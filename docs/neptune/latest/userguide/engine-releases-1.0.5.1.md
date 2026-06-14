@@ -29,6 +29,7 @@ that it takes several days for a new release to become available in every region
   used with global scope.
 - The following Gremlin `HAS` predicates are run in the
   DFE engine when the DFE engine is enabled:
+
   - `EQ`
   - `NEQ`
   - `LT`
