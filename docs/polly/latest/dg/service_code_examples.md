@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [DeleteLexicon](example_polly_DeleteLexicon_section.md "example_polly_DeleteLexicon_section.md")
     - [DescribeVoices](example_polly_DescribeVoices_section.md "example_polly_DescribeVoices_section.md")
     - [GetLexicon](example_polly_GetLexicon_section.md "example_polly_GetLexicon_section.md")
@@ -25,6 +27,7 @@ This topic also includes information about getting started and details about pre
     - [SynthesizeSpeech](example_polly_SynthesizeSpeech_section.md "example_polly_SynthesizeSpeech_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Convert text to speech and back to text](example_cross_Telephone_section.md "example_cross_Telephone_section.md")
   - [Create a lip-sync application](example_polly_LipSync_section.md "example_polly_LipSync_section.md")
   - [Create an application to analyze customer feedback](example_cross_FSA_section.md "example_cross_FSA_section.md")

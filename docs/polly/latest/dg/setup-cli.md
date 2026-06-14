@@ -6,6 +6,7 @@ Follow these steps to download and configure the AWS CLI to work with Amazon Pol
 
 1. Download and configure the AWS CLI. For instructions, see the following
    topics in the _AWS Command Line Interface User Guide_:
+
    - [Getting
      Set Up with the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
    - [Configuring the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md")

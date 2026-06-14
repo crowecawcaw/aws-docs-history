@@ -12,6 +12,7 @@ tag. They indicate the phonetic alphabet Amazon Polly uses and
 the phonetic symbols of the corrected pronunciation:
 
 - `alphabet`
+
   - `ipa`— Indicates that the
     International Phonetic Alphabet (IPA) will be
     used.

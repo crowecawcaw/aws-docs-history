@@ -9,6 +9,7 @@ Console
 1. Sign in to the AWS Management Console and open the Amazon Polly console at [https://console.aws.amazon.com/polly/](https://console.aws.amazon.com/polly/ "https://console.aws.amazon.com/polly/").
 2. Choose the **Lexicons** tab.
 3. Choose the lexicon or lexicons you want to download.
+
    1. To download a single lexicon, choose its name from the list.
    2. To download multiple lexicons as a single compressed archive file,
       select the check box next to each entry in the list that you want to download.

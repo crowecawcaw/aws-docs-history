@@ -19,6 +19,7 @@ He was caught up in the game. In the middle of the 10/3/2014 W3C meeting he shou
 6. Choose a language and AWS Region, then choose a voice. (If you select **Neural** for **Engine**, only the languages and voices that support NTTS are available. All Standard and Long Form voices are disabled.)
 7. To listen to the speech immediately, choose **Listen**.
 8. To save the speech to a file, do one of the following:
+
    1. Choose **Download**.
    2. To change to a different file format, expand **Additional
       settings**, turn on **Speech file format

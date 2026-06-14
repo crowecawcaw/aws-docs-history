@@ -237,6 +237,7 @@ echo "Log file: $LOG_FILE" | tee -a "$LOG_FILE"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [DeleteLexicon](../../../goto/aws-cli/polly-2016-06-10/DeleteLexicon.md "../../../goto/aws-cli/polly-2016-06-10/DeleteLexicon.md")
   - [DescribeVoices](../../../goto/aws-cli/polly-2016-06-10/DescribeVoices.md "../../../goto/aws-cli/polly-2016-06-10/DescribeVoices.md")
   - [GetLexicon](../../../goto/aws-cli/polly-2016-06-10/GetLexicon.md "../../../goto/aws-cli/polly-2016-06-10/GetLexicon.md")

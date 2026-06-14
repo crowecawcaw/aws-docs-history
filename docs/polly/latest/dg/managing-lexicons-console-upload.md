@@ -61,6 +61,7 @@ Consider the following W3C PLS-compliant lexicon.
 Note the following:
 
 - The two attributes specified in the `<lexicon>` element:
+
   - The `xml:lang` attribute specifies the language code,
     `en-US`, to which the lexicon applies. Amazon Polly can use
     this example lexicon if the voice you

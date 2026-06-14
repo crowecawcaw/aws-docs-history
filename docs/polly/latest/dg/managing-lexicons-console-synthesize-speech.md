@@ -27,6 +27,7 @@ both US English and another language.
 
 1. Sign in to the AWS Management Console and open the Amazon Polly console at [https://console.aws.amazon.com/polly/](https://console.aws.amazon.com/polly/ "https://console.aws.amazon.com/polly/").
 2. Do one of the following:
+
    - Turn off **SSML** and then type or paste this text into the
      text input box.
 
@@ -35,7 +36,6 @@ both US English and another language.
    In the middle of the 10/3/2014 W3C meeting
    he shouted, "Score!" quite loudly.
    ```
-
    - Turn on **SSML** and then type or paste this text into the
      text input box.
 
@@ -116,6 +116,7 @@ lexicons, do the following:
 
 1. Save the lexicons locally in files called `w3c.pls` and `w3cAlternate.pls`.
 2. Upload these lexicons using the `put-lexicon` AWS CLI command.
+
    - Upload the `w3c.pls` lexicon and store it as `w3c`.
 
    ```
@@ -124,7 +125,6 @@ lexicons, do the following:
    --content file://w3c.pls
 
    ```
-
    - Upload the `w3cAlternate.pls` lexicon on the service as
      `w3cAlternate`.
 
