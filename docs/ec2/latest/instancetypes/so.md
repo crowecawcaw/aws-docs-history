@@ -266,7 +266,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | i7ie.xlarge 1     | 4.166 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | i7ie.2xlarge 1    | 8.333 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | i7ie.3xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| i7ie.6xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| i7ie.6xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | i7ie.12xlarge 1   | 25.0 / 50.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
 | i7ie.18xlarge 1   | 37.5 / 75.0                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
 | i7ie.24xlarge 1   | 50.0 / 100.0                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
@@ -278,7 +278,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | i8g.xlarge 1      | 2.344 / 10.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | i8g.2xlarge 1     | 4.688 / 12.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | i8g.4xlarge 1     | 9.375 / 25.0                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| i8g.8xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| i8g.8xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | i8g.12xlarge      | 28.12 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | i8g.16xlarge      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
 | i8g.24xlarge      | 56.25 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
@@ -290,7 +290,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | i8ge.xlarge 1     | 4.2 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | i8ge.2xlarge 1    | 8.4 / 25.0                        | ✗ No  | ✓ Yes  | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | i8ge.3xlarge 1    | 12.5 / 25.0                       | ✗ No  | ✓ Yes  | ✗ No        | 1             | 6                       | 30                         | ✓ Yes |
-| i8ge.6xlarge      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✗ No        | 1             | 10                      | 30                         | ✓ Yes |
+| i8ge.6xlarge      | 37.5 Gigabit                      | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
 | i8ge.12xlarge     | 75 Gigabit                        | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
 | i8ge.18xlarge     | 112.5 Gigabit                     | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
 | i8ge.24xlarge     | 150 Gigabit                       | ✗ No  | ✓ Yes  | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |

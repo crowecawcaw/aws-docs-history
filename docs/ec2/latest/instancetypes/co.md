@@ -627,7 +627,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8g.xlarge 1        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | c8g.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | c8g.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c8g.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| c8g.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | c8g.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | c8g.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
 | c8g.24xlarge        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
@@ -639,7 +639,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8gb.large 1        | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
 | c8gb.xlarge 1       | 8.333 / 26.666                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | c8gb.2xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8gb.4xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| c8gb.4xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | c8gb.8xlarge        | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
 | c8gb.12xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
 | c8gb.16xlarge       | 133.33 Gigabit                    | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
@@ -653,7 +653,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8gd.xlarge 1       | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | c8gd.2xlarge 1      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | c8gd.4xlarge 1      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| c8gd.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| c8gd.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | c8gd.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | c8gd.16xlarge       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
 | c8gd.24xlarge       | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
@@ -665,7 +665,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8gn.large 1        | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
 | c8gn.xlarge 1       | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | c8gn.2xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| c8gn.4xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| c8gn.4xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | c8gn.8xlarge        | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
 | c8gn.12xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
 | c8gn.16xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
@@ -678,9 +678,9 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8i.xlarge 1        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | c8i.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | c8i.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8i.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 50                         | ✓ Yes |
-| c8i.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
-| c8i.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
+| c8i.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
+| c8i.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| c8i.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | c8i.24xlarge        | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | c8i.32xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | c8i.48xlarge        | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
@@ -692,9 +692,9 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8id.xlarge 1       | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | c8id.2xlarge 1      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | c8id.4xlarge 1      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8id.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 50                         | ✓ Yes |
-| c8id.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
-| c8id.16xlarge       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
+| c8id.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
+| c8id.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| c8id.16xlarge       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | c8id.24xlarge       | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | c8id.32xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | c8id.48xlarge       | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
@@ -714,7 +714,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8in.xlarge 1       | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | c8in.2xlarge 1      | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | c8in.4xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8in.8xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| c8in.8xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
 | c8in.12xlarge       | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
 | c8in.16xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | c8in.24xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
@@ -735,7 +735,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | c8ib.xlarge 1       | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | c8ib.2xlarge 1      | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | c8ib.4xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| c8ib.8xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| c8ib.8xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
 | c8ib.12xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
 | c8ib.16xlarge       | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | c8ib.24xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |

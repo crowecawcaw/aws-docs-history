@@ -24,7 +24,7 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 ## Instance families and instance types
 
 | Instance family | Available instance types |
-| --------------- | ------------------------ | ----------------- | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | ------------------ | ------------------ | ---------------- | ----------------- | ----------------- | ----------------- |
+| --------------- | ------------------------ | ----------------- | ------------------ | ------------------ | ------------------ | ------------------- | ------------------- | ------------------ | ------------------ | ---------------- | ----------------- | ------------------ | ------------------ |
 | M5              | `m5.large`               | `m5.xlarge`       | `m5.2xlarge`       | `m5.4xlarge`       | `m5.8xlarge`       | `m5.12xlarge`       | `m5.16xlarge`       | `m5.24xlarge`      | `m5.metal`         |
 | M5a             | `m5a.large`              | `m5a.xlarge`      | `m5a.2xlarge`      | `m5a.4xlarge`      | `m5a.8xlarge`      | `m5a.12xlarge`      | `m5a.16xlarge`      | `m5a.24xlarge`     |
 | M5ad            | `m5ad.large`             | `m5ad.xlarge`     | `m5ad.2xlarge`     | `m5ad.4xlarge`     | `m5ad.8xlarge`     | `m5ad.12xlarge`     | `m5ad.16xlarge`     | `m5ad.24xlarge`    |
@@ -39,25 +39,27 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M6id            | `m6id.large`             | `m6id.xlarge`     | `m6id.2xlarge`     | `m6id.4xlarge`     | `m6id.8xlarge`     | `m6id.12xlarge`     | `m6id.16xlarge`     | `m6id.24xlarge`    | `m6id.32xlarge`    | `m6id.metal`     |
 | M6idn           | `m6idn.large`            | `m6idn.xlarge`    | `m6idn.2xlarge`    | `m6idn.4xlarge`    | `m6idn.8xlarge`    | `m6idn.12xlarge`    | `m6idn.16xlarge`    | `m6idn.24xlarge`   | `m6idn.32xlarge`   | `m6idn.metal`    |
 | M6in            | `m6in.large`             | `m6in.xlarge`     | `m6in.2xlarge`     | `m6in.4xlarge`     | `m6in.8xlarge`     | `m6in.12xlarge`     | `m6in.16xlarge`     | `m6in.24xlarge`    | `m6in.32xlarge`    | `m6in.metal`     |
-| M7a             | `m7a.medium`             | `m7a.large`       | `m7a.xlarge`       | `m7a.2xlarge`      | `m7a.4xlarge`      | `m7a.8xlarge`       | `m7a.12xlarge`      | `m7a.16xlarge`     | `m7a.24xlarge`     | `m7a.32xlarge`   | `m7a.48xlarge`    | `m7a.metal-48xl`  |
+| M7a             | `m7a.medium`             | `m7a.large`       | `m7a.xlarge`       | `m7a.2xlarge`      | `m7a.4xlarge`      | `m7a.8xlarge`       | `m7a.12xlarge`      | `m7a.16xlarge`     | `m7a.24xlarge`     | `m7a.32xlarge`   | `m7a.48xlarge`    | `m7a.metal-48xl`   |
 | M7g             | `m7g.medium`             | `m7g.large`       | `m7g.xlarge`       | `m7g.2xlarge`      | `m7g.4xlarge`      | `m7g.8xlarge`       | `m7g.12xlarge`      | `m7g.16xlarge`     | `m7g.metal`        |
 | M7gd            | `m7gd.medium`            | `m7gd.large`      | `m7gd.xlarge`      | `m7gd.2xlarge`     | `m7gd.4xlarge`     | `m7gd.8xlarge`      | `m7gd.12xlarge`     | `m7gd.16xlarge`    | `m7gd.metal`       |
 | M7i             | `m7i.large`              | `m7i.xlarge`      | `m7i.2xlarge`      | `m7i.4xlarge`      | `m7i.8xlarge`      | `m7i.12xlarge`      | `m7i.16xlarge`      | `m7i.24xlarge`     | `m7i.48xlarge`     | `m7i.metal-24xl` | `m7i.metal-48xl`  |
 | M7i-flex        | `m7i-flex.large`         | `m7i-flex.xlarge` | `m7i-flex.2xlarge` | `m7i-flex.4xlarge` | `m7i-flex.8xlarge` | `m7i-flex.12xlarge` | `m7i-flex.16xlarge` |
-| M8a             | `m8a.medium`             | `m8a.large`       | `m8a.xlarge`       | `m8a.2xlarge`      | `m8a.4xlarge`      | `m8a.8xlarge`       | `m8a.12xlarge`      | `m8a.16xlarge`     | `m8a.24xlarge`     | `m8a.48xlarge`   | `m8a.metal-24xl`  | `m8a.metal-48xl`  |
+| M8a             | `m8a.medium`             | `m8a.large`       | `m8a.xlarge`       | `m8a.2xlarge`      | `m8a.4xlarge`      | `m8a.8xlarge`       | `m8a.12xlarge`      | `m8a.16xlarge`     | `m8a.24xlarge`     | `m8a.48xlarge`   | `m8a.metal-24xl`  | `m8a.metal-48xl`   |
 | M8azn           | `m8azn.medium`           | `m8azn.large`     | `m8azn.xlarge`     | `m8azn.3xlarge`    | `m8azn.6xlarge`    | `m8azn.12xlarge`    | `m8azn.24xlarge`    | `m8azn.metal-12xl` | `m8azn.metal-24xl` |
-| M8g             | `m8g.medium`             | `m8g.large`       | `m8g.xlarge`       | `m8g.2xlarge`      | `m8g.4xlarge`      | `m8g.8xlarge`       | `m8g.12xlarge`      | `m8g.16xlarge`     | `m8g.24xlarge`     | `m8g.48xlarge`   | `m8g.metal-24xl`  | `m8g.metal-48xl`  |
-| M8gb            | `m8gb.medium`            | `m8gb.large`      | `m8gb.xlarge`      | `m8gb.2xlarge`     | `m8gb.4xlarge`     | `m8gb.8xlarge`      | `m8gb.12xlarge`     | `m8gb.16xlarge`    | `m8gb.24xlarge`    | `m8gb.48xlarge`  | `m8gb.metal-24xl` | `m8gb.metal-48xl` |
-| M8gd            | `m8gd.medium`            | `m8gd.large`      | `m8gd.xlarge`      | `m8gd.2xlarge`     | `m8gd.4xlarge`     | `m8gd.8xlarge`      | `m8gd.12xlarge`     | `m8gd.16xlarge`    | `m8gd.24xlarge`    | `m8gd.48xlarge`  | `m8gd.metal-24xl` | `m8gd.metal-48xl` |
-| M8gn            | `m8gn.medium`            | `m8gn.large`      | `m8gn.xlarge`      | `m8gn.2xlarge`     | `m8gn.4xlarge`     | `m8gn.8xlarge`      | `m8gn.12xlarge`     | `m8gn.16xlarge`    | `m8gn.24xlarge`    | `m8gn.48xlarge`  | `m8gn.metal-24xl` | `m8gn.metal-48xl` |
-| M8i             | `m8i.large`              | `m8i.xlarge`      | `m8i.2xlarge`      | `m8i.4xlarge`      | `m8i.8xlarge`      | `m8i.12xlarge`      | `m8i.16xlarge`      | `m8i.24xlarge`     | `m8i.32xlarge`     | `m8i.48xlarge`   | `m8i.96xlarge`    | `m8i.metal-48xl`  | `m8i.metal-96xl`  |
-| M8id            | `m8id.large`             | `m8id.xlarge`     | `m8id.2xlarge`     | `m8id.4xlarge`     | `m8id.8xlarge`     | `m8id.12xlarge`     | `m8id.16xlarge`     | `m8id.24xlarge`    | `m8id.32xlarge`    | `m8id.48xlarge`  | `m8id.96xlarge`   | `m8id.metal-48xl` | `m8id.metal-96xl` |
+| M8g             | `m8g.medium`             | `m8g.large`       | `m8g.xlarge`       | `m8g.2xlarge`      | `m8g.4xlarge`      | `m8g.8xlarge`       | `m8g.12xlarge`      | `m8g.16xlarge`     | `m8g.24xlarge`     | `m8g.48xlarge`   | `m8g.metal-24xl`  | `m8g.metal-48xl`   |
+| M8gb            | `m8gb.medium`            | `m8gb.large`      | `m8gb.xlarge`      | `m8gb.2xlarge`     | `m8gb.4xlarge`     | `m8gb.8xlarge`      | `m8gb.12xlarge`     | `m8gb.16xlarge`    | `m8gb.24xlarge`    | `m8gb.48xlarge`  | `m8gb.metal-24xl` | `m8gb.metal-48xl`  |
+| M8gd            | `m8gd.medium`            | `m8gd.large`      | `m8gd.xlarge`      | `m8gd.2xlarge`     | `m8gd.4xlarge`     | `m8gd.8xlarge`      | `m8gd.12xlarge`     | `m8gd.16xlarge`    | `m8gd.24xlarge`    | `m8gd.48xlarge`  | `m8gd.metal-24xl` | `m8gd.metal-48xl`  |
+| M8gn            | `m8gn.medium`            | `m8gn.large`      | `m8gn.xlarge`      | `m8gn.2xlarge`     | `m8gn.4xlarge`     | `m8gn.8xlarge`      | `m8gn.12xlarge`     | `m8gn.16xlarge`    | `m8gn.24xlarge`    | `m8gn.48xlarge`  | `m8gn.metal-24xl` | `m8gn.metal-48xl`  |
+| M8i             | `m8i.large`              | `m8i.xlarge`      | `m8i.2xlarge`      | `m8i.4xlarge`      | `m8i.8xlarge`      | `m8i.12xlarge`      | `m8i.16xlarge`      | `m8i.24xlarge`     | `m8i.32xlarge`     | `m8i.48xlarge`   | `m8i.96xlarge`    | `m8i.metal-48xl`   | `m8i.metal-96xl`   |
+| M8id            | `m8id.large`             | `m8id.xlarge`     | `m8id.2xlarge`     | `m8id.4xlarge`     | `m8id.8xlarge`     | `m8id.12xlarge`     | `m8id.16xlarge`     | `m8id.24xlarge`    | `m8id.32xlarge`    | `m8id.48xlarge`  | `m8id.96xlarge`   | `m8id.metal-48xl`  | `m8id.metal-96xl`  |
 | M8i-flex        | `m8i-flex.large`         | `m8i-flex.xlarge` | `m8i-flex.2xlarge` | `m8i-flex.4xlarge` | `m8i-flex.8xlarge` | `m8i-flex.12xlarge` | `m8i-flex.16xlarge` |
-| M8in            | `m8in.large`             | `m8in.xlarge`     | `m8in.2xlarge`     | `m8in.4xlarge`     | `m8in.8xlarge`     | `m8in.12xlarge`     | `m8in.16xlarge`     | `m8in.24xlarge`    | `m8in.32xlarge`    | `m8in.48xlarge`  | `m8in.96xlarge`   |
-| M8idn           | `m8idn.large`            | `m8idn.xlarge`    | `m8idn.2xlarge`    | `m8idn.4xlarge`    | `m8idn.8xlarge`    | `m8idn.12xlarge`    | `m8idn.16xlarge`    | `m8idn.24xlarge`   | `m8idn.32xlarge`   | `m8idn.48xlarge` | `m8idn.96xlarge`  |
+| M8in            | `m8in.large`             | `m8in.xlarge`     | `m8in.2xlarge`     | `m8in.4xlarge`     | `m8in.8xlarge`     | `m8in.12xlarge`     | `m8in.16xlarge`     | `m8in.24xlarge`    | `m8in.32xlarge`    | `m8in.48xlarge`  | `m8in.96xlarge`   | `m8in.metal-48xl`  | `m8in.metal-96xl`  |
+| M8idn           | `m8idn.large`            | `m8idn.xlarge`    | `m8idn.2xlarge`    | `m8idn.4xlarge`    | `m8idn.8xlarge`    | `m8idn.12xlarge`    | `m8idn.16xlarge`    | `m8idn.24xlarge`   | `m8idn.32xlarge`   | `m8idn.48xlarge` | `m8idn.96xlarge`  | `m8idn.metal-48xl` | `m8idn.metal-96xl` |
 | M8ine           | `m8ine.large`            | `m8ine.xlarge`    | `m8ine.2xlarge`    | `m8ine.4xlarge`    | `m8ine.8xlarge`    | `m8ine.12xlarge`    |
-| M8ib            | `m8ib.large`             | `m8ib.xlarge`     | `m8ib.2xlarge`     | `m8ib.4xlarge`     | `m8ib.8xlarge`     | `m8ib.12xlarge`     | `m8ib.16xlarge`     | `m8ib.24xlarge`    | `m8ib.32xlarge`    | `m8ib.48xlarge`  | `m8ib.96xlarge`   |
-| M8idb           | `m8idb.large`            | `m8idb.xlarge`    | `m8idb.2xlarge`    | `m8idb.4xlarge`    | `m8idb.8xlarge`    | `m8idb.12xlarge`    | `m8idb.16xlarge`    | `m8idb.24xlarge`   | `m8idb.32xlarge`   | `m8idb.48xlarge` | `m8idb.96xlarge`  |
+| M8ib            | `m8ib.large`             | `m8ib.xlarge`     | `m8ib.2xlarge`     | `m8ib.4xlarge`     | `m8ib.8xlarge`     | `m8ib.12xlarge`     | `m8ib.16xlarge`     | `m8ib.24xlarge`    | `m8ib.32xlarge`    | `m8ib.48xlarge`  | `m8ib.96xlarge`   | `m8ib.metal-48xl`  | `m8ib.metal-96xl`  |
+| M8idb           | `m8idb.large`            | `m8idb.xlarge`    | `m8idb.2xlarge`    | `m8idb.4xlarge`    | `m8idb.8xlarge`    | `m8idb.12xlarge`    | `m8idb.16xlarge`    | `m8idb.24xlarge`   | `m8idb.32xlarge`   | `m8idb.48xlarge` | `m8idb.96xlarge`  | `m8idb.metal-48xl` | `m8idb.metal-96xl` |
+| M9g             | `m9g.medium`             | `m9g.large`       | `m9g.xlarge`       | `m9g.2xlarge`      | `m9g.4xlarge`      | `m9g.8xlarge`       | `m9g.12xlarge`      | `m9g.16xlarge`     | `m9g.24xlarge`     | `m9g.48xlarge`   | `m9g.metal-48xl`  |
+| M9gd            | `m9gd.medium`            | `m9gd.large`      | `m9gd.xlarge`      | `m9gd.2xlarge`     | `m9gd.4xlarge`     | `m9gd.8xlarge`      | `m9gd.12xlarge`     | `m9gd.16xlarge`    | `m9gd.24xlarge`    | `m9gd.48xlarge`  | `m9gd.metal-48xl` |
 | Mac1            | `mac1.metal`             |
 | Mac2            | `mac2.metal`             |
 | Mac2-m1ultra    | `mac2-m1ultra.metal`     |
@@ -103,11 +105,13 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | M8i             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8id            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✗ No                | Windows                     | Linux |
 | M8i-flex        | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| M8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| M8idn           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M8in            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M8idn           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
 | M8ine           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✗ No                    | ✗ No         | ✗ No                | Windows                     | Linux |
-| M8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
-| M8idb           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✗ No                      | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M8ib            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M8idb           | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64)                | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Windows                     | Linux |
+| M9g             | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
+| M9gd            | [Nitro v6](ec2-nitro-instances.md "ec2-nitro-instances.md") | AWS Graviton (arm64)          | ✓ Yes                     | ✓ Yes                   | ✓ Yes        | ✓ Yes               | Linux                       |
 | Mac1            | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Intel (x86_64_mac)            | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac2            | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64_mac)             | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
 | Mac2-m1ultra    | [Nitro v2](ec2-nitro-instances.md "ec2-nitro-instances.md") | Apple (arm64_mac)             | ✓ Yes                     | ✓ Yes                   | ✗ No         | ✗ No                | Linux                       |
@@ -443,6 +447,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m8in.32xlarge      | 512.00       | Intel Xeon Granite Rapids       | 128   | 64        | 2                | ✗ No         | ✗ No               |
 | m8in.48xlarge      | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | m8in.96xlarge      | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| m8in.metal-48xl    | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| m8in.metal-96xl    | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **M8idn**          |
 | m8idn.large        | 8.00         | Intel Xeon Granite Rapids       | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | m8idn.xlarge       | 16.00        | Intel Xeon Granite Rapids       | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -455,6 +461,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m8idn.32xlarge     | 512.00       | Intel Xeon Granite Rapids       | 128   | 64        | 2                | ✗ No         | ✗ No               |
 | m8idn.48xlarge     | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | m8idn.96xlarge     | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| m8idn.metal-48xl   | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| m8idn.metal-96xl   | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **M8ine**          |
 | m8ine.large        | 8.00         | Intel Xeon Granite Rapids       | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | m8ine.xlarge       | 16.00        | Intel Xeon Granite Rapids       | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -474,6 +482,8 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m8ib.32xlarge      | 512.00       | Intel Xeon Granite Rapids       | 128   | 64        | 2                | ✗ No         | ✗ No               |
 | m8ib.48xlarge      | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | m8ib.96xlarge      | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| m8ib.metal-48xl    | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| m8ib.metal-96xl    | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
 | **M8idb**          |
 | m8idb.large        | 8.00         | Intel Xeon Granite Rapids       | 2     | 1         | 2                | ✗ No         | ✗ No               |
 | m8idb.xlarge       | 16.00        | Intel Xeon Granite Rapids       | 4     | 2         | 2                | ✗ No         | ✗ No               |
@@ -486,6 +496,32 @@ For pricing information, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.c
 | m8idb.32xlarge     | 512.00       | Intel Xeon Granite Rapids       | 128   | 64        | 2                | ✗ No         | ✗ No               |
 | m8idb.48xlarge     | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
 | m8idb.96xlarge     | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| m8idb.metal-48xl   | 768.00       | Intel Xeon Granite Rapids       | 192   | 96        | 2                | ✗ No         | ✗ No               |
+| m8idb.metal-96xl   | 1536.00      | Intel Xeon Granite Rapids       | 384   | 192       | 2                | ✗ No         | ✗ No               |
+| **M9g**            |
+| m9g.medium         | 4.00         | AWS Graviton5                   | 1     | 1         | 1                | ✗ No         | ✗ No               |
+| m9g.large          | 8.00         | AWS Graviton5                   | 2     | 2         | 1                | ✗ No         | ✗ No               |
+| m9g.xlarge         | 16.00        | AWS Graviton5                   | 4     | 4         | 1                | ✗ No         | ✗ No               |
+| m9g.2xlarge        | 32.00        | AWS Graviton5                   | 8     | 8         | 1                | ✗ No         | ✗ No               |
+| m9g.4xlarge        | 64.00        | AWS Graviton5                   | 16    | 16        | 1                | ✗ No         | ✗ No               |
+| m9g.8xlarge        | 128.00       | AWS Graviton5                   | 32    | 32        | 1                | ✗ No         | ✗ No               |
+| m9g.12xlarge       | 192.00       | AWS Graviton5                   | 48    | 48        | 1                | ✗ No         | ✗ No               |
+| m9g.16xlarge       | 256.00       | AWS Graviton5                   | 64    | 64        | 1                | ✗ No         | ✗ No               |
+| m9g.24xlarge       | 384.00       | AWS Graviton5                   | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| m9g.48xlarge       | 768.00       | AWS Graviton5                   | 192   | 192       | 1                | ✗ No         | ✗ No               |
+| m9g.metal-48xl     | 768.00       | AWS Graviton5                   | 192   | 192       | 1                | ✗ No         | ✗ No               |
+| **M9gd**           |
+| m9gd.medium        | 4.00         | AWS Graviton5                   | 1     | 1         | 1                | ✗ No         | ✗ No               |
+| m9gd.large         | 8.00         | AWS Graviton5                   | 2     | 2         | 1                | ✗ No         | ✗ No               |
+| m9gd.xlarge        | 16.00        | AWS Graviton5                   | 4     | 4         | 1                | ✗ No         | ✗ No               |
+| m9gd.2xlarge       | 32.00        | AWS Graviton5                   | 8     | 8         | 1                | ✗ No         | ✗ No               |
+| m9gd.4xlarge       | 64.00        | AWS Graviton5                   | 16    | 16        | 1                | ✗ No         | ✗ No               |
+| m9gd.8xlarge       | 128.00       | AWS Graviton5                   | 32    | 32        | 1                | ✗ No         | ✗ No               |
+| m9gd.12xlarge      | 192.00       | AWS Graviton5                   | 48    | 48        | 1                | ✗ No         | ✗ No               |
+| m9gd.16xlarge      | 256.00       | AWS Graviton5                   | 64    | 64        | 1                | ✗ No         | ✗ No               |
+| m9gd.24xlarge      | 384.00       | AWS Graviton5                   | 96    | 96        | 1                | ✗ No         | ✗ No               |
+| m9gd.48xlarge      | 768.00       | AWS Graviton5                   | 192   | 192       | 1                | ✗ No         | ✗ No               |
+| m9gd.metal-48xl    | 768.00       | AWS Graviton5                   | 192   | 192       | 1                | ✗ No         | ✗ No               |
 | **Mac1**           |
 | mac1.metal         | 32.00        | Intel Core i7-8700B             | 12    | 6         | 2                | ✗ No         | ✗ No               |
 | **Mac2**           |
@@ -545,7 +581,7 @@ more information, see [Burstable performance instances](../../../AWSEC2/latest/U
 
 ###### Note
 
-M8a, M8g, M8gd, M8i, M8id, M8i-flex instance types support configurable bandwidth weightings.
+M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurable bandwidth weightings.
 With these instance types, you can optimize an instance's bandwidth for either networking performance
 or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
 instance types. For the supported configurable weightings, see [Configurable bandwidth weighting preferences](../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md "../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md").
@@ -776,7 +812,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8g.xlarge 1        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | m8g.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | m8g.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| m8g.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| m8g.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | m8g.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | m8g.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
 | m8g.24xlarge        | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
@@ -788,7 +824,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8gb.large 1        | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
 | m8gb.xlarge 1       | 8.333 / 26.666                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | m8gb.2xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| m8gb.4xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| m8gb.4xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | m8gb.8xlarge        | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
 | m8gb.12xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
 | m8gb.16xlarge       | 133.33 Gigabit                    | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
@@ -802,7 +838,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8gd.xlarge 1       | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | m8gd.2xlarge 1      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | m8gd.4xlarge 1      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
-| m8gd.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| m8gd.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | m8gd.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | m8gd.16xlarge       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
 | m8gd.24xlarge       | 40 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 15                      | 50                         | ✓ Yes |
@@ -814,7 +850,7 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8gn.large 1        | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 10                         | ✓ Yes |
 | m8gn.xlarge 1       | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | m8gn.2xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
-| m8gn.4xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
+| m8gn.4xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 30                         | ✓ Yes |
 | m8gn.8xlarge        | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 30                         | ✓ Yes |
 | m8gn.12xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 30                         | ✓ Yes |
 | m8gn.16xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 16                      | 50                         | ✓ Yes |
@@ -827,9 +863,9 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8i.xlarge 1        | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8i.2xlarge 1       | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8i.4xlarge 1       | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| m8i.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 50                         | ✓ Yes |
-| m8i.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
-| m8i.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
+| m8i.8xlarge         | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
+| m8i.12xlarge        | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| m8i.16xlarge        | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8i.24xlarge        | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8i.32xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8i.48xlarge        | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
@@ -841,9 +877,9 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8id.xlarge 1       | 1.875 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8id.2xlarge 1      | 3.75 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8id.4xlarge 1      | 7.5 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| m8id.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 10                      | 50                         | ✓ Yes |
-| m8id.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 12                      | 50                         | ✓ Yes |
-| m8id.16xlarge       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 16                      | 64                         | ✓ Yes |
+| m8id.8xlarge        | 15 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
+| m8id.12xlarge       | 22.5 Gigabit                      | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| m8id.16xlarge       | 30 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8id.24xlarge       | 40 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8id.32xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8id.48xlarge       | 75 Gigabit                        | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
@@ -863,25 +899,29 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8in.xlarge 1       | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8in.2xlarge 1      | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8in.4xlarge 1      | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| m8in.8xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m8in.8xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
 | m8in.12xlarge       | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
 | m8in.16xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8in.24xlarge       | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8in.32xlarge       | 200 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8in.48xlarge       | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8in.96xlarge       | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| m8in.metal-48xl     | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m8in.metal-96xl     | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | **M8idn**           |
 | m8idn.large 1       | 3.125 / 25.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
 | m8idn.xlarge 1      | 6.25 / 30.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8idn.2xlarge 1     | 12.5 / 40.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8idn.4xlarge 1     | 25.0 / 50.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| m8idn.8xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m8idn.8xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
 | m8idn.12xlarge      | 75 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
 | m8idn.16xlarge      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8idn.24xlarge      | 150 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8idn.32xlarge      | 200 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8idn.48xlarge      | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8idn.96xlarge      | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| m8idn.metal-48xl    | 300 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m8idn.metal-96xl    | 600 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | **M8ine**           |
 | m8ine.large         | 3.125 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
 | m8ine.xlarge        | 6.25 Gigabit                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
@@ -894,25 +934,53 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8ib.xlarge 1       | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8ib.2xlarge 1      | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8ib.4xlarge 1      | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| m8ib.8xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m8ib.8xlarge        | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
 | m8ib.12xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
 | m8ib.16xlarge       | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8ib.24xlarge       | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8ib.32xlarge       | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8ib.48xlarge       | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8ib.96xlarge       | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| m8ib.metal-48xl     | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m8ib.metal-96xl     | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
 | **M8idb**           |
 | m8idb.large 1       | 2.083 / 16.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 20                         | ✓ Yes |
 | m8idb.xlarge 1      | 4.166 / 20.0                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8idb.2xlarge 1     | 8.333 / 26.667                    | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
 | m8idb.4xlarge 1     | 16.666 / 33.333                   | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
-| m8idb.8xlarge       | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m8idb.8xlarge       | 33.33 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 8                       | 50                         | ✓ Yes |
 | m8idb.12xlarge      | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
 | m8idb.16xlarge      | 66.66 Gigabit                     | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8idb.24xlarge      | 100 Gigabit                       | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8idb.32xlarge      | 133.33 Gigabit                    | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
 | m8idb.48xlarge      | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | m8idb.96xlarge      | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| m8idb.metal-48xl    | 200 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m8idb.metal-96xl    | 400 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
+| **M9g**             |
+| m9g.medium 1        | 0.55 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 20                         | ✓ Yes |
+| m9g.large 1         | 1.0 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
+| m9g.xlarge 1        | 2.1 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| m9g.2xlarge 1       | 4.25 / 17.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| m9g.4xlarge 1       | 8.5 / 17.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m9g.8xlarge         | 17 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
+| m9g.12xlarge        | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| m9g.16xlarge        | 34 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m9g.24xlarge        | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m9g.48xlarge        | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m9g.metal-48xl      | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| **M9gd**            |
+| m9gd.medium 1       | 0.55 / 15.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 2                       | 20                         | ✓ Yes |
+| m9gd.large 1        | 1.0 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 3                       | 20                         | ✓ Yes |
+| m9gd.xlarge 1       | 2.1 / 15.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| m9gd.2xlarge 1      | 4.25 / 17.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 30                         | ✓ Yes |
+| m9gd.4xlarge 1      | 8.5 / 17.0                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 50                         | ✓ Yes |
+| m9gd.8xlarge        | 17 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 10                      | 50                         | ✓ Yes |
+| m9gd.12xlarge       | 25 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 12                      | 50                         | ✓ Yes |
+| m9gd.16xlarge       | 34 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 16                      | 64                         | ✓ Yes |
+| m9gd.24xlarge       | 50 Gigabit                        | ✗ No  | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m9gd.48xlarge       | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
+| m9gd.metal-48xl     | 100 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | **Mac1**            |
 | mac1.metal          | 25 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **Mac2**            |
@@ -972,10 +1040,10 @@ see [instance network bandwidth](../../../AWSEC2/latest/UserGuide/ec2-instance-n
 For `m6in.32xlarge`, `m6in.metal`, `m6idn.32xlarge`, `m6idn.metal`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 200 Gbps throughput. Each ENI attached to a network card can achieve up to 170 Gbps.
 
-For `m8in.96xlarge`, `m8idn.96xlarge`, `m8gn.48xlarge`, `m8gn.metal-48xl`, you must attach at least 2 ENIs, to separate network
+For `m8in.96xlarge`, `m8in.metal-96xl`, `m8idn.96xlarge`, `m8idn.metal-96xl`, `m8gn.48xlarge`, `m8gn.metal-48xl`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 600 Gbps throughput. Each ENI attached to a network card can achieve up to 300 Gbps.
 
-For `m8ib.96xlarge`, `m8idb.96xlarge`, `m8gb.48xlarge`, `m8gb.metal-48xl`, you must attach at least 2 ENIs, to separate network
+For `m8ib.96xlarge`, `m8ib.metal-96xl`, `m8idb.96xlarge`, `m8idb.metal-96xl`, `m8gb.48xlarge`, `m8gb.metal-48xl`, you must attach at least 2 ENIs, to separate network
 cards, to achieve 400 Gbps throughput. Each ENI attached to a network card can achieve up to 200 Gbps.
 
 ## Amazon EBS specifications
@@ -1002,7 +1070,7 @@ Amazon EBS and Amazon EC2 can become a performance bottleneck.
 
 ###### Note
 
-M8a, M8g, M8gd, M8i, M8id, M8i-flex instance types support configurable bandwidth weightings.
+M8a, M8g, M8gd, M8i, M8id, M8i-flex, M9g, M9gd instance types support configurable bandwidth weightings.
 With these instance types, you can optimize an instance's bandwidth for either networking performance
 or Amazon EBS performance. The following table shows the default networking bandwidth performance for these
 instance types. For the supported configurable weightings, see [Configurable bandwidth weighting preferences](../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md "../../../AWSEC2/latest/UserGuide/configure-bandwidth-weighting.md").
@@ -1327,6 +1395,8 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8in.32xlarge       | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8in.48xlarge       | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | m8in.96xlarge       | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m8in.metal-48xl     | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8in.metal-96xl     | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **M8idn**           |
 | m8idn.large 1       | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8idn.xlarge 1      | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1339,6 +1409,8 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8idn.32xlarge      | 40000.00                            | 5000.00                                           | 160000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8idn.48xlarge      | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | m8idn.96xlarge      | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m8idn.metal-48xl    | 60000.00                            | 7500.00                                           | 240000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idn.metal-96xl    | 120000.00                           | 15000.00                                          | 480000.00                            | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **M8ine**           |
 | m8ine.large 1       | 650.00 / 10000.00                   | 81.25 / 1250.00                                   | 3600.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8ine.xlarge 1      | 1250.00 / 10000.00                  | 156.25 / 1250.00                                  | 6000.00 / 40000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1358,6 +1430,8 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8ib.32xlarge       | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8ib.48xlarge       | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | m8ib.96xlarge       | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m8ib.metal-48xl     | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8ib.metal-96xl     | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **M8idb**           |
 | m8idb.large 1       | 1563.00 / 25000.00                  | 195.38 / 3125.00                                  | 7500.00 / 120000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8idb.xlarge 1      | 3125.00 / 25000.00                  | 390.62 / 3125.00                                  | 15000.00 / 120000.00                 | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
@@ -1370,6 +1444,32 @@ instance types. For the supported configurable weightings, see [Configurable ban
 | m8idb.32xlarge      | 100000.00                           | 12500.00                                          | 480000.00                            | ✓ Yes | ✗ No                                                                                                                 | 88 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | m8idb.48xlarge      | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
 | m8idb.96xlarge      | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m8idb.metal-48xl    | 150000.00                           | 18750.00                                          | 720000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m8idb.metal-96xl    | 300000.00                           | 37500.00                                          | 1440000.00                           | ✓ Yes | ✓ Yes ([2 EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md")) | 78 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **M9g**             |
+| m9g.medium 1        | 380.00 / 12000.00                   | 47.50 / 1500.00                                   | 2500.00 / 48000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.large 1         | 760.00 / 12000.00                   | 95.00 / 1500.00                                   | 3600.00 / 48000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.xlarge 1        | 1500.00 / 12000.00                  | 187.50 / 1500.00                                  | 6000.00 / 48000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.2xlarge 1       | 3000.00 / 12000.00                  | 375.00 / 1500.00                                  | 12000.00 / 48000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.4xlarge 1       | 6000.00 / 12000.00                  | 750.00 / 1500.00                                  | 24000.00 / 48000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.8xlarge         | 12000.00                            | 1500.00                                           | 48000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.12xlarge        | 18000.00                            | 2250.00                                           | 72000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.16xlarge        | 24000.00                            | 3000.00                                           | 96000.00                             | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.24xlarge        | 36000.00                            | 4500.00                                           | 144000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9g.48xlarge        | 72000.00                            | 9000.00                                           | 288000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m9g.metal-48xl      | 72000.00                            | 9000.00                                           | 288000.00                            | ✓ Yes | ✗ No                                                                                                                 | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| **M9gd**            |
+| m9gd.medium 1       | 380.00 / 12000.00                   | 47.50 / 1500.00                                   | 2500.00 / 48000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.large 1        | 760.00 / 12000.00                   | 95.00 / 1500.00                                   | 3600.00 / 48000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.xlarge 1       | 1500.00 / 12000.00                  | 187.50 / 1500.00                                  | 6000.00 / 48000.00                   | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.2xlarge 1      | 3000.00 / 12000.00                  | 375.00 / 1500.00                                  | 12000.00 / 48000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.4xlarge 1      | 6000.00 / 12000.00                  | 750.00 / 1500.00                                  | 24000.00 / 48000.00                  | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.8xlarge        | 12000.00                            | 1500.00                                           | 48000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.12xlarge       | 18000.00                            | 2250.00                                           | 72000.00                             | ✓ Yes | ✗ No                                                                                                                 | 32 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.16xlarge       | 24000.00                            | 3000.00                                           | 96000.00                             | ✓ Yes | ✗ No                                                                                                                 | 48 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.24xlarge       | 36000.00                            | 4500.00                                           | 144000.00                            | ✓ Yes | ✗ No                                                                                                                 | 64 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
+| m9gd.48xlarge       | 72000.00                            | 9000.00                                           | 288000.00                            | ✓ Yes | ✗ No                                                                                                                 | 128 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit")) |
+| m9gd.metal-48xl     | 72000.00                            | 9000.00                                           | 288000.00                            | ✓ Yes | ✗ No                                                                                                                 | 79 ([Dedicated limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#dedicated-limit"))  |
 | **Mac1**            |
 | mac1.metal          | 14000.00                            | 1750.00                                           | 80000.00                             | ✓ Yes | ✗ No                                                                                                                 | Up to 16 ([Shared limit](../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit "../../../AWSEC2/latest/UserGuide/volume_limits.md#shared-limit"))     |
 | **Mac2**            |
@@ -1424,134 +1524,150 @@ instances.
 The following table shows the instance store volume configuration for supported instance types,
 along with the aggregated IOPS performance with 4,096 byte block size at queue depth saturation.
 
-| Instance type   | Instance store volumes | Instance store type | 100% random read IOPS / Write IOPS | Needs initialization 1 | TRIM support 2 |
-| --------------- | ---------------------- | ------------------- | ---------------------------------- | ---------------------- | -------------- |
-| **M5ad**        |
-| m5ad.large      | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
-| m5ad.xlarge     | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
-| m5ad.2xlarge    | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
-| m5ad.4xlarge    | 2 x 300 GB             | NVMe SSD            | 234,000 / 114,000                  |                        | ✓ Yes          |
-| m5ad.8xlarge    | 2 x 600 GB             | NVMe SSD            | 466,666 / 233,334                  |                        | ✓ Yes          |
-| m5ad.12xlarge   | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
-| m5ad.16xlarge   | 4 x 600 GB             | NVMe SSD            | 933,332 / 466,668                  |                        | ✓ Yes          |
-| m5ad.24xlarge   | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
-| **M5d**         |
-| m5d.large       | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
-| m5d.xlarge      | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
-| m5d.2xlarge     | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
-| m5d.4xlarge     | 2 x 300 GB             | NVMe SSD            | 234,000 / 114,000                  |                        | ✓ Yes          |
-| m5d.8xlarge     | 2 x 600 GB             | NVMe SSD            | 466,666 / 233,334                  |                        | ✓ Yes          |
-| m5d.12xlarge    | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
-| m5d.16xlarge    | 4 x 600 GB             | NVMe SSD            | 933,332 / 466,668                  |                        | ✓ Yes          |
-| m5d.24xlarge    | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
-| m5d.metal       | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
-| **M5dn**        |
-| m5dn.large      | 1 x 75 GB              | NVMe SSD            | 29,000 / 14,500                    |                        | ✓ Yes          |
-| m5dn.xlarge     | 1 x 150 GB             | NVMe SSD            | 58,000 / 29,000                    |                        | ✓ Yes          |
-| m5dn.2xlarge    | 1 x 300 GB             | NVMe SSD            | 116,000 / 58,000                   |                        | ✓ Yes          |
-| m5dn.4xlarge    | 2 x 300 GB             | NVMe SSD            | 232,000 / 116,000                  |                        | ✓ Yes          |
-| m5dn.8xlarge    | 2 x 600 GB             | NVMe SSD            | 464,000 / 232,000                  |                        | ✓ Yes          |
-| m5dn.12xlarge   | 2 x 900 GB             | NVMe SSD            | 700,000 / 350,000                  |                        | ✓ Yes          |
-| m5dn.16xlarge   | 4 x 600 GB             | NVMe SSD            | 930,000 / 465,000                  |                        | ✓ Yes          |
-| m5dn.24xlarge   | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 700,000                |                        | ✓ Yes          |
-| m5dn.metal      | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 700,000                |                        | ✓ Yes          |
-| **M6gd**        |
-| m6gd.medium     | 1 x 59 GB              | NVMe SSD            | 13,438 / 5,625                     |                        | ✓ Yes          |
-| m6gd.large      | 1 x 118 GB             | NVMe SSD            | 26,875 / 11,250                    |                        | ✓ Yes          |
-| m6gd.xlarge     | 1 x 237 GB             | NVMe SSD            | 53,750 / 22,500                    |                        | ✓ Yes          |
-| m6gd.2xlarge    | 1 x 474 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
-| m6gd.4xlarge    | 1 x 950 GB             | NVMe SSD            | 215,000 / 90,000                   |                        | ✓ Yes          |
-| m6gd.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
-| m6gd.12xlarge   | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
-| m6gd.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| m6gd.metal      | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
-| **M6id**        |
-| m6id.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| m6id.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| m6id.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| m6id.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| m6id.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| m6id.12xlarge   | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
-| m6id.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| m6id.24xlarge   | 4 x 1425 GB            | NVMe SSD            | 1,609,996 / 805,000                |                        | ✓ Yes          |
-| m6id.32xlarge   | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| m6id.metal      | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| **M6idn**       |
-| m6idn.large     | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| m6idn.xlarge    | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| m6idn.2xlarge   | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| m6idn.4xlarge   | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| m6idn.8xlarge   | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| m6idn.12xlarge  | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
-| m6idn.16xlarge  | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| m6idn.24xlarge  | 4 x 1425 GB            | NVMe SSD            | 1,609,996 / 805,000                |                        | ✓ Yes          |
-| m6idn.32xlarge  | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| m6idn.metal     | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| **M7gd**        |
-| m7gd.medium     | 1 x 59 GB              | NVMe SSD            | 16,771 / 8,385                     |                        | ✓ Yes          |
-| m7gd.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| m7gd.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| m7gd.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| m7gd.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| m7gd.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| m7gd.12xlarge   | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
-| m7gd.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| m7gd.metal      | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| **M8gd**        |
-| m8gd.medium     | 1 x 59 GB              | NVMe SSD            | 16,771 / 8,385                     |                        | ✓ Yes          |
-| m8gd.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| m8gd.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| m8gd.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| m8gd.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| m8gd.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| m8gd.12xlarge   | 3 x 950 GB             | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
-| m8gd.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| m8gd.24xlarge   | 3 x 1900 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
-| m8gd.48xlarge   | 6 x 1900 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
-| m8gd.metal-24xl | 3 x 1900 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
-| m8gd.metal-48xl | 6 x 1900 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
-| **M8id**        |
-| m8id.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| m8id.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| m8id.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| m8id.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| m8id.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| m8id.12xlarge   | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
-| m8id.16xlarge   | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| m8id.24xlarge   | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
-| m8id.32xlarge   | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| m8id.48xlarge   | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
-| m8id.96xlarge   | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
-| m8id.metal-48xl | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
-| m8id.metal-96xl | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
-| **M8idn**       |
-| m8idn.large     | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| m8idn.xlarge    | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| m8idn.2xlarge   | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| m8idn.4xlarge   | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| m8idn.8xlarge   | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| m8idn.12xlarge  | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
-| m8idn.16xlarge  | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| m8idn.24xlarge  | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
-| m8idn.32xlarge  | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| m8idn.48xlarge  | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
-| m8idn.96xlarge  | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
-| **M8idb**       |
-| m8idb.large     | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
-| m8idb.xlarge    | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
-| m8idb.2xlarge   | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
-| m8idb.4xlarge   | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
-| m8idb.8xlarge   | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
-| m8idb.12xlarge  | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
-| m8idb.16xlarge  | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
-| m8idb.24xlarge  | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
-| m8idb.32xlarge  | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
-| m8idb.48xlarge  | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
-| m8idb.96xlarge  | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
-| **Mac-m4**      |
-| mac-m4.metal    | 1 x 1900 GB            | NVMe SSD            | 550,000 / 275,000                  |                        | ✓ Yes          |
-| **Mac-m4pro**   |
-| mac-m4pro.metal | 1 x 1900 GB            | NVMe SSD            | 550,000 / 275,000                  |                        | ✓ Yes          |
+| Instance type    | Instance store volumes | Instance store type | 100% random read IOPS / Write IOPS | Needs initialization 1 | TRIM support 2 |
+| ---------------- | ---------------------- | ------------------- | ---------------------------------- | ---------------------- | -------------- |
+| **M5ad**         |
+| m5ad.large       | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
+| m5ad.xlarge      | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
+| m5ad.2xlarge     | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
+| m5ad.4xlarge     | 2 x 300 GB             | NVMe SSD            | 234,000 / 114,000                  |                        | ✓ Yes          |
+| m5ad.8xlarge     | 2 x 600 GB             | NVMe SSD            | 466,666 / 233,334                  |                        | ✓ Yes          |
+| m5ad.12xlarge    | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
+| m5ad.16xlarge    | 4 x 600 GB             | NVMe SSD            | 933,332 / 466,668                  |                        | ✓ Yes          |
+| m5ad.24xlarge    | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
+| **M5d**          |
+| m5d.large        | 1 x 75 GB              | NVMe SSD            | 30,000 / 15,000                    |                        | ✓ Yes          |
+| m5d.xlarge       | 1 x 150 GB             | NVMe SSD            | 59,000 / 29,000                    |                        | ✓ Yes          |
+| m5d.2xlarge      | 1 x 300 GB             | NVMe SSD            | 117,000 / 57,000                   |                        | ✓ Yes          |
+| m5d.4xlarge      | 2 x 300 GB             | NVMe SSD            | 234,000 / 114,000                  |                        | ✓ Yes          |
+| m5d.8xlarge      | 2 x 600 GB             | NVMe SSD            | 466,666 / 233,334                  |                        | ✓ Yes          |
+| m5d.12xlarge     | 2 x 900 GB             | NVMe SSD            | 700,000 / 340,000                  |                        | ✓ Yes          |
+| m5d.16xlarge     | 4 x 600 GB             | NVMe SSD            | 933,332 / 466,668                  |                        | ✓ Yes          |
+| m5d.24xlarge     | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
+| m5d.metal        | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 680,000                |                        | ✓ Yes          |
+| **M5dn**         |
+| m5dn.large       | 1 x 75 GB              | NVMe SSD            | 29,000 / 14,500                    |                        | ✓ Yes          |
+| m5dn.xlarge      | 1 x 150 GB             | NVMe SSD            | 58,000 / 29,000                    |                        | ✓ Yes          |
+| m5dn.2xlarge     | 1 x 300 GB             | NVMe SSD            | 116,000 / 58,000                   |                        | ✓ Yes          |
+| m5dn.4xlarge     | 2 x 300 GB             | NVMe SSD            | 232,000 / 116,000                  |                        | ✓ Yes          |
+| m5dn.8xlarge     | 2 x 600 GB             | NVMe SSD            | 464,000 / 232,000                  |                        | ✓ Yes          |
+| m5dn.12xlarge    | 2 x 900 GB             | NVMe SSD            | 700,000 / 350,000                  |                        | ✓ Yes          |
+| m5dn.16xlarge    | 4 x 600 GB             | NVMe SSD            | 930,000 / 465,000                  |                        | ✓ Yes          |
+| m5dn.24xlarge    | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 700,000                |                        | ✓ Yes          |
+| m5dn.metal       | 4 x 900 GB             | NVMe SSD            | 1,400,000 / 700,000                |                        | ✓ Yes          |
+| **M6gd**         |
+| m6gd.medium      | 1 x 59 GB              | NVMe SSD            | 13,438 / 5,625                     |                        | ✓ Yes          |
+| m6gd.large       | 1 x 118 GB             | NVMe SSD            | 26,875 / 11,250                    |                        | ✓ Yes          |
+| m6gd.xlarge      | 1 x 237 GB             | NVMe SSD            | 53,750 / 22,500                    |                        | ✓ Yes          |
+| m6gd.2xlarge     | 1 x 474 GB             | NVMe SSD            | 107,500 / 45,000                   |                        | ✓ Yes          |
+| m6gd.4xlarge     | 1 x 950 GB             | NVMe SSD            | 215,000 / 90,000                   |                        | ✓ Yes          |
+| m6gd.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 430,000 / 180,000                  |                        | ✓ Yes          |
+| m6gd.12xlarge    | 2 x 1425 GB            | NVMe SSD            | 645,000 / 270,000                  |                        | ✓ Yes          |
+| m6gd.16xlarge    | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| m6gd.metal       | 2 x 1900 GB            | NVMe SSD            | 860,000 / 360,000                  |                        | ✓ Yes          |
+| **M6id**         |
+| m6id.large       | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m6id.xlarge      | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m6id.2xlarge     | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m6id.4xlarge     | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m6id.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m6id.12xlarge    | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
+| m6id.16xlarge    | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m6id.24xlarge    | 4 x 1425 GB            | NVMe SSD            | 1,609,996 / 805,000                |                        | ✓ Yes          |
+| m6id.32xlarge    | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| m6id.metal       | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| **M6idn**        |
+| m6idn.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m6idn.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m6idn.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m6idn.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m6idn.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m6idn.12xlarge   | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
+| m6idn.16xlarge   | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m6idn.24xlarge   | 4 x 1425 GB            | NVMe SSD            | 1,609,996 / 805,000                |                        | ✓ Yes          |
+| m6idn.32xlarge   | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| m6idn.metal      | 4 x 1900 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| **M7gd**         |
+| m7gd.medium      | 1 x 59 GB              | NVMe SSD            | 16,771 / 8,385                     |                        | ✓ Yes          |
+| m7gd.large       | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m7gd.xlarge      | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m7gd.2xlarge     | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m7gd.4xlarge     | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m7gd.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m7gd.12xlarge    | 2 x 1425 GB            | NVMe SSD            | 804,998 / 402,500                  |                        | ✓ Yes          |
+| m7gd.16xlarge    | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m7gd.metal       | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| **M8gd**         |
+| m8gd.medium      | 1 x 59 GB              | NVMe SSD            | 16,771 / 8,385                     |                        | ✓ Yes          |
+| m8gd.large       | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m8gd.xlarge      | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m8gd.2xlarge     | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m8gd.4xlarge     | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m8gd.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m8gd.12xlarge    | 3 x 950 GB             | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| m8gd.16xlarge    | 2 x 1900 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m8gd.24xlarge    | 3 x 1900 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| m8gd.48xlarge    | 6 x 1900 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8gd.metal-24xl  | 3 x 1900 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| m8gd.metal-48xl  | 6 x 1900 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| **M8id**         |
+| m8id.large       | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m8id.xlarge      | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m8id.2xlarge     | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m8id.4xlarge     | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m8id.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m8id.12xlarge    | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| m8id.16xlarge    | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m8id.24xlarge    | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| m8id.32xlarge    | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| m8id.48xlarge    | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8id.96xlarge    | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| m8id.metal-48xl  | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8id.metal-96xl  | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| **M8idn**        |
+| m8idn.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m8idn.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m8idn.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m8idn.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m8idn.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m8idn.12xlarge   | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| m8idn.16xlarge   | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m8idn.24xlarge   | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| m8idn.32xlarge   | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| m8idn.48xlarge   | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8idn.96xlarge   | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| m8idn.metal-48xl | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8idn.metal-96xl | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| **M8idb**        |
+| m8idb.large      | 1 x 118 GB             | NVMe SSD            | 33,542 / 16,771                    |                        | ✓ Yes          |
+| m8idb.xlarge     | 1 x 237 GB             | NVMe SSD            | 67,083 / 33,542                    |                        | ✓ Yes          |
+| m8idb.2xlarge    | 1 x 474 GB             | NVMe SSD            | 134,167 / 67,084                   |                        | ✓ Yes          |
+| m8idb.4xlarge    | 1 x 950 GB             | NVMe SSD            | 268,333 / 134,167                  |                        | ✓ Yes          |
+| m8idb.8xlarge    | 1 x 1900 GB            | NVMe SSD            | 536,666 / 268,334                  |                        | ✓ Yes          |
+| m8idb.12xlarge   | 1 x 2850 GB            | NVMe SSD            | 804,999 / 402,501                  |                        | ✓ Yes          |
+| m8idb.16xlarge   | 1 x 3800 GB            | NVMe SSD            | 1,073,332 / 536,668                |                        | ✓ Yes          |
+| m8idb.24xlarge   | 2 x 2850 GB            | NVMe SSD            | 1,609,998 / 805,002                |                        | ✓ Yes          |
+| m8idb.32xlarge   | 2 x 3800 GB            | NVMe SSD            | 2,146,664 / 1,073,336              |                        | ✓ Yes          |
+| m8idb.48xlarge   | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8idb.96xlarge   | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| m8idb.metal-48xl | 3 x 3800 GB            | NVMe SSD            | 3,219,996 / 1,610,004              |                        | ✓ Yes          |
+| m8idb.metal-96xl | 6 x 3800 GB            | NVMe SSD            | 6,439,992 / 3,220,008              |                        | ✓ Yes          |
+| **M9gd**         |
+| m9gd.medium      | 1 x 59 GB              | NVMe SSD            | 21,802 / 10,901                    |                        | ✓ Yes          |
+| m9gd.large       | 1 x 118 GB             | NVMe SSD            | 43,604 / 21,802                    |                        | ✓ Yes          |
+| m9gd.xlarge      | 1 x 237 GB             | NVMe SSD            | 87,207 / 43,604                    |                        | ✓ Yes          |
+| m9gd.2xlarge     | 1 x 474 GB             | NVMe SSD            | 174,417 / 87,209                   |                        | ✓ Yes          |
+| m9gd.4xlarge     | 1 x 950 GB             | NVMe SSD            | 348,832 / 174,417                  |                        | ✓ Yes          |
+| m9gd.8xlarge     | 1 x 1900 GB            | NVMe SSD            | 697,665 / 348,834                  |                        | ✓ Yes          |
+| m9gd.12xlarge    | 3 x 950 GB             | NVMe SSD            | 1,046,496 / 523,251                |                        | ✓ Yes          |
+| m9gd.16xlarge    | 1 x 3800 GB            | NVMe SSD            | 1,395,331 / 697,668                |                        | ✓ Yes          |
+| m9gd.24xlarge    | 3 x 1900 GB            | NVMe SSD            | 2,092,995 / 1,046,502              |                        | ✓ Yes          |
+| m9gd.48xlarge    | 3 x 3800 GB            | NVMe SSD            | 4,185,993 / 2,093,004              |                        | ✓ Yes          |
+| m9gd.metal-48xl  | 3 x 3800 GB            | NVMe SSD            | 4,185,993 / 2,093,004              |                        | ✓ Yes          |
+| **Mac-m4**       |
+| mac-m4.metal     | 1 x 1900 GB            | NVMe SSD            | 550,000 / 275,000                  |                        | ✓ Yes          |
+| **Mac-m4pro**    |
+| mac-m4pro.metal  | 1 x 1900 GB            | NVMe SSD            | 550,000 / 275,000                  |                        | ✓ Yes          |
 
 1 Volumes attached to certain instances suffer a first-write
 penalty unless initialized. For more information, see [Optimize disk performance for
@@ -1882,6 +1998,8 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m8in.32xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8in.48xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8in.96xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8in.metal-48xl    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| m8in.metal-96xl    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **M8idn**          |
 | m8idn.large        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | m8idn.xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
@@ -1894,6 +2012,8 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m8idn.32xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8idn.48xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8idn.96xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idn.metal-48xl   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| m8idn.metal-96xl   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **M8ine**          |
 | m8ine.large        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | m8ine.xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
@@ -1913,6 +2033,8 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m8ib.32xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8ib.48xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8ib.96xlarge      | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8ib.metal-48xl    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| m8ib.metal-96xl    | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **M8idb**          |
 | m8idb.large        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
 | m8idb.xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
@@ -1925,6 +2047,32 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | m8idb.32xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8idb.48xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | m8idb.96xlarge     | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m8idb.metal-48xl   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| m8idb.metal-96xl   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| **M9g**            |
+| m9g.medium         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| m9g.large          | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.xlarge         | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.2xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.4xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.8xlarge        | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.12xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.16xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.24xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.48xlarge       | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9g.metal-48xl     | ✓ Yes          | Instance store not supported | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| **M9gd**           |
+| m9gd.medium        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✗ No           |
+| m9gd.large         | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.xlarge        | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.2xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.4xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.8xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.12xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.16xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.24xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.48xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
+| m9gd.metal-48xl    | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | **Mac1**           |
 | mac1.metal         | ✓ Yes          | Instance store not supported | ✗ No                  | ✗ No        | ✗ No     | ✗ No           |
 | **Mac2**           |

@@ -23,6 +23,7 @@ instances are well suited for the following:
 The following components are part of the Nitro System:
 
 - Nitro card
+
   - Local NVMe storage volumes
   - Networking hardware support
   - Management
@@ -104,7 +105,7 @@ The following virtualized instances are built on the Nitro System:
 
 Nitro v6
 
-- **General Purpose**: M8a | M8azn | M8gb | M8gn | M8i | M8id | M8i-flex | M8in | M8idn | M8ine | M8ib | M8idb
+- **General Purpose**: M8a | M8azn | M8gb | M8gn | M8i | M8id | M8i-flex | M8in | M8idn | M8ine | M8ib | M8idb | M9g | M9gd
 - **Compute Optimized**: C8a | C8gb | C8gn | C8i | C8id | C8i-flex | C8in | C8ine | C8ib
 - **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8id | R8i-flex | R8in | R8idn | R8ib | R8idb | X8aedz | X8i
 - **Storage Optimized**: I8ge
@@ -152,9 +153,9 @@ The following bare metal instances are built on the Nitro System:
 
 Nitro v6
 
-- **General Purpose**: M8a | M8azn | M8gb | M8gn | M8i | M8id
+- **General Purpose**: M8a | M8azn | M8gb | M8gn | M8i | M8id | M8in | M8idn | M8ib | M8idb | M9g | M9gd
 - **Compute Optimized**: C8a | C8gb | C8gn | C8i | C8id | C8in | C8ib
-- **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8id | X8aedz | X8i
+- **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8id | R8in | R8idn | R8ib | R8idb | X8aedz | X8i
 - **Storage Optimized**: I8ge
 
 Nitro v5
@@ -243,10 +244,12 @@ The following ENA Linux driver versions are not supported, and
 will result in elastic network interface attachment failures:
 
 - ENA Linux
+
   - Nitro v5 – Earlier than 2.2.9
   - All Nitro versions prior to v5 – Earlier than v1.2.0
 
 - ENA DPDK
+
   - Nitro v5 – Earlier than 20.11
   - All Nitro versions prior to v5 – Earlier than v1.1.1
 
