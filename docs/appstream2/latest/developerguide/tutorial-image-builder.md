@@ -40,6 +40,7 @@ account, the image builder will not start and image creation will fail.
 ###### To install applications on the image builder
 
 1. Connect to the image builder by doing either of the following:
+
    - [Use the WorkSpaces Applications
      console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a
@@ -119,6 +120,7 @@ not have local administrator permissions.
    **Switch user**. This disconnects you from the current
    session and displays the login menu.
 2. Do either of the following:
+
    - If your image builder is not joined to an Active Directory domain, on
      the **Local User** tab, choose **Template
      User**. This account enables you to create your default
@@ -142,6 +144,7 @@ not have local administrator permissions.
    administrator permissions).
 10. In Image Assistant, in **2. Configure Apps**, do either of
     the following:
+
     - If your image builder is not joined to an Active Directory domain,
       choose **Save settings**.
     - If your image builder is joined to an Active Directory domain, in the
@@ -173,6 +176,7 @@ local administrator permissions.
 
 1. In Image Assistant, in **3. Test**, do either of the
    following:
+
    - If your image builder is not joined to an Active Directory domain,
      choose **Switch user**.
    - If your image builder is joined to an Active Directory domain, you
@@ -189,6 +193,7 @@ local administrator permissions.
    image builder, the list does not display any users.
 
 2. Choose the user to use for testing by doing either of the following:
+
    - If your image builder is not joined to an Active Directory domain,
      choose **Test User**. This account enables you to test
      your applications by using the same policies and permissions as your
@@ -209,6 +214,7 @@ local administrator permissions.
    and 5 to test each application as needed.
 7. When you're done, choose **Switch user**, then do either of
    the following:
+
    - If your image builder is not joined to an Active Directory domain, on
      the **Local User** tab, choose
      **Administrator**.
@@ -338,6 +344,7 @@ experience streaming applications with WorkSpaces Applications.
 3. Choose **Actions**, **Copy**.
 4. In the **Copy Image** dialog box, specify the following
    information, and then choose **Copy Image:**
+
    - For **Destination region**, choose the region to
      which to copy the new image.
    - For **Name**, specify a name that the image will have

@@ -24,13 +24,14 @@ it by making the following changes in your images:
 
 - For Windows: Configure the following registry setting on image
   builder.
+
   - Using PowerShell:
 
   ```
   Set-ItemProperty "HKLM:\SOFTWARE\Amazon\AppStream" -Name EnableNonGraphics4K -Value 1
   ```
-
   - Using registry edit (regedit):
+
     - Registry path: `HKLM:Software\Amazon\AppStream`
     - Registry value name: `EnableNonGraphics4K`
     - Registry value data: `1`
@@ -75,13 +76,14 @@ limit the resolution to 2K (2560x1440).
 
 - For Windows: Configure the following registry setting on image
   builder.
+
   - Using PowerShell:
 
   ```
   Set-ItemProperty "HKLM:\SOFTWARE\Amazon\AppStream" -Name EnableNonGraphics4K -Value 0
   ```
-
   - Using registry edit (regedit):
+
     - Registry path: `HKLM:Software\Amazon\AppStream`
     - Registry value name: `EnableNonGraphics4K`
     - Registry value data: `0`

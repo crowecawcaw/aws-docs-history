@@ -79,6 +79,7 @@ with desktop applications.
    **Next**.
 5. On the **Edit agent settings** page (step 3 of 4),
    configure the following:
+
    - **Enable computer input** — Allow agents to
      choose buttons, enter text, and scroll on the desktop. If you enable
      computer input, you must also enable computer vision.

@@ -20,8 +20,10 @@ favicon.
 4. Choose **Branding**, **Custom**.
 5. For **Application catalog page**, customize how the streaming
    application catalog page appears to users after they sign in to WorkSpaces Applications.
+
    1. For **Organization logo**, do either of the
       following:
+
       - Either enter the Amazon S3 URI that represents the organization
         logo, or choose **Browse S3** to navigate to
         your Amazon S3 buckets and find the organization logo.
@@ -44,9 +46,11 @@ favicon.
 6. For **Browser tab**, customize the page title and icon to
    display to users at the top of their browser tab during streaming
    sessions.
+
    1. For **Page title**, enter the title to display at the top
       of the browser tab.
    2. For **Favicon**, do either of the following:
+
       - Enter the Amazon S3 URI that represents the favicon, or choose
         **Browse S3** to navigate to your Amazon S3
         buckets and find the favicon.
@@ -57,6 +61,7 @@ favicon.
         favicon.
 
 7. Do either of the following:
+
    - To apply your branding changes, choose **Save**. When users connect to new streaming sessions that are launched for the stack, your branding changes are displayed.
 
    ###### Note

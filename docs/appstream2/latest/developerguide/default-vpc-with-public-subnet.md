@@ -22,6 +22,7 @@ configure a non-default VPC with a public subnet. For more information, see
 
 1. Complete the steps in [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md") up to **Step 4: Configure Network**.
 2. In **Step 4: Configure Network**, do the following:
+
    - To enable your fleet instances to access the internet, select the **Default Internet
      Access** check box.
 
@@ -49,6 +50,7 @@ configure a non-default VPC with a public subnet. For more information, see
 
 1. Follow the steps in [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md") up to **Step 3: Configure Network**.
 2. In **Step 4: Configure Network**, do the following:
+
    - To enable your image builder to access the internet, select the **Default Internet Access** check box.
    - For **VPC**, choose the default VPC for your AWS Region.
 
@@ -71,6 +73,7 @@ configure a non-default VPC with a public subnet. For more information, see
 1. Follow the steps in [Create an App Block Builder](create-app-block-builder.md "create-app-block-builder.md"), up to **Step 2:
    Configure Network**.
 2. In **Step 2: Configure Network**, do the following:
+
    - To enable your image builder to access the internet, select the **Default Internet Access** check box.
    - For **VPC**, choose the default VPC for your AWS Region.
 

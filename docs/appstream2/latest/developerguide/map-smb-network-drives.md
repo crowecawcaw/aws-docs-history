@@ -63,6 +63,7 @@ with user permissions.
    within another similar symlink) and remote-to-local (for example, a symlink mapping to a
    local share within a symlink mapping to a network share) accesses are disabled.
    If symlink mapping is needed, run the commands below:
+
    - For enabling remote-to-remote access - `fsutil behavior set SymlinkEvaluation R2R:1`
    - For enabling remote-to-local access - `fsutil behavior set SymlinkEvaluation R2L:1`
 

@@ -9,6 +9,7 @@ and audio conferencing within your WorkSpaces Applications streaming session.
 1. Open the WorkSpaces Applications client and connect to a streaming session.
 2. In the WorkSpaces Applications toolbar in the top left of your session window, do
    either of the following:
+
    - If the video icon has a diagonal line through it (as shown in
      the following screenshot), this indicates that the WorkSpaces Applications
      real-time AV feature is available for use but no webcams are
@@ -52,6 +53,7 @@ from the session. For more information, see the next procedure.
 
 1. Within your WorkSpaces Applications streaming session, in the WorkSpaces Applications toolbar in the top
    left of your session window, do either of the following:
+
    - If the video icon does not have a diagonal line through it (as
      shown in the following screenshot), this indicates that the
      WorkSpaces Applications real-time AV feature is available for use and that

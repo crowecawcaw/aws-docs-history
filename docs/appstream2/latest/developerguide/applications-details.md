@@ -72,12 +72,15 @@ DisplayName
 AbsoluteAppPath [**Required**]
 
 - The path to the executable to launch your application
+
   - This is the executable that will be launched when users select your application
 
 - Between 1 and 32767 characters
+
   - This character length upper limit is to support extended file paths in Windows. Ensure your AMI and application is properly configured to support Windows extended file paths if using file paths larger than 260 characters.
 
 - Use escaped file path strings such as
+
   - `"C:\\Windows\\System32\\notepad.exe"`
 
 AbsoluteManifestPath
@@ -85,32 +88,40 @@ AbsoluteManifestPath
 - Only applicable if you are using [Application Specific Manifests](#application-specific-manifests "#application-specific-manifests")
 - Path to prewarm manifest file for this application
 - Between 0 and 32767 characters
+
   - This character length upper limit is to support extended file paths in Windows. Ensure your AMI and application is properly configured to support Windows extended file paths if using file paths larger than 260 characters.
 
 - Use escaped file path strings such as
+
   - `"C:\\Path\\To\\PrewarmManifest.txt"`
 
 AbsoluteIconPath
 
 - Path to icon file on the AMI to use for the application.
+
   - This icon will be shown to users when streaming to this image.
   - If none is provided the icon will be derived from the executable itself.
   - Take care to select icon files with appropriately handled background transparency for a good client experience for your users
+
     - Use PNG images
 
 - Between 1 and 32767 characters
+
   - This character length upper limit is to support extended file paths in Windows. Ensure your AMI and application is properly configured to support Windows extended file paths if using file paths larger than 260 characters.
 
 - Use escaped file path strings such as
+
   - `"C:\\Path\\To\\ApplicationIcon.png"`
 
 WorkingDirectory
 
 - The working directory to launch your application in
 - Between 0 and 32767 characters
+
   - This character length upper limit is to support extended file paths in Windows. Ensure your AMI and application is properly configured to support Windows extended file paths if using file paths larger than 260 characters.
 
 - Use escaped file path strings such as
+
   - `"C:\\Path\\To\\Working\\Directory"`
 
 LaunchParameters
@@ -118,10 +129,13 @@ LaunchParameters
 - A string to use as the launch parameters for the executable specified in `AbsoluteAppPath`
 - Between 0 and 1024 characters
 - Use escaped strings with the full list of required launch parameters such as the following example which shows how you may use PowerShell scripts as your applications by using the PowerShell executable as your app with a script provided in the launch parameters
+
   - AbsoluteAppPath
+
     - `"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"`
 
   - LaunchParameters
+
     - `"-File \"C:\\Path\\To\\App\\Script.ps1\""`
 
 ### Sample AppCatalogConfig

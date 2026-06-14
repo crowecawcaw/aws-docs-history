@@ -13,6 +13,7 @@ charges. For more information, see [WorkSpaces Applications Pricing](https://aws
 1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. You can launch the image builder in the following ways:
+
    - If a welcome screen appears displaying two options (**Try
      it now** and **Get started**), choose
      **Get started**, **Custom set
@@ -113,6 +114,7 @@ builder by doing the following:
 
 5. Choose **Next**.
 6. For **Step 3: Configure Network**, do the following:
+
    - To add internet access for the image builder in a VPC with a public
      subnet, choose **Default Internet Access**. If you are
      providing internet access by using a NAT gateway, leave

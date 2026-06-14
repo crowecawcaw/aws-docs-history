@@ -18,6 +18,7 @@ you'll need to do the following first:
    administrator, type `gpmc.msc`, and then press ENTER.
 2. In the left console tree, select the OU where you will create a new GPO or use an existing
    GPO, and then do either of the following:
+
    - Create a new GPO by opening the context (right-click) menu and choosing **Create a GPO in this domain, Link it here**. For **Name**, provide a descriptive name for this
      GPO.
    - Select an existing GPO.

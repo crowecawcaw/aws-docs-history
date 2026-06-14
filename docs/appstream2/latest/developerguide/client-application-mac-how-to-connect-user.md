@@ -16,9 +16,11 @@ If your administrator doesn't require you to sign in through your organization's
     3. Choose an application or, if available, **Desktop View**.
 
 2. If your administrator doesn't require you to sign in first through your organization's sign-in page, complete the following steps to start the WorkSpaces Applications client:
+
    1. On your local computer where the WorkSpaces Applications client is installed, choose **Amazon
       WorkSpaces Applications** to start the WorkSpaces Applications client.
    2. Do either of the following:
+
       - If the client sign-in page is prepopulated with a web address (URL), choose
         **Connect**. You will be
         redirected to the system's default web browser for

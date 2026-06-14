@@ -59,11 +59,13 @@ Complete the following steps to create a new VPC with a public subnet and one pr
 4. In **Step 1: Select a VPC Configuration**, choose **VPC with Public
    and Private Subnets**, and then choose **Select**.
 5. In **Step 2: VPC with Public and Private Subnets**, configure the VPC as follows:
+
    - For **IPv4 CIDR block**, specify an IPv4 CIDR block for the VPC.
    - For **IPv6 CIDR block**, keep the default value, **No IPv6 CIDR Block**.
    - For **VPC name**, type a unique name for the VPC.
 
 6. Configure the public subnet as follows:
+
    - For **Public subnet's IPv4 CIDR**, specify the CIDR block for the
      subnet.
    - For **Availability Zone**, keep the default value, **No Preference**.
@@ -71,6 +73,7 @@ Complete the following steps to create a new VPC with a public subnet and one pr
      `AppStream2 Public Subnet`.
 
 7. Configure the first private subnet as follows:
+
    - For **Private subnet's IPv4 CIDR**, specify the CIDR block for the subnet.
      Make a note of the value that you specify.
    - For **Availability Zone**, select a specific zone and make a note of the zone that you select.
@@ -136,6 +139,7 @@ After you've created and configured your VPC, complete the following steps to sp
 1. In the navigation pane, choose **Subnets**, and
    select the public subnet that you created; for example, `WorkSpaces Applications
 Public Subnet`.
+
    1. On the **Route Table** tab, choose the ID
       of the route table; for example,
       `rtb-12345678`.
@@ -154,6 +158,7 @@ Public Subnet`.
 
 2. In the navigation pane, choose **Subnets**, and select the first
    private subnet that you created (for example, `AppStream2 Private Subnet1`).
+
    1. On the **Route Table** tab, choose the ID of the route
       table.
    2. Select the route table. Under **Name**, choose the edit icon (the pencil), and enter a name (for example,

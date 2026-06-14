@@ -39,6 +39,7 @@ installation files and a Group Policy administrative template.
    folder, and choose **Extract All**. The folder contains
    two installation programs and a Group Policy administrative
    template:
+
    - WorkSpaces Applications client installer (AmazonAppStreamClientSetup\_<version>.msi) — Installs the
      WorkSpaces Applications client.
    - WorkSpaces Applications USB driver installer (AmazonAppStreamUsbDriverSetup\_<version>.exe) — Installs the WorkSpaces Applications USB driver that is required to use USB devices with applications streamed through WorkSpaces Applications.
@@ -166,6 +167,7 @@ The following are requirements and considerations for formatting trusted domain 
 
 - The following characters are supported: a-z, 0-9, -, \*
 - DNS treats the \* character either as a wildcard or as an asterisk character (ASCII 42), depending on where it appears in the domain name. Following are restrictions when using \* as a wildcard in the name of a DNS record:
+
   - The \* must replace the leftmost label in a domain name. For example, \*.example.com or \*.prod.example.com. If you include \* in any other position, such as prod.\*.example.com, DNS treats it as an asterisk character (ASCII 42), not as a wildcard.
   - The \* must replace the entire label. For example, you can't specify \*prod.example.com or prod\*.example.com.
   - The \* applies to the subdomain level that includes the \*, and to all the subdomains of that subdomain. For example, if an entry is named \*.example.com, the WorkSpaces Applications client allows zenith.example.com, acme.zenith.example.com, and pinnacle.acme.zenith.example.com.
@@ -216,6 +218,7 @@ Keep in mind the following requirements and considerations for creating a DNS TX
 - The TXT record value must start with `AS2TrustedDomains=`
 - The following characters are supported: a-z, 0-9, -, \*
 - DNS treats the \* character either as a wildcard or as an asterisk character (ASCII 42), depending on where it appears in the domain name. Following are restrictions when using \* as a wildcard in the name of a DNS record:
+
   - The \* must replace the leftmost label in a domain name. For example, \*.example.com or \*.prod.example.com. If you include \* in any other position, such as prod.\*.example.com, DNS treats it as an asterisk character (ASCII 42), not as a wildcard.
   - The \* must replace the entire label. For example, you can't specify \*prod.example.com or prod\*.example.com.
   - The \* applies to the subdomain level that includes the \*, and to all the subdomains of that subdomain. For example, if an entry is named \*.example.com, the WorkSpaces Applications client allows connections to the following domains: zenith.example.com, acme.zenith.example.com, and pinnacle.acme.zenith.example.com.

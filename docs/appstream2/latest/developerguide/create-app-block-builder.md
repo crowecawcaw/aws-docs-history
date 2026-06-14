@@ -12,6 +12,7 @@ Elastic fleets.
    app block builder**.
 3. For **Step 1: Configure app block builder**, configure the
    app block builder by providing the following details:
+
    - **Name**: Type a unique name identifier for the app block builder.
    - **Display name (optional)**: Type a name to display for the app block builder
      (maximum of 100 characters).
@@ -24,6 +25,7 @@ Elastic fleets.
      AWS API requests from the app block builder instance without manually
      managing AWS credentials. To apply an IAM role to the app block
      builder, do either of the following:
+
      - To use an existing IAM role in your Amazon Web Services account,
        choose the role that you want to use from the **IAM
        role** list. The role must must be accessible from
@@ -40,6 +42,7 @@ Elastic fleets.
 
 4. Choose **Next**.
 5. For **Step 2: Configure Network**, do the following:
+
    - To add internet access for the app block builder in a VPC with a public subnet, choose
      **Default Internet Access**. If you are providing
      internet access by using a NAT gateway, leave **Default Internet

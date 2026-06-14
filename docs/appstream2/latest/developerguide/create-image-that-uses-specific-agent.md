@@ -17,6 +17,7 @@ update your production fleet with the image.
 1. Open the WorkSpaces Applications console at
    [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
 2. Do either of the following:
+
    - If you have an image builder that you want to use to create the image,
      start the image builder and then connect to it.
    - If you do not have an image builder that you want to use to create the

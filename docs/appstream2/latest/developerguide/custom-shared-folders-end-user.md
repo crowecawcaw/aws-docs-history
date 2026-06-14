@@ -21,6 +21,7 @@ You can do the following with custom shared folders:
 1. In the top left of the WorkSpaces Applications toolbar, choose the **My Files** icon.
 2. Navigate to the shared custom folder. Contact your administrator for your folder name.
 3. Choose the shared custom folder.
+
    - To upload a file to the folder, select the file that you want to upload, and choose
      **Upload**.
    - To download a file from the folder, select the file that you want to download, choose

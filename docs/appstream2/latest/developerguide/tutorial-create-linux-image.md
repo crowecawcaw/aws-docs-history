@@ -28,6 +28,7 @@ image builder.
 ###### To install applications on the image builder
 
 1. Connect to the image builder by doing either of the following:
+
    - [Use the WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 
@@ -286,6 +287,7 @@ experience streaming applications with WorkSpaces Applications.
 3. Choose **Actions**, **Copy**.
 4. In the **Copy Image** dialog box, specify the following
    information, and then choose **Copy Image**:
+
    - For **Destination region**, choose the region to
      which to copy the new image.
    - For **Name**, specify a name that the image will have

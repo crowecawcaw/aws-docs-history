@@ -32,6 +32,7 @@ You can create a streaming URL in any of the following ways:
 4. Choose **Actions**, **Create streaming
    URL**.
 5. Do one of the following:
+
    - To save the streaming URL to connect to the app block builder
      later, choose **Copy Link** to copy the URL, then
      save it to an accessible location.

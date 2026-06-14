@@ -15,15 +15,18 @@ If your administrator doesn't require you to sign in through your organization's
     3. Choose an application or, if available, **Desktop View**.
 
 2. If your administrator doesn't require you to sign in first through your organization's sign-in page, complete the following steps to start the WorkSpaces Applications client:
+
    1. On your local computer where the WorkSpaces Applications client is installed, in the lower left of your screen,
       choose the Windows search icon on the taskbar and enter
       `AppStream` in the Search box.
    2. In the search results, select **Amazon AppStream** to start the WorkSpaces Applications client.
    3. On the WorkSpaces Applications client sign-in page, you can choose whether to use the client in native application mode or classic mode.
+
       - To use native application mode, keep the **Start in native application mode** check box selected.
       - To use classic mode, clear the **Start in native application mode** check box.
 
    4. Do either of the following:
+
       - If the client sign-in page is prepopulated with a web address (URL), choose **Connect**.
       - If the client sign-in page is not prepopulated with a URL, enter the URL that your WorkSpaces Applications administrator provided for WorkSpaces Applications, and then choose **Connect**. If you don't know the URL, contact your administrator.
 
@@ -31,6 +34,7 @@ If your administrator doesn't require you to sign in through your organization's
    6. Choose an application or, if available, **Desktop View**.
 
 3. Depending on the authentication settings that your WorkSpaces Applications administrator enabled, after you choose an application or **Desktop View**, you might be prompted to enter your Active Directory domain credentials to sign in to your WorkSpaces Applications session. If this is the case, do one of the following:
+
    - If your organization has enabled password authentication, enter your Active Directory domain password, and then
      choose **Password sign in**.
    - If your organization has enabled smart card authentication, select **Choose a smart

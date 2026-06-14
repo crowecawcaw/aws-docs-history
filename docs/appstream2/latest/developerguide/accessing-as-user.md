@@ -15,6 +15,7 @@ Microsoft Active Directory domain.
 
 - [WorkSpaces Applications user pools](user-pool.md "user-pool.md"): Use this connection method
   when:
+
   - You want to set up a Proof-of-Concept (POC) quickly before you configure
     your SAML 2.0-compliant identity provider.
   - You don't have a SAML 2.0-compliant identity provider.

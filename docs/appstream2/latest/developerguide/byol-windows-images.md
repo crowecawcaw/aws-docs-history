@@ -73,6 +73,7 @@ If you already have BYOL images in Amazon WorkSpaces, you can skip directly to *
 
 - **(Optional) Validate your image before importing** — If you are importing a customized virtual machine image, run the WorkSpaces Image Checker tool to ensure compatibility. If importing a Windows ISO, you can skip this step.
 - **Import the image** — After enabling BYOL, choose **Import Image**. You have three options:
+
   - **VM import** — Imports a virtual machine image (VHDX, VMDK, or OVF file) that has already been customized
   - **ISO import** — Imports a Windows ISO image downloaded from Microsoft that has not been customized
   - **AMI import** — Imports an existing Amazon EC2 AMI to use as your BYOL image
@@ -115,7 +116,7 @@ The following instance types are available for BYOL Amazon WorkSpaces Applicatio
 - **Standard:** stream.standard.medium, stream.standard.large, stream.standard.xlarge, stream.standard.2xlarge
 - **Compute-optimized:** stream.compute.large, stream.compute.xlarge, stream.compute.2xlarge, stream.compute.4xlarge, stream.compute.8xlarge
 - **Memory-optimized:** stream.memory.large, stream.memory.xlarge, stream.memory.2xlarge, stream.memory.4xlarge, stream.memory.8xlarge
-- **Graphics (requires separate approval):** stream.graphics.g4dn and stream.graphics.g6 families
+- **Graphics (requires separate approval):** stream.graphics.g6 families
 
 ## Region availability
 

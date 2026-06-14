@@ -32,6 +32,7 @@ directory in File Explorer: C:\Users\PhotonUser\My Files\Home Folder.
 2. Navigate to an existing folder, or choose **Add Folder**
    to create a folder.
 3. When the folder that you want is displayed, do one of the following:
+
    - To upload a file to the folder, select the file that you want to upload, and choose
      **Upload**.
    - To download a file from the folder, select the file that you want to download, choose the down

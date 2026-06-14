@@ -37,6 +37,7 @@ instances.
     environment variables as needed, then choose **OK**.
 5.  This disconnects your current session and opens the login menu. Log in to
     the image builder by doing either of the following:
+
     - If your image builder is not joined to an Active Directory domain,
       on the **Local User** tab, choose
       **Administrator**.

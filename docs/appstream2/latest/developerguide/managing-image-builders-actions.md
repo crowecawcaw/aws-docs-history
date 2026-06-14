@@ -37,6 +37,7 @@ Install or uninstall license included applications.
 
 - Select one or more license included applications that you want to
   install on your image.
+
   - Already installed license included applications display a
     checked checkbox next to them, and the status says
     **Installed**.

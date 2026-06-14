@@ -26,6 +26,7 @@ Complete the following prerequisites before configuring your SAML 2.0
 connection.
 
 1. Configure your SAML-based IdP to establish a trust relationship with AWS.
+
    - Inside your organization's network, configure your identity store
      to work with a SAML-based IdP. For configuration resources, see
      [WorkSpaces Applications Integration with SAML 2.0](external-identity-providers-further-info.md "external-identity-providers-further-info.md").

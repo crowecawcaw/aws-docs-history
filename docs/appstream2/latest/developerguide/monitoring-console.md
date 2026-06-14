@@ -9,6 +9,7 @@ You can monitor your Amazon WorkSpaces Applications fleet usage using the WorkSp
 2. In the left pane, choose **Fleets**.
 3. Select a fleet and choose its **Fleet Usage** tab.
 4. By default, the graph displays the following metrics:
+
    - `ActualCapacity`, `InUseCapacity`,
      `DesiredCapacity`, `AvailableCapacity`,
      `PendingCapacity`, and `CapacityUtilization`

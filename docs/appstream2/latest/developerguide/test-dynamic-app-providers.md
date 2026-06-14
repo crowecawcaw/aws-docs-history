@@ -7,6 +7,7 @@ following steps before you finish creating the image.
 ###### To test dynamic app providers
 
 1. Do one of the following:
+
    - If you are already connected to the image builder on which you
      enabled dynamic app providers and you are logged on as**Administrator,** you must switch to an account that
      does not have local administrator permissions on the image

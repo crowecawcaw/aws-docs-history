@@ -16,6 +16,7 @@ theft, we advise you to consider the following actions:
   one connection at a time. This limits the number of concurrent session to one,
   and blocks mirroring of active sessions. For more information, see [session-management Parameters](../../../dcv/latest/adminguide/config-param-ref.md#session_management "../../../dcv/latest/adminguide/config-param-ref.md#session_management").
 - **Enforce session expiry and re-authentication**
+
   - Reduce the SessionDuration value so that the authentication token
     expires after the user successfully starts the streaming session.
     Reusing authentication cookies after the sessionDuration expires

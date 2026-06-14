@@ -16,6 +16,7 @@ You can also call WorkSpaces Applications API operations from your VPC without s
 
 - Use IAM roles and policies to manage administrator access to WorkSpaces Applications, Application Auto Scaling, and Amazon S3
   buckets. For more information, see the following topics:
+
   - [Using AWS Managed Policies and Linked Roles to Manage Administrator Access to WorkSpaces Applications Resources](controlling-administrator-access-with-policies-roles.md "controlling-administrator-access-with-policies-roles.md")
   - [Using IAM Policies to Manage Administrator Access to Application Auto Scaling](autoscaling-iam-policy.md "autoscaling-iam-policy.md")
   - [Restricting Administrator Access to the Amazon S3 Bucket for Home Folders and Application Settings Persistence](s3-iam-policy-restricted-access.md "s3-iam-policy-restricted-access.md")

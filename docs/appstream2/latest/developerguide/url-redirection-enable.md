@@ -8,6 +8,7 @@ new or existing stack.
 1. Open the WorkSpaces Applications AWS Management Console.
 2. In the left navigation pane, choose **Stacks**.
 3. Do one of the following:
+
    - To configure a new stack, choose **Create Stack**.
    - To modify an existing stack, select the stack and choose
      **Edit**.

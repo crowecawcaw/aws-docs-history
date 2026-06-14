@@ -211,6 +211,7 @@ it. For more information, see [WorkSpaces Applications Fleet Types](fleet-type.m
    applications**, choose the applications that users can launch from
    this fleet.
 10. For **Step 4: Configure Network**, do the following:
+
     - To add internet access for fleet instances in a VPC with a public
       subnet, choose **Default Internet Access**. If you are
       providing internet access by using a NAT gateway, leave

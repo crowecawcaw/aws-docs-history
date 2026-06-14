@@ -20,6 +20,7 @@ The following steps apply to Windows fleets only.
 1. Connect to the image builder on which to disable Internet Explorer ESC and
    sign in with an account that has local administrator permissions. To do so, do
    either of the following:
+
    - [Use the WorkSpaces Applications
      console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a
@@ -35,6 +36,7 @@ The following steps apply to Windows fleets only.
 
 2. On the image builder, disable Internet Explorer ESC by doing the
    following:
+
    1. Open Server Manager. Choose the Windows **Start**
       button, and then choose **Server Manager**.
    2. In the left navigation pane, choose **Local Server**.
@@ -60,6 +62,7 @@ image builder by doing either of the following:
      builder.
 
 5. Open Internet Explorer and reset your settings by doing the following:
+
    1. In the upper right area of the Internet Explorer browser window,
       choose the **Tools** icon, then choose
       **Internet options**.
@@ -73,6 +76,7 @@ image builder by doing either of the following:
 6. Reboot image builder.
 7. Choose **Admin Commands**, **Switch User**,
    and then do either of the following:
+
    - If your image builder is not joined to an Active Directory domain, on
      the **Local User** tab, choose
      **Administrator**.

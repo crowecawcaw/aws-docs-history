@@ -15,6 +15,7 @@ with a Linux fleet, please make sure these settings are disabled.
 2. For **Step 1: Stack Details**, Under **Stack
    details**, enter a unique name identifier for the stack.
    Optionally, you can do the following:
+
    - **Display name** — Enter a name to display for
      the stack (maximum of 100 characters).
    - **Description**— Enter a description for the
@@ -66,6 +67,7 @@ with a Linux fleet, please make sure these settings are disabled.
 3. Choose **Next.**
 4. For **Step 2: Enable Storage**, you can provide persistent
    storage for your users by choosing one or more of the following:
+
    - **Home Folders** — Users can save their files
      to their home folder and access existing files in their home folder
      during application streaming sessions. For information about

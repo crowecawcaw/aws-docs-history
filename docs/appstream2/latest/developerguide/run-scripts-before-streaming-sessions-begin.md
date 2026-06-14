@@ -30,6 +30,7 @@ application framework is not enabled, the following process occurs:
 
 1. Your users connect to an WorkSpaces Applications fleet instance that is not domain-joined.
    They connect by using one of the following access methods:
+
    - WorkSpaces Applications user pool
    - SAML 2.0
    - WorkSpaces Applications API
@@ -37,6 +38,7 @@ application framework is not enabled, the following process occurs:
 2. The application catalog displays in the WorkSpaces Applications portal, and your users
    choose an application to launch.
 3. One of the following occurs:
+
    - If application settings persistence is enabled for your users, the
      application settings Virtual Hard Disk (VHD) file that stores your
      users' customizations and Windows settings is downloaded and

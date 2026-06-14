@@ -13,6 +13,7 @@ settings:
   and any applications that rely on the operating system time. WorkSpaces Applications makes available
   the same options for this setting as the Windows Server version used in your
   fleet.
+
   - To sync the time zone for your streaming session to match the time zone
     set on your device, choose **Set my time zone automatically based on
     my device**. This is enabled by default for both single-session

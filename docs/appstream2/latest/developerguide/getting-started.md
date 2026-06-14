@@ -29,6 +29,7 @@ Before you can stream your applications, you need to set up a stack, choose an i
    **Set up with sample apps**.
 3. For **Step 1: Stack Details**, keep the default stack name or
    enter your own. Optionally, you can do the following:
+
    - **Display name** — Enter a name to display for
      the stack (maximum of 100 characters).
    - **Description**— Keep the default description
@@ -72,6 +73,7 @@ Before you can stream your applications, you need to set up a stack, choose an i
 6. For **Step 3: Configure Fleet**, we recommend that you keep
    any default values that are provided. You can change most of these values after
    fleet creation.
+
    - **Choose instance type** — Choose the instance type
      that matches the performance requirements of your applications. All streaming
      instances in your fleet launch with the instance type that you select. For
@@ -165,11 +167,13 @@ Before you can stream your applications, you need to set up a stack, choose an i
      to an WorkSpaces Applications fleet instance, you can make AWS API requests from the
      fleet instance without manually managing AWS credentials. To apply an
      IAM role, do either of the following:
+
      - To use an existing IAM role in your Amazon Web Services account, choose the role that you want to use from the **IAM role** list. The role must must be accessible from the fleet instance. For more information, see [Configuring an Existing IAM Role to Use With WorkSpaces Applications Streaming Instances](configuring-existing-iam-role-to-use-with-streaming-instances.md "configuring-existing-iam-role-to-use-with-streaming-instances.md").
      - To create a new IAM role, choose **Create new IAM role** and follow the steps in [How to Create an IAM Role to Use With WorkSpaces Applications Streaming Instances](how-to-create-iam-role-to-use-with-streaming-instances.md "how-to-create-iam-role-to-use-with-streaming-instances.md").
 
 7. Choose **Next**.
 8. For **Step 4: Configure Network**, a default VPC is provided. This VPC includes a default public subnet in each Availability Zone and an internet gateway that is attached to your VPC. The VPC also includes a default security group. To use the default VPC configuration, do the following:
+
    - Keep the **Default Internet Access** check box selected.
 
    When **Default Internet Access** is enabled, a maximum of 100 fleet instances is supported. If your deployment must support more than 100 concurrent users, use the [NAT gateway configuration](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md") instead.

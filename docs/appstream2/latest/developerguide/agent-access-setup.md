@@ -124,6 +124,7 @@ You can monitor agent activity through the following services:
   data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the _CloudTrail User Guide_.
 - **CloudWatch** — The following
   operational metrics are available in CloudWatch for agent sessions:
+
   - `Invocations`
   - `Latency`
   - `ClientErrors`

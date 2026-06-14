@@ -15,6 +15,7 @@ sessions end, the following process occurs:
 3. The session termination scripts complete or time out.
 4. Windows user logout occurs.
 5. One or both of the following occur in parallel, if applicable:
+
    - If application settings persistence is enabled for your users, the
      application settings VHD file that stores your users' customizations
      and Windows settings is unmounted and uploaded to an Amazon S3 bucket in

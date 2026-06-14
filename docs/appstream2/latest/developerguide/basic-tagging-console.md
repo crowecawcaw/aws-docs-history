@@ -12,6 +12,7 @@ You can add, edit, and delete tags for existing resources by using the WorkSpace
 4. Select the resource from the resource list.
 5. Choose **Tags**, **Add/Edit Tags**, and then do one or more
    of the following:
+
    - To add a tag, choose **Add Tag**, and type the key and value for
      each tag.
 

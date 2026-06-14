@@ -26,6 +26,7 @@ documentation.
 2.  If you are not using Active Directory in your environment, open Local
     Group Policy Editor. If you are using Active Directory, open the GPMC.
     Locate the **Scripts (Logon\Logoff)** policy setting:
+
     - Local Group Policy Editor:
 
     On your image builder, open the command prompt as an

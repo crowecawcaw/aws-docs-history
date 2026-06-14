@@ -42,6 +42,7 @@ shows metrics for each fleet and instances associated to that fleet.
    and choose **Next**.
 3. On the **Specify stack details** page, do the
    following:
+
    1. In the **Stack name** field, use the default name or
       enter a custom name for your stack.
    2. In the **DashboardName** field, use the default name
@@ -57,6 +58,7 @@ shows metrics for each fleet and instances associated to that fleet.
    dashboard.
 7. After the stack creation is complete, open the CloudWatch console to view your newly
    created custom dashboard.
+
    1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
    2. In the left navigation bar, choose
       **Dashboards**.
@@ -78,6 +80,7 @@ metrics, shows metrics for each User.
    and choose **Next**.
 3. On the **Specify stack details** page, do the
    following:
+
    1. In the **Stack name** field, use the default name or
       enter a custom name for your stack.
    2. In the **DashboardName** field, use the default name
@@ -93,6 +96,7 @@ metrics, shows metrics for each User.
    dashboard.
 7. After the stack creation is complete, open the CloudWatch console to view your newly
    created custom dashboard.
+
    1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
    2. In the left navigation bar, choose
       **Dashboards**.
@@ -115,6 +119,7 @@ subscription to start receiving alerts.
    and choose **Next**.
 3. On the **Specify stack details** page, do the
    following:
+
    1. In the **Stack name** field, use the default name or
       enter a custom name for your stack.
    2. In the **FleetName** field, enter the Fleet name that
@@ -132,6 +137,7 @@ subscription to start receiving alerts.
    dashboard.
 7. After the stack creation is complete, open the CloudWatch console to view your newly
    created custom dashboard.
+
    1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
    2. In the left navigation bar, choose
       **Dashboards**.

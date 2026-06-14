@@ -83,6 +83,7 @@ to the internet.
    default settings, verify that it is in the **Running**
    state, and choose **Connect**.
 4. Log in to the image builder by doing either of the following:
+
    - If your image builder is not joined to an Active Directory domain, on the **Local
      User** tab, choose
      **Template User**.
@@ -92,6 +93,7 @@ to the internet.
      and then choose **Log in**.
 
 5. Open Internet Explorer and reset your settings by doing the following:
+
    1. In the upper right area of the Internet Explorer browser window, choose the
       **Tools** icon, then choose **Internet
       options**.

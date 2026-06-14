@@ -12,6 +12,7 @@ When you launch an image builder, you choose:
   various compute, memory, and graphics configurations. The instance type must align
   with the instance family you need. For more information, see [WorkSpaces Applications Instance Families](instance-types.md "instance-types.md").
 - An operating system — WorkSpaces Applications provides the following operating systems:
+
   - Windows 11
   - Windows Server 2025 Base
   - Windows Server 2022 Base

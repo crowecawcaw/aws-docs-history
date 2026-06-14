@@ -60,6 +60,7 @@ To resolve this issue, follow these steps:
 
 1. On the fleet instance, open File Explorer and browse to the user profile directory at C:\Users\%username%.
 2. Confirm whether this directory contains a symlink, and then do either of the following:
+
    - If there is a symlink, confirm that it points to D:\%username%.
    - If there isn't a symlink, try to delete the C:\Users\%username% directory.
 

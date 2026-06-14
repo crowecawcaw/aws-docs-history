@@ -14,7 +14,9 @@ If your administrator doesn't require you to sign in through your organization's
     3. Choose an application or, if available, **Desktop View**.
 
 2. If your administrator doesn't require you to sign in first through your organization's sign-in page, do either of the following:
+
    - If this is the first time that you've used WorkSpaces Applications and you receive a welcome email that notifies you to start accessing your applications using WorkSpaces Applications:
+
      1. Open the email, and then select the **Login page**
         link.
      2. Enter your email address and the temporary password that was
@@ -27,6 +29,7 @@ If your administrator doesn't require you to sign in through your organization's
 
    - If this isn't the first time that you've used WorkSpaces Applications and your administrator has provided you
      with the web address (URL) for the WorkSpaces Applications portal:
+
      1. Enter the URL provided by your administrator to navigate to the WorkSpaces Applications portal.
      2. Enter your password when prompted, and choose
         **Connect**.

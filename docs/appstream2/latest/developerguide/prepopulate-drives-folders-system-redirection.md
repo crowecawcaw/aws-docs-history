@@ -5,6 +5,7 @@ drives and folders are made available for those users to share in their
 streaming session:
 
 - Drives:
+
   - All local hard disks (physical drives, such as the C Drive and
     D Drive)
   - All virtual drives (network and virtual drives such as mapped

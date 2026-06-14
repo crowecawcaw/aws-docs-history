@@ -36,6 +36,7 @@ builders, navigate to
 1. Create a zip file that contains the session scripts and config.json file.
    The scripts files will be copied to the following locations. You must use
    these locations for your config.json.
+
    - For Windows, use
      `C:\AppStream\SessionScripts\`SessionScript``.
    - For Linux, use

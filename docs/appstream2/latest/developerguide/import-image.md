@@ -27,9 +27,11 @@ All these prerequisites are important for a successful workflow execution. Suppo
 EBS
 
 - Less or equal to 500GB size
+
   - You can import an AMI with < 200 GB, however, the imported image will use minimum 200GB.
 
 - GP2
+
   - You can import an AMI with gp2 or gp3 EBS volume type, however, the imported image will use gp2.
 
 - One volume per image
@@ -54,14 +56,17 @@ Windows Server 2022/2025 **Full Base**
 Agents
 
 - EC2 Launch V2
+
   - Installed by default in Windows Server 2022/2025
 
 Library Support
 
 - .NET Framework 4.8 or greater
+
   - Installed by default in Windows Server 2022/2025
 
 - PowerShell 5.1 or greater
+
   - Installed by default in Windows Server 2022/2025
 
 - Windows Features: Remote Desktop Services Licensing and Remote Desktop Services Session Host must not be installed
@@ -144,11 +149,13 @@ Your console role will also need to include the `workspaces:DescribeWorkspaceIma
 6.  **Display name** _(Optional)_ - Enter a display name for the image.
 7.  **Description** _(Optional)_ – Enter a description for the image.
 8.  **IAM Role** - Select the IAM role that you have created for image import. For more details refer to [IAM Role Requirements](#iam-role-requirements "#iam-role-requirements").
+
     - Required for EC2 AMI import
     - Not applicable for WorkSpaces image import
 
 9.  **Manage WorkSpaces Applications agent** – Select this option if you want to always use the latest WorkSpaces Applications agent version, your streaming instances are automatically updated with the latest features, performance improvements, and security updates that are available from AWS when a new agent version is released.
 10. **Runtime validation** _(Optional)_: Select this option and service will provision an instance with the image being imported and run streaming tests.
+
     - ###### Note
 
     These streaming tests will be executed in the background, you cannot connect to this instance via WorkSpaces Applications client.
@@ -167,5 +174,6 @@ Your console role will also need to include the `workspaces:DescribeWorkspaceIma
 
 12. **Tags** _(Optional)_ - Choose **Add Tag** and type the key and value for the tag. To add more tags, repeat this step. For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
 13. **Import Image** – Review all the information you have entered and choose **Import Image**. Service will run compatibility checks to make sure AMI is compatible with WorkSpaces Applications.
+
     - If the static checks fail, you will receive an error straight away.
     - If the static checks pass, your import request will be submitted and depending upon the options you have selected it could take 30-60 min to create a new WorkSpaces Applications image with `type = "custom"` or `type = "BYOL"`

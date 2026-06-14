@@ -71,6 +71,7 @@ agent software, perform the following steps.
    **Update**.
 5. In the **Update image** dialog box, do the
    following:
+
    - For **New image name**, enter an image name
      that is unique within the AWS account and Region. The image
      name can't begin with "Amazon," "AWS," or "AppStream."

@@ -20,6 +20,7 @@ block resource.
 3. For app block packaging, select **Custom**.
 4. For **App block details**, type a unique name identifier
    for the app block. Optionally, you can also specify the following:
+
    - **Display name** – A friendly name for the app
      block.
    - **Description** – A description for the app

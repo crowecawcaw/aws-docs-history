@@ -24,6 +24,7 @@ documentation.
    administrator, type `gpmc.msc`, and then press ENTER.
 2. In the left console tree, select the OU in which you want to create a new GPO,
    or use an existing GPO, and then do either of the following:
+
    - Create a new GPO by opening the context (right-click) menu and
      choosing **Create a GPO in this domain, Link it here**.
      For **Name**, provide a descriptive name for this
@@ -38,6 +39,7 @@ documentation.
    choose **New**, **Registry Item**.
 6. In the **New Registry Properties** dialog box, specify the
    following registry settings for Group Policy to configure:
+
    - For **Action**, choose **Update**.
    - For **Hive**, choose
      **HKEY_CURRENT_USER**.

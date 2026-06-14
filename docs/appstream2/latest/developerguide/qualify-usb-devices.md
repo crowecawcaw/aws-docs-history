@@ -46,6 +46,7 @@ devices to be used with your streaming applications.
 7. After your image builder is in the **Running** state,
    perform the following steps to create a streaming URL and connect to the
    image builder by using the WorkSpaces Applications client.
+
    1. With your image builder selected in the list, choose
       **Actions**, **Create streaming
       URL**.

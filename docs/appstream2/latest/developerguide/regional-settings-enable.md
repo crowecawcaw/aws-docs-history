@@ -12,6 +12,7 @@ published before June 12, 2018 do not have Windows PowerShell 5.1 by default.
 
 1.  Launch a new image builder using your existing image as the base image by
     doing the following:
+
     1. In the left navigation pane in the WorkSpaces Applications console, choose
        **Images**.
     2. Choose the **Image Builder** tab, **Launch
@@ -23,6 +24,7 @@ published before June 12, 2018 do not have Windows PowerShell 5.1 by default.
 
 2.  After your image builder is running, connect to it and sign in with an account
     that has local administrator permissions. To do so, do either of the following:
+
     - [Use the WorkSpaces Applications
       console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
     - [Create a

@@ -18,6 +18,7 @@ Osaka, Sapporo, Tokyo**.
 1. Connect to the image builder that you want to use and sign in with a user
    that has local administrator permissions. To do so, do either of the
    following:
+
    - [Use the
      WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client
@@ -54,6 +55,7 @@ Osaka, Sapporo, Tokyo**.
    steps in Image Assistant to finish creating your image. For information
    about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 9. Do one of the following:
+
    - Create a new fleet and choose your new image for the fleet. For
      more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
    - Update an existing fleet to use the new image.
@@ -70,6 +72,7 @@ instances.
 1. Connect to the image builder that you want to use and sign in with an
    account that has local administrator permissions. To do so, do either of the
    following:
+
    - [Use the
      WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client
@@ -88,7 +91,9 @@ instances.
    Panel**.
 3. Specify the default time zone by using PowerShell or the Windows user
    interface:
+
    - **PowerShell**
+
      - Open PowerShell and run the following command:
 
      ```
@@ -102,6 +107,7 @@ instances.
      **Administrator**.
 
    - **Windows user interface**
+
      1. On the image builder desktop, choose the Windows
         **Start** button, and type
         `timedate.cpl` to open the
@@ -123,6 +129,7 @@ instances.
    steps in Image Assistant to finish creating your image. For information
    about how to create an image, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 6. Do one of the following:
+
    - Create a new fleet and choose your new image for the fleet. For
      more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
    - Update an existing fleet to use the new image.

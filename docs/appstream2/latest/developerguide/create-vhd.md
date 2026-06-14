@@ -90,6 +90,7 @@ Amazon EC2 instance, or an WorkSpaces Applications image builder.
 ###### To create a VHD for Linux
 
 1. Open a terminal:
+
    - For Ubuntu Pro 24.04 LTS: Use EC2 instance, or WorkSpaces powered by Ubuntu Pro
 
 2. Create the unformatted and uninitialized VHD file:

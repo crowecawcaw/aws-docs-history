@@ -15,6 +15,7 @@ input method.
 1. Connect to the image builder that you want to use and sign in with an account
    that has local administrator permissions. To do so, do either of the
    following:
+
    - [Use the WorkSpaces Applications
      console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a

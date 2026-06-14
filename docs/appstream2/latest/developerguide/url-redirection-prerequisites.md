@@ -4,6 +4,7 @@ To use host-to-client URL redirection, you must meet the following
 requirements:
 
 - One of the following supported WorkSpaces Applications clients:
+
   - Windows client version 1.2.1778 or later
   - macOS client version 1.4.0.1012 or later
   - Web client

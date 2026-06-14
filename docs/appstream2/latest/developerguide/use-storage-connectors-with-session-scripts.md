@@ -13,6 +13,7 @@ The registry key values are as follows:
 
 - Provided user name — The user ID provided through the access mode.
   The access modes and value for each mode are as follows:
+
   - User Pool — The email address for the user
   - Streaming URL — The UserID
   - SAML — The NameID. If the user name includes a slash (for

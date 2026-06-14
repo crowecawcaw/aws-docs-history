@@ -12,6 +12,7 @@ environment variable "LIC_SERVER", but each application has a different value fo
 1. Connect to the image builder on which to create an environment variable
    that is limited in scope and sign in with an account that has local
    administrator permissions. To do so, do either of the following:
+
    - [Use the
      WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client

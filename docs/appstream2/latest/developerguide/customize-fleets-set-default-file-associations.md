@@ -21,6 +21,7 @@ applied.
 1. Connect to the image builder on which to set default file associations and
    sign in with a domain account that has local administrator permissions on the
    image builder. To do so, do either of the following:
+
    - [Use the WorkSpaces Applications
      console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a
@@ -92,6 +93,7 @@ associations configuration file:
 7. In the **Set a default associations configuration file
    properties** dialog box, choose **Enabled**, and
    do one of the following:
+
    - If you are using Local Group Policy Editor, enter this path:
      `c:\default_associations.xml`.
    - If you are using the GPMC, enter a network path. For example,

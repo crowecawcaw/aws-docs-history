@@ -75,6 +75,7 @@ actions:
   their lifecyles, policies, and encryption configuration in the
   account. These buckets include the following naming
   prefixes:
+
   - `"arn:aws:s3:::appstream2-36fb080bb8-",`
   - `"arn:aws:s3:::appstream-app-settings-",`
   - `"arn:aws:s3:::appstream-logs-"`

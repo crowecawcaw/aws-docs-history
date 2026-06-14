@@ -14,6 +14,7 @@ Follow these steps to create an app block with the WorkSpaces Applications packa
 3. For app block packaging, select **WorkSpaces Applications**.
 4. For **App block details**, type a unique name identifier
    for the app block. Optionally, you can also specify the following:
+
    - **Name** – A unique name for the app
      block.
    - **Display name** (optional) – A friendly
@@ -24,6 +25,7 @@ Follow these steps to create an app block with the WorkSpaces Applications packa
 5. (Optional) An app block with WorkSpaces Applications packaging doesn't need a setup
    script. You can optionally provide post-installation steps the
    following **Advanced Options**:
+
    - For **Post setup script object in S3**,
      either enter the Amazon S3 URI that represents the
      post setup script object, or choose **Browse
@@ -119,6 +121,7 @@ Amazon S3 bucket in your AWS account.
    packaging process.
 3. Bring your application installer onto your app block builder
    streaming session by using one of the following options:
+
    - Download the application installers from the web.
    - Use your streaming session file interface.
    - Download the application installer from another AWS

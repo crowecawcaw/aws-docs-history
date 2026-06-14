@@ -6,6 +6,7 @@ To install or uninstall one or more license included application(s) on your imag
 follow these steps.
 
 1. Complete one of the following options:
+
    - Launch an image Builder and configure license included applications.
      For more information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
    - Manage license included applications on your image builder. For

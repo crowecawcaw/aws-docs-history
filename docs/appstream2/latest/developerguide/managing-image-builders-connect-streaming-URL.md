@@ -40,6 +40,7 @@ You can create a streaming URL in any of the following ways:
 4. Choose **Actions**, **Create streaming
    URL**.
 5. Do one of the following:
+
    - To connect to the image builder through the WorkSpaces Applications client, choose
      **Launch in Client**. When you choose this
      option, the WorkSpaces Applications client sign-in page is prepopulated with the
@@ -51,9 +52,11 @@ You can create a streaming URL in any of the following ways:
 
 6. After you create the streaming URL and connect to the image builder, log
    in to the image builder by doing either of the following:
+
    - If your image builder is Windows-based and not joined to an Active
      Directory domain, on the **Local User** tab, choose
      one of the following:
+
      - **Administrator** — Choose
        **Administrator** to install your
        applications on the image builder and create an image, or to

@@ -20,13 +20,16 @@ Performance metrics are currently available only for multi-session fleets
    Sessions**.
 4. Select a session to view the metrics.
 5. By default, the graph displays the following metrics:
+
    - Instance metrics
+
      - CpuUtilizationInstance
      - MemoryUtilizationInstance
      - PagingFileUtilizationInstance
      - DiskUtilizationInstance
 
    - Session metrics
+
      - CpuUtilizationSession
      - MemoryUtilizationSession
 

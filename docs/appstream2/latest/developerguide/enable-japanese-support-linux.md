@@ -22,6 +22,7 @@ packages of your choice.
 ###### To install Japanese font and input method
 
 1. Connect to the image builder by doing either of the following:
+
    - [Use the WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
    - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 

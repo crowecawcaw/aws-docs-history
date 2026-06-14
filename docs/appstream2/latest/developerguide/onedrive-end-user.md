@@ -59,6 +59,7 @@ streaming session, close the **My Files** dialog box.
 3. Navigate to an existing folder, or choose **Add Folder**
    to create a folder.
 4. When the folder is displayed, do one of the following:
+
    - To upload a file to the folder, select the file that you want to
      upload, and choose **Upload**.
    - To download a file from the folder, select the file that you want

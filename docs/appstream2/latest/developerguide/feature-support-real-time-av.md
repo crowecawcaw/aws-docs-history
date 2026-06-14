@@ -50,6 +50,7 @@ steps.
 2.  Connect to the image builder that you want to use and sign in as
     Administrator. To connect to the image builder, do either of the
     following:
+
     - [Use the WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections
       only)
     - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client
@@ -72,6 +73,7 @@ steps.
     \*\*HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\AppStream\*\*,
     create a new registry value that has the following type, name, and
     value data:
+
     - Registry value type: DWORD
     - Registry value name: WebcamPermission
     - Registry value data (Hexademical): 1 to enable or 0 to
@@ -87,6 +89,7 @@ steps.
 6.  Switch back to **Administrator**.
 7.  Disconnect from the image builder and create a streaming URL for
     the image builder. To do so:
+
     1. Open the WorkSpaces Applications console at
        [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
     2. In the navigation pane, choose

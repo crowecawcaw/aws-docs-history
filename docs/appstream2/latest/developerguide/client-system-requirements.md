@@ -6,7 +6,9 @@ The WorkSpaces Applications client requires the following:
   The client should only run with the level of privilege required to complete
   a task.
 - Client requirements
+
   - Windows client
+
     - Operating system — Windows 10 (32-bit or 64-bit),
       Windows 11 (64-bit)
     - Microsoft Visual C++ 2019 version 14.20.xx Redistributable
@@ -17,6 +19,7 @@ The WorkSpaces Applications client requires the following:
     - Hard drive space — 200 MB minimum
 
   - macOS client
+
     - Operating system — macOS 13 (Ventura), macOS 14
       (Sonoma), macOS 15 (Sequoia)
     - Hard drive space — 200 MB minimum
@@ -37,6 +40,7 @@ client.
   UDP streaming for the client, make sure you meet the following requirements.
   If you don't meet the following requirements, the client will default back
   to TCP-based streaming.
+
   - Your Stack has been configured to prefer UDP in the
     **Streaming Setting Experience** section.
     For more information, see [Create an Amazon WorkSpaces Applications Fleet and Stack](set-up-stacks-fleets.md "set-up-stacks-fleets.md").
