@@ -25,6 +25,7 @@ catalog:
 
 6. On the **Grant permissions – optional** page, choose
    **Add permissions**.
+
    1. For **IAM users and roles**, choose **Admin**
    2. For **Catalog permissions**, grant **Super user** to
       catalog permissions and grantable permissions.

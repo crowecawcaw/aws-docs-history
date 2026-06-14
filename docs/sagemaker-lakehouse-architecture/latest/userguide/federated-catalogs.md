@@ -47,21 +47,25 @@ For more information about data connections and their capabilities, see [Data co
 The process for implementing federated connections involves these high-level steps:
 
 1. **Create federated connections**
+
    - Establish connections that serve as bridges between lakehouse architecture and external data sources
    - Configure secure connectivity while maintaining security boundaries
    - Eliminate the need for data movement or duplication
 
 2. **Create federated catalogs**
+
    - Establish catalogs containing metadata about tables from connected data sources
    - Make external tables discoverable and queryable through the Lakehouse interface
    - Use catalogs as directories of available data assets
 
 3. **Implement access controls**
+
    - Configure fine-grained permissions using Lake Formation
    - Apply column-level security for sensitive data
    - Ensure consistent security policies across all data sources
 
 4. **Validate and query**
+
    - Test access permissions with different user personas
    - Run federated queries across multiple data sources
    - Verify security controls and data access policies

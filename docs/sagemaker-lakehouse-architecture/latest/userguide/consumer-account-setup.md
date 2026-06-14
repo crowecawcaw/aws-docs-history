@@ -35,6 +35,7 @@ Create a catalog link container that points to federated catalog in account A:
 1. On the Lake Formation console, under **Data Catalog** in the navigation pane, choose **Catalogs**.
 2. Choose **Create catalog**.
 3. Provide the following details for the catalog:
+
    1. Enter a name for the catalog.
    2. For **Type**, choose **Catalog Link
       container**.
@@ -45,7 +46,6 @@ Create a catalog link container that points to federated catalog in account A:
    ```
    arn:aws:glue:`us-west-2`:`<<account A ID>>`:catalog/`redshiftserverless1-uswest2`/`ordersdb`
    ```
-
    5. Under **Access from engines**, select **Access
       this catalog from Apache Iceberg compatible engines**.
    6. For **IAM role**, provide the Redshift-S3 data transfer
@@ -54,6 +54,7 @@ Create a catalog link container that points to federated catalog in account A:
 
 4. On the **Grant permissions – optional** page, choose
    **Add permissions**.
+
    1. Grant the `Admin` user **Super user** permissions for
       **Catalog permissions** and **Grantable
       permissions**.
@@ -74,6 +75,7 @@ After creating the catalog link container, create a database under your catalog:
    container.
 3. Choose **Create database**.
 4. Provide details for the database:
+
    1. Enter a name.
    2. For **Catalog**, choose select your catalog link container.
    3. Under **Default permissions for newly created tables**,
@@ -97,6 +99,7 @@ To create a table resource link:
    navigation pane, choose **Tables**.
 2. On the **Create** dropdown menu, choose **Resource link**.
 3. Provide details for the table resource link:
+
    1. For **Resource link name**, enter a name.
    2. For **Destination catalog**, choose catalog you created.
    3. For **Database**, choose your database.
@@ -130,6 +133,7 @@ To create a database resource link:
 3. Choose a darabase, and on the **Create** dropdown menu, choose
    **Resource link**.
 4. Provide details for the resource link:
+
    1. For **Resource link name**, enter a name.
 
    The rest of the fields will automatically populate. 2. Choose **Create**.

@@ -12,6 +12,7 @@ based table in account B:
 3. For **Engine**, choose **Spark** and for **Options**, choose **Start fresh**.
 4. Upload your PySpark script that contains the Spark SQL join query.
 5. On the **Job details** tab:
+
    1. Provide the job name.
    2. Choose `Glue-execution-role` for the IAM
       role.
@@ -19,6 +20,7 @@ based table in account B:
    4. Under **Advanced properties**, for **Job
       parameters**, choose **Add new parameter** and add the following
       parameters:
+
       - `--datalake-formats = iceberg`
       - `--enable-lakeformation-fine-grained-access = true`
 

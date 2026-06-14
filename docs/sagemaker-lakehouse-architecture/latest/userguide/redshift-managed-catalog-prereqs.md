@@ -4,10 +4,12 @@ This section covers the prerequisites needed to manage Amazon Redshift
 managed storage catalogs within the AWS Glue Data Catalog using Lake Formation permissions.
 
 1. AWS account setup
+
    - AWS account with administrative permissions
    - Lake Formation service enabled in your Region
 
 2. Lake Formation configuration
+
    - Create a data lake administrator – Create an IAM role that is authorized to create the AWS Glue Data Catalog objects (catalogs, databases,
      tables/views), and grant Lake Formation permissions to other users.
 
@@ -33,7 +35,6 @@ managed storage catalogs within the AWS Glue Data Catalog using Lake Formation p
    }'
 
    ```
-
    - Create a read only administrator role to discover the Amazon Redshift federated catalogs in the
      Data Catalog from Amazon Redshift Query Editor v2.
 
@@ -55,7 +56,6 @@ managed storage catalogs within the AWS Glue Data Catalog using Lake Formation p
      }'
 
    ```
-
    - Data Catalog configured to use Lake Formation permissions
    - Default Data Catalog settings disabled (recommended)
    - Cross-account version set to 4 or higher is required to grant cross account permissions on the federated catalog objects

@@ -16,6 +16,7 @@ To publish data in the lakehouse architecture, complete the following steps:
 3. In the center menu, choose **Data**. This takes you to the Data
    page.
 4. Do either of the following:
+
    - If you want to publish a regular AWS Glue table, expand the catalog in the data
      navigation to view the list of databases in lakehouse architecture, then choose a database that
      contains the asset that you want to publish. Choose this table from the selected
@@ -25,6 +26,7 @@ To publish data in the lakehouse architecture, complete the following steps:
      the following steps to create a data source for the S3 Tables catalog and schedule its
      run job. Then you can proceed to the rest of the steps in this procedure to publish
      the S3 table to the catalog.
+
      - Navigate to **Data sources** and then choose **Create
        data source**.
      - On the **Step 1: Define source** page, specify the name for
