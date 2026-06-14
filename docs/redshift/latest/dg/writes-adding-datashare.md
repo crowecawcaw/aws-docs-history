@@ -21,6 +21,7 @@ Perform the following steps:
    level. Datashares with scoped permissions have the specified
    permissions on all current and future objects within the database
    or schema. For more details see, [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").
+
    1. Next, select **Database scoped
       permissions** to grant scoped permissions at the
       database level. When you grant scoped permissions, they apply
@@ -57,6 +58,7 @@ Perform the following steps:
    schema, table, view or user-defined function. To grant direct
    permissions, you must first add the relevant schemas to the
    datashare.
+
    1. Next, select **Grant direct permissions**
       to schemas to apply direct permissions on specific schema.
       Then, select schema permission(s) for your schema objects

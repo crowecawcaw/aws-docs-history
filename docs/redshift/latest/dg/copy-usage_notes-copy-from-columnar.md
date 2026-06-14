@@ -18,6 +18,7 @@ COPY supports columnar formatted data with the following considerations:
   the _Amazon Redshift Management Guide_.
 - COPY doesn't automatically apply compression encodings.
 - Only the following COPY parameters are supported:
+
   - [ACCEPTINVCHARS](copy-parameters-data-conversion.md#copy-acceptinvchars "copy-parameters-data-conversion.md#copy-acceptinvchars") when copying from an ORC or Parquet file.
   - [FILLRECORD](copy-parameters-data-conversion.md#copy-fillrecord "copy-parameters-data-conversion.md#copy-fillrecord")
   - [FROM](copy-parameters-data-source-s3.md#copy-parameters-from "copy-parameters-data-source-s3.md#copy-parameters-from")
@@ -37,6 +38,7 @@ and MAXERROR aren't supported for columnar data types.
   table and the number of columns in the data file must match.
 - If the file you specify for the COPY operation includes one of the following
   extensions, we decompress the data without the need for adding any parameters:
+
   - `.gz`
   - `.snappy`
   - `.bz2`

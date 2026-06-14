@@ -70,8 +70,10 @@ A polygon is considered to be valid if any of the following conditions are true:
 
 - The polygon is empty; that is, it contains no rings.
 - If not empty, a polygon is valid if all of the following conditions are true:
+
   - All rings of the polygon are valid. A ring is considered to be valid if all the following
     conditions are true:
+
     - All points of the ring have coordinates that are finite floating point numbers.
     - The ring is closed; that is, its first point and its last point coincide.
     - The ring doesn't have any self-intersections.
@@ -124,6 +126,7 @@ A multipolygon is considered to be valid if any of the following conditions are 
 
 - The multipolygon doesn't contain any polygons (it is empty).
 - The multipolygon is not empty and all of the following are true:
+
   - All polygons in the multipolygon are valid.
   - No two polygons in the multipolygon can intersect at an infinite number of points. In
     particular, this implies that the interior of any two polygons
@@ -165,6 +168,7 @@ A valid linestring is considered to be simple if any of the following conditions
 
 - The linestring is empty.
 - The linestring is not empty and all of the following conditions are true:
+
   - It has no duplicate consecutive points.
   - It has no self-intersections, except possibly for its first point and last point, which can
     coincide. In other words, the linestring can't have
@@ -188,6 +192,7 @@ A valid multilinestring is considered to be simple if any of the following condi
 
 - The multilinestring is empty.
 - The multilinestring is nonempty and all of the following conditions are true:
+
   - All its linestrings are simple.
   - Any two linestrings of the multilinestring don't intersect, except at points that are boundary
     points of the two linestrings.

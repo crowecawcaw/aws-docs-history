@@ -18,6 +18,7 @@ Amazon Redshift:
   shared data depends on the compute capacity of the consumer clusters.
 - _Data transfer charges_ – Cross-Region data sharing
   includes additional cross-Region data-transfer charges.
+
   - These data-transfer charges don't apply within the same Region, only
     across Regions. For more information, see [Managing cost control for cross-Region data sharing](cross-region-billing.md "cross-region-billing.md").
   - The consumer is charged for all compute and cross-region data transfer
@@ -34,6 +35,7 @@ Amazon Redshift:
 - _Metadata Discovery_ – When you're a consumer
   connected directly to a datashare database through the Redshift JDBC, ODBC, or
   Python drivers, you can view catalog data in the following ways:
+
   - SQL [SHOW](r_SHOW.md "r_SHOW.md") commands.
   - Querying information_schema tables and views.
   - Querying [SVV metadata
@@ -44,6 +46,7 @@ Amazon Redshift:
 - _Cluster encryption management for data sharing_ – To
   share data across an AWS account, both the producer and consumer cluster must be
   encrypted.
+
   - If both the producer and consumer clusters and serverless namespaces are
     in the same account, they must have the same encryption type (either both
     unencrypted, or both encrypted). In every other case, including Lake Formation managed

@@ -32,6 +32,7 @@ don't have to perform authorization.
    **Authorize**.
 3. The **Authorize account** dialog appears. You
    can choose among a couple authorization types.
+
    - **Read-only on [cluster name or workgroup
      name]** – This means that no write
      permissions are available on the consumer, even if the

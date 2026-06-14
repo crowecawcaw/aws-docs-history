@@ -16,6 +16,7 @@ To analyze the data provided by the query plan, follow these steps:
 1.  Identify the steps with the highest cost. Concentrate on optimizing those when
     proceeding through the remaining steps.
 2.  Look at the join types:
+
     - **Nested Loop**: Such joins usually occur because a join
       condition was omitted. For recommended solutions, see [Nested loop](query-performance-improvement-opportunities.md#nested-loop "query-performance-improvement-opportunities.md#nested-loop").
     - **Hash and Hash Join**: Hash joins are used when joining

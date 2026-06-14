@@ -91,6 +91,7 @@ You can optionally specify the following parameters with COPY from Amazon Dynamo
 
 - [Column mapping options](copy-parameters-column-mapping.md "copy-parameters-column-mapping.md")
 - The following data conversion parameters are supported:
+
   - [ACCEPTANYDATE](copy-parameters-data-conversion.md#copy-acceptanydate "copy-parameters-data-conversion.md#copy-acceptanydate")
   - [BLANKSASNULL](copy-parameters-data-conversion.md#copy-blanksasnull "copy-parameters-data-conversion.md#copy-blanksasnull")
   - [DATEFORMAT](copy-parameters-data-conversion.md#copy-dateformat "copy-parameters-data-conversion.md#copy-dateformat")

@@ -97,6 +97,7 @@ datashare-schema pair. By default, the INCLUDENEW clause is false.
 ## ALTER DATASHARE usage notes
 
 - The following users can alter a datashare:
+
   - A superuser
   - The owner of the datashare
   - Users that have ALTER or ALL privilege on the datashare

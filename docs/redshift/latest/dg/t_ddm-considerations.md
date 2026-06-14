@@ -47,6 +47,7 @@ For more information about the EXPLAIN command, see [EXPLAIN](r_EXPLAIN.md "r_EX
   the COPY statement. For more information about mapping columns with COPY, see
   [Column mapping options](copy-parameters-column-mapping.md "copy-parameters-column-mapping.md").
 - DDM policies can't attach to the following relations:
+
   - System tables and catalogs
   - External tables
   - Datasharing tables
@@ -86,6 +87,7 @@ GRANT SELECT ON TABLE credit_cards_lookup TO MASKING POLICY lookup_mask_credit_c
   with the target column's type and size. For example, you can’t attach a masking
   policy that outputs a 12 character long string to a VARCHAR(10) column. Amazon Redshift
   supports the following exceptions:
+
   - A masking policy with the input type INTN can be attached to a policy
     with size INTM as long as M < N. For example, a BIGINT (INT8) input
     policy can be attached to a smallint (INT4) column.

@@ -82,6 +82,7 @@ Following are limitations for using automatic query rewriting of materialized vi
 
 - Automatic query rewriting works with materialized views that don't reference or
   include any of the following:
+
   - Subqueries
   - Left, right, or full outer joins
   - Set operations
@@ -95,6 +96,7 @@ Following are limitations for using automatic query rewriting of materialized vi
 
 - Automatic query rewriting rewrites SELECT queries that refer to user-defined
   Amazon Redshift tables. Amazon Redshift doesn't rewrite the following queries:
+
   - CREATE TABLE AS statements
   - SELECT INTO statements
   - Queries on catalogs or system tables

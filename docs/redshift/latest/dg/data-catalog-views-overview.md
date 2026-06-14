@@ -97,6 +97,7 @@ JSON
 ```
 
 - Finally, you also need the following permissions.
+
   - `Glue:GetDatabase`
   - `Glue:GetDatabases`
   - `Glue:CreateTable`
@@ -148,6 +149,7 @@ The following are considerations and limitations that apply to views created in 
 - The definer of the view must have full `SELECT GRANTABLE` permissions on the base tables.
 - Views can only contain Lake Formation objects and built-ins. The following objects are not permitted
   inside of a view.
+
   - System tables
   - User-defined functions (UDFs)
   - Redshift tables, views, materialized views, and late binding views that aren’t in a Lake Formation

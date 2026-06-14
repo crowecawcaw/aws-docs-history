@@ -15,12 +15,14 @@ You must have permission by one of the following ways to run CREATE OR REPLACE
 FUNCTION:
 
 - For CREATE FUNCTION:
+
   - Superuser can use both trusted and untrusted languages to create
     functions.
   - Users with the CREATE [ OR REPLACE ] FUNCTION privilege can create
     functions with trusted languages.
 
 - For REPLACE FUNCTION:
+
   - Superuser
   - Users with the CREATE [ OR REPLACE ] FUNCTION privilege
   - Function owner

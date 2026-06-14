@@ -12,6 +12,7 @@ Following lists schema object dependencies that Amazon Redshift tracks for RLS p
 
 - When tracking schema object dependency for the target table, Amazon Redshift follows these
   rules:
+
   - Amazon Redshift detaches the policy from a relation, user, role, or public when you drop a target
     table.
   - When you rename a target table name, there is no impact to the attached policies.
@@ -25,6 +26,7 @@ Following lists schema object dependencies that Amazon Redshift tracks for RLS p
     option.
 
 - When tracking schema object dependency for the lookup table, Amazon Redshift follows these rules:
+
   - You can't drop a lookup table. To drop a lookup table, first drop the policy in which the lookup table is referred.
   - You can't rename a lookup table. To rename a lookup table, first drop the policy in which
     the lookup table is referred. This also applies when the CASCADE option is

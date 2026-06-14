@@ -24,6 +24,7 @@ these steps.
    appears.
 6. To remove one or more datashare objects to the datashare, do one
    of the following:
+
    - To remove schemas from the datashare, choose one or more
      schemas. Then choose **Remove**. Amazon Redshift
      removes the specified schemas and all the objects of the

@@ -147,6 +147,7 @@ the following system views, which only store data from provisioned clusters.
 - All SVCS views
 - All SVL views
 - Some SVV views
+
   - For a full list of SVV views unsupported in Amazon Redshift Serverless, see the
     list at the bottom of [Monitoring queries and workloads with Amazon Redshift Serverless](../mgmt/serverless-monitoring.md "../mgmt/serverless-monitoring.md") in the
     _Amazon Redshift Management Guide_.

@@ -11,6 +11,7 @@ Consider following when working with datashares during Amazon Redshift Serverles
 - Restoring a snapshot to a Amazon Redshift Serverless producer namespace replaces the current
   datashares with the datashares in the snapshot. However, a datashare permission will
   only be maintained if ALL of the following conditions are met:
+
   - The snapshot is taken on the same namespace the customer is restoring to, AND
   - The datashare permission exists on the current namespace, AND
   - The datashare permission existed on the namespace when the snapshot was taken.

@@ -42,6 +42,7 @@ A clause that changes the existing distribution style of a relation to
 
 - An ALTER DISTSTYLE, ALTER SORTKEY, and VACUUM can't run
   concurrently on the same relation.
+
   - If VACUUM is currently running, then running ALTER DISTSTYLE ALL
     returns an error.
   - If ALTER DISTSTYLE ALL is running, then a background vacuum
@@ -61,6 +62,7 @@ A clause that changes the existing distribution style of a relation to
 
 - An ALTER DISTSYTLE, ALTER SORTKEY, and VACUUM can't run
   concurrently on the same relation.
+
   - If VACUUM is currently running, then running ALTER DISTSTYLE
     EVEN returns an error.
   - If ALTER DISTSTYLE EVEN is running, then a background vacuum
@@ -81,6 +83,7 @@ Consider the following:
 
 - VACUUM and ALTER DISTKEY can't run concurrently on the same
   relation.
+
   - If VACUUM is already running, then ALTER DISTKEY returns an
     error.
   - If ALTER DISTKEY is running, then background vacuum doesn't

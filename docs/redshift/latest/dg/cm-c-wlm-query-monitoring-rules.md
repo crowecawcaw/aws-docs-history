@@ -76,6 +76,7 @@ To define a query monitoring rule, you specify the following elements:
 - An action – If more than one rule is triggered, WLM chooses the rule
   with the most severe action. Possible actions, in ascending order of severity,
   are:
+
   - Log – Record information about the query in the
     STL_WLM_RULE_ACTION system table. Use the Log action when you want to only
     write a log record. WLM creates at most one log per query, per rule.

@@ -26,6 +26,7 @@ create group webdevusers;
 
 2.  Create several database users with different permissions and add them
     to the groups.
+
     1. Create two users and add them to the WEBAPPUSERS group:
 
     ```
@@ -36,7 +37,6 @@ create group webdevusers;
     in group webappusers;
 
     ```
-
     2. Create a web developer user and add it to the WEBDEVUSERS group:
 
     ```
@@ -44,7 +44,6 @@ create group webdevusers;
     in group webdevusers;
 
     ```
-
     3. Create a superuser. This user will have administrative rights
        to create other users:
 

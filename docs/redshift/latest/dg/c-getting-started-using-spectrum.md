@@ -86,6 +86,7 @@ When you create a role for Amazon Redshift, choose one of the following approach
   steps outlined in [To create an IAM role for Amazon Redshift](#spectrum-get-started-create-role "#spectrum-get-started-create-role").
 - If you are using Redshift Spectrum with an AWS Glue Data Catalog that is enabled for AWS Lake Formation, follow the steps outlined
   in these procedures:
+
   - [To create an IAM role for Amazon Redshift using an AWS Glue Data Catalog enabled for AWS Lake Formation](#spectrum-get-started-create-role-lake-formation "#spectrum-get-started-create-role-lake-formation")
   - [To grant SELECT permissions on the table to query in the Lake Formation database](#spectrum-get-started-grant-lake-formation-table "#spectrum-get-started-grant-lake-formation-table")
 
@@ -190,6 +191,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
@@ -201,6 +203,7 @@ in the _IAM User Guide_.
 3.  Follow the instructions in [Granting table permissions using the named resource method](../../../lake-formation/latest/dg/granting-table-permissions.md "../../../lake-formation/latest/dg/granting-table-permissions.md") in the
     _AWS Lake Formation Developer Guide_.
     Provide the following information:
+
     - For **IAM role**, choose the IAM role you created,
       `myspectrum_role`. When you run the Amazon Redshift Query Editor, it
       uses this IAM role for permission to the data.

@@ -43,6 +43,7 @@ To complete this tutorial, you must have the following prerequisites:
   AWS Region.
 - To download the SQL commands and the sample dataset used in this
   documentation, do one of the following:
+
   - Download the [SQL commands](https://s3.amazonaws.com/redshift-downloads/redshift-ml/tutorial-scripts/redshift-ml-tutorial.sql "https://s3.amazonaws.com/redshift-downloads/redshift-ml/tutorial-scripts/redshift-ml-tutorial.sql"), [Customer activity file](https://s3.amazonaws.com/redshift-downloads/redshift-ml/customer_activity/customer_activity.csv "https://s3.amazonaws.com/redshift-downloads/redshift-ml/customer_activity/customer_activity.csv"), and [Abalone file](https://s3.amazonaws.com/redshift-downloads/redshift-ml/abalone_xg/abalone.csv "https://s3.amazonaws.com/redshift-downloads/redshift-ml/abalone_xg/abalone.csv").
   - Using the AWS CLI for Amazon S3, run the following command. You can use your
     own target path.

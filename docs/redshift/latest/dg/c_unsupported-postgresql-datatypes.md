@@ -24,6 +24,7 @@ These PostgreSQL data types are not supported in Amazon Redshift.
 - JSON
 - Network Address Types
 - Numeric Types
+
   - SERIAL, BIGSERIAL, SMALLSERIAL
   - MONEY
 

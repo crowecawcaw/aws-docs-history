@@ -29,6 +29,7 @@ permissions in addition to all of the required permissions to use COPY:
 
 - Superuser
 - All of the following:
+
   - The relevant CREATE, ALTER, or DROP scoped permission
     for COPY JOBS in the database you want to COPY to.
   - USAGE permission for the schema you want to COPY to,

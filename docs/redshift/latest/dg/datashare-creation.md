@@ -47,6 +47,7 @@ from the datashare on a consumer as a consumer administrator.
    datashare** page appears.
 5. In the **Datashare information** section,
    choose one of the following:
+
    - Choose **Datashare** to create datashares
      to share data for read or write purpose across different Amazon Redshift
      data warehouses (provisioned clusters or Serverless
@@ -126,6 +127,7 @@ Perform the following steps:
    level. Datashares with scoped permissions have the specified
    permissions on all current and future objects within the database
    or schema. For more details see, [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").
+
    1. Next, select **Database scoped
       permissions** to grant scoped permissions at the
       database level. When you grant scoped permissions, they apply
@@ -162,6 +164,7 @@ Perform the following steps:
    schema, table, view or user-defined function. To grant direct
    permissions, you must first add the relevant schemas to the
    datashare.
+
    1. Next, select **Grant direct permissions**
       to schemas to apply direct permissions on specific schema.
       Then, select schema permission(s) for your schema objects

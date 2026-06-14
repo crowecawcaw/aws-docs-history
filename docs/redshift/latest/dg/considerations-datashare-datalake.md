@@ -17,5 +17,6 @@ Amazon Redshift:
 - External tables that explicitly specify manifest files in the `LOCATION`
   clause aren't supported for data sharing. This includes the following tables
   that Amazon Redshift Spectrum supports:
+
   - Delta Lake
   - Hudi

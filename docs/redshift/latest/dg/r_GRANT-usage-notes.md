@@ -93,6 +93,7 @@ explicitly note an exception.
   fail with a permission denied error.
 - SELECT \* doesn't expand to only accessible columns in the following
   cases:
+
   - You can't create a regular view with only accessible columns
     using SELECT \*.
   - You can't create a materialized view with only accessible columns
@@ -110,6 +111,7 @@ explicitly note an exception.
   on the column `employee.department`. Consider the following results
   when granting the same privilege to a table and a column within the
   table:
+
   - If a user has a table-level privilege on a table, then granting the
     same privilege at the column level has no effect.
   - If a user has a table-level privilege on a table, then revoking the

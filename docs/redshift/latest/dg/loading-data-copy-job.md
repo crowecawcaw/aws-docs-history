@@ -240,6 +240,7 @@ Amazon Redshift console
 3. Choose **Create Amazon S3 event integration** to open the wizard to create and S3 event integration to use with auto-copy.
    Your source Amazon S3 bucket and target Amazon Redshift data warehouse must be in the same AWS Region.
    Specify the following information when going through the steps to create an integration:
+
    - **Integration name** – Is a unique identifier across all integrations owned by your AWS account in the current AWS Region.
    - **Description** – Is text that describes the Amazon S3 event integration for later reference.
    - **Source S3 bucket** – Is the Amazon S3 bucket in the current AWS account and AWS Region which is the source of ingesting data into Amazon Redshift.

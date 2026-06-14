@@ -34,11 +34,13 @@ In addition, consider the following limitations when you use materialized views 
 external data lake tables.
 
 - Materialized view creation is non-incremental on:
+
   - Hudi or Delta Lake tables.
   - Spectrum nested data access.
   - References to VARBYTE columns.
 
 - Materialized view refresh falls back to full recomputation on:
+
   - Apache Iceberg tables when a required snapshot is expired, if the
     materialized view performs aggregation.
   - Standard data lake tables after deletion or update of data files

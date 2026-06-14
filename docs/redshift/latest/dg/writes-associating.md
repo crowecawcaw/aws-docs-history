@@ -25,6 +25,7 @@ specific namespaces in your account.
    **Associate**. When the
    **Associate** datashare page appears, choose
    one of the following association types:
+
    - Choose **Entire AWS account** to
      associate all existing and future namespaces across different
      AWS Regions in your AWS account with the
@@ -35,6 +36,7 @@ specific namespaces in your account.
 
 4. From here you can choose **Allowed
    permissions**. The choices are:
+
    - **Read-only** – If you
      choose read only, write permissions like UPDATE or INSERT
      aren't available on the consumer, even if these permissions
@@ -52,6 +54,7 @@ specific namespaces in your account.
    appears.
 6. Choose an **AWS Region**.
 7. Do one of the following:
+
    - Choose **Add all namespaces** to add all
      existing and future namespaces in this Region to the
      datashare.

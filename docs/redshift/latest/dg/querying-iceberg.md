@@ -43,6 +43,7 @@ Consider the following when using Amazon Redshift with Iceberg tables:
 
 - Iceberg version support – Amazon Redshift supports
   running queries against the following versions of Iceberg tables:
+
   - Version 1 defines how large analytic tables are managed using
     immutable data files.
   - Version 2 adds the ability to support row-level updates and deletes

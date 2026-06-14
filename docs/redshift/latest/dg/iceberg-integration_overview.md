@@ -54,6 +54,7 @@ of the syntax must be 127 characters or less.
 - You can register multiple Redshift clusters and namespaces to the AWS Glue Data Catalog.
 - Registering a cluster or namespace only registers the internal
   schemas and relations in that cluster or namespace. The following aren’t registered:
+
   - External schemas.
   - External tables. Note that late-binding views created from external tables will be registered.
   - User-created functions.

@@ -108,6 +108,7 @@ And below permissions for your IdC IAM role to support IdC identity propagation.
 
 - [Setting up Redshift as an AWS managed application with AWS IAM Identity Center](../mgmt/redshift-iam-access-control-idp-connect-console.md#redshift-iam-access-control-idp-connect-admin-tasks "../mgmt/redshift-iam-access-control-idp-connect-console.md#redshift-iam-access-control-idp-connect-admin-tasks").
 - AWSIDC identity center SSO IAM policy:
+
   - `sso:DescribeApplication` – Required to create an identity provider (IdP) entry in the catalog.
   - `sso:DescribeInstance` – Used to manually create IdP federated roles or users.
 

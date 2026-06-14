@@ -29,6 +29,7 @@ where source.filter = 'filter_expression';
 ```
 
 3. Update the target table by using an inner join with the staging table.
+
    - In the UPDATE clause, explicitly list the columns to be updated.
    - Perform an inner join with the staging table.
    - If the distribution key is different from the primary key and the

@@ -176,6 +176,7 @@ For more information about creating a bucket, see
      your empty bucket in the **Buckets** panel.
 
 2. Create a folder.
+
    1. Choose the name of the new bucket.
    2. Choose the **Create Folder** button.
    3. Name the new folder `load`.
@@ -190,6 +191,7 @@ For more information about creating a bucket, see
    pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/") page.
 
 3. Upload the data files to the new Amazon S3 bucket.
+
    1. Choose the name of the data folder.
    2. In the Upload wizard, choose **Add
       files**.

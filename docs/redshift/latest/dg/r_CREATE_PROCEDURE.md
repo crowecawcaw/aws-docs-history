@@ -15,11 +15,13 @@ You must have permission by one of the following ways to run CREATE OR REPLACE
 PROCEDURE:
 
 - For CREATE PROCEDURE:
+
   - Superuser
   - Users with CREATE and USAGE privilege on the schema where the stored
     procedure is created
 
 - For REPLACE PROCEDURE:
+
   - Superuser
   - Procedure owner
 

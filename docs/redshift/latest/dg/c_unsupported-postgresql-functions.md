@@ -24,6 +24,7 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 - Access privilege inquiry functions
 - Advisory lock functions
 - Aggregate functions
+
   - STRING_AGG()
   - ARRAY_AGG()
   - EVERY()
@@ -44,6 +45,7 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 - Database object location functions
 - Database object size functions
 - Date/Time functions and operators
+
   - CLOCK_TIMESTAMP()
   - JUSTIFY_DAYS(), JUSTIFY_HOURS(), JUSTIFY_INTERVAL()
   - PG_SLEEP()
@@ -55,11 +57,13 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 - IS DISTINCT FROM
 - Network address functions and operators
 - Mathematical functions
+
   - DIV()
   - SETSEED()
   - WIDTH_BUCKET()
 
 - Set returning functions
+
   - GENERATE_SERIES()
   - GENERATE_SUBSCRIPTS()
 
@@ -72,6 +76,7 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 - Snapshot synchronization functions
 - Sequence manipulation functions
 - String functions
+
   - BIT_LENGTH()
   - OVERLAY()
   - CONVERT(), CONVERT_FROM(), CONVERT_TO()
@@ -84,6 +89,7 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 
 - System catalog information functions
 - System information functions
+
   - CURRENT_CATALOG CURRENT_QUERY()
   - INET_CLIENT_ADDR()
   - INET_CLIENT_PORT()

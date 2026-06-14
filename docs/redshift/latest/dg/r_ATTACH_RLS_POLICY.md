@@ -54,6 +54,7 @@ When working with the ATTACH RLS POLICY statement, observe the following:
 - The table being attached should have all the columns listed in the WITH clause
   of the policy creation statement.
 - Amazon Redshift RLS supports attaching RLS policies to the following objects:
+
   - Tables
   - Views
   - Late-binding views
@@ -61,6 +62,7 @@ When working with the ATTACH RLS POLICY statement, observe the following:
 
 - Amazon Redshift RLS doesn't support attaching RLS policies to the following
   objects:
+
   - Catalog tables
   - Cross-database relations
   - External tables

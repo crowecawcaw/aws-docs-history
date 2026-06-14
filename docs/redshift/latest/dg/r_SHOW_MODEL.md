@@ -43,6 +43,7 @@ The SHOW MODEL command returns the following:
   owner of the model can view this information.
 - A list of user-specified parameters and their values, specifically the
   following:
+
   - The specified TARGET column.
   - The model type, AUTO or XGBoost.
   - The problem type, such as REGRESSION, BINARY_CLASSIFICATION,

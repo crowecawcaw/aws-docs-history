@@ -34,6 +34,7 @@ Amazon Redshift provides built-in support to ingest the following semi-structure
   The SUPER data type has the following properties:
 
 - An Amazon Redshift scalar value:
+
   - A null
   - A boolean
   - A number, such as smallint, integer, bigint, decimal, or floating

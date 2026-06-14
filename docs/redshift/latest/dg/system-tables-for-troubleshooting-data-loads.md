@@ -54,6 +54,7 @@ select * from loadview where table_name='venue';
 4. Fix the problem in the input file or the load script, based on the
    information that the view returns. Some typical load errors to watch for
    include:
+
    - Mismatch between data types in table and values in input data
      fields.
    - Mismatch between number of columns in table and number of fields in

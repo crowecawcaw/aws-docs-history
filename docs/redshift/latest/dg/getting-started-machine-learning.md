@@ -39,6 +39,7 @@ To perform one-time cluster setup for Amazon Redshift ML
    [Permissions required to use Amazon Redshift machine learning (ML)](../mgmt/redshift-iam-access-control-identity-based.md#iam-permission-ml? "../mgmt/redshift-iam-access-control-identity-based.md#iam-permission-ml?")
 2. Create the IAM role required for using Amazon Redshift ML in one of
    the following ways:
+
    - To use SageMaker AI with Amazon Redshift ML, create an IAM role with
      `AmazonS3FullAccess` and
      `AmazonSageMakerFullAccess` policies. If you plan
@@ -74,7 +75,6 @@ To perform one-time cluster setup for Amazon Redshift ML
 
 
    ```
-
    - If you want to create an IAM role with a more restrictive policy,
      you can use the policy following. You can also modify this policy to meet
      your needs.

@@ -53,6 +53,7 @@ Consider the following items when serializing nested JSON.
   accessed directly as part of the query syntax (for example, in the filter
   clause). However, JSON functions can be used to access nested JSON.
 - The following specialized representations are not supported:
+
   - ORC unions
   - ORC maps with complex type keys
   - Ion datagrams

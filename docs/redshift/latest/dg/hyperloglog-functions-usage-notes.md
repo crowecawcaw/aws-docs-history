@@ -10,6 +10,7 @@ The following are considerations for using HyperLogLog in Amazon Redshift:
 
 - The following non-HyperLogLog functions can accept an input of type HLLSKETCH or columns of
   type HLLSKETCH:
+
   - The aggregate function COUNT
   - The conditional expressions COALESCE and NVL
   - CASE expressions

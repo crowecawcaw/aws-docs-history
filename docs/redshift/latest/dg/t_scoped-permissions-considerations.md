@@ -13,6 +13,7 @@ When using scoped permissions, consider the following:
   all current and future objects in the scope.
 - Scoped permissions and object-level permissions operate independently of each other.
   For example, a user will maintain permissions on a table in both of the following cases.
+
   - The user is granted SELECT on the table schema1.table1 and SELECT scoped permission on schema1.
     The user then has SELECT revoked for all tables in schema schema1.
     The user retains SELECT on schema1.table1.
@@ -21,6 +22,7 @@ When using scoped permissions, consider the following:
     The user retains SELECT on schema1.table1.
 
 - To grant or revoke scoped permissions, you must meet one of the following criteria:
+
   - Superusers.
   - Users with the grant option for that permission.
     For more information on grant options, go to the

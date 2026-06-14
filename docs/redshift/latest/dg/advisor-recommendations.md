@@ -122,6 +122,7 @@ GROUP BY database;
   only access a single database, moving databases to separate clusters has
   minimal impact for users.
 - One option to move a database is to take the following steps:
+
   1.  Temporarily restore a snapshot of the current cluster to a cluster of
       the same size.
   2.  Delete all databases from the new cluster except the target database

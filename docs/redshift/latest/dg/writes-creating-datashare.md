@@ -37,6 +37,7 @@ from the datashare on a consumer as a consumer administrator.
    datashare** page appears.
 5. In the **Datashare information** section,
    choose one of the following:
+
    - Choose **Datashare** to create datashares
      to share data for read or write purpose across different Amazon Redshift
      data warehouses (provisioned clusters or Serverless

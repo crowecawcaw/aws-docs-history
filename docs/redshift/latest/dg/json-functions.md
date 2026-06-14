@@ -66,12 +66,15 @@ An example is the following: `["first", {"one":1}, "second", 3, null]`
 0.  In a JSON key:value pair, the key is a string in double quotation marks.
 
 - A JSON value can be any of the following:
+
   - JSON object
   - array
   - string
+
     - Represented using double quotation marks
 
   - number
+
     - Includes integers, decimals, and floats
 
   - boolean

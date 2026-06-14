@@ -294,6 +294,7 @@ to properly parse new line characters (\n) within quoted strings
 for OpenCSV requests.
 
 - org.openx.data.jsonserde.JsonSerDe
+
   - The JSON SERDE also supports Ion files.
   - The JSON must be well-formed.
   - Timestamps in Ion and JSON must use ISO8601

@@ -34,6 +34,7 @@ When using CREATE MODEL, consider the following:
   GEOMETRY, GEOGRAPHY, HLLSKETCH, SUPER, or VARBYTE as the target column
   type.
 - To improve model accuracy, do one of the following:
+
   - Add as many relevant columns in the CREATE MODEL command as possible when
     you specify the training data in the FROM clause.
   - Use a larger value for MAX_RUNTIME and MAX_CELLS. Larger values for this

@@ -26,6 +26,7 @@ use the `deregister-namespace` command with the following options:
 - `namespace-identifier`: An object with the unique identifier of the cluster or namespace you’re deregistering.
   This object is different depending on whether you’re deregistering a provisioned cluster
   or a serverless namespace. Consider the following:
+
   - For provisioned clusters, you provide a `ProvisionedIdentifier` object, which
     contains a `ClusterIdentifier` object with the unique identifier of the cluster you’re deregistering.
   - or serverless namespaces, you provide a `ServerlessIdentifier` object, which contains a

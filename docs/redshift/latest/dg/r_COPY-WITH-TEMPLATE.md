@@ -25,6 +25,7 @@ To use a template in a COPY command, you must have:
 
 - All required permissions to execute the COPY command (see [Required permissions](r_COPY.md#r_COPY-permissions "r_COPY.md#r_COPY-permissions") )
 - One of the following template permissions:
+
   - Superuser privileges
   - USAGE privilege on the template and USAGE privilege on the schema containing the template
 

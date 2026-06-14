@@ -24,6 +24,7 @@ If there is no local connection, do one of the following:
   objects in the cluster.
 - In the cluster details page, from the **Datashares** tab,
   do one of the following:
+
   - In the **Datashares from other clusters** section,
     choose **Connect to database** to view datashares from
     other clusters.

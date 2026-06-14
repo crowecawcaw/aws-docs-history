@@ -25,6 +25,7 @@ If there is no local connection, do one of the following:
 - In the cluster or namespace details page, from the
   **Datashares** tab, choose **Connect to
   database** and do one of the following:
+
   - In the **Datashares from other namespaces and
     AWS accounts** section, view datashares from other
     clusters, namespaces, or accounts.
@@ -33,6 +34,7 @@ If there is no local connection, do one of the following:
 
 - On the **Connect to database** window, do one of
   the following:
+
   - If you choose **Create a new connection**,
     choose **AWS Secrets Manager** to use a stored
     secret to authenticate access for the connection.

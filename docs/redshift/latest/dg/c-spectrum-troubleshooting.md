@@ -232,6 +232,7 @@ metadata information. This can happen in the following cases:
   Following are the fields that must be filled when retrieving a partition from the AWS Glue Data Catalog:
 
 - StorageDescriptor
+
   - InputFormat
   - OutputFormat
   - SerDeInfo

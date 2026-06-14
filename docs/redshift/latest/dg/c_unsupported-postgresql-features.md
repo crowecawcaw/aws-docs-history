@@ -47,6 +47,7 @@ Amazon Redshift does not support locale-specific or user-defined collation
 sequences. See [Collation sequences](c_collation_sequences.md "c_collation_sequences.md").
 
 - Value expressions
+
   - Subscripted expressions
   - Array constructors
   - Row constructors

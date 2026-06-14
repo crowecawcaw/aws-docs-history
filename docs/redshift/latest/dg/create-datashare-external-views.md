@@ -183,6 +183,7 @@ in a datashare:
 - **Logging with AWS CloudTrail**
   – The data producer account can use AWS CloudTrail logs to
   audit when data lake tables shared through a datashare are accessed:
+
   - **Using log data to control data
     access** – The CloudTrail logs record details about who
     accesses shared tables, including both Redshift datashare producers
@@ -203,6 +204,7 @@ lake objects in a datashare:
 
 - When a consumer queries shared objects from a data lake, the cost of
   scanning is billed to the consumer.
+
   - When the consumer is an RA3 or DC2 provisioned cluster, Redshift uses
     Redshift Spectrum to scan Amazon S3 data. Therefore, the Spectrum cost is
     billed to the consumer account.

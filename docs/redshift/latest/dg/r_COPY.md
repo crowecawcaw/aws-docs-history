@@ -230,6 +230,7 @@ For more information about how to use the COPY command, see the following topics
 - [Tutorial: Loading data from Amazon S3](tutorial-loading-data.md "tutorial-loading-data.md")
 - [Amazon Redshift best practices for loading data](c_loading-data-best-practices.md "c_loading-data-best-practices.md")
 - [Loading tables with the COPY command](t_Loading_tables_with_the_COPY_command.md "t_Loading_tables_with_the_COPY_command.md")
+
   - [Loading data from Amazon S3](t_Loading-data-from-S3.md "t_Loading-data-from-S3.md")
   - [Loading data from Amazon EMR](loading-data-from-emr.md "loading-data-from-emr.md")
   - [Loading data from remote hosts](loading-data-from-remote-hosts.md "loading-data-from-remote-hosts.md")

@@ -12,6 +12,7 @@ You can view datashares from the **Datashares** or
 
 - Use the **Datashares** tab to list datashares
   in your account or from other accounts.
+
   - To view datashares created in your account, choose
     **In my account**, then choose the
     datashare you want to view.

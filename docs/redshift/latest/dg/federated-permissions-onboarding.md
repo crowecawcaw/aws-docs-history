@@ -35,6 +35,7 @@ Console
 2. Navigate to the provisioned clusters dashboard and select **Create cluster**.
 3. Configure your general cluster settings.
 4. In Register with AWS Glue Data Catalog section, select **Register with Amazon Redshift federated permissions**.
+
    - Input a catalog name identifier.
    - (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application.
 
@@ -65,6 +66,7 @@ Console
    provisioned cluster** from the **Restore snapshot** drop-down menu.
 3. Configure general cluster settings.
 4. In Register with AWS Glue Data Catalog section, select **Register with Amazon Redshift federated permissions**.
+
    - Input a catalog name identifier.
    - (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application.
 
@@ -78,6 +80,7 @@ following occurs during AWS Glue Data Catalog registration:
 - When no Redshift IdC Application ARN is provided, the existing Redshift IdC Application in your catalog will be set to disabled status.
 - When a Redshift IdC Application of type Lakehouse from different AWS IAM Identity Center instance is specified, the current IdC provider becomes disabled
 - When a Redshift IdC Application of type Lakehouse from the same AWS IAM Identity Center instance is provided
+
   - The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift
     IdC Application of type Lakehouse. The updated catalog can be checked by querying the
     svv_identity_providers. For more information about the svv_identity_providers,
@@ -114,6 +117,7 @@ Console
 3. From the cluster’s details page, select **Register with AWS Glue Data Catalog** from the **Actions**
    drop-down menu.
 4. Select **Register with Amazon Redshift federated permissions** option and
+
    - Input a catalog name identifier.
    - (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application and choose **Register**.
 
@@ -128,6 +132,7 @@ the following occurs during Glue Data Catalog registration:
 - When no Redshift IdC Application ARN is provided, the existing Redshift IdC Application in your catalog will be set to disabled status.
 - When a Redshift IdC Application of type Lakehouse from different AWS IAM Identity Center instance is specified, the current IdC provider becomes disabled
 - When a Redshift IdC Application of type Lakehouse from the same AWS IAM Identity Center instance is provided
+
   - The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift
     IdC Application of type Lakehouse. The updated catalog can be checked by querying the
     svv_identity_providers. For more information about the svv_identity_providers,
@@ -161,6 +166,7 @@ Console
 3. From the cluster’s details page, select **Register with AWS Glue Data Catalog** from the **Actions**
    drop-down menu.
 4. Select **Register with Amazon Redshift federated permissions** option and
+
    - Input a catalog name identifier.
    - (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application and choose **Register**.
 
@@ -174,6 +180,7 @@ between Redshift instances and AWS Lake Formation/AWS Glue services.
 - You have created an Amazon Redshift IdC Application of type Lakehouse, refer to
   [AWS IAM Identity Center application configuration for Redshift warehouse with federated permissions](federated-permissions-prereqs.md#federated-permissions-prereqs-configuration "federated-permissions-prereqs.md#federated-permissions-prereqs-configuration").
 - You have an Amazon Redshift Cluster or Amazon Redshift Serverless Namespace that is registered with AWS Glue Data Catalog.
+
   - Redshift Serverless Namespace requires workgroup attached to perform the related operations.
 
 If your Redshift Cluster or Redshift Serverless Namespace is already associated to a Redshift IdC Application
@@ -182,6 +189,7 @@ of type other than Lakehouse, the following occurs during AWS Glue Data Catalog 
 - When no Redshift IdC Application ARN is provided, the existing Redshift IdC Application in your catalog will be set to disabled status.
 - When a Redshift IdC Application of type Lakehouse from different AWS IAM Identity Center instance is specified, the current IdC provider becomes disabled
 - When a Redshift IdC Application of type Lakehouse from the same AWS IAM Identity Center instance is provided
+
   - The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift
     IdC Application of type Lakehouse. The updated catalog can be checked by querying the
     svv_identity_providers. For more information about the svv_identity_providers,

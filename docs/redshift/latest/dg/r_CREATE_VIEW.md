@@ -23,10 +23,12 @@ information about late-binding views, see [Usage notes](#r_CREATE_VIEW_usage_not
 To use CREATE VIEW, one of the following permissions is required.
 
 - To create a view using CREATE [ OR REPLACE ] VIEW:
+
   - Superuser
   - Users with the CREATE [ REPLACE ] VIEW permission
 
 - To replace an existing view using CREATE OR REPLACE VIEW:
+
   - Superuser
   - Users with the CREATE [ OR REPLACE ] VIEW permission
   - View owner

@@ -31,6 +31,7 @@ The following are considerations on stored procedures in Amazon Redshift:
 - The maximum number of variables in a stored procedure is 1,024.
 - Any SQL command that requires its own transaction context isn't supported inside a stored
   procedure. Examples include:
+
   - PREPARE
   - CREATE/DROP DATABASE
   - CREATE EXTERNAL TABLE

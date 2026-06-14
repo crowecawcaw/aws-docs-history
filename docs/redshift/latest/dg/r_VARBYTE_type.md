@@ -156,6 +156,7 @@ select to_varbyte('6162', 'hex')::varchar;
   APPROXIMATE COUNT DISTINCT on a VARBYTE column.
 - VARBYTE values larger than 1 MB can only be ingested from the
   following file formats:
+
   - Parquet
   - Text
   - Comma‐separated values (CSV)

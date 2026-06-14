@@ -223,6 +223,7 @@ _Using the AWS Glue console:_
 3. Choose **Create**, then choose **Resource link**.
 4. On the **Create resource link** page,
    provide the following information:
+
    - **Resource link name:** Enter a name
      for the resource link (for example,
      `sales_resource_link`).
@@ -332,6 +333,7 @@ To enable federated access to Spectrum:
 
 1. Connect to your Redshift cluster using an IAM identity with the
    following permissions:
+
    - `redshift:GetClusterCredentialsWithIAM` (for
      provisioned clusters) or
      `redshift-serverless:GetCredentials` (for

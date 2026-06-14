@@ -100,6 +100,7 @@ You can't use IGNOREEXTRA with FILLTARGET.
   table. Column order doesn't matter.
 - If either the source table or the target table contains extra columns, use either
   FILLTARGET or IGNOREEXTRA according to the following rules:
+
   - If the source table contains columns that don't exist in the target table,
     include IGNOREEXTRA. The command ignores the extra columns in the source
     table.
@@ -112,6 +113,7 @@ You can't use IGNOREEXTRA with FILLTARGET.
 
 - If a column with the same name but different attributes exists in both tables, the
   command fails. Like-named columns must have the following attributes in common:
+
   - Data type
   - Column size
   - Compression encoding

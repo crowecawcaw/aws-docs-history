@@ -27,6 +27,7 @@ The following aren't supported:
 - MERGE statements on non-RMS external tables to consumer warehouses, when
   writing to producers.
 - CREATE TABLE statements with:
+
   - DEFAULT expression set to data type VARBYTE. The VARBYTE data type can't
     be implicitly converted to any other data type. For more information, see
     [CAST function](r_CAST_function.md "r_CAST_function.md").

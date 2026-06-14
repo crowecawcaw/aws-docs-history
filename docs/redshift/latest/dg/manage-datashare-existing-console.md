@@ -15,6 +15,7 @@ View datashares from the **DATASHARES** or
 
 - Use the **DATASHARES** tab to list datashares in your
   account or from other accounts.
+
   - To view datashares created in your account, choose **In my
     account**, then choose the datashare you want to
     view.
@@ -50,6 +51,7 @@ procedure.
    **Edit**. The datashare details page appears.
 6. To remove one or more datashare objects to the datashare, do one of the
    following:
+
    - To remove schemas from the datashare, choose one or more schemas.
      Then choose **Remove**. Amazon Redshift removes the
      specified schemas and all the objects of the specified schemas from

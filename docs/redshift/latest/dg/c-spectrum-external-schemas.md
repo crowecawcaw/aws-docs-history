@@ -200,11 +200,13 @@ To display the security group, do the following:
 3. If you are using VPC, choose the VPC that your Amazon Redshift and Amazon EMR clusters
    are in.
 4. Add an inbound rule.
+
    1. For **Type**, choose **Custom TCP**.
    2. For **Source**, choose **Custom**.
    3. Enter the name of your Amazon Redshift security group.
 
 5. Add another inbound rule.
+
    1. For **Type**, choose **TCP**.
    2. For **Port Range**, enter
       **9083**.
