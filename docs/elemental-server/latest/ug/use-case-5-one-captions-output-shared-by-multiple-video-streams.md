@@ -33,6 +33,7 @@ the settings as follows:
 4. Create a second stream (for example, Stream 2) and set up the video and audio for
    medium-resolution video.
 5. Set up the second stream in the same way, specifying the captions settings as follows:
+
    - **Caption Source**: Caption Selector 1.
    - **Destination Type**: Embedded.
    - **Language**: Leave blank; with embedded captions, all the languages
@@ -41,6 +42,7 @@ the settings as follows:
 6. Create a third stream (for example, Stream 3) and set up the video and audio for
    high-resolution video.
 7. Set up the third stream in the same way, specifying the captions settings as follows:
+
    - **Caption Source**: Caption Selector 1.
    - **Destination Type**: Embedded.
    - **Language**: Leave blank; with embedded captions, all the languages
@@ -70,6 +72,7 @@ medium-resolution, and one for high-resolution. There are two output captions (E
 Spanish SCC) that are associated with all three video/audio streams.
 
 1. In the input, follow the procedure in [Creating Input Captions Selectors](create-input-caption-selectors.md "create-input-caption-selectors.md") to create one caption selector for each language:
+
    - **Caption Selector 1**: for SCC English.
    - **Caption Selector 2**: for SCC Spanish.
 
@@ -92,6 +95,7 @@ follows:
 
 6. Set up another captions-only stream (for example, Stream 5)
    in the same way, specifying the captions settings as follows:
+
    - **Caption Source**: Caption Selector 2.
    - **Destination Type**: SCC.
    - **Language**: Spanish

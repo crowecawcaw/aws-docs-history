@@ -21,6 +21,7 @@ multiple overlays, repeat this procedure.
 3. In the appropriate section of the job, choose the **Image
    Inserter** slider and then choose **Add Image**.
    Find the appropriate sections as follows:
+
    - Find the dark gray **Input** section at the top of
      the job.
    - Find the medium gray **Global Processors** section
@@ -32,6 +33,7 @@ multiple overlays, repeat this procedure.
 
 4. Specify values for the image inserter settings. For more information about
    these specific settings, see the following topics:
+
    - For information about **Start Time**,
      **Duration**, **Fade In**, and
      **Fade Out**, see [Setting Up When Your Overlay Plays](when-your-still-overlay-plays.md "when-your-still-overlay-plays.md").

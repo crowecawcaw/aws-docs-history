@@ -9,6 +9,7 @@ caption language information in the manifest.
 
 1. In the HLS output group, go to the output. Click **Advanced**.
 2. Complete Caption Languages as desired:
+
    - **Omit**: To omit any CLOSED-CAPTION lines in the manifest.
    - **None**: To include one CLOSED-CAPTION=None line in the
      manifest.

@@ -37,12 +37,14 @@ then do not follow this procedure. Instead, see [Extracting VBI Data Included in
 ## Captions Selector Fields for Embedded, SCTE-20, Embedded+SCTE-20, and SCTE-20+Embedded Captions
 
 - **Source**: Specify a value for the source format as follows:
+
   - Choose `embedded` if the source captions are embedded (EIA-608 or CEA-708)
     or embedded+SCTE-20, or SCTE-20+embedded.
   - Choose `SCTE-20` if the source captions are SCTE-20 alone.
 
 - **CC channel number**: This field specifies the track to extract.
   Complete as follows:
+
   - If you are doing embedded-to-embedded captions (that is, you create only one captions
     selector for the input-embedded captions), AWS Elemental Server ignores this field, so keep the
     default value for **CC channel number**.

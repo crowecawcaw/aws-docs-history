@@ -20,6 +20,7 @@ Portuguese.
 # To set up a job for this example
 
 1. In the input, follow the procedure in [Creating Input Captions Selectors](create-input-caption-selectors.md "create-input-caption-selectors.md") to create two caption selectors:
+
    - One for TTML Spanish.
    - One for TTML Portuguese.
 
@@ -36,6 +37,7 @@ follows:
 
 4. Create a second captions-only stream (for example, Stream 3), specifying the captions
    settings as follows:
+
    - **Caption Source**: Caption Selector 2.
    - **Language**: Portuguese.
    - Other fields: Same as the first caption stream.

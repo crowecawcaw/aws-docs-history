@@ -19,6 +19,7 @@ up is supported. Support for a particular output caption format depends on the f
 1. Find the **Supported Caption Formats** table on the web interface of your
    AWS Elemental Server appliance. The URL for this table is
    <your-AWS Elemental Server-node>/help/reference#supported_captions.
+
    1. Choose the **Support** tab on the web interface. These top-level tabs
       are at the top of the web interface, just below the AWS Elemental logo.
 

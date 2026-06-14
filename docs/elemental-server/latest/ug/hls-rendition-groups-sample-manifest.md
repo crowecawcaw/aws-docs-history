@@ -8,6 +8,7 @@ the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Element
 
 - There are two video streams, as indicated by the presence of two EXT-STREAM-INF
   lines.
+
   - The first video stream has a low bandwidth. As indicated by the AUDIO parameter, it is
     associated with “audio1.”
   - The second video stream has a higher bandwidth. As indicated by the AUDIO parameter, it
@@ -21,6 +22,7 @@ the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Element
   line. The first two lines belong to audio1, the second two to audio2.
 - In each audio stream, the values for the various parameters come from these fields in the
   web interface:
+
   - TYPE: Always Audio.
   - GROUP-ID: from Audio Group ID field in Output > Advanced.
   - LANGUAGE: from the Language Code field in Stream > Advanced.

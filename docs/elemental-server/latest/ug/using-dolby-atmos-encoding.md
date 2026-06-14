@@ -65,6 +65,7 @@ If your audio input is individual .wav files, do the following:
 2. Create a single audio selector group; include each of the 16 audio
    selectors.
 3. Create one output stream with a single audio tab.
+
    1. For **Audio Codec**, choose **Dolby Digital Plus JOC (Atmos)**.
    2. For **Audio Source**, choose the audio selector group that you
       created.
@@ -78,6 +79,7 @@ If your audio input is individual .wav files, do the following:
    Specify them in this order: L, R, C, LFE, Ls, Rs, Lrs, Rrs, Lw, Rw, Ltf,
    Rtf, Ltm, Rtm, Ltr, Rtr.
 4. Create one output stream with a single audio tab.
+
    1. For **Audio Codec**, choose **Dolby Digital Plus JOC (Atmos)**.
    2. For **Audio Source**, keep the default **Audio
       Selector 1**.
@@ -91,6 +93,7 @@ For more detailed instructions, see one of the following procedures:
 ###### To set up a Dolby Atmos job, with audio inputs as 16 individual .wav files
 
 1.  Set up your input audio selectors as follows:
+
     1. On the **Create New Job** page, in the **Input** section, under
        **Advanced**, find **Audio Selector
        1**.
@@ -131,6 +134,7 @@ For more detailed instructions, see one of the following procedures:
         * **Audio Selector 16**: Rtr
 
 2.  Create an input **Audio Selector Group** as follows:
+
     1. At the top of the **Audio Selector** sections, choose **Add
        Audio Selector Group**.
     2. For **Selector Group Name**, enter a descriptive name, such as
@@ -181,6 +185,7 @@ entire Atmos audio content.
    5. For **Track**, list your 16 PCM mono tracks in a
       comma-separated list. Specify them in the following order: L, R, C,
       LFE, Ls, Rs, Lrs, Rrs, Lw, Rw, Ltf, Rtf, Ltm, Rtm, Ltr, Rtr.
+
       - If the tracks of your input audio file are already in that
         order, then list them that way: `1, 2, 3, …
 16`.

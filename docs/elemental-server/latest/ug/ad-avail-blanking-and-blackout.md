@@ -107,6 +107,7 @@ flags. These flags provide additional information as guidance for blanking in sp
 situations:
 
 - `web_delivery_allowed_flag`
+
   - `True` means that there is no restriction on
     including the ad avail event’s content in a stream intended for web
     delivery: there is no need to blank out content in streams intended for web
@@ -115,6 +116,7 @@ situations:
     should be blanked out.
 
 - `no_regional_blackout_flag`
+
   - `True` means that there is no restriction on
     including the ad avail event’s video in a stream intended for regional
     markets: there is no need to blank out content in streams intended for
@@ -188,12 +190,14 @@ should leave both the fields unchecked.
 - In the Profile or Event screen, click Advanced Avail Controls (in the Input
   section towards the top of the screen).
 - Check or uncheck the two restriction fields:
+
   - Unchecked (default): Observe the restriction and blank the content for
     the ad avail event.
   - Checked: Ignore the restriction and do _not_ blank the content for the ad avail event.
 
 - Go down to the Global Processors section and complete the following
   fields:
+
   - **Ad Avail Blanking**: Click to turn on. The
     **Blanking Image** field appears.
   - **Blanking Image**: Specify a `.bmp` or
@@ -206,6 +210,7 @@ should leave both the fields unchecked.
 
 - In the Profile or Event screen, go down to the Global Processors section and
   complete the following fields:
+
   - **Blackout Image Insertion**: Click to turn on. The
     **Blanking Image** field appears.
   - **Blanking Image**: Specify a `.bmp` or
@@ -217,6 +222,7 @@ should leave both the fields unchecked.
 - If you want to enable network end blackout (in other words, blank content when
   network transmission has ended and remove blanking only when network transmission
   resumes), follow these instructions:
+
   - **Enable Network End Blackout**: Selected.
   - **Network ID**: The EIDR ID of the network in the format
     10.nnnn/xxxx-xxxx-xxxx-xxxx-xxxx-c (case insensitive). Only network end

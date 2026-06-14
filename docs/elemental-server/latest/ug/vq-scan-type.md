@@ -18,6 +18,7 @@ internal algorithms tied to the scan type:
   GPU-enabled versions.
 - **Force Field Pictures**: This field appears only if the
   codec is H.264 and only affects GPU-enabled versions of the software.
+
   - **Enabled**: All outputs are forced to use PAFF field
     picture encoding.
   - **Disabled**: The encoder switches between PAFF and

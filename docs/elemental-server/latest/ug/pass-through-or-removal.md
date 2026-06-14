@@ -23,6 +23,7 @@ MPEG-2 TS container.
    of the screen and display the tab for Archive Output Group.
 2. In the output that has the MPEG-2 TS container, open the PID Control section.
    Complete the following fields:
+
    - **SCTE-35**: Click to check.
    - **SCTE-35 PID**: Enter the ID of the PID where you want
      the SCTE-35 messages to go.
@@ -42,10 +43,12 @@ be applied differently for different outputs in the same group.
 1. If you have not already set up for manifest decoration, do so now; see [Procedure to Enable Manifest Decoration](manifest-decoration.md#procedure-to-enable-decoration "manifest-decoration.md#procedure-to-enable-decoration").
 2. In the Profile or Event screen, go to the Output Groups section at the bottom
    of the screen and display the tab for Apple HLS Output Group.
+
    1. In each output, open the PID Control section. You will note that the
       SCTE-35 field is automatically checked (because you set up for manifest
       decoration); it cannot be unchecked.
    2. Complete the following field:
+
       - **SCTE-35 PID** field: Enter the ID of the PID
         where you want the SCTE-35 messages to go.
 
@@ -65,6 +68,7 @@ be applied differently for different outputs in the same group.
    of the screen and display the tab for UDP/TS Output Group.
 2. In the output where you want to pass through SCTE-35 messages, open the PID
    Control section. Complete the following fields:
+
    - **SCTE-35**: Click to check.
    - **SCTE-35 PID**: Enter the ID of the PID where you want
      the SCTE-35 messages to go.

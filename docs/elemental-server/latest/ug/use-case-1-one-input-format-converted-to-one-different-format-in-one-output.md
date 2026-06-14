@@ -18,6 +18,7 @@ and include these captions in both languages in a DASH output.
 # To set up a job for this example
 
 1. In the input, follow the procedure in [Creating Input Captions Selectors](create-input-caption-selectors.md "create-input-caption-selectors.md") to create two caption selectors:
+
    - One for the German SRT file.
    - One for the French SRT file.
 
@@ -35,6 +36,7 @@ follows:
 4. Create another caption stream (for example, Stream 3) following the procedure for sidecar
    captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
    follows:
+
    - **Caption Source**: Caption Selector 2.
    - **Language**: French.
    - Other fields: same as the first caption stream.

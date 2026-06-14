@@ -31,6 +31,7 @@ captions are, of course, processed twice.
 # To set up a job for this example
 
 1. In the input, follow the procedure in [Creating Input Captions Selectors](create-input-caption-selectors.md "create-input-caption-selectors.md") to create two caption selectors:
+
    - One for Teletext Czech. Specify the page that holds the Czech captions.
    - One for Teletext Polish. Specify the page that holds the Polish captions.
 
@@ -49,12 +50,14 @@ follows:
 
 5. Create a second caption stream (for example, Stream 4) in the same way, specifying the
    captions settings as follows:
+
    - **Caption Source**: Caption Selector 2.
    - **Language**: Polish.
    - Other fields: same as the first caption stream.
 
 6. Create a third caption stream (for example, Stream 5) in the same way, specifying the
    captions settings as follows:
+
    - **Caption Source**: Caption Selector 1.
    - **Destination Type**: WebVTT.
    - **Language**: Czech.
@@ -63,6 +66,7 @@ follows:
 
 7. Create a fourth caption stream (for example, Stream 6) in the same way, specifying the
    captions settings as follows:
+
    - **Caption Source**: Caption Selector 2.
    - **Language**: Polish.
    - Other fields: Same as the third caption stream.

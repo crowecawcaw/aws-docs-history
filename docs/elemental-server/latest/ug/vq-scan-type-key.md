@@ -71,6 +71,7 @@ bitstream.
 - **Follow (Default Top)** and **Follow
   (Default Bottom)**: Produces interlaced output, with the output having the same
   field polarity as the source. Therefore:
+
   - If the source is "interlaced", the output is interlaced with the same polarity as the
     source (it follows the source). The output could therefore be a mix of “top field first”
     and “bottom field first.”

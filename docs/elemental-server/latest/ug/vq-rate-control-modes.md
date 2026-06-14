@@ -14,6 +14,7 @@ Rate control modes define how the encoding engine uses the buffer model and how 
 into the engine.
 
 - The **Rate Control Mode** field has the following options.
+
   - **Constant Bitrate** (CBR) mode: Uses the buffer model
     described above where Max Bitrate equals the defined (Average) Bitrate. In this mode, the
     system adds fill bits to the stream to ensure a constant bitrate video encoding.

@@ -18,6 +18,7 @@ issues of badly tagged frames.
 
 - When the **Deinterlace Mode** is Adaptive, set **Force Mode** to Off.
 - When the **Deinterlace Mode** is Deinterlace, use **Force Mode** as follows:
+
   - **Off**: The processor does not convert frames that are
     tagged in metadata as "progressive." It only converts those that are tagged as some other
     type.
@@ -28,6 +29,7 @@ issues of badly tagged frames.
 
 - When the **Deinterlace Mode** is Inverse Telecine, use
   **Force Mode** as follows:
+
   - Off: The processor monitors presence/absence of the hard telecine field repeat
     cadence and applies only to hard telecine to progressive conversion on frames that have a
     distinct cadence.

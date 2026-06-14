@@ -11,6 +11,7 @@ quality. It works by reducing spatial noise, which makes images compress better.
 the visual quality of the video.
 
 - The **Filter** field has four options:
+
   - **Mean / Gaussian / Lanczos**: All of these algorithms allow
     for varying blur strengths. Mean is the strongest filter (it operates on a smaller group of
     pixels) while Lanczos is the mildest (it operates on a larger group of pixels).

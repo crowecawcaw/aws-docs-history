@@ -16,6 +16,7 @@ Provide the following values for the captions selector fields:
   accepts captions files from Amazon S3.
 - **Time delta**: (Optional) Use this setting if you need to adjust the
   sync between the captions and the video:
+
   - Type a positive number to add to the times in the captions file. For example, type
     `15` to add 15 seconds to all the times in the captions file.
   - Type a negative number to subtract from the times in the captions file. For example,

@@ -62,6 +62,7 @@ full-swing and you choose "true", the blacks and whites in the output are clippe
 
 - **Color Space Conversion**: Adjusts pixel values from input
   to output color space (e.g. REC-601).
+
   - Set to "None" to perform no conversion.
   - Set to "Force 601" or "Force 709" to convert inputs with differing colorspaces. When
     choosing either of these options, either the metadata must specify the colorspace of the

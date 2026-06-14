@@ -34,6 +34,7 @@ AWS Elemental Server supports Teletext-to-Teletext only in MPEG-2 outputs.
 - **Source**: Choose **Teletext**.
 - **Page**: This field specifies the captions page you want. A captions
   page usually corresponds to a language. Complete as follows:
+
   - If you are doing Teletext-to-Teletext captions (that is, you create only one captions
     selector for the input embedded captions), keep this field blank. AWS Elemental Server ignores any
     value that you provide.
