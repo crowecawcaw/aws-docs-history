@@ -3,10 +3,12 @@
 ## Ensure Instance Profile Permissions
 
 - Verify that the instances you want to protect have an instance profile with the following policies:
+
   - AmazonSSMManagedInstanceCore
   - AWSElasticDisasterRecoveryEC2InstancePolicy
 
 - If the instance profile is not present, you can create the default instance profile by following these steps:
+
   1.  Go to the **Instance profile** role **installation** section.
   2.  Select the **Install default IAM role** button to create the default instance profile.
 
@@ -44,6 +46,7 @@ Elastic Disaster Recovery. Should you not wish to utilize Systems Manager for th
 
 - When installing the AWS Replication Agent, you may run into unforeseen installation issues based on multiple factors. Refer to **Advanced topics** in the Resources section of this guide for common issues that can be encountered during the installation process.
 - If you are unable to resolve the using the information provided, create an AWS support ticket and include the following:
+
   - What part of the installation process is failing
   - Confirmation that you have followed the troubleshooting guide
   - Attach the agent log from that specific server. The agent log can be located at the
@@ -53,21 +56,27 @@ Elastic Disaster Recovery. Should you not wish to utilize Systems Manager for th
         2. **Windows**: C:.log
 
   - Once the installation has completed, the Elastic Disaster Recovery console will show the following stages:
+
     - Initiating
+
       - This shows that the agent has been installed successfully on the source server, and Elastic Disaster Recovery is now moving on to the
         next steps of configuring replication for that server. To see what step the service is currently on, select the server name, and check
         under _Data replication status,_ as shown in the user guide under [Recovery Dashboard](<http://%20(https://docs.aws.amazon.com/drs/latest/userguide/recovery-dashboard.html)> "http://%20(https://docs.aws.amazon.com/drs/latest/userguide/recovery-dashboard.html)").
 
     - Initial sync | time left
+
       - This is the amount of the known blocks that will be replicated.
+
         - Note that you may see the time left for replication fluctuate by large margins. This is due to how reading block storage is accomplished and we are unable to predict how many future blocks may need to be replicated.
         - You can estimate the amount of time required to complete this step
           by analyzing the amount of storage that needs to be replicated and the available bandwidth available to transmit this data.
 
       - During this initial sync process, you may see _backlog_ in the same line.
+
         - Backlog is the amount of new data that has been written and waiting to be added after initial sync. Once initial sync has completed, you will see the backlog amount start to reduce as the agent replicates those newer blocks.
 
     - Initial sync 100% done | Creating Snapshot
+
       - All blocks have been replicated from the source machine to the staging area and we are now creating the baseline EBS snapshot for that
         volume.
 
@@ -75,20 +84,25 @@ Elastic Disaster Recovery. Should you not wish to utilize Systems Manager for th
             regional EC2 endpoint.
 
     - Healthy
+
       - All data has been replicated to the staging area, and the replication server has enough bandwidth to replicate the changes being
         generated at the source environment.
         _Should there be an issue with the replication process after you have completed the initial sync phase, you will see an error in the same
         location_.
 
   - Other states you might see are:
+
     - Rescan
+
       - This means that something has interrupted the agents ability to validate the block map, usually caused by an unplanned reboot of the
         source machine (such as a power outage, pulling the plug, or terminating an EC2 instance)
 
     - Lag
+
       - Lag is the amount of time since the server was last in continuous data protection (CDP) mode. Lag typically leads to backlog, which is the amount of data that has accumulated and still needs to be replicated. The longer the lag, the larger the backlog that needs to be cleared.
       - This can be caused by many items, and troubleshooting steps can be found in the userguide under [Replication Lag Issues](../../../drs/latest/userguide/Other-Troubleshooting-Topics.md#Replication-Lag-Issues "../../../drs/latest/userguide/Other-Troubleshooting-Topics.md#Replication-Lag-Issues").
       - Potential solutions:
+
         - Make sure that the source server is up and running.
         - Make sure that AWS Elastic Disaster Recovery services are running on the source server.
         - Make sure that TCP Port 1500 is not blocked outbound from the Source server to the replication server.
@@ -96,7 +110,9 @@ Elastic Disaster Recovery. Should you not wish to utilize Systems Manager for th
         - If the source machine had a spike of write operations, the lag will grow until AWS Elastic Disaster Recovery service manages to flush all the written data to the drill or recovery instance replication server.
 
     - Backlog
+
       - Backlog is the amount of data that was written to the disk and still needs to be replicated in order to reach CDP mode. backlog can also occur without lag. This can happen due to various reasons, such as:
+
         - Temporary network interruptions or bandwidth limitations that prevent the data from being replicated in real-time.
         - Spikes in data volume that exceed the processing capacity of the system, leading to a backlog.
         - Scheduled maintenance or other operational activities that temporarily pause the replication process.

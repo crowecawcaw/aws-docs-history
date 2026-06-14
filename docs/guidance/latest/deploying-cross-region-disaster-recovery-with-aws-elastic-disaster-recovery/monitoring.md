@@ -16,32 +16,43 @@ time since last successful test, and lag of source servers (when the Elastic Dis
 1. Navigate to the Amazon CloudWatch dashboard.
 2. Under Dashboards, select **Automatic dashboards**
 3. Filter for and select **Elastic Recovery Service**
+
    1. You will be taken to a default dashboard that monitors several aspects of Elastic Disaster Recovery. These metrics are based on the replication instances you have running in the AWS Region you currently have selected:
+
       1. LagDuration: Average
+
          1. This is the average time of "Lag" on your replication severs.
             Anything higher than 0 should be investigated for possible issues, but
             we recommend monitoring for lags larger than an hour (or your RPO if close to an hour).
 
       2. Backlog: Average
+
          1. This is the average amount of "backlog". Backlog is generated when the service is unhealthy, but is still seeing data being written to source, that it is unable to replicate
 
       3. DurationSinceLastSuccessfulRecoveryLaunch: Maximum
+
          1. This is the maximum amount of time since the last successful launch of DRS machines
 
       4. ElapsedReplicationDuration: Maximum
+
          1. This is the amount of time Elastic Disaster Recovery has been replicating data
 
       5. ActiveSourceServerCount: Average
+
          1. This is how many source servers have Elastic Disaster Recovery installed
 
       6. TotalSourceServerCount: Average
+
          1. This is how many source servers have Elastic Disaster Recovery installed
 
       7. ProtectedSourceServerCount: Average
+
          1. This is how many source servers have Elastic Disaster Recovery installed excluding disconnected and stopped servers
 
 4. Choose **Add to dashboard**
+
    1. You can either select an existing dashboard, or choose **Create new**
+
       1. If you decide to create a new dashboard, you will be taken to the next screen to enter a name and select **Create**
 
    2. Select **Add to dashboard**
@@ -55,6 +66,7 @@ maintained. Stalled replication is the main indicator of replication issues and 
 
 1.  Navigate to Amazon Simple Notification Service.
 2.  Choose **Create Topic**.
+
     1.  Under **Details** and **Type**, choose **Standard**.
     2.  Under **Name** enter a name for this topic. (for example:
         drs-replication-monitoring)
@@ -171,6 +183,7 @@ This section walks through the steps to view the Cost Explorer report and export
 2. Search for AWS Cost Explorer and open the **AWS Cost Management** dashboard.
 3. Select **Reports**.
 4. Select the report that was previously saved. The total cost of Elastic Disaster Recovery is included in that report.
+
    1. The report can be further customized by using the **Group by** options near the top or any of the other filters available in AWS Cost Explorer.
 
 5. Select **Download CSV** to export your data for further analysis.

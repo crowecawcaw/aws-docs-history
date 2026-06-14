@@ -9,6 +9,7 @@ The following sections provide a detailed overview of the technical requirements
 AWS Regions, general installation requirements, and specific considerations for Windows and Linux systems.
 
 1.  **Administrative rights** - Elastic Disaster Recovery can only be initialized by the Admin user of your AWS Account.
+
     1. If you are using Single Sign On (SSO), refer to
        [Authenticating with identities in AWS Elastic Disaster Recovery](../../../drs/latest/userguide/security_iam_authentication.md "../../../drs/latest/userguide/security_iam_authentication.md")for more information
 
@@ -160,12 +161,16 @@ AWS Regions, general installation requirements, and specific considerations for 
         			3. Ubuntu [package directory](https://packages.ubuntu.com/ "https://packages.ubuntu.com/")
 
 10. **AWS Specific Considerations**
+
     1. Number of disks per server
+
        1. Elastic Disaster Recovery uses Amazon Elastic Block Store and Amazon Elastic Compute Cloud for the replication infrastructure. Because of this, Elastic Disaster Recovery is limited to the amount of disks that can be added to the replication servers.
+
           1. For
              [Nitro replication instances](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md") (such as t3.small), we are limited to source servers with less than 26 volumes
           2. For
              [Xen replication instances](../../../ec2/latest/instancetypes/instance-types.md#previous-gen-instances "../../../ec2/latest/instancetypes/instance-types.md#previous-gen-instances") (such as t2.small), the limitation is 40 volumes per source server
 
     2. Maximum source disk size
+
        1. Elastic Disaster Recovery uses Amazon Elastic Block Store and Amazon Elastic Compute Cloud for the replication infrastructure. Because of this, Elastic Disaster Recovery is limited to the 16TB for each disk on the source machines being protected.

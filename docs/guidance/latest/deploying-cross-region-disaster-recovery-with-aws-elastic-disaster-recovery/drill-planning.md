@@ -16,16 +16,21 @@ before launching a Elastic Disaster Recovery drill:
   while the production environment remains intact. In order to minimize impact to the production environment we recommend the following:
 
 - Network Considerations
+
   - Subnet configuration
+
     - CIDR range
+
       - You will want to ensure that your Drill subnet is configured with the same CIDR range size as your Failover subnet. This will ensure that the subnets are sized properly and any IP adjustments to the Drill/Failover machines remains the same.
       - With this in mind, you will want to ensure that the subnet where you are launching Drill instances is in an isolated network with no route to the source environment or production systems. This will ensure there are
         no IP address or routing conflicts during testing. We also recommend configuring security groups and access control lists to further reinforce these boundaries.
 
   - Routing
+
     - If your Drill requires access to services or dependencies outside of the Drill subnet, you should ensure the appropriate routing policies and
       rules are configured in the Drill subnet to support this connectivity.
     - Updating Launch Template to the Drill subnet
+
       - By default, you will want to have the Launch Templates configured for your Failover subnet. During a Drill, you will need to change that
         section of the Launch Template to the Drill subnet. Refer to the
         [EC2 launch template](../../../drs/latest/userguide/ec2-launch.md "../../../drs/latest/userguide/ec2-launch.md") for steps to complete. Additionally, launch settings can be
