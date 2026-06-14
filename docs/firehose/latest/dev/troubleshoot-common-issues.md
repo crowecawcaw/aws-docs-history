@@ -56,6 +56,7 @@ is falling behind. This can happen for one of the following reasons.
   `ThrottledGetShardIterator`, and
   `ThrottledDescribeStream` metrics. If there are multiple
   consumers attached to the Kinesis data stream, consider the following:
+
   - If the `ThrottledGetRecords` and
     `ThrottledGetShardIterator` metrics are high, we
     recommend you increase the number of shards provisioned for the data

@@ -36,6 +36,7 @@ Check the following if data is not delivered to your Splunk endpoint.
 - Make sure that the Splunk parameter named `ackIdleCleanup` is set
   to `true`. It is false by default. To set this parameter to
   `true`, do the following:
+
   - For a [managed Splunk Cloud deployment](http://docs.splunk.com/Documentation/AddOns/released/Firehose/RequestFirehose "http://docs.splunk.com/Documentation/AddOns/released/Firehose/RequestFirehose"), submit a case using the
     Splunk support portal. In this case, ask Splunk support to enable the
     HTTP event collector, set `ackIdleCleanup` to

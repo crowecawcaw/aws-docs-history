@@ -64,6 +64,7 @@ sudo yum install -y https://s3.amazonaws.com/streaming-data-agent/aws-kinesis-ag
 
 - **To set up the agent from the GitHub
   repo**
+
   1.  First, make sure that you have required Java version installed,
       depending on agent version.
   2.  Download the agent from the [awslabs/amazon-kinesis-agent](https://github.com/awslabs/amazon-kinesis-agent "https://github.com/awslabs/amazon-kinesis-agent") GitHub repo.

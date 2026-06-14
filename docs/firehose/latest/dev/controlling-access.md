@@ -1348,6 +1348,7 @@ following configurations in place.
 1. In the Amazon MSK console, choose the provisioned cluster and then choose **Properties**.
 2. Under **Network settings**, choose **Edit** and turn on **Multi-VPC connectivity**.
 3. Under **Security settings** choose **Edit cluster policy**.
+
    1. If the cluster does not already have a policy configured, check **Include Firehose service principal** and **Enable Firehose cross-account S3 delivery**. The AWS Management Console will
       automatically generate a policy with the appropriate permissions.
    2. If the cluster already has a policy configured, add the following permissions to the existing policy:

@@ -31,5 +31,6 @@ The destination of your Firehose stream. Choose one of the following:
 
 5. Under **Firehose stream name**, enter a name for your stream.
 6. (Optional) Under **Transform records**:
+
    - In the **Decompress source records from Amazon CloudWatch Logs** section, choose **Turn on decompression**.
    - If you want to use message extraction after decompression, choose **Turn on message extraction**.

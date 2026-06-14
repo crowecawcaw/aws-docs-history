@@ -221,6 +221,7 @@ public class FirehoseScenario {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [PutRecord](../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecord.md "../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecord.md")
   - [PutRecordBatch](../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecordBatch.md "../../../goto/SdkForJavaV2/firehose-2015-08-04/PutRecordBatch.md")
 
@@ -504,6 +505,7 @@ def get_config():
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [PutRecord](../../../goto/boto3/firehose-2015-08-04/PutRecord.md "../../../goto/boto3/firehose-2015-08-04/PutRecord.md")
   - [PutRecordBatch](../../../goto/boto3/firehose-2015-08-04/PutRecordBatch.md "../../../goto/boto3/firehose-2015-08-04/PutRecordBatch.md")
 

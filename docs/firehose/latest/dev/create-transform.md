@@ -34,6 +34,7 @@ see [AWS::KinesisFirehose::DeliveryStream](../../../AWSCloudFormation/latest/Use
 ###### In the **Source settings** section, provide the following fields.
 
 1. Under **Transform records**, choose one of the following:
+
    1. If your destination is Amazon S3 or Splunk, in the **Decompress source records Amazon CloudWatch Logs** section, choose **Turn on decompression**.
    2. In the **Transform source records with AWS Lambda** section,
       provide values for the following field:

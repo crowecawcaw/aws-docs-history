@@ -7,11 +7,13 @@
 2. Choose **Create Firehose stream**.
 3. On the **Create Firehose stream** page, choose a source for your
    Firehose stream from one of the following options.
+
    - **Direct PUT** – Choose this option to create a
      Firehose stream that producer applications write to directly. Here is a list of
      AWS services and agents and open source services that integrate with
      Direct PUT in Amazon Data Firehose. This list is not exhaustive, and there may be
      additional services that can be used to send data directly to Firehose.
+
      - AWS SDK
      - AWS Lambda
      - AWS CloudWatch Logs
@@ -49,6 +51,7 @@
      data to a Firehose stream with Amazon MSK](writing-with-msk.md "writing-with-msk.md").
 
 4. Choose a destination for your Firehose stream from one of the following destinations that Firehose supports.
+
    - Amazon OpenSearch Service
    - Amazon OpenSearch Serverless
    - Amazon Redshift

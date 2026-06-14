@@ -13,9 +13,12 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [PutRecord](example_firehose_PutRecord_section.md "example_firehose_PutRecord_section.md")
     - [PutRecordBatch](example_firehose_PutRecordBatch_section.md "example_firehose_PutRecordBatch_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Put records to Firehose](example_firehose_Scenario_PutRecords_section.md "example_firehose_Scenario_PutRecords_section.md")

@@ -36,6 +36,7 @@ The following section shows Amazon Data Firehose has the following quota.
 of 1 GB per second is supported for each active partition.
 
 - Each account will have following quota for the number of Firehose streams per Region:
+
   - US East (N. Virginia), US East (Ohio), US West (Oregon), Europe (Ireland), Asia Pacific
     (Tokyo): 5,000 Firehose streams
   - Europe (Frankfurt), Europe (London), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia
@@ -108,6 +109,7 @@ requests/second and 1,000,000 records/second.
   4 MiB per call, whichever is smaller. This quota cannot be changed.
 - Each of the following operations can provide up to five invocations per second,
   which is a hard limit.
+
   - [`CreateDeliveryStream`](../APIReference/API_CreateDeliveryStream.md "../APIReference/API_CreateDeliveryStream.md")
   - [`DeleteDeliveryStream`](../APIReference/API_DeleteDeliveryStream.md "../APIReference/API_DeleteDeliveryStream.md")
   - [`DescribeDeliveryStream`](../APIReference/API_DescribeDeliveryStream.md "../APIReference/API_DescribeDeliveryStream.md")

@@ -1517,6 +1517,7 @@ can use, refer to the [Accessing Snowflake in VPC](controlling-access.md#using-i
 
 - You must specify the following settings in order to use Snowflake as the destination for your
   Firehose stream.
+
   - Snowflake database – All data in Snowflake is maintained in databases.
   - Snowflake schema – Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
   - Snowflake table – All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
@@ -1525,6 +1526,7 @@ can use, refer to the [Accessing Snowflake in VPC](controlling-access.md#using-i
 
 - Use JSON keys as column names
 - Use VARIANT columns
+
   - Content column name – Specify a column name in the table, where the raw data has to be loaded.
   - Metadata column name (optional) – Specify a column name in the table, where the
     metadata information has to be loaded. When you enable this field, you
