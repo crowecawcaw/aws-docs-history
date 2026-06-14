@@ -10,6 +10,7 @@
 ## Task 4.1: Build ML solutions for performance, availability, scalability, resiliency, and fault tolerance
 
 - Log and monitor AWS environments.
+
   - AWS CloudTrail and Amazon CloudWatch
   - Build error monitoring solutions.
 
@@ -24,6 +25,7 @@
 ## Task 4.2: Recommend and implement the appropriate ML services and features for a given problem
 
 - ML on AWS (application services), for example:
+
   - Amazon Polly
   - Amazon Lex
   - Amazon Transcribe
@@ -32,6 +34,7 @@
 - Understand AWS service quotas.
 - Determine when to build custom models and when to use Amazon SageMaker built-in algorithms.
 - Understand AWS infrastructure (for example, instance types) and cost considerations.
+
   - Use Spot Instances to train deep learning models by using AWS Batch.
 
 ## Task 4.3: Apply basic AWS security practices to ML solutions
@@ -49,5 +52,6 @@
 - Perform A/B testing.
 - Retrain pipelines.
 - Debug and troubleshoot ML models.
+
   - Detect and mitigate drops in performance.
   - Monitor performance of the model.

@@ -11,6 +11,7 @@
 - Identify and handle missing data, corrupt data, and stop words.
 - Format, normalize, augment, and scale data.
 - Determine whether there is sufficient labeled data.
+
   - Identify mitigation strategies.
   - Use data labelling tools (for example, Amazon Mechanical Turk).
 

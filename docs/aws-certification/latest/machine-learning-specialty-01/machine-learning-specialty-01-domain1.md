@@ -15,6 +15,7 @@
 
 - Identify data job styles and job types (for example, batch load, streaming).
 - Orchestrate data ingestion pipelines (batch-based ML workloads and streaming-based ML workloads).
+
   - Amazon Kinesis
   - Amazon Data Firehose
   - Amazon EMR

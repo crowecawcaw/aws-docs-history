@@ -24,14 +24,17 @@
 - Split data between training and validation (for example, cross validation).
 - Understand optimization techniques for ML training (for example, gradient descent, loss functions, convergence).
 - Choose appropriate compute resources (for example GPU or CPU, distributed or non-distributed).
+
   - Choose appropriate compute platforms (Spark or non-Spark).
 
 - Update and retrain models.
+
   - Batch or real-time/online
 
 ## Task 3.4: Perform hyperparameter optimization
 
 - Perform regularization.
+
   - Dropout
   - L1/L2
 
@@ -44,6 +47,7 @@
 ## Task 3.5: Evaluate ML models
 
 - Avoid overfitting or underfitting.
+
   - Detect and handle bias and variance.
 
 - Evaluate metrics (for example, area under curve [AUC]-receiver operating characteristics [ROC], accuracy, precision, recall, Root Mean Square Error [RMSE], F1 score).
