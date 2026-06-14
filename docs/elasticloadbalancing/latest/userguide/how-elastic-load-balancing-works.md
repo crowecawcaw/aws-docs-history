@@ -160,6 +160,7 @@ the connection uses the following process:
 
 1. Selects a target from the target group for the default rule using a flow
    hash algorithm. It bases the algorithm on:
+
    - The protocol
    - The source IP address and source port
    - The destination IP address and destination port

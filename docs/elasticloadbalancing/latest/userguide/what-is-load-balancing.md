@@ -54,6 +54,7 @@ interfaces:
   direct way to access Elastic Load Balancing. However, the Query API requires that your
   application handle low-level details such as generating the hash to sign the
   request, and error handling. For more information, see the following:
+
   - Application Load Balancers, Network Load Balancers, and Gateway Load Balancers — [API version 2015-12-01](../APIReference.md "../APIReference.md")
   - Classic Load Balancers — [API version 2012-06-01](../../2012-06-01/APIReference.md "../../2012-06-01/APIReference.md")
 
