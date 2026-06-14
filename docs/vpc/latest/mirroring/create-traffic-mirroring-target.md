@@ -29,6 +29,7 @@ You can share a traffic mirror target across accounts. For more information, see
    target.
 7. For **Target type**, choose the type of the traffic mirror
    target:
+
    - **Network interface**
    - **Network Load Balancer**
    - **Gateway Load Balancer endpoint**

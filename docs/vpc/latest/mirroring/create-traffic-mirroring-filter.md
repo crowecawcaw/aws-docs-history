@@ -30,6 +30,7 @@ Before you can delete a traffic mirror filter, you must remove it from any traff
    **amazon-dns**.
 10. For each rule, inbound or outbound, choose **Add rule**, and then
     specify the following information:
+
     - **Number**: The rule priority.
     - **Rule action**: Indicates whether to accept or reject the
       packets.

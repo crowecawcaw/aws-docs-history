@@ -22,6 +22,7 @@ traffic mirror entities for this example:
 - A traffic mirror target for the EC2 instance (Target A)
 - A traffic mirror filter with a traffic mirror rule for the TCP inbound traffic (Filter rule 1)
 - A traffic mirror session that has the following:
+
   - A traffic mirror source
   - A traffic mirror target for the appliance
   - A traffic mirror filter with a traffic mirror rule for the TCP inbound traffic

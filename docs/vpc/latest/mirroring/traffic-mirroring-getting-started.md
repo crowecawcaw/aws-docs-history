@@ -15,7 +15,7 @@ Traffic Mirroring applies the filter rules, and then copies the accepted traffic
 of the mirror source to the network interface of the mirror target. You can run your capture and
 analysis tools on the packets delivered to the mirror target.
 
-![A traffic mirror session where the mirror target is an EC2 instance.](images/get-started.png)
+![A traffic mirror session where the mirror target is an EC2 instance.](/images/vpc/latest/mirroring/images/get-started.png)
 
 ###### Tasks
 
@@ -78,6 +78,7 @@ services. The filters and rules that you add define the traffic that is mirrored
    filter.
 5. For each rule, inbound or outbound, choose **Add rule**, and then
    specify the following information:
+
    - **Number**: The rule priority.
    - **Rule action**: Indicates whether to accept or reject the
      packets.
@@ -111,6 +112,7 @@ that you can monitor and analyze traffic.
    source.
 6. For **Mirror target**, choose your traffic mirror target.
 7. For **Additional settings**, do the following:
+
    1. For **Session number**, enter `1`, which is
       the highest priority.
    2. (Optional) For **VNI**, enter the VXLAN ID to use for the traffic mirror

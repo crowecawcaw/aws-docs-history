@@ -22,6 +22,7 @@ example.
 - A traffic mirror target for the appliance (Target A)
 - A traffic mirror filter with a traffic mirror rule for the TCP inbound traffic (Filter 1)
 - A traffic mirror session that has the following:
+
   - A traffic mirror source
   - A traffic mirror target for the appliance
   - A traffic mirror filter with a traffic mirror rule for the TCP inbound traffic
@@ -79,12 +80,14 @@ example.
 - A traffic mirror filter with a traffic mirror rule for the TCP inbound traffic (Filter 1)
 - A traffic mirror filter with a traffic mirror rule for the UDP inbound traffic (Filter 2)
 - A traffic mirror session that has the following:
+
   - A traffic mirror source
   - A traffic mirror target (Target A) for Appliance A
   - A traffic mirror filter (Filter 1) with a traffic mirror rule for the TCP inbound
     traffic
 
 - A traffic mirror session that has the following:
+
   - A traffic mirror source
   - A traffic mirror target (Target B) for Appliance B
   - A traffic mirror filter (Filter 2) with a traffic mirror rule for the UDP inbound
@@ -179,6 +182,7 @@ mirror resources:
   block and accept all other outbound packets. For inbound traffic, it will reject all packets
   which have a source IP in the VPC CIDR block and accept all other inbound packets.
 - A traffic mirror session that has the following:
+
   - A traffic mirror source
   - A traffic mirror target for the appliance (Target A)
   - A traffic mirror filter with a traffic mirror rule for the TCP inbound traffic (Filter
@@ -295,11 +299,13 @@ send it to a Gateway Load Balancer using a Gateway Load Balancer endpoint. You n
 - A Traffic Mirroring filter with a Traffic Mirroring rule for the TCP inbound traffic (Filter 1) for the Gateway Load Balancer
   endpoint
 - A Traffic Mirroring session for Spoke VPC1 that has the following:
+
   - A Traffic Mirroring source
   - A Traffic Mirroring target (Target A) for the Gateway Load Balancer endpoint
   - A Traffic Mirroring filter (Filter 1) with a Traffic Mirroring rule for the TCP inbound traffic
 
 - A Traffic Mirroring session for Spoke VPC2 that has the following:
+
   - A Traffic Mirroring source
   - A Traffic Mirroring target (Target B) for the Gateway Load Balancer endpoint
   - A Traffic Mirroring filter (Filter 1) with a Traffic Mirroring rule for the TCP inbound traffic
