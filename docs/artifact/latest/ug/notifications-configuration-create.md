@@ -16,10 +16,12 @@ receive notifications about, such as updates for AWS Artifact agreements, and up
 1. Open the [Notification settings](https://console.aws.amazon.com/artifact/notification "https://console.aws.amazon.com/artifact/notification") page of the AWS Artifact console.
 2. Choose **Create configuration**.
 3. On the **Create configuration** page, do the following:
+
    - To receive notifications for agreements, under **Agreements**,
      keep **Updates on AWS Agreements** selected.
    - To receive notifications for reports, under **Reports**,
      keep **Updates on AWS Reports** selected.
+
      1. To receive notifications for all reports, choose **All reports**.
      2. To receive notifications only for reports under specific categories and series,
         choose **A subset of reports**. Then, select the categories and series

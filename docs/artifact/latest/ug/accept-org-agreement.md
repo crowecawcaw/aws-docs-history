@@ -39,6 +39,7 @@ For more information, see [Identity and access management in AWS Artifact](secur
 4. Open the AWS Artifact console at [https://console.aws.amazon.com/artifact/](https://console.aws.amazon.com/artifact/ "https://console.aws.amazon.com/artifact/").
 5. In the navigation pane, choose **Agreements**.
 6. On the **Agreements** page, do either of the following:
+
    - To accept an agreement only for your account, choose the **Account agreements**
      tab.
    - To accept an agreement on behalf of your organization, choose the **Organization
@@ -60,6 +61,7 @@ Nondisclosure Agreement (AWS Artifact NDA).
 9. In a PDF viewer, review the agreement PDF that you downloaded.
 10. In the AWS Artifact console, with the agreement selected, choose **Accept agreement**.
 11. In the **Accept agreement** dialog box, do the following:
+
     1. Review the agreement.
     2. Select **I agree to all of these terms and conditions**.
     3. Choose **Accept agreement**.
