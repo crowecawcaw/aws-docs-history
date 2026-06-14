@@ -10,6 +10,7 @@ To create new IAM polices, do the following:
 1.  Create a new **permission policy** by following
     the directions in [Creating policies using the JSON editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
     IAM User Guide.
+
     1. In step 4 use the **permission policy**
        defined below.
 

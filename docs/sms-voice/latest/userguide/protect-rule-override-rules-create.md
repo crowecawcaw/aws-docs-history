@@ -19,6 +19,7 @@ steps:
    override** section choose **Add override**.
 4. In the **Rule override details** section, enter the
    following:
+
    1. For **Destination phone number** enter the phone
       number to create the rule for. The phone number must start with a '+'
       and can't contain any spaces, hyphens, or parentheses. For example,

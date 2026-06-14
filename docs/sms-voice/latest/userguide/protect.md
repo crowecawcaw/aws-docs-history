@@ -20,6 +20,7 @@ to:
   configuration set you send messages with.
 - Set country rules – Within each [protect configuration](protect-configuration.md "protect-configuration.md"), define
   country-specific rules. Choose from:
+
   - Allow (service default) – Permits all
     messages.
   - Block – Prevents all messages to the

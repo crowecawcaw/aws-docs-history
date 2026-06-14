@@ -33,12 +33,14 @@ In this section, you provide additional details about your 10DLC campaign.
 2.  In the navigation pane, under **Registrations**, choose the 10DLC
     campaign registration to complete.
 3.  On the **10DLC campaign registration information** page, do the following:
+
     1. For **Campaign description**, enter a name for the 10DLC
        campaign and description of the campaigns purpose.
     2. For **Vertical**, choose the option that represents your
        company.
     3. For **Company Terms & Conditions** choose
        either:
+
        1. **Enter URL** – Enter the publicly
           accessible URL that contains the **Terms &
           Conditions**.
@@ -48,6 +50,7 @@ In this section, you provide additional details about your 10DLC campaign.
           to 500KB and valid file formats are PNG, JPEG, and PDF.
 
     4. For **Privacy Policy** choose either:
+
        1. **Enter URL** – Enter the publicly accessible URL that contains the
           **Privacy Policy**.
        2. **Upload file** and then **Choose file** – Choose a
@@ -98,7 +101,6 @@ In this section, you provide additional details about your 10DLC campaign.
         	+ Customer care contact information.
         	+ Opt-out information.
         	+ “Message and data rates may apply” disclosure.
-
     6. For **Campaign opt-in screenshot**, upload a
        file showing how users consent to receiving messages, as described in the
        **Campaign opt-in workflow** field. The supported file
@@ -121,7 +123,6 @@ In this section, you provide additional details about your 10DLC campaign.
          script.
         * **Informational**: Provide a mockup or screenshot
          of a verbal consent workflow and provide the messaging content.
-
     7. For
        **Opt-in keyword – optional**
        enter the keyword that your customers will send to consent to opt-ing
@@ -163,6 +164,7 @@ In this section, you provide additional details about your 10DLC campaign.
 4.  Choose **Next**.
 5.  For the **Messaging capabilities** section, do the
     following:
+
     1. The capabilities you select are applied to your 10DLC phone number when you create the
        phone number request.
 
@@ -183,10 +185,10 @@ In this section, you provide additional details about your 10DLC campaign.
          time to review your registration.
         * Choose **SMS and MMS and VOICE** to enable text and multimedia
          messages for the 10DLC campaign.
-
     2. For **Message type – optional**, choose either
        **Transactional** or **Promotional** message
        type.
+
        - **Transactional** – Choose this option if your use
          case is for time-sensitive content, such as alerts and one-time
          passwords.
@@ -195,8 +197,10 @@ In this section, you provide additional details about your 10DLC campaign.
 
 6.  Choose **Next**.
 7.  For **Messaging use case** section, do the following:
+
     1. For **Use case**, choose a use case that most closely
        resembles your campaign from the preset list of use cases.
+
        - **Account Notifications** – Standard
          notifications for account holders, relating to and being about an
          account.
@@ -261,6 +265,7 @@ In this section, you provide additional details about your 10DLC campaign.
 
 8.  Choose **Next**.
 9.  In the **Message samples** section, do the following:
+
     1. Enter at least one **Message sample**. This is the sample
        text message that you plan to send to your customers. Each sample message
        has to be a minimum of 20 characters. If you plan to use multiple message
@@ -274,6 +279,7 @@ In this section, you provide additional details about your 10DLC campaign.
 
 10. Choose **Next**.
 11. In the **MMS file samples** section, do the following:
+
     1. (Optional) MMS sample files are only required if you plan to send MMS
        messages. In **MMS file samples** upload at least one
        sample image. A single MMS media file can be up to 500KB for GIF, JPEG, and

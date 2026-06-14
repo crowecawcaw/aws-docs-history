@@ -19,6 +19,7 @@ To update an event destination using the AWS End User Messaging SMS console, fol
 6. For **Log group arn** enter the ARN of the
    Amazon CloudWatch log group to deliver the events to.
 7. Under **Event types**, choose:
+
    - **All SMS events (Recommended)** –
      Choose this option to send all SMS events listed in [Event types](configuration-sets-event-types.md "configuration-sets-event-types.md") to
      Amazon CloudWatch.

@@ -27,6 +27,7 @@ To receive feedback on your registration using the AWS End User Messaging SMS co
 2. In the navigation pane, under **Registrations**, choose **Create registration**.
 3. For **Registration type**, choose the registration form from the dropdown list. Each **Registration type** has different forms depending on the regulatory body the registration form is sent to.
 4. (optional) Expand **Tags** to:
+
    - **Add a tag** – In **Manage tags** choose **Add new tag** to create a new blank key/value pair.
    - **Delete a tag** – In **Manage tags**, choose **Remove** next to the key/value pair.
    - **Edit a tag** – In **Manage tags** choose the **Key** or **Value** and edit the text.

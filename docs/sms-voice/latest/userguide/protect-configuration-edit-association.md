@@ -46,6 +46,7 @@ steps:
 5. Choose **Edit settings**.
 6. On the **Edit setting** page, choose one of the
    following options:
+
    - **Account default** – Use the protect
      configuration as your _account default_
      protect configuration. This replaces the current
@@ -53,6 +54,7 @@ steps:
      configuration.
    - **Configuration set** – Associate the
      protect configuration with one or more configuration sets.
+
      - In **Configuration sets available for
        association** check one or more
        configuration sets that do not already have a protect

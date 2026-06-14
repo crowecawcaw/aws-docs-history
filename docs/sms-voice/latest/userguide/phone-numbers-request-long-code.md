@@ -73,6 +73,7 @@ rejected.
 
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. On the **Create Case** page, complete the following:
+
    - Select **Account and Billing**.
    - For **Service**, choose **Service
      Quotas**.
@@ -84,6 +85,7 @@ rejected.
      Limits**.
 
 3. Under **Requests**, complete the following sections:
+
    - For the **Region**, choose the AWS Region from which
      you will be sending messages.
 
@@ -92,6 +94,7 @@ rejected.
    The Region is required in the **Requests**
    section. Even if you provided this information in the **Case
    details** section you must also include it here.
+
    - For **Resource Type**, choose **Dedicated SMS
      Long Codes**.
    - For **Quota**, choose the type of messages that you

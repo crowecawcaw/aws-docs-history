@@ -8,6 +8,7 @@ To register a sender ID with Singapore Network Information Centre (SGNIC) there 
    your account. After this step is complete you can proceed to the next
    step.
 2. Work with SGNIC to register your sender ID using the process at [SGNIC SMS Sender ID Registry](https://smsregistry.sg/web/login "https://smsregistry.sg/web/login").
+
    1. When completing the process list AMCS SG Private Limited (Amazon Media Communications Services) as your participating
       aggregator.
 

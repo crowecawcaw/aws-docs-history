@@ -19,14 +19,17 @@ these steps:
 4. On the **Associated pool originators** tab, choose
    **Add originator**.
 5. Choose one of the following options:
+
    - **Phone number** – If you choose this
      option, under the **Phone numbers available for
      association** section, do the following:
+
      - Choose a phone number to add to the phone pool.
 
    - **Sender ID** – If you
      choose this option, under the **Sender IDs available for
      association** section, do the following:
+
      - Choose a sender ID to add the phone pool.
 
 6. Choose **Add originator to pool**.

@@ -69,6 +69,7 @@ Complete all fields in the support case, even if they are labeled as optional.
 
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. On the **Create Case** page, complete the following:
+
    - Select **Account and Billing**.
    - For **Service**, choose **Service
      Quotas**.
@@ -80,6 +81,7 @@ Complete all fields in the support case, even if they are labeled as optional.
      Limits**.
 
 3. Under **Requests**, complete the following sections:
+
    - For the **Region**, choose the AWS Regions from
      which you will be sending messages.
 
@@ -89,6 +91,7 @@ Complete all fields in the support case, even if they are labeled as optional.
    section. Even if you provided this information in the **Case
    details** section, you must also include it
    here.
+
    - For **Resource Type**, choose **General
      Limits**.
    - For the **Quota**, choose **SMS
@@ -99,12 +102,14 @@ Complete all fields in the support case, even if they are labeled as optional.
    description**, enter any relevant details about this request.
    Include answers to the
    following:
+
    - For **Provide a link to the site or app which will be sending
      SMS messages**, provide information about the website,
      application, or service that will send SMS/MMS messages.
    - For **What type of messages do you plan to send**,
      choose the type of message that you plan to send by using your long
      code:
+
      - **One Time Password** – Messages that
        provide passwords that your customers use to authenticate with
        your website or application.

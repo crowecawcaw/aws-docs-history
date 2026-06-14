@@ -17,6 +17,7 @@ Use the AWS End User Messaging SMS console to add keywords to your pool.
    keyword**.
 5. In the **Custom Keyword** pane do the
    following:
+
    - **Keyword** – The new keyword to
      add.
    - **Response message** – The message

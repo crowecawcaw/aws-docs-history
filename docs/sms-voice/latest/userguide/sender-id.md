@@ -60,6 +60,7 @@ When you are creating a Sender ID you should consider the following:
 - Choose a Sender ID that matches your company branding and SMS service or use case
 - Numeric-only Sender IDs are not supported
 - AWS End User Messaging SMS sender ID supported characters (some countries might override these):
+
   - No special characters except for dashes (-)
   - No spaces
   - Valid characters: a-z, A-Z, 0-9

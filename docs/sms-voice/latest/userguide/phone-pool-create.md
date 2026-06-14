@@ -18,13 +18,16 @@ To create a pool using the AWS End User Messaging SMS console, follow these step
 4. Under the **Pool setup** section, for **Pool name**
    enter a name for your pool.
 5. Choose one of the following options:
+
    - **Phone number** – In the
      **Phone numbers available for association** section, choose a phone
      number to associate with the pool.
+
      - **Simulator number** (Optional)– If you don't have any phone numbers and
        want to request a simulator phone number then choose **Phone number** and
        in the **Phone numbers available for association** section, do the
        following:
+
        - Choose **Request simulator number**.
        - In **Request simulator number**, choose your country from the
          dropdown list.
@@ -37,6 +40,7 @@ To create a pool using the AWS End User Messaging SMS console, follow these step
 
 6. (Optional) Expand the **Tags** and choose **Add new
    tag**.
+
    1. Enter a new blank key/value pair.
    2. (Optional) Choose **Add new tag** to add another tag.
 

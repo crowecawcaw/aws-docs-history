@@ -61,8 +61,10 @@ or sender ID to the pool.
 3. Under the **Pool setup** section, enter a name for your pool in
    **Pool name**.
 4. Choose one of the following options:
+
    - **Phone number** – If you choose this option, under
      **Phone numbers available for association**, choose either:
+
      - **Request simulator number**, and in the
        **Country** dropdown list, choose the destination country and then
        **Request number**.
@@ -91,8 +93,10 @@ Amazon Data Firehose, or Amazon SNS destination and choose the event types.
 3. Under the **Configuration set details** section, enter a name in
    **Configuration set name**.
 4. For **Event destination setup**, choose either:
+
    - **Set up CloudFormation** (Recommended) to have CloudFormation create and
      configure CloudWatch, Amazon Data Firehose and Amazon SNS to log all events.
+
      - For **Event destination name** enter a name for the event
        destination.
      - Choose **Launch stack**.
@@ -108,12 +112,14 @@ Amazon Data Firehose, or Amazon SNS destination and choose the event types.
 
    - **Setup event destination** to manually set up the configuration set
      and event destination.
+
      - For **Event destination name**, enter a name for the event
        destination.
      - For **Destination type**, choose either CloudWatch, Amazon Data Firehose or Amazon SNS.
        For more information on how to setup these event destinations see [Set up Amazon CloudWatch event destination](configuration-sets-cloud-watch.md "configuration-sets-cloud-watch.md"), [Set up Amazon Data Firehose event destination](configuration-sets-kinesis.md "configuration-sets-kinesis.md")
        and [Set up an Amazon SNS event destination](configuration-sets-sns.md "configuration-sets-sns.md")
      - Under **Event types**, choose the appropriate option:
+
        - **All SMS events (Recommended)** – Send all SMS events
          listed in [Event types](configuration-sets-event-types.md "configuration-sets-event-types.md") to the event destination.
        - **Custom SMS events** – Choose specific SMS events to send
@@ -153,6 +159,7 @@ which countries AWS End User Messaging SMS can send messages to.
    protect configuration in **Protect configuration name**.
 4. Under Country rules, select the countries you want to set rules for. For each country,
    choose whether to block, filter, or allow message sending. We recommend:
+
    - Setting block rules for countries you don't do business in.
    - Using filter rules for countries with high per-message costs or where you have SMS
      pumping concerns.
@@ -186,6 +193,7 @@ environment is correctly configured.
    **Phone number** or **Sender ID** as the type of originator
    to send the test message. You then need to select the originator identity from the dropdown
    list.
+
    1. (Optional) If you need a simulator phone number then choose **Request simulator
       number**. In the **Request simulator number** window choose a
       **Country** from the dropdown list and then choose **Request
@@ -239,6 +247,7 @@ production.
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. Choose the **Looking for service limit increases?** link, then complete
    the following:
+
    - For **Service**, choose
      **AWS End User Messaging SMS (Pinpoint)**.
    - For **Provide a link to the site or app which will be sending SMS
@@ -246,6 +255,7 @@ production.
      will send SMS messages.
    - For **What type of messages do you plan to send**, choose the type of
      message that you plan to send by using your origination identity:
+
      - **One Time Password** – Messages that provide passwords that
        your customers use to authenticate with your website or application.
      - **Promotional** – Noncritical messages that promote your
@@ -264,6 +274,7 @@ production.
      messages to your customers**, include the template that you will be using.
 
 3. Under **Requests**, complete the following sections:
+
    - For the **Region**, choose the AWS Region from which you will be
      sending messages.
 
@@ -272,6 +283,7 @@ production.
    The Region is required in the **Requests** section. Even if you
    provided this information in the **Case details** section, you must also
    include it here.
+
    - For **Resource Type**, choose **General
      Limits**.
    - For the **Quota**, choose **SMS Production

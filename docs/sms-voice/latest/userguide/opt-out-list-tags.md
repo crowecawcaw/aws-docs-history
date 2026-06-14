@@ -15,6 +15,7 @@ Use the AWS End User Messaging SMS console to add or edit a Tag in your pool.
 2. In the navigation pane, under **Configurations**, choose **Opt-out list**.
 3. On the **Opt-out lists** page, choose the opt-out list to add a tag to.
 4. On the **Tags** tab, choose **Manage tags**.
+
    - **Add a tag** – In **Manage tags**, choose **Add new tag** to create a new blank key/value pair.
    - **Delete a tag** – In **Manage tags**, choose **Remove** next to the key/value pair.
    - **Edit a tag** – In **Manage tags**, choose the **Key** or **Value** and edit the text.

@@ -39,6 +39,7 @@ To request a phone number using the AWS End User Messaging SMS console, follow t
     destination country** from the dropdown that messages will be sent to. Choose
     **Next**.
 4.  On the **Messaging use case** section, enter the following:
+
     - Under **Number capabilities**, choose any combination of available
       capabilities:
 
@@ -62,11 +63,11 @@ To request a phone number using the AWS End User Messaging SMS console, follow t
          and [Choosing an origination identity](phone-number-types.md "phone-number-types.md").
         + **Text to audio messages (Voice)** – Choose this if you need
          voice capabilities.
-
     - Under **Estimated monthly message volume – optional**, choose
       the estimated number of SMS messages you will send each month.
     - For **Company headquarters - optional**, choose either of the
       following:
+
       - **Local** – Choose this if your company's headquarters is in
         the same country as your customers who will revive SMS messages. For example, you would
         choose this option if your headquarters is in the United States and your users who will
@@ -82,6 +83,7 @@ To request a phone number using the AWS End User Messaging SMS console, follow t
 6.  Under **Select originator type**, choose either the recommend phone
     number type or one of the available number types. The available options are based on the use
     case information you filled out in the previous steps.
+
     - If you choose 10DLC and already have a registered campaign you can choose the campaign
       from the **Associate to registered campaign** to add the 10DLC phone number
       to the 10DLC campaign.
@@ -110,6 +112,7 @@ Amazon SNS even if you are using the same AWS account.
     of phone number you requested. Your phone number or sender ID is associated with this
     registration and can't send messages until your registration has been approved. For more
     information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
+
     1. For **Registration form name** enter a friendly name.
     2. Choose **Begin registration** to finish registering the phone
        number or **Register later**.
@@ -146,10 +149,12 @@ The **Messaging capabilities** (SMS, MMS, or VOICE) are specified in the 10DLC r
    destination country** dropdown. Choose
    **Next**.
 4. On the **Messaging use case** section, enter the following:
+
    - Under **Estimated monthly message volume – optional**, choose
      the estimated number of SMS messages you will send each month.
    - For **Company headquarters - optional**, choose either of the
      following:
+
      - **Local** – Choose this if your company's headquarters is in
        the same country as your customers who will revive SMS messages. For example, you would
        choose this option if your headquarters is in the United States and your users who will
@@ -165,8 +170,10 @@ The **Messaging capabilities** (SMS, MMS, or VOICE) are specified in the 10DLC r
 6. Under **Originator type**, choose either the recommend phone
    number type or one of the available number types. The available options are based on the use
    case information you filled out in the previous steps.
+
    - For a 10DLC phone number you have to choose the registered brand and registered
      campaign to associate with the 10DLC phone number request.
+
      - Use **Associate to registered brand** to choose a brand.
      - Use **Associate to registered campaign** to choose a campaign.
 
@@ -193,6 +200,7 @@ Amazon SNS even if you are using the same AWS account.
     of phone number you requested. Your phone number or sender ID is associated with this
     registration and can't send messages until your registration has been approved. For more
     information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
+
     1. For **Registration form name** enter a friendly name.
     2. Choose **Begin registration** to finish registering the phone number
        or **Register later**.

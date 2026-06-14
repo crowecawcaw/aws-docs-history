@@ -143,6 +143,7 @@ India.
 
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. In the **Create Case** section, do the following:
+
    - For **Limit type**, choose
      **AWS End User Messaging SMS (Pinpoint)**.
    - For **Provide a link to the site or app which will be
@@ -151,6 +152,7 @@ India.
      messages.
    - For **What type of messages do you plan to
      send**, choose **Promotional**:
+
      - **One Time Password** – Messages
        that provide passwords that your customers use to
        authenticate with your website or application.
@@ -168,11 +170,13 @@ India.
      messages from.
 
 3. In the **Requests** section, do the following:
+
    - For the **Region**, choose the AWS Region that
      you plan to make API requests from.
    - For **Resource Type**, choose **Template
      Registration**.
    - For **Limit**, choose on of the following:
+
      - **One Time Password** – Messages
        that provide passwords that your customers use to
        authenticate with your website or application.

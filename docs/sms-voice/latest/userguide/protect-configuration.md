@@ -54,6 +54,7 @@ Depending on your use case we recommend the following:
 - If you only need one set of country rules for all SMS, MMS, and voice you should
   create a protect configuration and associate it as your account _account
   default_.
+
   1.  Create a protect configuration by following the directions in [Create a protect configuration in AWS End User Messaging SMS](protect-configuration-create.md "protect-configuration-create.md") and set the association as
       _account default_.
   2.  Edit the _Allow_, _Block_,
@@ -66,6 +67,7 @@ Depending on your use case we recommend the following:
 
 - If your use case requires more granular controls and event logging you can
   associate the protect configuration with a configuration set.
+
   1.  If you don't already have a configuration set created then follow the
       directions at [Create a configuration set in AWS End User Messaging SMS](configuration-set-create.md "configuration-set-create.md") and we also recommend you setup an
       event destination to log SMS, MMS, and voice events.
@@ -83,6 +85,7 @@ Depending on your use case we recommend the following:
 - If your use case requires more granular controls you can create the protect
   configuration and use the protect configuration in the
   _ProtectConfigurationId_ API parameter.
+
   1.  Create a protect configuration by following the directions in [Create a protect configuration in AWS End User Messaging SMS](protect-configuration-create.md "protect-configuration-create.md") and set the association as
       _No association_.
   2.  Edit the _Allow_, _Block_,

@@ -18,6 +18,7 @@ steps:
    a Amazon SNS event destination and then **Edit**.
 6. From the **Destination type** dropdown choose
    Amazon SNS.
+
    1. **New Amazon SNS topic** – Choose this
       option, AWS End User Messaging SMS creates a topic in your account. The topic is
       automatically created with all of the required permissions.
@@ -27,6 +28,7 @@ steps:
       **Topic arn** dropdown.
 
 7. Under **Event types**, choose:
+
    - **All SMS events (Recommended)** –
      Choose this option to send all SMS events listed in [Event types](configuration-sets-event-types.md "configuration-sets-event-types.md") to
      Amazon SNS.

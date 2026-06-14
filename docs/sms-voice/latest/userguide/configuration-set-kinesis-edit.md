@@ -22,6 +22,7 @@ these steps:
 7. For **Delivery stream arn** enter the ARN of the
    Amazon Data Firehose log group to deliver the events to.
 8. Under **Event types**, choose:
+
    - **All SMS events (Recommended)** –
      Choose this option to send all SMS events listed in [Event types](configuration-sets-event-types.md "configuration-sets-event-types.md") to
      Amazon Data Firehose.

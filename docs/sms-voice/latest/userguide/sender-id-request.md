@@ -46,6 +46,7 @@ phone number or sender ID type. 4. On the **Messaging use case** section, enter 
    optional**, choose the estimated number of SMS messages you will send each
    month.
 6. For **Company headquarters - optional**, choose either of the following:
+
    - **Local** – Choose this if your companies headquarters is in
      the same country as your customers who will revive SMS messages. For example, you would choose this option if your headquarters is in the
      United States and your users who will receive messages are also in the United States.
@@ -79,6 +80,7 @@ even if you are using the same AWS account.
 12. On **Review and request** you can verify and edit your request before submitting it. Choose **Request**.
 13. A **Registration Required** window might appear depending on the type of
     number you requested. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
+
     1.  For **Registration form name** enter a name.
     2.  Choose **Complete registration** to finish registering the sender ID
         or **Register later**.

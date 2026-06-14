@@ -68,6 +68,7 @@ and API operations, see
    **Next** to continue.
 5. On the **Agent details** page,
    set the following:
+
    - **Friendly name** —
      A console-only label for your AWS RCS Agent. This is
      an internal name for your reference (stored as a tag)
@@ -83,6 +84,7 @@ and API operations, see
 
 6. In the **Brand information**
    section of the same page, enter the following:
+
    - **Display name** —
      The brand name that recipients see alongside your RCS
      messages.
@@ -95,6 +97,7 @@ and API operations, see
 
 7. In the **Brand assets** section
    of the same page, upload the following:
+
    - **Logo** —
      224 × 224 pixels, PNG with transparency, under
      50 KB.

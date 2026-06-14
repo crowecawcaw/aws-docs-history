@@ -53,6 +53,7 @@ the Support Center Console.
 
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. On the **Create Case** page, complete the following:
+
    - Select **Account and Billing**.
    - For **Service**, choose **Service
      Quotas**.
@@ -64,6 +65,7 @@ the Support Center Console.
      Limits**.
 
 3. In the **Requests** section, do the following:
+
    - For the **Region**, choose the AWS Region that you
      plan to send messages from.
 
@@ -76,6 +78,7 @@ the Support Center Console.
      Short Codes**.
    - For **Quota**, choose the message type that you
      plan to send using your short code.
+
      - **One Time Password/Two-Factor Authentication** – Messages that
        provide passwords that your customers use to authenticate with
        your website or application.

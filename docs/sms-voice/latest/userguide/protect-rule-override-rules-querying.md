@@ -20,7 +20,9 @@ steps:
    combination of all three of the available fields **Destination phone
    number**, **Override type**, and
    **Date**:
+
    1. For **Destination phone number**:
+
       - All numbers – Do not filter out any phone
         numbers.
       - Number lookup – Enter a prefix or full phone number to
@@ -28,10 +30,12 @@ steps:
       - By country – Choose a country to filter on.
 
    2. For **Override type**:
+
       - Always allowed – Only return allow rules.
       - Always blocked – Only return block rules.
 
    3. For **Date**
+
       - All dates – Do not filter out any dates.
       - Recently added – Return phone number override rules that
         were created in the last 24 hours.

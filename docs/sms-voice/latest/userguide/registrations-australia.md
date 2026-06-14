@@ -9,6 +9,64 @@ enforcement date.
 
 Follow these directions to register your sender ID in Australia.
 
+## Guidance for Australia sender ID registration
+
+The documentation and identity requirements on the registration form are required to
+satisfy ACMA's sender ID verification process. The following guidance addresses
+common questions about these requirements.
+
+### When is a Letter of Authorization (LOA) required?
+
+An LOA is _only_ required when the authorized representative
+listed on the registration form does **not** appear as
+a contact on the company's official business registry extract (ABN extract).
+If the authorized representative matches a contact already listed on the ABN
+extract, no LOA is needed.
+
+###### Important
+
+**Common reason for denial:** The most common
+reason registrations are denied is that the person listed as the authorized
+representative cannot be verified against the company's business registry.
+To avoid this:
+
+- Ensure the authorized representative is listed as a Director, Officer,
+  or authorized contact on your official ABN extract.
+- If they are **not** listed, you must
+  provide a signed Letter of Authorization from a listed Director or
+  Officer authorizing that person to act on behalf of the company.
+
+### What to submit as company registration documentation
+
+For most companies, an ASIC extract (for Australian companies) or your
+country's equivalent business registration document is sufficient.
+
+**For Australian government entities** that are not
+ASIC-registered, follow these steps to obtain your ABR documentation:
+
+1. Navigate to the [Australian Business
+   Register](https://abr.gov.au "https://abr.gov.au").
+2. Under **Online Services**, select **Update your
+   ABN details**.
+3. Log in using your myID app credentials.
+4. Select **Update ABN record** to view non-public ABR
+   information.
+5. Choose the **Contacts** tab.
+6. Take a screenshot of the information in that tab. This shows the
+   authorized contacts for your ABN.
+7. Submit this screenshot as the **Company registration
+   documentation** attachment on the registration form.
+
+This screenshot serves as proof that the authorized representative is listed on
+the business registry. If the authorized representative appears in the
+**Contacts** tab, no separate LOA is needed.
+
+### Processing times
+
+Typical estimated completion time is 2 weeks from successful submission.
+Processing times may vary during high-volume periods, particularly as the ACMA SMS
+Sender ID Register enforcement date (July 1, 2026) approaches.
+
 1. Open the AWS End User Messaging SMS console at
    [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
 2. In the navigation pane, under **Registrations**, choose **Create
@@ -36,8 +94,8 @@ Choose **Next**. 4. In the **Australia specific info** section, enter the follow
     * For **Authorized representative phone number**, enter the phone number of the authorized representative.
     * For **Global headquarters country** (optional), select the country where your company's global headquarters is located, if different from your business address.
     * For **Government-issued photo ID**, upload a government-issued photo ID of the authorized representative (such as a driver's license or passport). This is required for ACMA verification. Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
-    * For **Letter of authorization** (optional), if your authorized representative is not listed as a Director or Officer on your business registry, download, complete, and attach the [letter of authorization](samples/Australia_SenderId_LetterOfAuthorization.zip.md "samples/Australia_SenderId_LetterOfAuthorization.zip.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
-    * For **Company registration documentation**, provide a copy of your company's registration documentation showing officers and directors (for example, an ASIC company extract for Australian entities, or equivalent documentation for international entities). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
+    * For **Letter of authorization** (optional), if your authorized representative is not listed as a Director or Officer on your Australian business registry (ABR), download, complete, and attach the [letter of authorization](samples/Australia_SenderId_LetterOfAuthorization.zip.md "samples/Australia_SenderId_LetterOfAuthorization.zip.md"). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB. If your authorized representative is also listed on your Australian business registry (ABR), this LOA is not required. For more information, see [When is a Letter of Authorization (LOA) required?](#registrations-australia-loa-requirements "#registrations-australia-loa-requirements").
+    * For **Company registration documentation**, provide a copy of your company's registration documentation showing officers and directors (for example, an ASIC company extract for Australian entities, or equivalent documentation for international entities). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB. For more information, see [What to submit as company registration documentation](#registrations-australia-company-registration-docs "#registrations-australia-company-registration-docs").
     * For **Proof of sender ID connection**, provide evidence of your intellectual property rights to the sender ID (for example, business registration, trademark certificate, or domain certification). Valid upload file types are PDF, PNG, and JPEG with a maximum file size of 500KB.
 
 Choose **Next**. 5. In the **Company info** section, enter the following:

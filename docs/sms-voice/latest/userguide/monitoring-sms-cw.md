@@ -17,10 +17,12 @@ Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatS
 4. For `AWS/SMSVoice` metrics, choose the metric for which you want to set an
    alarm, then choose **Next**. For a list of available metrics, see [Monitoring with CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 5. To set an alarm for the number of text message parts sent:
+
    1. Choose **Message Delivery Metrics**
    2. Choose the **NumberOfTextMessagePartsSent** metric
 
 6. In the **Specify metric and conditions** section:
+
    1. Set the statistic to Sum
    2. Set the period to 1 hour
    3. For **Conditions**, choose **Static**
@@ -29,6 +31,7 @@ Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatS
    5. Enter the threshold value of 1000
 
 7. In the **Configure actions** section:
+
    1. For **Alarm state trigger**, choose **In
       alarm**
    2. Choose an existing Amazon SNS topic to notify or create a new one
@@ -40,6 +43,7 @@ Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatS
    before they receive notifications.
 
 8. In the **Add name and description** section:
+
    1. Enter a name for your alarm. for example, **High Text Message Volume**
    2. Optionally, add a description
 

@@ -30,6 +30,7 @@ For more information, see [Registering for a Singapore Unique Entity Number (UEN
 2.  In the navigation pane, under **Registrations**, choose the
     Singapore sender ID registration to complete.
 3.  In the **Company info** section, enter the following:
+
     - For **Company Name**, enter the name of your company.
     - For **Tax ID**, enter you Singapore Unique Entity Number.
     - For **Company website**, enter the URL for your company's
@@ -69,10 +70,12 @@ For more information, see [Registering for a Singapore Unique Entity Number (UEN
     Choose **Next**.
 
 6.  In **Messaging Use Case**, do the following:
+
     - For **Monthly SMS Volume**, choose the number of SMS messages that
       will be each month.
     - For **Use case category**, choose one of the following use
       case types:
+
       - **Two-factor authentication** – Use this for sending two
         factor authentication codes.
       - **One-time passwords** – Use this for sending a user a one
@@ -94,6 +97,7 @@ For more information, see [Registering for a Singapore Unique Entity Number (UEN
 
 7.  Choose **Next**.
 8.  In **Message samples**, do the following:
+
     - For **Message Sample 1**, enter an example message of an SMS message
       body that will be sent to your end users.
     - For **Message Sample 2 – optional** and **Message Sample

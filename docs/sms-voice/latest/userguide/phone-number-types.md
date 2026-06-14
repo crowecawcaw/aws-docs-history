@@ -216,12 +216,14 @@ each country that your recipients are located in.
 
 1. Are you planning to send messages to recipients in
    the United States?
+
    - If you answered **Yes**, proceed to [question 2](#one-way-q2 "#one-way-q2").
    - If you answered **No**, proceed to [question 3](#one-way-q3 "#one-way-q3").
 
 2. Which of the following throughput rates best fits
    your use case? Your throughput rate is the number of message parts that you can
    send each second.
+
    - **1–3 message parts per second**:
      Use a toll-free number. You can also use 10DLC numbers or short codes.
      These number types provide plenty of room for growth, but also cost more
@@ -256,12 +258,14 @@ each country that your recipients are located in.
 
 3. Is it important for all of your messages to come from
    the same origination identity?
+
    - If you answered **Yes**, proceed to [question 4](#one-way-q4 "#one-way-q4").
    - If you answered **No**, proceed to [question 6](#one-way-q6 "#one-way-q6").
 
 4. Are Sender IDs supported in the country that you plan
    to send messages to? For a list of countries that support Sender IDs, see [Supported countries and regions
    for SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+
    - If you answered **Yes**, proceed to [question 5](#one-way-q5 "#one-way-q5").
    - If you answered **No**, proceed to [question 7](#one-way-q7 "#one-way-q7").
 
@@ -269,6 +273,7 @@ each country that your recipients are located in.
    require pre-registration of Sender IDs? For a list of countries that require
    Sender ID registration, see [Supported countries and regions
    for SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+
    - If you answered **Yes**, complete the
      Sender ID process for the destination country. When the registration
      process is complete, you can use your Sender ID to send messages.
@@ -285,6 +290,7 @@ each country that your recipients are located in.
 
 6. Are you planning to send messages to recipients in
    India?
+
    - If you answered **Yes**, you can start
      sending immediately using international (ILDO) routes from any
      AWS Region. However, the messages that you send are charged at the
@@ -319,6 +325,7 @@ each country that your recipients are located in.
    that you plan to send messages to? For a list of countries that support
    dedicated short codes, see [Supported countries and regions
    for SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+
    - If you answered **Yes**, you should use a
      **short code**.
    - If you answered **No**, proceed to [question 8](#one-way-q8 "#one-way-q8").
@@ -327,6 +334,7 @@ each country that your recipients are located in.
    that you plan to send messages to? For a list of countries that support
    dedicated long codes, see [Supported countries and regions
    for SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+
    - If you answered **Yes**, you can use a
      dedicated long code. However, if any other type of dedicated identity is
      available in that country (such as Sender IDs or short codes), you
@@ -375,6 +383,7 @@ each country that your recipients are located in.
    you plan to send messages to? For a full list of countries that support two-way
    messaging, see [Supported countries and regions
    for SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+
    - If you answered **Yes**, proceed to [question 2](#two-way-q2 "#two-way-q2").
    - If you answered **No**, your two-way
      messaging use case isn't supported, but you can still send one-way
@@ -384,12 +393,14 @@ each country that your recipients are located in.
 
 2. Are you planning to send messages to recipients in
    the United States?
+
    - If you answered **Yes**, proceed to [question 3](#two-way-q3 "#two-way-q3").
    - If you answered **No**, proceed to [question 4](#two-way-q3 "#two-way-q3").
 
 3. Which of the following throughput rates best fits
    your requirements? Your throughput rate is the number of message parts that you
    can send each second.
+
    - **1–3 message parts per second**:
      Use a toll-free number. You can also use 10DLC numbers or short codes.
      These number types will provide plenty of room for growth, but will also
@@ -426,6 +437,7 @@ each country that your recipients are located in.
 4. Are dedicated short codes available in the country
    that you plan to send messages to? For a list of countries where short codes are
    available, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md").
+
    - If you answered **Yes**, use a dedicated
      short code. For more information about requesting a short code, see
      [Requesting dedicated short codes](phone-numbers-request-short-code.md "phone-numbers-request-short-code.md").

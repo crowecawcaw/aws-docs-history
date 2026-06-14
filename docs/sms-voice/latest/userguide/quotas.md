@@ -208,6 +208,7 @@ quota.
 
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. Under **Service quota increase**, do the following:
+
    - For **Service**, choose
      **AWS End User Messaging SMS (Pinpoint)**.
    - (Optional) For **Provide a link to the site or app which will
@@ -216,6 +217,7 @@ quota.
    - (Optional) For **What type of messages do you plan to
      send**, choose the type of message that you plan to send
      using your long code:
+
      - **One Time Password** – Messages that
        provide passwords that your customers use to authenticate with
        your website or application.
@@ -241,6 +243,7 @@ quota.
      include the template that you will be using.
 
 3. Under **Requests**, do one of the following:
+
    - For **Region**, choose your AWS Region.
    - For **Resource Type**, choose **General
      Limits**.
@@ -276,6 +279,7 @@ Management Console.
 4. If the quota is adjustable, you can request a quota increase at either the
    account-level or resource-level, based on the value listed in the **Adjustability**
    column.
+
    - **Account-level** - Request a quota increase at the
      account-level for an account-level quota such as
      **TextMessageMonthlySpend per Region for AWS End

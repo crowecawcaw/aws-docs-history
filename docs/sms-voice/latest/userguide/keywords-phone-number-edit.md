@@ -17,6 +17,7 @@ Use the AWS End User Messaging SMS console to edit keywords.
    edit and then the **Edit keyword** button.
 5. In the **Custom Keyword** pane modify any of the
    following:
+
    - **Keyword** – The keyword to
      change.
    - **Response message** – The message

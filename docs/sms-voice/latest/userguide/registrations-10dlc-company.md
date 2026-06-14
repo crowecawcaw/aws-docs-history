@@ -41,6 +41,7 @@ For more information on expected registration times, see [United States 10DLC re
     brand registration to complete.
 3.  In the **Brand Registration Information** section, enter the
     following:
+
     - For **Legal company name**, enter the name that the
       company is registered under. The name that you enter must be an exact match
       for the company name that's associated with the tax ID that you provide.
@@ -56,6 +57,7 @@ For more information on expected registration times, see [United States 10DLC re
     - For **Tax ID or Business Registration Number**, enter
       your company's tax ID. The ID that you enter depends on the country that
       your company is registered in.
+
       - If you're registering a US or non-US entity that has an IRS
         Employer Identification Number (EIN), enter your nine-digit EIN. The
         legal company name, EIN, and physical address that you enter must

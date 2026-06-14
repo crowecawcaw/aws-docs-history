@@ -35,11 +35,13 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
    **Enable two-way message**.
 6. For **Destination type**, choose either
    **Amazon SNS** or **Connect Customer**.
+
    - For Amazon SNS choose either **New Amazon SNS topic**
      or **Existing Amazon SNS topic** and then for
      **Two-way channel role**, choose either
      **Choose existing IAM role** or
      **Use Amazon SNS topic policies**.
+
      - **New Amazon SNS topic** – If you
        choose this option, AWS End User Messaging SMS creates a topic in your
        account. The topic is automatically created with all of
@@ -51,6 +53,7 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
        destination** dropdown.
      - For **Two-way channel role**, choose
        either:
+
        - **Choose existing IAM role**
          – Choose an existing IAM policy to apply
          to the Amazon SNS topic. For example Amazon SNS policies see
@@ -62,6 +65,7 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
 
    - For Connect Customer, in **Two-way channel role**,
      choose **Choose existing IAM roles**.
+
      - In the **Existing IAM roles** drop
        down choose an existing IAM role as the message
        destination. For example IAM policies, see [IAM policies for Connect Customer](two-way-connect-iam-policy.md "two-way-connect-iam-policy.md") .
@@ -70,6 +74,7 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
 8. _(Optional)_ If you've chosen Connect Customer as the
    **Destination type** then in the **Import
    Phone Number to Connect Customer** window:
+
    1. For the **Incoming messages destination**
       dropdown choose the Connect Customer instance that will receive incoming
       messages.

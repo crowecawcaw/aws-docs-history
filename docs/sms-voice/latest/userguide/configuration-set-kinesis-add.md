@@ -34,6 +34,7 @@ these steps:
    Amazon Data Firehose log group to deliver the events to.
 9. Turn on **Event publishing**.
 10. Under **Event types**, choose:
+
     - **All SMS events (Recommended)** –
       Choose this option to send all SMS events listed in [Event types](configuration-sets-event-types.md "configuration-sets-event-types.md") to
       Amazon Data Firehose.

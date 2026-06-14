@@ -27,6 +27,7 @@ To change the opt-out list using the AWS End User Messaging SMS console, follow 
    pool.
 4. On the **Opt-out list** tab, choose
    **Edit settings**.
+
    - **Create a new opt-out list** – Create a new empty opt-out
      list and enter a friendly name.
    - **Choose an existing opt-out list**

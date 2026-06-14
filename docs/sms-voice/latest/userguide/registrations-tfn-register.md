@@ -79,10 +79,12 @@ registration form. 3. In the **Company info** section, enter the following:
     Choose **Next**.
 
 5.  In **Messaging Use Case**, do the following:
+
     - For **Monthly SMS Volume**, choose the number of SMS messages that
       will be each month.
     - For **Use Case Category**, choose one of the following use case
       types:
+
       - **Two-factor authentication** – Use this for sending two
         factor authentication codes.
       - **One-time passwords** – Use this for sending a user a one
@@ -115,6 +117,7 @@ registration form. 3. In the **Company info** section, enter the following:
     - Complete **Use Case Details** to provide
       additional context to the selected **Use Case Category**.
     - For **Opt-in category**, choose one of the following options:
+
       - **Verbal**
       - **Digital form**
       - **Paper form**
@@ -153,6 +156,7 @@ registration form. 3. In the **Company info** section, enter the following:
 
 6.  Choose **Next**.
 7.  In **Message samples**, do the following:
+
     - For **Message Sample 1**, enter an example message of an SMS message
       body that will be sent to your end users.
     - For **Message Sample 2 – optional** and **Message Sample

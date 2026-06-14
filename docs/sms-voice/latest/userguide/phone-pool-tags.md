@@ -14,6 +14,7 @@ Use the AWS End User Messaging SMS console to add or edit a Tag in your pool.
    pools**.
 3. On the **Phone Pools** page, choose the phone pool to add a tag to.
 4. On the **Tags** tab, choose **Manage tags**.
+
    - **Add a tag** – In **Manage tags**, choose **Add new tag** to create a new blank key/value pair.
    - **Delete a tag** – In **Manage tags**, choose **Remove** next to the key/value pair.
    - **Edit a tag** – In **Manage tags**, choose the **Key** or **Value** and edit the text.

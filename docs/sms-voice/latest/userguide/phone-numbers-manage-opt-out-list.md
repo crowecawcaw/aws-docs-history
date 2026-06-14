@@ -26,6 +26,7 @@ steps:
 4. On the **Opt-out list** tab, choose the
    **Edit settings** button.
 5. For **Opt-out list**, choose either:
+
    - **Create a new opt-out list** –
      Create a new empty opt-out list. In **List
      name** enter a name for the opt-out

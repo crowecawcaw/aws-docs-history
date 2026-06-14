@@ -11,7 +11,9 @@ To edit a configuration set using the AWS End User Messaging SMS console, follow
 4. Select the **Set settings** tab and then choose **Edit
    settings**.
 5. In **List settings** do the following:
+
    - **Message type** choose either:
+
      - **Promotional** – Choose this option for
        sending marketing messages or messages promoting your business or
        service.

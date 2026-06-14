@@ -49,6 +49,7 @@ regulatory body the registration form is sent to. 5. (optional) Expand **Tags** 
 6. Choose **Create**.
 7. Your registration has now been created and you need to enter in all required information
    then submit.
+
    - **US toll-free number registration** – [US toll-free number registration form](registrations-tfn-register.md "registrations-tfn-register.md").
    - **US 10DLC Brand vetting** – The 10DLC brand has been
      submitting for vetting and you don't need to fill out any additional forms, see [10DLC brand vetting form](registrations-10dlc-vetting.md "registrations-10dlc-vetting.md").

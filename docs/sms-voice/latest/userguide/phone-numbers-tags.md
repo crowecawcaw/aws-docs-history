@@ -18,6 +18,7 @@ Use the AWS End User Messaging SMS console to add, edit or delete a Tag.
    to add a tag to.
 4. On the **Tags** tab, choose **Manage
    tags**.
+
    - **Add a tag** – In
      **Manage tags**, choose **Add new
      tag** to create a new blank key/value pair.

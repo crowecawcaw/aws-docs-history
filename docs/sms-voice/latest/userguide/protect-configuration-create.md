@@ -35,6 +35,7 @@ steps:
    country list based on Country, Region and Rule.
 5. In **Protect configuration associations** for
    **Association type**, choose:
+
    - **Account default** – To use the
      protect configuration as your account default. If you already
      have an **Account default** protect

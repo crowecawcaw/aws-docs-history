@@ -23,6 +23,7 @@ If you are not based in the United States and your 10DLC brand registration fail
 
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. On the **Create Case** page, complete the following:
+
    - Select **Account and Billing**.
    - For **Service**, choose **Service
      Quotas**.
@@ -34,6 +35,7 @@ If you are not based in the United States and your 10DLC brand registration fail
      Limits**.
 
 3. In the **Requests** section, do the following:
+
    - For **Region**, choose the AWS Region that you
      attempted to register the campaign in.
    - For **Resource Type**, choose the type of registration you are inquiring about: **10DLC or TFN Registration**, **10DLC

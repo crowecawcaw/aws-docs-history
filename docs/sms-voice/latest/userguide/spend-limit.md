@@ -70,6 +70,7 @@ Change your enforced spending limit (Console)
    change the **Enforced limit**.
 4. In the **Edit spending limits** window,
    choose:
+
    - **Update enforced spend limit** – Enter
      a new **Enforced limit** between one and your
      account limit.

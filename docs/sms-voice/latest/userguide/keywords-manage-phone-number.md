@@ -17,6 +17,7 @@ Use the AWS End User Messaging SMS console to add keywords to your phone number.
    keyword** button.
 5. In the **Custom Keyword** pane add the
    following:
+
    - **Keyword** – The new keyword to
      add.
    - **Response message** – The message

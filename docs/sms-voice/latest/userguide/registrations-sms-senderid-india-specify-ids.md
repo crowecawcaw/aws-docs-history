@@ -15,6 +15,7 @@ journey. This section includes information for both scenarios.
 
 1. In your call to the `SendTextMessages` API, provide values for the
    following parameters:
+
    - `EntityId` – The entity ID or Principal Entity (PE)
      ID that you received after completing the sender ID registration
      process.
@@ -30,6 +31,7 @@ journey. This section includes information for both scenarios.
 
 2. For the `MessageType` parameter, specify the appropriate route type
    for your message. You can specify one of the following values:
+
    - `Promotional` – Specify this message type for
      promotional messages. Promotional sender IDs only contain
      numbers.

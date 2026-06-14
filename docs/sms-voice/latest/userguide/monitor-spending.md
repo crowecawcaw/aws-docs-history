@@ -95,6 +95,7 @@ following steps:
    conditions** page appears, showing a graph and other information
    about the metric and statistic for the alarm.
 10. Under **Conditions**, complete the following steps:
+
     - For **Threshold type**, choose
       **Static**.
     - For **Whenever (**TextMessageMonthlySpend**, **MediaMessageMonthlySpend**, or **VoiceMessageMonthlySpend**) is**, specify
@@ -105,6 +106,7 @@ following steps:
 
 11. Under **Additional configuration**, complete the
     following steps:
+
     - For **Datapoints to alarm**, enter the number of
       evaluation periods (datapoints) during which the spending amount must
       exceed the threshold to trigger the alarm.
@@ -114,6 +116,7 @@ following steps:
 
 12. Choose **Next**.
 13. Under **Notification**, complete the following steps:
+
     - For **Whenever this alarm state is**, choose
       **in Alarm**.
     - For **Select an SNS topic**, choose the Amazon SNS topic

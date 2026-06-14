@@ -29,6 +29,7 @@ Before you begin you must:
 - A registrations **AssociationBehavior** specifies
   the order for when a registration can be associated with an origination identity
   and disassociated from an origination identity, see [SupportedAssociation](../../../pinpoint/latest/apireference_smsvoicev2/API_SupportedAssociation.md "../../../pinpoint/latest/apireference_smsvoicev2/API_SupportedAssociation.md").
+
   - `ASSOCIATE_BEFORE_SUBMIT` The origination identity has to be supplied when
     submitting a registration.
   - `ASSOCIATE_ON_APPROVAL` This applies to all sender ID registrations. The sender ID

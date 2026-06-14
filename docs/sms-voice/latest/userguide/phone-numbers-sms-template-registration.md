@@ -11,12 +11,14 @@ there.
 
 1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
 2. In the **Service** section, do the following:
+
    - For **Limit type**, choose **AWS End User Messaging SMS (Pinpoint)**.
    - For **Provide a link to the site or app which will be sending SMS messages -
      optional**, identify the website or application where your audience members
      opt in to receive your SMS messages.
    - For **What type of messages do you plan to send - optional**, choose the
      type of message that you plan to send using your Sender ID:
+
      - **One Time Password** – Messages that provide passwords that
        your customers use to authenticate with your website or application.
      - **Promotional** – Noncritical messages that promote your
@@ -42,11 +44,13 @@ there.
      the template that you will be using.
 
 3. In the **Requests** section, do the following:
+
    - For the **Region**, choose the AWS Region that you plan to make API
      requests from.
    - For **Resource Type**, choose **Template
      Registration**.
    - For **Quota**, choose on of the following:
+
      - **One Time Passwords/Two-Factor Authentication** – Messages that
        provide passwords that your customers use to authenticate with your website or
        application.
@@ -64,6 +68,7 @@ there.
 
 4. Under **Case description**, for **Use case description**,
    explain your use case and opt-in workflow.
+
    - The SMS message template that you plan to use.
    - The number of messages that you plan to send each recipient each month.
    - Information about how your customers opt in to receiving messages from you.

@@ -30,6 +30,7 @@ accounts by granting them access to the 10DLC numbers in the primary account.
 
 1. If you haven't already done so, complete the 10DLC registration process in
    the primary account. This process involves three steps:
+
    - Register your company. For more information, see [10DLC brand registration form](registrations-10dlc-company.md "registrations-10dlc-company.md").
    - Register your 10DLC campaign (use case). For more information, see
      [10DLC campaign registration form](registrations-10dlc-register-campaign.md "registrations-10dlc-register-campaign.md").

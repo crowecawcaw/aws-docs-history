@@ -19,6 +19,7 @@ Protect. For a list of all CloudWatch metrics, see [CloudWatch metrics](monitori
 
 - **Message delivery metrics** – Metrics on the number of
   messages sent and top ten destination countries.
+
   - **Number of SMS sent and percent delivered** – The
     count of SMS messages that have been sent and the percentage of those
     messages that have been delivered.
@@ -35,6 +36,7 @@ Protect. For a list of all CloudWatch metrics, see [CloudWatch metrics](monitori
 - **Message feedback metrics** – Metrics for messages that
   are sent using [message
   feedback](message-feedback.md#message-feedback.title "message-feedback.md#message-feedback.title").
+
   - **Number of messages with feedback completion** –
     The count of SMS and MMS messages where the [message feedback
     record](message-feedback-change-status.md#message-feedback-change-status.title "message-feedback-change-status.md#message-feedback-change-status.title") is set to `RECEIVED`.
@@ -84,6 +86,7 @@ CloudWatch Console
    `AWS/SMSVoice` namespace.
 4. Choose one of the available metric dimensions.
 5. You can now sort and filter the metric by:
+
    1. Sort the metrics using the column heading
    2. Create a graph by choosing the check box next to it
    3. Filter on a metric by choosing the metric name and choosing
