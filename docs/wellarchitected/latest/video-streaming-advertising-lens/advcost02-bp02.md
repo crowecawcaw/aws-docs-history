@@ -11,6 +11,7 @@ storage costs.
 - Implement HTTP/2 for [Application Load Balancers](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/ "https://aws.amazon.com/elasticloadbalancing/application-load-balancer/"), [Amazon API Gateway](https://aws.amazon.com/api-gateway/ "https://aws.amazon.com/api-gateway/") compression, and [Amazon Managed Streaming for Apache Kafka (Amazon MSK)](https://aws.amazon.com/msk/ "https://aws.amazon.com/msk/").
 - For databases, consider the following compression techniques to reduce storage
   costs:
+
   - Column-level compression
   - Table-level compression
   - Backup compression

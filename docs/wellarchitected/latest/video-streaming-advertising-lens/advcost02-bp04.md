@@ -24,6 +24,7 @@ achieve significant cost savings for your bidding-as-a-service workloads.
   long-running batch jobs. AWS Batch automatically handles job retries and check-pointing,
   improving fault tolerance and efficient resource utilization.
 - **Cost optimization strategies:**
+
   - **Instance right-sizing:** Regularly analyze your
     workload's performance and resource utilization to identify the most
     cost-effective instance types and sizes. Right-sizing your instances can lead to

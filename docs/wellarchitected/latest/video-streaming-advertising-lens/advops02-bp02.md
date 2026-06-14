@@ -20,6 +20,7 @@ metrics:
   metrics at a one-second granularity to capture spikes and
   fluctuations in advertising workloads. Key metrics to
   monitor include:
+
   - **Bid requests per
     second:** Number of bid requests received.
   - **Bid response time:**

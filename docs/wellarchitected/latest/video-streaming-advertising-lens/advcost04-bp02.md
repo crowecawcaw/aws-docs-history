@@ -18,6 +18,7 @@ minimal code changes are required to achieve these performance and cost benefits
 an efficient path to enhanced application responsiveness and reduced operational costs.
 
 1. Create a DAX Cluster:
+
    1. Select the same VPC as DynamoDB table
    2. Select node type (recommend r5.large for medium workloads)
    3. Configure cluster size (minimum 3 nodes for high availability)
@@ -25,11 +26,13 @@ an efficient path to enhanced application responsiveness and reduced operational
 
 2. Modify application code to support DAX
 3. Caching strategy implementation:
+
    1. Configure cache invalidation mechanisms
    2. Implement write-through or write-behind strategies
    3. Set appropriate TTL for cached items
 
 4. Monitoring and optimization: CloudWatch metrics to track
+
    1. Cache hit or miss ratio
    2. Latency
    3. Consumed read capacity
@@ -37,6 +40,7 @@ an efficient path to enhanced application responsiveness and reduced operational
    5. Recommended monitoring dashboard
 
 5. Performance and cost optimization tuning:
+
    1. Adjust cluster size based on traffic
    2. Use reserved instances
    3. Implement intelligent caching

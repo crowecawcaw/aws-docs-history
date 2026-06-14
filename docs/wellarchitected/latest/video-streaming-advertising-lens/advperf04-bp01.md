@@ -32,6 +32,7 @@ For latency, consider the following:
 - **Low-latency data (real-time or near real-time):** This
   data needs to be processed and acted upon within milliseconds to ensure optimal ad
   delivery, real-time bidding, and accurate tracking of user interactions.
+
   - Bid (bid requests, bid responses, and auction data)
   - User (device data, location data, and contextual data)
   - Ad impression (ad requests and ad responses)
@@ -41,6 +42,7 @@ For latency, consider the following:
   processing):** This data can be processed in near real-time (within minutes
   or hours) or in batches, as it is used for audience targeting, campaign optimization,
   and attribution analysis.
+
   - User behavior (browsing history and interests)
   - Audience segmentation
   - Campaign optimization (performance metrics and engagement data)
@@ -50,6 +52,7 @@ For latency, consider the following:
   data can be processed in batches or offline, as it is typically used for analysis,
   reporting, and long-term decision-making rather than real-time ad delivery or
   optimization.
+
   - Historical campaign
   - Detailed analytics and reporting
   - Third-party (from DMPs or data exchanges)

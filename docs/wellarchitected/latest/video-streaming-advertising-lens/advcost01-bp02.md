@@ -7,11 +7,13 @@ against the costs of not having a resilient infrastructure.
 ## Implementation guidance
 
 - Quantify the cost of downtime for each campaign based on its expected revenue.
+
   - Analyze historical data and projections to estimate the potential revenue
     loss due to downtime.
   - Consider the impact on customer satisfaction and brand reputation.
 
 - Estimate the cost of applying resiliency measures.
+
   - Evaluate the cost of additional resources required for multi-Regional
     deployments, backup, and recovery solutions
   - Use AWS tools like [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/")
@@ -19,6 +21,7 @@ against the costs of not having a resilient infrastructure.
     and reporting.
 
 - Compare the cost of downtime with the cost of resiliency measures.
+
   - If the potential lost revenue and reputation costs of downtime exceed the
     cost of resiliency, favor implementing resiliency measures.
   - Consider multi-regional deployments, backup and recovery solutions, and other

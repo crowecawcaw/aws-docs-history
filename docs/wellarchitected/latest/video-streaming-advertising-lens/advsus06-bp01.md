@@ -19,6 +19,7 @@ compute resources and models used for machine learning workloads.
 - When using
   [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/ "https://aws.amazon.com/sagemaker/"), customers can take multiple steps to
   optimize their compute usage:
+
   - Use Graviton-based instances when possible.
   - [Amazon SageMaker AI Inference Recommender](../../../sagemaker/latest/dg/inference-recommender.md "../../../sagemaker/latest/dg/inference-recommender.md") can specify the
     most performant instance type.

@@ -22,6 +22,7 @@ For data management specifically, implement the following
 approach:
 
 1. Establish data classification and handling processes:
+
    - Classify advertising data based on criticality and
      latency requirements (real-time bidding data, campaign
      configuration data, historical analytics data)
@@ -33,6 +34,7 @@ approach:
      dependencies across the advertising pipeline
 
 2. Structure teams around data criticality:
+
    - **Real-time data operations team:** Responsible for
      sub-100ms data like bidding, user profiles, and fraud
      detection
@@ -42,8 +44,10 @@ approach:
      for historical data and business intelligence
 
 3. Define data ownership with specific domains:
+
    - Assign data stewards for specific advertising domains
      such as:
+
      - Bid management domain (bid requests, responses,
        auction data)
      - User profile domain (demographic data, behavioral
@@ -57,6 +61,7 @@ approach:
      governance responsibilities in the RACI matrix
 
 4. Implement data governance using AWS services:
+
    - Use AWS Organizations with service control policies
      (SCPs) to enforce data residency requirements for
      different Regions
@@ -71,6 +76,7 @@ approach:
      compliance with data governance policies
 
 5. Establish data management processes:
+
    - Data cataloging: Use AWS AWS Glue Data Catalog to maintain
      a comprehensive inventory of advertising datasets with
      metadata, ownership, and classification

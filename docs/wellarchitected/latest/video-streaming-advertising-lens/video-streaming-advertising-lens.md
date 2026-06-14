@@ -59,6 +59,7 @@ Operational challenges with the advertising workloads are:
 - Achieving high availability and resilience in data pipelines to support critical advertising workloads.
 - Address alternate solution option for addressable targeting to deliver personalized ads, due to significant signal loss of traditional data points like third-party cookies, mobile IDs (IDFA for iOS and the Android Advertising ID (AAID)), hashed emails, and IP addresses, driven by privacy regulations.
 - In addition to these individual challenges, organizations face multiple interconnected challenges:
+
   - Protecting user privacy while complying with evolving regulations like GDPR and CCPA
   - Combating sophisticated ad fraud and verifying brand safety through robust content moderation
   - Adapting to the phaseout of third-party cookies by developing alternative measurement approaches using first-party data and modeling
@@ -66,6 +67,7 @@ Operational challenges with the advertising workloads are:
   - Effectively using AI/ML technologies for fraud detection, content moderation, and cross-system measurement while maintaining transparency and human oversight
 
 - Three main categories of digital advertising fraud: placement fraud, traffic fraud, and action fraud. These fraudulent activities employ both automated and manual methods, targeting different aspects of the advertising solution.
+
   - _Placement fraud_ involves manipulating ad placements through techniques like malvertising, ad stacking, fake websites, domain spoofing, and ad injection.
 
   ![Graph describing how placement fraud works](images/placement-fraud.png)

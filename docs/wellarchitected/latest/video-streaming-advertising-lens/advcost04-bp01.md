@@ -11,6 +11,7 @@ Amazon S3 can reduce costs for less relevant data.
 - Set up monitoring to track access patterns
 
 1. **For DynamoDB:**
+
    - Implement TTL for old profile records
    - Create export jobs to move historical data to S3
    - Use S3 Lifecycle policies for long-term archival

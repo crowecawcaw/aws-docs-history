@@ -9,6 +9,7 @@ efficiency across global advertising operations.
 ## Implementation guidance
 
 - For data residency compliance alignment:
+
   - Implement landing zone controls for different
     geographical Regions
   - Configure data boundary controls using AWS Control
@@ -17,6 +18,7 @@ efficiency across global advertising operations.
   - Monitor and enforce data locality requirements
 
 - For data governance:
+
   - Establish data classification policies for
     advertising data types
   - Implement data retention and archival procedures
@@ -24,6 +26,7 @@ efficiency across global advertising operations.
   - Configure audit logging and compliance reporting
 
 - For regulatory compliance alignment:
+
   - Implement GDPR requirements for EU user data
   - Set up consent management systems
   - Monitor compliance with regional advertising laws

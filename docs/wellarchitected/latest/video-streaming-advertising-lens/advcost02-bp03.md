@@ -12,6 +12,7 @@ following:
 - **Provisioned capacity:** With provisioned capacity, you
   reserve and pay for a specific amount of capacity in advance, regardless of whether
   you use it or not.
+
   - This model is suitable for workloads with predictable and consistent traffic
     patterns or when you have a baseline capacity requirement.
   - By provisioning capacity, you get dedicated resources and can achieve better
@@ -23,6 +24,7 @@ following:
 - **On-demand capacity:** With on-demand capacity, you pay
   for the resources you consume on a per-use basis without any upfront commitment or
   reservation.
+
   - This model is suitable for workloads with unpredictable or bursty traffic
     patterns, where you don't have a consistent baseline requirement.
   - On-demand capacity provides flexibility and scalability, as you only pay for
@@ -34,6 +36,7 @@ following:
 - **[Serverless
   capacity](https://aws.amazon.com/serverless/ "https://aws.amazon.com/serverless/"):** AWS offers technologies for running code, managing
   data, and integrating applications, all without managing servers.
+
   - Serverless technologies feature automatic scaling, built-in high
     availability, and a pay-for-use billing model to increase agility and optimize
     costs.

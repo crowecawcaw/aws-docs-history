@@ -57,6 +57,7 @@ The data modeling module loads the processed data in a lake house. It supports t
 following features:
 
 - Support both provisioned Redshift and Redshift Serverless as data warehouse
+
   - Users can specify the time range for storing data in Redshift
   - Users can specify the interval to update user dimension table
 

@@ -11,7 +11,9 @@ and improving operational resilience.
 ## Implementation guidance
 
 1. Use automation for predictable operational responses:
+
    - Implement auto scaling and load balancing using AWS services to handle common traffic patterns:
+
      - Configure Amazon EC2 Auto Scaling groups with appropriate
        scaling policies based on advertising traffic patterns.
      - Set up Elastic Load Balancing to distribute traffic across
@@ -22,6 +24,7 @@ and improving operational resilience.
        events like product launches or holiday promotions.
 
    - For scenarios where auto scaling may not be sufficient:
+
      - Create runbooks for requesting additional EC2
        capacity through ODCRs before anticipated
        high-traffic events.
@@ -34,7 +37,9 @@ and improving operational resilience.
 
 2. Create purpose-built runbooks and playbooks for different
    advertising scenarios:
+
    - Infrastructure capacity runbooks:
+
      - Document procedures for submitting on-demand
        capacity requests (ODCRs) for anticipated
        high-traffic events
@@ -46,6 +51,7 @@ and improving operational resilience.
        management procedures
 
    - Ad fraud incident playbooks:
+
      - Document investigation procedures for detected
        fraud patterns (bot traffic, click fraud,
        impression fraud)
@@ -63,6 +69,7 @@ and improving operational resilience.
        detection using Amazon SageMaker AI ML models
 
    - Brand safety incident playbooks:
+
      - Document procedures for content moderation
        escalations and violations
      - Establish workflows for emergency ad creative
@@ -81,6 +88,7 @@ and improving operational resilience.
        moderation models in SageMaker AI
 
    - Measurement anomaly runbooks:
+
      - Document step-by-step procedures for investigating
        common measurement discrepancies
      - Establish workflows for cross- data reconciliation
@@ -91,6 +99,7 @@ and improving operational resilience.
        measurement issues
 
    - AI measurement system playbooks:
+
      - Document operational procedures for AI model
        training, validation, and deployment
      - Create monitoring workflows for detecting model
@@ -105,6 +114,7 @@ and improving operational resilience.
        versions and deployments
 
 3. Implement continuous improvement for runbooks and playbooks:
+
    - Review and update documentation after each incident or
      significant operational event
    - Conduct regular simulation exercises to validate
