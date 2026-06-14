@@ -28,6 +28,7 @@ Ubuntu 24, Qt 6, and FIPS compliance standards.
 **Platform Modernization**
 
 - Ubuntu 24 & Qt 6 Upgrade: Major platform modernization for better performance
+
   - Upgraded to Ubuntu 24 LTS base operating system
   - Migrated to Qt 6 framework
   - Enhanced stability and long-term support
@@ -35,12 +36,14 @@ Ubuntu 24, Qt 6, and FIPS compliance standards.
 **Security & Compliance**
 
 - FIPS Compliance Support: Added federal security standards compliance
+
   - Support for Federal Information Processing Standards (FIPS) 140-2/140-3
   - Enables deployment in federal and regulated environments requiring FIPS
     compliance
   - Cryptographic operations can be configured for FIPS mode
 
 - Security Vulnerability Remediation:
+
   - Fixed known CVEs (Common Vulnerabilities and Exposures)
   - Updated dependencies to address security issues
 
@@ -48,6 +51,7 @@ Ubuntu 24, Qt 6, and FIPS compliance standards.
 
 - JSON Data Compliance: Fixed compliance issues with required timestamps and sender/receiver
   information
+
   - Ensures all message payloads include required timestamp fields
   - Corrected sender and receiver information formatting
   - Improved data consistency across JSON outputs
@@ -55,6 +59,7 @@ Ubuntu 24, Qt 6, and FIPS compliance standards.
 **Network Connectivity**
 
 - SOCKS5 Proxy Support: Enhanced network connectivity options
+
   - Added support for SOCKS5 proxy protocol
   - Improved connectivity in restricted or enterprise network environments
   - Enables deployment behind corporate proxies

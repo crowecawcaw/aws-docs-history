@@ -72,6 +72,7 @@ address.
 1. Using the admin console create the associated [Wickr IO bot user](https://admin-prod.wickr.com/#/activeBot "https://admin-prod.wickr.com/#/activeBot") by entering a
    display name, username, and password.
 2. Make a directory for your docker volume:
+
    - `sudo mkdir /opt`
    - `cd /opt`
    - `sudo mkdir WickrIO`

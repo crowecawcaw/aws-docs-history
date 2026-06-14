@@ -28,12 +28,14 @@ functionality of your custom bots:
 3.  Upgraded to use Node 20 (previously used Node 16).
 4.  Deprecated multiple integrations. This is the list of officially supported
     integrations:
+
     - wickrio-broadcast-bot
     - wickrio_web_interface_bot
     - wickrio-compliance-bot (only available for Enterprise environments)
 
 5.  This is the list of sample integrations that can be pulled from NPM registry for testing
     purposes:
+
     1. @wickr-sample-integrations/wickrio-hello-world-bot
     2. @wickr-sample-integrations/wickrio-example-app
     3. @wickr-sample-integrations/wickrio-lex-bot

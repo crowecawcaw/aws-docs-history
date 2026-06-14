@@ -13,6 +13,7 @@ guide:
   container.
 - Set up AWS CLI, or an AWS credentials file with valid current credentials on your host
   machine. For additional information on how to get credentials, see: [Authentication and access credentials for the AWS CLI](../../../cli/v1/userguide/cli-chap-authentication.md "../../../cli/v1/userguide/cli-chap-authentication.md")
+
   - For this example, we will assume that the credentials on your host exist at
     `/home/ubuntu/credentials/rekognition/.aws`. This assumes that your username is
     ubuntu and that you have stored your credentials in the file

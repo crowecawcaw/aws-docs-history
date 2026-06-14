@@ -27,5 +27,6 @@ already:
 - An AWS Console account with access to Wickr (Commercial and Gov): [Getting started with
   AWS Wickr](https://aws.amazon.com/wickr/getting-started/ "https://aws.amazon.com/wickr/getting-started/")
 - Create a Wickr network:
+
   - [Getting started (Commercial and Gov)](../adminguide/getting-started.md#getting-started-step1 "../adminguide/getting-started.md#getting-started-step1")
   - [Network provisioning (Enterprise)](../enterpriseadminguide/network-provisioning.md "../enterpriseadminguide/network-provisioning.md")
