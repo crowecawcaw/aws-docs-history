@@ -26,7 +26,7 @@ created between both brokers as illustrated below:
 
 Steps 1 and 2 can be replicated using a
 AWS CloudFormation template. For more information about using CloudFormation to set up
-Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_AmazonMQ.md "../../../AWSCloudFormation/latest/UserGuide/AWS_AmazonMQ.md"). 3. Retrieve the list of static TIBCO EMS server destinations from
+Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.md"). 3. Retrieve the list of static TIBCO EMS server destinations from
 the config files, `queues.conf` and
 `topics.conf` or by using the following
 `tibemsadmin` commands:

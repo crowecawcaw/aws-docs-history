@@ -28,7 +28,7 @@ created between both brokers as illustrated below:
 
 Steps 1 and 2 can be replicated using a
 AWS CloudFormation template. For more information about using CloudFormation to set up
-Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_AmazonMQ.md "../../../AWSCloudFormation/latest/UserGuide/AWS_AmazonMQ.md"). 3. Log in to IBM MQ Queue Manager Host and list the
+Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.md"). 3. Log in to IBM MQ Queue Manager Host and list the
 queues/topics definitions. In **QM_ORANGE**, you can list the queues and topics from IBM MQ using
 the following command:
 

@@ -29,7 +29,7 @@ ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617
 ```
 
 ![Red circle with the number 2 inside, indicating a numerical step or count.](images/number-2-red.png)
-For either of the following cases, use the [Failover Transport](http://activemq.apache.org/failover-transport-reference.html "http://activemq.apache.org/failover-transport-reference.html") to allow your consumers
+For either of the following cases, use the [Failover Transport](https://activemq.apache.org/failover-transport-reference.html "https://activemq.apache.org/failover-transport-reference.html") to allow your consumers
 to randomly connect to your on-premises broker's endpoint or your Amazon MQ broker's endpoint. For example:
 
 ```

@@ -1,7 +1,7 @@
 # What is the Amazon MQ migration guide?
 
 Amazon MQ is a managed message broker service that makes it easy to migrate to a message broker in the cloud.
-Amazon MQ currently supports [Apache ActiveMQ](http://activemq.apache.org/ "http://activemq.apache.org/") and [RabbitMQ](https://www.rabbitmq.com/ "https://www.rabbitmq.com/") engines.
+Amazon MQ currently supports [Apache ActiveMQ](https://activemq.apache.org/ "https://activemq.apache.org/") and [RabbitMQ](https://www.rabbitmq.com/ "https://www.rabbitmq.com/") engines.
 
 Amazon MQ for ActiveMQ simplifies the migration of commercial brokers, such as IBM MQ and TIBCO
 Enterprise Management Service (EMS), to the cloud. Amazon MQ for ActiveMQ brokers are compatible with popular APIs and protocols, such as
@@ -18,11 +18,11 @@ broker to Amazon MQ.
 You can connect your broker to Amazon MQ without any code changes if you currently use one
 of the following industry-standard protocols:
 
-- [AMQP](http://activemq.apache.org/amqp.html "http://activemq.apache.org/amqp.html")
-- [MQTT](http://activemq.apache.org/mqtt.html "http://activemq.apache.org/mqtt.html")
-- MQTT over [WebSocket](http://activemq.apache.org/websockets.html "http://activemq.apache.org/websockets.html")
-- [OpenWire](http://activemq.apache.org/openwire.html "http://activemq.apache.org/openwire.html")
-- [STOMP](http://activemq.apache.org/stomp.html "http://activemq.apache.org/stomp.html")
+- [AMQP](https://activemq.apache.org/amqp.html "https://activemq.apache.org/amqp.html")
+- [MQTT](https://activemq.apache.org/mqtt.html "https://activemq.apache.org/mqtt.html")
+- MQTT over [WebSocket](https://activemq.apache.org/websockets.html "https://activemq.apache.org/websockets.html")
+- [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html")
+- [STOMP](https://activemq.apache.org/stomp.html "https://activemq.apache.org/stomp.html")
 - STOMP over WebSocket
 
 For more information about
