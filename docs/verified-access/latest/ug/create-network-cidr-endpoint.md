@@ -28,6 +28,7 @@ endpoint to enable access to EC2 instances in a specific subnet over port 22 (SS
    a name and description for the endpoint.
 5. For **Verified Access group**, choose a Verified Access group for the endpoint.
 6. For **Endpoint details**, do the following:
+
    1. For **Protocol**, choose **TCP**.
    2. For **Attachment type**, choose **VPC**.
    3. For **Endpoint type**, choose **Network CIDR**.

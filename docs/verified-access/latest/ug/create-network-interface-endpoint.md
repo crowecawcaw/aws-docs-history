@@ -25,6 +25,7 @@ Use the following procedure to create a network interface endpoint.
    a name and description for the endpoint.
 5. For **Verified Access group**, choose a Verified Access group.
 6. For **Endpoint details**, do the following:
+
    1. For **Protocol**, choose a protocol.
    2. For **Attachment type**, choose **VPC**.
    3. For **Endpoint type**, choose **Network interface**.
@@ -37,6 +38,7 @@ Use the following procedure to create a network interface endpoint.
       to the DNS name that Verified Access generates for the endpoint.
 
 7. (HTTP/HTTPS) For **Application details**, do the following:
+
    1. For **Application domain**, enter a DNS name for your application.
    2. Under **Domain certificate ARN**, choose a public TLS certificate.
 

@@ -20,10 +20,12 @@ Use the following procedure to create an Amazon Relational Database Service (RDS
    a name and description for the endpoint.
 5. For **Verified Access group**, choose a Verified Access group for the endpoint.
 6. For **Endpoint details**, do the following:
+
    1. For **Protocol**, choose **TCP**.
    2. For **Attachment type**, choose **VPC**.
    3. For **Endpoint type**, choose **Amazon Relational Database Service (RDS)**.
    4. For **RDS target type**, do one of the following:
+
       - Choose **RDS instance**, and then choose an RDS instance from **RDS instance**.
       - Choose **RDS cluster**, and then choose an RDS cluster from **RDS cluster**.
       - Choose **RDS DB proxy**, and then choose an RDS DB proxy from **RDS DB proxy**.

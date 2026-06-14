@@ -24,11 +24,13 @@ logging destination can be seen in the [Verified Access logging permissions](acc
    choose **Modify Verified Access instance logging
    configuration**.
 5. (Optional) To include trust data sent from trust providers in the logs, do the following:
+
    1. Select **ocsf-1.0.0-rc.2** from the **Update log
       version** drop-down list.
    2. Choose **Include trust context**.
 
 6. Do one of the following:
+
    - Turn on **Deliver to Amazon CloudWatch Logs**. Choose the destination log group.
    - Turn on **Deliver to Amazon S3**. Enter the name, owner, and prefix of
      the destination bucket.

@@ -97,6 +97,7 @@ in AWS Certificate Manager.
    name and description for the endpoint.
 4. For **Verified Access group**, choose your Verified Access group.
 5. For **Endpoint details**, do the following:
+
    1. For **Protocol**, select **HTTPS** or
       **HTTP**, depending on the configuration of your load balancer.
    2. For **Attachment type**, choose **VPC**.
@@ -116,6 +117,7 @@ in AWS Certificate Manager.
       generates.
 
 6. For **Application details**, do the following:
+
    1. For **Application domain**, enter the DNS name for your
       application. This domain must match the one in your domain certificate.
    2. For **Domain certificate ARN**, select the Amazon Resource Name (ARN)

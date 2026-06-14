@@ -75,6 +75,7 @@ Use the following procedure to connect to an application using the client.
 
 1. Deploy the client configuration files to the users' devices in the following
    location:
+
    - Windows – `C:\ProgramData\Connectivity Client`
    - macOS – `/Library/Application\ Support/Connectivity\ Client`
 

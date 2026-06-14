@@ -19,6 +19,7 @@ We recommend that you keep your existing outbound rules.
    **Actions**, **Edit inbound rules**.
 6. To add a security group rule that allows traffic that originates from your Verified Access endpoint,
    do the following:
+
    1. Choose **Add rule**.
    2. For **Type**, choose **All traffic** or the specific
       traffic to allow.

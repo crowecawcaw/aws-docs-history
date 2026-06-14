@@ -152,6 +152,7 @@ Use the following procedure to create an OIDC as your trust provider.
     key and the tag value.
 17. Choose **Create Verified Access trust provider**.
 18. You must add a redirect URI to the allow list for your OIDC provider.
+
     - HTTP applications – Use the following URI:
       `https://application_domain/oauth2/idpresponse`. In the
       console, you can find the application domain on the **Details**
