@@ -35,6 +35,7 @@ First, complete the steps in the [Getting Started](get-started-exercise.md "get-
 steps to set up and add reference data to your application:
 
 1. **Prepare the data**
+
    - Store the preceding reference data as an object in Amazon Simple Storage Service
      (Amazon S3).
    - Create an IAM role that Kinesis Data Analytics can assume to read the Amazon S3 object on
@@ -101,6 +102,7 @@ On the IAM console, specify the following:
      Policy** page.
 
 2. Update the IAM role policies:
+
    1. On the IAM console, choose the role that you created.
    2. On the **Trust Relationships** tab, update
       the trust policy to grant Kinesis Data Analytics permissions to assume the role.
@@ -123,7 +125,6 @@ On the IAM console, specify the following:
    }`
 
    ```
-
    3. On the **Permissions** tab, attach an Amazon-managed policy called
       **AmazonS3ReadOnlyAccess**. This grants the
       role permissions to read an Amazon S3 object. This policy is shown

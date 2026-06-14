@@ -86,6 +86,7 @@ streams that contain normalized data:
 - **SQL functions** – The following functions are
   useful when manipulating individual strings. For more information, see [String and
   Search Functions](../sqlref/sql-reference-string-and-search-functions.md "../sqlref/sql-reference-string-and-search-functions.md") in the _Amazon Managed Service for Apache Flink SQL Reference_.
+
   - `CHAR_LENGTH` – Provides the length of a string.
   - `INITCAP` – Returns a converted version of the input
     string such that the first character of each space-delimited word is

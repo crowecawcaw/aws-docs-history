@@ -149,6 +149,7 @@ a Kinesis Data Analytics application.
    choose an existing Lambda function and version, or choose **Create
    new**.
 6. If you are creating a new Lambda function, do the following:
+
    1. Choose one of the templates provided. For more information, [Creating Lambda Functions for Application Destinations](how-it-works-output-lambda-functions.md "how-it-works-output-lambda-functions.md").
    2. The **Create Function** page opens in a new
       browser tab. In the **Name** box, give the function

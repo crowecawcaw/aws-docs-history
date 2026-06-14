@@ -210,6 +210,7 @@ A number literal in the JSON input stream (that is,
 - Binary (BINARY or VARBINARY): Conversion fails and a coercion error is
   written to the error stream.
 - BOOLEAN:
+
   - `0`: Converts to `false`.
   - All other numbers: Converts to `true`.
 

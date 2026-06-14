@@ -25,6 +25,7 @@ you created in the preceding section to an in-application input stream.
    data** to connect to the source.
 4. On the **Connect to source** page, do the
    following:
+
    1. Choose the stream that you created in [Step 1: Prepare the Data](tworecordtypes-prepare.md "tworecordtypes-prepare.md").
    2. Choose to create an IAM role.
    3. Wait for the console to show the inferred schema and samples
@@ -37,6 +38,7 @@ you created in the preceding section to an in-application input stream.
    the dialog box that appears.
 6. In the SQL editor, write the application code and verify the
    results:
+
    1. Copy the following application code and paste it into the
       editor.
 
@@ -85,7 +87,6 @@ you created in the preceding section to an in-application input stream.
          GROUP BY "ticker",
                    FLOOR("Trade_Stream".ROWTIME TO MINUTE);
    ```
-
    2. Choose **Save and run SQL**. Choose the
       **Real-time analytics** tab to see all of the
       in-application streams that the application created and verify the

@@ -79,6 +79,7 @@ When working with Amazon Kinesis Data Analytics for SQL Applications, note the f
   100 MB/sec. This assumes that you have increased the number of in-application streams to the maximum
   value of 64, and you have increased your KPU limit beyond 8 (see the following limit for details).
   If your application needs to process more than 100 MB/sec of input, do one of the following:
+
   - Use multiple Kinesis Data Analytics for SQL applications to process input
   - Use [Managed Service for Apache Flink for Java Applications](../../../managed-flink/latest/java/what-is.md "../../../managed-flink/latest/java/what-is.md")
     if you want to continue to use a single stream and application.

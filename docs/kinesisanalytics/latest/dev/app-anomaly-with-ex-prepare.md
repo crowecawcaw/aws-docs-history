@@ -29,6 +29,7 @@ In this section, you create a Kinesis data stream named
 using the AWS Management Console or the AWS CLI.
 
 - To use the console:
+
   1.  Sign in to the AWS Management Console and open the Kinesis console at
       [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
   2.  Choose **Data Streams** in the navigation

@@ -99,6 +99,7 @@ are specific to :
   following:
 
    
+
   - These permissions are not sufficient if the user wants to
     create a new IAM role in the console (these permissions allow
     the user to select an existing role). If you want the user to be

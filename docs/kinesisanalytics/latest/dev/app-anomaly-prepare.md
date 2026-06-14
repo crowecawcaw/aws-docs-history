@@ -51,7 +51,6 @@ AWS Management Console or the AWS CLI.
   --region *us-east-1* \
   --profile *adminuser*
   ```
-
   2.  Run the same command, changing the stream name to
       `ExampleOutputStream`. This command creates the
       second stream that the application uses to write output.

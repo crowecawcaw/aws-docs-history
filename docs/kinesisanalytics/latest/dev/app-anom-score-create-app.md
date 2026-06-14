@@ -24,7 +24,9 @@ In this section, you create an Amazon Kinesis Data Analytics application as foll
 
 1. Follow steps 1, 2, and 3 in the Kinesis Data Analytics **Getting
    Started** exercise (see [Step 3.1: Create an Application](get-started-create-app.md "get-started-create-app.md")).
+
    - In the source configuration, do the following:
+
      - Specify the streaming source that you created in the
        preceding section.
      - After the console infers the schema, edit the schema, and

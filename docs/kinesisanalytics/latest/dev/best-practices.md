@@ -170,6 +170,7 @@ Time` functions to parse and schematize the raw data.
   needs. Use either of the following strategies to do this:
 
    
+
   - Use the JSON row path to selectively pull out only the required key
     value pairs for your application. A JSON row path provides a pointer to
     the specific key value pair that you want to bring in your application.
@@ -192,6 +193,7 @@ We recommend the following:
 
 - In your SQL statement, don't specify a time-based window that is longer
   than one hour for the following reasons:
+
   - Sometimes an application needs to be restarted, either because
     you updated the application or for Kinesis Data Analytics internal reasons. When it
     restarts, all data included in the window must be read again from the

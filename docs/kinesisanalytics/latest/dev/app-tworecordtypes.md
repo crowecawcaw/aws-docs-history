@@ -57,6 +57,7 @@ record type and insert them in the newly created streams using pumps. For inform
 about this coding pattern, see [Application Code](how-it-works-app-code.md "how-it-works-app-code.md").
 
 1. Filter order and trade rows into separate in-application streams:
+
    1. Filter the order records in the `SOURCE_SQL_STREAM_001`,
       and save the orders in the `Order_Stream`.
 
@@ -77,7 +78,6 @@ about this coding pattern, see [Application Code](how-it-works-app-code.md "how-
          FROM   "SOURCE_SQL_STREAM_001"
          WHERE  recordtype = 'Order';
    ```
-
    2. Filter the trade records in the `SOURCE_SQL_STREAM_001`,
       and save the orders in the `Trade_Stream`.
 

@@ -31,6 +31,7 @@ In this section, you create two Kinesis data streams:
 Create these data streams using the console or the AWS CLI.
 
 - To create the data streams using the console:
+
   1.  Sign in to the AWS Management Console and open the Kinesis console at
       [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
   2.  Choose **Data Streams** in the navigation
@@ -42,6 +43,7 @@ Create these data streams using the console or the AWS CLI.
       named `ExampleOutputStream`.
 
 - To create data streams using the AWS CLI:
+
   - Create streams (`ExampleInputStream` and
     `ExampleOutputStream`) using the following Kinesis
     `create-stream` AWS CLI command. To create the

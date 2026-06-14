@@ -109,6 +109,7 @@ Create a Kinesis Data Analytics application as follows:
    data** to connect to the source.
 4. On the **Connect to source** page, do the
    following:
+
    1. Choose the stream that you created in the preceding section.
    2. Choose **Discover Schema**. Wait for the console to show the inferred schema and samples
       records that are used to infer the schema for the in-application
@@ -123,6 +124,7 @@ Create a Kinesis Data Analytics application as follows:
    application** in the dialog box that appears.
 6. In the SQL editor, write the application code, and verify the results as
    follows:
+
    1. Copy the following application code and paste it into the
       editor.
 
@@ -135,7 +137,6 @@ Create a Kinesis Data Analytics application as follows:
            GROUP BY TICKER,
                STEP("SOURCE_SQL_STREAM_001".ROWTIME BY INTERVAL '60' SECOND);
    ```
-
    2. Choose **Save and run SQL**.
 
    On the **Real-time analytics** tab, you can see

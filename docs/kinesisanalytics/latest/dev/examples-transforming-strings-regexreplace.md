@@ -95,6 +95,7 @@ Next, create an Kinesis Data Analytics application as follows:
    data**.
 4. On the **Connect to source** page, do the
    following:
+
    1. Choose the stream that you created in the preceding section.
    2. Choose the option to create an IAM role.
    3. Choose **Discover schema**. Wait for the console
@@ -108,6 +109,7 @@ Next, create an Kinesis Data Analytics application as follows:
    application** in the dialog box that appears.
 6. In the SQL editor, write the application code and verify the results as
    follows:
+
    1. Copy the following application code, and paste it into the
       editor:
 
@@ -124,7 +126,6 @@ Next, create an Kinesis Data Analytics application as follows:
             REGEX_REPLACE("REFERRER", 'http://', 'https://', 1, 0)
          FROM "SOURCE_SQL_STREAM_001";
    ```
-
    2. Choose **Save and run SQL**. On the
       **Real-time analytics** tab, you can see all
       the in-application streams that the application created and verify

@@ -1527,6 +1527,7 @@ exercise:
     database that will define the metadata for your sources and destinations. If
     you don’t have an AWS Glue database, choose **Create** and do
     the following:
+
     1. In the AWS Glue console, choose **Databases** under
        **Data catalog** from the left-hand menu.
     2. Choose **Create database**
@@ -1813,6 +1814,7 @@ tools, including the following:
    output stream.
 9. Import the `MaskPhoneNumber-interactive` Zeppelin notebook.
 10. Execute each paragraph in the notebook.
+
     1. In paragraph 1, you import a User Defined Function to anonymize phone
        numbers.
 
@@ -1821,7 +1823,6 @@ tools, including the following:
     import com.mycompany.app.MaskPhoneNumber
     stenv.registerFunction("MaskPhoneNumber", new MaskPhoneNumber())
     ```
-
     2. In the next paragraph, you create an in-memory table to read input stream
        data. Make sure the stream name and AWS Region are correct.
 
@@ -1843,21 +1844,18 @@ tools, including the following:
     'scan.stream.initpos' = 'LATEST',
     'format' = 'json');
     ```
-
     3. Check if data is loaded into the in-memory table.
 
     ```
     %flink.ssql(type=update)
     select * from customer_reviews
     ```
-
     4. Invoke the user defined function to anonymize the phone number.
 
     ```
     %flink.ssql(type=update)
     select customer_id, product, review, MaskPhoneNumber('mask_phone', phone) as phoneNumber from customer_reviews
     ```
-
     5. Now that the phone numbers are masked, create a view with a masked
        number.
 
@@ -1871,14 +1869,12 @@ tools, including the following:
     AS
       select customer_id, product, review, MaskPhoneNumber('mask_phone', phone) as phoneNumber from customer_reviews
     ```
-
     6. Verify the data.
 
     ```
     %flink.ssql(type=update)
     select * from sentiments_view
     ```
-
     7. Create in-memory table for the output Kinesis Stream. Make sure stream
        name and AWS Region are correct.
 
@@ -1901,7 +1897,6 @@ tools, including the following:
     'format' = 'json');
 
     ```
-
     8. Insert updated records in the target Kinesis Stream.
 
     ```
@@ -1911,7 +1906,6 @@ tools, including the following:
     FROM sentiments_view
 
     ```
-
     9. View and verify data from the target Kinesis Stream.
 
     ```

@@ -26,6 +26,7 @@ SQL functions for working with date and time fields.
 - **SQL Functions** – These include the
   following. For more information, see [Date and Time
   Functions](../sqlref/sql-reference-date-time-functions.md "../sqlref/sql-reference-date-time-functions.md") in the _Amazon Managed Service for Apache Flink SQL Reference_.
+
   - `EXTRACT()` – Extracts one field from a date, time,
     time stamp, or interval expression.
   - `CURRENT_TIME` – Returns the time when the query
@@ -150,6 +151,7 @@ Create an application as follows:
    data** to connect to the source.
 4. On the **Connect to source** page, do the
    following:
+
    1. Choose the stream that you created in the preceding section.
    2. Choose to create an IAM role.
    3. Choose **Discover schema**. Wait for the
@@ -170,6 +172,7 @@ Create an application as follows:
    start application** in the dialog box that appears.
 6. In the SQL editor, write the application code and verify the results
    as follows:
+
    1. Copy the following application code and paste it into the
       editor.
 
@@ -194,7 +197,6 @@ Create an application as follows:
    FROM "SOURCE_SQL_STREAM_001"
 
    ```
-
    2. Choose **Save and run SQL**. On the
       **Real-time analytics** tab, you can see
       all the in-application streams that the application created and

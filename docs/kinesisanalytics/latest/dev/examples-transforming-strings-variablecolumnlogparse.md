@@ -101,6 +101,7 @@ Create an Kinesis Data Analytics application as follows:
    data**.
 4. On the **Connect to source** page, do the
    following:
+
    1. Choose the stream that you created in the preceding
       section.
    2. Choose the option to create an IAM role.
@@ -114,6 +115,7 @@ Create an Kinesis Data Analytics application as follows:
    editor**. To start the application, choose **Yes, start
    application** in the dialog box that appears.
 6. In the SQL editor, write application code, and verify the results:
+
    1. Copy the following application code and paste it into the
       editor:
 
@@ -137,7 +139,6 @@ Create an Kinesis Data Analytics application as follows:
                                         ',') AS r
             FROM "SOURCE_SQL_STREAM_001") as t;
    ```
-
    2. Choose **Save and run SQL**. On the
       **Real-time analytics** tab, you can see all
       the in-application streams that the application created and verify

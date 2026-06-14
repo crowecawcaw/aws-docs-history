@@ -172,6 +172,7 @@ If your application's [MillisBehindLatest](../../../AmazonCloudWatch/latest/moni
 - If your application uses an AWS Lambda function for pre-processing or as an output, check the application’s [InputProcessing.Duration](../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md") or
   [LambdaDelivery.Duration](../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md") CloudWatch metric. If the Lambda function invocation duration
   is longer than 5 seconds, consider doing the following:
+
   - Increase the Lambda function’s **Memory** allocation. You can do this on the
     AWS Lambda console, on the **Configuration** page, under
     **Basic settings**. For more information, see
