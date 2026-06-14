@@ -80,6 +80,7 @@ AMB Access allows you to tag public Ethereum networks after you create a node on
 2. If the console doesn't open to the **Networks** list, choose **Networks** from the navigation pane.
 3. Choose the network from the list.
 4. Under **Tags**, choose **Edit tags**, and then do one of the following:
+
    - To add a tag, choose **Add new tag**, enter a **Key** and optional **Value**, and then choose **Save**.
    - To remove a tag, choose **Remove** next to the **Tag** you want to remove, and then choose **Save**.
 
@@ -89,5 +90,6 @@ AMB Access allows you to tag public Ethereum networks after you create a node on
 2. Choose **Networks** and then choose an Ethereum network from the list.
 3. Under **Nodes**, choose a **Node ID** from the list.
 4. Choose **Tags**, choose **Edit tags**, and then do one of the following:
+
    - To add a tag, choose **Add new tag**, enter a **Key** and optional **Value**, and then choose **Save**.
    - To remove a tag, choose **Remove** next to the **Tag** you want to remove, and then choose **Save**.

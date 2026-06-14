@@ -98,6 +98,7 @@ Information such as the AMB Access instance type, Availability Zone, and creatio
 available for the node. The following properties are also available:
 
 - **Status**
+
   - **Creating**
 
   AMB Access is provisioning and configuring the AMB Access instance for the node. The amount of
