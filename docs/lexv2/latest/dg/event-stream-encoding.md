@@ -27,6 +27,7 @@ Each message contains the following components:
 
 - **Prelude:** Always a fixed
   size of 8 bytes, two fields of 4 bytes each.
+
   - _First 4 bytes:_ The total
     byte-length. This is the big-endian integer
     byte-length of the entire message, including the

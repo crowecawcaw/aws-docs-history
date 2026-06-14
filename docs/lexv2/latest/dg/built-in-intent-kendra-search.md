@@ -45,6 +45,7 @@ uses the intents as follows:
 3. If there is no response from Amazon Kendra, Amazon Lex V2 re-prompts
    the user. The next action depends on response from the
    user.
+
    - If the response from the user contains an
      utterance that Amazon Lex V2 recognizes, such as
      filling a slot value or confirming an intent,
@@ -271,6 +272,7 @@ role to use.
    query** section.
 8. For **IAM role** choose one
    of the following options:
+
    - To update the Amazon Lex V2 service-linked
      role to enable your bot to query Amazon Kendra
      indexes, choose **Add Amazon Kendra
@@ -365,6 +367,7 @@ Amazon Kendra has five types of responses.
 - The following two responses require an FAQ to be set up for
   your Amazon Kendra index. For more details, see [Adding questions
   and answers directly to a index](../../../kendra/latest/dg/in-creating-faq.md "../../../kendra/latest/dg/in-creating-faq.md").
+
   - `x-amz-lex:kendra-search-response-question_answer-question-<N>`
     – The question from a FAQ that matches the
     search.
@@ -374,6 +377,7 @@ Amazon Kendra has five types of responses.
 
 - The following three responses require a data source to be set
   up for your Amazon Kendra index. For more details, see [Creating a data source](../../../kendra/latest/dg/data-source.md "../../../kendra/latest/dg/data-source.md").
+
   - `x-amz-lex:kendra-search-response-document-<N>`
     – An excerpt from a document in the index that
     is related to the text of the utterance.

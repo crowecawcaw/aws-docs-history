@@ -34,6 +34,7 @@ says "Tell me the prediction for earth":
 
 - Amazon Lex V2 infers that "earth" is a ZodiacSign value if you do one of the
   following actions:
+
   - Set the `valueSelectionStrategy` field to
     `ORIGINAL_VALUE` using the [CreateSlotType](../APIReference/API_CreateSlotType.md "../APIReference/API_CreateSlotType.md")
     operation

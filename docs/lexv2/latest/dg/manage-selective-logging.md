@@ -28,6 +28,7 @@ the KMS key for encrypting your audio data. Select the check box for **Selective
 1. Go to **Intents** and select the **Intent name**, **Initial Response**, **Advanced Settings**, **Set Values**,
    **Session Attributes**.
 2. Set the following attributes to based on the intents and slots for which you want to enable selective conversation log capture:
+
    - `x-amz-lex:enable-audio-logging:`intent`:`slot` = "true"`
    - `x-amz-lex:enable-text-logging:`intent`:`slot` = "true"`
 

@@ -147,6 +147,7 @@ bot.
    contains your transcript files and the local path to the
    files if necessary.
 7. You can optionally choose the following:
+
    - A AWS KMS key to encrypt the transcript data
      during processing. If you don't select a key, a
      service AWS KMS key is used.

@@ -23,6 +23,7 @@ using the AWS console.
     which you want to invoke the Lambda function.
 2.  Choose the intent in which you want to invoke the Lambda function to open the intent editor.
 3.  There are two options for setting the Lambda code hook:
+
     1. To invoke the Lambda function after every step of the
        conversation, scroll to the **Code hooks** section
        at the bottom of the intent editor and select the **Use a

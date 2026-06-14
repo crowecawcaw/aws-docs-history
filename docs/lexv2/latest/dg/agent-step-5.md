@@ -6,6 +6,7 @@
 2. Navigate to the downloaded repository and open the index.html file in an
    editor.
 3. Make the following changes.
+
    1. In the `AWS.config.credentials` section, enter your Region
       name and your identity pool ID.
    2. In the `Amazon Lex V2 runtime parameters` section, enter the bot

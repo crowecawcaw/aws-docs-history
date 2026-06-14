@@ -87,17 +87,21 @@ These practical examples show how to apply conversation design principles to com
 Even simple bots encounter complex situations. Here's how to handle them gracefully:
 
 - **When Users Change Their Mind:**
+
   - User: "Actually, I want roses instead of tulips"
   - Bot: "No problem! I've updated your order to roses. Your roses will be ready for pickup on Friday at 2 PM. Is that correct?"
 
 - **When Information is Unclear:**
+
   - User: "I need flowers for next week"
   - Bot: "I'd be happy to help! Which day next week works best for you? You can say something like 'Monday' or 'next Tuesday'."
 
 - **When the Bot Doesn't Understand:**
+
   - User: "I want the purple ones with the long stems"
   - Bot: "I want to make sure I get this right. Are you looking for purple flowers? We have purple roses, purple tulips, and purple irises available."
 
 - **When Users Need to Start Over:**
+
   - User: "Cancel this, I want to start over"
   - Bot: "Of course! I've cleared your current order. What type of flowers would you like to order today?"

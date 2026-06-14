@@ -27,6 +27,7 @@ To configure speech model preferences:
 1. In the Amazon Lex V2 console, navigate to your bot and select the locale you want to configure.
 2. In the bot locale settings, locate the **Speech recognition settings** section.
 3. For **Speech model preference**, choose one of the following options:
+
    - **Standard** - Use the standard speech recognition model for reliable performance across general use cases.
    - **Neural** - Use the neural speech recognition model for enhanced accuracy and better handling of natural speech patterns.
    - **Deepgram** - Use Deepgram's Listen API for speech recognition. For setup instructions, see [Setting up Deepgram speech model preference](customizing-speech-deepgram-setup.md "customizing-speech-deepgram-setup.md").

@@ -47,12 +47,15 @@ it.
 
 1. If there are enough intents and slot types that are applicable for your bot's
    use-case, you can review the generated intents.
+
    1. Review the **Generated intents**.
+
       1. Choose a checkbox next to an intent to remove it from the list of intents to add to the bot.
       2. Choose an intent name to view the **Sample utterances** and **Slots** generated for the intent.
       3. By default, all the utterances and slots are selected. Choose a checkbox to remove that item from the intent. Select **Add to selection** to keep the checked items in the intent.
 
    2. Review the **Generated slot types**.
+
       1. Choose a checkbox next to a slot type to remove it from the list of intents to add to the bot.
       2. You can add values to a slot type after you have added it to the bot
 
@@ -61,6 +64,7 @@ it.
    and slot types to your bot.
 3. When the resources are finished being added, a green success banner appears. Go to **Intents** and **Slot types** to edit the generated ones and to add more values.
 4. If the **Generated intents** and **Generated slot types** are mostly inapplicable to the bot you want to create, carry out the following steps.
+
    1. Select **New generation** in the **Descriptive bot builder details** section.
    2. Rewrite the prompt and select **Re-generate** to generate new intents and slot types. The results differ if you use a different model.
 

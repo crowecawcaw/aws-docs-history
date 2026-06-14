@@ -14,6 +14,7 @@ following fields are relevant to many of the performance metrics:
 Amazon Lex V2 categorizes intents in the following ways:
 
 - **Success** – The bot successfully fulfilled the intent. One of the following situations is true:
+
   - The intent `state` is `ReadyForFulfillment` and the
     `type` of `dialogAction` is
     `Close`.
@@ -22,6 +23,7 @@ Amazon Lex V2 categorizes intents in the following ways:
     `Close`.
 
 - **Failed** – The bot failed to fulfill the intent. The intent state. One of the following situations is true:
+
   - The intent `state` is `Failed` and the `type` of `dialogAction` is `Close` (for example, the user declined the confirmation prompt).
   - The bot switches to the `AMAZON.FallbackIntent` before the intent is completed.
 

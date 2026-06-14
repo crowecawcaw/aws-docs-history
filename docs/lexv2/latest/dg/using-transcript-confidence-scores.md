@@ -139,11 +139,13 @@ inferred intent for each of the transcriptions, as follows.
 - If the inferred intent for the top transcript is the same as
   the previous turn and all other transcripts have the same
   intent, then
+
   - All transcripts contain inferred slot values.
 
 - If the inferred intent for the top transcript is the different
   from the previous turn and all other transcripts have the
   previous intent, then
+
   - The top transcript contains the inferred slot values
     for the new intent.
   - Other transcripts have the previous intent and
@@ -153,6 +155,7 @@ inferred intent for each of the transcriptions, as follows.
   from the previous turn, one transcript is the same as the
   previous intent, and one transcript is a different intent,
   then
+
   - The top transcript contains the new inferred intent
     and any inferred slot values in the utterance.
   - The transcript that has the previous inferred intent
@@ -163,6 +166,7 @@ inferred intent for each of the transcriptions, as follows.
 - If the inferred intent for the top transcript is the different
   from the previous turn and all other transcripts have different
   intents, then
+
   - The top transcript contains the new inferred intent
     and any inferred slot values in the utterance.
   - Other transcripts contain no inferred intents and no
@@ -171,6 +175,7 @@ inferred intent for each of the transcriptions, as follows.
 - If the inferred intent for the top two transcripts is the same
   and different from the previous turn, and the third transcript
   is a different intent, then
+
   - The top two transcripts contain the new inferred
     intent and any inferred slot values in the
     utterance.

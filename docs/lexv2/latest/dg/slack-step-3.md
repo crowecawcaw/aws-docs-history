@@ -12,6 +12,7 @@ with the Amazon Lex V2 bot you created by using Channel integrations.
     channel**.
 4.  In **Create channel**, do the
     following:
+
     1. For **Platform**, choose
        **Slack**.
     2. For **Identity policies**, choose

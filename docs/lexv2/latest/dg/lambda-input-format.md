@@ -146,6 +146,7 @@ The fields within the structure are as follows:
 - **intent** – A structure containing information about the intent. See [Intent](lambda-common-structures.md#lambda-intent "lambda-common-structures.md#lambda-intent") for details about the structure.
 - **nluConfidence** – A score that indicates how confident Amazon Lex V2 is that the intent matches the user's intent.
 - **sentimentResponse** – An analysis of the sentiment of the response, containing the following fields:
+
   - **sentiment** – Indicates whether the sentiment of the utterance is `POSITIVE`, `NEGATIVE`, `NEUTRAL`, or `MIXED`.
   - **sentimentScore** – A structure mapping each sentiment to a number indicating how confident Amazon Lex V2 is that the utterance conveys that sentiment.
 
@@ -174,6 +175,7 @@ The structure of `proposedNextState` is as follows:
 ```
 
 - **dialogAction** – Contains information about the next step that Amazon Lex V2 proposes. The fields in the structure are as follows:
+
   - **slotToElicit** – The slot to elicit next as proposed by Amazon Lex V2. This field only appears if the `type` is `ElicitSlot`.
   - **type** – The next step in the conversation as proposed by Amazon Lex V2. The following values are possible:
 

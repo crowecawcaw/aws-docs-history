@@ -48,9 +48,11 @@ The following resources in Amazon Lex V2 support tagging:
 
 - Bots – use an Amazon Resource Name (ARN) like the
   following:
+
   - `arn:aws:lex:`${Region}`:`${account}`:bot/`${bot-id}``
 
 - Bot aliases – use an ARN like the following:
+
   - `arn:aws:lex:`${Region}`:`${account}`:bot-alias/`${bot-id}`/`${bot-alias-id}``
 
 The `bot-id` and `bot-alias-id` values

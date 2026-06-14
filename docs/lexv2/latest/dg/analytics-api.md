@@ -8,12 +8,14 @@ bot.
 To use the [ListUtteranceMetrics](../APIReference/API_ListUtteranceMetrics.md "../APIReference/API_ListUtteranceMetrics.md") and [ListUtteranceAnalyticsData](../APIReference/API_ListUtteranceAnalyticsData.md "../APIReference/API_ListUtteranceAnalyticsData.md"), your IAM role must have permissions to perform the [ListAggregatedUtterances](../APIReference/API_ListAggregatedUtterances.md "../APIReference/API_ListAggregatedUtterances.md") operation, which provides access to utterance-related analytics. See [Viewing utterance statistics from Lex V2 conversations](#monitoring-utterances "#monitoring-utterances") for details and the IAM policy to apply to the IAM role.
 
 - The following API operations retrieve summary metrics for a bot:
+
   - [ListSessionMetrics](../APIReference/API_ListSessionMetrics.md "../APIReference/API_ListSessionMetrics.md")
   - [ListIntentMetrics](../APIReference/API_ListIntentMetrics.md "../APIReference/API_ListIntentMetrics.md")
   - [ListIntentStageMetrics](../APIReference/API_ListIntentStageMetrics.md "../APIReference/API_ListIntentStageMetrics.md")
   - [ListUtteranceMetrics](../APIReference/API_ListUtteranceMetrics.md "../APIReference/API_ListUtteranceMetrics.md")
 
 - The following API operations retrieve a list of metadata for sessions and utterances:
+
   - [ListSessionAnalyticsData](../APIReference/API_ListSessionAnalyticsData.md "../APIReference/API_ListSessionAnalyticsData.md")
   - [ListUtteranceAnalyticsData](../APIReference/API_ListUtteranceAnalyticsData.md "../APIReference/API_ListUtteranceAnalyticsData.md")
 

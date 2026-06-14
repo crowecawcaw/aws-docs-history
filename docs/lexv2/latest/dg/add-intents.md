@@ -22,6 +22,7 @@ triggered.
    name, and then choose **Add**.
 5. In the intent editor, add the details of your
    intent.
+
    - **Conversation flow**
      – Use the conversation flow diagram to see how
      a dialog with your bot might look. You can choose

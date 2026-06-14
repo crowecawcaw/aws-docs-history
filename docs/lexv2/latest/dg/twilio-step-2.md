@@ -9,6 +9,7 @@
    channel**.
 4. In **Create channel**, do the
    following:
+
    1. For **Platform**, choose
       **Twilio**.
    2. For **Identity policies**, choose

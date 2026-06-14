@@ -36,6 +36,7 @@ Using the API
 
 1. To enable generative AI capabilities for a new bot, use the [CreateBot](../APIReference/API_CreateBot.md "../APIReference/API_CreateBot.md") operation to create a new bot.
 2. Send a [CreateBotLocale](../APIReference/API_CreateBotLocale.md "../APIReference/API_CreateBotLocale.md") request, modifying the `generativeAISettings` object as necessary. If you are enabling the capabilities for an existing bot, send a [UpdateBotLocale](../APIReference/API_UpdateBotLocale.md "../APIReference/API_UpdateBotLocale.md") request instead.
+
    1. To enable usage of the descriptive bot builder, modify the `descriptiveBotBuilder` object. Specify the foundation model to use in the `modelArn` field and set the `enabled` value to `True`.
    2. To enable slot resolution improvement, modify the `slotResolutionImprovement` object. Specify the foundation model to use in the `modelArn` field and set the `enabled` value to `True`.
    3. To enable sample utterance generation, modify the `sampleUtteranceGeneration` object. Specify the foundation model to use in the `modelArn` field and set the `enabled` value to `True`.

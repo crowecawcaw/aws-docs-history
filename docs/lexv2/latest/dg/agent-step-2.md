@@ -16,6 +16,7 @@ in the bot. This answer is visible only to the agent.
 2. In the navigation pane, choose **Bots**.
 3. Choose **Create**.
 4. Choose **Custom bot** and configure the bot.
+
    1. **Bot name** – Enter a name that indicates the
       bot's purpose, such as `AgentAssistBot`.
    2. **Output voice** – Choose

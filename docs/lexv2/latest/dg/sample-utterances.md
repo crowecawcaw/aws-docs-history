@@ -17,6 +17,7 @@ You can add sample utterances in the intent editor, visual conversation builder,
 1. In the Intent editor, navigate to the **Sample utterances** section. In the Visual conversation builder, find the **Sample utterances** section in the **Start** block.
 2. In the box with the transparent text `I want to book a flight`, type a sample utterance. Select **Add utterance** to add the utterance.
 3. View the sample utterances you have added in either **Preview** or **Plain text** mode. In **Plain text**, each line is a separate utterance. In **Preview mode**, hover over an utterance to reveal the following options:
+
    - Select the text box to edit the utterance.
    - Select the x button on the right of the text box to delete the utterance.
    - Drag the button on the left of the text box to change the order of sample utterances.

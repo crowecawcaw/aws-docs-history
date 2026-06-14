@@ -15,6 +15,7 @@ that grant access to Amazon Lex V2.
 2. Choose **Manage Identity Pools**.
 3. Choose **Create new identity pool**.
 4. Configure the identity pool.
+
    1. **Identity pool name** – Enter a name that
       indicates the pool's purpose, such as
       `BotPool`.
@@ -34,11 +35,13 @@ that grant access to Amazon Lex V2.
     **Identity pool ID**.
 11. To allow access to Amazon Lex V2, modify the authenticated and unauthenticated IAM
     roles.
+
     1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
     2. In the navigation pane, under **Access Management**,
        choose **Roles**.
     3. In the search box, enter the name of the authenticated IAM role and
        choose the checkbox next to it.
+
        1. Choose **Attach policies**.
        2. In the search box, enter
           `AmazonLexRunBotsOnly` and choose the
@@ -47,6 +50,7 @@ that grant access to Amazon Lex V2.
 
     4. Enter the name of the unauthenticated IAM role in the search box and
        choose the checkbox next to it.
+
        1. Choose **Attach policies**.
        2. In the search box, enter
           `AmazonLexRunBotsOnly` and choose the

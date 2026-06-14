@@ -10,11 +10,13 @@ console. Choose the learning path that best matches your role and experience lev
 Choose the learning path that best matches your role and experience level:
 
 - **No-Code Path (Business Users)** – Perfect for business analysts, product managers, and non-technical users who want to build bots using only the console interface.
+
   - Start with: [Quick Start: Create a chatbot in 5 minutes](quick-start.md "quick-start.md")
   - Then try: [Exercise 1: Create a chatbot from a template](exercise-1.md "exercise-1.md")
   - Learn: [Best Practices for Getting Started](getting-started-best-practices.md "getting-started-best-practices.md")
 
 - **Developer Path** – Ideal for software developers who want to integrate Amazon Lex V2 with applications, use APIs, and implement custom business logic.
+
   - Start with: [Exercise 1: Create a chatbot from a template](exercise-1.md "exercise-1.md")
   - Advanced: [Exercise 3: Build an advanced customer service chatbot](exercise-3.md "exercise-3.md")
   - Then explore: [Integrating an AWS Lambda function into your Amazon Lex V2 bot](lambda.md "lambda.md")
@@ -22,6 +24,7 @@ Choose the learning path that best matches your role and experience level:
   - Advanced: API integration and SDK usage
 
 - **Enterprise Path** – Designed for architects and engineers planning large-scale deployments with security, compliance, and scalability requirements.
+
   - Start with: [Exercise 1: Create a chatbot from a template](exercise-1.md "exercise-1.md")
   - Enterprise example: [Exercise 3: Build an advanced customer service chatbot](exercise-3.md "exercise-3.md")
   - Review: Security and IAM best practices

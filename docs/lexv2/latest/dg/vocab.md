@@ -234,6 +234,7 @@ of creating a custom vocabulary through the console:
    were successfully created.
 6. For `BatchCreateCustomVocabularyItem`, you can
    expect see these types of errors:
+
    - `RESOURCE_DOES_NOT_EXIST`: The custom
      vocabulary does not exist. Follow the steps for creating
      a custom vocabulary before calling this operation.
@@ -298,6 +299,7 @@ of creating a custom vocabulary through the console:
    successfully deleted.
 5. For `BatchDeleteCustomVocabularyItem`, you can expect
    see these types of errors:
+
    - `RESOURCE_DOES_NOT_EXIST`: The custom vocabulary entry
      you are trying to delete does not exist.
    - `INTERNAL_SERVER_FAILURE`: There was an error in the
@@ -364,6 +366,7 @@ of creating a custom vocabulary through the console:
    updated.
 6. For `BatchUpdateCustomVocabularyItem`, you
    can expect see these types of errors:
+
    - `RESOURCE_DOES_NOT_EXIST`: The custom
      vocabulary entry you are trying to update does
      not exist.

@@ -33,6 +33,7 @@ the bot template:**
 
 - An AWS account
 - Access to the following AWS services:
+
   - Amazon Lex V2 to create bots
   - Lambda for the business login functions
   - DynamoDB to create the tables

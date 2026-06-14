@@ -27,6 +27,7 @@ for a list of countries in the world.
    **Add**.
 5. In the slot type editor, add the details of your slot
    type.
+
    - **Slot value resolution** –
      Determines how slot values are resolved. If you choose **Expand
      values**, Amazon Lex V2 uses the values as representative values

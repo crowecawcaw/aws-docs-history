@@ -7,6 +7,7 @@ with the Slack application.
    Choose the app that you created in [Step 2: Create a Slack application](slack-step-2.md "slack-step-2.md").
 2. Update the **OAuth & Permissions**
    feature as follows:
+
    1. In the left menu, choose **OAuth &
       Permissions**.
    2. In the **Redirect URLs** section,
@@ -17,6 +18,7 @@ with the Slack application.
       section, add two permissions with the **Add
       an OAuth Scope** button. Filter the
       list with the following text:
+
       - `chat:write`
       - `team:read`
 
@@ -28,6 +30,7 @@ with the Slack application.
    **Save Changes**.
 4. Subscribe to the **Event Subscriptions**
    feature as follows:
+
    - Enable events by choosing the
      **On** option.
    - Set the **Request URL** value to
@@ -43,6 +46,7 @@ with the Slack application.
 
 5. Enable sending messages from the messages tab as
    follows:
+
    - From the left menu, choose **App
      Home**.
    - In the **Show Tabs** section,

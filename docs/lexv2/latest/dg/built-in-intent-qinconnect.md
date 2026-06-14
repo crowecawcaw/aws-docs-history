@@ -31,12 +31,14 @@ Interaction with the QinConnect intent provides additional data about conversati
    created with Amazon Q In Connect during the conversation.
 2. `x-amz-lex:q-in-connect:conversation-status` – The current status of the
    conversation with QinConnect assistant or domain. There are three values possible for this status:
+
    - `CLOSED`
    - `READY`
    - `PROCESSING`
 
 3. `x-amz-lex:q-in-connect:conversation-status-reason` – Provides the reason for
    the current status reported with above attribute. The possible reasons are as follows:
+
    - `SUCCESS` – Indicates customer has nothing left to ask and question has
      been answered successfully.
    - `FAILED` – Indicates a failure while answering the customer's question.

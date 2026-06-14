@@ -12,22 +12,26 @@ structure of a bot, see [Amazon Lex V2 core concepts](how-it-works.md "how-it-wo
 
 - **Intents** –
   The bot includes one main intent:
+
   - `OrderFlowers` - Handles flower ordering requests by collecting the flower type, pickup date, and pickup time
 
 - **Slot types**
   – The bot uses built-in slot types that automatically recognize and handle common data formats:
+
   - [AMAZON.Date](built-in-slot-date.md "built-in-slot-date.md") - Recognizes dates like "tomorrow", "next Friday", or "March 15th"
   - [AMAZON.Time](built-in-slot-time.md "built-in-slot-time.md") - Recognizes times like "2 PM", "noon", or "quarter past three"
   - `FlowerTypes` (custom) - Specific flower varieties like "roses", "tulips", "lilies"
 
 - **Slots** – The
   OrderFlowers intent requires the following information before the bot can fulfill the flower order:
+
   - `FlowerType` (FlowerTypes custom type) - The type of flowers to order
   - `PickupDate` ([AMAZON.Date](built-in-slot-date.md "built-in-slot-date.md") type) - When to pick up the flowers
   - `PickupTime` ([AMAZON.Time](built-in-slot-time.md "built-in-slot-time.md") type) - What time to pick up the flowers
 
 - **Sample Utterances** –
   The following sample utterances show natural ways users might request flower orders:
+
   - "I would like to pick up flowers"
   - "I want to order some flowers"
   - "Can I get flowers for pickup?"
@@ -36,6 +40,7 @@ structure of a bot, see [Amazon Lex V2 core concepts](how-it-works.md "how-it-wo
 - **Prompts** –
   After the bot identifies the intent, it uses the
   following prompts to fill the slots:
+
   - Prompt for the `FlowerType`
     slot – "What type of flowers would you
     like to order?"

@@ -109,6 +109,7 @@ user:
 - [IntentResultEvent](../APIReference/API_runtime_IntentResultEvent.md "../APIReference/API_runtime_IntentResultEvent.md") –
   Contains the intent that Amazon Lex V2 determined from the user
   utterance. Each internal result event includes:
+
   - **inputMode** –
     The type of user utterance. Valid values are
     `Speech`, `DTMF`, or

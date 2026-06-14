@@ -47,6 +47,7 @@ the application. 3. Configure the application features as follows:
 4. In the left menu, in **Settings**, choose
    **Basic Information**. Record the
    following application credentials:
+
    - Client ID
    - Client Secret
    - Verification Token

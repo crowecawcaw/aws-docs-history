@@ -8,6 +8,7 @@ a rich visual environment.
 
 1. In the Amazon Lex V2 console, choose a bot and select **Intents** from the left navigation pane.
 2. Go to the intent editor in one of the following ways:
+
    - Select **Add intent** at the top-right corner of the **Intents** section, and then choose to add either an empty intent or a built-in intent.
    - Choose the name of an intent from the **Intents** section.
 

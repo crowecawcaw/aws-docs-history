@@ -27,11 +27,13 @@ Console
 4. Enable [Assisted NLU](assisted-nlu.md "assisted-nlu.md") and select either Primary or Fallback mode (Intent Disambiguation works with both modes).
 5. In the **Intent Disambiguation** section within the Assisted NLU configuration, use the toggle button to enable the Intent Disambiguation feature.
 6. Configure the following optional settings:
+
    - **Number of Intent options:** Select the maximum number of intents (2-5) to present to users during disambiguation. Default is 3.
    - **Disambiguation Message:** Provide a custom message that will be displayed when presenting intent options. If not specified, a default message will be used.
 
 7. Click **Save** to apply the configuration.
 8. Optionally configure Intent Display Names for better user experience:
+
    1. Navigate to each intent in your bot that you want to configure.
    2. In the Intent Editor Page, locate the **Display name** field.
    3. Enter a user-friendly name that will be shown to users during disambiguation instead of the Intent name.

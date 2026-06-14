@@ -35,6 +35,7 @@ You can configure VAD sensitivity when creating or updating a bot locale using t
 3. In the left navigation pane, choose **Bot languages**.
 4. Choose the language you want to configure, or choose **Add language** to add a new one.
 5. In the **Speech detection sensitivity** section, choose one of the following options:
+
    - **Default** - Standard sensitivity for typical environments
    - **High noise tolerance** - For moderately noisy environments
    - **Maximum noise tolerance** - For very noisy environments

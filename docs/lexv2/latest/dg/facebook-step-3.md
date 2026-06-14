@@ -11,9 +11,11 @@ integration with Amazon Lex V2.
 3. In the left menu, choose **Messenger**,
    then choose **Settings**.
 4. In the **Webhooks** section:
+
    1. Choose **Add Callback URL**.
    2. In **Edit Callback URL**, enter the
       following:
+
       - **Callback URL** – Enter
         the callback URL that you recorded from the Amazon Lex V2
         console.

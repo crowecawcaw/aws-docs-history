@@ -44,6 +44,7 @@ To store your Deepgram API key in Secrets Manager:
 2. Choose **Store a new secret**.
 3. For **Secret type**, choose **Other type of secret**.
 4. Configure the secret using one of the following methods:
+
    - **Key/value pairs method:** Under **Key/value pairs**, add a single key-value pair with `apiToken` as the key and your Deepgram API key as the value.
    - **Plaintext method:** Under **Plaintext**, enter a JSON object with the following structure:
 
@@ -105,6 +106,7 @@ To configure Deepgram for your bot:
 1. In the Amazon Lex V2 console, navigate to your bot and select the locale you want to configure.
 2. For **Speech model preference**, choose **Deepgram**.
 3. Additional fields will appear for Deepgram configuration:
+
    - **Model ID** (optional) - Specify a Deepgram model ID if you want to use a specific model. For available models, see the [Deepgram model documentation](https://developers.deepgram.com/docs/model "https://developers.deepgram.com/docs/model"). If left blank, the API's default model will be used.
    - **Secret ARN** (required) - Enter the ARN of the secret you created in AWS Secrets Manager that contains your Deepgram API key.
 

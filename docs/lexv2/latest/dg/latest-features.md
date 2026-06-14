@@ -61,18 +61,22 @@ Amazon Lex V2 is now available in AWS GovCloud (US-West).
 Amazon Lex V2 now allows you to take advantage of Amazon Bedrock's generative AI capabilities for your bot.
 
 - Descriptive bot builder
+
   - [What's new post](https://aws.amazon.com/about-aws/whats-new/2023/11/descriptive-bot-builder-generative-ai/ "https://aws.amazon.com/about-aws/whats-new/2023/11/descriptive-bot-builder-generative-ai/")
   - [Documentation](nld-bots.md "nld-bots.md")
 
 - Assisted slot resolution
+
   - [What's new post](https://aws.amazon.com/about-aws/whats-new/2023/11/assisted-slot-resolution-generative-ai/ "https://aws.amazon.com/about-aws/whats-new/2023/11/assisted-slot-resolution-generative-ai/")
   - [Documentation](assisted-slot.md "assisted-slot.md")
 
 - Utterance generation
+
   - [What's new post](https://aws.amazon.com/about-aws/whats-new/2023/11/amazon-lex-utterance-generation/ "https://aws.amazon.com/about-aws/whats-new/2023/11/amazon-lex-utterance-generation/")
   - [Documentation](utterance-generation.md "utterance-generation.md")
 
 - `AMAZON.QnAIntent` (Conversational FAQ)
+
   - [What's new post](https://aws.amazon.com/about-aws/whats-new/2024/03/qnaintent-amazon-lex-available/ "https://aws.amazon.com/about-aws/whats-new/2024/03/qnaintent-amazon-lex-available/")
   - [Documentation](generative-qna.md "generative-qna.md")
 

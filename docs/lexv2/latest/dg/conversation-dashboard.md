@@ -76,7 +76,9 @@ choose **Success**, **Failed**, or
 1. Select the search bar marked **Filter conversations by
    duration**
 2. Define the filter in one of the following ways:
+
    - Use the predefined options.
+
      1. Select **Duration**.
      2. Choose between the = (equals), > (greater than), and <
         (less than) operators.
@@ -137,6 +139,7 @@ not:
 - **Intent state** – Specifies the intent that the
   bot is eliciting during an utterance and the result of the intent, if
   applicable. The following intent states are possible:
+
   - Invoked intent: `intent name` – The
     bot has identified an intent that the customer is invoking.
   - Switched intent: `intent name` –

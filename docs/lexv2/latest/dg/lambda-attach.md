@@ -11,6 +11,7 @@ for more details about AWS Lambda.
 4. You can select **Author from scratch** to start with minimal code, **Use a blueprint**
    to select sample code for common use cases from a list, or **Container image** to select a container
    image to deploy for your function. If you select **Author from scratch**, continue with the following steps:
+
    1. Give your function a meaningful **Function name** to describe what it does.
    2. Choose a language from the drop down menu under
       **Runtime** to write your function in.

@@ -11,6 +11,7 @@ In this step you link your Amazon Lex V2 bot with Facebook.
    channel**.
 4. In **Create channel**, do the
    following:
+
    1. For **Platform**, choose
       **Facebook**.
    2. For **Identity policies**, choose
@@ -23,6 +24,7 @@ In this step you link your Amazon Lex V2 bot with Facebook.
       the language that the channel supports.
    4. For **Additional configuration**,
       enter the following:
+
       - **Alias** – A
         string that identifies the app that is
         calling Amazon Lex V2. You can use any string.
