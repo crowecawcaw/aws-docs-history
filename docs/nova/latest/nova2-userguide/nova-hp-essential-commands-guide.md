@@ -217,6 +217,7 @@ search for your cluster name. For example, if your cluster were called
   `/aws/sagemaker/Clusters/my-hyperpod-rig/{UUID}`
 - Once you're in the log group, you can find your specific log using the node instance
   ID such as - `hyperpod-i-00b3d8a1bf25714e4`.
+
   - `i-00b3d8a1bf25714e4` here represents the Hyperpodfriendly machine
     name where your training job is running. Recall how in the previous command
     `kubectl get pods -o wide -w -n kubeflow | (head -n1 ; grep

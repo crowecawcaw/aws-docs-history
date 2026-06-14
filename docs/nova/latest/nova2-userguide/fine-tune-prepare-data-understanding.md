@@ -20,6 +20,7 @@ The following are guidelines and requirements for preparing data for fine-tuning
 3. Training and validation datasets must be JSONL files, where each line is a JSON object corresponding to a record. These file names can consist of only alphanumeric characters, underscores,
    hyphens, slashes, and dots.
 4. Image and video constraints
+
    1. Dataset can't contain different media modalities. That is, the dataset can
       either be text with images or text with videos.
    2. One sample (single record in messages) can have multiple images

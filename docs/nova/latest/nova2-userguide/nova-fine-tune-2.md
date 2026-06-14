@@ -33,6 +33,7 @@ Nova 2.0 SFT data uses the same Converse API format as Nova 1.0, with the additi
 - **Input types** – Text, image, or video in user content blocks
 - **Assistant content** – Text-only responses and reasoning content
 - **Dataset composition** – Must be homogeneous. Choose one of:
+
   - Text-only turns
   - Text + image turns
   - Text + video turns (supports document understanding)

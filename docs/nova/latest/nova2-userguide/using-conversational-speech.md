@@ -13,6 +13,7 @@ Amazon Nova 2 Sonic provides the following capabilities:
 - Multilingual support with automatic language detection and switching.
   Expressive voices are offered, including both masculine-sounding and
   feminine-sounding voices, in the following languages:
+
   - English (US, UK, India, Australia)
   - French
   - Italian

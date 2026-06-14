@@ -73,11 +73,13 @@ training_config:
 Amazon Nova 2.0 supports reasoning mode for enhanced analytical capabilities:
 
 - **Reasoning Mode (enabled)**:
+
   - Set `reasoning_enabled: true` in the training configuration
   - Model trains to generate reasoning traces before final answers
   - Improves performance on complex reasoning tasks
 
 - **Non-Reasoning Mode (disabled)**:
+
   - Set `reasoning_enabled: false` or omit the parameter
     (default)
   - Standard SFT without explicit reasoning

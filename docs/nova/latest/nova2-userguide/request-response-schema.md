@@ -166,6 +166,7 @@ For Converse API, pass `topK` in `additionalModelRequestFields`.
 
 - `stopSequences` – (Optional) Array of strings that stop generation when encountered.
 - `reasoningConfig` – (Amazon Nova Sonic and only) Reasoning configuration:
+
   - `type` – (Optional) `enabled` or `disabled` (default: `disabled`)
   - `maxReasoningEffort` – Computational effort: `low`, `medium`, or `high`. With `low` and `medium`, reasoning streams incrementally; `high` outputs reasoning in a final chunk.
 
@@ -176,6 +177,7 @@ For Converse API, pass `reasoningConfig` in `additionalModelRequestFields`.
 
 - `tools` – Array of tool specifications with `name`, `description` and `inputSchema`
 - `toolChoice` – (Optional) Controls tool selection:
+
   - `auto` – Model decides whether and which tools to use
   - `any` – Model must use at least one tool
   - `tool` – Model must use the specified tool by name

@@ -262,11 +262,13 @@ After the initial output, use follow-up prompts to extend or adapt the
 plan.
 
 - **Extend the plan:**
+
   - "Add an executive summary"
   - "Add response and containment guidance"
   - "Write detection queries for [SIEM platform]"
 
 - **Refine based on your environment:**
+
   - "We don't have DNS logging, remove those hypotheses and focus on proxy
     and endpoint telemetry"
   - "Our partner org runs Sentinel, give me the detections in KQL so we

@@ -287,6 +287,7 @@ Your Lambda function must return data in this format:
 - `id` – Must match the input sample ID
 - `aggregate_reward_score` – Overall score (typically 0.0 to 1.0)
 - `metrics_list` – Array of individual metrics with:
+
   - `name` – Metric identifier (e.g., "accuracy", "fluency")
   - `value` – Metric score (typically 0.0 to 1.0)
   - `type` – Either "Metric" (for reporting) or "Reward" (used in training)
@@ -349,6 +350,7 @@ If your Lambda function accesses other AWS services (e.g., S3 for reference data
 
 3.  **Run the evaluation** – Execute the evaluation job using the provided notebook: [Evaluation notebooks](../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-notebook "../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-notebook")
 4.  **Monitor progress** – Monitor your evaluation job through:
+
     - SageMaker Console: Check job status and logs
     - CloudWatch Logs: View detailed execution logs
     - Lambda Logs: Debug reward function issues
@@ -447,6 +449,7 @@ After completing RFT evaluation:
 
 - If results are satisfactory: Deploy model to production
 - If improvement needed:
+
   - Adjust reward function
   - Collect more training data
   - Modify training hyperparameters

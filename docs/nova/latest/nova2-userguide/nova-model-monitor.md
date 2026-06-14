@@ -8,6 +8,7 @@ To enable your SageMaker HyperPod environment to output metrics to MLFlow, it is
 
 1. Open Amazon SageMaker AI
 2. Select SageMaker Studio
+
    1. If there is a profile already created, select "Open Studio".
    2. If no profile is created, select "Create A SageMaker Domain" to set one up
 

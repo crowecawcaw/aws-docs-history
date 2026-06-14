@@ -92,6 +92,7 @@ run:
 - `name`: A descriptive name for your evaluation job.
 - `model_type`: Specifies the Nova model variant to use. Do
   not manually modify this field. Options include:
+
   - amazon.nova-micro-v1:0:128k
   - amazon.nova-lite-v1:0:300k
   - amazon.nova-pro-v1:0:300k
@@ -99,6 +100,7 @@ run:
 
 - `model_name_or_path`: The path to the base model or s3 path
   for post trained checkpoint. Options include:
+
   - nova-micro/prod
   - nova-lite/prod
   - nova-pro/prod
@@ -148,6 +150,7 @@ evaluation:
 
 - `task`: Specifies the evaluation benchmark or task to use.
   Supported task includes:
+
   - `mmlu`
   - `mmlu_pro`
   - `bbh`
@@ -165,6 +168,7 @@ evaluation:
   - `humaneval`
 
 - `strategy`: Defines the evaluation approach.
+
   - `zs_cot`: Zero-shot Chain of Thought - an approach
     to prompt large language models that encourages step-by-step
     reasoning without requiring explicit examples.
@@ -180,11 +184,13 @@ evaluation:
 
 - `subtask`: Optional. Specific components of the evaluation
   task. For a complete list of available subtasks, see [Available subtasks](#nova-model-evaluation-subtasks "#nova-model-evaluation-subtasks").
+
   - Check supported subtasks in Available benchmarks tasks.
   - Should remove this field if there are no subtasks
     benchmarks.
 
 - `metric`: The evaluation metric to use.
+
   - `accuracy`: Percentage of correct answers.
   - `exact_match`: For math benchmark, returns the rate
     at which the input predicted strings exactly match their
@@ -1009,6 +1015,7 @@ run_name/
      file (only for `gen_qa` tasks)
 
 3.  View results in TensorBoard. To visualize your evaluation metrics:
+
     1. Upload the extracted folder to an S3 bucket
     2. Navigate to SageMaker AI TensorBoard
     3. Select your "S3 folders"

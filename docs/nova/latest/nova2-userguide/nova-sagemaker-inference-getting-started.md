@@ -8,10 +8,12 @@ The following are prerequisites to deploy Amazon Nova models on SageMaker infere
 
 - Create an AWS account - If you don't have one already, see [Creating an AWS account](../../../sagemaker/latest/dg/gs-set-up.md#sign-up-for-aws "../../../sagemaker/latest/dg/gs-set-up.md#sign-up-for-aws").
 - Required IAM permissions - Ensure your IAM user or role has the following managed policies attached:
+
   - `AmazonSageMakerFullAccess`
   - `AmazonS3FullAccess`
 
 - Required SDKs/CLI versions - The following SDK versions have been tested and validated with Amazon Nova models on SageMaker inference:
+
   - SageMaker Python SDK v3.0.0+ (`sagemaker>=3.0.0`) for resource-based API approach
   - Boto3 version 1.35.0+ (`boto3>=1.35.0`) for direct API calls. The examples in this guide use this approach.
 
@@ -607,15 +609,19 @@ for variant in endpoint_info['ProductionVariants']:
 Common failure reasons:
 
 - **Insufficient capacity**: The requested instance type is not available in your region
+
   - Solution: Try a different instance type or request a quota increase
 
 - **IAM permissions**: The execution role lacks necessary permissions
+
   - Solution: Verify the role has access to Amazon S3 model artifacts and necessary SageMaker permissions
 
 - **Model artifacts not found**: The Amazon S3 URI is incorrect or inaccessible
+
   - Solution: Verify the Amazon S3 URI and check bucket permissions, make sure you're in the correct region
 
 - **Resource limits**: Account limits exceeded for endpoints or instances
+
   - Solution: Request a service quota increase through Service Quotas or AWS Support
 
 ###### Note

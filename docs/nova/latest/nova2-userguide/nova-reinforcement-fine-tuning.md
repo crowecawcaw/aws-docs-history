@@ -457,6 +457,7 @@ After training completes, the final model checkpoint is saved to your specified 
 - Track average reward scores and distribution
 - Watch for overfitting (training rewards increase while validation rewards decrease)
 - Look for concerning patterns:
+
   - Rewards plateauing below 0.15
   - Increasing reward variance over time
   - Declining validation performance

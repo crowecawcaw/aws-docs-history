@@ -148,6 +148,7 @@ the starting checkpoint (Amazon Nova checkpoint before any training).
   domain performance improves with more mixing, Amazon Nova data provides useful
   regularization.
 - Do general benchmark scores improve as mixing is increased?
+
   - Expected behavior is that the general capabilities should improve
     monotonically as more Amazon Nova data is added.
   - Measure multiple general benchmarks: MMLU (general knowledge),

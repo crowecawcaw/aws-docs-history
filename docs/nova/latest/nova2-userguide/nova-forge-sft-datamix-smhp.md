@@ -169,10 +169,12 @@ data_mixing:
 
 - We assume that you've already set up an SageMaker HyperPod cluster with a restricted instance group (RIG) that has active capacity. If you have not completed this setup, see [Setting up Nova Forge with SageMaker HyperPod](../../../sagemaker/latest/dg/nova-forge.md "../../../sagemaker/latest/dg/nova-forge.md") or the [Nova Forge HyperPod Setup Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US") to complete your cluster and RIG setup.
 - You will require **p5.48xlarge** EC2 instances to execute this recipe. The minimum number instances required to execute this recipe efficiently are as follows:
+
   - **Nova Lite 2.0 - 4 p5.48xlarge**
 
 - Install the Forge Specific SageMaker HyperPod CLI. For instructions, see the [Nova Forge HyperPod Setup Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/dcac6f7a-3c61-4978-8344-7535526bf743/en-US").
 - Confirm that you can connect to your cluster using `hyperpod get-clusters`
+
   - Note that this command will list all SageMaker HyperPod clusters in your account
 
 - Confirm that your training, and optionally validation data, is available in an S3 bucket that is accessible by the execution role of your SageMaker HyperPod cluster. For data preparation, refer to next section.
@@ -191,6 +193,7 @@ hyperpod connect-cluster --cluster-name cluster-name
 
 - **Data Preparation**: Follow established guidelines to create, clean, or reformat datasets into the required structure. Ensure that inputs, outputs, and auxiliary information (such as reasoning traces or metadata) are properly aligned and formatted.
 - **Training Configuration**: Define how the model will be trained. When using Amazon SageMaker HyperPod, this configuration is written in a YAML recipe file that includes:
+
   - Data source paths (training and validation datasets)
   - Key hyperparameters (number of training steps, learning rate, batch size)
   - Optional components (distributed training parameters, etc)
@@ -201,9 +204,11 @@ hyperpod connect-cluster --cluster-name cluster-name
 ## Experiment sequencing and data mixing
 
 - If you have only SFT data (train/dev/test) for a set of tasks and care only about the test performance on these tasks
+
   - Do SFT without mixing on [FINAL] Nova checkpoint. Use the default SFT hyper-parameters and optionally optimize them for your use case. Monitor validation metrics and/or evaluate intermediate checkpoints for larger datasets.
 
 - If you have only SFT data (train/dev/test) for a set of tasks and care about test performance on these tasks and general benchmarks in the domain of interest
+
   - Start by doing SFT with Nova data mixing on a pre-training checkpoint (PRE-TRAINED or MID-TRAINED checkpoint, not FINAL). Using an intermediate checkpoint allows the model to better integrate your custom data with Nova's proprietary data while maintaining strong general capabilities.
   - Run shorter SFT training runs with varying amount of Nova data in the mix (e.g., 10%, 25%, 50%, 75%) and Nova data category selections that complement your use case (e.g., pick instruction following category if you care about general instruction following ability). Monitor validation metrics and evaluate if mixing helps performance on general benchmarks. Select the training mix and checkpoint that leads to the best combination of performance on your task and general performance. Depending on the use case, both task and general performances can be further improved using reinforcement fine tuning (RFT).
 
@@ -403,9 +408,11 @@ Once you're all setup, starting from the root of the sagemaker-hyperpod-cli repo
 For Nova 2.0 sft:
 
 - If you would like to use a regular sft job , You should be able to see one recipe under this folder
+
   - cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova_2_0/nova_lite/SFT and then you should be able to see one recipe under this folder called nova_lite_2_0_p5_gpu_sft.yaml
 
 - If you would like to use datamixing sft Job, you can navigate to the sft Forge recipes folder
+
   - cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova/forge/nova_2_0/nova_lite/SFT and you should be able to see one recipe under this folder called: nova_lite_2_0_p5_gpu_sft_text_with_datamix.yaml
 
 - Edit the sections in the recipe required by the job such as name, data_s3_path, validation_s3_path, output_s3_path, and max_steps. Since we're performing sft, the notion of epochs doesn't apply here.
@@ -565,6 +572,7 @@ Your logs are available in your Amazon Web Services account that contains the hy
 
 - Log group : /aws/sagemaker/Clusters/my-hyperpod-rig/{UUID}
 - Once you're in the log group, you can find your specific log using the node instance ID such as - hyperpod-i-00b3d8a1bf25714e4.
+
   - i-00b3d8a1bf25714e4 here represents the hyperpod friendly machine name where your training job is running. Recall how in the previous command kubectl get pods -o wide -w -n kubeflow | (head -n1 ; grep my-sft-run) output we captured a column called NODE.
   - The "master" node run was in this case running on hyperpod-i-00b3d8a1bf25714e4 and thus we'll use that string to select the log group to view. Select the one that says SagemakerHyperPodTrainingJob/rig-group/[NODE]
 

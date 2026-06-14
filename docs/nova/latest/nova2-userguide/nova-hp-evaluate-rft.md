@@ -493,6 +493,7 @@ Your Lambda function must return data in this format:
 - `id`: Must match the input sample ID
 - `aggregate_reward_score`: Overall score (typically 0.0 to 1.0)
 - `metrics_list`: Array of individual metrics with:
+
   - `name`: Metric identifier (e.g., "accuracy", "fluency")
   - `value`: Metric score (typically 0.0 to 1.0)
   - `type`: Either "Metric" (for reporting) or "Reward" (used in
@@ -549,6 +550,7 @@ those permissions to the Lambda execution role.
 ## Executing the evaluation job
 
 1. **Prepare your data**
+
    - Format your evaluation data according to the data format requirements
    - Upload your JSONL file to Amazon S3:
      `s3://your-bucket/eval-data/eval_data.jsonl`
