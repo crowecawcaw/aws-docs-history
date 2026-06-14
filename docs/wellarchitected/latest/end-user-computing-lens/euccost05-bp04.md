@@ -43,6 +43,7 @@ and desired user experience.
   a stopped state, for which you'll be charged the lower
   stopped instance fee per hour per stopped instance in your
   fleet.
+
   - This can make a significant difference to your cost,
     especially when your fleet instances are higher-end
     instances.

@@ -20,6 +20,7 @@ practice is not established:** High
   current user session. To verify that your fleet instances
   have the latest updates, we recommend that you do either
   of the following:
+
   - Update your image builder and create a new image on a
     regular basis (for example, by using the Image
     Assistant CLI operations).

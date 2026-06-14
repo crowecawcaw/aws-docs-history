@@ -95,6 +95,7 @@ be considered:
   internet. Both streaming authentication and streaming traffic are delivered in this
   fashion. For Amazon WorkSpaces Applications, streaming traffic can be routed to a
   customer-configured VPC endpoint.
+
   - [WorkSpaces Applications Interface VPC Endpoints](../../../appstream2/latest/developerguide/interface-vpc-endpoints.md "../../../appstream2/latest/developerguide/interface-vpc-endpoints.md")
 
 - **Compute instances**: Amazon WorkSpaces and Amazon WorkSpaces Applications

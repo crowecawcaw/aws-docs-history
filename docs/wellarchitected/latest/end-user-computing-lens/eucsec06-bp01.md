@@ -14,6 +14,7 @@ practice is not established:** High
   following regarding authentication of users accessing AWS
   EUC services using Microsoft Active Directory or an
   authentication provider:
+
   - Use a strong password policy.
   - Use multi-factor authentication (MFA) to provide
     additional protection to end users in your

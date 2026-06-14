@@ -31,6 +31,7 @@ to internal and external users and management teams are appraised of service hea
   experience and higher productivity.
 - Consider the following factors when identifying roles and responsibilities for
   event response, escalation, and propagation:
+
   - **Roles and responsibilities**: Define clear lines of
     responsibility for escalation, problem resolution, and root cause analysis.
   - **Incident assignment**: Identify alert categories so

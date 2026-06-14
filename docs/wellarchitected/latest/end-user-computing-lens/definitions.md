@@ -6,6 +6,7 @@ Well-Architected Framework and EUC workloads.
 ## AWS Definitions
 
 - EUC
+
   - **Amazon WorkSpaces Applications:** Secure, reliable, and
     scalable application streaming and low-cost virtual
     desktop service
@@ -27,11 +28,13 @@ Well-Architected Framework and EUC workloads.
     need for expensive dedicated workstations.
 
 - Hardware
+
   - **[Amazon WorkSpaces Thin Client](https://aws.amazon.com/workspaces/thin-client/ "https://aws.amazon.com/workspaces/thin-client/"):** Reduce costs,
     simplify logistics, and accelerate deployment using
     virtual desktops
 
 - Storage
+
   - **[Amazon FSx](https://aws.amazon.com/fsx/ "https://aws.amazon.com/fsx/"):** Launch, run, and scale feature-rich
     and highly performant file systems with just a few clicks
   - **[Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"):** Object storage built to retrieve any
@@ -40,10 +43,12 @@ Well-Architected Framework and EUC workloads.
     provisioning storage
 
 - Compute
+
   - **[Amazon EC2](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/"):** Secure and resizable compute
     capacity for virtually any workload
 
 - Cost
+
   - **[Amazon WorkSpaces Family Pricing](https://aws.amazon.com/workspaces/pricing/ "https://aws.amazon.com/workspaces/pricing/"):** Pricing
     across the Amazon WorkSpaces Family services is designed
     to be flexible and cost-effective, allowing you to pay for
@@ -63,6 +68,7 @@ Well-Architected Framework and EUC workloads.
     longer than specified thresholds.
 
 - Managed directories for WorkSpaces
+
   - **[AD
     Connector](../../../directoryservice/latest/admin-guide/directory_ad_connector.md "../../../directoryservice/latest/admin-guide/directory_ad_connector.md"):** A directory gateway with
     which you can redirect directory requests to your
@@ -83,6 +89,7 @@ Well-Architected Framework and EUC workloads.
     directory and your on-premises domain.
 
 - Protocols for Amazon WorkSpaces
+
   - **[Amazon
     WSP (WorkSpaces Streaming Protocol)](https://aws.amazon.com/workspaces/wsp/ "https://aws.amazon.com/workspaces/wsp/"):**
     Built using
@@ -99,6 +106,7 @@ Well-Architected Framework and EUC workloads.
     bidirectional video support.
 
 - Networking
+
   - **[Internet
     gateway](../../../vpc/latest/userguide/VPC_Internet_Gateway.md "../../../vpc/latest/userguide/VPC_Internet_Gateway.md"):** Horizontally scaled, redundant,
     and highly available VPC component that allows
@@ -146,6 +154,7 @@ Well-Architected Framework and EUC workloads.
     whether DNS resolution is enabled in your VPC.
 
 - Security
+
   - **[AWS Identity and Access Management](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/") (IAM):**
     Helps an administrator securely control access to AWS
     resources.
@@ -155,6 +164,7 @@ Well-Architected Framework and EUC workloads.
     associated with.
 
 - Monitoring
+
   - **[Amazon CloudWatch](../../../cloudwatch.md "../../../cloudwatch.md"):** Provides a reliable,
     scalable, and flexible monitoring solution that you can
     start using within minutes. You no longer need to set up,
@@ -168,6 +178,7 @@ Well-Architected Framework and EUC workloads.
     interfaces in your VPC.
 
 - Management
+
   - **[AWS Management Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/"):** Everything you need
     to access and manage the AWS Cloud in one web interface
   - **[AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"):** A unified
@@ -198,8 +209,10 @@ Well-Architected Framework and EUC workloads.
     stay within your organization's access control guidelines.
 
 - WorkSpaces
+
   - **[Running
     mode](../../../workspaces/latest/adminguide/running-mode.md "../../../workspaces/latest/adminguide/running-mode.md"):**
+
     - **AlwaysOn:** Use when
       paying a fixed monthly fee for unlimited usage of your
       WorkSpaces. This mode is best for users who use their
@@ -212,6 +225,7 @@ Well-Architected Framework and EUC workloads.
 
   - **[WorkSpace
     bundles and images](../../../workspaces/latest/adminguide/amazon-workspaces-bundles.md "../../../workspaces/latest/adminguide/amazon-workspaces-bundles.md"):**
+
     - **WorkSpace bundle:** A
       WorkSpace bundle is a combination of an operating
       system, and storage, compute, and software resources.
@@ -233,8 +247,10 @@ Well-Architected Framework and EUC workloads.
       configuration (hardware and software).
 
 - WorkSpaces Applications
+
   - **[Fleet
     types](../../../appstream2/latest/developerguide/fleet-type.md "../../../appstream2/latest/developerguide/fleet-type.md"):**
+
     - **OnDemand:** Streaming
       instances run only when users are streaming
       applications and desktops.

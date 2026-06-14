@@ -42,6 +42,7 @@ The following questions and discussions can provide you steps for improvement.
 - Maintenance of the agent software installed on each image can be automated or
   controlled by the customer if specific versions are required. For more information on
   the processes of maintaining agent versions for each image, see:
+
   - [Update Management
     in Amazon WorkSpaces Applications PDF RSS Focus mode](../../../appstream2/latest/developerguide/update-management.md "../../../appstream2/latest/developerguide/update-management.md")
   - [Manage AppStream
@@ -71,6 +72,7 @@ maximizing productivity.
   each WorkSpace to integrate with software deployment toolsets such as AWS Systems Manager or
   existing on-premises tools such as Microsoft Endpoint Configuration Manager (MECM),
   Puppet Enterprise, or Ansible.
+
   - [Software deployment to Amazon WorkSpaces using AWS Systems Manager](https://aws.amazon.com/blogs/mt/software-deployment-to-amazon-workspaces-using-aws-systems-manager/ "https://aws.amazon.com/blogs/mt/software-deployment-to-amazon-workspaces-using-aws-systems-manager/")
   - [Automatically create customized Amazon WorkSpaces Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-amazon-workspaces-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-amazon-workspaces-windows-images/")
 
@@ -83,6 +85,7 @@ maximizing productivity.
 - WorkSpaces Applications also offers an automated option called Managed Image Updates, which
   automates and simplifies the process of updating AppStream agent software and OS
   patches. For more information, see the following:
+
   - [Administer Your Amazon WorkSpaces Applications Images](../../../appstream2/latest/developerguide/administer-images.md#keep-image-updated-managed-image-updates "../../../appstream2/latest/developerguide/administer-images.md#keep-image-updated-managed-image-updates")
   - [Automatically create customized WorkSpaces Applications Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/")
   - [Automate the creation of WorkSpaces Applications resources using AWS CloudFormation](../../../prescriptive-guidance/latest/patterns/automate-the-creation-of-appstream-2-0-resources-using-aws-cloudformation.md "../../../prescriptive-guidance/latest/patterns/automate-the-creation-of-appstream-2-0-resources-using-aws-cloudformation.md")
