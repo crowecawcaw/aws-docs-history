@@ -55,6 +55,7 @@ manually delete the Amazon Data Firehose streams created by data exploration:
 1. Log in to Amazon Kinesis from the AWS console and choose **Data
    Firehose** from the navigation pane.
 2. Delete the following streams created by the data exploration feature:
+
    - `aws-application-discovery-service-id_mapping_agent`
    - `aws-application-discovery-service-inbound_connection_agent`
    - `aws-application-discovery-service-network_interface_agent`

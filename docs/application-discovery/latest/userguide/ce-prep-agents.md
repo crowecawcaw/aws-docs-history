@@ -51,6 +51,7 @@ installed in your environment.
    Windows). See the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") for instructions.
 2. Open the Command prompt (Windows) or Terminal (Linux or
    macOS).
+
    1. Type `aws configure` and press Enter.
    2. Enter your AWS Access Key Id and AWS Secret Access
       Key.

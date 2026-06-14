@@ -61,6 +61,7 @@ collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-
 2. Choose **Add OS server**. The **Add OS
    server** page opens.
 3. Provide your OS server credentials.
+
    1. For **OS type**, choose the operating system of your
       server.
    2. For **Hostname / IP**, enter the hostname or IP
@@ -77,6 +78,7 @@ collection module](agentless-collector-gs-data-collection-vcenter.md "agentless-
       server credentials correctly.
 
 4. (Optional) Add multiple OS servers from a CSV file.
+
    1. Choose **Bulk import OS servers from CSV**.
    2. Choose **Download template** to save a CSV file that
       includes a template that you can customize.

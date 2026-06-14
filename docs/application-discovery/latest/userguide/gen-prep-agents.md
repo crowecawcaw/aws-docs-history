@@ -15,7 +15,9 @@ successfully install the AWS Application Discovery Agent (Discovery Agent).
 - Generate [access
   keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") needed to install Discovery Agent.
 - Verify that your operating system (OS) environment is supported:
+
   - **Linux**
+
     - Amazon Linux 2012.03, 2015.03
     - Amazon Linux 2 (9/25/2018 update and later)
     - Ubuntu 12.04, 14.04, 16.04, 18.04, 20.04
@@ -24,6 +26,7 @@ successfully install the AWS Application Discovery Agent (Discovery Agent).
     - SUSE 11 SP4, 12 SP5, 15 SP5
 
   - **Windows**
+
     - Windows Server 2003 R2 SP2
     - Windows Server 2008 R1 SP2, 2008 R2 SP1
     - Windows Server 2012 R1, 2012 R2

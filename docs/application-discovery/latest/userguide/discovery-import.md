@@ -146,6 +146,7 @@ console.
    **Add permissions**.
 5. Choose **Attach existing policies directly**, and
    then choose **Create policy**.
+
    1. In the **Create policy** page that opens,
       choose **JSON**, and paste in the following
       policy. Remember to replace the name of your bucket with the
@@ -184,7 +185,6 @@ console.
    }`
 
    ```
-
    2. Choose **Review policy**.
    3. Give your policy a new **Name** and
       optional description, before reviewing the summary of the
@@ -450,6 +450,7 @@ you'll find the following elements.
 - **Import status** – The status
   for the import request. This can be one of the following
   values:
+
   - **Importing** – This
     data file is currently being imported.
   - **Imported** – The

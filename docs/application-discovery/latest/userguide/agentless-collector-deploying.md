@@ -180,6 +180,7 @@ Agentless Collector OVA file in your VMware environment.
 
 1.  Sign in to vCenter as a VMware administrator.
 2.  Use one of the following ways to install the OVA file:
+
     - Use the UI: Choose **File**, choose
       **Deploy OVF Template**, select the collector
       OVA file you downloaded in the previous section, and then complete

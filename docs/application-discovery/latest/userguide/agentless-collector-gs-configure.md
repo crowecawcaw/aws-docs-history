@@ -16,6 +16,7 @@ Agentless Collector** page.
    and secret key for the AWS account IAM user to specify as the destination
    account to receive the data discovered by the collector. For information about
    the requirements for the IAM user, see [Deploying Application Discovery Service Agentless Collector](agentless-collector-deploying.md#agentless-collector-gs-iam-user "agentless-collector-deploying.md#agentless-collector-gs-iam-user").
+
    1. For **AWS access-key**, enter the access key of the
       AWS account IAM user that you're specifying as the destination
       account.
@@ -29,10 +30,12 @@ Agentless Collector** page.
 
 3. Under **Agentless Collector password**, set up a
    password to use to authenticate access to Agentless Collector.
+
    - Passwords are case-sensitive
    - Passwords must be between 8 and 64 characters in length
    - Passwords must contain at least one character from each of the
      following four categories:
+
      - Lowercase letters (a-z)
      - Uppercase letters (A-Z)
      - Numbers (0-9)
@@ -81,6 +84,7 @@ Agentless Collector version 2
 
 1. Collect the following network information from VMware
    vCenter:
+
    - **Static IP address**
      – An unsigned IP address in the subnet. For
      example, 192.168.1.138.
@@ -152,13 +156,13 @@ steps.
 
 5. Update the Domain Name System (DNS) using the following
    steps.
+
    1. Open the `resolv.conf` file in vi
       using the following command.
 
    ```
    sudo vi /etc/resolv.conf
    ```
-
    2. Update the `resolv.conf` file in vi
       using the following command.
 
@@ -191,6 +195,7 @@ sudo reboot
 ```
 
 8. Verify your network settings using the following steps.
+
    1. Check if the IP address is configured correctly, by
       entering the following commands.
 
@@ -198,7 +203,6 @@ sudo reboot
    ifconfig
    ip addr show
    ```
-
    2. Check that the gateway was added correctly, by
       entering the following command.
 
@@ -216,14 +220,12 @@ sudo reboot
    172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
    192.168.1.0     0.0.0.0         255.255.255.0   U     0      0
    ```
-
    3. Verify that you can ping a public URL, by entering the
       following command.
 
    ```
    ping www.google.com
    ```
-
    4. Verify that you can ping the vCenter IP address or
       host name as shown in the following example.
 
@@ -237,6 +239,7 @@ Agentless Collector version 1
 
 1. Collect the following network information from VMware
    vCenter:
+
    - **Static IP address**
      – An unsigned IP address in the subnet. For
      example, 192.168.1.138.
@@ -311,13 +314,13 @@ steps.
 
 5. Update the Domain Name System (DNS) using the following
    steps.
+
    1. Open the `resolv.conf` file in vi
       using the following command.
 
    ```
    sudo vi /etc/resolv.conf
    ```
-
    2. Update the `resolv.conf` file in vi
       using the following command.
 
@@ -350,6 +353,7 @@ sudo reboot
 ```
 
 8. Verify your network settings using the following steps.
+
    1. Check if the IP address is configured correctly, by
       entering the following commands.
 
@@ -357,7 +361,6 @@ sudo reboot
    ifconfig
    ip addr show
    ```
-
    2. Check that the gateway was added correctly, by
       entering the following command.
 
@@ -375,14 +378,12 @@ sudo reboot
    172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
    192.168.1.0     0.0.0.0         255.255.255.0   U     0      0
    ```
-
    3. Verify that you can ping a public URL, by entering the
       following command.
 
    ```
    ping www.google.com
    ```
-
    4. Verify that you can ping the vCenter IP address or
       host name as shown in the following example.
 
@@ -408,6 +409,7 @@ sudo ip link set ens192 down
 
 2. Update the interface configuration by using the following
    steps.
+
    1. Open the
       `10-cloud-init-ens192.network`
       file in the vi editor by using the following
@@ -416,7 +418,6 @@ sudo ip link set ens192 down
    ```
    sudo vi /etc/systemd/network/10-cloud-init-ens192.network
    ```
-
    2. Update the values as shown in the following
       example.
 
@@ -465,13 +466,13 @@ sudo /sbin/ifdown eth0
 
 2. Update the network configuration by using the following
    steps.
+
    1. Open the `ifcfg-eth0` file in the
       vi editor using the following command.
 
    ```
    sudo /sbin/ifdown eth0
    ```
-
    2. Update the values in the `ifcfg-eth0` file as shown in the following
       example.
 

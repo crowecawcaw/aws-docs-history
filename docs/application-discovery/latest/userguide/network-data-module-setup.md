@@ -43,6 +43,7 @@ servers. It uses SNMPv2 and SNMPv3 to collect data from Linux servers.
 
 - Specify the username and password of a Windows account that has the
   following:
+
   - Read access to the `\root\standardcimv2`
     namespace
   - Read permissions for `MSFT_NetTCPConnection`

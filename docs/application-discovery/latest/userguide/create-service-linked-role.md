@@ -41,6 +41,7 @@ This service-linked role is automatically created when you start Continuous Expo
 1. Install the AWS CLI for your operating system (Linux, macOS, or Windows). See the
    [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") for instructions.
 2. Open the Command prompt (Windows) or Terminal (Linux or macOS).
+
    1. Type `aws configure` and press Enter.
    2. Enter your AWS Access Key Id and AWS Secret Access Key.
    3. Enter `us-west-2` for the Default Region Name.

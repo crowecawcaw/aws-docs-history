@@ -19,7 +19,9 @@ On the [Viewing VMware data collection details](agentless-collector-gs-vcenter-d
 **Edit vCenter servers**.
 
 - On the **Edit vCenter** page, perform the following:
+
   1.  Under **vCenter credentials**:
+
       1. For **vCenter URL/IP**, enter the IP address
          of your VMware vCenter Server host.
       2. For **vCenter Username**, enter the name of a

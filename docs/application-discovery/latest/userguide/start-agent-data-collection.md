@@ -13,6 +13,7 @@ needed to manage the Discovery Agent.
 1. If you have not already done so, install the AWS CLI appropriate to your OS type
    (Windows or Mac/Linux). See the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") for instructions.
 2. Open the Command prompt (Windows) or Terminal (MAC/Linux).
+
    1. Type `aws configure` and press Enter.
    2. Enter your AWS Access Key ID and AWS Secret Access Key.
    3. Enter your home Region for the Default Region Name, for example

@@ -15,6 +15,7 @@ console.
    **Actions** menu.
 3. For servers that have the **Connectivity** status of
    **Failed**, edit the connection credentials.
+
    1. Select a single server or multiple servers when they have
       identical credentials, then choose **Edit** on the
       **Actions** menu. The **Edit OS
@@ -50,6 +51,7 @@ inventory.
 2. Choose **Add database server**. The **Add
    database server** page opens.
 3. Provide your database server credentials.
+
    1. For **Database engine**, choose the database
       engine of your server. For more information, see [Supported OS, database, and analytics servers](agentless-collector-gs-database-analytics-collection.md#agentless-collector-gs-database-analytics-collection-supported-servers "agentless-collector-gs-database-analytics-collection.md#agentless-collector-gs-database-analytics-collection-supported-servers").
    2. For **Hostname / IP**, enter the hostname or IP
@@ -67,6 +69,7 @@ inventory.
       your database or analytics server credentials correctly.
 
 4. (Optional) Add multiple servers from a CSV file.
+
    1. Choose **Bulk import database servers from
       CSV**.
    2. Choose **Download template** to save a CSV file

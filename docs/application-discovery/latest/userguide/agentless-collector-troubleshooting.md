@@ -239,6 +239,7 @@ The following procedure can help you resolve IP address issues.
 6. Using a separate command line tool like `ping` or `traceroute`,
    validate that the associated vCenter server is active and the IP is reachable from the
    collector VM.
+
    - If the IP address is incorrect and the vCenter service is active, then update the
      IP address in the collector console, and choose **Next**.
    - If the IP address is correct but the vCenter server is inactive, activate

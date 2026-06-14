@@ -19,14 +19,15 @@ If you are using a non-current Linux version, see [Considerations with older Lin
    contain your agent components.
 2. Switch to the new directory and download the installation script from
    either the command line or the console.
+
    1. To download from the command line, run the following
       command.
 
    ```
    curl -o ./aws-discovery-agent.tar.gz https://s3.`region`.amazonaws.com/aws-discovery-agent.`region`/linux/latest/aws-discovery-agent.tar.gz
    ```
-
    2. To download from the Migration Hub console, do the following:
+
       1. Sign in to the AWS Management Console and open
          the Migration Hub console at
          [https://console.aws.amazon.com/migrationhub/](https://console.aws.amazon.com/migrationhub/ "https://console.aws.amazon.com/migrationhub/").
