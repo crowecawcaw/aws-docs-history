@@ -19,6 +19,7 @@ Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
 1. Refer to the diagram in [How AWS Proton works](ag-works.md "ag-works.md") for a high-level view of AWS Proton inputs and outputs.
 2. [Create an environment bundle and a service template bundle](ag-template-authoring.md#ag-template-bundles "ag-template-authoring.md#ag-template-bundles").
+
    1. Identify [input parameters](parameters.md "parameters.md").
    2. Create a [schema file](ag-schema.md "ag-schema.md").
    3. Create [infrastructure as code (IaC) files](ag-infrastructure-tmp-files.md "ag-infrastructure-tmp-files.md").

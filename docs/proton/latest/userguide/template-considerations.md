@@ -14,6 +14,7 @@ empty and the CloudFormation IaC file _doesn't_ mark it as `Retain` in the `Dele
 service delete operation.
 
 - **Bundle file size limits and format**
+
   - Bundle file size, count, and name size limits can be found at [AWS Proton quotas](ag-limits.md "ag-limits.md").
   - The template bundle directories of files are gzipped into a tar ball and located in an Amazon Simple Storage Service (Amazon S3) bucket.
   - Each file in the bundle must be a valid formatted YAML file.

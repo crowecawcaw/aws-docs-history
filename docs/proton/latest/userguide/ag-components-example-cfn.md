@@ -122,6 +122,7 @@ Resources:
 ```
 
 4. Create a new service template minor version that declares directly defined components as supported.
+
    - Template bundle in Amazon S3 – In the AWS Proton console, when you create a service template version, for
      **Supported component sources**, choose **Directly defined**. If you're using the AWS Proton API or AWS CLI,
      specify `DIRECTLY_DEFINED` in the `supportedComponentSources` parameter of the [CreateServiceTemplateVersion](../APIReference/API_CreateServiceTemplateVersion.md "../APIReference/API_CreateServiceTemplateVersion.md") or [UpdateServiceTemplateVersion](../APIReference/API_UpdateServiceTemplateVersion.md "../APIReference/API_UpdateServiceTemplateVersion.md") API actions.

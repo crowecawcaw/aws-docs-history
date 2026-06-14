@@ -10,7 +10,7 @@ services are based on environment and service _templates_, respectively, that yo
 
 ![A diagram that describes a process of how to create a template bundle for a set of AWS Proton infrastructure resources.](images/works.png)
 
-![Number 1 icon.](images/label-one.png)
+![Number 1 icon.](/images/proton/latest/userguide/images/label-one.png)
 When you, as an administrator, select an environment template with AWS Proton, you provide values for required _input
 parameters_.
 

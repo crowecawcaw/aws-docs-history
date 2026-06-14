@@ -57,6 +57,7 @@ Review the following considerations for using template sync configurations.
 - When a new template version is created from a synced template, it's in the
   `DRAFT` state.
 - A new minor version of a template is created if one of the following is true:
+
   - The template bundle contents are different from those of the last synced template
     minor version.
   - The last previously synced template minor version was deleted.

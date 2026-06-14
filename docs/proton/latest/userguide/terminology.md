@@ -36,6 +36,7 @@ following:
 2. An IaC file that defines the infrastructure that's needed to deploy and maintain an application or microservice in an environment.
 3. A manifest file that lists the IaC file.
 4. Optional
+
    1. An IaC file that defines the service pipeline infrastructure.
    2. A manifest file that lists the IaC file.
 

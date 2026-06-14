@@ -41,6 +41,7 @@ In the navigation pane, choose **Environment templates**.
 6. Select **main** from the **Branch
    list**.
 7. In the **Proton environment template details** section.
+
    1. Enter the template name as `fargate-env`.
    2. Enter the environment template display name as `My Fargate
 Environment`.
@@ -84,6 +85,7 @@ details.
 6. Select **main** from the **Branch
    list**.
 7. In the **Proton service template details** section.
+
    1. Enter the service template name as
       `backend-fargate-svc`.
    2. Enter the service template display name as `My Fargate
@@ -91,12 +93,14 @@ Service`.
    3. (Optional) Enter a description for the service template.
 
 8. In the **Compatible environment templates** section.
+
    1. Check the check-box to the left of the environment template **My Fargate
       Environment** to select the compatible environment template for the new
       service template.
 
 9. For **Encryption settings**, keep the defaults.
 10. In the **Pipeline definition** section.
+
     1. Keep the **This template includes a CI/CD pipeline** button
        selected.
 
@@ -135,7 +139,9 @@ In the navigation pane, choose **Environments**.
 6. In the **Environment roles** section, select **New service
    role** or, if you have already created an AWS Proton service role, select
    **Existing service role**.
+
    1. Select **New service role** to create a new role.
+
       1. Enter the **Environment role name** as
          `MyProtonServiceRole`.
       2. Check the check box to agree to create an AWS Proton service role with
@@ -143,6 +149,7 @@ In the navigation pane, choose **Environments**.
 
    2. Select **Existing service role** to use an existing
       role.
+
       1. Select your role in the **Environment role name** drop down
          field.
 
@@ -185,6 +192,7 @@ environment details.
 10. In the **Configure custom settings** page, in the **Service
     instances** section, in the **New instance** section, follow
     the next steps to provide custom values for your service instance parameters.
+
     1. Enter the instance name `my-app-service`.
     2. Choose the environment `my-fargate-environment` for your
        service instance.

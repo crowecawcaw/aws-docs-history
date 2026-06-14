@@ -308,6 +308,7 @@ Response:
 ```
 
 3. Review the pull request that was sent by AWS Proton.
+
    - If you approve the request, provisioning is in progress.
    - If you reject the request, the environment creation is cancelled.
    - If the pull request times out, environment creation isn't complete.

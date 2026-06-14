@@ -104,6 +104,7 @@ AWS Management Console
 4. In the **Template bundle source** section, choose
    **Sync templates from Git**.
 5. In the **Source code repository** section:
+
    1. For **Repository**, select the linked repository that
       contains your template bundle.
    2. For **Branch**, select a repository branch to sync
@@ -112,6 +113,7 @@ AWS Management Console
       name of a directory to scope down the search for your template bundle.
 
 6. In the **Template details** section.
+
    1. Enter a **Template name**.
    2. (Optional) Enter a **Template display name**.
    3. (Optional) Enter a **Template description** for the

@@ -24,6 +24,7 @@ Create an Amazon SNS topic to serve as an _event target_ for the _event rule_ th
 1. Log in and open the [Amazon SNS console](https://console.aws.amazon.com//sns/v3/ "https://console.aws.amazon.com//sns/v3/").
 2. In the navigation pane, choose **Topics**, **Create topic**.
 3. In **Create topic** page:
+
    1. Choose **Type**
       **Standard**.
    2. For **Name**, enter `tutorial-service-status-change` and choose **Create
@@ -31,6 +32,7 @@ Create an Amazon SNS topic to serve as an _event target_ for the _event rule_ th
 
 4. In the **tutorial-service-status-change** detail page, choose **Create subscription**.
 5. In the **Create subscription** page:
+
    1. For **Protocol**, choose **Email**.
    2. For **Endpoint**, enter an email address that you currently have access to and choose **Create
       subscription**.
@@ -48,8 +50,10 @@ Register an _event rule_ that captures status changes for your AWS Proton servic
 2. In the navigation pane, choose **Events**, **Rules**.
 3. In the **Rules** page, in the **Rules** section, choose **Create rule**.
 4. In the **Create rule** page:
+
    1. In the **Name and description** section, for **Name**, enter `tutorial-rule`.
    2. In the **Define pattern** section, choose **Event pattern**.
+
       1. For **Event matching pattern**, choose **Pre-defined by service**.
       2. For **Service provider**, choose **AWS**.
       3. For **Service name**, choose **AWS Proton**.
@@ -65,10 +69,10 @@ Register an _event rule_ that captures status changes for your AWS Proton servic
           "resources": ["arn:aws:proton:`region-id`:`123456789012`:service/`your-service`"]
       }
       ```
-
       11. **Save** the event pattern.
 
    3. In the **Select targets** section:
+
       1. For **Target**, choose **SNS topic**.
       2. For **Topic**, choose **tutorial-service-status-change**.
 
@@ -86,6 +90,7 @@ Verify that your _event rule_ is working by adding an instance to your AWS Proto
 6. In **Configure custom settings** page, in the **Service instances** section, choose **Add new
    instance**.
 7. Complete the form for your **New instance**:
+
    1. Enter a **Name** for your new instance.
    2. Select the _same compatible environments_ that you chose for your existing instances.
    3. Enter values for the required inputs.

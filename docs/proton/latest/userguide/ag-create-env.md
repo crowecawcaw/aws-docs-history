@@ -387,6 +387,7 @@ AWS Management Console
    **Provisioning** section, choose **Self-managed
    provisioning**.
 5. In the **Provisioning repository details** section:
+
    1. If you haven't yet [linked your provisioning
       repository to AWS Proton](ag-create-repo.md "ag-create-repo.md"), choose **New repository**,
       choose one of the repository providers, and then, for **CodeStar
@@ -419,6 +420,7 @@ AWS Management Console
     for the `optional` parameters or use the defaults when given.
 11. Choose **Next** and review your inputs.
 12. Choose **Create** to send a pull request.
+
     - If you approve the pull request, the deployment is in progress.
     - If you reject the pull request, the environment creation is
       cancelled.
@@ -490,6 +492,7 @@ Response:>
 ```
 
 2. Review the request.
+
    - If you approve the request, provisioning is in progress.
    - If you reject the request, the environment creation is cancelled.
    - If the pull request times out, environment creation

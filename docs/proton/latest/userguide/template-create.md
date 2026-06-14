@@ -39,12 +39,14 @@ AWS Management Console
 2.  Choose **Create environment template**.
 3.  In the **Create environment template** page, in the **Template options** section, choose one of the two
     available template options.
+
     - **Create a template for provisioning new environments**.
     - **Create a template to use provisioned infrastructure that you manage**.
 
 4.  If you chose **Create a template for provisioning new environments**, in the **Template bundle source**
     section, choose one of the three available template bundle source options. To learn more about requirements and prerequisites for syncing
     templates, see [Template sync configurations](ag-template-sync-configs.md "ag-template-sync-configs.md").
+
     - **Use one of our sample template bundles**.
     - **Use your own template bundle**.
     - **[Sync templates from Git](ag-template-sync-configs.md "ag-template-sync-configs.md")**.
@@ -57,10 +59,10 @@ AWS Management Console
         1. Select the repository for your template sync configuration.
         2. Enter the name of the repository branch to sync from.
         3. (Optional) Enter name of a directory to limit the search for your template bundle.
-
     3. Otherwise, in the **S3 bundle location** section, provide a path to your template bundle.
 
 6.  In the **Template details** section.
+
     1. Enter a **Template name**.
     2. (Optional) Enter a **Template display name**.
     3. (Optional) Enter a **Template description** for the environment template.
@@ -90,20 +92,24 @@ For more information, see [Versioned templates](ag-template-versions.md "ag-temp
    section.
 4. In the **Create a new environment template version** page, in the **Template bundle source** section,
    choose one of the two available template bundle source options.
+
    - **Use one of our sample template bundles**.
    - **Use your own template bundle**.
 
 5. Provide a path to the selected template bundle.
+
    - If you chose **Use one of our sample template bundles**, in the **Sample template bundle** section,
      select a sample template bundle.
    - If you chose **Use your own template bundle**, in the **S3 bundle location** section, choose the
      path to your template bundle.
 
 6. In the **Template details** section.
+
    1. (Optional) Enter a **Template display name**.
    2. (Optional) Enter a **Template description** for the service template.
 
 7. In the **Template details** section, choose one of the following options.
+
    - To create a minor version, keep the check box **Check to create a new major version** empty.
    - To create a major version, check the check box **Check to create a new major version**.
 
@@ -115,6 +121,7 @@ AWS CLI
 
 1. Create a _standard_ OR _customer managed_ environment template by specifying the region, name,
    display name (optional), and description (optional).
+
    1. Create a _standard_ environment template.
 
    Run the following command:
@@ -140,7 +147,6 @@ AWS CLI
        }
    }
    ```
-
    2. Create a _customer managed_ environment template by adding the `provisioning` parameter with value
       `CUSTOMER_MANAGED`.
 
@@ -301,12 +307,14 @@ AWS Management Console
 2. Choose **Create service template**.
 3. In the **Create service template** page, in the **Template bundle source** section, choose one of the
    available template options.
+
    - **Use your own template bundle**.
    - **Sync templates from Git**.
 
 4. ###### Provide a path to a template bundle.
    1. If you chose **Sync templates from Git**, in the
       **Source code repository** section:
+
       1. Select the repository for your template sync configuration.
       2. Enter the name of the repository branch to sync from.
       3. (Optional) Enter name of a directory to limit the search for your
@@ -316,6 +324,7 @@ AWS Management Console
       a path to your template bundle.
 
 5. In the **Template details** section.
+
    1. Enter a **Template name**.
    2. (Optional) Enter a **Template display name**.
    3. (Optional) Enter a **Template description** for the service template.
@@ -351,10 +360,12 @@ For more information, see [Versioned templates](ag-template-versions.md "ag-temp
 5. In the **S3 bundle location** section, choose the
    path to your template bundle.
 6. In the **Template details** section.
+
    1. (Optional) Enter a **Template display name**.
    2. (Optional) Enter a **Template description** for the service template.
 
 7. In the **Template details** section, choose one of the following options.
+
    - To create a minor version, keep the check box **Check to create a new major version** empty.
    - To create a major version, check the check box **Check to create a new major version**.
 
@@ -397,7 +408,6 @@ You can't modify `pipelineProvisioning` after the service template is created.
        }
    }
    ```
-
    2. ###### Create a service template without a service pipeline.
 
    Add `--pipeline-provisioning`.

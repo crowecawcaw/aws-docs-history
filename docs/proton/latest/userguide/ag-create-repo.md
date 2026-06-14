@@ -18,6 +18,7 @@ console steps.
 2. Choose **Create repository**.
 3. In the **Link new repository** page, in the
    **Repository details** section:
+
    1. Choose your repository provider.
    2. Choose one of your existing connections. If you don't have one, choose
       **Add a new CodeStar connection** to create a connection, and

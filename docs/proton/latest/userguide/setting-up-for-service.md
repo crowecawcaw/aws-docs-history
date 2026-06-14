@@ -10,10 +10,12 @@ If you want to use the AWS CLI to run AWS Proton APIs, verify that you have inst
 ###### AWS Proton specific configuration:
 
 - To create and manage templates:
+
   - If you're using [template sync configurations](ag-template-sync-configs.md "ag-template-sync-configs.md"), set up an [AWS CodeStar connection](#setting-up-vcontrol "#setting-up-vcontrol").
   - Otherwise, set up an [Amazon S3 bucket.](#setting-up-bucket "#setting-up-bucket")
 
 - To provision infrastructure:
+
   - For [self-managed provisioning](ag-works-prov-methods.md#ag-works-prov-methods-self "ag-works-prov-methods.md#ag-works-prov-methods-self"), you must set up an [AWS CodeStar
     connection](#setting-up-vcontrol "#setting-up-vcontrol").
 
@@ -71,6 +73,7 @@ pipelines and you configure them once in your account settings.
 2.  In the navigation pane, choose **Settings**, and then choose **Account settings**.
 3.  In the **Account CI/CD settings** page, choose **Configure**.
 4.  Do one of the following:
+
     - To have AWS Proton create a pipeline service role for you
 
     [To enable AWS-managed provisioning of pipelines] In the **Configure account settings** page, in the
@@ -110,6 +113,7 @@ provides permissions for provisioning pipelines.
 2. In the navigation pane, choose **Settings**, and then choose **Account settings**.
 3. In the **Account CI/CD settings** page, choose **Configure**.
 4. In the **Configure account settings** page, in the **CI/CD pipeline repository** section:
+
    1. Select **New repository**, and then choose one of the repository providers.
    2. For **CodeStar connection**, choose one of your connections.
 
