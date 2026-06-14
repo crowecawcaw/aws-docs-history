@@ -75,6 +75,7 @@ see this [documentation](../../../AmazonCloudFront/latest/DeveloperGuide/private
 2. Choose **Create distribution**.
 3. For the **Origin domain** drop down menu, choose your S3 bucket that will host the web resources.
 4. For **Origin access**, choose **Origin access control settings (recommended)**.
+
    1. This will populate a new section called **Origin access control**. Select **Create control setting**.
    2. Keep the default selections and choose **Create**.
    3. Choose **Create distribution** at the bottom of the page.

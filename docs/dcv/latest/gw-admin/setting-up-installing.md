@@ -18,12 +18,12 @@ with `aarch64`, and for Ubuntu, replace `amd64` with
 1. The Amazon DCV Connection Gateway packages are digitally signed with a secure GPG signature. To allow the
    package manager to verify the package signature, you must import the
    Amazon DCV GPG key. Run the following command to import the Amazon DCV GPG key.
+
    - Amazon Linux 2, Amazon Linux 2023, RHEL, CentOS, and SUSE Linux Enterprise
 
    ```
    `$` sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
-
    - Ubuntu
 
    ```
@@ -35,72 +35,62 @@ with `aarch64`, and for Ubuntu, replace `amd64` with
    ```
 
 2. Download the Amazon DCV Connection Gateway installation package for your distribution from the [Amazon DCV download website](http://download.amazondcv.com "http://download.amazondcv.com").
+
    - Amazon Linux 2 (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.886.el7.x86_64.rpm
    ```
-
    - Amazon Linux 2 (64-bit x86 ARM)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.886.el7.aarch64.rpm
    ```
-
    - Amazon Linux 2023 (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.886.amzn2023.x86_64.rpm
    ```
-
    - Amazon Linux 2023 (64-bit x86 ARM)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.886.amzn2023.aarch64.rpm
    ```
-
    - RHEL 8.x, and Rocky Linux 8.x (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.886.el8.x86_64.rpm
    ```
-
    - RHEL 8.x, and Rocky Linux 8.x (64-bit x86 ARM)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.886.el8.aarch64.rpm
    ```
-
    - RHEL 9.x, CentOS 9, and Rocky Linux 8.x (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.886.el9.x86_64.rpm
    ```
-
    - RHEL 9.x, CentOS 9, and Rocky Linux 8.x (64-bit x86 ARM)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway-2025.0.886.el9.aarch64.rpm
    ```
-
    - Ubuntu 22.04 (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway_2025.0.886_amd64.ubuntu2204.deb
    ```
-
    - Ubuntu 22.04 (64-bit ARM)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway_2025.0.886_arm64.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04 (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Gateway/nice-dcv-connection-gateway_2025.0.886_amd64.ubuntu2404.deb
    ```
-
    - Ubuntu 24.04 (64-bit ARM)
 
    ```
