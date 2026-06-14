@@ -102,6 +102,7 @@ When deploying S3 File Gateway as an Amazon EC2 instance, consider the following
   allows you to easily adjust the Amazon EC2 hardware generation and resource
   allocation to find an ideal price-to-performance ratio. To change the instance
   type, use the following procedure in the Amazon EC2 console:
+
   1.  Stop the Amazon EC2 instance.
   2.  Change the Amazon EC2 instance type.
   3.  Power on the Amazon EC2 instance.

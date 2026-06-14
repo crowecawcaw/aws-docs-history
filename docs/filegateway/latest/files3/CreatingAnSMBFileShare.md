@@ -148,9 +148,11 @@ prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md "../../../AmazonS
     a Virtual Private Cloud (VPC). Otherwise, skip this step. For more information,
     see [What is AWS
     PrivateLink?](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") in the AWS PrivateLink Guide.
+
     1. Select **Use VPC endpoint**.
     2. For **Identify VPC endpoint by**, do one of the
        following:
+
        - Select **VPC endpoint ID**, then choose the
          endpoint that you want to use from the **VPC
          endpoint** dropdown list.
@@ -160,6 +162,7 @@ prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md "../../../AmazonS
 
 13. For **Encryption**, choose the type of encryption keys to use
     to encrypt objects that your File Gateway stores in Amazon S3:
+
     - To use server-side encryption managed with Amazon S3 (SSE-S3), choose
       **S3-Managed Keys (SSE-S3)**.
 
@@ -301,12 +304,14 @@ that you want to use from the dropdown list:
 
 19. For **User access**, do one of the following to specify which
     SMB clients can access your file share:
+
     - To grant access to all users that successfully authenticate through
       Active Directory, select **All AD-authenticated
       users**.
     - To allow or deny access to specific users or groups, choose
       **Specific AD-authenticated users or groups**, then
       do the following:
+
       - For **Allowed users and groups**, choose
         **Add allowed user** or **Add
         allowed group** and enter an Active Directory user
@@ -347,6 +352,7 @@ must be prefixed with the `@` character, for example,
 
 22. For **File and directory access control**, select one of the
     following:
+
     - To set fine-grained permissions on files and folders in your SMB file
       share, select **Windows Access Control List**. For more
       information, see [Using Microsoft Windows
@@ -357,6 +363,7 @@ must be prefixed with the `@` character, for example,
 
 23. For **Access based enumeration**, do one of the
     following:
+
     - To make the files and folders on the share visible only to users who
       have read access, select **Hide files and directories where user
       doesn't have permission**.

@@ -43,6 +43,7 @@ cannot migrate settings or data from an FSx File Gateway to an S3 File Gateway.
 
 1. Stop any applications that are writing to the existing S3 File Gateway.
 2. Use the following steps to update the gateway to the latest version
+
    1. Open the Storage Gateway console at
       [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
    2. In the navigation pane, choose **Gateways**, and then choose the old S3 File Gateway that
@@ -183,6 +184,7 @@ for your hypervisor.
 2.  Use the AWS Command Line Interface (AWS CLI) to gather and save the configuration information
     about your existing S3 File Gateway and file shares by doing the
     following:
+
     1. Save the gateway configuration information for the S3 File Gateway.
 
     ```

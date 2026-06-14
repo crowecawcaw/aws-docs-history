@@ -13,6 +13,7 @@ File Gateway.
 ###### Contents
 
 - [Create an SMB file share using the default configuration](smb-fileshare-quickstart-settings.md "smb-fileshare-quickstart-settings.md")
+
   - [Default configuration settings for SMB file shares](smb-fileshare-quickstart-settings.md#quickstart-default-settings "smb-fileshare-quickstart-settings.md#quickstart-default-settings")
 
 - [Create an SMB file share with a custom configuration](CreatingAnSMBFileShare.md "CreatingAnSMBFileShare.md")

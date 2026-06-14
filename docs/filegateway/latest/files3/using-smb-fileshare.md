@@ -130,6 +130,7 @@ console.
 3. On the **File Share** page, select the check box by the SMB
    file share that you want to modify.
 4. For Actions, choose the action that you want:
+
    - Choose **Edit file share settings** to modify share
      access.
    - Choose **Edit allowed/denied users** to add or delete

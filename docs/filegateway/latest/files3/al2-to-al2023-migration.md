@@ -35,6 +35,7 @@ The migration timeline includes several critical milestones:
 Before beginning the migration process, verify the following requirements to ensure a successful migration.
 
 - **Use the latest gateway image.** When creating the new Storage Gateway VM:
+
   - For Amazon EC2 gateways, use the latest AMI from the public SSM parameter or use the Storage Gateway console.
   - For on-premises gateways, download the latest VM image from the Storage Gateway console.
 
@@ -42,6 +43,7 @@ Before beginning the migration process, verify the following requirements to ens
 - **Verify root disk sizing.** The new gateway VM's root disk must be at least the same size as the existing gateway's root disk. If the existing root disk has less than 20 GB of available space, size the new root disk to: (existing root disk size) + (20 GB minus available space on existing root disk).
 - **Apply pending software updates.** Before starting migration, apply any pending software updates on the existing gateway. Open the **Storage Gateway** console, select your gateway, and choose **Update Now** if available.
 - **Verify network connectivity from the new gateway.** Before initiating migration, confirm that the new gateway VM can reach:
+
   - Storage Gateway service endpoints (or your VPC endpoints).
   - Amazon S3 endpoints.
   - Active Directory / DNS servers (if your gateway is domain-joined).

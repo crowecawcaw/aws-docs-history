@@ -26,6 +26,7 @@ _Storage Gateway API Reference_:
     reports for the file share, and provides information about status, progress, and
     the object path where the report file is stored in Amazon S3.
 4.  Do one of the following:
+
     - To view additional details for a specific report, such as the report
       ARN and associated tags, choose a report from the **Report
       ID** column.

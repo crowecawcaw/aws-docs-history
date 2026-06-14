@@ -27,6 +27,7 @@ Identity-Based Policies (IAM Policies) for Storage Gateway](using-identity-based
    encryption**.
 4. For **Encryption**, choose the type of encryption you want to
    use for files at rest in Amazon S3:
+
    - To use server-side encryption managed with Amazon S3 (SSE-S3), choose
      **S3-Managed Keys (SSE-S3)**. For more information,
      see [Using

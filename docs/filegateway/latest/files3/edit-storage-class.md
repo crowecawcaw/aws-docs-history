@@ -67,6 +67,7 @@ storage classes with a File Gateway](storage-classes.md#ia-file-gateway "storage
     download from the S3 bucket.
 11.
 12. For **Access level**, choose one of the following:
+
     - **Root squash (default)**: Access for the remote
       superuser (root) is mapped to UID (65534) and GID (65534).
     - **All squash**: All user access is mapped to User ID
@@ -75,6 +76,7 @@ storage classes with a File Gateway](storage-classes.md#ia-file-gateway "storage
       receives access as root.
 
 13. For **Export as**, select one of the following:
+
     - To allow clients to read and write files on the file share, select
       **Read/Write**.
     - To allow clients to read files but not write to the file share, select

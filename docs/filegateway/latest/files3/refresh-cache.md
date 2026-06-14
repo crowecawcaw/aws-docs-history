@@ -39,6 +39,7 @@ refresh schedule, consider the following:
   being accessed.
 - The refresh incurs Amazon S3 API costs only on directories that have not been
   synchronized since TTL expiration.
+
   - Directories are only synchronized if they are accessed by NFS or
     SMB activity.
   - Synchronization does not occur more frequently than the TTL period
@@ -223,6 +224,7 @@ Before you perform an API-based cache refresh, consider the following:
   specify a recursive refresh.
 - The refresh executes concurrently with other operations while the gateway
   is in use.
+
   - NFS and SMB operations generally do not become blocked during
     refreshes, unless a refresh is active for the directory being
     accessed by the operation.

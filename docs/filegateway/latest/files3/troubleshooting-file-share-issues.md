@@ -127,6 +127,7 @@ Network issues can prevent your file share from transitioning out of the `CREATI
 1. Log in to your gateway's local console. For more information, see [Logging in to the File Gateway local console](LocalConsole-login-fgw.md "LocalConsole-login-fgw.md").
 2. In the **Storage Gateway - Configuration** main menu, enter the number corresponding to **Test S3 Connectivity**.
 3. Choose the Amazon S3 endpoint type:
+
    - For Amazon S3 traffic that flows through an Internet Gateway, NAT Gateway, Transit Gateway, or Amazon S3 Gateway Amazon VPC endpoint, choose **Public**.
    - For Amazon S3 traffic that flows through an Amazon S3 interface Amazon VPC endpoint, choose **VPC (PrivateLink)**.
    - For a FIPS endpoint, choose the FIPS option.
@@ -344,6 +345,7 @@ You can refresh the cache using the Storage Gateway console and the AWS Command 
 - To refresh the cache using the Storage Gateway console, see Refreshing
   objects in your Amazon S3 bucket.
 - To refresh the cache using the AWS CLI:
+
   1.  Run the command `aws storagegateway
 list-file-shares`
   2.  Copy the Amazon Resource Number (ARN) of the file share with the

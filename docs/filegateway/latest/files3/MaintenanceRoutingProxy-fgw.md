@@ -16,6 +16,7 @@ network requirements for your gateway, see [Network and firewall requirements](R
 ###### To configure an HTTP proxy for a File Gateway
 
 1. Log in to your gateway's local console:
+
    - For more information on logging in to the VMware ESXi local console,
      see [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
    - For more information on logging in to the Microsoft Hyper-V local
@@ -29,6 +30,7 @@ network requirements for your gateway, see [Network and firewall requirements](R
 3. From the **AWS Appliance Activation HTTP Proxy
    Configuration** menu, enter the corresponding numeral for the task
    you want to perform:
+
    - **Configure HTTP proxy** - You will need to supply a
      host name and port to complete configuration.
    - **View current HTTP proxy configuration** - If an

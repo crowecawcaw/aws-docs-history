@@ -28,6 +28,7 @@ have significant cost implications. For more information, see [Avoiding unantici
 4. For **File share protocol**, choose
    **NFS**.
 5. For **S3 bucket**, do one of the following:
+
    - Choose an existing Amazon S3 bucket in your account from the dropdown
      list.
    - Choose **A bucket in another account** from the dropdown

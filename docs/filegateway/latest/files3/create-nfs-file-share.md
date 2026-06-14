@@ -20,6 +20,7 @@ File Gateway:
 ###### Contents
 
 - [Create an NFS file share using the default configuration](nfs-fileshare-quickstart-settings.md "nfs-fileshare-quickstart-settings.md")
+
   - [Default configuration settings for NFS file shares](nfs-fileshare-quickstart-settings.md#quickstart-default-settings "nfs-fileshare-quickstart-settings.md#quickstart-default-settings")
 
 - [Create an NFS file share with a custom configuration](CreatingAnNFSFileShare.md "CreatingAnNFSFileShare.md")

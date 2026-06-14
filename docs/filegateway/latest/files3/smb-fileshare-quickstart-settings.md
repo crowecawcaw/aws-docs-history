@@ -44,6 +44,7 @@ Before you create your file share, do the following:
 4. For **File share protocol**, choose
    **SMB**.
 5. For **S3 bucket**, do one of the following:
+
    - Choose an existing Amazon S3 bucket in your account from the dropdown
      list.
    - Choose **A bucket in another account** from the dropdown

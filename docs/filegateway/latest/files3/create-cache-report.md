@@ -37,6 +37,7 @@ create a cache report in the Storage Gateway console, use the following procedur
 5. For **IAM role**, do one of the following to specify an
    IAM role that grants your File Gateway permissions to generate and store your
    cache report:
+
    - To specify an existing IAM role, choose a role from the drop-down
      list.
    - To manually create a new IAM role, choose **Create a
