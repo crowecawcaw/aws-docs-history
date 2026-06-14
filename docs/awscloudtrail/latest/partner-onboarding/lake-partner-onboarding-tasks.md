@@ -64,6 +64,7 @@ Build the integration that is required to send event logs to CloudTrail Lake.
    your partner application to send events to CloudTrail Lake. A partner customer must
    share a CloudTrail channel Amazon Resource Number (ARN) with the partner as part of
    the integration process.
+
    1. To send events to CloudTrail Lake, the partner calls the [`PutAuditEvents` API](../../../awscloudtraildata/latest/APIReference/API_PutAuditEvents.md "../../../awscloudtraildata/latest/APIReference/API_PutAuditEvents.md"),
       specifying the channel ARN provided by the customer. If the channel's
       resource policy includes an external ID, you must also pass the external ID
