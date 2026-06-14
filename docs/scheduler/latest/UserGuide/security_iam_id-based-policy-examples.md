@@ -61,6 +61,7 @@ required to call the `CreateSchedule` API operation. We recommend tailoring your
 The following list shows EventBridge Scheduler's resources, and their corresponding supported actions.
 
 - **Schedule**
+
   - `scheduler:ListSchedules`
   - `scheduler:GetSchedule`
   - `scheduler:CreateSchedule`
@@ -68,6 +69,7 @@ The following list shows EventBridge Scheduler's resources, and their correspond
   - `scheduler:DeleteSchedule`
 
 - **Schedule group**
+
   - `scheduler:ListScheduleGroups`
   - `scheduler:GetScheduleGroup`
   - `scheduler:CreateScheduleGroup`

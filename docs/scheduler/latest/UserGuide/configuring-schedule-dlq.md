@@ -99,6 +99,7 @@ Console
    [https://console.aws.amazon.com/scheduler/home](https://console.aws.amazon.com/scheduler/home "https://console.aws.amazon.com/scheduler/home")
 2. On the EventBridge Scheduler console, create a new schedule, or choose an existing schedule from your list of schedules to edit.
 3. On the **Settings** page, for **Dead-letter queue (DLQ)**, do one of the following:
+
    - Choose **Select an Amazon SQS queue in my AWS account as a DLQ**, then choose the queue ARN for your DLQ from the dropdown list.
    - Choose **Specify an Amazon SQS queue in other AWS accounts as a DLQ**, then enter the queue ARN for your DLQ. If you choose a queue in another
      AWS account, the EventBridge Scheduler console will not be able to display the queue ARNs in a dropdown list.

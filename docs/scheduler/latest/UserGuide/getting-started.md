@@ -64,6 +64,7 @@ selector. 2. On the **Schedules** page, choose **Create schedule**. 3. On the **
      schedule groups to add tags to groups of schedules.
 
 4.  In the **Schedule pattern** section, do the following:
+
     1.  For **Occurrence**, choose one of the following
         pattern options. The configuration options change depending on which
         pattern that you select.
@@ -103,6 +104,7 @@ selector. 2. On the **Schedules** page, choose **Create schedule**. 3. On the **
     continue to invoke it's target indefinitely.
 6.  Choose **Next**.
 7.  On the **Select target** page, do the following:
+
     1. Select **Templated targets** and choose a target API. For this
        example, we'll choose the **Amazon SQS
        `SendMessage`** templated target.
@@ -123,6 +125,7 @@ EventBridge Scheduler.`
        **Enable schedule**, toggle feature on or off
        using the switch. By default, the EventBridge Scheduler enables your schedule.
     2. In the **Action after schedule completion** section, configure the action EventBridge Scheduler takes after the schedule completes:
+
        - Choose **DELETE** if you want the schedule to be automatically deleted. For one-time schedules, this occurs after the schedule invokes the target once.
          For recurring schedules, this occurs after the schedule's last planned invocation. For more information about automatic deletion, see [Deletion after schedule completion](managing-schedule-delete.md#managing-schedule-automatic-deletion "managing-schedule-delete.md#managing-schedule-automatic-deletion").
        - Choose **NONE**, or do not choose a value, if you do not want EventBridge Scheduler to take any action after the schedule completes.
@@ -157,7 +160,6 @@ EventBridge Scheduler.`
          enter the ARN of the queue configure as the DLQ, if the queue
          is in another AWS account. You must enter the exact ARN for the
          queue in order to use this option.
-
     7. In the **Encryption** section, choose
        **Customize encryption settings (advanced)** to use
        a customer managed KMS key to encrypt your target input. If you choose
@@ -185,6 +187,7 @@ EventBridge Scheduler.`
     column, verify that your new schedule is **Enabled**.
 13. To verify that your schedule invokes the Amazon SQS target, open the Amazon SQS console
     and do the following:
+
     1. Choose the target queue from the **Queues** list.
     2. Choose **Send and receive messages**.
     3. On the **Send and receive messages** page, under

@@ -16,9 +16,11 @@ and optional, fields in the _EventBridge Scheduler API Reference_.
 - **CodeBuild** – [`StartBuild`](../../../codebuild/latest/APIReference/API_StartBuild.md "../../../codebuild/latest/APIReference/API_StartBuild.md")
 - **CodePipeline** – [`StartPipelineExecution`](../../../codepipeline/latest/APIReference/API_StartPipelineExecution.md "../../../codepipeline/latest/APIReference/API_StartPipelineExecution.md")
 - **Amazon ECS** – [`RunTask`](../../../AmazonECS/latest/APIReference/API_RunTask.md "../../../AmazonECS/latest/APIReference/API_RunTask.md")
+
   - Parameters: [`EcsParameters`](../APIReference/API_EcsParameters.md "../APIReference/API_EcsParameters.md")
 
 - **EventBridge** – [`PutEvents`](../../../eventbridge/latest/APIReference/API_PutEvents.md "../../../eventbridge/latest/APIReference/API_PutEvents.md")
+
   - Parameters: [`EventBridgeParameters`](../APIReference/API_EventBridgeParameters.md "../APIReference/API_EventBridgeParameters.md")
 
 ###### Important
@@ -32,15 +34,18 @@ is located.
 
 - **Amazon Inspector** – [`StartAssessmentRun`](../../../inspector/v1/APIReference/API_StartAssessmentRun.md "../../../inspector/v1/APIReference/API_StartAssessmentRun.md")
 - **Kinesis** – [`PutRecord`](../../../kinesis/latest/APIReference/API_PutRecord.md "../../../kinesis/latest/APIReference/API_PutRecord.md")
+
   - Parameters: [`KinesisParameters`](../APIReference/API_KinesisParameters.md "../APIReference/API_KinesisParameters.md")
 
 - **Firehose** – [`PutRecord`](../../../firehose/latest/APIReference/API_PutRecord.md "../../../firehose/latest/APIReference/API_PutRecord.md")
 - **Lambda** – [`Invoke`](../../../lambda/latest/dg/API_Invoke.md "../../../lambda/latest/dg/API_Invoke.md")
 - **SageMaker AI** – [`StartPipelineExecution`](../../../sagemaker/latest/APIReference/API_StartPipelineExecution.md "../../../sagemaker/latest/APIReference/API_StartPipelineExecution.md")
+
   - Parameters: [`SageMakerPipelineParameters`](../APIReference/API_SageMakerPipelineParameters.md "../APIReference/API_SageMakerPipelineParameters.md")
 
 - **Amazon SNS** – [`Publish`](../../../sns/latest/api/API_Publish.md "../../../sns/latest/api/API_Publish.md")
 - **Amazon SQS** – [`SendMessage`](../../../AWSSimpleQueueService/latest/APIReference/API_SendMessage.md "../../../AWSSimpleQueueService/latest/APIReference/API_SendMessage.md")
+
   - Parameters: [`SqsParameters`](../APIReference/API_SqsParameters.md "../APIReference/API_SqsParameters.md")
 
 - **Step Functions** – [`StartExecution`](../../../step-functions/latest/apireference/API_StartExecution.md "../../../step-functions/latest/apireference/API_StartExecution.md")

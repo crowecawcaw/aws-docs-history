@@ -28,6 +28,7 @@ AWS Management Console
    example, `TestGroup`.
 5. In the **Tags** section, do the
    following:
+
    1. Choose **Add new tag**.
    2. For **Key**, enter the name that you
       want to assign to this key. For this tutorial, to label
