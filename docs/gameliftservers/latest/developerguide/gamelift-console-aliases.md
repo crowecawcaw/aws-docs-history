@@ -46,6 +46,7 @@ Alias detail information includes:
   was last updated.
 - **Routing type** – The routing type for the alias,
   which can be one of these:
+
   - **Simple** – Routes player traffic
     to a specified fleet ID. You can update the fleet ID for an alias at any
     time.

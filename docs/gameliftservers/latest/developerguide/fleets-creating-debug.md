@@ -65,6 +65,7 @@ Possible issues include:
   is that the server process is failing to communicate with the Amazon GameLift Servers
   service. Verify that your game server is making these correct server
   SDK calls (see [Initialize the server process](gamelift-sdk-server-api.md#gamelift-sdk-server-initialize "gamelift-sdk-server-api.md#gamelift-sdk-server-initialize")):
+
   - Server process fails to initialize (event
     `SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT`).
     The server process is not successfully calling

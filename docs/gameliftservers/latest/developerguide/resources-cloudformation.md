@@ -27,6 +27,7 @@ practices have special relevance with Amazon GameLift Servers.
   resources will get out of sync with your resource templates.
 - **Use CloudFormation stacks and stack sets to efficiently manage
   multiple resources.**
+
   - Use stacks to manage groups of connected resources. For example, a
     stack that contains a build, a fleet that references the build, and an
     alias that references the fleet. If you update your template to replace

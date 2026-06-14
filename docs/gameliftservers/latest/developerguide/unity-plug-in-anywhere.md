@@ -155,6 +155,7 @@ In this step you build your game components and launch them to play the game. Co
    update a `GameLiftClientSettings` asset for your game
    project. The plugin uses this asset to store certain information that your
    game client needs to connect to the Amazon GameLift Servers service.
+
    1. If you didn’t import and initialize the sample game, create a new
       `GameLiftClientSettings` asset. In the Unity
       editor main menu, choose **Assets, Create,
@@ -167,6 +168,7 @@ In this step you build your game components and launch them to play the game. Co
       that you just set up.
 
 2. Build and run your game client.
+
    1. Build a client executable using the standard Unity build process. In **File, Build
       Settings**, switch the platform to **Windows,
       Mac, Linux**. If you imported the sample game and

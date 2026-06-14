@@ -33,6 +33,7 @@ and choose **Edit**.
    **Create**.
 2. If your updates require a fleet deployment, you're asked to specify deployment
    options as follows:
+
    - Game session protection. You can choose to protect fleet instances that have
      active game sessions (safe deployment). With this setting, the fleet instances
      aren't replaced until after the game sessions end. Alternatively, you can choose

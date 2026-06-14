@@ -17,6 +17,7 @@ In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift
    check your currently selected AWS Region.
 2. On the **Edit alias** page, you can make the
    following edits:
+
    - Change the alias name.
    - Change the alias description.
    - Change the routing strategy from simple to terminal, or from

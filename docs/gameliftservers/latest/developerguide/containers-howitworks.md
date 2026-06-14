@@ -133,6 +133,7 @@ time. These features include:
   deployed to fleet instances. You can track the status of update deployments across each
   fleet location using the AWS Management Console or the AWS SDK and CLI.
 - Configure how you want fleet updates to deploy across an active fleet.
+
   - Game session protection. Choose to protect fleet instances with active game
     sessions until after the game sessions end (safe deployment). Or choose to replace
     fleet instances regardless of game session activity (unsafe deployment). Use unsafe

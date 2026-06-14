@@ -43,6 +43,7 @@ The Amazon GameLift Servers Agent is designed to handle the following tasks for 
 - Reports to Amazon GameLift Servers when a server process ends. Amazon GameLift Servers uses this information to monitor game
   server availability for game session placement.
 - Emits fleet events for server processes, including:
+
   - `SERVER_PROCESS_INVALID_PATH`: The game server process
     launch parameters were incorrectly configured.
   - `SERVER_PROCESS_TERMINATED_UNHEALTHY`: The game server

@@ -187,6 +187,7 @@ following operations:
 4. Follow the instructions for [creating a
    new fleet using the AWS CLI](fleets-creating.md "fleets-creating.md"). Include the following additional
    parameters:
+
    - _peer-vpc-aws-account-id_ – ID
      for the account that you use to manage the VPC with your non-Amazon GameLift Servers
      resources.
@@ -247,6 +248,7 @@ If you're having trouble establishing a VPC peering connection for your Amazon G
 servers, consider these common root causes:
 
 - An authorization for the requested connection was not found:
+
   - Check the status of a VPC authorization for the non-Amazon GameLift Servers VPC. It
     might not exist or it might have expired.
   - Check the regions of the two VPCs you're trying to peer. If they're
@@ -257,6 +259,7 @@ servers, consider these common root causes:
   overlap. The CIDR block of the VPC for your Amazon GameLift Servers fleet is automatically
   assigned and can't be changed, so you'll need to change the CIDR block for of
   the VPC for your non-Amazon GameLift Servers resources. To resolve this issue:
+
   - Look up this CIDR block for your Amazon GameLift Servers fleet by calling
     `DescribeVpcPeeringConnections()`.
   - Go to the Amazon VPC console, find the VPC for your non-Amazon GameLift Servers

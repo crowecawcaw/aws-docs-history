@@ -22,6 +22,7 @@ resource usage to meet worldwide player demand.
   See more details at [Amazon GameLift Servers game hosting options](gamelift-intro-flavors.md "gamelift-intro-flavors.md").
 
 - Game hosting in the cloud, managed by Amazon GameLift Servers
+
   - Host game servers on Amazon Elastic Compute Cloud (Amazon EC2) infrastructure. Choose from
     resource types including compute-optimized (C-family), memory-optimized (R-family),
     and cost-efficient ARM-based Graviton instances.
@@ -36,12 +37,14 @@ resource usage to meet worldwide player demand.
     container hosting.
 
 - Game hosting managed by you, with Amazon GameLift Servers Anywhere
+
   - Leverage Amazon GameLift Servers game session placement and session management
     capabilities.
   - Self-manage game server deployments and scaling on your own hardware,
     on-premises infrastructure, or other cloud providers.
 
 - Hybrid game hosting
+
   - Create a game hosting solution that uses a combination of Amazon GameLift Servers managed
     fleets and Anywhere fleets to work with existing solutions or support
     migration.

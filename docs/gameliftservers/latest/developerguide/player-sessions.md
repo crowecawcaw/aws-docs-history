@@ -41,6 +41,7 @@ The following player session data is collected for each game session:
   that hosted the game session.
 - **Status** – The status of the player session. The
   following are possible statuses:
+
   - **Reserved** – Player session has been
     reserved, but the players isn't connected.
   - **Active** – Player session is connected to

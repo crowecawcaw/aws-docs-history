@@ -25,6 +25,7 @@ choose **Queues**.
    queue** to start the workflow.
 2. Under **Queue settings** enter the following
    settings:
+
    1. Enter a queue name. This name must be unique to the AWS Region that you're creating the queue in.
    2. Keep the default **Timeout** setting, which
       is 600 seconds (or 10 minutes). This value controls how long
@@ -50,6 +51,7 @@ choose **Queues**.
    should all be running similar game builds and be compatible with any
    game client that uses this queue. In addition, all fleets in a queue
    must have the same certificate configuration.
+
    1. Select the **Region** where the fleet or
       alias was created. For a multi-location fleet, this is the
       "home" region.

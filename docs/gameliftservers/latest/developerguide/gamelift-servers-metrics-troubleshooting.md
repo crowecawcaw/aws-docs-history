@@ -32,6 +32,7 @@ sudo journalctl -u gamelift-telemetry-collector
 
 - Check instance role permissions.
 - Verify required policies:
+
   - `aps:RemoteWrite`
   - `cloudwatch:PutMetricData`
 

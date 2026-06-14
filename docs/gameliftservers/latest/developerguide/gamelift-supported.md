@@ -15,6 +15,7 @@ integrating the server SDK into your game projects, see [Prepare a game for host
 ### Development support
 
 - **Development OS**
+
   - Windows
   - Linux
 
@@ -188,6 +189,7 @@ resources:
 
 - [Amazon GameLift Servers API Reference](../apireference/Welcome.md "../apireference/Welcome.md")
 - Integrate game client functionality
+
   - [Client-side service integration for games with custom game server builds](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md")
   - [Client-side service integration for games with Realtime
     servers](../realtimeguide/realtime-client.md "../realtimeguide/realtime-client.md")

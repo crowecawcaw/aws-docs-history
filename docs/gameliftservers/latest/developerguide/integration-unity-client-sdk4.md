@@ -104,6 +104,7 @@ players. After Amazon GameLift Servers has created the new game session and retu
 a `GameSession`, you can add players to it.
 
 - Place a request for a new game session.
+
   - If your game uses fleets, call `CreateGameSession()` with a
     fleet or alias ID, a session name, and maximum number of concurrent
     players for the game.
@@ -147,6 +148,7 @@ a `GameSession` object, you can add players to it.
 2. Connect to the game session. Retrieve the `PlayerSession` object to
    get the game session's connection information. You can use this information to
    establish a direct connection to the server process:
+
    1. Use the specified port and either the DNS name or IP address of the
       server process.
    2. Use the DNS name and port of your fleets. The DNS name and port are

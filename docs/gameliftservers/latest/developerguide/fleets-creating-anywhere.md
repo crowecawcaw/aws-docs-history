@@ -122,6 +122,7 @@ Select the **Anywhere** option and choose **Next**.
 In this step, specify some key fleet-wide settings.
 
 1. Fill out the **Fleet details** section:
+
    1. Enter a fleet **Name**. We recommend using a
       fleet naming pattern that makes it easier to identify fleet
       types when viewing lists of fleets.
@@ -131,6 +132,7 @@ In this step, specify some key fleet-wide settings.
 2. Set these optional **Additional details**
    as needed. You can update these fleet settings
    later.
+
    1. When creating a fleet for production or pre-prod
       testing, use this setting to specify a per-hour
       **Cost** value for the fleet's

@@ -30,7 +30,9 @@ Console
    `ACTIVE` status before you can edit it.
 3. On the Fleet detail page, in any of the following sections, choose
    **Edit**.
+
    - **Fleet settings**
+
      - Change the fleet attributes such as
        **Name** and
        **Description**.
@@ -45,6 +47,7 @@ Console
      can change any of the following settings of your runtime
      configurations and add or remove runtime
      configurations.
+
      - Change the **Launch path** of
        your game server.
      - Add, remove, or change optional **Launch

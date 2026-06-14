@@ -111,6 +111,7 @@ Use the assessment questions to tell the plugin what steps it needs to take:
   Dockerfile template (supplied by Amazon GameLift Servers) and automatically configures it for
   your game. You can view the template at [Build a container image for Amazon GameLift Servers](containers-prepare-images.md "containers-prepare-images.md"). After choosing this option,
   indicate where you want the plugin to store the new image:
+
   - Create a new Amazon ECR repository and push the container image to
     it. The plugin creates a private ECR repo
     using the AWS account and default AWS Region in your selected user
@@ -126,6 +127,7 @@ Use the assessment questions to tell the plugin what steps it needs to take:
   you've manually built an image, we recommend that you use the Dockerfile
   template supplied by Amazon GameLift Servers, which is available at [Build a container image for Amazon GameLift Servers](containers-prepare-images.md "containers-prepare-images.md"). After choosing this option,
   indicate where the image is located.
+
   - A locally stored Docker-generated image. If you choose this option, the plugin
     creates a new Amazon ECR private repository and pushes the local image file to it.
     The next step will prompt you for an image ID, which the
@@ -149,6 +151,7 @@ image to a container fleet. This step requests the following information:
   `[client-build]/[project-name]/Content/CloudFormation`.
 - Optional deployment settings. This section has configuration settings that the plugin
   uses by default. You can modify these or keep the default values
+
   - Game name is set to the name of your game project by default. All
     AWS resources that the plugin creates references the game name value.
   - Port range, memory limit, and vCPU limit are configuration settings for
@@ -215,6 +218,7 @@ resources.
 - Backend service to make requests to the Amazon GameLift Servers service on
   behalf of game clients, such as to request game sessions and
   join games:
+
   - API Gateway + Lambda function for players to request a game
     session slot. This function calls
     `StartMatchmaking()` if no open slots are

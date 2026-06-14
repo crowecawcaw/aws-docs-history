@@ -233,6 +233,7 @@ For more information about configuring credentials, see [Understanding and getti
    Credentials**.
 3. You can create new AWS credentials or choose existing
    credentials.
+
    - To create credentials, choose **Create new credentials
      profile**, and then specify the **New Profile
      Name**, **AWS Access Key ID**,
@@ -266,6 +267,7 @@ For more information about Amazon S3 buckets, see [Creating, configuring, and wo
    Bootstrap**.
 3. In the **Account Bootstrapping** window, you choose an
    existing Amazon S3 bucket or create a new Amazon S3 bucket:
+
    - To choose an existing bucket, choose **Choose existing
      Amazon S3 bucket** and **Update** to save
      your selection.

@@ -28,6 +28,7 @@ your account user.
    that you already have.
 3. If you don't already have a user profile, you're prompted to enter profile details
    and create a new profile. Provide the following information:
+
    - An AWS account. If you create a new AWS account, use the link to the
      AWS Management Console and follow the prompts. See [Create an
      AWS account](../../../accounts/latest/reference/manage-acct-creating.md "../../../accounts/latest/reference/manage-acct-creating.md") for more details.

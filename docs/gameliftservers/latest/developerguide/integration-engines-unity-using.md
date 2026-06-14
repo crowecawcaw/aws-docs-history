@@ -205,6 +205,7 @@ for hosting with Amazon GameLift Servers, consider these potential next steps:
   it to test your game server and game client connections. For cloud-based
   hosting, deploy your game server to a managed EC2 or managed container fleet.
   See these topics for guidance:
+
   - [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md "integration-dev-iteration.md")
   - [Amazon GameLift Servers Anywhere fleets](fleets-intro-anywhere.md "fleets-intro-anywhere.md")
   - [Amazon GameLift Servers managed EC2 fleets](fleets-intro-managed.md "fleets-intro-managed.md")
@@ -214,10 +215,12 @@ for hosting with Amazon GameLift Servers, consider these potential next steps:
   example, you might want to add player sessions with unique player IDs, set up
   matchmaking backfill, or manage game server access to your other AWS resources
   (such as a database or content storage service). See these topics for guidance:
+
   - [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
   - [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 
 - Customize your game client component to request game sessions, receive
   connection information, and connect directly to a game server to play a game.
   See these topics for guidance:
+
   - [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md")

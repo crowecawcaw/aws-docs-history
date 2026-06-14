@@ -46,6 +46,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
   C++, C#, and Go.
 - **Modify your game server code to add server SDK
   functionality.** For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the following:
+
   - Add code to initialize the Amazon GameLift Servers SDK and establish a WebSocket
     connection with the Amazon GameLift Servers service. Use the server SDK action
     `InitSdk()`.
@@ -108,6 +109,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
   definition in the same AWS Region where the container images are stored.
   For more on choosing a fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location"). At a minimum, do the
   following:
+
   - Create a game server container group definition.
   - Add a container definition with a container image with your game
     server build.
@@ -118,6 +120,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
   create a fleet, Amazon GameLift Servers immediately begins deploying your game server build
   for hosting. You can configure many aspects of a managed fleet. For
   guidance, see [Create an Amazon GameLift Servers managed container fleet](containers-build-fleet.md "containers-build-fleet.md"). At minimum, do the following:
+
   - Set up an AWS Identity and Access Management (IAM) service role for the container fleet. See
     [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md").
   - Specify the game server container group definition to deploy to fleet
@@ -147,6 +150,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
   includes starting game sessions, placing players into games, and retrieving game
   session information. For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the
   following:
+
   - Get the AWS SDK for Amazon GameLift Servers and add it to your backend service
     project. See [Amazon GameLift Servers SDK
     resources for client services](gamelift-supported.md#gamelift-supported-clients "gamelift-supported.md#gamelift-supported-clients").
@@ -185,6 +189,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
 - **Create a game session queue for placing new game session with
   available game servers.** Queues are the primary mechanism for game
   session placement. For guidance, see [Create a game session queue](queues-creating.md "queues-creating.md").
+
   - At minimum, add your Anywhere fleets as destinations in your queue.
     All other settings are optional customizations.
 

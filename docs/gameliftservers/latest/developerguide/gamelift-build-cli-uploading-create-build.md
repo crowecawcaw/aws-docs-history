@@ -28,6 +28,7 @@ Console
 3. On the **Create build** page, under
    **Build settings**, do the
    following:
+
    1. For **Name**, enter a script
       name.
    2. For **Version**, enter a version.

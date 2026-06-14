@@ -30,6 +30,7 @@ Queue metrics can provide insight about the following:
   metrics for lowest latency and lowest price.
 - To boost a queue's rate of finding an ideal placement, review the following
   error metrics:
+
   - If the `FirstChoiceOutOfCapacity` is high, adjust capacity
     scaling for the queue's fleets.
   - If the `FirstChoiceNotViable` error metric is high, look at

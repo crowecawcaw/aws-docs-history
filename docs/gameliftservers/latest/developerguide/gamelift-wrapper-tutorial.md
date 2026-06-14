@@ -107,6 +107,7 @@ Edit the config.yaml file to configure the wrapper for logging, port setup, and 
 3. **Define network port configuration**. Set the game port to whatever you prefer. For this tutorial, specify one port only, as you'll create a fleet that runs only one concurrent game server process per instance. If you decide to run multiple processes at a time, you'll need to configure enough ports for each concurrent process. The default value is 37016 as shown in the config file, but in general, for fleets using Linux builds use ports 22 and 1026-60000. For fleets using Windows builds, use ports 1026-60000.
 4. **Set up the path to the game server executable**. For `./MyGame/my-server-executable.exe` customize the path to your game server executable with the actual name and location for it. This is the entry point for launching your game server.
 5. **Configure the game server arguments**. At a minimum, specify a -port argument and use the same game port value you defined before. The "pos" value 0 indicates this is the first argument. Add other arguments as needed. These arguments are passed to your game server when it's launched, allowing you to configure its runtime behavior.
+
    1. Argument: `"--port"`
    2. Value: `"{{.port number here}}"`
    3. Position: `0` (First argument in the list)

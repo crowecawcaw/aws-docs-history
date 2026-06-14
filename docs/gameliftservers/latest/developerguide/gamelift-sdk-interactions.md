@@ -41,6 +41,7 @@ reports its status as ready to host a game session.
    resource.
 2. The game server process calls the following server SDK operations in
    sequence:
+
    1. `InitSDK()` to initialize the server SDK, authenticate the
       server process, and establish communication with the Amazon GameLift Servers service.
    2. `ProcessReady()` to communicate readiness to host a game
@@ -81,6 +82,7 @@ play the game.
    which fleets to look at and searches those fleets for an active server
    process that's not hosting a game session. On locating an available server
    process, the Amazon GameLift Servers service does the following:
+
    1. Creates a `GameSession` object with the game session
       settings and player data from the placement request, and sets the
       status to `ACTIVATING`.
@@ -118,6 +120,7 @@ placement request.
 2. The Amazon GameLift Servers service checks the game session status (must be
    `ACTIVE`), and looks for an open player slot in the game session.
    If a slot is available, then the service does the following:
+
    1. Creates a new `PlayerSession` object and sets the status to
       `RESERVED`.
    2. Responds to the backend service request with player session
@@ -133,6 +136,7 @@ placement request.
    player session ID. The server process either accepts or rejects the
    connection.
 6. The Amazon GameLift Servers service does one of the following:
+
    1. If the connection is accepted, then Amazon GameLift Servers sets the
       `PlayerSession` status to `ACTIVE` and
       passes the `PlayerSession` to the game server
@@ -170,6 +174,7 @@ process notifies the Amazon GameLift Servers service of game session status.
    [Telemetry metrics](monitoring-gamelift-servers-metrics.md "monitoring-gamelift-servers-metrics.md")
    to prevent it from reporting normal process exits as crashes.
 3. The Amazon GameLift Servers service does the following:
+
    1. Uploads game session logs to Amazon Simple Storage Service (Amazon S3).
    2. Changes the game session status to `TERMINATED`.
    3. Changes the server process status to `TERMINATED`.

@@ -728,6 +728,7 @@ Amazon GameLift Servers plugin for Unreal Engine, version 1.1.2
   game server install scripts. If your game server build includes an
   install script, Amazon GameLift Servers attempts to run the script and emits one of the
   following new events:
+
   - `FLEET_CREATION_COMPLETED_INSTALLER`
   - `FLEET_CREATION_FAILED_INSTALLER`
 
@@ -890,6 +891,7 @@ The plugin is compatible with Unity versions Unity 2021.3 LTS and 2022.3 LTS.
 Key plugin features include:
 
 - Guided UI workflows in the Unity editor for the following scenarios:
+
   - Test your game integration with Amazon GameLift Servers using your local
     workstation as a host. This workflow helps you set up an Amazon GameLift Servers
     Anywhere fleet for your local machine, launch instances of your
@@ -900,6 +902,7 @@ Key plugin features include:
     This workflow helps you configure your game for
     cloud hosting, and provides three deployment
     scenarios:
+
     - Deploy the game server to a single fleet.
     - Deploy the game server to a set of low-cost Spot fleets in multiple AWS Regions.
     - Deploy the game server with a FlexMatch matchmaker.
@@ -910,6 +913,7 @@ Key plugin features include:
   regions.
 - Special conveniences that help streamline the Amazon GameLift Servers integration
   and deployment processes, including:
+
   - Each hosting solution includes supporting AWS resources,
     including an Amazon Cognito user pool that provides unique player IDs and
     player validation. The solutions also include an Amazon S3 bucket for
@@ -974,6 +978,7 @@ supports UE versions 5.0, 5.1, and 5.2. Key features include:
 
 - Guided UI workflows in the Unreal editor ]step through the
   following paths:
+
   - Test your game integration with Amazon GameLift Servers using your local
     workstation as a host. This workflow helps you set up an Amazon GameLift Servers
     Anywhere fleet for your local machine, launch instances of your
@@ -993,6 +998,7 @@ supports UE versions 5.0, 5.1, and 5.2. Key features include:
   regions.
 - Special conveniences that help streamline the Amazon GameLift Servers integration
   and deployment processes, including:
+
   - Each hosting solution includes supporting AWS resources,
     including a basic Amazon Cognito user pool that provides unique player
     IDs, an Amazon S3 bucket for storage, Amazon SNS event notification, and
@@ -1078,6 +1084,7 @@ number of customer requests:
   (upgraded from 4.6.1) and .NET 6.0 in a single solution. .NET Standard
   2.1 is available with the Unity-built libraries.
 - **Server SDK 5.1.0 updates**
+
   - [C++, C#, Unreal] You can now call `InitSDK()` with
     or without server parameters. Game servers that run on Amazon GameLift Servers
     managed EC2 fleets read the server parameters directly from
@@ -1094,14 +1101,17 @@ number of customer requests:
     data types.
 
 - **Expanded server SDK 5.x documentation**
+
   - Updated server SDK reference guides for C++, C#/Unity, and
     Unreal including expanded coverage of all data types.
+
     - [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
     - [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
     - [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 
   - New versions of the server SDK 5 integration guides for Unity
     and Unreal plugins
+
     - [Integrate Amazon GameLift Servers into a Unity project](integration-engines-unity-using.md "integration-engines-unity-using.md")
     - [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
 
@@ -1205,6 +1215,7 @@ This update includes the following service changes:
 ###### **Learn more:**
 
 - Amazon GameLift Servers API Reference links:
+
   - [CLI command
     `upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md")
   - [CLI command
@@ -1354,6 +1365,7 @@ closer to end users or to on-premises data centers.
 
 - [Amazon GameLift Servers FlexMatch
   developer guide](../flexmatchguide.md "../flexmatchguide.md"):
+
   - [FlexMatch rule types](../flexmatchguide/match-rules-reference-ruletype.md "../flexmatchguide/match-rules-reference-ruletype.md")
   - [FlexMatch property expressions](../flexmatchguide/match-rules-reference-property-expression.md "../flexmatchguide/match-rules-reference-property-expression.md")
 
@@ -1461,12 +1473,14 @@ Highlights:
   **Learn more:**
 
 - Amazon GameLift Servers Developer Guide:
+
   - [Set up event notification for game session placement](queue-notification.md "queue-notification.md") (new)
   - [Game session placement events](queue-events.md "queue-events.md")
     (new)
 
 - [API reference (AWS
   SDK)](../../../gamelift/latest/developerguide.md "../../../gamelift/latest/developerguide.md")
+
   - New game session queue parameters
     `NotificationTarget` and
     `CustomEventData`: [GameSessionQueue](../../../gamelift/latest/apireference/API_GameSessionQueue.md "../../../gamelift/latest/apireference/API_GameSessionQueue.md"), [CreateGameSessionQueue](../../../gamelift/latest/apireference/API_CreateGameSessionQueue.md "../../../gamelift/latest/apireference/API_CreateGameSessionQueue.md"), [UpdateGameSessionQueue](../../../gamelift/latest/apireference/API_UpdateGameSessionQueue.md "../../../gamelift/latest/apireference/API_UpdateGameSessionQueue.md")
@@ -1523,6 +1537,7 @@ Highlights:
   blog](https://aws.amazon.com/blogs/gametech/ "https://aws.amazon.com/blogs/gametech/")
 - [API reference (AWS
   SDK)](../../../gamelift/latest/developerguide.md "../../../gamelift/latest/developerguide.md")
+
   - New fleet location operations: [CreateFleetLocations](../../../gamelift/latest/apireference/API_CreateFleetLocations.md "../../../gamelift/latest/apireference/API_CreateFleetLocations.md"), [DescribeFleetLocationAttributes](../../../gamelift/latest/apireference/API_DescribeFleetLocationAttributes.md "../../../gamelift/latest/apireference/API_DescribeFleetLocationAttributes.md"), [DescribeFleetLocationCapacity](../../../gamelift/latest/apireference/API_DescribeFleetLocationCapacity.md "../../../gamelift/latest/apireference/API_DescribeFleetLocationCapacity.md"), [DescribeFleetLocationUtilization](../../../gamelift/latest/apireference/API_DescribeFleetLocationUtilization.md "../../../gamelift/latest/apireference/API_DescribeFleetLocationUtilization.md"), [DeleteFleetLocations](../../../gamelift/latest/apireference/API_DeleteFleetLocations.md "../../../gamelift/latest/apireference/API_DeleteFleetLocations.md")
   - Updated fleet operations, with new multi-location support:
     [CreateFleet](../../../gamelift/latest/apireference/API_CreateFleet.md "../../../gamelift/latest/apireference/API_CreateFleet.md"), [UpdateFleetCapacity](../../../gamelift/latest/apireference/API_UpdateFleetCapacity.md "../../../gamelift/latest/apireference/API_UpdateFleetCapacity.md"), [DescribeEC2InstanceLimits](../../../gamelift/latest/apireference/API_DescribeEC2InstanceLimits.md "../../../gamelift/latest/apireference/API_DescribeEC2InstanceLimits.md"), [DescribeInstances](../../../gamelift/latest/apireference/API_DescribeInstances.md "../../../gamelift/latest/apireference/API_DescribeInstances.md"), [StopFleetActions](../../../gamelift/latest/apireference/API_StopFleetActions.md "../../../gamelift/latest/apireference/API_StopFleetActions.md"), [StartFleetActions](../../../gamelift/latest/apireference/API_StartFleetActions.md "../../../gamelift/latest/apireference/API_StartFleetActions.md")
@@ -1532,6 +1547,7 @@ Highlights:
     support: [CreateGameSession](../../../gamelift/latest/apireference/API_CreateGameSession.md "../../../gamelift/latest/apireference/API_CreateGameSession.md"), [DescribeGameSessions](../../../gamelift/latest/apireference/API_DescribeGameSessions.md "../../../gamelift/latest/apireference/API_DescribeGameSessions.md"), [DescribeGameSessionDetails](../../../gamelift/latest/apireference/API_DescribeGameSessionDetails.md "../../../gamelift/latest/apireference/API_DescribeGameSessionDetails.md"), [SearchGameSessions](../../../gamelift/latest/apireference/API_SearchGameSessions.md "../../../gamelift/latest/apireference/API_SearchGameSessions.md")
 
 - [Amazon GameLift Servers Developer Guide](../../../gamelift/latest/developerguide.md "../../../gamelift/latest/developerguide.md"):
+
   - [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md") (updated)
   - [Hosting resource customizations](fleets-design.md "fleets-design.md")
     (new)
@@ -1566,6 +1582,7 @@ This release includes the following updates:
   (Beijing) Region, operated by Sinnet. The new AMD instance families
   include M5a and R5a. Supported EC2 instance types, as listed for fleet
   [InstanceType](../../../gamelift/latest/apireference/API_FleetAttributes.md "../../../gamelift/latest/apireference/API_FleetAttributes.md"), now include the following:
+
   - m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge,
     m5a.12xlarge, m5a.16xlarge, m5a.24xlarge
   - r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge,
@@ -1626,6 +1643,7 @@ to support standalone matchmaking:
 
 - The API resource `MatchmakingConfiguration` has the
   following changes:
+
   - New property, `FlexMatchMode` indicates whether the
     matchmaker is being used with Amazon GameLift Servers managed hosting or as
     standalone matchmaking.
@@ -1712,12 +1730,14 @@ There are no changes to the Amazon GameLift Servers SDKs.
 The new Server SDK contains the following updates:
 
 - C# API version 4.0.1
+
   - The API operation [TerminateGameSession()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-terminategamesession "integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-terminategamesession") is no longer supported. Replace with a call to [ProcessEnding()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-processending "integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-processending") to end both a game session and the server process.
   - A known issue with the operation [GetInstanceCertificate()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getinstancecertificate "integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getinstancecertificate") is fixed.
   - The operation [GetTerminationTime()](integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getterm "integration-server-sdk-csharp-ref-actions.md#integration-server-sdk-csharp-ref-getterm")
     now returns a value of data type AwsDateTimeOutcome.
 
 - C++ API version 3.4.1
+
   - The operation [TerminateGameSession()](integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-terminategamesession "integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-terminategamesession") is no longer supported. Replace it with a call to [ProcessEnding()](integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-processending "integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-processending") to end both a game session and the server process.
 
 - Unreal Engine plugin version 3.3.2

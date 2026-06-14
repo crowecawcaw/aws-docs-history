@@ -16,6 +16,7 @@ In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift
    aliases.
 3. Enter an alias **Description** as needed.
 4. Choose a **Routing strategy** for the alias.
+
    1. If you choose a **Simple** routing strategy, select a fleet ID from the list
       to associate with this alias. The list includes all fleets in
       eith currently selected AWS Region. You must create an alias

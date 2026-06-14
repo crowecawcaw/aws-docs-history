@@ -128,6 +128,7 @@ In this step, you choose the game hosting solution that you want to deploy at th
   This scenario is a good starting point for testing your server integration
   with AWS and server build configuration. It deploys the following
   resources:
+
   - AWS fleet (On-Demand) with your game server build installed and running.
   - Amazon Cognito user pool and client to enable players to authenticate and start a game.
   - API gateway authorizer that links user pool with APIs.
@@ -142,6 +143,7 @@ In this step, you choose the game hosting solution that you want to deploy at th
   component for your hosting solution. In this scenario, you'll create the
   basic resources for this solution, which you can customize later as needed.
   It deploys the following resources:
+
   - FlexMatch matchmaking configuration and matchmaking rule set to accept player requests and
     form matches.
   - Three AWS fleets with your game server build installed and
@@ -213,6 +215,7 @@ to join the game session.
    a `GameLiftClientSettings` asset for your game project.
    The plugin uses this asset to store certain information that your game
    client needs to connect to the Amazon GameLift Servers service.
+
    1. If you didn’t import and initialize the sample game, create a new
       `GameLiftClientSettings` asset. In the Unity
       editor main menu, choose **Assets, Create,

@@ -117,6 +117,7 @@ console or use Amazon CloudWatch dashboards. For details on all available metric
 - **Matchmaking metrics** – `CurrentTickets`, `MatchesPlaced`
 - **Hardware performance** – `CPUUtilization`, `NetworkIn`/`NetworkOut`, `DiskReadBytes`/`DiskWriteBytes`
 - **Resource utilization metrics**
+
   - Use `PercentIdleInstances` to determine optimal fleet
     size.
   - Track `PercentAvailableGameSessions` to ensure sufficient

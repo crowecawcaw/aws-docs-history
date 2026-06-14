@@ -27,6 +27,7 @@ only.
   build.
 - **Status** – The status of the build. Displays one of
   three status messages:
+
   - **Initialized** – The upload hasn't started or is
     still in progress.
   - **Ready** – The build is ready for fleet

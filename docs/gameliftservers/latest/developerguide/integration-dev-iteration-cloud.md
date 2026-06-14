@@ -75,6 +75,7 @@ The workflow covers the following tasks:
   CloudWatch Agent.
 - **Start the Amazon GameLift Servers Agent.** Once installed, the
   Agent automatically starts and begins executing instructions. These include:
+
   - Register the EC2 instance as a compute in the Amazon GameLift Servers Anywhere fleet.
   - Establish a WebSocket connection with the Amazon GameLift Servers service and get the
     latest runtime configuration.

@@ -23,6 +23,7 @@ use.
 - **Compute costs** – Pay for hourly EC2
   instance usage for hosting game sessions. Cost factors for instances
   include:
+
   - AWS Region
   - Instance family, type, and size
   - Use of Spot versus On-Demand instances

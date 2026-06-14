@@ -8,20 +8,24 @@ that best fit your game's requirements and player base.
 **Topics**
 
 - [Game server build customizations](customize-game-server-builds.md "customize-game-server-builds.md")
+
   - [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md")
   - [Let your game server access Amazon GameLift Servers fleet data](gamelift-sdk-server-fleetinfo.md "gamelift-sdk-server-fleetinfo.md")
   - [Set up VPC peering for Amazon GameLift Servers](vpc-peering.md "vpc-peering.md")
 
 - [Player sessions and matchmaking customizations](customize-player-sessions-matchmaking.md "customize-player-sessions-matchmaking.md")
+
   - [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md")
   - [Add FlexMatch matchmaking to Amazon GameLift Servers](gamelift-match-intro.md "gamelift-match-intro.md")
 
 - [Game session placement customizations](customize-game-session-placement.md "customize-game-session-placement.md")
+
   - [Customize a game session queue](queues-design.md "queues-design.md")
   - [Prioritize game session placement](queues-design-priority.md "queues-design-priority.md")
   - [Build a queue for Spot Instances](spot-tasks.md "spot-tasks.md")
 
 - [Hosting resource customizations](fleets-design.md "fleets-design.md")
+
   - [Choose compute resources for a managed fleet](gamelift-compute.md "gamelift-compute.md")
   - [Customize an Amazon GameLift Servers container fleet](containers-design-fleet.md "containers-design-fleet.md")
   - [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md")

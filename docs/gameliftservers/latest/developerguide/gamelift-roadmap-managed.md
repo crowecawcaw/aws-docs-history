@@ -46,6 +46,7 @@ service when it's deployed for hosting.
   SDK](https://aws.amazon.com/gamelift/servers/getting-started-sdks/ "https://aws.amazon.com/gamelift/servers/getting-started-sdks/").
 - **Modify your game server code to add server SDK
   functionality.** For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the following:
+
   - Add code to initialize the Amazon GameLift Servers SDK and establish a WebSocket
     connection with the Amazon GameLift Servers service. Use the server SDK action
     `InitSdk()`.
@@ -84,6 +85,7 @@ service when it's deployed for hosting.
   includes starting game sessions, placing players into games, and retrieving game
   session information. For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the
   following:
+
   - Get the AWS SDK for Amazon GameLift Servers and add it to your backend service
     project. See [Amazon GameLift Servers SDK
     resources for client services](gamelift-supported.md#gamelift-supported-clients "gamelift-supported.md#gamelift-supported-clients").
@@ -124,6 +126,7 @@ minimum latency, cost, and availability.
 - **Create a game session queue for placing new game session with
   available game servers.** Queues are the primary mechanism for game
   session placement. For guidance, see [Create a game session queue](queues-creating.md "queues-creating.md").
+
   - At minimum, add your Anywhere fleets as destinations in your queue.
     All other settings are optional customizations.
 
@@ -158,6 +161,7 @@ fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-
   fleet, Amazon GameLift Servers immediately begins deploying your game server build for hosting.
   You can configure many aspects of a managed fleet. For guidance, see [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md "fleets-creating.md"). At minimum, do
   the following:
+
   - Give the fleet a name and specify which uploaded game build to
     deploy.
   - Choose On-Demand Instances for your fleet and select an instance type

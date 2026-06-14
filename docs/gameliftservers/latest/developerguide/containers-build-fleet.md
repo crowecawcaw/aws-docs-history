@@ -52,6 +52,7 @@ fleet**.
    create a fleet without a container group with a plan to add them later. A fleet
    without any container groups won't deploy any fleet instances and can't host any games
    yet, but the fleet resource is created.
+
    - Select a game server container group definition. Optionally specify the
      version of the definition that you want to deploy. If you don’t specify the
      version number, Amazon GameLift Servers automatically uses the latest version.

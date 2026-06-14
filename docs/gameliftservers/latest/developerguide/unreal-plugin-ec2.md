@@ -137,6 +137,7 @@ service.
 In this step, you choose the game hosting solution that you want to deploy at this time. You can have multiple deployments of your game, using any of the scenarios.
 
 - Single-region fleet: Deploys your game server to a single fleet of hosting resources in the active profile's default AWS region. This scenario is a good starting point for testing your server integration with AWS and server build configuration. It deploys the following resources:
+
   - AWS fleet (On-Demand) with your game server build installed and running.
   - Amazon Cognito user pool and client to enable players to authenticate and start a game.
   - API gateway authorizer that links user pool with APIs.
@@ -146,6 +147,7 @@ In this step, you choose the game hosting solution that you want to deploy at th
   - API gateway + Lambda function for players to get connection info for their game request.
 
 - FlexMatch fleet: Deploys your game server to a set of fleets and sets up a FlexMatch matchmaker with rules to create player matches. This scenario uses low-cost Spot hosting with a multi-fleet, multi-location structure for durable availability. This approach is useful when you're ready to start designing a matchmaker component for your hosting solution. In this scenario, you'll create the basic resources for this solution, which you can customize later as needed. It deploys the following resources:
+
   - FlexMatch matchmaking configuration and matchmaking rule set to accept player requests and
     form matches.
   - Three AWS fleets with your game server build installed and

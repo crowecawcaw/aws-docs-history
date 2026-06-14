@@ -23,6 +23,7 @@ Amazon GameLift Servers.
    file. Example: `.../Source/GameLiftUnrealAppTarget.cs`.
    (If you use Visual Studio, open the project's `.sln` file.)
 2. Copy this file to create two new target files in the `Source/` directory.
+
    - Client target – Rename the new file to ``[your application name]`Client.Target.cs`.
      Edit the contents to update the class name and target type values, as illustrated in the following sample code:
 
@@ -41,7 +42,6 @@ Amazon GameLift Servers.
         }
     }
    ```
-
    - Server target – Rename the new file to ``[your application name]`Server.Target.cs`.
      Edit the contents to update the class name and target type values, as illustrated in the following sample code:
 
@@ -494,8 +494,10 @@ server, update the BP_ThirdPersonCharacter blueprint to add input mapping contex
 2. If using Unreal Engine 5.6 or later, go to **Edit, Project Settings, Packaging**.
    Find **Cook everything in the project content directory** and enable it.
 3. Use the editor to package your game client and server builds.
+
    1. Choose a target. Go to **Platforms, Windows** and select one of the
       following:
+
       - Server: `[your-application-name]Server`
       - Client: `[your-application-name]Client`
 

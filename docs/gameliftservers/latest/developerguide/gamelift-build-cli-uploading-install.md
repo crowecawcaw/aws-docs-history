@@ -14,6 +14,7 @@ When creating an install script, keep in mind the following:
 - The script can't take any user input.
 - Amazon GameLift Servers installs the build and recreates the file directories in your build
   package on a hosting server in the following locations:
+
   - Windows fleets: `C:\game`
   - Linux fleets: `/local/game`
 

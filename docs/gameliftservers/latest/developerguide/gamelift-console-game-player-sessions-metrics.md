@@ -20,6 +20,7 @@ session.
 1. In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/"),
    open the left navigation pane. Select a hosting solution type and open the
    **Fleets** page. For example:
+
    - **Hosting**, **Anywhere**, **Fleets**
    - **Hosting**, **Managed EC2**, **Fleets**
    - **Hosting**, **Managed containers**, **Fleets**
@@ -41,6 +42,7 @@ session.
 The **Game sessions** detail include the following information:
 
 - **Status** – Game session status.
+
   - **Activating** – The instance is initiating a
     game session.
   - **Active** – A game session is running and

@@ -104,20 +104,24 @@ Follow these best practices when implementing latency measurements using
 UDP ping beacons:
 
 1. Store ping beacon information using one of these approaches:
+
    - Hardcode the endpoints in your game client.
    - Cache the information in your game backend.
    - Implement a periodic update mechanism (daily/weekly) to refresh the
      information.
 
 2. Send UDP ping messages:
+
    - Put whatever you want in the message body, as long as it is not empty,
      and you keep messages under the maximum size of 300 bytes.
    - Observe the following rate limits for each location:
+
      - 3 transactions per second (TPS) per unique sender IP address
        and port combination
      - 1000 TPS per unique sender IP address
 
 3. Calculate latency:
+
    - Send multiple pings to each location to calculate an average
      latency.
    - Consider sending concurrent pings to multiple locations for faster

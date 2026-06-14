@@ -51,6 +51,7 @@ fleet.
 - **Consider automating fleet
   replacement** – You can automate processes to create new fleets and
   migrate player traffic from older fleets. For example:
+
   - Use AWS CloudFormation to automate fleet creation and management. Maintain your fleet
     configurations as CloudFormation templates and use them to launch resource stacks.
   - Take advantage of the Amazon GameLift Servers alias feature to abstract specific fleet IDs. Fleet aliases

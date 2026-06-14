@@ -75,6 +75,7 @@ definition.
 2. Link to a container image with your game server build. Enter the **Amazon ECR
    image URI** for a container image in a public or private repository. You
    can use any of the following formats:
+
    - Image URI only: `[AWS account].dkr.ecr.[AWS Region].amazonaws.com/[repository
 ID]`
    - Image URI + digest: `[AWS account].dkr.ecr.[AWS Region].amazonaws.com/[repository
@@ -93,6 +94,7 @@ ID]:[tag]`
    containers are automatically designated support containers. A game server container
    group can have only one game server containers and up to eight support containers.
    Provide the following minimal required settings:
+
    - Container definition **Name**
    - **ECR image URI**.
    - **Internal container ports** (Include this only if the container

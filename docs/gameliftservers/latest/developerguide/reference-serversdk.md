@@ -63,6 +63,7 @@ Amazon GameLift Servers server SDK version 5.0.0 and above includes these update
   different types of hosting resources. It includes cloud-based hosting resources
   (managed EC2 or container fleets) and customer-controlled hosting resources
   (Anywhere fleets). It includes the following updates:
+
   - New API calls for the `Compute` resource include: [ListCompute()](../apireference/API_ListCompute.md "../apireference/API_ListCompute.md"), [DescribeCompute()](../apireference/API_DescribeCompute.md "../apireference/API_DescribeCompute.md"), and [GetComputeAccess()](../apireference/API_GetComputeAccess.md "../apireference/API_GetComputeAccess.md"). These actions return hosting resource
     information for any type of Amazon GameLift Servers fleet. In general, for fleets with
     game servers that use server SDK 5.x, use the compute-specific actions

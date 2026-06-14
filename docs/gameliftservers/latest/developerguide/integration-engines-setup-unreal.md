@@ -31,6 +31,7 @@ Amazon GameLift Servers.
    file. Example: `.../Source/GameLiftUnrealAppTarget.cs`.
    (If you use Visual Studio, open the project's `.sln` file.)
 2. Copy this file to create two new target files in the `Source/` directory.
+
    - Client target – Rename the new file to ``[your application name]`Client.Target.cs`.
      Edit the contents to update the class name and target type values, as illustrated in the following sample code:
 
@@ -49,7 +50,6 @@ Amazon GameLift Servers.
         }
     }
    ```
-
    - Server target – Rename the new file to ``[your application name]`Server.Target.cs`.
      Edit the contents to update the class name and target type values, as illustrated in the following sample code:
 
@@ -482,10 +482,12 @@ functionality, you're ready to package your game server build using the Unreal E
 
 3.  Prepare your game server build for deployment to hosting resources. The build
     should include the following files:
+
     - Your game server executable
     - If you're using Unreal Engine version 5.5 or older, include the
       following files for Windows builds. You can find them in your
       source-built version of the Unreal Engine:
+
       - `VC_redist.x64.exe`
         (`UnrealEngine\Engine\Source\Programs\PrereqInstaller\Resources\VCRedist\`)
       - `UEPrereqSetup_x64.exe or
@@ -518,6 +520,7 @@ for hosting with Amazon GameLift Servers, consider these potential next steps:
 - Deploy your integrated game server for and testing and development. With an Anywhere fleet, you can set up your local machine
   as a hosting resource and use it to test your game server and game client connections. For cloud-based hosting,
   deploy your game server to a managed EC2 or managed container fleet. See these topics for guidance:
+
   - [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md "integration-dev-iteration.md")
   - [Amazon GameLift Servers Anywhere fleets](fleets-intro-anywhere.md "fleets-intro-anywhere.md")
   - [Amazon GameLift Servers managed EC2 fleets](fleets-intro-managed.md "fleets-intro-managed.md")
@@ -525,9 +528,11 @@ for hosting with Amazon GameLift Servers, consider these potential next steps:
 
 - Customize your game server integration by adding optional features. For example, you might want to add player sessions with unique player IDs, set up
   matchmaking backfill, or manage game server access to your other AWS resources (such as a database or content storage service). See these topics for guidance:
+
   - [Add Amazon GameLift Servers to your game server with the server SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
   - [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 
 - Customize your game client component to request game sessions, receive connection information, and connect directly to a game server to play a game.
   See these topics for guidance:
+
   - [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md")

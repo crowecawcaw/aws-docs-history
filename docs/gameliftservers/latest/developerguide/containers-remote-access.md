@@ -49,6 +49,7 @@ management. You can connect to a container from either the
    from the navigation pane, and then **Fleets**.
 2. Choose the fleet ID that contains the container or game session you want to access.
 3. On the fleet details page, choose one of the following tabs:
+
    - **Computes** – Lists the containers
      running on the fleet. Select the container you want to connect to.
    - **Game sessions** – Lists the game

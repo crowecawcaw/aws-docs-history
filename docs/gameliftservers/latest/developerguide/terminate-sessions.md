@@ -28,6 +28,7 @@ It has the following limitations:
 1. In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/"),
    open the left navigation pane. Select a hosting solution type and open the
    **Fleets** page. For example:
+
    - **Hosting**, **Anywhere**, **Fleets**
    - **Hosting**, **Managed EC2**, **Fleets**
    - **Hosting**, **Managed containers**, **Fleets**
@@ -40,6 +41,7 @@ It has the following limitations:
    choose the **Terminate** button.
 4. In the **Terminate game session?** window, verify that you're
    shutting down the right game session and choose a termination method.
+
    - Normal game session shutdown – This option sends a signal to the server process that's
      hosting the game session to shut down. If your game server build was
      properly integrated for Amazon GameLift Servers, the server process initiates its game

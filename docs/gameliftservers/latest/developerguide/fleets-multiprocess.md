@@ -30,6 +30,7 @@ configuration changes:
    configuration.
 2. The instance compares its active processes to the latest runtime
    configuration, and then does the following:
+
    - If the updated runtime configuration removes a server process type,
      then active server processes of this type continue to run until they
      end. The instance doesn't replace these server processes.
@@ -60,6 +61,7 @@ To optimize fleet performance, we recommend that you do the following:
 
 - Handle server process shutdown scenarios so that Amazon GameLift Servers can recycle processes
   efficiently. For example:
+
   - Add a shutdown procedure to your game server code that calls the
     server API `ProcessEnding()`.
   - Implement the callback function `OnProcessTerminate()` in

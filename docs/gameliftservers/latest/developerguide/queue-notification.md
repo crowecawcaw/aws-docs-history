@@ -30,6 +30,7 @@ notification target field to a topic.
 2. From the SNS **Topics** page, choose **Create
    topic** and follow the instructions to create your topic.
 3. Under **Access policy**, do the following:
+
    1. Choose the **Advanced** method.
    2. Add the following bolded section of the JSON object to the existing
       policy.
@@ -82,7 +83,6 @@ notification target field to a topic.
    }`
 
    ```
-
    3. (Optional) Add additional access control to the topic by adding
       conditions to the resource policy.
 

@@ -13,6 +13,7 @@ for an Anywhere fleet:
 
 - Handles the game session placement process for you based on your configuration,
   including:
+
   - Tracking game server availability across your Anywhere fleets.
   - Processing game requests from your game client service and matching game
     requests with available servers.
@@ -63,6 +64,7 @@ service when it's deployed for hosting.
   SDK](https://aws.amazon.com/gamelift/servers/getting-started-sdks/ "https://aws.amazon.com/gamelift/servers/getting-started-sdks/").
 - **Modify your game server code to add server SDK
   functionality.** For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the following:
+
   - Add code to initialize the Amazon GameLift Servers SDK and establish a WebSocket
     connection with the Amazon GameLift Servers service. Use the server SDK action
     `InitSdk()` and include server parameters, which are
@@ -102,6 +104,7 @@ service when it's deployed for hosting.
   includes starting game sessions, placing players into games, and retrieving game
   session information. For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the
   following:
+
   - Get the AWS SDK for Amazon GameLift Servers and add it to your backend service
     project. See [Amazon GameLift Servers SDK
     resources for client services](gamelift-supported.md#gamelift-supported-clients "gamelift-supported.md#gamelift-supported-clients").
@@ -137,6 +140,7 @@ service when it's deployed for hosting.
 - **Create a game session queue for placing new game session with
   available game servers.** Queues are the primary mechanism for game
   session placement. For guidance, see [Create a game session queue](queues-creating.md "queues-creating.md").
+
   - At minimum, add your Anywhere fleets as destinations in your queue.
     All other settings are optional.
 

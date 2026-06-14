@@ -21,6 +21,7 @@ fleet instance types and locations for game hosting viability.
 - Based on this analysis, Amazon GameLift Servers identifies Spot instance types and locations
   where there's an unacceptable potential for game session interruption. It takes
   the following actions:
+
   - It marks the combination of instance type and location as temporarily
     non-viable.
   - It removes any non-viable Spot fleet location from consideration when

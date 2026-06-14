@@ -36,6 +36,7 @@ AWS SDK or the AWS Command Line Interface (AWS CLI) with the [service API for Am
 3. On the **Fleets** page, choose the name of an active fleet to open the fleet's
    detail page.
 4. Choose the **Scaling** tab. On this tab, you can:
+
    - View historical scaling metrics for the entire fleet.
    - View and update capacity settings for each fleet location, including
      scaling limits and current capacity settings.

@@ -42,6 +42,7 @@ managed EC2 fleet** to start the fleet creation workflow.
 - Skip the Additional details and Tags sections to use default settings.
 
 1. Fill out the **Fleet details** section:
+
    1. Enter a fleet **Name**. Fleet names are descriptive only, useful for
       sorting or filtering a list of fleets. They don't need to be unique.
    2. Provide a short fleet **Description** to include any custom information
@@ -52,6 +53,7 @@ managed EC2 fleet** to start the fleet creation workflow.
 
 2. Set **Additional details** as
    needed.
+
    1. If your game server executable needs to access
       other AWS resources in your account, specify an
       IAM **Instance role** with the
@@ -108,6 +110,7 @@ type. Not all instance types are available in all locations.
 
 1. In **Instance deployment**, specify fleet
    locations and type.
+
    1. Select one or more additional
       **Locations** where you want to
       deploy fleet instances. These remote locations are
@@ -181,6 +184,7 @@ can update these fleet settings at any time.
    instruct Amazon GameLift Servers on how to run server processes on each
    instance in the fleet. You can change a fleet's runtime
    configuration at any time after deployment.
+
    1. Enter the **Launch path** to an
       executable file in your build. On Windows instances,
       game server executables are built to the path
@@ -212,6 +216,7 @@ can update these fleet settings at any time.
    configuration calls for multiple concurrent game server
    process per instance, these settings determine how quickly
    new game sessions can start up.
+
    1. Set **Max concurrent game
       session activation** to limit the number
       of game servers on an instance that are preparing a
@@ -340,6 +345,7 @@ optional features. The new fleet has these characteristics:
   deploys instances to the home Region and one remote location
   `sa-east-1`.
 - Based on the runtime configuration:
+
   - Each compute in the fleet runs 10 game server processes with
     the same launch parameters, which means that each compute can
     host up to 10 game sessions simultaneously.

@@ -133,6 +133,7 @@ hosting resource. If there are multiple destinations with the priority location,
 There are several ways that you can influence how a queue's locations are prioritized
 
 - Configure how the queue handles all game session placement requests:
+
   - **Add a priority configuration to the
     queue.** A queue's priority configuration includes an
     ordered list of locations. You can specify one or more locations to
@@ -155,12 +156,14 @@ There are several ways that you can influence how a queue's locations are priori
     filter configuration by calling [UpdateGameSessionQueue](../apireference/API_UpdateGameSessionQueue.md "../apireference/API_UpdateGameSessionQueue.md").
 
 - Use special instructions for individual placement requests:
+
   - **Include a priority override list in a game
     session placement request.** You can provide an alternate
     priority list of locations with any [StartGameSessionPlacement](../apireference/API_StartGameSessionPlacement.md "../apireference/API_StartGameSessionPlacement.md") request. This list effectively
     replaces the queue's configured prioritization for locations for that
     one request only. It doesn't impact any other requests. This override
     feature has a few requirements:
+
     - Use an override list only with a queue that has a priority
       configuration in place with `LOCATION` as the first
       priority.

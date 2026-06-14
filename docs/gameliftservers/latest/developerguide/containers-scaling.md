@@ -19,6 +19,7 @@ based on player demand:
   fleet's capacity to host game sessions and players.
 
 - Game sessions per instance
+
   - Each game server process running on an instance represents the capacity to host one
     game session.
   - Use this formula to calculate the number of game sessions that run concurrently on a

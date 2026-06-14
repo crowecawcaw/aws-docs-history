@@ -26,6 +26,7 @@ Telemetry metrics are available for Amazon GameLift Servers managed Amazon EC2 o
 
 - AWS account configured for Amazon GameLift Servers.
 - Managed fleet running on:
+
   - Amazon EC2 with supported operating systems, OR
   - Containers with Amazon Linux 2023
 
@@ -36,13 +37,16 @@ Telemetry metrics are available for Amazon GameLift Servers managed Amazon EC2 o
 The following IAM permissions are required only if you plan to use the corresponding service:
 
 - **[Amazon Managed Service for Prometheus](../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md "../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md")** (required only if publishing metrics to Prometheus)
+
   - `aps:RemoteWrite` permission
   - Access to your Prometheus workspace
 
 - **Amazon CloudWatch** (required only if publishing metrics to Amazon CloudWatch)
+
   - `cloudwatch:PutMetricData` permission
   - Access to metrics namespaces
 
 - **[Amazon Managed Grafana](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md")** (required only if using Grafana dashboards)
+
   - `grafana:Read` permission
   - SSO configuration for dashboard access

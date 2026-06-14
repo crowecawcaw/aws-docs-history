@@ -12,6 +12,7 @@ For SDK version 4.0.2 specifically, you can download it from the [official GitHu
    Follow the installation instructions in the `Readme` file for your
    downloaded package and version. See these instructions for using the server SDKs
    with your game project.
+
    - [For development environments using C++, C#, or
      Go](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
    - [For Unreal Engine projects (C++ server SDK
@@ -22,9 +23,11 @@ For SDK version 4.0.2 specifically, you can download it from the [official GitHu
    - [For use with the Amazon GameLift Servers plugin for Unity](unity-plug-in.md "unity-plug-in.md")
 
 2. Update your server code as follows:
+
    - Change the server code callback function `onCreateGameSession()` to
      `onStartGameSession()`.
    - Update the `InitSDK()` inputs as appropriate:
+
      - If you plan to deploy the game server build to either an Amazon GameLift Servers managed
        EC2 fleet or an Anywhere fleet with the Amazon GameLift Servers Agent:
 

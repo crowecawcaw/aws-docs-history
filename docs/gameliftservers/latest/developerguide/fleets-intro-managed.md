@@ -61,6 +61,7 @@ ready to host game sessions.
 2. Amazon GameLift Servers begins writing events to the fleet event log.
 3. Amazon GameLift Servers sets fleet status to **Downloading** and begins
    preparing the game server software for deployment.
+
    1. Gets the uploaded game server build and extracts the compressed
       files.
    2. Runs install scripts, if provided.

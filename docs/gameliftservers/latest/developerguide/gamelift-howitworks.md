@@ -68,6 +68,7 @@ The game server is your custom server software that manages game state, processe
 ###### Key functions for game hosting
 
 - Communicate with Amazon GameLift Servers to:
+
   - report status (ready to host sessions, ready to accept players, health status).
   - respond to service calls (start or end game sessions).
 
@@ -88,6 +89,7 @@ Fleet characteristics and functionality vary based on the fleet's hosting type. 
 ###### Key functions for game hosting
 
 - Provision game server hosting resources.
+
   - Managed fleets deploy cloud-based Amazon EC2 instances with a wide range of configuration settings.
     A fleet configuration determines the computing power of each
     instance in the fleet, the physical location of instances, and other
@@ -96,6 +98,7 @@ Fleet characteristics and functionality vary based on the fleet's hosting type. 
   - Anywhere fleet deployments are self-managed. The fleet can consist of physical hardware or other cloud resources, and be configured as needed.
 
 - Install runtime environment and game server software.
+
   - Managed Amazon EC2 fleet instances are deployed with your game server build and an Amazon Machine Image (AMI) with a compatible runtime environment.
   - Managed container fleet instances are deployed with your game server build and a container-optimized AMI with Docker tools and other components to work with Amazon ECS.
   - Anywhere fleets are deployed with your chosen game server software and operating system.

@@ -76,6 +76,7 @@ aws gamelift list-compute \
 2. **Find the server SDK version.** For this
    information you need to look up the build that is deployed to the fleet. Server
    SDK version is a build property.
+
    1. Call [describe-fleet-attributes](../../../cli/latest/reference/gamelift/describe-fleet-attributes.md "../../../cli/latest/reference/gamelift/describe-fleet-attributes.md") with a fleet ID or ARN to get the
       fleet's build ID and ARN.
    2. Call [describe-build](../../../cli/latest/reference/gamelift/describe-build.md "../../../cli/latest/reference/gamelift/describe-build.md") with the
@@ -214,6 +215,7 @@ protocol (RDP) client. Connect to a Linux instance using an SSH client.
    credentials (user name and secret key). The credentials format depends on the
    instance operating system. Use the following instructions to retrieve
    credentials for either RDP or SSH.
+
    - **For Windows instances** – To
      connect to a Windows instance, RDP requires a user name and password.
      The `get-instance-access` request returns these values as
@@ -226,7 +228,6 @@ protocol (RDP) client. Connect to a Linux instance using an SSH client.
        "UserName": "gl-user-remote"
    }
    ```
-
    - **For Linux instances** – To
      connect to a Linux instance, SSH requires a user name and private key.
      Amazon GameLift Servers issues RSA private keys and returns them as a single string, with
@@ -307,6 +308,7 @@ Look for these resources on a hosting instance:
   build that you uploaded to Amazon GameLift Servers. They include one or more game server
   executables, assets, and dependencies. Game build files are in a root directory
   called `game`:
+
   - On Windows: `c:\game`
   - On Linux: `/local/game`
 
@@ -323,6 +325,7 @@ Look for these resources on a hosting instance:
 - **Fleet data.** A JSON file contains information
   about the fleet that the instance belongs to, for use by server processes
   running on the instance. The JSON file is in the following location:
+
   - On Windows: `C:\GameMetadata\gamelift-metadata.json`
   - On Linux:
     `/local/gamemetadata/gamelift-metadata.json`
@@ -331,5 +334,6 @@ Look for these resources on a hosting instance:
   fleet that has TLS certificate generation enabled, look for certificate files,
   including the certificate, certificate chain, private key, and root certificate
   in the following location:
+
   - On Windows: `c:\\GameMetadata\Certificates`
   - On Linux: `/local/gamemetadata/certificates/`

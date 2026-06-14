@@ -75,6 +75,7 @@ Realtime configuration script.
   Remove a fleet that's no longer running game servers or hosting
   players.
 - View / update fleet locations.
+
   - [CreateFleetLocations](../../../gamelift/latest/apireference/API_CreateFleetLocations.md "../../../gamelift/latest/apireference/API_CreateFleetLocations.md") – Add remote locations to
     an existing fleet that supports multiple locations
   - [DescribeFleetLocationAttributes](../../../gamelift/latest/apireference/API_DescribeFleetLocationAttributes.md "../../../gamelift/latest/apireference/API_DescribeFleetLocationAttributes.md") – Get a list of
@@ -84,6 +85,7 @@ Realtime configuration script.
     from a fleet that supports multiple locations.
 
 - View / update fleet configurations.
+
   - [DescribeFleetAttributes](../../../gamelift/latest/apireference/API_DescribeFleetAttributes.md "../../../gamelift/latest/apireference/API_DescribeFleetAttributes.md") / [UpdateFleetAttributes](../../../gamelift/latest/apireference/API_UpdateFleetAttributes.md "../../../gamelift/latest/apireference/API_UpdateFleetAttributes.md") – View or change a fleet's
     metadata and settings for game session protection and resource
     creation limits.
@@ -106,6 +108,7 @@ Realtime configuration script.
 - [UpdateFleetCapacity](../../../gamelift/latest/apireference/API_UpdateFleetCapacity.md "../../../gamelift/latest/apireference/API_UpdateFleetCapacity.md") – Manually adjust capacity settings
   for a fleet.
 - Set up :
+
   - [PutScalingPolicy](../../../gamelift/latest/apireference/API_PutScalingPolicy.md "../../../gamelift/latest/apireference/API_PutScalingPolicy.md") – Turn on target-based
     auto scaling or create a custom auto scaling policy, or update an
     existing policy.
@@ -202,6 +205,7 @@ using Amazon GameLift Servers Realtime, manage game sessions using the
 
 - **Start new game sessions for one or more
   players.**
+
   - [StartGameSessionPlacement](../../../gamelift/latest/apireference/API_StartGameSessionPlacement.md "../../../gamelift/latest/apireference/API_StartGameSessionPlacement.md") – Ask Amazon GameLift Servers to find the
     best available hosting resources and start a new game session. This is
     the preferred method for creating new game sessions. It relies on game
@@ -221,6 +225,7 @@ using Amazon GameLift Servers Realtime, manage game sessions using the
 - **Get players into existing game sessions.** Find
   running game sessions with available player slots and reserve them for new
   players.
+
   - [CreatePlayerSession](../../../gamelift/latest/apireference/API_CreatePlayerSession.md "../../../gamelift/latest/apireference/API_CreatePlayerSession.md") – Reserve an open slot for a
     player to join a game session.
   - [CreatePlayerSessions](../../../gamelift/latest/apireference/API_CreatePlayerSessions.md "../../../gamelift/latest/apireference/API_CreatePlayerSessions.md") – Reserve open slots for
@@ -229,6 +234,7 @@ using Amazon GameLift Servers Realtime, manage game sessions using the
 - **Work with game session and player session
   data.** Manage information on game sessions and player
   sessions.
+
   - [SearchGameSessions](../../../gamelift/latest/apireference/API_SearchGameSessions.md "../../../gamelift/latest/apireference/API_SearchGameSessions.md") – Request a list of active game
     sessions based on a set of search criteria.
   - [DescribeGameSessions](../../../gamelift/latest/apireference/API_DescribeGameSessions.md "../../../gamelift/latest/apireference/API_DescribeGameSessions.md") – Retrieve metadata for

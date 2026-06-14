@@ -614,6 +614,7 @@ Returns a GetComputeCertificateResponse object that contains the following:
 
 - CertificatePath: The path to the TLS certificate on your compute resource.
   When using an Amazon GameLift Servers managed fleet, this path contains:
+
   - `certificate.pem`: The end-user certificate. The full certificate chain is the combination of `certificateChain.pem` appended to this certificate.
   - `certificateChain.pem`: The certificate chain that contains the root certificate and intermediate certificates.
   - `rootCertificate.pem`: The root certificate.
