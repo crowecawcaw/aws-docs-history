@@ -17,6 +17,7 @@ For example, three monitors are connected to your local computer. The server ext
 To enable this feature, do one of the following depending on your client.
 
 - **Windows client**
+
   1.  Go to the toolbar at the top of the window.
   2.  Choose the **Full Screen** icon.
   3.  Select **Across all monitors** from the drop-down menu.
@@ -36,12 +37,14 @@ The **Displays have separate Spaces** option in **Mission Control** system prefe
 ![DCV Viewer menu showing "View" options, with "Full Screen All Monitors" highlighted.](images/macos-extend.png)
 
 - **Linux client**
+
   1.  Go to the toolbar at the top of the window.
   2.  Choose the **Full Screen** icon.
 
 ![Fullscreen icon highlighted in red circle within a row of interface controls.](images/full_screen_linux.png)
 
 - **Web browser client**
+
   1.  Go to the toolbar at the top of the window.
   2.  Choose the **Multiscreen** icon.
 

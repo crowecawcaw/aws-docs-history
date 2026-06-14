@@ -15,6 +15,7 @@ For more information, see [Modifying Configuration Parameters](../adminguide/con
 To set your time zone, do one of the following depending on your client:
 
 - **For Windows**
+
   1.  Go to the **Settings** icon.
   2.  Select **Time Zone Redirection** from the drop down menu.
 
@@ -25,6 +26,7 @@ To set your time zone, do one of the following depending on your client:
   ![Time Zone Redirection Disable option highlighted in a settings menu.](images/TZR_windows_circle.png)
 
 - **For macOS**
+
   1.  Go to the **DCV Viewer** icon from the toolbar at the top.
   2.  Select **Preferences** from the drop-down menu.
   3.  Select the **General** tab.
@@ -33,6 +35,7 @@ To set your time zone, do one of the following depending on your client:
   ![Preferences window with General tab showing Enable timezone redirection checkbox selected.](images/mac-preferences-general-timezone.png)
 
 - **For Linux**
+
   1.  Go to the **Settings** icon.
   2.  Select **Preferences** from the drop-down menu.
   3.  Select the **General** tab in the **Preferences** windows.
@@ -41,6 +44,7 @@ To set your time zone, do one of the following depending on your client:
   ![Preferences dialog with General tab showing Enable timezone redirection checkbox circled.](images/linux-pref-general-timezone.png)
 
 - **For web based clients**
+
   1.  Go to **Preferences**.
   2.  Click on the switch for **Time Zone Redirection**.
 

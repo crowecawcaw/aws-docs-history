@@ -19,6 +19,7 @@ Authorization](../adminguide/security-authorization.md "../adminguide/security-a
 1. In the client, open the Print window.
 2. In the Print window, choose one of the following printing devices and then choose
    **Print**.
+
    - (All clients connected to all Windows and Linux server) **DCV Printer**
      — Prints to the Amazon DCV virtual printer
    - (Windows client connected to Windows and Linux server)
@@ -28,6 +29,7 @@ Authorization](../adminguide/security-authorization.md "../adminguide/security-a
 3. If you print to the Amazon DCV virtual printer, a notification appears when the file is
    ready for download. In the top-right corner, choose **Notifications**,
    locate the Print notification in the list, and then choose **Download**.
+
    - If you're using the web browser client, after the download has completed, choose
      **Show in folder**.
    - If you're using the Windows client, the printer dialog is automatically opened when the file

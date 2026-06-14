@@ -35,5 +35,6 @@ The icon will be one of the following:
 - **Status Message:** Located in the main body of user interface, the message will explain the current operational status.
 - **Redirection Toggle:** Located at the bottom of the user
   interface, this switch enables or disables the feature.
+
   - Enabling redirection allows WebAuthn requests to be intercepted by the extension and forwarded to the client.
   - Disabling redirection allows WebAuthn requests to be processed locally by the browser.

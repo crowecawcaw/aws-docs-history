@@ -24,10 +24,12 @@ administrator.
 
 1. Choose **Storage** in the client.
 2. Do one of the following:
+
    - Upload the file to an existing folder:
 
    Navigate to the folder within the **File Storage** window.
    - Upload the file to a new folder
+
      1. Choose **Create Folder**.
      2. Enter folder name.
      3. Open the new folder.

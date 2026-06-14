@@ -5,6 +5,7 @@
 1. Choose the **Settings** icon.
 2. Select **Streaming Mode** from the drop-down list.
 3. In the Streaming Mode window, choose one of the following options:
+
    - **Best responsiveness**
    - **Best quality**
 
@@ -19,6 +20,7 @@
 2. Select **Preferences** from the drop-down menu.
 3. Select the **Display** tab in the **Preferences** window.
 4. Choose one of the following options:
+
    - **Best responsiveness**
    - **Best image quality**
 
@@ -32,6 +34,7 @@
 1. Choose the **Settings** icon at the top of the window. **Streaming Mode**.
 2. Select the **Display** tab in the **Preferences** window.
 3. Choose one of the following options:
+
    - **Best responsiveness**
    - **Best image quality**
 

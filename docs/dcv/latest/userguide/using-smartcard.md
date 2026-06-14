@@ -105,12 +105,12 @@ see [Configuring Smart Card Caching](../adminguide/manage-smart-card.md "../admi
 1. Launch the client and connect to the Amazon DCV session.
 2. Open a terminal window.
 3. Run one of the following commands:
+
    - To enable smart card caching for the current terminal window:
 
    ```
    `C:\>` set DCV_PCSC_ENABLE_CACHE=1
    ```
-
    - To enable smart card caching permanently for all applications on the server:
 
    ```

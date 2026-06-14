@@ -14,12 +14,12 @@ For instructions on how to connect to a Amazon DCV session using the Linux clien
 1. The software packages are digitally signed with a secure GPG signature. To allow the
    package manager to verify the package signature, import the Amazon DCV GPG key. To do this,
    open a terminal window and import the Amazon DCV GPG key.
+
    - RHEL, CentOS, Rocky Linux, and SUSE Linux Enterprise 15
 
    ```
    `$` sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
-
    - Ubuntu
 
    Download the GPG key.

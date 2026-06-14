@@ -25,6 +25,7 @@ The steps for selecting the camera to use are the same across all supported web 
   you're prompted to allow camera detection before being able to select the camera to use.
 - In case the camera permission settings have been expressly granted or denied by the user,
   you would be able to change such setting following this procedure:
+
   1.  At the top left of your browser window, click the area on the address bar left of the URL.
   2.  In the popup window that opened, select the desired camera permission setting to be applied.
 

@@ -24,12 +24,12 @@ In order to troubleshoot issues, the Amazon DCV debug logs must be explicitly en
 
 1. Navigate to the folder where the `dcvviewer.exe` file is located. By default, this is `C:\Program Files (x86)\NICE\DCV\Client\bin\`.
 2. Do one of the following:
+
    - Open a command prompt and enter the following:
 
    ```
    dcvviewer --log-level debug --log-file-name C:/ProgramData/client.log
    ```
-
    - Add the following configuration to the connection file and double click on it to connect:
 
    ```

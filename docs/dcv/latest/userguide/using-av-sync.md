@@ -19,7 +19,9 @@ Accurate Audio/Video Synchronization is not supported on web based clients.
 
 1. Launch the client and connect to the Amazon DCV session.
 2. Do one of the following depending on your client.
+
    - Windows clients
+
      1. Choose the **Settings** icon.
      2. Select **Accurate Audio/Video Synchronization** from
         the drop-down menu.
@@ -27,6 +29,7 @@ Accurate Audio/Video Synchronization is not supported on web based clients.
      ![Audio/Video Settings button that's located at the bottom of the Settings menu.](images/av-sync-setting-windows-client.png)
 
    - macOS clients
+
      1. Choose the **DCV Viewer** icon.
      2. Select **Preferences** from
         the drop-down menu.
@@ -35,6 +38,7 @@ Accurate Audio/Video Synchronization is not supported on web based clients.
      ![Audio/Video Settings button that's located at the bottom of the Settings menu.](images/mac-preferences-av-sync.png)
 
    - Linux clients
+
      1. Choose the **Settings** icon.
      2. Select **Preferences** from
         the drop-down menu.

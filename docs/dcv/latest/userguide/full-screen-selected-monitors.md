@@ -20,6 +20,7 @@ _Examples of nonadjacent monitor placement._
 If your monitors are not set adjacent in your Windows display configuration, you will need to exit DCV and change your Display settings on your local machine.
 
 - **Windows client**
+
   1.  Go to the top menu.
   2.  Select the **Full Screen** icon.
 
@@ -36,6 +37,7 @@ If your monitors are not set adjacent in your Windows display configuration, you
   ![Monitor arrangement diagram showing internal display 1 at bottom, monitor 2 at left, and monitors 3 and 4 at top right.](images/Windows_client_mulitple_monitors.png) 4. Select which monitors you want DCV to be displayed full screen. 5. Click **Apply**.
 
 - **macOS client**
+
   1.  Go to the top menu.
   2.  Select **View**.
 
@@ -52,6 +54,7 @@ If your monitors are not set adjacent in your Windows display configuration, you
   ![Monitor configuration interface showing four displays with monitor 4 selected.](images/mac-multi-screen1.png) 4. Select which monitors you want DCV to be displayed full screen. 5. Click **Apply**.
 
 - **Linux client**
+
   1.  Go to the top menu.
   2.  Select **Full Screen** icon.
 

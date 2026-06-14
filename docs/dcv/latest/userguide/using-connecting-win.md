@@ -8,6 +8,7 @@ versions of the Windows client.
 1. Launch the Windows client.
 2. Choose **Connections Settings**, configure your proxy settings as follows, and then choose
    **OK**.
+
    - To avoid connecting through a proxy, choose **Connect Directly**.
    - To connect to the Amazon DCV server using your preconfigured operating system proxy settings, choose
      **Use system proxy**.

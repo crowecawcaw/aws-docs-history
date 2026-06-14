@@ -6,13 +6,16 @@ The steps for selecting the camera to use are similar across the Windows, Linux 
 
 1. Launch the client and connect to the Amazon DCV session.
 2. Do one of the following depending on your client.
+
    - Windows and Linux clients
+
      1. Choose the **Settings** icon.
      2. Select **Camera**.
      3. Select the camera from the drop-down list
 
    ![Webcam menu option](images/menu.png)
    - macOS client
+
      1. Choose the **DCV Viewer** icon.
      2. Select the **General** tab.
      3. Select the arrow down arrow in the **Select Camera:** field to open a drop-down list of cameras.

@@ -34,6 +34,7 @@ please follow these steps to enable high color accuracy:
 2. Select **Preferences** from the drop-down menu.
 3. Select the **Display** tab in the **Preferences** window.
 4. Check one or both of the following checkboxes:
+
    - High color accuracy (YUV 4:4:4)
    - High pixel density
 

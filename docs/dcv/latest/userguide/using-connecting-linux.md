@@ -7,6 +7,7 @@ The steps for connecting to a Amazon DCV session are the same across all Linux c
 1. Launch the Linux client.
 2. Choose **Connections Settings**, configure your proxy settings as follows, and then choose
    **Apply**.
+
    - To avoid connecting through a proxy, choose **Connect directly**.
    - To connect to the Amazon DCV server using your preconfigured operating system proxy settings, choose
      **Use system proxy**.
