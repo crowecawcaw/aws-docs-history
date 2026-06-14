@@ -106,6 +106,7 @@ several minutes to complete.
 ```
 
 7. Delete other AWS resources for your farm.
+
    1. Delete the fleet AWS Identity and Access Management (IAM) role.
 
    ```
@@ -116,7 +117,6 @@ several minutes to complete.
     --role-name "${DEV_FARM_NAME}FleetRole"`
 
    ```
-
    2. Delete the queue IAM role.
 
    ```
@@ -127,7 +127,6 @@ several minutes to complete.
     --role-name "${DEV_FARM_NAME}QueueRole"`
 
    ```
-
    3. Delete the Amazon CloudWatch Logs log groups. Each queue and fleet has their own log
       group.
 

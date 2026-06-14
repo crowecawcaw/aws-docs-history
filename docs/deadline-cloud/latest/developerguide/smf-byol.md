@@ -74,6 +74,7 @@ JSON
 ```
 
 6. Before saving the new policy, replace the following values in the policy text:
+
    - Replace `region` with the AWS Region where your farm is
      located
    - Replace `instance_id` with the instance ID for the license server or
@@ -401,8 +402,10 @@ environment:
 
 5. Before saving the queue environment, make the following changes to the environment
    text as needed:
+
    - Update the default values for the following parameters to reflect your
      environment:
+
      - **LicenseInstanceID** – The Amazon EC2 instance ID of your
        license server or proxy instance
      - **LicenseInstanceRegion** – The AWS Region containing
@@ -448,6 +451,7 @@ license traffic to your license server
 2. Update the listen license-server section of the
    **/etc/haproxy/haproxy.cfg** configuration file with the
    following:
+
    1. Replace **LicensePort1** and **LicensePort2**
       with the port numbers to be forwarded to the license server. Add or remove
       comma-separated values to accommodate the required number of ports.
@@ -876,6 +880,7 @@ Resources:
 ```
 
 3. When deploying the CloudFormation template, provide the following parameters:
+
    - Update the **LicenseInstanceID** with the Amazon EC2 Instance ID of
      your license server or proxy instance
    - Update the **LicensePorts** with a comma-separated list of ports

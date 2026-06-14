@@ -28,6 +28,7 @@ the system search path (for example, in the `PATH` environment variable).
 To install DCC adaptors on a customer-managed fleet
 
 1. Open the a terminal.
+
    1. On Linux, open a terminal as the `root` user (or use
       `sudo` / `su`)
    2. On Windows, open an administrator command prompt or PowerShell terminal.

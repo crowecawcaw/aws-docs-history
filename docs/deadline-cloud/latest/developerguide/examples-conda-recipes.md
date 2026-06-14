@@ -44,8 +44,33 @@ To submit a build for every platform listed in
 ./submit-package-job blender-4.5 --all-platforms
 ```
 
-The following sections describe the recipe families available in the
-samples repository.
+The
+[conda_build_linux_package](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/conda_build_linux_package "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/conda_build_linux_package")
+job bundle in the directory is the Open Job Description template that
+`submit-package-job` submits. It runs `conda-build`
+or `rattler-build` on a worker, takes a recipe directory and
+optional source archives as input, and writes the built package to your
+queue's conda channel.
+
+Source archives that recipes pull in by URL go in the
+[archive_files](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/archive_files "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/archive_files")
+directory. Recipes that require an installer or redistributable archive
+you have to download manually (such as Maya, Cinema 4D, or Nuke) read
+from this directory at build time.
+
+The repository also includes recipes that package the Deadline Cloud client
+libraries themselves so that jobs can call Deadline Cloud APIs from inside a
+queue:
+
+- [deadline](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/deadline")
+  — The Deadline Cloud Python client (`deadline` CLI and
+  `deadline.job_attachments`), packaged for Linux, Windows,
+  Linux ARM, and macOS.
+- [openjd-adaptor-runtime](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/openjd-adaptor-runtime")
+  — The runtime that the DCC Open Job Description adaptors build on top of, packaged
+  for Linux and Windows with Python 3.13.
+  The following sections describe the recipe families available in the
+  samples repository.
 
 ###### Topics
 

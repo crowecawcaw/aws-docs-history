@@ -77,24 +77,28 @@ consider when defining a workload for Deadline Cloud:
   well as any licensing the application uses, such as access to a floating license server.
   This is typically part of the farm configuration, and not embedded in the job bundle
   itself.
+
   - [Configure jobs using queue environments](configure-jobs.md "configure-jobs.md")
   - [Connect customer-managed fleets to a license endpoint](../userguide/cmf-ubl.md "../userguide/cmf-ubl.md")
 
 - **Job parameter definitions**. The user experience of
   submitting the job is affected greatly by the parameters it provides. Example parameters
   include data files, directories, and application configuration.
+
   - [Parameter values elements for job bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md")
 
 - **File data flow**. When a job runs, it reads input from
   files provided by the user, then writes its output as new files. To work with the job
   attachments and path mapping features, the job must specify the paths of the directories
   or specific files for these inputs and outputs.
+
   - [Using files in your jobs](using-files-in-your-jobs.md "using-files-in-your-jobs.md")
 
 - **The step script**. The step script runs the application
   binary with the right command-line options to apply the provided job parameters. It also
   handles details like path mapping if the workload data files include absolute instead of
   relative path references.
+
   - [Job template elements for job bundles](build-job-bundle-template.md "build-job-bundle-template.md")
 
 ## Workload portability
@@ -114,6 +118,7 @@ Here are some ways you can make your job bundle portable.
 - Make file path references for the input files of the job relocatable and usable on
   different operating systems. For example when users submit jobs from Windows
   workstations to run on a Linux fleet.
+
   - Use relative file path references, so if the directory containing them is moved
     to a different location, references still resolve. Some applications, like [Blender](https://docs.blender.org/manual/en/latest/files/blend/open_save.html#files-blend-relative-paths "https://docs.blender.org/manual/en/latest/files/blend/open_save.html#files-blend-relative-paths"), support a choice between relative and absolute paths.
   - If you can't use relative paths, support OpenJD [path mapping metadata](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#path-mapping "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#path-mapping") and translate the absolute paths according to how
@@ -122,11 +127,13 @@ Here are some ways you can make your job bundle portable.
 - Implement commands in a job using portable scripts. Python and bash are two examples
   of scripting languages that can be used this way. You should consider providing them both
   on all the worker hosts of your fleets.
+
   - Use the script interpreter binary, like `python` or `bash`,
     with the script file name as an argument. This approach works on all operating systems
     including Windows, compared to using a script file with its execute bit set on
     Linux.
   - Write portable bash scripts by applying these practices:
+
     - Expand template path parameters in single quotes to handle paths with spaces
       and Windows path separators.
     - When running on Windows, watch for issues related to MinGW automatic path
@@ -157,6 +164,7 @@ Here are some ways you can make your job bundle portable.
 - Use job parameters to specify application requirements. Use consistent conventions
   that the farm administrator can apply in [queue
   environments](configure-jobs.md "configure-jobs.md").
+
   - For example, you can use the `CondaPackages` and/or
     `RezPackages` parameters in your job, with a default parameter value that
     lists the application package names and versions the job requires. Then, you can use

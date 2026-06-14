@@ -45,6 +45,7 @@ queue resource in your account.
 
 1. Choose your first CloudShell tab, then enter one of the following commands
    to use an Amazon S3 bucket for job attachments.
+
    - If you don't have an existing private Amazon S3 bucket, you can create and
      use a new S3 bucket.
 
@@ -60,7 +61,6 @@ queue resource in your account.
     --acl private \
     --bucket ${DEV_FARM_BUCKET}`
    ```
-
    - If you already have a private Amazon S3 bucket, you can use it by replacing
      `MY_BUCKET_NAME` with the
      name of your bucket.

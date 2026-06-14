@@ -4,6 +4,9 @@ The samples repository includes conda recipes for the following Blender
 versions and add-ons. Each recipe builds for Linux 64-bit and Windows
 64-bit, and downloads source archives from the Blender Foundation:
 
+- [blender-4.2](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.2 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.2")
+- [blender-4.3](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.3 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.3")
+- [blender-4.4](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.4 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.4")
 - [blender-4.5](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-4.5")
 - [blender-5.0](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-5.0 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-5.0")
 - [blender-5.1](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-5.1 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/blender-5.1")

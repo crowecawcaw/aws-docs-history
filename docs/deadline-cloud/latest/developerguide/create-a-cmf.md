@@ -19,6 +19,7 @@ fleet**
 7. Select **Customer managed** for **Fleet
    type**.
 8. Select your fleet's service access.
+
    1. We recommend using the **Create and use a new service role** option for each
       fleet for more granular permissions control. This option is selected by default.
    2. You can also use an existing service role by selecting **Choose a service role**.
@@ -30,6 +31,7 @@ fleet**
 12. Select the minimum and maximum vCPU and memory **Hardware
     capabilities** to meet the workload demands of your fleets.
 13. Select an Auto Scaling type. For more information, see [Use EventBridge to handle Auto Scaling events](../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md "../../../autoscaling/ec2/userguide/automating-ec2-auto-scaling-with-eventbridge.md").
+
     - **No scaling**: You are creating an
       on-premises fleet and want opt out of Deadline Cloud Auto Scaling.
     - **Scaling recommendations**: You are creating
@@ -65,6 +67,7 @@ fleet**
 
 1. Open a terminal.
 2. Create `fleet-trust-policy.json` in a new editor.
+
    1. Add the following IAM policy, replacing the
       `ITALICIZED` text with your AWS
       account ID and Deadline Cloud farm ID.
@@ -94,10 +97,10 @@ fleet**
    }`
 
    ```
-
    2. Save your changes.
 
 3. Create `fleet-policy.json`.
+
    1. Add the following IAM policy.
 
    JSONJSON
@@ -152,7 +155,6 @@ fleet**
    }`
 
    ```
-
    2. Save your changes.
 
 4. Add an IAM role for the workers in your fleet to use.
@@ -163,6 +165,7 @@ aws iam put-role-policy --role-name FleetWorkerRoleName --policy-name FleetWorke
 ```
 
 5. Create `create-fleet-request.json`.
+
    1. Add the following IAM policy, replacing the ITALICIZED text
       with your CMF's values.
 
@@ -201,7 +204,6 @@ aws iam put-role-policy --role-name FleetWorkerRoleName --policy-name FleetWorke
        }
    }
    ```
-
    2. Save your changes.
 
 6. Create your fleet.

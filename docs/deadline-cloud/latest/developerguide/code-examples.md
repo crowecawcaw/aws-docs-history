@@ -80,6 +80,10 @@ The repository also includes the following examples:
 - [Enforce fixed license limits with a Deadline Cloud submission hook](examples-license-limits-hook.md "examples-license-limits-hook.md") — A submission
   hook that enforces fixed license limits by combining the Deadline Cloud Limits
   feature with a pre-submission hook.
+- [AI agent skills for Deadline Cloud](examples-skills.md "examples-skills.md") — Reusable AI agent
+  skills that walk an agent through writing job bundles, building
+  conda packages, and creating Windows host configuration
+  scripts.
   **Additional resources**
 
 The following resources help you author and run your own examples in
@@ -107,3 +111,4 @@ Deadline Cloud.
 - [Build a worker-equivalent Amazon Linux 2023 Docker image for Deadline Cloud](examples-container-al2023.md "examples-container-al2023.md")
 - [Upload files to Deadline Cloud job attachments](examples-upload-to-job-attachments.md "examples-upload-to-job-attachments.md")
 - [Enforce fixed license limits with a Deadline Cloud submission hook](examples-license-limits-hook.md "examples-license-limits-hook.md")
+- [AI agent skills for Deadline Cloud](examples-skills.md "examples-skills.md")

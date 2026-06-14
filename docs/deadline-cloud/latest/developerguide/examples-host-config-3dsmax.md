@@ -8,17 +8,30 @@ workers. Because 3ds Max runs only on Windows and requires administrative
 access to install, the recommended approach is to install it on the worker
 host through a host configuration script.
 
-The samples include scripts for several version and plugin
+The samples include scripts for the following version and plugin
 combinations:
 
-- 3ds Max 2024
-- 3ds Max 2025 with V-Ray
-- 3ds Max 2025 with V-Ray and AEC plugins
-- 3ds Max 2025 with V-Ray and tyFlow
-- 3ds Max 2027
-  Although the example scripts cover specific version combinations, the
-  installation script works equivalently for 3ds Max 2026 and 2027. To
-  generate a script for a different version, renderer, or plugin
+- [3dsmax-2024](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2024 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2024")
+  — 3ds Max 2024.
+- [3dsmax-2025-and-vray](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-and-vray "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-and-vray")
+  — 3ds Max 2025 with V-Ray.
+- [3dsmax-2025-and-corona-13](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-and-corona-13 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-and-corona-13")
+  — 3ds Max 2025 with Chaos Corona 13.
+- [3dsmax-2025-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-aec-plugins")
+  — 3ds Max 2025 with V-Ray and AEC plugins.
+- [3dsmax-2025-vray-and-tyflow](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-tyflow "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2025-vray-and-tyflow")
+  — 3ds Max 2025 with V-Ray and tyFlow.
+- [3dsmax-2027](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027")
+  — 3ds Max 2027.
+- [3dsmax-2027-and-vray](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-vray "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-vray")
+  — 3ds Max 2027 with V-Ray.
+- [3dsmax-2027-and-corona-14](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-corona-14 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-corona-14")
+  — 3ds Max 2027 with Chaos Corona 14.
+- [3dsmax-2027-and-vray-and-tyflow](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-vray-and-tyflow "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-and-vray-and-tyflow")
+  — 3ds Max 2027 with V-Ray and tyFlow.
+- [3dsmax-2027-vray-and-aec-plugins](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/host_configuration_scripts/3dsmax/3dsmax-2027-vray-and-aec-plugins")
+  — 3ds Max 2027 with V-Ray and AEC plugins.
+  To generate a script for a different version, renderer, or plugin
   combination, you can use the
   [Kiro](https://kiro.dev "https://kiro.dev") AI agent with the bundled
   [3dsmax-host-config

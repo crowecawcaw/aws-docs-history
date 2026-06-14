@@ -44,3 +44,7 @@ If your fleet does not scale up workers, the most common cause is an
 EC2 vCPU service quota. Confirm that you have headroom for
 _Running On-Demand G and VT instances_ in the Service
 Quotas console.
+
+For a complete walkthrough that covers prerequisites, farm setup,
+custom models and benchmarks, and cleanup, see
+[Benchmark LLMs with vLLM and lm-evaluation-harness](tutorial-vllm-leaderboard.md "tutorial-vllm-leaderboard.md").

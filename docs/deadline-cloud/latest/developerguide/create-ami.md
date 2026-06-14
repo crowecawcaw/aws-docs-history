@@ -44,6 +44,7 @@ This auto scaling helps ensure you're only using resources as needed.
    compatibility](../userguide/smf-vfx.md "../userguide/smf-vfx.md") in the _AWS Deadline Cloud User
    Guide_.
 6. Open a terminal.
+
    1. On Linux, open a terminal as the `root` user (or use
       `sudo` / `su`)
    2. On Windows, open an administrator command prompt or
@@ -51,13 +52,13 @@ This auto scaling helps ensure you're only using resources as needed.
 
 7. Ensure the worker service is not running and configured to start on
    boot:
+
    1. On Linux, run
 
    ```
    `systemctl stop deadline-worker
    systemctl enable deadline-worker`
    ```
-
    2. On Windows, run
 
    ```
@@ -66,12 +67,12 @@ This auto scaling helps ensure you're only using resources as needed.
    ```
 
 8. Delete the worker state.
+
    1. On Linux, run
 
    ```
    `rm -rf /var/lib/deadline/*`
    ```
-
    2. On Windows, run
 
    ```
@@ -79,12 +80,12 @@ This auto scaling helps ensure you're only using resources as needed.
    ```
 
 9. Delete the log files.
+
    1. On Linux, run
 
    ```
    `rm -rf /var/log/amazon/deadline/*`
    ```
-
    2. On Windows, run
 
    ```

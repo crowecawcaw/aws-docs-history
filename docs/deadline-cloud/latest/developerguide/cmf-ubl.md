@@ -52,6 +52,7 @@ You can create your license endpoint from your dashboard in the Deadline Cloud [
 1. From the left navigation pane, choose **License endpoints**, then choose
    **Create license endpoint**.
 2. From the Create license endpoint page, complete the following:
+
    - Select a VPC.
    - Select the subnets that contain your Deadline Cloud workers. You can select up to 10 subnets.
    - Select the security group you created in step 1. You can select up to 10 security

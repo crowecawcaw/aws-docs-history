@@ -31,6 +31,11 @@ Redshift for Maya renderer plugin.
 
 Bifrost simulation framework for Maya 2026.
 
+[maya-openjd](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/maya-openjd")
+
+Builds the Maya Open Job Description adaptor with rattler-build for Python
+3.13.
+
 To build the recipe, you need to provide the Maya source archive.
 Download the Maya source archive from Autodesk and place it in the
 `conda_recipes/archive_files` directory of your samples

@@ -113,6 +113,7 @@ Follow these best practices to create secure queues in the same farm:
 
 - Associate a fleet only with queues within the same security boundary. Note the
   following:
+
   - After job runs on the worker host, data may remain behind, such as in a
     temporary directory or the queue user's home directory.
   - The same OS user runs all the jobs on a service-owned fleet worker host,
@@ -309,6 +310,7 @@ We recommend the following best practices to secure worker hosts:
   secrets.
 - Don't give the queue `jobRunAsUser` permission the schedule commands to
   run in the future:
+
   - On Linux, deny these accounts access to `cron` and
     `at`.
   - On Windows, deny these accounts access to the Windows task
@@ -422,6 +424,7 @@ EOF
 2. Determine whether to trust the `OpenPGP` key. Some factors to
    consider when deciding whether to trust the above key include the
    following:
+
    - The internet connection you’ve used to obtain the GPG key from this
      website is secure.
    - The device that you are accessing this website on is secure.

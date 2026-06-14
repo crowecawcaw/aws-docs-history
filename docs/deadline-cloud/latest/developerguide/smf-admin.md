@@ -197,12 +197,12 @@ You can set up CloudWatch metric filters to generate CloudWatch metrics from log
 3. Select your fleet's log group.
 4. Choose **Create metric filter**.
 5. Define your filter pattern using one of the following:
+
    - **For success metrics:**
 
    ```
    {$.message = "*Worker Agent host configuration succeeded.*"}
    ```
-
    - **For failure metrics:**
 
    ```
@@ -210,6 +210,7 @@ You can set up CloudWatch metric filters to generate CloudWatch metrics from log
    ```
 
 6. Choose **Next** to create a metric with the following values:
+
    - **Metric namespace:** Your metric namespace (for example, `MyDeadlineFarm`)
    - **Metric name:** Your requested metric name (for example, `host_config_failure`)
    - **Metric value:** `1` (each instance is a count of 1)

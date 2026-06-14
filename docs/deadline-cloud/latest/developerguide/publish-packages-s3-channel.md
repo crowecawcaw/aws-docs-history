@@ -37,6 +37,7 @@ login` command. For more information, see [Setting up the
   reduce the scope of permissions your credentials have, you can use an AWS Identity and Access Management
   (IAM) policy that only grants the following permissions on the Amazon S3 bucket and the
   channel prefix you use (for example, `/Conda/*`):
+
   - `s3:GetObject`
   - `s3:PutObject`
   - `s3:DeleteObject`

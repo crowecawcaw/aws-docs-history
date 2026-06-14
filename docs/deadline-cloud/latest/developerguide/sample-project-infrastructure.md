@@ -8,8 +8,10 @@ two separate projects. You can use the Deadline Cloud console to create the test
     farm](../userguide/farms.md "../userguide/farms.md").
 2.  Create two queues for jobs in each of the two projects. To create queues, follow the
     procedure in [Create a queue](../userguide/create-queue.md "../userguide/create-queue.md").
+
     1. Create the first queue called `Q1`. Use the following
        configuration, use the defaults for all other items.
+
        - For job attachments, choose **Create a new Amazon S3
          bucket**.
        - Select **Enable association with customer-managed
@@ -22,6 +24,7 @@ two separate projects. You can use the Deadline Cloud console to create the test
 
     2. Create the second queue called `Q2`. Use the following
        configuration, use the defaults for all other items.
+
        - For job attachments, choose **Create a new Amazon S3
          bucket**.
        - Select **Enable association with customer-managed
@@ -54,12 +57,14 @@ two separate projects. You can use the Deadline Cloud console to create the test
 
 - `WSAll` - A Linux-based workstation used by developers for all projects.
   The shared file system locations are:
+
   - `FSCommon`: `/shared/common`
   - `FS1`: `/shared/projects/project1`
   - `FS2`: `/shared/projects/project2`
 
 - `WS1` - A Windows-based workstation used for project 1. The shared file
   system locations are:
+
   - `FSCommon`: `S:\`
   - `FS1`: `Z:\`
   - `FS2`: Not available

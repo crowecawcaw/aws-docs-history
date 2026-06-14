@@ -181,6 +181,7 @@ deadline config set defaults.queue_id $DEV_QUEUE_ID`
 
 10. (Optional) To confirm that your farm is set up according to your specifications,
     use the following commands:
+
     - List all farms – `deadline farm list`
     - List all queues in the default farm – `deadline queue
 list`

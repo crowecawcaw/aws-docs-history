@@ -28,3 +28,8 @@ rattler-build publish `path-to-recipe-file` --to `publish-conda-channel`
 
 The recipe README includes step-by-step instructions for adapting it to
 your Unreal Engine version, including custom source builds.
+
+The samples repository also includes
+[unreal-engine-openjd](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine-openjd "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/unreal-engine-openjd"),
+which builds the Unreal Engine Open Job Description adaptor with rattler-build for
+Windows and Python 3.13.

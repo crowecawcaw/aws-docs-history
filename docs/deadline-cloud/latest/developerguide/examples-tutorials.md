@@ -7,3 +7,4 @@ parameter references, and cleanup guidance.
 ###### Topics
 
 - [FLUX.2 Klein LoRA fine-tuning and image generation](flux2-klein-lora.md "flux2-klein-lora.md")
+- [Benchmark LLMs with vLLM and lm-evaluation-harness](tutorial-vllm-leaderboard.md "tutorial-vllm-leaderboard.md")
