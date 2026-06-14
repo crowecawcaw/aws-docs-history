@@ -152,6 +152,7 @@ access.
   Framework](../../../wellarchitected/latest/operational-excellence-pillar/welcome.md "../../../wellarchitected/latest/operational-excellence-pillar/welcome.md")
 - [AWS Whitepaper - Change Management in the Cloud](../../../whitepapers/latest/change-management-in-the-cloud/change-management-in-the-cloud.md "../../../whitepapers/latest/change-management-in-the-cloud/change-management-in-the-cloud.md")
 - [Management and Governance on AWS](https://aws.amazon.com/products/management-and-governance/ "https://aws.amazon.com/products/management-and-governance/")
+
   - [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/")
   - [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/")
   - [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/")
@@ -173,6 +174,7 @@ access.
   compliance](https://skillbuilder.aws/products#security-identity-and-compliance "https://skillbuilder.aws/products#security-identity-and-compliance")
 - [AWS Back to basics video playlist](https://www.youtube.com/playlist?list=PLhr1KZpdzukf-9zZxQD6zxCaPoeXAJ60u "https://www.youtube.com/playlist?list=PLhr1KZpdzukf-9zZxQD6zxCaPoeXAJ60u")
 - [AWS Workshops](https://workshops.aws/ "https://workshops.aws/")
+
   - [One
     Observability Workshop](https://observability.workshop.aws/ "https://observability.workshop.aws/")
   - [Security Hub Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/51c37f4d-f2be-441b-b30f-5fa17b10042e "https://catalog.us-east-1.prod.workshops.aws/workshops/51c37f4d-f2be-441b-b30f-5fa17b10042e")

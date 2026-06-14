@@ -56,6 +56,7 @@ recursos en AWS para mejorar operaciones en la nube](https://youtu.be/cVGf81f9-n
 ## MAP tagging best practices
 
 - **Tagging with CloudFormation:**
+
   - You can use CloudFormation Linter to enforce tags. You can create rules to enforce
     certain tag keys, and include linting steps in pipelines. For more information, see
     [AWS CloudFormation Linter](https://github.com/aws-cloudformation/cfn-lint "https://github.com/aws-cloudformation/cfn-lint") on GitHub.
@@ -64,10 +65,12 @@ recursos en AWS para mejorar operaciones en la nube](https://youtu.be/cVGf81f9-n
     that you create in the stack. For more information, see [create-stack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/create-stack.html") and [update-stack](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/update-stack.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudformation/update-stack.html") in the AWS CLI command reference.
 
 - **Tagging with AWS Config:**
+
   - To identify and tag MAP 2.0 eligible resources that were created after the MAP
     agreement was signed, use the [AWS Config Conformance Pack](https://github.com/aws-samples/map20-tag-conformance-pack "https://github.com/aws-samples/map20-tag-conformance-pack") . For more information, see [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/").
 
 - **Tagging with AWS Transform MGN (MGN):**
+
   - With MGN, you can enable MAP tagging to automatically tag your launched
     instances. To enable MAP tagging, go to the MGN console and choose **Add
     MAP tag to Launched Instances**, then specify the MAP tag value that you
@@ -76,12 +79,14 @@ recursos en AWS para mejorar operaciones en la nube](https://youtu.be/cVGf81f9-n
     tags Amazon EC2 instances and Amazon EBS volumes.
 
 - **AWS remediation options:**
+
   - Use AWS Config to create rules that check resources for required tags and to
     continuously monitor your resources against those rules. Use it with [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/") to trigger automated responses to missing tag values. For example, you can
     set it to send an email through Amazon SNS. For more information, see [Using Amazon EventBridge Scheduler with Amazon SNS](../../../sns/latest/dg/using-eventbridge-scheduler.md "../../../sns/latest/dg/using-eventbridge-scheduler.md") in
     the Amazon SNS Developer Guide.
 
 - **Additional resources:**
+
   - [Service control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md")
   - [Enforcing tagging on resource creation](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_tagging.md")
   - [Tag Policies](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md")
