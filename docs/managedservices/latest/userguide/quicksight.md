@@ -39,6 +39,7 @@ solution.
 
 - When AMS receives this RFC to add Quick, you are sent a service request for
   additional information; provide them the following:
+
   - Quick account name (for example,
     ``CustomerName`-quicksight`
   - Quick Edition (Standard versus Enterprise)

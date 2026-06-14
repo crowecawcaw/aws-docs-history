@@ -3,6 +3,7 @@
 We configure your instance to write the following logs.
 
 - Windows:
+
   - AmazonSSMAgentLog
   - AmazonCloudWatchAgentLog
   - AmazonSSMErrorLog
@@ -16,6 +17,7 @@ We configure your instance to write the following logs.
   - SystemEventLog
 
 - Linux:
+
   - /var/log/amazon/ssm/amazon-ssm-agent.log
   - /var/log/amazon/ssm/errors.log
   - /var/log/audit/audit.log

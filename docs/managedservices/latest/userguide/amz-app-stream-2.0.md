@@ -36,6 +36,7 @@ Once provisioned in your account, you must onboard the roles in your federation 
 
 - The following functionality must be configured by the AMS Support team, and requires
   specific RFCs. Instruction on requesting additional functionality can be found in section 4.
+
   - Creating and Streaming from Interface VPC Endpoints.
   - Support for Amazon S3 endpoints for home folders and application setting persistence on a private network.
   - Creating and choosing the IAM role that will be available on all fleet streaming instances.

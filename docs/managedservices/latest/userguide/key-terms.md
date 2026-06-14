@@ -17,6 +17,7 @@
   decide not to follow a Critical Recommendation by the specified date, you are solely responsible for any harm resulting from your
   decision.
 - _Customer-Requested Configuration_: Any software, services or other configurations that are not identified in:
+
   - Accelerate:
     [Supported Configurations](../accelerate-guide/acc-sd.md#supported-configs "../accelerate-guide/acc-sd.md#supported-configs") or
     [AMS Accelerate; Service Description](../accelerate-guide/acc-sd.md "../accelerate-guide/acc-sd.md").
@@ -50,6 +51,7 @@ account. An AWS Managed Services Activation Notification occurs when:
   AWS Managed Services for all AWS Managed Services accounts, or for a specified AWS Managed Services account for any
   reason by providing AWS at least 30 days notice through a service request. On the
   Service Termination Date, either:
+
   1.  AWS hands over the controls of all AWS Managed Services accounts or the specified
       AWS Managed Services accounts as applicable, to you, or
   2.  The parties remove the AWS Identity and Access Management roles
@@ -57,6 +59,7 @@ account. An AWS Managed Services Activation Notification occurs when:
       AWS Managed Services accounts, as applicable.
 
 - _Service termination date_: The service termination date is the last day of the calendar month following the end of the 30 days requisite termination notice period. If the end of the requisite termination notice period falls after the 20th day of the calendar month, then the service termination date is the last day of the following calendar month. The following are example scenarios for termination dates.
+
   - If the termination notice is provided on April 12, then the 30 days notice ends on May 12. The service termination date is May 31.
   - If a termination notice is provided on April 29, then the 30 days notice ends on May 29. The service termination date is June 30.
 
@@ -77,6 +80,7 @@ account. An AWS Managed Services Activation Notification occurs when:
   in an impact as reported by AWS Managed Services or you.
 - _Problem_: A shared underlying root cause of one or more incidents.
 - _Incident Resolution_ or _Resolve an Incident_:
+
   - AMS has restored all unavailable AMS services or resources pertaining to that incident to
     an available state, or
   - AMS has determined that unavailable stacks or resources cannot be restored to an available state, or
@@ -132,6 +136,7 @@ account. An AWS Managed Services Activation Notification occurs when:
   AMS contracts with you that define the level of expected service.
 - SLA _Unavailable_ and
   _Unavailability_:
+
   - An API request submitted by you that results in an error.
   - A Console request submitted by you that results in a 5xx HTTP
     response (the server is incapable of performing the request).
@@ -158,6 +163,7 @@ account. An AWS Managed Services Activation Notification occurs when:
   can tag instances and have those instances
   patched using a baseline and a window that you configure.
 - _Patch methods_:
+
   - _In-place patching_: Patching that is done by changing existing instances.
   - _AMI replacement patching_: Patching that is
     done by changing the AMI reference parameter of an existing EC2 Auto Scaling group launch configuration.
@@ -165,6 +171,7 @@ account. An AWS Managed Services Activation Notification occurs when:
 - _Patch provider_ (OS vendors, third party): Patches
   are provided by the vendor or governing body of the application.
 - _Patch Types_:
+
   - _Critical Security Update (CSU)_: A security
     update rated as "Critical" by the vendor of a supported operating system.
   - _Important Update (IU)_: A security update

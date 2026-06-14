@@ -49,6 +49,7 @@ related access setup with your Cloud Architect (CA). For example:
   the default S3 buckets access is with naming pattern ‘customer-forecast-\*’
 - If you want to use naming patterns on S3 buckets other than 'customer-forecast-\*',
   you must create a new service role with S3 access permissions on the buckets:
+
   1.  A new service role to be created with naming 'AmazonForecast-ExecutionRole-{suffix}'.
   2.  A new IAM policy to be created which is similar to customer_forecast_default_s3_access_policy
       and to be associated with the new service role and related federation admin role
@@ -58,6 +59,7 @@ related access setup with your Cloud Architect (CA). For example:
 
 - For data encryption at rest, you can use AWS KMS to provision a customer-managed CMK to
   protect data storage on Amazon S3 service:
+
   - Enable default encryption on the bucket with the provision key and set up bucket
     policy to accept AWS KMS data encryption while putting data.
   - Enable the Amazon Forecast service role 'AmazonForecast-ExecutionRole-\*' and
@@ -78,6 +80,7 @@ related access setup with your Cloud Architect (CA). For example:
 - You must be aware of the admin role 'customer_forecast_admin_role' support permissive
   access (Get/Delete/Put S3 objects) on Amazon S3 buckets with naming of 'customer-forecast-\*'.
   NOTE: If you require fine-grained access control for multiple teams, follow these practices:
+
   - Define your team-based access IAM identity (role/user) with least-privilege
     access to related Amazon S3 buckets.
   - Create team/project based AWS KMS CMKs grant proper access to corresponding IAM identities.

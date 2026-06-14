@@ -20,6 +20,7 @@ You can turn off PBIS update at the instance or account levels:
 The instance profile must have permissions to read SSM parameters. If the flag is missing, then the default behavior is to run the update.
 
 - **Instance level:**
+
   - Tag-based: Add the following tag to the instance: Key: `skip_pbis_update`, Value: `true` (any case).
   - Config file: Add the following flag to the `/opt/aws/ams/etc/ams.conf.d/state.ini` file: `skip_pbis_update = true.`
 

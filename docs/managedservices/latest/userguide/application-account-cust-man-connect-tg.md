@@ -26,6 +26,7 @@ To add your CMA to Transit Gateway, request a new route with the
 3. In your Customer Managed account, open the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 4. In the navigation pane, choose **Transit Gateway Attachments** >
    **Create Transit Gateway Attachment**. Make these choices:
+
    1. For the **Transit Gateway ID**, choose the transit gateway ID you recorded in Step 2.
    2. For **Attachment type**, choose **VPC**.
    3. Under **VPC Attachment**, optionally type a name for **Attachment name tag**.

@@ -59,9 +59,11 @@ monitored by AMS.
    AWS Outposts-specific monitoring by submitting the following template with an RFC using the
    Management | Other | Other | Create (ct-1e1xtak34nx76) change type. AMS operations
    ensures that the AWS Outposts subnet is tracked in AMS internal tooling.
+
    - AWS Outposts ID
    - Subnet CIDR
    - Recommended AWS Outposts alarms:
+
      - InstanceFamilyCapacityAvailabilityAlert
      - InstanceTypeCapacityAvailabilityAlert
      - EBSVolumeTypeCapacityAvailabilityAlert
@@ -69,6 +71,7 @@ monitored by AMS.
      - Direct Connect ConnectionAlert
 
    - For each of the above alerts, specify the following parameters:
+
      - Statistic ("Average" is recommended. Other options include sum,
        maximum, minimum, sample count and p90)
      - Period ("5 minutes" is recommended. Other options include 10 and 30 seconds,
@@ -82,6 +85,7 @@ monitored by AMS.
        However any other, or custom, topic can also be added.)
 
 2. Monitoring and operations Support
+
    - AMS operations monitors AWS Outposts metrics for network disconnection
      or component failures. AMS operations provides first response services for AWS Outposts issues,
      and escalates, if needed, to Premium support or EC2 support.
@@ -125,10 +129,12 @@ These resources are eligible for the same AMS operations support as resources in
   service level contingencies, see the updated
   [AWS Service Level Agreements (SLAs)](https://aws.amazon.com/legal/service-level-agreements/ "https://aws.amazon.com/legal/service-level-agreements/").
 - Amazon Relational Database Service:
+
   - The create RDS change type (ct-2z60dyvto9g6c), by default, enables multi-AZ and requires
     a DB subnet group. DB subnet groups require two subnets in two separate Availability Zones (AZ).
     If you have only one AWS Outposts, creating a DB subnet group is an issue since AWS Outposts are only assigned
     to a single AZ. To circumvent this limitation, follow these instructions:
+
     1. Request a DB subnet group through an RFC with a Management | Other | Other CT,
        and specify the subnet on the AWS Outposts.
     2. Create a custom CFN template to deploy RDS on AWS Outposts, and specify the subnet group

@@ -28,24 +28,30 @@ To manually remediate the OpsItem, complete the following steps:
 3. (Optional) Filter the list by **Source=Trusted Remediator** to include only Trusted Remediator OpsItems in the list.
 4. Choose the OpsItem that you want to review.
 5. Review the operational data of the OpsItem. The operational data includes the following items:
+
    - **trustedAdvisorCheckCategory:** The category of the Trusted Advisor check ID. For example, Fault tolerance
    - **trustedAdvisorCheckId:** The unique Trusted Advisor check ID.
    - **trustedAdvisorCheckMetadata:** The resource metadata, including the resource ID.
    - **trustedAdvisorCheckName:** The name of the Trusted Advisor check.
    - **trustedAdvisorCheckStatus:** The status of the Trusted Advisor check detected for the resource.
    - **trustedAdvisorCheckManualRemediation:** The custom data that provides reference details for manual remediation.
+
      - **ManualExecutionInput:** An object that defines parameters that you can modify values for when executing manual remediation.
+
        - **DocumentName:** The name of the runbook (SSM document).
        - **CustomizableParameters:** Parameter names that you can modify.
 
      - **DefaultInput:** An object that defines parameter names and values to be used for manual remediation. The values populate based on preconfigured-parameters.
 
 6. To manually remediate the OpsItem, complete the following steps:
+
    1. Use [Trusted Remediator | Finding | Remediate ct-1c7ch8z5phrjp](../ctref/management-trusted-finding-remediate.md "../ctref/management-trusted-finding-remediate.md") change type
    2. Enter values for the following parameters:
+
       - **DocumentName:** Must be `AWSManagedServices-RemediateTrustedRemediatorFinding`.
       - **Region:** The AWS Region, in the form us-east-1.
       - **Parameters:** Enter the manual remediation parameters:
+
         - **OpsItemId:** The ID of the Ops Item.
         - **RemediationDocumentName:** The name of the SSM automation document to use. The document must be associated with the Ops Item. If multiple documents are associated with the Ops Item, then the **DocumentName** must be specified.
         - **RemediationParameters:** A key/value map of parameters for the automation execution, in the form: `{\"`ParameterName1`\":[\"`ParameterValue1`\"],\"`ParameterName2`\":[\"`ParameterValue2`\"]}`. You can only use parameters that are present in the Ops Item **trustedAdvisorCheckManualRemediation CustomizableParameters**. If not specified, parameters and values are retrieved from the Ops Item.

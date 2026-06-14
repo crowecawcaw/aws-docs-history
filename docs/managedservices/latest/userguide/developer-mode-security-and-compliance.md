@@ -16,6 +16,7 @@ For more information about shared responsibility, see
   **Recommendations:**
 
 - **Protect**
+
   - Customers can prevent access to this CT via permissioning, see
     [Restrict permissions with IAM role policy statements](request-iam-user.md "request-iam-user.md")
   - Prevent access to this CT by implementing a proxy such as an ITSM system
@@ -23,12 +24,14 @@ For more information about shared responsibility, see
     [AMS Preventative and Detective Controls Library](scp-library.md "scp-library.md")
 
 - **Detect**
+
   - Monitor your RFC’s for these CTs (Enable developer mode ct-1opjmhuddw194 and Direct change mode, Enable ct-3rd4781c2nnhp)
     being executed and respond accordingly
   - Review and/or audit your accounts for the presence of the IAM resources to identify those accounts where Developer mode or Direct Change mode
     have been deployed
 
 - **Respond**
+
   - Remove accounts in Developer mode as needed
 
 ## Security in Developer mode

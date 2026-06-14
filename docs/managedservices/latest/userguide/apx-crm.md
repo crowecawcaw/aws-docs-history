@@ -69,6 +69,7 @@ on the following:
 
 - Report date
 - Summary and Insights:
+
   - Key Call Outs: total and active stack count, stack patching status, account onboarding status
     (during onboarding only), customer-specific issues summaries
   - Performance: Stats on incident resolution, alerts, patching, requests for change (RFCs),

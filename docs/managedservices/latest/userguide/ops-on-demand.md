@@ -55,6 +55,7 @@ submit a service request to AMS Operations to initiate an engagement for OOD.
 Each OOD service request must contain the following detailed information pertaining to the engagement:
 
 - The specific OOD offerings requested, and for each specific OOD offering:
+
   - The number of blocks (one block is equal to 20 hours of operational resource time in a given calendar
     month, to be charged at AWS’s then-current standard rate for the applicable Operations on Demand offering) to
     allocate to the specific OOD offering.

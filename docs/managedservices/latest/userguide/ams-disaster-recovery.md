@@ -260,10 +260,12 @@ Elastic Disaster Recovery restore workflow:
 - Swap out the volumes and delete the source (placeholder) root volume
 - Start the instance
 - Run the Post Launch Actions to complete the following items:
+
   - Activate the SSM Agent.
   - Swap out the volumes and delete the source (placeholder) root volume.
   - Start the instance
   - Run PostLaunchScript SSM Document. This document does following:
+
     1. Leaves the old domain.
     2. Changes the hostname.
     3. Reboot. AMS bootstrap scripts join the instance to the target (DR) domain during startup.

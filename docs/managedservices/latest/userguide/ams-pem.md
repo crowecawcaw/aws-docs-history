@@ -12,6 +12,7 @@ A planned event is a scope-bound and time-bound project. AMS uses details that y
 The following are the available PEM types:
 
 - **Gamedays**
+
   - **Operational Gameday:** A scenario-based gaming approach to operational response, aimed at validating the integration of processes, people, and systems.
   - **Security Gameday:** A security incident response strategy that employs a scenario-based gaming approach to assess the integration of systems, processes, and personnel.
 

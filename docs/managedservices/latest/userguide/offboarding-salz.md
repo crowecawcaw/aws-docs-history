@@ -9,6 +9,7 @@ Off-boarding assistance can be offered in two forms:
 - Resource termination for account closure: AMS deletes all of the data in your AMS-managed
   environment and de-provisions any active resources in the account. When
   submitting the offboarding request, customers can request that AMS:
+
   - Delete or retain the data objects (including logs) that are stored on Amazon S3 buckets
   - Remove or retain Amazon S3 buckets
   - Remove or retain AWS Backup restore points

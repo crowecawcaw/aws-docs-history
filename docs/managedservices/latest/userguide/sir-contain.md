@@ -41,22 +41,28 @@ containment to be simultaneously deployed during an incident investigation. Some
 Use this guide to consider your containment strategy that involves different techniques based on the resource type.
 
 - Containment Strategy
+
   - Can AMS identify the scope of the security incident?
+
     - If yes, identify all the resources (users, systems, resources).
     - If no, investigate in parallel with executing the next step on identified resources.
 
   - Can the resource be isolated?
+
     - If yes, then proceed to isolate the affected resources.
     - If no, then work with system owners and managers to determine further actions necessary to contain the problem.
 
   - Are all affected resources isolated from non-affected resources?
+
     - If yes, then continue to the next step.
     - If no, then continue to isolate affected resources until short-term containment is accomplished to prevent the incident from
       escalating further.
 
 - System Backup
+
   - Were backup copies of affected systems created for further analysis?
   - Are the forensic copies encrypted and stored in a secure location?
+
     - If yes, then continue to the next step.
     - If no, encrypt the forensic images, then store them in a secure location to prevent accidental usage, damage, and
       tampering.

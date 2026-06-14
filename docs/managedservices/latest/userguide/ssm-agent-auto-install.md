@@ -14,6 +14,7 @@ To have AMS manage your Amazon Elastic Compute Cloud (Amazon EC2) instances, you
 ## Prerequisites for SSM Agent use
 
 - Make sure the instance profile associated with the target instances has one of the following policies (or equivalent permissions as allowlisted in them):
+
   - AmazonSSMManagedEC2InstanceDefaultPolicy
   - AmazonSSMManagedInstanceCore
 

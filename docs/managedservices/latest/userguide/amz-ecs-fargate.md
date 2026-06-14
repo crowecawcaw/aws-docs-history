@@ -49,6 +49,7 @@ AMS account?**
 
 - The following are dependencies of Amazon ECS on Fargate; however, no additional action is required to
   enable these services with your self-provisioned role:
+
   - CloudWatch logs
   - CloudWatch events
   - CloudWatch alarms
@@ -59,6 +60,7 @@ AMS account?**
 
 - Depending on your use case, the following are resources that Amazon ECS
   relies on, and may require prior to using Amazon ECS on Fargate in your account:
+
   - Security group to be used with the Amazon ECS service. You can use the
     Deployment | Advanced stack components | Security Group | Create (auto) (ct-3pc215bnwb6p7), or,
     if your security group requires special rules, use

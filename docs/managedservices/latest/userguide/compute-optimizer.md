@@ -29,6 +29,7 @@ There are no restrictions. Full functionality of AWS Compute Optimizer is availa
   and report generation. The SLR is labeled "AWSServiceRoleForComputeOptimizer". For more information, see
   [Using Service-Linked Roles for AWS Compute Optimizer](../../../compute-optimizer/latest/ug/using-service-linked-roles.md "../../../compute-optimizer/latest/ug/using-service-linked-roles.md")
 - CloudWatch metrics must be enabled for the following metrics:
+
   - **CPU utilization**: The percentage of allocated Amazon EC2 compute units that are in use on
     the instance. This metric identiﬁes the processing power
     required to run an application upon a selected instance.

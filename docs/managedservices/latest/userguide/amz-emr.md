@@ -43,11 +43,13 @@ must be created by adding the tag with the Key **"for-use-with-amazon-emr-manage
 following configurations in the **Security** options:
 
 - Select custom roles for your cluster:
+
   - EMR Role : customer_emr_cluster_service_role
   - EC2 Instance Profile : customer_emr_cluster_instance_profile
   - Auto Scaling Role : customer_emr_cluster_autoscaling_role
 
 - EC2 Security groups:
+
   - Master : ams-emr-master-security-group
   - Core & Task : ams-emr-worker-security-group
   - Service Access : ams-emr-serviceaccess-security-group

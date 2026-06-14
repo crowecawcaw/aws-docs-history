@@ -9,6 +9,7 @@ information:
 
 - **AWS accounts:** The twelve-digit account identification number. All accounts that you want to onboard to Trusted Remediator must belong to the
   same AMS Advanced customer.
+
   - **Delegated administrator account:** The account that is used for Trusted Advisor,
     Compute Optimizer and Security Hub CSPM check configuration for single or multiple accounts.
   - **Member accounts:** These are the accounts linked to the delegated administrator account. These accounts inherit the configurations from the

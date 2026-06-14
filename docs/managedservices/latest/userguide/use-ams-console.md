@@ -24,8 +24,10 @@ When using the AMS consoles, be aware of the following caveats:
 - Opening page: The opening page has information boxes and links to facilitate your access
   to your existing RFCs, incidents, service request, and reports.
 - Feature pages, links in the left-hand navigation pane:
+
   - **Dashboard**: Provides an overview of the current status of your
     account including:
+
     - **Requests for change**: See how many RFCs are
       **Awaiting your response**, and jump to the RFC list page with that filter active.
       See how many RFCs are **Awaiting your approval**, and jump to the RFC list page with that
@@ -53,6 +55,7 @@ When using the AMS consoles, be aware of the following caveats:
     **Daily Backup** and **Daily Patch** and
     **Monthly Billling**
   - **Resources**:
+
     - **VPCs**: Opens a list of the existing VPCs for the account
     - **Stacks**: Opens a list of existing stacks for the account
     - **AMIs**: Opens a list of available AMS AMIs

@@ -10,6 +10,7 @@ This example configures manual remediation for all Amazon EBS volumes with the T
 
 1. Use the **Remediation Configuration|Update**, change type to request the configuration update.
 2. Enter the following parameters:
+
    - **CheckIds:** DAvU99Dc4C
    - **ExecutionMode:** Manual
 
@@ -34,6 +35,7 @@ Use [Tag | Update](../ctref/management-advanced-tag-update.md "../ctref/manageme
 
 2. Use the **Remediation Configuration|Update** change type to request the configuration update.
 3. Enter the following parameters:
+
    - **CheckIds:** DAvU99Dc4C
    - **ExecutionMode:** Automated
 
@@ -47,6 +49,7 @@ This example configures automatic remediation for all Amazon EBS volumes with th
 
 1. Use the [Remediation Configuration | Update](../ctref/management-trusted-remediation-configuration-update.md "../ctref/management-trusted-remediation-configuration-update.md"), change type to request the configuration update.
 2. Enter the following parameters:
+
    - **CheckIds:** DAvU99Dc4C
    - **ExecutionMode:** Conditional
    - **AutomatedForTaggedOnly:** {"Stage":"NonProd"}
@@ -63,6 +66,7 @@ This example removes existing **automated-for-tagged-only** configuration for th
 
 1. Use the [Remediation Configuration | Update](../ctref/management-trusted-remediation-configuration-update.md "../ctref/management-trusted-remediation-configuration-update.md") change type to request the configuration update.
 2. Enter the following parameters:
+
    - **CheckIds:** Hs4Ma3G104
    - **ExecutionMode:** Enter the currently used value
    - **AutomatedForTaggedOnly:** {}

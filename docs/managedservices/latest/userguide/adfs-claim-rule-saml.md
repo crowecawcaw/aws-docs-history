@@ -16,8 +16,10 @@ The relying party trust and claims rules steps are taken from
 [Enabling Federation to AWS Using Windows Active Directory, AD FS, and SAML 2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/ "https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/")blog
 
 - Claims rules:
+
   - **Nameid**: Configuration per blog post
   - **RoleSessionName**: Configure as follows
+
     - **Claim rule name**: `RoleSessionName`
     - **Attribute store**: `Active Directory`
     - **LDAP Attribute**: `SAM-Account-Name`
@@ -76,6 +78,7 @@ The instructions below are for the python packages. The credentials generated wi
 1.  [Download and install python (2.7.11)](https://www.python.org/downloads/ "https://www.python.org/downloads/")
 2.  [Download and install AWS CLI tools](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")
 3.  Install the AMS CLI:
+
     1. Download the AMS distributables zip file provided by your cloud service delivery manager (CSDM) and unzip.
 
     Several directories and files are made available. 2. Open either the **Managed Cloud Distributables -> CLI -> Windows** or the **Managed Cloud Distributables -> CLI -> Linux / MacOS**

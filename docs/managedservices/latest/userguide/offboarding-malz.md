@@ -438,6 +438,7 @@ Use one of the following options to continue or discontinue the use of Trend Mic
 ###### Continue usage
 
 - **(If offboarding the entire MALZ) After Core account offboarding, reconnect offboarded Application accounts to the existing Trend Micro Deep Security Manager (DSM) and maintain licensing in shared Services account.** For more information, see [Add AWS cloud accounts](https://help.deepsecurity.trendmicro.com/12_0/aws/Add-Computers/add-aws.html?Highlight=account%20sync "https://help.deepsecurity.trendmicro.com/12_0/aws/Add-Computers/add-aws.html?Highlight=account%20sync") and [Check your license information](https://help.deepsecurity.trendmicro.com/12_0/aws/Manage-Components/ui-admin-licenses.html "https://help.deepsecurity.trendmicro.com/12_0/aws/Manage-Components/ui-admin-licenses.html").
+
   1.  Log in to the shared services account and navigate to the Secrets Manager console.
   2.  Retrieve DSM console admin credentials that are stored in the `/ams/eps/` path.
   3.  Log in to the DSM console at [https://dsm.sentinel.int](https://dsm.sentinel.int/ "https://dsm.sentinel.int/").

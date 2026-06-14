@@ -20,6 +20,7 @@ depending on how you are managing AMI updates:
 - If you are using an application deployment tool (for example, UserData,
   CodeDeploy, and so forth) that customizes your instances automatically after
   they are created, you can do the following:
+
   - Reply to the patching service notification, or submit a service
     request, for the latest AMS AMI to replace your current Auto
     Scaling group's configuration AMI. After the AMI ID in your Auto
@@ -30,6 +31,7 @@ depending on how you are managing AMI updates:
 
 - If you are using a custom/golden AMI in your Auto Scaling groups'
   configuration, you can:
+
   - Create an instance with the new AMS AMI, customize the instance
     and create a new golden AMI. Share the new golden AMI with AMS
     using the Amazon EC2 console, and submit a service request to AMS to

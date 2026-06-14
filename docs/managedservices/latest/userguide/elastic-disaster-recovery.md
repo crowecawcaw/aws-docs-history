@@ -21,6 +21,7 @@ There are no restrictions to use AWS Elastic Disaster Recovery in your AMS accou
 **Q: What are the prerequisites or dependencies to using AWS Elastic Disaster Recovery in my AMS account?**
 
 - After you have access to the console role, you must initialize the Elastic Disaster Recovery service to create the needed IAM roles within the account.
+
   - You must submit change type Management | Applications | IAM instance profile | Create (managed automation) change type ct-0ixp4ch2tiu04 RFC to create a clone of the `customer-mc-ec2-instance-profile` instance profile and attach the `AWSElasticDisasterRecoveryEc2InstancePolicy` policy. You must specify which machines to attach the new policy to.
   - If the instance isn't using the default instance profile, then AMS can attach `AWSElasticDisasterRecoveryEc2InstancePolicy` through automation.
 

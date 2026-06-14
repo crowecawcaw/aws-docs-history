@@ -22,6 +22,7 @@ Utilization of in your AMS account is a two-step process:
 
 1. Request an AWS CloudHSM cluster. Do this by submitting an RFC with the Management | Other | Other |
    Create (ct-1e1xtak34nx76) change type. Include the following details:
+
    - AWS Region.
    - VPC ID/ARN. Provide a VPC ID/VPC ARN that is in the same account as the RFC that you submit.
    - Specify at least two Availability Zones for the cluster.

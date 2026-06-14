@@ -3,6 +3,7 @@
 Begin by checking prerequisites and then submitting a request for change (RFC) in your eligible AMS Advanced account.
 
 1. Confirm that the account that you want to use with DCM meets the requirements:
+
    - The account is AMS Advanced Plus or Premium.
    - The account doesn't have Service Catalog enabled. We currently don't support onboarding accounts to both DCM and Service Catalog
      at the same time. If you are already onboarded to Service Catalog but are interested in DCM, discuss your needs with your cloud service delivery manager (CSDM).
@@ -34,14 +35,17 @@ is managed through the your SAML provider.
 Managed policies that are deployed and attached to the role `AWSManagedServicesCloudFormationAdminRole` are:
 
 - AMS Advanced multi-account landing zone (MALZ) Application account
+
   - AWSManagedServices_CloudFormationAdminPolicy1
   - AWSManagedServices_CloudFormationAdminPolicy2
+
     - This policy represents the permissions granted to the `AWSManagedServicesCloudFormationAdminRole`. You
       and partners use this policy to grant access to an existing role in the account and allow that role to launch and update
       CloudFormation stacks in the account. This might require additional AMS service control policy (SCP) updates to allow
       other IAM entities to launch CloudFormation stacks.
 
 - AMS Advanced single-account landing zone (SALZ) account
+
   - AWSManagedServices_CloudFormationAdminPolicy1
   - AWSManagedServices_CloudFormationAdminPolicy2
   - cdk-legacy-mode-s3-access [in-line policy]
@@ -55,6 +59,7 @@ VPC, AMS infrastructure resources and configuration, and so forth. Access to th
 Managed policies that are deployed and attached to the role `AWSManagedServicesUpdateRole` are:
 
 - AMS Advanced multi-account landing zone Application account
+
   - AWSManagedServicesUpdateBasePolicy
   - AWSManagedServicesUpdateDenyPolicy
   - AWSManagedServicesUpdateDenyProvisioningPolicy
@@ -62,6 +67,7 @@ Managed policies that are deployed and attached to the role `AWSManagedServices
   - AWSManagedServicesUpdateDenyActionsOnAMSInfraPolicy
 
 - AMS Advanced single-account landing zone account
+
   - AWSManagedServicesUpdateBasePolicy
   - AWSManagedServicesUpdateDenyProvisioningPolicy
   - AWSManagedServicesUpdateEC2AndRDSPolicy

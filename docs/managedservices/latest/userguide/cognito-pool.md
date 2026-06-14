@@ -27,6 +27,7 @@ Implementation of Amazon Cognito user pools in AMS is a 2 step process:
 
 1. Submit a Management | Other | Other | Create (ct-1e1xtak34nx76) change type and request
    the creation of the Amazon Cognito user pools in your AMS Account. Include the following information:
+
    - AWS Region.
    - Name for the Cognito User Pool.
    - If the you want to use the Amazon Simple Email Service (Amazon SES) to send messages and notifications instead of the default internal Cognito mail

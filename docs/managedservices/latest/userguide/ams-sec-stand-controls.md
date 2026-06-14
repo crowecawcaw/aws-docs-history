@@ -5,6 +5,7 @@ The following are the standard controls in AMS:
 The following is the standard control for 001 - Tagging Configuration.
 
 1. All AWS resources required by the AMS team for operational and management purposes must have the following key-value pair.
+
    - AppId= AMSInfrastructure
    - Environment= AMSInfrastructure
    - AppName = AMSInfrastructure
