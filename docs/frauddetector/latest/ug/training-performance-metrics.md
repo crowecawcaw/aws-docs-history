@@ -13,6 +13,7 @@ provides the following tools to assess model performance:
 
 - **Score distribution chart** – A histogram of model score distributions assumes an example population of 100,000 events. The left Y axis represents the legitimate events and the right Y axis represents the fraud events. You can select a specific model threshold by clicking on the chart area. This will update the corresponding views in the confusion matrix and ROC chart.
 - **Confusion matrix** – Summarizes the model accuracy for a given score threshold by comparing model predictions versus actual results. Amazon Fraud Detector assumes an example population of 100,000 events. The distribution of fraud and legitimate events simulates the fraud rate in your businesses.
+
   - **True positives** – The model predicts fraud and the event is actually fraud.
   - **False positives** – The model predicts fraud but the event is actually legitimate.
   - **True negatives** – The model predicts legitimate and the event is actually legitimate.

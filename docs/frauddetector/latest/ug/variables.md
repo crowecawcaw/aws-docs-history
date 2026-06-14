@@ -96,6 +96,7 @@ You can assign your variable any one of the pre-defined variable types or one of
    The dataset you are using to train your model might have ID variables such as, _merchant_id_, _campaign_id_, or _policy_id_.
    These variables represent groups (for example, all customers with same policy_id represent a group). Variables that have the following data must be assigned
    CATEGORICAL variable type -
+
    - Variables that contain data such as _customer_ID_, _segment_ID_, _color_ID_, _department_code_, or _product_ID_.
    - Variables that contain Boolean data with true, false, or null values.
    - Variables that can be put into groups or categories such as company name, product category, card type, or referral medium.

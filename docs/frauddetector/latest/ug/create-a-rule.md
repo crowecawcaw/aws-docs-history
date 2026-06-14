@@ -28,6 +28,7 @@ To follow the steps mentioned below, make sure that you complete the following b
 2. In the left navigation pane, choose **Detectors** and select the detector you created for your use case, example **payments_detector**.
 3. In the **payments_detector** page, choose **Associated rules** tab and then choose **Create rule**.
 4. In the **New rule** page, enter the following:
+
    1. In the **Name**, enter a name for the rule, example `high_risk`
    2. In the **Description - optional**, optionally enter a rule description, example, `This rule captures events with a high ML model
 score`

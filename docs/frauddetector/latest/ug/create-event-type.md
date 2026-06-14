@@ -29,15 +29,19 @@ Before you start to create your event type, make sure that you have completed th
 3. In the **Events type** page, choose
    **Create**.
 4. Under **Event type details,**,
+
    1. In the **Name**, enter the name of your event.
    2. In the **Description**, optionally, enter a description.
    3. In the **Entity**, select the entity type you created for your event.
 
 5. Under **Event variables**,
+
    1. In the **Choose how to define this event's variables**,
+
       - If you have already created your event variables for this event, select **Select variables from your variable list** and
         in the **Variables**, select the variables you created for this event.
       - If you have not created variables for this event, select **Select variables from a training dataset**,
+
         - In the **IAM role** select the IAM Role you want Amazon Fraud Detector to use to access the Amazon S3 bucket that contains your dataset
         - In the **Data location** enter the path to your dataset location. Use the `S3 URI` path that is
           similar to this: `S3://`your-bucket-name`/`example

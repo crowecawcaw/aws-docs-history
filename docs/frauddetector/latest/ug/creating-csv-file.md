@@ -66,6 +66,7 @@ Amazon Fraud Detector makes the following assumptions when parsing date/timestam
 
 - If you are using the ISO 8601 standard, it must be an exact match of the preceding specification
 - If you are using one of the other formats, there is additional flexibility:
+
   - For months and days, you can provide single or double digits. For example, 1/12/2019 is a valid date.
   - You do not need to include hh:mm:ss if you do not have them (taht is, you can simply provide a date). You can also provide a subset
     of just the hour and minutes (for example, hh:mm). Just providing hour is not supported. Milliseconds are also not supported.

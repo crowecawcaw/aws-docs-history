@@ -37,6 +37,7 @@ create a new dataset.
 - In this step, you define the business activity (event) to evaluate for fraud. Defining the event involves
   setting the variables that are in your dataset, the entity initiating event, and the labels that classify the event.
   For this tutorial, you define the account registration event.
+
   1.  Open the [AWS
       Management Console](https://console.aws.amazon.com "https://console.aws.amazon.com") and sign in to your account.
       Navigate to Amazon Fraud Detector.
@@ -94,6 +95,7 @@ create a new dataset.
    **sample_registration**. This is the event type
    that you created in Step 1.
 5. In **Historical event data**,
+
    1. In **Event data source**, choose
       **Event data stored in S3**.
    2. For **IAM role**, select the role that
@@ -131,6 +133,7 @@ wasn't used to train the model and generates a model performance score and
 other performance metrics.
 
 1. To view model's performance,
+
    1. In the left navigation pane of the Amazon Fraud Detector console, choose
       **Models**.
    2. In the **Models** page, choose the model

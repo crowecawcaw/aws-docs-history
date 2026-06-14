@@ -66,6 +66,7 @@ the variables. However, the insights in this case will be limited.
 
 1. If you notice variables missing in the **Model variable importance** chart, it might be due to one of the following reasons.
    Consider modifying the variable in your dataset and retrain your model.
+
    - The count of unique values for the variable in the training dataset is lower than 100.
    - Greater than 0.9 of values for the variable are missing from the training data-set.
 

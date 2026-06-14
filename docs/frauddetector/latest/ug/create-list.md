@@ -19,6 +19,7 @@ You can create a list in the Amazon Fraud Detector console, using the API, using
    Navigate to Amazon Fraud Detector.
 2. In the left navigation pane, choose **Lists**.
 3. Under **Lists** details
+
    1. In the **List name**, enter a name for your list.
    2. In the **Description**, optionally, enter a description.
    3. (Optional) In the **Variable type**, select a variable type for your list.

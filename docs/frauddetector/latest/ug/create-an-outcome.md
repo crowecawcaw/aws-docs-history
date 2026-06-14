@@ -15,6 +15,7 @@ using the [PutOutcome](../api/API_PutOutcome.md "../api/API_PutOutcome.md") API,
 2. In the left navigation pane, choose **Outcomes**.
 3. In the **Outcomes** page, choose **Create**.
 4. In your **New outcome** page, enter the following:
+
    1. In the **Outcome name**, enter a name for your outcome.
    2. In the **Outcome description**, optionally, enter a description.
 

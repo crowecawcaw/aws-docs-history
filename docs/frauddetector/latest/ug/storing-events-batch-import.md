@@ -86,6 +86,7 @@ Amazon S3 bucket.
 5. In the **Stored events details** pane, make sure that the **Event ingestion** is **ON**.
 6. In the **Import events data** pane, choose **New Import**.
 7. In the **New events import** page, provide the following information:
+
    - [Recommended] Leave **Enable Smart Data Validation for this dataset - new** set to the default setting.
    - For **IAM role for data**, select the IAM role that you created for the Amazon S3 bucket that holds the CSV file you are planning to import.
    - For **Input data location**, enter the S3 location where you have your CSV file.

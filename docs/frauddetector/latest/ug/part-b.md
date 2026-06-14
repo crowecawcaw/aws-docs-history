@@ -175,6 +175,7 @@ can use account registration data from the example dataset.
    This is because they are the inputs that are used to train your
    Amazon Fraud Detector model. You can use the following example values. This assumes
    that you used the suggested variable names:
+
    - ip_address: `205.251.233.178`
    - email_address: `johndoe@exampledomain.com`
 
