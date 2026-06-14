@@ -28,6 +28,7 @@ You can use one or multiple of these available filters to look for the correct p
 After receiving results that satisfy your criteria, you can either:
 
 - Click on the partner name to view their detailed profile, which includes:
+
   - Company description and overview
   - Industry focus and expertise areas
   - Partner program participation

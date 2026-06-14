@@ -6,6 +6,7 @@ AWS Partner Central uses AI-powered agents to take action on your opportunities,
 
 - Your account has migrated to AWS Partner Central in the AWS Management Console.
 - Your IAM user or role has the required permissions:
+
   - `partnercentral:List*`
   - `partnercentral:Get*`
   - `partnercentral:CreateOpportunity`

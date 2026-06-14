@@ -4,6 +4,7 @@
 
 1. To upload opportunities in bulk, choose the drop-down list for **Bulk Actions** and select **Import Opportunities**. Partners are prompted with an overview of the key steps involved.
 2. Choose **Start Import**. Users must complete the following Download and Prepare CSV file for import steps prior to uploading files:
+
    - **Always download the latest Excel template:** The date in which the template was last updated will be displayed for user transparency. Note: it is the user's responsibility to ensure the latest template version is being used for upload.
    - **New changes:** Check the new section "Products and Offerings" for guidance on how to attach products and offerings on opportunities. Download the dynamic sheet to check the APN Product Codes and Offering IDs to add on the bulk excel template.
    - **Prepare the Excel file to import:** Fill in all the information in the required fields highlighted in yellow. There are guided boxes that appear by clicking on the cell. They support you through the process in order to insert the correct information. Some of the cells have drop-down lists where you can review and choose required fields.

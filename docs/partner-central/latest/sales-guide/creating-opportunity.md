@@ -14,14 +14,17 @@ Partners can now use deal sizing when creating opportunities to receive AI-power
 
 1. Navigate to **Sell**, **Opportunities** in the left-side navigation.
 2. Choose **Create opportunity**, then select one of the following options from the dropdown:
+
    - **Create using wizard** – Continue with the multi-step form described in the steps below.
    - **Create using agent** – Create the opportunity through a short conversation with the AWS Partner Central agent. Describe the deal or upload a supporting document, review the fields the agent extracts, and approve to submit. For details, see [Agents for opportunity management](partner-cosell-agent.md "partner-cosell-agent.md").
 
 3. Enter customer details and choose **Next**.
+
    - All fields are required except for **Customer DUNS**. Information such as the customer website and zip code are necessary to align the opportunity with internal stakeholders.
    - If you enter **Government** for **Industry Vertical**, make sure you select a **Classified National Security Information** option.
 
 4. Enter project details and choose **Next**.
+
    - Select **Co-Sell with AWS** if you want AWS Sales support. If you select **Co-Sell with AWS**, make sure you choose one or more **Partner specific needs from AWS for Co-Sell** options.
    - For **Opportunity Type**, if there are existing contracts between the end customer and partner with the potential for incremental revenue, choose **Expansion**. Choose **Flat Renewal** if no potential for incremental revenue exists. If you select **Expansion** or **Flat Renewal**, you can enter an optional parent opportunity ID.
    - AWS Training Partners (ATPs) should enter **Training** for **Use Case**, and enter AWS revenue from AWS training kits for **Estimated AWS Monthly Recurring Revenue** on the next step as part of deal sizing.

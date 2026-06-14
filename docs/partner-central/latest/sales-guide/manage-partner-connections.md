@@ -11,6 +11,7 @@ When you find the right partner you want to connect with through Partner Discove
 1. Select the partner from your search results.
 2. Click the **Send connection request** button.
 3. Complete the connection request form by specifying:
+
    - Your full name
    - Your contact email
    - A personalized message to the recipient explaining why you're requesting the connection
