@@ -15,6 +15,7 @@ dependable.
 At the end of this tutorial, you will have:
 
 - A Lambda invoke action that:
+
   - Consumes the `CommitId` variable from a CodeCommit source
     action
   - Outputs three new variables: `dateTime`,
@@ -196,6 +197,7 @@ displayed. Choose the pipeline where you want to add the action. 2. Add the Lamb
     8. Choose **Done**.
 
 3. Add the manual approval action to your pipeline.
+
    1. With your pipeline still in editing mode, add a stage after the invoke
       action. Enter a name for the stage, such as
       `Approval`.

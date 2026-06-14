@@ -28,6 +28,7 @@ To add a GitLab.com source action in CodePipeline, you can choose either to:
 - Use the CLI to add the action configuration for the
   `CreateSourceConnection` action with the `GitLab` provider
   as follows:
+
   - To create your connections resources, see [Create a connection to GitLab.com (CLI)](#connections-gitlab-cli "#connections-gitlab-cli") to create a connections resource with the CLI.
   - Use the `CreateSourceConnection` example action configuration
     in [CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions](action-reference-CodestarConnectionSource.md "action-reference-CodestarConnectionSource.md") to add your
@@ -77,6 +78,7 @@ Use these steps to use the CodePipeline console to add a connections action for 
 
 1. Sign in to the CodePipeline console.
 2. Choose one of the following.
+
    - Choose to create a pipeline. Follow the steps in _Create a Pipeline_ to complete the first
      screen and choose **Next**. On the
      **Source** page, under **Source Provider**, choose **GitLab**.
@@ -88,6 +90,7 @@ Use these steps to use the CodePipeline console to add a connections action for 
      choose **GitLab**.
 
 3. Do one of the following:
+
    - Under **Connection**, if you have not already created
      a connection to your provider, choose **Connect to
      GitLab**. Proceed to step 4 to create the
@@ -204,13 +207,13 @@ the following.
 3. The pipeline defaults to detect changes on code push to the connection source
    repository. To configure the pipeline trigger configuration for manual release
    or for Git tags, do one of the following:
+
    - To configure the pipeline trigger configuration to start with a manual
      release only, add the following line to the configuration:
 
    ```
    "DetectChanges": "false",
    ```
-
    - To configure the pipeline trigger configuration to filter with
      triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
      to the pipeline level of the pipeline JSON definition. In this example,

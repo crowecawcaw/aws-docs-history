@@ -112,6 +112,7 @@ The output returns the execution ID:
     **retry-stage-execution** command with the
     `--cli-input-json` parameter. To retrieve the details you need for the
     JSON file, it's easiest to use the **get-pipeline-state** command.
+
     1. At a terminal (Linux, macOS, or Unix) or command prompt (Windows), run the [**get-pipeline-state**](../../../cli/latest/reference/codepipeline/get-pipeline-state.md "../../../cli/latest/reference/codepipeline/get-pipeline-state.md") command on a pipeline.
        For example, for a pipeline named MyFirstPipeline, you would type
        something similar to the following:
@@ -150,7 +151,6 @@ The output returns the execution ID:
         ]
     }
     ```
-
     2.  In a plain-text editor, create a file where you will record the following, in
         JSON format:
 
@@ -170,7 +170,6 @@ The output returns the execution ID:
         "retryMode": "FAILED_ACTIONS"
     }
     ```
-
     3. Save the file with a name like
        `retry-failed-actions.json`.
     4. Call the file you created when you run the [**retry-stage-execution**](../../../cli/latest/reference/codepipeline/retry-stage-execution.md "../../../cli/latest/reference/codepipeline/retry-stage-execution.md") command. For
@@ -183,7 +182,6 @@ The output returns the execution ID:
     ```
     aws codepipeline retry-stage-execution --cli-input-json file://retry-failed-actions.json
     ```
-
     5. To view the results of the retry attempt, either open the CodePipeline console and
        choose the pipeline that contains the actions that failed, or use the
        **get-pipeline-state** command again. For more information,

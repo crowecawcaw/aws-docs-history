@@ -151,15 +151,18 @@ This tutorial uses CodeBuild to build your Docker image and push the image to Am
 how to do that. The example build specification below does the following:
 
 - Pre-build stage:
+
   - Log in to Amazon ECR.
   - Set the repository URI to your ECR image and add an image tag with the
     first seven characters of the Git commit ID of the source.
 
 - Build stage:
+
   - Build the Docker image and tag the image both as `latest`
     and with the Git commit ID.
 
 - Post-build stage:
+
   - Push the image to your ECR repository with both tags.
   - Write a file called `imagedefinitions.json` in the
     build root that has your Amazon ECS service's container name and the image
@@ -221,18 +224,17 @@ file corresponds to the container name in the service's task definition.
    name in your service's task definition that references your Docker image.
 3. Commit and push your `buildspec.yml` file to your source
    repository.
+
    1. Add the file.
 
    ```
    `git add .`
    ```
-
    2. Commit the change.
 
    ```
    `git commit -m "Adding build specification."`
    ```
-
    3. Push the commit.
 
    ```
@@ -270,6 +272,7 @@ For more information, see [Pipeline types](pipeline-types.md "pipeline-types.md"
 7. On the **Step 4: Add build stage** page, for **Build
    provider** choose **AWS CodeBuild**, and then choose
    **Create project**.
+
    1. For **Project name**, choose a unique name for your
       build project. For this tutorial, the project name is
       **hello-world**.
@@ -301,6 +304,7 @@ For more information, see [Pipeline types](pipeline-types.md "pipeline-types.md"
 8. On the **Step 5: Add deploy stage** page, for
    **Deployment provider**, choose
    **Amazon ECS**.
+
    1. For **Cluster name**, choose the Amazon ECS cluster in
       which your service is running. For this tutorial, the cluster is
       **default**.

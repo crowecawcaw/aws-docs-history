@@ -155,18 +155,17 @@ echo "Hello World!"
    file.
 2. Commit and push your `script.sh` file to your source
    repository.
+
    1. Add the file.
 
    ```
    `git add .`
    ```
-
    2. Commit the change.
 
    ```
    `git commit -m "Adding script.sh."`
    ```
-
    3. Push the commit.
 
    ````
@@ -207,6 +206,7 @@ repository.
    defaults, and then choose **Next**.
 8. On the **Step 3: Add source stage** page, add a source
    stage:
+
    1. In **Source provider**, choose **GitHub (via
       GitHub App)**.
    2. Under **Connection**, choose an existing connection

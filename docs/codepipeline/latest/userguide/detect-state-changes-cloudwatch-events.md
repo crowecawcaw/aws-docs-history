@@ -1026,6 +1026,7 @@ changes in CodePipeline.
    services**.
 6. From the **Event Type** drop-down list, choose the level of state
    change for the notification.
+
    - For a rule that applies to pipeline-level events, choose **CodePipeline
      Pipeline Execution State Change**.
    - For a rule that applies to stage-level events, choose **CodePipeline
@@ -1034,6 +1035,7 @@ changes in CodePipeline.
      Action Execution State Change**.
 
 7. Specify the state changes the rule applies to:
+
    - For a rule that applies to all state changes, choose **Any
      state**.
    - For a rule that applies to some state changes only, choose **Specific

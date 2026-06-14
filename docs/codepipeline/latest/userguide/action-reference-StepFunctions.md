@@ -114,6 +114,7 @@ as the input for the state machine execution.
 - **Number of artifacts:**
   `0 to 1`
 - **Description:**
+
   - **Standard State Machines**: If provided,
     the output artifact is populated with the output of the state machine.
     This is obtained from the `output` property of the [Step Functions

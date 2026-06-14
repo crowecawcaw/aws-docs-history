@@ -75,6 +75,7 @@ repository.
    **Products** page, and then choose **Upload new
    product**.
 2. On the **Upload new product** page, complete the following:
+
    1. In **Product name**, enter the name you want to use for your
       new product.
    2. In **Description**, enter the product catalog description. This
@@ -87,6 +88,7 @@ repository.
 3. (Optional) In **Enter support details**, enter contact information
    for product support, and choose **Next**.
 4. In **Version details**, complete the following:
+
    1. Choose **Upload a template file**. Browse for your
       `S3_template.json` file and upload it.
    2. In **Version title**, enter the name of the product version
@@ -122,6 +124,7 @@ You might need to refresh your browser to see the product in the list.
 
 1. To name your pipeline and select parameters for your pipeline, do the
    following:
+
    1. Sign in to the AWS Management Console and open the CodePipeline console at
       [https://console.aws.amazon.com/codepipeline/](https://console.aws.amazon.com/codepipeline/ "https://console.aws.amazon.com/codepipeline/").
    2. On the **Welcome** page, **Getting started**
@@ -142,6 +145,7 @@ You might need to refresh your browser to see the product in the list.
 
 2. To add a source stage on the **Step 3: Add source stage** page, do
    the following:
+
    1. In **Source provider**, choose
       **AWS CodeCommit**.
    2. In **Repository name** and **Branch name**,
@@ -273,6 +277,7 @@ repository. Make sure you upload this file to your source repository.
    **Products** page, and then choose **Upload new
    product**.
 2. On the **Upload new product** page, complete the following:
+
    1. In **Product name**, enter the name you want to use for your
       new product.
    2. In **Description**, enter the product catalog description. This
@@ -285,6 +290,7 @@ repository. Make sure you upload this file to your source repository.
 3. (Optional) In **Enter support details**, enter product support
    contact information, and then choose **Next**.
 4. In **Version details**, complete the following:
+
    1. Choose **Upload a template file**. Browse for your
       `S3_template.json` file and upload it.
    2. In **Version title**, enter the name of the product version
@@ -320,6 +326,7 @@ in the list.
 
 1. To name your pipeline and select parameters for your pipeline, do the
    following:
+
    1. Sign in to the AWS Management Console and open the CodePipeline console at
       [https://console.aws.amazon.com/codepipeline/](https://console.aws.amazon.com/codepipeline/ "https://console.aws.amazon.com/codepipeline/").
    2. Choose **Getting started**. Choose **Create
@@ -330,6 +337,7 @@ in the list.
       defaults, and then choose **Next**.
 
 2. To add a source stage, do the following:
+
    1. In **Source provider**, choose
       **AWS CodeCommit**.
    2. In **Repository name** and **Branch name**,
@@ -340,6 +348,7 @@ in the list.
    stage**, and then accept the warning message by choosing
    **Skip** again.
 4. In **Add deploy stage**, complete the following:
+
    1. In **Deploy provider**, choose
       **AWS Service Catalog**.
    2. Choose **Use configuration file**.

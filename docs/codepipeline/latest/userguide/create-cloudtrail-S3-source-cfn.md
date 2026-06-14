@@ -248,6 +248,7 @@ JSON
 
 4. (Optional) To configure an input transformer with source overrides for a specific image
    ID, use the following YAML snippet. The following example configures an override where:
+
    - The `actionName`, `Source` in this example, is the dynamic
      value, defined at pipeline creation, not derived from the source event.
    - The `revisionType`, `S3_OBJECT_VERSION_ID` in this example, is

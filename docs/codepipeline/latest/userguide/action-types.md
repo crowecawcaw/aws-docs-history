@@ -36,6 +36,7 @@ The following components make up an action type.
 - **Executor configuration** – The integration
   model, or action engine, specified when the action is created. When you specify the
   executor for an action type, you choose one of two types:
+
   - _Lambda:_ The action type owner writes
     the integration as a Lambda function, which is invoked by CodePipeline whenever
     there is a job available for the action.
@@ -89,6 +90,7 @@ resources.
   the CodePipeline service with permissions to invoke it using the CodePipeline service
   principal: `codepipeline.amazonaws.com`. The permissions can be
   added using CloudFormation or the command line.
+
   - Example for adding permissions using CloudFormation:
 
   ```
@@ -99,7 +101,6 @@ resources.
         FunctionName: {"Fn::Sub": "arn:${AWS::Partition}:lambda:${AWS::Region}:${AWS::AccountId}:function:`function-name`"}
         Principal: codepipeline.amazonaws.com
   ```
-
   - [Documentation for command line](../../../cli/latest/reference/lambda/add-permission.md "../../../cli/latest/reference/lambda/add-permission.md")
 
 - For the job worker integration model, you create an integration with a
@@ -131,6 +132,7 @@ There are eight sections in the action type definition file:
   either `jobWorkerExecutorConfiguration` or
   `lambdaExecutorConfiguration`, based on your executor
   type.
+
   - `configuration`: Resources for the configuration of the
     action type, based on the chosen integration model. For the Lambda
     integration model, use the Lambda function ARN. For the job worker
@@ -153,6 +155,7 @@ There are eight sections in the action type definition file:
 
 - `id`: The category, owner, provider, and version ID for the
   action type:
+
   - `category`: The kind of action can be taken in the
     stage: Source, Build, Deploy, Test, Invoke, or Approval.
   - `provider`: The provider of the action type being
@@ -171,6 +174,7 @@ There are eight sections in the action type definition file:
   permissions to use the action type.
 - `properties`: The parameters required for your project tasks to
   complete.
+
   - `description`: The description of the property that is
     displayed to users.
   - `optional`: Whether the configuration property is
@@ -188,6 +192,7 @@ There are eight sections in the action type definition file:
     users.
 
 - `urls`: A list of the URLs CodePipeline displays to your users.
+
   - `entityUrlTemplate`: URL to the external resources for
     the action type, such as a configuration page.
   - `executionUrlTemplate`: URL to the details for the

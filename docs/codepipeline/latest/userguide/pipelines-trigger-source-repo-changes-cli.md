@@ -12,6 +12,7 @@ Call the **put-rule** command, specifying:
 
 1. Add permissions for EventBridge to use CodePipeline to invoke the rule. For more information, see
    [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
+
    1. Use the following sample to create the trust policy that allows EventBridge to assume
       the service role. Name the trust policy
       `trustpolicyforEB.json`.
@@ -33,14 +34,12 @@ Call the **put-rule** command, specifying:
    }`
 
    ```
-
    2. Use the following command to create the `Role-for-MyRule` role and
       attach the trust policy.
 
    ```
    aws iam create-role --role-name Role-for-MyRule --assume-role-policy-document file://trustpolicyforEB.json
    ```
-
    3. Create the permissions policy JSON, as shown in this sample, for the pipeline
       named `MyFirstPipeline`. Name the permissions policy
       `permissionspolicyforEB.json`.
@@ -64,7 +63,6 @@ Call the **put-rule** command, specifying:
    }`
 
    ```
-
    4. Use the following command to attach the
       `CodePipeline-Permissions-Policy-for-EB` permissions policy to
       the `Role-for-MyRule` role.
@@ -111,6 +109,7 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
 4. (Optional) To configure an input transformer with source overrides for a specific
    image ID, use the following JSON in your CLI command. The following example configures
    an override where:
+
    - The `actionName`, `Source` in this example, is the
      dynamic value, defined at pipeline creation, not derived from the source
      event.

@@ -17,6 +17,7 @@ You must have the following resources to use with the AWS CloudFormation sample 
   and CodeDeploy resources you created in [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - Choose the following links to download the sample AWS CloudFormation template files for
   creating a pipeline with an Amazon S3 source:
+
   - Download the sample template for your pipeline: [YAML](samples/codepipeline-s3-events-yaml.zip.md "samples/codepipeline-s3-events-yaml.zip.md") | [JSON](samples/codepipeline-s3-events-json.zip.md "samples/codepipeline-s3-events-json.zip.md")
   - Download the sample template for your CloudTrail bucket and trail: [YAML](samples/codepipeline-s3-cloudtrail-yaml.zip.md "samples/codepipeline-s3-cloudtrail-yaml.zip.md") | [JSON](samples/codepipeline-s3-cloudtrail-json.zip.md "samples/codepipeline-s3-cloudtrail-json.zip.md")
   - Unzip the files and place them on your local computer.
@@ -39,6 +40,7 @@ created.
    the template file from your local computer. Choose **Next**.
 3. In **Stack name**, enter a name for your pipeline. Parameters
    specified by the sample template are displayed. Enter the following parameters:
+
    1. In **ApplicationName**, enter the name of your CodeDeploy application.
       You can replace the `DemoApplication` default name.
    2. In **BetaFleet**, enter the name of your CodeDeploy deployment group.
@@ -120,6 +122,7 @@ resources.
    **Next**.
 3. In **Stack name**, enter a name for your resource stack. Parameters
    specified by the sample template are displayed. Enter the following parameters:
+
    1. In **SourceObjectKey**, accept the default for the sample
       application's zip file.
 

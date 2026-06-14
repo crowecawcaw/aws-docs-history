@@ -44,6 +44,7 @@ Unzip the file and place it on your local computer.
    the template file from your local computer. Choose **Next**.
 4. In **Stack name**, enter a name for your pipeline. Parameters
    specified by the sample template are displayed. Enter the following parameters:
+
    1. In **ApplicationName**, enter the name of your CodeDeploy
       application.
    2. In **BetaFleet**, enter the name of your CodeDeploy deployment

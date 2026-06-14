@@ -57,12 +57,12 @@ Follow these steps to use a script to determine pipelines in your account that a
 using polling.
 
 1.  Open a terminal window, and then do one of the following:
+
     - Run the following command to create a new script named **PollingPipelinesExtractor.sh**.
 
     ```
     vi PollingPipelinesExtractor.sh
     ```
-
     - To use a python script, run the following command to create a new
       python script named **PollingPipelinesExtractor.py**.
 
@@ -72,6 +72,7 @@ using polling.
 
 2.  Copy and paste the following code into the **PollingPipelinesExtractor** script. Do one of the
     following:
+
     - Copy and paste the following code into the **PollingPipelinesExtractor.sh** script.
 
     ```
@@ -136,7 +137,6 @@ using polling.
 
     printf "\nSaving Polling Pipeline Names to file $fileName.csv."
     ```
-
     - Copy and paste the following code into the **PollingPipelinesExtractor.py** script.
 
     ```
@@ -399,6 +399,7 @@ start your pipeline.
 
 1. Add permissions for EventBridge to use CodePipeline to invoke the rule. For more information, see
    [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
+
    1. Use the following sample to create the trust policy that allows EventBridge to assume
       the service role. Name the trust policy
       `trustpolicyforEB.json`.
@@ -420,14 +421,12 @@ start your pipeline.
    }`
 
    ```
-
    2. Use the following command to create the `Role-for-MyRule` role and
       attach the trust policy.
 
    ```
    aws iam create-role --role-name Role-for-MyRule --assume-role-policy-document file://trustpolicyforEB.json
    ```
-
    3. Create the permissions policy JSON, as shown in this sample, for the pipeline
       named `MyFirstPipeline`. Name the permissions policy
       `permissionspolicyforEB.json`.
@@ -451,7 +450,6 @@ start your pipeline.
    }`
 
    ```
-
    4. Use the following command to attach the
       `CodePipeline-Permissions-Policy-for-EB` permissions policy to
       the `Role-for-MyRule` role.
@@ -498,6 +496,7 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
 4. (Optional) To configure an input transformer with source overrides for a specific
    image ID, use the following JSON in your CLI command. The following example configures
    an override where:
+
    - The `actionName`, `Source` in this example, is the
      dynamic value, defined at pipeline creation, not derived from the source
      event.
@@ -826,6 +825,7 @@ JSON
 
 3. (Optional) To configure an input transformer with source overrides for a specific image
    ID, use the following YAML snippet. The following example configures an override where:
+
    - The `actionName`, `Source` in this example, is the dynamic
      value, defined at pipeline creation, not derived from the source event.
    - The `revisionType`, `COMMIT_ID` in this example, is the dynamic
@@ -1229,6 +1229,7 @@ following resources:
 
 1. Grant permissions for EventBridge to use CodePipeline to invoke the rule. For more
    information, see [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
+
    1. Use the following sample to create the trust policy to allow
       EventBridge
       to assume the service role. Name it
@@ -1251,7 +1252,6 @@ following resources:
    }`
 
    ```
-
    2. Use the following command to create the
       `Role-for-MyRule` role and attach the trust
       policy.
@@ -1263,7 +1263,6 @@ following resources:
    ```
    aws iam create-role --role-name Role-for-MyRule --assume-role-policy-document file://trustpolicyforEB.json
    ```
-
    3. Create the permissions policy JSON, as shown here for the pipeline
       named `MyFirstPipeline`. Name the permissions policy
       `permissionspolicyforEB.json`.
@@ -1287,7 +1286,6 @@ following resources:
    }`
 
    ```
-
    4. Use the following command to attach the new
       `CodePipeline-Permissions-Policy-for-EB` permissions
       policy to the `Role-for-MyRule` role you created.
@@ -2118,6 +2116,7 @@ aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{
 
 1. Grant permissions for EventBridge to use CodePipeline to invoke the rule. For more information, see
    [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
+
    1. Use the following sample to create the trust policy to allow EventBridge to assume
       the service role. Name it `trustpolicyforEB.json`.
 
@@ -2138,7 +2137,6 @@ aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{
    }`
 
    ```
-
    2. Use the following command to create the `Role-for-MyRule` role and
       attach the trust policy.
 
@@ -2148,7 +2146,6 @@ aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{
    ```
    aws iam create-role --role-name Role-for-MyRule --assume-role-policy-document file://trustpolicyforEB.json
    ```
-
    3. Create the permissions policy JSON, as shown here for the pipeline named
       `MyFirstPipeline`. Name the permissions policy
       `permissionspolicyforEB.json`.
@@ -2172,7 +2169,6 @@ aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{
    }`
 
    ```
-
    4. Use the following command to attach the new
       `CodePipeline-Permissions-Policy-for-EB` permissions policy to
       the `Role-for-MyRule` role you created.
@@ -2208,6 +2204,7 @@ aws events put-targets --rule MyS3SourceRule --targets Id=1,Arn=arn:aws:codepipe
 4. (Optional) To configure an input transformer with source overrides for a specific
    image ID, use the following JSON in your CLI command. The following example configures
    an override where:
+
    - The `actionName`, `Source` in this example, is the
      dynamic value, defined at pipeline creation, not derived from the source
      event.
@@ -2662,6 +2659,7 @@ JSON
 
 4. (Optional) To configure an input transformer with source overrides for a specific image
    ID, use the following YAML snippet. The following example configures an override where:
+
    - The `actionName`, `Source` in this example, is the dynamic
      value, defined at pipeline creation, not derived from the source event.
    - The `revisionType`, `S3_OBJECT_VERSION_ID` in this example, is
@@ -3620,6 +3618,7 @@ a GitHub (via GitHub App) action.
    displays that recommends you update your action.
 3. In **Action provider**, choose **GitHub (via GitHub App)**.
 4. Do one of the following:
+
    - Under **Connection**, if you have not already
      created a connection to your provider, choose **Connect
      to GitHub**. Proceed to Step 2: Create a connection
@@ -3684,6 +3683,7 @@ my-account/my-repository
 
 2. In **Output artifact format**, choose the format for
    your artifacts.
+
    - To store output artifacts from the GitHub action using the
      default method, choose **CodePipeline
      default**. The action accesses the files from the

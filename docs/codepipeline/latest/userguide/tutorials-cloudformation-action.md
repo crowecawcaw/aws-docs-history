@@ -55,6 +55,7 @@ Download the sample AWS CloudFormation template file and upload it to your CodeC
    `documentdb_full_stack.yaml`.
 2. Unzip the `documentdb_full_stack.yaml` file, and open it in a text
    editor. Make the following changes.
+
    1. For this example, add the following `Purpose:` parameter to your
       `Parameters` section in the template.
 
@@ -67,7 +68,6 @@ Download the sample AWS CloudFormation template file and upload it to your CodeC
          - production
        Description: The purpose of this instance.
    ```
-
    2. For this example, add the following `StackName` output to your
       `Outputs:` section in the template.
 
@@ -121,12 +121,14 @@ example are available to downstream actions. For more information, see [Variable
    The V2 type is the only type you can choose in the console. For more information, see
    [pipeline types](pipeline-types-planning.md "pipeline-types-planning.md"). For information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/").
 6. In **Service role**, do one of the following:
+
    - Choose **New service role** to allow CodePipeline to create a service
      role in IAM.
    - Choose **Existing service role**. In **Role
      name**, choose your service role from the list.
 
 7. In **Artifact store**:
+
    1. Choose **Default location** to use the default artifact store,
       such as the Amazon S3 artifact bucket designated as the default, for your pipeline in the
       Region you selected for your pipeline.

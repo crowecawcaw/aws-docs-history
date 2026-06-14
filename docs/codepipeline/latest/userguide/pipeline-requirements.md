@@ -284,8 +284,10 @@ The fields in the JSON structure are defined as follows:
 - `push`: Push events with filtering. These events use an OR
   operation between different push filters and an AND operation inside
   filters.
+
   - `branches`: The branches to filter on. Branches use
     an AND operation between includes and excludes.
+
     - `includes`: Patterns to filter on for
       branches that will be included. Includes use an OR
       operation.
@@ -294,6 +296,7 @@ The fields in the JSON structure are defined as follows:
       operation.
 
   - `filePaths`: The file path names to filter on.
+
     - `includes`: Patterns to filter on for file
       paths that will be included. Includes use an OR
       operation.
@@ -302,6 +305,7 @@ The fields in the JSON structure are defined as follows:
       operation.
 
   - `tags`: The tag names to filter on.
+
     - `includes`: Patterns to filter on for tags
       that will be included. Includes use an OR
       operation.
@@ -311,10 +315,12 @@ The fields in the JSON structure are defined as follows:
 
 - `pullRequest`: Pull request events with filtering on pull
   request events and pull request filters.
+
   - `events`: Filters on open, updated, or closed pull
     request events as specified.
   - `branches`: The branches to filter on. Branches use
     an AND operation between includes and excludes.
+
     - `includes`: Patterns to filter on for
       branches that will be included. Includes use an OR
       operation.
@@ -323,6 +329,7 @@ The fields in the JSON structure are defined as follows:
       operation.
 
   - `filePaths`: The file path names to filter on.
+
     - `includes`: Patterns to filter on for file
       paths that will be included. Includes use an OR
       operation.

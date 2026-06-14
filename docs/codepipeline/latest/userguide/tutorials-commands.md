@@ -49,19 +49,18 @@ README.txt
 
 2. To use the Git command line from a cloned repository on your local
    computer:
+
    1. Run the following command to stage all of your files at once:
 
    ```
    git add -A
    ```
-
    2. Run the following command to commit the files with a commit
       message.
 
    ```
    git commit -m "Added source files"
    ```
-
    3. Run the following command to push the files from your local repo to
       your repository:
 
@@ -111,6 +110,7 @@ the policy example in [Service role policy permissions](action-reference-Command
    defaults, and then choose **Next**.
 8. On the **Step 3: Add source stage** page, add a source
    stage:
+
    1. In **Source provider**, choose **GitHub (via
       GitHub App)**.
    2. Under **Connection**, choose an existing connection

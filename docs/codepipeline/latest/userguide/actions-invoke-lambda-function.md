@@ -51,6 +51,7 @@ This topic includes sample functions to demonstrate the flexibility of working w
 functions in CodePipeline:
 
 - [Basic Lambda function](#LambdaSample1 "#LambdaSample1")
+
   - Creating a basic Lambda function to use with CodePipeline.
   - Returning success or failure results to CodePipeline in the
     **Details** link for the action.

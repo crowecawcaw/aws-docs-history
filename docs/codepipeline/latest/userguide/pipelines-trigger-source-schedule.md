@@ -85,6 +85,7 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
 
 3. Grant permissions for EventBridge to use CodePipeline to invoke the rule. For more
    information, see [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
+
    1. Use the following sample to create the trust policy to allow EventBridge
       to assume the service role. Name it
       `trustpolicyforEB.json`.
@@ -106,7 +107,6 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
    }`
 
    ```
-
    2. Use the following command to create the
       `Role-for-MyRule` role and attach the trust
       policy.
@@ -114,7 +114,6 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
    ```
    aws iam create-role --role-name Role-for-MyRule --assume-role-policy-document file://trustpolicyforEB.json
    ```
-
    3. Create the permissions policy JSON as shown in this sample for the
       pipeline named `MyFirstPipeline`. Name the permissions
       policy `permissionspolicyforEB.json`.
@@ -138,7 +137,6 @@ aws events put-targets --rule MyCodeCommitRepoRule --targets Id=1,Arn=arn:aws:co
    }`
 
    ```
-
    4. Use the following command to attach the new
       `CodePipeline-Permissions-Policy-for-EB` permissions
       policy to the `Role-for-MyRule` role you created.

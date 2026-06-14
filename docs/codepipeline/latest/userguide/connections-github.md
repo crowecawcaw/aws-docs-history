@@ -74,6 +74,7 @@ be accessible or visible by CodePipeline.
 
 1. Sign in to the CodePipeline console.
 2. Choose one of the following.
+
    - Choose to create a pipeline. Follow the steps in _Create a Pipeline_ to complete the first
      screen and choose **Next**. On the
      **Source** page, under **Source Provider**, choose **GitHub (via GitHub App)**.
@@ -87,6 +88,7 @@ be accessible or visible by CodePipeline.
      App)**.
 
 3. Do one of the following:
+
    - Under **Connection**, if you have not already
      created a connection to your provider, choose **Connect to
      GitHub**. Proceed to Step 2: Create a Connection to
@@ -152,6 +154,7 @@ action with your connection information.
    and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.
+
    - To store output artifacts from the GitHub action using the default
      method, choose **CodePipeline default**. The action
      accesses the files from the GitHub repository and stores the
@@ -208,13 +211,13 @@ the following.
 3. The pipeline defaults to detect changes on code push to the connection source
    repository. To configure the pipeline trigger configuration for manual release
    or for Git tags, do one of the following:
+
    - To configure the pipeline trigger configuration to start with a manual
      release only, add the following line to the configuration:
 
    ```
    "DetectChanges": "false",
    ```
-
    - To configure the pipeline trigger configuration to filter with
      triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
      to the pipeline level of the pipeline JSON definition. In this example,

@@ -297,29 +297,28 @@ Resources:
 ```
 
 2. Choose the method you want to use to upload your files:
+
    1. To use your git command line from a cloned repository on your local
       computer:
+
       1. Change directories to your local repository:
 
       ```
       `(For Linux, macOS, or Unix)` cd /tmp/my-demo-repo
       `(For Windows)` cd c:\temp\my-demo-repo
       ```
-
       2. Run the following command to stage all of your files at
          once:
 
       ```
       git add -A
       ```
-
       3. Run the following command to commit the files with a commit
          message:
 
       ```
       git commit -m "Added task definition files"
       ```
-
       4. Run the following command to push the files from your local
          repo to your CodeCommit repository:
 
@@ -328,6 +327,7 @@ Resources:
       ```
 
    2. To use the CodeCommit console to upload your files:
+
       1. Open the CodeCommit console, and choose your repository from the
          **Repositories** list.
       2. Choose **Add file**, and then choose
@@ -384,6 +384,7 @@ gateway row is included in the route table.
 7. In **IP address type**, choose
    **ipv4**.
 8. Configure two listener ports for your load balancer:
+
    1. Under **Load Balancer Protocol**, choose
       **HTTP**. Under **Load Balancer
       Port**, enter `80`.
@@ -402,6 +403,7 @@ gateway row is included in the route table.
 13. Choose **Next: Configure Routing**.
 14. In **Target group**, choose **New target
     group** and configure your first target group:
+
     1. In **Name**, enter a target group name (for example,
        `target-group-1`).
     2. In **Target type**, choose
@@ -573,6 +575,7 @@ deployment group, target groups, listeners, and traffic rerouting behavior.
    deployment group.
 3. In **Service role**, choose a service role that grants CodeDeploy
    access to Amazon ECS. To create a new service role, follow these steps:
+
    1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
    2. From the console dashboard, choose **Roles**.
    3. Choose **Create role**.

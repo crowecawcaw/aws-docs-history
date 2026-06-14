@@ -254,6 +254,7 @@ for your own design.
    action.
 3. Review code examples of identity federation relevant to your
    infrastructure, such as:
+
    - [Identity
      Federation Sample Application for an Active Directory Use
      Case](http://aws.amazon.com/code/1288653099190193 "http://aws.amazon.com/code/1288653099190193")

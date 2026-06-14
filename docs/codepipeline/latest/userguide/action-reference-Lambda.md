@@ -166,13 +166,17 @@ CodePipeline:
 - `accountId`: The AWS account ID associated with the job.
 - `data`: Other information required for a job worker to complete the
   job.
+
   - `actionConfiguration`: The action parameters for the Lambda
     action. For definitions, see [Configuration parameters](#action-reference-Lambda-config "#action-reference-Lambda-config").
   - `inputArtifacts`: The artifact supplied to the
     action.
+
     - `location`: The artifact store location.
+
       - `s3Location`: The input artifact location
         information for the action.
+
         - `bucketName`: The name of the
           pipeline artifact store for the action (for
           example, an Amazon S3 bucket named
@@ -192,9 +196,12 @@ CodePipeline:
       such as `MyApp`.
 
   - `outputArtifacts`: The output of the action.
+
     - `location`: The artifact store location.
+
       - `s3Location`: The output artifact location
         information for the action.
+
         - `bucketName`: The name of the
           pipeline artifact store for the action (for
           example, an Amazon S3 bucket named
@@ -217,6 +224,7 @@ CodePipeline:
     access input and output artifacts in the Amazon S3 bucket. These
     credentials are temporary credentials that are issued by AWS Security Token Service
     (AWS STS).
+
     - `secretAccessKey`: The secret access key for the
       session.
     - `sessionToken`: The token for the session.
@@ -230,6 +238,7 @@ CodePipeline:
   - `encryptionKey`: The encryption key used to encrypt the
     data in the artifact store, such as an AWS KMS key. If this is undefined,
     the default key for Amazon Simple Storage Service is used.
+
     - `id`: The ID used to identify the key. For an AWS KMS
       key, you can use the key ID, the key ARN, or the alias ARN.
     - `type`: The type of encryption key, such as an

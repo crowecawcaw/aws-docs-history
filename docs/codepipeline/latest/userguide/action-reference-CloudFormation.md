@@ -254,6 +254,7 @@ CodePipeline. For example, a source stage with the artifact name of
   `0 to 10`
 - **Description:** As input, the CloudFormation action
   optionally accepts artifacts for these purposes:
+
   - To provide the stack template file to execute. (See the
     `TemplatePath` parameter.)
   - To provide the template configuration file to use. (See the

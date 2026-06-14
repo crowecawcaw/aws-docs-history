@@ -85,6 +85,7 @@ Pipeline types differ in characteristics and price. For more information, see
      triggers on Git tags and pipeline-level variables.
 
 6. In **Service role**, do one of the following:
+
    - Choose **New service role** to allow CodePipeline to create
      a new service role in IAM.
    - Choose **Existing service role** to use a service
@@ -143,9 +144,11 @@ For more information, see [Input and output artifacts](welcome-introducing-artif
     provider**, choose the type of repository where your source code is
     stored, specify its required options. The additional fields display depending on
     the source provider selected as follows.
+
     - For **Bitbucket Cloud, GitHub (via GitHub App),
       GitHub Enterprise Server, GitLab.com, or GitLab
       self-managed**:
+
       1. Under **Connection**, choose an existing
          connection or create a new one. To create or manage a connection
          for your GitHub source action, see [GitHub connections](connections-github.md "connections-github.md").
@@ -177,6 +180,7 @@ For more information, see [Input and output artifacts](welcome-introducing-artif
            clone** option, see [Tutorial: Use full clone with a GitHub pipeline source](tutorials-github-gitclone.md "tutorials-github-gitclone.md").
 
     - For **Amazon S3**:
+
       1. In **Amazon S3 location**, provide the S3
          bucket name and path to the object in a bucket with versioning
          enabled. The format of the bucket name and path looks like
@@ -200,12 +204,14 @@ For more information, see [Input and output artifacts](welcome-introducing-artif
       **Next**.
 
     - For **AWS CodeCommit**:
+
       - In **Repository name**, choose the name of
         the CodeCommit repository you want to use as the source location for
         your pipeline. In **Branch name**, from the
         drop-down list, choose the branch you want to use.
       - In **Output artifact format**, choose the
         format for your artifacts.
+
         - To store output artifacts from the CodeCommit action using
           the default method, choose **CodePipeline
           default**. The action accesses the files
@@ -274,6 +280,7 @@ This step is optional if you plan to create a deployment stage.
     4:
     Add build stage** page, do one of the following, and then choose
     **Next**:
+
     - Choose **Skip build stage** if you plan to create a
       test
       or deployment stage.
@@ -371,6 +378,7 @@ This step is optional if you plan to create a build or deployment stage.
 
 1. On the **Step 5: Add test stage** page, do one of the
    following, and then choose **Next**:
+
    - Choose **Skip test stage** if you plan to create a
      build or deployment stage.
    - In **Test provider**, choose the test action provider
@@ -386,6 +394,7 @@ This step is optional if you have already created a build stage.
     6:
     Add deploy stage** page, do one of the following, and then choose
     **Next**:
+
     - Choose **Skip deploy stage** if you created a build
       or
       test stage in the previous
@@ -408,6 +417,7 @@ This step is optional if you have already created a build stage.
     as your pipeline.
     - In **Deploy provider**, fields are available for
       default providers as follows:
+
       - **CodeDeploy**
 
       In **Application name**, enter or choose the
@@ -907,6 +917,7 @@ CI pipeline.
    **Step
    1: Choose creation option** page, do one of the
    following, and then choose **Next**:
+
    - Choose **Deployment** if you plan to create a
      deployment stage. View the options for templates that deploy to ECR or
      CloudFormation. For this example, choose **Deployment**, and then choose to deploy to
@@ -930,8 +941,10 @@ CI pipeline.
   provider**, choose the provider for the repository where your
   source code is stored, specify its required options, and then choose
   **Next step**.
+
   - For **Bitbucket Cloud, GitHub (via GitHub App), GitHub
     Enterprise Server, GitLab.com, or GitLab self-managed**:
+
     1. Under **Connection**, choose an existing
        connection or create a new one. To create or manage a connection
        for your GitHub source action, see [GitHub connections](connections-github.md "connections-github.md").

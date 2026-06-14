@@ -66,6 +66,7 @@ deploy.
    `MyLambdaFunction`.
 4. Publish a new version. This will be the version that the alias will point
    to.
+
    1. Select your function.
    2. Choose the **Actions** dropdown.
    3. Choose **Publish new version**.
@@ -137,6 +138,7 @@ repository.
    defaults, and then choose **Next**.
 8. On the **Step 3: Add source stage** page, add a source
    stage:
+
    1. In **Source provider**, choose
       **Amazon
       S3**.

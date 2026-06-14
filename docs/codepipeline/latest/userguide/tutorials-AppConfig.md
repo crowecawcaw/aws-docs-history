@@ -50,6 +50,7 @@ In this section, you create the following resources:
 1. Sign in to the AWS Management Console.
 2. Use the steps in the following topics to create your resources in AWS
    AppConfig.
+
    - [Create
      an application](../../../systems-manager/latest/userguide/appconfig-creating-application.md "../../../systems-manager/latest/userguide/appconfig-creating-application.md").
    - [Create

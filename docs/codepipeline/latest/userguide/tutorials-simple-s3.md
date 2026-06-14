@@ -121,6 +121,7 @@ computer.
     2. Download the compressed (zipped) file. Do not unzip the file.
 
 8. In the Amazon S3 console, for your bucket, upload the file:
+
    1. Choose **Upload**.
    2. Drag and drop the file or choose **Add files** and browse for the
       file.

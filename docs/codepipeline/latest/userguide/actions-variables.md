@@ -369,9 +369,11 @@ variables**, enter the following:
 5. After the pipeline runs successfully, you can see how the resolved output
    variable is the value in the environment variable. Choose one of the
    following:
+
    - **CodePipeline console:** Choose your pipeline,
      and then choose **History**. Choose the most recent
      pipeline execution.
+
      - Under **Timeline**, choose the selector for
        **Source**. This is the source action that
        generates GitHub output variables. Choose **View

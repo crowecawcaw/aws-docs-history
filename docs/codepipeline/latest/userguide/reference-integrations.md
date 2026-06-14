@@ -150,20 +150,25 @@ CodePipeline.
 **Format:**
 
 - `jobId`:
+
   - The unique system-generated ID of the job.
   - Type: String
   - Pattern: [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
 
 - `accountId`:
+
   - The ID of the customer's AWS account to use when performing the job.
   - Type: String
   - Pattern: [0-9]{12}
 
 - `data`:
+
   - Other information about a job that an integration uses to complete the
     job.
   - Contains a map of the following:
+
     - `actionConfiguration`:
+
       - The configuration data for the action. The action configuration fields
         are a mapping of key-value pairs for your customer to enter values. The keys
         are determined by the key parameters in the action type definition file when
@@ -184,23 +189,27 @@ CodePipeline.
       ```
 
     - `encryptionKey`:
+
       - Represents information about the key used to encrypt data in the
         artifact store, such as an AWS KMS key.
       - Contents: Type of the data type `encryptionKey`, optionally
         present
 
     - `inputArtifacts`:
+
       - List of information about an artifact to be worked on, such as a test or
         build artifact.
       - Contents: List of the data type `Artifact`, optionally
         present
 
     - `outputArtifacts`:
+
       - List of information about the output of an action.
       - Contents: List of the data type `Artifact`, optionally
         present
 
     - `actionCredentials`:
+
       - Represents an AWS session credentials object. These credentials are
         temporary credentials that are issued by AWS STS. They can be used to access
         input and output artifacts in the S3 bucket used to store artifacts for the
@@ -212,10 +221,12 @@ CodePipeline.
         optionally present
 
     - `actionExecutionId`:
+
       - The external ID of the run of the action.
       - Type: String
 
     - `continuationToken`:
+
       - A system-generated token, such as a deployment ID, required by a job to
         continue the job asynchronously.
       - Type: String, optionally present
@@ -223,62 +234,79 @@ CodePipeline.
 **Data Types:**
 
 - `encryptionKey`:
+
   - `id`:
+
     - The ID used to identify the key. For an AWS KMS key, you can use the key ID,
       the key ARN, or the alias ARN.
     - Type: String
 
   - `type`:
+
     - The type of encryption key, such as an AWS KMS key.
     - Type: String
     - Valid values: `KMS`
 
 - `Artifact`:
+
   - `name`:
+
     - The artifact's name.
     - Type: String, optionally present
 
   - `revision`:
+
     - The artifact's revision ID. Depending on the type of object, this could be a
       commit ID (GitHub) or a revision ID (Amazon S3).
     - Type: String, optionally present
 
   - `location`:
+
     - The location of an artifact.
     - Contents: Type of the data type `ArtifactLocation`, optionally
       present
 
 - `ArtifactLocation`:
+
   - `type`:
+
     - The type of artifact in the location.
     - Type: String, optionally present
     - Valid values: `S3`
 
   - `s3Location`:
+
     - The location of the S3 bucket that contains a revision.
     - Contents: Type of the data type `S3Location`, optionally
       present
 
 - `S3Location`:
+
   - `bucketName`:
+
     - The name of the S3 bucket.
     - Type: String
 
   - `objectKey`:
+
     - The key of the object in the S3 bucket, which uniquely identifies the object
       in the bucket.
     - Type: String
 
 - `AWSSessionCredentials`:
+
   - `accessKeyId`:
+
     - The access key for the session.
     - Type: String
 
   - `secretAccessKey`:
+
     - The secret access key for the session.
     - Type: String
 
   - `sessionToken`:
+
     - The token for the session.
     - Type: String
 
@@ -340,8 +368,10 @@ continuation cases.
 **Format:**
 
 - `result`: The result of the job.
+
   - Required
   - Valid values (case insensitive):
+
     - `Success`: Indicates a job is successful and terminal.
     - `Continue`: Indicates a job is successful and must continue, for
       example if the job worker is reinvoked for the same action execution.
@@ -370,15 +400,19 @@ the failure message when returning a job failure result back to CodePipeline.
 
 - `continuation`: Continuation state to be passed to the next job within
   the current action execution.
+
   - Optional. Required if result is `Continue`.
   - Must be null if `result` is `Success` or
     `Fail`.
   - Properties:
+
     - `State`: A hash of the state to be passed.
 
 - `status`: Status of the action execution.
+
   - Optional.
   - Properties:
+
     - `ExternalExecutionId`: An optional external execution ID or
       commit ID to associate with the job.
     - `Summary`: An optional summary of what occurred. In failure
@@ -386,6 +420,7 @@ the failure message when returning a job failure result back to CodePipeline.
 
 - `outputVariables`: A set of key/value pairs to be passed to the next
   action execution.
+
   - Optional.
   - Must be null if `result` is `Continue` or
     `Fail`.
@@ -496,6 +531,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 

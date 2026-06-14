@@ -80,6 +80,7 @@ following options.
 
 6. Under **Push**, in **Filter type**, choose
    one of the following options.
+
    - Choose **Branch** to specify the branches
      in your source repository that the trigger monitors in order to know
      when to start a workflow run. In **Include**, enter
@@ -121,6 +122,7 @@ following options.
 
 7. Under **Push**, in **Filter type**, choose
    one of the following options.
+
    - Choose **Branch** to specify the branches
      in your source repository that the trigger monitors in order to know
      when to start a workflow run. In **Include**, enter

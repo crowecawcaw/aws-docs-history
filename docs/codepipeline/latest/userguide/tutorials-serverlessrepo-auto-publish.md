@@ -98,6 +98,7 @@ publish your serverless application.
     **Next**.
 14. On the **Step 4: Add build stage** page, add a build
     stage:
+
     1. In **Build provider**, choose
        **AWS CodeBuild**. For **Region**, use
        the pipeline Region.

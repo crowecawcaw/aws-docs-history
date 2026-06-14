@@ -77,6 +77,7 @@ In this section, you create a pipeline with the following actions:
    The V2 type is the only type you can choose in the console. For more information, see
    [pipeline types](pipeline-types-planning.md "pipeline-types-planning.md"). For information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/").
 6. In **Service role**, do one of the following:
+
    - Choose **Existing service role**.
    - Choose your existing CodePipeline service role. This role must have the
      `codecommit:GetRepository` IAM permission to your service role policy.
@@ -86,6 +87,7 @@ In this section, you create a pipeline with the following actions:
 7. Under **Advanced settings**, leave the defaults. Choose
    **Next**.
 8. On the **Step 3: Add source stage** page, do the following:
+
    1. In **Source provider**, choose
       **CodeCommit**.
    2. In **Repository name**, choose the name of your
@@ -98,6 +100,7 @@ In this section, you create a pipeline with the following actions:
       actions provided by CodeBuild can use the Git clone option.Choose **Next**.
 
 9. In **Step 4: Add build stage**, do the following:
+
    1. In **Build provider**, choose **AWS CodeBuild**.
       Allow **Region** to default to the pipeline Region.
    2. Choose **Create project**.
@@ -158,7 +161,6 @@ In this section, you create a pipeline with the following actions:
      #paths:
        # - paths
    ```
-
    8. Choose **Continue to CodePipeline**. This returns you to the
       CodePipeline console and creates a CodeBuild project that uses your build commands for
       configuration. The build project uses a service role to manage AWS service

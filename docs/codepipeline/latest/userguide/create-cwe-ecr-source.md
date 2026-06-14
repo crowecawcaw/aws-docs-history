@@ -7,6 +7,7 @@ To add an Amazon ECR source action in CodePipeline, you can choose either to:
   your pipeline when the source changes.
 - Use the CLI to add the action configuration for the `ECR` action
   and create additional resources as follows:
+
   - Use the `ECR` example action configuration in [Amazon ECR source action reference](action-reference-ECR.md "action-reference-ECR.md") to create your action as shown in [Create a pipeline (CLI)](pipelines-create.md#pipelines-create-cli "pipelines-create.md#pipelines-create-cli").
   - The change detection method defaults to starting the pipeline by
     polling the source. You should disable periodic checks and create the

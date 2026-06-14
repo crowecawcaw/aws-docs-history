@@ -61,6 +61,7 @@ aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{
 
 1. Grant permissions for EventBridge to use CodePipeline to invoke the rule. For more information, see
    [Using resource-based policies for Amazon EventBridge](../../../eventbridge/latest/userguide/eb-use-resource-based.md "../../../eventbridge/latest/userguide/eb-use-resource-based.md").
+
    1. Use the following sample to create the trust policy to allow EventBridge to assume
       the service role. Name it `trustpolicyforEB.json`.
 
@@ -81,7 +82,6 @@ aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{
    }`
 
    ```
-
    2. Use the following command to create the `Role-for-MyRule` role and
       attach the trust policy.
 
@@ -91,7 +91,6 @@ aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{
    ```
    aws iam create-role --role-name Role-for-MyRule --assume-role-policy-document file://trustpolicyforEB.json
    ```
-
    3. Create the permissions policy JSON, as shown here for the pipeline named
       `MyFirstPipeline`. Name the permissions policy
       `permissionspolicyforEB.json`.
@@ -115,7 +114,6 @@ aws cloudtrail put-event-selectors --trail-name `my-trail` --event-selectors '[{
    }`
 
    ```
-
    4. Use the following command to attach the new
       `CodePipeline-Permissions-Policy-for-EB` permissions policy to
       the `Role-for-MyRule` role you created.
@@ -151,6 +149,7 @@ aws events put-targets --rule MyS3SourceRule --targets Id=1,Arn=arn:aws:codepipe
 4. (Optional) To configure an input transformer with source overrides for a specific
    image ID, use the following JSON in your CLI command. The following example configures
    an override where:
+
    - The `actionName`, `Source` in this example, is the
      dynamic value, defined at pipeline creation, not derived from the source
      event.

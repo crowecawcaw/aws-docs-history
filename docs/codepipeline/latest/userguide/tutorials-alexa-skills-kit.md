@@ -106,22 +106,22 @@ skill.json
 ```
 
 2. Choose the method you want to use to upload your files:
+
    1. To use the Git command line from a cloned repository on your local
       computer:
+
       1. Run the following command to stage all of your files at
          once:
 
       ```
       git add -A
       ```
-
       2. Run the following command to commit the files with a commit
          message:
 
       ```
       git commit -m "Added Alexa skill files"
       ```
-
       3. Run the following command to push the files from your local
          repo to your CodeCommit repository:
 
@@ -130,6 +130,7 @@ skill.json
       ```
 
    2. To use the CodeCommit console to upload your files:
+
       1. Open the CodeCommit console, and choose your repository from the
          **Repositories** list.
       2. Choose **Add file**, and then choose
@@ -183,6 +184,7 @@ In this section, you create a pipeline with the following actions:
 2. Choose the AWS Region where you want to create the project and its
    resources. The Alexa skill runtime is available only in the following
    Regions:
+
    - Asia Pacific (Tokyo)
    - Europe (Ireland)
    - US East (N. Virginia)

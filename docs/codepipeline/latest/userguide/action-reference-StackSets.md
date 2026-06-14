@@ -680,6 +680,7 @@ input artifacts for lists of deployment targets, accounts, and parameters.
   `1 to 3`
 - **Description:** You can include artifacts to
   provide:
+
   - The stack template file. (See the `TemplatePath`
     parameter.)
   - The parameters file. (See the `Parameters`
@@ -1187,6 +1188,7 @@ deployment targets and parameters.
   `0 to 2`
 - **Description:** As input, the stack set
   action optionally accepts artifacts for these purposes:
+
   - To provide the parameters file to use. (See the
     `ParameterOverrides` parameter.)
   - To provide the target accounts file to use. (See the
@@ -1450,6 +1452,7 @@ The following related resources can help you as you work with this action.
 - [AWS CloudFormation API Reference](../../../AWSCloudFormation/latest/APIReference.md "../../../AWSCloudFormation/latest/APIReference.md") – You can reference
   the following CloudFormation actions in the _AWS CloudFormation API Reference_
   for more information about the parameters used in stack set operations:
+
   - The [CreateStackSet](../../../AWSCloudFormation/latest/APIReference/API_CreateStackSet.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStackSet.md") action creates a stack set.
   - The [UpdateStackSet](../../../AWSCloudFormation/latest/APIReference/API_UpdateStackSet.md "../../../AWSCloudFormation/latest/APIReference/API_UpdateStackSet.md") action updates the stack set and associated
     stack instances in the specified accounts and Regions. Even if the stack

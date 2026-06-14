@@ -329,6 +329,7 @@ processed in the same way as a failed action.
   complete successfully. The revision does not transition to the next action
   in the stage or the next stage in the pipeline. The following can
   occur:
+
   - You manually retry the stage that contains the failed actions.
     This resumes the execution (it retries failed actions and, if they
     succeed, continues in the stage/pipeline).

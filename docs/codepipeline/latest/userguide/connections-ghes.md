@@ -28,6 +28,7 @@ To add a GitHub Enterprise Server source action in CodePipeline, you can choose 
 - Use the CLI to add the action configuration for the
   `CreateSourceConnection` action with the
   `GitHubEnterpriseServer` provider and create your resources:
+
   - To create your connections resources, see [Create a host and connection to GitHub Enterprise Server (CLI)](#connections-ghes-cli "#connections-ghes-cli") to
     create a host resource and a connections resource with the CLI.
   - Use the `CreateSourceConnection` example action configuration
@@ -80,6 +81,7 @@ for connections](../../../dtconsole/latest/userguide/connections-hosts.md "../..
 
 1. Sign in to the CodePipeline console.
 2. Choose one of the following.
+
    - Choose to create a pipeline. Follow the steps in _Create a Pipeline_ to complete the first
      screen and choose **Next**. On the
      **Source** page, under **Source provider**, choose **GitHub Enterprise Server**.
@@ -92,6 +94,7 @@ for connections](../../../dtconsole/latest/userguide/connections-hosts.md "../..
      Server**.
 
 3. Do one of the following:
+
    - Under **Connection**, if you have not already
      created a connection to your provider, choose **Connect to
      GitHub Enterprise Server**. Proceed to Step 2: Create a
@@ -192,6 +195,7 @@ your source action with your connection information.
    and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.
+
    - To store output artifacts from the GitHub Enterprise Server action
      using the default method, choose **CodePipeline
      default**. The action accesses the files from the
@@ -289,13 +293,13 @@ the following.
 3. The pipeline defaults to detect changes on code push to the connection source
    repository. To configure the pipeline trigger configuration for manual release
    or for Git tags, do one of the following:
+
    - To configure the pipeline trigger configuration to start with a manual
      release only, add the following line to the configuration:
 
    ```
    "DetectChanges": "false",
    ```
-
    - To configure the pipeline trigger configuration to filter with
      triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
      to the pipeline level of the pipeline JSON definition. In this example,

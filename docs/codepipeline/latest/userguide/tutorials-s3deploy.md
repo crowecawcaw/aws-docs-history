@@ -53,6 +53,7 @@ You must already have the following:
   [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md "tutorials-simple-codecommit.md").
 - Source files for your static website. Use this link to download a [sample static website](samples/sample-website.zip.md "samples/sample-website.zip.md"). The
   sample-website.zip download produces the following files:
+
   - An `index.html` file
   - A `main.css` file
   - A `graphic.jpg` file
@@ -89,22 +90,22 @@ graphic.jpg
 ```
 
 3. You can use Git or the CodeCommit console to upload your files:
+
    1. To use the Git command line from a cloned repository on your local
       computer:
+
       1. Run the following command to stage all of your files at
          once:
 
       ```
       git add -A
       ```
-
       2. Run the following command to commit the files with a
          commit message:
 
       ```
       git commit -m "Added static website files"
       ```
-
       3. Run the following command to push the files from your
          local repo to your CodeCommit repository:
 
@@ -113,6 +114,7 @@ graphic.jpg
       ```
 
    2. To use the CodeCommit console to upload your files:
+
       1. Open the CodeCommit console, and choose your repository from
          the **Repositories** list.
       2. Choose **Add file**, and then choose
@@ -382,6 +384,7 @@ Choose **Next**. 8. In **Step 4: Add build stage**:
     10. Choose **Next**.
 
 9. In **Step 5: Add deploy stage**:
+
    1. In **Deploy provider**, choose **Amazon
       S3**.
    2. In **Bucket**, enter the name of your S3 target

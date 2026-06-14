@@ -94,6 +94,7 @@ complete.
    group** to add a serial action. Or choose **+ Add
    action** to add a parallel action.
 5. On the **Edit action** page:
+
    1. In **Action name**, enter a name for the
       cross-Region action.
    2. In **Action provider**, choose the action

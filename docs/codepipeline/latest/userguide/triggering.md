@@ -7,6 +7,7 @@ To add a CodeCommit source action in CodePipeline, you can choose either to:
   rule that starts your pipeline when the source changes.
 - Use the AWS CLI to add the action configuration for the `CodeCommit`
   action and create additional resources as follows:
+
   - Use the `CodeCommit` example action configuration in [CodeCommit source action reference](action-reference-CodeCommit.md "action-reference-CodeCommit.md") to create your action
     as shown in [Create a pipeline (CLI)](pipelines-create.md#pipelines-create-cli "pipelines-create.md#pipelines-create-cli").
   - The change detection method defaults to starting the pipeline by

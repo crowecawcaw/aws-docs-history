@@ -81,6 +81,7 @@ sample walkthrough, and add it to your CodeCommit repository.
 
 1.  Next, download a sample and save it into a folder or directory on your local
     computer.
+
     1.  Choose one of the following. Choose `SampleApp_Linux.zip` if
         you want to follow the steps in this tutorial for Linux instances.
 
@@ -140,7 +141,9 @@ directory and file hierarchy should look like this:
 ```
 
 3. To upload files to your repository, use one of the following methods.
+
    1. To use the CodeCommit console to upload your files:
+
       1. Open the CodeCommit console, and choose your repository from the
          **Repositories** list.
       2. Choose **Add file**, and then choose **Upload
@@ -169,25 +172,23 @@ directory and file hierarchy should look like this:
       ```
 
    2. To use git commands to upload your files:
+
       1. Change directories to your local repo:
 
       ```
       `(For Linux, macOS, or Unix)` cd /tmp/MyDemoRepo
       `(For Windows)` cd c:\temp\MyDemoRepo
       ```
-
       2. Run the following command to stage all of your files at once:
 
       ```
       git add -A
       ```
-
       3. Run the following command to commit the files with a commit message:
 
       ```
       git commit -m "Add sample application files"
       ```
-
       4. Run the following command to push the files from your local repo to your CodeCommit
          repository:
 

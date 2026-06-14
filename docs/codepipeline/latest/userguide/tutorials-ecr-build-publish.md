@@ -35,6 +35,7 @@ All of these resources should be created within the same AWS Region.
 
 - A source control repository (this tutorial uses GitHub) where you will add the
   following for this tutorial:
+
   - In Step 1, you will add a sample Dockerfile to your source repository
     as the input artifact for the ECRBuildAndPublish build action in
     CodePipeline.
@@ -94,18 +95,17 @@ CMD /root/run_apache.sh
    file.
 2. Commit and push your `Dockerfile` file to your source
    repository.
+
    1. Add the file.
 
    ```
    `git add .`
    ```
-
    2. Commit the change.
 
    ```
    `git commit -m "Adding Dockerfile."`
    ```
-
    3. Push the commit.
 
    ````
@@ -143,18 +143,17 @@ your Amazon ECR repository where the image is stored.
    file.
 2. Commit and push your `imagedefinitions.json` file to your
    source repository.
+
    1. Add the file.
 
    ```
    `git add .`
    ```
-
    2. Commit the change.
 
    ```
    `git commit -m "Adding imagedefinitions.json."`
    ```
-
    3. Push the commit.
 
    ````
@@ -193,6 +192,7 @@ repository.
    defaults, and then choose **Next**.
 8. On the **Step 3: Add source stage** page, add a source
    stage:
+
    1. In **Source provider**, choose **GitHub (via
       GitHub App)**.
    2. Under **Connection**, choose an existing connection

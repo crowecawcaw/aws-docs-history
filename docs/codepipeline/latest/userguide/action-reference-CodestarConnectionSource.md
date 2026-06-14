@@ -217,6 +217,7 @@ values for this parameter:
   `CodeStarSourceConnection` action. The source code commit ID is
   displayed in CodePipeline as the source revision for the triggered pipeline execution.
   You can configure the output artifact of this action in:
+
   - A ZIP file that contains the contents of the configured repository and
     branch at the commit specified as the source revision for the pipeline
     execution.
@@ -388,6 +389,7 @@ The following related resources can help you as you work with this action.
   for the available connections actions.
 - To view the steps for creating a pipeline with source actions supported by
   connections, see the following:
+
   - For Bitbucket Cloud, use the **Bitbucket** option in the
     console or the `CodestarSourceConnection` action in the CLI.
     See [Bitbucket Cloud connections](connections-bitbucket.md "connections-bitbucket.md").

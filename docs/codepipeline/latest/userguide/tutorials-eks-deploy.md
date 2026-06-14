@@ -171,6 +171,7 @@ Update your CodePipeline service role with the following steps.
 3. Look up your CodePipeline service role, such as `**cp-service-role**`.
 4. Add a new inline policy.
 5. In the **Policy editor**, enter the following.
+
    - For a public cluster, add the following permissions.
 
    JSON
@@ -205,7 +206,6 @@ Update your CodePipeline service role with the following steps.
    }`
 
    ```
-
    - For a private cluster, add the following permissions. Private clusters
      will require additional permissions for your VPC, if applicable.
 

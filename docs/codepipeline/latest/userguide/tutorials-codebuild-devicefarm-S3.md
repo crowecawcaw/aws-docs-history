@@ -105,6 +105,7 @@ Your sample application must be packaged in a .zip file. 3. To create your pipel
     wizard to create your two-stage pipeline, you no longer need this placeholder build stage.
     After the pipeline is completed, this second stage is deleted and the new test stage is
     added in step 5.
+
     1. In **Build provider**, choose **Add Jenkins**.
        This build selection is a placeholder. It is not used.
     2. In **Provider name**, enter a name. The name is a placeholder. It
@@ -127,6 +128,7 @@ Your sample application must be packaged in a .zip file. 3. To create your pipel
     ![View your pipeline.](images/codepipeline-view-pipeline-S3.png)
 
 5.  Add a Device Farm test action to your pipeline as follows:
+
     1. In the upper right, choose **Edit**.
     2. Choose **Edit stage**. Choose **Delete**. This
        deletes the placeholder stage now that you no longer need it for pipeline
@@ -155,7 +157,6 @@ Your sample application must be packaged in a .zip file. 3. To create your pipel
     ```
     aws devicefarm list-device-pools --arn arn:aws:devicefarm:us-west-2:`account_ID`:project:`project_ID`
     ```
-
     11. In **AppType**, enter **iOS**.
 
     The following is a list of valid values for **AppType**:
@@ -163,7 +164,6 @@ Your sample application must be packaged in a .zip file. 3. To create your pipel
         * **iOS**
         * **Android**
         * **Web**
-
     12. In **App**, enter the path of the compiled app package. The path
         is relative to the root of the input artifact for the test stage. Typically, this path
         is similar to `ios-test.ipa`.

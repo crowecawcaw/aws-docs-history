@@ -34,6 +34,7 @@ Bitbucket provider types, such as Bitbucket Server, are not supported.
 - Use the CLI to add the action configuration for the
   `CreateSourceConnection` action with the `Bitbucket`
   provider as follows:
+
   - To create your connections resources, see [Create a connection to Bitbucket Cloud (CLI)](#connections-bitbucket-cli "#connections-bitbucket-cli") to create a connections
     resource with the CLI.
   - Use the `CreateSourceConnection` example action configuration
@@ -83,6 +84,7 @@ provider types, such as Bitbucket Server, are not supported.
 
 1. Sign in to the CodePipeline console.
 2. Choose one of the following.
+
    - Choose to create a pipeline. Follow the steps in _Create a Pipeline_ to complete the first
      screen and choose **Next**. On the
      **Source** page, under **Source Provider**, choose **Bitbucket**.
@@ -95,6 +97,7 @@ provider types, such as Bitbucket Server, are not supported.
      choose **Bitbucket**.
 
 3. Do one of the following:
+
    - Under **Connection**, if you have not already
      created a connection to your provider, choose **Connect to
      Bitbucket**. Proceed to Step 2: Create a Connection to
@@ -150,6 +153,7 @@ your source action with your connection information.
    and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md").
 3. In **Output artifact format**, you must choose the format
    for your artifacts.
+
    - To store output artifacts from the Bitbucket
      Cloud
      action using the default method, choose
@@ -213,13 +217,13 @@ the following.
 3. The pipeline defaults to detect changes on code push to the connection source
    repository. To configure the pipeline trigger configuration for manual release
    or for Git tags, do one of the following:
+
    - To configure the pipeline trigger configuration to start with a manual
      release only, add the following line to the configuration:
 
    ```
    "DetectChanges": "false",
    ```
-
    - To configure the pipeline trigger configuration to filter with
      triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md "pipelines-filter.md"). For example, the following adds
      Git tags to the pipeline level of the pipeline JSON definition. In this

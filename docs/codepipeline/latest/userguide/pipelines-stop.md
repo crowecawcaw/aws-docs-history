@@ -197,6 +197,7 @@ aws codepipeline stop-pipeline-execution --pipeline-name `Pipeline_Name` –-pip
 
 1. Open a terminal (Linux, macOS, or Unix) or command prompt (Windows).
 2. To stop a pipeline execution, choose one of the following:
+
    - To make sure the execution does not stop until all in-progress actions
      are complete, choose to stop and wait. You can do this by including the
      **no-abandon** parameter. If you do not specify the

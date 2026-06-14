@@ -79,6 +79,7 @@ is CodePipeline):
 12. (Optional) To specify source overrides with a specific image ID, use the
     input transformer to pass the data as a JSON parameters. You can also use
     the input transformer to pass pipeline variables.
+
     - Expand **Additional settings**.
 
     Under **Configure target input**, choose
@@ -91,7 +92,6 @@ is CodePipeline):
     ```
     {"revisionValue": "$.detail.image-digest"}
     ```
-
     - In the **Template** box, type the following
       key-value pairs.
 
@@ -113,7 +113,6 @@ is CodePipeline):
     }
 
     ```
-
     - Choose **Confirm**.
 
 13. Choose **Next**.

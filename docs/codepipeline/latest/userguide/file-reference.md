@@ -14,6 +14,7 @@ Each definitions file is a JSON-formatted file used by the action provider as fo
   ECRBuildAndPublish action, see [Tutorial: Build and push a Docker image to Amazon ECR with CodePipeline (V2 type)](tutorials-ecr-build-publish.md "tutorials-ecr-build-publish.md").
 - Amazon ECS blue/green deployments require an `imageDetail.json` file as an
   input to the deploy action. For a tutorial with a sample blue/green deployment, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md "tutorials-ecs-ecr-codedeploy.md").
+
   - Amazon ECR source actions generate an `imageDetail.json` file that is
     provided as an output from the source action.
 
@@ -97,6 +98,7 @@ Before you create your pipeline, use the following steps to set up the
 1. As part of planning the container-based application deployment for your pipeline, plan
    the source stage and the build stage, if applicable.
 2. Choose one of the following:
+
    1. If your pipeline is created so that it skips the build stage, you must manually
       create the JSON file and upload it to your source repository so the source action can
       provide the artifact. Create the file using a text editor, and name the file or use
@@ -231,12 +233,14 @@ Before you create your pipeline, use the following steps to set up the
 1. As part of planning the container-based application blue/green deployment for your
    pipeline, plan the source stage and the build stage, if applicable.
 2. Choose one of the following:
+
    1. If your pipeline has skipped the build stage, you must manually create the JSON
       file and upload it to your source repository, such as CodeCommit, so the source action can
       provide the artifact. Create the file using a text editor, and name the file or use
       the default `imageDetail.json` file name. Push the
       `imageDetail.json` file to your source repository.
    2. If your pipeline has a build stage, perform the following:
+
       1. Add a command to your build spec file that outputs the image definitions file
          in your source repository during the build phase. The following example uses the
          **printf** command to create an

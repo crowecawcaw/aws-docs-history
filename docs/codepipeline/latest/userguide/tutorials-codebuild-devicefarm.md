@@ -121,6 +121,7 @@ If you use Device Farm built-in tests, you can skip this step. 3. To create your
      **Next**.
 
 4. In **Step 4: Add build stage**, add a build stage:
+
    1. In **Build provider**, choose **Other build
       providers**, and then choose **AWS CodeBuild**. Allow
       **Region** to default to the pipeline Region.

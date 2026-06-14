@@ -70,6 +70,7 @@ GitHub (via GitHub App) action.
    that recommends you update your action.
 3. In **Action provider**, choose **GitHub (via GitHub App)**.
 4. Do one of the following:
+
    - Under **Connection**, if you have not already created
      a connection to your provider, choose **Connect to
      GitHub**. Proceed to Step 2: Create a connection to
@@ -130,6 +131,7 @@ my-account/my-repository
 
 2. In **Output artifact format**, choose the format for your
    artifacts.
+
    - To store output artifacts from the GitHub action using the default
      method, choose **CodePipeline default**. The action
      accesses the files from the GitHub repository and stores the artifacts

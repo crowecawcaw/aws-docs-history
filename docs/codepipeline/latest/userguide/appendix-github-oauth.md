@@ -60,6 +60,7 @@ You add GitHub (via OAuth app) source actions to CodePipeline by:
   changes.
 - Using the CLI to add the action configuration for the `GitHub` action and
   creating additional resources as follows:
+
   - Using the `GitHub` example action configuration in [GitHub (via OAuth app) source action reference](#action-reference-GitHub "#action-reference-GitHub") to
     create the action as shown in [Create a pipeline (CLI)](pipelines-create.md#pipelines-create-cli "pipelines-create.md#pipelines-create-cli").
   - Disabling periodic checks and creating the change detection manually, because the
