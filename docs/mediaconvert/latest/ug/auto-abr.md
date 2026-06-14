@@ -139,6 +139,7 @@ the MediaConvert console, you must explicitly set `rateControlMode` to
 `QVBR`.
 
 - These QVBR required settings:
+
   - **QVBR quality level**:
   - **Max bitrate**
   - **Max average bitrate**

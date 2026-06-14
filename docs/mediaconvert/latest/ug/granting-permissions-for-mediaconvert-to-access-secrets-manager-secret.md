@@ -12,6 +12,7 @@ credentials.
 ###### To grant MediaConvert permission to read your Kantar credentials
 
 1. Create a policy that grants permission to read your Secrets Manager secret.
+
    1. Make sure that you have the ARN to the Secrets Manager secret that you created
       in the previous topic.
    2. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -49,6 +50,7 @@ credentials.
    16. Choose **Create policy**.
 
 2. Attach the policy to your MediaConvert role.
+
    1. In the navigation pane on the left, under **Access
       management**, choose **Roles**.
    2. From the list of roles, choose the name of the role that you use with

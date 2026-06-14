@@ -60,6 +60,7 @@ API, SDK or AWS Command Line Interface (CLI):
    We recommend this approach, because the console functions as an
    interactive validator against the MediaConvert job schema. Follow these
    steps to generate your JSON job specification using the console:
+
    1. Follow the previous procedure for the console.
    2. In the **Job** pane on the left, under **Job
       settings**, choose **Show job
@@ -129,6 +130,7 @@ Links to `framerateDenominator`
 
 - **Frame rate conversion algorithm**
   (`framerateConversionAlgorithm`)
+
   - AV1: `framerateConversionAlgorithm`
   - AVC (H.264): `framerateConversionAlgorithm`
   - HEVC (H.265): `framerateConversionAlgorithm`
@@ -138,12 +140,14 @@ Links to `framerateDenominator`
   - VP9: `framerateConversionAlgorithm`
 
 - **Slow PAL** (`slowPal`)
+
   - AVC (H.264): `slowPal`
   - HEVC (H.265): `slowPal`
   - MPEG-2: `slowPal`
   - Apple ProRes: `slowPal`
 
 - **Telecine** (`telecine`)
+
   - AVC (H.264): `telecine`
   - HEVC (H.265): `telecine`
   - MPEG-2: `telecine`

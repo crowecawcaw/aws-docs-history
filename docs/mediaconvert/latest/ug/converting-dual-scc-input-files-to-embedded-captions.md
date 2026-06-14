@@ -8,6 +8,7 @@ to this procedure.
 
 1. Set up two input captions selectors. Follow the procedure in [Creating input captions selectors](including-captions.md#create-input-caption-selectors "including-captions.md#create-input-caption-selectors").
    Specify values as follows:
+
    - In each captions selector, choose **SCC** for
      **Source**.
    - For **Source file**, choose one of your input SCC files in each
@@ -18,6 +19,7 @@ to this procedure.
 
 2. Set up captions in your outputs. Follow the procedure in [Setting up captions in outputs](set-up-captions-in-outputs.md "set-up-captions-in-outputs.md"). Follow
    these specific choices:
+
    - Specify the captions in the same output as the video that you want the captions
      embedded in.
    - Choose **Add captions** twice, to create **Captions

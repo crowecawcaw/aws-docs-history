@@ -343,6 +343,7 @@ this procedure. 4. Specify your audio settings as follows:
 5. If you have additional audio assets to include in the ABR
    streaming package, create an output for each of them as
    follows:
+
    1. In the **Job** pane, choose the output
       group that you're working in.
    2. In the **Outputs** pane, choose
@@ -364,6 +365,7 @@ basic instructions, complete the following procedure.
 
 1. Create an output for your first set of captions. Usually a set of
    captions corresponds to one language.
+
    1. In the **Job** pane, choose the output
       group that you're working in.
    2. In the **Outputs** pane, choose
@@ -447,6 +449,7 @@ create.
    this procedure.
 2. If you want to create more than one standalone file, create
    additional outputs as follows:
+
    1. On the **Create job** page, in the **Job** pane on the left, under **Output Groups**,
       choose **File group**.
    2. In the **Outputs** pane, choose

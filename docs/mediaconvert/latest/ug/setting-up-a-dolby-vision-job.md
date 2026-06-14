@@ -4,6 +4,7 @@ Use the following steps to set up a Dolby Vision job. For more
 information about jobs, see [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md").
 
 1. For your input file or files, choose from the following:
+
    - MXF file, with frame-interleaved Dolby Vision metadata or
      an XML file.
    - IMF package (IMP) with frame-interleaved
@@ -19,11 +20,13 @@ information about jobs, see [Tutorial: Configuring job settings](setting-up-a-jo
 
 2. For each output that you want to process with Dolby Vision, do
    the following:
+
    1. Make sure that your output settings conform to the limitations listed
       in [Requirements](dolby-vision-job-limitations-and-requirements.md "dolby-vision-job-limitations-and-requirements.md").
    2. Enable the **Dolby Vision** preprocessor.
    3. Specify a Dolby Vision **Profile** from one of the
       following choices:
+
       - **Profile 5**: Includes frame-interleaved
         Dolby Vision metadata in your output.
       - **Profile 8.1**: Includes both

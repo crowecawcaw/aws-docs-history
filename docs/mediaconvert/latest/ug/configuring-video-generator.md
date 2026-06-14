@@ -10,6 +10,7 @@ Alternatively, MediaConvert automatically creates black video when the
 following conditions are met:
 
 - Your input doesn’t have video. Examples include:
+
   - Audio-only inputs
   - Captions-only inputs (in sidecar formats)
 
@@ -34,6 +35,7 @@ generator specified.**
 5. Under **Audio selectors**, **Audio Selector
    1**, switch on **External file**.
 6. Enter the URL of your audio input.
+
    1. If your input has both audio and video, MediaConvert ignores
       the input video.
 
@@ -41,6 +43,7 @@ generator specified.**
    input audio settings.
 8. See [Step 3: Create output groups](setting-up-a-job.md#specify-output-groups "setting-up-a-job.md#specify-output-groups") and
    [Step 4: Create outputs](setting-up-a-job.md#create-outputs "setting-up-a-job.md#create-outputs") to set up your outputs.
+
    1. You must include a video track in your output.
    2. You must include an audio track in your output, with **Audio source**
       set to the **Audio selector** specified from
@@ -59,11 +62,13 @@ generator specified.**
     captions selector**.
 13. In **Captions Selector 1**, under
     **Source**, choose a sidecar captions format.
+
     1. Non-sidecar captions formats are not supported.
 
 14. Enter the URL of your captions input.
 15. See [Step 3: Create output groups](setting-up-a-job.md#specify-output-groups "setting-up-a-job.md#specify-output-groups") and
     [Step 4: Create outputs](setting-up-a-job.md#create-outputs "setting-up-a-job.md#create-outputs") to set up your outputs.
+
     1. You must include a video track in your output.
     2. You must include a captions track in your output, with
        **Captions source** set to the

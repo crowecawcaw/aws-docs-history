@@ -13,6 +13,7 @@ make sure that you choose HEVC for your codec and a 10-bit profile.
 1. Set up your transcoding job as usual. For more information, see [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md").
 2. Make sure that the input **Color space** is set to the
    default value **Follow**.
+
    1. On the **Create job** page, in the **Job** pane on the left, choose **Input 1**.
    2. In the **Video selector** section on the right, for
       **Color space**, choose
@@ -21,9 +22,11 @@ make sure that you choose HEVC for your codec and a 10-bit profile.
 3. For each HDR output, choose an appropriate codec and profile and make sure
    that **Color metadata** is set to the default value
    **Insert**.
+
    1. On the **Create job** page, in the **Job** pane on the left, choose the output, such as **Output
       1**.
    2. Specify the following video settings:
+
       - **Video codec** – Choose
         **HEVC (H.265)**.
       - **Profile** – Choose one of the 10-bit

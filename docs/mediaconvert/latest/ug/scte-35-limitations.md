@@ -7,6 +7,7 @@ Limitations to SCTE-35 support are as follows:
 - AWS Elemental MediaConvert supports only time_signal messages, not splice_insert
   messages.
 - The service inserts SCTE-35 messages only into the following outputs:
+
   - Outputs in **File group** output groups with
     **MPEG-2 Transport Stream** set for
     **Container**.

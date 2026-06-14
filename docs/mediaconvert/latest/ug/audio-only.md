@@ -39,6 +39,7 @@ For AAC streaming outputs, the initial segment is longer in duration than the ot
    table in [Supported output formats for audio-only workflows](audio-only-output.md "audio-only-output.md").
 2. Set up your job as described in [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md"), but with the following
    differences:
+
    - Remove the **Video** tab in the **Encoding
      settings** section of your output.
    - Choose a supported output container and audio codec from the output
@@ -63,6 +64,7 @@ audio-only file with no container.
    table in [Supported output formats for audio-only workflows](audio-only-output.md "audio-only-output.md").
 2. Set up your JSON job specification. Either manually edit your JSON file, or
    use the console to generate it as follows:
+
    1. Follow the previous procedure for the console.
    2. In the **Job** pane on the left, under **Job
       settings**, choose **Show job

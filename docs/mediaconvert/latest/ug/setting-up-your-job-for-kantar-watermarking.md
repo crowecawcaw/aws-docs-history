@@ -11,6 +11,7 @@ up your MediaConvert job to encode the Kantar watermarks.
    integrations**.
 3. Enable **Kantar SNAP file watermarking**.
 4. Provide values for the Kantar settings.
+
    1. For **Credentials secret name**, type the name of the
       Secrets Manager secret that you created to store your Kantar credentials. For
       example, `KantarCreds`.
@@ -26,6 +27,7 @@ up your MediaConvert job to encode the Kantar watermarks.
    Kantar credentials. If that role Is MediaConvert_Default_Role, you don't need to
    choose it explicitly, because MediaConvert will use that role by default. To
    specify the role if it has a different name, do the following:
+
    1. In the **Job** pane on the left, choose **AWS integration**.
    2. In the **Service access** section, find
       **Service role**. Confirm that the specified role

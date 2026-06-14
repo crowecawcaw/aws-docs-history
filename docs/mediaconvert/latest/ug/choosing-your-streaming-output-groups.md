@@ -38,6 +38,7 @@ packages. This is assuming that the transcoding settings are the same.
 1.  Decide which devices you want end viewers to be able to play the transcoded
     media asset on. If you want your asset to play on every possible device, include
     these output groups:
+
     - Apple HLS
     - DASH ISO or CMAF
     - Microsoft Smooth Streaming

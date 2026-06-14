@@ -123,6 +123,7 @@ in their default state:
 1. Include the [`esam` property](../apireference/jobs.md#jobs-prop-jobsettings-esam "../apireference/jobs.md#jobs-prop-jobsettings-esam") and its children at the root of the
    job settings in your JSON job specification. These properties are shown in the
    following example.
+
    1. Include your ESAM signal processing XML specification as a string in
       the setting `sccXml`.
    2. Optionally, include a manifest confirm condition XML notification

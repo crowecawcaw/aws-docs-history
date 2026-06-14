@@ -54,6 +54,7 @@ The following example bucket policy grants the necessary permissions:
 
 2. For any job that writes outputs to that bucket, apply the **Bucket
    owner full control** ACL as follows:
+
    1. Set up your job as usual. For more information, see [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md").
    2. Specify the other account's Amazon S3 bucket for your output
       **Destination**. On the **Create job** page, in the **Job** pane on the left, choose an output

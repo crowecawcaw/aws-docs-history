@@ -35,6 +35,7 @@ the following procedures:
 2.  Choose **Create job**.
 3.  Set up your input video as described in [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md").
 4.  Set up your input audio selectors as follows:
+
     1. On the **Create job** page, in the **Job** pane on the left, choose **Input**.
     2. On the right, in the **Audio selectors** section,
        under **Audio selector 1**, choose
@@ -76,6 +77,7 @@ the following procedures:
 
 5.  Create an input **Audio selector group** as
     follows:
+
     1. In the **Audio selector groups** section, choose
        **Add audio selector group**.
     2. For **Group name**, enter a descriptive name,
@@ -119,6 +121,7 @@ Set them up as follows:
 2. Choose **Create job**.
 3. Set up your input video as described in [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md").
 4. Set up your input audio selectors as follows:
+
    1. On the **Create job** page, in the **Job** pane on the left, choose **Input**.
    2. On the right, in the **Audio selectors** section,
       under **Audio selector 1**, choose
@@ -130,6 +133,7 @@ Set them up as follows:
    5. For **Tracks**, list your 16 PCM mono tracks in a
       comma-separated list. Specify them in the following order: L, R, C,
       LFE, Ls, Rs, Lrs, Rrs, Lw, Rw, Ltf, Rtf, Ltm, Rtm, Ltr, Rtr.
+
       - If the tracks of your input audio file are already in that
         order, then list them that way: `1, 2, 3, …
 16`.

@@ -27,6 +27,7 @@ support case.
 
 1. Identify the job ID and support case ID you want to
    use:
+
    - _Job ID_: The MediaConvert job identifier
      (for example, `1740995632451-jkmq89`)
    - _Support case ID_: Your active

@@ -14,6 +14,7 @@ job.
    the other topics in this chapter.
 2. Create your transcoding jobs, specifying how you want your costs allocated as
    follows:
+
    1. On the **Create job** page, in the **Job** pane on the left, under **Job settings**, choose
       **AWS integration**.
    2. In the **Job settings** section on the right, under **AWS integration**, for **Billing tag source**, choose which tags you want

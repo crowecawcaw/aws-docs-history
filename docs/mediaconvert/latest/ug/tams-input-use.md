@@ -10,6 +10,7 @@ To configure a TAMS input by using the MediaConvert console:
 4. For **Source ID**, enter the UUID of the TAMS source you want to process.
 5. For **Time range**, enter the time range in the format `[start:nanoseconds_end:nanoseconds]`. For example, `[15:0_35:0]` processes content from 15 seconds to 35 seconds.
 6. For **Gap handling**, choose how to handle missing segments:
+
    - **Skip gaps** – Skip missing segments and create discontinuity markers in the output.
    - **Fill with black** – Fill missing segments with black frames to maintain consistent duration.
    - **Hold last frame** – Repeat the last frame before each gap while maintaining audio silence.

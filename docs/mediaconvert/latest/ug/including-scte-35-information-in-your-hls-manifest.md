@@ -11,6 +11,7 @@ manifest about the SCTE-35 markers that are in each of the outputs.
     the procedure in [Configuring SCTE-35 passthrough](passing-through-scte-35-markers.md "passing-through-scte-35-markers.md") or [Inserting SCTE-35 with ESAM](specifying-scte-35-markers-using-esam-xml.md "specifying-scte-35-markers-using-esam-xml.md").
 4.  Enable ad markers in each of your **Apple HLS** output
     groups.
+
     1. In the **Job** pane on the left, under
        **Output groups**, choose **Apple
        HLS**.
@@ -26,6 +27,7 @@ manifest about the SCTE-35 markers that are in each of the outputs.
 
 5.  If the source of your ad markers is an ESAM document, set these additional
     settings:
+
     1. Make sure that you entered XML for **Manifest confirm
        condition notification XML** during the procedure in [Specifying SCTE-35 markers using ESAM XML](specifying-scte-35-markers-using-esam-xml.md "specifying-scte-35-markers-using-esam-xml.md").
 

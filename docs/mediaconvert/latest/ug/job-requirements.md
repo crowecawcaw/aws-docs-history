@@ -76,6 +76,7 @@ value of **CBR** for **Transport stream settings**
 - Telecine output
 - Inverse telecine output
 - Embedded timecode source
+
   - Note: You can set the input setting **Timecode
     source** to **Embedded**, but not the
     job-wide setting **Source** under **Timecode

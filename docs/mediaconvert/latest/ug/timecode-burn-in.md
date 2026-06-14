@@ -35,6 +35,7 @@ frames.
 2. Optionally, provide values for the settings that are children of
    `TimecodeBurnin`. If you don't provide these values,
    timecodes are burned into your output using these default values:
+
    - `Prefix`: _no
      prefix_
    - `FontSize`: `10`

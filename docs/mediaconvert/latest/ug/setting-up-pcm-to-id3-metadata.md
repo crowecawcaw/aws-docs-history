@@ -15,6 +15,7 @@ the following output groups only:
 
 1. Set up your job inputs and outputs as described in [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md").
 2. Enable PCM to ID3 metadata in the job-wide settings.
+
    1. On the **Create job** page, in the **Job** pane on the left, under **Job settings** choose
       **Settings**.
    2. In the **Partner integrations** section on the right,
@@ -25,6 +26,7 @@ the following output groups only:
 3. Enable PCM to ID3 metadata in the outputs where you want it. Do these steps
    for each **Apple HLS** output that you want to have ID3
    metadata.
+
    1. In the **Job** pane on the left, choose the
       output.
    2. In the **Output settings** section on the right,
@@ -35,6 +37,7 @@ the following output groups only:
 
 4. Do these steps for each **File group** output that you want
    to have ID3 metadata.
+
    1. In the **Job** pane on the left, choose the
       output.
    2. In the **Output settings** section on the right,

@@ -76,6 +76,7 @@ capture events sent by MediaConvert when a job status changes to
    **Next**.
 4. In the **Event pattern** section, starting with
    **Event source** choose the following settings:
+
    - **Event source**: `AWS
 services`
    - **AWS service**:

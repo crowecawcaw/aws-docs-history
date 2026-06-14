@@ -34,6 +34,7 @@ account. Otherwise, AWS KMS uses the AWS managed key for Amazon S3, which has th
     [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md") and [Creating outputs](output-settings.md "output-settings.md").
 4.  For each output group that has outputs that you want encrypted, set up server-side
     encryption:
+
     1. In the **Job** pane on the left, choose the output group.
     2. In the group settings section on the right, choose **Server-side
        encryption**. If you use the API or an SDK, you can find this setting in the JSON file of your job. The setting name is `S3EncryptionSettings`.

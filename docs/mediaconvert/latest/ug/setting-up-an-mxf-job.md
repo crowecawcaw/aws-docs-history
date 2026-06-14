@@ -13,6 +13,7 @@ group** output group. Then specify MXF as the output's container.
    container**.
 4. Optionally, specify values for the settings under **MXF container
    settings**:
+
    - **MXF profile**: To manually specify your MXF
      profile, choose it from the list. If you keep the default value,
      **Auto**, MediaConvert chooses your MXF profile

@@ -28,6 +28,7 @@ If your job fails with time range errors, verify the following:
 
 - Your time range format follows the correct pattern:
   `[start:nanoseconds_end:nanoseconds]`.
+
   - For example: `[0:500000000_10:0]` – From 0.5 seconds (inclusive)
     to 10.0 seconds (inclusive)
 

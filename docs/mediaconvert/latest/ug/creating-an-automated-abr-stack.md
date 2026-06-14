@@ -45,6 +45,7 @@ require video and audio to be in the same muxed output, skip this step.
 
 12. Optionally, add audio renditions. Follow these steps for each audio rendition
     that you want in your ABR stack.
+
     1.  From the **Job** pane on the left, choose your output
         group.
     2.  In the **Outputs** section, choose **Add
@@ -83,6 +84,7 @@ Reference_:
    We recommend this approach, because the console functions as an
    interactive validator against the MediaConvert job schema. Follow these
    steps to generate your JSON job specification using the console:
+
    1. Follow the previous procedure for the console.
    2. In the **Job** pane on the left, under **Job
       settings**, choose **Show job
@@ -103,8 +105,10 @@ rather than exporting it from the MediaConvert console, you must explicitly set
 `rateControlMode` to `QVBR`.
 
 - Explicitly set these required settings:
+
   - Set `qualityTuningLevel` to
     `MULTI_PASS_HQ`.
+
     - AVC (H.264): `qualityTuningLevel in the H264Settings
 properties
 table`
@@ -128,7 +132,9 @@ properties table`
   strongly recommend it.
 - Optionally, specify these limits that relate to the whole ABR
   stack:
+
   - **Automated ABR** : `abrSettings`
+
     - **Max renditions**: `maxRenditions` in the
       AutomatedAbrSettings properties table
     - **Max ABR bitrate**: `maxAbrBitrate` in the

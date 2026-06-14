@@ -14,6 +14,7 @@ type conversion](working-with-scan-type.md#settings-for-scan-type-conversion "wo
 3. On the **Create job** page, in the **Job** pane on the left, choose the output that you want to work with.
 4. Find the settings you need in the **Encoding settings**
    section as follows:
+
    - **Deinterlacer** preprocessor: Choose
      **Deinterlacer** from the list of preprocessors
      at the bottom of the **Encoding settings**
@@ -61,6 +62,7 @@ Reference_:
    We recommend this approach, because the console functions as an
    interactive validator against the MediaConvert job schema. Follow these
    steps to generate your JSON job specification using the console:
+
    1. Follow the previous procedure for the console.
    2. In the **Job** pane on the left, under **Job
       settings**, choose **Show job
@@ -74,12 +76,14 @@ Reference_:
    - **Deinterlace mode**: `DeinterlacerMode`
    - **Interlace mode**
      (`interlaceMode`)
+
      - AVC (H.264): `interlaceMode`
      - HEVC (H.265): `interlaceMode`
      - MPEG-2: `interlaceMode`
      - Apple ProRes: `interlaceMode`
 
    - **Telecine** (`telecine`)
+
      - AVC (H.264): `telecine`
      - HEVC (H.265): `telecine`
      - MPEG-2: `telecine`

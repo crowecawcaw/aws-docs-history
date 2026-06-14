@@ -13,6 +13,7 @@ You can add tags when you create a queue, job template, or output preset.
 
 1. Follow the steps in one of the following procedures to begin creating the
    resource, but don't save the resource:
+
    - [Tutorial: Configuring job settings](setting-up-a-job.md "setting-up-a-job.md")
    - [Creating a queue](creating-queues.md "creating-queues.md")
    - [Creating a template](creating-template-from-scratch.md "creating-template-from-scratch.md")
@@ -21,6 +22,7 @@ You can add tags when you create a queue, job template, or output preset.
 
 2. Find the **Tags** section in the relevant
    location:
+
    - For jobs – on the **Create job** page,
      after you choose **Settings** from the
      **Job** section on the left

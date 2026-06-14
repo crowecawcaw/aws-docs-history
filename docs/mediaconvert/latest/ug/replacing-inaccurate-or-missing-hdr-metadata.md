@@ -20,6 +20,7 @@ input files. Use output settings to do color space conversion.
 4. For **Color space usage**, choose how AWS Elemental MediaConvert
    handles precedence between the input metadata and the value that you specify for
    **Color space**:
+
    - Choose **Force** if you want MediaConvert to use the
      color space that you specify for **Color space**
      regardless of whether it is specified in the input video

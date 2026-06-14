@@ -17,6 +17,7 @@ ways:
 - You must specify these required settings when you create your JSON job
   specification manually. The MediaConvert console sets them for you when you
   enable automated ABR.
+
   - Set `qualityTuningLevel` to
     `MULTI_PASS_HQ`.
   - Set `rateControlMode` to `QVBR`.
