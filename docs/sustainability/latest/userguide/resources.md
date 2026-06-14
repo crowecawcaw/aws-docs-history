@@ -6,6 +6,7 @@ sustainability journey.
 ## Carbon accounting
 
 - Standards informing the data in the AWS Sustainability service
+
   - [GHG Protocol](https://ghgprotocol.org/ "https://ghgprotocol.org/")
     and its underlying standard [ISO
     14064](https://www.iso.org/standard/66453.html "https://www.iso.org/standard/66453.html"): Explore the globally recognized framework for measuring and managing
