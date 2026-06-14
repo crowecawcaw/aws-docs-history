@@ -25,13 +25,16 @@ For instructions on connecting to your Aurora DB cluster, see [Connecting to an 
 ###### Contents
 
 - [DB cluster prerequisites](Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites "Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites")
+
   - [Configure the network for the DB cluster](Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites.VPC "Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites.VPC")
+
     - [Configure automatic network connectivity with an EC2 instance](Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic "Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites.VPC.Automatic")
     - [Configure the network manually](Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites.VPC.Manual "Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites.VPC.Manual")
 
   - [Additional prerequisites](Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites.Additional "Aurora.CreateInstance.md#Aurora.CreateInstance.Prerequisites.Additional")
 
 - [Creating a DB cluster](Aurora.CreateInstance.md#Aurora.CreateInstance.Creating "Aurora.CreateInstance.md#Aurora.CreateInstance.Creating")
+
   - [Creating a primary (writer) DB instance](Aurora.CreateInstance.md#aurora-create-writer "Aurora.CreateInstance.md#aurora-create-writer")
 
 - [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings")
@@ -84,6 +87,7 @@ If no EC2 instances exist in the AWS Region, the console provides a link to crea
 
 - Currently, the DB cluster can't be an Aurora Serverless DB cluster or part of an Aurora global database.
 - The user who is creating the DB instance must have permissions to perform the following operations:
+
   - `ec2:AssociateRouteTable`
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:AuthorizeSecurityGroupIngress`

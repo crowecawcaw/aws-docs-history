@@ -13,6 +13,7 @@ need additional review.
 1.  Sign in to the AWS Management Console and open the Amazon RDS console at
     [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2.  In the navigation pane, perform any of the following:
+
     - Choose **Recommendations**.
 
     The **Recommendations** page appears with the list of
@@ -60,11 +61,11 @@ has failed.
 
 The following example shows the banner with the successful message.
 
-![A banner in the console showing the message with the number of resources that will apply the recommendation.](images/Recommendation-Apply-Banner.png)
+![Console banner showing the number of resources to apply the recommendation to.](images/Recommendation-Apply-Banner.png)
 
 The following example shows the banner with the failure message.
 
-![A banner in the console showing the message with the resource that failed to apply the recommendation and the reason for the failure.](images/Recommendation-Apply-Banner-failure.png)
+![Console banner showing the resource that failed to apply the recommendation.](images/Recommendation-Apply-Banner-failure.png)
 
 ###### To apply a configuration based Aurora recommendation using the Amazon RDS API
 

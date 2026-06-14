@@ -13,6 +13,7 @@ To view existing proxy endpoints, follow these instructions:
    its name to view the details page.
 5. Examine the parameters whose values you're interested in. You can check properties such as the
    following:
+
    - Whether the endpoint is read/write or
      read-only.
    - The endpoint address that you use in a database connection

@@ -93,6 +93,7 @@ Before creating a blue/green deployment for your Aurora Global Database DB clust
 
 - All operations must be initiated from the same Region as the writer cluster of the Global Database.
 - Parameter group configuration:
+
   - The Green environment uses either a new parameter group you specify or the same parameter group as the blue cluster (default).
   - Custom parameter groups are copied to the green environment.
   - If a specified parameter group doesn't exist in the secondary region, the default parameter group in the secondary region is used for the green environment.
@@ -150,7 +151,7 @@ API.
 
 The **Create blue/green deployment** page appears.
 
-![Create blue/green deployment.](images/blue-green-deployment-create-aurora.png) 4. Review the blue database identifiers. Make sure that they match the DB instances that
+![Create blue-green deployment.](images/blue-green-deployment-create-aurora.png) 4. Review the blue database identifiers. Make sure that they match the DB instances that
 you expect in the blue environment. If they don't, choose
 **Cancel**. 5. For **Blue/green deployment name**, enter a name for your
 blue/green deployment. 6. In the remaining sections, specify the settings for the green environment. For

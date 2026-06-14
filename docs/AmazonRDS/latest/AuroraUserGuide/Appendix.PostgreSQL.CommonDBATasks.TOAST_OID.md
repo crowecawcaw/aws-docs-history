@@ -133,6 +133,7 @@ The following approaches can help resolve TOAST OID contention issues.
 - Data cleanup and archive – Review and delete any
   obsolete or unnecessary data to free up OIDs for future use, or archive the data. Consider
   the following limitations:
+
   - Limited scalability, as future cleanup might not always be possible.
   - Possible long-running VACUUM operation to remove the resulting dead tuples.
 
@@ -140,11 +141,13 @@ The following approaches can help resolve TOAST OID contention issues.
   future inserts and use a `UNION ALL` view to combine old and new data for
   queries. This view presents the combined data from both old and new tables, allowing
   queries to access them as a single table. Consider the following limitations:
+
   - Updates on the old table might still cause OID exhaustion.
 
 - Partition or Shard – Partition the table or
   shard data for better scalability and performance. Consider the following
   limitations:
+
   - Increased complexity in query logic and maintenance, potential need for
     application changes to handle partitioned data correctly.
 

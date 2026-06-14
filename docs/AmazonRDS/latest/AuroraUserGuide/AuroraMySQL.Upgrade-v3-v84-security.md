@@ -95,18 +95,18 @@ target DB cluster before migration.
 ## Password validation component migration
 
 Aurora MySQL version 8.4 introduces the `aurora_enable_validate_password_component` cluster
-parameter to enable or disable the `validate_password` component, removing the need to manually
+parameter to enable or disable the `validate_password` component. This removes the need to manually
 install or uninstall it. If you had previously installed the `validate_password` plugin and have
 since enabled the component after upgrading, only the component is effective – the plugin is
 ignored.
 
 Starting from Aurora MySQL version 8.4, if you had previously installed the `validate_password`
 plugin through the `INSTALL PLUGIN` command, you can migrate to the `validate_password`
-component by enabling the parameter `aurora_enable_validate_password_component` and then remove
+component. Enable the parameter `aurora_enable_validate_password_component` and then remove
 the plugin through the `UNINSTALL PLUGIN` command on your writer instance.
 
 If you previously installed the `validate_password` component manually using
-`INSTALL COMPONENT 'file://component_validate_password'`, ensure you set the
+`INSTALL COMPONENT 'file://component_validate_password'`, set the
 `aurora_enable_validate_password_component` parameter in your target DB cluster parameter group
 when upgrading. After upgrading, the component will no longer be listed in the `mysql.component`
 table. You can use the `aurora_enable_validate_password_component` global variable to verify the

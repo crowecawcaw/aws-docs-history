@@ -73,6 +73,7 @@ You can use the AWS Management Console, AWS CLI, or RDS API to create an Aurora 
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Databases**.
 3. Choose **Create database**. On the page that appears, choose the following options:
+
    - For **Engine type**, choose **Aurora (MySQL Compatible)** or
      **Aurora (PostgreSQL Compatible)**.
    - For **Version**, choose one of the supported versions for [Supported Regions and Aurora DB engines for Aurora serverless](Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.md").

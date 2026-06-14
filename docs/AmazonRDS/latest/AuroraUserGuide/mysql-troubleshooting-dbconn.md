@@ -11,11 +11,13 @@ connectivity issues with Aurora MySQL.
 - [Identifying database connectivity issues for Aurora MySQL](mysql-troubleshooting-dbconn.md#mysql-dbconn-identify "mysql-troubleshooting-dbconn.md#mysql-dbconn-identify")
 - [Gathering data on connectivity issues for Aurora MySQL](mysql-troubleshooting-dbconn.md#mysql-dbconn-gather "mysql-troubleshooting-dbconn.md#mysql-dbconn-gather")
 - [Monitoring database connections for Aurora MySQL](mysql-troubleshooting-dbconn.md#mysql-dbconn-monitor "mysql-troubleshooting-dbconn.md#mysql-dbconn-monitor")
+
   - [Additional monitoring for Aurora MySQL](mysql-troubleshooting-dbconn.md#mysql-dbconn-monitor-ams "mysql-troubleshooting-dbconn.md#mysql-dbconn-monitor-ams")
 
 - [Connectivity error codes for Aurora MySQL](mysql-troubleshooting-dbconn.md#mysql-dbconn-errors "mysql-troubleshooting-dbconn.md#mysql-dbconn-errors")
 - [Parameter tuning recommendations for Aurora MySQL](mysql-troubleshooting-dbconn.md#mysql-dbconn-params "mysql-troubleshooting-dbconn.md#mysql-dbconn-params")
 - [Examples of troubleshooting database connection issues for Aurora MySQL](mysql-troubleshooting-dbconn.md#mysql-dbconn-examples "mysql-troubleshooting-dbconn.md#mysql-dbconn-examples")
+
   - [Example 1: Troubleshooting failed connection attempts](mysql-troubleshooting-dbconn.md#mysql-dbconn-example1 "mysql-troubleshooting-dbconn.md#mysql-dbconn-example1")
   - [Example 2: Troubleshooting abnormal client disconnects](mysql-troubleshooting-dbconn.md#mysql-dbconn-example2 "mysql-troubleshooting-dbconn.md#mysql-dbconn-example2")
   - [Example 3: Troubleshooting IAM failed connection attempts](mysql-troubleshooting-dbconn.md#mysql-dbconn-example3 "mysql-troubleshooting-dbconn.md#mysql-dbconn-example3")

@@ -11,14 +11,17 @@ database are done, the local files are deleted.
 - [Granting privileges to load data in Amazon Aurora MySQL](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Grant "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Grant")
 - [Specifying the path (URI) to an Amazon S3 bucket](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.URI "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.URI")
 - [LOAD DATA FROM S3](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text")
+
   - [Syntax](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Syntax "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Syntax")
   - [Parameters](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Parameters "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Parameters")
   - [Using a manifest to specify data files to load](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest")
+
     - [Verifying loaded files using the aurora_s3_load_history table](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest.History "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest.History")
 
   - [Examples](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Examples "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Examples")
 
 - [LOAD XML FROM S3](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.XML "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.XML")
+
   - [Syntax](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.XML.Syntax "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.XML.Syntax")
   - [Parameters](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.XML.Parameters "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.XML.Parameters")
 

@@ -9,12 +9,15 @@ support different machine learning use cases.
 - [Region and version availability](mysql-ml.md#aurora-ml-availability "mysql-ml.md#aurora-ml-availability")
 - [Supported features and limitations of Aurora machine learning with Aurora MySQL](mysql-ml.md#aurora-ml-limitations "mysql-ml.md#aurora-ml-limitations")
 - [Setting up your Aurora MySQL DB cluster to use Aurora machine learning](mysql-ml.md#aurora-ml-setting-up-access "mysql-ml.md#aurora-ml-setting-up-access")
+
   - [Setting up your Aurora MySQL DB cluster to use Amazon Bedrock](mysql-ml.md#aurora-ml-setup-bedrock "mysql-ml.md#aurora-ml-setup-bedrock")
   - [Setting up your Aurora MySQL DB cluster to use Amazon Comprehend](mysql-ml.md#aurora-ml-setting-up-access-comprehend "mysql-ml.md#aurora-ml-setting-up-access-comprehend")
   - [Setting up your Aurora MySQL DB cluster to use SageMaker AI](mysql-ml.md#aurora-ml-setting-up-access-sagemaker "mysql-ml.md#aurora-ml-setting-up-access-sagemaker")
+
     - [Setting up your Aurora MySQL DB cluster to use Amazon S3 for SageMaker AI (Optional)](mysql-ml.md#aurora-ml-setting-up-access-sagemaker-advanced-s3 "mysql-ml.md#aurora-ml-setting-up-access-sagemaker-advanced-s3")
 
   - [Granting database users access to Aurora machine learning](mysql-ml.md#aurora-ml-sql-privileges "mysql-ml.md#aurora-ml-sql-privileges")
+
     - [Granting access to Amazon Bedrock functions](mysql-ml.md#aurora-ml-sql-privileges.br "mysql-ml.md#aurora-ml-sql-privileges.br")
     - [Granting access to Amazon Comprehend functions](mysql-ml.md#aurora-ml-sql-privileges.cmp "mysql-ml.md#aurora-ml-sql-privileges.cmp")
     - [Granting access to SageMaker AI functions](mysql-ml.md#aurora-ml-sql-privileges.sm "mysql-ml.md#aurora-ml-sql-privileges.sm")
@@ -22,10 +25,12 @@ support different machine learning use cases.
 - [Using Amazon Bedrock with your Aurora MySQL DB cluster](mysql-ml.md#using-amazon-bedrock "mysql-ml.md#using-amazon-bedrock")
 - [Using Amazon Comprehend with your Aurora MySQL DB cluster](mysql-ml.md#using-amazon-comprehend-for-sentiment-detection "mysql-ml.md#using-amazon-comprehend-for-sentiment-detection")
 - [Using SageMaker AI with your Aurora MySQL DB cluster](mysql-ml.md#using-amazon-sagemaker-to-run-your-own-ml-models "mysql-ml.md#using-amazon-sagemaker-to-run-your-own-ml-models")
+
   - [Character set requirement for SageMaker AI functions that return strings](mysql-ml.md#note-character-set-of-ml-functions-return-type "mysql-ml.md#note-character-set-of-ml-functions-return-type")
   - [Exporting data to Amazon S3 for SageMaker AI model training (Advanced)](mysql-ml.md#exporting-data-to-s3-for-model-training "mysql-ml.md#exporting-data-to-s3-for-model-training")
 
 - [Performance considerations for using Aurora machine learning with Aurora MySQL](mysql-ml.md#aurora-ml-performance "mysql-ml.md#aurora-ml-performance")
+
   - [Model and prompt](mysql-ml.md#ml-model-prompt "mysql-ml.md#ml-model-prompt")
   - [Query cache](mysql-ml.md#ml-query-cache "mysql-ml.md#ml-query-cache")
   - [Batch optimization for Aurora machine learning function calls](mysql-ml.md#ml-batch-optimization "mysql-ml.md#ml-batch-optimization")
@@ -52,6 +57,7 @@ the following requirements and prerequisites.
   and configure your Aurora MySQL DB cluster to use it so that it's ready for you to modify at the end of the setup
   process.
 - For SageMaker AI:
+
   - The machine learning components that you want to use for inferences must be set up and ready to use. During
     the configuration process for your Aurora MySQL DB cluster, make sure to have the ARN of the SageMaker AI endpoint
     available. The data scientists on your team are likely best able to handle working with SageMaker AI to prepare the
@@ -126,9 +132,11 @@ In the following topics, you can find separate setup procedures for each of thes
 - [Setting up your Aurora MySQL DB cluster to use Amazon Bedrock](mysql-ml.md#aurora-ml-setup-bedrock "mysql-ml.md#aurora-ml-setup-bedrock")
 - [Setting up your Aurora MySQL DB cluster to use Amazon Comprehend](mysql-ml.md#aurora-ml-setting-up-access-comprehend "mysql-ml.md#aurora-ml-setting-up-access-comprehend")
 - [Setting up your Aurora MySQL DB cluster to use SageMaker AI](mysql-ml.md#aurora-ml-setting-up-access-sagemaker "mysql-ml.md#aurora-ml-setting-up-access-sagemaker")
+
   - [Setting up your Aurora MySQL DB cluster to use Amazon S3 for SageMaker AI (Optional)](mysql-ml.md#aurora-ml-setting-up-access-sagemaker-advanced-s3 "mysql-ml.md#aurora-ml-setting-up-access-sagemaker-advanced-s3")
 
 - [Granting database users access to Aurora machine learning](mysql-ml.md#aurora-ml-sql-privileges "mysql-ml.md#aurora-ml-sql-privileges")
+
   - [Granting access to Amazon Bedrock functions](mysql-ml.md#aurora-ml-sql-privileges.br "mysql-ml.md#aurora-ml-sql-privileges.br")
   - [Granting access to Amazon Comprehend functions](mysql-ml.md#aurora-ml-sql-privileges.cmp "mysql-ml.md#aurora-ml-sql-privileges.cmp")
   - [Granting access to SageMaker AI functions](mysql-ml.md#aurora-ml-sql-privileges.sm "mysql-ml.md#aurora-ml-sql-privileges.sm")
@@ -234,7 +242,7 @@ Aurora creates the IAM role. It also creates the policy that allows the Aurora M
 attaches the policy to the role. When the process completes, you can find the role in the **Current IAM
 roles for this cluster** list as shown in the following image.
 
-![Completed IAM integration for using Amazon Comprehend with Aurora MySQL showing the Active role.](images/ams-ml-cmp-iam-role-4.png)
+![Completed IAM integration for Amazon Comprehend with Aurora MySQL.](images/ams-ml-cmp-iam-role-4.png)
 
 You need to add the ARN of this IAM role to the `aws_default_comprehend_role` parameter of the custom DB cluster
 parameter group associated with your Aurora MySQL DB cluster. If your Aurora MySQL DB cluster doesn't use a custom
@@ -256,7 +264,7 @@ If your cluster uses a custom DB cluster parameter group, do as follows.
 
 
 
-    ![Adding the ARN of the IAM role to the Aurora MySQL's custom DB cluster parameter group.](images/ams-cmp-add-arn-to-custom-db-cluster-params.png)Reboot the primary instance of your Aurora MySQL DB cluster so that this parameter setting takes effect.
+    ![Adding the IAM role ARN to the Aurora MySQL custom DB cluster parameter group.](images/ams-cmp-add-arn-to-custom-db-cluster-params.png)Reboot the primary instance of your Aurora MySQL DB cluster so that this parameter setting takes effect.
 
 The IAM integration for Amazon Comprehend is complete. Continue setting up your Aurora MySQL DB cluster to work with Amazon Comprehend by granting access to
 the appropriate database users.
@@ -286,7 +294,7 @@ you can find an example.
 
 ![Image showing SageMaker AI chosen for the Aurora MySQL DB cluster.](images/ams-sm-iam-role-1.png) 5. Choose **Connect service**. 6. In the **Connect cluster to SageMaker AI** dialog, enter the ARN of the SageMaker AI endpoint.
 
-![Image showing the Amazon Resource Name (ARN) for SageMaker AI endpoint entered during the configuration process.](images/ams-sm-iam-role-3.png) 7. Aurora creates the IAM role. It also creates the policy that allows the Aurora MySQL DB cluster to use SageMaker AI services and
+![The ARN for the SageMaker AI endpoint entered during configuration.](images/ams-sm-iam-role-3.png) 7. Aurora creates the IAM role. It also creates the policy that allows the Aurora MySQL DB cluster to use SageMaker AI services and
 attaches the policy to the role. When the process completes, you can find the role in the **Current IAM
 roles for this cluster** list. 8. Open the IAM console at
 [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 9. Choose **Roles** from the Access management section of the
@@ -330,7 +338,7 @@ _Amazon Simple Storage Service User Guide_.
 
 ![Choosing Amazon S3 as the service to integrate with the Aurora MySQL DB cluster.](images/ams-ml-s3-1.png) 5. Choose **Connect service**. 6. In the **Connect cluster to Amazon S3** dialog, enter the ARN of the Amazon S3 bucket, as shown in the following image.
 
-![Image of ARN for Amazon S3 bucket specified for the Aurora MySQL DB cluster.](images/ams-ml-s3-2.png) 7. Choose **Connect service** to complete this process.
+![ARN for Amazon S3 bucket specified for the Aurora MySQL DB cluster.](images/ams-ml-s3-2.png) 7. Choose **Connect service** to complete this process.
 
 For more information about using Amazon S3 buckets with SageMaker AI, see [Specify an Amazon S3 Bucket to Upload Training Datasets
 and Store Output Data](../../../sagemaker/latest/dg/automatic-model-tuning-ex-bucket.md "../../../sagemaker/latest/dg/automatic-model-tuning-ex-bucket.md") in the _Amazon SageMaker AI Developer Guide_. To learn more about working with SageMaker AI, see

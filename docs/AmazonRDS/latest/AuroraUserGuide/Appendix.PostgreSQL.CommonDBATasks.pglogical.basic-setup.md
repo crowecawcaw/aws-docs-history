@@ -35,7 +35,7 @@ custom DB cluster parameter group, see [Parameter groups for Amazon Aurora](USER
 7. Add `pglogical` to the list in the **Values** field.
    Use a comma to separate items in the list of values.
 
-![Image of the shared_preload_libraries parameter with pglogical added.](images/apg_rpg_shared_preload_pglogical.png) 8. Find the `rds.logical_replication` parameter and set it to
+![The shared_preload_libraries parameter with pglogical added.](images/apg_rpg_shared_preload_pglogical.png) 8. Find the `rds.logical_replication` parameter and set it to
 `1`, to turn on logical replication. 9. Reboot the writer instance of your Aurora PostgreSQL DB
 cluster so
 that your changes take effect. 10. When the instance is available, you can use `psql` (or pgAdmin) to

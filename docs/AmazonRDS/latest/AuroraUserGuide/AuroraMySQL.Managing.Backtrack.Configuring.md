@@ -78,6 +78,7 @@ specified based on the DB cluster's past workload:
 5. Choose **Continue**.
 6. For **Scheduling of Modifications**, choose one of
    the following:
+
    - **Apply during the next scheduled maintenance
      window** – Wait to apply the
      **Target Backtrack window** modification

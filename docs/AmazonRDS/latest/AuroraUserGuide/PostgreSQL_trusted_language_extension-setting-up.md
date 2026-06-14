@@ -29,7 +29,7 @@ Perform the following steps using an account that's a member of the `rds_superus
 7. Add `pg_tle` to the list in the **Values**
    field. Use a comma to separate items in the list of values.
 
-![Image of the shared_preload_libraries parameter with pg_tle added.](images/apg_rpg_shared_preload_pg_tle.png) 8. Reboot the writer instance of your Aurora PostgreSQL DB
+![The shared_preload_libraries parameter with pg_tle added.](images/apg_rpg_shared_preload_pg_tle.png) 8. Reboot the writer instance of your Aurora PostgreSQL DB
 cluster so that your change to the
 `shared_preload_libraries` parameter takes effect. 9. When the instance is available, verify that `pg_tle` has been initialized. Use
 `psql` to connect to the writer instance of your Aurora PostgreSQL DB cluster, and then

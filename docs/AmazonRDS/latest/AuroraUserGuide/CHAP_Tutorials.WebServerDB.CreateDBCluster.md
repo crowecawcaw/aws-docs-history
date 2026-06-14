@@ -20,13 +20,13 @@ Aurora MySQL
 6. For **Engine options**, choose **Aurora
    (MySQL Compatible)**.
 
-![Select engine type.](images/aurora-engine-options-mysql.png)
+![The engine type selection.](images/aurora-engine-options-mysql.png)
 
 Keep the default values for **Version** and the
 other engine options. 7. In the **Templates** section, choose
 **Dev/Test**.
 
-![Select template.](images/tutorial-create-template-2.png) 8. In the **Settings** section, set these
+![The template selection.](images/tutorial-create-template-2.png) 8. In the **Settings** section, set these
 values:
 
     * **DB cluster identifier** – Type
@@ -103,13 +103,13 @@ Aurora PostgreSQL
 6. For **Engine options**, choose **Aurora
    (PostgreSQL Compatible)**.
 
-![Select engine type and template.](images/aurora-engine-options-postgres.png)
+![The engine type and template selection.](images/aurora-engine-options-postgres.png)
 
 Keep the default values for **Version** and the
 other engine options. 7. In the **Templates** section, choose
 **Dev/Test**.
 
-![Select template.](images/tutorial-create-template-2.png) 8. In the **Settings** section, set these
+![The template selection.](images/tutorial-create-template-2.png) 8. In the **Settings** section, set these
 values:
 
     * **DB cluster identifier** – Type

@@ -66,8 +66,10 @@ show how these two parameters interface.
 
 - When babelfishpg_tsql.version parameter is "default" and
   babelfishpg_tds.product_version is 15.0.2000.8.
+
   - Output of @@version – 15.0.2000.8.
 
 - When babelfishpg_tsql.version parameter is set to 13.0.2000.8 and
   babelfishpg_tds.product_version parameter is 15.0.2000.8.
+
   - Output of @@version – 13.0.2000.8.

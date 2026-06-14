@@ -104,6 +104,7 @@ instance class size with more memory. For more information, see [Supported DB en
   to `force_custom_plan` in the DB cluster parameter group.
 - `queryid` in `apg_plan_mgmt.dba_plans` and
   `pg_stat_statements` can diverge when:
+
   - Objects are dropped and recreated after storing in
     apg_plan_mgmt.dba_plans.
   - `apg_plan_mgmt.plans` table is imported from another
@@ -222,7 +223,7 @@ between modes, see [Capturing Aurora PostgreSQL execution plans](AuroraPostgreSQ
    `rds.enable_plan_management` parameter to `1`, as
    shown in the following image.
 
-![Image of the DB cluster parameter group.](images/aurora-qpm-custom-db-cluster-param-change-1.png)
+![The DB cluster parameter group.](images/aurora-qpm-custom-db-cluster-param-change-1.png)
 
 For more information, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md "USER_WorkingWithParamGroups.ModifyingCluster.md"). 4. Create a custom DB parameter group that you can use to set query plan
 parameters at the instance level. For more information, see [Creating a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.CreatingCluster.md "USER_WorkingWithParamGroups.CreatingCluster.md"). 5. Modify the writer instance of the Aurora PostgreSQL DB cluster to use the

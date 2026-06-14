@@ -137,6 +137,7 @@ By default, the in-memory relay log feature is automatically enabled for Aurora-
 
 - Single-threaded replication mode (replica_parallel_workers = 0)
 - Multi-threaded replication with GTID mode enabled:
+
   - Auto-position enabled
   - GTID mode set to ON on the replica
 

@@ -11,10 +11,12 @@ The following sections provide details on creating partition functions, defining
 ## Introducing to partitioning in Babelfish
 
 - Partition functions:
+
   - `CREATE PARTITION FUNCTION:` Defines how a table or index is partitioned by specifying the partitioning column type and the range of values for each partition.
   - `DROP PARTITION FUNCTION:` Removes an existing partition function.
 
 - Partition schemes:
+
   - `CREATE PARTITION SCHEME:` Defines the mapping between partitions and filegroups.
 
   ###### Note
@@ -23,9 +25,11 @@ The following sections provide details on creating partition functions, defining
   - `DROP PARTITION SCHEME:` Removes an existing partition scheme.
 
 - System function:
+
   - `$PARTITION:` This system function returns the partition number to which a specified value in a partitioning column would belong in a specified partitioned table.
 
 - Partitioned tables and indexes:
+
   - `CREATE TABLE ... ON partition_scheme_name (partition_column_name):` Creates a partitioned table based on a specified partition scheme and partitioning column.
   - `CREATE INDEX ... ON partition_scheme_name (partition_column_name):` Creates a partitioned index based on a specified partition scheme and partitioning column.
 
@@ -60,6 +64,7 @@ partition functions during creation because you can't add or remove partitions l
 - Un-aligned partitioned indexes such as partition scheme and partition column that differs from the partitioned table.
 - DMS migration from Babelfish source is supported only for Full Load tasks on partitioned tables.
 - Babelfish doesn't support these syntax options but provides workarounds:
+
   - Usage of partition scheme with constraints or indexes in the CREATE TABLE statement.
   - ALTER TABLE ... ADD CONSTRAINT ... ON partition_scheme_name (partition_column_name).
 

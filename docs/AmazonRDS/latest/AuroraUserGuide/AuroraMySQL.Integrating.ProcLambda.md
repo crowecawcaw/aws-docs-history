@@ -10,6 +10,7 @@ into a specific table in your database.
 
 - [Aurora MySQL version considerations](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.ProcLambda.caveats "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.ProcLambda.caveats")
 - [Working with the mysql.lambda_async procedure to invoke a Lambda function (deprecated)](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async")
+
   - [Syntax](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Syntax "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Syntax")
   - [Parameters](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Parameters "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Parameters")
   - [Examples](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Examples "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Examples")

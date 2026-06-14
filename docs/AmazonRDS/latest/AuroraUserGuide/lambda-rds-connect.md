@@ -50,7 +50,9 @@ The following are requirements for connecting a Lambda function with an Aurora D
 - The user who
   sets up connectivity must have permissions to perform the following
   Amazon RDS, Amazon EC2, Lambda, Secrets Manager, and IAM operations:
+
   - Amazon RDS
+
     - `rds:CreateDBProxies`
     - `rds:DescribeDBClusters`
     - `rds:DescribeDBProxies`
@@ -59,6 +61,7 @@ The following are requirements for connecting a Lambda function with an Aurora D
     - `rds:RegisterProxyTargets`
 
   - Amazon EC2
+
     - `ec2:AuthorizeSecurityGroupEgress`
     - `ec2:AuthorizeSecurityGroupIngress`
     - `ec2:CreateSecurityGroup`
@@ -68,20 +71,24 @@ The following are requirements for connecting a Lambda function with an Aurora D
     - `ec2:RevokeSecurityGroupIngress`
 
   - Lambda
+
     - `lambda:CreateFunctions`
     - `lambda:ListFunctions`
     - `lambda:UpdateFunctionConfiguration`
 
   - Secrets Manager
+
     - `secretsmanager:CreateSecret`
     - `secretsmanager:DescribeSecret`
 
   - IAM
+
     - `iam:AttachPolicy`
     - `iam:CreateRole`
     - `iam:CreatePolicy`
 
   - AWS KMS
+
     - `kms:describeKey`
 
 ###### Note
@@ -161,6 +168,7 @@ must be in the **Available** state.
 3. For **Actions**, choose **Set up Lambda connection**.
 4. On the **Set up Lambda connection** page, under **Select Lambda function**,
    do either of the following:
+
    - If you have an existing Lambda function in the same VPC as your DB cluster, choose **Choose existing
      function**, and then choose the function.
    - If you don't have a Lambda function in the same VPC, choose **Create new function**, and
@@ -169,11 +177,13 @@ must be in the **Available** state.
 
 5. (Optional) Under **RDS Proxy**, select **Connect using RDS Proxy**, and
    then do any of the following:
+
    - If you have an existing proxy that you want to use, choose **Choose existing proxy**,
      and then choose the proxy.
    - If you don't have a proxy, and you want Amazon RDS to automatically create one for you, choose
      **Create new proxy**. Then, for **Database credentials**, do either of
      the following:
+
      1. Choose **Database username and password**, and then enter the
         **Username** and **Password** for your DB cluster.
      2. Choose **Secrets Manager secret**. Then, for **Select secret**,

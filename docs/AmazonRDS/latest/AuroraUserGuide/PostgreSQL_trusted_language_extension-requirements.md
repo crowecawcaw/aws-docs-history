@@ -6,6 +6,7 @@ The following are requirements for setting up and using the TLE development kit.
   – Trusted Language Extensions
   is supported on Aurora PostgreSQL version 14.5
   and higher versions only.
+
   - If you need to upgrade your Aurora PostgreSQL DB
     cluster,
     see [Upgrading Amazon Aurora PostgreSQL DB clusters](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
@@ -23,6 +24,7 @@ The following are requirements for setting up and using the TLE development kit.
   configured with a custom DB parameter group. You use the
   custom DB parameter group for the writer instance of your
   Aurora PostgreSQL DB cluster.
+
   - If your Aurora PostgreSQL DB cluster
 
   isn't configured with a custom DB parameter group, you should
@@ -45,6 +47,7 @@ Use the following steps to create a custom DB parameter group and configure your
 2. Choose Parameter groups from the Amazon RDS menu.
 3. Choose **Create parameter group**.
 4. In the **Parameter group details** page, enter the following information.
+
    - For **Parameter group family**, choose aurora-postgresql14.
    - For **Type**, choose DB Parameter Group.
    - For **Group name**, give your parameter group a meaningful name in the

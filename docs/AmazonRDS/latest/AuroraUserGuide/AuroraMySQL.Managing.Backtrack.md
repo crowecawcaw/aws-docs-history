@@ -9,6 +9,7 @@ Backtracking is supported in Aurora MySQL version 2, version 3, and version 8.4.
 ###### Contents
 
 - [Overview of backtracking](AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Overview "AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Overview")
+
   - [Backtrack window](AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Overview.BacktrackWindow "AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Overview.BacktrackWindow")
   - [Backtracking time](AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Overview.BacktrackTime "AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Overview.BacktrackTime")
   - [Backtracking limitations](AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Limitations "AuroraMySQL.Managing.Backtrack.md#AuroraMySQL.Managing.Backtrack.Limitations")

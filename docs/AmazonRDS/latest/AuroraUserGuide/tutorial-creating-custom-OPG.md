@@ -71,6 +71,7 @@ For more information on other parameters available for MySQL DB clusters, see
 2. For **Custom parameter groups**, choose
    **Create parameter group**.
 3. Set the parameter group details.
+
    1. Enter a name for the parameter group.
    2. Enter a description of the parameter group.
    3. For **Engine type**, choose

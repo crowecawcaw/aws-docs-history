@@ -16,12 +16,15 @@ find information about how to perform both types of upgrades.
 - [Overview of the Aurora PostgreSQL upgrade processes](USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Overview "USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.PostgreSQL.Overview")
 - [Getting a list of available versions in your AWS Region](USER_UpgradeDBInstance.PostgreSQL.UpgradeVersion.md "USER_UpgradeDBInstance.PostgreSQL.UpgradeVersion.md")
 - [Performing a major version upgrade](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md")
+
   - [Testing an upgrade of your production DB cluster to a new major version](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Upgrade.preliminary "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Upgrade.preliminary")
   - [Post-upgrade recommendations](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Upgrade.postupgrade "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.MajorVersion.Upgrade.postupgrade")
   - [Upgrading the Aurora PostgreSQL engine to a new major version](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.Upgrading.Manual "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.Upgrading.Manual")
+
     - [Major upgrades for global databases](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md#USER_UpgradeDBInstance.PostgreSQL.GlobalDB")
 
 - [Performing a minor version upgrade](USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md "USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md")
+
   - [Before performing a minor version upgrade](USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md#USER_UpgradeDBInstance.PostgreSQL.BeforeMinor "USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md#USER_UpgradeDBInstance.PostgreSQL.BeforeMinor")
   - [How to perform minor version upgrades and apply patches](USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md#USER_UpgradeDBInstance.PostgreSQL.Minor "USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md#USER_UpgradeDBInstance.PostgreSQL.Minor")
   - [Minor release upgrades and zero-downtime patching](USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md#USER_UpgradeDBInstance.PostgreSQL.Minor.zdp "USER_UpgradeDBInstance.PostgreSQL.MinorUpgrade.md#USER_UpgradeDBInstance.PostgreSQL.Minor.zdp")

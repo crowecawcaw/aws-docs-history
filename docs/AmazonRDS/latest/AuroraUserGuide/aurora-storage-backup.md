@@ -56,6 +56,7 @@ backups. These metrics are computed independently for each Aurora DB cluster.
 - `BackupRetentionPeriodStorageUsed` – Represents the amount
   of backup storage used, in bytes, for storing automated backups at the current
   time.
+
   - The value depends on the size of the cluster volume and the number of
     changes (writes and updates) that are made to the DB cluster during the
     retention period. This is because the automated backup must store all
@@ -69,6 +70,7 @@ backups. These metrics are computed independently for each Aurora DB cluster.
 - `SnapshotStorageUsed` – Represents the amount of backup
   storage used, in bytes, for storing manual snapshots beyond the automated
   backup's retention period.
+
   - The value depends on the number of snapshots you keep beyond the
     automated backup’s retention period and the size of each
     snapshot.

@@ -14,6 +14,7 @@ specific table in your database.
 ###### Contents
 
 - [Working with native functions to invoke a Lambda function](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions")
+
   - [Granting the role in Aurora MySQL version 3 and version 8.4](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3 "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v3")
   - [Granting the privilege in Aurora MySQL version 2](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v2 "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.v2")
   - [Syntax for the lambda_sync function](AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Syntax "AuroraMySQL.Integrating.NativeLambda.md#AuroraMySQL.Integrating.NativeLambda.lambda_functions.Sync.Syntax")

@@ -20,6 +20,7 @@
 - For DDLs in PL/pgSQL Procedures or Functions which are created from PSQL
   endpoint and gets executed from TDS endpoint in Group AD authenticated
   session:
+
   - ALTER/DROP statements will be supported.
   - CREATE TABLE, CREATE VIEW, CREATE INDEX, CREATE FUNCTION/PROC, CREATE
     TYPE, CREATE SEQUENCE, CREATE TRIGGER, SELECT INTO, CREATE FULLTEXT
@@ -36,6 +37,7 @@
   user using password based authentication mechanism.
 - System objects like SUSER_SID(), IS_SRVROLEMEMBER(), IS_MEMBER(),
   sys.dm_exec_sessions has following limitations.
+
   - SUSER_SID() won’t return the SID when AD User or AD Security Group is
     supplied.
   - IS_SRVROLEMEMBER() won’t consider the role membership if current AD

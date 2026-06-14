@@ -17,8 +17,10 @@ create a DB cluster. Settings for Database Insights apply to all DB instances in
 2. Choose **Databases**.
 3. Choose **Create database**.
 4. In the **Database Insights** section, select **Standard mode**. Then, choose from the following options to turn Performance Insights on or off:
+
    - To turn off Performance Insights, deselect **Enable Performance Insights**.
    - To turn on Performance Insights, select **Enable Performance Insights**. To configure Performance Insights, specify the following options:
+
      - **Retention** – The amount of time to retain Performance Insights data. The retention period must be at least 7 days.
      - **AWS KMS key** – Specify your
        KMS key. Performance Insights encrypts all
@@ -107,8 +109,10 @@ modify a DB cluster. Settings for Database Insights apply to all DB instances in
 2. Choose **Databases**.
 3. Choose a DB cluster, and choose **Modify**.
 4. In the **Database Insights** section, select **Standard mode**. Then, choose from the following options:
+
    - To turn off Performance Insights, deselect **Enable Performance Insights**.
    - To turn on Performance Insights, select **Enable Performance Insights**. To configure Performance Insights, specify the following options:
+
      - **Retention** – The amount of time to retain Performance Insights data. The retention period must be at least 7 days.
      - **AWS KMS key** – Specify your
        KMS key. Performance Insights encrypts all

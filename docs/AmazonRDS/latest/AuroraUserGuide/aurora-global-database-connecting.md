@@ -47,6 +47,7 @@ updated with the new name.
   that has write forwarding enabled. With write forwarding, Aurora automatically forwards the write
   statements to the writer in the primary Region of your Aurora Global Database. Write forwarding provides
   the following benefits:
+
   - You don't need to do the heavy lifting to establish connectivity between the secondary and
     primary clusters to send cross-region writes.
   - You don't need to split read and write requests in the application.
@@ -79,7 +80,7 @@ details for your primary DB cluster:
   global database cluster. To minimize latency, choose whichever reader endpoint is in your AWS Region or
   the AWS Region closest to you.
 
-![In the RDS console, the Connectivity & security tab for an Aurora Global Database shows the global writer endpoint.](images/aurora-global-databases-primary-cluster-connectivity-2.png)
+![The Connectivity and security tab showing the global writer endpoint.](images/aurora-global-databases-primary-cluster-connectivity-2.png)
 
 ###### To view the endpoints of a global database
 
@@ -90,6 +91,7 @@ details for your primary DB cluster:
    want to view.
 4. Choose the **Connectivity & security** tab to see the endpoint details. The
    endpoints displayed depend on the type of cluster you selected, as follows:
+
    - Global database – The global writer endpoint.
    - Primary DB cluster – The global writer endpoint, and the cluster endpoint and reader
      endpoint for the primary cluster.

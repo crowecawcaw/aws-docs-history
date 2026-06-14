@@ -48,6 +48,7 @@ connection.
    IAM authentication with replication connections. For details, see [Prerequisites](#AuroraPostgreSQL.Replication.Logical.IAM-auth-prerequisites "#AuroraPostgreSQL.Replication.Logical.IAM-auth-prerequisites").
 2. Configure the `rds.iam_auth_for_replication` parameter by
    modifying your DB cluster parameter group:
+
    - Set the `rds.iam_auth_for_replication` parameter to
      `1`. This dynamic parameter doesn't require a
      reboot.
@@ -84,6 +85,7 @@ following methods:
   `0` in your DB cluster parameter group
 - Alternatively, you can disable either of these features on your
   Aurora PostgreSQL DB cluster:
+
   - Disable logical replication by setting the
     `rds.logical_replication` parameter to
     `0`

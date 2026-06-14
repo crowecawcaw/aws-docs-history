@@ -104,6 +104,7 @@ WHERE
 ```
 
 3. Check for unsupported usage:
+
    - Commit or roll back all open prepared transactions before
      attempting an upgrade. You can use the following query to verify
      that there are no open prepared transactions on your instance.
@@ -111,7 +112,6 @@ WHERE
    ```
    SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
    ```
-
    - Remove all uses of the \*reg\** data types before
      attempting an upgrade. Except for `regtype` and
      `regclass`, you can't upgrade the
@@ -498,7 +498,7 @@ the top-level item from the **Databases** list in the RDS
 console, **Global database**, as shown in the following
 image.
 
-![Console image showing an Aurora global database, an Aurora Serverless DB cluster, and another Aurora PostgreSQL DB cluster.](images/aurora-global-database-plus-other.png)
+![Console showing an Aurora global database with Aurora Serverless and Aurora PostgreSQL DB clusters.](images/aurora-global-database-plus-other.png)
 
 As with any modification, you can confirm that you want the process to proceed
 when prompted.

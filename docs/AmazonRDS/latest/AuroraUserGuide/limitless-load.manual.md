@@ -22,6 +22,7 @@ requirements.
 2. Navigate to the **Customer managed keys** page.
 3. Choose **Create key**.
 4. On the **Configure key** page:
+
    1. For **Key type**, select **Symmetric**.
    2. For **Key usage**, select **Encrypt and decrypt**.
    3. Choose **Next**.
@@ -53,6 +54,7 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page:
+
    1. For **Secret type**, select **Other type of secret**.
    2. For **Key/value pairs**, choose the **Plaintext** tab.
    3. Enter the following JSON code, where `sourcedbreader` and
@@ -64,7 +66,6 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
        "password":"`sourcedbpassword`"
    }
    ```
-
    4. For **Encryption key**, choose the KMS key that you created in [Creating the customer-managed AWS KMS key](#limitless-load.auth.create-kms "#limitless-load.auth.create-kms"), for example
       `limitless`.
    5. Choose **Next**.
@@ -74,6 +75,7 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
 5. On the **Configure rotation - _optional_** page, choose **Next**.
 6. On the **Review** page, choose **Store**.
 7. Repeat the procedure for the destination database secret:
+
    1. Enter the following JSON code, where `destinationdbwriter` and
       `destinationdbpassword` are the credentials for the destination database user
       from [Create the destination database credentials](limitless-load.utility.md#limitless-load.users.destination "limitless-load.utility.md#limitless-load.users.destination").
@@ -84,7 +86,6 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
        "password":"`destinationdbpassword`"
    }
    ```
-
    2. Enter a **Secret name**, such as `destination_DB_secret`.
 
 Record the ARNs of the secrets to use in [Adding the IAM role permission policies](#limitless-load.auth.iam-policy "#limitless-load.auth.iam-policy").
@@ -101,6 +102,7 @@ role to delegate permissions to an IAM user.](../../../IAM/latest/UserGuide/id_r
 2. Navigate to the **Roles** page.
 3. Choose **Create role**.
 4. On the **Select trusted entity** page:
+
    1. For **Trusted entity type**, select **Custom trust policy**.
    2. Enter the following JSON code for the custom trust policy:
 
@@ -123,14 +125,15 @@ role to delegate permissions to an IAM user.](../../../IAM/latest/UserGuide/id_r
    }`
 
    ```
-
    3. Choose **Next**.
 
 5. On the **Add permissions** page, choose **Next**.
 6. On the **Name, review, and create** page:
+
    1. For **Role name**, enter `aurora-data-loader` or another name that you
       prefer.
    2. Choose **Add tag**, and enter the following tag:
+
       - **Key**: `assumer`
       - **Value**: `aurora_limitless_table_data_load`
 

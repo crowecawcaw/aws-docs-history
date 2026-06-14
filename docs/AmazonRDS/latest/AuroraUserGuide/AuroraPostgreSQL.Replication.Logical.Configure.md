@@ -22,6 +22,7 @@ more information, see [DB cluster parameter groups for Amazon Aurora DB clusters
    then choose `1` from the selector to turn on the feature. Depending
    on your expected usage, you might also need to change the settings for the
    following parameters. However, in many cases, the default values are sufficient.
+
    - `max_replication_slots` – Set this parameter to a
      value that's at least equal to your planned total number of logical
      replication publications and subscriptions. If you are using AWS DMS, this

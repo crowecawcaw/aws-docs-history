@@ -10,6 +10,7 @@ You perform the following steps to use the data loading utility:
 3. [Preparing the destination database](#limitless-load.destination "#limitless-load.destination")
 4. [Creating database credentials](#limitless-load.users "#limitless-load.users")
 5. One of the following:
+
    - [Setting up database authentication and resource access using a script](limitless-load.script.md "limitless-load.script.md") (recommended)
    - [Setting up database authentication and resource access manually](limitless-load.manual.md "limitless-load.manual.md")
 
@@ -25,11 +26,15 @@ The data loading utility has the following limitations:
 - Leading zeroes (`0`) are stripped from the `VARBIT` data type during loading.
 - Data migration fails when there are foreign keys on the destination tables.
 - Limitless Data Utility supports the following source configurations for Amazon RDS for PostgreSQL Multi-AZ DB clusters:
+
   - Primary instance
+
     - Supported modes: snapshot, snapshot_then_cdc
 
   - Replica instance
+
     - Supported mode: snapshot only
+
       - Requirement: hot_standby_feedback must be enabled
 
     - Not supported: snapshot_then_cdc
@@ -47,10 +52,12 @@ The data loading utility has the following prerequisites:
   columns and column orders.
 - You must have an environment for connecting to a limitless database to run data loading commands. Available commands are the
   following:
+
   - `rds_aurora.limitless_data_load_start`
   - `rds_aurora.limitless_data_load_cancel`
 
 - For CDC:
+
   - Both the source database and the destination DB shard group must use the same DB subnet group, VPC security group, and
     database port. These setups are for network connections to both the source database and the routers in the DB shard
     group.
@@ -84,8 +91,10 @@ For example, its security group ID is `sg-056a84f1712b77926`. 4. On the **Inboun
     ![Add inbound rule for the source database.](images/limitless_self_access_inbound_rule.png)
 
 5. On the **Outbound rules** tab:
+
    1. Choose **Edit outbound rules**.
    2. Add a new outbound rule for the source DB cluster or instance:
+
       - Database port – `All traffic` (includes ports `0-65535`)
       - Security group ID – `sg-056a84f1712b77926` in this example
 

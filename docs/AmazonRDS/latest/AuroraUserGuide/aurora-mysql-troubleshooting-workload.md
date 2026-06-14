@@ -25,23 +25,28 @@ status variables and options added, deprecated, or removed in MySQL 8.0](https:/
 ###### Contents
 
 - [Instance host metrics](aurora-mysql-troubleshooting-workload.md#ams-workload-instance "aurora-mysql-troubleshooting-workload.md#ams-workload-instance")
+
   - [CPU usage](aurora-mysql-troubleshooting-workload.md#ams-workload-cpu "aurora-mysql-troubleshooting-workload.md#ams-workload-cpu")
   - [Memory usage](aurora-mysql-troubleshooting-workload.md#ams-workload-instance-memory "aurora-mysql-troubleshooting-workload.md#ams-workload-instance-memory")
   - [Network throughput](aurora-mysql-troubleshooting-workload.md#ams-workload-network "aurora-mysql-troubleshooting-workload.md#ams-workload-network")
 
 - [Database metrics](aurora-mysql-troubleshooting-workload.md#ams-workload-db "aurora-mysql-troubleshooting-workload.md#ams-workload-db")
 - [Troubleshooting memory usage issues for Aurora MySQL databases](ams-workload-memory.md "ams-workload-memory.md")
+
   - [Example 1: Continuous high memory usage](ams-workload-memory.md#ams-workload-memory.example1 "ams-workload-memory.md#ams-workload-memory.example1")
   - [Example 2: Transient memory spikes](ams-workload-memory.md#ams-workload-memory.example2 "ams-workload-memory.md#ams-workload-memory.example2")
   - [Example 3: Freeable memory drops continuously and isn't reclaimed](ams-workload-memory.md#ams-workload-memory.example3 "ams-workload-memory.md#ams-workload-memory.example3")
 
 - [Troubleshooting out-of-memory issues for Aurora MySQL databases](AuroraMySQLOOM.md "AuroraMySQLOOM.md")
+
   - [OOM response actions](AuroraMySQLOOM.md#AuroraMySQLOOM.actions "AuroraMySQLOOM.md#AuroraMySQLOOM.actions")
+
     - [kill_connect version-specific behavior](AuroraMySQLOOM.md#AuroraMySQLOOM.actions.kill_connect "AuroraMySQLOOM.md#AuroraMySQLOOM.actions.kill_connect")
 
   - [Default values by version](AuroraMySQLOOM.md#AuroraMySQLOOM.defaults "AuroraMySQLOOM.md#AuroraMySQLOOM.defaults")
   - [Aurora Serverless v2](AuroraMySQLOOM.md#AuroraMySQLOOM.serverless "AuroraMySQLOOM.md#AuroraMySQLOOM.serverless")
   - [Monitoring](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring")
+
     - [Error log](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.errorlog "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.errorlog")
     - [Amazon CloudWatch metrics](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.cloudwatch "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.cloudwatch")
     - [Global status variables](AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.statusvars "AuroraMySQLOOM.md#AuroraMySQLOOM.monitoring.statusvars")
@@ -54,6 +59,7 @@ Monitor instance host metrics such as CPU, memory, and network activity to help 
 workload change. There are two main concepts for understanding workload changes:
 
 - Utilization – The usage of a device, such as CPU or disk. It can be time-based or capacity-based.
+
   - Time-based – The amount of time that a resource is busy over a particular observation
     period.
   - Capacity-based – The amount of throughput that a system or component can deliver, as a percentage

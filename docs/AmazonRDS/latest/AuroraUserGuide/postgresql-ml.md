@@ -78,6 +78,7 @@ for each of these Aurora machine learning services.
 - [Setting up Aurora PostgreSQL to use Amazon Bedrock](postgresql-ml.md#postgresql-ml-setting-up-apg-br "postgresql-ml.md#postgresql-ml-setting-up-apg-br")
 - [Setting up Aurora PostgreSQL to use Amazon Comprehend](postgresql-ml.md#postgresql-ml-setting-up-apg-cmp "postgresql-ml.md#postgresql-ml-setting-up-apg-cmp")
 - [Setting up Aurora PostgreSQL to use Amazon SageMaker AI](postgresql-ml.md#postgresql-ml-setting-up-apg-sagemaker "postgresql-ml.md#postgresql-ml-setting-up-apg-sagemaker")
+
   - [Setting up Aurora PostgreSQL to use Amazon S3 for SageMaker AI (Advanced)](postgresql-ml.md#postgresql-ml-setting-up-apg-sagemaker-advanced-option-s3 "postgresql-ml.md#postgresql-ml-setting-up-apg-sagemaker-advanced-option-s3")
 
 - [Installing the Aurora machine learning extension](postgresql-ml.md#postgresql-ml-aws_ml-install "postgresql-ml.md#postgresql-ml-aws_ml-install")
@@ -97,6 +98,7 @@ AWS Management Console to complete all tasks.
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 3. Choose **Policies** (under Access management)
    on the AWS Identity and Access Management (IAM) Console menu.
+
    1. Choose **Create policy**. In the Visual editor page, choose
       **Service** and then enter **Bedrock** in the
       Select a service field. Expand the Read access level. Choose **InvokeModel**

@@ -49,11 +49,13 @@ The input parameters are the following:
 - `source_DB_secret_arn` – The source DB secret ARN
 - `destination_DB_secret_arn` – The destination DB secret ARN
 - `ignore_primary_key_conflict_boolean_flag` – Whether to continue if a primary key conflict occurs:
+
   - If set to `true`, data loading ignores new changes for rows with a primary key conflict.
   - If set to `false`, data loading overwrites the existing rows on destination tables when it encounters a primary key
     conflict.
 
 - `is_dry_run` – Whether to test that the data loading job can connect to the source and destination databases:
+
   - If set to `true`, tests the connections without loading data
   - If set to `false`, loads the data
 

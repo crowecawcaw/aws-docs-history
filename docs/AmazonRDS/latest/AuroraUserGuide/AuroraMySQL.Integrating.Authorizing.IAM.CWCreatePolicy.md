@@ -71,6 +71,7 @@ Ensure that the following permissions are selected:
 
 6. Choose **Resources** and choose **Add ARN** for **log-group**.
 7. In the **Add ARN(s)** dialog box, enter the following values:
+
    - **Region** – An AWS Region or `*`
    - **Account** – An account number or `*`
    - **Log Group Name** – `/aws/rds/*`
@@ -78,6 +79,7 @@ Ensure that the following permissions are selected:
 8. In the **Add ARN(s)** dialog box, choose **Add**.
 9. Choose **Add ARN** for **log-stream**.
 10. In the **Add ARN(s)** dialog box, enter the following values:
+
     - **Region** – An AWS Region or `*`
     - **Account** – An account number or `*`
     - **Log Group Name** – `/aws/rds/*`

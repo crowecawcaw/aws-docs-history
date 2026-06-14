@@ -36,6 +36,7 @@ actions necessary to create both the DB cluster and the primary instance.
     snapshot**.
 5.  Set the following values on the **Migrate database**
     page:
+
     - **DB engine version**: Choose a DB engine version you
       want to use for the new migrated instance.
     - **DB instance identifier**: Enter a name for
@@ -55,7 +56,6 @@ actions necessary to create both the DB cluster and the primary instance.
          consecutive hyphens.
         + It must be unique for all DB instances per AWS
          account, per AWS Region.
-
     - **DB instance class**: Choose a DB instance class
       that has the required storage and capacity for your database, for
       example `db.r6g.large`. Aurora cluster volumes automatically

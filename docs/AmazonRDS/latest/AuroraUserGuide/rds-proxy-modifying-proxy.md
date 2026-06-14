@@ -17,6 +17,7 @@ are associated with this proxy. To specify different values for each secret, mod
    page.
 4. For **Actions**, choose **Modify**.
 5. Enter or choose the properties to modify. You can modify the following:
+
    - **Proxy identifier** – Rename the proxy by entering a new identifier.
    - **Idle client connection timeout** – Enter a time period for the idle client connection timeout.
    - **IAM role** – Change the IAM role used to retrieve the secrets from Secrets Manager.
@@ -51,6 +52,7 @@ You can only modify the target group from the proxy details page, not from the l
 3.  On the details page for the **default** target group, choose
     **Modify**.
 4.  Choose new settings for the properties that you can modify:
+
     - **Database** – Choose a different Aurora cluster.
     - **Connection pool maximum connections** – Adjust what percentage of the maximum available connections the proxy can use.
     - **Session pinning filters** – (Optional) Choose a session

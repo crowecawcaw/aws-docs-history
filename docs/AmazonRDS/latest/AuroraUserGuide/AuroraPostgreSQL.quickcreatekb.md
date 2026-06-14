@@ -37,6 +37,7 @@ An Aurora PostgreSQL DB cluster in your account, configured with default setting
 Besides the default settings, the following settings are set up for you. As you go through the process, you'll see screens that explains the workflow.
 
 - Seeding the Aurora cluster with the necessary database objects:
+
   - Create the pgvector extension, schema, role, and tables required for the Bedrock Knowledge Base.
   - Register a limited-privilege database user for Bedrock to interact with the cluster.
 

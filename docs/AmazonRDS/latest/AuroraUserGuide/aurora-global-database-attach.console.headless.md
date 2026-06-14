@@ -54,7 +54,7 @@ Aurora global database, disregard the **Enable read replica write forwarding** o
 delete the reader instance. 7. Choose **Add AWS Region**. After you finish adding the Region to your Aurora global database, you can see it in the list of **Databases**
 in the AWS Management Console as shown in the screenshot.
 
-![Screenshot showing the secondary cluster with its reader instance is now part of the Aurora global database.](images/aurora-global-headless-stage-1.png) 8. Check the status of the secondary Aurora DB cluster and its reader instance before continuing,
+![the secondary cluster with its reader instance is now part of the Aurora global database.](images/aurora-global-headless-stage-1.png) 8. Check the status of the secondary Aurora DB cluster and its reader instance before continuing,
 by using the AWS Management Console or the AWS CLI. For example:
 
 ```
@@ -67,10 +67,10 @@ to change from `creating` to `available`. When the Aurora DB
 cluster is available, you can delete the reader instance. 9. Select the reader instance in the secondary Aurora DB cluster, and then choose
 **Delete**.
 
-![Screenshot showing the reader instance selected and ready to delete.](images/aurora-global-headless-stage-2.png)
+![the reader instance selected and ready to delete.](images/aurora-global-headless-stage-2.png)
 After deleting the reader instance, the secondary cluster remains part of the Aurora global
 database. It has no instance associated with it, as shown following.
 
-![Screenshot showing the headless secondary DB cluster.](images/aurora-global-db-headless-secondary.png)
+![the headless secondary DB cluster.](images/aurora-global-db-headless-secondary.png)
 You can use this headless secondary Aurora DB cluster to [manually recover your Amazon Aurora global
 database from an unplanned outage in the primary AWS Region](aurora-global-database-disaster-recovery.md#aurora-global-database-failover "aurora-global-database-disaster-recovery.md#aurora-global-database-failover") if such an outage occurs.

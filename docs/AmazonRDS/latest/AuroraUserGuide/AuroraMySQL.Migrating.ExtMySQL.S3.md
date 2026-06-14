@@ -20,21 +20,25 @@ information, see
 
 - [Limitations and considerations](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Limits "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Limits")
 - [Before you begin](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs")
+
   - [Installing Percona XtraBackup](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs.XtraBackup "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs.XtraBackup")
   - [Required permissions](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs.Permitting "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs.Permitting")
   - [Creating the IAM service role](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs.CreateRole "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs.CreateRole")
 
 - [Backing up files to be restored as an Amazon Aurora MySQL DB cluster](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Backup "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Backup")
+
   - [Creating a full backup with Percona XtraBackup](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Backup.Full "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Backup.Full")
   - [Using incremental backups with Percona XtraBackup](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Backup.Incr "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Backup.Incr")
   - [Backup considerations](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Backup.Considerations "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Backup.Considerations")
 
 - [Restoring an Amazon Aurora MySQL DB cluster from an Amazon S3 bucket](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.Restore")
 - [Synchronizing the Amazon Aurora MySQL DB cluster with the MySQL database using replication](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.RepSync "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.RepSync")
+
   - [Configuring your external MySQL database and your Aurora MySQL DB cluster for encrypted replication](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.RepSync.ConfigureEncryption "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.RepSync.ConfigureEncryption")
   - [Synchronizing the Amazon Aurora MySQL DB cluster with the external MySQL database](AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.RepSync.Synchronizing "AuroraMySQL.Migrating.ExtMySQL.S3.md#AuroraMySQL.Migrating.ExtMySQL.S3.RepSync.Synchronizing")
 
 - [Reducing the time for physical migration to Amazon Aurora MySQL](AuroraMySQL.Migrating.ExtMySQL.Prechecks.md "AuroraMySQL.Migrating.ExtMySQL.Prechecks.md")
+
   - [Unsupported table types](AuroraMySQL.Migrating.ExtMySQL.Prechecks.md#AuroraMySQL.Migrating.ExtMySQL.Prechecks.Tables "AuroraMySQL.Migrating.ExtMySQL.Prechecks.md#AuroraMySQL.Migrating.ExtMySQL.Prechecks.Tables")
   - [User accounts with unsupported privileges](AuroraMySQL.Migrating.ExtMySQL.Prechecks.md#AuroraMySQL.Migrating.ExtMySQL.Prechecks.Users "AuroraMySQL.Migrating.ExtMySQL.Prechecks.md#AuroraMySQL.Migrating.ExtMySQL.Prechecks.Users")
   - [Dynamic privileges in Aurora MySQL version 3](AuroraMySQL.Migrating.ExtMySQL.Prechecks.md#AuroraMySQL.Migrating.ExtMySQL.Prechecks.Dynamic "AuroraMySQL.Migrating.ExtMySQL.Prechecks.md#AuroraMySQL.Migrating.ExtMySQL.Prechecks.Dynamic")
@@ -50,6 +54,7 @@ bucket:
   [Installing Percona XtraBackup](#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs.XtraBackup "#AuroraMySQL.Migrating.ExtMySQL.S3.Prereqs.XtraBackup").
 - The Amazon S3 bucket and the Aurora MySQL DB cluster must be in the same AWS Region.
 - You can't restore from the following:
+
   - A DB cluster snapshot export to Amazon S3. You also can't migrate data from a DB cluster snapshot export to
     your S3 bucket.
   - An encrypted source database, but you can encrypt the data being migrated. You can also leave the data
@@ -76,6 +81,7 @@ bucket:
   only supports Percona xbstream for compression.
 - To provide management services for each DB cluster, the `rdsadmin` user is created when the DB
   cluster is created. As this is a reserved user in RDS, the following limitations apply:
+
   - Functions, procedures, views, events, and triggers with the `'rdsadmin'@'localhost'`
     definer aren't imported. For more information, see [Stored objects with 'rdsadmin'@'localhost' as the definer](AuroraMySQL.Migrating.ExtMySQL.Prechecks.md#AuroraMySQL.Migrating.ExtMySQL.Prechecks.Objects "AuroraMySQL.Migrating.ExtMySQL.Prechecks.md#AuroraMySQL.Migrating.ExtMySQL.Prechecks.Objects") and [Master user privileges with Amazon Aurora MySQL](AuroraMySQL.Security.md#AuroraMySQL.Security.MasterUser "AuroraMySQL.Security.md#AuroraMySQL.Security.MasterUser").
   - When the Aurora MySQL DB cluster is created, a master user is created with the maximum privileges
@@ -104,6 +110,7 @@ The following are examples of file names that aren't allowed: `innodb_data_file_
 - Aurora MySQL doesn't restore everything from your database. We recommend that you save the database schema and
   values for the following items from your source MySQL database, then add them to your restored Aurora MySQL DB
   cluster after it has been created:
+
   - User accounts
   - Functions
   - Stored procedures
@@ -380,6 +387,7 @@ The **Create database by restoring from S3** page appears.
      folder.
 
 6.  Under **Engine options**:
+
     1. For **Engine type**, choose **Amazon Aurora**.
     2. For **Version**, choose the Aurora MySQL engine version for your restored DB
        instance.
@@ -387,6 +395,7 @@ The **Create database by restoring from S3** page appears.
 7.  For **IAM role**, you can choose an existing IAM role.
 8.  (Optional) You can also have a new IAM role created for you by choosing **Create a new
     role**. If so:
+
     1.  Enter the **IAM role name**.
     2.  Choose whether to **Allow access to KMS key**:
 

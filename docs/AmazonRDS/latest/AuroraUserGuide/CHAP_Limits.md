@@ -90,6 +90,7 @@ Quotas User Guide_](../../../servicequotas/latest/userguide/request-quota-increa
 The naming constraints in Amazon Aurora are as follows:
 
 - DB cluster identifier:
+
   - Must contain 1–63 alphanumeric characters or hyphens.
   - First character must be a letter.
   - Can't end with a hyphen or contain two consecutive
@@ -104,21 +105,25 @@ The naming constraints in Amazon Aurora are as follows:
   engine. For more information, see the available settings when creating the DB
   cluster.
 - Master password:
+
   - The password for the database master user can include any printable
     ASCII character except `/`, `'`, `"`,
     `@`, or a space.
   - The password can contain the following number of printable ASCII
     characters depending on the DB engine:
+
     - Aurora MySQL: 8–41
     - Aurora PostgreSQL: 8–99
 
 - DB parameter group:
+
   - Must contain 1–255 alphanumeric characters.
   - First character must be a letter.
   - Hyphens are allowed, but the name cannot end with a hyphen or contain
     two consecutive hyphens.
 
 - DB subnet group:
+
   - Must contain 1–255 characters.
   - Alphanumeric characters, spaces, hyphens, underscores, and periods are
     allowed.
@@ -132,6 +137,7 @@ Aurora cluster volume maximum size varies by engine version:
 **256 TiB maximum:**
 
 - Aurora PostgreSQL versions:
+
   - 17.5 and all higher versions
   - 16.9 and higher
   - 15.13 and higher

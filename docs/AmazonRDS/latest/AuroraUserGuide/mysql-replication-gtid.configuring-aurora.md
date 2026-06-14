@@ -6,6 +6,7 @@ to both inbound and outbound binlog replication.
 ###### To enable GTID-based replication for an Aurora MySQL cluster
 
 1. Create or edit a DB cluster parameter group using the following parameter settings:
+
    - `gtid_mode` – `ON` or `ON_PERMISSIVE`
    - `enforce_gtid_consistency` – `ON`
 

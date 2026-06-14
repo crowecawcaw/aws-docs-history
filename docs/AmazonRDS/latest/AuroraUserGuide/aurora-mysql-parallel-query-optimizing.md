@@ -5,9 +5,11 @@ To optimize your DB cluster for parallel query, consider which DB clusters would
 ###### Contents
 
 - [Planning for a parallel query cluster](aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-planning "aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-planning")
+
   - [Checking Aurora MySQL version compatibility for parallel query](aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-checking-compatibility "aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-checking-compatibility")
 
 - [Upgrade considerations for parallel query](aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade "aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade")
+
   - [Upgrading parallel query clusters to Aurora MySQL version 3](aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade-pqv2 "aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade-pqv2")
   - [Upgrading to Aurora MySQL 2.09 and higher](aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade-2.09 "aurora-mysql-parallel-query-optimizing.md#aurora-mysql-parallel-query-upgrade-2.09")
 

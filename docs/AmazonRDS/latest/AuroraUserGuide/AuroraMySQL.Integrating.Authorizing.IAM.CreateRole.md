@@ -19,6 +19,7 @@ services on your behalf, take the following steps.
    in the **Search** field.
 8. When it appears in the list, select the policy that you defined earlier using the instructions
    in one of the following sections:
+
    - [Creating an IAM policy to access Amazon S3 resources](AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy.md "AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy.md")
    - [Creating an IAM policy to access AWS Lambda resources](AuroraMySQL.Integrating.Authorizing.IAM.LambdaCreatePolicy.md "AuroraMySQL.Integrating.Authorizing.IAM.LambdaCreatePolicy.md")
    - [Creating an IAM policy to access CloudWatch Logs resources](AuroraMySQL.Integrating.Authorizing.IAM.CWCreatePolicy.md "AuroraMySQL.Integrating.Authorizing.IAM.CWCreatePolicy.md")

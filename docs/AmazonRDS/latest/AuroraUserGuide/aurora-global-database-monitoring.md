@@ -9,6 +9,7 @@ DB cluster's performance. These options include the following:
   [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.OS.md "USER_Monitoring.OS.md").
 - Amazon CloudWatch Logs – Publishes specified log types to CloudWatch Logs. Error logs are published by default, but you can choose
   other logs specific to your Aurora database engine.
+
   - For Aurora MySQL–based Aurora DB clusters, you can export the audit log, general log,
     and slow query log.
   - For Aurora PostgreSQL–based Aurora DB clusters, you can export the PostgreSQL log.

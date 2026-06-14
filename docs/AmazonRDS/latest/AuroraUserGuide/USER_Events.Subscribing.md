@@ -73,7 +73,7 @@ _Amazon Simple Notification Service Developer Guide_
 
 
 
-        ![Enter source type.](images/event-source.png)
+        ![The source type field.](images/event-source.png)
         5. Choose **Create**.
 
     The Amazon RDS console indicates that the subscription is being created.

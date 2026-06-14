@@ -35,7 +35,7 @@ secondary. If necessary, upgrade the primary to be the same version as the secon
    the primary Aurora DB cluster is `Available`.
 4. For **Actions**, choose **Add AWS Region**.
 
-![Screenshot showing provisioned DB cluster with "Add AWS Region" chosen from the Actions menu.](images/aurora-global-db-create-apg-5-add-region.png) 5. On the **Add a region** page, choose the secondary AWS Region.
+![Provisioned DB cluster with Add AWS Region chosen from the Actions menu.](images/aurora-global-db-create-apg-5-add-region.png) 5. On the **Add a region** page, choose the secondary AWS Region.
 
 You can't choose an AWS Region that already has a secondary Aurora DB
 cluster for the same Aurora global database. Also, it can't be the same Region
@@ -56,13 +56,13 @@ following option for Aurora MySQL–based Aurora global databases only:
 
 
 
-    ![Screenshot showing the secondary cluster is now part of the Aurora global database.](images/aurora-global-database-enable-write-forwarding.png)
+    ![the secondary cluster is now part of the Aurora global database.](images/aurora-global-database-enable-write-forwarding.png)
 
 7. Choose **Add AWS Region**.
    After you finish adding the Region to your Aurora global database, you can see it in the list of **Databases**
    in the AWS Management Console as shown in the screenshot.
 
-![Screenshot showing the secondary cluster is now part of the Aurora global database.](images/aurora-global-db-apg-complete.png)
+![the secondary cluster is now part of the Aurora global database.](images/aurora-global-db-apg-complete.png)
 
 ###### To add a secondary AWS Region to an Aurora global database
 

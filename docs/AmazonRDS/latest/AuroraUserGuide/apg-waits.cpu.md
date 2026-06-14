@@ -101,6 +101,7 @@ The most likely causes of sudden spikes are as follows:
 - Your application has opened too many simultaneous connections to the database. This scenario is
   known as a "connection storm."
 - Your application workload changed in any of the following ways:
+
   - New queries
   - An increase in the size of your dataset
   - Index maintenance or creation

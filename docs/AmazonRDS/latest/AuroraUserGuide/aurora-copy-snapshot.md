@@ -27,6 +27,7 @@ Review the limitations and considerations for DB cluster snapshot copying. To co
 The following are some limitations when you copy snapshots:
 
 - You can't copy a snapshot to or from the following AWS Regions:
+
   - China (Beijing)
   - China (Ningxia)
 

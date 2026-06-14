@@ -37,6 +37,7 @@ For Aurora MySQL, page cache behavior when rebooting and failing over is the
 following:
 
 - You can reboot the writer instance without rebooting the reader instances.
+
   - If the reader instances don't reboot when the writer instance reboots, they
     don't lose their page caches.
   - If the reader instances reboot when the writer instance reboots, they do lose

@@ -31,18 +31,21 @@ authentication method, but not both. For more information about IAM authenticati
 - [Overview of Kerberos authentication for Aurora MySQL DB clusters](aurora-mysql-kerberos.md#aurora-mysql-kerberos-setting-up-overview "aurora-mysql-kerberos.md#aurora-mysql-kerberos-setting-up-overview")
 - [Limitations of Kerberos authentication for Aurora MySQL](aurora-mysql-kerberos.md#aurora-mysql-kerberos.limitations "aurora-mysql-kerberos.md#aurora-mysql-kerberos.limitations")
 - [Setting up Kerberos authentication for Aurora MySQL DB clusters](aurora-mysql-kerberos-setting-up.md "aurora-mysql-kerberos-setting-up.md")
+
   - [Step 1: Create a directory using AWS Managed Microsoft AD](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-directory "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-directory")
   - [Step 2: (Optional) Create a trust for an on-premises Active Directory](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-trust")
   - [Step 3: Create an IAM role for use by Amazon Aurora](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.CreateIAMRole "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.CreateIAMRole")
   - [Step 4: Create and configure users](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-users "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-users")
   - [Step 5: Create or modify an Aurora MySQL DB cluster](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-modify "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-modify")
   - [Step 6: Create Aurora MySQL users that use Kerberos authentication](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.create-logins")
+
     - [Modifying an existing Aurora MySQL login](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos.modify-login "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos.modify-login")
 
   - [Step 7: Configure a MySQL client](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.configure-client "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.configure-client")
   - [Step 8: (Optional) Configure case-insensitive username comparison](aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive "aurora-mysql-kerberos-setting-up.md#aurora-mysql-kerberos-setting-up.case-insensitive")
 
 - [Connecting to Aurora MySQL with Kerberos authentication](aurora-mysql-kerberos-connecting.md "aurora-mysql-kerberos-connecting.md")
+
   - [Using the Aurora MySQL Kerberos login to connect to the DB cluster](aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos-connecting.login "aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos-connecting.login")
   - [Kerberos authentication with Aurora global databases](aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos-connecting.global "aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos-connecting.global")
   - [Migrating from RDS for MySQL to Aurora MySQL](aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos-connecting.rds "aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos-connecting.rds")
@@ -50,6 +53,7 @@ authentication method, but not both. For more information about IAM authenticati
   - [Logging for Kerberos authentication](aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos.logging "aurora-mysql-kerberos-connecting.md#aurora-mysql-kerberos.logging")
 
 - [Managing a DB cluster in a domain](aurora-mysql-kerberos-managing.md "aurora-mysql-kerberos-managing.md")
+
   - [Understanding domain membership](aurora-mysql-kerberos-managing.md#aurora-mysql-kerberos-managing.understanding "aurora-mysql-kerberos-managing.md#aurora-mysql-kerberos-managing.understanding")
 
 ## Overview of Kerberos authentication for Aurora MySQL DB clusters

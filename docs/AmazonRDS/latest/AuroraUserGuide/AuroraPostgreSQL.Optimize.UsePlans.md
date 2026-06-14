@@ -116,6 +116,7 @@ the use plan baselines option is turned on or not, as follows.
 
 6. The plan is compared to other plans for the statement in the
    baseline.
+
    1. If the optimizer's plan is among the plans in the baseline,
       its status is checked (7a).
    2. If the optimizer's plan isn't among plans in the
@@ -124,9 +125,11 @@ the use plan baselines option is turned on or not, as follows.
 
 7. The plan's status is checked to determine only if it's
    Unapproved.
+
    1. If the plan's status is Unapproved, the plan's estimated
       cost is compared to the cost estimate specified for the unapproved
       execution plan threshold.
+
       - If the plan's estimated cost is below the threshold,
         the optimizer uses it even though it's an Unapproved
         plan (A. Run Optimizer's plan). Generally, the

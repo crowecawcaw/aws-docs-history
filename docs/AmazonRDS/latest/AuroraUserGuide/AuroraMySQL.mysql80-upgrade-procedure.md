@@ -15,10 +15,12 @@ MySQL-related features work. Or it might occur because of differing parameter se
 - [Aurora MySQL major version upgrade paths](AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Compatibility "AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Compatibility")
 - [How the Aurora MySQL in-place major version upgrade works](AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Sequence "AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Sequence")
 - [Planning a major version upgrade for an Aurora MySQL cluster](AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Planning "AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Planning")
+
   - [Simulating the upgrade by cloning your DB cluster](AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Planning.clone "AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.Upgrading.Planning.clone")
   - [Blue/Green Deployments](AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.UpgradingMajor.BlueGreen "AuroraMySQL.Updates.MajorVersionUpgrade.md#AuroraMySQL.UpgradingMajor.BlueGreen")
 
 - [Major version upgrade prechecks for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md "AuroraMySQL.upgrade-prechecks.md")
+
   - [Precheck process for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.process "AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.process")
   - [Precheck log format for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.log-format "AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.log-format")
   - [Precheck log output examples for Aurora MySQL](AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.log-examples "AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.log-examples")
@@ -28,11 +30,14 @@ MySQL-related features work. Or it might occur because of differing parameter se
   - [Summary of Community MySQL upgrade prechecks for Aurora MySQL version 3 to version 8.4](AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.community-v3-to-v84 "AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.community-v3-to-v84")
   - [Summary of Aurora MySQL upgrade prechecks for Aurora MySQL version 3 to version 8.4](AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.ams-v3-to-v84 "AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.ams-v3-to-v84")
   - [Precheck descriptions for upgrading Aurora MySQL version 2 to version 3](AuroraMySQL.upgrade-prechecks.descriptions.md "AuroraMySQL.upgrade-prechecks.descriptions.md")
+
     - [Errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors")
+
       - [MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.mysql "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.mysql")
       - [Aurora MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.aurora "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.aurora")
 
     - [Warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings")
+
       - [MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.mysql "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.mysql")
       - [Aurora MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.aurora "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.aurora")
 
@@ -40,11 +45,14 @@ MySQL-related features work. Or it might occur because of differing parameter se
     - [Errors, warnings, or notices](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-all "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-all")
 
   - [Precheck descriptions for upgrading Aurora MySQL version 3 to version 8.4](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md")
+
     - [Errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors")
+
       - [MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.mysql "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.mysql")
       - [Aurora MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.aurora "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.aurora")
 
     - [Warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings")
+
       - [MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.mysql "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.mysql")
       - [Aurora MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.aurora "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.aurora")
 
@@ -52,6 +60,7 @@ MySQL-related features work. Or it might occur because of differing parameter se
     - [Errors, warnings, or notices](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-all "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-all")
 
 - [How to perform an in-place upgrade](AuroraMySQL.Upgrading.Procedure.md "AuroraMySQL.Upgrading.Procedure.md")
+
   - [How in-place upgrades affect the parameter groups for a cluster](AuroraMySQL.Upgrading.Procedure.md#AuroraMySQL.Upgrading.ParamGroups "AuroraMySQL.Upgrading.Procedure.md#AuroraMySQL.Upgrading.ParamGroups")
   - [Changes to cluster properties between Aurora MySQL versions](AuroraMySQL.Upgrading.Procedure.md#AuroraMySQL.Upgrading.Attrs "AuroraMySQL.Upgrading.Procedure.md#AuroraMySQL.Upgrading.Attrs")
   - [In-place major upgrades for global databases](AuroraMySQL.Upgrading.Procedure.md#AuroraMySQL.Upgrading.GlobalDB "AuroraMySQL.Upgrading.Procedure.md#AuroraMySQL.Upgrading.GlobalDB")
@@ -61,6 +70,7 @@ MySQL-related features work. Or it might occur because of differing parameter se
 - [Finding the reasons for Aurora MySQL major version upgrade failures](AuroraMySQL.Upgrading.failure-events.md "AuroraMySQL.Upgrading.failure-events.md")
 - [Troubleshooting for Aurora MySQL in-place upgrade](AuroraMySQL.Upgrading.Troubleshooting.md "AuroraMySQL.Upgrading.Troubleshooting.md")
 - [Post-upgrade cleanup for Aurora MySQL version 3](AuroraMySQL.mysql80-post-upgrade.md "AuroraMySQL.mysql80-post-upgrade.md")
+
   - [Spatial indexes](AuroraMySQL.mysql80-post-upgrade.md#AuroraMySQL.mysql80-spatial "AuroraMySQL.mysql80-post-upgrade.md#AuroraMySQL.mysql80-spatial")
 
 ## Upgrading from Aurora MySQL version 3 to version 8.4
@@ -162,6 +172,7 @@ following operations. You can examine events as they occur on the **Events** pag
     * Aurora rolls back any uncommitted transactions.
 
 6. Aurora upgrades the engine version on the writer DB instance:
+
    - Aurora installs the binary for the new engine version on the writer DB instance.
    - Aurora uses the writer DB instance to upgrade your data to the Aurora MySQL target version compatible format. During this stage, Aurora modifies
      the system tables and performs other conversions that affect the data in your cluster volume. For version 2 to version 3 upgrades, in particular, Aurora upgrades the partition metadata in the system

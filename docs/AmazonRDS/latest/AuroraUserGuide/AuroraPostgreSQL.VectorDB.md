@@ -26,6 +26,7 @@ a Knowledge Base for Amazon Bedrock. At a high level, you need to configure the 
 for use with Bedrock:
 
 - Amazon Aurora PostgreSQL DB cluster created in any of the following versions:
+
   - 16.1 and all higher versions
   - 15.4 and higher versions
   - 14.9 and higher versions

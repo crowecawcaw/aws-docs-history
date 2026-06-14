@@ -88,7 +88,7 @@ instances and security groups:
 
 The following diagram shows this scenario.
 
-![DB cluster and EC2 instance in a VPC](images/con-VPC-sec-grp-aurora.png)
+![DB cluster and EC2 instance in a VPC.](images/con-VPC-sec-grp-aurora.png)
 
 For detailed instructions about configuring a VPC for this scenario, see [Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md "CHAP_Tutorials.WebServerDB.CreateVPC.md")
 . For more information about

@@ -10,6 +10,7 @@ Setting up MySQL replication with Aurora MySQL involves the following steps, whi
 - [4. Load the dump into your replica target (if needed)](AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.MySQL.LoadSnapshot "AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.MySQL.LoadSnapshot")
 - [5. Create a replication user on your replication source](AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.MySQL.CreateReplUser "AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.MySQL.CreateReplUser")
 - [6. Turn on replication on your replica target](AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.MySQL.EnableReplication "AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.MySQL.EnableReplication")
+
   - [Setting a location to stop replication to a read replica](AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.StartReplicationUntil "AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.StartReplicationUntil")
 
 - [7. Monitor your replica](AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.MySQL.Monitor "AuroraMySQL.Replication.MySQL.SettingUp.md#AuroraMySQL.Replication.MySQL.Monitor")

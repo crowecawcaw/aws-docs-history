@@ -64,6 +64,7 @@ After you create the DB shard group, you can't change the DB cluster identifier 
 
 - `--compute-redundancy` – Whether to create standbys for the DB shard group. This parameter can have the
   following values:
+
   - `0` – Creates a DB shard group without standbys for each shard. This is the default value.
   - `1` – Creates a DB shard group with one compute standby in a different Availability Zone (AZ).
   - `2` – Creates a DB shard group with two compute standbys in two different AZs.

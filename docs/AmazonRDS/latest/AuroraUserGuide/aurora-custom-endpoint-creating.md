@@ -10,7 +10,7 @@ same even as the cluster expands, keep the check box **Attach future instances
 added to this cluster** clear. When you choose that check box, the custom
 endpoint dynamically adds any new instances as you add them to the cluster.
 
-![Create custom endpoint page with fields for endpoint identifier, instance type selection, and static/exclusion options.](images/AuroraCreateCustomEndpoint.png)
+![Create custom endpoint page with fields for endpoint identifier, instance type selection, and static or exclusion options.](images/AuroraCreateCustomEndpoint.png)
 You can't select the custom endpoint type in the AWS Management Console. All custom
 endpoints you create through the AWS Management Console have a type of `ANY`.
 

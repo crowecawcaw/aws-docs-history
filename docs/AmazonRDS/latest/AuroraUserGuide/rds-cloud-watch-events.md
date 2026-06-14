@@ -35,16 +35,19 @@ Create a Lambda function to log the state change events. You specify this functi
    function**.
 3. Choose **Author from scratch**.
 4. On the **Create function** page, do the following:
+
    1. Enter a name and description for the Lambda function. For example, name the function `RDSInstanceStateChange`.
    2. In **Runtime**, select **Node.js 16x**.
    3. For **Architecture**, choose **x86_64**.
    4. For **Execution role**, do either of the following:
+
       - Choose **Create a new role with basic Lambda permissions**.
       - For **Existing role**, choose **Use an existing role**. Choose the role that you want to use.
 
    5. Choose **Create function**.
 
 5. On the **RDSInstanceStateChange** page, do the following:
+
    1. In **Code source**, select **index.js**.
    2. In the **index.js** pane, delete the existing code.
    3. Enter the following code:
@@ -56,7 +59,6 @@ Create a Lambda function to log the state change events. You specify this functi
        console.log('Received event:', JSON.stringify(event));
    };
    ```
-
    4. Choose **Deploy**.
 
 ### Step 2: Create a rule

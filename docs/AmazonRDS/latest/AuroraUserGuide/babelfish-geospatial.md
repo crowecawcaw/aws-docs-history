@@ -137,6 +137,7 @@ Starting with versions 5.5.0 and 6.0.0, Babelfish includes support for the follo
 ## Limitations in Babelfish for Geospatial data types
 
 - Geometry and Geography types other than point, linestring and polygon instances aren't currently supported:
+
   - CircularString
   - CompoundCurve
   - CurvePolygon

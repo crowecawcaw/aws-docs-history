@@ -40,6 +40,7 @@ In Aurora MySQL version 2, the following behavior applies:
   re-created when you restart the database. This allows the dynamic resizing feature to reclaim the storage
   space.
 - For existing Aurora MySQL DB clusters upgraded to:
+
   - Version 2.10 or higher – The temporary tablespace is removed and re-created when you restart
     the database. This allows the dynamic resizing feature to reclaim the storage space.
   - Version 2.09 – Temporary table space isn't removed when you restart the database.

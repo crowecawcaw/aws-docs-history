@@ -69,6 +69,7 @@ The **Create database** page displays. 3. For **Engine type**, choose **Aurora (
     You can't modify this setting after you create the DB shard group.
 
 6. For **Connectivity**:
+
    1. (Optional) Select **Connect to an EC2 compute resource**, then choose an existing EC2 instance or create
       a new one.
 
@@ -105,6 +106,7 @@ The following parameters are required to create the DB cluster:
 - `--db-cluster-identifier` – The name of your DB cluster.
 - `--engine` – The DB cluster must use the `aurora-postgresql` DB engine.
 - `--engine-version` – The DB cluster must use one of the DB engine versions:
+
   - `16.4-limitless`
   - `16.6-limitless`
 

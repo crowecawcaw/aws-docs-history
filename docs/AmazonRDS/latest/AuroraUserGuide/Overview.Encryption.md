@@ -103,6 +103,7 @@ considerations about using KMS keys:
 - Once you create an encrypted DB instance, you cannot change the KMS key used by that instance.
   Be sure to determine your KMS key requirements before creating your encrypted DB instance.
   If you need to change the encryption key for your DB cluster, follow these steps:
+
   - Create a manual snapshot of your cluster.
   - Restore the snapshot and enable encryption with your desired KMS key
     during the restore operation. You cannot enable encryption with an AWS owned
@@ -253,6 +254,7 @@ impact on network performance. To support this additional in-transit traffic
 encryption between instances, the following requirements must be met:
 
 - The instances use the following instance types:
+
   - **General purpose**: M6i,
     M6id, M6in, M6idn, M7g
   - **Memory optimized**: R6i,

@@ -105,6 +105,7 @@ In addition to Aurora Replicas, you have the following options for replication w
 Aurora MySQL:
 
 - Aurora MySQL DB clusters in different AWS Regions.
+
   - You can replicate data across multiple Regions by using an Aurora
     global database. For details, see [High availability across AWS Regions with Aurora global databases](Concepts.AuroraHighAvailability.md#Concepts.AuroraHighAvailability.GlobalDB "Concepts.AuroraHighAvailability.md#Concepts.AuroraHighAvailability.GlobalDB")
   - You can create an Aurora read replica of an Aurora MySQL DB cluster in a

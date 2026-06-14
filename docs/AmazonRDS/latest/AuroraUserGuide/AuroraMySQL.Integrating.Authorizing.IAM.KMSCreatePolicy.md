@@ -42,6 +42,7 @@ minimum required permissions for Aurora to access KMS keys on your behalf.
    **Decrypt**.
 6. Choose **Resources**, and choose **Add ARN**.
 7. In the **Add ARN(s)** dialog box, enter the following values:
+
    - **Region** – Type the AWS Region, such as `us-west-2`.
    - **Account** – Type the user account number.
    - **Log Stream Name** – Type the KMS key identifier.

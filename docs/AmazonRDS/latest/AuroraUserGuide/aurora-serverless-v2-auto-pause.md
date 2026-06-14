@@ -204,6 +204,7 @@ are skipped when the instance resumes later.
   instance becomes the writer immediately when it's resumed.
 - Operations that change properties of the cluster also cause any auto-paused Aurora serverless instances
   to resume. For example, an auto-paused instance resumes for operations such as the following:
+
   - Changing the scaling range of the cluster.
   - Upgrading the engine version of the cluster.
   - Describing or downloading log files from a paused instance. You can examine historical log data from
@@ -653,6 +654,7 @@ application, that cluster might not be a good candidate for using the auto-pause
 
 - If you estimate how long your Aurora serverless instances will be paused, be aware that there are factors
   that make it impractical to make precise predictions.
+
   - Instances might resume periodically to perform maintenance, minor version upgrades, or apply changes
     to parameter groups.
   - For multi-AZ clusters, there are situations where resuming one instance causes other instances to

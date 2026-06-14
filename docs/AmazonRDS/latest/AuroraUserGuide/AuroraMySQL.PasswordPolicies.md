@@ -117,7 +117,7 @@ For more information on MySQL validate_password parameters, see [MySQL Password 
 
 Starting from Aurora MySQL version 8.4, if you had previously installed the
 `validate_password` plugin through the `INSTALL PLUGIN` command, you can migrate
-to the `validate_password` component by enabling the parameter
+to the `validate_password` component. Enable the parameter
 `aurora_enable_validate_password_component` and then remove the plugin through the
 `UNINSTALL PLUGIN` command on your writer instance.
 
@@ -128,7 +128,7 @@ If you have both the plugin installed and the parameter
 component will take precedence over the plugin.
 
 If you previously installed the `validate_password` component manually using
-`INSTALL COMPONENT 'file://component_validate_password'`, ensure you set the
+`INSTALL COMPONENT 'file://component_validate_password'`, set the
 `aurora_enable_validate_password_component` parameter in your target DB cluster parameter
 group when upgrading. After upgrading, the component will no longer be listed in the
 `mysql.component` table. You can use the
@@ -173,15 +173,15 @@ Component 'validate_password' is disabled by parameter aurora_enable_validate_pa
 ### Password validation impact on master user password
 
 When resetting the master user password through the `modify-db-cluster` API, if the new
-password does not comply with the configured password validation rules, Aurora MySQL will emit a
-customer-visible event indicating the failure, and you will have to retry the operation with a
+password does not comply with the configured password validation rules, Aurora MySQL emits a
+customer-visible event indicating the failure. You must retry the operation with a
 compliant password.
 
 ### Password validation impact on Amazon RDS managed master user password
 
 For clusters using Amazon RDS-managed master user credentials stored in AWS Secrets Manager, if the automatically
 generated password during rotation does not comply with the configured validation requirements, the
-rotation will fail. You will need to adjust your password validation parameters to allow the rotation
+rotation will fail. Adjust your password validation parameters to allow the rotation
 to succeed. We suggest not using the `validate_password` component and managed master user
 password together.
 

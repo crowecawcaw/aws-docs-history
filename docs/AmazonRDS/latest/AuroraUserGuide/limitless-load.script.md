@@ -9,6 +9,7 @@ Perform the following steps to use the setup script:
 3. Copy the [data_loading_script.zip](samples/data_loading_script.zip.md "samples/data_loading_script.zip.md") file to your computer, and extract the
    `data_load_aws_setup_script.sh` file from it.
 4. Edit the script to replace the placeholder variables with the appropriate values for the following:
+
    - Your AWS account
    - The AWS Region
    - Source database credentials

@@ -34,6 +34,7 @@ following:
   to the longer network channels between AWS Regions.
 - Data transferred for cross-Region replication incurs Amazon RDS data transfer charges. The following
   cross-Region replication actions generate charges for the data transferred out of the source AWS Region:
+
   - When you create the read replica, Amazon RDS takes a snapshot of the source cluster and transfers the
     snapshot to the AWS Region that holds the read replica.
   - For each data modification made in the source databases, Amazon RDS transfers data from the source region

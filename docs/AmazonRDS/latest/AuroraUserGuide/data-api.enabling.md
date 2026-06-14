@@ -84,7 +84,7 @@ enable or disable the RDS Data API for your cluster.
 The following screenshot shows that the **RDS Data
 API** isn't enabled.
 
-![The RDS Data API section on the Connectivity and security tab of the details page for a DB cluster. The status of Data API displays as disabled, and the Enable the RDS Data API button is present.](images/data-api-enable-from-details.png)
+![The RDS Data API section on the Connectivity and security tab showing disabled status.](images/data-api-enable-from-details.png)
 To enable or disable Data API on an existing database, run the
 [enable-http-endpoint](../../../cli/latest/reference/rds/enable-http-endpoint.md "../../../cli/latest/reference/rds/enable-http-endpoint.md") or
 [disable-http-endpoint](../../../cli/latest/reference/rds/disable-http-endpoint.md "../../../cli/latest/reference/rds/disable-http-endpoint.md") AWS CLI command,

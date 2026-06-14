@@ -33,7 +33,7 @@ After you create the Amazon VPC endpoint, you can start using it without making 
 Choose the VPC that contains the application that makes Data API
 calls. 5. For **Subnets**, choose the subnet for each Availability Zone (AZ) used by the AWS service that is running your application.
 
-![Choose subnets for the Amazon VPC endpoint.](images/data-api-vpc-endpoint-subnets.png)
+![The subnets selection for the Amazon VPC endpoint.](images/data-api-vpc-endpoint-subnets.png)
 
 To create an Amazon VPC endpoint, specify the private IP address range in which
 the endpoint will be accessible. To do this, choose the subnet for each

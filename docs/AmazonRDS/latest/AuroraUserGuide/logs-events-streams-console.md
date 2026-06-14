@@ -40,4 +40,4 @@ The Logs & events section appears.
 The following example shows that the contents are different between the DB instance page and the DB cluster
 page. The DB instance page shows logs and alarms.
 
-![Logs & events page.](images/cluster-instance-logs-and-events-subpage.png)
+![Logs and events page.](images/cluster-instance-logs-and-events-subpage.png)

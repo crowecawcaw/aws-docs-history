@@ -87,7 +87,7 @@ custom DB cluster parameter group.
    **Values** field. Use a comma to separate items in
    the list of values.
 
-![Image of the shared_preload_libaries parameter with pgAudit added.](images/apg_shared_preload_pgadmapping.png) 8. Reboot the writer instance of your Aurora PostgreSQL DB cluster so that
+![The shared_preload_libaries parameter with pgAudit added.](images/apg_shared_preload_pgadmapping.png) 8. Reboot the writer instance of your Aurora PostgreSQL DB cluster so that
 your change to the `shared_preload_libraries` parameter takes
 effect. 9. When the instance is available, verify that `pg_ad_mapping`
 has been initialized. Use `psql` to connect to the writer

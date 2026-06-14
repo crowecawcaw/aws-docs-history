@@ -17,6 +17,7 @@ create a DB cluster. Settings for Database Insights apply to all DB instances in
 2. Choose **Databases**.
 3. Choose **Create database**.
 4. In the **Database Insights** section, select **Advanced mode**. Then, choose the following options:
+
    - **Retention** – The amount of time to retain Performance Insights data. The retention period must be 15-24 months for the Advanced mode of Database Insights.
    - **AWS KMS key** – Specify your
      KMS key. Performance Insights encrypts all
@@ -33,6 +34,7 @@ To turn on the Advanced mode of Database Insights when creating a DB cluster, ca
 - `--database-insights-mode advanced` to turn on the Advanced mode of Database Insights.
 - `--engine` – The DB cluster must use the `aurora-postgresql` DB engine.
 - `--engine-version` – The DB cluster must use one of the DB engine versions:
+
   - `16.4-limitless`
   - `16.6-limitless`
 
@@ -130,6 +132,7 @@ modify a DB cluster. Settings for Database Insights apply to all DB instances in
 2. Choose **Databases**.
 3. Choose a DB cluster, and choose **Modify**.
 4. In the **Database Insights** section, select **Advanced mode**. Then, choose the following options:
+
    - **Retention** – The amount of time to retain Performance Insights data. The retention period must be 15-24 months for the Advanced mode of Database Insights.
    - **AWS KMS key** – Specify your
      KMS key. Performance Insights encrypts all

@@ -121,6 +121,7 @@ when the global `TempTable` resources limit is reached:
 
 - When `aurora_tmptable_enable_per_table_limit` is `ON`, Aurora MySQL has the following behavior
   when the `tmp_table_size` limit is reached:
+
   - Writer DB instances – Aurora MySQL automatically converts the in-memory temporary table to an InnoDB
     on-disk temporary table.
   - Reader DB instances – The query ends with an error.

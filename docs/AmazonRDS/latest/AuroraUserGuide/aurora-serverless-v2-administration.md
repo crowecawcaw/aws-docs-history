@@ -119,6 +119,7 @@ has an identical capacity range of 2–64 ACUs.
    **Capacity range** section.
 4. For **Actions**, choose **Modify**.
 5. In the **Capacity range** section, choose the following:
+
    1. Enter a value for **Minimum ACUs**. The console shows the
       allowed range of values. You can choose a minimum capacity from 0 to 256 ACUs. You
       can choose a maximum capacity from 1 to 256 ACUs. You can adjust the capacity values
@@ -220,11 +221,13 @@ The inability to scale greater than 128 ACUs can happen for one of two reasons:
 
 - Older DB engine version – Upgrade the DB engine version to one that supports 256 ACUs. For more information, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
 - Older platform version – Upgrade the platform for your Aurora serverless DB cluster. You can do this in one of the following ways:
+
   - Stop and restart the DB cluster. When the cluster restarts, it will be on the latest platform version capable which may be capable of a higher ACU maximum.
 
   However, stopping and starting a DB cluster incurs some downtime, usually several minutes. For more information, see [Stopping and starting an Amazon Aurora DB cluster](aurora-cluster-stop-start.md "aurora-cluster-stop-start.md").
   - Use a blue/green deployment. For more information, see
     [Overview of Amazon Aurora Blue/Green Deployments](blue-green-deployments-overview.md "blue-green-deployments-overview.md").
+
     1. Create a blue/green deployment. For more information, see
        [Creating a blue/green deployment in Amazon Aurora](blue-green-deployments-creating.md "blue-green-deployments-creating.md").
     2. Confirm that you can set the maximum capacity for the staging (green) environment to 256 ACUs.
@@ -363,6 +366,7 @@ To schedule a platform version upgrade, specify the following parameters:
 - `--resource-identifier` – The ARN of your Aurora serverless DB cluster
 - `--apply-action` – Use `serverless-platform-version-update` to specify a platform version upgrade
 - `--opt-in-type` – Choose when to apply the upgrade:
+
   - `immediate` – Apply the upgrade immediately
   - `next-maintenance` – Apply the upgrade during your next schedule
 

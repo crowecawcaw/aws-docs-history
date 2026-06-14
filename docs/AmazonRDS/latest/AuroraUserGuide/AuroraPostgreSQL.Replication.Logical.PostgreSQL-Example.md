@@ -22,26 +22,24 @@ a database in which to create the example tables.
 
 1.  On the publisher Aurora PostgreSQL DB
     cluster
+
     1. Create a table using the following SQL statement.
 
     ```
     CREATE TABLE LogicalReplicationTest (a int PRIMARY KEY);
     ```
-
     2. Insert data into the publisher database by using the following SQL
        statement.
 
     ```
     INSERT INTO LogicalReplicationTest VALUES (generate_series(1,10000));
     ```
-
     3. Verify that data exists in the table by using the following SQL
        statement.
 
     ```
     SELECT count(*) FROM LogicalReplicationTest;
     ```
-
     4. Create a publication for this table by using the `CREATE
 PUBLICATION` statement, as follows.
 

@@ -21,7 +21,7 @@ Create an Amazon EC2 instance in the public subnet of your VPC.
 
 
 
-    ![Choose an Amazon Machine Image.](images/Tutorial_WebServer_12.png)
+    ![The Amazon Machine Image selection.](images/Tutorial_WebServer_12.png)
     3. Under **Instance type**, choose **t2.micro**.
     4. Under **Key pair (login)**, choose a **Key pair name** to use an existing key
      pair. To create a new key pair for the Amazon EC2 instance, choose **Create new key pair**

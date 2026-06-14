@@ -44,17 +44,20 @@ instances, or with different names and different units of measurement:
 
 - The following metrics apply to an entire Aurora DB cluster, but are displayed only when viewing DB
   instances for an Aurora DB cluster in the Amazon RDS console:
+
   - `VolumeBytesUsed`
   - `VolumeReadIOPs`
   - `VolumeWriteIOPs`
 
 - The following metrics are displayed in megabytes, instead of bytes, in the Amazon RDS console:
+
   - `FreeableMemory`
   - `FreeLocalStorage`
   - `NetworkReceiveThroughput`
   - `NetworkTransmitThroughput`
 
 - The following metrics apply to an Aurora PostgreSQL DB cluster with Aurora Optimized Reads:
+
   - `AuroraOptimizedReadsCacheHitRatio`
   - `FreeEphemeralStorage`
   - `ReadIOPSEphemeralStorage`

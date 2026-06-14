@@ -219,6 +219,7 @@ If the problem is related to infrastructure issues:
 - Network issues - [How do I resolve
   issues with an Amazon RDS DB in an incompatible network state?](https://repost.aws/knowledge-center/rds-incompatible-network "https://repost.aws/knowledge-center/rds-incompatible-network").
 - Database or DB instance is not available due to the following reasons:
+
   - Replica instance is out of storage - Review [Amazon RDS DB instances
     run out of storage](https://repost.aws/knowledge-center/rds-out-of-storage "https://repost.aws/knowledge-center/rds-out-of-storage") for information about adding storage.
   - Incompatible-parameters - Review [How can I

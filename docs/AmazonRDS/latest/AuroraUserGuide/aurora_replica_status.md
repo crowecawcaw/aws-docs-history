@@ -20,6 +20,7 @@ SETOF record with the following columns:
 - `session_id` – A unique identifier for the current
   session, returned for primary instance and reader instances as
   follows:
+
   - For the primary instance, `session_id` is always
     ``MASTER_SESSION_ID’`.
   - For reader instances, `session_id` is always the
@@ -28,6 +29,7 @@ SETOF record with the following columns:
 
 - `durable_lsn` – The log sequence number (LSN)
   that's been saved in storage.
+
   - For the primary volume, the primary volume durable LSN (VDL)
     that's currently in effect.
   - For any secondary volumes, the VDL of the primary up to which the
@@ -93,6 +95,7 @@ can do the following:
 - Get information about the type of instance (writer,
   reader) in the Aurora PostgreSQL DB cluster – You can obtain
   this information by checking the values of the following columns:
+
   - `server_id` – Contains the name of the instance
     that you specified when you created the instance. In some cases,
     such as for the primary (writer) instance, the name is typically

@@ -136,6 +136,7 @@ The following limitations apply to zero-downtime patching:
 - ZDP tries to preserve current client connections to your Aurora PostgreSQL
   writer instance throughout the Aurora PostgreSQL upgrade process. However, in
   the following cases, connections will be dropped for ZDP to complete:
+
   - Long running query or transactions are in progress.
   - Data definition language (DDL) statements are running.
   - Temporary tables or table locks are in use.
@@ -146,6 +147,7 @@ The following limitations apply to zero-downtime patching:
     is supported with TLSv1.3 connections.
 
 - ZDP isn't supported in the following cases:
+
   - During the upgrade of any Aurora reader instances.
   - During the upgrade of any Aurora reader instances that are part of
     an Aurora Global Database cluster in a secondary Region.

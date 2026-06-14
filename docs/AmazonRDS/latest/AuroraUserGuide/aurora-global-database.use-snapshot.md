@@ -16,4 +16,4 @@ The restored DB cluster assumes the role of primary cluster for the Aurora globa
 an AWS Region to it. All data contained in this primary cluster is replicated to any secondary clusters
 that you add to your Aurora global database.
 
-![Screenshot showing the restore snapshot page for an Aurora global database.](images/aurora-global-databases-restore-snapshot-01.png)
+![the restore snapshot page for an Aurora global database.](images/aurora-global-databases-restore-snapshot-01.png)

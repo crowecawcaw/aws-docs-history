@@ -360,7 +360,7 @@ the AWS CLI, or the RDS API.
 
 In **Master Credentials ARN**, you can view the secret ARN.
 
-![View the details about a secret managed by Aurora in Secrets Manager](images/secrets-manager-integration-view-cluster.png)
+![View the details about a secret managed by Aurora in Secrets Manager.](images/secrets-manager-integration-view-cluster.png)
 
 You can follow the **Manage in Secrets Manager** link to view and manage the secret in
 the Secrets Manager console.

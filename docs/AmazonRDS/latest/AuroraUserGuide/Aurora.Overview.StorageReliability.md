@@ -66,8 +66,10 @@ Aurora database spending.
 
 You can switch from Aurora Standard to Aurora I/O-Optimized once every 30 days. When you switch between
 Aurora Standard and Aurora I/O-Optimized storage options for non-NVMe-based DB instances, there is no downtime.
-However, for NVMe-based DB instances, switching between Aurora I/O-Optimized and Aurora Standard storage options
-requires a database engine restart, which may cause a brief period of downtime.
+Aurora serverless instances are non-NVMe-based DB instances, so there is no downtime and no
+reboot required when switching from Aurora Standard to Aurora I/O-Optimized. However, for NVMe-based DB instances,
+switching between Aurora I/O-Optimized and Aurora Standard storage options requires a database engine
+restart, which may cause a brief period of downtime.
 
 For information on AWS Region and version support, see [Supported Regions and Aurora DB engines for cluster storage configurations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.storage-type.md").
 

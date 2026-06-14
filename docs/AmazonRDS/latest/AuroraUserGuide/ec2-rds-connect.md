@@ -33,6 +33,7 @@ a link to create one.
 
 - Currently, the DB cluster can't be an Aurora Serverless DB cluster or part of an Aurora global database.
 - The user who sets up connectivity must have permissions to perform the following Amazon EC2 operations:
+
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:AuthorizeSecurityGroupIngress`
   - `ec2:CreateSecurityGroup`

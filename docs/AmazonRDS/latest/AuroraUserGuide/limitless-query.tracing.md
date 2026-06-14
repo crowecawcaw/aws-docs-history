@@ -49,12 +49,14 @@ wrapping around the tracing ID back to 1 after running 4294967294 (4.2 billion o
 The following examples illustrate the components of the tracing ID:
 
 - `1126253375719408504000000000011`:
+
   - Transaction identifier – `1126253375719408504`
   - Command identifier – `112625337571940850400000000001` indicates the first command in the transaction
     block
   - Node type identifier – `1` indicates a coordinator router
 
 - `1126253375719408495000000000090`:
+
   - Transaction identifier – `1126253375719408495`
   - Command identifier – `112625337571940849500000000009` indicates the ninth command in the transaction
     block

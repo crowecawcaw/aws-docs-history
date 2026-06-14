@@ -205,7 +205,7 @@ You modify the writer DB instance to change the master user password using the A
 
 The **Modify DB instance** page appears. 4. Enter a **New master password**. 5. For **Confirm master password**, enter the same new password.
 
-![Enter a new master user password and confirm it.](images/aur_new_master_password.png) 6. Choose **Continue** and check the summary of modifications.
+![The master user password field and confirmation.](images/aur_new_master_password.png) 6. Choose **Continue** and check the summary of modifications.
 
 ###### Note
 

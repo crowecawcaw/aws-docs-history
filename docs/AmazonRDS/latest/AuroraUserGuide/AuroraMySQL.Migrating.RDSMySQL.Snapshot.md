@@ -284,6 +284,7 @@ The **Migrate Database** page appears. 3. Set the following values on the **Migr
   DB cluster.
 - `--kms-key-id` – The AWS KMS key to optionally encrypt the DB cluster with,
   depending on whether your DB snapshot is encrypted.
+
   - If your DB snapshot isn't encrypted, specify an encryption key to have your DB cluster
     encrypted at rest. Otherwise, your DB cluster isn't encrypted.
   - If your DB snapshot is encrypted, specify an encryption key to have your DB cluster encrypted

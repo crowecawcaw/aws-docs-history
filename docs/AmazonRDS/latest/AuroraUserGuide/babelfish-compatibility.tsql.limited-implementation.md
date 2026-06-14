@@ -37,6 +37,7 @@ implementations:
   `ALTER USER...WITH DEFAULT SCHEMA`, the change takes effect
   immediately in that session. However, for other currently connected sessions
   belonging to the same user, the timing differs, as follows:
+
   - For SQL Server: – The change takes effect across all other
     connections for this user immediately.
   - For Babelfish: – The change takes effect for this user
@@ -76,6 +77,7 @@ implementations:
   an adverse impact on applications running on Babelfish.
 
 - TOP N PERCENT clause – Babelfish provides support for the TOP N PERCENT clause with some limitations. SELECT operations are supported while UPDATE, DELETE and INSERT operations with TOP N PERCENT are not supported. The WITH TIES option and subqueries within the TOP clause are also not supported. When the expression value exceeds 100, behavior differs:
+
   - For SQL Server – Throws an error.
   - For Babelfish – Treats the value as valid and returns results.
 
@@ -90,5 +92,6 @@ implementations:
 | Access objects created by DBO in the schema without additional<br>grants? | Yes        | No        |
 
 - CREATE OR ALTER VIEW / ALTER VIEW syntax – The support for these syntax in Babelfish has the following limitations:
+
   - These statements cannot be used on views that have an INSTEAD-OF trigger attached.
   - These statements cannot be used on views that have another view based on this view.

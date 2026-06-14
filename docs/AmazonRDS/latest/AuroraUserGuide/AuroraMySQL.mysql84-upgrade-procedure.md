@@ -31,8 +31,8 @@ ALTER USER '`username`'@'`host`' IDENTIFIED WITH caching_sha2_password BY '`new_
    deprecated replication statements (such as `SHOW SLAVE STATUS` or `CHANGE MASTER TO`),
    update them to use the replacement statements. These old statements return syntax errors in version 8.4.
    For the full list, see [Comparing Aurora MySQL version 3 and Aurora MySQL version 8.4](AuroraMySQL.Compare-v3-v84.md "AuroraMySQL.Compare-v3-v84.md").
-3. **Check for removed parameters.** If your custom parameter groups use any
-   parameters that were removed in version 8.4 (such as `expire_logs_days` or
+3. **Check for removed parameters.** If your custom parameter groups use
+   parameters removed in version 8.4 (such as `expire_logs_days` or
    `default_authentication_plugin`), create new MySQL 8.4–compatible parameter groups with the
    replacement parameters. Apply any necessary custom parameter values to the new parameter groups.
    For details, see [Comparing Aurora MySQL version 3 and Aurora MySQL version 8.4](AuroraMySQL.Compare-v3-v84.md "AuroraMySQL.Compare-v3-v84.md").
@@ -46,10 +46,9 @@ ALTER USER '`username`'@'`host`' IDENTIFIED WITH caching_sha2_password BY '`new_
    don't use any of the new reserved keywords added in MySQL 8.4 as unquoted identifiers.
 7. **Test the upgrade.** We recommend testing the upgrade on a clone of your
    production cluster before upgrading the production cluster itself.
-8. **Review security considerations.** For details about authentication plugin
-   changes, TLS and cipher changes, password policies and the `validate_password` component,
-   new dynamic privileges, and upgrade prechecks such as `deprecatedDefaultAuth` and
-   `auroraValidatePasswordPluginCheck`, see
+8. **Review security considerations.** Review authentication plugin
+   changes, TLS and cipher changes, password policies, the `validate_password` component,
+   and new dynamic privileges before upgrading. For details about these changes and upgrade prechecks, see
    [Security considerations for upgrading from Aurora MySQL version 3 to version 8.4](AuroraMySQL.Upgrade-v3-v84-security.md "AuroraMySQL.Upgrade-v3-v84-security.md").
 
 ## How to upgrade to version 8.4

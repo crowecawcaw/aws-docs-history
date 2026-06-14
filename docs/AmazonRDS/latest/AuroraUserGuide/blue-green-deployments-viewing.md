@@ -12,7 +12,7 @@ You can also view and subscribe to events for information about a blue/green dep
 2. In the navigation pane, choose **Databases**, and then find the blue/green deployment
    in the list.
 
-![Blue/green deployment in the database list.](images/blue-green-deployment-view-db-list-aurora.png)
+![Blue-green deployment in the database list.](images/blue-green-deployment-view-db-list-aurora.png)
 
 The **Role** value for the blue/green deployment is **Blue/Green Deployment**. 3. Choose the name of blue/green deployment that you want to view to display its details.
 
@@ -24,7 +24,7 @@ you're upgrading the DB engine version in the green environment.
 The following image shows an example of the **Connectivity &
 security** tab:
 
-![Blue/green deployment details.](images/blue-green-deployment-view-details-aurora.png)
+![Blue-green deployment details.](images/blue-green-deployment-view-details-aurora.png)
 
 The **Connectivity & security** tab also includes a section
 called **Replication**, which shows the current state of replication
@@ -39,11 +39,11 @@ environment. For more information, see [Logical replication-specific limitations
 The following image shows an example of the **Configuration**
 tab:
 
-![Blue/green deployment configuration details.](images/blue-green-deployment-view-config-aurora.png)
+![Blue-green deployment configuration details.](images/blue-green-deployment-view-config-aurora.png)
 
 The following image shows an example of the **Status** tab:
 
-![Blue/green deployment status.](images/blue-green-deployment-view-status-aurora.png)
+![Blue-green deployment status.](images/blue-green-deployment-view-status-aurora.png)
 To view the details about a blue/green deployment by using the AWS CLI, use the [describe-blue-green-deployments](../../../cli/latest/reference/rds/describe-blue-green-deployments.md "../../../cli/latest/reference/rds/describe-blue-green-deployments.md") command.
 
 ###### Example View the details about a blue/green deployment by filtering on its name

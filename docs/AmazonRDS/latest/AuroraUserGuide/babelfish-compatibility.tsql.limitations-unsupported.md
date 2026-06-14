@@ -163,6 +163,7 @@ The following built-in functions aren't supported:
 - TYPEPROPERTY
 - SERVERPROPERTY function – The following properties aren't
   supported:
+
   - BuildClrVersion
   - ComparisonStyle
   - ComputerNamePhysicalNetBIOS

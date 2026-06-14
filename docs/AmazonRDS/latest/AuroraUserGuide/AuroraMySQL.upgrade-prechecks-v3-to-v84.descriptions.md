@@ -7,10 +7,12 @@ before the upgrade begins.
 ###### Contents
 
 - [Errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors")
+
   - [MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.mysql "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.mysql")
   - [Aurora MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.aurora "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.aurora")
 
 - [Warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings")
+
   - [MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.mysql "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.mysql")
   - [Aurora MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.aurora "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.aurora")
 
@@ -377,6 +379,7 @@ Update the authentication system variables to use
    groups**.
 2. Select your DB cluster parameter group.
 3. Modify the following parameters:
+
    - `default_authentication_plugin` =
      `caching_sha2_password`
    - `authentication_policy` =

@@ -220,6 +220,7 @@ aws rds modify-db-cluster —db-cluster-identifier $TARGET_Aurora_ID —engine-v
 
 1. When the clone becomes available after the upgrade, connect with psql and define the subscription.
    To do so, you need to specify the following options in the `CREATE SUBSCRIPTION` command:
+
    - `subscription_name` – The name of the
      subscription.
    - `admin_user_name` – The name of an

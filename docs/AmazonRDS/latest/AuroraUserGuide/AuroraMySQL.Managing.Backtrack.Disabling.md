@@ -15,6 +15,7 @@ again for that cluster.
 4. In the **Backtrack** section, choose **Disable Backtrack**.
 5. Choose **Continue**.
 6. For **Scheduling of Modifications**, choose one of the following:
+
    - **Apply during the next scheduled maintenance
      window** – Wait to apply the modification
      until the next maintenance window.

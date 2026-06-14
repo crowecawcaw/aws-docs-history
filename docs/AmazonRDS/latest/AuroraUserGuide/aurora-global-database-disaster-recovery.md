@@ -133,6 +133,7 @@ For more information about CloudWatch metrics for Aurora, see
   settings than the old primary DB cluster. We recommend that you keep the following types of configuration
   settings consistent across all the clusters in your Aurora global database clusters. Doing so helps to
   minimize performance issues, workload incompatibilities, and other anomalous behavior after a switchover.
+
   - **Configure Aurora DB cluster parameter group for the new primary, if
     necessary** – When you promote a secondary DB cluster to take over the primary role, the
     parameter group from the secondary might be configured differently than for the primary. If so, modify
@@ -193,7 +194,7 @@ AWS Regions to be the new primary cluster. 6. Choose **Confirm**.
 When the switchover completes, you can see the Aurora DB clusters and their current roles in the
 **Databases** list, as shown in the following image.
 
-![Showing the Databases list with the global database selected. The selected secondary cluster now shows as having the primary cluster role and the old primary has the role of a secondary cluster.](images/aurora-global-db-switchover-3.png)
+![Databases list after failover showing the secondary cluster promoted to primary role.](images/aurora-global-db-switchover-3.png)
 
 **To perform the switchover on an Aurora global database**
 
@@ -448,7 +449,7 @@ AWS Regions to be the new primary cluster. 6. Enter `confirm`, and then choose *
 When the failover completes, you can view the Aurora DB clusters and their current state in the
 **Databases** list, as shown in the following image.
 
-![Showing the Databases list with the global database selected. The selected secondary cluster now shows as having the primary cluster role and the old primary has the role of a secondary cluster.](images/aurora-global-db-managed-failover-5.png)
+![Databases list after failover showing the secondary cluster promoted to primary role.](images/aurora-global-db-managed-failover-5.png)
 
 **To perform the managed failover on an Aurora global database**
 

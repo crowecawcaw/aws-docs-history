@@ -132,7 +132,7 @@ in the console. You can also access Performance Insights from the
 **Monitoring** tab of the writer instance for your Aurora PostgreSQL DB
 cluster, as shown in the following image.
 
-![Image of accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](images/postgres_connection_pooling_PI_1.png)
+![accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](images/postgres_connection_pooling_PI_1.png)
 
 From the Performance Insights console, choose **Manage metrics**. To
 analyze your Aurora PostgreSQL DB cluster's connection and disconnection activity, choose the
@@ -142,7 +142,7 @@ following metrics. These are all metrics from PostgreSQL.
 - `total_auth_attempts` – The number of attempted authenticated user connections per minute.
 - `numbackends` – The number of backends currently connected to the database.
 
-![Image of accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](images/postgres_connection_churn_PI_4.png)
+![accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](images/postgres_connection_churn_PI_4.png)
 
 To save the settings and display connection activity, choose **Update
 graph**.
@@ -152,7 +152,7 @@ In the following image, you can see the impact of running pgbench with
 pgbench and how to use it, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html") in PostgreSQL
 documentation.
 
-![Image of Performance Insights showing need for connection pooling.](images/postgres_connection_pooling_PI_2.png)
+![Performance Insights showing need for connection pooling.](images/postgres_connection_pooling_PI_2.png)
 
 The image shows that running a workload with as few as 100 users
 without a connection pooler can cause a significant increase in the number of
@@ -162,7 +162,7 @@ Note that it's best to keep `total_auth_attempts` as close to zero as possible.
 With RDS Proxy connection pooling, the connection attempts increase at the start of the workload. After setting up the
 connection pool, the average declines. The resources used by transactions and backend use stays consistent throughout workload processing.
 
-![Image of Performance Insights showing benefit of RDS Proxy for connection pooling.](images/postgres_connection_pooling_PI_3.png)
+![Performance Insights showing benefit of RDS Proxy for connection pooling.](images/postgres_connection_pooling_PI_3.png)
 
 For more information about using Performance Insights with your Aurora PostgreSQL DB cluster, see
 [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md"). To analyze

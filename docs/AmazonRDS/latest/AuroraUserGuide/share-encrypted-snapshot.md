@@ -29,6 +29,7 @@ customer managed key, you give access to it for another AWS account.
 4. In the navigation pane, choose **Customer managed keys**.
 5. Choose **Create key**.
 6. On the **Configure key** page:
+
    1. For **Key type**, select **Symmetric**.
    2. For **Key usage**, select **Encrypt and decrypt**.
    3. Expand **Advanced options**.
@@ -37,6 +38,7 @@ customer managed key, you give access to it for another AWS account.
    6. Choose **Next**.
 
 7. On the **Add labels** page:
+
    1. For **Alias**. enter a display name for your KMS key, for example
       `share-snapshot`.
    2. (Optional) Enter a description for your KMS key.
@@ -45,6 +47,7 @@ customer managed key, you give access to it for another AWS account.
 
 8. On the **Define key administrative permissions** page, choose **Next.**
 9. On the **Define key usage permissions** page:
+
    1. For **Other AWS accounts**, choose **Add another
       AWS account**.
    2. Enter the ID of the AWS account to which you want to give access.
@@ -66,16 +69,18 @@ AWS account.
 4. Select the DB cluster snapshot you want to copy.
 5. For **Actions**, choose **Copy snapshot**.
 6. On the **Copy snapshot** page:
+
    1. For **Destination Region**, choose the AWS Region where you created the customer managed key in
       the previous procedure.
    2. Enter the name of the DB cluster snapshot copy in **New DB Snapshot Identifier**.
    3. For **AWS KMS key**, choose the customer managed key that you created.
 
-   ![Choose the customer managed key.](images/copy-encrypted-snapshot.png) 4. Choose **Copy snapshot**.
+   ![The customer managed key selection.](images/copy-encrypted-snapshot.png) 4. Choose **Copy snapshot**.
 
 7. When the snapshot copy is available, select it.
 8. For **Actions**, choose **Share snapshot**.
 9. On the **Snapshot permissions** page:
+
    1. Enter the **AWS account ID** with which you're sharing the snapshot copy, then choose
       **Add**.
    2. Choose **Save**.The snapshot is shared.

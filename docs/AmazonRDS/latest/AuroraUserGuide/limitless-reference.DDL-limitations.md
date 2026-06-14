@@ -627,11 +627,13 @@ Aurora PostgreSQL Limitless Database includes the following functions in the `rd
 
 - Purpose: Extract tuple-level statistics for reference tables, sharded tables, catalog tables, and their indexes
 - Input:
+
   - `relation_name` (text) – The name of the relation
   - `subcluster_id` (text) – The subcluster ID of the node where the statistics are to be
     extracted
 
 - Output:
+
   - For reference and catalog tables (including their indexes), columns are consistent with those in
     Aurora PostgreSQL.
   - For sharded tables, the statistics represent only the partition of the sharded table residing on the specified
@@ -651,11 +653,13 @@ Aurora PostgreSQL Limitless Database includes the following functions in the `rd
 
 - Purpose: Extract statistics for B-tree indexes on reference tables, sharded tables, and catalog tables.
 - Input:
+
   - `relation_name` (text) – The name of the B-tree index
   - `subcluster_id` (text) – The subcluster ID of the node where the statistics are to be
     extracted
 
 - Output:
+
   - For reference and catalog table indexes, all columns (except `root_block_no`) are returned. The
     returned columns are consistent with Aurora PostgreSQL.
   - For sharded tables, the statistics represent only the partition of the sharded table index residing on the
@@ -673,11 +677,13 @@ Aurora PostgreSQL Limitless Database includes the following functions in the `rd
 
 - Purpose: Extract statistics for GIN indexes on reference tables, sharded tables, and catalog tables.
 - Input:
+
   - `relation_name` (text) – The name of the index
   - `subcluster_id` (text) – The subcluster ID of the node where the statistics are to be
     extracted
 
 - Output:
+
   - For reference and catalog table GIN indexes, columns are consistent with those in Aurora PostgreSQL.
   - For sharded tables, the statistics represent only the partition of the sharded table index residing on the
     specified subcluster.
@@ -693,11 +699,13 @@ Aurora PostgreSQL Limitless Database includes the following functions in the `rd
 
 - Purpose: Extract statistics for hash indexes on reference tables, sharded tables, and catalog tables.
 - Input:
+
   - `relation_name` (text) – The name of the index
   - `subcluster_id` (text) – The subcluster ID of the node where the statistics are to be
     extracted
 
 - Output:
+
   - For reference and catalog table hash indexes, columns are consistent with Aurora PostgreSQL.
   - For sharded tables, the statistics represent only the partition of the sharded table index residing on the
     specified subcluster.
@@ -716,6 +724,7 @@ Aurora PostgreSQL Limitless Database includes the following functions in the `rd
 - Purpose: Extract the page count for reference tables, sharded tables, and catalog tables (including their
   indexes)
 - Input:
+
   - `relation_name` (text) – The name of the relation
   - `subcluster_id` (text) – The subcluster ID of the node where the page count is to be
     extracted
@@ -737,11 +746,13 @@ Aurora PostgreSQL Limitless Database includes the following functions in the `rd
 - Purpose: Extract approximate tuple-level statistics for reference tables, sharded tables, and catalog tables
   (including their indexes)
 - Input:
+
   - `relation_name` (text) – The name of the relation
   - `subcluster_id` (text) – The subcluster ID of the node where the statistics are to be
     extracted
 
 - Output:
+
   - For reference and catalog tables (including their indexes), columns are consistent with those in
     Aurora PostgreSQL.
   - For sharded tables, the statistics represent only the partition of the sharded table residing on the specified
@@ -769,6 +780,7 @@ ALTER TABLE ADD CONSTRAINT;
 - Converting a standard table to a sharded or reference table isn't supported when the table has a foreign key constraint. Drop the
   constraint, then add it after conversion.
 - The following limitations apply to table types for foreign key constraints:
+
   - A standard table can have a foreign key constraint to another standard table.
   - A sharded table can have a foreign key constraint if the parent and child tables are collocated and the foreign key is a
     superset of the shard key.

@@ -7,6 +7,7 @@ You can dismiss one or more Amazon Aurora recommendations using the Amazon RDS c
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, perform any of the following:
+
    - Choose **Recommendations**.
 
    The **Recommendations** page appears with the list of
@@ -37,11 +38,11 @@ dismissed.
 
 The following example shows the banner with the successful message.
 
-![A banner in the console showing the message with the number of resources that were successful to dismiss the recommendation.](images/Recommendation-Dismiss-Banner.png)
+![Console banner showing the number of resources successfully updated.](images/Recommendation-Dismiss-Banner.png)
 
 The following example shows the banner with the failure message.
 
-![A banner in the console showing the message with the resource that failed to dismiss the recommendation.](images/Recommendation-Dismiss-Banner-failure.png)
+![Console banner showing the resource that failed to update.](images/Recommendation-Dismiss-Banner-failure.png)
 
 ###### To dismiss an Aurora recommendation using the AWS CLI
 

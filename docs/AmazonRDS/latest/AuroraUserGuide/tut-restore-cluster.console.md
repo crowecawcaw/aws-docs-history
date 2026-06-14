@@ -45,7 +45,7 @@ For this tutorial, choose **Burstable classes (includes t classes)**, and then c
 We recommend using the T DB instance classes only for development and test servers, or other non-production
 servers. For more details on the T instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md "Concepts.DBInstanceClass.Types.md").
 
-![DB instance configuration panel with options for instance class, availability, and performance settings during restore.](images/tut-restore-cluster3.png) 9. For **Database authentication**, use the default setting. 10. For **Encryption**, use the default settings.
+![DB instance configuration panel with options for instance class, availability, and performance settings.](images/tut-restore-cluster3.png) 9. For **Database authentication**, use the default setting. 10. For **Encryption**, use the default settings.
 
 If the source DB cluster for the snapshot was encrypted, the restored DB cluster is also encrypted. You can't
 make it unencrypted. 11. Expand **Additional configuration** at the bottom of the page.

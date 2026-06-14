@@ -43,6 +43,7 @@ For more information on the Aurora Global Database writer endpoint, see [Viewing
 For more information about cluster endpoints, see [Cluster endpoints for Amazon Aurora](Aurora.Endpoints.Cluster.md "Aurora.Endpoints.Cluster.md").
 
 - password - We recommend you to follow the below guidelines while creating the password to enhance the security:
+
   - It must contain at least 8 characters.
   - It must contain at least one uppercase, one lowercase letter, and one number.
   - It must have at least one special character (`?`, `!`, `#`, `<`, `>`, `*`, and so on).

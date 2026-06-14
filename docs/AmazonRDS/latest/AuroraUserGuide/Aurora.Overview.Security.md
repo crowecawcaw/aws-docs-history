@@ -19,6 +19,7 @@ AWS Management Console with your user credentials, and then go to the Amazon RDS
   information on VPCs, see [Amazon VPC and Amazon Aurora](USER_VPC.md "USER_VPC.md").
 - To authenticate logins and permissions for an Amazon Aurora DB cluster, you can take
   either of the following approaches, or a combination of them.
+
   - You can take the same approach as with a stand-alone DB instance of MySQL or
     PostgreSQL.
 

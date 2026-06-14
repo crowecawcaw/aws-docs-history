@@ -6,10 +6,12 @@ The following prechecks run when you upgrade an Aurora MySQL DB cluster from ver
 ###### Contents
 
 - [Errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors")
+
   - [MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.mysql "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.mysql")
   - [Aurora MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.aurora "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.aurora")
 
 - [Warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings")
+
   - [MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.mysql "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.mysql")
   - [Aurora MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.aurora "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.aurora")
 

@@ -114,6 +114,7 @@ following one-time steps.
    bucket. To do so, follow the steps in [Add an object to a
    bucket](../../../AmazonS3/latest/userguide/PuttingAnObjectInABucket.htmlurl-s3-user.md#uploading-an-object-bucket "../../../AmazonS3/latest/userguide/PuttingAnObjectInABucket.htmlurl-s3-user.md#uploading-an-object-bucket") in the _Amazon Simple Storage Service User Guideguide-s3-user;._
 3. Set up permissions as needed:
+
    - To import data from Amazon S3, the Babelfish DB cluster needs permission to access the
      bucket. We recommend using an AWS Identity and Access Management (IAM) role and attaching
      an IAM policy to that role for your cluster. To do so, follow the
@@ -450,6 +451,7 @@ select nextval($1);
   statements: `use dbname`, `goto`, `print`, `raise error`, `set`, `throw`, `declare cursor`.
 - For CREATE LOGIN and ALTER LOGIN statements, query and queryid will not be shown. It will show insufficient privileges.
 - `pg_stat_statements` view always contains the below two entries, as these are executed internally by `sqlcmd` client.
+
   - SET QUOTED_IDENTIFIER OFF
   - SET TEXTSIZE 4096
 

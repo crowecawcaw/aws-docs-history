@@ -187,6 +187,7 @@ if you need a particular combination of database engine and version.
   settings you choose so that you can create identical or slightly different clusters later.
 - Use a recent DB engine version. These combinations of database engine and version have wide compatibility with other
   Aurora features and substantial customer usage for production applications.
+
   - Aurora MySQL version 3.x (MySQL 8.0 compatibility)
   - Aurora PostgreSQL version 15.x or 16.x
 
@@ -611,12 +612,14 @@ AWS services:
 
 - For purely analytic use cases, workloads benefit from a columnar storage format and other features more
   suitable to OLAP workloads. AWS services that address such use cases include the following:
+
   - [Amazon Redshift](../../../redshift.md "../../../redshift.md")
   - [Amazon EMR](../../../emr.md "../../../emr.md")
   - [Amazon Athena](../../../athena.md "../../../athena.md")
 
 - Many workloads benefit from a combination of Aurora with one or more of these services. You can move data
   between these services by using these:
+
   - [AWS Glue](../../../glue.md "../../../glue.md")
   - [AWS DMS](../../../dms.md "../../../dms.md")
   - [Importing

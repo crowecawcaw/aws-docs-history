@@ -55,6 +55,7 @@ The following general limitations apply to blue/green deployments:
 - Amazon RDS Proxy with blue/green deployments is not supported for Aurora Global
   Databases.
 - Blue/green deployments aren't supported for the following features:
+
   - Cross-Region read replicas
   - Aurora Serverless v1 DB clusters
   - CloudFormation
@@ -112,6 +113,7 @@ deployments.
   blue environment to the green environment. However, existing partitioned tables and
   their data will be replicated to the green environment.
 - The following limitations apply to PostgreSQL extensions:
+
   - The `pg_partman` extension must be disabled in the blue environment
     when you create a blue/green deployment. The extension performs DDL operations
     such as `CREATE TABLE`, which break logical replication from the blue

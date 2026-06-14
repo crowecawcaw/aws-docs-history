@@ -52,6 +52,7 @@ Explorer.
 1.  Start SSMS.
 2.  Open the **Connect to Server** dialog box. To
     continue with the connection, do one of the following:
+
     - Choose **New Query**.
     - If the Query Editor is open, choose
       **Query**, **Connection**,

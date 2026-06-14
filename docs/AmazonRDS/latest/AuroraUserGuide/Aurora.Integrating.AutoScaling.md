@@ -112,6 +112,7 @@ For example, consider an Aurora MySQL cluster with the following setup:
 
 - **Manual instances (not controlled by Auto
   Scaling)**:
+
   - Writer with 50% CPU utilization
   - Reader 1 (custom endpoint: `custom-reader-1`) with 90%
     CPU utilization
@@ -119,6 +120,7 @@ For example, consider an Aurora MySQL cluster with the following setup:
     CPU utilization
 
 - **Auto Scaling instance**:
+
   - Reader 3 (added using Auto Scaling) with 10% CPU
     utilization
 

@@ -46,6 +46,7 @@ about service-linked roles, see [Using service-linked roles for Amazon Aurora](U
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, choose **Databases**.
 3. Do either of the following:
+
    - Choose **Create database**.
    - Choose a database from the list, and then choose **Modify**.
 

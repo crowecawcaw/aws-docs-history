@@ -9,12 +9,15 @@ some of the guidelines and procedures that you can find in
 
 - [Determining which DB instance you are connected to](AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.DeterminePrimaryInstanceConnection "AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.DeterminePrimaryInstanceConnection")
 - [Best practices for Aurora MySQL performance and scaling](AuroraMySQL.BestPractices.Performance.md "AuroraMySQL.BestPractices.Performance.md")
+
   - [Using T instance classes for development and testing](AuroraMySQL.BestPractices.Performance.md#AuroraMySQL.BestPractices.T2Medium "AuroraMySQL.BestPractices.Performance.md#AuroraMySQL.BestPractices.T2Medium")
   - [Optimizing Aurora MySQL indexed join queries with asynchronous key prefetch](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.AKP "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.AKP")
+
     - [Enabling asynchronous key prefetch](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.AKP.Enabling "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.AKP.Enabling")
     - [Optimizing queries for asynchronous key prefetch](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.AKP.Optimizing "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.AKP.Optimizing")
 
   - [Optimizing large Aurora MySQL join queries with hash joins](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin")
+
     - [Enabling hash joins](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin.Enabling "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin.Enabling")
     - [Optimizing queries for hash joins](AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin.Optimizing "AuroraMySQL.BestPractices.Performance.md#Aurora.BestPractices.HashJoin.Optimizing")
 
@@ -23,17 +26,20 @@ some of the guidelines and procedures that you can find in
   - [Virtual index ID overflow errors](AuroraMySQL.BestPractices.Performance.md#AuroraMySQL.BestPractices.Performance.VirtualIndexIDOverflow "AuroraMySQL.BestPractices.Performance.md#AuroraMySQL.BestPractices.Performance.VirtualIndexIDOverflow")
 
 - [Best practices for Aurora MySQL high availability](AuroraMySQL.BestPractices.HA.md "AuroraMySQL.BestPractices.HA.md")
+
   - [Using Amazon Aurora for Disaster Recovery with your MySQL databases](AuroraMySQL.BestPractices.HA.md#AuroraMySQL.BestPractices.DisasterRecovery "AuroraMySQL.BestPractices.HA.md#AuroraMySQL.BestPractices.DisasterRecovery")
   - [Migrating from MySQL to Amazon Aurora MySQL with reduced downtime](AuroraMySQL.BestPractices.HA.md#AuroraMySQL.BestPractices.Migrating "AuroraMySQL.BestPractices.HA.md#AuroraMySQL.BestPractices.Migrating")
   - [Avoiding slow performance, automatic restart, and failover for Aurora MySQL DB instances](AuroraMySQL.BestPractices.HA.md#AuroraMySQL.BestPractices.Avoiding "AuroraMySQL.BestPractices.HA.md#AuroraMySQL.BestPractices.Avoiding")
 
 - [Recommendations for MySQL features in Aurora MySQL](AuroraMySQL.BestPractices.FeatureRecommendations.md "AuroraMySQL.BestPractices.FeatureRecommendations.md")
+
   - [Using multithreaded replication in Aurora MySQL](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.MTReplica "AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.MTReplica")
   - [Invoking AWS Lambda functions using native MySQL functions](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.Lambda "AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.Lambda")
   - [Avoiding XA transactions with Amazon Aurora MySQL](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.XA "AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.XA")
   - [Keeping foreign keys turned on during DML statements](AuroraMySQL.BestPractices.FeatureRecommendations.md#Aurora.BestPractices.ForeignKeys "AuroraMySQL.BestPractices.FeatureRecommendations.md#Aurora.BestPractices.ForeignKeys")
   - [Configuring how frequently the log buffer is flushed](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.Flush "AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.Flush")
   - [Minimizing and troubleshooting Aurora MySQL deadlocks](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.deadlocks "AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.deadlocks")
+
     - [Minimizing InnoDB deadlocks](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.deadlocks-minimize "AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.deadlocks-minimize")
     - [Monitoring InnoDB deadlocks](AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.deadlocks-monitor "AuroraMySQL.BestPractices.FeatureRecommendations.md#AuroraMySQL.BestPractices.deadlocks-monitor")
 

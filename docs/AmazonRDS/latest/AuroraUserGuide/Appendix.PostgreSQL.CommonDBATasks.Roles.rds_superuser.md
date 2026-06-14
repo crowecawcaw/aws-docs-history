@@ -73,6 +73,7 @@ predefined roles. Attempting to do so results in an error.
   and set up password constraints for database users. The `rds_superuser` role is
   granted with this role by default, and can grant the role to database users. For more
   information, see [Controlling user access to the PostgreSQL database](Appendix.PostgreSQL.CommonDBATasks.Access.md "Appendix.PostgreSQL.CommonDBATasks.Access.md").
+
   - For RDS for PostgreSQL versions older than 14, `rds_password` role can
     change passwords and set up password constraints for database users and users with
     `rds_superuser` role. From RDS for PostgreSQL version 14 and later,

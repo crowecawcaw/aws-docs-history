@@ -36,6 +36,7 @@ _Amazon Elastic Compute Cloud User Guide_.
 
 - To authenticate login and permissions for an Amazon Aurora MySQL DB cluster, you can
   take either of the following approaches, or a combination of them:
+
   - You can take the same approach as with a standalone instance of
     MySQL.
 

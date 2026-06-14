@@ -39,14 +39,17 @@ running on your Aurora PostgreSQL DB cluster, and how to upgrade to a new versio
 
 - [Identifying your version of Babelfish](babelfish-information-identify-version.md "babelfish-information-identify-version.md")
 - [Upgrading your Babelfish cluster to a new version](babelfish-information-upgrading.md "babelfish-information-upgrading.md")
+
   - [Upgrading Babelfish to a new minor version](babelfish-information-upgrading-minor.md "babelfish-information-upgrading-minor.md")
   - [Upgrading Babelfish to a new major version](babelfish-information-upgrading-major.md "babelfish-information-upgrading-major.md")
+
     - [Before upgrading Babelfish to a new major version](babelfish-information-upgrading-major.md#babelfish-information-upgrading-preliminary "babelfish-information-upgrading-major.md#babelfish-information-upgrading-preliminary")
     - [Performing major version upgrade](babelfish-information-upgrading-major.md#babelfish-performing-major-version-upgrade "babelfish-information-upgrading-major.md#babelfish-performing-major-version-upgrade")
     - [After upgrading to a new major version](babelfish-information-upgrading-major.md#babelfish-information-upgrading-post-upgrade "babelfish-information-upgrading-major.md#babelfish-information-upgrading-post-upgrade")
     - [Example: Upgrading the Babelfish DB cluster to a major release](babelfish-information-upgrading-major.md#babelfish-information-upgrading-example "babelfish-information-upgrading-major.md#babelfish-information-upgrading-example")
 
 - [Using Babelfish product version parameter](babelfish-guc-version.md "babelfish-guc-version.md")
+
   - [Configuring Babelfish product version parameter](babelfish-guc-version.md#babelfish-guc-version-setvalues "babelfish-guc-version.md#babelfish-guc-version-setvalues")
   - [Affected queries and parameter](babelfish-guc-version.md#babelfish-guc-version-affects "babelfish-guc-version.md#babelfish-guc-version-affects")
   - [Interface with babelfishpg_tsql.version parameter](babelfish-guc-version.md#babelfish-guc-version-tsql "babelfish-guc-version.md#babelfish-guc-version-tsql")

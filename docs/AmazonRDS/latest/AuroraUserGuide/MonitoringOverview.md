@@ -41,6 +41,7 @@ Amazon CloudWatch for additional monitoring capabilities.
 - **Amazon CloudWatch** – This service monitors your AWS resources
   and the applications you run on AWS in real time. You can use the following Amazon CloudWatch features
   with Amazon Aurora:
+
   - **Amazon CloudWatch metrics** – Amazon Aurora
     automatically sends metrics to CloudWatch every minute for each active database. You don't get
     additional charges for Amazon RDS metrics in CloudWatch.
@@ -83,6 +84,7 @@ and other AWS console dashboards provide an at-a-glance view of the state of you
 recommend that you also check the log files on your DB instance.
 
 - From the Amazon RDS console, you can monitor the following items for your resources:
+
   - The number of connections to a DB instance
   - The amount of read and write operations to a DB instance
   - The amount of storage that a DB instance is currently using

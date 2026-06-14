@@ -77,6 +77,7 @@ is updated or deleted.
 ###### To set up triggers on columns that reference large objects
 
 - Do one of the following:
+
   - Create a BEFORE UPDATE OR DELETE trigger on each column to contain unique
     references to large objects, using the column name for the
     argument.
@@ -85,7 +86,6 @@ is updated or deleted.
   `postgres=>` CREATE TRIGGER t_raster BEFORE UPDATE OR DELETE ON images
       FOR EACH ROW EXECUTE FUNCTION lo_manage(raster);
   ```
-
   - Apply a trigger only when the column is being updated.
 
   ```

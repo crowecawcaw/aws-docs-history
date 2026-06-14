@@ -259,6 +259,7 @@ The following limitations apply to Amazon Aurora DB clusters when enhanced binlo
 - When used with Amazon Aurora global database, the enhanced binlog files of the primary DB cluster aren't
   replicated to the secondary DB clusters. Therefore, after the failover process, the historical binlog data isn't available in the new primary DB cluster.
 - The following binlog conﬁguration parameters are ignored:
+
   - `binlog_group_commit_sync_delay`
   - `binlog_group_commit_sync_no_delay_count`
   - `binlog_max_flush_queue_time`
@@ -271,6 +272,7 @@ The following limitations apply to Amazon Aurora DB clusters when enhanced binlo
 Enhanced binlog provides similar read performance improvements as binlog I/O cache and better write performance improvements.
 
 - The backtrack feature is not supported. Enhanced binlog can't be turned on in a DB cluster under the following conditions:
+
   - DB cluster with the backtrack feature currently enabled.
   - DB cluster where the backtrack feature was previously enabled, but is now disabled.
   - DB cluster restored from a source DB cluster or a snapshot with the backtrack feature enabled.

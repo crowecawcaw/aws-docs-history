@@ -35,6 +35,7 @@ reaching end of life. For each, the start time is 00:00 Universal Coordinated Ti
    6 after this time. You will also be unable to create a new cross-Region read replica running Aurora MySQL version 1.
    You can still do the following for existing Aurora MySQL version 1 clusters
    until February 28, 2023:
+
    - Restore a snapshot taken of an Aurora MySQL version 1 cluster to the same version as the original snapshot cluster.
    - Add read replicas (not applicable for Aurora Serverless DB clusters).
    - Change instance configuration.
@@ -102,9 +103,13 @@ To find Aurora MySQL DB clusters running Aurora MySQL version 1, use the RDS [De
 with the following required parameters:
 
 - `DescribeDBClusters`
+
   - Filters.Filter.N
+
     - Name
+
       - engine
 
     - Values.Value.N
+
       - ['aurora']

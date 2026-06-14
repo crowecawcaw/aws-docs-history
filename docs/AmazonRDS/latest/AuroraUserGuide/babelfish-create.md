@@ -72,6 +72,7 @@ following:
 
 12. For **Database migration mode**, choose one of the
     following:
+
     - **Single database** to migrate a single SQL
       Server database.
 

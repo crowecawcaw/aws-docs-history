@@ -3,6 +3,7 @@
 The following limitations currently apply to Babelfish for Aurora PostgreSQL:
 
 - Babelfish doesn't support the following Aurora features:
+
   - AWS Identity and Access Management
   - Database Activity Streams (DAS)
   - RDS Data API with Aurora PostgreSQL Aurora serverless and provisioned
@@ -12,6 +13,7 @@ The following limitations currently apply to Babelfish for Aurora PostgreSQL:
   - Zero-ETL integrations
 
 - Babelfish doesn't provide the following client driver API support:
+
   - API requests with the connection attributes related to Microsoft
     Distributed Transaction Coordinator (MSDTC) aren't supported. These
     include XA calls by the SQLServerXAResource class in the SQL server JDBC

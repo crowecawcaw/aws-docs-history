@@ -31,11 +31,11 @@ a Blue/Green Deployment, see [Using Amazon Aurora Blue/Green Deployments for dat
 
 A representation of how a blue/green deployment for Aurora Global Database with one secondary region looks before and after a blue/green switchover is shown below.
 
-![An example of a Blue/Green deployment for Aurora Global Database.](images/Aurora Global Database_Blue_Green_example.png)
+![An example of a blue-green deployment for Aurora Global Database.](images/Aurora Global Database_Blue_Green_example.png)
 
 You can create a blue/green deployment from the primary Region of your Global Database. Select the engine configurations such as major or minor Engine version, DB Parameter group, and DB cluster Parameter group for the green environment. Amazon RDS copies the blue environment's topology for the green environment. A visual representation in AWS Management Console is as shown below.
 
-![Summary of a Blue/Green Deployment.](images/auroraglobaldatabase_bluegreen.png)
+![Summary of a blue-green deployment.](images/auroraglobaldatabase_bluegreen.png)
 
 ###### Note
 

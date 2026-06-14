@@ -108,7 +108,7 @@ in a temporary file. You can see how often this occurs by turning on the
 to any other positive integer to capture temporary file information for files equal to or greater than that
 amount of data (in kilobytes). In the following image, you can see an example from AWS Management Console.
 
-![Image of custom parameter group with log_temp_files set to 1024kB.](images/postgres_tuning_custom_parameter.png)
+![Custom parameter group with log_temp_files set to 1024kB.](images/postgres_tuning_custom_parameter.png)
 
 After configuring temporary file logging, you can test with your own workload to see if your
 working memory setting is sufficient. You can also simulate a workload by using pgbench, a
@@ -190,7 +190,7 @@ the logs in the console or download for further analysis. As shown in the follow
 the size of the temporary files needed to process the query indicates that you should
 consider increasing the amount specified for the `work_mem` parameter.
 
-![Image of the log file from AWS Management Console showing the temporary files.](images/postgres_tuning_log_temp_files.png)
+![The log file from AWS Management Console showing the temporary files.](images/postgres_tuning_log_temp_files.png)
 
 You can configure this parameter differently for individuals and groups, based on your
 operational needs. For example, you can set the `work_mem` parameter to 8 GB for

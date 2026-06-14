@@ -112,6 +112,7 @@ The following limitations currently apply to Aurora Global Database:
   If your engine versions require identical patch levels, you can perform the failover manually by following the steps in
   [Performing manual failovers for Aurora global databases](aurora-global-database-disaster-recovery.md#aurora-global-database-failover.manual-unplanned "aurora-global-database-disaster-recovery.md#aurora-global-database-failover.manual-unplanned").
 - Aurora Global Database currently doesn't support the following Aurora features:
+
   - Backtracking in Aurora
 
 - For limitations with using the RDS Proxy feature with Aurora Global Database, see [Limitations for RDS Proxy with global databases](rds-proxy-gdb.md#rds-proxy-gdb.limitations "rds-proxy-gdb.md#rds-proxy-gdb.limitations").
@@ -154,8 +155,10 @@ making changes to your primary DB cluster. To learn more, see [Recovering an Ama
   `inaccessible-encryption-credentials` state. For more information about these states, see [Viewing DB cluster status](accessing-monitoring.md#Aurora.Status "accessing-monitoring.md#Aurora.Status").
 - Secrets Manager doesn't support Aurora Global Database. When you add a Region to
   a global database, you must first turn off Secrets Manager integration for the DB instance.
+- You can't rename a Regional Aurora DB cluster while it is a member of an Aurora global database. However, you can change the global cluster identifier and the identifiers of individual DB instances within a member cluster.
 - Aurora PostgreSQL–based DB clusters that use Aurora Global Database have the
   following limitations:
+
   - Cluster cache management isn't supported for Aurora PostgreSQL secondary DB clusters that are part of Aurora global databases.
   - If the primary DB cluster of your global database is based on a replica of
     an Amazon RDS PostgreSQL instance, you can't create a secondary cluster. Don't

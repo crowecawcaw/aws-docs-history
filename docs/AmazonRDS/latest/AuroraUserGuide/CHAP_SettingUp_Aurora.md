@@ -36,10 +36,12 @@ network needs. Here are some important things to consider:
   a virtual private cloud (VPC). Security group rules must be configured
   to connect to a DB cluster. The following list describes the rules for each VPC
   option:
+
   - **Default VPC** — If your AWS account has a
     default VPC in the AWS Region, that VPC is configured to support DB
     clusters. If you specify the default VPC when you create the DB
     cluster:
+
     - Make sure to create a _VPC security group_ that authorizes
       connections from the application or service to the Aurora DB
       cluster. Use the **Security Group** option on the VPC
@@ -51,6 +53,7 @@ network needs. Here are some important things to consider:
 
   - **User-defined VPC** — If you want to specify a
     user-defined VPC when you create a DB cluster:
+
     - Make sure to create a _VPC security group_ that authorizes
       connections from the application or service to the Aurora DB
       cluster. Use the **Security Group** option on the VPC

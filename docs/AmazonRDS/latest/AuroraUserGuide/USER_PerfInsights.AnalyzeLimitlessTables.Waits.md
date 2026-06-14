@@ -23,4 +23,4 @@ In the following example, the SQL statement with the highest load by waits is th
 
 In the following example, the `SELECT` statement has 3 component statements.
 
-![Choose a SQL statement to expand it.](images/pi-waits-top-sql-selected.png)
+![A SQL statement selected to expand details.](images/pi-waits-top-sql-selected.png)

@@ -76,8 +76,7 @@ The following features that were deprecated in MySQL 8.0 have been removed in My
 - The `mysql_native_password` authentication plugin is enabled by default in Aurora MySQL version 8.4,
   and this setting is not modifiable. The default `authentication_policy` is
   `*:caching_sha2_password`, so new users are created with `caching_sha2_password` by
-  default. Note that in community MySQL 8.4, `mysql_native_password` is disabled by default; Aurora
-  MySQL 8.4 differs in that the plugin remains enabled to preserve compatibility with existing users.
+  default. In community MySQL 8.4, `mysql_native_password` is disabled by default. Aurora MySQL 8.4 differs in that the plugin remains enabled to preserve compatibility with existing users.
 - Non-inclusive replication SQL statements are removed. Statements such as `CHANGE MASTER TO`,
   `SHOW SLAVE STATUS`, `START SLAVE`, `STOP SLAVE`, `SHOW SLAVE HOSTS`,
   `RESET SLAVE`, `RESET MASTER`, `SHOW MASTER STATUS`, and `PURGE MASTER LOGS`

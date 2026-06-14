@@ -33,6 +33,7 @@ the following steps.
    details.
 4. On the **Connectivity & security** tab, in the **Manage IAM
    roles** section, do one of the following:
+
    - **Select IAM roles to add to this cluster** (default)
    - **Select a service to connect to this cluster**
 
@@ -57,6 +58,7 @@ the role and then choose **Delete**.
 2. If you are already using a custom DB parameter group, you can select that group to use instead of
    creating a new DB cluster parameter group. If you are using the default DB cluster parameter group,
    create a new DB cluster parameter group, as described in the following steps:
+
    1. Choose **Create parameter group**.
    2. For **Parameter group family**, choose `aurora-mysql8.0` for an
       Aurora MySQL 8.0-compatible DB cluster, or `aurora-mysql5.7` for an Aurora MySQL

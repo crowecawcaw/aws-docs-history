@@ -35,6 +35,7 @@ CALL mysql.rds_set_master_auto_position(0);
 ```
 
 2. Reset the `gtid_mode` to `ON_PERMISSIVE`.
+
    1. Make sure that the DB cluster parameter group associated with the Aurora MySQL
       cluster has `gtid_mode` set to
       `ON_PERMISSIVE`.
@@ -43,6 +44,7 @@ CALL mysql.rds_set_master_auto_position(0);
    [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). 2. Restart the Aurora MySQL DB cluster.
 
 3. Reset the `gtid_mode` to `OFF_PERMISSIVE`.
+
    1. Make sure that the DB cluster parameter group associated with the Aurora MySQL
       cluster has `gtid_mode` set to
       `OFF_PERMISSIVE`.
@@ -51,6 +53,7 @@ CALL mysql.rds_set_master_auto_position(0);
 4. Wait for all of the GTID transactions to be applied on the
    Aurora primary instance. To check that these are applied, do the following
    steps:
+
    1. On the
 
    Aurora primary
@@ -97,8 +100,10 @@ CALL mysql.rds_set_master_auto_position(0);
    ```
 
 5. Reset the GTID parameters to disable GTID-based replication.
+
    1. Make sure that the DB cluster parameter group associated with the Aurora MySQL
       cluster has the following parameter settings:
+
       - `gtid_mode` – `OFF`
       - `enforce_gtid_consistency` – `OFF`
 

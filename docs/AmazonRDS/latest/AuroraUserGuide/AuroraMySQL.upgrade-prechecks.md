@@ -43,11 +43,14 @@ for the upgrade to complete. For more information on precheck performance consid
 - [Summary of Community MySQL upgrade prechecks for Aurora MySQL version 3 to version 8.4](AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.community-v3-to-v84 "AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.community-v3-to-v84")
 - [Summary of Aurora MySQL upgrade prechecks for Aurora MySQL version 3 to version 8.4](AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.ams-v3-to-v84 "AuroraMySQL.upgrade-prechecks.md#AuroraMySQL.upgrade-prechecks.ams-v3-to-v84")
 - [Precheck descriptions for upgrading Aurora MySQL version 2 to version 3](AuroraMySQL.upgrade-prechecks.descriptions.md "AuroraMySQL.upgrade-prechecks.descriptions.md")
+
   - [Errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors")
+
     - [MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.mysql "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.mysql")
     - [Aurora MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.aurora "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-errors.aurora")
 
   - [Warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings")
+
     - [MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.mysql "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.mysql")
     - [Aurora MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.aurora "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-warnings.aurora")
 
@@ -55,11 +58,14 @@ for the upgrade to complete. For more information on precheck performance consid
   - [Errors, warnings, or notices](AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-all "AuroraMySQL.upgrade-prechecks.descriptions.md#precheck-descriptions-all")
 
 - [Precheck descriptions for upgrading Aurora MySQL version 3 to version 8.4](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md")
+
   - [Errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors")
+
     - [MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.mysql "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.mysql")
     - [Aurora MySQL prechecks that report errors](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.aurora "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-errors.aurora")
 
   - [Warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings")
+
     - [MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.mysql "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.mysql")
     - [Aurora MySQL prechecks that report warnings](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.aurora "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#precheck-v84-warnings.aurora")
 
@@ -110,6 +116,7 @@ The log file has the following format:
 - `id` – The name of the precheck being run.
 - `title` – A description of the precheck being run.
 - `status` – This doesn't indicate whether the precheck succeeded or failed, but shows the status of the precheck query:
+
   - `OK` – The precheck query ran and completed successfully.
   - `ERROR` – The precheck query failed to run. This can occur because of issues such as resource constraints, unexpected
     instance restarts, or the compatibility precheck query being interrupted.
@@ -121,7 +128,9 @@ The log file has the following format:
   information, see [Precheck descriptions for upgrading Aurora MySQL version 2 to version 3](AuroraMySQL.upgrade-prechecks.descriptions.md "AuroraMySQL.upgrade-prechecks.descriptions.md").
 - `detectedProblems` – If the precheck returns an error, warning, or notice, this shows details of the incompatibility, and
   incompatible objects where applicable:
+
   - `level` – The level of the incompatibility detected by the precheck. Valid levels are the following:
+
     - `Error` – The upgrade can't proceed until you resolve the incompatibility.
     - `Warning` – The upgrade can proceed, but a deprecated object, syntax, or configuration was detected. Review warnings
       carefully, and resolve them soon to avoid issues in future releases.

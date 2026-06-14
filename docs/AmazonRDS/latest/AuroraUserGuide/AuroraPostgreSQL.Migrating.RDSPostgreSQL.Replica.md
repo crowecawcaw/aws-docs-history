@@ -208,6 +208,7 @@ these parameters are required.
   Amazon Resource Name (ARN). For more information about Amazon RDS ARNs, see [Amazon Relational Database Service
   (Amazon RDS)](../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-rds "../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-rds") in the _AWS General Reference_. of your DB cluster.
 - `--storage-encrypted` – Optional. Use only when needed to specify encryption as follows:
+
   - Use this parameter when the source DB instance has encrypted storage. The call to
     [`create-db-cluster`](../../../cli/latest/reference/rds/create-db-cluster.md "../../../cli/latest/reference/rds/create-db-cluster.md") fails if
     you don't use this parameter with a source DB instance that has

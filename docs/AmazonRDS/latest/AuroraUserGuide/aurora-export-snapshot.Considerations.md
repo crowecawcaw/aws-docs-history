@@ -16,6 +16,7 @@ Exporting DB snapshot data to Amazon S3 has the following limitations:
 
 - If a database, schema, or table has characters in its name other than the following, partial export isn't
   supported. However, you can export the entire DB snapshot.
+
   - Latin letters (A–Z)
   - Digits (0–9)
   - Dollar symbol ($)

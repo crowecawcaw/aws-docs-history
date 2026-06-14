@@ -37,6 +37,7 @@ approaches.
 
 - [Connecting to Aurora DB clusters with the AWS drivers](Aurora.Connecting.md#Aurora.Connecting.Drivers "Aurora.Connecting.md#Aurora.Connecting.Drivers")
 - [Connecting to an Amazon Aurora MySQL DB cluster](Aurora.Connecting.md#Aurora.Connecting.AuroraMySQL "Aurora.Connecting.md#Aurora.Connecting.AuroraMySQL")
+
   - [Connection utilities for Aurora MySQL](Aurora.Connecting.md#Aurora.Connecting.AuroraMySQL.Utilities "Aurora.Connecting.md#Aurora.Connecting.AuroraMySQL.Utilities")
   - [Connecting to Aurora MySQL with the MySQL utility](Aurora.Connecting.md#Aurora.Connecting.mysql "Aurora.Connecting.md#Aurora.Connecting.mysql")
   - [Connecting to Aurora MySQL with the Amazon Web Services (AWS) JDBC Driver](Aurora.Connecting.md#Aurora.Connecting.JDBCDriverMySQL "Aurora.Connecting.md#Aurora.Connecting.JDBCDriverMySQL")
@@ -46,6 +47,7 @@ approaches.
   - [Connecting to Aurora MySQL using SSL](Aurora.Connecting.md#Aurora.Connecting.SSL "Aurora.Connecting.md#Aurora.Connecting.SSL")
 
 - [Connecting to an Amazon Aurora PostgreSQL DB cluster](Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL")
+
   - [Connection utilities for Aurora PostgreSQL](Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL.Utilities "Aurora.Connecting.md#Aurora.Connecting.AuroraPostgreSQL.Utilities")
   - [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) JDBC Driver](Aurora.Connecting.md#Aurora.Connecting.JDBCDriverPostgreSQL "Aurora.Connecting.md#Aurora.Connecting.JDBCDriverPostgreSQL")
   - [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Python Driver](Aurora.Connecting.md#Aurora.Connecting.PythonDriverPostgreSQL "Aurora.Connecting.md#Aurora.Connecting.PythonDriverPostgreSQL")
@@ -156,6 +158,7 @@ Some connection utilities you can use are the following:
   utility to connect by using a UI interface. For more information, see the [Download MySQL
   workbench](http://dev.mysql.com/downloads/workbench/ "http://dev.mysql.com/downloads/workbench/") page.
 - **AWS drivers**:
+
   - [Connecting to Aurora MySQL with the Amazon Web Services (AWS) JDBC Driver](#Aurora.Connecting.JDBCDriverMySQL "#Aurora.Connecting.JDBCDriverMySQL")
   - [Connecting to Aurora MySQL with the Amazon Web Services (AWS) Python Driver](#Aurora.Connecting.PythonDriverMySQL "#Aurora.Connecting.PythonDriverMySQL")
   - [Connecting to Aurora MySQL with the Amazon Web Services (AWS) ODBC Driver for MySQL](#Aurora.Connecting.ODBCDriverMySQL "#Aurora.Connecting.ODBCDriverMySQL")
@@ -368,6 +371,7 @@ Some connection utilities you can use are the following:
   utility to connect to Aurora PostgreSQL DB clusters by using a UI interface. For
   more information, see the [Download](https://www.pgadmin.org/download/ "https://www.pgadmin.org/download/") page from the pgAdmin website.
 - **AWS drivers**:
+
   - [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) JDBC Driver](#Aurora.Connecting.JDBCDriverPostgreSQL "#Aurora.Connecting.JDBCDriverPostgreSQL")
   - [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Python Driver](#Aurora.Connecting.PythonDriverPostgreSQL "#Aurora.Connecting.PythonDriverPostgreSQL")
   - [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Advanced NodeJS Wrapper](#Aurora.Connecting.NodeJSDriverPostgreSQL "#Aurora.Connecting.NodeJSDriverPostgreSQL")

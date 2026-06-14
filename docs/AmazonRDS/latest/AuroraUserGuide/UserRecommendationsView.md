@@ -17,7 +17,7 @@ resources. For a DB cluster, the recommendations appear for the DB cluster and i
 
 
 
-        ![Select Recommendations in the console.](images/recommendations-select.png)
+        ![The Recommendations page in the console.](images/recommendations-select.png)
 
         By default, the **Recommendations** page displays a list of
          new recommendations in the last month. Amazon Aurora gives recommendations for all the resources in your account and sorts the recommendations by their severity.

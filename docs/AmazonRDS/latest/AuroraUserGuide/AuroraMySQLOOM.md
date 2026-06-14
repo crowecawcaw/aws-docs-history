@@ -8,6 +8,7 @@ memory is low. These actions help prevent database unavailability due to memory 
 The following parameters control this behavior:
 
 - `aurora_enable_memory_management` – Available only in Aurora MySQL 8.4.
+
   - When `ON` (default), Aurora automatically manages memory recovery actions and
     the `aurora_oom_response` parameter is ignored.
   - Set to `OFF` to manually control recovery actions through

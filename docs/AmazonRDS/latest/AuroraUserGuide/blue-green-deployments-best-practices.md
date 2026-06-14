@@ -43,6 +43,7 @@ Aurora MySQL
 DB cluster.
 
 - If the green environment experiences replica lag, consider the following:
+
   - Disable binary log retention if it's not needed, or temporarily disable it until
     replication catches up. To do so, set the `binlog_format` DB cluster
     parameter back to `0` and reboot the green writer DB instance.
@@ -62,6 +63,7 @@ Aurora PostgreSQL DB cluster.
 - Increase the value of the `logical_decoding_work_mem` DB parameter in the
   blue environment. Doing so allows for less decoding on disk and instead uses memory. For
   more information, see [Adjusting working memory for logical decoding](AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem "AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.md#AuroraPostgreSQL.BestPractices.Tuning-memory-parameters.logical-decoding-work-mem").
+
   - You can monitor transaction overflow being written to disk using the
     `ReplicationSlotDiskUsage` CloudWatch metric. This metric offers insights
     into the disk usage of replication slots, helping identify when transaction data
@@ -87,6 +89,7 @@ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   duplication.
 - Long-running transactions can cause significant replica lag. To reduce replica lag,
   consider doing the following:
+
   - Reduce long-running transactions and subtransactions that can be delayed until
     after the green environment catches up to the blue environment.
   - Reduce bulk operations on the blue environment until after the green environment

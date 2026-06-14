@@ -5,9 +5,11 @@ You can back up and restore a DB cluster that uses Aurora PostgreSQL Limitless D
 ###### Contents
 
 - [Backing up a DB cluster that uses Aurora PostgreSQL Limitless Database](limitless-bak.md#limitless-backup "limitless-bak.md#limitless-backup")
+
   - [Creating a DB cluster snapshot](limitless-bak.md#limitless-backup-snapshot "limitless-bak.md#limitless-backup-snapshot")
 
 - [Restoring a DB cluster that uses Aurora PostgreSQL Limitless Database](limitless-bak.md#limitless-restore "limitless-bak.md#limitless-restore")
+
   - [Restoring a DB cluster from a DB snapshot](limitless-bak.md#limitless-restore-snapshot "limitless-bak.md#limitless-restore-snapshot")
   - [Restoring a DB cluster using point-in-time recovery](limitless-bak.md#limitless-restore-pitr "limitless-bak.md#limitless-restore-pitr")
 

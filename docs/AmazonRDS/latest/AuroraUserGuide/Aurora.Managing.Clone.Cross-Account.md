@@ -160,6 +160,7 @@ organization, include the `--allow-external-principals` or
 2. Call the AWS RAM API operation
    [CreateResourceShare](../../../ram/latest/APIReference/API_CreateResourceShare.md "../../../ram/latest/APIReference/API_CreateResourceShare.md"),
    and specify the following values:
+
    - Specify the account ID for one or more AWS accounts as the
      `principals` parameter.
    - Specify the ARN for one or more Aurora DB clusters as the

@@ -79,7 +79,7 @@ page.
 
 
 
-    ![Choose an Amazon Machine Image.](images/Tutorial_WebServer_12.png)
+    ![The Amazon Machine Image selection.](images/Tutorial_WebServer_12.png)
     3. Under **Instance type**, choose **t2.micro**.
     4. Under **Key pair (login)**, choose a **Key pair name** to use an existing key
      pair. To create a new key pair for the Amazon EC2 instance, choose **Create new key pair**
@@ -215,7 +215,7 @@ DB cluster to show its details.
 The writer instance has a status of **Creating** until the
 DB cluster is ready to use.
 
-![DB cluster details showing Region & AZ and Status.](images/creating-status-aurora-postgresql.png)
+![DB cluster details showing Region and AZ and Status.](images/creating-status-aurora-postgresql.png)
 
 When the status of the writer instance changes to **Available**, you can
 connect to the DB cluster. Depending on the DB instance class and the amount
@@ -264,6 +264,7 @@ Follow the steps below:
 2. Choose **Create Stack**.
 3. In the Specify template section, select **Upload a template file from your computer**, and then choose **Next**.
 4. In the **Specify stack details** page, set the following parameters:
+
    1. Set **Stack name** to **AurPostgreSQLTestStack**.
    2. Under **Parameters**, set **Availability Zones** by selecting two availability zones.
    3. Under **Linux Bastion Host configuration**, for **Key Name**, select a key pair to login to your EC2 instance.
@@ -299,6 +300,7 @@ connect to the Aurora PostgreSQL DB cluster using the psql command line client.
 ###### To connect to the Aurora PostgreSQL DB cluster
 
 1. Find the endpoint (DNS name) and port number of the writer instance for your DB cluster.
+
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the upper-right corner of the Amazon RDS console, choose the AWS Region for the DB cluster.
@@ -308,7 +310,7 @@ connect to the Aurora PostgreSQL DB cluster using the psql command line client.
       of the writer instance. Also, note the port number. You need both the endpoint and
       the port number to connect to the DB cluster.
 
-   ![Connectivity & security tab showing endpoint name.](images/AuroraPostgreSQLLaunch01.png)
+   ![Connectivity and security tab showing endpoint name.](images/AuroraPostgreSQLLaunch01.png)
 
 2. Connect to the EC2 instance that you created earlier by following the steps in
    [Connect to your Linux

@@ -252,6 +252,7 @@ If you disable the `rds_iam` role for the master username, you will lose access 
 - Clusters with express configuration only support creating an Aurora serverless instance. You can modify the instance type or add instances after the database is created.
 - Clusters with express configuration only support the default parameter group. The parameter group can be updated after the database is created.
 - The following features are not supported with clusters created with express configuration as they are not associated with a VPC.
+
   - Aurora limitless database
   - Aurora global database
   - RDS Proxy

@@ -5,6 +5,7 @@ following:
 
 1. Create an IAM policy that grants permission to the AWS service. For more
    information, see the following topics.
+
    - [Creating an IAM policy to access Amazon S3 resources](AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy.md "AuroraMySQL.Integrating.Authorizing.IAM.S3CreatePolicy.md")
    - [Creating an IAM policy to access AWS Lambda resources](AuroraMySQL.Integrating.Authorizing.IAM.LambdaCreatePolicy.md "AuroraMySQL.Integrating.Authorizing.IAM.LambdaCreatePolicy.md")
    - [Creating an IAM policy to access CloudWatch Logs resources](AuroraMySQL.Integrating.Authorizing.IAM.CWCreatePolicy.md "AuroraMySQL.Integrating.Authorizing.IAM.CWCreatePolicy.md")

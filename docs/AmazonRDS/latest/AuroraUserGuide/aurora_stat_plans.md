@@ -23,6 +23,7 @@ Returns a row for each tracked plan that contains all the columns from
 - planid – plan identifier
 - explain_plan – explain plan text
 - plan_type:
+
   - `no plan` - no plan was captured
   - `estimate` - plan captured with estimated costs
   - `actual` - plan captured with EXPLAIN ANALYZE

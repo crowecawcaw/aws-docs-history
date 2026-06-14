@@ -10,6 +10,7 @@ when new plans get approved for use.
 ###### Contents
 
 - [Proactive plan management to help prevent performance regression](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Proactive "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Proactive")
+
   - [Ensuring plan stability after a major version upgrade](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.MajorVersionUpgrade")
 
 - [Reactive plan management to detect and repair performance regressions](AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Reactive "AuroraPostgreSQL.Optimize.BestPractice.md#AuroraPostgreSQL.Optimize.BestPractice.Reactive")

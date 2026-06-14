@@ -27,6 +27,7 @@ following steps:
 4. On the **Connection** tab, enter the following
    information from your Aurora PostgreSQL
    database.
+
    - For **Host**, enter the endpoint for the
      Writer instance of your
      Aurora PostgreSQL DB cluster.
@@ -49,7 +50,6 @@ following steps:
    ```
    `AUR-cluster-instance`.`111122223333`.`aws-region`.corp.example.com
    ```
-
    - For **Port**, enter the assigned port.
    - For **Maintenance database**, enter the name
      of the initial database to which the client will connect.

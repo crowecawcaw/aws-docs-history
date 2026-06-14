@@ -69,11 +69,15 @@ To find Aurora MySQL DB clusters running Aurora MySQL version 2, use the RDS
 parameters:
 
 - `DescribeDBClusters`
+
   - Filters.Filter.N
+
     - Name
+
       - engine
 
     - Values.Value.N
+
       - ['aurora']
 
 ## Amazon RDS Extended Support

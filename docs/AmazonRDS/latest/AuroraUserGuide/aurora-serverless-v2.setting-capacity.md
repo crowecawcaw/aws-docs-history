@@ -10,12 +10,14 @@ Before you use these procedures, make sure that you are familiar with how Aurora
 ###### Contents
 
 - [Choosing the Aurora serverless capacity range for an Aurora cluster](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-for-cluster")
+
   - [Choosing the minimum Aurora serverless capacity setting for a cluster](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.min_capacity_considerations "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.min_capacity_considerations")
   - [Choosing the maximum Aurora serverless capacity setting for a cluster](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max_capacity_considerations "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max_capacity_considerations")
   - [Example: Change the Aurora serverless capacity range of an Aurora MySQL cluster](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-walkthrough-ams "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-walkthrough-ams")
   - [Example: Change the Aurora serverless capacity range of an Aurora PostgreSQL cluster](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-walkthrough-apg "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-examples-setting-capacity-range-walkthrough-apg")
 
 - [Working with parameter groups for Aurora serverless](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.parameter-groups "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.parameter-groups")
+
   - [Default parameter values](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.parameter-groups-defaults "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.parameter-groups-defaults")
   - [Maximum connections for Aurora serverless](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.max-connections")
   - [Parameters that Aurora adjusts as Aurora serverless scales up and down](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.parameters-based-on-scaling "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.parameters-based-on-scaling")
@@ -23,6 +25,7 @@ Before you use these procedures, make sure that you are familiar with how Aurora
 
 - [Avoiding out-of-memory errors](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.setting-capacity.incompatible_parameters "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.setting-capacity.incompatible_parameters")
 - [Important Amazon CloudWatch metrics for Aurora serverless](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2.viewing.monitoring")
+
   - [How Aurora serverless metrics apply to your AWS bill](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-billing "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-billing")
   - [Examples of CloudWatch commands for Aurora serverless metrics](aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-cw-examples "aurora-serverless-v2.setting-capacity.md#aurora-serverless-v2-cw-examples")
 
@@ -819,6 +822,7 @@ can determine where to focus your efforts for optimizing the efficiency of your 
   percentage. It's calculated as the value of the `ServerlessDatabaseCapacity` metric
   divided by the maximum ACU value of the DB cluster. Consider the following guidelines to interpret this
   metric and take action:
+
   - If this metric approaches a value of `100.0`, the DB instance has scaled up as high as it
     can. Consider increasing the maximum ACU setting for the cluster. That way, both writer and reader DB
     instances can scale to a higher capacity.

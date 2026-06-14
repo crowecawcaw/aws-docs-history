@@ -109,7 +109,7 @@ the **Status** value changes to **Active**.
 To see information about your directory, choose the directory name in the directory listing. Note the **Directory
 ID** value because you need this value when you create or modify your Aurora MySQL DB cluster.
 
-![Directory ID in the Directory details page.](images/WinAuth3.png)
+![Directory ID in the Directory details page.](/images/AmazonRDS/latest/AuroraUserGuide/images/WinAuth3.png)
 
 ## Step 2: (Optional) Create a trust for an on-premises Active Directory
 
@@ -127,6 +127,7 @@ If you use an on-premises Microsoft Active Directory:
 
 - Windows clients can't connect using Aurora custom endpoints. To learn more, see [Amazon Aurora endpoint connections](Aurora.Overview.Endpoints.md "Aurora.Overview.Endpoints.md").
 - For [global databases](aurora-global-database.md "aurora-global-database.md"):
+
   - Windows clients can connect using instance endpoints or cluster endpoints in the primary AWS Region
     of the global database only.
   - Windows clients can't connect using cluster endpoints in secondary AWS Regions.
@@ -332,6 +333,7 @@ To configure a MySQL client, take the following steps:
 1. Create a `krb5.conf` file (or equivalent) to point to the domain.
 2. Verify that traffic can flow between the client host and Directory Service. Use a network utility such as Netcat, for the
    following:
+
    - Verify traffic over DNS for port 53.
    - Verify traffic over TCP/UDP for port 53 and for Kerberos, which includes ports 88 and 464 for
      Directory Service.

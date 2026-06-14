@@ -168,6 +168,7 @@ You can use the RDS API to work with reserved DB instances:
 - After you have information about the available reserved DB instance offerings, you can use the information to
   purchase an offering. Call the [`PurchaseReservedDBInstancesOffering`](../APIReference/API_PurchaseReservedDBInstancesOffering.md "../APIReference/API_PurchaseReservedDBInstancesOffering.md") RDS API operation with the following
   parameters:
+
   - `--reserved-db-instances-offering-id` – The ID of the offering that you want to
     purchase.
   - `--reserved-db-instance-id` – You can assign your own identifier to the reserved DB

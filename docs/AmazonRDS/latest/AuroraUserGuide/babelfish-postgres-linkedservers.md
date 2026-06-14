@@ -57,6 +57,7 @@ Stored procedures
 
 - sp_addlinkedserver – Babelfish doesn't support the `@provstr` parameter.
 - sp_addlinkedsrvlogin
+
   - You must provide an explicit
     remote username and password to connect to the remote data source. You can't connect with the user's self credentials. Babelfish
     supports only `@useself = false`.
@@ -70,6 +71,7 @@ Stored procedures
   support the `@locallogin` parameter since configuring remote server access
   specific to local login isn't supported.
 - sp_serveroption – Babelfish supports the following server options:
+
   - query timeout (from Babelfish version 3.2.0)
   - connect timeout (from Babelfish version 3.3.0)
 

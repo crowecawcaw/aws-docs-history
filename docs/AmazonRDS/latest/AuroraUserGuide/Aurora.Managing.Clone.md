@@ -248,6 +248,7 @@ CLI command to create the initial clone cluster.
   `restore-db-cluster-to-point-in-time`
   CLI command. Specify values for the following parameters. In this typical case, the clone uses the same
   engine mode as the original cluster, either provisioned or Aurora serverless.
+
   - `--db-cluster-identifier` – Choose a meaningful name for your clone. You name the
     clone when you use the
     [restore-db-cluster-to-point-in-time](../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-cluster-to-point-in-time.md")

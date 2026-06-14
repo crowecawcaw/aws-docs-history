@@ -13,6 +13,7 @@ After creating your target database, use the following steps to set up the data 
 2. Choose the **Actions** dropdown and select the **Migrate data from EC2 database** option.
    To see the supported target databases, see [Limitations](USER_DMS_migration.md#USER_DMS_migration-Limitations "USER_DMS_migration.md#USER_DMS_migration-Limitations").
 3. Under the **Select source EC2 database** section:
+
    1. Check the **Engine type** and make sure it is the same as your source database.
 
    Also, check if the engine versions are compatible. 2. For **EC2 instance**, choose the EC2 instance where your source database resides. 3. For **Port**, enter the port on which your source database allows traffic. 4. For **Secret**, choose **Create and use a new secret** if you
@@ -29,6 +30,7 @@ After creating your target database, use the following steps to set up the data 
    You can see the permissions associated with this role in the link below.**
 
 4. Under the **View target RDS database** section:
+
    1. Confirm the settings of your target database at the top of the section.
    2. For **Secret**, choose **Create and use a new secret** if you
       don't have an existing secret that holds your target database credentials.
@@ -40,6 +42,7 @@ After creating your target database, use the following steps to set up the data 
    in the format `arn:aws:iam:`account_id`:role/`roleName``.
 
 5. Under the **Configure data migration** section:
+
    1. Select the type of data migration by selecting between **Full load**, **Full load and
       change data capture (CDC)**, or **Change data capture (CDC)**.
       For more information about these options, see [Overview](USER_DMS_migration.md#USER_DMS_migration-overview "USER_DMS_migration.md#USER_DMS_migration-overview").
