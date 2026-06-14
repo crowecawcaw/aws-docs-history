@@ -242,6 +242,7 @@ Amazon Inspector
 - **Workload types**: Azure virtual machines (Windows
   and Linux)
 - **Protection capabilities**:
+
   - Vulnerability scanning through Inspector (for VMs with SSM Agent)
   - Runtime protection through Systems Manager (patch management, compliance monitoring)
   - Threat detection through GuardDuty correlation (network-level analysis)
@@ -265,6 +266,7 @@ Amazon Inspector
 - **Workload types**: GCP Compute Engine (Windows and
   Linux virtual machines)
 - **Protection capabilities**:
+
   - Vulnerability scanning through Inspector (for VMs with SSM Agent)
   - Runtime protection through Systems Manager (patch management, compliance monitoring)
   - Threat detection through GuardDuty correlation (network-level analysis)

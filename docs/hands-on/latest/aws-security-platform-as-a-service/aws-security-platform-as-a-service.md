@@ -37,16 +37,20 @@ For this tutorial, you'll need:
 - Active subscriptions to Microsoft Azure and Google Cloud Platform
 - [AWS
   CLI](../../../cli/latest/userguide/install-cliv2.md "../../../cli/latest/userguide/install-cliv2.md") installed
+
   - See [Installing or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
 
 - Node.js: Version 18.x or later
+
   - Download from [nodejs.org](https://nodejs.org/en/download "https://nodejs.org/en/download")
 
 - AWS CDK: Installed globally
+
   - Installation command: `npm install -g aws-cdk`
 
 - Security Lake: Preconfigured Amazon Security Lake instance with an Amazon S3
   bucket
+
   - See [Getting started with Amazon Security Lake](../../../security-lake/latest/userguide/getting-started.md "../../../security-lake/latest/userguide/getting-started.md")
 
 - AWS Lake Formation: Admin role configured for Security Lake operations
