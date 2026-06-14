@@ -49,6 +49,7 @@ open a dashboard to change it, see [Edit a dashboard](#editing-dashboards "#edit
 
 1. Browse the list of project assets on the right side of the dashboard. When you find a
    property or alarm to visualize, drag it to the dashboard.
+
    - The default visualization type for properties is the [line chart](choose-visualization-types.md#line-charts "choose-visualization-types.md#line-charts").
    - The default visualization type for alarms is the [status grid widget](choose-visualization-types.md#status-grid-chart "choose-visualization-types.md#status-grid-chart").
 

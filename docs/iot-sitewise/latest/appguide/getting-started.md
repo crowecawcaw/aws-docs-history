@@ -33,6 +33,7 @@ assets.
 You can choose one of the following to sign in to the AWS IoT SiteWise Monitor portal:
 
 - Use your IAM Identity Center identity.
+
   1.  Open the email that contains the link to the portal and open the web portal.
   2.  In the dialog box, for **Email**, enter your
       enterprise email address.
@@ -43,6 +44,7 @@ You can choose one of the following to sign in to the AWS IoT SiteWise Monitor p
   so that you can perform the tasks allowed for your role.
 
 - Use your IAM identity.
+
   - ###### If you use an IAM user, do the following:
     1. Open the link to the portal and open the web portal.
        You might have received an email that contains the link.

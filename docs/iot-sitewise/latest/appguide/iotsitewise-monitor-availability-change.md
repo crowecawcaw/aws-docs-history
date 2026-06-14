@@ -103,6 +103,7 @@ group access to Amazon Managed Grafana workspaces](../../../grafana/latest/userg
    updates, aggregated measurements, and your asset hierarchy navigation.
 2. After you've confirmed that your data is in Amazon Managed Grafana, delete your SiteWise Monitor resources in
    the following order:
+
    1. Delete projects within portals. For more information, see [DeleteProject](../APIReference/API_DeleteProject.md "../APIReference/API_DeleteProject.md") in the _AWS IoT SiteWise API Reference_.
    2. Delete all access policies of the projects. For more information, see [DeleteAccessPolicy](../APIReference/API_DeleteAccessPolicy.md "../APIReference/API_DeleteAccessPolicy.md") in the _AWS IoT SiteWise API Reference_.
    3. Delete all dashboards of the projects. For more information, see [DeleteDashboard](../APIReference/API_DeleteDashboard.md "../APIReference/API_DeleteDashboard.md") in the _AWS IoT SiteWise API Reference_.
