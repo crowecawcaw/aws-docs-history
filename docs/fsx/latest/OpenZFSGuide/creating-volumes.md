@@ -62,6 +62,7 @@ To provide additional client configurations:
     record size setting, see [Configurable volume properties](#volume-properties "#volume-properties").
 14. For **User and group quotas**, you can set a storage quota for
     a user or group:
+
     1.  For **Quota type**, choose `USER` or
         `GROUP`.
     2.  For **User or group ID**, choose a number that is
@@ -74,6 +75,7 @@ To provide additional client configurations:
 15. To create a volume from an existing volume snapshot, use **Source snapshot ID - optional**, to specify the
     ID of a snapshot from which to create a volume. Then choose a **Source snapshot copy strategy**
     option for the type of volume you're creating:
+
     - **Clone** creates a clone volume. The snapshot
       will provide the seed content for the volume.
     - **Full copy** creates a volume that will

@@ -86,6 +86,7 @@ You can provide additional client configurations for the volume:
     record size setting, see [Configurable volume properties](creating-volumes.md#volume-properties "creating-volumes.md#volume-properties").
 11. For **User and group quotas**, you can change or set a storage quota for
     a user or group:
+
     1.  For **Quota type**, choose `USER` or
         `GROUP`.
     2.  For **User or group ID**, enter a number that is

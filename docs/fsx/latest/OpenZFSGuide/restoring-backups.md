@@ -31,6 +31,7 @@ Restoring from a backup with a given storage class to a file system with a diffe
     capacity of the original file of which the backup was taken, in GiB. The range of valid values is 64–524288 GiB.
 6.  For **Provisioned SSD IOPS**, you have two options to provision
     the number of IOPS for your file system:
+
     - Choose **Automatic** (the default) if you
       want Amazon FSx to automatically provision 3 IOPS per GiB of SSD storage.
     - Choose **User-provisioned** if you want to specify the number of IOPS. You
@@ -63,6 +64,7 @@ Restoring from a backup with a given storage class to a file system with a diffe
 
 8.  In the **Network & security** section, provide networking and
     security group information:
+
     - For **Virtual Private Cloud (VPC)**, choose the Amazon VPC that
       you want to associate with your file system.
     - For **VPC Security Groups**, the ID for the default security group
@@ -134,6 +136,7 @@ following options for the file system's root volume:
 11. In **Backup and maintenance -
     _optional_**, you can set the
     following options:
+
     - For **Daily automatic backup**, choose
       **Enabled** for automatic daily backups.
       This option is enabled by default.

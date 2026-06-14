@@ -126,10 +126,12 @@ You can request an increase for all AWS account quotas. You can also request an 
    in if necessary, and then choose **Create case**.
 2. For **Create case**, choose **Account and billing support**.
 3. In the **Case details** panel make the following entries:
+
    - For **Type** choose **Account**.
    - For **Category** choose **Other Account Issues**.
    - For **Subject** enter `Amazon FSx for OpenZFS service limit increase request`.
    - Provide a detailed **Description** of your request, including:
+
      - The FSx quota that you want increased, and the value you want it increased to, if known.
      - The reason why you are seeking the quota increase.
      - The file system ID and region for each file system you are requesting an increase for.

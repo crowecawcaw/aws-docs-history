@@ -36,10 +36,12 @@ The command completed successfully.
    administrator, and run the following Robocopy command to copy
    all the files on the source share to the target share. The example command uses the following
    elements and options:
+
    - Y – Refers to the source share located in the on-premises Active Directory forest
      mydata.com.
    - Z – Refers to the target share \\amznfsxabcdef1.mydata.com\share on Amazon FSx.
    - /copy – Specifies the following file properties to be copied:
+
      - D – data
      - A – attributes
      - T – timestamps

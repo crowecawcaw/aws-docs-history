@@ -44,14 +44,13 @@ The `AWS/FSx` namespace includes the following file server metrics.
 
 The `AWS/FSx` namespace includes the following disk metrics.
 
-| Metric                  | Description                                                                                                                                                                                                             |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DiskReadBytes`         | The number of bytes for read operations that access storage volumes.<br>Unit: Bytes<br>Valid statistic: `Sum`                                                                                                           |
-| `DiskWriteBytes`        | The number of bytes for write operations that access storage volumes.<br>Unit: Bytes<br>Valid statistic: `Sum`                                                                                                          |
-| `DiskReadOperations`    | The number of read operations for the file server that accesses storage<br>volumes.<br>Unit: Count<br>Valid statistic: `Sum`                                                                                            |
-| `DiskWriteOperations`   | The number of write operations for the file server that accesses storage<br>volumes.<br>Unit: Count<br>Valid statistic: `Sum`                                                                                           |
-| `DiskThroughputBalance` | The percentage of available burst credits for disk throughput for the storage volumes.<br>Unit: Percent<br>Valid statistics: `Average`, `Minimum`                                                                       |
-| `DiskIopsUtilization`   | The disk IOPS between your ﬁle server and storage volumes, as a percentage of the provisioned<br>IOPS limit that has been determined by the storage volumes.<br>Unit: Percent<br>Valid statistics: `Average`, `Maximum` |
+| Metric                | Description                                                                                                                                                                                                             |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DiskReadBytes`       | The number of bytes for read operations that access storage volumes.<br>Unit: Bytes<br>Valid statistic: `Sum`                                                                                                           |
+| `DiskWriteBytes`      | The number of bytes for write operations that access storage volumes.<br>Unit: Bytes<br>Valid statistic: `Sum`                                                                                                          |
+| `DiskReadOperations`  | The number of read operations for the file server that accesses storage<br>volumes.<br>Unit: Count<br>Valid statistic: `Sum`                                                                                            |
+| `DiskWriteOperations` | The number of write operations for the file server that accesses storage<br>volumes.<br>Unit: Count<br>Valid statistic: `Sum`                                                                                           |
+| `DiskIopsUtilization` | The disk IOPS between your ﬁle server and storage volumes, as a percentage of the provisioned<br>IOPS limit that has been determined by the storage volumes.<br>Unit: Percent<br>Valid statistics: `Average`, `Maximum` |
 
 ## FSx for OpenZFS storage capacity metrics
 

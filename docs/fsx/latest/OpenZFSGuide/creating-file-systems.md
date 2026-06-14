@@ -174,6 +174,7 @@ feature under their FSx settings.
 1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
 2. In the navigation pane, choose **Settings**.
 3. Locate the **Multi-AZ shared VPC settings** on the **Settings** page.
+
    - To enable VPC sharing for Multi-AZ file systems in VPC subnets that you share, choose
      **Enable**.
    - To disable VPC sharing for Multi-AZ file systems in all VPCs that you own, choose

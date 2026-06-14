@@ -65,6 +65,7 @@ Quick create (recommended)
     **/**.
 5.  For **Storage class**, select **Intelligent-Tiering (elastic)**
     or **SSD (provisioned)**.
+
     - **Intelligent-Tiering (elastic)** offers fully elastic storage that is
       suitable for most workloads, as well as an optional SSD read cache that provides SSD latencies for
       reads of frequently accessed data. With Intelligent-Tiering, you are billed for the data you store,
@@ -129,6 +130,7 @@ letters, white space, and numbers, plus these special characters: +
 
 6.  For **Storage class**, select **Intelligent-Tiering (elastic)**
     or **SSD (provisioned)**.
+
     - **Intelligent-Tiering (elastic)** offers fully elastic, cost-effective storage
       that is suitable for most workloads, as well as an optional SSD read cache that provides SSD latencies for
       reads of frequently accessed data. With Intelligent-Tiering, you are billed for the data you store, depending
@@ -154,6 +156,7 @@ letters, white space, and numbers, plus these special characters: +
     system, in gibibytes (GiBs). Enter any whole number in the range of 64–524,288.
 9.  For **Provisioned SSD IOPS** (SSD (provisioned) only), you have two
     options to provision the number of IOPS for your file system:
+
     - Choose **Automatic** (the default) if you
       want Amazon FSx to automatically provision 3 IOPS per GB of SSD
       storage.
@@ -196,6 +199,7 @@ letters, white space, and numbers, plus these special characters: +
     Custom to customize the size of the SSD read cache. If your workload is not latency-sensitive, you can also choose None to create an elastic file system without an SSD cache and reduce costs.
 12. In the **Network & security** section,
     provide networking and security group information:
+
     - For **Virtual Private Cloud (VPC)**,
       choose the Amazon VPC that you want to associate with your
       file system.
@@ -219,6 +223,7 @@ letters, white space, and numbers, plus these special characters: +
       specifies the IPv4 address range in which the endpoints to access your
       file system are created. You have three options for the endpoint
       IPv4 address range:
+
       - **Unallocated IPv4 address range from your
         VPC** – Amazon FSx chooses a block of 16 available IPv4 addresses
         from the VPC’s IPv4 CIDR range to use as the endpoint IPv4 address range for the file system.
@@ -233,6 +238,7 @@ letters, white space, and numbers, plus these special characters: +
       specifies the IPv6 address range in which the endpoints to access your
       file system are created. You have two options for the endpoint
       IPv6 address range:
+
       - **Unallocated IPv6 address range from your
         VPC** – Amazon FSx chooses a block of 1024 available IPv6 addresses
         from one of the VPC’s IPv6 CIDR ranges to use as the endpoint IPv6 address range
@@ -248,6 +254,7 @@ letters, white space, and numbers, plus these special characters: +
     rest.
 14. For **Root volume configuration**, you can set
     the following options for the file system's root volume:
+
     - For **Data compression type**, choose the
       type of compression to use for your volume—either
       **Zstandard**,
@@ -298,6 +305,7 @@ letters, white space, and numbers, plus these special characters: +
       size, see [Configurable volume properties](creating-volumes.md#volume-properties "creating-volumes.md#volume-properties").
     - For **User and group quotas**, you can
       set a storage quota for a user or group:
+
       1. For **Quota type**, choose
          `USER` or `GROUP`.
       2. For **User or group ID**, choose
@@ -311,6 +319,7 @@ letters, white space, and numbers, plus these special characters: +
 15. In **Backup and maintenance -
     _optional_**, you can set the
     following options:
+
     - For **Daily automatic backup**, choose
       **Enabled** for automatic daily
       backups. This option is enabled by default.
@@ -370,6 +379,7 @@ Linux client
 4. Open a terminal on your Amazon EC2 instance using secure shell (SSH), and log in with the
    appropriate credentials.
 5. If you are using CentOS, RedHat, or Ubuntu, install the NFS client. This step is not necessary if you are using the latest version of the Amazon Linux 2.
+
    - For CentOS and RedHat use the following command: **sudo yum –y install nfs-utils**
    - For Ubuntu use this command: **sudo apt-get -y install nfs-common**
 
@@ -382,6 +392,7 @@ Linux client
 
 7. Use the following `mount` command to mount your Amazon FSx for OpenZFS file system
    to the directory that you created. Replace the following:
+
    - Replace `nfs-version` with an NFS protocol version, such as
      `4.2`.
    - Replace `fs-dns-name` with the DNS name or the IP address
@@ -530,6 +541,7 @@ see [Deleting an S3 access point attachment](delete-access-point.md "delete-acce
 3. On the Amazon FSx console, delete your file system. When you delete a file system, all
    volumes and automatic backups are deleted automatically. However, you still must delete any manually
    created backups. The following steps outline this process.
+
    1. From the console dashboard, choose the name of the file system that you created for this
       exercise.
    2. For **Actions**, choose **Delete file

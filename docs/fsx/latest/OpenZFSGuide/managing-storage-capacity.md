@@ -67,6 +67,7 @@ and provisioned IOPS:
   manually [increase storage](updating-volumes.md "updating-volumes.md") on the root volume and any other volumes in your file system.
 - **Provisioned IOPS modes** – For a provisioned IOPS
   change, you must specify a mode. The two IOPS modes are the following:
+
   - **Automatic** mode – Amazon FSx automatically
     scales your SSD IOPS to maintain 3 SSD IOPS per GiB of storage
     capacity, up to the maximum number of IOPS for your file system.
@@ -133,6 +134,7 @@ The **Update SSD storage capacity and IOPS** dialog box appears. 4. To increase 
 
 6. For **Provisioned SSD IOPS**, you have two options to modify
    the number of provisioned SSD IOPS for your file system:
+
    - If you want Amazon FSx to automatically scale your SSD IOPS to maintain 3 provisioned SSD IOPS per
      GiB of primary storage capacity, up to a maximum of 160,000 for Single-AZ 1 (non-HA and HA) and 400,000 for Single-AZ 2 (non-HA) and Multi-AZ (HA)\*, choose **Automatic**.
    - If you want to specify the number of SSD IOPS, choose **User-provisioned**.

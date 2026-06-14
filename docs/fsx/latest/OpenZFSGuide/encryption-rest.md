@@ -43,6 +43,7 @@ AWS KMS keys to encrypt your file system in the following way:
   data at-rest are unique per file system and destroyed after the file system is deleted.
   You can enable, disable, or revoke grants on this KMS key. This KMS key can be one of the
   two following types:
+
   - **AWS managed key for
     Amazon FSx** – This is the default
     KMS key. You're not charged to create and store a KMS key, but

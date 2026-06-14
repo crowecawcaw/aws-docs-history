@@ -26,6 +26,7 @@ Amazon FSx Console
 3. For **Actions**, choose **Update file
    system**. The **Update file system**
    dialog box displays.
+
    - For **Copy tags to backups**, choose
      whether to copy tags from the file system to any backup
      that's taken.
@@ -56,6 +57,7 @@ Amazon FSx Console
    tables**. This option is only available for Multi-AZ file systems.
 4. In the **Manage route tables** dialog box. do
    one of the following:
+
    - To associate a new VPC route table, select a route table
      from the **Associate new route tables** dropdown
      list, and then choose **Associate**.

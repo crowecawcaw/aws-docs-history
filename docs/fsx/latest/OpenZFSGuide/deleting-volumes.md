@@ -31,6 +31,7 @@ Before you delete a volume, make sure you have confirmed the following:
 4. Choose the volume that you want to delete.
 5. For **Actions**, choose **Delete volume**.
 6. In the delete dialog, do the following:
+
    1. Acknowledge that you understand the results of deleting the volume.
    2. Confirm the volume deletion by entering **delete** in the
       **Confirm delete** field.

@@ -59,6 +59,7 @@ With FSx for OpenZFS, you get a fully managed file storage solution with:
 - Support for multiple volumes per file system, thin provisioning, and user and group quotas for
   cost-efficient shared file systems across multiple users and applications.
 - Support for the following data protection and security features:
+
   - Built-in, fully managed file system backups stored on S3, with support for
     cross-region backup copies.
   - Near-instant point-in-time OpenZFS snapshots stored locally on each file system.
