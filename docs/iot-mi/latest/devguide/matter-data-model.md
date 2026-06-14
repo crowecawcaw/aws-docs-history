@@ -42,6 +42,7 @@ interact with and monitor the device.
 
 - **Attribute**: States that are held by the device, such
   as the current brightness level attribute of a dimmable light.
+
   - ```
     {
         "id" (hexadecimalString): (JsonNode) value
@@ -54,6 +55,7 @@ interact with and monitor the device.
 
 - **Command**: Tasks that may be performed, such as locking
   a door on a door lock. Commands may generate responses and results.
+
   - ```
     "id": {
         "fieldId": "fieldValue",
@@ -75,6 +77,7 @@ interact with and monitor the device.
   journal of the past, and include a monotonically increasing counter, a timestamp, and a
   priority. They enable capturing state transitions, as well as data modeling that is not
   readily achieved with `attributes`.
+
   - ```
     "id": {
         "fieldId": "fieldValue",

@@ -208,6 +208,7 @@ The following are the event types monitored with managed integrations
 notifications:
 
 - `DEVICE_COMMAND`
+
   - The status of the
     [SendManagedThingCommand](../APIReference/API_SendManagedThingCommand.md "../APIReference/API_SendManagedThingCommand.md") API
     command. Valid values are
@@ -235,6 +236,7 @@ notifications:
   ```
 
 - `DEVICE_COMMAND_REQUEST`
+
   - The command request from Web Real-Time Communication (WebRTC).
 
   The WebRTC standard allows communication between two peers. These peers can
@@ -268,6 +270,7 @@ notifications:
   ```
 
 - `DEVICE_DISCOVERY_STATUS`
+
   - The discovery status of the device.
 
   ```
@@ -291,6 +294,7 @@ notifications:
   ```
 
 - `DEVICE_EVENT`
+
   - A notification of a device event occurring.
 
   ```
@@ -412,6 +416,7 @@ Reflects changes in status of device life cycle (this includes onboarding status
     ```
 
 - `DEVICE_OTA`
+
   - A device OTA notification.
 
   ```
@@ -438,6 +443,7 @@ Reflects changes in status of device life cycle (this includes onboarding status
   ```
 
 - `DEVICE_STATE`
+
   - A notification when the state of a device has been updated.
 
   ```
@@ -472,6 +478,7 @@ Reflects changes in status of device life cycle (this includes onboarding status
   ```
 
 - `ACCOUNT_ASSOCIATION`
+
   - A notification when an account association state changes to IN_PROGRESS.
 
   ```
@@ -498,7 +505,6 @@ Reflects changes in status of device life cycle (this includes onboarding status
       }
   }
   ```
-
   - A notification when an account association completes successfully.
 
   ```

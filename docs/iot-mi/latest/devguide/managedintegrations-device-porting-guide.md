@@ -21,6 +21,7 @@ work, but haven't been tested. 3. Extract (unzip) the SDK files to your workspac
 
 5. Before you port the Platform Abstraction Layer (PAL), make sure your platformвЂ™s
    basic functionalities are initialized. Functionalities include:
+
    - Operating system tasks
    - Peripherals
    - Network interfaces
@@ -54,6 +55,7 @@ work, but haven't been tested. 3. Extract (unzip) the SDK files to your workspac
 2. Copy the POSIX reference implementation files (.c and .h) from the posix folder to
    your new platform directory. These files provide a template for the functions youвЂ™ll
    need to implement.
+
    - Flash memory management for credential storage
    - PKCS#11 implementation
    - Network transport interface
@@ -63,6 +65,7 @@ work, but haven't been tested. 3. Extract (unzip) the SDK files to your workspac
    - Device-specific configurations
 
 3. Set up Transport Layer Security (TLS) authentication with MBedTLS.
+
    - Use the provided POSIX implementation if you already have an MBedTLS version
      that matches the SDK version on your platform.
    - With a different TLS version, you implement the transport hooks for your TLS

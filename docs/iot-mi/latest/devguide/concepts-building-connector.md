@@ -44,6 +44,7 @@ authorization scheme could be tokens or API keys or other credentials, which are
 persisted in AWS Secrets Manager.
 
 - Third-Party API Requirements:
+
   - Authorization material specific to the authorization scheme which could be API Keys/tokens (for OAuth)
   - Any allowlisting for the OAuth callback URL hosted by AWS
 
@@ -61,9 +62,11 @@ actions, you need the following permissions:
 - [CreateAccountAssociation](../APIReference/API_CreateAccountAssociation.md "../APIReference/API_CreateAccountAssociation.md"), [CreateConnectorDestination](../APIReference/API_CreateConnectorDestination.md "../APIReference/API_CreateConnectorDestination.md"),
   [GetAccountAssociation](../APIReference/API_GetAccountAssociation.md "../APIReference/API_GetAccountAssociation.md"), and
   [StartAccountAssociationRefresh](../APIReference/API_StartAccountAssociationRefresh.md "../APIReference/API_StartAccountAssociationRefresh.md") require:
+
   - `secretsmanager:GetSecretValue`
 
 - [CreateCloudConnector](../APIReference/API_CreateCloudConnector.md "../APIReference/API_CreateCloudConnector.md") requires:
+
   - `lambda:Invoke`
 
 ###### General Authorization Permissions

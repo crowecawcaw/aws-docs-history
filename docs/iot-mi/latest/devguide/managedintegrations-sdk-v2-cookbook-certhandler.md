@@ -72,6 +72,7 @@ Review the following `secure_storage_cert_handler_interface.hpp` file to underst
 ### Key components
 
 - CERT_TYPE_T - different types of certificates on the hub.
+
   - CLAIM - the claim cert originally on the hub, will be exchanged for a permanent
     cert.
   - DHA - unused for now.

@@ -21,6 +21,7 @@ Use the following procedure to configure your environment to use the codegen.py 
 
 1. Download the latest version of the [End device SDK](managedintegrations-sdk-devices.md "managedintegrations-sdk-devices.md") from the AWS Management Console.
 2. Set up the Python environment. The **codegen** project is python-based and uses Poetry for dependency management.
+
    1. Install project dependencies using poetry in the `codegen` directory:
 
    ```
@@ -28,6 +29,7 @@ Use the following procedure to configure your environment to use the codegen.py 
    ```
 
 3. Set up your repository.
+
    1. Clone the **connectedhomeip**
       repository. It uses the `codegen.py` script located in the
       `connectedhomeip/scripts/` folder for code generation. For more
@@ -36,7 +38,6 @@ Use the following procedure to configure your environment to use the codegen.py 
    ```
    git clone -b v1.4.0.0 https://github.com/project-chip/connectedhomeip.git
    ```
-
    2. Clone it at the same level as your
       `IoT-managed-integrations-End-Device-SDK` root folder. Your folder
       structure should match the following:

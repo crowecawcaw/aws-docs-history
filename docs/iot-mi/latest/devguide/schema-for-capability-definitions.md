@@ -104,6 +104,7 @@ The `version` element is optional. It is a string that represents the version of
 constraints:
 
 - Uses semver format, with following version fragments separated by `.` (periods).
+
   - `MAJOR` version, maximum of 3 digits
   - `MINOR` version, maximum of 3 digits
   - `PATCH` version (optional), maximum of 4 digits
@@ -343,6 +344,7 @@ An unbounded array of unique messages provided in the response, if there are err
 Constraints:
 
 - A message item is declared as a JSON object with the following fields:
+
   - `code`: A string containing alphanumeric characters and `_` (underscores), with a length between 1 to 64 characters
   - `message`: An unbounded string value
 

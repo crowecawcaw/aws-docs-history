@@ -22,6 +22,7 @@ The [OnOff.xml](https://github.com/project-chip/connectedhomeip/blob/5bb5c9e23d5
 .
 
 - Attributes:
+
   - `OnOff (boolean)`
   - `GlobalSceneControl (boolean)`
   - `OnTime (int16u)`

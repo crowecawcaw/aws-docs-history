@@ -8,6 +8,7 @@ When you define a custom schema, you can use both primitive definitions and name
 ###### Contents
 
 - [Primitive type definitions](type-definitions.md#primitive-type-definitions "type-definitions.md#primitive-type-definitions")
+
   - [Booleans](type-definitions.md#boolean-types "type-definitions.md#boolean-types")
   - [Integer type support](type-definitions.md#integers-support "type-definitions.md#integers-support")
   - [Numbers](type-definitions.md#numbers "type-definitions.md#numbers")
@@ -17,8 +18,10 @@ When you define a custom schema, you can use both primitive definitions and name
   - [Objects](type-definitions.md#objects "type-definitions.md#objects")
 
 - [Namespaced type definitions](type-definitions.md#namespaced-type-definitions "type-definitions.md#namespaced-type-definitions")
+
   - [matter types](type-definitions.md#matter-types "type-definitions.md#matter-types")
   - [aws types](type-definitions.md#aws-types "type-definitions.md#aws-types")
+
     - [Bitmap type definition](type-definitions.md#bitmap-type-definition "type-definitions.md#bitmap-type-definition")
     - [Enum type definition](type-definitions.md#enum-type-definition "type-definitions.md#enum-type-definition")
 
@@ -186,6 +189,7 @@ Array types support the following:
 - `default` — a list that will be used as the default value.
 - `items` — JSON type definition imposed on all of the array elements.
 - Length constraints (must be a non-negative number)
+
   - `minItems`
   - `maxItems`
 
@@ -245,6 +249,7 @@ Alternative definition using tuple validation:
 Object types support the following:
 
 - Property constraints
+
   - `properties` — Define the properties (key-value pairs) of an object by using the `properties`keyword.
     The value of `properties` is an object, where each key is the name of a property and each value is a schema used to validate that property.
     Any property that doesn't match any of the property names in the `properties` keyword is ignored by this keyword.

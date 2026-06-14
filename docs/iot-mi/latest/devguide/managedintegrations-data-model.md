@@ -40,6 +40,7 @@ interact with and monitor the device.
 
 - **Property**: States that are held by the device, such as
   the current brightness level attribute of a dimmable light.
+
   - ```
     {
         "name":                      // Property Name is outside of Property Entity
@@ -59,6 +60,7 @@ interact with and monitor the device.
 
 - **Action**: Tasks that may be performed, such as locking
   a door on a door lock. Actions may generate responses and results.
+
   - ```
     {
         "name": { "$ref": "/schema-versions/definition/aws.name@1.0" }, //required
@@ -80,6 +82,7 @@ interact with and monitor the device.
   journal of the past, and include a monotonically increasing counter, a timestamp, and a
   priority. They enable capturing state transitions, as well as data modeling that is not
   readily achieved with `property`.
+
   - ```
     {
         "name": { "$ref": "/schema-versions/definition/aws.name@1.0" },        //required

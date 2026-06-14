@@ -27,17 +27,20 @@ end user tries to turn on the lights of their house:
    command responses back to service.
 4. **Command request sent to connector** - Managed integrations for AWS IoT Device Management sends the command request to your connector, using the
    `AWS.SendCommand` operation interface.
+
    - The payload defined by this interface consists of the device identifier,
      device commands formulated as Matter endpoints/clusters/commands, the end user's
      access token, and other required parameters.
 
 5. **Connector stores traceId** - Your connector stores the `traceId` to be included in the command
    response.
+
    - Your connector translates Managed integrations for AWS IoT Device Management command request into your resource
      server's appropriate format.
 
 6. **Connector gets UserId** - Your connector gets `UserId` from the provided end user's access token and associates it
    with the command.
+
    - The `UserId` may be either retrieved from your resource server using a separate
      call or extracted from the access token in case of JWT and similar tokens.
    - Implementation depends on your resource server and access token
@@ -45,6 +48,7 @@ end user tries to turn on the lights of their house:
 
 7. **Connector calls resource server** - Your connector calls the resource server to "Turn On" end user's light.
 8. **Resource server interacts with device** - The resource server interacts with the device.
+
    - The connector relays to Managed integrations for AWS IoT Device Management that the resource server has
      delivered the command, responding with an ACK as the
      initial, synchronous command response.
@@ -57,6 +61,7 @@ end user tries to turn on the lights of their house:
     Managed integrations for AWS IoT Device Management DEVICE_COMMAND_RESPONSE event operation type.
 12. **Connector calls SendConnectorEvent** - Your connector calls the `SendConnectorEvent` API with operation as
     "DEVICE_COMMAND_RESPONSE".
+
     - It attaches the `traceId` provided by Managed integrations for AWS IoT Device Management in the
       initial request.
 
@@ -264,6 +269,7 @@ Consider the `endpoints` field included in the following example
 ###### From this object, the connector can determine the following:
 
 1. Set the endpoint and cluster information:
+
    1. Set the endpoint `id` to "1".
 
    ###### Note
@@ -274,12 +280,14 @@ Consider the `endpoints` field included in the following example
    capability. 2. Set the cluster `id` to "0x0202" (Fan Control cluster).
 
 2. Set the command information:
+
    1. Set the command identifier to "0xff01" (Update State command defined by
       AWS).
    2. Update the included attribute identifiers with the values provided in the
       request.
 
 3. Update the attribute:
+
    1. Set the attribute identifier to "0x0000" (FanMode attribute of the Fan Control
       Cluster).
    2. Set the attribute value to "3" (High fan speed).

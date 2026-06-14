@@ -40,6 +40,7 @@ Since the Hub SDK already has an onboarding process and a connection to the clou
 1.  Follow the instructions in [Code generator for Data Model](managedintegrations-sdk-device-codegen.md "managedintegrations-sdk-device-codegen.md") to generate the low level C code.
 2.  Follow the instructions in [Integrating the
     End device SDK](managedintegrations-sdk-device-onboarding.md "managedintegrations-sdk-device-onboarding.md") to:
+
     1. ###### Set up the build environment
 
     Build the code on Amazon Linux 2023/x86_64 as your development host. Install the necessary
@@ -48,7 +49,6 @@ Since the Hub SDK already has an onboarding process and a connection to the clou
     ```
     dnf install make gcc gcc-c++ cmake
     ```
-
     2. ###### Develop hardware callback functions
 
     Before implementing the hardware callback functions, understand how the API works.
@@ -73,7 +73,6 @@ Since the Hub SDK already has an onboarding process and a connection to the clou
       return iotmiDev_DMStatusOk;
     }
     ```
-
     3. ###### Set up endpoints and hook hardware callback functions
 
     After implementing the functions, create endpoints and register your callbacks.

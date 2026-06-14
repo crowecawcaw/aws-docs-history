@@ -19,6 +19,7 @@ the system
 2. Customer initiates deletion of user's association through managed integrations for AWS IoT Device Management.
 3. Managed integrations initiates the deactivation process via request to your connector
    using the `AWS.DeactivateUser` operation interface.
+
    1. For OAuth 2.0, the user's access token is included in the header. For General
       Authorization, the AWS Secrets Manager reference is included in the header.
 
@@ -26,6 +27,7 @@ the system
    For OAuth 2.0, this includes invoking your authorization server to revoke the token and any
    access it provides. For General Authorization, this may include cleanup operations or
    notifying your third-party platform.
+
    1. For example, events from an unlinked user account should no longer be sent to
       managed integrations after performing `AWS.DeactivateUser`.
 
@@ -47,6 +49,7 @@ The following requirements must be met for your C2C connector to successfully ha
 - **Request Handling:** The C2C connector Lambda function receives a request message
   from managed integrations to handle the `AWS.DeactivateUser` operation.
 - **Token Revocation / Cleanup:**
+
   - **For OAuth 2.0:** The C2C connector must revoke the provided OAuth 2.0 token and
     the corresponding refresh token of the user within your authorization server.
   - **For General Authorization:** The C2C connector should perform any necessary cleanup or

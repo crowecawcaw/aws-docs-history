@@ -9,6 +9,7 @@ token through the following workflow:
    AssociationId.
 2. The application front-end stores the AssociationId and redirects the end user to the
    login page of the third-party platform.
+
    1. The end user signs in. The end user grants the client access to their device
       data.
 

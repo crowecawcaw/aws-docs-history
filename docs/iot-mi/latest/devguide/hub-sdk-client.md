@@ -45,6 +45,7 @@ For the .so files, you can place them in a lib folder. The final layout will be 
 ```
 
 2. Create a Hub SDK client in your main application.
+
    1. In your main application, you must first initialize the Hub SDK client before it can be used to process requests.
       You can simply construct the client with a `clientId`.
    2. After you have the client, you can connect it to the managed integrations Device SDK.
@@ -68,6 +69,7 @@ For the .so files, you can place them in a lib folder. The final layout will be 
    user-guided setup, or for [create-managed-thing](../../../cli/latest/reference/iot-managed-integrations/create-managed-thing.md "../../../cli/latest/reference/iot-managed-integrations/create-managed-thing.md") in the simple setup provisioning flow.
 
 3. Publish and subscribe by doing the following steps.
+
    1. After the connection is established, you can now subscribe to incoming tasks from the managed integrations Hub SDK.
       The incoming tasks can be control tasks or provision tasks. You also need to define your own callback function upon tasks received, and
       your own custom context for your own tracing purposes.
@@ -81,7 +83,6 @@ For the .so files, you can place them in a lib folder. The final layout will be 
          iotmi_statusCode_t status = client->iotmi_control_subscribe_to_tasks(
          example_subscriber_callback, custom_context);
    ```
-
    2. After the connection is established, you can now publish requests from your application to the managed integrations Hub SDK. You can define your own task message type,
       with different payloads for different business purposes. The requests can include both control requests and provision requests, similar to the subscribe flow.
       Finally, you can assign an address for your `rspPayload` to get the response from the managed integrations Hub SDK in a synchronized manner.

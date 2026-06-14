@@ -52,6 +52,7 @@ Managed integrations for AWS IoT Device Management:
     to Managed integrations for AWS IoT Device Management will be represented by device-specific parameters such as
     `connectorDeviceId`, `connectorDeviceName`, and a
     `capabilityReport`.
+
     - Based on your resource server response, you need to notify Managed integrations for AWS IoT Device Management
       accordingly.
     - For example, if your resource server has paginated response to list of
@@ -257,12 +258,14 @@ compliant format.
 - `endpoints`, List<Cluster>: List of AWS implementations of the
   Matter Data Model supported by
   this device endpoint.
+
   - `id`, String: Endpoint identifier set by connector developer
   - `deviceTypes`, List<String>: List of device types this
     endpoint captures, i.e. "Camera".
   - `clusters`, List<Cluster>: List of AWS implementations of the
     Matter Data Model this
     endpoint supports.
+
     - `id`, String: Cluster identifier as defined by the Matter
       standard.
     - `revision`, Integer: Cluster revision number as defined by the
@@ -270,6 +273,7 @@ compliant format.
     - `attributes`, Map<String, Object>: Map of attribute
       identifiers and their corresponding current device state values, with
       identifiers and valid values defined by the matter standard.
+
       - `id`, String: Attribute ID as defined by AWS implementations of the
         Matter Data Model.
       - `value`, Object: The current value of the attribute defined

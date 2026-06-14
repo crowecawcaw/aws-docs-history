@@ -10,6 +10,7 @@ You can create a VPC endpoint for the AWS IoT Managed integrations service using
 3. Choose **Create endpoint**.
 4. For **Service category**, choose **AWS services**.
 5. For **Service name**, select the service name that corresponds to your AWS Region. For example:
+
    - `com.amazonaws.ca-central-1.iotmanagedintegrations.api`
    - `com.amazonaws.eu-west-1.iotmanagedintegrations.api`
 
@@ -19,6 +20,7 @@ You can create a VPC endpoint for the AWS IoT Managed integrations service using
 8. For **Subnets**, select the subnets in which to create endpoint network interfaces.
    You can select one subnet per Availability Zone.
 9. For **IP address type**, choose from the following options:
+
    - **IPv4**: Assign IPv4 addresses to the endpoint network interfaces
    - **IPv6**: Assign IPv6 addresses to the endpoint network interfaces (supported only if all selected subnets are IPv6-only)
    - **Dualstack**: Assign both IPv4 and IPv6 addresses to the endpoint network interfaces

@@ -355,6 +355,7 @@ In this approach, the Matter Plugin is extended to work with a customized versio
 - Integrate chip-tool main function logic directly: If you prefer not to rely on STDIO, you can integrate the chip-tool's main function into the Matter Plugin. Standard input/output logic can then be connected to the read/write functions of the ChptoolProc class.
 - Support code generation: Implement a mechanism to handle Matter specification version updates through code generation.
 - Implement Matter Administration features, including:
+
   - Assigning Node IDs to the Commissioner, Controller, and Matter devices.
   - Managing multiple Fabrics.
 

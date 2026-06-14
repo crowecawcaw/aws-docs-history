@@ -79,6 +79,7 @@ Device manufacturers must provision secure materials and identifiers during manu
 2. Create provisioning profile using CreateProvisioningProfile API
 3. Obtain claim certificate and private key for device family
 4. Configure Fleet Provisioning template with required fields:
+
    - `deviceSerialNumber` (SN)
    - `universalProductCode` (UPC) or `europeanArticleNumber` (EAN)
    - Device certificate generation support
@@ -192,6 +193,7 @@ Cloud processing automatically:
 1. Mobile app displays "Power on your device now" message
 2. User powers on provisionee device
 3. WSS workflow proceeds automatically:
+
    - Device discovers provisioner SoftAP
    - Authentication and credential exchange complete
    - Device connects to WiFi

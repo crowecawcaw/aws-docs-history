@@ -56,6 +56,7 @@ devices need to connect to managed integrations.
 ###### To create a fleet provisioning profile
 
 - Call the [CreateProvisioningProfile](../APIReference/API_CreateProvisioningProfile.md "../APIReference/API_CreateProvisioningProfile.md") API to generate the following:
+
   - A provisioning template that defines device connection settings
   - A claim certificate and private key for device authentication
 
@@ -105,6 +106,7 @@ When you create a managed thing, specify these parameters:
 - `Role`: Set this value to `CONTROLLER` for hubs that do not support command and control, otherwise set to `DEVICE`.
 - `AuthenticationMaterialType`: Set this value to `WIFI_SETUP_QR_BAR_CODE`.
 - `AuthenticationMaterial`: Include the following fields. You can use either `UPC` or `EAN` but not both.
+
   - `SN`: The unique serial number for this device
   - `UPC`: The universal product code for this device
   - `EAN`: The international article number for this device
