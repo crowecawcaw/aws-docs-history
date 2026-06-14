@@ -19,10 +19,12 @@ operation.
 ListUsers currently supports the following optional query parameters:
 
 - `cursor` used to specify the next page for paginated calls
+
   - Pattern: [-a-zA-Z0-9+=/:\_]\*
   - Response format: Including the cursor parameter changes the default response format from non-paginated (with totalResults, startIndex, and itemsPerPage fields) to cursor-based paginated results (with itemsPerPage and nextCursor fields)
 
 - `count` used to specify the maximum number of results per page
+
   - Valid Range: Minimum value of 1. Maximum value of 100.
   - Default: 100
 
@@ -40,6 +42,7 @@ operation.
   `id` as an individual filter, though valid, should be avoided
   as a `getUser` endpoint is already available.
 - Pagination requests must include `cursor` in the query parameters
+
   - The first request made with cursor must be empty (eg. https://.../Users?cursor)
   - If the response includes a nextCursor field, its value can be used as the cursor value to retrieve the next page of results
 
