@@ -207,6 +207,7 @@ Create a CNAME record that points your custom domain to the RTB Fabric gateway e
 
 1. Open your DNS provider's management console.
 2. Create a CNAME record:
+
    - **Name**: Your custom domain (for example, `bid.example.com`)
    - **Value**: Your gateway endpoint (for example, `rtb-gw-abc123.123456789012.gateway.rtbfabric.us-east-1.amazonaws.com`)
    - **TTL**: Set a low TTL during initial setup. A value of 60 seconds is recommended so that DNS changes propagate quickly and you can revert fast if needed.
@@ -244,6 +245,7 @@ curl -v https://bid.example.com/openrtb/bid \
 ```
 
 3. In the verbose output, verify the following:
+
    - **(HTTPS only)** The TLS handshake completes successfully and presents your customer certificate.
    - The response includes the `x-amz-response-source` header (for example, `x-amz-response-source: Responder`), confirming the request was processed by RTB Fabric.
    - The response includes the `x-amz-rtb-link-id` header (for example, `x-amz-rtb-link-id: link-3w7gffr6tiv84his7vdo42bcu`), confirming the request routed to the expected link.

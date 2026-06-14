@@ -28,18 +28,22 @@ You are responsible for the data you process through RTB Fabric, including ensur
 3. Choose **Create responder gateway**.
 4. In the **Responder gateway information** section, for **Gateway description**, enter a description of the gateway's purpose. The description can have up to 255 characters.
 5. In the **VPC configuration** section, configure the network settings:
+
    1. For **VPC ID**, enter a valid VPC ID. For example: vpc-01f345ad6524a6d7.
    2. For **Subnet ID**, enter the IDs of 1-5 subnets, separated by commas. Subnets must have at least 200 free IP addresses. These subnets should match your core workload deployment subnets or be secondary CIDR subnets within the same Availability Zones.
    3. For **Security group ID**, enter the IDs of 1-5 security groups, separated by commas. We recommend you create new security groups for your gateways for security.
 
 6. In the **Responder endpoint configuration** section, choose an endpoint type from the dropdown and configure the fields for that type:
+
    - **Domain name** — Configure a direct endpoint using a domain name.
+
      1. For **Domain name**, enter a fully qualified domain name (FQDN) where you want your gateway to be accessed. Valid characters are a-z, A-Z, 0-9, periods (.), and hyphens (-). Maximum length is 253 characters.
      2. For **Port number**, enter the network port number where your gateway will listen for incoming traffic. Enter an integer from 1 to 65535. Common ports are 80 and 443.
      3. For **Protocol**, select either **HTTP** or **HTTPS**.
      4. (HTTPS only) For **CA certificate chain**, enter the CA certificate chain for your domain. Include the intermediate and root certificates in PEM format. Maximum size: 2048 characters.
 
    - **EKS** — Configure a managed endpoint that points to a Kubernetes cluster.
+
      1. For **EKS Endpoints resource name**, enter the name of the Kubernetes Endpoints resource. Must be a DNS label with a maximum of 63 characters.
      2. For **EKS Endpoints resource namespace**, enter the Kubernetes namespace where the Endpoints resource is located.
      3. For **Cluster API server endpoint URI**, enter the EKS cluster API server endpoint URL. Must be a valid URI.
@@ -52,6 +56,7 @@ You are responsible for the data you process through RTB Fabric, including ensur
      10. (HTTPS only, optional) For **CA certificate chain**, enter the CA certificate chain in PEM format.
 
    - **Auto Scaling group** — Configure a managed endpoint using EC2 Auto Scaling groups.
+
      1. For **Auto Scaling groups**, select one or more Auto Scaling groups that will receive traffic.
      2. For **IAM role**, select an IAM role that grants RTB Fabric permission to discover instances in the Auto Scaling groups.
      3. For **Port number**, enter the network port number. Enter an integer from 1 to 65535.

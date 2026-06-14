@@ -24,6 +24,7 @@ You are responsible for the data you send through RTB Fabric, including ensuring
 3. Choose **Create requester gateway**.
 4. In the **Requester gateway information** section, for **Requester gateway description**, enter a description of the gateway's purpose. The description can have up to 255 characters.
 5. In the **VPC configuration** section, configure the following settings:
+
    1. For **VPC ID**, enter the ID of the virtual private cloud (VPC) where you want to connect the requester gateway. The VPC ID must start with "vpc-" followed by either 8 or 17 hexadecimal characters in lowercase. For example: vpc-0123abc4567def890.
    2. For **Subnet ID**, enter the subnet IDs where you want to connect your gateway. Enter up to 5 subnet IDs (format: subnet-0123abc4567def89a), separated by commas. Must be from the specified VPC. These subnets should match your core workload deployment subnets or be secondary CIDR subnets within the same Availability Zones.
    3. For **Security group ID**, enter the IDs of 1-5 security groups, separated by commas. We recommend you create new security groups for your gateway for security.

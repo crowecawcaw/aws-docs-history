@@ -87,6 +87,7 @@ again.
 ###### To delete RTB Fabric resources used by the AWSServiceRoleForRTBFabric
 
 1. Delete all RTB applications in your account. You must delete both requester and responder gateways before you can delete the service-linked role. You can use either the console or the CLI:
+
    1. **Console method:** For instructions on deleting requester gateways, see [Deleting a requester gateway](../../../requester-rtb-applications.md#delete-requester-rtb-application "../../../requester-rtb-applications.md#delete-requester-rtb-application"). For instructions on deleting responder gateways, see [Deleting a responder gateway](../../../responder-rtb-applications.md#delete-responder-rtb-application "../../../responder-rtb-applications.md#delete-responder-rtb-application").
    2. **CLI method:** Use the `DeleteRequesterGateway` or `DeleteResponderGateway` API to delete RTB gateways. Replace the example gateway ID with your gateway ID:
 
@@ -107,6 +108,7 @@ again.
 
 2. After deleting all RTB applications, wait for RTB Fabric to automatically clean up the network interfaces tagged with `RTBFabricManaged:true`. This process can take up to 20 minutes.
 3. Verify that no RTB applications or RTB Fabric-managed network interfaces remain in your account:
+
    1. Open the RTB Fabric console and verify that no RTB applications are listed.
    2. Open the [Network Interfaces page](https://console.aws.amazon.com/ec2/home#NetworkInterfaces "https://console.aws.amazon.com/ec2/home#NetworkInterfaces") of the Amazon EC2 console.
    3. In the search box, enter `tag:RTBFabricManaged:true` to filter for RTB Fabric-managed network interfaces.

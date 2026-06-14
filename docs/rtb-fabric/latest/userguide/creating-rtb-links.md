@@ -10,12 +10,14 @@ Links between RTB Fabric users can be created through the AWS Management Console
 4. On the gateway details page, choose the **Associated links** tab.
 5. Choose **Create link**.
 6. On the **Create link** screen, review the **Gateway details** section, which displays information about the source gateway for this link:
+
    - **Gateway ID** – The unique identifier of the source gateway.
    - **Gateway name** – The name of the source gateway.
    - **Gateway created on** – The date and time when the gateway was created.
 
 7. (Optional) In the **Link information** section, enter a **Correlation ID**. This is a unique identifier you can assign to your link for your own tracking purposes and is not visible to other RTB Fabric users. The correlation ID can have up to 64 characters.
 8. In the **Application logs configuration** section, configure the sampling rates to capture exceptions, failures, and unexpected system behaviors:
+
    1. For **Error logs sampling rate**, enter the percentage (0.0-100.0) of error logs to deliver to your destination. These logs capture exceptions, failures, and unexpected system behaviors. Higher percentages incur additional storage costs.
    2. For **Filter logs sampling rate**, enter the percentage (0.0-100.0) of filter logs to deliver to your destination. These logs are generated from your other RTB Fabric filter modules. Higher percentages incur additional storage costs.Note the following:
    - Logs are delivered via Amazon CloudWatch Vended Logs, which provides delivery directly to Amazon S3, Amazon Data Firehose, or Amazon CloudWatch Logs.

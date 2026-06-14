@@ -29,6 +29,7 @@ When a client initiates a TLS connection, it sends a Server Name Indication (SNI
 1. **Exact hostname lookup** — RTB Fabric checks the exact hostname index for a certificate whose CN or SANs match the SNI hostname exactly. Ensure the CN and SANs on your ACM certificate use lowercase characters, because certificate resolution uses case-sensitive lookup.
 2. **Wildcard pattern matching** — If no exact match is found, RTB Fabric iterates through the wildcard hostname entries. Wildcard matching uses suffix-based matching, which can match across multiple DNS labels.
 3. **Service certificate fallback** — If no customer certificate matches, RTB Fabric falls back to service certificates using the following preference order:
+
    - ECDSA certificate, if the client's ClientHello indicates support for ECDSA.
    - RSA certificate, if ECDSA is not supported.
    - ECDSA certificate as a last resort, if no RSA certificate is available.

@@ -9,6 +9,7 @@ When another RTB Fabric user sends you a link request, you can accept or reject 
 3.  Choose the gateway that received the link request.
 4.  Choose the **Associated links** tab to view pending link requests.
 5.  In the **Links** section, locate the link request you want to respond to in the links table. The table displays the following information:
+
     - **Link ID** – Unique identifier for the link.
     - **Link status** – Current status of the link request.
     - **Link creation date (UTC)** – When the request was created.

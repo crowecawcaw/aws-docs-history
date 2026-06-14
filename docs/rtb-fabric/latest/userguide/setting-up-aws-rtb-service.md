@@ -24,6 +24,7 @@ Your VPC must meet the following requirements for RTB Fabric:
 
 - **IP address availability** – RTB Fabric supports IPv4 only. Ensure you have sufficient free IPv4 addresses in each VPC subnet where you plan to connect your gateway. The number of required addresses depends on your expected traffic scale.
 - **Security group configuration** – Configure security groups with appropriate inbound rules based on your role:
+
   - **For requesters**: HTTPS (TCP port 443) inbound from your VPC Classless Inter-Domain Routing (CIDR) range or compute instance IP.
   - **For responders**: HTTPS (TCP port 443) inbound to your VPC CIDR range or fleet endpoint IP.
 

@@ -10,10 +10,12 @@ Deleting a link is irreversible and will immediately stop all bid request proces
 
 1. Navigate to RTB Fabric console and choose either **Requester Gateways** or **Responder Gateways** depending on which resource owns the link you want to delete.
 2. Access the link details using one of these methods:
+
    - On the gateways page, select the radio button next to the desired gateway. In the **Links associated with this gateway** section at the bottom of the page, choose the **Link ID** you want to delete.
    - Choose the **gateway ID** to open the gateway details page. Choose the **Associated links** tab and choose the **Link ID** you want to delete.
 
 3. On the link details page, review the link information including:
+
    - **Link ID** – Unique identifier for the link.
    - **Link status** – Current status (Requested, Active, etc.).
    - **gateway ID** – Source gateway.

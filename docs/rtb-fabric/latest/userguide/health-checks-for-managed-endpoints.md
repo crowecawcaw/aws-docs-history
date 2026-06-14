@@ -43,6 +43,7 @@ You must explicitly specify `port` and `path` so that RTB Fabric sends health ch
 4. In the **Responder endpoint configuration** section, choose **Auto Scaling group** as the endpoint type.
 5. Configure the Auto Scaling group settings (group names, IAM role, port, and protocol).
 6. In the **Health check configuration** section, configure the health check settings:
+
    1. For **Health check port**, enter the port on each instance where your health check endpoint is available.
    2. For **Health check path**, enter the HTTP path to probe (for example, `/health`). Must start with `/`.
    3. (Optional) For **Protocol**, select **HTTP** or **HTTPS**. Default: HTTP.
