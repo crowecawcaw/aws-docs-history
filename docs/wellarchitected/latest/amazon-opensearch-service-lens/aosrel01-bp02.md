@@ -27,6 +27,7 @@ domains updated to apply improvements to your domains.
 - Select the domain name to open its configuration.
 - Choose **Actions**, then **Update**, and select one of the following
   options:
+
   - **Apply update now**:
     Immediately schedules the action to happen in the
     current hour if there's capacity available. If capacity

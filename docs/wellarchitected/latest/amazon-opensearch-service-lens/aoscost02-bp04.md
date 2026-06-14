@@ -44,6 +44,7 @@ retrieving infrequently accessed or historical data.
 - Select the domain name and choose **Actions**, then **Edit
   cluster configuration.**
 - Enable UltraWarm:
+
   - In the Cluster configuration section, look for the
     option **Enable warm data nodes** located in the Warm and
     cold data storage box.

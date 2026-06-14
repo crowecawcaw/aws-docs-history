@@ -43,6 +43,7 @@ templates](https://opensearch.org/docs/latest/im-plugin/index-templates/ "https:
 - From the left sidebar, select **Index Management**, then
   **Templates**, then **Create template**.
 - Define basic template settings:
+
   - **Template name:** Enter
     a unique name for the template (like
     `log-index-template`).

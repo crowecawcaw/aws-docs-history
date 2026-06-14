@@ -33,6 +33,7 @@ perform operations like moving data from Hot storage to Warm.
 - Evaluate your data characteristics and access pattern to
   collect the key characteristics of your storage needs. Key
   characteristics to consider include:
+
   - **Data type:** Structured,
     semistructured, unstructured
   - **Data growth:** Bounded,

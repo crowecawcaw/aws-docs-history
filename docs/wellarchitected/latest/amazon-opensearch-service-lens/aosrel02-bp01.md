@@ -34,7 +34,9 @@ using multiple Availability Zones and best practices.
 - Log in to AWS Management Console.
 - Navigate to the Amazon OpenSearch Service console.
 - Create a new domain or modify an existing domain:
+
   - For a new domain, choose **Create domain**.
+
     - You can use the Easy create method available under
       Domain creation method, which creates a new
       domain with Multi-AZ with Standby enabled by

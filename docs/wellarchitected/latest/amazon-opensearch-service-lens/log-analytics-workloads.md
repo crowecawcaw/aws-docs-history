@@ -43,6 +43,7 @@ You want to use the Amazon OpenSearch Service to:
    Enhance user experience through powerful search capabilities
    by using Amazon OpenSearch Service's full-text search capabilities.
    For instance, you can use the search capabilities to:
+
    1. **Identify errors**:
       Search for log entries with specific error codes or
       keywords to find issues quickly.

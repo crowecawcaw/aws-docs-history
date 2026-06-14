@@ -40,6 +40,7 @@ Create a Snapshot Management (SM) policy:
   from the left-hand menu.
 - Create a new **Snapshot Policy** by choosing **Create policy**.
 - Configure policy details:
+
   - **Name**: Give your
     policy a unique name, for example
     `daily-snapshot-policy`.
@@ -49,6 +50,7 @@ Create a Snapshot Management (SM) policy:
     `your-repository-name`).
 
 - In the Snapshot schedule box:
+
   - **Snapshot frequency:**
     Enter how often you want snapshots taken. For example,
     choose daily if you want to back up every day.

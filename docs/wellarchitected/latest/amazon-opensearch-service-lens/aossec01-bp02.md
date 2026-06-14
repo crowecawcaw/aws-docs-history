@@ -44,6 +44,7 @@ access control](../../../opensearch-service/latest/developerguide/fgac.md "../..
 
 - Navigate to the Amazon OpenSearch Service console.
 - Create a new domain, or modify an existing domain:
+
   - For a new domain, choose **Create domain**. For an
     existing domain, select the domain name and choose
     **Actions**, then **Edit security configuration**.

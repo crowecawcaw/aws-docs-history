@@ -51,6 +51,7 @@ To create an ISM policy for snapshots:
   _manual_.
 - **Set up manual snapshots:**
   If you choose to use manual snapshots:
+
   - Create an IAM role with the necessary permissions
   - Set up a custom Amazon S3 bucket for storing your
     snapshots

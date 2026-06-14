@@ -48,6 +48,7 @@ efficiency, scalability, and cost-effectiveness.
   then Indexes.
 - **Option 2:** Use the
   OpenSearch API:
+
   - Use the `_cat/indices` API to list all indexes along
     with their name, status and size.
 

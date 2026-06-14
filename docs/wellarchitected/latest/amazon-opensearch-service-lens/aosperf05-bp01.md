@@ -46,14 +46,17 @@ instance types for dedicated managing nodes.
   [AWS Management Console](https://console.aws.amazon.com "https://console.aws.amazon.com").
 - Navigate to the Amazon OpenSearch Service console.
 - Create a new domain or modify an existing domain:
+
   - For a new domain, choose **Create domain**. For an existing domain, select the domain name and choose **Actions**, then **Edit cluster configuration**.
 
 - Enable dedicated leader nodes:
+
   - In the Cluster configuration section, under Dedicated
     master nodes, toggle on the option to enable dedicated
     leader nodes.
 
 - Choose leader node instance type and count:
+
   - **Instance type:** Select
     an instance type that fits the workload needs. For
     detailed information on choosing the right instance type

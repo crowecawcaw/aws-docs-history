@@ -63,9 +63,11 @@ generic recommendation is exactly right for every use case.
   [AWS Management Console](https://console.aws.amazon.com "https://console.aws.amazon.com").
 - Navigate to the Amazon OpenSearch Service console.
 - Create a new domain or modify an existing domain:
+
   - For a new domain, choose **Create domain**. For an existing domain, select the domain name and choose **Actions**, then **Edit cluster configuration**..
 
 - Enable dedicated coordinator nodes:
+
   - In the Cluster configuration section, under Dedicated
     coordinator nodes, toggle on the option to enable
     dedicated coordinator nodes.

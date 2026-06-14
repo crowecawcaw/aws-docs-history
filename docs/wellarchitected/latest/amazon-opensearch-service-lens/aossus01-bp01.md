@@ -31,6 +31,7 @@ The following guidance is provided to aid your selection of most
 sustainable Regions in your area:
 
 - Shortlist potential Regions based on the following topics:
+
   - Data security and privacy issues
   - Regulatory compliance requirements
   - The operational efficiency of your workloads

@@ -29,6 +29,7 @@ Amazon OpenSearch Service in your specific Region.
   restrictions.
 
 - Monitor your quotas regularly:
+
   - Set a schedule to review your OpenSearch Service quotas
     regularly (like monthly or quarterly).
   - Make this a part of your operational procedures to
@@ -40,6 +41,7 @@ Amazon OpenSearch Service in your specific Region.
   [Service Quotas](https://console.aws.amazon.com/servicequotas/home/ "https://console.aws.amazon.com/servicequotas/home/").
 - Log in to AWS Management Console.
 - To use Service Quotas:
+
   - Choose **AWS Services** in the Service Quotas left
     navigation.
   - Locate OpenSearch Service Quotas.
