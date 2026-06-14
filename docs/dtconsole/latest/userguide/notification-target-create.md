@@ -118,6 +118,7 @@ The policy statement should look like the following.
    Slack](../../../chatbot/latest/adminguide/slack-setup.md#slack-client-setup "../../../chatbot/latest/adminguide/slack-setup.md#slack-client-setup")
    in the _AWS Chatbot Administrator Guide_. When you do so, consider the
    following choices for optimal integration with notifications:
+
    - When creating an IAM role, consider choosing a role name that makes it easy to identify the
      purpose of this role (for example,
      `AWSCodeStarNotifications-Chatbot-Slack-Role`). This
@@ -141,6 +142,7 @@ for you. Doing so will prevent notifications from being sent to Slack.
    AWS Chatbot with Microsoft Teams](../../../chatbot/latest/adminguide/teams-setup.md#teams-client-setup "../../../chatbot/latest/adminguide/teams-setup.md#teams-client-setup")
    in the _AWS Chatbot Administrator Guide_. When you do so, consider the
    following choices for optimal integration with notifications:
+
    - When creating an IAM role, consider choosing a role name that makes it easy to identify the
      purpose of this role (for example,
      `AWSCodeStarNotifications-Chatbot-Microsoft-Teams-Role`). This

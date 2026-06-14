@@ -13,6 +13,7 @@ You can use the Developer Tools console or the **get-host** command in the AWS C
 3.  Choose the button next to the host you want to view, and then choose
     **View details**.
 4.  The following information appears for your host:
+
     - The host name.
     - The provider type for your connection.
     - The endpoint of the infrastructure where your provider is

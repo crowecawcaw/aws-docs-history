@@ -16,6 +16,7 @@ its notification status.
    display its details.
 5. In **Notification status**, choose the slider to change the
    status of the rule:
+
    - **Sending notifications**: This is the default.
    - **Notifications paused**: No notifications are sent
      to the specified targets.

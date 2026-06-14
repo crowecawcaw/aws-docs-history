@@ -13,6 +13,7 @@ the _AWS Command Line Interface User Guide_.
 3. Choose the button next to the connection you want to view, and then choose
    **View details**.
 4. The following information appears for your connection:
+
    - The connection name.
    - The provider type for your connection.
    - The connection status.

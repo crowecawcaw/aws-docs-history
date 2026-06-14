@@ -9,6 +9,7 @@ can create the rule. For more information, see [Configure an AWS Chatbot client 
 
 1. Open the AWS Developer Tools console at [https://console.aws.amazon.com/codesuite/settings/notifications](https://console.aws.amazon.com/codesuite/settings/notifications/ "https://console.aws.amazon.com/codesuite/settings/notifications/").
 2. Use the navigation bar to navigate to the resource.
+
    - For CodeBuild, choose **Build**, choose **Build
      projects**, and choose a build project.
    - For CodeCommit, choose **Source**, choose
@@ -41,6 +42,7 @@ the following:
     * CodePipeline: [Events for notification rules on pipelines](concepts.md#events-ref-pipeline "concepts.md#events-ref-pipeline")
 
 7. In **Targets**, do one of the following:
+
    - If you have already configured a resource to use with notifications,
      in **Choose target type**, choose either
      **AWS Chatbot

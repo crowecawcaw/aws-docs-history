@@ -14,6 +14,7 @@ rule's targets.
    you are currently signed in. Use the selector to change the AWS Region.
 4. Choose the rule, and then choose **Edit**.
 5. In **Targets**, do one of the following:
+
    - To add another target, choose **Add Target**, and
      then choose the Amazon SNS topic or AWS Chatbot (Slack) or AWS Chatbot (Microsoft Teams) client that you want to
      add from the list. You can also choose **Create SNS

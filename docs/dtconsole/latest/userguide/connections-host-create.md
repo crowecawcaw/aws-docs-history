@@ -65,6 +65,7 @@ installation.
 - When connections creates your host, the VPC endpoint (PrivateLink)
   for webhooks is created for you. For more information, see [AWS CodeConnections and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 - Security group configuration:
+
   - The security groups used during host creation need inbound and
     outbound rules that allow the network interface to connect to your
     GitHub Enterprise Server instance

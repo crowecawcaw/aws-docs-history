@@ -124,6 +124,7 @@ Choose **Next**. 6. On the **Step 2: Add source stage** page, add a source stage
     	 actions.Choose **Next**.
 
 7. In **Add build stage**, add a build stage:
+
    1. In **Build provider**, choose **AWS CodeBuild**.
       Allow **Region** to default to the pipeline Region.
    2. Choose **Create project**.
@@ -177,7 +178,6 @@ Choose **Next**. 6. On the **Step 2: Add source stage** page, add a source stage
      #paths:
        # - paths
    ```
-
    8. Choose **Continue to CodePipeline**. This returns to the CodePipeline
       console and creates a CodeBuild project that uses your build commands for configuration.
       The build project uses a service role to manage AWS service permissions. This step

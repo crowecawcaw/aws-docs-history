@@ -28,6 +28,7 @@ GitHub Enterprise credentials ready.
 4. In **Select a provider**,
    choose one of the
    following:
+
    - **GitHub Enterprise Server**
    - **GitLab self-managed**
 
@@ -38,6 +39,7 @@ GitHub Enterprise credentials ready.
    VPC**.
 7. If you have launched your instance into an Amazon VPC and you want to connect with
    your VPC, choose **Use a VPC** and complete the following.
+
    1. In **VPC ID**, choose your VPC ID. Make sure to choose the
       VPC for the infrastructure where your
       instance

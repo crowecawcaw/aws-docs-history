@@ -33,6 +33,7 @@ notifications that appear in Slack channels.
    Slack](../../../chatbot/latest/adminguide/slack-setup.md#slack-client-setup "../../../chatbot/latest/adminguide/slack-setup.md#slack-client-setup")
    in the _AWS Chatbot Administrator Guide_. When you do so, consider the
    following choices for optimal integration with notifications:
+
    - When creating an IAM role, consider choosing a role name that makes it easy to identify the
      purpose of this role (for example,
      `AWSCodeStarNotifications-Chatbot-Slack-Role`). This
@@ -63,6 +64,7 @@ notifications that appear in Microsoft Teams channels.
    AWS Chatbot with Microsoft Teams](../../../chatbot/latest/adminguide/teams-setup.md#teams-client-setup "../../../chatbot/latest/adminguide/teams-setup.md#teams-client-setup")
    in the _AWS Chatbot Administrator Guide_. When you do so, consider the
    following choices for optimal integration with notifications:
+
    - When creating an IAM role, consider choosing a role name that makes it easy to identify the
      purpose of this role (for example,
      `AWSCodeStarNotifications-Chatbot-Microsoft-Teams-Role`). This
