@@ -65,7 +65,16 @@ For more information about the improvements in PostgreSQL 16.11, see
 
 ###### Releases and patches
 
+- [Aurora PostgreSQL Limitless Database 16.11.101, June 9, 2026](#16.11.101 "#16.11.101")
 - [Aurora PostgreSQL Limitless Database 16.11.100, February 25, 2026](#16.11.100 "#16.11.100")
+
+### Aurora PostgreSQL Limitless Database 16.11.101, June 9, 2026
+
+**Bug fixes**
+
+- Fixed an issue where a unique index did not guarantee uniqueness when created with a custom operator class.
+- Fixed an issue where `DROP DATABASE` with `FORCE` option failed with `database is being accessed by other users`.
+- Fixed an issue where cross-node version mismatch occurred after upgrade due to stale cached extension version.
 
 ### Aurora PostgreSQL Limitless Database 16.11.100, February 25, 2026
 
@@ -309,6 +318,7 @@ CREATE TABLE zoo (
 **Enhancements**
 
 - Improved query performance in these scenarios:
+
   - Queries with range clauses.
   - Multiple tuple access with different shard keys from same shard.
   - Delete and update operations involving semi- and anti-joins.
@@ -440,6 +450,7 @@ For more information about the improvements in PostgreSQL 16.4, see
 - Fixed multiple issues that could lead to brief periods of unavailability.
 - Fixed an issue resulting in incorrect results for anti-join queries containing a predicate on an outer relation.
 - Added pushdown capability for the following system functions:
+
   - `pg_char_to_encoding`
   - `pg_encoding_to_char`
   - `textanycat`

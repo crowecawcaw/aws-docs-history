@@ -8,6 +8,7 @@ see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/Au
 
 ###### Topics
 
+- [PostgreSQL 18 versions](#auroraqpm-version18 "#auroraqpm-version18")
 - [PostgreSQL 17 versions](#auroraqpm-version17 "#auroraqpm-version17")
 - [PostgreSQL 16 versions](#auroraqpm-version16 "#auroraqpm-version16")
 - [PostgreSQL 15 versions](#auroraqpm-version15 "#auroraqpm-version15")
@@ -18,6 +19,22 @@ see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/Au
 - [Version 2.1 of the Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.21 "#auroraqpm-version.21")
 - [Version 2.0 of the Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.20 "#auroraqpm-version.20")
 - [Version 1.0.1 of the Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.101 "#auroraqpm-version.101")
+
+## PostgreSQL 18 versions
+
+###### Topics
+
+- [apg_plan_mgmt version 3.0 for Aurora PostgreSQL 18.3, June 10, 2026](#auroraqpm-version18-183 "#auroraqpm-version18-183")
+
+### apg_plan_mgmt version 3.0 for Aurora PostgreSQL 18.3, June 10, 2026
+
+Improvements to the `apg_plan_mgmt` extension in version 3.0 for Aurora PostgreSQL
+18.3 include the following:
+
+###### Extension improvements
+
+- Fixed an issue in Query Plan Management that caused plans to not be captured.
+- Added an improvement in Query Plan Management to support sql_hash changes with evolve_plan_baselines.
 
 ## PostgreSQL 17 versions
 
@@ -218,6 +235,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.6 for Aurora PostgreS
 - Added support for parallel Append enforcement as a part of Parallel Query
   Enforcement. To enforce parallel append nodes correctly, you must do the
   following:
+
   1.  Set `apg_plan_mgmt.plan_hash_version` to 5.
   2.  Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
 
@@ -364,6 +382,7 @@ following:
 
 - Plan outlines will be updated to the latest format version as part of the `update_plan_hash` action for `apg_plan_mgmt.validate_plans` function.
 - Added support for parallel Append enforcement as a part of Parallel Query Enforcement. To enforce parallel append nodes correctly, you must do the following:
+
   1.  Set `apg_plan_mgmt.plan_hash_version` to 5.
   2.  Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
 
@@ -384,11 +403,13 @@ following:
 
 - QPM can enforce query plans to have parallel operators except Parallel Append node. To enforce parallel query plans
   correctly, you must do the following after upgrading to 15.4 or 14.9:
+
   - Set `apg_plan_mgmt.plan_hash_version` to 4 or above.
   - Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
   - Re-capture approved plans that has Gather node in plan_outline.
 
 - QPM can enforce query plans with Materialize nodes. To enforce Materialize nodes, you must do the following after upgrading to 15.4 or 14.9:
+
   - Set `apg_plan_mgmt.plan_hash_version` to 4 or above.
   - Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
 
@@ -551,6 +572,7 @@ following:
 
 - Plan outlines will be updated to the latest format version as part of the `update_plan_hash` action for `apg_plan_mgmt.validate_plans` function.
 - Added support for parallel Append enforcement as a part of Parallel Query Enforcement. To enforce parallel append nodes correctly, you must do the following:
+
   1.  Set `apg_plan_mgmt.plan_hash_version` to 5.
   2.  Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
 
@@ -571,11 +593,13 @@ following:
 
 - QPM can enforce query plans to have parallel operators except Parallel Append node. To enforce parallel query plans
   correctly, you must do the following after upgrading to 15.4 or 14.9:
+
   - Set `apg_plan_mgmt.plan_hash_version` to 4 or above.
   - Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
   - Re-capture approved plans that has Gather node in plan_outline.
 
 - QPM can enforce query plans with Materialize nodes. To enforce Materialize nodes, you must do the following after upgrading to 15.4 or 14.9:
+
   - Set `apg_plan_mgmt.plan_hash_version` to 4 or above.
   - Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
 
@@ -728,6 +752,7 @@ following:
 
 - Plan outlines will be updated to the latest format version as part of the `update_plan_hash` action for `apg_plan_mgmt.validate_plans` function.
 - Added support for parallel Append enforcement as a part of Parallel Query Enforcement. To enforce parallel append nodes correctly, you must do the following:
+
   1.  Set `apg_plan_mgmt.plan_hash_version` to 5.
   2.  Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
 
@@ -748,6 +773,7 @@ following:
 
 - QPM can enforce query plans to have parallel operators except Parallel Append node. To enforce parallel query plans
   correctly, you must do the following after upgrading to 15.4 or 14.9:
+
   - Set `apg_plan_mgmt.plan_hash_version` to 4 or above.
   - Call `apg_plan_mgmt.validate_plans('update_plan_hash')`.
   - Re-capture approved plans that has Gather node in plan_outline.
@@ -926,6 +952,7 @@ apg_plan_mgmt` when it is not loaded in the
 7.
 8. The following pgss parameters are deprecated because the automatic plan
    capture mode should be used instead of those parameters.
+
    - `apg_plan_mgmt.pgss_min_calls`
    - `apg_plan_mgmt.pgss_min_mean_time_ms`
    - `apg_plan_mgmt.pgss_min_stddev_time_ms`
@@ -992,6 +1019,7 @@ shared memory.
 
 1. Improvements to the `evolve_plan_baselines`
    function.
+
    1. The `evolve_plan_baselines` function now
       computes a `cardinality_error` metric over all
       nodes in the plan. Using this metric, you can identify any

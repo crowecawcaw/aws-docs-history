@@ -8,7 +8,7 @@ For more information about Aurora PostgreSQL support dates, including extended a
 To determine the version number of your Aurora PostgreSQL database, see [Identifying versions of Amazon Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Updates.Versions.md "../AuroraUserGuide/AuroraPostgreSQL.Updates.Versions.md") in the _Amazon Aurora User
 Guide_.
 
-For information about extensions and modules, see [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md "AuroraPostgreSQL.Extensions.md").
+For information about extensions and modules, see [Extensions supported for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md "AuroraPostgreSQL.Extensions.md").
 
 For information about Amazon Aurora available releases, policies, and time lines, see [How long Amazon Aurora major versions remain available](../AuroraUserGuide/Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersionLifetime "../AuroraUserGuide/Aurora.VersionPolicy.md#Aurora.VersionPolicy.MajorVersionLifetime") in the _Amazon Aurora
 User Guide_. For more information about support and other policies for
@@ -26,7 +26,7 @@ Guide_.
 
 ###### Topics
 
-- [PostgreSQL 18.1](#AuroraPostgreSQL.Updates.180X "#AuroraPostgreSQL.Updates.180X")
+- [PostgreSQL 18 versions](#aurorapostgresql-versions-version18 "#aurorapostgresql-versions-version18")
 - [PostgreSQL 17 versions](#aurorapostgresql-versions-version17 "#aurorapostgresql-versions-version17")
 - [PostgreSQL 16 versions](#aurorapostgresql-versions-version16 "#aurorapostgresql-versions-version16")
 - [PostgreSQL 15 versions (includes some deprecated versions)](#aurorapostgresql-versions-version15 "#aurorapostgresql-versions-version15")
@@ -37,101 +37,102 @@ Guide_.
 - [PostgreSQL 10 versions (Deprecated)](#AuroraPostgreSQL.versions-version10 "#AuroraPostgreSQL.versions-version10")
 - [PostgreSQL 9.6 versions (Deprecated)](#AuroraPostgreSQL.versions-version96 "#AuroraPostgreSQL.versions-version96")
 
-## PostgreSQL 18.1
+## PostgreSQL 18 versions
 
-The PostgreSQL community releases new Major versions of PostgreSQL annually. The Amazon RDS Database Preview Environment allows you to test beta, release candidate, and early production versions of Amazon Aurora releases. This allows customers to create DB Clusters on an early release of Aurora PostgreSQL 18 in the Preview environment and test its features.
+###### Version updates
 
-The following limitations apply to Aurora PostgreSQL Clusters in the Preview environment:
+- [PostgreSQL 18.3](#aurorapostgresql-versions-version183x "#aurorapostgresql-versions-version183x")
 
-1. All DB instances/clusters are deleted 60 days after you create them, along with any backups and snapshots.
-2. You can't copy a snapshot of a DB instance from Preview to a production environment.
-3. The following options are supported by the Preview.
-   1. You can create DB instances using r6g, r6i, r7g, r7i, r8g, x2g, t3 and t4g instance types only. For more information about RDS Aurora instance classes, see DB instance classes.
-   2. You can use both single-AZ and multi-AZ deployments.
-   3. You can use standard PostgreSQL dump and load functions to export databases from or import databases to the Database Preview Environment.
+### PostgreSQL 18.3
 
-Some of the Features that are not supported for APG18.1 Preview:
-
-1. Serverless v1/v2
-2. Major Version Upgrades i.e. MVU
-3. No new minors will be released in preview region i.e. APG17.1 will not be released in preview region
-4. RDS PostgreSQL to Aurora PostgreSQL Inbound replication
-5. Amazon RDS Blue/Green deployment
-6. Cross-Region snapshot copy
-7. Global DB
-8. Database Activity Streams (DAS), RDS Proxy and Data Migration Service (DMS)
-9. Auto Scaling Read Replicas
-10.
-11. RDS Export
-12. Performance Insights
-13. Custom Endpoints
-14. Snapshot Copy
-15. zero-ETL
-16. Babelfish
-17. PostGis Topology module is not supported because of a community regression: [https://trac.osgeo.org/postgis/ticket/5983](https://trac.osgeo.org/postgis/ticket/5983 "https://trac.osgeo.org/postgis/ticket/5983")
-
-### Creating a new DB Cluster in the preview environment
-
-Use the following procedure to create a DB Cluster in the preview environment.
-
-###### To create a DB Cluster in the preview environment
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. Choose Dashboard from the navigation pane.
-3. In the Dashboard page, locate the Database Preview Environment section on the Dashboard page, as shown in the following image.
-4. You can navigate directly to the Database preview environment. Before you can proceed, you must acknowledge and accept the limitations.
-5. To create the Aurora PostgreSQL DB instance, follow the same process as that for creating any Amazon Aurora PostgreSQL DB Cluster. For more information, see the Console procedure in Creating an Amazon Aurora PostgreSQL DB cluster.
-6. To create an Cluster in the Database Preview Environment using the RDS API or the AWS CLI, use the following endpoint.
-
-`rds-preview.us-east-2.amazonaws.com`
+This release of Aurora PostgreSQL is compatible with PostgreSQL 18.3. For more information about
+the improvements in PostgreSQL 18.3, see [PostgreSQL release
+18.3](https://www.postgresql.org/docs/18/release-18-3.html "https://www.postgresql.org/docs/18/release-18-3.html").
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 18.1 in the Amazon RDS Preview environment](#AuroraPostgreSQL.Updates.181Preview "#AuroraPostgreSQL.Updates.181Preview")
+- [Aurora PostgreSQL 18.3](#aurorapostgresql-versions-version183x-183 "#aurorapostgresql-versions-version183x-183")
 
-### Aurora PostgreSQL 18.1 in the Amazon RDS Preview environment
+#### Aurora PostgreSQL 18.3
 
-**_This is preview documentation for Amazon Aurora PostgreSQL version 18.1. It is subject to change._**
+**New features**
 
-This release of Aurora PostgreSQL is compatible with PostgreSQL 18.1. For more information about the improvements in PostgreSQL 18.1, see [PostgreSQL release 18.0](https://www.postgresql.org/docs/18/release-18.html "https://www.postgresql.org/docs/18/release-18.html") and [PostgreSQL release 18.1](https://www.postgresql.org/docs/18/release-18-1.html "https://www.postgresql.org/docs/18/release-18-1.html").
+- The `ssl_tls13_ciphers` parameter is now available for configuring TLS v1.3 ciphers.
+- PostgreSQL 18 introduces the `ssl_groups` parameter (formerly `ssl_ecdh_curve` in previous major versions) for configuring TLS key exchange curves.
+- Default and allowed cipher lists have been updated to improve security posture and FIPS compliance.
+- Note that `io_method`, `io_workers` and `io_max_concurrency` are community AIO GUCs and are not available in Aurora PostgreSQL. Aurora PostgreSQL uses its own async I/O implementation.
+- Added support for Eager aggregation, which pushes aggregation before joins to improve query performance. Controlled by GUCs `enable_eager_aggregate` (default: OFF) and `min_eager_agg_group_size` to set the minimum average group size required to consider applying Eager aggregation (default: 8).
 
-###### Parameter updates
+**Critical stability enhancements**
 
-- `track_cost_delay_timing` default is set to on
-- `max_active_replication_origins` default is set to 20
-- `client_connection_check_interval` default is set to 60000
-- `log_connections` was updated to reflect the new PostgreSQL 18 behavior. The old default value of 0 is equivalent to the new default empty value, and the old value of 1 is equivalent to specifying all three values of receipt, authentication, and authorization
-- `autovacuum_worker_slots`, `io_workers`, `io_max_concurrency`
+- Fixed an issue which can lead to an unnecessary storage checkpoint during database startup leading to prolonged database startup time.
+- Fixed a race condition that could prevents failovers from completing to intended failover target.
 
-###### Extension updates
+**High priority enhancements**
 
-- Added new extension pg_roaringbitmap version 0.5.5
-- Updated h3-pg to version 4.2.3
-- Updated PostGIS to version 3.6.0
-- Updated pg_hint_plan to version 1.8.0
-- Updated pg_cron to version 1.6.7
-- Updated hypopg to version 1.4.2
-- Updated MySQL FDW to version REL-2_9_3
-- Updated pglogical to version 2.4.6
-- Updated pgvector to version 0.8.1
-- Updated PLv8 to version 3.2.4
-- Updated TDS FDW to version 2.0.5
-- Updated pg_tle to version 1.5.2
-- Updated PgAudit to version 18.0
-- Updated to PgRouting to version 3.8.0
+- Back-ported fixes for the following PostgreSQL community security issues:
 
-###### General enhancements
+  - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
+  - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
+  - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
+  - [CVE-2026-2006](https://www.postgresql.org/support/security/CVE-2026-2006/ "https://www.postgresql.org/support/security/CVE-2026-2006/")
+  - [CVE-2026-2007](https://www.postgresql.org/support/security/CVE-2026-2007/ "https://www.postgresql.org/support/security/CVE-2026-2007/")
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
 
-- Reduced commit latency when I/O optimized is enabled
+- Fixed an issue in cache initialization that could cause a crash during database startup.
+- Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
+- Added the following new extensions:
 
-###### Unsupported Features
+  - pg_roaringbitmap version 1.1.0
 
-- Aurora PostgreSQL 18.1 will only support io_method of worker.
-- Aurora PostgreSQL 18.1 does not currently support logical decoding on Aurora Read Replicas.
-- Aurora PostgreSQL 18.1 does not currently support failover control within a Cluster.
-- Aurora PostgreSQL 18.1 does not currently support pg_createsubscriber on Aurora Read Replicas.
-- Aurora PostgreSQL 18.1 does not currently support Aurora PostgreSQL Query Plan Management.
-- Aurora PostgreSQL 18.1 does not currently support in-region write forwarding
+- Updated the following extensions:
+
+  - aws_s3 to version 2.0.
+  - aws_lambda to version 2.1.
+  - pg_bigm to version 1.2_20250903.
+  - pg_hint_plan to version 1.8.0.
+  - tds_fdw to version 2.0.5.
+  - mysql_fdw to version REL-2_9_3.
+  - pg_cron to version 1.6.7.
+  - orafce to version 4.16.3.
+  - hypopg to version 1.4.2.
+  - pglogical to version 2.4.6.
+  - pgvector to version 0.8.1.
+  - pgrouting to version 3.8.0.
+  - pg_repack to version 1.5.3.
+  - oracle_fdw to version 2.8.0.
+  - h3-pg to version 4.2.3.
+  - PLv8 to version 3.2.4.
+  - pg_tle to version 1.5.2.
+  - PgAudit to version 18.
+  - PostGIS to version 3.6.1.
+  - postgis_raster to version 3.6.1.
+  - postgis_tiger_geocoder to version 3.6.1.
+  - postgis_topology to version 3.6.1.
+  - address_standardizer to version 3.6.1.
+  - address_standardizer_data_us to version 3.6.1.
+
+- Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
+
+**General enhancements**
+
+- Fixed max_wal_size configuration to properly trigger a checkpoint if WAL produced since the prior checkpoint exceeds the parameter value.
+- Improved Aurora Replica availability by reducing buffer cache contention during write-ahead-log replay.
+- Fixed an issue where the pg_hint_plan SET hint cannot set GUCs marked as PGC_RDSSUSET.
+- Fixed an issue in the orafce extension which, in rare cases, can cause database unavailability.
+- Fixed an issue where infinite recursion within a plv8 procedure could cause database unavailability.
+- Fixed an issue where ALTER FUNCTION could fail with "routine name is not unique".
+- Fixed an issue with the multitransaction system that could cause database unavailability.
 
 ## PostgreSQL 17 versions
 
@@ -165,6 +166,7 @@ the improvements in PostgreSQL 17.9, see [PostgreSQL release
 
 - Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
   - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
   - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
@@ -196,6 +198,7 @@ the improvements in PostgreSQL 17.9, see [PostgreSQL release
 - Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
   - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
   - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
@@ -205,6 +208,7 @@ the improvements in PostgreSQL 17.9, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - aws_s3 to version 2.0.
   - pg_bigm to version 1.2_20250903.
   - pg_hint_plan to version 1.7.1.
@@ -257,6 +261,7 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -300,6 +305,7 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
 
@@ -310,6 +316,7 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - h3_pg to version 4.2.3.
 
 - Fixed NOTIFY channel file cleanup issue that could cause excessive storage usage
@@ -351,6 +358,7 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -385,6 +393,7 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
@@ -414,6 +423,7 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
@@ -428,6 +438,7 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - oracle_fdw to version to 2.8.0
   - pg_repack extension to version 1.5.2
   - aws_lamba extension to version 2.0
@@ -477,6 +488,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
 
   [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
@@ -503,12 +515,14 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security
   vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -593,6 +607,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - apg_plan_mgmt to 2.9.
   - The `pgaudit` extension to 17.1.
   - The `rdkit` extension to 4.6.1 (2024_09_6).
@@ -659,6 +674,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -691,6 +707,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://nvd.nist.gov/vuln/detail/CVE-2025-12817 "https://nvd.nist.gov/vuln/detail/CVE-2025-12817").
   - [CVE-2025-12818](https://nvd.nist.gov/vuln/detail/CVE-2025-12818 "https://nvd.nist.gov/vuln/detail/CVE-2025-12818").
 
@@ -717,11 +734,13 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -819,6 +838,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
   startup.
 - Fixed a security issue in the `rds_activity_stream` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -834,12 +854,14 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
   switchover for Global Databases.
 - In Blue/Green deployments, creating or modifying temporary objects is no longer
   classified as restricted DDL.
+
   - Creating temporary objects with syntax such as CREATE TEMPORARY TABLE x AS SELECT \* FROM isn't supported.
   - Creating indexes on temporary tables isn't supported.
 
 - The Blue/Green deployment switchover won’t be blocked by the `REFRESH
 MATERIALIZED VIEW` statement.
 - Updated the following parameter names to align with the PostgreSQL 17 version:
+
   - `multixact_offsets_cache_size` is now
     `multixact_offset_buffers`
   - `multixact_members_cache_size` is now
@@ -852,6 +874,7 @@ MATERIALIZED VIEW` statement.
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes
   to become stuck indefinitely.
 - Updated the following extensions:
+
   - `pgvector` extension to 0.8.0.
   - `pg_cron` extension to v1.6.5.
   - `tds_fdw` extension to 2.0.4.
@@ -917,7 +940,7 @@ For more information on migration, see [Migration
 to Version 16](https://www.postgresql.org/docs/16/release-16.html#RELEASE-16-MIGRATION "https://www.postgresql.org/docs/16/release-16.html#RELEASE-16-MIGRATION") and [Migration to Version 16.1](https://www.postgresql.org/docs/16/release-16-1.html#RELEASE-16-1-MIGRATION "https://www.postgresql.org/docs/16/release-16-1.html#RELEASE-16-1-MIGRATION").
 
 For information about supported extensions versions for each Aurora PostgreSQL version,
-see [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md "AuroraPostgreSQL.Extensions.md").
+see [Extensions supported for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md "AuroraPostgreSQL.Extensions.md").
 
 To upgrade your Aurora PostgreSQL DB cluster including upgrading your extensions, see [Upgrading PostgreSQL extensions](../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades").
 
@@ -981,6 +1004,7 @@ the improvements in PostgreSQL 16.13, see [PostgreSQL release
 
 - Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
   - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
   - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
@@ -1012,6 +1036,7 @@ the improvements in PostgreSQL 16.13, see [PostgreSQL release
 - Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
   - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
   - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
@@ -1021,6 +1046,7 @@ the improvements in PostgreSQL 16.13, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - aws_s3 to version 2.0.
   - pg_bigm to version 1.2_20250903.
   - pg_hint_plan to version 1.6.2.
@@ -1073,6 +1099,7 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -1116,6 +1143,7 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
 
@@ -1126,6 +1154,7 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - h3_pg to version 4.2.3.
 
 - Fixed NOTIFY channel file cleanup issue that could cause excessive storage usage
@@ -1167,6 +1196,7 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -1201,6 +1231,7 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
@@ -1229,6 +1260,7 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
@@ -1243,6 +1275,7 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - oracle_fdw to version to 2.8.0
   - pg_repack extension to version 1.5.2
   - aws_lamba extension to version 2.0
@@ -1292,6 +1325,7 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
 
   [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
@@ -1318,12 +1352,14 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security
   vulnerabilities.
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -1402,6 +1438,7 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - apg_plan_mgmt to 2.9.
   - The `pgaudit` extension to 16.1.
   - The `rdkit` extension to 4.6.1 (2024_09_6).
@@ -1471,6 +1508,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -1503,6 +1541,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://nvd.nist.gov/vuln/detail/CVE-2025-12817 "https://nvd.nist.gov/vuln/detail/CVE-2025-12817").
   - [CVE-2025-12818](https://nvd.nist.gov/vuln/detail/CVE-2025-12818 "https://nvd.nist.gov/vuln/detail/CVE-2025-12818").
 
@@ -1529,11 +1568,13 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -1627,6 +1668,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
   startup.
 - Fixed a security issue in the `rds_activity_stream` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**.
@@ -1639,6 +1681,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
   switchover for Global Databases.
 - In Blue/Green deployments, creating or modifying temporary objects is no longer
   classified as restricted DDL.
+
   - Creating temporary objects with syntax such as CREATE TEMPORARY TABLE x AS SELECT \* FROM isn't supported.
   - Creating indexes on temporary tables isn't supported.
 
@@ -1651,6 +1694,7 @@ MATERIALIZED VIEW` statement.
 - Fixed an issue in handling of asynchronous I/O cancellation that could cause processes
   to become stuck indefinitely.
 - Updated the following extensions:
+
   - Update the `pgvector` extension to 0.8.0.
   - Update the `pg_cron` extension to v1.6.5.
   - Update the `tds_fdw` extension to 2.0.4.
@@ -1689,6 +1733,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -1710,11 +1755,13 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -1762,6 +1809,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -1820,6 +1868,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979")
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978")
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977")
@@ -1864,6 +1913,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `pg_cron` extension to v1.6.4.
   - `PostGIS` extension to version 3.4.3.
   - `PROJ` library extension to version 9.5.0.
@@ -1899,6 +1949,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -1913,11 +1964,13 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -1964,6 +2017,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 **High priority enhancements**.
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 16.4.2, January 29, 2025
@@ -2001,6 +2055,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -2069,6 +2124,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 **Additional improvements and enhancements**
 
 - Updated the following extensions:
+
   - `pgvector` extension to version 0.7.3.
   - `mysql_fdw` extension to version REL-2_9_2.
   - `orafce` extension to version 4.10.3.
@@ -2120,6 +2176,7 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 16.3.3, January 29, 2025
@@ -2141,6 +2198,7 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
   local/session timezone setting.
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -2160,6 +2218,7 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 ###### General enhancements
@@ -2227,6 +2286,7 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` extension to version 4.9.4.
   - `pg_cron` extension to version 1.6.2.
   - `pg_partman` extension to version 5.1.0.
@@ -2279,6 +2339,7 @@ about the improvements in PostgreSQL 16.2, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 16.2.4, February 02, 2025
@@ -2297,6 +2358,7 @@ about the improvements in PostgreSQL 16.2, see [PostgreSQL release
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418")
   for V8 Engine in the `PLV8` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979")
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978")
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976")
@@ -2319,6 +2381,7 @@ from a previous the `PostGIS` extension v2 installation.
 - Fixed issues where the replication of vacuum operations may cause a restart
   when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 16.2.2, June 20, 2024
@@ -2404,11 +2467,13 @@ showtext)` and `aurora_stat_plans(bool showtext)`.
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
   - RDKit Cartridge to version Release_2023_09_4.
 
 - New GUC Parameters has been added
+
   - `pgtle.clientauth_databases_to_skip`
   - `pgtle.clientauth_db_name`
   - `pgtle.clientauth_num_parallel_workers`
@@ -2459,6 +2524,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
   **General enhancements**
@@ -2475,6 +2541,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -2500,6 +2567,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 - Fixed issues where the replication of vacuum operations may cause a restart
   when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 16.1.4, June 24, 2024
@@ -2544,6 +2612,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 - Fixed an issue where a logical replication slot would no longer emit changes
   due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -2644,6 +2713,7 @@ the improvements in PostgreSQL 15.17, see [PostgreSQL release
 
 - Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
   - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
   - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
@@ -2675,6 +2745,7 @@ the improvements in PostgreSQL 15.17, see [PostgreSQL release
 - Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
   - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
   - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
@@ -2684,6 +2755,7 @@ the improvements in PostgreSQL 15.17, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - aws_s3 to version 2.0.
   - pg_bigm to version 1.2_20250903.
   - pg_hint_plan to version 1.5.3.
@@ -2736,6 +2808,7 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -2779,6 +2852,7 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
 
@@ -2789,6 +2863,7 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - h3_pg to version 4.2.3.
 
 - Fixed a race condition in Postgres lock release with optimized read enabled.
@@ -2826,6 +2901,7 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -2860,6 +2936,7 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
@@ -2883,6 +2960,7 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
@@ -2894,6 +2972,7 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - oracle_fdw to version to 2.8.0
   - pg_repack extension to version 1.5.2
   - aws_lamba extension to version 2.0
@@ -2941,6 +3020,7 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
 
   [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
@@ -2967,12 +3047,14 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security
   vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -3051,6 +3133,7 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - apg_plan_mgmt to 2.9.
   - The `pgaudit` extension to 1.7.1.
   - The `rdkit` extension to 4.6.1 (2024_09_6).
@@ -3115,6 +3198,7 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -3147,6 +3231,7 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://nvd.nist.gov/vuln/detail/CVE-2025-12817 "https://nvd.nist.gov/vuln/detail/CVE-2025-12817").
   - [CVE-2025-12818](https://nvd.nist.gov/vuln/detail/CVE-2025-12818 "https://nvd.nist.gov/vuln/detail/CVE-2025-12818").
 
@@ -3173,11 +3258,13 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -3265,6 +3352,7 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
   startup.
 - Fixed a security issue in the `rds_activity_stream` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -3277,6 +3365,7 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
   switchover for Global Databases.
 - In Blue/Green deployments, creating or modifying temporary objects is no longer
   classified as restricted DDL.
+
   - Creating temporary objects with syntax such as CREATE TEMPORARY TABLE x AS SELECT \* FROM isn't supported.
   - Creating indexes on temporary tables isn't supported.
 
@@ -3288,6 +3377,7 @@ MATERIALIZED VIEW` statement.
   pg_stat_activity when using extended protocol in pipeline mode.
 - Fixed an issue where reader upgrade was taking longer than expected.
 - Updated the following extensions:
+
   - Update the `pgvector` extension to 0.8.0.
   - Update the `pg_cron` extension to v1.6.5.
   - Update the `tds_fdw` extension to 2.0.4.
@@ -3326,6 +3416,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -3347,11 +3438,13 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -3399,6 +3492,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -3451,6 +3545,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979")
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978")
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977")
@@ -3491,6 +3586,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `pg_cron` extension to v1.6.4.
   - `PostGIS` extension to version 3.4.3.
   - `PROJ` library extension to version 9.5.0.
@@ -3525,6 +3621,7 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -3539,11 +3636,13 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -3590,6 +3689,7 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 **High priority enhancements**.
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 15.8.2, January 29, 2025
@@ -3627,6 +3727,7 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -3692,6 +3793,7 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 **Additional improvements and enhancements for 15.8**
 
 - Updated the following extensions:
+
   - `pgvector` extension to version 0.7.3.
   - `mysql_fdw` extension to version REL-2_9_2.
   - `orafce` extension to version 4.10.3.
@@ -3743,6 +3845,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 15.7.3, January 29, 2025
@@ -3764,6 +3867,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
   local/session timezone setting.
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -3783,6 +3887,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 ###### General enhancements
@@ -3846,6 +3951,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` extension to version 4.9.4.
   - `pg_cron` extension to version 1.6.2.
   - `pg_partman` extension to version 5.1.0.
@@ -3897,6 +4003,7 @@ information about the improvements in PostgreSQL 15.6, see [PostgreSQL release 1
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 15.6.4, February 02, 2025
@@ -3915,6 +4022,7 @@ information about the improvements in PostgreSQL 15.6, see [PostgreSQL release 1
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418")
   for V8 Engine in the `PLV8` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979")
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978")
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976")
@@ -3935,6 +4043,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 15.6.2, June 20, 2024
@@ -3996,11 +4105,13 @@ from a previous the `PostGIS` extension v2 installation.
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
   - RDKit Cartridge to version Release_2023_09_4.
 
 - New GUC Parameters has been added
+
   - `pgtle.clientauth_databases_to_skip`
   - `pgtle.clientauth_db_name`
   - `pgtle.clientauth_num_parallel_workers`
@@ -4050,6 +4161,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
   **General enhancements**
@@ -4066,6 +4178,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -4090,6 +4203,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 15.5.4, June 24, 2024
@@ -4126,6 +4240,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 - Fixed an issue where `pg_stat_statements` can block minor version upgrade during ZDP.
 - Fixed an issue where a logical replication slot would no longer emit changes due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -4152,6 +4267,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Added support for `aurora_compute_plan_id` parameter which is turned on by default in an Aurora PostgreSQL DB Cluster and DB Parameter Group.
   For more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md").
 - Query Plan Management (QPM) enhancements:
+
   - Plan outlines will be updated to the latest format version as part of the `update_plan_hash`
     action for `apg_plan_mgmt.validate_plans()`.
   - Support was added for parallel append enforcement as a part of parallel query enforcement.
@@ -4169,6 +4285,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Introduced a new parameter, `rds.enable_memory_management`, which is used to enable and disable the improved memory management feature.
 - Improved index scan query performance by skipping unnecessary B-tree page reads when a composite index is used with large data sets.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -4191,6 +4308,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `mysql_fdw` to version 2.9.1
   - `Oracle_fdw` to version 2.6.0
   - `Orafce` to version 4.6.0
@@ -4249,6 +4367,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -4267,6 +4386,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -4290,6 +4410,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
   `rds.enable_plan_management` is turned on, but apg_plan_mgmt
   extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 15.4.7, June 25, 2024
@@ -4331,6 +4452,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 - Fixed an issue where a logical replication slot would no longer emit changes
   due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -4354,6 +4476,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -4375,6 +4498,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker
@@ -4415,6 +4539,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 - Provided options to configure timeouts in the `aws_s3` extension.
   By setting the following parameters (GUCs), customers will now be able to change
   the timeout thresholds for imports from S3:
+
   - `aws_s3.curlopt_low_speed_limit`
   - `aws_s3.curlopt_low_speed_time`
 
@@ -4444,6 +4569,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` to version 4.3.0
   - `pg_logical` to version 2.4.3
   - `pg_tle` to version 1.1.1
@@ -4493,6 +4619,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
   **General enhancements**
@@ -4509,6 +4636,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -4533,6 +4661,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 15.3.6, August 7, 2024
@@ -4555,6 +4684,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 
 - Fixed an issue that would cause a logical replication slot to transiently error out in the presence of aborted subtransactions and DDL.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -4568,6 +4698,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -4586,6 +4717,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -4600,6 +4732,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39418](https://nvd.nist.gov/vuln/detail/CVE-2023-39418 "https://nvd.nist.gov/vuln/detail/CVE-2023-39418")
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
@@ -4648,6 +4781,7 @@ you must upgrade to a newer major version by February 29, 2024.
 - Added a new function, `aurora_stat_memctx_usage()`, to show backend memory use breakdown at a Postgres memory context level
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters (GUCs),
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
@@ -4692,6 +4826,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 15.2.8, August 7, 2024
@@ -4714,6 +4849,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 
 - Fixed an issue that would cause a logical replication slot to transiently error out in the presence of aborted subtransactions and DDL.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -4727,6 +4863,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -4745,6 +4882,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -4760,6 +4898,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-39418](https://nvd.nist.gov/vuln/detail/CVE-2023-39418 "https://nvd.nist.gov/vuln/detail/CVE-2023-39418")
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
@@ -4786,6 +4925,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters (GUCs),
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
@@ -4831,6 +4971,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `apg_plan_mgmt` to version 2.4
   - `hll` to version 2.17
   - `Oracle_fdw` to version 2.5.0
@@ -4902,6 +5043,7 @@ the improvements in PostgreSQL 14.22, see [PostgreSQL release
 
 - Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
   - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
   - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
@@ -4933,6 +5075,7 @@ the improvements in PostgreSQL 14.22, see [PostgreSQL release
 - Fixed an issue in the Aurora Storage Daemon that could lead to brief periods of unavailability when enhanced logical replication is enabled.
 - Fixed an issue in global databases planned switchover that would cause the switchover to be stuck waiting for a volume growth.
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003/ "https://www.postgresql.org/support/security/CVE-2026-2003/")
   - [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004/ "https://www.postgresql.org/support/security/CVE-2026-2004/")
   - [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005/ "https://www.postgresql.org/support/security/CVE-2026-2005/")
@@ -4942,6 +5085,7 @@ the improvements in PostgreSQL 14.22, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - aws_s3 to version 2.0.
   - pg_bigm to version 1.2_20250903.
   - pg_hint_plan to version 1.4.4.
@@ -4995,6 +5139,7 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -5038,6 +5183,7 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
 
@@ -5048,6 +5194,7 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - h3_pg to version 4.2.3.
 
 - Fixed a race condition in Postgres lock release with optimized read enabled.
@@ -5085,6 +5232,7 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -5119,6 +5267,7 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
@@ -5142,6 +5291,7 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
@@ -5153,6 +5303,7 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - oracle_fdw to version to 2.8.0
   - pg_repack extension to version 1.5.2
   - aws_lamba extension to version 2.0
@@ -5200,6 +5351,7 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
 
   [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
@@ -5226,12 +5378,14 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security
   vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -5305,6 +5459,7 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - apg_plan_mgmt to 2.9.
   - The `pgaudit` extension to 1.6.3.
   - The `rdkit` extension to 4.6.1 (2024_09_6).
@@ -5367,6 +5522,7 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -5399,6 +5555,7 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://nvd.nist.gov/vuln/detail/CVE-2025-12817 "https://nvd.nist.gov/vuln/detail/CVE-2025-12817").
   - [CVE-2025-12818](https://nvd.nist.gov/vuln/detail/CVE-2025-12818 "https://nvd.nist.gov/vuln/detail/CVE-2025-12818").
 
@@ -5425,11 +5582,13 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -5514,6 +5673,7 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
   startup.
 - Fixed a security issue in the `rds_activity_stream` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -5526,6 +5686,7 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
   switchover for Global Databases.
 - In Blue/Green deployments, creating or modifying temporary objects is no longer
   classified as restricted DDL.
+
   - Creating temporary objects with syntax such as CREATE TEMPORARY TABLE x AS SELECT \* FROM isn't supported.
   - Creating indexes on temporary tables isn't supported.
 
@@ -5537,6 +5698,7 @@ MATERIALIZED VIEW` statement.
   pg_stat_activity when using extended protocol in pipeline mode.
 - Fixed an issue where reader upgrade was taking longer than expected.
 - Updated the following extensions:
+
   - Update the `pgvector` extension to 0.8.0.
   - Update the `pg_cron` extension to v1.6.5.
   - Update the `tds_fdw` extension to 2.0.4.
@@ -5575,6 +5737,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -5596,11 +5759,13 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -5648,6 +5813,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -5700,6 +5866,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979")
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978")
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977")
@@ -5740,6 +5907,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `pg_cron` extension to v1.6.4.
   - `PostGIS` extension to version 3.4.3.
   - `PROJ` library extension to version 9.5.0.
@@ -5774,6 +5942,7 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -5788,11 +5957,13 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -5839,6 +6010,7 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 **High priority enhancements**.
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 14.13.2, January 29, 2025
@@ -5876,6 +6048,7 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -5937,6 +6110,7 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 **Additional improvements and enhancements for 14.13**
 
 - Updated the following extensions:
+
   - `pgvector` extension to version 0.7.3.
   - `mysql_fdw` extension to version REL-2_9_2.
   - `orafce` extension to version 4.10.3.
@@ -5988,6 +6162,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 14.12.3, January 29, 2025
@@ -6011,6 +6186,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
   local/session timezone setting.
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -6030,6 +6206,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 ###### General enhancements
@@ -6091,6 +6268,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` extension to version 4.9.4.
   - `pg_cron` extension to version 1.6.2.
   - `pg_hint_plan` extension to version 1.4.2.
@@ -6143,6 +6321,7 @@ information about the improvements in PostgreSQL 14.11, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 14.11.4, February 02, 2025
@@ -6161,6 +6340,7 @@ information about the improvements in PostgreSQL 14.11, see [PostgreSQL release 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418")
   for V8 Engine in the `PLV8` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -6181,6 +6361,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 14.11.2, June 20, 2024
@@ -6242,11 +6423,13 @@ from a previous the `PostGIS` extension v2 installation.
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
   - RDKit Cartridge to version Release_2023_09_4.
 
 - New GUC Parameters has been added
+
   - `pgtle.clientauth_databases_to_skip`
   - `pgtle.clientauth_db_name`
   - `pgtle.clientauth_num_parallel_workers`
@@ -6296,6 +6479,7 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
   **General enhancements**
@@ -6312,6 +6496,7 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -6336,6 +6521,7 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 14.10.4, June 24, 2024
@@ -6372,6 +6558,7 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 - Fixed an issue where `pg_stat_statements` can block minor version upgrade during ZDP.
 - Fixed an issue where a logical replication slot would no longer emit changes due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -6398,6 +6585,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Added support for `aurora_compute_plan_id` parameter which is turned on by default in an Aurora PostgreSQL DB Cluster and DB Parameter Group.
   For more information, see [Monitoring query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md "../AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md").
 - Query Plan Management (QPM) enhancements:
+
   - Plan outlines will be updated to the latest format version as part of the `update_plan_hash`
     action for `apg_plan_mgmt.validate_plans()`.
   - Support was added for parallel append enforcement as a part of parallel query enforcement.
@@ -6415,6 +6603,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Introduced a new parameter, `rds.enable_memory_management`, which is used to enable and disable the improved memory management feature.
 - Improved index scan query performance by skipping unnecessary B-tree page reads when a composite index is used with large data sets.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -6437,6 +6626,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `mysql_fdw` to version 2.9.1
   - `Oracle_fdw` to version 2.6.0
   - `Orafce` to version 4.6.0
@@ -6494,6 +6684,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -6512,6 +6703,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -6535,6 +6727,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
   `rds.enable_plan_management` is turned on, but apg_plan_mgmt
   extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 14.9.7, June 25, 2024
@@ -6576,6 +6769,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 - Fixed an issue where a logical replication slot would no longer emit changes
   due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -6599,6 +6793,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -6620,6 +6815,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker
@@ -6656,6 +6852,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 - Provided options to configure timeouts in the `aws_s3` extension.
   By setting the following parameters (GUCs), customers will now be able to change
   the timeout thresholds for imports from S3:
+
   - `aws_s3.curlopt_low_speed_limit`
   - `aws_s3.curlopt_low_speed_time`
 
@@ -6686,6 +6883,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` to version 4.3.0
   - `pg_logical` to version 2.4.3
   - `pg_tle` to version 1.1.1
@@ -6734,6 +6932,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
   **General enhancements**
@@ -6750,6 +6949,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -6774,6 +6974,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 14.8.6, August 7, 2024
@@ -6796,6 +6997,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 
 - Fixed an issue that would cause a logical replication slot to transiently error out in the presence of aborted subtransactions and DDL.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -6809,6 +7011,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -6827,6 +7030,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -6841,6 +7045,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
 ###### High priority enhancements
@@ -6886,6 +7091,7 @@ you must upgrade to a newer major version by February 29, 2024.
 - Added a new function, `aurora_stat_memctx_usage()`, to show backend memory use breakdown at a Postgres memory context level
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters (GUCs),
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
@@ -6930,6 +7136,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 14.7.8, August 7, 2024
@@ -6952,6 +7159,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 
 - Fixed an issue that would cause a logical replication slot to transiently error out in the presence of aborted subtransactions and DDL.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -6965,6 +7173,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -6983,6 +7192,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -6997,6 +7207,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
 
@@ -7023,6 +7234,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters (GUCs),
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
@@ -7072,6 +7284,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `hll` to version 2.17
   - `Oracle_fdw` to version 2.5.0
   - `orafce` to version 4.0.0
@@ -7125,6 +7338,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 14.6.10, November 18, 2024
@@ -7134,6 +7348,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 14.6.9, August 7, 2024
@@ -7155,6 +7370,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -7168,6 +7384,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -7181,6 +7398,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -7190,6 +7408,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
 
@@ -7215,6 +7434,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
@@ -7223,6 +7443,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2022-41862](https://nvd.nist.gov/vuln/detail/CVE-2022-41862 "https://nvd.nist.gov/vuln/detail/CVE-2022-41862")
 
 ###### General stability enhancements
@@ -7301,6 +7522,7 @@ information about the improvements in PostgreSQL 14.5, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -7314,6 +7536,7 @@ information about the improvements in PostgreSQL 14.5, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -7327,6 +7550,7 @@ information about the improvements in PostgreSQL 14.5, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -7336,6 +7560,7 @@ information about the improvements in PostgreSQL 14.5, see [PostgreSQL release 1
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -7355,6 +7580,7 @@ information about the improvements in PostgreSQL 14.5, see [PostgreSQL release 1
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an S3 bucket with a name containing dots
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
@@ -7403,6 +7629,7 @@ information about the improvements in PostgreSQL 14.5, see [PostgreSQL release 1
 - Fixed a durability issue in the `GIN` indexes
 - Provided options to configure `MultiXact SLRU` cache. By setting the following parameters (GUCs),
   customers will now be able to change the `MultiXact SLRU` cache sizes:
+
   - `multixact_members_cache_size`
   - `multixact_offsets_cache_size`
 
@@ -7440,6 +7667,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 14.4.10, August 7, 2024
@@ -7461,6 +7689,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -7474,6 +7703,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -7487,6 +7717,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -7496,6 +7727,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -7516,6 +7748,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an S3 bucket with a name containing dots
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
@@ -7577,6 +7810,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 14.3.10, August 7, 2024
@@ -7599,6 +7833,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -7612,6 +7847,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -7625,6 +7861,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -7634,6 +7871,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -7654,6 +7892,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an S3 bucket with a name containing dots
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
@@ -7720,6 +7959,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 - This release supports EBCDIC collations for the mainframe modernization efforts. For more information,
   see [Aurora PostgreSQL collations for EBCDIC and other mainframe migrations](../AuroraUserGuide/AuroraPostgreSQL.Reference.md#AuroraPostgreSQL.Reference.Collations.mainframe.migration "../AuroraUserGuide/AuroraPostgreSQL.Reference.md#AuroraPostgreSQL.Reference.Collations.mainframe.migration") in the _Amazon Aurora User Guide_.
 - Updated the following extensions:
+
   - `amcheck` to version 1.3
   - `btree_gist` to version 1.6
   - `cube` to version 1.5
@@ -7791,6 +8031,7 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2026-2003](https://nvd.nist.gov/vuln/detail/CVE-2026-2003 "https://nvd.nist.gov/vuln/detail/CVE-2026-2003").
   - [CVE-2026-2004](https://nvd.nist.gov/vuln/detail/CVE-2026-2004 "https://nvd.nist.gov/vuln/detail/CVE-2026-2004").
   - [CVE-2026-2005](https://nvd.nist.gov/vuln/detail/CVE-2026-2005 "https://nvd.nist.gov/vuln/detail/CVE-2026-2005").
@@ -7834,6 +8075,7 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
 
@@ -7844,6 +8086,7 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - h3_pg to version 4.2.3.
 
 - Fixed a race condition in Postgres lock release with optimized read enabled.
@@ -7880,6 +8123,7 @@ the improvements in PostgreSQL 13.22, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
@@ -7903,6 +8147,7 @@ the improvements in PostgreSQL 13.22, see [PostgreSQL release
 **High priority enhancements**
 
 - Back-ported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/")
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/")
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/")
@@ -7914,6 +8159,7 @@ the improvements in PostgreSQL 13.22, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - oracle_fdw to version to 2.8.0
   - pg_repack extension to version 1.5.2
   - aws_lamba extension to version 2.0
@@ -7961,6 +8207,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
 
   [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
@@ -7987,12 +8234,14 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security
   vulnerabilities.
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -8066,6 +8315,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 **General enhancements**
 
 - Updated the following extensions:
+
   - apg_plan_mgmt to 2.9.
   - The `pgaudit` extension to 1.5.3.
   - The `rdkit` extension to 4.6.1 (2024_09_6).
@@ -8128,6 +8378,7 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://nvd.nist.gov/vuln/detail/CVE-2025-12817 "https://nvd.nist.gov/vuln/detail/CVE-2025-12817").
   - [CVE-2025-12818](https://nvd.nist.gov/vuln/detail/CVE-2025-12818 "https://nvd.nist.gov/vuln/detail/CVE-2025-12818").
 
@@ -8154,11 +8405,13 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension’s V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -8231,6 +8484,7 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
   startup.
 - Fixed a security issue in the `rds_activity_stream` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -8243,6 +8497,7 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
   switchover for Global Databases.
 - In Blue/Green deployments, creating or modifying temporary objects is no longer
   classified as restricted DDL.
+
   - Creating temporary objects with syntax such as CREATE TEMPORARY TABLE x AS SELECT \* FROM isn't supported.
   - Creating indexes on temporary tables isn't supported.
 
@@ -8252,6 +8507,7 @@ MATERIALIZED VIEW` statement.
   throughput for write-heavy workloads on the new Graviton 4 high-end instances.
 - Fixed an issue where reader upgrade was taking longer than expected.
 - Updated the following extensions:
+
   - Update the `pgvector` extension to 0.8.0.
   - Update the `pg_cron` extension to v1.6.5.
   - Update the `tds_fdw` extension to 2.0.4.
@@ -8290,6 +8546,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -8311,11 +8568,13 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -8364,6 +8623,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -8420,6 +8680,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979")
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978")
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977")
@@ -8456,6 +8717,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 ###### Additional improvements and enhancements for 13.18
 
 - Updated the following extensions:
+
   - `pg_cron` extension to v1.6.4.
   - `PostGIS` extension to version 3.4.3.
   - `PROJ` library extension to version 9.5.0.
@@ -8490,6 +8752,7 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -8504,11 +8767,13 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -8555,6 +8820,7 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues.
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 13.16.2, January 29, 2025
@@ -8592,6 +8858,7 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -8646,6 +8913,7 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 **Additional improvements and enhancements**
 
 - Updated the following extensions:
+
   - `pgvector` extension to version 0.7.3.
   - `mysql_fdw` extension to version REL-2_9_2.
   - `orafce` extension to version 4.10.3.
@@ -8696,6 +8964,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 13.15.3, January 29, 2025
@@ -8717,6 +8986,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
   local/session timezone setting.
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -8736,6 +9006,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 ###### General enhancements
@@ -8790,6 +9061,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` extension to version 4.9.4.
   - `pg_cron` extension to version 1.6.2.
   - `pg_partman` extension to version 5.1.0.
@@ -8841,6 +9113,7 @@ information about the improvements in PostgreSQL 13.14, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 13.14.4, February 02, 2025
@@ -8859,6 +9132,7 @@ information about the improvements in PostgreSQL 13.14, see [PostgreSQL release 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418")
   for V8 Engine in the `PLV8` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -8879,6 +9153,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 13.14.2, June 20, 2024
@@ -8937,11 +9212,13 @@ from a previous the `PostGIS` extension v2 installation.
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
   - RDKit Cartridge to version Release_2023_09_4.
 
 - New GUC Parameters has been added
+
   - `pgtle.clientauth_databases_to_skip`
   - `pgtle.clientauth_db_name`
   - `pgtle.clientauth_num_parallel_workers`
@@ -8991,6 +9268,7 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
   **General enhancements**
@@ -9007,6 +9285,7 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -9031,6 +9310,7 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 13.13.4, June 24, 2024
@@ -9067,6 +9347,7 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 - Fixed an issue where `pg_stat_statements` can block minor version upgrade during ZDP.
 - Fixed an issue where a logical replication slot would no longer emit changes due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -9090,6 +9371,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   foundational AI models.
 - Delegated Extension Support – This feature allows delegating extension management to lower privileged user with the new rds_extension role.
 - Query Plan Management (QPM) enhancements:
+
   - Plan outlines will be updated to the latest format version as part of the `update_plan_hash`
     action for `apg_plan_mgmt.validate_plans()`.
   - Support was added for parallel append enforcement as a part of parallel query enforcement.
@@ -9106,6 +9388,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Fixed a bug that may cause an engine crash during zero-downtime patching (ZDP)
 - Introduced a new parameter, `rds.enable_memory_management`, which is used to enable and disable the improved memory management feature.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -9126,6 +9409,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `mysql_fdw` to version 2.9.1
   - `Oracle_fdw` to version 2.6.0
   - `Orafce` to version 4.6.0
@@ -9182,6 +9466,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -9200,6 +9485,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -9223,6 +9509,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
   `rds.enable_plan_management` is turned on, but apg_plan_mgmt
   extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 13.12.7, June 25, 2024
@@ -9264,6 +9551,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 - Fixed an issue where a logical replication slot would no longer emit changes
   due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -9280,6 +9568,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -9294,6 +9583,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker
@@ -9329,6 +9619,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 - Provided options to configure timeouts in the `aws_s3` extension.
   By setting the following parameters (GUCs), customers will now be able to change
   the timeout thresholds for imports from S3:
+
   - `aws_s3.curlopt_low_speed_limit`
   - `aws_s3.curlopt_low_speed_time`
 
@@ -9354,6 +9645,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` to version 4.3.0
   - `pg_logical` to version 2.4.3
   - `pgvector` to version 0.5.0
@@ -9401,6 +9693,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
   **General enhancements**
@@ -9417,6 +9710,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -9441,6 +9735,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 13.11.6, August 7, 2024
@@ -9463,6 +9758,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 
 - Fixed an issue that would cause a logical replication slot to transiently error out in the presence of aborted subtransactions and DDL.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -9476,6 +9772,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -9489,6 +9786,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -9503,6 +9801,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 ###### High priority stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
 ###### High priority enhancements
@@ -9546,6 +9845,7 @@ you must upgrade to a newer major version by February 29, 2024.
 - Added a new function, `aurora_stat_memctx_usage()`, to show backend memory use breakdown at a Postgres memory context level.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters (GUCs),
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -9589,6 +9889,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 13.10.8, August 7, 2024
@@ -9611,6 +9912,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 
 - Fixed an issue that would cause a logical replication slot to transiently error out in the presence of aborted subtransactions and DDL.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -9624,6 +9926,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -9637,6 +9940,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -9651,6 +9955,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
 ###### High priority enhancements
@@ -9676,6 +9981,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters (GUCs),
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -9713,6 +10019,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `hll` to version 2.17
   - `Oracle_fdw` to version 2.5.0
   - `orafce` to version 4.0.0
@@ -9762,6 +10069,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 13.9.10, November 18, 2024
@@ -9771,6 +10079,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 13.9.9, August 7, 2024
@@ -9793,6 +10102,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -9806,6 +10116,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -9819,6 +10130,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -9828,6 +10140,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following PostgreSQl community security issue:
+
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
 
@@ -9853,6 +10166,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -9861,6 +10175,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2022-41862](https://nvd.nist.gov/vuln/detail/CVE-2022-41862 "https://nvd.nist.gov/vuln/detail/CVE-2022-41862")
 
 ###### General stability enhancements
@@ -9934,6 +10249,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -9947,6 +10263,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -9960,6 +10277,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -9969,6 +10287,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -9988,6 +10307,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an S3 bucket with a name containing dots.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -10033,6 +10353,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 - Fixed a durability issue in the GIN indexes.
 - Provided options to configure MultiXact SLRU cache. By setting the following parameters (GUCs),
   customers will now be able to change the MultiXact SLRU cache sizes:
+
   - multixact_members_cache_size
   - multixact_offsets_cache_size
 
@@ -10072,6 +10393,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 13.7.10, August 7, 2024
@@ -10094,6 +10416,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -10107,6 +10430,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -10120,6 +10444,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -10129,6 +10454,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -10149,6 +10475,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an S3 bucket with a name containing dots.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -10546,6 +10873,7 @@ information about the improvements in PostgreSQL 13.4, see [PostgreSQL release
 - Updated the `pgrouting` extension to 3.1.3.
 - Updated the `pglogical` extension to 2.4.0.
 - Added support for the following SPI module extensions:
+
   - `autoinc version 1.0`
   - `insert_username version 1.0`
   - `moddatetime version 1.0`
@@ -10658,6 +10986,7 @@ information about the improvements in PostgreSQL 13.3, see [PostgreSQL release
   and [13.3](https://www.postgresql.org/docs/13/release-13-3.html "https://www.postgresql.org/docs/13/release-13-3.html")
 - Instance type R4 was deprecated.
 - Updated the following extensions:
+
   - `hll` to version 2.15.
   - `hstore` to version 1.7.
   - `intarray` to version 1.3.
@@ -10725,6 +11054,7 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
@@ -10746,11 +11076,13 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
   - [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
   - [CVE-2025-8715](https://www.postgresql.org/support/security/CVE-2025-8715/ "https://www.postgresql.org/support/security/CVE-2025-8715/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -10798,6 +11130,7 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues.
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -10850,6 +11183,7 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 ###### High priority enhancements for 12.22
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979")
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978")
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977")
@@ -10881,6 +11215,7 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 ###### Additional improvements and enhancements for 12.22
 
 - Updated the following extensions:
+
   - `pg_cron` extension to v1.6.4.
   - `PostGIS` extension to version 3.4.3.
   - `PROJ` library extension to version 9.5.0.
@@ -10936,6 +11271,7 @@ information about the improvements in PostgreSQL 12.20, see [PostgreSQL release 
   to rebuild their mirror clusters.
 - Fixed an issue where transactional commands may terminate the connection in some cases.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -10992,6 +11328,7 @@ information about the improvements in PostgreSQL 12.20, see [PostgreSQL release 
 **Additional improvements and enhancements**
 
 - Updated the following extensions:
+
   - `pgvector` extension to version 0.7.3.
   - `mysql_fdw` extension to version REL-2_9_2.
   - `orafce` extension to version 4.10.3.
@@ -11022,6 +11359,7 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 12.19.3, January 23, 2025
@@ -11043,6 +11381,7 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
   local/session timezone setting.
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -11067,6 +11406,7 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 12.19, August 8, 2024
@@ -11102,6 +11442,7 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` extension to version 4.9.4.
   - `pg_cron` extension to version 1.6.2.
   - `pg_partman` extension to version 5.1.0.
@@ -11141,6 +11482,7 @@ information about the improvements in PostgreSQL 12.18, see [PostgreSQL release 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418")
   for V8 Engine in the `PLV8` extension.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10976](https://nvd.nist.gov/vuln/detail/CVE-2024-10976 "https://nvd.nist.gov/vuln/detail/CVE-2024-10976").
@@ -11161,6 +11503,7 @@ from a previous the `PostGIS` extension v2 installation.
 
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 12.18.2, June 20, 2024
@@ -11219,11 +11562,13 @@ from a previous the `PostGIS` extension v2 installation.
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `pg_tle` extension to version 1.3.4.
   - `PLV8` extension to version 3.1.10.
   - RDKit Cartridge to version Release_2023_09_4.
 
 - New GUC Parameters has been added
+
   - `pgtle.clientauth_databases_to_skip`
   - `pgtle.clientauth_db_name`
   - `pgtle.clientauth_num_parallel_workers`
@@ -11254,6 +11599,7 @@ information about the improvements in PostgreSQL 12.17, see [PostgreSQL release 
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -11278,6 +11624,7 @@ information about the improvements in PostgreSQL 12.17, see [PostgreSQL release 
 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 12.17.4, June 24, 2024
@@ -11314,6 +11661,7 @@ information about the improvements in PostgreSQL 12.17, see [PostgreSQL release 
 - Fixed an issue where `pg_stat_statements` can block minor version upgrade during ZDP.
 - Fixed an issue where a logical replication slot would no longer emit changes due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -11350,6 +11698,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 - Fixed a bug that may cause an engine crash during zero-downtime patching (ZDP)
 - Introduced a new parameter, `rds.enable_memory_management`, which is used to enable and disable the improved memory management feature.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -11366,6 +11715,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `mysql_fdw` to version 2.9.1
   - `Oracle_fdw` to version 2.6.0
   - `Orafce` to version 4.6.0
@@ -11404,6 +11754,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -11426,6 +11777,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 12.16.7, June 25, 2024
@@ -11460,6 +11812,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 - Fixed an issue where `pg_stat_statements` can block minor version upgrade during ZDP.
 - Fixed an issue where a logical replication slot would no longer emit changes due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -11473,6 +11826,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -11486,6 +11840,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -11509,6 +11864,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 - Fixed an issue in the `aws_s3` extension where the number of rows exported is incorrectly reported when the total number exceeds 2 billion
 - Provided options to configure timeouts in the `aws_s3` extension. By setting the following parameters (GUCs), customers will now be able to
   change the timeout thresholds for imports from S3:
+
   - `aws_s3.curlopt_low_speed_limit`
   - `aws_s3.curlopt_low_speed_time`
 
@@ -11523,6 +11879,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` to version 4.3.0
   - `pg_logical` to version 2.4.3
   - `pgvector` to version 0.5.0
@@ -11557,6 +11914,7 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -11581,6 +11939,7 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 12.15.6, August 7, 2024
@@ -11604,6 +11963,7 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 
 - Fixed an issue that would cause a logical replication slot to transiently error out in the presence of aborted subtransactions and DDL.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -11617,6 +11977,7 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -11630,6 +11991,7 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -11644,6 +12006,7 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 ###### High priority stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
 ###### High priority enhancements
@@ -11688,6 +12051,7 @@ you must upgrade to a newer major version by February 29, 2024.
 - Added a new function, `aurora_stat_memctx_usage()`, to show backend memory use breakdown at a Postgres memory context level.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters (GUCs),
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -11728,6 +12092,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 12.14.8, August 7, 2024
@@ -11751,6 +12116,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 
 - Fixed an issue that would cause a logical replication slot to transiently error out in the presence of aborted subtransactions and DDL.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -11764,6 +12130,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -11777,6 +12144,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -11791,6 +12159,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following PostgreSQL community security issue:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
 ###### High priority enhancements
@@ -11817,6 +12186,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters (GUCs),
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -11854,6 +12224,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `hll` to version 2.17
   - `Oracle_fdw` to version 2.5.0
   - `orafce` to version 4.0.0
@@ -11891,6 +12262,7 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 12.13.9, August 7, 2024
@@ -11913,6 +12285,7 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -11926,6 +12299,7 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -11939,6 +12313,7 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -11967,6 +12342,7 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -12045,6 +12421,7 @@ information about the improvements in PostgreSQL 12.12, see [PostgreSQL release 
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -12058,6 +12435,7 @@ information about the improvements in PostgreSQL 12.12, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -12071,6 +12449,7 @@ information about the improvements in PostgreSQL 12.12, see [PostgreSQL release 
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -12080,6 +12459,7 @@ information about the improvements in PostgreSQL 12.12, see [PostgreSQL release 
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -12099,6 +12479,7 @@ information about the improvements in PostgreSQL 12.12, see [PostgreSQL release 
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an S3 bucket with a name containing dots.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -12174,6 +12555,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 12.11.10, August 7, 2024
@@ -12196,6 +12578,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -12209,6 +12592,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -12222,6 +12606,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -12231,6 +12616,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -12251,6 +12637,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 - Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an S3 bucket with a name containing dots.
 - Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters,
   customers will now be able to change the connect and request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -12427,6 +12814,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
 
   [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
@@ -12438,6 +12826,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
   [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
 - Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
@@ -12458,6 +12847,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 12.9.13, November 22, 2024
@@ -12484,6 +12874,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -12497,6 +12888,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 ###### Critical stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -12510,6 +12902,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 - Fixed an issue related to `pg_cron` background worker processes
@@ -12519,6 +12912,7 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 ###### High priority stability enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -12794,6 +13188,7 @@ information about the improvements in PostgreSQL 12.7, see [PostgreSQL release
 - Added back ability to use a leading forward slash in the Amazon S3 path during S3 import.
 - Added Graviton support for oracle_fdw extension version 2.3.0.
 - Changed the following extensions:
+
   - Updated the `orafce` extension to version 3.16.
   - Updated the `pg_partman` extension to version 4.5.1.
   - Updated the `pg_cron` extension to version 1.3.1.
@@ -12843,6 +13238,7 @@ information about the improvements in PostgreSQL 12.6, see [PostgreSQL release
 ###### New features
 
 - Added support for the following extensions:
+
   - The `pg_proctab` extension version 0.0.9
   - The `pg_partman` extension version 4.4.0. For more information, see
     [Managing PostgreSQL partitions with the pg_partman extension](../AuroraUserGuide/PostgreSQL_Partitions.md "../AuroraUserGuide/PostgreSQL_Partitions.md")
@@ -12859,6 +13255,7 @@ information about the improvements in PostgreSQL 12.6, see [PostgreSQL release
 - Fixed a bug where in rare cases a reader had inconsistent results when it restarted while a transaction
   with more than 64 subtransactions was being processed.
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2021-32027](https://nvd.nist.gov/vuln/detail/CVE-2021-32027 "https://nvd.nist.gov/vuln/detail/CVE-2021-32027")
   - [CVE-2021-32028](https://nvd.nist.gov/vuln/detail/CVE-2021-32028 "https://nvd.nist.gov/vuln/detail/CVE-2021-32028")
   - [CVE-2021-32029](https://nvd.nist.gov/vuln/detail/CVE-2021-32029 "https://nvd.nist.gov/vuln/detail/CVE-2021-32029")
@@ -13039,11 +13436,13 @@ relfrozenxid`**
   releases [12.0](https://www.postgresql.org/docs/12/release-12.html "https://www.postgresql.org/docs/12/release-12.html"), [12.1](https://www.postgresql.org/docs/12/release-12-1.html "https://www.postgresql.org/docs/12/release-12-1.html"), [12.2](https://www.postgresql.org/docs/12/release-12-2.html "https://www.postgresql.org/docs/12/release-12-2.html"), [12.3](https://www.postgresql.org/docs/12/release-12-3.html "https://www.postgresql.org/docs/12/release-12-3.html"), and [12.4](https://www.postgresql.org/docs/12/release-12-4.html "https://www.postgresql.org/docs/12/release-12-4.html").
 - Contains all fixes, features, and improvements present in [PostgreSQL 11.9, Aurora PostgreSQL 3.4](#AuroraPostgreSQL.Updates.20180305.34 "#AuroraPostgreSQL.Updates.20180305.34").
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
   - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
   - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
 
 - Updated the following extensions:
+
   - `address_standardizer` to version 3.0.2
   - `address_standardizer_data_us` to version 3.0.2
   - `amcheck` to version 1.2
@@ -13113,6 +13512,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 **High priority enhancements**
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
 
   [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
@@ -13124,6 +13524,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
   [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2022-1364](https://nvd.nist.gov/vuln/detail/CVE-2022-1364 "https://nvd.nist.gov/vuln/detail/CVE-2022-1364").
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
@@ -13159,6 +13560,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 **General enhancements**
@@ -13177,6 +13579,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-10979](https://nvd.nist.gov/vuln/detail/CVE-2024-10979 "https://nvd.nist.gov/vuln/detail/CVE-2024-10979").
   - [CVE-2024-10978](https://nvd.nist.gov/vuln/detail/CVE-2024-10978 "https://nvd.nist.gov/vuln/detail/CVE-2024-10978").
   - [CVE-2024-10977](https://nvd.nist.gov/vuln/detail/CVE-2024-10977 "https://nvd.nist.gov/vuln/detail/CVE-2024-10977").
@@ -13202,6 +13605,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
   apg_plan_mgmt extension is not installed.
 - Backported fixes for the following PostgreSQL community security
   issue:
+
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
 #### Aurora PostgreSQL 11.21.7, June 25, 2024
@@ -13243,6 +13647,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
   changes due to an overly strict data consistency check.
 - Backported fixes for the following PostgreSQL community security
   issue:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -13259,6 +13664,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -13273,6 +13679,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
+
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
 #### Aurora PostgreSQL 11.21.0, October 24, 2023
@@ -13290,6 +13697,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 - Provided options to configure timeouts in the `aws_s3`
   extension. By setting the following parameters (GUCs), customers will
   now be able to change the timeout thresholds for imports from S3:
+
   - `aws_s3.curlopt_low_speed_limit`
   - `aws_s3.curlopt_low_speed_time`
 
@@ -13310,6 +13718,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `orafce` to version 4.3.0
   - `pg_logical` to version 2.4.3
   - `plv8` to version 3.1.6
@@ -13335,6 +13744,7 @@ information about the improvements in PostgreSQL 11.20, see [PostgreSQL release
 
 - Backported a fix for the following PostgreSQL community security
   issue:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
 ###### High priority enhancements
@@ -13397,6 +13807,7 @@ Amazon Aurora PostgreSQL 11, you must upgrade to a newer major version by Februa
   `aws_lambda` extension. By setting the following
   parameters (GUCs), customers will now be able to change the connect and
   request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -13435,6 +13846,7 @@ information about the improvements in PostgreSQL 11.19, see [PostgreSQL release
 
 - Backported a fix for the following PostgreSQL community security
   issue:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
 
 ###### High priority enhancements
@@ -13473,6 +13885,7 @@ information about the improvements in PostgreSQL 11.19, see [PostgreSQL release
   `aws_lambda` extension. By setting the following
   parameters (GUCs), customers will now be able to change the connect and
   request timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -13511,6 +13924,7 @@ information about the improvements in PostgreSQL 11.19, see [PostgreSQL release
 ###### Additional improvements and enhancements
 
 - Updated the following extensions:
+
   - `hll` to version 2.17
   - `orafce` to version 4.0.0
   - `pg_hint_plan` to version 1.3.8
@@ -13565,6 +13979,7 @@ information about the improvements in PostgreSQL 11.18, see [PostgreSQL release
   `aws_lambda` extension. By setting the following
   parameters, customers will now be able to change the connect and request
   timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -13624,6 +14039,7 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -13650,6 +14066,7 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
   `aws_lambda` extension. By setting the following
   parameters, customers will now be able to change the connect and request
   timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -13732,6 +14149,7 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -13759,6 +14177,7 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
   `aws_lambda` extension. By setting the following
   parameters, customers will now be able to change the connect and request
   timeouts for AWS Lambda integration:
+
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
@@ -14327,6 +14746,7 @@ information about the improvements in PostgreSQL 11.11, see [PostgreSQL release
 ###### New features
 
 - Added support for the following extensions:
+
   - The `pg_proctab` extension version 0.0.9
   - The `pg_bigm` extension version 1.2
 
@@ -14337,6 +14757,7 @@ information about the improvements in PostgreSQL 11.11, see [PostgreSQL release
   being processed.
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2021-32027](https://nvd.nist.gov/vuln/detail/CVE-2021-32027 "https://nvd.nist.gov/vuln/detail/CVE-2021-32027")
   - [CVE-2021-32028](https://nvd.nist.gov/vuln/detail/CVE-2021-32028 "https://nvd.nist.gov/vuln/detail/CVE-2021-32028")
   - [CVE-2021-32029](https://nvd.nist.gov/vuln/detail/CVE-2021-32029 "https://nvd.nist.gov/vuln/detail/CVE-2021-32029")
@@ -14422,6 +14843,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 ###### High priority enhancements
 
 - Backported fixes for the following PostgreSQL community security issues:
+
   - [CVE-2025-8713](https://www.postgresql.org/support/security/CVE-2025-8713/ "https://www.postgresql.org/support/security/CVE-2025-8713/").
 
   [CVE-2025-8714](https://www.postgresql.org/support/security/CVE-2025-8714/ "https://www.postgresql.org/support/security/CVE-2025-8714/").
@@ -14433,6 +14855,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
   [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/").
 
 - Backported fixes for the following PLv8 extension's V8 Engine security vulnerabilities:
+
   - [CVE-2023-3079](https://nvd.nist.gov/vuln/detail/CVE-2023-3079 "https://nvd.nist.gov/vuln/detail/CVE-2023-3079").
 
 - Fixed a race condition where old writer instance may not step down after a new writer instance is promoted and continues to write.
@@ -14454,6 +14877,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
 #### Aurora PostgreSQL 11.9.13, November 22, 2024
@@ -14484,6 +14908,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985 "https://nvd.nist.gov/vuln/detail/CVE-2024-0985")
 
 ###### Critical stability enhancements
@@ -14500,6 +14925,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870 "https://nvd.nist.gov/vuln/detail/CVE-2023-5870")
   - [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869 "https://nvd.nist.gov/vuln/detail/CVE-2023-5869")
   - [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868 "https://nvd.nist.gov/vuln/detail/CVE-2023-5868")
@@ -14515,6 +14941,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2023-39417](https://nvd.nist.gov/vuln/detail/CVE-2023-39417 "https://nvd.nist.gov/vuln/detail/CVE-2023-39417")
   - [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455 "https://nvd.nist.gov/vuln/detail/CVE-2023-2455")
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
@@ -14651,6 +15078,7 @@ been created yet -- apparent wraparound`**.
   storage. This resulted in volume size growth.
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
   - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
   - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -14732,6 +15160,7 @@ been created yet -- apparent wraparound`**.
   region.
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
   - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
   - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -14787,6 +15216,7 @@ You can find the following improvements in this release.
 1. Fixed a bug that appears when the `NOT EXISTS` operator
    incorrectly returns TRUE, which can only happen when the following unusual
    set of circumstances occurs:
+
    - A query is using the `NOT EXISTS` operator.
    - The column or columns being evaluated against the outer
      query in the `NOT EXISTS` subquery contain a NULL value.
@@ -14920,6 +15350,7 @@ You can find the following improvements in this release.
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
   - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
   - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -14981,6 +15412,7 @@ You can find the following improvements in this release.
 1. Fixed a bug that appears when the `NOT EXISTS` operator
    incorrectly returns TRUE, which can only happen when the following unusual
    set of circumstances occurs:
+
    - A query is using the `NOT EXISTS` operator.
    - The column or columns being evaluated against the outer
      query in the `NOT EXISTS` subquery contain a NULL value.
@@ -15117,6 +15549,7 @@ on disk: Success. Please contact AWS customer support`**.
   message **`ERROR: snapshot reference is not owned by resource
 owner TopTransaction`**.
 - Changed the following extensions:
+
   - Updated `orafce` to version 3.8
   - Updated `pgTAP` to version 1.1
 
@@ -15152,6 +15585,7 @@ You can find the following improvements in this release.
 
 - Backported fixes for the following PostgreSQL community security
   issues:
+
   - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
   - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
   - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -15282,6 +15716,7 @@ version.
     User Guide_.
 
 4.  New and updated PostgreSQL extensions include:
+
     - The new `aws_ml` extension. For more information,
       see [Using machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in
       the _Amazon Aurora User Guide_.
@@ -15376,6 +15811,7 @@ oldest active xid on standby is at least
     to temporary objects. These blocks correctly reside in PostgreSQL
     backend local buffers.
 17. Changed the following extensions:
+
     - Updated `pg_hint_plan` to version 1.3.4.
     - Added `plprofiler` version 4.1.
     - Added `pgTAP` version 1.0.0.
@@ -15425,6 +15861,7 @@ You can find the following improvements in this release.
    information about the chkpass module, see [PostgreSQL
    chkpass](https://www.postgresql.org/docs/10/chkpass.html "https://www.postgresql.org/docs/10/chkpass.html").
 9. Updated the following extensions:
+
    - `address_standardizer` to version 2.5.1
    - `address_standardizer_data_us` to version 2.5.1
    - `btree_gin` to version 1.3
@@ -16005,6 +16442,7 @@ information about the improvements in PostgreSQL 10.16, see [PostgreSQL release
    being processed.
 2. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2021-32027](https://nvd.nist.gov/vuln/detail/CVE-2021-32027 "https://nvd.nist.gov/vuln/detail/CVE-2021-32027")
    - [CVE-2021-32028](https://nvd.nist.gov/vuln/detail/CVE-2021-32028 "https://nvd.nist.gov/vuln/detail/CVE-2021-32028")
    - [CVE-2021-32029](https://nvd.nist.gov/vuln/detail/CVE-2021-32029 "https://nvd.nist.gov/vuln/detail/CVE-2021-32029")
@@ -16152,6 +16590,7 @@ information about the improvements in PostgreSQL 10.14, see [PostgreSQL release
 
 1. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
    - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
    - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -16243,6 +16682,7 @@ been created yet -- apparent wraparound`**.
    region.
 4. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
    - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
    - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -16295,6 +16735,7 @@ You can find the following improvements in this release.
 1. Fixed a bug that appears when the `NOT EXISTS` operator
    incorrectly returns TRUE, which can only happen when the following unusual
    set of circumstances occurs:
+
    - A query is using the `NOT EXISTS` operator.
    - The column or columns being evaluated against the outer
      query in the `NOT EXISTS` subquery contain a NULL value.
@@ -16414,6 +16855,7 @@ You can find the following improvements in this release.
 
 1. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
    - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
    - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -16473,6 +16915,7 @@ You can find the following improvements in this release.
 1. Fixed a bug that appears when the `NOT EXISTS` operator
    incorrectly returns TRUE, which can only happen when the following unusual
    set of circumstances occurs:
+
    - A query is using the `NOT EXISTS` operator.
    - The column or columns being evaluated against the outer
      query in the `NOT EXISTS` subquery contain a NULL value.
@@ -16610,6 +17053,7 @@ on disk: Success. Please contact AWS customer support`**.
     message **`ERROR: snapshot reference is not owned by resource
 owner TopTransaction`**.
 13. Changed the following extensions:
+
     - Updated `orafce` to version 3.8
 
 ### PostgreSQL 10.11, Aurora PostgreSQL 2.4 (Deprecated)
@@ -16642,6 +17086,7 @@ You can find the following improvements in this release.
 
 1. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
    - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
    - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -16768,6 +17213,7 @@ version.
     User Guide_.
 
 4.  New and updated PostgreSQL extensions include:
+
     - The new `aws_ml` extension. For more information,
       see [Using machine learning (ML) with Aurora PostgreSQL](../AuroraUserGuide/postgresql-ml.md "../AuroraUserGuide/postgresql-ml.md") in
       the _Amazon Aurora User Guide_.
@@ -16873,6 +17319,7 @@ oldest active xid on standby is at least
     registration requests from Reader instances while having an
     uninitialized startup process.
 21. Changed the following extensions:
+
     - Updated `pg_hint_plan` to version 1.3.3.
     - Added `plprofiler` version 4.1.
 
@@ -17111,6 +17558,7 @@ You can find the following improvements in this release.
    handlers.
 3. The `rds_superuser` role can now set the following
    parameters on a per-session, database, or role level:
+
    - `log_duration`
    - `log_error_verbosity`
    - `log_executor_stats`
@@ -17309,6 +17757,7 @@ information about the improvements in PostgreSQL 9.6.21, see [PostgreSQL release
    being processed.
 2. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2021-32027](https://nvd.nist.gov/vuln/detail/CVE-2021-32027 "https://nvd.nist.gov/vuln/detail/CVE-2021-32027")
    - [CVE-2021-32028](https://nvd.nist.gov/vuln/detail/CVE-2021-32028 "https://nvd.nist.gov/vuln/detail/CVE-2021-32028")
    - [CVE-2021-32029](https://nvd.nist.gov/vuln/detail/CVE-2021-32029 "https://nvd.nist.gov/vuln/detail/CVE-2021-32029")
@@ -17442,6 +17891,7 @@ There is no version 1.8.1.
 been created yet -- apparent wraparound`**.
 2. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
    - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
    - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -17514,6 +17964,7 @@ You can find the following improvements in this release.
 
 1. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
    - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
    - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -17627,6 +18078,7 @@ on disk: Success. Please contact AWS customer support`**.
    `enable_hint_table` is enabled. This is tracked in the
    PostgreSQL community as [https://github.com/ossc-db/pg_hint_plan/issues/25](https://github.com/ossc-db/pg_hint_plan/issues/25 "https://github.com/ossc-db/pg_hint_plan/issues/25").
 5. Changed the following extensions:
+
    - Updated `orafce` to version 3.8
 
 ### PostgreSQL 9.6.16, Aurora PostgreSQL 1.6 (Deprecated)
@@ -17659,6 +18111,7 @@ You can find the following improvements in this release.
 
 1. Backported fixes for the following PostgreSQL community security
    issues:
+
    - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
    - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
    - [CVE-2020-25696](https://nvd.nist.gov/vuln/detail/CVE-2020-25696 "https://nvd.nist.gov/vuln/detail/CVE-2020-25696")
@@ -17829,6 +18282,7 @@ oldest active xid on standby is at least
     registration requests from Reader instances while having an
     uninitialized startup process.
 17. Changed the following extensions:
+
     - Updated `pg_hint_plan` to version 1.2.5.
 
 ### PostgreSQL 9.6.12, Aurora PostgreSQL 1.5 (Deprecated)
@@ -18026,6 +18480,7 @@ You can find the following improvements in this release.
 2. Updated the `GDAL` library, which is used by the
    `PostGIS` extension.
 3. Updated the following PostgreSQL extensions:
+
    - `ip4r` updated to version 2.1.1.
    - `pgaudit` updated to version 1.1.1.
    - `pg_repack` updated to version 1.4.3.
@@ -18127,6 +18582,7 @@ You can find the following improvements in this release.
 1. This release contains all fixes, features, and improvements present in
    [PostgreSQL 9.6.6 Aurora PostgreSQL 1.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.11 "#AuroraPostgreSQL.Updates.20180305.11").
 2. Updates the following PostgreSQL extensions:
+
    - `pg_hint_plan` updated to version 1.2.2
    - `plv8` updated to version 2.1.0
 
@@ -18189,10 +18645,12 @@ You can find the following improvements in this engine update:
 
 1. Introduced the `aurora_stat_utils` extension. This extension
    includes two functions:
+
    - aurora_wait_report() function for wait event monitoring
    - aurora_log_report() for log record write monitoring
 
 2. Added support for the following extensions:
+
    - orafce 3.6.1
    - pgrouting 2.4.2
    - postgresql-hll 2.10.2
@@ -18203,6 +18661,7 @@ You can find the following improvements in this engine update:
 1. This release contains all fixes, features, and improvements present in
    [Aurora PostgreSQL 1.0.11](#AuroraPostgreSQL.Updates.20180305.1011 "#AuroraPostgreSQL.Updates.20180305.1011")
 2. Updates for the following PostgreSQL extensions:
+
    - `PostGIS` extension updated to version 2.3.4
    - `geos` library updated to version 3.6.2
    - `pg_repack` updated to version 1.4.2

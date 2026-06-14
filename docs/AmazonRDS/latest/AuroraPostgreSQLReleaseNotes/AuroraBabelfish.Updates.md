@@ -16,11 +16,73 @@ releases, see [Babelfish for Aurora PostgreSQL reference](../AuroraUserGuide/USE
 
 ###### Topics
 
+- [Babelfish for Aurora PostgreSQL 6.x versions](#aurorababelfish-versions-version6x "#aurorababelfish-versions-version6x")
 - [Babelfish for Aurora PostgreSQL 5.x versions](#aurorababelfish-versions-version5x "#aurorababelfish-versions-version5x")
 - [Babelfish for Aurora PostgreSQL 4.x versions](#aurorababelfish-versions-version4x "#aurorababelfish-versions-version4x")
 - [Babelfish for Aurora PostgreSQL 3.x versions (includes some deprecated versions)](#aurorababelfish-versions-version3x "#aurorababelfish-versions-version3x")
 - [Babelfish for Aurora PostgreSQL 2.x versions (includes some deprecated versions)](#aurorababelfish-versions-version2x "#aurorababelfish-versions-version2x")
 - [Babelfish for Aurora PostgreSQL 1.x versions (includes some deprecated versions)](#aurorababelfish-versions-version1x "#aurorababelfish-versions-version1x")
+
+## Babelfish for Aurora PostgreSQL 6.x versions
+
+###### Version updates
+
+- [Babelfish for Aurora PostgreSQL 6.0](#AuroraBabelfish.Updates.60X "#AuroraBabelfish.Updates.60X")
+
+### Babelfish for Aurora PostgreSQL 6.0
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.3. For more
+information about the improvements in Aurora PostgreSQL 18.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md "AuroraPostgreSQL.Updates.md"). Babelfish for Aurora PostgreSQL
+6.0 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 6.0.0, June 10, 2026
+
+**New Features**
+
+- Added support for Eager aggregation, which pushes aggregation before joins to improve query performance. Controlled by GUCs `babelfishpg_tsql.enable_eager_aggregate` (default: ON) and `min_eager_agg_group_size` to set the minimum average group size required to consider applying Eager aggregation (default: 8).
+- Added support for Polygon instances for geography/geometry datatype.
+- Added support for implicit cast from (n)varchar/(n)char to datetimeoffset datatype.
+- Added support for sys.fn_varbintohexstr system object.
+
+**Critical enhancements**
+
+- Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
+- Fixed an issue where update with output clause may skip rows during concurrent updates.
+- DROP LOGIN now correctly returns an error when attempting to drop a login that is the owner of a database.
+
+**High Priority stability enhancements**
+
+- Fixed incorrect return datatype in UNION queries involving datetimeoffset, (n)varchar and datetime types.
+- Fixed issue in coalesce involving datetimeoffset and (n)varchar types.
+- Fixed UNION and CASE expressions with varbinary and string literals to correctly resolve to varchar instead of varbinary.
+- Restricted ownership change of Babelfish objects from PG port.
+- Fixed an issue in procedure calls leading to incorrect lifecycle handling of temp tables.
+- Restricted users from altering Babelfish objects in sys schema.
+- Fixed the scale/precision handling for MIN/MAX functions on CHAR/NCHAR datatypes.
+- Fixed high CPU utilization during concurrent connection establishment for pyODBC connections.
+- Fixed inconsistent index scans for binary/varbinary comparison operators and added cross-type support.
+- Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
+- Blocked ALTER AUTHORIZATION on database when the new owner is a database role, fixed server role, or sysadmin.
+
+**Additional improvements and enhancements**
+
+- Fixed an issue where casting string values to sqlvariant may cause client to hang.
+- Fixed cast and convert functions between datatypes (n)char & (var)binary.
+- Added fix to handle UDT datatypes in DATEADD() function.
+- Fixed handling for white space characters in the ISNUMERIC() function to match T-SQL behavior.
+- Fixed an issue in SELECT queries with reserved keywords used as column aliases.
+- Fixed output format when casting datetime and smalldatetime to (n)varchar/(n)char.
+- Fixed handling of scale/precision for empty string casting to binary.
+- Fixed concatenation of binaries to produce expected results.
+- Fixed trailing blanks being incorrectly treated as insignificant in LIKE operator in case of exact pattern matching.
+- Fixed an issue where primary key information was not being sent in TDS response for ADO.NET FillSchema() operations.
+- Fixed scale/precision handling for concatenated results of binaries.
+- Fixed a rare issue where parallel query runs into unexpected error when table OID reaches to certain limit.
+- Fixed an issue where MONEY type conversion incorrectly rejected few valid ASCII and special characters.
+- Fixed convert function to properly apply style parameter when converting SMALLMONEY to string types, ensuring correct formatting for styles 0, 1, 2, and 126 matching with T-SQL behavior.
+- Fixed multiple convert function issues for MONEY/SMALLMONEY type to string conversions, including proper handling of negative style parameters and invalid style value.
 
 ## Babelfish for Aurora PostgreSQL 5.x versions
 
@@ -214,6 +276,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Handling for NCHAR() function to accept inputs that can be converted to integers.
 - Fixed PATINDEX() function to correctly finds patterns at the end of text and handles wildcard searches accurately.
 - Enabled index usage for Accent Sensitive / Insensitive collation for LIKE operator when the pattern is EXACT or PREFIX or INFIX match with following conditions:
+
   - For Accent Sensitive collation, user needs to create index from TSQL endpoint : CREATE INDEX <index_name> ON <table_name>(<column_name>)
   - For Accent Insensitive collation, user needs to create index from PSQL endpoint: CREATE INDEX <index_name> ON <schema_name>.<table_name>(sys.remove_accents_internal_using_cache(<column_name>))
 
@@ -1261,7 +1324,9 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
   implementing them in a production environment. For more information, see
   [Overview of Amazon RDS Blue/Green Deployments for Aurora](../AuroraUserGuide/blue-green-deployments-overview.md "../AuroraUserGuide/blue-green-deployments-overview.md").
 - Added support for GRANT/REVOKE .. ON SCHEMA .. in Babelfish.
+
   - Following permissions are supported based on the object types.
+
     - Scalar function permissions – EXECUTE.
     - Table-valued function permissions – EXECUTE.
     - Stored procedure permissions – EXECUTE.
@@ -2001,7 +2066,9 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
   implementing them in a production environment. For more information, see
   [Overview of Amazon RDS Blue/Green Deployments for Aurora](../AuroraUserGuide/blue-green-deployments-overview.md "../AuroraUserGuide/blue-green-deployments-overview.md").
 - Added support for GRANT/REVOKE .. ON SCHEMA .. in Babelfish.
+
   - Following permissions are supported based on the object types.
+
     - Scalar function permissions – EXECUTE.
     - Table-valued function permissions – EXECUTE.
     - Stored procedure permissions – EXECUTE.
@@ -2541,6 +2608,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 - Improved the performance through benefiting interactive queries, ODBC-based applications and tools such as SQL Server Management Studio.
   Following enhancements has been made for the same:
+
   - Fixed performance issues in several system functions including OBJECT_ID(), OBJECT_NAME(), SCHEMA_ID().
   - Fixed performance issues in system stored procedures sp_sproc_columns and sp_fkeys.
   - Fixed performance issues in system catalog views sys.all_views, sys.objects and sys.types.
@@ -3151,6 +3219,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 - Improved the performance through interactive queries, ODBC-based applications and tools such as SQL Server Management Studio.
   Following enhancements has been made for the same:
+
   - Fixed performance issues in several system functions including OBJECT_ID(), OBJECT_NAME(), SCHEMA_ID().
   - Fixed performance issues in system stored procedures sp_sproc_columns and sp_fkeys.
   - Fixed performance issues in system catalog views sys.all_views, sys.objects and sys.types.
@@ -3389,6 +3458,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - Support for new INFORMATION_SCHEMA catalogs: COLUMN_DOMAIN_USAGE,
   CONSTRAINT_COLUMN_USAGE, CHECK_CONSTRAINTS, ROUTINES, VIEWS.
 - Support for new PG-style query plan: escape hatch 'babelfish_pgtsql.escape_hatch_showplan_all'.
+
   - when set to 'ignore', SET SHOWPLAN_ALL and SET STATISTICS
     PROFILE behaves as SET BABELFISH_SHOWPLAN_ALL and SET
     BABELFISH_STATISTICS PROFILE.
@@ -3709,6 +3779,7 @@ with limited implementation](../AuroraUserGuide/babelfish-compatibility.md#babel
 - Limited support for creating, altering, and
   dropping database principals (USER objects). Limitations for
   CREATE/ALTER/DROP syntax with USER objects are as follows:
+
   - For CREATE USER, you can specify the
     FOR/FROM LOGIN and DEFAULT_SCHEMA options only.
   - For ALTER USER, you can specify DEFAULT_SCHEMA

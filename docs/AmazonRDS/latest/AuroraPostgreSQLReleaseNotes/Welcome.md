@@ -13,4 +13,4 @@ We publish release notes when new versions are available in all Regions.
 - [Amazon Aurora PostgreSQL Limitless Database updates](limitless-updates.md "limitless-updates.md")
 - [Babelfish for Aurora PostgreSQL updates](AuroraBabelfish.Updates.md "AuroraBabelfish.Updates.md")
 - [Aurora PostgreSQL query plan management updates](auroraqpm.updates.md "auroraqpm.updates.md")
-- [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md "AuroraPostgreSQL.Extensions.md")
+- [Extensions supported for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md "AuroraPostgreSQL.Extensions.md")
