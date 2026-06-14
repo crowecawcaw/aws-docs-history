@@ -69,6 +69,7 @@ from the stack.
 
 2. Open the CloudFormation console to perform a stack update to apply the deletion
    policy.
+
    1. On the **Stacks** page, with the stack selected, choose
       **Update**, and then choose **Update stack
       (standard)**.
@@ -77,6 +78,7 @@ from the stack.
    3. Under **Specify template**, provide the updated source
       template with the `DeletionPolicy` attribute on
       `GamesTable`, and then choose **Next**.
+
       - Choose **Amazon S3 URL**, and then specify the URL to
         the updated source template in the text box.
       - Choose **Upload a template file**, and then browse

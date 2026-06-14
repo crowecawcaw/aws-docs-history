@@ -184,6 +184,7 @@ other resources include:
   the properties in the resulting stack resources. These properties therefore
   cannot be included in drift detection results. Such properties fall into two
   broad categories:
+
   - Property values that CloudFormation cannot map back to their initial
     resource property value in the stack template.
 
@@ -207,6 +208,7 @@ other resources include:
 - Some properties can have input values that are equal but not identical. To
   avoid false positives, you should ensure that your expected configuration
   matches the actual configuration.
+
   - For example, the expected configuration of resource property can be
     1024 MB and the actual configuration of the same resource property can
     be 1GB. 1024 MB and 1GB are equal but not identical.

@@ -22,6 +22,7 @@ clear.
    on the scenario and your permissions, you may be able to review a detailed CloudTrail
    event. These are the following potential outcomes of choosing the
    **Status**
+
    - CloudTrail events related to this issue are available and may help with
      resolution. View CloudTrail events.
    - We couldn't find any CloudTrail events related to this issue that could help

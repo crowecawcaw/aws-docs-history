@@ -145,6 +145,7 @@ authoring features:
 - **Search for a resource type**: In the
   search dialog, type the AWS resource type you want to add.
   Example:
+
   - `AWS::S3::Bucket`
   - `AWS::Lambda::Function`
 
@@ -156,6 +157,7 @@ authoring features:
 - Choose the resource you want to include in your template.
 - You can insert a resource into your template in two ways, depending on
   your goal:
+
   - **Clone an existing resource**:
     Create a new resource in your template using the live
     configuration and properties of an existing AWS
@@ -356,22 +358,26 @@ available in VS Code only and is not supported in JetBrains IDEs.
 **To initialize a CloudFormation project:**
 
 - **Open the command palette**
+
   - From VS Code, open the command palette (`Ctrl+Shift+P` or
     `Cmd+Shift+P` on macOS).
   - Choose **AWS CloudFormation: CFN Init: Initialize
     Project**.
 
 - **Choose a project directory**
+
   - By default, the IDE uses your current working directory.
   - You can change this path to any folder where you want to store your
     CloudFormation templates.
 
 - **Select your AWS credential profile**
+
   - You are prompted to choose an AWS credential profile. The selected
     profile is used for environment detection, validations, and
     deployments.
 
 - **Set up your environment**
+
   - You are prompted to create or select an environment.
   - Environments define where and how your templates are deployed or
     validated (for example, dev, beta, or production). You can use
@@ -382,12 +388,14 @@ available in VS Code only and is not supported in JetBrains IDEs.
     selected.
 
 - **(Optional) Import parameter files**
+
   - If you already have existing parameter files, the IDE allows you to
     import them during initialization.
   - The IDE automatically detects compatible files and links them to your
     project for use in template validation and deployment.
 
 - **Name and finalize the project**
+
   - Provide a project name, such as beta-environment, and complete the
     setup.
   - The IDE creates the initial project structure and configuration file

@@ -106,7 +106,7 @@ Resources:
    **Stack actions**, and then choose **Import resources
    into stack**.
 
-![The Import resources into stack option in the console.](images/stack-actions-import.png) 4. Read the **Import overview** page for a list of things you're
+![The Import resources into stack option in the console.](/images/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png) 4. Read the **Import overview** page for a list of things you're
 required to provide during this operation. Then, choose
 **Next**. 5. On the **Specify template** page, provide the updated parent
 template using one of the following methods, and then choose
@@ -119,6 +119,7 @@ template using one of the following methods, and then choose
 
 6. On the **Identify resources** page, identify the
    `AWS::CloudFormation::Stack` resource.
+
    1. Under **Identifier property**, choose the type of resource
       identifier. For example, an `AWS::CloudFormation::Stack` resource
       can be identified using the `StackId` property.
@@ -230,6 +231,7 @@ Resources:
 ```
 
 2. Compose a JSON string as shown in the following example, with these modifications:
+
    - Replace `MyNestedStack` with the logical ID of the
      target resource as specified in the template.
    - Replace

@@ -29,6 +29,7 @@ CloudFormation more effectively and securely.
 - Verify that adding stack instances to your initial StackSet works before you add
   larger numbers of stack instances to your StackSet.
 - Choose the deployment (rollout) options that work for your use case.
+
   - For a more conservative deployment, set **Maximum Concurrent
     Accounts** to 1, and **Failure Tolerance**
     to 0. Set your lowest-impact region to be first in the **Region

@@ -46,6 +46,7 @@ As you use pre-deployment validation, keep the following in mind:
   scenarios. It doesn't guarantee that your deployment will succeed, but reduces
   the likelihood of common failures.
 - Validation modes behave differently:
+
   - FAIL mode prevents change set execution
     when validation detects errors, ensuring problematic templates cannot
     proceed to deployment. This applies to property syntax errors and

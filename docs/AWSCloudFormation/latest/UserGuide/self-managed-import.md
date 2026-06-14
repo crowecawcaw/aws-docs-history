@@ -31,6 +31,7 @@ Before you begin, identify the stack that you want to import.
    StackSet**.
 4. On the **Choose a template** page, specify a template by one of the
    following options and choose **Next**.
+
    - Choose **Amazon S3 URL** and specify the URL for your template in the text
      box.
 

@@ -34,6 +34,7 @@ things to keep in mind:
 - If CloudFormation needs to roll back a stack update, and the previously specified
   version of a secure string parameter is no longer available, the rollback
   operation will fail. In such cases, you have two options:
+
   - Use `CONTINUE_UPDATE_ROLLBACK` to skip the resource.
   - Recreate the secure string parameter in the Systems Manager Parameter Store, and
     update it until the parameter version reaches the version used in the

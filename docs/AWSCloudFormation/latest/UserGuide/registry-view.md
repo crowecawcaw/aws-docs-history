@@ -11,8 +11,10 @@ the AWS Management Console or the AWS CLI.
    AWS Region.
 3. From the navigation pane, under **Registry**, choose what
    extension category you want to view:
+
    - **Public extensions** displays the public extensions
      available in your account.
+
      1. For **Filter**, **Extension
         type**, choose your extension type:
         **Resource types**,
@@ -25,11 +27,13 @@ the AWS Management Console or the AWS CLI.
 
    - **Activated extensions** displays the public and
      private extensions activated in your account.
+
      1. Choose your extension type: **Resource
         types**, **Modules**, or
         **Hooks**.
      2. Use the **Filter** drop-down menu to further
         choose the extensions to view:
+
         - **AWS** – lists extensions
           published by AWS. Extensions published by AWS are
           activated by default.

@@ -82,6 +82,7 @@ this refactor.
 
 2. Open the CloudFormation console to perform a stack update to apply the deletion
    policy.
+
    1. On the **Stacks** page, with the stack selected,
       choose **Update**.
    2. Under **Prepare template**, choose **Replace
@@ -90,6 +91,7 @@ this refactor.
       source template with the `DeletionPolicy` attribute on
       `GamesTable`, and then choose
       **Next**.
+
       - Choose **Amazon S3 URL**, and then specify
         the URL to the updated source template in the text box.
       - Choose **Upload a template file**, and then
@@ -211,6 +213,7 @@ The following example target template currently has the
     delete the target resource from the stack.
 5.  Perform an import operation to add `GamesTable` to the target
     stack.
+
     1. On the **Stacks** page, with the parent stack
        selected, choose **Stack actions**, and then choose
        **Import resources into stack**.
@@ -224,10 +227,10 @@ The following example target template currently has the
          URL in the text box.
         * Choose **Upload a template file**, and then
          browse for a file to upload.
-
     4. On the **Identify resources** page, identify the
        resource you're moving (in this example, `GamesTable`). For
        more information, see [Resource identifiers](import-resources-manually.md#resource-import-identifiers-unique-ids "import-resources-manually.md#resource-import-identifiers-unique-ids").
+
        1. Under **Identifier property**, choose the
           type of resource identifier. For example, an
           `AWS::DynamoDB::Table` resource can be identified

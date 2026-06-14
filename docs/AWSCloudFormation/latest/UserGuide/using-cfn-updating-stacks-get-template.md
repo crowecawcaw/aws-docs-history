@@ -66,6 +66,7 @@ CloudFormation opens the template in Infrastructure Composer. 4. Update your tem
 - For information about the effects of updating particular resource properties, see the
   [AWS resource and property types reference](../TemplateReference/aws-template-resource-type-ref.md "../TemplateReference/aws-template-resource-type-ref.md"). For each property, the effects of an update will be one of
   the following:
+
   - _Update requires_: [No interruption](using-cfn-updating-stacks-update-behaviors.md#update-no-interrupt "using-cfn-updating-stacks-update-behaviors.md#update-no-interrupt")
   - _Update requires_: [Some interruptions](using-cfn-updating-stacks-update-behaviors.md#update-some-interrupt "using-cfn-updating-stacks-update-behaviors.md#update-some-interrupt")
   - _Update requires_: [Replacement](using-cfn-updating-stacks-update-behaviors.md#update-replacement "using-cfn-updating-stacks-update-behaviors.md#update-replacement")

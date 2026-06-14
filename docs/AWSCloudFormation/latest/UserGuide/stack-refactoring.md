@@ -109,6 +109,7 @@ Use the following procedure to refactor stacks using the console.
 5. For **Description**, provide a description to help you
    identify your stack refactor. Then, choose **Next**.
 6. For Stack 1, do the following:
+
    1. Choose either **Update the template for an existing
       stack** or **Create new stack**.
 
@@ -125,6 +126,7 @@ Use the following procedure to refactor stacks using the console.
    template for Stack 1. 3. Choose **Next**.
 
 7. For Stack 2, do the following:
+
    1. Choose either **Update the template for an existing
       stack** or **Create new stack**.
 
@@ -360,6 +362,7 @@ Example output:
 - CloudFormation will validate resource eligibility during refactor creation and
   report any unsupported resources in the output of the [describe-stack-refactor](../../../cli/latest/reference/cloudformation/describe-stack-refactor.md "../../../cli/latest/reference/cloudformation/describe-stack-refactor.md") command.
 - The following resources aren't supported for stack refactoring:
+
   - `AWS::ACMPCA::Certificate`
   - `AWS::ACMPCA::CertificateAuthority`
   - `AWS::ACMPCA::CertificateAuthorityActivation`

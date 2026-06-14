@@ -113,6 +113,7 @@ resources. As you write your template, refer to the following resources for guid
 
 - [Intrinsic function reference](../TemplateReference/intrinsic-function-reference.md "../TemplateReference/intrinsic-function-reference.md") – Some commonly used intrinsic functions
   include:
+
   - `Ref` – Retrieves the value of a parameter or the physical ID
     of a resource.
   - `Sub` – Substitutes placeholders in strings with actual
@@ -123,6 +124,7 @@ resources. As you write your template, refer to the following resources for guid
 
 - [Resource attribute reference](../TemplateReference/aws-product-attribute-reference.md "../TemplateReference/aws-product-attribute-reference.md") – Some commonly used special attributes
   include:
+
   - `DependsOn` – Use this attribute to specify that one resource
     must be created after another.
   - `DeletionPolicy` – Use this attribute to specify how

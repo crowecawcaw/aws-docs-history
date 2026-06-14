@@ -46,6 +46,7 @@ process.
     This takes you to Infrastructure Composer in CloudFormation console mode where you can upload and validate
     the example template.
 4.  To upload and validate the example template, do the following:
+
     1. Choose **Template**. Then, copy and paste the following
        CloudFormation template into the template editor:
 
@@ -187,7 +188,6 @@ process.
         	 combine the fixed `http://` with the variable
         	 `PublicDnsName` into a single string, making it easy
         	 to output the full URL of the web server.
-
     2. Choose **Validate** to make sure the YAML code is valid
        before uploading the template.
     3. Next, choose **Create template** to create the template and
@@ -203,6 +203,7 @@ process.
     **Stack name** field. The stack name can't contain spaces. For
     this example, use `MyTestStack`.
 7.  Under **Parameters**, specify parameter values as follows:
+
     - **LatestAmiId**: This is set by default to the latest
       Amazon Linux 2 AMI.
     - **InstanceType**: Choose either

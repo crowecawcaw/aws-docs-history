@@ -18,6 +18,7 @@ in the previous section.
    stack**, and then choose **With new resources
    (standard)**.
 4. On the **Create stack** page, do the following:
+
    1. For **Prerequisite - Prepare template**, keep
       **Choose an existing template** selected.
    2. For **Specify template**, choose **Sync from
@@ -28,6 +29,7 @@ in the previous section.
    (A-Z and a-z), numbers (0-9), and dashes (-).
 6. For **Stack deployment file**, **Deployment file
    creation**:
+
    - If you _haven't_ created a stack deployment file
      and added it to your repository, choose **Create the file using
      the following parameters and place it in my
@@ -41,8 +43,10 @@ in the previous section.
    repository that's already linked to CloudFormation, or **Link a Git
    repository** to link a new one. If you choose **Link a Git
    repository**, do the following:
+
    1. For **Select repository provider**, choose one of the
       following:
+
       - **GitHub**
       - **GitHub Enterprise Server**
       - **GitLab**

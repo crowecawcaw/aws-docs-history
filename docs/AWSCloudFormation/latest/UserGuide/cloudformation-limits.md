@@ -51,10 +51,12 @@ infrastructure Region table](https://aws.amazon.com/about-aws/global-infrastruct
 
 - [Macros](template-macros.md "template-macros.md") are currently not available in the following
   Region:
+
   - Asia Pacific (Jakarta)
 
 - [Performing ECS blue/green deployments through CodeDeploy using
   CloudFormation](blue-green.md "blue-green.md") is currently not available in the following Regions:
+
   - Africa (Cape Town)
   - Asia Pacific (Osaka)
   - Europe (Milan)

@@ -24,10 +24,12 @@ AWS CLI.
    from the **Actions** menu.
 5. On the **Set deployment options** page, do the
    following:
+
    1. For **Add stacks to StackSet**, choose
       **Deploy new stacks**.
    2. Next, do the following depending on your StackSet's permissions
       configuration:
+
       - [Self-managed permissions] For
         **Accounts**, **Deployment
         locations**, choose **Deploy stacks in
@@ -36,6 +38,7 @@ AWS CLI.
         commas.
       - [Service-managed permissions] For **Deployment
         targets**, do one of the following:
+
         - Choose **Deploy to organization**
           to deploy to all accounts in your
           organization.
@@ -64,6 +67,7 @@ AWS CLI.
       exceed a specified failure tolerance.
    4. For **Deployment options**, do the
       following:
+
       - For **Maximum concurrent accounts**,
         specify how many accounts are processed concurrently.
       - For **Failure tolerance**, specify the
@@ -76,6 +80,7 @@ AWS CLI.
         Regions concurrently).
       - For **Concurrency mode**, choose how
         concurrency behaves during operation execution.
+
         - **Strict failure tolerance**
           – Reduces account concurrency level when
           failures occur, staying within **Failure

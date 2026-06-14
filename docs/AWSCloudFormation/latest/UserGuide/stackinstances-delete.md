@@ -27,6 +27,7 @@ StackSet target.
     StackSet** from the **Actions** menu.
 5.  On the **Set deployment options** page, first choose the
     accounts and Regions where you want to delete the stacks.
+
     1. [Self-managed permissions] For **Accounts**,
        choose **Deploy stacks in accounts** or
        **Deploy stacks in organizational
@@ -62,11 +63,11 @@ StackSet target.
          accounts.
         * **Union** – Delete stacks from the
          specified OUs plus additional individual accounts.
-
     3. For **Specify regions**, choose the Regions from
        which you want to delete stacks within the target accounts.
 
 6.  For **Deployment options**, do the following:
+
     - For **Maximum concurrent accounts**, specify how
       many accounts are processed concurrently.
     - For **Failure tolerance**, specify the maximum
@@ -83,6 +84,7 @@ StackSet target.
       concurrently).
     - For **Concurrency mode**, choose how concurrency
       behaves during operation execution.
+
       - **Strict failure tolerance** –
         Reduces account concurrency level when failures occur,
         staying within **Failure tolerance**

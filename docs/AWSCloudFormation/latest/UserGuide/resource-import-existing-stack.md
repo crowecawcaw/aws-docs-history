@@ -22,6 +22,7 @@ Before you begin, you must have the following:
      template.
 
 - For each resource you want to import, include the following:
+
   - the properties and property values that define the resource's current
     configuration.
   - the unique identifier for the resource, such as the resource name. For more information,
@@ -127,6 +128,7 @@ one of the following methods, and then choose **Next**.
 
 6. On the **Identify resources** page, identify each target resource. For
    more information, see [Resource identifiers](import-resources-manually.md#resource-import-identifiers-unique-ids "import-resources-manually.md#resource-import-identifiers-unique-ids").
+
    1. Under **Identifier property**, choose the type of resource identifier.
       For example, the `AWS::DynamoDB::Table` resource can be identified using the
       `TableName` property.
@@ -242,6 +244,7 @@ aws cloudformation execute-change-set \
 6. (Optional) Run drift detection on the `IMPORT_COMPLETE` stack to make sure the
    template and actual configuration of the imported resources match. For more information about
    detecting drift, see [Detect drift on an entire CloudFormation stack](detect-drift-stack.md "detect-drift-stack.md").
+
    1. Run drift detection on the specified stack.
 
    ```
@@ -253,7 +256,6 @@ aws cloudformation execute-change-set \
    ```
    { "Stack-Drift-Detection-Id" : "624af370-311a-11e8-b6b7-500cexample" }
    ```
-
    2. View the progress of a drift detection operation for the specified stack drift
       detection ID.
 
@@ -261,7 +263,6 @@ aws cloudformation execute-change-set \
    aws cloudformation describe-stack-drift-detection-status \
        --stack-drift-detection-id `624af370-311a-11e8-b6b7-500cexample`
    ```
-
    3. View drift information for the resources that have been checked for drift in the
       specified stack.
 

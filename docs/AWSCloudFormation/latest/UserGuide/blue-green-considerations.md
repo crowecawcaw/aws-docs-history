@@ -16,6 +16,7 @@ and considerations to keep in mind:
 - Parameters whose values are obfuscated by CloudFormation can't be updated by CodeDeploy during
   a green deployment, and will lead to an error and stack update failure. These
   include:
+
   - Parameters defined with the `NoEcho` attribute.
   - Parameters that use dynamic references to retrieve their values from external
     services. For more information about dynamic references, see [Get values stored in other services using dynamic references](dynamic-references.md "dynamic-references.md").
@@ -26,6 +27,7 @@ and considerations to keep in mind:
   with any previous settings.
 - The following CloudFormation features are not currently supported for templates that
   define ECS blue/green deployments:
+
   - Declaring [outputs](outputs-section-structure.md "outputs-section-structure.md") or using [Fn::ImportValue](../TemplateReference/intrinsic-function-reference-importvalue.md "../TemplateReference/intrinsic-function-reference-importvalue.md") to import values from other stacks.
   - Importing resources. For more information about importing resources, see [Import AWS resources into a CloudFormation stack](import-resources.md "import-resources.md").
   - Using the `AWS::CodeDeploy::BlueGreen` hook in a template that includes

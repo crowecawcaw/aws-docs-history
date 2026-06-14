@@ -14,10 +14,12 @@ When CloudFormation creates a stack that includes a wait condition:
   wait condition’s timeout period has expired.
 - If it receives the requisite number of success signals before the timeout period
   expires:
+
   - Wait condition status changes to `CREATE_COMPLETE`
   - Stack creation continues
 
 - If timeout expires or a failure signal is received:
+
   - Wait condition status changes to `CREATE_FAILED`
   - Stack rolls back
 

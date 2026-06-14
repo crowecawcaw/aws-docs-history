@@ -38,30 +38,36 @@ want to import.
 3. At the top of the **StackSets** page, choose **Create
    StackSet**.
 4. On the **Choose a template** page, do the following:
+
    1. For **StackSet permission model** choose **Service-managed
       permissions**.
    2. For **Prerequisite - Prepare template**, choose **Template is
       ready**, and choose your template by using one of the following options:
+
       - For **Amazon S3 URL**, enter your Amazon S3 URL in the **Amazon S3
         URL** field.
       - For **Upload a template file**, choose a CloudFormation template on your
         local computer.Accept your settings and choose **Next**.
 
 5. On the **Specify StackSet details** page, do the following:
+
    1. Enter a StackSet name in the **StackSet name** box.
    2. (Optional) Enter a description in the **StackSet description**
       section.On the **Configure StackSet options** page, review your choices and
       choose **Next**.
 
 6. On the **Set deployment options** page, do the following:
+
    1. For **Add stacks to stack set**, choose **Import stacks to
       stack set**.
    2. For **Stacks to import**, choose your stack import method.
+
       1. For **Stack ID** enter your stack ID.
       2. For **Stack URL** enter the Amazon S3 URL.
 
 7. Under **Associate organizational units**, do the
    following:
+
    1. Choose **Associate with organization** to use root OU.
    2. Choose **Associate with organizational units (OUs)** to enter parent
       OU IDs for the stacks to import. For example, if `Stack 1` and `Stack
@@ -84,27 +90,32 @@ resource you want to import.
 3. At the top of the **StackSets** page, choose **Create
    StackSet**.
 4. On the **Choose a template** page, do the following:
+
    1. For **StackSet permission model** choose **Service-managed
       permissions**.
    2. For **Prerequisite - Prepare template**, choose **Template is
       ready**, and choose your template by using one of the following options:
+
       - For **Amazon S3 URL**, enter your Amazon S3 URL in the **Amazon S3
         URL** field.
       - For **Upload a template file**, choose a CloudFormation template on your
         local computer.Accept your settings and choose **Next**.
 
 5. On the **Specify StackSet details** page, do the following:
+
    1. Enter a StackSet name in the **StackSet name** box.
    2. (Optional) Enter a description in the **StackSet description**
       section.On the **Configure StackSet options** page, review your choices and
       choose **Next**.
 
 6. On the **Set deployment options** page, do the following:
+
    1. For **Add stacks to stack set**, choose **Deploy new
       stacks**.
 
 7. For the **Associate organizational units** section, do the
    following:
+
    1. Choose **Associate with organization** to use root OU.
    2. Choose **Associate with organizational units (OUs)** to enter parent
       OU IDs for the stacks to import. For example, if `Stack 1` and `Stack
@@ -129,13 +140,16 @@ Choose your StackSet and identify the stack you want to import.
 3. Choose the StackSet you want to import a stack to, and then choose **Add stacks
    to StackSet** from the **Actions** drop-down.
 4. On the **Set deployment options** page, do the following:
+
    1. For **Add stacks to stack set**, choose **Import stacks to
       stack set**.
    2. Under **Stacks to import**, do the following
+
       1. For **Stack ID**, enter your stack ID.
       2. For **Stack URL**, enter the Amazon S3 URL.
 
    3. Under **Associate organizational units**, do the following:
+
       1. Choose **Associate with organization** to use root OU.
       2. Choose **Associate with organizational units (OUs)** to enter parent
          OU IDs for the stacks to import. For example, if `Stack 1` and `Stack

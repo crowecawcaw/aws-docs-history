@@ -102,6 +102,7 @@ follows:
 12. On the **Configure StackSet options** page, choose
     **Add new tag** and add a tag by specifying a key and value
     pair:
+
     1.  For **Key**, enter
         `Stage`.
     2.  For **Value**, enter
@@ -140,6 +141,7 @@ follows:
 
 19. For **Deployment options**, configure the following
     settings:
+
     1.  For **Maximum concurrent accounts**, keep the
         defaults of **Number** and
         **1**.

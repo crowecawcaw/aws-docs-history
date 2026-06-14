@@ -300,6 +300,7 @@ text editor on your local machine and add the template. Save the file with the n
 5. On the **Specify stack details** page, type
    `BootstrapTutorialStack` as the stack name.
 6. Under **Parameters**, do the following.
+
    - **LatestAmiId**: Leave the default value.
    - **InstanceType**: Choose either **t2.micro** or
      **t3.micro** for the EC2 instance type.

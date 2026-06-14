@@ -12,6 +12,7 @@ Before you begin, you must have the following:
 - A template that describes all of the resources that you want in the new stack. Save the
   template locally or in an Amazon S3 bucket.
 - For each resource you want to import, include the following:
+
   - the properties and property values that define the resource's current
     configuration.
   - the unique identifier for the resource, such as the resource name. For more information,
@@ -112,6 +113,7 @@ following methods, and then choose **Next**.
 
 5. On the **Identify resources** page, identify each target resource. For
    more information, see [Resource identifiers](import-resources-manually.md#resource-import-identifiers-unique-ids "import-resources-manually.md#resource-import-identifiers-unique-ids").
+
    1. Under **Identifier property**, choose the type of resource identifier.
       For example, the `AWS::DynamoDB::Table` resource can be identified using the
       `TableName` property.
@@ -242,6 +244,7 @@ aws cloudformation execute-change-set \
 6. (Optional) Run drift detection on the `IMPORT_COMPLETE` stack to make sure the
    template and actual configuration of the imported resources match. For more information on
    detecting drift, see [Detect drift on individual stack resources](detect-drift-resource.md "detect-drift-resource.md").
+
    1. Run drift detection on the specified stack.
 
    ```
@@ -253,7 +256,6 @@ aws cloudformation execute-change-set \
    ```
    { "Stack-Drift-Detection-Id" : "624af370-311a-11e8-b6b7-500cexample" }
    ```
-
    2. View the progress of a drift detection operation for the specified stack drift
       detection ID.
 
@@ -261,7 +263,6 @@ aws cloudformation execute-change-set \
    aws cloudformation describe-stack-drift-detection-status \
        --stack-drift-detection-id `624af370-311a-11e8-b6b7-500cexample`
    ```
-
    3. View drift information for the resources that have been checked for drift in the
       specified stack.
 
@@ -273,6 +274,7 @@ aws cloudformation execute-change-set \
    either correct the template configurations or update the resources directly. In this
    walkthrough, we correct the template configurations to match their actual
    configurations.
+
    1. [Revert the import operation](resource-import-revert.md#resource-import-revert-cli "resource-import-revert.md#resource-import-revert-cli") for the
       affected resources.
    2. Add the import targets to your template again, making sure that the template

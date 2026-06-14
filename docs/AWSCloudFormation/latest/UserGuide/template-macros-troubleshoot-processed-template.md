@@ -38,6 +38,7 @@ To resolve this issue, consider doing the following:
 
 - Restructure your template into multiple templates to avoid exceeding the
   maximum size for in-process templates. For example:
+
   - Use nested stack templates to encapsulate parts of the template.
     For more information, see [Split a template into reusable pieces using nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
   - Create multiple stacks and use cross-stack references to exchange

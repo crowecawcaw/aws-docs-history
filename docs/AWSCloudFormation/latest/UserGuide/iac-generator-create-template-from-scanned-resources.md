@@ -14,6 +14,7 @@ the IaC generator feature.
 3. From the **Templates** section, choose **Create
    template**.
 4. Choose **Start from a new template**.
+
    1. For **Template name**, provide a name for your
       template.
    2. (Optional) Configure your **Deletion policy** and

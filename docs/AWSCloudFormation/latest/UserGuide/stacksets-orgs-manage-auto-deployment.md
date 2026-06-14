@@ -64,6 +64,7 @@ The following are considerations when using automatic deployments:
 5. Choose **Edit automatic deployment** from the
    **Actions** menu in the upper right corner.
 6. From the dialog box that opens, do the following:
+
    1. For **Automatic deployment**, choose
       **Activated** or
       **Deactivated**.

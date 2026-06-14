@@ -38,6 +38,7 @@ choose to retry using one of two methods.
    that you want to force delete.
 2. In the stack details pane, choose **Retry delete**.
 3. Choose between the following options:
+
    - **Delete this stack but retain resources**: This option allows
      you to select the specific resources that originally failed to delete, but you
      want to retain during the force stack deletion.

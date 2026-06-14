@@ -291,6 +291,7 @@ For information about writing stack policies, see [Defining a stack policy](#sta
    expand the **Advanced** section and then choose **Stack
    policy**.
 5. Specify the stack policy:
+
    - To write a policy directly in the console, choose **Enter stack
      policy** and then type the stack policy directly in the text field.
    - To use a policy defined in a separate file, choose **Upload a
@@ -342,6 +343,7 @@ permission to update them.
    modified the template, select **Replace current template** and specify
    the location of the updated template in the **Specify template**
    section:
+
    - For a template stored locally on your computer, select **Upload a template
      file**. Choose **Choose File** to navigate to the file and
      select it, and then click **Next**.

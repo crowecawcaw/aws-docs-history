@@ -18,6 +18,7 @@ The following are benefits of the IaC generator:
    this time, you can create multiple templates from the same scan.
 2. Create your template – To create the
    template, you have two options:
+
    - Create a new template from scratch and add the scanned resources and
      related resources to it.
    - Use an existing CloudFormation stack as a starting point and add the scanned
