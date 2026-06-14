@@ -64,6 +64,7 @@ the AMI itself, as this would make the AMI unrecoverable.
 
 - If a snapshot is enabled for fast snapshot restore when it is deleted, fast snapshot
   restore is automatically disabled shortly after the snapshot is sent to the Recycle Bin.
+
   - If you restore the snapshot before fast snapshot restore is disabled for the
     snapshot, it remains enabled.
   - If you restore the snapshot, after fast snapshot restore has been disabled,

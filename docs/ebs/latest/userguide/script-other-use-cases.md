@@ -26,6 +26,7 @@ for **uses cases other than application-consistent snapshots**.
 
 1. Install the SSM Agent on your target instances, if it is not already installed.
    If SSM Agent is already installed on your target instances, skip this step.
+
    - (Linux instances) [Manually installing SSM Agent on EC2 instances for Linux](../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md")
    - (Windows instances) [Working with SSM Agent on EC2 instances for Windows Server](../../../systems-manager/latest/userguide/ssm-agent-windows.md "../../../systems-manager/latest/userguide/ssm-agent-windows.md")
 
@@ -231,6 +232,7 @@ Console###### To create the snapshot lifecycle policy
 3. On the **Select policy type** screen, choose **EBS
    snapshot policy** and then choose **Next**.
 4. In the **Target resources** section, do the following:
+
    1. For **Target resource types**, choose `Instance`.
    2. For **Target resource tags**, specify the resource
       tags that identify the instances to back up. Only resources that have
@@ -245,6 +247,7 @@ Console###### To create the snapshot lifecycle policy
    during maintenance windows.
 7. In the **Pre and post scripts** section, select **Enable
    pre and post scripts** and then do the following:
+
    1. Select **Custom SSM document**.
    2. For **Automate option**, choose the option that matches
       the scripts you want to run.
@@ -252,6 +255,7 @@ Console###### To create the snapshot lifecycle policy
       prepared.
 
 8. Configure the following additional options if needed:
+
    - **Script timeout** — The timeout period after which Amazon Data Lifecycle Manager
      fails the script run attempt if it has not completed. If a script does not complete
      within its timeout period, Amazon Data Lifecycle Manager fails the attempt. The timeout period applies to

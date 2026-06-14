@@ -4,6 +4,7 @@ Keep the following in mind when locking Amazon EBS snapshots.
 
 - You can lock a snapshot only if it is in the `pending` or `completed`
   state.
+
   - If you lock a snapshot while it is in the `pending` state, and you lock
     it for a specific duration, the lock duration starts only when the snapshot reaches
     the `completed` state. The snapshot can't be deleted while it is in the

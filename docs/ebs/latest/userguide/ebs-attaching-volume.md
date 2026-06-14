@@ -17,6 +17,7 @@ For information about adding EBS volumes to your instance at launch, see
 - Multi-Attach enabled volumes can be attached to up to 16 instances. For more
   information, see [Attach an EBS volume to multiple EC2 instances using Multi-Attach](ebs-volumes-multi.md "ebs-volumes-multi.md").
 - If the volume has an AWS Marketplace product code:
+
   - You can attach it to a stopped instance only.
   - You must be subscribed to the AWS Marketplace code that is on the volume.
   - The instance's configuration, such as its type and operating system, must support
@@ -36,6 +37,7 @@ For information about adding EBS volumes to your instance at launch, see
 - Some instance types support more than one EBS card. You can select the EBS card
   for the volume to be attached to by specifying the EBS card index. For instances support
   multiple EBS cards, see [EBS cards](../../../AWSEC2/latest/UserGuide/ebs_cards.md "../../../AWSEC2/latest/UserGuide/ebs_cards.md").
+
   - Your root volume must be attached to EBS card index `0`.
   - For the instances that support multiple EBS cards, If you do not specify
     the EBS card index, your volume will be attached to EBS card index `0`.
@@ -60,6 +62,7 @@ Console
 4. For **Instance**, enter the ID of the instance or select
    the instance from the list of options.
 5. For **Device name**, do one of the following:
+
    - For a root volume, select the required device name from the **Reserved
      for root volume** section of the list. Typically `/dev/sda1` or
      `/dev/xvda` for Linux instances depending on the AMI, or `/dev/sda1`

@@ -104,6 +104,7 @@ Keep the following in mind when working with Local snapshots in Local Zones.
 
 - Local snapshots are currently supported in Local Zones that support Amazon S3.
 - The following features can't be used with Local snapshots in Local Zones:
+
   - VM Import/Export actions
   - Fast snapshot restore
   - EBS direct APIs

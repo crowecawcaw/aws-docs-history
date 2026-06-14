@@ -32,6 +32,7 @@ Console
    restored, and then choose **Actions**, **Restore snapshot
    from archive**.
 4. For **Restore type**, do one of the following:
+
    - To change the restore type from temporary to permanent, select **Permanent**.
    - To increase or decrease the restore period, keep **Temporary**, and then for
      **Temporary restore period**, enter the new restore period in days.

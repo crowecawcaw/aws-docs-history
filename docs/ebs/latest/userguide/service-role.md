@@ -241,6 +241,7 @@ the required permissions and then select them when you create a lifecycle policy
     For more information, see [Creating a Role](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
 
 2.  Add a trust relationship to the roles.
+
     1. In the IAM console, choose **Roles**.
     2. Select the roles that you created, and then choose **Trust
        relationships**.

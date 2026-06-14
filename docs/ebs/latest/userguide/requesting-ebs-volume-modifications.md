@@ -40,6 +40,7 @@ Console
 4. The **Modify volume** screen displays the volume ID and the
    volume's current configuration, including type, size, IOPS, and throughput. Set new
    configuration values as follows:
+
    - To modify the type, choose a value for **Volume type**.
    - To modify the size, enter a new value for **Size**.
    - (`gp3`, `io1`, and `io2` only) To modify the IOPS, enter a new value for

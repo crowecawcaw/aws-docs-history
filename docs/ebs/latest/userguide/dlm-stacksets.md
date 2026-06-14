@@ -37,6 +37,7 @@ Console
    **Create StackSet**.
 3. For **Permissions**, do one of the following, depending on how you are enabling
    the default policies:
+
    - (Across an AWS organization) Choose **Service-managed permissions**.
    - (Across specific target accounts) Choose **Self-service permissions**. Then,
      for **IAM admin role ARN**, select the IAM service role that that you created
@@ -45,6 +46,7 @@ Console
 
 4. For **Prepare template**, choose **Use a sample template**.
 5. For **Sample templates**, do one of the following:
+
    - (Default policy for EBS snapshots) Select **Create Amazon Data Lifecycle Manager default policies for EBS
      Snapshots.**
    - (Default policy for EBS-backed AMIs) Select **Create Amazon Data Lifecycle Manager default policies for

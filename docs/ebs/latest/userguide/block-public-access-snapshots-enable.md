@@ -38,6 +38,7 @@ Console
    **Manage**.
 4. Select **Block public access** and then choose one of the
    following options:
+
    - **Block all public access** — To block all public sharing of your
      snapshots. Users in the account can't request new public sharing. Additionally, snapshots that
      were already publicly shared are treated as private and are no longer publicly available.

@@ -20,6 +20,7 @@ Console
    description for the snapshot.
 6. If the volume is on an Outpost or in a Local Zone, the **Snapshot destination**
    field appears. Do one of the following:
+
    - If the volume is in a Local Zone, choose **Local Zone** to create
      the snapshot in the same Local Zone, or choose **AWS Region** to create
      the snapshot in the parent Region of the Local Zone.

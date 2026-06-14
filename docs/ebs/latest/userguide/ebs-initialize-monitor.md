@@ -119,6 +119,7 @@ For more information about the event, see [EBS volume initialization event](ebs-
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. Choose **Rules**, **Create rule**.
 3. For **Step 1**, do the following:
+
    1. Specify a name and description for the rule.
    2. For **Event bus**, choose the bus to receive the events. If you haven't
       created a custom event bus, keep **default**, or see [Creating an event bus](../../../eventbridge/latest/userguide/eb-create-event-bus.md "../../../eventbridge/latest/userguide/eb-create-event-bus.md").
@@ -127,6 +128,7 @@ For more information about the event, see [EBS volume initialization event](ebs-
    4. Choose **Next**.
 
 4. For **Step 2**, do the following:
+
    1. For **Event source**, keep **AWS events or EventBridge partner events**.
    2. For **Creation method**, choose **Custom pattern (JSON editor)**.
    3. For **Event pattern**, add the following:
@@ -145,6 +147,7 @@ For more information about the event, see [EBS volume initialization event](ebs-
    For an example event, see [EBS volume initialization event](ebs-cloud-watch-events.md#volume-initialization-events "ebs-cloud-watch-events.md#volume-initialization-events"). 4. Choose **Next**.
 
 5. For **Step 3**, do the following:
+
    1. For **Target types**, choose **AWS service**.
    2. For **Select target**, choose **SNS topic**, and for
       **Topic** select the required topic. If you haven't created any topics, see

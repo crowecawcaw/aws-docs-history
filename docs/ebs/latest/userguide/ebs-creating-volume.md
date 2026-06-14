@@ -76,6 +76,7 @@ Console
 8. For **Availability Zone**, choose the Availability Zone in which to
    create the volume.
 9. For **Snapshot ID**, do one of the following:
+
    - To create an empty volume, keep the default value (**Don't create volume from
      a snapshot**).
    - To create the volume from a snapshot, select the snapshot to use.
@@ -90,6 +91,7 @@ Console
     select **Enable Multi-Attach**. For more information, see
     [Attach an EBS volume to multiple EC2 instances using Multi-Attach](ebs-volumes-multi.md "ebs-volumes-multi.md").
 12. Set the encryption status for the volume.
+
     - If your account is enabled for [encryption by
       default](encryption-by-default.md "encryption-by-default.md"), encryption is automatic and can't be disabled.
     - If you selected an encrypted snapshot, encryption is automatic and can't be disabled.

@@ -56,7 +56,9 @@ Console
     the policy schedules. A policy can have up to four schedules.
     Schedule 1 is mandatory. Schedules 2, 3, and 4 are optional. For
     each policy schedule that you add, do the following:
+
     1. In the **Schedule details** section do the following:
+
        1. For **Schedule name**, specify a descriptive name for the schedule.
        2. For **Frequency** and the related fields, configure the interval between policy runs.
 

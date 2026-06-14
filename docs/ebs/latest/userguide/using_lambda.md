@@ -107,6 +107,7 @@ see the [AWS Lambda Developer Guide](../../../lambda/latest/dg.md "../../../lamb
     5. Choose **Next**.
 
 6. For **Step 2: Build event pattern**, do the following:
+
    1. For **Event source**, select **AWS events or EventBridge partner events**.
    2. In the **Event pattern** section, for **Event source**,
       ensure that **AWS service** is selected, and for **AWS service**,
@@ -117,6 +118,7 @@ see the [AWS Lambda Developer Guide](../../../lambda/latest/dg.md "../../../lamb
    5. Choose **Next**.
 
 7. For **Step 3: Select targets**, do the following:
+
    1. For **Target types**, choose **AWS service**.
    2. For **Select target**, choose **Lambda function**, and for
       **Function** select the function that you created earlier.

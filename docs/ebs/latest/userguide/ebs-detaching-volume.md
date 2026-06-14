@@ -48,6 +48,7 @@ From your Linux instance, use the following command to unmount the
 From your Windows instance, unmount the volume as follows.
 
 1. Start the Disk Management utility.
+
    - (Windows Server 2012 and later) On the taskbar, right-click the Windows logo
      and choose **Disk Management**.
    - Windows Server 2008) Choose **Start**,

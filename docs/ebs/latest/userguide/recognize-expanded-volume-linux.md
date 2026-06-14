@@ -37,6 +37,7 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
 
 1.  [Connect to your instance](../../../AWSEC2/latest/UserGuide/connect-to-linux-instance.md "../../../AWSEC2/latest/UserGuide/connect-to-linux-instance.md").
 2.  Resize the partition, if needed. To do so:
+
     1. Check whether the volume has a partition. Use the **lsblk**
        command.
 
@@ -126,7 +127,6 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
         * `NOCHANGE: partition 1 is size 16773087. it cannot be grown`: Indicates that the
          partition already extends the entire volume and can't be extended.
          [Confirm that the volume modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md").
-
     4. Verify that the partition has been extended. Use the **lsblk** command. The
        partition size should now be equal to the volume size.
 
@@ -156,6 +156,7 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
     ```
 
 3.  Extend the file system.
+
     1. Get the name, size, type, and mount point for the file system that you need to
        extend. Use the **df -hT** or **lsblk -f** command.
 
@@ -188,10 +189,10 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
         * If the file system size is equal to the volume size, then it does not need
          to be extended. In this case, skip the remaining steps - the partition and
          file system have been extended to the new volume size.
-
     2.  The commands to extend the file system differ depending on the file system
         type. Choose the following correct command based on the file system type that you
         noted in the previous step.
+
         - **[XFS file system]** Use the **xfs_growfs**
           command and specify the mount point of the file system that you noted in the previous
           step.
@@ -212,7 +213,6 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
             + `data size unchanged, skipping`: Indicates that the file system already
              extends the entire volume. If the volume has no partitions, [confirm that the volume modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions,
              ensure that the partition was extended as described in step 2.
-
         - **[Ext4 file system]** Use the **resize2fs**
           command and specify the name of the file system that you noted in the previous step.
 
@@ -245,7 +245,6 @@ see [Amazon EC2 hypervisor type](../../../AWSEC2/latest/UserGuide/instance-types
              volume. If the volume has no partitions, [confirm that the volume
              modification succeeded](monitoring-volume-modifications.md "monitoring-volume-modifications.md"). If the volume has partitions, ensure that
              the partition was extended, as described in step 2.
-
         - **[Other file system]** See the documentation
           for your file system for instructions.
 

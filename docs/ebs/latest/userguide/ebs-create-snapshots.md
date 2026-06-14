@@ -37,6 +37,7 @@ Console
    This description is applied to all of the snapshots.
 5. If the instance is on an Outpost or in a Local Zone, the **Snapshot destination**
    field appears. Do one of the following:
+
    - If the instance is in a Local Zone, choose **Local Zone** to create
      the snapshots in the same Local Zone, or choose **AWS Region** to create
      the snapshots in the parent Region of the Local Zone.

@@ -44,6 +44,7 @@ Open the Amazon EC2 console at
    archive**.
 3. Specify the type of restore to perform. For **Restore type**, do one of
    the following:
+
    - To restore the snapshot permanently, select **Permanent**.
    - To restore the snapshot temporarily, select **Temporary**, and then
      for **Temporary restore period**, enter the number of days for which to

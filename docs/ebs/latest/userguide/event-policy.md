@@ -197,6 +197,7 @@ Console
    identify and categorize your policies.
 6. In the **Event settings** section, define the snapshot sharing event
    that will cause the policy to run. Do the following:
+
    1. For **Sharing accounts**, specify the source AWS accounts from which you want to copy
       the shared snapshots. Choose **Add account**, enter the 12-digit AWS account ID, and then
       choose **Add**.

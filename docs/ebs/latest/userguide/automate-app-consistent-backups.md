@@ -63,6 +63,7 @@ Prepare for SAP HANA backups
 ###### To prepare your target instances for SAP HANA backups
 
 1. Prepare the SAP HANA environment on your target instances.
+
    1. Set up your instance with SAP HANA. If you don't already have an existing SAP HANA environment,
       then you can refer to the [SAP HANA Environment Setup on AWS](../../../sap/latest/sap-hana/std-sap-hana-environment-setup.md "../../../sap/latest/sap-hana/std-sap-hana-environment-setup.md").
    2. Login to the SystemDB as a suitable administrator user.
@@ -77,7 +78,6 @@ Prepare for SAP HANA backups
    ```
    CREATE USER dlm_user PASSWORD password NO FORCE_FIRST_PASSWORD_CHANGE;
    ```
-
    4. Assign the `BACKUP OPERATOR` role to the database backup user that you created in the previous step.
 
    ```
@@ -89,7 +89,6 @@ Prepare for SAP HANA backups
    ```
    GRANT BACKUP OPERATOR TO dlm_user
    ```
-
    5. Log in to the operating system as the administrator, for example ``sid`adm`.
    6. Create an `hdbuserstore` entry to store connection information so that the SAP HANA
       SSM document can connect to SAP HANA without users having to enter the information.
@@ -103,7 +102,6 @@ Prepare for SAP HANA backups
    ```
    hdbuserstore set DLM_HANADB_SNAPSHOT_USER localhost:30013 dlm_user password
    ```
-
    7. Test the connection.
 
    ```
@@ -123,6 +121,7 @@ Prepare for custom SSM documents
 
 1. Install the SSM Agent on your target instances, if it is not already installed.
    If SSM Agent is already installed on your target instances, skip this step.
+
    - (Linux instances) [Manually installing SSM Agent on EC2 instances for Linux](../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-linux.md")
    - (Windows instances) [Working with SSM Agent on EC2 instances for Windows Server](../../../systems-manager/latest/userguide/ssm-agent-windows.md "../../../systems-manager/latest/userguide/ssm-agent-windows.md")
 
@@ -1106,6 +1105,7 @@ Console
 3. On the **Select policy type** screen, choose **EBS
    snapshot policy** and then choose **Next**.
 4. In the **Target resources** section, do the following:
+
    1. For **Target resource types**, choose `Instance`.
    2. For **Target resource tags**, specify the resource
       tags that identify the instances to back up. Only resources that have
@@ -1144,6 +1144,7 @@ workload:
     	 prepared.
 
 8. Depending on the option you selected, configure the following additional options:
+
    - **Script timeout** — (_Custom SSM document only_) The
      timeout period after which Amazon Data Lifecycle Manager fails the script run attempt if it has not completed. If a script
      does not complete within its timeout period, Amazon Data Lifecycle Manager fails the attempt. The timeout period applies

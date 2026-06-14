@@ -276,6 +276,7 @@ PowerShell
    PowerShell**.
 3. Use the provided series of Windows PowerShell commands within the opened
    PowerShell prompt. The script performs the following actions by default:
+
    1. Stops the ShellHWDetection service.
    2. Enumerates disks where the partition style is raw.
    3. Creates a new partition that spans the maximum size the disk and partition
@@ -297,6 +298,7 @@ DiskPart command line tool
 1. Log in to your Windows instance using Remote Desktop. For more information, see
    [Connect to your Windows instance](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md").
 2. Determine the disk number that you want to make available:
+
    1. Open the Start menu, and select Windows PowerShell.
    2. Use the `Get-Disk` Cmdlet to retrieve a list of available
       disks.
@@ -304,6 +306,7 @@ DiskPart command line tool
       the disk that you're making available.
 
 3. Create a script file to execute DiskPart commands:
+
    1. Open the Start menu, and select **File Explorer**.
    2. Navigate to a directory, such as C:\, to store the script file.
    3. Choose or right-click an empty space within the folder to open the dialog
@@ -314,6 +317,7 @@ DiskPart command line tool
 4. Add the following commands to the script file. You may need to modify the disk
    number, partition type, volume label, and drive letter. The script performs the
    following actions by default:
+
    1. Selects disk 1 for modification.
    2. Configures the volume to use the master boot record (MBR) partition
       structure.

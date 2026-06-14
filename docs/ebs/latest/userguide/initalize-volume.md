@@ -283,6 +283,7 @@ device instead. Full documentation is available at [http://www.chrysocome.net/dd
    command line utilities folder (for example, `C:\bin`).
 4. Add the command line utilities folder to your Path environment variable so you can
    run the programs in that folder from anywhere.
+
    1. Choose **Start**, open the context (right-click) menu for
       **Computer**, and then choose
       **Properties**.

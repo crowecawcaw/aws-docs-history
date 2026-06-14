@@ -5,6 +5,7 @@ in which you want to protect your resources. Retention rules specify the followi
 
 - The resource type that you want to protect (volumes, snapshots, or AMIs).
 - The type of retention rule:
+
   - **Tag-level retention rules** — These retention rules use
     resource tags to identify the resources to protect. For each retention rule, you specify one or
     more tag key and value pairs. Resources (of the specified type) that have at least one of these

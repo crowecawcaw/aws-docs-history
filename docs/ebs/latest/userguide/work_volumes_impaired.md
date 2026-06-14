@@ -50,6 +50,7 @@ Enable-EC2VolumeIO -VolumeId `vol-01234567890abcdef`
 ```
 
 3. Check the data on the volume.
+
    1. Run the **fsck** (Linux instances) or **chkdsk**
       (Windows instances) command.
    2. (Optional) Review any available application or system logs for
@@ -110,6 +111,7 @@ Enable-EC2VolumeIO -VolumeId `vol-01234567890abcdef`
 4. Attach the volume to another instance. For more information, see [Launch your instance](../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md "../../../AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.md") and
    [Attach an Amazon EBS volume to an Amazon EC2 instance](ebs-attaching-volume.md "ebs-attaching-volume.md").
 5. Check the data on the volume.
+
    1. Run the **fsck** (Linux instances) or **chkdsk**
       (Windows instances) command.
    2. (Optional) Review any available application or system logs for

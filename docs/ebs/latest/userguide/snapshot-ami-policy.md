@@ -29,6 +29,7 @@ Console
 3.  On the **Select policy type** screen, choose **EBS snapshot policy** and then
     choose **Next**.
 4.  In the **Target resources** section, do the following:
+
     1. For **Target resource types**, choose the type of resource to back up. Choose
        `Volume` to create snapshots of individual volumes, or choose `Instance` to create
        multi-volume snapshots from the volumes attached to an instance.

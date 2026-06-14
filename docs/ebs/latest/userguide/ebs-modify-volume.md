@@ -47,6 +47,7 @@ provisions the `gp3` volume with 3000 IOPS (baseline `gp3` IOPS) and 250 MiB/s
 - If you encounter an error message while attempting to modify an EBS volume, or if
   you are modifying an EBS volume attached to a previous-generation instance type, take
   one of the following steps:
+
   - For a non-root volume, detach the volume from the instance, apply the
     modifications, and then re-attach the volume.
   - For a root volume, stop the instance, apply the modifications, and then restart

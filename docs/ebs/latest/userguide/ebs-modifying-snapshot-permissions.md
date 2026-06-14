@@ -54,6 +54,7 @@ Console
    **Modify permissions**.
 4. Specify the snapshot's permissions. _Current setting_
    indicates the snapshot's current sharing permissions.
+
    - To share the snapshot publicly with all AWS accounts, choose
      **Public**.
    - To share the snapshot privately with specific AWS accounts, choose

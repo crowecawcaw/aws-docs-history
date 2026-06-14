@@ -35,6 +35,7 @@ your instance, such as one of the following:
   attached after instance launch include the `/dev/` prefix, while NVMe
   device names for volumes attached during instance launch do not include the
   `/dev/` prefix.
+
   - For Amazon Linux or FreeBSD AMI, use the `sudo ebsnvme-id /dev/`nvme0n1` -u`
     command for a consistent NVMe device name.
   - For other distributions, use the `sudo nvme id-ctrl -V /dev/`nvme0n1``command to determine the NVMe device name. You might need to include the`--vendor-specific`
