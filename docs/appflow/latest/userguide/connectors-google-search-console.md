@@ -79,6 +79,7 @@ your data. If you haven't yet configured your Google Cloud project for Amazon Ap
 4. Choose **Create connection**.
 5. In the **Connect to Google Search Console** window, enter the following
    information:
+
    - **access_type** – Choose **offline**.
    - **Client ID** – The client ID of the OAuth 2.0 client ID in your
      Google Cloud project.

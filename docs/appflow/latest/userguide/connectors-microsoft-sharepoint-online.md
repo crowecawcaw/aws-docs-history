@@ -135,12 +135,14 @@ you haven't yet configured your Microsoft account for Amazon AppFlow integration
 4. Choose **Create connection**.
 5. In the **Connect to Microsoft SharePoint Online** window, enter the following
    information about your registered app:
+
    - **Custom authorization tokens URL** – Your Azure AD tenant
      ID.
    - **Custom authorization code URL** – Azure AD tenant ID
 
 6. By default, the **Use AWS managed client app** checkbox is activated.
    You can do either of the following:
+
    - If you want to use the AWS managed client app, keep the checkbox activated.
    - If you want to use your own client app (called an app registration in Microsoft Azure),
      choose the checkbox to deactivate it. Then, provide values for **Client ID**

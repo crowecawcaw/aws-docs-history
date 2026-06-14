@@ -41,6 +41,7 @@ haven't yet configured your Freshsales project for Amazon AppFlow integration, s
 4. Choose **Create connection**.
 5. In the **Connect to Freshsales**
    window, enter the following information:
+
    - **API key** – Enter the word **token** in this
      field.
    - **API secret key** – Enter your secret key. This is named “Your

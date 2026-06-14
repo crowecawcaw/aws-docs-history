@@ -53,7 +53,9 @@ For example, if your destination is Salesforce, enter `s3-to-salesforce`.
 4. Ensure **Data format preference** is **CSV format**.
 5. Configure the **Destination details**. These details
    vary based on the destination that you want to transfer data to.
+
    - If you want to transfer data to Salesforce, do the following:
+
      1. For **Destination name**, select
         **Salesforce**.
      2. For **Choose Salesforce connection**, select
@@ -70,6 +72,7 @@ For example, if your destination is Salesforce, enter `s3-to-salesforce`.
 
    - If you want to transfer data to another supported application
      besides Salesforce, do the following:
+
      1. For **Destination name**, select the
         destination that you want for your data.
      2. For **Choose connection**, select the
@@ -97,7 +100,9 @@ flows](flow-triggers.md "flow-triggers.md") in the _Amazon AppFlow User Guide_. 
 
 1. Map your data fields. These vary based on the destination for your data
    transfer.
+
    - If you're transferring to Salesforce, do the following:
+
      1. Under **Mapping method**, leave the default selection **Manually map fields**.
      2. Under **Destination record preference**, leave the default selection **Insert new records**.
      3. In the **Source to destination field mapping** section, select the _Choose source fields_ dropdown and select
@@ -112,6 +117,7 @@ flows](flow-triggers.md "flow-triggers.md") in the _Amazon AppFlow User Guide_. 
 
    - If you want to transfer data to another supported application besides
      Salesforce, do the following:
+
      1. Select **Mapping method** and
         specify how you want to map your data. You can choose to map the
         source fields to the destination fields manually, or else upload

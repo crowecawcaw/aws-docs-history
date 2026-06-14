@@ -33,6 +33,7 @@ Compass_.
 
 - You've given your app a Grant type of Client Credentials.
 - You've chosen the following scopes to be included in the API:
+
   - `core.accounting.read`
   - `core.approval.read`
   - `core.common.read`
@@ -98,6 +99,7 @@ haven't yet configured your Coupa project for Amazon AppFlow integration, see [B
 4. Choose **Create connection**.
 5. In the **Connect to Coupa** window, enter the following
    information:
+
    - **Connection name** — A name for the connection.
    - **Authorization tokens URL** — From the dropdown menu, choose one of the following options: For partner and demo instances, choose https://\{company_name}.coupacloud.com.oauth2/token. For customer instances, choose https://\{company_name}.coupahost.com.oauth2/token.
    - **Custom authorization tokens URL** — The same company name used in the authorization tokens URL.

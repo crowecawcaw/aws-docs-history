@@ -57,6 +57,7 @@ versions:
 4. Choose **Create connection**.
 5. In the **Connect to AfterShip** window, enter the following
    information:
+
    - **API key** – Enter your API key.
    - **API secret key** – Enter your secret key.
 

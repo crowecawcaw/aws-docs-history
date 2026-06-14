@@ -35,6 +35,7 @@ requirements:
   authenticated calls to your account. For more information, see [Build an App](https://marketplace.zoom.us/docs/guides/build/ "https://marketplace.zoom.us/docs/guides/build/") in the
   Zoom Developers Docs.
 - You've configured If the app with the following settings:
+
   - You've disabled the option to publish to the Zoom App Marketplace.
   - You've added the recommended scopes below.
   - You've added one or more redirect URLs for Amazon AppFlow.

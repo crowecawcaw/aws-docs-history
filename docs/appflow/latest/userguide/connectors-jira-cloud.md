@@ -90,6 +90,7 @@ console.
   scopes.
 - Under **Granular scopes**, we recommend that you add the following
   scopes:
+
   - `read:application-role:jira`
   - `read:audit-log:jira`
   - `read:avatar:jira`
@@ -142,6 +143,7 @@ Jira Cloud account for Amazon AppFlow integration, see [Before you begin](#jira-
 4. Choose **Create connection**.
 5. In the **Connect to Jira Cloud** window, enter the following
    information:
+
    - **Client ID** – The client ID from the OAuth 2.0 integration
      app.
    - **Client secret** – The client secret from the OAuth 2.0

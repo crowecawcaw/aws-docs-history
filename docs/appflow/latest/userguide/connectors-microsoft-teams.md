@@ -23,6 +23,7 @@ requirements:
 
 - You have a Microsoft account with which you've signed up for the following
   services:
+
   - Microsoft Teams. For more information about the Microsoft Teams data objects that
     Amazon AppFlow supports, see [Supported objects](#microsoft-teams-objects "#microsoft-teams-objects").
   - Microsoft 365.
@@ -33,6 +34,7 @@ requirements:
   when it makes authenticated calls to your account. For the steps to register an app, see [Register an application
   with the Microsoft identity platform](https://learn.microsoft.com/en-us/graph/auth-register-app-v2 "https://learn.microsoft.com/en-us/graph/auth-register-app-v2") in the Microsoft Graph documentation.
 - You've configured your registered app with the following settings:
+
   - You've added one or more redirect URLs for Amazon AppFlow.
 
   Redirect URLs have the following format:
@@ -127,6 +129,7 @@ account for Amazon AppFlow integration, see [Before you begin](#microsoft-teams-
 4. Choose **Create connection**.
 5. In the **Connect to Microsoft Teams** window, enter the following
    information about your registered app:
+
    - **Custom authorization tokens URL** – The directory (tenant)
      ID.
    - **Custom authorization code URL** – The directory (tenant)

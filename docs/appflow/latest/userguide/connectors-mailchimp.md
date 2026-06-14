@@ -43,6 +43,7 @@ integration, see [Before you begin](#mailchimp-prereqs "#mailchimp-prereqs").
 4. Choose **Create connection**.
 5. In the **Connect to Mailchimp** window, enter the following
    information:
+
    - **API Key** – The API key from your Mailchimp account
      settings.
    - **Instance URL** – The Mailchimp Marketing API URL that

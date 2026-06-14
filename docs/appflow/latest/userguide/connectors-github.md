@@ -26,10 +26,12 @@ requirements:
 - In the developer settings of your account, you've created either of the following
   resources for Amazon AppFlow. These resources provide credentials that Amazon AppFlow uses to access your data
   securely when it makes authenticated calls to your account.
+
   - An OAuth app. For the steps to create one, see [Creating an OAuth App](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app "https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app") in the GitHub Docs.
   - A personal access token. For the steps to create one, see [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token") in the GitHub Docs.
 
 - If you created an OAuth app, you've configured it with the following settings:
+
   - You've set the homepage URL to
     `https://console.aws.amazon.com/appflow/home`.
   - You've specified a callback URL for Amazon AppFlow.
@@ -91,6 +93,7 @@ GitHub account for Amazon AppFlow integration, see [Before you begin](#github-pr
 5. In the **Connect to GitHub** window, for **Select
    authentication type**, choose how to authenticate Amazon AppFlow with your GitHub
    account when it requests to access your data:
+
    - Choose **OAuth2** to authenticate Amazon AppFlow with the client ID and client
      secret from an OAuth app. Then, enter values for **Client ID** and
      **Client secret**.

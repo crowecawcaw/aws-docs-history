@@ -70,6 +70,7 @@ Blackbaud Raiser's Edge NXT account for Amazon AppFlow integration, see [Before 
 4. Choose **Create connection**.
 5. In the **Connect to Blackbaud Raiser's Edge NXT** window, enter the following
    information:
+
    - **Connection name** — Enter a name for your connection.
    - **Client ID** — The client ID in your Blackbaud Raiser's Edge NXT
      project.

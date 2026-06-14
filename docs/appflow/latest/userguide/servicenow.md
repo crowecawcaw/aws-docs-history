@@ -94,6 +94,7 @@ section.
   set.
 - ServiceNow can process up to 100,000 records as part of a single flow run.
 - The Truncate or Mask transformations are not supported for ServiceNow reference type fields. If applied, the following behavior occurs for the respective transformation:
+
   - Truncate: Reference type fields become an empty string
   - Mask: Reference type fields become `null`
 

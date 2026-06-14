@@ -61,6 +61,7 @@ Zendesk Chat account to integrate with Amazon AppFlow, see [Before you begin](#z
 4. Choose **Create connection**.
 5. In the **Connect to Zendesk Chat** window, enter the following
    information:
+
    - **Custom authorization code URL**
      – Your Zendesk subdomain. You can find
      this value in the URL that you visit when you sign in to Zendesk Chat. For example, in

@@ -45,6 +45,7 @@ Domo account for Amazon AppFlow integration, see [Before you begin](#domo-prereq
 4. Choose **Create connection**.
 5. In the **Connect to Domo** window, enter the following
    information:
+
    - **Client ID** – The client ID from your Domo
      client.
    - **Client secret** – The secret from your Domo

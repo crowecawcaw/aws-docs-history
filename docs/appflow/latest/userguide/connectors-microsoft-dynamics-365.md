@@ -28,6 +28,7 @@ requirements:
   data in your account. For the steps to register an app, see [Register an application
   with the Microsoft identity platform](https://learn.microsoft.com/en-us/graph/auth-register-app-v2 "https://learn.microsoft.com/en-us/graph/auth-register-app-v2") in the Microsoft Graph documentation.
 - You've configured your registered app with the following settings:
+
   - In the authentication settings, you've added a platform, and you've set the platform
     application type to _web_. You've configured the platform
     with a redirect URL for Amazon AppFlow.
@@ -62,7 +63,6 @@ requirements:
       - At the time that you create the client secret, you must store it's value somewhere
        that you can access later. After you leave the page where you create the client secret,
        Microsoft Azure never shows the value again.
-
   - In the app manifest, you've edited the following attributes to have a value of
     `true`:
 
@@ -75,6 +75,7 @@ requirements:
     documentation.
 
   - In the API permissions settings, you've set the following configurations:
+
     - The app permits the `user_impersonation` permission for the Dynamics CRM
       API.
     - The app permits the `User.Read` permission for the Microsoft Graph API. For
@@ -117,6 +118,7 @@ account for Amazon AppFlow integration, see [Before you begin](#microsoft-dynami
 4. Choose **Create connection**.
 5. In the **Connect to Microsoft Dynamics 365** window, enter the following
    information:
+
    - **Custom authorization code URL** — From your service root URL,
      the segment ``instance-id`.api.crm.dynamics.com`.
    - **Client ID** — The application (client) ID of your registered

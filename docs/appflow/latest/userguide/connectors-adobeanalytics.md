@@ -61,6 +61,7 @@ your Adobe Analytics account for Amazon AppFlow integration, see [Before you beg
 4. Choose **Create connection**.
 5. In the **Connect to Adobe Analytics** window, enter the following
    information:
+
    - **Connection name** — A name for the connection.
    - **Client ID** — The client ID in your Adobe Analytics
      app.

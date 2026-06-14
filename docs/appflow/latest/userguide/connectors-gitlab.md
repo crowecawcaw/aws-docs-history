@@ -30,6 +30,7 @@ requirements:
 - In the settings of your account, you've created either of the following resources for
   Amazon AppFlow. These resources provide credentials that Amazon AppFlow uses to access your data securely when
   it makes authenticated calls to your account.
+
   - An application, which provides OAuth 2.0 authentication. For the steps to create an
     application, see [User owned applications](https://docs.gitlab.com/ee/integration/oauth_provider.html#user-owned-applications "https://docs.gitlab.com/ee/integration/oauth_provider.html#user-owned-applications") in the GitLab Docs.
   - A personal access token. For the steps to create one, see [Create a personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token") in the GitLab Docs.
@@ -37,6 +38,7 @@ requirements:
   Your personal access token must permit the `api` scope.
 
 - If you created an application, you've configured it with the following settings:
+
   - You've specified a redirect URL for Amazon AppFlow.
 
   Redirect URLs have the following format:
@@ -78,8 +80,10 @@ GitLab account for Amazon AppFlow integration, see [Before you begin](#gitlab-pr
 5. In the **Connect to GitLab** window, for **Select
    authentication type**, choose how to authenticate Amazon AppFlow with your GitLab
    account when it requests to access your data:
+
    - Choose **OAuth2** to authenticate Amazon AppFlow with the credentials from an
      application. Then, enter the following values:
+
      - **Client ID** – The application ID.
      - **Client secret** – The secret.
 

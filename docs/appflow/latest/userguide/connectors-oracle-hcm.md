@@ -33,6 +33,7 @@ instance URL.
 4. Choose **Create connection**.
 5. In the **Connect to Oracle HCM** window, enter the following
    information:
+
    - **User name** – The user name for your Oracle HCM
      account.
    - **Password** – The password for your Oracle HCM

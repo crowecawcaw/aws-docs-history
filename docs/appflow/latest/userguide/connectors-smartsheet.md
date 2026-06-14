@@ -64,13 +64,16 @@ Smartsheet account for Amazon AppFlow integration, see [Before you begin](#smart
 4. Choose **Create connection**.
 5. In the **Connect to Smartsheet** window, enter the following
    information:
+
    - **Authorization tokens URL** – Do one of the following:
+
      - To connect to the Smartsheet US region, choose
        **https://api.smartsheet.com/2.0/token**.
      - To connect to the Smartsheet EU region, choose
        **https://api.smartsheet.eu/2.0/token**.
 
    - **Authorization code URL** – Do one of the following:
+
      - To connect to the Smartsheet US region, choose
        **https://api.smartsheet.com/b/authorize**.
      - To connect to the Smartsheet EU region, choose
@@ -81,6 +84,7 @@ Smartsheet account for Amazon AppFlow integration, see [Before you begin](#smart
    - **Client secret** – The client secret from the app in your
      Smartsheet account.
    - **Instance URL** – Do one of the following:
+
      - To connect to the Smartsheet US region, choose
        **https://api.smartsheet.com**.
      - To connect to the Smartsheet EU region, choose

@@ -43,6 +43,7 @@ your Braintree account for Amazon AppFlow integration, see [Before you begin](#b
 4.  Choose **Create connection**.
 5.  In the **Connect to Braintree** window, enter the following
     information:
+
     - **Public Key** – The public key value from the API key in your
       Braintree account.
     - **Private Key** – The private key value from the API key in your

@@ -52,6 +52,7 @@ console.
 1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
 2. To view the Data Catalog settings, configure a flow that transfers data to Amazon S3. Do one of the
    following:
+
    - If you want to catalog the data from a new flow, choose **Create flow**
      and step through the flow creation process.
 
@@ -89,6 +90,7 @@ console.
      name of each Data Catalog table that Amazon AppFlow creates for the flow.
 
 5. When you've configured the Data Catalog settings, do either of the following:
+
    - If you are creating a flow, work through the remaining flow creation steps in the
      console. For all of the steps to create a flow, see [Create a flow using the AWS console](create-flow-console.md "create-flow-console.md").
    - If you are editing a flow, choose **Save**.With this Data Catalog configuration, Amazon AppFlow stores metadata about the flow output each time
@@ -132,6 +134,7 @@ The variable elements in these names are as follows:
 - `schema-version` – The version number of your data schema. Amazon AppFlow
   assigns this version number and increases it by one when you change any of the following
   settings for your flow:
+
   - Field mappings
   - Field data types
   - Partition settings

@@ -32,6 +32,7 @@ requirements:
 
 - Your SAP NetWeaver stack version must be 7.40 SP02 or above.
 - You must enable catalog service for service discovery.
+
   - **OData V2.0:** The OData V2.0 catalog service(s) can be
     enabled in your SAP Gateway via transaction **/IWFND/MAINT_SERVICE** .
 
@@ -48,10 +49,12 @@ requirements:
 - Your SAP OData service must support client side pagination/query options such as **$top** and **$skip**. It must also support
   system query option **$count**.
 - Amazon AppFlow supports following authentication mechanisms:
+
   - **Basic** - Supported for OData V2.0 and OData V4.0
   - **OAuth 2.0** - Supported for only OData V2.0. You must
     enable OAuth 2.0 for the OData service and register the OAuth client per SAP documentation
     and set the authorized redirect URL as follows:
+
     - https://console.aws.amazon.com/appflow/oauth for the us-east-1 Region
     - https://region.console.aws.amazon.com/appflow/oauth for all other Regions
 
@@ -68,6 +71,7 @@ requirements:
 - You have an SAP NetWeaver AS ABAP instance.
 - Your SAP NetWeaver instance contains an ODP provider that you want to transfer data from.
   ODP providers include:
+
   - SAP DataSources (Transaction code RSO2)
   - SAP Core Data Services ABAP CDS Views
   - SAP BW or SAP BW/4HANA systems (InfoObject, DataStore Object)
@@ -82,6 +86,7 @@ requirements:
   documentation.
 - To generate an OData service based on ODP data sources, SAP Gateway Foundation must be
   installed locally in your ERP/BW stack or in a hub configuration.
+
   - For your ERP/BW applications, the SAP NetWeaver AS ABAP stack must be at 7.50 SP02 or
     above.
   - For the hub system (SAP Gateway), the SAP NetWeaver AS ABAP of the hub system must be
@@ -272,10 +277,12 @@ following:
 
 - Under **Choose how to trigger the flow**, do either of the
   following:
+
   - Choose **Run on demand**. After you create an on-demand flow, you run
     it manually by choosing **Run flow** on its details page in the Amazon AppFlow
     console.
   - Choose **Run flow on schedule** and define your schedule:.
+
     1. Use the scheduling fields to specify when the flow begins, how often it repeats, and
        when it ends.
     2. For **Transfer mode**, choose **Full
@@ -308,6 +315,7 @@ To enable these capabilities, complete the following steps.
    create for your SAP OData connector. For the steps to create a bucket, see [Creating a
    bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
 2. Configure the flow by following the steps in [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md"), but do one additional step:
+
    1. On the **Configure flow** page, under **Response
       handling**, select the bucket that you created. The SAP success response payload is
       delivered to this bucket when finish creating your flow.

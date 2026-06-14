@@ -28,6 +28,7 @@ requirements:
 - You have a LinkedIn account and a LinkedIn Page. For the steps to create a page, see
   [Create a LinkedIn Page](https://www.linkedin.com/help/linkedin/answer/a543852/create-a-linkedin-page?lang=en "https://www.linkedin.com/help/linkedin/answer/a543852/create-a-linkedin-page?lang=en") on LinkedIn Help.
 - In LinkedIn Developers, you've created an app, and you've configured it as follows:
+
   - The app is associated with your LinkedIn Page.
   - The app includes the Marketing Developer Platform product.
   - The app Auth settings include one or more redirect URLs for Amazon AppFlow.
@@ -67,6 +68,7 @@ account for Amazon AppFlow integration, see [Before you begin](#linkedin-pages-p
 4. Choose **Create connection**.
 5. In the **Connect to LinkedIn Pages** window, enter the following
    information:
+
    - **Client ID** – The client ID from the Auth settings of your
      LinkedIn Developers app.
    - **Client secret** – The client secret from the Auth settings of

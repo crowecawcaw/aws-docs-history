@@ -44,6 +44,7 @@ yet configured your WooCommerce account for Amazon AppFlow integration, see [Bef
 4. Choose **Create connection**.
 5. In the **Connect to WooCommerce** window, enter the following
    information:
+
    - **Consumer Key** — The consumer key from your REST API
      key.
    - **Consumer Secret** — The consumer secret from your REST API

@@ -30,6 +30,7 @@ You can use Snowflake as a destination only.
 ```
 
 - You must provide Amazon AppFlow with the following information:
+
   - the name of the stage and the S3 bucket for the stage
   - the user name and password for your Snowflake account
   - the S3 bucket prefix

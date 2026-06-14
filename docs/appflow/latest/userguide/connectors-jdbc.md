@@ -46,6 +46,7 @@ your database settings so that Amazon AppFlow can access your data.
 4. Choose **Create connection**.
 5. In the **Connect to JDBC** window, enter the following
    information:
+
    - **driver** — Choose **mysql** or
      **postgresql** depending on the type of database where you want to
      connect.

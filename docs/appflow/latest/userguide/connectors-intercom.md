@@ -70,6 +70,7 @@ your Intercom account for Amazon AppFlow integration, see [Before you begin](#in
 4. Choose **Create connection**.
 5. In the **Connect to Intercom** window, enter the following
    information:
+
    - **Authorization tokens URL** — Choose the URL based on the data
      host region where you use Intercom (Europe, US, Australia).
    - **Authorization code URL** — Choose the URL based on the data

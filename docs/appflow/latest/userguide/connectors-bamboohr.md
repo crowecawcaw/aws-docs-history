@@ -44,6 +44,7 @@ haven't yet configured your BambooHR project for Amazon AppFlow integration, see
 4. Choose **Create connection**.
 5. In the **Connect to BambooHR**
    window, enter the following information:
+
    - **API key** – Enter your API key.
    - **Instance URL** – The URL of the
      instance where you want to run the operation, for example,

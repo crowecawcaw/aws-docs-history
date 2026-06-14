@@ -65,6 +65,7 @@ account for Amazon AppFlow integration, see [Before you begin](#snapchat-ads-pre
 4. Choose **Create connection**.
 5. In the **Connect to Snapchat Ads** window, enter the following
    information:
+
    - **Client ID** — The Snap client ID from your OAuth app.
    - **Client secret** — The Snap client secret key from your OAuth
      app.

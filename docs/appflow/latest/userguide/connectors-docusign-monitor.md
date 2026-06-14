@@ -27,6 +27,7 @@ requirements:
   when it makes authenticated calls to your account. For more information, see [Configure your app](https://developers.docusign.com/platform/configure-app/ "https://developers.docusign.com/platform/configure-app/") in
   the DocuSign Developer documentation.
 - In the settings for your app, you've done the following:
+
   - Created a secret key.
   - Added a redirect URL for Amazon AppFlow.
 
@@ -65,6 +66,7 @@ for Amazon AppFlow integration, see [Before you begin](#docusign-monitor-prereqs
 4. Choose **Create connection**.
 5. In the **Connect to DocuSign Monitor** window, enter the following
    information:
+
    - **Client ID** – The integration key from your app
      settings.
    - **Client secret** – The secret key from your app

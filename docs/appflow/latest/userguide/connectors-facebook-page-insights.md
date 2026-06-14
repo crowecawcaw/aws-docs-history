@@ -93,6 +93,7 @@ Amazon AppFlow integration, see [Before you begin](#facebook-page-insights-prere
 4. Choose **Create connection**.
 5. In the **Connect to Facebook Page Insights** window, enter the following
    information:
+
    - **Client ID** – The app ID from your Meta for Developers
      app.
    - **Client secret** – The app secret from your Meta for Developers

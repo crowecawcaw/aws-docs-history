@@ -21,6 +21,7 @@ You can use Zendesk as a source or a destination.
   your application can use to authenticate API calls to Zendesk. This is done in Zendesk
   Support.
 - In Zendesk, you must create an OAuth client with the following settings:
+
   - Unique identifier: aws_integration_to_Zendesk
   - Redirect URL: https://console.aws.amazon.com/appflow/oauth (us-east-1) or
     https://`region`.console.aws.amazon.com/appflow/oauth (all other

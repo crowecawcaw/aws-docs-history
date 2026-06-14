@@ -25,6 +25,7 @@ requirements:
 - In your account , you've created either of the following resources for Amazon AppFlow. These
   resources provide credentials that Amazon AppFlow uses to access your data securely when it makes
   authenticated calls to your account.
+
   - An OIDC app integration to support OAuth 2.0 authentication. For the steps to create an
     app integration, see [Create OIDC app integrations](https://help.okta.com/en-us/Content/Topics/Apps/Apps_App_Integration_Wizard_OIDC.htm "https://help.okta.com/en-us/Content/Topics/Apps/Apps_App_Integration_Wizard_OIDC.htm") in the Okta Help Center.
   - An API token. For the steps to create one, see [Create an API
@@ -32,6 +33,7 @@ requirements:
 
 - If you created an OIDC app integration, you've configured it with the following
   settings:
+
   - The application type is _Web Application_.
   - The activated grant types include _Authorization Code_
     and _Refresh Token_.
@@ -54,6 +56,7 @@ requirements:
   For the AWS Regions that Amazon AppFlow supports, and their codes, see [Amazon AppFlow endpoints and quotas](../../../general/latest/gr/appflow.md "../../../general/latest/gr/appflow.md")
   in the _AWS General Reference._
   - The following scopes are permitted:
+
     - `okta.apps.read`
     - `okta.devices.read`
     - `okta.groups.read`
@@ -80,10 +83,13 @@ Okta account for Amazon AppFlow integration, see [Before you begin](#okta-prereq
 5. In the **Connect to Okta** window, for **Select
    authentication type**, choose how to authenticate Amazon AppFlow with your Okta
    account when it requests to access your data:
+
    - Choose **OAuth2** to authenticate Amazon AppFlow with the client credentials
      from an OIDC app integration. Then, specify the following:
+
      - **Authorization tokens URL** and **Authorization code
        URL** – For each of these fields, do the following:
+
        1. Choose the format of your Okta Org URL. For more information, see
           [Org
           URLs](https://developer.okta.com/docs/concepts/okta-organizations/#org-urls "https://developer.okta.com/docs/concepts/okta-organizations/#org-urls") in the Okta Developer documentation.

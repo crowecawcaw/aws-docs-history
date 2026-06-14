@@ -26,6 +26,7 @@ requirements:
 - In your Asana account settings, you've created either of the following
   resources for Amazon AppFlow. These resources provide credentials that Amazon AppFlow uses to
   access your data securely when it makes authenticated calls to your account.
+
   - A Developer App, which supports OAuth 2.0 authentication. For information about how to
     create a Developer App, see [OAuth](https://developers.asana.com/docs/oauth "https://developers.asana.com/docs/oauth") in the Asana Developers documentation.
   - A personal access token. For more information, see [Personal access token](https://developers.asana.com/docs/personal-access-token "https://developers.asana.com/docs/personal-access-token")
@@ -71,6 +72,7 @@ Asana account for Amazon AppFlow integration, see [Before you begin](#asana-prer
 5. In the **Connect to Asana** window, for **Select
    authentication type**, choose how to authenticate Amazon AppFlow with your Asana
    account when it requests to access your data:
+
    - Choose **OAuth2** to authenticate Amazon AppFlow with the client ID and client
      secret from an Asana Developer App. Then enter values for **Client ID** and
      **Client secret**.

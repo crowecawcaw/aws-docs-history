@@ -67,6 +67,7 @@ Google BigQuery project for Amazon AppFlow integration, see [Before you begin](#
 4. Choose **Create connection**.
 5. In the **Connect to Google BigQuery** window, enter the following
    information:
+
    - **Connection name** — A name for your connection.
    - **access_type** — Specify an access type to generate a refresh
      token.

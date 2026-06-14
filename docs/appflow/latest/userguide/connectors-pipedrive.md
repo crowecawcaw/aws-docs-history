@@ -77,6 +77,7 @@ your Pipedrive project for Amazon AppFlow integration, see [Before you begin](#p
 4. Choose **Create connection**.
 5. In the **Connect to Pipedrive** window, enter the following
    information:
+
    - **Client ID** – The client ID of the OAuth 2.0 client ID in your
      Pipedrive project.
    - **Client secret** – The client secret of the OAuth 2.0 client ID

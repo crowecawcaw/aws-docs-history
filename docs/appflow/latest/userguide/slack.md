@@ -22,11 +22,13 @@ You can use Slack as a source only.
   create a Slack App if you haven't already. For more information about how to create an App and
   then retrieve your client ID and secret, see the [Slack documentation](https://api.slack.com/docs/sign-in-with-slack#sign-in-with-slack__details__create-your-slack-app-if-you-havent-already "https://api.slack.com/docs/sign-in-with-slack#sign-in-with-slack__details__create-your-slack-app-if-you-havent-already").
 - Set the redirect URL as follows:
+
   - https://console.aws.amazon.com/appflow/oauth for the us-east-1 Region
   - https://`region`.console.aws.amazon.com/appflow/oauth for all other
     Regions
 
 - Set the following user token scopes:
+
   - `channels:history`
   - `channels:read`
   - `groups:history`

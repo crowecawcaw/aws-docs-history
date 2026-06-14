@@ -45,6 +45,7 @@ Freshdesk address.
 4. Choose **Create connection**.
 5. In the **Connect to Freshdesk**
    window, enter the following information:
+
    - **API key** – The API key from your Freshdesk profile
      settings.
    - **Instance URL** – Your Freshdeskaddress, such as

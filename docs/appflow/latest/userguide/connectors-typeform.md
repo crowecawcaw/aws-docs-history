@@ -25,6 +25,7 @@ requirements:
 - In the settings of your account, you've created either of the following resources for
   Amazon AppFlow. These resources provide credentials that Amazon AppFlow uses to access your data securely when
   it makes authenticated calls to your account.
+
   - A developer app to provide OAuth 2.0 authentication. For the steps to create a developer
     app, see [Create an application in the Typeform admin panel](https://developer.typeform.com/get-started/applications/#1-create-an-application-in-the-typeform-admin-panel "https://developer.typeform.com/get-started/applications/#1-create-an-application-in-the-typeform-admin-panel") in the documentation
     for Typeform Developers Platform.
@@ -77,6 +78,7 @@ haven't yet configured your Typeform project for Amazon AppFlow integration, see
 5. In the **Connect to Typeform** window, for **Select
    authentication type**, choose how to authenticate Amazon AppFlow with your Typeform
    account when it requests to access your data:
+
    - Choose **OAuth2** to authenticate Amazon AppFlow with the credentials from a
      developer app. Then, enter values for **Client ID** and **Client
      secret**.

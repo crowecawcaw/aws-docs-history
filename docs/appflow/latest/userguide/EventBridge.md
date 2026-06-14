@@ -36,6 +36,7 @@ Salesforce events received by Amazon AppFlow to be routed directly to a [partner
    source and select **Salesforce Events** with the specific event name.
 4. For **Destination details**, choose Amazon EventBridge as the destination and one
    of the following partner event sources:
+
    - **Existing partner event source** - Amazon AppFlow displays a list of
      existing partner event sources that are available to you.
    - **New partner event source** - Amazon AppFlow creates a new partner event

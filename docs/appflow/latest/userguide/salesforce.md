@@ -117,6 +117,7 @@ meet these requirements:
 - In your Salesforce account, you've created a connected app for Amazon AppFlow. For
   more information about connected apps, and for the steps to create one, see [Create a Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5 "https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5") in the Salesforce help.
 - You've configured the connected app as follows:
+
   - You've activated the **Enable OAuth Settings** check
     box.
   - In the **Callback URL** text field, you've entered one or more
@@ -142,6 +143,7 @@ meet these requirements:
     check box.
   - In the **Available OAuth Scopes** list, you've added the
     following scopes:
+
     - Manage user data via APIs (api)
     - Access custom permissions (custom_permissions)
     - Access the identity URL service (id, profile, email, address, phone)
@@ -184,6 +186,7 @@ your Salesforce data:
 
 7. For **Salesforce environment**, choose one of the
    following:
+
    - **Production** — Connects Amazon AppFlow to your
      Salesforce production org.
    - **Sandbox** — Connects Amazon AppFlow to a Salesforce

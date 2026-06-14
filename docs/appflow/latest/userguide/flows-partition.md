@@ -16,6 +16,7 @@ following steps.
 1. Sign in to the AWS Management Console and open the Amazon AppFlow console at [https://console.aws.amazon.com/appflow/](https://console.aws.amazon.com/appflow/ "https://console.aws.amazon.com/appflow/").
 2. To view the partition and aggregation settings, configure a flow that transfers data to
    Amazon S3. Do one of the following:
+
    - If you want to configure the output from a new flow, choose **Create
      flow** and step through the flow creation process.
 
@@ -112,18 +113,26 @@ a date, execution IDs, and the destination fields `Account Rating` and
 `Industry`.
 
 - `example-flow/`
+
   - `schemaVersion_1/`
+
     - `520225fa-0ffb-4c95-b5d1-a2a862081d27/`
+
       - `Account Rating=Warm/`
       - `Account Rating=null/`
       - `Account Rating=Hot/`
       - `Account Rating=Cold/`
 
   - `schemaVersion_2/`
+
     - `2022/`
+
       - `11/`
+
         - `10/`
+
           - `267c0ad0-228f-4d25-96fe-0f975005fec6/`
+
             - `Industry=Apparel/`
             - `Industry=Biotechnology/`
             - `Industry=Construction/`

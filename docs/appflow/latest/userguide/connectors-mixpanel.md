@@ -55,6 +55,7 @@ enables Amazon AppFlow to access your data. To create a service account, see [Be
    choose **Mixpanel**.
 4. Choose **Create connection**.
 5. In the **Connect to Mixpanel** window, enter the following:
+
    - **User name** – The user name of the Mixpanel service account
      that provides access to your project.
    - **Password** – The service account secret.

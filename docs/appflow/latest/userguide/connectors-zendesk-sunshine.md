@@ -64,6 +64,7 @@ project for Amazon AppFlow integration, see [Before you begin](#zendesk-sunshine
 4. Choose **Create connection**.
 5. In the **Connect to Zendesk Sunshine** window, enter the following
    information:
+
    - **Custom authorization tokens URL** and **Custom authorization
      code URL** – For each of these fields, enter your Zendesk subdomain. You can
      find the subdomain in the URL that you visit when you sign in to Zendesk. For example, in the

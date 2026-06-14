@@ -23,6 +23,7 @@ requirements:
 - You have an account with SendGrid that contains the data that you want to transfer. For more
   information about the SendGrid data objects that Amazon AppFlow supports, see [Supported objects](#sendgrid-objects "#sendgrid-objects").
 - You've configured your account with the following settings:
+
   - You've enabled two-factor authentication. For the steps to enable it, see [Two-Factor
     Authentication](https://docs.sendgrid.com/ui/account-and-settings/two-factor-authentication "https://docs.sendgrid.com/ui/account-and-settings/two-factor-authentication") in the SendGrid documentation.
   - You've created an API key that grants full access to your account. For the steps to

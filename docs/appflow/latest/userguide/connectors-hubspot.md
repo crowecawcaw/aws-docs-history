@@ -38,6 +38,7 @@ requirements:
   calls to your account. For the steps to create an app, see [Creating and installing
   apps](https://developers.hubspot.com/docs/api/creating-an-app "https://developers.hubspot.com/docs/api/creating-an-app") in the HubSpot Developers documentation.
 - You've configured your app as follows:
+
   - You've specified a redirect URL for Amazon AppFlow.
 
   Redirect URLs have the following format:

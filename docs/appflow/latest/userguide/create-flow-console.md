@@ -20,6 +20,7 @@ Amazon AppFlow console user interface.
    then select an existing CMK or create a new one.
 5. (Optional) To add a tag, choose **Tags**, **Add tag** and
    then enter the key name and value. The following basic restrictions apply to tags:
+
    - Maximum number of tags per resource – 50
    - For each resource, each tag key must be unique, and each tag key can have only one value.
    - Maximum key length – 128
@@ -91,6 +92,7 @@ connection, look up your source application on the [Supported source and destina
 
 1. For **Mapping method**, choose how to map the fields and complete the
    field mapping. The following are the field mapping options:
+
    - **Manually map fields** - Use the Amazon AppFlow user interface to specify
      the field mapping. To map all fields, choose **Source field name**,
      **Bulk actions**, **Map all fields directly**. Otherwise,

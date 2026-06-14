@@ -72,6 +72,7 @@ specify the criteria. 14. Choose **Next**. 15. Review the settings and then choo
   destination.
 - The following sources are supported when using Amazon Lookout for Metrics as a
   destination:
+
   - Amplitude
   - Dynatrace
   - Google Analytics
@@ -85,6 +86,7 @@ specify the criteria. 14. Choose **Next**. 15. Review the settings and then choo
   - Zendesk
 
 - Amazon Lookout for Metrics currently supports the following scheduling options:
+
   - If the source supports minutes: you can run the flow every 5 or 10 minutes
   - If the source supports hours: you can run the flow once an hour
   - If the source supports days: you can run the flow once a day

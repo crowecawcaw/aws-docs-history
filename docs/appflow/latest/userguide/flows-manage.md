@@ -49,6 +49,7 @@ the flow to run on a schedule, based on an event, or on demand.
 
 - Select a flow, and choose **View details**. Then, do one of the
   following:
+
   - If the flow runs on a schedule or based on an event, choose
     **Activate** to activate the flow. To deactivate the flow, choose
     **Deactivate flow**.

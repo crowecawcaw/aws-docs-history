@@ -71,6 +71,7 @@ the preceding section, [Before you begin](#redshift-prereqs "#redshift-prereqs")
 5. For **Data warehouse type**, choose whether to connect to
    **Amazon Redshift Serverless** or an **Amazon Redshift cluster**.
 6. If you chose to connect to Amazon Redshift Serverless, enter the following information:
+
    - **Workgroup name** – The name of your Amazon Redshift
      workgroup.
    - **Database name** – The name of the Amazon Redshift database that

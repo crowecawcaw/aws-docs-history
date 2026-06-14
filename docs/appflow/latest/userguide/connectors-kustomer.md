@@ -47,6 +47,7 @@ haven't yet configured your Kustomer project for Amazon AppFlow integration, see
 4. Choose **Create connection**.
 5. In the **Connect to Kustomer**
    window, enter the following information:
+
    - **Access token** – The access token
      that you created earlier.
    - **Instance URL** – The URL of the

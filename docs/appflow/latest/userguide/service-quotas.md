@@ -21,6 +21,7 @@ process:
 
 - Amplitude: 25 MB of data per flow run.
 - Marketo:
+
   - Data import from Marketo: 1 GB per flow run. To transfer over 1 GB of data, you
     can split your workload into multiple flows by applying the appropriate filters for
     each flow.
@@ -31,6 +32,7 @@ process:
     flow run.
 
 - Salesforce:
+
   - Events from Salesforce: Amazon AppFlow currently uses a third-party library,
     which is allocated a fixed buffer size of 10 MB. If a surge of events on a
     single event channel (such as `AccountChangeEvent`) exceeds the

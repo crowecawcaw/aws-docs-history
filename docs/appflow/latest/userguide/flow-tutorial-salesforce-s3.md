@@ -89,7 +89,9 @@ For example, if your source is Salesforce, enter `salesforce-to-s3`.
 
 1. Configure the **Source details**. These details
    vary based on the source that you want to transfer data from.
+
    - If you want to transfer data from Salesforce, do the following:
+
      1. For **Source name**, choose **Salesforce**.
      2. For **Choose Salesforce connection**, select your
         connection. For example, select `my-salesforce-connection`, the
@@ -104,6 +106,7 @@ For example, if your source is Salesforce, enter `salesforce-to-s3`.
 
    - If you want to transfer data from another supported application
      besides Salesforce, do the following:
+
      1. For **Source name**, select the
         source that you want for your data.
      2. For **Choose connection**, select the

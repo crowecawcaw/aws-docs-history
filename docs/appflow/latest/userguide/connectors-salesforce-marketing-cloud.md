@@ -47,6 +47,7 @@ When you create a package for Amazon AppFlow integration, do the following:
    scopes to your package.
 5. After you create the package, note the following properties. You need them to create a
    connection in Amazon AppFlow:
+
    - Client ID
    - Client secret
    - Authentication base URI

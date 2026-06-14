@@ -94,6 +94,7 @@ Amazon AppFlow integration, see [Before you begin](#facebook-ads-prereqs "#faceb
 4. Choose **Create connection**.
 5. In the **Connect to Facebook Ads** window, enter the following
    information:
+
    - **Custom authorization code URL** – Specify the Marketing API
      version that you use in your Facebook developer app to complete the URL shown in the console:
 

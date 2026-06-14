@@ -49,11 +49,13 @@ Amazon AppFlow integration, see [Before you begin](#quickbooks-online-prereqs "#
 4. Choose **Create connection**.
 5. In the **Connect to QuickBooks Online** window, enter the following
    information:
+
    - **Client ID** – The client ID from your app settings.
    - **Client secret** – The client secret from your app
      settings.
    - **Instance URL** – The endpoint where Amazon AppFlow sends requests to
      access your data. Choose one of the following:
+
      - **https://sandbox-quickbooks.api.intuit.com** – The base URL
        for the QuickBooks Online development environment. For more information about this
        environment and the data that it contains, see [Create and test with a sandbox company](https://developer.intuit.com/app/developer/qbo/docs/develop/sandboxes/manage-your-sandboxes "https://developer.intuit.com/app/developer/qbo/docs/develop/sandboxes/manage-your-sandboxes") in the Intuit Developer

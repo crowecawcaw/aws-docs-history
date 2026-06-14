@@ -86,6 +86,7 @@ you haven't yet configured your Google Cloud project for Amazon AppFlow integrat
 4. Choose **Create connection**.
 5. In the **Connect to Google Analytics 4** window, enter the following
    information:
+
    - **Access type** – Choose **offline**.
    - **Client ID** – The client ID of the OAuth 2.0 client ID in your
      Google Cloud project.

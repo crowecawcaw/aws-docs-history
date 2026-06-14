@@ -39,6 +39,7 @@ settings.
 4. Choose **Create connection**.
 5. In the **Connect to Amazon RDS for PostgreSQL** window, enter the following
    information:
+
    - **driver** – Choose **postgresql**.
    - **hostname** – The endpoint name of the destination DB
      instance.

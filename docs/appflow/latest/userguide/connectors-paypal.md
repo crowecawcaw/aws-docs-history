@@ -64,7 +64,9 @@ PayPal account for Amazon AppFlow integration, see [Before you begin](#paypal-pr
 4. Choose **Create connection**.
 5. In the **Connect to PayPal** window, enter the following
    information:
+
    - **Authorization tokens URL** – Do one of the following:
+
      - To connect to a REST API app in the PayPal Live environment, choose
        **https://api-m.paypal.com/v1/oauth2/token**.
      - To connect to a REST API app in the PayPal Sandbox environment, choose
@@ -75,6 +77,7 @@ PayPal account for Amazon AppFlow integration, see [Before you begin](#paypal-pr
    - **Client secret** – The secret of your REST API app in
      PayPal Developer.
    - **Instance URL** – Do one of the following:
+
      - To connect to a REST API app in the PayPal Live environment, choose
        **https://api-m.paypal.com**.
      - To connect to a REST API app in the PayPal Sandbox environment, choose
