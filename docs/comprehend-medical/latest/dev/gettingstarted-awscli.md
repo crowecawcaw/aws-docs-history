@@ -8,6 +8,7 @@ skip this step and go to [Step 2: Getting started using the Amazon Comprehend Me
 
 1. Download and configure the AWS CLI. For instructions, see the following topics
    in the _AWS Command Line Interface User Guide_:
+
    - [Getting Set Up
      with the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
    - [Configuring the

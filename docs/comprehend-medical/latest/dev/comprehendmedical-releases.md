@@ -341,33 +341,39 @@ For **Type**: `ALLERGIES`, the following traits are added.
 For **Type**: `TOBACCO_USE`, the following attributes and traits are added.
 
 - Attributes
+
   - `AMOUNT`
   - `DURATION`
   - `FREQUENCY`
 
 - Trait
+
   - `NEGATION`
   - `PAST_HISTORY`
 
 For **Type**: `ALCOHOL_CONSUMPTION`, the following attributes and traits are added.
 
 - Attributes
+
   - `AMOUNT`
   - `DURATION`
   - `FREQUENCY`
 
 - Trait
+
   - `NEGATION`
   - `PAST_HISTORY`
 
 For **Type**: `REC_DRUG_USE`, the following attributes and traits are added.
 
 - Attributes
+
   - `AMOUNT`
   - `DURATION`
   - `FREQUENCY`
 
 - Trait
+
   - `NEGATION`
   - `PAST_HISTORY`
 
