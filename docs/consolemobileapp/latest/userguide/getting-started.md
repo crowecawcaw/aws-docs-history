@@ -66,6 +66,7 @@ If you have a virtual MFA device or a hardware authenticator enabled for MFA, yo
 **To sign in for the first time as an IAM Identity Center user**
 
 1. Sign in using a QR code:
+
    1. On your desktop device, navigate to the AWS access portal.
    2. Open the right sidepanel by choosing **More ways to access AWS**.
    3. Use your mobile device to scan the **Access the console in the mobile app** QR code.
@@ -75,6 +76,7 @@ If you have a virtual MFA device or a hardware authenticator enabled for MFA, yo
    If you use an Android device, we recommend using a third-party QR code scanner app or Google Lens to scan the **Access the console in the mobile app** QR code.
 
 2. (Optional) Or sign in using a URL:
+
    1. In the Console Mobile Application, select **Use a sign in URL**.
    2. Enter your organization’s sign in URL. This directs you to your organization’s federated sign in page.
 

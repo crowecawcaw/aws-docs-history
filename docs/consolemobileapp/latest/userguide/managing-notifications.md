@@ -53,6 +53,7 @@ If someone in your account has already created notification configurations, you 
 2. Choose **Agree**.
 3. Choose **Allow**.
 4. Set up notification configurations as follows:
+
    1. Choose **Select existing**.
    2. Select notification configurations by choosing the plus sign (**+**).
    3. View your selected notification configurations.
