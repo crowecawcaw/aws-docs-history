@@ -25,6 +25,7 @@ ssh -i `/path/my-template-key-pair.pem` ec2-user@`bastion-host-dns` -D 9001
 2. In PuTTY, under **Category**, choose **Connection**, **SSH**, **Tunnels**.
 3. For **Port forwarding**, choose **Local ports accept connections from other hosts**.
 4. Under **Add new forwarded port**:
+
    1. For **Source port**, enter **9001**. This is an arbitrary unused port that we chose, and you can choose a different one if necessary.
    2. Leave **Destination** blank.
    3. Select **Dynamic**.

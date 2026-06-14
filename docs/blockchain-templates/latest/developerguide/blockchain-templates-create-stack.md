@@ -15,6 +15,7 @@ When you launch the CloudFormation stack using the template, it creates nested s
 
 1. See [Getting Started with AWS Blockchain Templates](https://aws.amazon.com/blockchain/templates/getting-started/ "https://aws.amazon.com/blockchain/templates/getting-started/"), and open the latest AWS Blockchain Template for Ethereum in the CloudFormation console using the quick-links for your AWS Region.
 2. Enter values according to the following guidelines:
+
    - For **Stack name**, enter a name that is easy for you to identify. This name is used within the names of resources that the stack creates.
    - Under **Ethereum Network Parameters** and **Private Ethereum
      Network Parameters**, leave the default settings.
@@ -26,22 +27,26 @@ When you launch the CloudFormation stack using the template, it creates nested s
      creates an Amazon ECS cluster of EC2 instances. The alternative, **docker-local**
      creates an Ethereum network using a single EC2 instance.
    - Under **EC2 configuration**, select options according to the following guidelines:
+
      - For **EC2 Key Pair**, select a key pair. For information about creating a key pair, see [Create a Key Pair](blockchain-templates-setting-up.md#blockchain-templates-create-a-key-pair "blockchain-templates-setting-up.md#blockchain-templates-create-a-key-pair").
      - For **EC2 Security Group**, select the security group you created earlier in [Create Security Groups](blockchain-template-getting-started-prerequisites.md#blockchain-templates-create-security-group "blockchain-template-getting-started-prerequisites.md#blockchain-templates-create-security-group").
      - For **EC2 Instance Profile ARN**, enter the ARN of the instance profile that you created earlier in [Create an IAM Role for Amazon ECS and an EC2 Instance Profile](blockchain-template-getting-started-prerequisites.md#blockchain-templates-iam-roles "blockchain-template-getting-started-prerequisites.md#blockchain-templates-iam-roles").
 
    - Under **VPC network configuration, select options according to the following guidelines:**
+
      - For **VPC ID**, select the VPC that you created earlier in [Create a VPC and Subnets](blockchain-template-getting-started-prerequisites.md#blockchain-templates-create-a-vpc "blockchain-template-getting-started-prerequisites.md#blockchain-templates-create-a-vpc").
      - For **Ethereum Network Subnet IDs**, select the single private
        subnet that you created earlier in the procedure [To create the VPC](blockchain-template-getting-started-prerequisites.md#create-vpc-procedure "blockchain-template-getting-started-prerequisites.md#create-vpc-procedure").
 
    - Under **ECS cluster configuration**, leave the defaults. This creates an ECS cluster of three EC2 instances.
    - Under **Application Load Balancer configuration (ECS only)**, select options according to the following guidelines:
+
      - For **Application Load Balancer Subnet IDs**, select two public subnets from the [list of subnets](blockchain-template-getting-started-prerequisites.md#list-of-subnets "blockchain-template-getting-started-prerequisites.md#list-of-subnets") that you noted earlier.
      - For **Application Load Balancer Security Group**, select the security group for the Application Load Balancer that you created earlier in [Create Security Groups](blockchain-template-getting-started-prerequisites.md#blockchain-templates-create-security-group "blockchain-template-getting-started-prerequisites.md#blockchain-templates-create-security-group").
      - For **IAM Role**, enter the ARN of the ECS role that you created earlier in [Create an IAM Role for Amazon ECS and an EC2 Instance Profile](blockchain-template-getting-started-prerequisites.md#blockchain-templates-iam-roles "blockchain-template-getting-started-prerequisites.md#blockchain-templates-iam-roles").
 
    - Under **EthStats**, select options according to the following guidelines:
+
      - For **Deploy EthStats**, leave the default setting, which is
        _true_.
      - For **EthStats Connection Secret**, type an arbitrary value that is at least six characters.
