@@ -33,6 +33,7 @@ This section provides migration tips that can help save time as you transition f
 - In Aurora PostgreSQL, you can’t concatenate strings with the `+` operator. Use the `CONCAT` function instead. For example, `CONCAT('A', 'B')`.
 - Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) doesn’t support aliasing in the select list using the `String Alias = Expression`. Aurora PostgreSQL treats it as a logical predicate, returns `0` or `FALSE`, and will alias the column with the full expression. Use the `AS` syntax instead. Also note that this syntax has been deprecated as of SQL Server 2008 R2.
 - Aurora PostgreSQL has a large set of string functions that is much more diverse than SQL Server. Some of the more useful string functions are:
+
   - `TRIM` isn’t limited to full trim or spaces. The syntax is `TRIM([{BOTH | LEADING | TRAILING} [<remove string>] FROM] <source string>))`.
   - `LENGTH` in PostgreSQL is equivalent to `DATALENGTH` in T-SQL. `CHAR_LENGTH` is the equivalent of T-SQL `LENGTH`.
   - `SUBSTRING_INDEX` returns a substring from a string before the specified number of occurrences of the delimiter.

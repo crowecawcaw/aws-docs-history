@@ -152,6 +152,7 @@ Unlike SQL Server triggers, PostgreSQL triggers must call a function. They donâ€
 PostgreSQL triggers can be fired BEFORE or AFTER a DML operation.
 
 - They run before the operation is attempted on a row.
+
   - Before constraints are checked and the INSERT, UPDATE, or DELETE is attempted.
   - If the trigger runs before or instead of the event, the trigger can skip the operation for the current row or change the row being inserted (for INSERT and UPDATE operations only).
 

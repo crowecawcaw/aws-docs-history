@@ -352,11 +352,13 @@ SET CONSTRAINTS { ALL | name [, ...] } { DEFERRED | IMMEDIATE }
 PostgreSQL provides controls for certain aspects of constraint behavior:
 
 - `DEFERRABLE` | `NOT DEFERRABLE`. Using the PostgreSQL `SET CONSTRAINTS` statement. You can define constraints as:
+
   - `DEFERRABLE`. Allows you to use the `SET CONSTRAINTS` statement to set the behavior of constraint checking within the current transaction until transaction commit.
   - `IMMEDIATE`. Constraints are enforced only at the end of each statement. Note that each constraint has its own `IMMEDIATE` or `DEFERRED` mode.
   - `NOT DEFERRABLE`: This statement always runs as `IMMEDIATE` and isn’t affected by the `SET CONSTRAINTS` command.
 
 - `VALIDATE CONSTRAINT` | `NOT VALID`.
+
   - `VALIDATE CONSTRAINT`. Validates foreign key or check constraints only that were previously created as `NOT VALID`. This action performs a validation check by scanning the table to ensure all records satisfy the constraint definition.
   - `NOT VALID`. You can use this type only for foreign key or check constraints. When specified, new records aren’t validated with the creation of the constraint. Only when the `VALIDATE CONSTRAINT` state is applied is the constraint state enforced on all records.
 

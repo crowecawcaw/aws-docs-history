@@ -31,12 +31,14 @@ In general, these will be the steps to perform the upgrade:
 **Steps for upgrade**
 
 - Install new software.
+
   - Fix issues raised.
   - Set if you prefer to have automatic updates or not.
   - Select products install to upgrade, this is the new binaries installation.
   - Monitor the progress of downloading, extracting, and installing the Setup files.
 
 - Specify the instance of SQL Server to upgrade.
+
   - On the Select Features page, the features to upgrade will be preselected. The prerequisites for the selected features are displayed on the right-hand pane. SQL Server Setup will install the prerequisite that aren’t already installed during the installation step described later in this procedure.
 
 - Review upgrade plan before the actual upgrade.
@@ -98,6 +100,7 @@ When enabled, the instance will be automatically upgraded during the scheduled m
 For major upgrades, this is the recommended process:
 
 - Have a version-compatible parameter group ready. If you are using a custom DB instance or DB cluster parameter group, you have two options:
+
   1.  Specify the default DB instance, DB cluster parameter group, or both for the new DB engine version.
   2.  Create your own custom parameter group for the new DB engine version.
 
@@ -106,12 +109,12 @@ For major upgrades, this is the recommended process:
   If you associate a new DB instance or DB cluster parameter group as a part of the upgrade request, make sure to reboot the database after the upgrade completes to apply the parameters. If a DB instance needs to be rebooted to apply the parameter group changes, the instance’s parameter group status shows pending-reboot. You can view an instance’s parameter group status in the console or by using a CLI command such as `describe-db-instances` or `describe-db-clusters`.
 
 - Check for unsupported usage:
+
   1.  Commit or roll back all open prepared transactions before attempting an upgrade. You can use the following query to verify that there are no open prepared transactions on your instance.
 
   ```
   SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
   ```
-
   2.  Remove all uses of the reg\* data types before attempting an upgrade. Except for `regtype` and `regclass`, you can’t upgrade the reg\* data types. The `pg_upgrade` utility can’t persist this data type, which is used by Amazon Aurora to do the upgrade. To verify that there are no uses of unsupported reg\* data types, use the following query for each database.
 
   ```
@@ -130,6 +133,7 @@ For major upgrades, this is the recommended process:
 
 - Perform a backup. The upgrade process creates a DB cluster snapshot of your DB cluster during upgrading.
 - Upgrade certain extensions to the latest available version before performing the major version upgrade. The extensions to update include the following:
+
   1.  pgRouting
   2.  postGIS
 
