@@ -68,6 +68,7 @@ environment's specific implementation needs. Define permission boundaries and po
 1. Review your organization's identity and access management
    guidelines to determine the best path to create least
    privileged roles.
+
    - Some organizations use service control policies to have
      central control over the maximum available permissions
      for the IAM users and IAM roles.
@@ -77,6 +78,7 @@ environment's specific implementation needs. Define permission boundaries and po
 
 2. When creating IAM roles for agents, define a scoped policy
    with least privilege access.
+
    - Specify intended resource ARNs for the defined
      permission and API actions.
    - Consider defining conditions to further restrict the
@@ -85,6 +87,7 @@ environment's specific implementation needs. Define permission boundaries and po
 
 3. Attach the policy document to a role assumable by a specific
    set agents.
+
    - Permissions boundaries can be applied at the role level
      to prevent inadvertent authorization to additional
      services.

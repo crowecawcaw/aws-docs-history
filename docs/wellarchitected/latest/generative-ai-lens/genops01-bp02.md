@@ -60,6 +60,7 @@ Consult your organization’s AI policy document for guidance on how to use user
 ### Implementation steps
 
 1. For Amazon Q Business, set up user feedback collection.
+
    - Integrate simple feedback options within the application
    - Use the `PutFeedback` API action
      through AWS SDK for application integration
@@ -68,6 +69,7 @@ Consult your organization’s AI policy document for guidance on how to use user
      scalable, low-latency storage
    - Enable conversation logging to get more insights from
      user interactions
+
      - Configure log delivery (choose between Amazon S3,
        CloudWatch Logs, or Amazon Data Firehose)
      - Set up filtering if you need to exclude sensitive
@@ -76,6 +78,7 @@ Consult your organization’s AI policy document for guidance on how to use user
        feedback data
 
 2. For Amazon Bedrock, set up user feedback collection.
+
    - Create an Amazon S3 bucket to store user feedback
    - Develop a web form or API endpoint to collect user
      feedback
@@ -85,6 +88,7 @@ Consult your organization’s AI policy document for guidance on how to use user
      function when new feedback is added to the S3 bucket
 
 3. Establish a regular review process.
+
    - Schedule periodic reviews of monitoring data, user
      feedback, and incident reports
    - Create an AWS Step Functions workflow to manage the
@@ -95,6 +99,7 @@ Consult your organization’s AI policy document for guidance on how to use user
      visualizations of the feedback data
 
 4. Implement and test improvements.
+
    - Identify optimizations in data pipelines, integration
      patterns, or model capabilities
    - Track KPIs before and after improvements

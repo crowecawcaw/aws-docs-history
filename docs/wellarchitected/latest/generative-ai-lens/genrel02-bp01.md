@@ -67,23 +67,28 @@ Regions.
 ### Implementation steps
 
 1. Identify critical network paths in your generative AI architecture:
+
    - Map dependencies between foundation models, databases, and other components
    - Determine required bandwidth and latency for each connection
 
 2. Design redundant network topology:
+
    - Implement multi-AZ deployments for high availability
    - Set up cross-Region connectivity for disaster recovery
    - Configure load balancers for traffic distribution
 
 3. Implement private networking:
+
    - Use VPC peering or transit gateways for secure inter-component communication
    - Set up VPN or direct connect for on-premises integration if required
 
 4. Configure automatic failover:
+
    - Implement health checks for network paths
    - Set up automated failover mechanisms using DNS or overlay networking
 
 5. Test and validate redundancy:
+
    - Conduct failure simulations to verify failover effectiveness
    - Perform regular failover drills to verify operational readiness
 

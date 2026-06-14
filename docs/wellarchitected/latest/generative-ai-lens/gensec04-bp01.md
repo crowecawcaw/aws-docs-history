@@ -60,6 +60,7 @@ they are catalogued.
 5. Save an acceptable version of the prompt.
 6. Revisit prompt engineering and testing regularly to verify
    your prompts behave as expected.
+
    - Consider extending CI/CD workflows to incorporate prompt
      engineering.
 

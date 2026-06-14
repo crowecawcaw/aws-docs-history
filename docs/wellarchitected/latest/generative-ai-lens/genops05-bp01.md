@@ -73,6 +73,7 @@ data and model parallelism training capabilities.
 ### Implementation steps
 
 1. Begin with prompt engineering.
+
    - Experiment with prompt structures, and test various prompt
      formats to identify the most effective approach
    - Use Amazon Bedrock's prompt engineering tools to
@@ -81,6 +82,7 @@ data and model parallelism training capabilities.
      to assess prompt effectiveness
 
 2. Evaluate Retrieval-Augmented Generation (RAG) if needed.
+
    - Use vector databases such as Amazon OpenSearch Service for
      enhanced knowledge retrieval
    - Combine RAG with your selected model in Amazon Bedrock, or
@@ -88,12 +90,14 @@ data and model parallelism training capabilities.
    - Measure performance gains and response relevance
 
 3. Consider fine-tuning or continued pre-training.
+
    - Use Amazon Bedrock managed fine-tuning and pre-training
      features
    - Prepare labeled data specific to your task or domain
    - Monitor improvements after customization
 
 4. Build a custom foundation model.
+
    - Use Amazon SageMaker AI HyperPod for FM training
    - Decide between Slurm or Amazon EKS as your orchestrator
    - Use SageMaker AI distributed data parallelism (SMDDP) for
@@ -102,11 +106,13 @@ data and model parallelism training capabilities.
      parallelism techniques
 
 5. Regularly update and retrain your model.
+
    - Track model effectiveness over time
    - Update models with fresh data as it becomes available
    - Use Amazon SageMaker AI Model Monitor for ongoing assessment
 
 6. Consider trade-offs in your workload.
+
    - Evaluate the cost for each approach
    - Balance complexity and efficiency
 

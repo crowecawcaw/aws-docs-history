@@ -65,6 +65,7 @@ APIs](../../../bedrock/latest/userguide/sdk-general-information-section.md "../.
 ### Implementation steps
 
 1. Set up Amazon Bedrock Prompt Management.
+
    - Create the initial prompt templates by developing a
      foundational set of prompt templates tailored to your
      use case
@@ -74,6 +75,7 @@ APIs](../../../bedrock/latest/userguide/sdk-general-information-section.md "../.
      and iterations of prompt templates
 
 2. Implement a baseline performance evaluation.
+
    - Compile a dataset of ground truth examples to serve as a
      benchmark for model evaluation
    - Identify and establish performance metrics relevant to
@@ -82,6 +84,7 @@ APIs](../../../bedrock/latest/userguide/sdk-general-information-section.md "../.
      a baseline
 
 3. Create and test prompt variants.
+
    - Develop several versions of each prompt to explore
      different phrasings and structures
    - Use Amazon Bedrock Flows to configure A/B testing
@@ -90,12 +93,14 @@ APIs](../../../bedrock/latest/userguide/sdk-general-information-section.md "../.
      determine the most effective options
 
 4. Integrate prompts into applications.
+
    - Use the Amazon Bedrock SDK to incorporate prompts during
      model inference
    - Integrate prompt nodes into Amazon Bedrock Flows
      where appropriate to streamline application workflows
 
 5. Establish a regular review and optimization process.
+
    - Plan periodic performance evaluations to assess model
      effectiveness
    - Review evaluation outcomes to pinpoint areas requiring
@@ -104,6 +109,7 @@ APIs](../../../bedrock/latest/userguide/sdk-general-information-section.md "../.
      to continually improve performance
 
 6. Set up cross-team collaboration.
+
    - Share prompts across teams using Amazon Bedrock Prompt
      Management
    - Establish and disseminate guidelines for prompt creation

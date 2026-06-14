@@ -73,6 +73,7 @@ where appropriate.
 ### Implementation steps
 
 1. Adopt serverless or fully-managed architectures.
+
    - Use Amazon Bedrock for generative AI tasks to alleviate
      server management overhead
    - Use Amazon Q Business-related AI applications to
@@ -81,12 +82,14 @@ where appropriate.
      ML inference without managing servers
 
 2. Configure auto scaling capabilities.
+
    - Set up auto scaling for Amazon SageMaker AI Endpoints to
      handle varying loads efficiently
    - Set up EC2 Auto Scaling for custom ML infrastructure to
      match resource allocation with demand
 
 3. Optimize ML development environments.
+
    - For
      [SageMaker AI
      notebook instances](../../../sagemaker/latest/dg/nbi.md "../../../sagemaker/latest/dg/nbi.md"), configure idle time-out to
@@ -95,6 +98,7 @@ where appropriate.
      shutdown for unused instances to conserve resources
 
 4. Use SageMaker AI Inference Recommender.
+
    - Conduct automated load testing to assess model
      deployments under various loads
    - Select optimal instance types based on recommendations
@@ -102,12 +106,14 @@ where appropriate.
    - Consider both real-time and serverless inference
 
 5. Implement efficient model hosting.
+
    - For model deployments, consider EC2 Inferentia instances
      for enhanced performance and efficiency
    - For large models, scale and distribute the load across
      multiple instances
 
 6. Perform continuous monitoring and optimization.
+
    - Use Amazon CloudWatch to track resource metrics and
      identify optimization opportunities
    - Track token lengths of prompts and model responses to
@@ -118,6 +124,7 @@ where appropriate.
      model performance and data quality
 
 7. Educate your team on sustainable AI practices.
+
    - Provide training to foster a culture of sustainability
    - Encourage the use of pre-trained models to reduce
      training time and resource consumption

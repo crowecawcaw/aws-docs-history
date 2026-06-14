@@ -46,12 +46,14 @@ model, as not all embedding models support compressed vectors.
 1. Identify the smallest vector length supported by the
    selected embedding foundation model.
 2. Embed data using the smallest vector length.
+
    - You may have to modify the chunk size of the document or
      introduce overlapping chunks to maintain high relevance
      on output.
 
 3. Perform latency and load testing on your data retrieval workloads to verify that model response quality is still sufficient.
 4. Re-test with increased vector size or modified document chunking strategy to improve model response quality.
+
    - In some cases, changing the search algorithm may improve model response quality as well.
 
 ## Resources

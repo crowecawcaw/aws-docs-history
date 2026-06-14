@@ -91,6 +91,7 @@ use case can accelerate your ability to customize models.
 ### Implementation steps
 
 1. Define a series of prompts and their expected responses.
+
    - Consider using Amazon SageMaker Ground Truth or similar
      to scale the curation of this dataset.
    - Enrich prompt-response pairs with relevant meta-data in
@@ -98,6 +99,7 @@ use case can accelerate your ability to customize models.
 
 2. Store the data in a way which facilitates a
    dictionary-style lookup of the data.
+
    - The first several layers could be organizational,
      referring to abstractions like language, business
      domain, or use case.
@@ -108,12 +110,14 @@ use case can accelerate your ability to customize models.
 
 3. Create a data dictionary to facilitate access to the
    ground truth data.
+
    - Crawl the object-store using an AWS Glue Crawler to
      build the data dictionary.
 
 4. Develop a testing harness that can automatically test
    models as they are made available using the ground truth
    data.
+
    - Query segments of the ground-truth dataset using a
      federated query solution such as Amazon Athena.
    - Incorporate mock production data and tooling for more
@@ -121,6 +125,7 @@ use case can accelerate your ability to customize models.
 
 5. Define test scenarios corresponding to your golden
    dataset and adhere to your organization's AI policy.
+
    - Define metrics to test models against as may be required
      by your organization's AI policy.
    - Track model performance across various tests and

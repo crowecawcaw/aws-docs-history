@@ -54,6 +54,7 @@ _True_ responses.
    response scheme, and ask the model to respond in kind.
 3. Introduce a response length control to limit response
    tokens.
+
    - Set a hard limit on the response length by configuring
      the response length hyperparameter accordingly.
    - Extend the prompt template to encourage deterministic

@@ -69,6 +69,7 @@ their generative AI model training processes.
 ### Implementation steps
 
 1. Select the right AWS services.
+
    - Amazon Bedrock has managed model customization where
      resource utilization is handled by AWS
    - Amazon SageMaker AI offers advanced training features and
@@ -76,6 +77,7 @@ their generative AI model training processes.
 
 2. Set up SageMaker AI HyperPod for large-scale distributed
    training.
+
    - Use pre-tested stacks for popular models to streamline
      setup
    - Consider AWS Trainium instances for reduced energy
@@ -85,6 +87,7 @@ their generative AI model training processes.
      computational and energy requirements
 
 3. Use managed spot training.
+
    - Implement managed spot training to utilize spare Amazon EC2 capacity, leading to better underlying resource
      utilization
    - Set up the checkpointing feature to handle spot instance
@@ -92,12 +95,14 @@ their generative AI model training processes.
      completion
 
 4. Enable SageMaker AI Debugger.
+
    - Use Debugger to monitor and optimize training job
      resource utilization
    - Configure rules to identify and halt training jobs early
      in case of issues, minimizing wasted compute resources
 
 5. Optimize resource utilization and cost.
+
    - Analyze usage patterns to adjust instance types and
      counts
    - Use auto scaling features

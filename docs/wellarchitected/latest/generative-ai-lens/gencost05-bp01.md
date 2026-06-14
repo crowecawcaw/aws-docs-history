@@ -38,10 +38,12 @@ cost savings.
 
 1. Estimate the maximum time needed for an agent to complete
    its runtime.
+
    - Include model response times, tool execution times, and network latency in the estimation.
 
 2. Implement stopping conditions that enable an agent to run to
    the maximum duration.
+
    - Stopping conditions may be a timeout mechanism like the
      one in Amazon Bedrock.
    - Alternatively, stopping conditions may be implemented in
@@ -49,6 +51,7 @@ cost savings.
      layer.
 
 3. Re-architect your workflows to facilitate stopping conditions.
+
    - Set timeouts on external tools such as Lambda functions or API endpoints, verify that your prompts understand how to handle timeout responses.
    - Set token limits on model responses to simulate timeout functionality by stopping models from printing long-running responses.
 

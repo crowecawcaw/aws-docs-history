@@ -87,20 +87,24 @@ customization might be needed for your workload.
 ### Implementation steps
 
 1. Select your IaC tool stack.
+
    - Evaluate AWS CDK, AWS CloudFormation, or Terraform
    - Consider team skills and project needs
    - Assess learning curve and maintainability
 
 2. Define your infrastructure resources.
+
    - Include each component, such as Amazon Bedrock, Amazon API Gateway, AWS Lambda, and AWS Data Pipelines
    - Create reproducible, version-controlled stacks
    - Use modular design for reusability
 
 3. Version control your IaC templates.
+
    - Use a code repository Git tool
    - Implement branching strategy aligned with environments
 
 4. Implement a CI/CD pipeline.
+
    - Consider AWS CodePipeline or Jenkins for orchestration
    - Configure initiation events for code changes
    - Set up automated testing for IaC templates
@@ -108,11 +112,13 @@ customization might be needed for your workload.
    - Implement approval gates for production deployments
 
 5. Manage multiple environments.
+
    - Use the same templates with different parameters for
      development, test, and production
    - Implement environment-specific security controls
 
 6. Establish governance and compliance.
+
    - Use AWS Config for tracking resource configurations and
      automate remediations
    - Implement Service Catalog for standardized
@@ -120,6 +126,7 @@ customization might be needed for your workload.
    - Set up automated compliance checks and reporting
 
 7. Regularly audit your IaC templates.
+
    - Focus on security best practices
    - Conduct periodic third-party security assessments
 

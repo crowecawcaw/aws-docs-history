@@ -76,6 +76,7 @@ systems.
 2. Consult your organization's AI policy or data cards to identify relevant filters for the data.
 3. Develop filters to check for data which may be considered
    poisonous to the model.
+
    - Examples include data which is biased, factually
      incorrect, hateful, or violent.
    - Other examples include data which is irrelevant to the

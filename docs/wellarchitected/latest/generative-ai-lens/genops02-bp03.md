@@ -145,6 +145,7 @@ efficient resource allocation and optimization strategies.
 ### Implementation steps
 
 1. Understand your Amazon Bedrock quotas.
+
    - Quotas may apply to various aspects of Amazon Bedrock
      usage, such as API request rates, token usage, or
      concurrent model invocations
@@ -159,16 +160,19 @@ efficient resource allocation and optimization strategies.
    - For quotas that cannot be adjusted through Service Quotas, contact Support for guidance
 
 2. Implement throttling mechanisms.
+
    - Use Amazon API Gateway for rate limiting to control the
      number of requests
 
 3. Implement backoff techniques.
+
    - Use exponential backoff with jitter to handle transient
      errors effectively
    - Integrate with AWS SDK for Javascript's built-in retry
      mechanisms for seamless error recovery
 
 4. Design retry logic.
+
    - Implement idempotent operations where possible to
      facilitate safe retries
    - Use AWS Step Functions for managing complex retry
@@ -177,6 +181,7 @@ efficient resource allocation and optimization strategies.
      case of repeated failures
 
 5. Implement continuous monitoring and optimization.
+
    - Use Amazon CloudWatch observability to monitor system
      performance
    - Conduct regular load testing and capacity planning

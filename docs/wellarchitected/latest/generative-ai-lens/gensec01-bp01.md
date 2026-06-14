@@ -107,6 +107,7 @@ integrate with your enterprise identity provider.
 
 1. Create a custom policy document granting least-privilege
    access to set of specific foundation model endpoints.
+
    - Limit access to specific resource ARNs and to a specific
      set of actions.
    - Consider defining conditions to further restrict the
@@ -117,6 +118,7 @@ integrate with your enterprise identity provider.
    the endpoint and attach the custom policy to it. If more
    permissions are needed for this role, attach the required
    policies on as-needed bases.
+
    - Utilize permission boundaries at the role level to set the
      maximum permissions that an identity-based policy can
      grant.
@@ -125,6 +127,7 @@ integrate with your enterprise identity provider.
 
 3. Verify the new role for API calls to endpoints are protected
    by this policy.
+
    - An example of an endpoint to protect might be a production
      Amazon Bedrock endpoint servicing real-time inference
      through a VPC-Hosted application.

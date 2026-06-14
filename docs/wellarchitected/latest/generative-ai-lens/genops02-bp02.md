@@ -107,6 +107,7 @@ your application to respond automatically to these events.
 ### Implementation steps
 
 1. For Amazon Bedrock, enable model invocation logging.
+
    - Choose your desired data output options and log
      destination (Amazon S3 or CloudWatch Logs)
    - Track key metrics like
@@ -121,6 +122,7 @@ your application to respond automatically to these events.
 
 2. For Amazon SageMaker AI, implement Amazon SageMaker AI Model
    Monitor.
+
    - Establish performance baselines for hosted models
    - Include graphs for resource utilization (like memory and
      GPU) where applicable
@@ -130,6 +132,7 @@ your application to respond automatically to these events.
      monitoring
 
 3. Set up a dashboard to visualize key metrics.
+
    - Create CloudWatch dashboards for your AI services (like
      Amazon Bedrock and SageMaker AI)
    - Add widgets for important metrics such as invocations,
@@ -138,16 +141,19 @@ your application to respond automatically to these events.
      identify unusual patterns in data
 
 4. Create alarms for critical thresholds.
+
    - Elevated latency in model invocations
    - High error rates or throttling events
 
 5. Implement EventBridge rules.
+
    - Create rules to capture significant events from your AI
      services
    - Set up appropriate targets for these rules (like SNS
      topics or Lambda functions) and automate the responses
 
 6. Develop incident response playbooks.
+
    - Create playbooks for common scenarios (for example, high
      latency or increased error rates)
    - Define steps for identifying root causes and
@@ -155,6 +161,7 @@ your application to respond automatically to these events.
    - Establish procedures for communication and escalation
 
 7. Establish a regular review process
+
    - Schedule periodic reviews of dashboards and metrics
    - Regularly assess and adjust alarm thresholds
    - Conduct retrospective reviews on incidents and

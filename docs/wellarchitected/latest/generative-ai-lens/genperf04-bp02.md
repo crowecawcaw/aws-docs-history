@@ -70,6 +70,7 @@ and latency for your use case.
 2. Determine the number of vector options supported by your
    selected embedding model and design experiments meant to
    test each option.
+
    - Experiment on a variety of data to get a clear
      determination of which embedding size is best for this
      workload.

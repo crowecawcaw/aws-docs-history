@@ -139,6 +139,7 @@ data exposure.
    personal information. The scope of this data is informed
    largely by the workload use case. Ingest this data from
    your data lake into the vector store lake house.
+
    - A use case for a customer service assistant may require
      access to handbooks, documentation, and customer service
      material, not company financials, staff information or

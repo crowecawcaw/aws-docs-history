@@ -109,6 +109,7 @@ data handling.
 ### Implementation steps
 
 1. Use Amazon S3 for data storage.
+
    - Enable S3 Intelligent-Tiering to automatically optimize
      storage costs based on access patterns
    - Implement S3 Lifecycle policies to manage data
@@ -118,18 +119,21 @@ data handling.
      optimization
 
 2. Optimize data formats and compression.
+
    - Adopt columnar formats and convert data to formats like
      Parquet for enhanced analytical performance
    - Apply compression techniques to reduce storage and
      transfer costs using appropriate compression methods
 
 3. Use serverless query and processing services.
+
    - Use Athena to perform serverless SQL queries on S3 data
    - Use AWS Glue to run serverless ETL jobs, discover
      schemas, and catalog data
    - AWS Lambda to handle event-driven computing tasks
 
 4. Automatically scale batch processing.
+
    - Consider Amazon EMR with autoscaling to process
      large-scale Spark jobs efficiently
    - Assess resource efficiency between Lambda, EMR, and AWS Batch
@@ -137,6 +141,7 @@ data handling.
    - Consider EMR or Batch for larger scale jobs
 
 5. Monitor your resource utilization.
+
    - Use AWS Cost Explorer and AWS Trusted Advisor for cost
      and resource optimization recommendations
    - Review Amazon CloudWatch metrics to identify efficiency

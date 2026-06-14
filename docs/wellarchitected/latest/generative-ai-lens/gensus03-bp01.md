@@ -67,6 +67,7 @@ metrics for latency, throughput, and price.
 ### Implementation steps
 
 1. Select optimization techniques.
+
    - Evaluate considerations between model size, speed, and
      accuracy. Evaluate the effect on tasks and overall
      performance
@@ -76,6 +77,7 @@ metrics for latency, throughput, and price.
      transfer from a larger model to a smaller model
 
 2. Evaluate optimized models.
+
    - Compare performance with original models
    - Assess resource savings and verify accuracy and
      functionality taking edge cases into considerations

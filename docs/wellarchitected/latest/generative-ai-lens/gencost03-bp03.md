@@ -54,23 +54,27 @@ each successful hit.
 ### Implementation steps
 
 1. Identify opportunities for caching:
+
    - Review workload for repeated prompt components
    - Verify prompts meet minimum token requirements
    - Assess potential cost savings from reduced token
      rates
 
 2. Enable prompt caching for supported models:
+
    - Turn on caching in Amazon Bedrock console
    - For APIs, set appropriate caching flags
    - Configure cache checkpoints at optimal locations
 
 3. Monitor caching metrics:
+
    - Track cache hit and miss rates
    - Monitor token costs for cached compared to uncached
      content
    - Analyze latency improvements
 
 4. Optimize cache usage:
+
    - Tune checkpoint placement
    - Adjust prompt structure to maximize cache hits
    - Balance cache write costs with read savings

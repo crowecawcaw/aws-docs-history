@@ -39,10 +39,12 @@ prompt contributes to cost optimization in the long-run.
 2. Engineer the prompt to reduce the token count, trimming as many unnecessary words as possible.
 3. Consider using a separate LLM to offer a shortened prompt
    that satisfies the end goal.
+
    - Amazon Bedrock Prompt Optimization can typically optimize prompt language to help provide consistent results.
 
 4. Continue testing and optimizing the prompt to validate it
    meets the workload requirements.
+
    - Experiment with zero-shot prompting techniques for
      common knowledge tasks.
    - Consider chain-of-thought or tree-of-thought for logical

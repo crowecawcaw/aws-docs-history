@@ -84,22 +84,27 @@ are represented by at least of one of the following principles:
 Common challenges in generative AI performance include:
 
 - Inconsistent model performance:
+
   - **Challenge:** Variations in model outputs for similar inputs, affecting user experience and application reliability.
   - **Mitigation:** Implement robust testing frameworks, version control for models and prompts, and continuous monitoring of model performance metrics.
 
 - Handling unexpected traffic spikes:
+
   - **Challenge:** Sudden increases in request volume leading to system overload and degraded performance.
   - **Mitigation:** Use auto-scaling mechanisms, implement rate limiting and throttling, and design for burst capacity.
 
 - Managing large-scale distributed training:
+
   - **Challenge:** Coordinating and maintaining reliability across multiple compute nodes during extended training processes.
   - **Mitigation:** Implement checkpointing, use fault-tolerant training frameworks, and design for node failure resilience.
 
 - Data consistency in multi-Region deployments:
+
   - **Challenge:** Maintaining consistent and current data across globally distributed systems.
   - **Mitigation:** Implement robust data replication strategies, use eventual consistency models where appropriate, and design for conflict resolution.
 
 - Handling model drift and data quality issues:
+
   - **Challenge:** Degradation of model performance over time due to changes in input data patterns or quality.
   - **Mitigation:** Implement continuous monitoring of model performance, establish regular retraining cycles, and maintain data quality checks in ingestion pipelines.
 

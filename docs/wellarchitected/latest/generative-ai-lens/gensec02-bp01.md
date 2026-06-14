@@ -71,6 +71,7 @@ a simple output disclaimer or a full human review.
 ### Implementation steps
 
 1. Amazon Bedrock Guardrails:
+
    - Navigate to the Amazon Bedrock service and choose
      Guardrails, Create Guardrail.
    - Enter guardrail details, including a name and the message
@@ -85,6 +86,7 @@ a simple output disclaimer or a full human review.
      grounding and response relevance.
 
 2. Amazon Q Business guardrails:
+
    - Navigate to the Amazon Q Business service and choose
      Admin Controls and Guardrails.
    - Edit Global Controls for blocked words, response

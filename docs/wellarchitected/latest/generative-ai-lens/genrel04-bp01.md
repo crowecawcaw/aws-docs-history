@@ -46,30 +46,35 @@ models.
 ### Implementation steps
 
 1. Design catalog structure:
+
    - Define prompt metadata schema (like version, author, and purpose)
    - Create categorization system for different prompt types
    - Establish naming conventions and tagging standards
    - Define access control requirements
 
 2. Implement version control:
+
    - Set up version tracking for prompts
    - Create changelog management process
    - Define rollback procedures
    - Establish backup and recovery processes
 
 3. Create testing framework:
+
    - Define success criteria for prompts
    - Establish validation procedures
    - Create test suites for different use cases
    - Set up automated testing pipelines
 
 4. Configure prompt metadata:
+
    - Document hyperparameter ranges
    - Track performance metrics
    - Record model compatibility
    - Maintain usage statistics
 
 5. Establish governance processes:
+
    - Define approval workflows
    - Create audit trails
    - Set up review procedures

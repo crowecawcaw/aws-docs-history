@@ -76,52 +76,63 @@ Your organization’s AI policy should define the effective minimum performance 
 ### Implementation steps
 
 1. Create a ground truth dataset.
+
    - Verify that you have diverse data representation
    - Consider various user personas and use cases
 
 2. Apply stratified sampling techniques.
+
    - Categorize ground truth data into relevant groups
    - Randomly sample from each group to achieve balanced
      representation
 
 3. Establish periodic evaluation processes.
+
    - For Amazon Bedrock:
+
      - Use the built-in model evaluation feature
      - Implement model invocation logging
 
    - For Amazon SageMaker AI:
+
      - Configure manual evaluations using Amazon SageMaker AI
        Studio.
      - Set up automatic evaluations using Amazon SageMaker AI
        Studio or the fmeval library
 
 4. Define custom metrics.
+
    - Use the fmeval library to create custom metric classes
    - Encapsulate logic for calculating specific evaluation
      criteria
 
 5. Perform model evaluations.
+
    - Input prompts into the model
    - Generate outputs and compare them to ground truth values
    - Analyze results to track performance over time
 
 6. Monitor for performance drifts.
+
    - Identify potential degradation in model performance
    - Address data drift where actual usage diverges from the
      initial ground truth
 
 7. Regularly update the ground truth dataset.
+
    - Reflect changes in workload inputs and usage patterns
    - Maintain the relevance of evaluation data
 
 **Additional recommendations**
 
 - Use open-source libraries.
+
   - Consider using libraries like ragas for additional
     evaluation capabilities
   - Explore complementary metrics and evaluation techniques
 
 - Implement automated workflows.
+
   - Integrate evaluation processes into CI/CD pipelines
   - Set up alerts for significant performance changes
 

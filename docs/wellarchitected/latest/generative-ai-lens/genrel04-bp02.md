@@ -49,18 +49,21 @@ model catalog throughout the organization.
 ### Implementation steps
 
 1. Set up catalog structure:
+
    - Create model classification system (by type, purpose, and provider)
    - Define model metadata schema
    - Establish versioning conventions
    - Design access control framework
 
 2. Configure model tracking:
+
    - Record model lineage and dependencies
    - Track model versions and updates
    - Document model customizations
    - Maintain performance benchmarks
 
 3. Implement model cards:
+
    - Define required model information
    - Document model capabilities and limitations
    - Record training data characteristics
@@ -68,6 +71,7 @@ model catalog throughout the organization.
    - Include ethical considerations and biases
 
 4. Establish model governance:
+
    - Create model approval workflows
    - Define deployment procedures
    - Set up model monitoring
@@ -75,12 +79,14 @@ model catalog throughout the organization.
    - Track model usage and access
 
 5. Create maintenance procedures:
+
    - Define model update process
    - Establish deprecation policies
    - Create archival procedures
    - Set up backup and recovery
 
 6. Implement validation framework:
+
    - Create model testing procedures
    - Define acceptance criteria
    - Set up performance benchmarking

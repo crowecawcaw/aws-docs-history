@@ -65,6 +65,7 @@ Alternatively, considering using Amazon AgentCore, which supports agent tracing 
 ### Implementation steps
 
 1. Collect and aggregate trace data.
+
    - Implement a system to collect trace data from agents
      involved in your parallel processing workflow
    - After running an Amazon Bedrock Agent, view the trace in
@@ -80,6 +81,7 @@ Alternatively, considering using Amazon AgentCore, which supports agent tracing 
      and analysis
 
 2. Secure trace data.
+
    - Implement appropriate access controls to verify that
      only authorized personnel can view trace data
    - Be mindful of any sensitive information that might be
@@ -87,6 +89,7 @@ Alternatively, considering using Amazon AgentCore, which supports agent tracing 
      organization's security policies
 
 3. Analyze the trace components.
+
    - The trace is structured as a JSON object containing
      fields such as agentId,
      sessionId, and
@@ -105,12 +108,14 @@ Alternatively, considering using Amazon AgentCore, which supports agent tracing 
      the Guardrail feature
 
 4. Analyze runtimes.
+
    - Review the timestamps in the trace data to identify
      which agents or steps are taking the longest to complete
    - Look for patterns or bottlenecks that might be causing
      delays in the overall process
 
 5. Examine resource utilization.
+
    - Use the trace data to understand how each agent is
      utilizing resources such as knowledge bases or action
      groups
@@ -118,6 +123,7 @@ Alternatively, considering using Amazon AgentCore, which supports agent tracing 
      resources that might be affecting performance
 
 6. Optimize agent configurations.
+
    - Based on the analysis, adjust the configuration of
      individual agents to improve their performance
    - This may include fine-tuning prompts, adjusting
@@ -125,12 +131,14 @@ Alternatively, considering using Amazon AgentCore, which supports agent tracing 
      structures
 
 7. Implement load balancing across agents
+
    - Use the insights gained from trace data to distribute
      workloads more evenly across agents
    - Consider implementing a dynamic load balancing system
      that can adjust based on real-time performance metrics
 
 8. Optimize data transfer between agents
+
    - Use the supervisor with routing mode, which allows the
      supervisor agent to route information directly to the
      appropriate collaborator agent, reducing unnecessary
@@ -146,23 +154,27 @@ Alternatively, considering using Amazon AgentCore, which supports agent tracing 
      or data sources to minimize network latency
 
 9. Optimize your knowledge bases.
+
    - Verify that each agent's knowledge base is
      well-structured and contains only relevant information
      to minimize unnecessary data processing
 
 10. Set up performance monitoring.
+
     - Use Amazon CloudWatch to create custom metrics based on
       the trace data
     - Set up alarms to alert you when performance falls below
       expected thresholds
 
 11. Conduct iterative testing.
+
     - After making optimizations, run comprehensive tests to
       measure the change in overall system performance
     - Use the trace data from these tests to identify further
       areas for improvement
 
 12. Document and share insights.
+
     - Keep a record of optimizations made and their effects on
       performance
     - Share these insights with your team to improve future

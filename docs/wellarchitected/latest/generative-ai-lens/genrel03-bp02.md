@@ -60,21 +60,25 @@ compromising system integrity.
 ### Implementation steps
 
 1. Create an agent workflow configuration:
+
    - Define maximum runtime thresholds
    - Set up timeout controls at function and workflow levels
    - Configure event publishing for process monitoring
 
 2. Implement timeout mechanisms:
+
    - Add timeouts at the agent layer to terminate sessions waiting for user input
    - Configure timeouts on external compute resources
    - Set up dead letter queues for timed-out processes
 
 3. Establish monitoring and alerting:
+
    - Track agent execution times
    - Monitor timeout frequency
    - Alert on repeated timeouts
 
 4. Define recovery procedures:
+
    - Create graceful termination processes
    - Implement cleanup routines for timed-out sessions
    - Set up automated retry mechanisms where appropriate

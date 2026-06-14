@@ -80,6 +80,7 @@ foundation models.
 ### Implementation steps
 
 1. For SageMaker AI, implement pipelines.
+
    - Use SageMaker AI SDK to add steps which may include data
      preparation, model training, model evaluation, and model
      deployment
@@ -96,6 +97,7 @@ foundation models.
      pipeline using AWS CodePipeline, AWS CodeBuild, and AWS CodeDeploy with Amazon SageMaker AI Projects
 
 2. Enable MLflow experiment tracking.
+
    - In Amazon SageMaker AI Studio, configure MLflow tracking
    - Use MLflow to log parameters, metrics, and artifacts
      during your model training process
@@ -106,16 +108,19 @@ foundation models.
    - Register your best models in the MLflow Model Registry
 
 3. Use a version control system.
+
    - Use a Git compatible repository to manage code and
      configurations effectively
    - Set up SageMaker AI Model Registry to catalog and version
      models
 
 4. Set up monitoring and logging.
+
    - Monitor real-time FM metrics with Amazon CloudWatch
    - Centralize logging with Amazon CloudWatch Logs
 
 5. Create a feedback loop for continuous improvement.
+
    - Gather user feedback and model performance data
    - Automate retraining and model updates based on new data
 

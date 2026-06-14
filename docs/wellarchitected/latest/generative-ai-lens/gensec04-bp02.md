@@ -47,12 +47,14 @@ processed by the generative AI workload. Prompt sanitization and validation tech
 
 1. Create a guardrail using Amazon Bedrock Guardrails or
    similar.
+
    - A third-party guardrail must be able to process
      multi-modal responses as well as the prompts before they
      are sent to the model.
 
 2. Test the guardrail against a curated list of prompts,
    designed to simulate a prompt injection exploits.
+
    - Guardrails can use allowlists and blocklists to validate
      prompts.
 

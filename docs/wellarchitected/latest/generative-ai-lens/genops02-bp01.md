@@ -96,6 +96,7 @@ system health across operational layers.
 ### Implementation steps
 
 1. Identify your application layers, including:
+
    - Application layer
    - Service layer
    - Foundation model layer
@@ -103,41 +104,49 @@ system health across operational layers.
      data store, or knowledge graph)
 
 2. For application layer monitoring:
+
    - Enable logs and metrics in Amazon CloudWatch
    - For custom metrics, set up for application-specific
      events and performance indicators
 
 3. For service layer monitoring:
+
    - Enable logs and metrics in Amazon CloudWatch
    - For request flow analysis, implement tracing with AWS X-Ray or use Amazon Bedrock Agent's tracing feature
 
 4. For foundation model layer monitoring:
+
    - Use built-in monitoring in Amazon Bedrock or Amazon Q Business
    - Configure CloudWatch logging for Amazon SageMaker AI
      Inference Endpoints
 
 5. For additional layer monitoring:
+
    - Enable logs and metrics in your chosen vector database,
      such as Amazon OpenSearch Service
    - Set up CloudWatch logs and metrics for prompt catalogs
      or knowledge graphs
 
 6. Configure alerting and dashboards.
+
    - Set up CloudWatch alarms for critical metrics and
      thresholds
    - Create CloudWatch dashboards for key performance
      indicators
 
 7. Configure security monitoring.
+
    - Enable AWS CloudTrail for API activity logging
    - Set up Amazon GuardDuty for threat detection
 
 8. Continually optimize.
+
    - Review and analyze log data to identify improvements
    - Adjust monitoring configurations based on changing
      application needs and usage patterns
 
 9. Consider additional logging solutions:
+
    - For log ingestion and transformation, consider Amazon Data Firehose
    - For as-needed querying, explore Amazon Athena for logs
      stored in Amazon S3

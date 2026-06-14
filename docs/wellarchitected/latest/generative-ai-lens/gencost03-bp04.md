@@ -90,6 +90,7 @@ guardrailConfig:
 6. Continue testing and optimizing the model's response to
    verify it satisfies the workload requirements. Monitor
    and optimize your implementation by:
+
    - Tracking token usage with and without selective
      filtering
    - Measuring latency impact across different tag
