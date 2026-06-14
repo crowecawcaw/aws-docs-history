@@ -6,9 +6,11 @@ groups for the MediaLive channel.
 ###### To set up the VPC
 
 1. Provide your Amazon VPC user with the following guidelines:
+
    - Guideline for the subnets and Availability Zones – See [Identifying subnet and Availability Zone requirements](vpc-out-AZ-subnet-reqs.md "vpc-out-AZ-subnet-reqs.md")
    - Guideline for the security group for channel endpoints subnets
      – The security group or groups must follow these rules:
+
      - The combined rules of the security groups must allow outbound
        traffic from the endpoint to all the output destinations. These
        destinations might be on your VPC, destinations on AWS services, and
@@ -16,6 +18,7 @@ groups for the MediaLive channel.
 
    - Guideline for the security group for destination subnets – The
      security group or groups must follow these rules:
+
      - The combined rules of the security groups must allow inbound
        traffic from the channel endpoints.
 
@@ -46,6 +49,7 @@ information:
 
 4. Delivery via the VPC depends on appropriate setup for routing and DNS.
    of the VPC network. Provide the Amazon VPC user with these guidelines:
+
    - If you expect addresses with a domain name to reach the VPC, or if
      you expect the VPC to reach addresses with a domain name, you must set up
      a DNS to resolve those domain names. This requirement applies equally to

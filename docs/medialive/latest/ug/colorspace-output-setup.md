@@ -54,9 +54,11 @@ You can set up to convert the source color space in one or more outputs.
    **Profile**, **Tier**, and
    **Level** fields, if they appear for the codec that you
    chose:
+
    - If the resolution is SD, enter values that suit your requirements.
    - If the resolution is an HD or UHD resolution, set the tier and level to suit
      your requirements, and set the profile as follows:
+
      - If the output color space will be an HDR color space, you must choose one
        of the profiles that has **10BIT** in the name.
      - If the output color space will be an SDR color space, you can choose any

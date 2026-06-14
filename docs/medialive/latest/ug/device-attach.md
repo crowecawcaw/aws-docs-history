@@ -11,6 +11,7 @@ for that flow.
 3. In the navigation pane, choose **Input devices**. Find the card for
    the appropriate Link , and choose the hyperlink.
 4. Choose **Attach MediaConnect flow**. Complete the fields:
+
    - Flow ARN: The ARN of the flow that you obtained from the MediaConnect user. Either
      choose **List of ARNs** and select the ARN, or choose
      **Manual input** and type the ARN.

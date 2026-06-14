@@ -13,6 +13,7 @@ steps for [creating an input](create-input.md "create-input.md") and [creating a
 
 1. Arrange with your upstream system for them to provide you with the appropriate
    number of sources for the content:
+
    - If you are setting up automatic input failover in a single-input
      channel, you need two sources—one for each input.
    - If you are setting up automatic input failover in a standard channel,
@@ -32,6 +33,7 @@ steps for [creating an input](create-input.md "create-input.md") and [creating a
 
 1. Follow the procedure in [Working with inputs](creating-input.md "creating-input.md") to create one input
    of the appropriate type. For example, one RTMP input.
+
    - In a standard channel, set up the input with two sources.
    - In a single-pipeline channel, set up the input with one source.
    - Give the input a name such as `primary
@@ -61,6 +63,7 @@ Give the input a name such as `secondary input`.
 6. For **Input preference**, choose the desired option. This
    field controls the behavior when MediaLive has switched over to the secondary input
    and then the primary input becomes healthy again.
+
    - **EQUAL_INPUT_PREFERENCE** – MediaLive remains on
      the secondary input. The primary input continues to be processed, but it
      is not active.

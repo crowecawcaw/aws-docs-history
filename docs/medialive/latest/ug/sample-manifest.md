@@ -7,6 +7,7 @@ following elements:
 - Two video outputs, as indicated by the presence of two
   `EXT-STREAM-IN`F lines (the last two lines in the
   example).
+
   - The first video output has a low bandwidth. As indicated by the
     `AUDIO` parameter, it is associated with
     _audio1_.

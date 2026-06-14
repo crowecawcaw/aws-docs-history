@@ -58,6 +58,7 @@ troubleshooting steps:
 - Check the **InputVideoAligned** CloudWatch metric.
   A value of 1 indicates pipeline locking has successfully aligned the
   input video content between pipelines. If the value is 0:
+
   - Ensure both pipelines are receiving the same video content. Video
     aligned locking compares visual signatures between encoders
     and cannot lock if the content differs.

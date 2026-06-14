@@ -108,12 +108,14 @@ CEA-708), embedded+SCTE-20, SCTE-20+embedded, or SCTE-20.
 **Captions selector fields**
 
 - **Selector settings**:
+
   - Choose embedded if the source captions are embedded (EIA-608 or CEA-708),
     embedded+SCTE-20, or SCTE-20+embedded.
   - Choose SCTE-20 if the source captions are SCTE-20 alone.
 
 - **EIA-608 track number** – This field specifies the language to
   extract. Complete as follows:
+
   - If you are setting up for embedded passthrough only (you are creating only one
     captions selector for the input embedded captions), this field is ignored, so keep
     the default.
@@ -174,6 +176,7 @@ Teletext can be handled in one of the following ways:
   **Teletext**.
 - **Page number** – This field specifies the page of the desired
   language. Complete as follows:
+
   - If you are setting up for Teletext passthrough captions (you are creating only
     one captions selector for the input captions), keep the field blank. The value is
     ignored.

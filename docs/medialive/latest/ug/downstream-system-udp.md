@@ -6,6 +6,7 @@ each output of the UDP output group.
 A UDP output group requires one set of destination addresses for each output.
 
 1.  Decide if you need two destinations for the output:
+
     - If the MediaLive channel is a [standard
       channel](plan-redundancy.md "plan-redundancy.md"), you need two destinations.
     - If the MediaLive channel is a single-pipeline channel, you need one

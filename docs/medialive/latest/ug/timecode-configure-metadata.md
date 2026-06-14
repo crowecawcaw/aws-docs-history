@@ -28,6 +28,7 @@ timecode. By default, the timecode is not included in the video encode.
    choose the codec for this video encode. More fields appear.
 3. Choose **Timecode**, then in **Timecode
    insertion**, choose an option:
+
    - **DISABLED** – This encode won't include
      timecode metadata.
    - **METADATA_OBU** (for AV1) or

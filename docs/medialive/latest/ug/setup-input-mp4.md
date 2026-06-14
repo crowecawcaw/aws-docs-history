@@ -9,6 +9,7 @@ MP4 input.
 2.  If this input is being used in a multiple-input channel, you should have
     decided whether to set it up as a static input or a [dynamic input](dynamic-inputs.md "dynamic-inputs.md"). You might need to modify
     the URLs you obtained from the upstream system:
+
     - If the input is a static input, don't modify the URLs.
     - If the input is a dynamic input, set up the URL as an optional
       absolute portion and a required variable portion ($urlPath$). For
@@ -22,12 +23,14 @@ MP4 input.
     **Inputs** page, choose **Create
     input**.
 5.  Complete the **Input details** section:
+
     - **Input** name – enter a name.
     - **Input type** – choose
       **MP4**.
 
 6.  In the **Input class** section, choose the class for this
     input:
+
     - STANDARD_INPUT
     - SINGLE_INPUT
 

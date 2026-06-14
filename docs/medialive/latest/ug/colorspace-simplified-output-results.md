@@ -37,6 +37,7 @@ MediaLive looks at the source and output color space for each frame.
   source.
 - If the source and color space are different, MediaLive looks for a file that corresponds
   to the source/output color space combination:
+
   - If it finds a file, it uses that file for conversion.
   - If it doesn't find a file, it converts the color space using the standard
     mechanism.

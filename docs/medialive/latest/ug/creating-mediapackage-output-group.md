@@ -20,6 +20,7 @@ You can create MediaPackage output groups for two different MediaPackage version
    pane changes to show the **Add output** group section.
 2. Choose **MediaPackage**, and then choose
    **Confirm**. More sections appear:
+
    - **MediaPackage destination**
    - **MediaPackage settings**
    - **MediaPackage outputs**–This section shows
@@ -49,16 +50,19 @@ and captions). 8. [Save the channel](creating-a-channel-step9.md "creating-a-cha
    pane changes to show the **Add output** group section.
 2. Choose **MediaPackage**, and then choose
    **Confirm**. More sections appear:
+
    - **MediaPackage destination**
    - **MediaPackage settings**
    - **MediaPackage outputs**–This section shows
      the single output that is added by default.
 
 3. In the **MediaPackage destination** section, configure the primary destination:
+
    1. For **Region**, select the region that contains your MediaPackage v2 channel. This defaults to your current region.
    2. For **MediaPackage channel group name**, select the MediaPackage channel group name that contains your MediaPackage v2 channel.
    3. For **MediaPackage channel name**, select your MediaPackage v2 channel.
    4. For **Endpoint ID**, select which MediaPackage ingest endpoint should receive content:
+
       - **ENDPOINT_1** - Content is sent to the first ingest endpoint
       - **ENDPOINT_2** - Content is sent to the second ingest endpoint
 

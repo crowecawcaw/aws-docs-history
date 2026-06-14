@@ -8,6 +8,7 @@
 2.  In **Input**, choose an existing input. As soon as you
     choose the input, information about the input appears. To review this
     information, see the following sections:
+
     - [Channel input—CDI VPC push input](input-cdi.md "input-cdi.md")
 
     [Channel input—Elemental Link push input](input-elink.md "input-elink.md")

@@ -13,6 +13,7 @@ uses, see [Choosing the channel class and input class](class-channel-input.md "c
 
 - The Region that the device is configured for, so that you can set MediaLive
   for that Region. These rules apply:
+
   - Both devices must be in the same Region.
   - The device, the input for that device, and the channel that uses
     the input must all be in the same Region.

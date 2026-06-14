@@ -13,6 +13,7 @@ Microsoft Smooth output.
 - **Microsoft Smooth settings**
   section – **General
   configuration** section:
+
   - **Connection retry
     interval**
   - **Num retries**

@@ -45,6 +45,7 @@ There are constraints on performing these edits, as follows:
    the input, and then choose **Edit**.
 3. On the **Inputs** page, make the following changes as
    appropriate:
+
    - You can change the **Name**.
    - You can't change the **Input type**. If the input has
      the wrong type, delete it and create it over again.

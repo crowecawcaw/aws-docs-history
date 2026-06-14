@@ -13,12 +13,14 @@ create an Elemental Link input.
    **Inputs** page, choose **Create
    input**.
 5. Complete the **Input details** section:
+
    - **Input** name – enter a name.
    - **Input type** – choose **Elemental
      Link**.
 
 6. In the **Input devices** section, for **Input
    class**, choose the class for this input:
+
    - STANDARD_INPUT
    - SINGLE_INPUT
 
@@ -26,6 +28,7 @@ create an Elemental Link input.
    to this input as the source. From the dropdown lists, choose the device
    names you previously obtained. The lists show only the devices that are set
    up in the current Region.
+
    - If the input is a standard-class input, complete both fields, to
      provide two source devices.
    - If the input is a single-class input, complete the first field and

@@ -26,6 +26,7 @@ following:
 - Messages: A long description.
 - ID: The ID is created when the alert is first set. Note the
   following:
+
   - The ID is a hash of a monotonically increasing count.
   - Each channel (or multiplex) has its own ID series that increments
     independently of other series.

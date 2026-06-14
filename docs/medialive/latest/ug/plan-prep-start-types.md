@@ -15,6 +15,7 @@ same as the start types for input switches.
   the end option is shown.
 - MediaLive starts preparing the input _after_ the
   reference input is active. Therefore:
+
   - For a follow-start prepare (which you can create only using the CLI), you must add the
     prepare action before the reference input has started in the channel.
 
@@ -29,6 +30,7 @@ same as the start types for input switches.
 
 - You can't create two follow prepare actions that both follow the same reference switch
   and the same follow point. Therefore:
+
   - You _cannot_ create action 2 and action 4 to both
     follow the start of action 1.
   - But you can create action 2 to follow the _start_ of

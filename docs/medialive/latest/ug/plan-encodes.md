@@ -45,6 +45,7 @@ Follow this procedure for each individual video encode.
     these fields, follow these steps. Don't worry about not completing all the
     sections. You only want to display the video encode fields, and you will
     then cancel the channel.
+
     - On the MediaLive home page, choose **Create channel**,
       and in the navigation pane, choose **Channels**.
 
@@ -70,6 +71,7 @@ Follow this procedure for each individual video encode.
       labels for all the sections to display all the fields.
 
 2.  In each section, determine whether you need to change the defaults.
+
     - Many of the fields have defaults, which means you can leave the
       field value as is. For details about a field and its default value,
       choose the **Info** link next to the
@@ -90,6 +92,7 @@ Follow this procedure for each individual video encode.
 
     - You can read about some of the fields in the following
       sections:
+
       - For information about the **Color space** fields,
         see [Handling complex color space conversions](color-space.md "color-space.md").
       - For information about the Additional encoding settings fields, see

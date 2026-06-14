@@ -360,17 +360,20 @@ stream.
 
 - **Using SDI**/**Using
   HDMI**
+
   - Verify the Link device is configured to
     use the input type that matches the
     connected source.
 
 - **Input locked**
+
   - If this is 0, the encoder cannot identify
     a signal from the connected source. Verify
     that you have a connected source that
     matches the selected input type.
 
 - **Encoder running**
+
   - If this is 0, the Link device cannot
     encode the signal. If the input is locked,
     this could indicate a problem with the Link
@@ -378,6 +381,7 @@ stream.
 
 - **Linked to stream
   endpoint**
+
   - If this is 0, the Link device cannot
     connect to its streaming endpoint in the
     AWS service. Verify the encoder is running
@@ -388,6 +392,7 @@ stream.
     ports that must be open, consult the [HD](../../../elemental-onprem/latest/pdf/AWS_Elemental_Data_Sheet_Link.pdf.md "../../../elemental-onprem/latest/pdf/AWS_Elemental_Data_Sheet_Link.pdf.md") datasheet or [UHD](../../../elemental-onprem/latest/pdf/AWS_Elemental_Link_UHD_Specification_Sheet.pdf.md "../../../elemental-onprem/latest/pdf/AWS_Elemental_Link_UHD_Specification_Sheet.pdf.md") datasheet.
 
 - **Streaming**
+
   - If this is 0, verify that the channel has
     been started. If the value is still 0,
     investigate the previous metrics to isolate
@@ -424,6 +429,7 @@ frequency and severity of network interruptions:
 
 - **Recovered
   packets**
+
   - If this is greater than 0, packets were
     dropped in transit and were recovered by
     error correction. Although recovered packets
@@ -434,6 +440,7 @@ frequency and severity of network interruptions:
 
 - **Not recovered
   packets**
+
   - If this is greater than 0, packets were
     dropped in transit and were not recovered by
     error correction. A loss of packets can
@@ -445,6 +452,7 @@ frequency and severity of network interruptions:
 
 - **Error
   seconds**
+
   - If this is greater than 0, it indicates
     that the stream experienced one or more
     seconds in which packets were dropped and

@@ -15,6 +15,7 @@ each encode to belong to.
    group that is valid.
 4. Give a name to each video, audio, and audio rendition group. For
    example:
+
    - A video output named `high
 definition`.
    - A video output named `low definition`.
@@ -31,6 +32,7 @@ FR`.
 
 5. Identify how you want the video to be associated with the audio rendition
    groups. For example:
+
    - Video `high definition` to be associated with
      `AAC group` and `DD
 group`.

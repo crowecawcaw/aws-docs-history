@@ -19,11 +19,13 @@ You can use the command as follows:
 
 - Submit a _single_
   request such as a request to do the following:
+
   - Create one action.
   - Delete one action.
 
 - Submit a _batch_
   request such as one request to do the following:
+
   - Create several actions.
   - Delete several actions.
   - Create one or more actions and delete one or

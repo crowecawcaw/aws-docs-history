@@ -20,13 +20,16 @@ Create your input before you create the channel that ingests the input.
    **Inputs** page, choose **Create
    input**.
 4. Complete the **Input details** section:
+
    - **Input** name – enter a name.
    - **Input type** – choose
      **MediaConnect**.
 
 5. Complete the **MediaConnect flows** section:
+
    - **Channel and input class** – choose
      the class for this input:
+
      - STANDARD_INPUT
      - SINGLE_INPUT
 
@@ -116,6 +119,7 @@ have to create one yourself and then choose it.
   someone else has already created this role (only one person needs to
   create it for all users in your AWS account), look at
   **Create role from template**:
+
   - If this option is grayed out, this task has been done. In
     that case, choose Use existing role, and then choose
     **MediaLiveAccessRole** from the list.

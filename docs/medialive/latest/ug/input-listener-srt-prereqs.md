@@ -2,6 +2,7 @@
 
 1. Discuss the following information with the operator of the upstream
    system:
+
    - The IP address that the upstream system will push from. You need this
      address to create an input security group that allows traffic from this
      address. For more information about input security groups, see [Working with input security groups](working-with-input-security-groups.md "working-with-input-security-groups.md").

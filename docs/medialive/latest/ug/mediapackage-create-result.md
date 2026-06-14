@@ -54,6 +54,7 @@ to pipeline 1.
 
 - **MediaPackage v1 (HLS)
   destinations**
+
   - The `InputLossAction` field
     controls what happens when input into MediaLive
     is lost. The defaults for this field are not

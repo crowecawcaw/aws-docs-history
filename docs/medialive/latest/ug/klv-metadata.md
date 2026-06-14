@@ -43,6 +43,7 @@ with the general steps for creating a channel, as described in [Creating a chann
    **Container settings**, then select
    **PID settings**.
 3. Set these fields:
+
    - **KLV**: Choose
      **PASSTHROUGH**
    - **KLV data PIDs**: Enter the PID
@@ -68,6 +69,7 @@ standard HLS container (a TS container).
 3. In **HLS settings**, select **PID
    settings**.
 4. Set these fields:
+
    - **KLV**: Choose
      **PASSTHROUGH**
    - **KLV data PIDs**: Enter the PID
@@ -82,6 +84,7 @@ standard HLS container (a TS container).
    **Network settings**, then select
    **PID Settings**.
 3. Set these fields:
+
    - **KLV**: Choose
      **PASSTHROUGH**
    - **KLV data PID**: Enter the PID

@@ -10,6 +10,7 @@ two types of flags. These flags provide additional information as guidance for
 blackout in specific situations:
 
 - web_delivery_allowed_flag
+
   - True means that there is no restriction on including the event’s
     content in a stream that is intended for web delivery. There is no
     need to black out content in streams intended for web delivery.

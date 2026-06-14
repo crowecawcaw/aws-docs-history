@@ -19,6 +19,7 @@ The general procedure is the same to create any type of action.
    For information about the layout and color coding of the timeline view, see
    [Viewing the schedule (console)](schedule-using-console-view.md "schedule-using-console-view.md").
 6. For **List** view, choose the appropriate action:
+
    - To create a fixed, follow, or immediate action from scratch,
      choose **Create**.
    - To create a follow action after an existing action, choose that
@@ -32,6 +33,7 @@ The general procedure is the same to create any type of action.
 
 7. For **Timeline** view, choose the appropriate
    action:
+
    - To create a fixed, follow, or immediate action from scratch,
      choose **Create**.
    - To create a follow action, find the input switch that you want to

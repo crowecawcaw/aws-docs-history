@@ -94,6 +94,7 @@ files.
    Slide the **Enable Color correction settings** field.
 2. Choose **Add global color corrections** up to 8 times. In each
    line, enter the following information:
+
    - The URL for the 3D LUTs file.
    - The input (source) color space that the file handles.
    - The output color space that the file handles. Choose HDR10 for a file that
@@ -158,9 +159,11 @@ several fields, each in a specific way.
 4. Choose **Codec details**. More fields appear. Set the
    **Profile**, **Tier**, and
    **Level** fields, if they appear for the codec that you chose:
+
    - If the resolution is SD, enter values that suit your requirements.
    - If the resolution is an HD or UHD resolution, set the tier and level to suit
      your requirements, and set the profile as follows:
+
      - If the output color space will be an HDR color space, you must choose one of
        the profiles that has **10BIT** in the name.
      - If the output color space will be an SDR color space, you can choose any

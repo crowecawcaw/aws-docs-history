@@ -59,6 +59,7 @@ skip this step.
      into two sets.
 
 3. Make a list of the sets that you identified. For example, you might have these sets:
+
    - File sources from the Amazon S3 "preroll" bucket with embedded captions in the order
      English, French, Spanish, and German
    - File sources from the Amazon S3 "filler" bucket with embedded captions in the order French,
@@ -68,6 +69,7 @@ skip this step.
 
 4. Decide whether each set of file sources becomes a static file input or a dynamic file
    input. Follow these rules:
+
    - Any set that contains more than one file source becomes one dynamic input.
    - Any set that contains only one file source can become a static input. However, if you
      think you might later use other file sources from that location (for example, from that

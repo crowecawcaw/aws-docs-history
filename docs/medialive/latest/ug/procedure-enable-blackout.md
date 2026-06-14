@@ -16,6 +16,7 @@ channel.
    **Enabled**.
 4. For **Blackout slate image**, choose the appropriate
    value:
+
    - **Disable**: To use a plain black image for
      blackout.
    - **Avail blanking image**: To use a special image
@@ -35,6 +36,7 @@ channel.
    **Enabled**.
 7. For **Network end blackout image**, choose the
    appropriate value:
+
    - **Disable**: To use a plain black image for
      blackout.
    - **Network end blackout image**: To use a special

@@ -39,6 +39,7 @@ manifest files (the destination).
    Don't enter the password itself. For more information, see [Requirements for AWS Systems Manager password parameters](requirements-for-EC2.md "requirements-for-EC2.md").
 3. In the **CDN** settings section, choose the
    appropriate connection type:
+
    - To send to standard MediaPackage, choose `Hls
 webdav`.
 

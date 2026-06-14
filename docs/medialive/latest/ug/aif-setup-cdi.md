@@ -13,6 +13,7 @@ steps for [creating an input](create-input.md "create-input.md") and [creating a
 
 1. Arrange with your upstream system for them to provide you with the appropriate
    number of sources for the content:
+
    - If you are setting up automatic input failover in a single-pipeline
      channel, you need two sources—one for each input.
    - If you are setting up automatic input failover in a standard channel,

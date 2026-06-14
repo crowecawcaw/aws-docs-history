@@ -1,6 +1,7 @@
 # Assess the color spaces in the sources
 
 1. Speak to the content provider of each input. Obtain the following information:
+
    - The names of the color spaces that apply to the content.
    - Whether each input consists of only one color space or several color
      spaces.

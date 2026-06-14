@@ -28,6 +28,7 @@ These paths are constructed as follows:
 - The MediaPackage user should have provided you with the channel URLs.
   The URLs cover the portion of the path up to and including the
   baseFilename:
+
   - With standard MediaPackage, the baseFilename is always
     `channel`.
   - With MediaPackage v2, the baseFilename is always
@@ -45,6 +46,7 @@ These paths are constructed as follows:
   starting at 00001.
 - MediaLive inserts the dot before the extension.
 - MediaLive selects the extension:
+
   - For manifest files – always`.m3u8`
   - For media files – .ts for files in a transport stream,
     or .mp4 for files in an fMP4 container

@@ -18,6 +18,7 @@ set the **Input class** field to **Standard
 input**.
 
 - When you create the channel, do the following:
+
   - Set up the channel as a standard channel. See
     [Complete channel and input details](creating-a-channel-step1.md "creating-a-channel-step1.md").
   - At the step to [attach inputs

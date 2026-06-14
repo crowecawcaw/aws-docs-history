@@ -24,6 +24,7 @@ Use MediaLive to perform these steps.
    that you want. If you can't find it, follow the troubleshooting tips in [Viewing your Link devices](device-view.md "device-view.md").
 3. Get set up in the correct Region. The device and the flow must be in the same
    Region. Follow these steps to get aligned:
+
    - Decide on the Region where you will work.
 
    - If you want to work in a different Region, [transfer the device](device-transfer-region.md "device-transfer-region.md") now. Then switch the
@@ -73,6 +74,7 @@ Use MediaLive to set up the device.
 1. Get set up in the correct Region. The device, the input, and the channel must be in
    the same Region, and you must work in that Region. Follow these steps to get
    aligned:
+
    - Decide on the Region where you will work. If the device is already being used as
      an input, you must work in the current Region. Otherwise, you can choose the
      Region.

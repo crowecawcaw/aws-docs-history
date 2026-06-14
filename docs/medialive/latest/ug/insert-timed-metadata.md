@@ -25,6 +25,7 @@ Follow this procedure for a CMAF Ingest output group.
    page, then select the CMAF Ingest output group that you want to set up.
 2. Set **ID3 Behavior**: Select **ENABLED**.
 3. Go to **Additional Settings**. Set the following fields:
+
    - **Timed Metadata Behavior**: Set to
      **ENABLED**.
    - **Timed Metadata ID3 Frame**: Select **PRIV**
@@ -41,6 +42,7 @@ always contain a transport stream).
    page, then select the HLS output group that you want to set up. Scroll down and expand
    the **ID3** section.
 2. Complete the following fields:
+
    - **Timed metadata ID3 frame**: Select the type of frame for the
      output — **PRIV** or **TDRL**.
    - **Timed metadata ID3 period**: Specify the frequency for the
@@ -56,6 +58,7 @@ always contain a transport stream).
    **Container Settings**, then **PID
    Settings**.
 4. Complete the following fields:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
    - **Timed Metadata PIDs**: Enter the PID where you want to insert
@@ -70,6 +73,7 @@ metadata will be included in the emsg event.
 1. Display the **Create channel** or **Edit channel**
    page, then select the HLS output group that you want to set up. Scroll down and expand
    the **ID3** section. Complete the following fields:
+
    - **Timed metadata ID3 frame**: Select the type of frame for the
      output — **PRIV** or **TDRL**.
    - **Timed metadata ID3 period**: Specify the frequency for the
@@ -83,6 +87,7 @@ metadata will be included in the emsg event.
 2. If you haven't already enabled ID3 metadata insertion in the output or outputs, do
    so now: Select the output where you want to include ID3 metadata, and set the following
    field:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
 
@@ -94,6 +99,7 @@ included in the emsg event.
 1. Display the **Create channel** or **Edit channel**
    page, then select the HLS output group that you want to set up. Scroll down and expand
    the **ID3** section. Complete the following fields:
+
    - **Timed metadata ID3 frame**: Select the type of frame for the
      output — **PRIV** or **TDRL**.
    - **Timed metadata ID3 period**: Specify the frequency for the
@@ -107,6 +113,7 @@ included in the emsg event.
 2. If you haven't already enabled ID3 metadata insertion in the output or outputs, do
    so now: Select the output where you want to include ID3 metadata. Set the following
    field:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
 
@@ -117,6 +124,7 @@ Follow this procedure for a UDP output.
 1. Display the **Create channel** or **Edit channel**
    page, then select the UDP output group you want to set up. Scroll down to the
    **UDP settings** section. Complete the following fields:
+
    - **Timed metadata ID3 frame type**: Select the type of frame for
      the output — **PRIV** or **TDRL**.
    - **Timed metadata ID3 period**: Specify the frequency for the
@@ -126,6 +134,7 @@ Follow this procedure for a UDP output.
    so now: Select the output where you want to include ID3 metadata.
 3. Go to **Network Settings**, then **PID Settings**.
 4. Complete the following fields:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
    - **Timed Metadata PIDs**: Enter the PID where you want to insert

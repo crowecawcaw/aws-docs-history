@@ -34,6 +34,7 @@ MediaLive supports these types of containers:
   in the output group (except for outputs that are
   part of an audio rendition group). Each output might
   contain these encodes:
+
   - One video encode
   - One video encode with embedded
     captions
@@ -49,6 +50,7 @@ MediaLive supports these types of containers:
   group (except for outputs that are part of an audio
   rendition group). Each output might contain these
   encodes:
+
   - One video encode
   - One video encode with embedded
     captions

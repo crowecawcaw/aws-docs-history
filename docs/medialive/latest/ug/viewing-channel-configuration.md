@@ -13,6 +13,7 @@ details by choosing **Edit**).
 3. To view more details about a channel, choose the name of that channel. The
    **Channel details** page appears.
 4. View configuration information in one of these places:
+
    - For information about the input specification for the channel, choose
      the **Details** tab and look at the **Input
      specifications** pane.

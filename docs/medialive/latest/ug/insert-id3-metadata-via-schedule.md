@@ -56,12 +56,14 @@ described in [Creating a channel from scratch](creating-channel-scratch.md "crea
 2. Complete this step only if you plan to insert segments using the tag option. In
    the output group section, scroll down and expand the **ID3** section.
    Complete the following field:
+
    - **HLS ID3 segment tagging**: Set to
      **ENABLED**.
 
 3. Select the output where you want to include ID3 metadata. Go to
    **Container Settings**, then **PID Settings**.
    Complete the following fields:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
    - **Timed Metadata PIDs**: Enter the PID where you want to
@@ -76,11 +78,13 @@ described in [Creating a channel from scratch](creating-channel-scratch.md "crea
 2. Complete this step only if you plan to insert segments using the tag option. In
    the output group section, scroll down and expand the **ID3** section.
    Complete the following field:
+
    - **HLS ID3 segment tagging**: Set to
      **ENABLED**.
 
 3. Select the output where you want to include ID3 metadata. Set the following
    field:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
 
@@ -94,6 +98,7 @@ need to configure this information.
    metadata.
 2. In the output group section, scroll down and expand the **ID3**
    section. Complete the following field:
+
    - **HLS ID3 segment tagging**: Set to
      **ENABLED**.
 

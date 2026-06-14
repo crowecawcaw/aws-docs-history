@@ -25,6 +25,7 @@ After you create the channel with SRT outputs in listener mode, you must provide
    Make sure that the operators at the downstream systems set up as follows:
 
 - They configure the correct number of connections:
+
   - If the MediaLive channel is a standard channel, they must connect to both destination addresses for redundancy.
   - If the MediaLive channel is a single-pipeline channel, they must connect to the single destination address.
 

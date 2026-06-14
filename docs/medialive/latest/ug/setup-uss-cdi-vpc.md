@@ -11,6 +11,7 @@ channel](plan-redundancy.md "plan-redundancy.md"), you must ensure that the oper
 provides two sources.
 
 1. Provide the operator with this information:
+
    - The IDs of the VPC, two subnets, and the security groups that the
      Amazon VPC user gave you in [step
      1](setup-vpc-cdi-vpc.md "setup-vpc-cdi-vpc.md").
@@ -26,6 +27,7 @@ provides two sources.
 
 2. Make sure that the operator sets up properly for a standard channel. They
    must do the following:
+
    - Set up two output interfaces. Set up one upstream system with one
      output interface in one of the subnets, and set up the other
      upstream system with one output interface in the other subnet. These
@@ -49,6 +51,7 @@ provides two sources.
 - MediaLive will ingest the single source content.
 
 1. Provide the operator with this information:
+
    - The IDs of the VPC, one of the subnets, and all of the security
      groups that the Amazon VPC user gave you.
    - Only the first of the two endpoints (URLs) that MediaLive generated
@@ -61,6 +64,7 @@ provides two sources.
 
 2. Make sure that the operator sets up properly for a single-pipeline
    channel. They must:
+
    - Set up one upstream system.
    - Set up one output interfaces. The interface is the address in one
      of the purple boxes in [the

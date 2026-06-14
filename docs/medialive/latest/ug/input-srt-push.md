@@ -28,6 +28,7 @@ the configuration you specified when you created the input:
      AES 192, or AES 256) and the passphrase secret ARN.
 
 3. Look again at the **Input destinations** section.
+
    - The section must have an **Input security group**
      with a number beside it. This security group controls which IP addresses
      are allowed to push content to this input. If the section doesn't have

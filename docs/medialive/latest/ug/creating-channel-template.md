@@ -63,6 +63,7 @@ needed.
    **Channel and input details** section, in the
    **Channel template** section, do one of the
    following:
+
    - To use a built-in template: For
      **Template**, from the **Channel
      templates** section of the drop-down list, choose a

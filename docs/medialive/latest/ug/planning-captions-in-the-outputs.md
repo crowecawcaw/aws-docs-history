@@ -22,6 +22,7 @@ output media. To determine which output captions are possible given the input fo
 see [Captions supported in MediaLive](supported-captions.md "supported-captions.md").
 
 - Identify the languages for each output format:
+
   - In general, count each language separately.
   - Exception: For embedded passthrough, count all languages as one.
   - Exception: For Teletext passthrough, count all languages as one.

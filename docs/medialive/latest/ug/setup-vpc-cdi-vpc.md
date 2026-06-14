@@ -6,6 +6,7 @@ both the upstream system and MediaLive will use.
 ###### To set up the VPC
 
 1.  Provide the Amazon VPC user with the following guidelines.
+
     - Guideline for the subnets – Request two subnets. You need
       two subnets because a CDI input is always a [standard-class input](class-channel-input.md "class-channel-input.md"), even
       if your channel is a single-pipeline channel. For information about
@@ -27,9 +28,9 @@ both the upstream system and MediaLive will use.
          from the source A, but the Availability Zones of those two
          subnets must be the same as the Availability Zones of source
          A.
-
     - Guideline for the security group – the security groups or
       groups for each subnet must follow these rules:
+
       - The combined inbound rules of the security groups must
         allow inbound traffic from the IP addresses of the upstream
         system that is in that subnet.
@@ -40,6 +41,7 @@ both the upstream system and MediaLive will use.
 
 2.  After the Amazon VPC user has performed the setup, obtain the following
     information:
+
     - The ID of the VPC. For example: `vpc-3f139646`
     - The IDs of the two subnets. For example, one subnet might have
       this ID: `subnet-1122aabb`

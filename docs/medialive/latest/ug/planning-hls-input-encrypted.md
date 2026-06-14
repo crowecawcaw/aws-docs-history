@@ -13,6 +13,7 @@ MediaLive supports the following format for encrypted HLS sources:
   keys.
 - The manifest includes the `#EXT-X-KEY` tag with these
   attributes:
+
   - The `METHOD` attribute specifies AES-128.
   - The URI specifies the license server for the encryption key.
   - The IV is blank or specifies the initialization vector (IV) to use.

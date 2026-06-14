@@ -64,6 +64,7 @@ These paths are constructed as follows:
   starting at 00001.
 - MediaLive inserts the dot before the extension.
 - MediaLive selects the extension:
+
   - For manifest files – always`.m3u8`
   - For media files – .ts for files in a transport stream,
     or .mp4 for files in an fMP4 container

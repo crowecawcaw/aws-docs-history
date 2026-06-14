@@ -7,6 +7,7 @@ destination for the output of the HLS output group
 ###### To arrange setup of the destination
 
 1. Decide if you need two destinations for the output:
+
    - You need two destinations in a [standard channel](plan-redundancy.md "plan-redundancy.md").
    - You need one destination in a single-pipeline channel.
 

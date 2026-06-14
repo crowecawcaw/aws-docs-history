@@ -19,6 +19,7 @@ group.
 
 2. If the output group allows more than one audio encode, decide how many you want. These
    guidelines apply:
+
    - Each different combination of output codec, coding mode, and language is one
      encode.
 
@@ -30,6 +31,7 @@ group.
 
    For example, you could choose to include Spanish in Dolby 5.1 and in AAC
    2.0.
+
    - There is no requirement for the count of encodes to be the same for all languages.
      For example, you could create two encodes for Spanish, and only one encode for the
      other languages.

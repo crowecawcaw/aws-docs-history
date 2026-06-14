@@ -6,6 +6,7 @@ Amazon S3 operator must agree about the bucket to use.
 ###### To arrange setup of the destination
 
 1. Decide if you need two destinations for the output:
+
    - You need two destinations in a [standard channel](plan-redundancy.md "plan-redundancy.md").
    - You need one destination in a single-pipeline channel.
 

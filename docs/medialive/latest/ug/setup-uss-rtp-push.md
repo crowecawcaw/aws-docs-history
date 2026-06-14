@@ -8,6 +8,7 @@ locations in MediaLive.
 Follow this procedure if the MediaLive channel is a [standard channel](plan-redundancy.md "plan-redundancy.md").
 
 1.  Provide the operator with this information:
+
     - The two endpoints (URLs) that MediaLive generated when you created the
       RTP input. These endpoints are the addresses in the blue boxes in
       [the diagram after this
@@ -19,6 +20,7 @@ Follow this procedure if the MediaLive channel is a [standard channel](plan-redu
 
 2.  Make sure that the operator sets up properly for a standard channel. They
     must:
+
     - Deliver two sources that are identical in terms of video
       resolution and bitrate.
     - Make sure that the sources appear on the agreed IP addresses on
@@ -47,6 +49,7 @@ Follow this procedure if the MediaLive channel is a [standard channel](plan-redu
 Follow this procedure if the MediaLive channel is a [single-pipeline channel](plan-redundancy.md "plan-redundancy.md").
 
 1. Provide the operator with this information:
+
    - Only the first of the two endpoints (URLs) that MediaLive generated
      when you created the RTP input. This endpoint is one of the
      addresses in the blue boxes in [the diagram after this procedure](setup-result-rtp-push.md "setup-result-rtp-push.md"). The URL includes port
@@ -56,6 +59,7 @@ Follow this procedure if the MediaLive channel is a [single-pipeline channel](pl
 
 2. Make sure that the operator sets up properly for a single-pipeline
    channel. They must:
+
    - Make sure that the source appears on the agreed IP addresses on
      the public network. For example:
 

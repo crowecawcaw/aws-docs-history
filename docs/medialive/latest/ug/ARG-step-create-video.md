@@ -18,6 +18,7 @@ output group the Channel page in the console:
    outputs**, choose **Add output**. Choose
    **Settings** to display the **Outputs** page for that output.
 2. In the **Output** page, set up as follows:
+
    - In **Stream settings**, choose **Audio
      1** and choose **Remove audio**. The
      output now contains only a video encode. In an output group that
@@ -27,6 +28,7 @@ output group the Channel page in the console:
 
 3. Complete the **Output settings** section as
    follows:
+
    - For **HLS settings**, choose **Standard
      hls** or **Fmp4**, as
      appropriate.

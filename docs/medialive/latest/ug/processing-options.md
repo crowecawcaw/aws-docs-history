@@ -18,6 +18,7 @@ Microsoft Smooth outputs:
 
 - You can set up HLS outputs so that their manifests are decorated
   according to one of the following styles:
+
   - Adobe
   - Elemental
   - SCTE 35 enhanced

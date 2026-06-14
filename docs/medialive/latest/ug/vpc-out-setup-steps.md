@@ -17,6 +17,7 @@ channel.
     pane.
 2.  Complete the **Output delivery**
     section:
+
     - **Delivery method** – Choose
       **VPC**.
     - **VPC settings** – Choose **Select

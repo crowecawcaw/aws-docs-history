@@ -10,6 +10,7 @@ Video encode sharing isn't compatible with per-output image insertion. To undo s
 follow this procedure:
 
 1. Identify the encodes that you have set up for sharing:
+
    - In the **Create channel** or **Edit channel**
      page for the channel, find one of the output groups where you plan to insert
      per-output images. Select the first video output, then in **Stream
@@ -20,6 +21,7 @@ follow this procedure:
      they are shared.
 
 2. If you plan different images for these outputs, you must stop sharing them:
+
    - Stop sharing the video encode in one of the outputs, for example in output group
      A. For instructions, see [To stop sharing an encode](create-video-share.md#create-video-stop-sharing "create-video-share.md#create-video-stop-sharing"). The video encode
      is now used only in output group B.

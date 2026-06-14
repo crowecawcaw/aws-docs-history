@@ -31,6 +31,7 @@ Use MediaLive to perform these steps.
    that you want. If you can't find it, follow the troubleshooting tips in [Viewing your Link devices](device-view.md "device-view.md").
 3. Get set up in the correct Region. The device and the flow must be in the same
    Region. Follow these steps to get aligned:
+
    - Decide on the Region where you will work.
 
    - If you want to work in a different Region, [transfer the device](device-transfer-region.md "device-transfer-region.md") now. Then switch the
@@ -81,6 +82,7 @@ Use MediaLive to set up the device.
 
 1. Ask the MediaConnect user in your organization to create a flow. Make sure of the
    following:
+
    - The flow must be in the Region that you identified.
    - The flow must use the protocol described as Zixi push for a Link device, and
      must be set up for a source that is encrypted with AES 128 with a static key. For
@@ -89,6 +91,7 @@ Use MediaLive to set up the device.
      guide](../../../mediaconnect/latest/ug/flows-create-standard-source.md "../../../mediaconnect/latest/ug/flows-create-standard-source.md")
 
 2. Obtain the following information from the MediaConnect user:
+
    - The ARN for the flow.
    - The name of the source for the flow.
    - The ARN for the secret. This secret contains an encryption key. The device will
@@ -96,6 +99,7 @@ Use MediaLive to set up the device.
      decrypt the content it receives.
 
 3. Obtain the following information from your IAM user:
+
    - The ARN for the role for MediaLive to use to access the flow and the secret. For
      more information, see [Setting up MediaLive as a trusted entity](device-iam-for-medialive.md "device-iam-for-medialive.md").
 

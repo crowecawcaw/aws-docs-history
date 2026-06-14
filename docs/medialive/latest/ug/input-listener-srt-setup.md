@@ -13,6 +13,7 @@ created an input security group, you can create the SRT Listener input.
    input**. Then choose **SRT Listener**.
 4. In the **Input class** section, choose the class for this
    input:
+
    - STANDARD_INPUT: MediaLive allocates two IP addresses for redundancy.
    - SINGLE_INPUT: MediaLive allocates one IP address.
 
@@ -22,6 +23,7 @@ created an input security group, you can create the SRT Listener input.
    input.
 6. In the **SRT Listener settings** section, complete the
    following fields:
+
    - **Minimum latency**: Enter the latency value in
      milliseconds that you agreed on with the upstream system. The valid
      range is 120 to 15000 milliseconds. SRT will choose the maximum of
@@ -31,6 +33,7 @@ created an input security group, you can create the SRT Listener input.
 
 7. Complete the **Decryption** fields. Encryption is required
    for SRT Listener inputs:
+
    - **Algorithm**: Select the encryption algorithm that
      you agreed on with the upstream system: AES 128, AES 192, or AES 256.
      Encryption always uses AES, but the algorithm length can be negotiated

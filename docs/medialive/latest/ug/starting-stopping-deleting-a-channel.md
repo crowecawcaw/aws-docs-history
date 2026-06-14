@@ -17,6 +17,7 @@ it is already running and attempts to recover from a failure.
 1. Open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/ "https://console.aws.amazon.com/medialive/").
 2. Identify the input
    that you want to start the channel with. Make sure this input is ready:
+
    - If you are implementing
      [pipeline
      locking](pipeline-lock.md "pipeline-lock.md")
@@ -38,6 +39,7 @@ it is already running and attempts to recover from a failure.
    starts.
 5. Choose **Start**. The channel state changes to one of the
    following:
+
    - **Starting**
    - **Running** (encoding on the pipeline or pipelines)
 

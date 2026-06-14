@@ -20,6 +20,7 @@ output group the Channel page in the console:
     outputs**, choose **Add output**. Choose
     **Settings** to display the **Outputs** page for that output.
 2.  In the **Output** page, set up as follows:
+
     - In **Stream settings**, choose **Video
       1** and choose **Remove video**. The
       output now contains only an audio encode. In an output group that

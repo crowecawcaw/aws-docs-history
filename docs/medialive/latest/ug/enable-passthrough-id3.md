@@ -33,6 +33,7 @@ You must configure each output where you want the ID3 metadata to appear.
 2. Select the output where you want to include ID3 metadata. Select **Container
    Settings**, then **PID Settings**.
 3. Complete the following fields:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
    - **Timed Metadata PIDs**: Enter the PID where you want to insert
@@ -47,6 +48,7 @@ You must configure each output group where you want the ID3 metadata to appear.
    page and select the CMAF Ingest output group that you want to set up.
 2. Set **ID3 Behavior**: Select **ENABLED**.
 3. Go to **Additional Settings**. Set the following field:
+
    - **Timed Metadata Behavior**: Set to
      **ENABLED**.
 
@@ -61,6 +63,7 @@ appear.
 2. Select the output where you want to include ID3 metadata. Go to **Container
    Settings**, then **PID Settings**.
 3. Complete the following fields:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
    - **Timed Metadata PIDs**: Enter the PID where you want to insert
@@ -77,6 +80,7 @@ included in the emsg event.
    page, then select the **HLS** output group.
 2. Select the output where you want to include ID3 metadata. Set the following
    field:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
 
@@ -94,6 +98,7 @@ You must configure each output where you want the ID3 metadata to appear.
 2. Select the output where you want to include ID3 metadata. Go to **Network
    Settings**, then **PID Settings**.
 3. Complete the following fields:
+
    - **Timed Metadata Behavior**: Select
      **PASSTHROUGH**.
    - **Timed Metadata PIDs**: Enter the PID where you want to insert

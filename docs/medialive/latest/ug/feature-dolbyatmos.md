@@ -29,6 +29,7 @@ The input must have these characteristics:
   that
   MediaLive supports and that has these
   characteristics:
+
   - Up to 16 channels in the following order:
 
   `L R C LFE Ls Rs Lb Rb Tfl Tfr Tsl Tsr Tbl Tbr Lw

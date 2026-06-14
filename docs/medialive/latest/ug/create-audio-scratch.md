@@ -14,6 +14,7 @@
    earlier.
 6. Complete other fields as appropriate. For details about a field, choose
    the **Info** link next to the field.
+
    - The fields in the **Codec settings** section are
      different for each type of codec.
    - The fields in the **Remix settings** section are

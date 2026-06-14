@@ -11,6 +11,7 @@ input.
    **Inputs** page, choose **Create
    input**.
 4. Complete the **Input details** section:
+
    - **Input** name – enter a name.
    - **Input type** – choose
      **RTP**.

@@ -22,6 +22,7 @@ operator must configure their SRT caller to connect to these addresses.
 Make sure that the operator at the upstream system sets up as follows:
 
 - They set up to deliver the correct number of sources:
+
   - If the MediaLive channel is a standard channel, they must push to both
     destination addresses. Make sure that the two source contents are
     identical in terms of video resolution and bitrate.

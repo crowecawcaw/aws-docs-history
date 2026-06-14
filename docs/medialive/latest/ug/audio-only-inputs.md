@@ -14,6 +14,7 @@ Each source must be one of these categories of source.
 
 - A source that contains _only audio_.
   In this case, the source must be one of the following:
+
   - A transport stream in a MediaConnect input
   - A transport stream in an RTP input
 

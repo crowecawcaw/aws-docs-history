@@ -29,6 +29,7 @@ avail.
 **Tag contents**
 
 - CUE:DURATION contains the following:
+
   - duration – Duration in fractional
     seconds
   - id – An identifier, unique among all ad
@@ -99,6 +100,7 @@ Tag contents
   original SCTE35 message.
 - 1 CUE-OUT per ad avail.
 - CUE-OUT-CONT containing the following:
+
   - The elapsed time of the avail.
   - The duration declared in the original SCTE35
     message.

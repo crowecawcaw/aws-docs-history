@@ -13,6 +13,7 @@ as described in [Creating a channel from scratch](creating-channel-scratch.md "c
     configuration**.
 2.  In **Source**, choose the option for initializing the
     timecode in the output:
+
     - **EMBEDDED** – Use the timecode embedded in the
       source video.
 
@@ -33,7 +34,6 @@ as described in [Creating a channel from scratch](creating-channel-scratch.md "c
         + MPEG-2 – A timecode inserted in each GOP header, in
          accordance with section 6.2.2.6 of ISO/IEC 13818-2-2000
          (R2006)
-
     - **SYSTEMCLOCK**– Use the UTC time.
     - **ZEROBASED** – Use 00:00:00:00.
 

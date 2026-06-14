@@ -4,6 +4,7 @@ You and the operator of the downstream system must agree about the destination f
 output of the Microsoft Smooth output group.
 
 1. Decide if you need two destinations for the output:
+
    - You need two destinations in a [standard channel](plan-redundancy.md "plan-redundancy.md").
    - You need one destination in a single-pipeline channel.
 

@@ -21,6 +21,7 @@ each output group.
    in mind that you can create multiple output encodes from the single video source that
    MediaLive ingests.
 3. Identify the codec or codecs for the video encodes.
+
    - For most types of output groups, the downstream system dictates the codec for each
      video encode, so you obtained this information when you identified the output encodes.
    - For an Archive output group, you decide which codec suits your purposes.

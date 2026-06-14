@@ -7,6 +7,7 @@ paths. If you've already designed the paths, go to [Complete the fields on the c
 
 1. Collect the information that you [previously obtained](origin-server-http.md "origin-server-http.md") from the
    operator of the downstream system:
+
    - The connection type for the downstream system –
      Akamai, basic PUT, or WebDAV.
    - The settings for connection fields, if the downstream
@@ -28,6 +29,7 @@ paths. If you've already designed the paths, go to [Complete the fields on the c
    redundant manifests. You should also have determined if the
    downstream system requires custom manifests. Given these two
    decisions, read the appropriate section:
+
    - If you are implementing redundant manifests, see [Creating redundant HLS manifests](hls-redundant-manifests.md "hls-redundant-manifests.md"), then return to this
      section.
    - If you are implementing custom paths for manifests, see
@@ -87,6 +89,7 @@ The protocol is always HTTP or HTTPS.
   starting at 00001.
 - MediaLive inserts the dot before the extension.
 - MediaLive selects the extension:
+
   - For manifest files – always`.m3u8`
   - For media files – `.ts` for files
     in a transport stream, and `.mp4` for

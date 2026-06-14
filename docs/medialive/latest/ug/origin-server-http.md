@@ -30,6 +30,7 @@ setup.
    **HLS**. Choose the group, then in **HLS settings**, open **CDN
    settings**.
 3. Decide if you need two destinations for the output:
+
    - You need two destinations in a [standard channel](plan-redundancy.md "plan-redundancy.md").
    - You need one destination in a single-pipeline channel.
 
@@ -97,6 +98,7 @@ has special requirements.
     `https://203.0.113.55/sports/backup/`
 
 12. Make a note of the information you have collected:
+
     - The connection type for the downstream system – Akamai, PUT,
       or WebDAV.
     - The settings for connection fields, if the downstream system has

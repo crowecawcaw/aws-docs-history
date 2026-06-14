@@ -17,6 +17,7 @@ MediaLive channel.
    **Enabled**.
 4. In **Avail blanking image**, choose the appropriate
    value:
+
    - Disable: To use a plain black image for blanking.
    - Avail blanking image: To use a special image for blanking. In the
      **URL** field, type the path to a file in an S3

@@ -29,6 +29,7 @@ input**. 6. Complete the **Input details** section:
 7.  In the **Network mode** section, choose
     **VPC**.
 8.  Complete the **VPC settings** section:
+
     - Choose **Select subnets and security
       groups**.
     - For **Subnets**, choose one of the subnets
@@ -69,6 +70,7 @@ input**. 6. Complete the **Input details** section:
     for MediaLive to use with this input. For more information, see [IAM role and ARN](setup-input-rtp-vpc.md#rtp-push-role-and-remember-arn "setup-input-rtp-vpc.md#rtp-push-role-and-remember-arn").
 10. In the **Input class** section, choose the class for
     this input:
+
     - STANDARD
     - SINGLE-PIPELINE
 
@@ -184,6 +186,7 @@ have to create one yourself and then choose it.
   someone else has already created this role (only one person needs to
   create it for all users in your AWS account), look at
   **Create role from template**:
+
   - If this option is grayed out, this task has been done. In
     that case, choose **Use existing role**,
     and then choose **MediaLiveAccessRole**

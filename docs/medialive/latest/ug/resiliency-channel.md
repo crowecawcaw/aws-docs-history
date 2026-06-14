@@ -23,5 +23,6 @@ For more information, see [Handling loss of video input](feature-input-loss.md "
   the class of the inputs
   attached to the channel and by the class of the channel. For more information
   see the following:
+
   - [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md")
   - [Choosing the channel class and input class](class-channel-input.md "class-channel-input.md")

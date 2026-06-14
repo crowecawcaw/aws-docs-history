@@ -13,12 +13,14 @@ can create the SRT input.
    input**. Then choose **SRT caller**.
 4. In the **Input class** section, choose the class for this
    input:
+
    - STANDARD_INPUT
    - SINGLE_INPUT
 
 5. In the **Source A** and **Source B**
    sections, enter the information that you obtained.
 6. Complete the **Decryption** fields, if applicable:
+
    - **Enabled**: Check the box. More fields appear.
    - Select the appropriate algorithm.
    - If the list of ARNs is populated, select the ARN of the passphrase

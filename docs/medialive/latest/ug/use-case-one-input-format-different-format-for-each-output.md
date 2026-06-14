@@ -30,9 +30,11 @@ To set up for this use case, follow this procedure.
     one captions selector for each language.
 
 3.  Create a Microsoft Smooth output group and configure it as follows:
+
     - Create one output and set up the video and audio.
     - Create a second output that contains one captions encode and no video or audio
       encodes, and with the following settings:
+
       - **Captions selector name**: Captions Selector 1.
       - **Captions settings**: TTML.
       - **Language code** and **Language
@@ -41,6 +43,7 @@ To set up for this use case, follow this procedure.
 
     - Create a third output that contains one captions encode and no video or audio
       encodes, with the following settings:
+
       - **Captions selector name**: Captions Selector 2.
       - **Captions settings**: TTML.
       - **Language code** and **Language
@@ -48,9 +51,11 @@ To set up for this use case, follow this procedure.
       - Other fields: same as the second output (the Czech captions).
 
 4.  Create an HLS output group and configure it as follows:
+
     - Create one output and set up the video and audio.
     - Create a second output that contains one captions encode and no video or audio
       encodes, and with the following settings:
+
       - **Captions selector name**: Captions Selector 1.
       - **Captions settings**: WebVTT.
       - **Language code** and **Language
@@ -59,6 +64,7 @@ To set up for this use case, follow this procedure.
 
     - Create a third captions output that contains one captions encode and no video
       or audio encodes, and with the following settings:
+
       - **Captions selector name**: Captions Selector 2.
       - **Captions settings**: WebVTT
       - **Language code** and **Language

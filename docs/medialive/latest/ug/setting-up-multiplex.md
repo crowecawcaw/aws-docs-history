@@ -40,6 +40,7 @@ must create the inputs before you create each channel.
 - Inputs for the channels that are used in a multiplex can be MP4 inputs or MediaConnect
   inputs.
 - For MediaConnect inputs, make sure that you follow these rules:
+
   - The flows in the MediaConnect inputs must use the region and zones that you identified
     in step 1.
   - All the MediaConnect inputs must use these same two zones.

@@ -60,6 +60,7 @@ the **Stream settings** section, and choose the
    settings**. The **Smart crop** section
    automatically expands to show a list of output groups and their video
    outputs.
+
    - Video outputs that are set up for smart crop (smart crop is
      enabled) appear with the slider enabled. The output is _smart-crop-enabled_
    - Output groups that have _all_

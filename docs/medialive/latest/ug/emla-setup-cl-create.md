@@ -5,6 +5,7 @@ Create the clusters after you have created the networks.
 1. In the navigation bar, choose MediaLive Anywhere, then choose **Cluster**. On
    the **Cluster** page, choose **Create cluster**.
 2. Complete the fields:
+
    - **Name**: We recommend that you assign a name that hints at the
      types of nodes in the cluster.
    - **Instance role ARN**: You must choose an instance role for

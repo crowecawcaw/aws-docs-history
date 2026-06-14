@@ -8,6 +8,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 2. In the **Add output group** section, choose
    **MediaConnect Router Output Group**, and then choose
    **Confirm**. More sections appear:
+
    - **MediaConnect Router Output Group** destination
      – This section contains fields for the destination of the outputs.
      In the Output Destinations section, a **MediaConnect Router
@@ -44,6 +45,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
    output. Each output has two sections: **Output settings**
    and **Stream settings**.
 3. Complete **Output settings**:
+
    - **Output name**: Change the randomly generated
      name to a meaningful name. This name is internal to MediaLive; it
      doesn't appear in the output.
@@ -59,6 +61,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
    fields for the output encodes (the video, audio, and captions) to create in
    the output. For information about creating encodes, see the following
    sections:
+
    - [Set up the video encode](creating-a-channel-step6.md "creating-a-channel-step6.md")
    - [Set up the audio encodes](creating-a-channel-step7.md "creating-a-channel-step7.md")
    - [Set up the captions encodes](creating-a-channel-step8.md "creating-a-channel-step8.md")

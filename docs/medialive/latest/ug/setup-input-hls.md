@@ -11,17 +11,20 @@ HLS input.
    **Inputs** page, choose **Create
    input**.
 4. Complete the **Input details** section:
+
    - **Input** name – enter a name.
    - **Input type** – choose
      **HLS**.
 
 5. In the **Input class** section, choose the class for this
    input:
+
    - STANDARD_INPUT
    - SINGLE_INPUT
 
 6. In the **Input sources** section, enter the URLs you
    previously obtained:
+
    - If the input is a standard-class input, complete both fields, to
      provide two URLs.
    - If the input is a single-class input, complete the first field

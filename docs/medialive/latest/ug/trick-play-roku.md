@@ -64,6 +64,7 @@ to **Frame Capture**.
 3. In **Stream settings**, choose
    **Video** and set up the video
    fields, including:
+
    - **Width** and
      **Height** – Contact
      your downstream system to obtain the correct
@@ -98,6 +99,7 @@ to **Frame Capture**.
 3. In **Codec settings**, choose
    **Frame capture**.
 4. Set up the other video fields, including:
+
    - **Width** and
      **Height** – Contact
      your downstream system to obtain the correct

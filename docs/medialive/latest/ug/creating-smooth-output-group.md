@@ -12,6 +12,7 @@ group.
 2. In the **Add output group** section, choose
    **Microsoft Smooth**, and then choose
    **Confirm**. More sections appear:
+
    - **Microsoft Smooth group destination** –
      This section contains fields for the [destination of the
      outputs](smooth-destinations.md "smooth-destinations.md").
@@ -32,6 +33,7 @@ group.
 4. In **Microsoft Smooth outputs**, choose the first
    **Settings** link to view the sections for the first
    output:
+
    - **Output settings** – This section contains
      fields for the [output
      destination](smooth-destinations.md "smooth-destinations.md"), and the [container](smooth-container.md "smooth-container.md").
@@ -40,6 +42,7 @@ group.
      streams](smooth-streams-section.md "smooth-streams-section.md") (the video, audio, and captions).
 
 5. (Optional) Enter names for the output group and the outputs:
+
    - In **Microsoft Smooth settings**, for
      **Name**, enter a name for the output group.
      This name is internal to MediaLive; it doesn't appear in the output. For

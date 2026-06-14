@@ -2,6 +2,7 @@
 
 1. Obtain the following information from the operator of the upstream
    system:
+
    - The IP address and port of the content, including the stream if the
      upstream system uses that. For example,
      `192.0.2.120:7001` with stream

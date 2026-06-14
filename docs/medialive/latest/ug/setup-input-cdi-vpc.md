@@ -22,11 +22,13 @@ inputs](input-create-cdi-partners.md "input-create-cdi-partners.md") instead. )
    **Inputs** page, choose **Create
    input**.
 3. Complete the **Input details** section:
+
    - **Input** name – enter a name.
    - **Input type** – choose **AWS
      CDI**.
 
 4. Complete the **VPC settings** section:
+
    - Choose **Select subnets and security
      groups**.
    - For **Subnets**, choose one of the subnets
@@ -138,6 +140,7 @@ have to create one yourself and then choose it.
   someone else has already created this role (only one person needs to
   create it for all users in your AWS account), look at
   **Create role from template**:
+
   - If this option is grayed out, this task has been done. In
     that case, choose **Use existing role**,
     and then choose **MediaLiveAccessRole**

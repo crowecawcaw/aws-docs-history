@@ -23,6 +23,7 @@ description of the differences.
 ###### To arrange setup of the MediaPackage v2 destination
 
 1. Ask the MediaPackage user to create MediaPackage v2 channels in the required regions. Obtain the following information for each destination:
+
    - AWS region name (for example, `us-east-1` or `eu-west-1`)
    - MediaPackage channel group name
    - MediaPackage channel name

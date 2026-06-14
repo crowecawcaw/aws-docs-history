@@ -41,6 +41,7 @@ The following rules apply to the contents of the files:
   file for each conversion from HDR10. Even if you one file for 1000 nits and one for
   4000 nits (for example), MediaLive uses only the first file it encounters. Therefore the
   following guidelines apply:
+
   - You should make sure that all the HDR10 content in all the inputs in one
     channel have the same maximum luminance. If a source has a different maximum
     luminance, MediaLive will convert the content, but the outputs will have sub-optimal

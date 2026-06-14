@@ -13,6 +13,7 @@ that information so that if the channel fails, MediaLive can recover and start i
 appropriate input. Therefore, this rule applies:
 
 - You can't delete the most recent fixed or immediate input switch. The term _most recent_ means one of the following:
+
   - The input is the input currently being ingested. So the most recent input and the active
     input are the same.
   - The input is the fixed or immediate input switch that most recently ingested. The active

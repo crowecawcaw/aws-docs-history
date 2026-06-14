@@ -13,6 +13,7 @@ To set up for this use case, follow this procedure.
    attachments**, choose the input.
 2. For **General input settings**, choose **Add captions
    selector** twice to create the following captions selectors:
+
    - Captions selector 1: for Embedded English.
    - Captions Selector 2: for Embedded Spanish.
 
@@ -26,6 +27,7 @@ To set up for this use case, follow this procedure.
 7. Create a fourth output that contains one audio encode and no video encode.
 8. Create a fifth output that contains one captions encode and no video or audio
    encodes, and with the following settings for the captions encode:
+
    - **Captions selector name**: Captions selector 1.
    - **Captions settings**: TTML.
    - **Language code** and **Language
@@ -33,6 +35,7 @@ To set up for this use case, follow this procedure.
 
 9. Create a sixth output that contains one captions encode and no video or audio
    encodes, and with the following settings for the captions encode:
+
    - **Captions selector name**: Captions selector 2.
    - **Captions settings**: TTML.
    - **Language code** and **Language

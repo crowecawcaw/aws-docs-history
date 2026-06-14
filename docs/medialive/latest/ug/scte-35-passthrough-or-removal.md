@@ -55,6 +55,7 @@ message for MediaLive Archive outputs.
 2. Choose that output.
 3. In **PID settings**, complete the following
    fields:
+
    - **SCTE 35 control**: Set to
      **Passthrough**.
    - **SCTE 35 PID**: Leave the default PID or enter
@@ -80,6 +81,7 @@ message for MediaLive CMAF Ingest outputs.
    output group by its name. The details appear in the right panel.
 2. In **CMAF Ingest settings** section, set **SCTE35
    type** to the appropriate value:
+
    - **NONE**: Omits the SCTE 35 messages from the
      output group.
    - **SCTE_35_WITHOUT_SEGMENTATION**: Includes
@@ -101,6 +103,7 @@ message for MediaLive HLS outputs.
 2. Choose that output.
 3. In **PID settings**, complete the following
    fields:
+
    - **SCTE 35 behavior**: Set to
      **Passthrough**.
    - **SCTE 35 PID**: Leave the default PID or enter
@@ -124,6 +127,7 @@ message for MediaLive SRT caller outputs.
 2. Choose that output.
 3. In **PID settings**, complete the following
    fields:
+
    - **SCTE 35 control**: Set to
      **Passthrough**.
    - **SCTE 35 PID**: Leave the default PID or enter
@@ -144,6 +148,7 @@ message for MediaLive UDP outputs.
 2. Choose that output.
 3. In **PID settings**, complete the following
    fields:
+
    - **SCTE 35 control**: Set to
      **Passthrough**.
    - **SCTE 35 PID**: Leave the default PID or enter

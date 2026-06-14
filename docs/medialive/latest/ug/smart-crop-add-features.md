@@ -19,6 +19,7 @@ edit the channel. Make changes as described in the following table.
 | Smart Subtitles | Add `SmartSubtitleSourceSettings` caption<br>selectors to input attachments, create caption descriptions<br>referencing those selectors with a TTML or WebVTT destination,<br>and add a captions-only output, as described in [Setting up Elemental Inference features for the first time](smart-crop-procedure-cli-create.md "smart-crop-procedure-cli-create.md").                                      |
 
 3. When you save the channel, MediaLive performs the following actions:
+
    - If you are adding smart crop for the first time, MediaLive updates the
      feed in Elemental Inference to create a crop output in the feed.
 

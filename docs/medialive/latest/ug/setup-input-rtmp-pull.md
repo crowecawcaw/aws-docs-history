@@ -11,12 +11,14 @@ HLS input.
     **Inputs** page, choose **Create
     input**.
 4.  Complete the **Input details** section:
+
     - **Input** name – enter a name.
     - **Input type** – choose **RTMP
       (pull)**.
 
 5.  In the **Input class** section, choose the class for this
     input:
+
     - STANDARD_INPUT
     - SINGLE_INPUT
 

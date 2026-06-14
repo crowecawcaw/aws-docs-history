@@ -8,6 +8,7 @@ This option applies only in the following scenario:
 
 - One or more inputs in your channel includes Nielsen watermarks in the audio.
 - Your channel has at least one output group that can include the Nielsen ID3 tag:
+
   - Archive output group
   - CMAF Ingest output group
   - HLS output group. The output must be a standard output (not an audio-only output)For
@@ -38,6 +39,7 @@ metadata](id3-metadata.md "id3-metadata.md") in outputs.
    settings** section, in the **Nielsen Configuration** pane,
    choose **Enable Nielsen configuration**.
 2. Set the fields as follows:
+
    - **Nielsen PCM to ID3 tagging**: Choose
      **ENABLED**.
    - **Distributor ID**: Optionally, enter the distributor ID that you

@@ -11,6 +11,7 @@ determined that you want to include an RTMP output group.
    section, choose **RTMP**, and then
    choose **Confirm**. More sections
    appear:
+
    - **RTMP settings** –
      This section contains fields for the [connection
      configuration](rtmp-connection.md "rtmp-connection.md"), for [resiliency](rtmp-other.md "rtmp-other.md"),
@@ -24,6 +25,7 @@ determined that you want to include an RTMP output group.
 3. In **RTMP outputs**,
    choose the **Settings**
    link to view the sections for the output:
+
    - **RTMP destination**
      – This section contains fields for the
      [output
@@ -39,6 +41,7 @@ determined that you want to include an RTMP output group.
 
 4. (Optional) Enter names for the output group and
    the output:
+
    - In **RTMP settings**, for
      **Name**, enter a name
      for the output group. This name is internal

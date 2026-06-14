@@ -6,6 +6,7 @@ paths. If you've already designed the paths, go to [Complete the fields on the c
 ###### To design the path
 
 1. Collect the information you [previously obtained](origin-server-hls-emp.md "origin-server-hls-emp.md") from the MediaPackage user:
+
    - The two URLs (input endpoints is the MediaPackage terminology)
      for the channel. See the information after this procedure.
    - If you are using standard MediaPackage, obtain the user name and

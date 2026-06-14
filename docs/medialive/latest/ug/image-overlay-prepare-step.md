@@ -10,6 +10,7 @@ either before you start the channel, or while the channel is running.
     several instances of one image, each in a different size. For more information, see the
     guidelines after this procedure.
 2.  Create files with the following characteristics:
+
     - 32-bit bmp, png, or tga format
 
     - If you use a graphics program that outputs channels, set up to output the alpha
@@ -50,6 +51,7 @@ Follow these guidelines:
   and resize it when you prepare the insert action. MediaLive resizes the image before
   overlaying it on the video. Keep in mind that resizing might decrease the quality.
 - If the channel has sources with different resolutions, you have two options:
+
   - You can optimize the image for one source.
   - Or you can create multiple versions of the same file, with each file in a
     different size. When you create an action to switch to a different input (with a
@@ -62,7 +64,7 @@ Follow these guidelines:
 
 Keep in mind that with the per-output insertion option, MediaLive inserts the image on the
 output video frame _after_ it sets the output video
-resolution. This means that the image will be resized with the output video.
+resolution. This means that the image will not be resized with the output video.
 
 Follow these guidelines:
 

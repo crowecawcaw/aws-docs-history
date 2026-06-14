@@ -8,6 +8,7 @@ delivery. With caller mode, MediaLive is the caller and the sender. The
 downstream system is the listener and the receiver.
 
 1. Decide if you need two destinations for the output:
+
    - If the MediaLive channel is a [standard
      channel](plan-redundancy.md "plan-redundancy.md"), you need two destinations.
    - If the MediaLive channel is a single-pipeline channel, you need one
@@ -28,6 +29,7 @@ following encryption details:
      Unicode characters, which means that spaces are allowed.
 
 4. Discuss the following with the operator of the downstream system:
+
    - Tell the downstream system about the latency (in milliseconds) that
      you plan to configure into MediaLive for packet loss and recovery. Packet
      recovery is a key feature of SRT. The downstream destination

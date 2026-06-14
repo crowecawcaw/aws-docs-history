@@ -35,6 +35,7 @@ Follow this procedure if you will run the channel in the AWS Cloud, not in a
 [MediaLive Anywhere cluster](setup-emla.md "setup-emla.md").
 
 1. Find the following codec, resolution, and bitrate:
+
    - Find the most resource-intensive codec among all the inputs.
      The codecs, from least to most intensive, are MPEG-2, then AVC,
      then HEVC. Make a note of the codec. The input it appears in

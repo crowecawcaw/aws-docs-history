@@ -19,10 +19,12 @@ When you know what your downstream systems are, return to this section.
 ###### To identify the output group
 
 1. Obtain the following information from your downstream system.
+
    - The required output formats. For example, HLS.
    - The application protocol for each. For example, HTTP.
 
 2. Decide on the delivery mode for your outputs.
+
    - You might have an output that is on a server that is on your EC2 instance in your
      VPC. Or you might have an output that is in Amazon S3. If one or both of these situations
      apply, you might want to set up for delivery via your VPC. For more information, see

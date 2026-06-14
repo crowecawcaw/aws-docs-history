@@ -10,6 +10,7 @@ After you have created the input security group, you can create the RTMP push in
 4. On the **Inputs** page, choose **Create
    input**.
 5. Complete the **Input details** section:
+
    - **Input** name – enter a name.
    - **Input type** – choose **RTMP
      (push)**.

@@ -8,11 +8,13 @@ After you have completed the prerequisites and coordinated with the downstream s
 4. Navigate to the **Output groups** section and choose **Add**.
 5. In the **Add output group** section, choose **SRT**, and then choose **Confirm**.
 6. In the **SRT settings** section, complete the fields:
+
    - **Name**: Enter a name for the output group.
    - **Input loss action**: Choose a value. For details, see [Handling loss of video input](feature-input-loss.md "feature-input-loss.md").
 
 7. In the **SRT outputs** section, choose the **Settings** link for the output.
 8. In the **Destinations** section, configure the listener mode settings:
+
    - **Connection mode**: Select **LISTENER**.
    - **Listener port**: Enter the port number that MediaLive will listen on. The valid range is 5000 to 5200.
 

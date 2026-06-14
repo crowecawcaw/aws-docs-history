@@ -19,6 +19,7 @@ To set up for this use case, follow this procedure.
 4. Create one output and set up the video and audio.
 5. In this output, choose **Add captions** to create a captions
    encode.
+
    - **Captions selector name**: Captions selector 1.
    - **Captions settings**: DVB-Sub.
    - **Language code** and **Language

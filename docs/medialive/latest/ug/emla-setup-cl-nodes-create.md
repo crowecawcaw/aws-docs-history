@@ -27,6 +27,7 @@ version.
    node**.
 3. In the **Create node** page, complete the following fields. The
    script uses the values that you enter here.
+
    - **Name**: The name that you want to permanently assign to
      this node.
    - **Node role**: Choose **Active** or
@@ -52,6 +53,7 @@ name that must be unique in the cluster of nodes.
 1. Start an SSH session on the node.
 2. At the prompt, paste the node registration script for this node and press
    **Enter**. The script performs the following actions:
+
    - It binds the node identity (that you specified when you created the node) to
      this node hardware.
    - It then activates the node hardware for use with MediaLive Anywhere. This activation takes

@@ -6,6 +6,7 @@ schedule:
 - In a single-input channel (a channel that doesn't
   involve input switching), you can delete actions as
   follows:
+
   - You can delete an action with a start time
     that is more than 15 seconds in the future. The
     channel won't perform the action.

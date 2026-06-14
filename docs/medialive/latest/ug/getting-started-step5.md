@@ -18,6 +18,7 @@ HLS output group.
    example,
    `https://39fuo4.mediapackage.us-east-1.amazonaws.com/in/v1/88dpie/channel`.
 4. For **Credentials**:
+
    - For **Username**, enter the user name that
      corresponds to this URL. For example,
      `ue739wuty`.

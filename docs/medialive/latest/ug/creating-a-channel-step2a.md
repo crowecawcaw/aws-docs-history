@@ -15,6 +15,7 @@ must complete these fields to configure the input:
 1. Complete the fields as required. See the topics links below. For details about
    a field, choose the **Info** link next to the field on the
    MediaLive console:
+
    - For most fields, the default values are sufficient.
    - However, if you want to include audio and captions in the outputs, you
      must complete the **Audio selectors** and
@@ -23,6 +24,7 @@ must complete these fields to configure the input:
 
 2. Complete the following field in the **General settings**
    section in the navigation pane:
+
    - **Global configuration** - **Input loss
      behavior**. These fields configure how the channel behaves
      when it stops receiving content from any input. For more details, see

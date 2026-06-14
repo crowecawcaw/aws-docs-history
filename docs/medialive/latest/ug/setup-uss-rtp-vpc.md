@@ -8,6 +8,7 @@ pushes content to the correct locations in MediaLive.
 Follow this procedure if the MediaLive channel is a [standard channel](plan-redundancy.md "plan-redundancy.md").
 
 1. Provide the operator with this information:
+
    - The IDs of the VPC, two subnets, and the security groups that the
      Amazon VPC user gave you.
    - The two endpoints (URLs) that MediaLive generated when you created the
@@ -22,6 +23,7 @@ Follow this procedure if the MediaLive channel is a [standard channel](plan-redu
 
 2. Make sure that the operator sets up properly for a standard channel. They
    must:
+
    - Set up two output interfaces—one output interface in one of
      the subnets, and set up the other upstream system with one output
      interface in the other subnet. These interfaces are the addresses in
@@ -43,6 +45,7 @@ Follow this procedure if the MediaLive channel is a [standard channel](plan-redu
 Follow this procedure if the MediaLive channel is a [single-pipeline channel](plan-redundancy.md "plan-redundancy.md").
 
 1. Provide the operator with this information:
+
    - The IDs of the VPC, one subnet, and the security groups that the
      Amazon VPC user gave you.
    - Only the first of the two endpoints (URLs) that MediaLive generated
@@ -57,6 +60,7 @@ Follow this procedure if the MediaLive channel is a [single-pipeline channel](pl
 
 2. Make sure that the operator sets up properly for a standard channel. They
    must:
+
    - Set up one output interface. The interface is the address in one
      of the purple boxes in [the
      diagram after this procedure](setup-rtp-vpc-result.md "setup-rtp-vpc-result.md").

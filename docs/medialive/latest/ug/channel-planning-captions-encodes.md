@@ -21,6 +21,7 @@ group.
    captions.
 3. Use this category to identify the number of captions encodes you need in the output
    group.
+
    - For embedded captions, you always create one captions encode.
    - For object-style captions and sidecar captions, you create one captions encode for
      each format and language that you want to include.

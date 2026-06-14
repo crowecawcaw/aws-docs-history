@@ -26,6 +26,7 @@ set up so that each output contains only audio encodes:
 
 2. In each **Streams settings** section, in the
    **Audio** section, set up each encode as follows.
+
    - In **Audio selector name**, choose one of the audio
      sources that you set up when you configured the input attachment.
    - In **Codec settings**, choose any output audio codec

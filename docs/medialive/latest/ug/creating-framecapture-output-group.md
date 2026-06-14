@@ -9,6 +9,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
    section, choose **Frame capture**,
    and then choose **Confirm**. More
    sections appear.
+
    - **Destination** –
      This section contains fields for the [output destination](framecapture-destinations.md "framecapture-destinations.md").
    - **Frame capture
@@ -27,6 +28,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 3. In **Frame capture outputs**,
    choose the **Settings** link to
    view the sections for the individual output:
+
    - **Output settings**
      – This section contains fields for the
      [output destination](framecapture-destinations.md "framecapture-destinations.md").
@@ -37,6 +39,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 
 4. (Optional) Enter names for the output group and
    the output:
+
    - In **Frame capture
      settings**, for
      **Name**, enter a name

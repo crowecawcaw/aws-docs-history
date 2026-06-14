@@ -26,6 +26,7 @@ You must configure the channel with information about the POIS server.
    settings** section, expand **Avail
    Configuration**.
 3. Complete the fields as follows:
+
    - **Avail Settings**:
      **ESAM**
    - **POIS Endpoint**: The URL that you obtained

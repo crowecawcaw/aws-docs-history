@@ -9,6 +9,7 @@ Follow this procedure for each policy.
 2.  In the navigation pane on the left, choose **Policies**. Then choose
     **Create policy**. The **Create policy** wizard
     appears. This wizard walks you through the steps, including these key steps:
+
     - Select a service.
     - Select actions for that service.
 

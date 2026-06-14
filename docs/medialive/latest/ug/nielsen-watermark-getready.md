@@ -31,6 +31,7 @@ about the watermarks data for each channel.
 3.  If you are setting up CBET watermarks, decide how you want to handle
     watermarks that are already in the source audio. The options are the
     following:
+
     - Remove all the existing watermarks and replace them with new
       ones.
     - Keep the existing watermarks. MediaLive will insert new watermarks only

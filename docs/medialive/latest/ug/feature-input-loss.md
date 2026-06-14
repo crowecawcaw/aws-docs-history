@@ -80,6 +80,9 @@ customize the image or color used for the slate. For example, you can change
 the slate to an image (such as _Please stand
 by_).
 
+The slate image must be a 32-bit BMP, PNG, or TGA file. MediaLive scales
+the image to fill the output video resolution.
+
 ###### Note
 
 This section assumes that you are familiar with creating or editing a
@@ -92,6 +95,7 @@ channel, as described in [Creating a channel from scratch](creating-channel-scra
 2. In **Input loss behavior**, choose **Input
    loss Behavior**. More fields appear. These fields control the
    replacement content, as follows:
+
    - Encode the last valid frame for the time specified in
      **Repeat Frame Msec**. Zero means disabled (skip the
      repeat frame and go to the black frame). The value 1,000,000 means repeat

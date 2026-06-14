@@ -9,17 +9,17 @@ and captions type, and produce these outputs:
 
 | Source caption container                                                        | Source caption input         | Supported output captions |
 | ------------------------------------------------------------------------------- | ---------------------------- | ------------------------- |
-| CDI container                                                                   | Embedded                     | Burn-in<br>TTML           |
-| Teletext                                                                        | TTML                         |
-| HLS container                                                                   | Embedded                     | Burn-inTTML               |
-| SCTE-20                                                                         | Burn-in<br>TTML              |
-| Link container                                                                  | Embedded                     | Burn-inTTML               |
-| Teletext                                                                        | Burn-inTTML                  |
-| MP4 container                                                                   | Ancillary                    | Burn-inTTML               |
-| Embedded or Embedded+SCTE-20                                                    | Burn-inTTML                  |
-| RTMP container                                                                  | Embedded                     | Burn-inTTML               |
-| MPEG-TS container (through MediaConnect or through<br>the RTP or SRT protocols) | Embedded or Embedded+SCTE-20 | Burn-inTTML               |
-| SCTE-20                                                                         | Burn-inTTML                  |
-| Teletext                                                                        | Burn-inTTML                  |
-| SMPTE 2110                                                                      | Embedded                     | Burn-inTTML               |
-| Teletext                                                                        | Burn-inTTML                  |
+| CDI container                                                                   | Embedded                     | Burn-in<br>TTML<br>WebVTT |
+| Teletext                                                                        | TTML<br>WebVTT               |
+| HLS container                                                                   | Embedded                     | Burn-inTTMLWebVTT         |
+| SCTE-20                                                                         | Burn-in<br>TTML<br>WebVTT    |
+| Link container                                                                  | Embedded                     | Burn-inTTMLWebVTT         |
+| Teletext                                                                        | Burn-inTTMLWebVTT            |
+| MP4 container                                                                   | Ancillary                    | Burn-inTTMLWebVTT         |
+| Embedded or Embedded+SCTE-20                                                    | Burn-inTTMLWebVTT            |
+| RTMP container                                                                  | Embedded                     | Burn-inTTMLWebVTT         |
+| MPEG-TS container (through MediaConnect or through<br>the RTP or SRT protocols) | Embedded or Embedded+SCTE-20 | Burn-inTTMLWebVTT         |
+| SCTE-20                                                                         | Burn-inTTMLWebVTT            |
+| Teletext                                                                        | Burn-inTTMLWebVTT            |
+| SMPTE 2110                                                                      | Embedded                     | Burn-inTTMLWebVTT         |
+| Teletext                                                                        | Burn-inTTMLWebVTT            |

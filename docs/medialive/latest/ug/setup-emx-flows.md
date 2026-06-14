@@ -6,6 +6,7 @@ MediaLive.
 ###### To set up flows for a standard channel
 
 1. Provide the MediaConnect user with this information:
+
    - Information about the provider of the source content.
    - The AWS Region for the channel that you that will create. The
      AWS Elemental MediaConnect flows and the MediaLive channel (and input) must be in the
@@ -16,10 +17,12 @@ MediaLive.
    source content to the same Region as the MediaLive input.
 
 2. Discuss with the MediaConnect user whether you need new flows:
+
    - You need new flows if the source content doesn't yet have flows in
      MediaConnect.
    - You can reuse existing flows so long as you follow these
      rules:
+
      - Each flow doesn't exceed its maximum output
        bandwidth.
      - Each flow doesn't exceed its maximum number of outputs
@@ -27,6 +30,7 @@ MediaLive.
        each flow after you create the input in the next step, [Create a MediaConnect input](setup-input-emx.md "setup-input-emx.md").)
 
 3. If you decide you need new flows, ask the MediaConnect user to create two flows.
+
    - They should assign flow names that are identical except for a
      suffix. For example, `sports_event_A` and
      `sports_event_B`. These suffixes will help
@@ -37,6 +41,7 @@ MediaLive.
      user, won't be able to create the MediaLive inputs.)
    - They should speak to the service provider about the
      following:
+
      - To determine how to complete the source information for
        each flow.
      - To make sure that the service provider delivers two
@@ -47,6 +52,7 @@ MediaLive.
    - They should not create outputs or entitlements.
 
 4. Obtain the following information from the MediaConnect user:
+
    - The ARNs for the flows. For example:
 
    `arn:aws:mediaconnect:us-west-1:111122223333:flow:1bgf67:sports_event_A`
@@ -58,6 +64,7 @@ MediaLive.
 ###### To set up flows for a single-pipeline channel
 
 1. Provide the MediaConnect user with this information:
+
    - Information about the provider of the source content.
    - The AWS Region for the channel that you will create. The
      AWS Elemental MediaConnect flow and the MediaLive channel (and input) must be in the same
@@ -68,10 +75,12 @@ MediaLive.
    source content to the same Region as the MediaLive input.
 
 2. Discuss with the MediaConnect user whether you need a new flow:
+
    - You need a new flow if the source content doesn't yet have a flow
      in MediaConnect.
    - You can reuse an existing flow so long as you follow these
      rules:
+
      - The flow doesn't exceed its maximum output
        bandwidth.
      - The flow doesn't exceed its maximum number of outputs from
@@ -79,6 +88,7 @@ MediaLive.
        after you create the input in the next step, [Create a MediaConnect input](setup-input-emx.md "setup-input-emx.md").)
 
 3. If you decide you need a new flow, ask the MediaConnect user to create one flow.
+
    - They should speak to the service provider to determine how to
      complete the source information for the flow.
    - They should not create an output or entitlement.

@@ -63,6 +63,7 @@ These destination paths are constructed as follows:
   999999 to 1000000 (seven digits), and so on.
 - MediaLive inserts the dot before the extension.
 - MediaLive selects the extension:
+
   - For manifest files – always
     `.m3u8`
   - For media files – .ts for files in a transport stream,

@@ -81,6 +81,7 @@ output.
 - The following fields in the **HLS
   output group – Manifests and
   Segments** section:
+
   - **TS file
     mode**
   - **Segment

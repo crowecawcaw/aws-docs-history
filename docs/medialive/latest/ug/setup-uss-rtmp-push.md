@@ -8,6 +8,7 @@ locations in MediaLive.
 Follow this procedure if the MediaLive channel is a [standard channel](plan-redundancy.md "plan-redundancy.md").
 
 1. Provide the operator with this information:
+
    - The two endpoints (URLs) that MediaLive generated when you created the
      RTMP input. These endpoints are the addresses in the blue boxes in
      [the diagram after this

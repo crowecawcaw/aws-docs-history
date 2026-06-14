@@ -12,6 +12,7 @@ steps for [creating a MediaConnect input](setup-input-emx.md "setup-input-emx.md
 ###### To plan the inputs for the input failover pair
 
 1. Identify the flows that you need to create on MediaConnect:
+
    - If you are setting up automatic input failover in a single-input
      channel, you need two flows—one for each input.
    - If you are setting up automatic input failover in a standard channel,
@@ -67,6 +68,7 @@ input.
 
 1. Follow the procedure in [Create a MediaConnect input](setup-input-emx.md "setup-input-emx.md") to create one input
    of the appropriate type.
+
    - In a standard channel, set up the input with two sources. Attach flows
      A and B to this input.
    - In a single-pipeline channel, set up the input with one flow.
@@ -74,6 +76,7 @@ input.
 input`.
 
 2. Create a second input in the same way.
+
    - In a standard channel, set up the input with two sources. Attach flows
      C and D to this input.
    - In a single-pipeline channel, set up the input with one flow.
@@ -99,6 +102,7 @@ input`.
 6. For **Input preference**, choose the desired option. This
    field controls the behavior when MediaLive has switched over to the secondary input
    and then the primary input becomes healthy again.
+
    - **EQUAL_INPUT_PREFERENCE** – MediaLive remains on
      the secondary input. The primary input continues to be processed, but it
      is not active.

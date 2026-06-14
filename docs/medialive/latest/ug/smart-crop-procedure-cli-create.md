@@ -9,6 +9,7 @@ the MediaLive channel is the resource and each output represents one Elemental I
 
 1. **In Elemental Inference**, use `create-feed` to
    create a new feed. Follow these guidelines:
+
    - Give the feed a memorable name. You might want to give it the same
      name or similar name to the MediaLive channel.
 
@@ -26,14 +27,17 @@ the MediaLive channel is the resource and each output represents one Elemental I
 
 2. The response includes the following information that you should make a note
    of:
+
    - The feed ID, which you will need for CLI commands on this feed.
    - The feed ARN, which you will need to work with the MediaLive channel. You
      can also obtain the ARN using `get-feed`.
 
 3. **In MediaLive**, use `create-channel` or
    `update-channel` to create a channel or edit an existing channel.
+
    - At the top level of the JSON, add an `InferenceSettings`
      section and include:
+
      - `feedArn`: The ARN of the feed that you created.
        Include this line only once, even if you are enabling more than
        one Elemental Inference feature.
@@ -41,11 +45,11 @@ the MediaLive channel is the resource and each output represents one Elemental I
    - Make changes for each feature, as described in the following
      table.
 
-| Feature to set up | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Event clipping    | There are no further changes to make.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Smart crop        | In the JSON for each video encode (video description<br>section) where you want to enable Elemental Inference features, include<br>these parameters:<br>• `Width` and `Height`: The<br>resolution for this video encode.<br>• `ScalingBehavior`: Set to<br>`SMART_CROP`.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Smart Subtitles   | In each input attachment's<br>`CaptionSelectors` array, add a caption<br>selector with<br>`SmartSubtitleSourceSettings`:<br>• `Name`: A name for the selector<br>(for example,<br>`SmartSubtitlesSelector1`).<br>• `LanguageCode`: The language code<br>(for example, `eng`).<br>• `SelectorSettings`: Include<br>`SmartSubtitleSourceSettings: {}`.<br>Then add a `CaptionDescription` in<br>`EncoderSettings` that references this<br>selector and sets the destination to TTML (for<br>MediaPackage V2, CMAF Ingest, or Microsoft Smooth<br>output groups) or WebVTT (for HLS or MediaPackage<br>output groups). Add a captions-only output in the<br>appropriate output group for the subtitle<br>sidecar. |
+| Feature to set up | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Event clipping    | There are no further changes to make.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Smart crop        | In the JSON for each video encode (video description<br>section) where you want to enable Elemental Inference features, include<br>these parameters:<br>• `Width` and `Height`: The<br>resolution for this video encode.<br>• `ScalingBehavior`: Set to<br>`SMART_CROP`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Smart Subtitles   | In each input attachment's<br>`CaptionSelectors` array, add a caption<br>selector with<br>`SmartSubtitleSourceSettings`:<br>• `Name`: A name for the selector<br>(for example,<br>`SmartSubtitlesSelector1`).<br>• `LanguageCode`: The language code<br>(for example, `eng`).<br>• `SelectorSettings`: Include<br>`SmartSubtitleSourceSettings` with<br>the following fields:<br>+ `InferenceFeedOutput`:<br>The name of the subtitling output from the<br>feed (for example,<br>`medialive-subtitling-output-0`).<br>+ `CaptionSynchronizationMode`<br>(optional): Set to<br>`VIDEO_ALIGNED_CAPTIONS`<br>(default) to delay video for caption<br>synchronization, or<br>`NO_VIDEO_DELAY` to avoid<br>video delay.<br>Then add a `CaptionDescription` in<br>`EncoderSettings` that references this<br>selector and sets the destination to TTML (for<br>MediaPackage V2, CMAF Ingest, or Microsoft Smooth<br>output groups) or WebVTT (for HLS or MediaPackage<br>output groups). Add a captions-only output in the<br>appropriate output group for the subtitle<br>sidecar. |
 
 The following example shows the JSON for enabling both smart crop and event
 clipping.
@@ -100,18 +104,104 @@ The ARN of the feed ends with the unique ID
 
 ```
 
-4.  When you save the channel, MediaLive updates the Elemental Inference feed as follows:
+The following example shows the key JSON sections for enabling Smart Subtitles.
+The channel has an input attachment with an audio selector
+(`Audio_1`), a Smart Subtitles caption selector that references a
+subtitling output on the feed, and a captions-only WebVTT output in a
+MediaPackage output group.
 
-        * It creates a crop output in the feed.
-        * It associates the channel (the resource) with the feed.
+```
+{
+...
+  "InferenceSettings": {
+    "FeedArn": "arn:aws:elemental-inference:us-west-2:111122223333:feed/abbrngaa6sbvawovk36",
+    "AudioFeedInputs": [
+      {
+        "FeedInput": "default-audio",
+        "AudioSelectorName": "Audio_1"
+      }
+    ]
+  },
+  "InputAttachments": [
+    {
+      "InputAttachmentName": "my-input",
+      "InputId": "1112233",
+      "InputSettings": {
+        "AudioSelectors": [
+          {
+            "Name": "Audio_1",
+            "SelectorSettings": {
+              "AudioLanguageSelection": {
+                "LanguageSelectionPolicy": "LOOSE",
+                "LanguageCode": "eng"
+              }
+            }
+          }
+        ],
+        "CaptionSelectors": [
+          {
+            "LanguageCode": "eng",
+            "Name": "SmartSubtitlesSelector1",
+            "SelectorSettings": {
+              "SmartSubtitleSourceSettings": {
+                "CaptionSynchronizationMode": "VIDEO_ALIGNED_CAPTIONS",
+                "InferenceFeedOutput": "medialive-subtitling-output-0"
+              }
+            }
+          }
+        ]
+...
+      }
+    }
+  ],
+  "EncoderSettings": {
+    "CaptionDescriptions": [
+      {
+        "CaptionSelectorName": "SmartSubtitlesSelector1",
+        "DestinationSettings": {
+          "WebvttDestinationSettings": {
+            "StyleControl": "NO_STYLE_DATA"
+          }
+        },
+        "Name": "caption_subtitles"
+      }
+    ],
+    "OutputGroups": [
+      {
+        "Outputs": [
+          {
+            "AudioDescriptionNames": [],
+            "CaptionDescriptionNames": ["caption_subtitles"],
+            "OutputName": "subtitles_only",
+            "OutputSettings": {
+              "MediaPackageOutputSettings": {}
+            }
+          }
+        ]
+      }
+    ]
+...
+  }
+}
 
-    You now have a usable feed: resource - feed - output.
+```
 
-5.  In MediaLive, use `StartChannel`. When the channel is running, MediaLive
-    performs the following actions:
-    - MediaLive delivers the source stream to Elemental Inference.
+The `AudioFeedInputs` array in `InferenceSettings`
+associates a specific audio selector from the input attachment with the feed. If
+the input attachment has no audio selectors, you can omit
+`AudioFeedInputs` and MediaLive uses the default audio from the
+input. 4. When you save the channel, MediaLive updates the Elemental Inference feed as follows:
 
-    - It handles the metadata as described in the following table.
+    * It creates a crop output in the feed.
+    * It associates the channel (the resource) with the feed.
+
+You now have a usable feed: resource - feed - output. 5. In MediaLive, use `StartChannel`. When the channel is running, MediaLive
+performs the following actions:
+
+    * MediaLive delivers the source stream to Elemental Inference.
+
+
+    * It handles the metadata as described in the following table.
 
 | Feature         | Action by MediaLive                                                                                                                                                                                                                                                                                                                                     |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

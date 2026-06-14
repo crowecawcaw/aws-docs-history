@@ -11,6 +11,7 @@ determined that you want to include a UDP output group.
    section, choose **UDP**, and then
    choose **Confirm**. More sections
    appear:
+
    - **UDP destination**
      – This section contains fields for the
      [output
@@ -27,6 +28,7 @@ determined that you want to include a UDP output group.
 3. In **UDP outputs**,
    choose the **Settings**
    link to view the sections for the output:
+
    - **Output settings**
      – This section contains fields for the
      [transport](udp-destinations.md "udp-destinations.md") and the [connection to
@@ -39,6 +41,7 @@ determined that you want to include a UDP output group.
 
 4. (Optional) Enter names for the output group and
    the output:
+
    - In **UDP settings**, for
      **Name**, enter a name
      for the output group. This name is internal

@@ -8,6 +8,7 @@ You can delete a MediaLive input security group so long as it is not attached to
 2. In the navigation pane, choose **Input security groups**.
 3. On the **Input security groups** page, look at the
    **State** for the group to delete:
+
    - If the **State** is **Idle**, choose the group,
      and then choose **Delete**.
    - If the **State** is **In use**, continue with

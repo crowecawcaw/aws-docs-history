@@ -14,6 +14,7 @@ You set up the captions and video in the same output.
    **Add caption**, then **Create a new caption
    encode**. Captions fields appear.
 4. Complete the following fields:
+
    - **Captions description name**: Enter a name that is unique in
      the channel, for example, `Embedded`.
    - **Captions selector name**: Select the captions selector that

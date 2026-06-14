@@ -4,6 +4,7 @@ An operator at the upstream server must set up the source content on the upstrea
 system. Make sure that the operator sets up as follows:
 
 - They set up to deliver the correct number of sources:
+
   - If the MediaLive channel is a standard channel, set up two sources for
     the content. Make sure that the two source contents are identical in
     terms of video resolution and bitrate.

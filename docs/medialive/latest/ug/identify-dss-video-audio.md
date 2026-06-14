@@ -18,12 +18,14 @@ identified.
 
 1. Obtain the following video information from your downstream
    system:
+
    - The video codec or codecs that they support.
    - The maximum bitrate and maximum resolution that they can
      support.
 
 2. Obtain the following audio information from your downstream
    system:
+
    - The supported audio codec or codecs.
    - The supported audio coding modes (for example, 2.0) in each
      codec.
@@ -36,6 +38,7 @@ identified.
 
 3. Obtain the following captions information from your downstream
    system.
+
    - The captions formats that they support.
 
 4. Verify the video. Compare the video codecs that your downstream

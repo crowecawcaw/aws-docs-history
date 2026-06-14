@@ -16,6 +16,7 @@ segmentation descriptors always include two types of flags. Each flag has a valu
 specific situations:
 
 - web_delivery_allowed_flag
+
   - True means that there is no restriction on including the ad avail
     event’s content in a stream that is intended for web delivery: there
     is no need to blank out content in streams intended for web

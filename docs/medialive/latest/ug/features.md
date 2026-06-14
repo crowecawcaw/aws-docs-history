@@ -11,6 +11,7 @@ schedule. The procedures expand on the limited information provided in [Creating
 - [Audio – Dolby Digital Plus with Dolby Atmos](feature-dolbyatmos.md "feature-dolbyatmos.md")
 - [Audio – Dolby E](feature-dolby-E-input.md "feature-dolby-E-input.md")
 - [Audio – audio rendition groups for HLS](audio-renditions.md "audio-renditions.md")
+- [Audio – Audio mixing](feature-audio-mixing.md "feature-audio-mixing.md")
 - [Automatic input failover](automatic-input-failover.md "automatic-input-failover.md")
 - [Captions](captions.md "captions.md")
 - [CDI inputs as partner inputs](feature-cdi-partner.md "feature-cdi-partner.md")

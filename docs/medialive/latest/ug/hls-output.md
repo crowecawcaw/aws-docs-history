@@ -18,6 +18,7 @@ follows:
   this case, the video content that was marked by messages (in the input)
   are not marked (in the output). In addition, the manifests don't have
   information for identifying that video content.
+
   - If you have the rights to that video content, there is no
     problem setting up this way.
   - If you don't have the rights, the only way to find that

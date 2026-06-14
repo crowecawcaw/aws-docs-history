@@ -8,6 +8,7 @@ stored as a file.
 1.  You should have already arranged with the video content provider to set up the
     upstream system for your content. Make sure that the operator of the upstream
     system gives you the following information:
+
     - The full URLs of the locations where MediaLive will pull the TS files
       from. For example:
 
@@ -18,6 +19,7 @@ stored as a file.
 2.  If this input is being used in a multiple-input channel, you should have
     decided whether to set it up as a static input or a [dynamic input](dynamic-inputs.md "dynamic-inputs.md"). You might need to modify the
     URLs you obtained from the upstream system:
+
     - If the input is a static input, don't modify the URLs.
     - If the input is a dynamic input, set up the URL as an optional
       absolute portion and a required variable portion ($urlPath$). For
@@ -30,12 +32,14 @@ stored as a file.
     **Inputs** page, choose **Create
     input**.
 5.  Complete the **Input details** section:
+
     - **Input** name – enter a name.
     - **Input type** – choose
       **TS**.
 
 6.  In the **Input class** section, choose the class for this
     input:
+
     - STANDARD_INPUT
     - SINGLE_INPUT
 

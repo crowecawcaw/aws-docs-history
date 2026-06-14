@@ -12,6 +12,7 @@ the motion graphic.
 
 1. Use the authoring system to create the asset. The HTML5 content
    must meet these requirements:
+
    - It can be any HTML5 authoring system that uses standard
      browser-based rendering techniques.
    - It can use any HTML5 tags except video and audio.

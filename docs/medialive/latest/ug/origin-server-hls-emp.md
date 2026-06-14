@@ -12,6 +12,7 @@ the destination for the output of the HLS output group.
 2. Arrange with the MediaPackage user to set up HTTPS user credentials. You must
    send to MediaPackage over a secure connection.
 3. Obtain the following information:
+
    - The two URLs (input endpoints is the MediaPackage terminology) for the
      channel. The two URLs for a channel look like this:
 

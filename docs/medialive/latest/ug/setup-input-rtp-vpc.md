@@ -13,6 +13,7 @@ in MediaLive.
 ###### To create an RTP VPC push input from Amazon VPC
 
 1. Make sure that you have the information from [step 1](setup-vpc-rtp-vpc.md "setup-vpc-rtp-vpc.md").
+
    - The ID of the VPC.
    - The IDs of the two subnets.
    - The IDs of the security groups for the subnet or
@@ -23,6 +24,7 @@ in MediaLive.
 4. On the **Inputs** page, choose **Create
    input**.
 5. Complete the **Input details** section:
+
    - **Input** name – enter a name.
    - **Input type** – choose
      **RTP**.
@@ -30,6 +32,7 @@ in MediaLive.
 6. In the **Network mode** section, choose
    **VPC**.
 7. Complete the **VPC settings** section:
+
    - Choose **Select subnets and security
      groups**.
    - For **Subnets**, choose one of the subnets
@@ -160,6 +163,7 @@ have to create one yourself and then choose it.
   someone else has already created this role (only one person needs to
   create it for all users in your AWS account), look at
   **Create role from template**:
+
   - If this option is grayed out, this task has been done. In
     that case, choose **Use existing role**,
     and then choose **MediaLiveAccessRole**

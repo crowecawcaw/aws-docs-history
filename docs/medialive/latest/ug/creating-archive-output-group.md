@@ -7,6 +7,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 2. In the **Add output group** section, choose
    **Archive**, and then choose **Confirm**.
    More sections appear:
+
    - **Archive group destination** – This section
      contains fields for the [output
      destination](archive-destinations.md "archive-destinations.md").
@@ -20,6 +21,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 3. In **Archive outputs**, choose the
    **Settings** link to view the sections for the individual
    output:
+
    - **Output settings** – This section contains
      fields for the [output
      destination](archive-destinations.md "archive-destinations.md") and the [output
@@ -29,6 +31,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
      (the video, audio, and captions).
 
 4. (Optional) Enter names for the output group and the output:
+
    - In **Archive settings**, for
      **Name**, enter a name for the output group. This
      name is internal to MediaLive; it doesn't appear in the output. For example,

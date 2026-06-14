@@ -16,6 +16,7 @@ the source of the SCTE 35 messages. There are two possible sources:
    choose **Input attachments**.
 2. In **General input settings**, complete the following
    field:
+
    - **SCTE 35 PID**: Enter the PID value. If the value is
      left blank, the first SCTE 35 PID present in the input will be
      selected.
@@ -66,10 +67,18 @@ splice insert with the following data:
 - `program_splice_flag`: true (1)
 - `duration_flag`: true (1)
 - `break_duration`:
-  - `auto_return`: 1
-  - `reserved`: 0
-  - `duration`: The duration from the manifest, converted
-    to 90kHz ticks. For example, 15 seconds is 1350000 ticks.
+
+      + `auto_return`: 1
+      + `reserved`: 0
+      + `duration`: The duration from the manifest, converted
+       to 90kHz ticks. For example, 15 seconds is 1350000 ticks.
+
+  When a non-zero `duration` is provided in
+  the inbound SCTE message, the `auto_return`
+  value is ignored. MediaLive ends the break at the specified
+  duration. The duration of a break in progress can be
+  adjusted with subsequent SCTE messages that reference
+  the same `splice_event_id`.
 
 - `splice_immediate_flag`: 0 (false)
 - `splice_time`: Use the video PTS of the first frame of the

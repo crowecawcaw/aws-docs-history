@@ -51,6 +51,7 @@ follows:
 5. In **Output locking settings**, locate the
    **Pipeline locking method** field and choose the method
    for synchronization:
+
    - **SOURCE_TIMECODE** (default): Uses embedded
      timecodes from the input source. Requires inputs with reliable
      embedded timecodes. See
@@ -81,6 +82,7 @@ framerate for each video encode.
    appear.
 3. Choose the **Frame rate** section and set the following
    fields:
+
    - **Framerate control**: We recommend you choose
      **Specified**. The option
      **Initialize_from_source** doesn't work well
@@ -107,6 +109,7 @@ set up the segmentation markers for framerate for each video encode.
    navigation pane choose **Archive group**. Then choose an
    output and choose **Network settings**. Choose the
    **Info** link next to each of the following fields:
+
    - **Segmentation markers**
    - **Segmentation time**
    - **EBP lookahead msec**
@@ -129,6 +132,7 @@ set up the segmentation markers for framerate for each video encode.
    More fields appear.
 6. Choose the **Frame rate** section and set the following
    fields:
+
    - **Framerate control**: We recommend you choose
      **Specified**. The option
      **Initialize_from_source** doesn't work well

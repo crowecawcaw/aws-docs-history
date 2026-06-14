@@ -18,6 +18,7 @@ Follow these guidelines when you plan the workflow:
 
 - When you [create inputs](medialive-inputs.md "medialive-inputs.md"), set up the
   inputs as follows:
+
   - Some inputs can only be standard-class inputs. You can still attach
     these inputs to the channel. Create the inputs in the regular way.
   - Some inputs can only be single-class inputs. Create these inputs in
@@ -27,6 +28,7 @@ Follow these guidelines when you plan the workflow:
     **Single input**.
 
 - When you create the channel, do the following:
+
   - Set up the channel as a single-pipeline channel. See [Complete channel and input details](creating-a-channel-step1.md "creating-a-channel-step1.md").
   - At the step to [attach inputs
     to the channel](creating-a-channel-step2.md "creating-a-channel-step2.md"), attach the inputs that you have

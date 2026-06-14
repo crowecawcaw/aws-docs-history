@@ -9,10 +9,12 @@ You create the output group and its outputs when you [create or edit a MediaLive
 2.  In the **Add output group** section, choose
     **HLS**, and then choose **Confirm**.
     More sections appear:
+
     - **HLS group destination** – This section
       contains fields for the destination of the outputs. For more
       information see the section for the type of downstream
       system:
+
       - [Fields for the output destination – sending to Amazon S3](hls-destinations-s3.md "hls-destinations-s3.md")
       - [Fields for the output destination – sending to MediaStore](hls-destinations-ems.md "hls-destinations-ems.md")
       - [Fields for the output destination – sending to MediaPackage](hls-destinations-emp.md "hls-destinations-emp.md")
@@ -48,6 +50,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
 4.  In **HLS outputs**, choose the first
     **Settings** link to view the sections for the first
     output:
+
     - **Output settings** – This section contains
       fields for the destination of the outputs. See these
       sections:
@@ -64,6 +67,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
       streams](hls-streams-section.md "hls-streams-section.md") (the video, audio, and captions).
 
 5.  (Optional) Enter names for the output group and the outputs:
+
     - In **HLS settings**, for
       **Name**, enter a name for the output group.
       This name is internal to MediaLive; it doesn't appear in the output. For

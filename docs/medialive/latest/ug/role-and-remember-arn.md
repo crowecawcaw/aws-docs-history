@@ -48,6 +48,7 @@ create one yourself and then choose it.
   else has already created this role (only one person needs to create it
   for all users in your AWS account), look at **Create role from
   template**:
+
   - If this option is grayed out, this task has been done. In that
     case, choose **Use existing role**, and then
     choose **MediaLiveAccessRole** from the list.
