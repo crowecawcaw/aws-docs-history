@@ -17,6 +17,7 @@ The following diagram shows the decision tree for selecting the appropriate tag 
 ###### To get started
 
 - Where are you migrating to?
+
   - **Services included in the Service list**
   - **SAP included in the Service list**
   - **Oracle included in the Service list**
