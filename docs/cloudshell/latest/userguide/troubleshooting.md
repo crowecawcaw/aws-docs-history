@@ -245,6 +245,7 @@ module.
 - For most cases, as long as no .Net types are used, you don’t need any
   explicit import statement. The following are examples of import
   statements.
+
   - `Get-S3Bucket`
   - `(Get-EC2Instance).Instances`
 

@@ -120,7 +120,8 @@ program name followed by the `--version` option (for example, `git
 ## Installing AWS CLI to your home directory
 
 Like the rest of the software that's pre-installed in your CloudShell environment, the
-AWS CLI tool is updated automatically with scheduled upgrades and security patches. If you want to
+[AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md")
+tool is updated automatically with scheduled upgrades and security patches. If you want to
 ensure that you have the most up-to-date version of AWS CLI, you can choose to manually install the
 tool in the shell's home directory.
 
@@ -131,6 +132,9 @@ available the next time you start a CloudShell session. This installation is nee
 files that are added to directories outside of `$HOME` are deleted after you
 finish a shell session. Also, after you install this copy of AWS CLI, it isn't automatically
 updated. In other words, it's your responsibility to manage updates and security patches.
+
+To review changes between versions, see the [AWS CLI
+Change Log](https://github.com/aws/aws-cli/blob/v2/CHANGELOG.rst "https://github.com/aws/aws-cli/blob/v2/CHANGELOG.rst").
 
 For more information about the AWS Shared Responsibility Model, see [Data protection in AWS CloudShell](data-protection.md "data-protection.md").
 
@@ -173,6 +177,77 @@ export PATH=/home/cloudshell-user/usr/local/bin:$PATH
 
 If you undo this change to `PATH`, `aws` commands that
 don't feature a specified path use the pre-installed version of AWS CLI by default.
+
+## Installing AWS Tools for PowerShell to your home directory
+
+Like the rest of the software that's pre-installed in your CloudShell environment, the
+[AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-welcome.md "../../../powershell/latest/userguide/pstools-welcome.md")
+modules are updated automatically with scheduled upgrades and security patches. If you want to
+ensure that you have the most up-to-date version of AWS Tools for PowerShell, you can choose to manually install the
+modules in the shell's home directory.
+
+###### Important
+
+You need to manually install your copy of AWS Tools for PowerShell in the home directory so that it's
+available the next time you start a CloudShell session. This installation is needed because
+files that are added to directories outside of `$HOME` are deleted after you
+finish a shell session. Also, after you install this copy of AWS Tools for PowerShell, it isn't automatically
+updated. In other words, it's your responsibility to manage updates and security patches.
+
+To review changes between versions, see the [AWS Tools for PowerShell
+Change Log](https://github.com/aws/aws-tools-for-powershell/tree/main/changelogs "https://github.com/aws/aws-tools-for-powershell/tree/main/changelogs").
+
+For more information about the AWS Shared Responsibility Model, see [Data protection in AWS CloudShell](data-protection.md "data-protection.md").
+
+###### To install AWS Tools for PowerShell
+
+1. Before you begin, exit any active PowerShell sessions by running `exit`. These
+   commands must be run from the default Bash shell. Running them from a PowerShell session can
+   cause syntax errors or prevent modules from being updated if they are locked by an active
+   session.
+2. Use the `curl` command to download a zipped
+   copy of the AWS Tools for PowerShell modules:
+
+```
+curl -sf -o AWS.Tools.zip "https://sdk-for-net.amazonwebservices.com/ps/v5/latest/AWS.Tools.zip" || echo "Download failed"
+```
+
+3. Remove any existing AWS.Tools modules from the PowerShell modules directory:
+
+```
+find "/home/cloudshell-user/.local/share/powershell/Modules" -maxdepth 1 -type d -name "AWS.Tools.*" -exec rm -rf {} +
+```
+
+4. Unzip the modules to the PowerShell modules directory:
+
+```
+unzip -q -o AWS.Tools.zip -d "/home/cloudshell-user/.local/share/powershell/Modules"
+```
+
+5. Delete the downloaded zip file:
+
+```
+rm -f AWS.Tools.zip
+```
+
+6. Start PowerShell and verify the installation:
+
+```
+pwsh
+```
+
+Then check the installed version:
+
+```
+Get-AWSPowerShellVersion
+```
+
+To remove the AWS Tools for PowerShell from your home directory, exit PowerShell and run the
+following command:
+
+```
+find "/home/cloudshell-user/.local/share/powershell/Modules" -maxdepth 1 -type d -name "AWS.Tools.*" -exec rm -rf {} +
+```
 
 ## Installing third-party software on your shell environment
 

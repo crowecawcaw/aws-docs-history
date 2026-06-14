@@ -58,6 +58,7 @@ service:
 
 2. Upload the files in a directory from your local machine to the bucket. Choose one of
    the following options to upload files:
+
    - AWS Management Console: Use drag-and-drop to upload files and folders to a bucket.
    - AWS CLI: With the version of the tool installed on your local machine, use the
      command line to upload files and folders to the bucket.
