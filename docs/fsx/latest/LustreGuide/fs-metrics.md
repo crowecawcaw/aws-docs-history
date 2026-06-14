@@ -139,6 +139,7 @@ Amazon FSx for Lustre metrics use the `AWS/FSx` namespace and use the following 
   takes the form of `OSTxxxx` (for example, `OST0001`) or
   `MDTxxxx` (for example, `MDT0001`).
 - The `FileServer` dimension denotes the following
+
   - For OSS metrics: the name of the object storage server (OSS). OSS use
     the `OSSxxxx` naming convention (for example, `OSS0002`).
   - For the CPUUtilization metric: the name of a metadata server (MDS). MDS use

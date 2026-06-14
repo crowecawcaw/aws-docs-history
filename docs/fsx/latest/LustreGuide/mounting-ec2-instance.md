@@ -13,6 +13,7 @@ $ sudo mkdir -p /fsx
 
 3. Mount the Amazon FSx for Lustre file system to the directory that you created. Use the following
    command and replace the following items:
+
    - Replace `file_system_dns_name` with the actual file
      system's DNS name.
    - Replace `mountname` with the file system's mount name.

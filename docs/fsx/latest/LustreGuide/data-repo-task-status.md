@@ -6,6 +6,7 @@ After a task is created, you can view the following detailed information for a d
 repository task using the Amazon FSx console, CLI, or API:
 
 - The task type:
+
   - `EXPORT_TO_REPOSITORY` indicates an export task.
   - `IMPORT_METADATA_FROM_REPOSITORY` indicates an import task.
   - `RELEASE_DATA_FROM_FILESYSTEM` indicates a release task.

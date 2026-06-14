@@ -68,6 +68,7 @@ sudo lctl set_param 'mdc.*.max_mod_rpcs_in_flight=59'`
 
 3. Start a screen session and run the non-block mode script or the block mode script.
    Make sure to change the appropriate variables in the scripts:
+
    - Non-block mode script:
 
    ```
@@ -108,8 +109,8 @@ sudo lctl set_param 'mdc.*.max_mod_rpcs_in_flight=59'`
     fi
    done`
    ```
-
    - Block mode script:
+
      - Replace the values in `OSTS` with the values of your OSTs.
      - Provide an integer value to `nproc` to set the number of max-procs processes
        to run in parallel. For example, the Amazon EC2 `c5n.4xlarge` instance type has 16 vCPUs, so
@@ -141,13 +142,13 @@ sudo lctl set_param 'mdc.*.max_mod_rpcs_in_flight=59'`
   are many files being accessed, the script will not be able to migrate any files, and it will
   be reflected as the migration is making very slow progress.
 - You can monitor OST usage using either of the following methods
+
   - On client mount, run the following command to monitor OST usage and find the
     OST with usage greater than 85%:
 
   ```
   `lfs df -h |egrep '( 8[5-9]| 9[1-9]|100)%'`
   ```
-
   - Check the Amazon CloudWatch metric, `OST FreeDataStorageCapacity`, check
     `Minimum`. If your script is finding OSTs that are over 85% full, then when the
     metric is close to 15%, use `ctrl-c` or `kill -9` to stop the migration.

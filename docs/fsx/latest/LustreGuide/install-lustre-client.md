@@ -93,6 +93,7 @@ uname -r
 ```
 
 3. Do one of the following:
+
    - If the command returns `4.14.104-78.84.amzn1.x86_64` or a higher
      version of 4.14, download and install the Lustre client using the following
      command.
@@ -100,7 +101,6 @@ uname -r
    ```
    sudo yum install -y lustre-client
    ```
-
    - If the command returns a result less than `4.14.104-78.84.amzn1.x86_64`, update the
      kernel and reboot your Amazon EC2 instance by running the following command.
 
@@ -148,6 +148,7 @@ to edit the repository configuration, and how to edit the configuration file.
 ```
 
 2. Do one of the following:
+
    - If the command returns `6.12.0-211*`, you don't need to modify the
      repository configuration. Continue to the **To install the Lustre client** procedure.
    - If the command returns `6.12.0-124*`, you must edit the repository configuration
@@ -259,6 +260,7 @@ to edit the repository configuration, and how to edit the configuration file.
 ```
 
 2. Do one of the following:
+
    - If the command returns `5.14.0-687*`, you don't need to modify the
      repository configuration. Continue to the **To install the Lustre client** procedure.
    - If the command returns `5.14.0-611*`, you must edit the repository configuration
@@ -380,6 +382,7 @@ to edit the repository configuration, and how to edit the configuration file.
 ```
 
 2. Do one of the following:
+
    - If the command returns `4.18.0-553*`, you don't need to modify the
      repository configuration. Continue to the **To install the Lustre client** procedure.
    - If the command returns `4.18.0-513*`, you must edit the repository configuration
@@ -506,6 +509,7 @@ uname -r
 ```
 
 2. Do one of the following:
+
    - If the command returns `3.10.0-1160*`, you don't need to
      modify the repository configuration. Continue to the **To
      install the Lustre client** procedure.
@@ -637,6 +641,7 @@ uname -r
 ```
 
 2. Do one of the following:
+
    - If the command returns `4.18.0-193*`, you don't need to
      modify the repository configuration. Continue to the **To
      install the Lustre client** procedure.
@@ -706,6 +711,7 @@ on your system.
 
 1. Open a terminal on your client.
 2. Follow these steps to add the Amazon FSx Ubuntu repository:
+
    1. If you have not previously registered an Amazon FSx Ubuntu repository on your
       client instance, download and install the required public key. Use the following
       command.
@@ -713,7 +719,6 @@ on your system.
    ```
    wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
    ```
-
    2. Add the Amazon FSx package repository to your local package manager using the
       following command.
 
@@ -725,12 +730,12 @@ on your system.
    needed. For a list of the required kernels for the Lustre client on Ubuntu
    for both x86-based EC2 instances and Arm-based EC2 instances powered by
    AWS Graviton processors, see [Ubuntu clients](lustre-client-matrix.md#ubuntu-clients "lustre-client-matrix.md#ubuntu-clients").
+
    1. Run the following command to determine which kernel is running.
 
    ```
    uname -r
    ```
-
    2. Run the following command to update to the latest Ubuntu kernel and Lustre version and then
       reboot.
 
@@ -755,7 +760,6 @@ on your system.
    ```
    sudo apt-cache search ^lustre
    ```
-
    4. (Optional) If you want your system upgrade to also always upgrade Lustre
       client modules, make sure that the `lustre-client-modules-aws` package
       is installed using the following command.
@@ -822,12 +826,12 @@ getconf PAGESIZE
 ```
 
 3. Follow these steps to add the Amazon FSx Ubuntu repository:
+
    1. If you have not previously registered an Amazon FSx Ubuntu repository on your client instance, download and install the required public key. Use the following command.
 
    ```
    wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
    ```
-
    2. Add the Amazon FSx package repository to your local package manager using the following command.
 
    ```
@@ -836,12 +840,12 @@ getconf PAGESIZE
 
 4. Determine which kernel is currently running on your client instance, and update as needed.
    Your Ubuntu 24 kernel version must be `6.14.0-1018-aws-64k` or later.
+
    1. Run the following command to determine which kernel is running.
 
    ```
    uname -r
    ```
-
    2. Run the following command to update to the latest Ubuntu kernel and Lustre version and then reboot.
 
    ```
@@ -862,7 +866,6 @@ getconf PAGESIZE
    ```
    sudo apt-cache search ^lustre
    ```
-
    4. (Optional) If you want your system upgrade to also always upgrade Lustre client modules, make sure that the
       `lustre-client-modules-aws-64k` package is installed using the following command.
 
@@ -926,6 +929,7 @@ sudo wget https://fsx-lustre-client-repo.s3.amazonaws.com/suse/sles-12/SLES-12/f
 ```
 
 5. Do one of the following:
+
    - If you installed SP4 directly, download and install the Lustre client with the following
      commands.
 
@@ -935,7 +939,6 @@ sudo wget https://fsx-lustre-client-repo.s3.amazonaws.com/suse/sles-12/SLES-12/f
    sudo zypper refresh
    sudo zypper in lustre-client
    ```
-
    - If you migrated from SP3 to SP4 and previously added the Amazon FSx repository
      for SP3, download and install the Lustre client with the following
      commands.
@@ -970,6 +973,7 @@ sudo wget https://fsx-lustre-client-repo.s3.amazonaws.com/suse/sles-12/SLES-12/f
 ```
 
 5. Do one of the following:
+
    - If you installed SP5 directly, download and install the Lustre client with the following
      commands.
 
@@ -978,7 +982,6 @@ sudo wget https://fsx-lustre-client-repo.s3.amazonaws.com/suse/sles-12/SLES-12/f
    sudo zypper refresh
    sudo zypper in lustre-client
    ```
-
    - If you migrated from SP4 to SP5 and previously added the Amazon FSx repository for SP4, download
      and install the Lustre client with the following commands.
 

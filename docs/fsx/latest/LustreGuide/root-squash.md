@@ -79,12 +79,14 @@ AWS CLI, or API.
 4. For **Root Squash**, provide the user and group IDs with which the
    root user can access the file system. You can specify any whole number in the range of
    `1`–`4294967294`:
+
    1. For **User ID**, specify the user ID for the
       root user to use.
    2. For **Group ID**, specify the group ID for the
       root user to use.
 
 5. (Optional) For **Exceptions to Root Squash**, do the following:
+
    1. Choose **Add client address**.
    2. In the **Client addresses** field, specify the
       IP address of a client to which root squash doesn't apply, For information on the IP
@@ -186,12 +188,14 @@ root squash UID and GID values, add or remove client NIDs, or disable root squas
    root user can access the file system. You can specify any whole number in the range of
    `0`–`4294967294`. To disable root squash, specify
    `0` (zero) for both IDs.
+
    1. For **User ID**, specify the user ID for the
       root user to use.
    2. For **Group ID**, specify the group ID for the
       root user to use.
 
 5. For **Exceptions to Root Squash**, do the following:
+
    1. Choose **Add client address**.
    2. In the **Client addresses** field, specify the
       IP address of a client to which root squash doesn't apply,

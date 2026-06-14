@@ -45,6 +45,7 @@ see [Installing the Lustre client](install-lustre-client.md "install-lustre-clie
 1. When launching Amazon ECS instances, either manually or using an Auto Scaling group, add
    the lines in the following code example to the end of the **User data**
    field. Replace the following items in the example:
+
    - Replace `file_system_dns_name` with the actual file
      system's DNS name.
    - Replace `mountname` with the file system's mount name.
@@ -100,6 +101,7 @@ approach can work for other distributions.
 1. On your Docker container, install the `lustre-client` package and mount
    your FSx for Lustre file system with the `command` property. Replace the following items in the
    example:
+
    - Replace `file_system_dns_name` with the actual file
      system's DNS name.
    - Replace `mountname` with the file system's mount name.

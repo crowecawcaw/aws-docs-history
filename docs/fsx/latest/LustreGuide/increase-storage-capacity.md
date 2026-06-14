@@ -14,6 +14,7 @@ or the Amazon FSx API.
    dialog box.
 4. For **Desired storage capacity**, provide a new storage capacity
    in GiB that is greater than the current storage capacity of the file system:
+
    - For a persistent SSD or scratch 2 file system, this value must be
      in multiples of 2400 GiB.
    - For a persistent HDD file system, this value must be in multiples

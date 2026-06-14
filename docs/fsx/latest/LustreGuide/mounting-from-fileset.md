@@ -19,6 +19,7 @@ team2/dataset2/
 2. You mount only the `team1/dataset1` fileset, making only this part of
    the file system visible locally on the client. Use the following command and replace the
    following items:
+
    - Replace `file_system_dns_name` with the actual file
      system's DNS name.
    - Replace `mountname` with the file system's mount name.

@@ -39,6 +39,7 @@ see [Lustre file system and client kernel compatibility](lustre-client-matrix.md
 
 - When creating your Amazon EC2 instance for this getting started exercise, keep the
   following in mind:
+
   - We recommend that you create your instance in your default VPC.
   - We recommend that you use the default security group when creating your EC2 instance.
 
@@ -90,6 +91,7 @@ use up to 256 Unicode letters, white space, and numbers plus the special charact
 
 6.  Choose the amount of throughput for your file system. You pay for the amount of throughput
     that you provision.
+
     - For Persistent SSD storage, choose a
       **Throughput per unit of storage** value.
       _Throughput per unit of storage_ is the amount of read and write
@@ -144,6 +146,7 @@ use up to 256 Unicode letters, white space, and numbers plus the special charact
     For more information, see [Lustre data compression](data-compression.md "data-compression.md").
 11. In the **Network & security** section, provide the following networking and
     security group information:
+
     - For **Virtual Private Cloud (VPC)**, choose the VPC that you want to
       associate with your file system. For this getting started exercise, choose the same VPC that you chose
       for your Amazon EC2 instance.
@@ -166,11 +169,11 @@ use up to 256 Unicode letters, white space, and numbers plus the special charact
          hosts to communicate with each other.
         + If you are creating an EFA-enabled file system, make sure you
          specify an [EFA-enabled security group](limit-access-security-groups.md#efa-security-groups "limit-access-security-groups.md#efa-security-groups").
-
     - For **Subnet**, choose any value from the list of available subnets.
 
 12. For the **Encryption** section, the options available vary
     depending upon which file system type you're creating:
+
     - For a persistent file system, you can choose an AWS Key Management Service (AWS KMS) encryption key to
       encrypt the data on your file system at rest.
     - For a scratch file system, data at rest is encrypted using keys managed by AWS.
@@ -281,6 +284,7 @@ sudo mkdir -p /mnt/fsx
 
 2. Mount the Amazon FSx for Lustre file system to the directory that you created. Use the following
    command and replace the following items:
+
    - Replace `file_system_dns_name` with the actual file
      system's Domain Name System (DNS) name.
    - Replace `mountname` with the file system's mount name,
@@ -382,6 +386,7 @@ nohup find /mnt/fsx -type f -print0 | xargs -0 -n 1 sudo lfs hsm_archive &
 2. On the Amazon EC2 console, terminate your instance. For more information, see [Terminate Your Instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md") in the
    _Amazon EC2 User Guide._
 3. On the Amazon FSx for Lustre console, delete your file system with the following procedure:
+
    1. In the navigation pane, choose **File systems**.
    2. Choose the file system that you want to delete from list of file systems on the
       dashboard.

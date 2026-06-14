@@ -32,6 +32,7 @@ of your FSx for Lustre file system:
   the Linux kernel versions running on your client instances are compatible with the Lustre version
   you plan to upgrade to. See [Lustre file system and client kernel compatibility](lustre-client-matrix.md "lustre-client-matrix.md") for details.
 - **Back up your data:**
+
   - For file systems not linked to S3: We recommend that you create an FSx backup
     before upgrading the Lustre version so that you have a known restore point for your file system.
     If automatic daily backups are enabled on your file system, Amazon FSx will automatically create a

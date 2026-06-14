@@ -19,6 +19,7 @@ enabled. Disable backups before linking to a data repository.
 4. Choose **Import data from and export data to S3**.
 5. In the **Data repository association information** dialog,
    provide information for the following fields.
+
    - **File system path**: Enter the name of a high-level
      directory (such as `/ns1`) or subdirectory (such as
      `/ns1/subdir`) within the Amazon FSx file system that will be associated
@@ -57,6 +58,7 @@ enabled. Disable backups before linking to a data repository.
     **Create data repository association**.
 13. In the **Data repository association information** dialog,
     provide information for the following fields.
+
     - **File system path**: Enter the name of a high-level
       directory (such as `/ns1`) or subdirectory (such as
       `/ns1/subdir`) within the Amazon FSx file system that will be associated

@@ -40,6 +40,7 @@ The **Update Metadata IOPS** dialog box appears. 4. Do one of the following.
 - To change the metadata configuration mode on SSD-based file systems, use the `--lustre-configuration
 MetadataConfiguration` property. This property has two parameters, `Mode`
   and `Iops`.
+
   - To switch your SSD file system from AUTOMATIC mode to USER_PROVISIONED mode, set `Mode` to
     `USER_PROVISIONED` and `Iops` to a Metadata IOPS value
     greater than or equal to the current file system Metadata IOPS value. For example:
@@ -49,7 +50,6 @@ MetadataConfiguration` property. This property has two parameters, `Mode`
    --file-system-id `fs-0123456789abcdef0` \
    --lustre-configuration 'MetadataConfiguration={Mode=`USER_PROVISIONED`,Iops=`96000`}'`
   ```
-
   - To switch from USER_PROVISIONED mode to AUTOMATIC mode, set `Mode` to
     `AUTOMATIC` and do not use the `Iops` parameter. For example:
 

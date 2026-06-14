@@ -104,6 +104,7 @@ When the file system becomes **Available**, logging will be enabled.
 1. Choose the **Data repository** tab.
 1. On the **Logging** panel, choose **Update**.
 1. On the **Update logging configuration** dialog, change the desired settings.
+
    1. Choose **Log errors** to log only error events, or
       **Log warnings** to log only warning events, or both.
       Logging is disabled if you don't make a selection.
