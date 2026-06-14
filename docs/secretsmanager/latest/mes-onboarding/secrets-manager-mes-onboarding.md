@@ -20,6 +20,7 @@ When you integrate with Secrets Manager, your customers get the following advant
 - **Seamless integration** – Native partner
   integrations provide visibility and transparent lifecycle management for all of
   your secrets. You get:
+
   - Comprehensive security controls managed with AWS Identity and Access Management
     permissions.
   - Automated workflows that reduce manual intervention and human

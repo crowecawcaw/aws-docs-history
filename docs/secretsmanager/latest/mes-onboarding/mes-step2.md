@@ -40,12 +40,14 @@ Share the following details with the Secrets Manager team:
 
 - The defined rotation strategy for your secret. Your customer can choose from
   the supported rotation strategies when creating secrets.
+
   - [Single user rotation](secrets-manager-mes-onboarding.md#single-user "secrets-manager-mes-onboarding.md#single-user")
   - [Alternating users rotation (requires
     support for multiple active users)](secrets-manager-mes-onboarding.md#alternating-user "secrets-manager-mes-onboarding.md#alternating-user")
 
 - The rotation configuration that Secrets Manager uses to run the rotation workflow.
   Typical configuration parameters are:
+
   - Sample Java code that has your specific rotation workflow logic to
     rotate the secret and update Secrets Manager.
   - The specific URL of the service endpoint that Secrets Manager invokes as part of
