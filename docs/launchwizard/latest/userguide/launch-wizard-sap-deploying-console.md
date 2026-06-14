@@ -35,6 +35,7 @@ deployment name and infrastructure settings.
 
 1. Under the **General** subheading, define the
    following:
+
    - **Deployment name**. Enter a unique
      application name for your deployment.
    - **Description (Optional)**. Provide an
@@ -406,6 +407,7 @@ application settings.
    **NetWeaver stack on SAP HANA
    database**. This configuration
    includes:
+
    - NetWeaver stack for a single instance ,
      distributed instance, or multi-AZ for high
      availability (HA) deployment.
@@ -417,6 +419,7 @@ application settings.
 2. **General settings – SAP
    system**. Enter the settings for your SAP
    system.
+
    - **SAP System ID (SAPSID)**.
      An identifier for your system. The ID must be a
      three character, alphanumeric string.
@@ -440,6 +443,7 @@ application settings.
 3. **General Settings – SAP HANA**.
    Enter the settings for your SAP HANA
    installation.
+
    - **SAP HANA System ID.**
      Enter the identifier for your SAP HANA database.
      The ID must be a three character, alphanumeric
@@ -496,8 +500,10 @@ deployment.
 2. **ASCS, PAS, and DB on one EC2
    instance**. Enter the deployment settings
    for your instance.
+
    - **Instance
      details**.
+
      - Under **Instance sizing**,
        choose whether to use
        **AWS/Marketplace/Community
@@ -517,6 +523,7 @@ deployment.
        Choose whether to use an **Auto-assigned
        (default)** IP address or a
        **Custom IP address**.
+
        - **Auto-assign (default)**.
          When you select this option, an IP addressed will
          be assigned for you. This is the default
@@ -546,12 +553,15 @@ deployment.
      choose whether to **Use AWS recommended
      resources** or **Choose
      instance**.
+
      - **Use AWS recommended
        resources**.
+
        - **Infrastructure
          requirements**. Choose the requirements
          for your recommended resources from the dropdown
          list.
+
          - **Based on CPU/Memory**. If
            you select this option, enter the required number
            of vCPU **Cores** and
@@ -565,6 +575,7 @@ deployment.
 
      - **Choose your
        instance**.
+
        - **Instance type**. Choose
          the instance type from the dropdown list.
 
@@ -646,12 +657,15 @@ a distributed instance deployment.
 2. **ASCS/SCS Server and Primary Application
    Server (PAS)**. Enter the deployment
    settings for your instance.
+
    - **Instance details**.
+
      - Under **Instance sizing**,
        choose whether to use
        **AWS/Marketplace/Community
        images** or **Bring your own
        images (BYOI)**.
+
        - **Operating System**.
          Select a supported operating system version for
          the ASCS and PAS instances. For a complete list of
@@ -674,12 +688,15 @@ a distributed instance deployment.
      choose whether to Use **AWS recommended
      resources** or **Choose your
      instance**.
+
      - **Use AWS recommended
        resources**.
+
        - **Infrastructure
          requirements**. Choose the requirements
          for your recommended resources from the dropdown
          list.
+
          - **Based on CPU/Memory**. If
            you select this option, enter the required number
            of vCPU **Cores** and
@@ -693,6 +710,7 @@ a distributed instance deployment.
 
      - **Choose your
        instance**.
+
        - **Instance type**. Choose
          the instance type from the dropdown list.
 
@@ -707,12 +725,15 @@ a distributed instance deployment.
 3. **Settings for Database (DB)
    Server**. Enter the deployment settings
    for your instance.
+
    - **Instance details**.
+
      - Under **Instance sizing**,
        choose whether to use
        **AWS/Marketplace/Community
        images** or **Bring your own
        images (BYOI)**.
+
        - **Operating System**.
          Select a supported operating system version for
          the ASCS and PAS instances. For a complete list of
@@ -726,6 +747,7 @@ a distributed instance deployment.
        Select an upgrade strategy for your system
        hardware to upgrade for increased data and
        workload.
+
        - **Scale-up deployment**.If
          you choose this deployment upgrade model, enter
          the host name for the database
@@ -741,11 +763,14 @@ a distributed instance deployment.
      choose whether to **Use AWS recommended
      resources** or **Choose
      instance**.
+
      - **Use AWS recommended
        resources**.
+
        - **Define requirements**.
          Choose the requirements for your recommended
          resources from the dropdown list.
+
          - **Based on CPU/Memory**. If
            you select this option, enter the required number
            of vCPU **Cores** and
@@ -763,6 +788,7 @@ a distributed instance deployment.
        Choose whether to use an **Auto-assigned
        (default)** IP address or a
        **Custom IP address**.
+
        - **Auto-assign (default)**.
          When you select this option, an IP addressed will
          be assigned for you. This is the default
@@ -802,12 +828,15 @@ a distributed instance deployment.
    SAP Web Dispatcher**. Enter the
    deployment settings for your SAP Web Dispatcher
    instance.
+
    - **Instance details**.
+
      - Under **Image type**,
        choose whether to use
        **AWS/Marketplace/Community
        images** or **Bring your own
        images (BYOI)**.
+
        - **Operating System**.
          Select a supported operating system version for
          the SAP Web Dispatcher instances. For a complete
@@ -836,6 +865,7 @@ a distributed instance deployment.
      Choose whether to use an **Auto-assigned
      (default)** IP address or a
      **Custom IP address**.
+
      - **Auto-assign IP address
        (default)**. When you select this option,
        an IP addressed will be assigned for you. This is
@@ -855,18 +885,22 @@ a distributed instance deployment.
      infrastructure requirements** or
      **Based on instance
      type**.
+
      - **Based on infrastructure
        requirements**
+
        - **Infrastructure
          requirements**. Choose the requirements
          for your recommended resources from the dropdown
          list.
+
          - **Based on CPU/Memory**. If
            you select this option, enter the required number
            of vCPU **Cores** and
            **Memory**. Amazon
            EC2 supports up to 1920 logical processors. If the
            amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+
            - **vCPU**. The amount of
              vCPUs cores required by the instance.
            - **Memory (GB)**. The amount
@@ -877,12 +911,14 @@ a distributed instance deployment.
            enter the **SAPS**
            rating for the SAP certified instance
            types.
+
            - **SAPS**. We will recommend
              SAP certified instance types which offer SAPS
              ratings for the value you enter.
 
        - **Based on instance
          type**
+
          - **Instance type**. Choose
            the instance type from the dropdown list.
 
@@ -897,7 +933,9 @@ a distributed instance deployment.
 5. **Settings for Additional App Servers
    (AAS) - _optional_**. Enter the
    deployment settings for your AAS instances.
+
    - **Instance details**.
+
      - **Number of Additional App Servers
        (AAS)**. Enter the number of additional
        application servers.
@@ -915,11 +953,14 @@ a distributed instance deployment.
      choose whether to Use **AWS recommended
      resources** or **Choose your
      instance**.
+
      - **Use AWS recommended
        resources**.
+
        - **Define requirements**.
          Choose the requirements for your recommended
          resources from the dropdown list.
+
          - **Based on CPU/Memory**. If
            you select this option, enter the required number
            of vCPU **Cores** and
@@ -933,6 +974,7 @@ a distributed instance deployment.
 
      - **Choose your
        instance**.
+
        - **Instance type**. Choose
          the instance type from the dropdown list.
 
@@ -1043,12 +1085,15 @@ the high availability deployment.
 2.  **Settings for ABAP System Central
     Services (ASCS) server**. Enter the
     deployment settings for your instance.
+
     - **Instance details**.
+
       - Under **Image type**,
         choose whether to use
         **AWS/Marketplace/Community
         images** or **Bring your own
         images (BYOI)**.
+
         - **Operating System**.
           Select a supported operating system version for
           the ASCS instances. For a complete list of
@@ -1069,8 +1114,10 @@ the high availability deployment.
       choose whether to **Use AWS recommended
       resources** or **Choose your
       instance**.
+
       - **Use AWS recommended
         resources**.
+
         - **Based on CPU/Memory**. If
           you select this option, enter the required number
           of vCPU **Cores** and
@@ -1084,6 +1131,7 @@ the high availability deployment.
 
       - **Choose your
         instance**.
+
         - **Instance type**. Choose
           the instance type from the dropdown list.
 
@@ -1103,12 +1151,15 @@ the high availability deployment.
 3.  **Settings for Enqueue Replication Server
     (ERS)**. Enter the deployment settings
     for your ERS.
+
     - **Instance details**.
+
       - Under **Instance sizing**,
         choose whether to use
         **AWS/Marketplace/Community
         images** or **Bring your own
         images (BYOI)**.
+
         - **Operating System**.
           Select a supported operating system version for
           the ERS instance.
@@ -1127,8 +1178,10 @@ the high availability deployment.
       choose whether to **Use AWS recommended
       resources** or **Choose your
       instance**.
+
       - **Use AWS recommended
         resources**.
+
         - **Based on CPU/Memory**. If
           you select this option, enter the required number
           of vCPU **Cores** and
@@ -1142,6 +1195,7 @@ the high availability deployment.
 
       - **Choose your
         instance**.
+
         - **Instance type**. Choose
           the instance type from the dropdown list.
 
@@ -1156,13 +1210,16 @@ the high availability deployment.
 4.  **Settings for database (DB)
     Server**. Enter the deployment settings
     for your database.
+
     - Under **Instance sizing**,
       choose whether to use
       **AWS/Marketplace/Community
       images** or **Bring your own
       images (BYOI)**.
+
       - **Instance
         details.**
+
         - **Operating System**.
           Select a supported operating system version for
           the ERS instance.
@@ -1173,6 +1230,7 @@ the high availability deployment.
     - **Primary and secondary instance
       details**. Enter details for both the
       primary and secondary instances.
+
       - **SAP HANA host name**.
         Enter the host name for the SAP HANA primary and
         secondary instances.
@@ -1226,7 +1284,6 @@ the high availability deployment.
         	 single IP address. Verify that this IP address is
         	 within the subnet range of the instance you are
         	 launching.
-
     - **Overlay IP address**.
       Enter the overlay IP address to assign to the
       active node. The IP address should be outside of
@@ -1243,8 +1300,10 @@ the high availability deployment.
       choose whether to **Use AWS recommended
       resources** or **Choose your
       instance**.
+
       - **Use AWS recommended
         resources**.
+
         - **Based on CPU/Memory**. If
           you select this option, enter the required number
           of vCPU **Cores** and
@@ -1258,6 +1317,7 @@ the high availability deployment.
 
       - **Choose your
         instance**.
+
         - **Instance type**. Choose
           the instance type from the dropdown list.
 
@@ -1272,12 +1332,15 @@ the high availability deployment.
 5.  **Primary Application Server
     (PAS)**. Enter the deployment settings
     for your instance.
+
     - **Instance details**.
+
       - Under **Image type**,
         choose whether to use
         **AWS/Marketplace/Community
         images** or **Bring your own
         images (BYOI)**.
+
         - **Operating System**.
           Select a supported operating system version for
           the ERS instance.
@@ -1298,11 +1361,14 @@ the high availability deployment.
       choose whether to **Use AWS recommended
       resources** or **Choose your
       instance**.
+
       - **Use AWS recommended
         resources**.
+
         - **Define requirements**.
           Choose the requirements for your recommended
           resources from the dropdown list.
+
           - **Based on CPU/Memory**. If
             you select this option, enter the required number
             of vCPU **Cores** and
@@ -1316,6 +1382,7 @@ the high availability deployment.
 
       - **Choose your
         instance**.
+
         - **Instance type**. Choose
           the instance type from the dropdown list.
 
@@ -1331,12 +1398,15 @@ the high availability deployment.
     SAP Web Dispatcher**. Enter the
     deployment settings for your SAP Web Dispatcher
     instances.
+
     - **Instance details**.
+
       - Under **Image type**,
         choose whether to use
         **AWS/Marketplace/Community
         images** or **Bring your own
         images (BYOI)**.
+
         - **Operating System**.
           Select a supported operating system version for
           the SAP Web Dispatcher instances. For a complete
@@ -1357,6 +1427,7 @@ the high availability deployment.
 
     - Enter the following information for both the
       primary and secondary instance:
+
       - **Private subnet**. The
         private subnet to provision SAP Web Dispatcher
         instances in.
@@ -1367,6 +1438,7 @@ the high availability deployment.
         Choose whether to use an **Auto-assigned
         (default)** IP address or a
         **Custom IP address**.
+
         - **Auto-assign IP address
           (default)**. When you select this option,
           an IP addressed will be assigned for you. This is
@@ -1386,18 +1458,22 @@ the high availability deployment.
       infrastructure requirements** or
       **Based on instance
       type**.
+
       - **Based on infrastructure
         requirements**
+
         - **Infrastructure
           requirements**. Choose the requirements
           for your recommended resources from the dropdown
           list.
+
           - **Based on CPU/Memory**. If
             you select this option, enter the required number
             of vCPU **Cores** and
             **Memory**. Amazon
             EC2 supports up to 1920 logical processors. If the
             amount of memory required exceeds 4TB, [dedicated hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md") are required.
+
             - **vCPU**. The amount of
               vCPUs cores required by the instance.
             - **Memory (GB)**. The amount
@@ -1408,12 +1484,14 @@ the high availability deployment.
             enter the **SAPS**
             rating for the SAP certified instance
             types.
+
             - **SAPS**. We will recommend
               SAP certified instance types which offer SAPS
               ratings for the value you enter.
 
         - **Based on instance
           type**
+
           - **Instance type**. Choose
             the instance type from the dropdown list.
 
@@ -1428,7 +1506,9 @@ the high availability deployment.
 7.  **Settings for Additional App Servers
     (AAS) - _optional_**. Enter the
     deployment settings for your AAS instances.
+
     - **Instance details**
+
       - **Number of Additional App Servers
         (AAS)**. Enter the number of additional
         application servers.
@@ -1446,12 +1526,15 @@ the high availability deployment.
       choose whether to **Use AWS recommended
       resources** or **Choose your
       instance**.
+
       - **Use AWS recommended
         resources**.
+
         - **Infrastructure
           requirements**. Choose the requirements
           for your recommended resources from the dropdown
           list.
+
           - **Based on CPU/Memory**. If
             you select this option, enter the required number
             of vCPU **Cores** and
@@ -1465,6 +1548,7 @@ the high availability deployment.
 
       - **Choose your
         instance**.
+
         - **Instance type**. Choose
           the instance type from the dropdown list.
 
@@ -1576,6 +1660,7 @@ instance, or high availability deployment.
 1. **SAP application software**.
    Choose whether to install the SAP installation
    software.
+
    - If you choose **No**,
      choose whether to install HANA software. If you
      want to install HANA software, enter the
@@ -1602,6 +1687,7 @@ instance, or high availability deployment.
    SAP Web Dispatcher** to launch a load
    balancer to distribute incoming traffic to your
    SAP Web Dispatcher instances.
+
    - **Load balancer type**.
      Choose the type of load balancer to deploy. For
      more information, see [Load balancers for SAP Web Dispatcher](launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-load-balancers "launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-load-balancers").
@@ -1614,6 +1700,7 @@ instance, or high availability deployment.
      load balancer. This option will terminate the
      HTTPS/TLS connection at the load balancer. For
      more information, see [Enable HTTPS communication](launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-post-deployment-enable-https "launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-post-deployment-enable-https").
+
      - **ACM certificate ARN**.
        Enter the ARN of a certificate in AWS Certificate Manager
        (ACM) to use for the load balancer HTTPS/TLS
@@ -1622,6 +1709,7 @@ instance, or high availability deployment.
    - **Availability Zones(AZ) and
      subnet**. The public or private subnets
      to deploy the load balancer in.
+
      - **Availability Zone 1**.
        Choose the first availability zone to use.
      - **Availability Zone 2**.
@@ -1636,6 +1724,7 @@ instance, or high availability deployment.
    relevant software and files. For instructions to
    provide Launch Wizard access to the application software and
    associated files, see [Make SAP application software available for AWS Launch Wizard to deploy SAP](launch-wizard-sap-software-install-details.md "launch-wizard-sap-software-install-details.md").
+
    - **SAPCAR location**. Enter
      the Amazon S3 path where the SAPCAR is located.
    - **Software Provisioning Manager
@@ -1702,6 +1791,7 @@ application selected.
    values to use for your software installation. The
    following fields may vary according to the
    application selected.
+
    - **Number of batch
      processes**. Enter the maximum number of
      batch processes.
@@ -1717,6 +1807,7 @@ application selected.
 7. **AWS Backint Agent**. Select
    the check box to install AWS Backint Agent. For
    more information, see [AWS Backint Agent for SAP HANA](../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md "../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md").
+
    1. **S3 file path**. Select or
       enter the Amazon S3 location to store the SAP HANA
       backup files.
@@ -1790,6 +1881,7 @@ settings.
 1. **Application type**. Select
    **SAP HANA database**. This
    configuration includes:
+
    - EC2 instances for an SAP HANA database
    - Optional installation of SAP HANA database
      software
@@ -1797,6 +1889,7 @@ settings.
 2. **General Settings – SAP HANA**.
    Enter the settings for your SAP HANA database
    installation.
+
    - **SAP HANA System ID
      (SID)**. Enter the SAP HANA system ID for
      your system. The HANASID must be different from
@@ -1835,6 +1928,7 @@ settings.
    - **SAP HANA software
      install**. Select whether you want to
      download the SAP HANA software.
+
      - If you select **Yes**,
        enter the Amazon S3 location where the SAP HANA
        software is located. The S3 bucket must have the
@@ -1845,11 +1939,13 @@ settings.
        [Make SAP HANA software available for AWS Launch Wizard to deploy a HANA database](launch-wizard-sap-structure.md "launch-wizard-sap-structure.md").
        Enter a password to use for your SAP HANA
        installation.
+
        - **AWS Backint Agent.**
          Select the check box if you want to deploy AWS
          Backint Agent for backup and recover along with
          the application. For more information about AWS
          Backint Agent, see [AWS Backint Agent for SAP HANA](../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md "../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md").
+
          - **S3 URI.** Enter the URI
            of the S3 bucket where you want to store your SAP
            HANA backup files. For example,
@@ -1866,6 +1962,7 @@ settings.
            installed.
          - **Additional Backint
            preferences.**
+
            - If you selected to use AWS Backint agent,
              the agent backs up files to S3, which removes the
              requirement for EBS backup volumes. Select this
@@ -1914,13 +2011,16 @@ deployment.
    deployment**.
 2. **Settings for SAP HANA database on one
    instance**
+
    - **Instance
      details.**
+
      - Under **Image type**,
        choose whether to use
        **AWS/Marketplace/Community
        images** or **Bring your own
        images (BYOI)**.
+
        - **Operating System**.
          Select a supported operating system version for
          the ERS instance.
@@ -1941,11 +2041,14 @@ deployment.
      choose **Use AWS recommended
      resources** or **Choose your
      instance**.
+
      - **Use AWS recommended
        resources**.
+
        - **Define requirements**.
          Choose the requirements for your recommended
          resources from the dropdown list.
+
          - **Based on CPU/Memory**. If
            you select this option, enter the required number
            of vCPU **Cores** and
@@ -1959,6 +2062,7 @@ deployment.
 
      - **Choose your
        instance**.
+
        - **Instance type**. Choose
          the instance type from the dropdown list.
 
@@ -2036,11 +2140,13 @@ deployment.
 2. ###### SAP HANA on multiple EC2 instances
    - **Instance
      details.**
+
      - Under **Instance sizing**,
        choose whether to use
        **AWS/Marketplace/Community
        images** or **Bring your own
        images (BYOI)**.
+
        - **Operating System**.
          Select a supported operating system version for
          the SAP HANA servers.
@@ -2052,12 +2158,15 @@ deployment.
      choose **Use AWS recommended
      resources** or **Choose your
      instance**.
+
      - **Use AWS recommended
        resources**.
+
        - **Infrastructure
          requirements**. Choose the requirements
          for your recommended resources from the dropdown
          list.
+
          - **Based on CPU/Memory**. If
            you select this option, enter the required number
            of vCPU **Cores** and
@@ -2071,6 +2180,7 @@ deployment.
 
      - **Choose your
        instance**.
+
        - **Instance type**. Choose
          the instance type from the dropdown list.
 
@@ -2161,11 +2271,13 @@ deployment.
    deployments. Select **High availability
    deployment**.
 2. **Instance details.**
+
    - Under **Instance details**,
      choose whether to use
      **AWS/Marketplace/Community
      images** or **Bring your own
      images (BYOI)**.
+
      - **Operating System**.
        Select a supported operating system version for
        the SAP HANA servers.
@@ -2176,6 +2288,7 @@ deployment.
    - **Primary and secondary instance
      details**. Enter details for both the
      primary and secondary instances.
+
      - **SAP HANA host name**.
        Enter the host name for the SAP HANA primary and
        secondary instances.
@@ -2200,12 +2313,15 @@ deployment.
      choose **Use AWS recommended
      resources** or **Choose your
      instance**.
+
      - **Use AWS recommended
        resources**.
+
        - **Infrastructure
          requirements**. Choose the requirements
          for your recommended resources from the dropdown
          list.
+
          - **Based on CPU/Memory**. If
            you select this option, enter the required number
            of vCPU **Cores** and
@@ -2219,6 +2335,7 @@ deployment.
 
      - **Choose your
        instance**.
+
        - **Instance type**. Choose
          the instance type from the dropdown list.
 
@@ -2306,12 +2423,14 @@ NetWeaver stack on SAP ASE database application settings.
 1. **Application type**. Select **NetWeaver
    stack on SAP ASE database**. This configuration
    includes:
+
    - NetWeaver stack for a single instance.
    - EC2 instances for the NetWeaver application tier
    - SAP NetWeaver ABAP or JAVA software install.
 
 2. **General settings – SAP system**. Enter the settings
    for your SAP system.
+
    - **SAP Application ID**. Select the
      application you want to deploy from the dropdown. The options
      include, SAP NetWeaver ABAP, SAP NetWeaver JAVA, and SAP
@@ -2336,6 +2455,7 @@ NetWeaver stack on SAP ASE database application settings.
 3. **General Settings – SAP Adaptive Server Enterprise
    (ASE)**. Enter the settings for your SAP ASE
    database.
+
    - **SAP ASE User ID number.** Enter the user ID
      number for the SAP ASE database admin
      (`syb<SAPSID>`). The minimum number is 100,
@@ -2358,7 +2478,9 @@ deployment details for a single instance deployment.
 
 1.  **ASCS, PAS, and DB on one EC2 instance**. Enter the
     deployment settings for your instance.
+
     - **Instance details**.
+
       - Under **Image type**, choose whether
         to use **AWS/Marketplace/Community
         image** or **Bring your own image
@@ -2375,6 +2497,7 @@ deployment details for a single instance deployment.
         whether to use an **Auto-assigned
         (default)** IP address or a
         **Custom IP address**.
+
         - **Auto-assign (default)**.
           When you select this option, an IP addressed will
           be assigned for you. This is the default
@@ -2427,7 +2550,6 @@ deployment details for a single instance deployment.
 
         	- **Instance type**. Choose the
         	 instance type from the dropdown list.
-
     - **Storage Sizing**. Enter the size, IOPS, and
       throughput for the data, log, and backup filesystems. You can
       have upto 6 data filesystems, 1 log filesystem, and 1 backup
@@ -2530,6 +2652,7 @@ selected.
 5. **Additional installation details**. Select the
    parameter name and values to use for your software installation. The
    following fields may vary according to the application selected.
+
    - **Number of batch processes**. Enter the
      maximum number of batch processes.
    - **Number of dialog processes**. Enter the
@@ -2559,7 +2682,9 @@ deployment details for an SAP ASE deployment.
 
 1.  **Settings for ASCS/SCS and PAS Server**. Enter the
     deployment settings for your application instance.
+
     - **Instance details**.
+
       - Under **Image type**, choose whether
         to use **AWS/Marketplace/Community
         image** or **Bring your own image
@@ -2576,6 +2701,7 @@ deployment details for an SAP ASE deployment.
         whether to use an **Auto-assigned
         (default)** IP address or a
         **Custom IP address**.
+
         - **Auto-assign (default)**.
           When you select this option, an IP addressed will
           be assigned for you. This is the default
@@ -2628,7 +2754,6 @@ deployment details for an SAP ASE deployment.
 
         	- **Instance type**. Choose the
         	 instance type from the dropdown list.
-
     - **Recommended Resources**. AWS Launch Wizard displays
       the **Estimated monthly cost of operation**
       based on your instance sizing selections and the EBS volumes
@@ -2639,7 +2764,9 @@ deployment details for an SAP ASE deployment.
 
 2.  **Settings for ASE database instance**. Enter the
     deployment settings for your application instance.
+
     - **Instance details**.
+
       - Under **Image type**, choose whether
         to use **AWS/Marketplace/Community
         image** or **Bring your own image
@@ -2656,6 +2783,7 @@ deployment details for an SAP ASE deployment.
         whether to use an **Auto-assigned
         (default)** IP address or a
         **Custom IP address**.
+
         - **Auto-assign (default)**.
           When you select this option, an IP addressed will
           be assigned for you. This is the default
@@ -2708,7 +2836,6 @@ deployment details for an SAP ASE deployment.
 
         	- **Instance type**. Choose the
         	 instance type from the dropdown list.
-
     - **Storage Sizing**. Enter the size, IOPS, and
       throughput for the data, log, and backup filesystems. You can
       have upto 6 data filesystems, 1 log filesystem, and 1 backup
@@ -2791,6 +2918,7 @@ With a cloned deployment, the following inputs must be provided.
 - Enter a unique name for the cloned deployment.
 - For SAP landscape infrastructure, you must define the
   configuration type.
+
   - You can **Create new configuration** by
     entering a new **Configuration name** and
     checking the **Verify connectivity**

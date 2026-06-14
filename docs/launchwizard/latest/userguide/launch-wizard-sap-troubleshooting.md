@@ -88,6 +88,7 @@ can view the cause of the failure.
   account for the workload. The CloudWatch log group can be identified as
   `LaunchWizard-`APPLICATION_NAME`` .
   You can find the following logs in this log group.
+
   - `lw-customization/`<instance-id>`/preDeploymentConfiguration`
     — For pre-deployment configuration scripts that run on the
     specified EC2 instance.
@@ -175,6 +176,7 @@ deployment.
   SLR (service-linked role)
   `AWSSSMForSAPServiceLinkedRolePolicy` creation.
 - **Solution:**
+
   1.  Use the [IAM console](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home") to ensure that
       `AWSSSMForSAPServiceLinkedRolePolicy` is in your
       account.

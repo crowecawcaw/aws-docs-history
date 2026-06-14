@@ -144,10 +144,12 @@ Launch Wizard performs the following infrastructure validations:
 - Public subnet outbound connectivity
 - Private subnet outbound connectivity
 - Custom Windows AMIs:
+
   - SQL Server installed and running on instance
   - Compliant versions of Windows and SQL Server
 
 - Dedicated Hosts (deployment on Windows)
+
   - AMIs are filtered according to the billing code. This filtering
     behavior is the result of restrictions described in the [Dedicated Host restrictions](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md#dedicated-hosts-limitations "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md#dedicated-hosts-limitations") page.
   - Supported instance type

@@ -561,6 +561,7 @@ JSON
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com//iam "https://console.aws.amazon.com//iam").
 2. Perform the following substeps individually for each of the three policies
    previously listed.
+
    1. In the left navigation pane, choose **Policies** >
       **Create policy**.
    2. On the **Create policy** page, choose the

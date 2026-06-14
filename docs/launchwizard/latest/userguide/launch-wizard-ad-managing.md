@@ -6,6 +6,7 @@ these steps.
 1. From the navigation pane, choose **Deployments**.
 2. From the **Deployments** page, select
    **Actions**. You can select to do the following:
+
    1. **Manage resources on the EC2 console**. You
       are taken to the Amazon EC2 console, where you can view and manage your domain
       controller resources. For example, you can view and manage EC2, Amazon EBS,

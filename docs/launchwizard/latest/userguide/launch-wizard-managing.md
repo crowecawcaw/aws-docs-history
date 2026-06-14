@@ -8,6 +8,7 @@ these steps.
 2. From the **Deployments — SQL** page, select the deployment
    you want to manage and then select **Actions**. You can select to
    do the following:
+
    1. **Manage resources on the EC2 console**. You
       are taken to the Amazon EC2 console, where you can view and manage your SQL
       Server Always On application resources. For example, you can view and manage

@@ -39,6 +39,7 @@ validation and application resource creation. The following are the relevant fil
 the `describe-stacks` API.
 
 - Application Resources
+
   - `LaunchWizard-`APPLICATION_NAME``.
     This stack includes all of the resource creation events for resources
     created by the deployment.

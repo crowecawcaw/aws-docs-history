@@ -224,23 +224,27 @@ An SAP application deployed with Launch Wizard includes the following components
 
 - **SAP HANA Database** supports the
   following:
+
   - Single instance deployment
   - Distributed instance deployment in a single Availability Zone
   - Cross-Availability Zone, high-availability deployment
 
 - **SAP applications based on SAP NetWeaver on SAP HANA
   database** supports the following:
+
   - Single instance deployment
   - Distributed instance deployment
   - cross-Availability Zone, high-availability deployment
 
 - **SAP applications based on SAP NetWeaver on SAP ASE
   database** supports the following:
+
   - Single instance deployment
   - Distributed instance deployment in a single Availability Zone
 
 - **SAP Web Dispatcher** supports the
   following:
+
   - All SAP deployment patterns, including with other SAP
     applications
 

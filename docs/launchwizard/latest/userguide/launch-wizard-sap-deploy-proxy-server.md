@@ -23,6 +23,7 @@ Configure your Squid proxy server with the following steps.
 2. Verify that your server is hosted on a public subnet and is attached to a
    public IP address.
 3. Add AWS services to the `allowed_list` file.
+
    1. In the Squid server configuration file
       `/etc/squid/squid.conf`, create an
       `allowed_list` path using the `acl`
@@ -31,7 +32,6 @@ Configure your Squid proxy server with the following steps.
    ```
    acl whitelist dstdomain '/etc/squid/allowed_list'
    ```
-
    2. In the `allowed_list` file, add the domains of all the
       services listed in the following table.
    3. Run the `rcsquid restart` command for the changes to take

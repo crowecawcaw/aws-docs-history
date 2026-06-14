@@ -129,7 +129,9 @@ administrator.
   related services may provide only one or two related log entries.
 - Verify resource configuration, and configuration of cluster-related
   functions.
+
   - The following commands display the configuration details:
+
     - To display all resources, use: `pcs resource show
 -full`.
     - Or, you can use: `pcs resource show <resource

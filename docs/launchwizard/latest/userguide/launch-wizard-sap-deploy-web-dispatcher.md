@@ -177,6 +177,7 @@ provider before following this procedure.
 ###### To configure end-to-end encryption
 
 1. Apply your own certificate to your application servers.
+
    1. If you have a SAP ABAP application server, apply your
       certificate to it. For more information, see [Configuring the ABAP Platform to Support TLS](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html "https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html") in
       the SAP documentation.
@@ -190,6 +191,7 @@ provider before following this procedure.
 3. Import the certificate that you used in the previous steps into
    ACM. For more information, see [Importing a certificate](../../../acm/latest/userguide/import-certificate-api-cli.md "../../../acm/latest/userguide/import-certificate-api-cli.md") in the _AWS Certificate Manager User Guide_.
 4. Create a listener for your Load Balancer.
+
    1. If you use Application Load Balancer, you create a HTTPS listener with your
       certificate imported into ACM as the default certificate.
       For more information, see [Create an HTTPS listener for your Application Load Balancer](../../../elasticloadbalancing/latest/application/create-https-listener.md "../../../elasticloadbalancing/latest/application/create-https-listener.md") in the
@@ -217,13 +219,13 @@ example.yourdomain.com
 
 6. Confirm the configuration is working by accessing your endpoint by
    the DNS name over HTTPS.
+
    1. For ABAP systems, your URL with the custom DNS name might
       resemble the following:
 
    ```
    https://`example.yourdomain.com`/sap/public/ping
    ```
-
    2. For Java systems, your URL with the custom DNS name might
       resemble the following:
 

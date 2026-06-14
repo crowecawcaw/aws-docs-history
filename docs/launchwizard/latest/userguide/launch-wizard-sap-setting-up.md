@@ -20,6 +20,7 @@ Launch Wizard.
 - You must create a user or role and attach the **AmazonLaunchWizardFullAccessV2** policy. See the [following sections](#launch-wizard-sap-iam "#launch-wizard-sap-iam") for the steps
   to attach the policy to the user or role.
 - When using AWS Backup to back up databases on Amazon EC2 instances,
+
   1.  You must set up the required permissions in the role
       `AmazonEC2RoleForLaunchWizard` for Amazon EC2 to backup
       and restore SAP HANA database when setting up AWS Systems Manager for SAP with
@@ -122,6 +123,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
