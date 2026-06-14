@@ -54,15 +54,18 @@ shared AWS Outposts resources](../userguide/sharing-outposts.md "../userguide/sh
 
 - Allocated Dedicated Hosts – Consumers with
   access to this resource can:
+
   - Launch and run EC2 instances on a Dedicated Host.
 
 - Outposts – Consumers with access to this
   resource can:
+
   - Create and manage subnets on the Outpost.
   - Use the AWS Outposts API to view information about the Outpost.
 
 - Sites – Consumers with access to this resource
   can:
+
   - Create, manage, and control an Outpost at the site.
 
 - Subnets – Consumers with access to this resource

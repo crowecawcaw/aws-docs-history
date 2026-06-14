@@ -92,6 +92,7 @@ you launch the instance, just as you do for instances in an Availability Zone su
    network interface device index for the Outpost subnet, this network interface is the local
    network interface for the instance. Alternatively, to add it later, see [Add a local network interface](add-lni.md "add-lni.md").
 7. (Optional) You can add a [third-party data volume](outpost-third-party-block-storage.md "outpost-third-party-block-storage.md").
+
    1. Expand **Configure storage**. Next to **External storage volume**,
       choose **Edit**.
    2. For **Storage Network Protocol**, choose **iSCSI**.

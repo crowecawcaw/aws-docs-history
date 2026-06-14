@@ -9,6 +9,7 @@ You can view the capacity configuration at the instance or Outpost level.
 3. Choose the Outpost.
 4. On the Outpost details page select either **Instance view** or
    **Rack view**.
+
    - **Instance view** - Provides information on the instances
      configured on the Outposts and the distribution of instances by size and
      family.

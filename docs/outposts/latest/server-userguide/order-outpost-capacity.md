@@ -150,6 +150,7 @@ Console steps
    your total available capacity.
 6. You can also request AWS Outposts to optimize the instance quantity for a specific instance
    size. To do so:
+
    1. Choose the instance size.
    2. Choose **Auto-balance** at the end of the related instance-type
       section.

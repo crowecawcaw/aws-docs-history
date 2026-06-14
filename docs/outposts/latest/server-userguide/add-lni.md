@@ -24,6 +24,7 @@ instance. For information about adding it during instance launch, see [Launch an
 2. In the navigation pane, choose **Network and Security**,
    **Network Interfaces**.
 3. **Create the network interface**
+
    1. Choose **Create network interface**.
    2. Select the same Outpost subnet as the instance.
    3. Verify that **Private IPv4 address** is set to
@@ -33,6 +34,7 @@ instance. For information about adding it during instance launch, see [Launch an
    5. Choose **Create network interface**.
 
 4. **Attach the network interface to the instance**
+
    1. Select the check box for the newly created network interface.
    2. Choose **Actions**, **Attach**.
    3. Choose the instance.

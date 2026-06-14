@@ -33,16 +33,19 @@ tests:
 
 1. [Test the
    links](../install-server/authorize-3.md#w8aac17c15b7 "../install-server/authorize-3.md#w8aac17c15b7").
+
    1. If successful, proceed with the next test.
    2. If it fails, [Verify network configuration](#verify-network-configuration "#verify-network-configuration").
 
 2. [Test for
    DNS resolution](../install-server/authorize-3.md#w8aac17c15b9 "../install-server/authorize-3.md#w8aac17c15b9").
+
    1. If successful, proceed with the next test.
    2. If it fails, [Check firewall rules](#check-firewall-rules "#check-firewall-rules").
 
 3. [Test for
    access to the AWS Region](../install-server/authorize-3.md#w8aac17c15c11 "../install-server/authorize-3.md#w8aac17c15c11").
+
    1. If successful, proceed to reestablish the connection.
    2. If it fails, [Verify MTU](#verify-mtu "#verify-mtu").
 

@@ -92,6 +92,7 @@ modprobe --first-time 8021q
 ```
 
 2. Create the VLAN device. In this example:
+
    - The interface name of the local network interface is `ens6`
    - The VLAN id is `59`
    - The name assigned for the VLAN device is `ens6.59`

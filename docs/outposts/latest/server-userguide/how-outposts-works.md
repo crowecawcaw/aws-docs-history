@@ -34,6 +34,7 @@ Outpost.
 - A VPC with multiple subnets in the Region
 - An Outpost in the on-premises network
 - Connectivity between the Outpost and local network provided:
+
   - For Outposts racks: a local gateway
   - For Outposts servers: a local network interface (LNI)
 
