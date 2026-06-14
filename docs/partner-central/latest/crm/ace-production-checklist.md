@@ -10,6 +10,7 @@ connector.
 2. Install and configure the CRM connector. For more information, refer to [Installing the connector](install-connector.md "install-connector.md").
 3. Map opportunities and lead objects by choosing one of the following mapping options.
    For reference, see this list of [required fields](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/opportunity-samples/Opportunity-Fields.csv "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/opportunity-samples/Opportunity-Fields.csv") on GitHub.
+
    - Use the AWS ACE opportunity custom object provided with AWS Partner CRM connector to
      log opportunities and share them with AWS. Using this option, you can automatically
      map AWS fields to Salesforce fields.

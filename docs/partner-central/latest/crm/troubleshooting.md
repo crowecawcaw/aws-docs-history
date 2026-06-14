@@ -18,6 +18,7 @@ raise a support case.
 2. On the [Support Center for
    Partner Central](https://partnercentral.awspartner.com/support "https://partnercentral.awspartner.com/support"), choose **Open New Case** and
    complete the following fields:
+
    - **Type of Support Case** – AWS Partner
      Central.
    - **Question regarding** – Partner Central

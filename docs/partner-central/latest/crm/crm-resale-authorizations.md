@@ -38,6 +38,7 @@ based on the type of product selected. You can create a resale authorization and
    tab, choose **New**.
 2. On the **Create a Resale Authorization** page, complete the required fields.
 3. (Optional) Create a flexible payment schedule
+
    1. In the **Product and
       Buyers** section, choose
       **Enable fixed units and allow

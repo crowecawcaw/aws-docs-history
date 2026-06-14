@@ -29,10 +29,12 @@ The **New Connected App** page appears. 4. Do the following:
 
 5. Select the **Enable OAuth Settings** checkbox, then
    do the following:
+
    1. Select the **Enable for Device Flow** checkbox. You can ignore the resulting callback URL.
    2. Under **Available OAuth Scopes**, select **Manage user data via
       APIs** and use the **Add** button to move the scope to the list of selected scopes.
    3. Select the following checkboxes:
+
       - **Require Proof Key for Code Exchange (PKCE) Extension for Supported Authorization Flows**
       - **Require Secret for Web Server Flow**
       - **Require Secret for Refresh Token Flow**
@@ -176,6 +178,7 @@ The **Create API destination** page appears. 3. Enter the following information:
     4. For **HTTP method**, select **POST**.
 
 4.  Under **Connection configuration**, select **Create a new connection**, then do the following:
+
     1. Enter a name and optional description.
     2. For **Destination type**, choose **Other**.
     3. Choose **OAuth Client Credentials**.

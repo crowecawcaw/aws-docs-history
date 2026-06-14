@@ -15,6 +15,7 @@ of the features as needed to meet your business needs and AWS engagement models.
 The AWS Partner Central API provides the following features:
 
 - A set of buttons that partners can use to help speed their operations:
+
   - **Share with AWS** – Create and update an opportunity.
   - **Approval Status** – Accept or reject AWS referred
     opportunities.

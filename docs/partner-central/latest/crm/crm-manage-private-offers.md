@@ -36,7 +36,9 @@ Also, you can save the offer as a draft, or publish it to the buyer account.
 2. On the **Create an Offer** page, at
    a minimum, complete the [Required fields for private offers](#private-offer-required-fields "#private-offer-required-fields") listed in the next section.
 3. Do some or all of the following:
+
    - **To create a flexible payment schedule**
+
      1. In the **Product and Buyers** section, choose
         **Enable fixed units and allow
         buyers to pay for this product in installments**.
@@ -44,6 +46,7 @@ Also, you can save the offer as a draft, or publish it to the buyer account.
         Schedule** section.
 
    - **To create a future dated agreement**
+
      1. In the **Service Length** section, choose **New offer starting at future date**.
      2. Enter **Service start
         date** and **Service end

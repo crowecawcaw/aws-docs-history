@@ -347,6 +347,7 @@ features and improvements:
   Created**, **Opportunity Updated**, or
   **Engagement Invitation Created**.
 - Three new fields added for opportunities:
+
   - `Opportunity Engagement Invitation ARN`
   - `Opportunity Type`
   - `Visibility`
@@ -413,6 +414,7 @@ Channel Partners can create a synchronization schedule for shared resale authori
 ### AWS Marketplace integration
 
 - As an ISV seller:
+
   - Synchronize available MP Products into Salesforce organization.
   - Create, view and manage ISV Private Offers on SaaS, AMI, and Container products.
   - Cancel and modify private offers.
@@ -425,6 +427,7 @@ Channel Partners can create a synchronization schedule for shared resale authori
     connector.
 
 - As an AWS Channel Partner:
+
   - Synchronize and view shared resale authorizations created by the ISV seller.
   - Create and manage AWS Channel Partner private offers for SaaS, AMI, and container products from shared resale authorizations.
 
@@ -489,12 +492,14 @@ Not applicable.
   scheduling failures.
 - Update the title of the application in all references with "AWS Partner CRM connector".
 - **Opportunity/lead** page
+
   - Update **Eligible to Sync with APN** field label to **Has
     Updates for AWS**.
   - Update **Sync with Partner Central** field label to **Sync
     with AWS**.
 
 - **Guided Setup** page
+
   - Update **Enter Authentication details** field label to **Set
     up the APN AWS connection**.
   - Update **SPMS** field label to **Partner ID**.
@@ -502,12 +507,14 @@ Not applicable.
     fields.
 
 - **Mapping** page
+
   - Update **ACE pipeline manager** fields to **AWS**
     fields.
   - Update **Enable APN updates** fields to **Enable Inbound
     Updates** fields.
 
 - **Sync Logs** page
+
   - Replace references to "APN" with "AWS" (direction).
   - Update the following sync log purpose fields labels: **Inbound
     Orchestration** to **Inbound File Retrieval**,

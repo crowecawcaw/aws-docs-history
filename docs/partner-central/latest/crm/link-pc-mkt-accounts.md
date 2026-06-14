@@ -6,6 +6,7 @@ You must link the accounts before you can create any type of CRM integration.
 ###### To link the accounts
 
 1. Do the following:
+
    - Sign in to your AWS Partner Central account as an alliance lead or cloud administrator.
    - Sign in to your AWS Marketplace seller account.
 
@@ -20,6 +21,7 @@ That takes you to the AWS Console and your AWS Marketplace seller account. 4. Do
     3. Choose **Next**.That returns you to Partner Central and the **Standard IAM roles** page.
 
 5. Select the following checkboxes:
+
    - Under **Cloud admin IAM role**, choose **Assign PartnerCentralRoleForCloudAdmin-###
      role to the AWS Partner Central alliance lead and all active cloud admin users**.
    - Under **Alliance team IAM role**, choose **Assign PartnerCentralRoleForAlliance-###

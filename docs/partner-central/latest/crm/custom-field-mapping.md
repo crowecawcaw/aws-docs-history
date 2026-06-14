@@ -11,6 +11,7 @@ Below are guidelines to assist in this process.
 - Map each mandatory field to its corresponding field in your CRM system. It’s essential
   for successful data exchange when you ensure all required fields are mapped. For more
   information, refer to [Field definitions](resources.md#custom-field-definitions "resources.md#custom-field-definitions")
+
   - [Opportunity](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/opportunity-samples/Opportunity-Fields.csv "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/opportunity-samples/Opportunity-Fields.csv")
   - [Lead](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/lead-samples/Leads-Fields.csv "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/lead-samples/Leads-Fields.csv")
 
@@ -71,6 +72,7 @@ Below are guidelines to assist in this process.
 
 - To prevent AWS data from overwriting specific CRM fields, consider
   the following:
+
   - Creating a custom CRM field for the data you want to protect.
   - Having this custom field reviewed by a sales representative.
   - Once the custom field is approved, adding it to the opportunity record and pipeline.
@@ -83,6 +85,7 @@ Below are guidelines to assist in this process.
 
 - If there are downstream dependencies in your system that rely on
   data exchange, consider the following:
+
   - Creating new fields in your CRM to accommodate the AWS data.
   - Realigning your business processes as necessary to ensure
     seamless integration and data flow.

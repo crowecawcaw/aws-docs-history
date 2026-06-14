@@ -17,18 +17,21 @@ To effectively consume opportunities from AWS, you need to
 build custom integration with these functionalities.
 
 1. **File retrieval**:
+
    - Use a scheduled job to regularly scan the `opportunity-outbound`
      folder, at an interval you choose.
    - Retrieve the opportunity files for processing.
 
 2. **Data transformation and
    mapping**:
+
    - After you read the content of each file, transform and map the data to the opportunity records in
      your customer relationship management (CRM) system.
    - For guidance on field mapping, refer to
      [Field mapping](custom-field-mapping.md "custom-field-mapping.md").
 
 3. **Opportunity identification**:
+
    - Uniquely identify each opportunity using either
      `partnerCrmOpportunityId` or
      `apnCrmUniqueIdentifier`.
@@ -41,6 +44,7 @@ build custom integration with these functionalities.
 
 4. **Opportunity ingestion**: Ingest new opportunities or update existing opportunities in the CRM system.
 5. **File management**:
+
    - After you successfully process each opportunity and the
      complete file data, delete the files from the outbound
      folder.
@@ -51,6 +55,7 @@ build custom integration with these functionalities.
 
 - For reading files uploaded to the Amazon Simple Storage Service (Amazon S3) bucket, you can use AWS Lambda or read directly from your CRM system.
 - Use the sample codes below for Lambda and Salesforce REST API to validate and update CRM records.
+
   - **Lambda for validating files**: [ace_read_s3.py](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/ace_read_s3.py "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/ace_read_s3.py").
   - **Salesforce REST API**: [Apex_Sample_REST_API_Code.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Apex_Sample_REST_API_Code.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/Apex_Sample_REST_API_Code.cls").
 
@@ -66,12 +71,14 @@ build custom integration with these functionalities.
    Convert the data into the AWS format, as outlined
    in [Field definitions](resources.md#custom-field-definitions "resources.md#custom-field-definitions").
 3. **File creation**:
+
    - Generate opportunity files in JSON format.
    - Append a timestamp to each file, ensuring all file names
      are unique and follow the format:
      `{name}_MMDDYYYY24HHMMSS.json`.
 
 4. **Authenticate and upload**:
+
    - Authenticate to the ACE Amazon S3 bucket.
    - Upload the file to the `opportunity-inbound` folder. All files
      shared with AWS are automatically archived in the
@@ -87,6 +94,7 @@ build custom integration with these functionalities.
    [Opportunity Results Success Sample.json](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/opportunity-samples/Opportunity-Results-Success-Sample.json "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/opportunity-samples/Opportunity-Results-Success-Sample.json").
 
 5. **File processing**:
+
    - Upon receipt, AWS automatically processes the files.
    - The results of the processing is uploaded to the
      `lead-inbound-processed-results` folder
@@ -100,16 +108,19 @@ build custom integration with these functionalities.
      [Technical FAQ—leads and opportunities](technical-faq-leads-and-opps.md "technical-faq-leads-and-opps.md").
 
 6. **Response handling**:
+
    - You must develop logic to consume these
      responses, review erroneous records, correct any errors,
      and resend the data to ACE.
    - You can find sample errors in the FAQ and Troubleshooting sections.
    - To upload a file to Amazon S3 from CRM:
+
      - Reference the version of the AWS signature.
      - Use an HTTPS request to upload the file.
 
    - For reference, use the following files to upload
      a file to the Amazon S3 bucket:
+
      - **For authenticating an S3
        bucket**:
        [S3_Authentication.cls](https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls "https://github.com/aws-samples/partner-crm-integration-samples/blob/main/code-snippets/S3_Authentication.cls")
