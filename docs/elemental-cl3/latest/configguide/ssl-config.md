@@ -26,6 +26,7 @@ We recommend that you enable HTTPS.
 - All the nodes use HTTPS for communications within the cluster.
 - When you enter commands using the CLI, you must include the `--https` option.
   These commands include the following:
+
   - The `run` script that installs or upgrades the software.
   - The `configure` script that configures the software.
 

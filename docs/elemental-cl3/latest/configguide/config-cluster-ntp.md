@@ -40,6 +40,7 @@ problems.
 ###### To configure NTP on Conductor Live
 
 1. Perform this step in the remote terminal session on the primary Conductor Live node.
+
    - On the Conductor Live node, edit the file `/etc/chrony.conf`
    - Uncomment the following line, and modify the IP addresses to specify the subnet
      that Conductor Live and the workers are configured with.

@@ -12,6 +12,7 @@ the router to the input side of the SDI card.
    then choose **Routers**. Choose the router.
 2. Choose **Map Outputs**. Complete the first line
    as follows and choose **Add** (+ icon):
+
    - **Output**: Select an output that is one of the cabled router
      outputs that you plan to use. The available options have the form _Output X_, where _X_ is a
      number that corresponds to the appropriate router output port. For example, if your

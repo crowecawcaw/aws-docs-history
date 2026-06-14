@@ -18,6 +18,7 @@ primary node.
    **General**.
 4. In the **Cluster Tasks** section, change these
    fields as desired:
+
    - **Minutes between management database
      backups**: Change if you want.
    - **Management database backups to keep**:

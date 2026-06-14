@@ -24,6 +24,7 @@ router inputs to router outputs.
    know the identification of each input on your router. Conductor Live can't
    detect information about the state of the input IDs. You can add
    inputs with the following options:
+
    - **Add**: Adds one or more inputs. Enter the number of inputs to
      be created. Conductor Live assigns input numbers to each, beginning with the first
      number after the largest one already created.

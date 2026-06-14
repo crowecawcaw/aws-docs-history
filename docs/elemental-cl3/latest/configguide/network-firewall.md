@@ -91,6 +91,7 @@ port is automatically configured with an open or closed state.
    node) or **Start Firewall** (on Conductor Live). The list of
    ports appears.
 3. Display the dialog:
+
    - On Conductor Live, choose **Add Incoming Port** on
      the right side of the page.
    - On a worker node, go to **Add Incoming Port**

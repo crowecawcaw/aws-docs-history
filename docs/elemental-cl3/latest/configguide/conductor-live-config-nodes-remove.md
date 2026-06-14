@@ -15,6 +15,7 @@ Generally, you remove a node only in these situations:
 
 1. To remove an Elemental Live node, make sure that no channels
    are associated with the node:
+
    1. On the web interface of the primary Conductor Live, go
       to the **Channels** page. Filter
       the channels list so only the channels associated
@@ -33,6 +34,7 @@ Generally, you remove a node only in these situations:
 
 2. To remove either anElemental Live or AWS Elemental Statmux node, make sure
    there are no MPTS outputs associated with the node:
+
    1. On the primary Conductor Live node's web
       interface, go to the **MPTS**
       page to verify which node each MPTS output is

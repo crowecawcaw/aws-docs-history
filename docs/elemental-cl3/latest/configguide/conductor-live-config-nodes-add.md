@@ -47,6 +47,7 @@ Perform the following steps on the primary Conductor Live node.
 2. On the **Nodes** page, choose **Add Node**.
    The **Add Nodes to Cluster** dialog appears showing two
    fields:
+
    - **Node IP Addresses**
    - **Lookup Node IP Address**
 

@@ -23,6 +23,7 @@ You might need to install the AWS Elemental software on the Conductor Live nodes
 
 - If you have obtained qualified hardware, you must install the software. See the
   appropriate guide:
+
   - [_AWS Elemental Conductor Live Install Guide_](../installguide.md "../installguide.md"). Keep in mind
     that Elemental Statmux is installed as part of Conductor Live.
   - [_AWS Elemental Live Install Guide_](../../../elemental-live/latest/installguide.md "../../../elemental-live/latest/installguide.md")

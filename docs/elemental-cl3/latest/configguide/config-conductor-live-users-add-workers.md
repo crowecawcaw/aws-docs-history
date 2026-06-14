@@ -38,6 +38,7 @@ _myuser_.
    Key** empty. A key will automatically be generated.
 4. Choose **Create**. The user is created with the specified role.
 5. Give each user this information:
+
    - Give the user their user name (case sensitive) and
      password.
    - Advise the user to display their user information. They must

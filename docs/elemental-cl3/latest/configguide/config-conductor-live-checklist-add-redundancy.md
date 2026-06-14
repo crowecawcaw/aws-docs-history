@@ -9,6 +9,7 @@ Perform the following steps in the specified order:
 1.  As your first step, you should identify your redundancy requirements. See [Designing the cluster](ready-conductor-live-cg.md "ready-conductor-live-cg.md").
 2.  [Verify the firewall setup](network-firewall.md "network-firewall.md") is the primary
     Conductor Live:
+
     - Make sure that the firewall is enabled on both Conductor Live nodes.
     - Accept port 5432 TCP.
 

@@ -11,6 +11,7 @@ events.
   generate.
 
 - Contents of the notification:
+
   - `ELEMENTAL-MIB::alertSet`. The value is
     `1` if the alert is being set, `0` if the
     alert is being cleared.

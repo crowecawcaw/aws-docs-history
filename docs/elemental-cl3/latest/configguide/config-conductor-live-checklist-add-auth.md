@@ -5,6 +5,7 @@ You must remove the nodes from the cluster, enable user authentication, and then
 back to the cluster:
 
 - On each worker node, perform these tasks in the specified order:
+
   - Remove each worker node from the cluster. See [Removing a worker node from the cluster](conductor-live-config-nodes-remove.md "conductor-live-config-nodes-remove.md")
   - [Enable HTTPS](ssl-config.md "ssl-config.md")
   - Recruit
@@ -12,6 +13,7 @@ back to the cluster:
 
 - On the primary Conductor Live node, perform these tasks in the specified
   order:
+
   - [Disable HTTPS](ssl-config.md "ssl-config.md")
   - [Remove the primary Conductor Live
     node](conductor-live-config-nodes-remove.md "conductor-live-config-nodes-remove.md") from the cluster.
