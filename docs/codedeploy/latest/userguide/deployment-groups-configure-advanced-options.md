@@ -76,6 +76,7 @@ rollback configuration that were specified for the deployment group.
 
 - You can enable deployments to roll back to the most recent known good revision
   when something goes wrong by choosing one or both of the following:
+
   - **Roll back when a deployment fails**. CodeDeploy will
     redeploy the last known good revision as a new deployment.
   - **Roll back when alarm thresholds are met**. If you added

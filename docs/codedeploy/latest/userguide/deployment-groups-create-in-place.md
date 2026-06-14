@@ -95,6 +95,7 @@ access to your target instance. 7. In **Deployment type**, choose
    like to install and update the CodeDeploy agent on the instances in your deployment
    group. For more information on the CodeDeploy agent, see [Working with the CodeDeploy agent](../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md "../../../en_us/codedeploy/latest/userguide/codedeploy-agent.md"). For more information about
    Systems Manager, see [What is Systems Manager?](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md")
+
    1. **Never**: Skip configuring the CodeDeploy installation
       with Systems Manager. Instances must have the agent installed to be used in
       deployments, so only choose this option if you will install the CodeDeploy

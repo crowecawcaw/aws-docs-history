@@ -8,6 +8,7 @@ To complete this tutorial, you must first:
   creating a load balancer using the AWS CLI, see [Step 1: Create an Application Load Balancer](../../../AmazonECS/latest/developerguide/create-blue-green.md#create-blue-green-loadbalancer "../../../AmazonECS/latest/developerguide/create-blue-green.md#create-blue-green-loadbalancer") in the _Amazon Elastic Container Service User
   Guide_. When you create your load balancer, make a note of the following for
   this tutorial:
+
   - The name of your load balancer.
   - The names of your target groups.
   - The port used by your load balancer's listener.
@@ -16,6 +17,7 @@ To complete this tutorial, you must first:
   [Tutorial: Creating a service using a blue/green deployment](../../../AmazonECS/latest/developerguide/create-blue-green.md "../../../AmazonECS/latest/developerguide/create-blue-green.md") in the
   _Amazon Elastic Container Service User Guide_. Make a note of the following for this
   tutorial:
+
   - The name of your Amazon ECS cluster.
   - The ARN of the the task definition used by your Amazon ECS service.
   - The name of the the container used by your Amazon ECS service.

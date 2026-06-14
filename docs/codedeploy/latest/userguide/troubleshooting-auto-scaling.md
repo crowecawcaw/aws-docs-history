@@ -47,6 +47,7 @@ EC2 instances). For more information, see [Change deployment group settings with
   Amazon EC2 Auto Scaling group. (Other EC2 instances in the Amazon EC2 Auto Scaling group might appear to be
   running normally.) To address this issue, make sure that all other scripts are complete
   first:
+
   - **CodeDeploy agent is not included in your AMI** : If
     you use the **cfn-init** command to install the CodeDeploy agent while
     launching a new instance, place the agent installation script at the end of the
@@ -218,6 +219,7 @@ lifecycle hooks are the cause and resolve the problem by doing the following:
 2.  Call the [describe-lifecycle-hooks](../../../cli/latest/reference/autoscaling/describe-lifecycle-hooks.md "../../../cli/latest/reference/autoscaling/describe-lifecycle-hooks.md") command, specifying the name of the Amazon EC2 Auto Scaling group
     associated with the EC2 instances that failed to launch. In the output, look for
     any of the following:
+
     - Amazon EC2 Auto Scaling lifecycle hook names that correspond to the
       `hooksNotCleanedUp` structure you identified in step 1.
     - Amazon EC2 Auto Scaling lifecycle hook names that contain the name of the deployment group
@@ -275,6 +277,7 @@ character, do the following:
 1. If there are lifecycle hook names in the **describe-lifecycle-hooks**
    command output that are not also in the **get-deployment-group** command
    output, then do the following:
+
    1. For each lifecycle hook name in the **describe-lifecycle-hooks**
       command output, call the [delete-lifecycle-hook](../../../cli/latest/reference/autoscaling/delete-lifecycle-hook.md "../../../cli/latest/reference/autoscaling/delete-lifecycle-hook.md") command.
    2. Call the [update-deployment-group](../../../cli/latest/reference/deploy/update-deployment-group.md "../../../cli/latest/reference/deploy/update-deployment-group.md") command, specifying the name of the original
@@ -285,6 +288,7 @@ character, do the following:
 2. If there are lifecycle hook names in the **get-deployment-group**
    command output that are not also in the **describe-lifecycle-hooks**
    command output, do the following:
+
    1. Call the [update-deployment-group](../../../cli/latest/reference/deploy/update-deployment-group.md "../../../cli/latest/reference/deploy/update-deployment-group.md") command, but do not specify the name of the
       original Amazon EC2 Auto Scaling group.
    2. Call the **update-deployment-group** command again, but this time
@@ -320,6 +324,7 @@ Possible causes for this error are:
    least one instance to be in the `InService` state. There are many reasons why
    you might have no instances in the `InService` state. A few of them
    include:
+
    - You scheduled (or manually configured) the Auto Scaling group size to be
      `0`.
    - Auto Scaling detected bad EC2 instances (for example, the EC2 instances
@@ -347,6 +352,7 @@ Possible causes for this error are:
 2. If Auto Scaling keeps attempting to launch new EC2 instances to meet the desired
    capacity but can never fulfill the scale out, it is usually due to a failing Auto Scaling
    lifecycle hook. Troubleshoot this problem as follows:
+
    1. To check which Auto Scaling lifecycle hook event is failing, see [Verifying a
       scaling activity for an Auto Scaling group](../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md "../../../autoscaling/ec2/userguide/as-verify-scaling-activity.md") in the Amazon EC2 Auto Scaling User Guide.
    2. If the failing hook's name is
@@ -362,6 +368,7 @@ Possible causes for this error are:
       must fix the bad CodeDeploy revision by temporarily removing CodeDeploy’s lifecycle hook from
       the Auto Scaling group, and then reinstalling the hook and redeploying a new (good)
       revision. For instructions, see:
+
       - [To fix the deployment deadlock issue (CLI)](#ToFixDeployDeadlockCLI "#ToFixDeployDeadlockCLI")
       - [To fix the deployment deadlock issue (console)](#ToFixDeployDeadlockConsole "#ToFixDeployDeadlockConsole")
 
@@ -537,6 +544,7 @@ with the instance is not sending traffic to this host without software.
 
 5. Wait for the EC2 instance to enter the `InService` state. To
    verify its state:
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. In the navigation pane, choose **Auto Scaling Groups**.
@@ -549,6 +557,7 @@ with the instance is not sending traffic to this host without software.
 
 6. Re-register the Auto Scaling group with the CodeDeploy deployment group using the same method you
    used to remove it:
+
    1. Open the CodeDeploy console at
       [https://console.aws.amazon.com/codedeploy/](https://console.aws.amazon.com/codedeploy/ "https://console.aws.amazon.com/codedeploy/").
    2. Choose the appropriate Region.

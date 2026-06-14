@@ -285,6 +285,7 @@ Therefore, CodeDeploy will deploy to `40` hosts at once.
 In this scenario, the deployment unfolds as follows:
 
 1. CodeDeploy deploys to the first Availability Zone:
+
    1. CodeDeploy deploys to the first `40` hosts.
    2. CodeDeploy deploys to the next `40` hosts.
    3. CodeDeploy deploys to the remaining `20` hosts.
@@ -295,6 +296,7 @@ In this scenario, the deployment unfolds as follows:
    the **Monitor duration** or **Add a monitor duration for the
    first zone** setting. If there are no problems, CodeDeploy continues.
 3. CodeDeploy deploys to the second Availability Zone:
+
    1. CodeDeploy deploys to the first `40` hosts.
    2. CodeDeploy deploys to the next `40` hosts.
    3. CodeDeploy deploys to the remaining `20` hosts.

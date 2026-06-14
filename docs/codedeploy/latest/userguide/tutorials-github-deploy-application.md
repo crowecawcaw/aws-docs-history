@@ -11,6 +11,7 @@ your GitHub repository to your instance.
    **`CodeDeployGitHubDemo-DepGrp`**.
 3. In **Revision type**, choose **GitHub**.
 4. In **Connect to GitHub**, do one of the following:
+
    - To create a connection for CodeDeploy applications to a GitHub account, sign out of
      GitHub in a separate web browser tab. In **GitHub account**, enter
      a name to identify this connection, and then choose **Connect to

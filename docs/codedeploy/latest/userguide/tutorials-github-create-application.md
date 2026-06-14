@@ -36,6 +36,7 @@ aws deploy create-application --application-name CodeDeployGitHubDemo-App
 
 2. Call the **create-deployment-group** command to create a deployment
    group named `CodeDeployGitHubDemo-DepGrp`:
+
    - If you're deploying to an Amazon EC2 instance, `ec2-tag-key`
      is the Amazon EC2 instance tag key that was applied to your Amazon EC2 instance as part of
      [Step 4: Provision an instance](tutorials-github-provision-instance.md "tutorials-github-provision-instance.md").

@@ -318,6 +318,7 @@ access key, and the target AWS region. The file must follow a specific format.
    Ubuntu Server or RHEL on-premises instance) or
    `conf.onpremises.yml` (for a Windows Server on-premises
    instance) in the following location on the on-premises instance:
+
    - For Ubuntu Server: `/etc/codedeploy-agent/conf`
    - For Windows Server: `C:\ProgramData\Amazon\CodeDeploy`
 
@@ -496,6 +497,7 @@ aws iam get-user --user-name CodeDeployUser-OnPrem --query "User.Arn" --output t
 ```
 
 2. Call the [register-on-premises-instance](../../../cli/latest/reference/deploy/register-on-premises-instance.md "../../../cli/latest/reference/deploy/register-on-premises-instance.md") command, specifying:
+
    - A name that uniquely identifies the on-premises instance (with the
      `--instance-name` option).
 
@@ -524,6 +526,7 @@ uses on-premises instance tags to identify the deployment targets during a deplo
 ###### To tag the on-premises instance (CLI)
 
 - Call the [add-tags-to-on-premises-instances](../../../cli/latest/reference/deploy/add-tags-to-on-premises-instances.md "../../../cli/latest/reference/deploy/add-tags-to-on-premises-instances.md") command, specifying:
+
   - The name that uniquely identifies the on-premises instance (with the
     `--instance-names` option).
   - The name of the on-premises instance tag key and tag value you want to use (with

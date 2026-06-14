@@ -46,6 +46,7 @@ To use the AWS CLI to change deployment group settings, call the
 
 - For EC2/On-Premises and AWS Lambda
   deployments:
+
   - The application name. To view a list of application names, call the
     [list-applications](../../../cli/latest/reference/deploy/list-applications.md "../../../cli/latest/reference/deploy/list-applications.md") command.
   - The current deployment group name. To view a list of deployment group
@@ -74,12 +75,14 @@ To use the AWS CLI to change deployment group settings, call the
     group. For information, see [Monitoring Deployments with Amazon SNS Event Notifications](monitoring-sns-event-notifications.md "monitoring-sns-event-notifications.md").
 
 - For EC2/On-Premises deployments only:
+
   - (Optional) Replacement tags or tag groups that uniquely identify the
     instances to be included in the deployment group.
   - (Optional) The names of replacement Amazon EC2 Auto Scaling groups to be added to the
     deployment group.
 
 - For Amazon ECS deployments only:
+
   - The Amazon ECS service to deploy.
   - Load balancer information, including the Application Load Balancer or Network Load Balancer, the target
     groups required for an Amazon ECS deployment, and production and optional

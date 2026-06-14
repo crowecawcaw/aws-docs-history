@@ -194,6 +194,7 @@ follows:**
 8. When the deployment completes, CodeDeploy indicates to Auto Scaling to either
    `CONTINUE` or `ABANDON` the EC2 launch
    process, depending on whether the deployment succeeded or failed.
+
    - If CodeDeploy indicates `CONTINUE`, Auto Scaling continues the
      launch process, either waiting for other hooks to complete, or
      putting the instance into the `Pending:Proceed` and then

@@ -16,6 +16,7 @@ You can use the following checklist to troubleshoot a failed deployment.
 1.  See [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") and [View Instance Details](instances-view-details.md "instances-view-details.md") to determine why the deployment failed. If
     you cannot determine the cause, review the items in this checklist.
 2.  Check that you have correctly configured the instances:
+
     - Was the instance launched with an EC2 key pair specified? For more
       information, see [EC2
       Key Pairs](../../../AWSEC2/latest/UserGuide/EC2-key-pairs.md "../../../AWSEC2/latest/UserGuide/EC2-key-pairs.md") in _Amazon EC2 User Guide_.
@@ -28,10 +29,12 @@ You can use the following checklist to troubleshoot a failed deployment.
       is installed, see [Determine the version of the CodeDeploy agent](codedeploy-agent-operations-version.md "codedeploy-agent-operations-version.md").
 
 3.  Check the application and deployment group settings:
+
     - To check your application settings, see [View application details with CodeDeploy](applications-view-details.md "applications-view-details.md").
     - To check your deployment group settings, see [View deployment group details with CodeDeploy](deployment-groups-view-details.md "deployment-groups-view-details.md").
 
 4.  Confirm the application revision is correctly configured:
+
     - Check the format of your AppSpec file. For more information, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md") and [CodeDeploy AppSpec file reference](reference-appspec-file.md "reference-appspec-file.md").
     - Check your Amazon S3 bucket or GitHub repository to verify your application revision
       is in the expected location.

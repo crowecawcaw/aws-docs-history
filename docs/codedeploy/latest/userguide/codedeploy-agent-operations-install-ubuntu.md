@@ -51,13 +51,13 @@ chmod +x ./install
 ```
 
 6. Do one of the following:
+
    - To install the latest version of the CodeDeploy agent on any supported version of
      Ubuntu Server _except_ 20.04:
 
    ```
    sudo ./install auto
    ```
-
    - To install the latest version of the CodeDeploy agent on Ubuntu Server 20.04:
 
    ###### Note
@@ -69,15 +69,14 @@ chmod +x ./install
    ```
    sudo ./install auto > /tmp/logfile
    ```
-
    - To install a specific version of the CodeDeploy agent on any supported version of
      Ubuntu Server _except_ 20.04:
+
      - List the available versions in your region:
 
      ```
      aws s3 ls s3://aws-codedeploy-`region-identifier`/releases/ --region `region-identifier` | grep '\.deb$'
      ```
-
      - Install one of the versions:
 
      ```
@@ -89,12 +88,12 @@ chmod +x ./install
      AWS supports the latest minor version of the CodeDeploy agent. Currently the latest minor version is 1.7.x.
 
    - To install a specific version of the CodeDeploy agent on Ubuntu Server 20.04:
+
      - List the available versions in your region:
 
      ```
      aws s3 ls s3://aws-codedeploy-`region-identifier`/releases/ --region `region-identifier` | grep '\.deb$'
      ```
-
      - Install one of the versions:
 
      ```

@@ -335,6 +335,7 @@ Here's how it works:
 2. In an existing CodeDeploy application, you create a blue/green deployment group where,
    in addition to the options required for an in-place deployment, you specify the
    following:
+
    - The load balancer or load balancers that route traffic from your original environment to your
      replacement environment during the blue/green deployment process.
    - Whether to reroute traffic to the replacement environment immediately or wait
@@ -344,6 +345,7 @@ Here's how it works:
 
 3. You create a deployment for this deployment group during which the following
    occur:
+
    1. If you chose to copy an Amazon EC2 Auto Scaling group, instances are provisioned for your
       replacement environment.
    2. The application revision you specify for the deployment is installed on the

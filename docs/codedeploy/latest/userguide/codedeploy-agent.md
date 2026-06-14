@@ -249,6 +249,7 @@ deployment group ID.
 - **Deployment ID** folders represent each deployment
   in a deployment group. Each deployment directory's name is its ID. Each folder
   contains:
+
   - **bundle.tar**, a compressed file with the
     contents of the deployment's revision. Use a zip decompression utility
     if you want to view the revision.
@@ -275,6 +276,7 @@ that the number is equal to the you specified.
 
 - **deployment-instructions** contains four text
   files for each deployment group:
+
   - **[Deployment Group ID]-cleanup**, a text
     file with an undo verison of each command that is run during a
     deployment. An example file name is
@@ -302,6 +304,7 @@ that the number is equal to the you specified.
 
 - **deployment-logs** contains the following log
   files:
+
   - **codedeploy-agent.yyyymmdd.log** files are
     created for each day there is a deployment. Each log file contains
     information about the day's deployments. These log files might be useful

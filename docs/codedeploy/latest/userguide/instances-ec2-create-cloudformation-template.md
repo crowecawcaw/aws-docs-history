@@ -25,6 +25,7 @@ Before you can use the CloudFormation template to launch Amazon EC2 instances, m
 the following steps.
 
 1. Make sure you have created an administrative user, as described in [Step 1: Setting up](getting-started-setting-up.md "getting-started-setting-up.md"). Double-check that the user has the following minimum permissions and add any that are not present:
+
    - cloudformation:\*
    - codedeploy:\*
    - ec2:\*
@@ -90,6 +91,7 @@ then choose **Next**.
    `CodeDeployDemoStack`).
 5. In **Parameters**, type the following, and then choose
    **Next**.
+
    - For **InstanceCount**, type the number of instances you want to
      launch. (We recommend you leave the default of **1**.)
    - For **InstanceType**, type the instance type you want to launch

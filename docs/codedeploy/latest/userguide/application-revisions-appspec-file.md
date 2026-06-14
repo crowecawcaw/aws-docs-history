@@ -235,6 +235,7 @@ To add an AppSpec file to a revision:
    the revision.
 5. Run one of the following commands to verify that you have placed your AppSpec file
    in the root directory:
+
    - For Linux, macOS, or Unix:
 
    ```

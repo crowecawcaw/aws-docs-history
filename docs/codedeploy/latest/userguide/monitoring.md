@@ -90,6 +90,7 @@ dashboards provide an at-a-glance view of the state of your AWS environment. We 
 that you also check the log files on CodeDeploy deployments.
 
 - CodeDeploy console shows:
+
   - The status of deployments
   - The date and time of each last attempted and last successful deployment of a
     revision

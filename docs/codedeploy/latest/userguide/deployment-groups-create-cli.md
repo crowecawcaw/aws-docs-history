@@ -31,11 +31,14 @@ To use the AWS CLI to create a deployment group, call the
 - (Optional) Commands for a deployment to generate lifecycle event hooks during
   an Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
 - For in-place deployments:
+
   - (Optional) The names of the Classic Load Balancers, Application Load Balancers, or Network Load Balancers in Elastic Load Balancing that
     manage traffic to the instances during the deployment processes.
 
 - For blue/green deployments:
+
   - Configuration of the blue/green deployment process:
+
     - How new instances in the replacement environment are
       provisioned.
     - Whether to reroute traffic to the replacement environment

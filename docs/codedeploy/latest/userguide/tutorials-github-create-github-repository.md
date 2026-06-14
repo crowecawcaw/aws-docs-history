@@ -8,6 +8,7 @@ ahead to [Step 3: Upload a sample application to your GitHub repository](tutoria
 
 1. On the [GitHub home page](https://github.com/dashboard "https://github.com/dashboard"), do one of
    the following:
+
    - In **Your repositories**, choose **New
      repository**.
    - On the navigation bar, choose **Create new**
@@ -16,6 +17,7 @@ ahead to [Step 3: Upload a sample application to your GitHub repository](tutoria
 
 2. In the **Create a new repository** page, do the
    following:
+
    - In the **Repository name** box, enter
      `CodeDeployGitHubDemo`.
    - Select **Public**.

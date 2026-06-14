@@ -69,6 +69,7 @@ To use the Amazon EC2 console to create an Amazon EC2 Application Load Balancer:
 8. (Optional) Configure a second listener port for your load balancer. You
    can run deployment validation tests using test traffic that is served to
    this port.
+
    1. Under **Load Balancer Protocol**, choose
       **Add listener**.
    2. Under **Load Balancer Protocol** for the second
@@ -86,6 +87,7 @@ To use the Amazon EC2 console to create an Amazon EC2 Application Load Balancer:
 13. Choose **Next: Configure Routing**.
 14. In **Target group**, choose **New target
     group**, and configure your first target group:
+
     1. In **Name**, enter a target group name (for
        example, `target-group-1`).
     2. In **Target type**, choose

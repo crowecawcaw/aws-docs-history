@@ -30,6 +30,7 @@ editing a configuration file.
 2. In the wizard, when asked `Do you want to monitor any log files?` enter
    `1`.
 3. Specify the CodeDeploy agent log file, as follows:
+
    1. For `Log file path` enter the path for the CodeDeploy log file, for example:
       `/var/log/aws/codedeploy-agent/codedeploy-agent.log`.
    2. For `Log group name` enter a log group name, for example:
@@ -40,6 +41,7 @@ editing a configuration file.
 4. When asked `Do you want to specify any additional log files?`, enter
    `1`.
 5. Specify the CodeDeploy agent deployment logs, as follows:
+
    1. For `Log file path` enter the path for the CodeDeploy deployment log file,
       for example:
       `/opt/codedeploy-agent/deployment-root/deployment-logs/codedeploy-agent-deployments.log`.
@@ -51,6 +53,7 @@ editing a configuration file.
 6. When asked `Do you want to specify any additional log files?`, enter
    `1`.
 7. Specify the CodeDeploy agent updater logs, as follows:
+
    1. For `Log file path` enter the path for the CodeDeploy updater log file, for
       example: `/tmp/codedeploy-agent.update.log`.
    2. For `Log group name` enter a log group name, for example:
@@ -64,6 +67,7 @@ editing a configuration file.
 2. In the wizard, when asked `Do you want to monitor any customized log
 files?` enter `1`.
 3. Specify the CodeDeploy log file, as follows:
+
    1. For `Log file path` enter the path r the CodeDeploy agent log file, for
       example:
       `C:\ProgramData\Amazon\CodeDeploy\log\codedeploy-agent-log.txt`.
@@ -75,6 +79,7 @@ files?` enter `1`.
 4. When asked `Do you want to specify any additional log files?`, enter
    `1`.
 5. Specify the CodeDeploy agent deployment logs, as follows:
+
    1. For `Log file path` enter the path the CodeDeploy deployment log file, for example:
       `C:\ProgramData\Amazon\CodeDeploy\deployment-logs\codedeploy-agent-deployments.log`.
    2. For `Log group name` enter a log group name, for example:

@@ -135,6 +135,7 @@ this issue.
 - As an organization member, you can ask the organization owner to approve
   access to CodeDeploy. The steps for requesting this access depend on whether you
   have already authorized CodeDeploy for your individual account:
+
   - If you have authorized access to CodeDeploy in your account, see [Requesting organization approval for your authorized
     applications](https://help.github.com/articles/requesting-organization-approval-for-your-authorized-applications/ "https://help.github.com/articles/requesting-organization-approval-for-your-authorized-applications/").
   - If you have not yet authorized access to CodeDeploy in your account,

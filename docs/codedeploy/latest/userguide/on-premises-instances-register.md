@@ -5,6 +5,7 @@ requests. You can choose from the following options for the IAM identity and reg
 method you use:
 
 - Use an IAM role ARN to authenticate requests.
+
   - Use the [register-on-premises-instance](../../../cli/latest/reference/deploy/register-on-premises-instance.md "../../../cli/latest/reference/deploy/register-on-premises-instance.md") command and periodically
     refreshed temporary credentials generated with the AWS Security Token Service (AWS STS) to manually
     configure most registration options. This option offers the highest level of security,
@@ -13,6 +14,7 @@ method you use:
     size. For information, see [Use the register-on-premises-instance command (IAM Session ARN) to register an on-premises instance](register-on-premises-instance-iam-session-arn.md "register-on-premises-instance-iam-session-arn.md").
 
 - (Not recommended) Use an IAM user ARN to authenticate requests.
+
   - Use the [register](../../../cli/latest/reference/deploy/register.md "../../../cli/latest/reference/deploy/register.md") command for the most automated registration process.
     This option should only be used for non-production deployments where security is less of
     a concern. This option is less secure because it uses static (permanent) credentials for

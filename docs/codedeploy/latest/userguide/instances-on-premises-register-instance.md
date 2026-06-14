@@ -253,6 +253,7 @@ specifying:
   version based on the [CodeDeploy
   agent](https://github.com/aws/aws-codedeploy-agent "https://github.com/aws/aws-codedeploy-agent") repository in GitHub). The value must be the path to an Amazon S3 bucket that
   contains either:
+
   - A CodeDeploy agent installation script (for Linux- or Unix-based operating systems,
     similar to the install file in the [CodeDeploy
     agent](https://github.com/aws/aws-codedeploy-agent/blob/master/bin/install "https://github.com/aws/aws-codedeploy-agent/blob/master/bin/install") repository in GitHub).

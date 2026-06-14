@@ -163,6 +163,7 @@ task definition.
 - `NetworkConfiguration`: Optional. Under `AwsvpcConfiguration`,
   you can specify the following. For more information, see [AwsVpcConfiguration](../../../AmazonECS/latest/APIReference/API_AwsVpcConfiguration.md "../../../AmazonECS/latest/APIReference/API_AwsVpcConfiguration.md") in the
   _Amazon ECS Container Service API Reference_.
+
   - `Subnets`: Optional. A comma-separated list of one or more subnets
     in your Amazon ECS service.
   - `SecurityGroups`: Optional. A comma-separated list of one or more
@@ -184,6 +185,7 @@ specified, CodeDeploy uses the current network Amazon ECS settings.
   provider, you can specify the following settings. For details on these settings, see
   [AWS::ECS::ServiceCapacityProviderStrategyItem](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.md") in the
   _AWS CloudFormation User Guide_
+
   - `Base`: Optional. The base value designates how many tasks, at a
     minimum, to run on the specified capacity provider. Only one capacity provider in
     a capacity provider strategy can have a base defined. If no value is specified,

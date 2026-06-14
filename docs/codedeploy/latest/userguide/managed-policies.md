@@ -105,6 +105,7 @@ JSON
 - `AWSCodeDeployRoleForECSLimited`: Grants CodeDeploy
   permission to access Amazon ECS and any other resource required for a deployment
   with the following exceptions:
+
   - In the `hooks` section of the AppSpec file, only
     Lambda functions with names that begin with
     `CodeDeployHook_` can be used. For more information,

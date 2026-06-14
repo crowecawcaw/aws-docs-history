@@ -33,40 +33,45 @@ operations. The table below shows the supported AWS Regions for each endpoint.
 
 For more information and for FIPS endpoints, see [AWS CodeDeploy endpoints and quotas](../../../general/latest/gr/codedeploy.md "../../../general/latest/gr/codedeploy.md").
 
-| Region name               | Region code    | Agent endpoint | API endpoint | FIPS compliant Region? |
-| ------------------------- | -------------- | -------------- | ------------ | ---------------------- |
-| US East (N. Virginia)     | us-east-1      | Yes            | Yes          | Yes                    |
-| US East (Ohio)            | us-east-2      | Yes            | Yes          | Yes                    |
-| US West (N. California)   | us-west-1      | Yes            | Yes          | Yes                    |
-| US West (Oregon)          | us-west-2      | Yes            | Yes          | Yes                    |
-| Africa (Cape Town)        | af-south-1     | Yes            | No           |                        |
-| Asia Pacific (Hong Kong)  | ap-east-1      | Yes            | Yes          |                        |
-| Asia Pacific (Hyderabad)  | ap-south-2     | Yes            | No           |                        |
-| Asia Pacific (Jakarta)    | ap-southeast-3 | Yes            | No           |                        |
-| Asia Pacific (Melbourne)  | ap-southeast-4 | Yes            | No           |                        |
-| Asia Pacific (Mumbai)     | ap-south-1     | Yes            | Yes          |                        |
-| Asia Pacific (Osaka)      | ap-northeast-3 | Yes            | No           |                        |
-| Asia Pacific (Seoul)      | ap-northeast-2 | Yes            | Yes          |                        |
-| Asia Pacific (Singapore)  | ap-southeast-1 | Yes            | Yes          |                        |
-| Asia Pacific (Sydney)     | ap-southeast-2 | Yes            | Yes          |                        |
-| Asia Pacific (Tokyo)      | ap-northeast-1 | Yes            | Yes          |                        |
-| Canada (Central)          | ca-central-1   | Yes            | Yes          |                        |
-| China (Beijing)           | cn-north-1     | Yes            | No           |                        |
-| China (Ningxia)           | cn-northwest-1 | No             | No           |                        |
-| Europe (Frankfurt)        | eu-central-1   | Yes            | Yes          |                        |
-| Europe (Ireland)          | eu-west-1      | Yes            | Yes          |                        |
-| Europe (London)           | eu-west-2      | Yes            | Yes          |                        |
-| Europe (Milan)            | eu-south-1     | Yes            | No           |                        |
-| Europe (Paris)            | eu-west-3      | Yes            | Yes          |                        |
-| Europe (Spain)            | eu-south-2     | Yes            | No           |                        |
-| Europe (Stockholm)        | eu-north-1     | Yes            | Yes          |                        |
-| Europe (Zurich)           | eu-central-2   | Yes            | No           |                        |
-| Israel (Tel Aviv)         | il-central-1   | Yes            | Yes          |                        |
-| Middle East (Bahrain)     | me-south-1     | Yes            | Yes          |                        |
-| Middle East (UAE)         | me-central-1   | Yes            | No           |                        |
-| South America (São Paulo) | sa-east-1      | Yes            | Yes          |                        |
-| AWS GovCloud (US-East)    | us-gov-east-1  | No             | No           | Yes                    |
-| AWS GovCloud (US-West)    | us-gov-west-1  | No             | No           | Yes                    |
+| Region name                | Region code    | Agent endpoint | API endpoint | FIPS compliant Region? |
+| -------------------------- | -------------- | -------------- | ------------ | ---------------------- |
+| US East (N. Virginia)      | us-east-1      | Yes            | Yes          | Yes                    |
+| US East (Ohio)             | us-east-2      | Yes            | Yes          | Yes                    |
+| US West (N. California)    | us-west-1      | Yes            | Yes          | Yes                    |
+| US West (Oregon)           | us-west-2      | Yes            | Yes          | Yes                    |
+| Africa (Cape Town)         | af-south-1     | Yes            | Yes          |                        |
+| Asia Pacific (Hong Kong)   | ap-east-1      | Yes            | Yes          |                        |
+| Asia Pacific (Hyderabad)   | ap-south-2     | Yes            | Yes          |                        |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | Yes            | Yes          |                        |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | Yes            | Yes          |                        |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | Yes            | Yes          |                        |
+| Asia Pacific (New Zealand) | ap-southeast-6 | Yes            | Yes          |                        |
+| Asia Pacific (Thailand)    | ap-southeast-7 | Yes            | Yes          |                        |
+| Asia Pacific (Taipei)      | ap-east-2      | Yes            | Yes          |                        |
+| Asia Pacific (Mumbai)      | ap-south-1     | Yes            | Yes          |                        |
+| Asia Pacific (Osaka)       | ap-northeast-3 | Yes            | Yes          |                        |
+| Asia Pacific (Seoul)       | ap-northeast-2 | Yes            | Yes          |                        |
+| Asia Pacific (Singapore)   | ap-southeast-1 | Yes            | Yes          |                        |
+| Asia Pacific (Sydney)      | ap-southeast-2 | Yes            | Yes          |                        |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | Yes            | Yes          |                        |
+| Canada (Central)           | ca-central-1   | Yes            | Yes          |                        |
+| China (Beijing)            | cn-north-1     | Yes            | No           |                        |
+| China (Ningxia)            | cn-northwest-1 | No             | No           |                        |
+| Europe (Frankfurt)         | eu-central-1   | Yes            | Yes          |                        |
+| Europe (Ireland)           | eu-west-1      | Yes            | Yes          |                        |
+| Europe (London)            | eu-west-2      | Yes            | Yes          |                        |
+| Europe (Milan)             | eu-south-1     | Yes            | Yes          |                        |
+| Europe (Paris)             | eu-west-3      | Yes            | Yes          |                        |
+| Europe (Spain)             | eu-south-2     | Yes            | Yes          |                        |
+| Europe (Stockholm)         | eu-north-1     | Yes            | Yes          |                        |
+| Europe (Zurich)            | eu-central-2   | Yes            | Yes          |                        |
+| Israel (Tel Aviv)          | il-central-1   | Yes            | Yes          |                        |
+| Middle East (Bahrain)      | me-south-1     | Yes            | Yes          |                        |
+| Middle East (UAE)          | me-central-1   | Yes            | Yes          |                        |
+| Mexico (Central)           | mx-central-1   | Yes            | Yes          |                        |
+| South America (São Paulo)  | sa-east-1      | Yes            | Yes          |                        |
+| AWS GovCloud (US-East)     | us-gov-east-1  | No             | No           | Yes                    |
+| AWS GovCloud (US-West)     | us-gov-west-1  | No             | No           | Yes                    |
 
 ## Create VPC endpoints for CodeDeploy
 

@@ -5,6 +5,7 @@ about an application revision stored in an Amazon S3 bucket.
 
 1. Copy your revision's Amazon S3 link into **Revision
    location**. To find the link value:
+
    1. In a separate browser tab:
 
    Sign in to the AWS Management Console and open the Amazon S3 console at
@@ -15,6 +16,7 @@ about an application revision stored in an Amazon S3 bucket.
    **Link** field into the **Revision
    location** box in the CodeDeploy console.To specify an ETag (a file checksum) as part of the revision
    location:
+
    - If the **Link** field value ends in
      `?versionId=`versionId``,
 add `&etag=` and the ETag to the end of the

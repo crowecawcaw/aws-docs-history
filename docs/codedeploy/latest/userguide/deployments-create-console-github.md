@@ -4,6 +4,7 @@ If you are following the steps in [Create an EC2/On-Premises Compute Platform de
 about an application revision stored in a GitHub repository.
 
 1. In **Connect to GitHub**, do one of the following:
+
    - To create a connection for CodeDeploy applications to a GitHub account,
      in a different web browser tab, sign out of GitHub. In
      **GitHub account**, enter a name to identify
@@ -30,6 +31,7 @@ about an application revision stored in a GitHub repository.
    organization name that contains the revision, followed by a forward slash
    (`/`), followed by the name of the repository that contains
    the revision. If you are unsure of the value to type:
+
    1. In a different web browser tab, go to your [GitHub
       dashboard](https://github.com/dashboard "https://github.com/dashboard").
    2. In **Your repositories**, hover your mouse
@@ -49,6 +51,7 @@ about an application revision stored in a GitHub repository.
 5. In **Commit ID**, enter the ID of the commit that refers
    to the revision in the repository. If you are unsure of the value to
    type:
+
    1. In a different web browser tab, go to your [GitHub
       dashboard](https://github.com/dashboard "https://github.com/dashboard").
    2. In **Your repositories**, choose the repository

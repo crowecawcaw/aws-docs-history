@@ -28,6 +28,7 @@ AWS account](../../../IAM/latest/UserGuide/Using_DeletingUserFromAccount.md "../
 ###### To remove on-premises instance tags from an on-premises instance (CLI)
 
 - Call the [remove-tags-from-on-premises-instances](../../../cli/latest/reference/deploy/remove-tags-from-on-premises-instances.md "../../../cli/latest/reference/deploy/remove-tags-from-on-premises-instances.md"), specifying:
+
   - The names that uniquely identify the on-premises instance (with the
     `--instance-names` option).
   - The names and values of the tags you want to remove (with the `--tags`

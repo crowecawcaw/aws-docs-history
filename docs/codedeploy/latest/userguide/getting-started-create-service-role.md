@@ -84,6 +84,7 @@ You can create a service role with the IAM console, the AWS CLI, or the IAM APIs
 3. Choose **AWS service**,
    and under **Use case**, from the drop-down list, choose **CodeDeploy**.
 4. Choose your use case:
+
    - For EC2/On-Premises deployments, choose
      **CodeDeploy**.
    - For AWS Lambda deployments, choose

@@ -38,7 +38,9 @@ following:
     * **Amazon ECS**
 
 6.  Do one of the following:
+
     - If you chose **EC2/On-premises**:
+
       1. Under **Minimum healthy hosts**, specify the
          number or percentage of instances that must remain available at
          any time during a deployment. For more information about how
@@ -72,10 +74,10 @@ following:
            expect.) This rollback behavior was chosen for
            performance reasons. For more information about
            rollbacks, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
-
       3. If you selected the **Enable zonal
          configuration** check box, optionally specify the
          following options:
+
          - (Optional) In **Monitor duration**,
            specify the period of time, in seconds, that CodeDeploy must
            wait after completing a deployment to an Availability
@@ -114,12 +116,14 @@ following:
 
     - If you chose **AWS Lambda** or
       **Amazon ECS**:
+
       1. For **Type**, choose
          **Linear** or
          **Canary**.
       2. In the **Step** and
          **Interval** fields, do one of the
          following:
+
          - If you chose **Canary**, for
            **Step**, enter a percentage of
            traffic, between 1 and 99, to be shifted. This is the

@@ -40,6 +40,7 @@ TerminateInstances API call`)
 3. Choose **Create rule**, and then under **Event
    selector**, choose **AWS CodeDeploy**.
 4. Specify a detail type:
+
    - To make a rule that applies to all state changes of both instances and deployments,
      choose **Any detail type**, and then skip to step 6.
    - To make a rule that applies to instances only, choose **Specific detail
@@ -50,6 +51,7 @@ TerminateInstances API call`)
      Notification**.
 
 5. Specify the state changes the rule applies to:
+
    - To make a rule that applies to all state changes, choose **Any
      state**.
    - To make a rule that applies to some state changes only, choose **Specific
@@ -61,6 +63,7 @@ TerminateInstances API call`)
    | FAILURE<br>START<br>STOP<br>QUEUED<br>READY<br>SUCCESS | FAILURE<br>START<br>READY<br>SUCCESS |
 
 6. Specify which CodeDeploy applications the rule applies to:
+
    - To make a rule that applies to all applications, choose **Any
      application**, and then skip to step 8.
    - To make a rule that applies to one application only, choose **Specific
@@ -68,6 +71,7 @@ TerminateInstances API call`)
      list.
 
 7. Specify which deployment groups the rule applies to:
+
    - To make a rule that applies to all deployment groups associated with the selected
      application, choose **Any deployment group**.
    - To make a rule that applies to only one of the deployment groups associated with the

@@ -21,9 +21,11 @@ GitHub.
 1. Upload the revision to Amazon S3.
 2. Call the [register-application-revision](../../../cli/latest/reference/deploy/register-application-revision.md "../../../cli/latest/reference/deploy/register-application-revision.md") command,
    specifying:
+
    - The application name. To view a list of application names, call the
      [list-applications](../../../cli/latest/reference/deploy/list-applications.md "../../../cli/latest/reference/deploy/list-applications.md") command.
    - Information about the revision to be registered:
+
      - The name of the Amazon S3 bucket that contains the revision.
      - The name and file type of the uploaded revision. For AWS Lambda
        deployments, the revision is an AppSpec file written in JSON
@@ -70,9 +72,11 @@ AWS Lambda deployments do not work with GitHub.
 1. Upload the revision to your GitHub repository.
 2. Call the [register-application-revision](../../../cli/latest/reference/deploy/register-application-revision.md "../../../cli/latest/reference/deploy/register-application-revision.md") command,
    specifying:
+
    - The application name. To view a list of application names, call the
      [list-applications](../../../cli/latest/reference/deploy/list-applications.md "../../../cli/latest/reference/deploy/list-applications.md") command.
    - Information about the revision to be registered:
+
      - The GitHub user or group name assigned to the repository that
        contains the revision, followed by a forward slash
        (`/`), followed by the repository name.

@@ -22,38 +22,43 @@ contain the CodeDeploy Resource Kit files.
 To access the Amazon S3 bucket in the Asia Pacific (Hong Kong) Region, you must enable the region in your AWS account. For
 more information, see [Managing AWS Regions](../../../general/latest/gr/rande-manage.md#rande-manage-enable "../../../general/latest/gr/rande-manage.md#rande-manage-enable").
 
-| Region name               | `Bucket-name` replacement     | Region identifier |
-| ------------------------- | ----------------------------- | ----------------- |
-| US East (N. Virginia)     | aws-codedeploy-us-east-1      | us-east-1         |
-| US East (Ohio)            | aws-codedeploy-us-east-2      | us-east-2         |
-| US West (N. California)   | aws-codedeploy-us-west-1      | us-west-1         |
-| US West (Oregon)          | aws-codedeploy-us-west-2      | us-west-2         |
-| Africa (Cape Town)        | aws-codedeploy-af-south-1     | af-south-1        |
-| Asia Pacific (Hong Kong)  | aws-codedeploy-ap-east-1      | ap-east-1         |
-| Asia Pacific (Hyderabad)  | aws-codedeploy-ap-south-2     | ap-south-2        |
-| Asia Pacific (Jakarta)    | aws-codedeploy-ap-southeast-3 | ap-southeast-3    |
-| Asia Pacific (Melbourne)  | aws-codedeploy-ap-southeast-4 | ap-southeast-4    |
-| Asia Pacific (Mumbai)     | aws-codedeploy-ap-south-1     | ap-south-1        |
-| Asia Pacific (Osaka)      | aws-codedeploy-ap-northeast-3 | ap-northeast-3    |
-| Asia Pacific (Seoul)      | aws-codedeploy-ap-northeast-2 | ap-northeast-2    |
-| Asia Pacific (Singapore)  | aws-codedeploy-ap-southeast-1 | ap-southeast-1    |
-| Asia Pacific (Sydney)     | aws-codedeploy-ap-southeast-2 | ap-southeast-2    |
-| Asia Pacific (Tokyo)      | aws-codedeploy-ap-northeast-1 | ap-northeast-1    |
-| Canada (Central)          | aws-codedeploy-ca-central-1   | ca-central-1      |
-| Europe (Frankfurt)        | aws-codedeploy-eu-central-1   | eu-central-1      |
-| Europe (Ireland)          | aws-codedeploy-eu-west-1      | eu-west-1         |
-| Europe (London)           | aws-codedeploy-eu-west-2      | eu-west-2         |
-| Europe (Milan)            | aws-codedeploy-eu-south-1     | eu-south-1        |
-| Europe (Paris)            | aws-codedeploy-eu-west-3      | eu-west-3         |
-| Europe (Spain)            | aws-codedeploy-eu-south-2     | eu-south-2        |
-| Europe (Stockholm)        | aws-codedeploy-eu-north-1     | eu-north-1        |
-| Europe (Zurich)           | aws-codedeploy-eu-central-2   | eu-central-2      |
-| Israel (Tel Aviv)         | aws-codedeploy-il-central-1   | il-central-1      |
-| Middle East (Bahrain)     | aws-codedeploy-me-south-1     | me-south-1        |
-| Middle East (UAE)         | aws-codedeploy-me-central-1   | me-central-1      |
-| South America (São Paulo) | aws-codedeploy-sa-east-1      | sa-east-1         |
-| AWS GovCloud (US-East)    | aws-codedeploy-us-gov-east-1  | us-gov-east-1     |
-| AWS GovCloud (US-West)    | aws-codedeploy-us-gov-west-1  | us-gov-west-1     |
+| Region name                | `Bucket-name` replacement     | Region identifier |
+| -------------------------- | ----------------------------- | ----------------- |
+| US East (N. Virginia)      | aws-codedeploy-us-east-1      | us-east-1         |
+| US East (Ohio)             | aws-codedeploy-us-east-2      | us-east-2         |
+| US West (N. California)    | aws-codedeploy-us-west-1      | us-west-1         |
+| US West (Oregon)           | aws-codedeploy-us-west-2      | us-west-2         |
+| Africa (Cape Town)         | aws-codedeploy-af-south-1     | af-south-1        |
+| Asia Pacific (Hong Kong)   | aws-codedeploy-ap-east-1      | ap-east-1         |
+| Asia Pacific (Hyderabad)   | aws-codedeploy-ap-south-2     | ap-south-2        |
+| Asia Pacific (Jakarta)     | aws-codedeploy-ap-southeast-3 | ap-southeast-3    |
+| Asia Pacific (Melbourne)   | aws-codedeploy-ap-southeast-4 | ap-southeast-4    |
+| Asia Pacific (Malaysia)    | aws-codedeploy-ap-southeast-5 | ap-southeast-5    |
+| Asia Pacific (New Zealand) | aws-codedeploy-ap-southeast-6 | ap-southeast-6    |
+| Asia Pacific (Thailand)    | aws-codedeploy-ap-southeast-7 | ap-southeast-7    |
+| Asia Pacific (Taipei)      | aws-codedeploy-ap-east-2      | ap-east-2         |
+| Asia Pacific (Mumbai)      | aws-codedeploy-ap-south-1     | ap-south-1        |
+| Asia Pacific (Osaka)       | aws-codedeploy-ap-northeast-3 | ap-northeast-3    |
+| Asia Pacific (Seoul)       | aws-codedeploy-ap-northeast-2 | ap-northeast-2    |
+| Asia Pacific (Singapore)   | aws-codedeploy-ap-southeast-1 | ap-southeast-1    |
+| Asia Pacific (Sydney)      | aws-codedeploy-ap-southeast-2 | ap-southeast-2    |
+| Asia Pacific (Tokyo)       | aws-codedeploy-ap-northeast-1 | ap-northeast-1    |
+| Canada (Central)           | aws-codedeploy-ca-central-1   | ca-central-1      |
+| Europe (Frankfurt)         | aws-codedeploy-eu-central-1   | eu-central-1      |
+| Europe (Ireland)           | aws-codedeploy-eu-west-1      | eu-west-1         |
+| Europe (London)            | aws-codedeploy-eu-west-2      | eu-west-2         |
+| Europe (Milan)             | aws-codedeploy-eu-south-1     | eu-south-1        |
+| Europe (Paris)             | aws-codedeploy-eu-west-3      | eu-west-3         |
+| Europe (Spain)             | aws-codedeploy-eu-south-2     | eu-south-2        |
+| Europe (Stockholm)         | aws-codedeploy-eu-north-1     | eu-north-1        |
+| Europe (Zurich)            | aws-codedeploy-eu-central-2   | eu-central-2      |
+| Israel (Tel Aviv)          | aws-codedeploy-il-central-1   | il-central-1      |
+| Middle East (Bahrain)      | aws-codedeploy-me-south-1     | me-south-1        |
+| Middle East (UAE)          | aws-codedeploy-me-central-1   | me-central-1      |
+| Mexico (Central)           | aws-codedeploy-mx-central-1   | mx-central-1      |
+| South America (São Paulo)  | aws-codedeploy-sa-east-1      | sa-east-1         |
+| AWS GovCloud (US-East)     | aws-codedeploy-us-gov-east-1  | us-gov-east-1     |
+| AWS GovCloud (US-West)     | aws-codedeploy-us-gov-west-1  | us-gov-west-1     |
 
 ## Resource kit contents
 
@@ -156,97 +161,148 @@ aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-4 --region ap-southeast-4
 ````
 
 - ```
-  aws s3 ls --recursive s3://aws-codedeploy-ap-south-1 --region ap-south-1
+  aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-5 --region ap-southeast-5
   ```
 
 ````
 * ```
-aws s3 ls --recursive s3://aws-codedeploy-sa-east-1 --region sa-east-1
+aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-6 --region ap-southeast-6
+````
+
+- ```
+  aws s3 ls --recursive s3://aws-codedeploy-ap-southeast-7 --region ap-southeast-7
+  ```
+
+````
+* ```
+aws s3 ls --recursive s3://aws-codedeploy-ap-east-2 --region ap-east-2
+````
+
+- ```
+  aws s3 ls --recursive s3://aws-codedeploy-mx-central-1 --region mx-central-1
+  ```
+
+````
+* ```
+aws s3 ls --recursive s3://aws-codedeploy-ap-south-1 --region ap-south-1
+````
+
+- ```
+  aws s3 ls --recursive s3://aws-codedeploy-sa-east-1 --region sa-east-1
+  ```
+
 ````
 
 ## Download the resource kit files
 
+
 To download a file, use the **aws s3 cp** command for your region.
+
 
 ###### Note
 
 Be sure to use the period (`.`) near the end. This downloads the file to your
-current directory.
+ current directory.
+
 
 For example, the following commands download a single file named
-`SampleApp_Linux.zip` from one of the buckets'
-`/samples/latest/` folders:
+ `SampleApp_Linux.zip` from one of the buckets'
+ `/samples/latest/` folders:
+
+
+
+* ```
+aws s3 cp s3://aws-codedeploy-us-east-2/samples/latest/SampleApp_Linux.zip . --region us-east-2
+````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-us-east-2/samples/latest/SampleApp_Linux.zip . --region us-east-2
+  aws s3 cp s3://aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip . --region us-east-1
   ```
 
 ````
 * ```
-aws s3 cp s3://aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip . --region us-east-1
+aws s3 cp s3://aws-codedeploy-us-west-1/samples/latest/SampleApp_Linux.zip . --region us-west-1
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-us-west-1/samples/latest/SampleApp_Linux.zip . --region us-west-1
+  aws s3 cp s3://aws-codedeploy-us-west-2/samples/latest/SampleApp_Linux.zip . --region us-west-2
   ```
 
 ````
 * ```
-aws s3 cp s3://aws-codedeploy-us-west-2/samples/latest/SampleApp_Linux.zip . --region us-west-2
+aws s3 cp s3://aws-codedeploy-ca-central-1/samples/latest/SampleApp_Linux.zip . --region ca-central-1
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ca-central-1/samples/latest/SampleApp_Linux.zip . --region ca-central-1
+  aws s3 cp s3://aws-codedeploy-eu-west-1/samples/latest/SampleApp_Linux.zip . --region eu-west-1
   ```
 
 ````
 * ```
-aws s3 cp s3://aws-codedeploy-eu-west-1/samples/latest/SampleApp_Linux.zip . --region eu-west-1
+aws s3 cp s3://aws-codedeploy-eu-west-2/samples/latest/SampleApp_Linux.zip . --region eu-west-2
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-eu-west-2/samples/latest/SampleApp_Linux.zip . --region eu-west-2
+  aws s3 cp s3://aws-codedeploy-eu-west-3/samples/latest/SampleApp_Linux.zip . --region eu-west-3
   ```
 
 ````
 * ```
-aws s3 cp s3://aws-codedeploy-eu-west-3/samples/latest/SampleApp_Linux.zip . --region eu-west-3
+aws s3 cp s3://aws-codedeploy-eu-central-1/samples/latest/SampleApp_Linux.zip . --region eu-central-1
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-eu-central-1/samples/latest/SampleApp_Linux.zip . --region eu-central-1
+  aws s3 cp s3://aws-codedeploy-il-central-1/samples/latest/SampleApp_Linux.zip . --region il-central-1
   ```
 
 ````
 * ```
-aws s3 cp s3://aws-codedeploy-il-central-1/samples/latest/SampleApp_Linux.zip . --region il-central-1
+aws s3 cp s3://aws-codedeploy-ap-east-1/samples/latest/SampleApp_Linux.zip . --region ap-east-1
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-east-1/samples/latest/SampleApp_Linux.zip . --region ap-east-1
+  aws s3 cp s3://aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Linux.zip . --region ap-northeast-1
   ```
 
 ````
 * ```
-aws s3 cp s3://aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Linux.zip . --region ap-northeast-1
+aws s3 cp s3://aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Linux.zip . --region ap-northeast-2
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Linux.zip . --region ap-northeast-2
+  aws s3 cp s3://aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Linux.zip . --region ap-southeast-1
   ```
 
 ````
 * ```
-aws s3 cp s3://aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Linux.zip . --region ap-southeast-1
+aws s3 cp s3://aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Linux.zip . --region ap-southeast-2
 ````
 
 - ```
-  aws s3 cp s3://aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Linux.zip . --region ap-southeast-2
+  aws s3 cp s3://aws-codedeploy-ap-southeast-4/samples/latest/SampleApp_Linux.zip . --region ap-southeast-4
   ```
 
 ````
 * ```
-aws s3 cp s3://aws-codedeploy-ap-southeast-4/samples/latest/SampleApp_Linux.zip . --region ap-southeast-4
+aws s3 cp s3://aws-codedeploy-ap-southeast-5/samples/latest/SampleApp_Linux.zip . --region ap-southeast-5
+````
+
+- ```
+  aws s3 cp s3://aws-codedeploy-ap-southeast-6/samples/latest/SampleApp_Linux.zip . --region ap-southeast-6
+  ```
+
+````
+* ```
+aws s3 cp s3://aws-codedeploy-ap-southeast-7/samples/latest/SampleApp_Linux.zip . --region ap-southeast-7
+````
+
+- ```
+  aws s3 cp s3://aws-codedeploy-ap-east-2/samples/latest/SampleApp_Linux.zip . --region ap-east-2
+  ```
+
+````
+* ```
+aws s3 cp s3://aws-codedeploy-mx-central-1/samples/latest/SampleApp_Linux.zip . --region mx-central-1
 ````
 
 - ```
@@ -333,10 +389,36 @@ aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-4 . --region ap-southeast
 ````
 
 - ```
-  aws s3 cp --recursive s3://aws-codedeploy-ap-south-1 . --region ap-south-1
+  aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-5 . --region ap-southeast-5
   ```
 
 ````
 * ```
-aws s3 cp --recursive s3://aws-codedeploy-sa-east-1 . --region sa-east-1
+aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-6 . --region ap-southeast-6
 ````
+
+- ```
+  aws s3 cp --recursive s3://aws-codedeploy-ap-southeast-7 . --region ap-southeast-7
+  ```
+
+````
+* ```
+aws s3 cp --recursive s3://aws-codedeploy-ap-east-2 . --region ap-east-2
+````
+
+- ```
+  aws s3 cp --recursive s3://aws-codedeploy-mx-central-1 . --region mx-central-1
+  ```
+
+````
+* ```
+aws s3 cp --recursive s3://aws-codedeploy-ap-south-1 . --region ap-south-1
+````
+
+- ```
+  aws s3 cp --recursive s3://aws-codedeploy-sa-east-1 . --region sa-east-1
+  ```
+
+```
+
+```

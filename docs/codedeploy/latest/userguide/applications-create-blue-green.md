@@ -58,6 +58,7 @@ provide instances for your replacement environment:
      replace.
 
 11. Depending on your choice in step 10, do one of the following:
+
     - If you chose **Automatically copy Amazon EC2 Auto Scaling group**:
       In **Amazon EC2 Auto Scaling group**, choose or enter the name of the
       Amazon EC2 Auto Scaling group you want to use as a template for the Amazon EC2 Auto Scaling group for

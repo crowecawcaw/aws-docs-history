@@ -4,6 +4,7 @@ To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
 
 1.  After you have prepared the instances, created the application, and pushed the
     revision, do one of the following:
+
     - If you want to deploy a revision from an Amazon S3 bucket, continue to step
       2 now.
     - If you want to deploy a revision from a GitHub repository, first
@@ -11,6 +12,7 @@ To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
       to step 2.
 
 2.  Call the [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") command, specifying:
+
     - `--application-name`: An application name. To view a list
       of application names, call the [list-applications](../../../cli/latest/reference/deploy/list-applications.md "../../../cli/latest/reference/deploy/list-applications.md")
       command.
@@ -49,7 +51,6 @@ To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
          by the repository name.
         + `gitHubLocation --> commitId`: The commit ID for
          the revision.
-
     - `--deployment-config-name`: (Optional) The name of a
       deployment configuration to use. To view a list of deployment
       configurations, call the [list-deployment-configs](../../../cli/latest/reference/deploy/list-deployment-configs.md "../../../cli/latest/reference/deploy/list-deployment-configs.md") command.

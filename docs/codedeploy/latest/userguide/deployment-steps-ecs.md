@@ -132,6 +132,7 @@ These steps include:
    groups, listeners, and traffic rerouting behavior, and application revision. For more
    information, see [Create an application with CodeDeploy](applications-create.md "applications-create.md").
 2. Set up a deployment group by specifying:
+
    - The deployment group name.
    - Your Amazon ECS cluster and service name. The Amazon ECS service's deployment controller
      must be set to CodeDeploy.

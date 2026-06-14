@@ -137,6 +137,7 @@ registered with Elastic Load Balancing load balancers, do the following:
 
 1. Download the samples for the type of load balancer you want to use for an
    in-place deployment:
+
    - [Classic Load Balancer](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb")
    - [Application Load Balancer [or Network Load Balancer](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2 "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2") (the same script can be used for either
      type)](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2 "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb-v2")

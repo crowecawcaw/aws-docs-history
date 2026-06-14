@@ -189,6 +189,7 @@ AWS Systems Manager](../../../systems-manager/latest/userguide/what-is-systems-m
 6. In the **Amazon machine image (AMI)** dialog, click the
    dropdown under **AMI**, choose an AMI that works with this
    tutorial:
+
    1. On the **Quick Start** tab of the
       **AMI** dropdown, choose one of the following:
       **Amazon Linux 2 AMI**, **Red Hat Enterprise Linux
