@@ -37,6 +37,7 @@ h:/corporate/downloads/.
 6. Copy the download file from your workstation to
    `/home/elemental/` on one of the nodes. For
    example:
+
    - Use SFTP protocol and an FTP client application on your workstation computer.
      Connect to the IP address for the product , using the _elemental_
      user credentials, and transfer the file.

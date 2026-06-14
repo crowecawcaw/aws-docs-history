@@ -14,12 +14,12 @@ Follow this procedure if you don't need to change anything about the deployment.
    _elemental_ user credentials.
 2. Run the installer. Make sure to include the `-c` option to clear
    the database. Use the appropriate command:
+
    - For GPU and CPU versions of the software:
 
    ```
    [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_2.25.5.12345.run -c --skip-all --start -xeula**
    ```
-
    - For CPU-only versions of the software:
 
    ```
@@ -48,6 +48,7 @@ Conversion](../../../elemental-live/latest/ug/support-for-ocr.md "../../../eleme
 
 1. Follow the appropriate procedure in the _AWS Elemental Live Installation
    Guide_:
+
    - [Install the AWS Elemental Live software](../../../elemental-live/latest/installguide/install-lv-ig-install-sw.md "../../../elemental-live/latest/installguide/install-lv-ig-install-sw.md"): to install on
      hardware
    - [Install the AWS Elemental Live software](../../../elemental-live/latest/installguide/install-vm-lv-ig-install-sw.md "../../../elemental-live/latest/installguide/install-vm-lv-ig-install-sw.md"): to install on a VM

@@ -13,6 +13,7 @@ h:/corporate/downloads/.
 3. Make a note of the name of the download file. For example:
    `elemental_production_conductor_live247_3.25.5.12345.run`
 4. Copy the download file from your workstation to `/home/elemental/` on one of the nodes. For example:
+
    - Use SFTP protocol and an FTP client application on your workstation computer.
      Connect to the IP address for Conductor Live on port 22 with the _elemental_ user
      credentials and transfer the file.
