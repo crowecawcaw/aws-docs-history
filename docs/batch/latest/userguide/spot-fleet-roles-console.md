@@ -15,6 +15,7 @@
    verify `AmazonEC2SpotFleetTaggingRole`.
 8. Choose **Next**.
 9. For **Name, review, and create**:
+
    1. For **Role name**, enter a name to identify the role.
    2. For **Description**, enter a short explanation for the policy.
    3. (Optional) For **Step 1: Select trusted entities**, choose

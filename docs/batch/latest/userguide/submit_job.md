@@ -18,6 +18,7 @@ can override many of the parameters that are specified in the job definition at 
    [Create a job queue](create-job-queue.md "create-job-queue.md").
 8. For **Job dependencies**, choose **Add Job
    dependencies**.
+
    1. For **Job id**, enter the job ID for any dependencies. Then choose
       **Add job dependencies**. A job can have up to 20 dependencies. For more
       information, see [Job dependencies](job_dependencies.md "job_dependencies.md").
@@ -29,6 +30,7 @@ can override many of the parameters that are specified in the job definition at 
     tag**.
 11. Choose **Next page**.
 12. In the **Job overrides** section:
+
     1. (Optional) For **Scheduling priority**, enter a scheduling priority
        value between 0 and 100. Higher values are given higher priority.
     2. (Optional) For **Job attempts**, enter the maximum number of times that
@@ -53,6 +55,7 @@ can override many of the parameters that are specified in the job definition at 
     **Action**. For each set of conditions, **Action** must be
     set to either **Retry** or **Exit**. These actions mean the
     following:
+
     - Retry – AWS Batch retries until the number of job
       attempts that you specified is reached.
     - Exit – AWS Batch stops retrying the

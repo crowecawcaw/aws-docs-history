@@ -31,6 +31,7 @@ To create a _single-node_ job definition, see [Create a single-node job definiti
     **Action**. For each set of conditions, **Action** must be
     set to either **Retry** or **Exit**. These actions mean the
     following:
+
     - Retry – AWS Batch retries until the number of job
       attempts that you specified is reached.
     - Exit – AWS Batch stops retrying the job.
@@ -153,6 +154,7 @@ parameter substitution placeholders as **Key** and optional
      uses Amazon ECS IAM roles for task functionality. For more information, see [Amazon ECS task execution IAM roles](../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md "../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md") in the *Amazon Elastic Container Service Developer Guide*.
 
 19. (Optional) Expand **Additional configuration**:
+
     1.  For **Environment variables**, choose **Add environment
         variable** to add environment variables as name-value pairs. These variables are
         passed to the container.
@@ -177,6 +179,7 @@ parameter substitution placeholders as **Key** and optional
     roles](../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md "../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md") in the _Amazon Elastic Container Service Developer Guide_.
 
 20. In the **Security Configuration** section:
+
     1.  (Optional) To give your job's container elevated privileges on the host instance
         (similar to the `root` user), turn on **Privileged**. This
         parameter maps to `Privileged` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section
@@ -191,6 +194,7 @@ parameter substitution placeholders as **Key** and optional
         information, see [LogConfiguration:secretOptions](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-secretOptions").
 
 21. In the **Linux configuration** section:
+
     1.  Turn on **Enable read only filesystem** to remove write access to the
         volume.
     2.  (Optional) Turn on **Enable init process** to run an
@@ -205,6 +209,7 @@ parameter substitution placeholders as **Key** and optional
         value defaults to 60. For more information, see [LinuxParameters:swappiness](../APIReference/API_LinuxParameters.md#Batch-Type-LinuxParameters-swappiness "../APIReference/API_LinuxParameters.md#Batch-Type-LinuxParameters-swappiness").
     6.  (Optional) For **Devices**, choose **Add device** to
         add a device:
+
         1. For **Container path**, specify the path of in the container instance
            to expose the device mapped to the host instance. If you keep this blank, the host path is
            used in the container.
@@ -231,6 +236,7 @@ parameter substitution placeholders as **Key** and optional
 25. (Optional) For **Tmpfs**, choose **Add tmpfs** to add a
     `tmpfs` mount.
 26. In the **Task properties** section:
+
     1.  For **Execution role - conditional**, choose a role to allow Amazon ECS
         agents to make AWS API calls on your behalf. For more information on creating an
         **Execution role**, see [Tutorial: Create the IAM execution role](create-execution-role.md "create-execution-role.md").
@@ -251,6 +257,7 @@ parameter substitution placeholders as **Key** and optional
     task IAM role](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md") in the _Amazon Elastic Container Service Developer Guide_.
 
 27. (Optional) In the **Logging configuration** section:
+
     1.  For **Log driver**, choose the log driver to use. For more information
         about the available log drivers, see [LogConfiguration:logDriver](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver").
 

@@ -9,6 +9,7 @@ resource has a:
 - (optional) resource type (`resourceType`) that indicates whether
   the resource is available to be re-used after a job completes. This can be
   one of:
+
   - `REPLENISHABLE` (default)
   - `NON_REPLENISHABLE`
 

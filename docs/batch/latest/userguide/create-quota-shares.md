@@ -26,6 +26,7 @@ Configure quota shares (AWS Batch console)
 4. Provide a **Name** for the quota share.
 5. For **Capacity limits**, choose **Add capacity
    limits**. At least one capacity limit must be specified.
+
    1. Select an **Instance type** from the dropdown,
       and set the **Maximum instances** this quota share
       has allocated to it.
@@ -34,6 +35,7 @@ Configure quota shares (AWS Batch console)
 
 6. For **Capacity sharing**, choose how this quota share
    shares its capacity with other quota shares in the same job queue:
+
    - Select **Reserve** if the quota share should not
      lend or borrow idle compute.
    - Select **Lend** if the quota share can lend idle

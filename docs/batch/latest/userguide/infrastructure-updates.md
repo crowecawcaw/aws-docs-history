@@ -130,6 +130,7 @@ To just update to the latest AMI version in the console, see [Updating AMI versi
 4. Choose **Actions** and then **Edit**.
 5. In the **Update behavior** section, configure how running jobs
    are handled:
+
    - Choose **Update AMI to latest version** to update the AMI to
      the latest version.
    - Choose **Terminate jobs immediately on update** to terminate
@@ -139,6 +140,7 @@ To just update to the latest AMI version in the console, see [Updating AMI versi
 
 6. Modify one or more of the [settings
    that require an infrastructure updates](#infrastructure-updates-triggers "#infrastructure-updates-triggers"). For example:
+
    - **Instance role**
    - **Use EC2 Spot instances**
    - **Allowed instance types**

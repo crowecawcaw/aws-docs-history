@@ -13,6 +13,7 @@ attach the managed IAM policy, if needed.
    **AmazonECSTaskExecutionRolePolicy** managed policy is attached to the
    role. If the policy is attached, your execution role is properly configured. If not, follow
    the substeps below to attach the policy.
+
    1. Choose **Add permissions**, then choose **Attach
       policies**.
    2. Search for **AmazonECSTaskExecutionRolePolicy**.

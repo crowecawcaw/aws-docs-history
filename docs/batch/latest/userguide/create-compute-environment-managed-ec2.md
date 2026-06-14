@@ -9,6 +9,7 @@ Complete the following steps to create a managed compute environment using Amazo
 4.  Choose **Create environment** and then **Compute
     environment**.
 5.  Configure the environment.
+
     1. For **Compute environment configuration**, choose
        **Amazon Elastic Compute Cloud (Amazon EC2)**.
     2. For **Orchestration type**, choose
@@ -27,6 +28,7 @@ Complete the following steps to create a managed compute environment using Amazo
        For more information, see [Amazon ECS instance role](instance_IAM_role.md "instance_IAM_role.md"). If you choose to create a new instance profile, the
        required role (`ecsInstanceRole`) is created for you.
     6. (Optional) Expand **Tags**.
+
        1. (Optional) For **EC2 tags**, choose **Add tag**
           to add a tag to resources that are launched in the compute environment. Then, enter a
           **Key** name and optional **Value**. Choose
@@ -40,6 +42,7 @@ Complete the following steps to create a managed compute environment using Amazo
     7. Choose **Next**.
 
 6.  In the **Instance configuration** section:
+
     1. (Optional) For **Enable using Spot instances**, turn on Spot. For
        more information, see [Spot Instances](../../../AWSEC2/latest/UserGuide/using-spot-instances.md "../../../AWSEC2/latest/UserGuide/using-spot-instances.md").
     2. (Spot only) For **Maximum % on-demand price**, choose the maximum
@@ -192,8 +195,8 @@ Complete the following steps to create a managed compute environment using Amazo
          the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the
          Amazon ECS optimized Amazon Linux 2 AMI. For more information, see [Amazon ECS optimized Amazon Linux 2 AMI](../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md#ecs-optimized-ami-linux-variants.html "../../../AmazonECS/latest/developerguide/ecs-optimized_AMI.md#ecs-optimized-ami-linux-variants.html")
          in the *Amazon Elastic Container Service Developer Guide*.
-
     11. (Optional) Expand **Launch templates**
+
         1. For **Default launch template**, select an existing Amazon EC2
            launch template to configure your compute resources. The default version of the
            template is automatically populated. For more information, see [Use Amazon EC2 launch templates with AWS Batch](launch-templates.md "launch-templates.md").

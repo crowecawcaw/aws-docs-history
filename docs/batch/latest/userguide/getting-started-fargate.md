@@ -95,12 +95,14 @@ To create a job queue for a Fargate orchestration, do the following:
 To create the job definition:
 
 1.  In the **General configuration** section:
+
     1. In the **General configuration** section for
        **Name**, specify a unique name for your job definition. The name can be up to 128 characters in length. It can
        contain uppercase and lowercase letters, numbers, hyphens (-), and
        underscores (\_).
 
 2.  In the **Fargate platform configuration** section:
+
     1. Turn on **Assign public IP** to assign a public IP
        address. You need a public IP to download the container image unless
        you've setup a private image repository.
@@ -135,6 +137,7 @@ To create the job definition:
          role.
 
 3.  In the **Container configuration** section:
+
     1. For **Command**, you can change `hello
 world` to a custom message or leave it as is.
 

@@ -15,6 +15,7 @@ Complete the following steps to create a single-node job definition with multipl
     multi-node parallel** processing.
 8.  Choose **Next**.
 9.  In **General configuration** section, enter the following:
+
     1. For **Name**, enter a unique name for your job definition. The name can
        be up to 128 characters in length. It can contain uppercase and lowercase letters, numbers,
        hyphens (-), and underscores (\_).
@@ -31,6 +32,7 @@ Complete the following steps to create a single-node job definition with multipl
        and job definition to the Amazon ECS task.
 
 10. In **Retry strategy - _optional_** section, enter the following:
+
     1. For **Job attempts**, enter the number of times that AWS Batch
        attempts to move the job to `RUNNABLE` status. Enter a number between 1 and
     2.
@@ -39,6 +41,7 @@ Complete the following steps to create a single-node job definition with multipl
        **Action**. For each set of conditions, **Action** must
        be set to either **Retry** or **Exit**. These actions mean
        the following:
+
        - Retry – AWS Batch retries until the number of
          job attempts that you specified is reached.
        - Exit – AWS Batch stops retrying the job.
@@ -50,6 +53,7 @@ Complete the following steps to create a single-node job definition with multipl
     evaluate on exit**.
 
 11. In **Task properties** section, enter the following:
+
     1. For **Execution role - _conditional_**,
        choose a role to allow Amazon ECS agents to make AWS API calls on your behalf.
        For more information on creating an **Execution role**, see
@@ -81,11 +85,13 @@ Complete the following steps to create a single-node job definition with multipl
     If no value is specified, the default is a private namespace for each container.
 
 12. In the **Consumable resource** section, enter the following:
+
     1. Enter a unique **Name** and the
        **Requested value**.
     2. You can add more consumable resources by choosing **Add consumable resource**.
 
 13. In the **Storage** section, enter the following:
+
     1. Enter a **Name** and **Source path** for the volume and then choose **Add
        volume**. You can also choose to turn on Enable EFS.
     2. You can add more Volumes by choosing **Add volume**.
@@ -95,6 +101,7 @@ Complete the following steps to create a single-node job definition with multipl
     **Value** pairs.
 15. Choose **Next page**.
 16. In the **Container configuration** section:
+
     1. For **Name**, enter a name for the container.
     2. For **Essential container**, enable if the container is essential.
     3. For **Image**, choose the Docker image to use for
@@ -126,8 +133,8 @@ Complete the following steps to create a single-node job definition with multipl
          organization name (for example, `amazon/amazon-ecs-agent`).
         * Images in other online repositories are qualified further by a domain name (for
          example, `quay.io/assemblyline/ubuntu`).
-
     4. For **Resource requirements** configure each of the following:
+
        1. For **vCPUs**, choose the number of CPUs for the container.
        2. For **Memory**, choose the amount of memory for the container.
        3. For **GPU - _optional_**, choose the number of GPUs for the container.
@@ -173,7 +180,6 @@ Complete the following steps to create a single-node job definition with multipl
         	 **MKNOD**.
         6. For **Tmpfs**, choose **Add
          tmpfs** to add a `tmpfs` mount.
-
     12. ###### Note
 
     Firelens logging has to be done in a dedicated container. To configure
@@ -202,8 +208,8 @@ Complete the following steps to create a single-node job definition with multipl
         2. For **Options**, enter the name/value pair of the
          option. You can add more **Options** using
          **Added option**.
-
     13. In the **Logging configuration - _optional_** section:
+
         1. For **Log driver**, choose the log driver to use. For more
            information about the available log drivers, see [LogConfiguration:logDriver](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver").
 

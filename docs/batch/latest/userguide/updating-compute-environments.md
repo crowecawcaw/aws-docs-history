@@ -145,6 +145,7 @@ You must use blue/green deployment to update AMIs in these scenarios:
 
 - When using a specific version of the Amazon ECS-optimized AMI.
 - When the AMI ID is specified in any of:
+
   - Launch template (must update the template or remove it).
   - The `imageId` parameter.
   - The `imageIdOverride` parameter in EC2 configuration.

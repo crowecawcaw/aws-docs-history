@@ -36,6 +36,7 @@ events**. 12. (Optional) For **Sample event**:
 13. For **Creation method**, choose **Use pattern
     form**.
 14. For **Event pattern**:
+
     1.  For **Event source**, choose
         **AWS services**.
     2.  For **AWS service**, choose **Batch**.
@@ -47,6 +48,7 @@ events**. 12. (Optional) For **Sample event**:
     **AWS service**.
 17. For **Select a target**, choose a target type. For example, choose
     **Batch job queue**. Then specify the following:
+
     - **Job queue:** Enter the Amazon Resource Name (ARN) of the job queue to schedule
       your job in.
     - **Job definition:** Enter the name and revision or full ARN of
@@ -60,12 +62,14 @@ events**. 12. (Optional) For **Sample event**:
 18. For **Batch job queue** target types, EventBridge needs permission to send
     events to the target. EventBridge can create the IAM role needed for your rule to run. Do one
     of the following:
+
     - To create an IAM role automatically, choose **Create a new role for this
       specific resource**.
     - To use an IAM role that you created before, choose **Use existing
       role**.
 
 19. (Optional) Expand **Additional settings**.
+
     1.  For **Configure target input**, choose how text from an event is
         processed.
     2.  For **Maximum age of event**, specify the time interval for how

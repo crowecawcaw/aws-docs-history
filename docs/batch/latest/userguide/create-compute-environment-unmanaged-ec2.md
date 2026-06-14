@@ -10,6 +10,7 @@ Complete the following steps to create an unmanaged compute environment using Am
 3. On the **Compute Environments** page, choose
    **Create**.
 4. Configure the environment.
+
    1. For **Compute environment configuration**, choose
       **Amazon Elastic Compute Cloud (Amazon EC2)**.
    2. For **Orchestration type**, choose

@@ -23,6 +23,7 @@ well.
 3. For **Orchestration type**, choose **SageMaker
    Training**.
 4. For **Job queue configuration**:
+
    1. For **Name**, enter the name of the job
       queue.
    2. For **Priority**, enter a value between 0 and
@@ -30,12 +31,15 @@ well.
       service environments.
 
 5. For **Scheduling**:
+
    1. For **Scheduling algorithm**, choose
       **Quota management**.
    2. For **Scheduling policy ARN**:
+
       - If a scheduling policy already exists that specifies quota
         management, select it from the dropdown.
       - Otherwise, choose **Create scheduling policy**.
+
         1. A sidebar opens to configure the quota management scheduling policy.
         2. Provide a **Name** for the scheduling policy.
         3. Choose **Create**. The **Scheduling policy ARN** field is now populated.
@@ -63,6 +67,7 @@ a single quota management enabled job queue.
     	 **Maximum number of instances**.
 
 7. (Optional) For **Job state limits**:
+
    1. For **Misconfiguration**, choose either
       `SERVICE_ENVIRONMENT_MAX_RESOURCE` and enter the
       **Maximum runnable time (seconds)**.

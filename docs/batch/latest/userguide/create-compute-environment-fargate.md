@@ -28,6 +28,7 @@ Compute environments for Windows containers on AWS Fargate jobs must at least on
     5. Choose **Next page**.
 
 6. In the **Instance configuration** section:
+
    1. (Optional) For **Use Fargate Spot capacity**, turn on Fargate
       Spot. For information about Fargate Spot, see [Using Amazon EC2 Spot
       and Fargate_SPOT](../../../AmazonECS/latest/bestpracticesguide/ec2-and-fargate-spot.md "../../../AmazonECS/latest/bestpracticesguide/ec2-and-fargate-spot.md").

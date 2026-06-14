@@ -126,6 +126,7 @@ You can use the IAM console to delete a service-linked role.
 5. Watch the IAM console notifications to monitor the progress of the service-linked
    role deletion. Because the IAM service-linked role deletion is asynchronous, after you
    submit the role for deletion, the deletion task can succeed or fail.
+
    - If the task succeeds, then the role is removed from the list and a
      notification of success appears at the top of the page.
    - If the task fails, you can choose **View details** or

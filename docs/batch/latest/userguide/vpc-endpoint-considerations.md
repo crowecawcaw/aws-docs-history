@@ -9,6 +9,7 @@ Before you set up interface VPC endpoints for AWS Batch, be aware of the followi
 
 - Jobs using Fargate resources launch type don't require the interface VPC endpoints for Amazon ECS, but you might
   need interface VPC endpoints for AWS Batch, Amazon ECR, Secrets Manager, or Amazon CloudWatch Logs described in the following points.
+
   - To run jobs, you must create the interface VPC endpoints for Amazon ECS. For more information, see [Interface VPC Endpoints (AWS PrivateLink)](../../../AmazonECS/latest/developerguide/vpc-endpoints.md "../../../AmazonECS/latest/developerguide/vpc-endpoints.md") in the
     _Amazon Elastic Container Service Developer Guide_.
   - To allow your jobs to pull private images from Amazon ECR, you must create the interface VPC endpoints for Amazon ECR.
@@ -32,5 +33,6 @@ Before you set up interface VPC endpoints for AWS Batch, be aware of the followi
 - The security group attached to the VPC endpoint must allow incoming connections on port 443 from the private
   subnet of the VPC.
 - AWS Batch does not support VPC interface endpoints in the following AWS Regions:
+
   - Asia Pacific (Osaka) (`ap-northeast-3`)
   - Asia Pacific (Jakarta) (`ap-southeast-3`)

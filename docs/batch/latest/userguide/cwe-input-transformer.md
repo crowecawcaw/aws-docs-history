@@ -48,6 +48,7 @@ immediately. 9. For **Rule type**, choose **Schedule**. 10. Choose **Continue to
     **AWS service**.
 14. For **Select a target**, choose **Batch job queue**.
     Then, configure the following:
+
     - **Job queue:** Enter the Amazon Resource Name (ARN) of the job queue to schedule
       your job in.
     - **Job definition:** Enter the name and revision or full ARN of
@@ -61,6 +62,7 @@ immediately. 9. For **Rule type**, choose **Schedule**. 10. Choose **Continue to
 15. For **Batch job queue** target types, EventBridge needs permission to send
     events to the target. EventBridge can create the IAM role needed for your rule to run. Do one
     of the following:
+
     - To create an IAM role automatically, choose **Create a new role for this
       specific resource**.
     - To use an IAM role that you've already created, choose **Use existing
@@ -71,6 +73,7 @@ immediately. 9. For **Rule type**, choose **Schedule**. 10. Choose **Continue to
     target input**, choose **Input Transformer**.
 18. Choose **Configure input transformer**.
 19. (Optional) For **Sample event**:
+
     1.  For **Sample event type**, choose **AWS
         events**.
     2.  For **Sample events**, choose **Batch Job State

@@ -46,6 +46,7 @@ Before performing a blue/green update, ensure you have:
 - Access to view and modify job queue settings.
 - Job retry strategies configured for your job definitions to handle potential failures during the transition. For more information, see [Automated job retries](job_retries.md "job_retries.md").
 - The AMI ID for the new compute environment. This can be either:
+
   - A recent, approved version of the Amazon ECS optimized AMI (used by default).
   - A custom AMI that meets the Amazon ECS container instance AMI specification. When
     using a custom AMI, you can specify it in one of these ways:
@@ -81,6 +82,7 @@ Once you're confident in the new environment:
 Performing blue/green updates using the AWS Management Console
 
 1. Clone your current compute environment
+
    1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
    2. Select your existing compute environment.
    3. Choose **Actions** and then **Clone**.
@@ -89,6 +91,7 @@ Performing blue/green updates using the AWS Management Console
    5. Choose **Next**.
    6. In the **Instance configuration** section, update the AMI
       settings:
+
       1. Expand **Additional configuration**.
       2. For **EC2 configuration**, specify the new AMI type in **Image type** and AMI ID in
          the **Image ID override** field.
@@ -102,12 +105,14 @@ Performing blue/green updates using the AWS Management Console
        `VALID`.
 
 2. Change the job queue order
+
    1. In the navigation pane, choose **Job queues**.
    2. Select the job queue associated with your existing compute
       environment.
    3. Choose **Edit**.
    4. Under **Connected Compute environment**, add the new compute
       environment:
+
       - Add the new compute environment with a higher order number than the
         existing environment to transition the workload.
       - Once you verify the new environment is working correctly, you can make
@@ -116,9 +121,11 @@ Performing blue/green updates using the AWS Management Console
    5. Choose **Update job queue**.
 
 3. Clean up
+
    1. Monitor job execution in the new environment to ensure everything is working
       as expected.
    2. Once you're confident in the new environment:
+
       1. Edit the job queue to remove the old compute environment.
       2. Wait for any running jobs in the old environment to complete.
       3. Delete the old compute environment.

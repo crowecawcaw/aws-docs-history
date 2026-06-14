@@ -25,6 +25,7 @@ Complete the following steps to create a single-node job definition on Amazon El
     tag** to add tags to the resource.
 10. Choose **Next page**.
 11. In the **EKS pod properties** section:
+
     1. For **Service account name**, enter an account that
        provides an identity for processes that run in a pod.
     2. Turn **Host network** on to use the
@@ -32,6 +33,7 @@ Complete the following steps to create a single-node job definition on Amazon El
        pod network model and open a listening port for incoming
        connections. Turn this setting off for outgoing communications only.
     3. For **DNS policy**, choose one of the following:
+
        - No value (null) – The
          pod ignores the DNS settings from the
          Kubernetes environment.
@@ -52,6 +54,7 @@ Complete the following steps to create a single-node job definition on Amazon El
 
     4. (Optional) For **Volumes**, select **Add volume**,
        then:
+
        1. Add a **Name** for your volume.
        2. (Optional) Add the **Host path** for the directory on the host.
        3. (Optional) Add a **Medium** and a **Size limit** to
@@ -125,9 +128,9 @@ Complete the following steps to create a single-node job definition on Amazon El
         5. (Optional) For **Arguments**, enter arguments to
          pass to the container. If an argument isn't provided, the container
          image command is used.
-
     9. (Optional) You can add parameters to the job definition as name-value
        mappings to override the job definition defaults. To add a parameter:
+
        1. For **Parameters**, enter a name-value pair, then
           choose **Add parameter**.
 
@@ -138,6 +141,7 @@ Complete the following steps to create a single-node job definition on Amazon El
        parameter**
 
     10. In the **Environment configuration** section:
+
         1. For **vCPUs**, enter the number of vCPUs to
            reserve for the container. This parameter maps to
            `CpuShares` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate")
@@ -164,6 +168,7 @@ Complete the following steps to create a single-node job definition on Amazon El
         variables as name-value pairs. These variables are passed to the
         container.
     12. (Optional) For **Volume mount**:
+
         1. Choose **Add volume mount**.
         2. Enter a **Name**, and then enter a
            **Mount path** in the container where the

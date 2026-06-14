@@ -24,6 +24,7 @@ Create a SageMaker Training job queue (AWS Batch console)1. Open the AWS Batch c
      environment from the list to associate with the job queue.
 
 5. (Optional) For **Job state limits**:
+
    1. For **Misconfiguration**, choose `SERVICE_ENVIRONMENT_MAX_RESOURCE` and enter the **Maximum runnable time (seconds)**.
    2. For **Capacity**, choose `INSUFFICIENT_INSTANCE_CAPACITY` and enter the **Maximum runnable time (seconds)**.
 

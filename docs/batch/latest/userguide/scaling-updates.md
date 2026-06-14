@@ -51,6 +51,7 @@ Performing scaling updates using the AWS Management Console
 4. Choose **Actions** and then **Edit**.
 5. Modify one or more of the [settings that
    support scaling updates](#scaling-updates-triggers "#scaling-updates-triggers"). For example:
+
    - For **Minimum vCPUs**, enter the minimum number of
      vCPUs.
    - For **Desired vCPUs**, enter the desired number of

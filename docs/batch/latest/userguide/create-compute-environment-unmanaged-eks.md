@@ -8,6 +8,7 @@ Complete the following steps to create an unmanaged compute environment using Am
 3. In the navigation pane, choose **Compute environments**.
 4. Choose **Create**.
 5. Configure the environment.
+
    1. For **Compute environment configuration**, choose
       **Amazon Elastic Kubernetes Service (Amazon EKS)**.
    2. For **Orchestration type**, choose

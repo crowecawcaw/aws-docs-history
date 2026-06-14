@@ -44,6 +44,7 @@ blocked. This list provides the messages returned from the `ListJobs` and
    insufficient capacity errors. When requested, AWS Batch detects Amazon EC2 instances that experience
    insufficient capacity errors. Manually canceling the job will allow the subsequent job to move
    to the head of the queue.
+
    - **`statusReason` message while the job is
      stuck:**
      `CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY - Service cannot fulfill the capacity
@@ -77,6 +78,7 @@ blocked. This list provides the messages returned from the `ListJobs` and
    parameter on `statusReason`, allows the subsequent job to move to the head of the
    queue. Optionally, you can increase the `maxvCpus` parameter of the primary compute
    environment to meet the needs of the blocked job.
+
    - **`statusReason` message while the job is
      stuck:**
      `MISCONFIGURATION:COMPUTE_ENVIRONMENT_MAX_RESOURCE - CE(s) associated with the job
@@ -96,6 +98,7 @@ blocked. This list provides the messages returned from the `ListJobs` and
    `statusReason`, allows the subsequent job to move to the head of the queue.
    Optionally, you can redefine the compute environment's allowed instance types to add the
    necessary job resources.
+
    - **`statusReason` message while the job is
      stuck:**
      `MISCONFIGURATION:JOB_RESOURCE_REQUIREMENT - The job resource requirement
@@ -136,6 +139,7 @@ and resolve this issue.
    updating to newer generation instance types. For more information about finding supported
    instance types, see [Finding an Amazon EC2 instance type](../../../AWSEC2/latest/UserGuide/instance-discovery.md "../../../AWSEC2/latest/UserGuide/instance-discovery.md") in the _Amazon
    EC2 User Guide_.
+
    - **`statusReason` message while the job is
      stuck:**
      `MISCONFIGURATION:EC2_INSTANCE_CONFIGURATION_UNSUPPORTED - Your compute environment associated with this job queue has an unsupported instance type configuration.`
@@ -143,6 +147,7 @@ and resolve this issue.
 6. **Reason:** All compute environments are invalid. For more
    information, see [INVALID compute environment](invalid_compute_environment.md "invalid_compute_environment.md"). Note: You can't configure a programmable
    action through the `jobStateTimeLimitActions` parameter to resolve this error.
+
    - **`statusReason` message while the job is
      stuck:**
      `ACTION_REQUIRED - CE(s) associated with the job queue are invalid.`
@@ -152,6 +157,7 @@ and resolve this issue.
    `jobStateTimeLimitActions` parameter to resolve this error. For more information
    about troubleshooting, see [Why is my AWS Batch
    job stuck in RUNNABLE on AWS](https://repost.aws/knowledge-center/batch-job-stuck-runnable-status "https://repost.aws/knowledge-center/batch-job-stuck-runnable-status") in _re:Post_.
+
    - **`statusReason` message while the job is
      stuck:**
      `UNDETERMINED - Batch job is blocked, root cause is undetermined.`

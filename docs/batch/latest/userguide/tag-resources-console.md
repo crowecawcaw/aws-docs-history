@@ -19,6 +19,7 @@ AWS Batch allows you to add or delete tags associated with your clusters directl
 3. In the navigation pane, choose a resource type (for example, **Job Queues**).
 4. Choose a specific resource, then choose **Edit tags**.
 5. Add or delete your tags as necessary.
+
    - To add a tag — specify the key and value in the empty text boxes at the end of the list.
    - To delete a tag — choose the
      ![Delete icon](images/DeleteIcon.png)

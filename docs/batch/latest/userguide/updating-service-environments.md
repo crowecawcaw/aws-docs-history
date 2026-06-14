@@ -20,6 +20,7 @@ Update a service environment (AWS Console)Use the AWS Batch console to update a 
 3. Choose the **Service environment** tab.
 4. Choose the service environment to update.
 5. Choose **Actions**, then choose either:
+
    - **State** - Choose **Enable** or **Disable** to change the state.
    - **Capacity limit** - Modify the
      **Max number of instances**

@@ -29,6 +29,7 @@ Complete the following steps to create a single-node job definition on Amazon El
     **Action**. For each set of conditions, **Action** must
     be set to either **Retry** or **Exit**. These actions mean
     the following:
+
     - Retry – AWS Batch retries until the number of
       job attempts that you specified is reached.
     - Exit – AWS Batch stops retrying the job.
@@ -110,6 +111,7 @@ and job definition to the Amazon ECS task. 14. Choose **Next page**. 15. In the 
     add parameter substitution placeholders as **Key** and optional
     **Value** pairs.
 17. In the **Environment configuration** section:
+
     1.  For **vCPUs**, enter the number of vCPUs to reserve for the
         container. This parameter maps to `CpuShares` in the
         [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the
@@ -135,6 +137,7 @@ and job definition to the Amazon ECS task. 14. Choose **Next page**. 15. In the 
 
 18. Choose **Next page**.
 19. In the **Linux configuration** section:
+
     1.  For **User**, enter the user name to use inside the container. This
         parameter maps to `User` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate "https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate") section of
         the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/ "https://docs.docker.com/engine/api/v1.38/") and the `--user` option to [**docker
@@ -150,6 +153,7 @@ and job definition to the Amazon ECS task. 14. Choose **Next page**. 15. In the 
         reaps processes.
 
 20. (Optional) In the **Filesystem configuration** section:
+
     1.  Turn on **Enable read only filesystem** to remove write access to
         the volume.
     2.  For **Shared memory size**, enter the size (in MiB) of the
@@ -164,6 +168,7 @@ and job definition to the Amazon ECS task. 14. Choose **Next page**. 15. In the 
         add a `tmpfs` mount.
     7.  (Optional) For **Devices**, choose **Add device**
         to add a device:
+
         1. For **Container path**, specify the path of in the container
            instance to expose the device mapped to the host instance. If you keep this blank,
            the host path is used in the container.
@@ -189,6 +194,7 @@ and job definition to the Amazon ECS task. 14. Choose **Next page**. 15. In the 
         limit** values, and then choose **Add ulimit**.
 
 21. In the **Task properties** section:
+
     1.  For **Execution role - conditional**, choose a role to allow Amazon ECS
         agents to make AWS API calls on your behalf. For more information on creating an
         **Execution role**, see [Tutorial: Create the IAM execution role](create-execution-role.md "create-execution-role.md").
@@ -205,6 +211,7 @@ and job definition to the Amazon ECS task. 14. Choose **Next page**. 15. In the 
     _Amazon Elastic Container Service Developer Guide_.
 
 22. (Optional) In the **Logging configuration** section:
+
     1.  For **Log driver**, choose the log driver to use. For more
         information about the available log drivers, see [LogConfiguration:logDriver](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver").
 

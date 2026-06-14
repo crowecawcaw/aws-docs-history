@@ -23,6 +23,7 @@ Complete the following steps to create a single-node job definition on AWS Farga
     tag** to add tags to the resource. Turn on **Propagate tags** to
     propagate tags from the job and job definition.
 10. In the **Fargate platform configuration** section:
+
     1. For **Runtime platform**, choose the compute environment
        architecture.
     2. For **Operating System Family**, choose the operating system for
@@ -67,6 +68,7 @@ Complete the following steps to create a single-node job definition on AWS Farga
 
 11. Choose **Next page**.
 12. In the **Container configuration** section:
+
     1. For **Image**, choose the Docker image to use for your job. By
        default, images in the Docker Hub registry are available. You can also specify other
        repositories with
@@ -96,7 +98,6 @@ Complete the following steps to create a single-node job definition on AWS Farga
          organization name (for example, `amazon/amazon-ecs-agent`).
         * Images in other online repositories are qualified further by a domain name (for
          example, `quay.io/assemblyline/ubuntu`).
-
     2. For **Command**, enter the commands into the field as their JSON
        string array equivalent.
 
@@ -119,8 +120,8 @@ Complete the following steps to create a single-node job definition on AWS Farga
 
         If you choose **Add parameter**, you must either configure at
          least one parameter or choose **Remove parameter**
-
     4. In the **Environment configuration** section:
+
        1. For **Job role configuration**, choose an IAM role that has
           permissions to the AWS APIs. This feature uses Amazon ECS IAM roles for task
           functionality. For more information, see [IAM Roles for Tasks](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md") in the
@@ -165,6 +166,7 @@ Complete the following steps to create a single-node job definition on AWS Farga
     7. Choose **Next page**.
 
 13. (Optional) In the **Linux configuration** section:
+
     1. For **User**, enter a user name to use inside the container.
     2. Turn on **Enable init process** to run an init process inside the
        container. This process forwards signals and reaps processes.
@@ -180,6 +182,7 @@ Complete the following steps to create a single-node job definition on AWS Farga
        **Name** and **Source path** for the volume, and
        then choose **Add volume**.
     7. In the **Task properties** section:
+
        1. For **Execution role - conditional**, choose a role to allow
           Amazon ECS agents to make AWS API calls on your behalf. For more information on
           creating an **Execution role**, see [Tutorial: Create the IAM execution role](create-execution-role.md "create-execution-role.md").
@@ -195,6 +198,7 @@ Complete the following steps to create a single-node job definition on AWS Farga
        For more information see, [Amazon ECS task IAM role](../../../AmazonECS/latest/developerguide/task-iam-roles.md "../../../AmazonECS/latest/developerguide/task-iam-roles.md") in the _Amazon Elastic Container Service Developer Guide_.
 
     8. In the **Logging configuration** section:
+
        1. (Optional) For **Log driver**, choose the log driver to use.
           For more information about the available log drivers, see [LogConfiguration:logDriver](../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver "../APIReference/API_LogConfiguration.md#Batch-Type-LogConfiguration-logDriver").
 
