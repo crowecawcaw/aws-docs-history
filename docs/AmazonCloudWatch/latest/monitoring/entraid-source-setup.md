@@ -12,6 +12,7 @@ To retrieve the Audit Logs EntraID, pipelines needs to authenticate with your ac
 - Generate a new key for your application. Key is also known as client secret, which are used when exchanging an authorization code for an access token.
 - In the AWS Secrets Manager, create a secret and store the Application (client) ID under the key `client_id` and the client secret under the key `client_secret`
 - Specify the permissions your application requires to access the Microsoft Graph APIs. The permissions you need are:
+
   - AuditLog.Read.All: Required to read audit logs, sign-in logs, and provisioning logs
   - Directory.Read.All: Required to read directory data
 

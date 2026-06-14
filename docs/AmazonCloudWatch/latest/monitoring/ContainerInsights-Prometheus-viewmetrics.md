@@ -48,6 +48,7 @@ Java/JMX.
    **Cancel**.
 5. Choose **Actions**, **View/edit source**.
 6. Download one of the following JSON files:
+
    - [NGINX custom dashboard source on Github](https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/nginx-ingress/cw_dashboard_nginx_ingress_controller.json "https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/nginx-ingress/cw_dashboard_nginx_ingress_controller.json").
    - [App Mesh custom dashboard source on Github](https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/appmesh/cw_dashboard_awsappmesh.json "https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/appmesh/cw_dashboard_awsappmesh.json").
    - [Memcached custom dashboard source on Github](https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/memcached/cw_dashboard_memcached.json "https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/memcached/cw_dashboard_memcached.json")
@@ -56,6 +57,7 @@ Java/JMX.
 
 7. Open the JSON file that you downloaded with a text editor, and make the following
    changes:
+
    - Replace all the `{{YOUR_CLUSTER_NAME}}` strings with the exact name
      of your cluster. Make sure not to add whitespaces before or after the text.
    - Replace all the `{{YOUR_REGION}}` strings with the AWS Region

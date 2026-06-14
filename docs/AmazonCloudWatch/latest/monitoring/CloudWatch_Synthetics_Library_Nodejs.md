@@ -6,7 +6,7 @@ for Node.js. This runtime does not have any browser or framework included.
 The naming convention for these runtime versions is `syn-`language`
  -`majorversion`.`minorversion``.
 
-## syn-nodejs-4.2
+## syn-nodejs-5.0
 
 ###### Important
 
@@ -20,9 +20,24 @@ namespace will be deprecated in a future release.
 
 - AWS Lambda runtime Node.js 22.x
 
+**Changes in syn-nodejs-5.0**
+
+- Upgrade `brace-expansion` to 5.0.6 to address the following CVE:
+
+  - GHSA-jxxr-4gwj-5jf2
+
+The following earlier runtime versions for Node.js are still supported.
+
+### syn-nodejs-4.2
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+
 **Changes in syn-nodejs-4.2**
 
 - Upgrade `axios` to 1.15.2 to address the following CVEs:
+
   - CVE-2025-62718
   - CVE-2026-42033
   - CVE-2026-42035
@@ -33,12 +48,12 @@ namespace will be deprecated in a future release.
   - CVE-2026-42264
 
 - Upgrade `brace-expansion` to 5.0.5 to address the following CVE:
+
   - CVE-2026-33750
 
 - Upgrade `fast-xml-builder` to 1.1.7 to address the following CVE:
-  - GHSA-5wm8-gmm8-39j9
 
-The following earlier runtime versions for Node.js are still supported.
+  - GHSA-5wm8-gmm8-39j9
 
 ### syn-nodejs-4.1
 
@@ -49,6 +64,7 @@ The following earlier runtime versions for Node.js are still supported.
 **Changes in syn-nodejs-4.1**
 
 - Upgrade `fast-xml-parser` to 5.5.7 to address the following CVEs:
+
   - CVE-2026-25128
   - CVE-2026-25896
   - CVE-2026-26278

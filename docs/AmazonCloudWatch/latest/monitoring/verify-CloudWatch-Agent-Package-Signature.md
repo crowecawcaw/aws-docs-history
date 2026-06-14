@@ -165,6 +165,7 @@ verified the public key.
 ###### To verify the CloudWatch agent package on a macOS computer
 
 - There are two methods for signature verification on macOS.
+
   - Verify the fingerprint by running the following command.
 
   ```
@@ -196,8 +197,8 @@ verified the public key.
    B0 B1 73 0E CB C7 FF 45 05 14 2C 49 F1 29 5E 6E DA 6B CA ED 7E 2C
    68 C5 BE 91 B5 A1 10 01 F0 24`
   ```
-
   - Or, download and use the .sig file To use this method, follow these steps.
+
     1. Install the GPG application to your macOS host by entering the following
        command.
 

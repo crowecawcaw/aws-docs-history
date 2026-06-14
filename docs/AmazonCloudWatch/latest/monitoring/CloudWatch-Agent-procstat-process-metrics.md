@@ -253,6 +253,7 @@ a time series graph. For more information about setting alarms, see [Using Amazo
    Metrics**).
 5. The **All metrics** tab displays all metrics for that dimension
    in the namespace. You can do the following:
+
    1. To graph a metric, select the check box next to the metric. To select all
       metrics, select the check box in the heading row of the table.
    2. To sort the table, use the column heading.

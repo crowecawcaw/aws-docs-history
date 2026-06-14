@@ -59,6 +59,7 @@ on Linux systems.
 3. Attach the **CloudWatchAgentServerPolicy**
    IAM policy to the IAM role of
    your Amazon EC2 instance. For permissions for on-premises hosts, see [Permissions for on-premises servers](#Enable-OnPremise-Permissions "#Enable-OnPremise-Permissions").
+
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Choose **Roles** and find the role used by your Amazon EC2 instance. Then choose the
       name of that role.
@@ -88,6 +89,7 @@ For an on-premises host, you will need to provide AWS authorization to your devi
 ###### To set up permissions for an on-premises host
 
 1. Create the IAM user to be used to provide permissions to your on-premises host:
+
    1. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Choose **Users**, **Create User**.
@@ -99,6 +101,7 @@ For an on-premises host, you will need to provide AWS authorization to your devi
    7. Choose **Create user**
 
 2. Create and retrieve your AWS access key and secret key:
+
    1. In the navigation pane in the IAM console, choose **Users** and then select the user name of the user that you created in the previous step.
    2. On the user's page, choose the **Security credentials** tab. Then, in the **Access keys** section, choose **Create access key**.
    3. For **Create access key Step 1**, choose **Command Line Interface (CLI)**.
@@ -132,8 +135,10 @@ Java
 2.  To optimize your Application Signals benefits, use environment variables to
     provide additional information before you start your application. This information will be displayed
     in Application Signals dashboards.
+
     1.  For the `OTEL_RESOURCE_ATTRIBUTES` variable, specify the following information as
         key-value pairs:
+
         - (Optional) `service.name` sets the name of the service. This will be displayed as the service
           name for your application in Application Signals dashboards. If you don't provide a value for this key, the
           default of `UnknownService` is used.
@@ -170,7 +175,6 @@ Java
         ```
         export AWS_ADOT_JAVA_INSTRUMENTATION_PATH=./aws-opentelemetry-agent.jar
         ```
-
         - For the `OTEL_METRICS_EXPORTER` variable, we recommend that you set the value to
           `none`. This disables other metrics exporters so that only the
           Application Signals exporter is used.
@@ -222,8 +226,8 @@ Python
 
 ###### Note
 
-If you're using a WSGI server for your Python application, in addition to the following steps in this section,
-see [No Application Signals data for Python application that uses a WSGI server](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI") for information to make Application Signals work.
+If you're using a pre-fork server (WSGI or ASGI) such as Gunicorn, uWSGI, or Uvicorn for your Python application, in addition to the following steps in this section,
+see [No Application Signals data for a Python application that uses a pre-fork server (WSGI or ASGI)](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI") for information to make Application Signals work.
 
 ###### To instrument your Python applications as part of enabling Application Signals on an Amazon EC2 instance
 
@@ -281,6 +285,7 @@ in Application Signals dashboards.
 
 3. Start your application with the environment variables discussed in the previous step. The following
    is an example of a starting script.
+
    - Replace `$SVC_NAME` with your application name. This will
      be displayed as the name of the application, in Application Signals dashboards.
    - Replace `$PYTHON_APP` with the location and name of your application.
@@ -351,6 +356,7 @@ java -jar `$MY_PYTHON_APP.jar`
    [aws-otel-dotnet-instrumentation Releases](https://github.com/aws-observability/aws-otel-dotnet-instrumentation/releases "https://github.com/aws-observability/aws-otel-dotnet-instrumentation/releases").
 2. To enable Application Signals, set the following environment variables to provide additional information before you start your application. These variables are necessary to set up the startup hook for .NET instrumentation, before you start your
    .NET application. Replace `dotnet-service-name` in the `OTEL_RESOURCE_ATTRIBUTES` environment variable with the service name of your choice.
+
    - The following is an example for Linux.
 
    ```
@@ -374,7 +380,6 @@ java -jar `$MY_PYTHON_APP.jar`
    export OTEL_TRACES_SAMPLER=xray
    export OTEL_TRACES_SAMPLER_ARG=http://127.0.0.1:2000
    ```
-
    - The following is an example for Windows Server.
 
    ```
@@ -500,6 +505,7 @@ in Application Signals dashboards.
 
 3. Start your application with the environment variables discussed in the previous step. The following
    is an example of a starting script.
+
    - Replace `$SVC_NAME` with your application name. This will
      be displayed as the name of the application, in Application Signals dashboards.
 

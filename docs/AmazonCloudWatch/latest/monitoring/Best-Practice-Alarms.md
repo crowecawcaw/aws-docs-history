@@ -55,7 +55,7 @@ alarm recommendations. 5. To see the alarm intent and recommended threshold for 
 
 
 
-    	![Create an alarm from a graphed metric](images/metric_graph_alarm.png)
+    	![Create an alarm from a graphed metric.](images/metric_graph_alarm.png)
 
     	The alarm creation wizard appears, with the metric name, statistic, and
     	 period filled in based on the alarm recommendation. If the recommendation

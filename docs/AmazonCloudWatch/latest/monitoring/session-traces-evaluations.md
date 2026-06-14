@@ -17,7 +17,7 @@ for the selected agent. For more information about configuring evaluations for a
 [AgentCore evaluations](../../../bedrock-agentcore/latest/devguide/evaluations.md "../../../bedrock-agentcore/latest/devguide/evaluations.md"). You can expand each evaluation to view the sessions, traces,
 and spans that were evaluated.
 
-![Evaluations](images/evals_overview.png)
+![Evaluations.](images/evals_overview.png)
 
 ###### Topics
 
@@ -36,7 +36,7 @@ about an evaluator, choose its name in the **Evaluator** column.
 To view a bar chart and analyze trends for an evaluator, choose the value in the
 **Count** column.
 
-![Evaluation configuration metrics](images/evals_01.png)
+![Evaluation configuration metrics.](images/evals_01.png)
 
 Session evaluations
 Provides evaluation results for evaluators at the session level. A session represents
@@ -44,7 +44,7 @@ a logical grouping of related interactions from a single user or workflow. A ses
 contain one or more traces. You can choose a session to filter down to the list of traces
 within that session in the **Trace evaluations** section.
 
-![Session evaluations](images/evals_02.png)
+![Session evaluations.](images/evals_02.png)
 
 Trace evaluations
 Provides evaluation results for evaluators at the trace level. A trace is a complete
@@ -52,14 +52,14 @@ record of a single agent execution or request. A trace can contain one or more s
 Choose a trace to view the trace details along with all the evaluators that were run on
 that trace.
 
-![Trace evaluations](images/evals_03.png)
+![Trace evaluations.](images/evals_03.png)
 
 Span evaluations
 Provides evaluation results for evaluators at the span level. A span represents the
 individual operations performed during that execution. Choose a span to view the span
 details along with all the operations performed during that span.
 
-![Span evaluations](images/evals_04.png)
+![Span evaluations.](images/evals_04.png)
 
 ## Evaluations graphs
 
@@ -68,7 +68,7 @@ the trends for each evaluator over time, and enable you to set alarms for specif
 values. To set an alarm, click a bar in the graph, and then choose **Alarm**
 (bell) icon. For more information, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md").
 
-![Evaluations graphs](images/evals_graphs.png)
+![Evaluations graphs.](images/evals_graphs.png)
 
 ## Work with evaluation results
 

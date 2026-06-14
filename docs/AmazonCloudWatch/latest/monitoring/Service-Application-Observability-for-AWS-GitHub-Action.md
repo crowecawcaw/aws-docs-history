@@ -18,6 +18,7 @@ Before you begin, ensure you have the following:
 
 - **GitHub Repository Permissions**: Write access or higher to the repository (required to trigger the action)
 - **AWS IAM Role**: An IAM role configured with OpenID Connect (OIDC) for GitHub Actions with permissions for:
+
   - CloudWatch Application Signals and CloudWatch access
   - Amazon Bedrock model access (if using Bedrock models)
 
@@ -191,6 +192,7 @@ Once the workflow is configured, mention `@awsapm` in any GitHub issue to trigge
 1. The workflow detects the `@awsapm` mention and triggers the investigation
 2. The AI agent accesses your live AWS telemetry data through the configured MCP servers
 3. The agent analyzes the issue and either:
+
    - Posts findings and recommendations directly in the issue
    - Creates a pull request with code changes (for instrumentation or fixes)
 

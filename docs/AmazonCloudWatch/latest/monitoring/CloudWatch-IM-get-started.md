@@ -78,6 +78,7 @@ Visualize data about your internet traffic, from an overview perspective or by d
 2. In the left navigation pane, under **Network Monitoring**, choose **Internet monitors**.
 3. Choose a monitor to work with.
 4. Choose from the following tabs:
+
    - **Overview** — Review a general summary
      of your monitor and your application traffic performance.
    - **Health events** — View current and historical health events that currently impact,

@@ -43,6 +43,7 @@ ways:
 
 6. When viewing alarms, you can focus on a particular alarm in several
    ways:
+
    1. To see more details about an alarm, hover on the alarm, and choose the
       actions icon, **View in alarms**.
 

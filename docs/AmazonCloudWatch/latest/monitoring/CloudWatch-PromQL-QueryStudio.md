@@ -1,9 +1,4 @@
-# Running PromQL queries in Query Studio (Preview)
-
-###### Note
-
-Query Studio is currently available as a Preview feature at no additional charge. For
-supported regions, see [Supported AWS Regions](CloudWatch-PromQL.md#CloudWatch-PromQL-Regions "CloudWatch-PromQL.md#CloudWatch-PromQL-Regions").
+# Running PromQL queries in Query Studio
 
 Query Studio is an interactive query environment in the CloudWatch console where you can write,
 run, and visualize PromQL queries against your CloudWatch metrics. You can use Query Studio to explore
@@ -17,7 +12,7 @@ You can run PromQL queries programmatically using the CloudWatch API, or interac
 ###### To run a PromQL query in Query Studio
 
 1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2. In the navigation pane, choose **Query Studio (Preview)**.
+2. In the navigation pane, choose **Query Studio**.
 3. In the query editor tool, select **PromQL** from the drop-down menu.
 4. Use the **Builder** mode to browse and select metric names, labels, and aggregation functions.
 5. Or enter your PromQL query via the **Editor** mode, for example `{"http.server.active_requests"}`.

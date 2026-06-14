@@ -23,6 +23,7 @@ monitoring systems while reducing false alarms and manual intervention.
 2. In the navigation pane, choose **Application Signals**, **Synthetics
    Canaries**.
 3. You can do one of the following:
+
    - Select the canary and choose **Actions**, **Enable
      auto-retry**, and adjust the maximum retries.
    - Select the canary and choose **Actions**, **Edit**.

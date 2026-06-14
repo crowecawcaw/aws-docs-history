@@ -95,6 +95,7 @@ curl -O https://raw.githubusercontent.com/aws-cloudformation/aws-cloudformation-
    **Next**.
 5. On the **Specify Details** page, fill out the following
    parameters and choose **Next**:
+
    - **Stack name**: Choose a stack name for your CloudFormation stack.
    - **IAMRole**: Choose an IAM role that has permissions to
      write CloudWatch metrics, logs, and traces. For more information, see [Prerequisites](prerequisites.md "prerequisites.md").
@@ -196,6 +197,7 @@ curl -O https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/m
    **Next**.
 7. On the **Specify Details** page, fill out the following
    parameters accordingly and choose **Next**:
+
    - **Stack name**: Choose a stack name for your CloudFormation stack.
    - **IAMRole**: Choose an IAM role that has permissions to
      write CloudWatch metrics, logs, and traces. For more information, see [Prerequisites](prerequisites.md "prerequisites.md").

@@ -75,6 +75,7 @@ You must perform the following prerequisites to configure SAP NetWeaver with Clo
 - **Amazon EC2 instance roles** – You must
   attach the following Amazon EC2 instance roles to configure your SAP NetWeaver
   monitoring.
+
   - You must attach the `AmazonSSMManagedInstanceCore`
     role to enable Systems Manager. For more information, see [AWS Systems Manager identity-based policy examples](../../../systems-manager/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md "../../../systems-manager/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md").
   - You must attach the `CloudWatchAgentServerPolicy`
@@ -143,6 +144,7 @@ Use the following steps to set up monitoring for your SAP NetWeaver application 
 9. To review detected components, choose **Next**.
 10. On the **Review detected components** page, the monitored
     components and their workloads automatically detected by CloudWatch Application Insights are listed.
+
     1. To edit the workload type and name, choose **Edit component**.
 
     ###### Note
@@ -468,6 +470,7 @@ sudo systemctl start prometheus-sap_host_exporter.service
 
 4. If you can't resolve the SAPControl connection issue, use the following
    procedure as a temporary fix.
+
    1. Open the [AWS Systems Manager
       console](https://console.aws.amazon.com/systems-manager "https://console.aws.amazon.com/systems-manager").
    2. From the left navigation pane, choose **State
@@ -478,7 +481,6 @@ sudo systemctl start prometheus-sap_host_exporter.service
    ```
    Association Name: Equal: AWS-ApplicationInsights-SSMSAPHostExporterAssociationForCUSTOMSAPNW<SID>-1
    ```
-
    4. Select the **Association id**.
    5. Choose the **Parameters** tab and remove the
       application server number from

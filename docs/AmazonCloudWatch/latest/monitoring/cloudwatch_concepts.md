@@ -38,7 +38,7 @@ traditional CloudWatch metrics.
 | Query language     | GetMetricStatistics, Metrics Insights       | Prometheus Query Language (PromQL)           |
 | Alarms             | Standard CloudWatch Alarms                  | PromQL-based CloudWatch Alarms               |
 | Console experience | CloudWatch Metrics console                  | CloudWatch Query Studio                      |
-| Retention          | Up to 15 months with automatic rollup       | 30 days (public preview)                     |
+| Retention          | Up to 15 months with automatic rollup       | Up to 15 months                              |
 
 For more information, see [Send metrics using OpenTelemetry](CloudWatch-OpenTelemetry-Sections.md "CloudWatch-OpenTelemetry-Sections.md").
 
@@ -84,7 +84,7 @@ Metrics are uniquely defined by a name, a namespace, and zero or more dimensions
 data point in a metric has a time stamp, and (optionally) a unit of measure. You can
 retrieve statistics from CloudWatch for any metric.
 
-For more information, see [View available metrics](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md") and [Publish custom metrics](publishingMetrics.md "publishingMetrics.md").
+For more information, see [View available metrics](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md") and [Publish custom metrics (PutMetricData / EMF)](publishingMetrics.md "publishingMetrics.md").
 
 ### Time stamps
 
@@ -232,7 +232,7 @@ by your custom data or provided by other AWS services to CloudWatch. Aggregation
 the namespace, metric name, dimensions, and the data point unit of measure, within the time
 period you specify.
 
-For detailed definitions of the statistics supported by CloudWatch, see [CloudWatch statistics definitions](Statistics-definitions.md "Statistics-definitions.md").
+For detailed definitions of the statistics supported by CloudWatch, see [Available statistics](Statistics-definitions.md "Statistics-definitions.md").
 
 ## Units
 
@@ -364,7 +364,7 @@ The following AWS services include metrics that support percentile statistics.
 - Amazon RDS
 
 CloudWatch also supports trimmed mean and other performance statistics, which can have a
-similar use as percentiles. For more information, see [CloudWatch statistics definitions](Statistics-definitions.md "Statistics-definitions.md").
+similar use as percentiles. For more information, see [Available statistics](Statistics-definitions.md "Statistics-definitions.md").
 
 ## Alarms
 
@@ -388,7 +388,7 @@ monitoring metric, select a period of at least 60 seconds (1 minute).
 If you set an alarm on a high-resolution metric, you can specify a high-resolution
 alarm with a period of 10 seconds or 30 seconds, or you can set a regular alarm with a
 period of any multiple of 60 seconds. There is a higher charge for high-resolution alarms.
-For more information about high-resolution metrics, see [Publish custom metrics](publishingMetrics.md "publishingMetrics.md").
+For more information about high-resolution metrics, see [Publish custom metrics (PutMetricData / EMF)](publishingMetrics.md "publishingMetrics.md").
 
 For more information, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md") and [Create an alarm from a metric on a graph](create_alarm_metric_graph.md "create_alarm_metric_graph.md").
 

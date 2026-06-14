@@ -7,7 +7,7 @@ enhanced observability collects for Amazon EKS and Kubernetes. These metrics are
 If you do not see any Container Insights with enhanced observability metrics in your
 console, be sure that you have completed the setup of Container Insights with enhanced
 observability. Metrics do not appear before Container Insights with enhanced observability
-has been set up completely. For more information, see [Setting up Container Insights](deploy-container-insights.md "deploy-container-insights.md").
+has been set up completely. For more information, see [Container Insights](ContainerInsights.md "ContainerInsights.md").
 
 If you are using version 1.5.0 or later of the Amazon EKS add-on or version 1.300035.0 of the
 CloudWatch agent, most metrics listed in the following table are collected for both Linux and
@@ -220,7 +220,7 @@ accepts values in seconds, with a minimum value of 1 second. Setting it to
 `1` enables 1-second collection intervals. If this parameter is not
 specified, the default 60-second interval is used.
 
-For complete configuration instructions, see [Setting up the CloudWatch agent to collect cluster metrics](Container-Insights-setup-metrics.md "Container-Insights-setup-metrics.md").
+For complete configuration instructions, see [Setup guide (AWS CLI)](container-insights-eks-classic-setup.md "container-insights-eks-classic-setup.md").
 
 ## AWS Neuron metrics for AWS Trainium and AWS Inferentia
 
@@ -355,6 +355,7 @@ prerequisites:
   the CloudWatch Observability Amazon EKS add-on version `4.1.0` or later.
 - The EBS CSI driver `1.42.0` add-on or Helm chart must be installed on
   the cluster with metrics enabled.
+
   - To enable the metrics when you are using Amazon EBS CSI driver add-on, use the
     following option when you create or update the add-on.
     `--configuration-values '{ "node": { "enableMetrics": true }
@@ -395,6 +396,7 @@ To collect these metrics, you must meet the following prerequisites:
   the CloudWatch Observability Amazon EKS add-on version `6.2.0` or later.
 - The `aws-ec2-local-instance-store-csi-driver` EKS add-on or Helm chart
   must be installed on the cluster with metrics enabled.
+
   - To enable the metrics when you are using the
     `aws-ec2-local-instance-store-csi-driver` add-on, use the following
     option when you create or update the add-on.

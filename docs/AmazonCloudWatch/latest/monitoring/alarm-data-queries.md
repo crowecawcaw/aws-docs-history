@@ -20,7 +20,7 @@ doesn't return a value for that data point.
 
 Alarms based on math expressions can't perform Amazon EC2 actions.
 
-For more information about metric math expressions and syntax, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md").
+For more information about metric math expressions and syntax, see [Math expressions with metrics](using-metric-math.md "using-metric-math.md").
 
 For more information, see [Create a CloudWatch alarm based on a metric math expression](Create-alarm-on-metric-math-expression.md "Create-alarm-on-metric-math-expression.md").
 

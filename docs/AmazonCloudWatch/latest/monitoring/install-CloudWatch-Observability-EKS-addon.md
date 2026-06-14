@@ -5,17 +5,17 @@ Helm chart to install the CloudWatch Agent and the Fluent-bit agent on an Amazon
 also use the Helm chart to install the CloudWatch Agent and the Fluent-bit agent on a Kubernetes
 cluster that is not hosted on Amazon EKS.
 
-Using either method on an Amazon EKS cluster enables both [Container Insights](ContainerInsights.md "ContainerInsights.md") with enhanced observability for Amazon EKS and [CloudWatch Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md") by
+Using either method on an Amazon EKS cluster enables both [Container Insights](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md") for Amazon EKS and [CloudWatch Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md") by
 default. Both features help you to collect infrastructure metrics, application performance
 telemetry, and container logs from the cluster.
 
-With version `v6.0.1-eksbuild.1` or later of the add-on, Container Insights
-with OpenTelemetry metrics is enabled, which collects metrics using the OpenTelemetry
-Protocol (OTLP) and supports PromQL queries. For more information, see [Container Insights with OpenTelemetry metrics for Amazon EKS](container-insights-otel-metrics.md "container-insights-otel-metrics.md").
+From version `v6.2.0-eksbuild.1` or later of the add-on, Container Insights
+with OpenTelemetry metrics can be enabled, which collects metrics using the OpenTelemetry
+Protocol (OTLP) and supports PromQL queries. For more information, see [OTel Container Insights (Recommended)](container-insights-eks-otel.md "container-insights-eks-otel.md").
 
-With Container Insights with enhanced observability for Amazon EKS, Container Insights
-metrics are charged per observation instead of being charged per metric stored or log
-ingested. For Application Signals, billing is based on inbound requests to your
+With Container Insights with OpenTelemetry for Amazon EKS, Container Insights metrics are
+charged per GB ingested or per observation if you are using Enhanced Container Insights
+(Classic). For Application Signals, billing is based on inbound requests to your
 applications, outbound requests from your applications, and each configured service level
 objective (SLO). Each inbound request received generates one application signal, and each
 outbound request made generates one application signal. Every SLO creates two application
@@ -101,12 +101,14 @@ Amazon EKS console
 4. Choose the **Add-ons** tab.
 5. Choose **Get more add-ons**.
 6. On the **Select add-ons** page, do the following:
+
    1. In the **Amazon EKS-addons** section, select the
       **Amazon CloudWatch Observability** check box.
    2. Choose **Next**.
 
 7. On the **Configure selected add-ons settings** page, do the
    following:
+
    1. Select the **Version** you'd like to use.
    2. For **Add-on access**, select **EKS Pod
       Identity**
@@ -153,21 +155,21 @@ aws iam attach-role-policy \
 
 ```
 {
-    "Resources": {
-        "EKSAddOn": {
-            "Type": "AWS::EKS::Addon",
-            "Properties": {
-                "AddonName": "amazon-cloudwatch-observability",
-                "ClusterName": "`my-cluster-name`",
-                "PodIdentityAssociations": [
-                    {
-                        "ServiceAccount": "cloudwatch-agent",
-                        "RoleArn": "arn:aws:iam::`111122223333`:role/`my-role`"
-                    }
-                ]
-            }
+"Resources": {
+    "EKSAddOn": {
+        "Type": "AWS::EKS::Addon",
+        "Properties": {
+            "AddonName": "amazon-cloudwatch-observability",
+            "ClusterName": "`my-cluster-name`",
+            "PodIdentityAssociations": [
+                {
+                    "ServiceAccount": "cloudwatch-agent",
+                    "RoleArn": "arn:aws:iam::`111122223333`:role/`my-role`"
+                }
+            ]
         }
     }
+}
 }
 ```
 
@@ -469,7 +471,7 @@ Amazon EKS console
 
 
 By default, the add-on uses Fluent Bit to collect container logs from all pods and
- then sends the logs to CloudWatch Logs. For information about which logs are collected, see [Setting up Fluent Bit](Container-Insights-setup-logs-FluentBit.md#Container-Insights-FluentBit-setup "Container-Insights-setup-logs-FluentBit.md#Container-Insights-FluentBit-setup").
+ then sends the logs to CloudWatch Logs. For information about which logs are collected, see [Send logs to CloudWatch Logs](Container-Insights-EKS-logs.md "Container-Insights-EKS-logs.md").
 
 
 ###### Note
@@ -647,13 +649,13 @@ Skip_Long_Lines On
 Ignore_Older 1d
 Refresh_Interval 10
 
-          [OUTPUT]
-            Name                cloudwatch_logs
-            Match               myservice.*
-            region              ${AWS_REGION}
-            log_group_name      /aws/containerinsights/${CLUSTER_NAME}/myservice
-            log_stream_prefix   ${HOST_NAME}-
-            auto_create_group   true
+      [OUTPUT]
+        Name                cloudwatch_logs
+        Match               myservice.*
+        region              ${AWS_REGION}
+        log_group_name      /aws/containerinsights/${CLUSTER_NAME}/myservice
+        log_stream_prefix   ${HOST_NAME}-
+        auto_create_group   true
 
 ```
 
@@ -1110,10 +1112,16 @@ template:
 ...
 spec:
 containers:
-... - args: - --secure-listen-address=0.0.0.0:8443 - --upstream=http://127.0.0.1:8080/ - --logtostderr=true - --v=0 `<-- CHANGE v=10 TO v=0`
-image: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
-name: kube-rbac-proxy
 ...
+
+- args:
+  - --secure-listen-address=0.0.0.0:8443
+  - --upstream=http://127.0.0.1:8080/
+  - --logtostderr=true
+  - --v=0 `<-- CHANGE v=10 TO v=0`
+    image: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
+    name: kube-rbac-proxy
+    ...
 
 ```
 
@@ -1572,8 +1580,8 @@ agents:
 
 - name: cloudwatch-agent
   env:
-  - name: CWAGENT_ROLE
-    value: NODE
+- name: CWAGENT_ROLE
+  value: NODE
 - name: cloudwatch-agent-ci-leader
   mode: deployment
   config:
@@ -1587,12 +1595,12 @@ agents:
   }
   }
   env:
-  - name: CWAGENT_ROLE
-    value: LEADER
-    resources:
-    limits:
-    memory: 10Gi
-    cpu: 2000m
+- name: CWAGENT_ROLE
+  value: LEADER
+  resources:
+  limits:
+  memory: 10Gi
+  cpu: 2000m
 
 ```
 
@@ -1714,7 +1722,7 @@ If you are trying to onboard to the Amazon CloudWatch Observability EKS add-on a
  back up any customizations you might have made to the original CloudWatch agent setup such as
  a custom agent configuration, and provide these to the add-on or Helm chart when you
  next install or update it. If you had previously installed the CloudWatch agent for onboarding
- to Container Insights, see [Deleting the CloudWatch agent and Fluent Bit for Container Insights](ContainerInsights-delete-agent.md "ContainerInsights-delete-agent.md") for more information.
+ to Container Insights, see [Setup guide (AWS CLI)](container-insights-eks-classic-setup.md "container-insights-eks-classic-setup.md") for more information.
 
 
 Alternatively, the add-on supports a conflict resolution configuration option that

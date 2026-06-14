@@ -26,6 +26,7 @@ on a CloudWatch dashboard](edit_graph_dashboard.md "edit_graph_dashboard.md").
    that you want
    to add
    to your dashboard, then choose **Next**.
+
    1. If you select **_Line_**, **_Stacked area_**, **_Bar_**, or **_Pie_**,
       choose **Metrics**.
 
@@ -55,6 +56,7 @@ choose **Custom**.
    and period. You also can determine the position of labels on the
    Y-axis
    from left to right.
+
    1. To add a dynamic label,
       choose **Graphed metrics**,
       and then choose **Add dynamic labels**.
@@ -99,6 +101,7 @@ choose **Custom**.
 10. (Optional) To add or edit horizontal annotations to line or stacked area graphs, or to
     add thresholds to gauge widgets,
     choose **Options**:
+
     1. To add a horizontal annotation or threshold,
        choose **Add horizontal annotation** or **Add threshold**.
     2. For **_Label_**, enter a label

@@ -8,6 +8,7 @@ SDKs.
 - [Hello CloudWatch](example_cloudwatch_Hello_section.md "example_cloudwatch_Hello_section.md")
 - [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [DeleteAlarms](example_cloudwatch_DeleteAlarms_section.md "example_cloudwatch_DeleteAlarms_section.md")
   - [DeleteAnomalyDetector](example_cloudwatch_DeleteAnomalyDetector_section.md "example_cloudwatch_DeleteAnomalyDetector_section.md")
   - [DeleteDashboards](example_cloudwatch_DeleteDashboards_section.md "example_cloudwatch_DeleteDashboards_section.md")

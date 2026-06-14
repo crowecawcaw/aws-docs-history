@@ -7,6 +7,7 @@ CloudWatch Application Insights:
   Systems Manager Agent (SSM Agent) on your Amazon EC2 instances, and enable the instances for SSM. For information about how to install the SSM Agent, see
   [Setting up AWS Systems Manager](../../../systems-manager/latest/userguide/systems-manager-setting-up.md "../../../systems-manager/latest/userguide/systems-manager-setting-up.md") in the _AWS Systems Manager User Guide_.
 - **EC2 instance role** – You must attach the following Amazon EC2 instance roles to enable Systems Manager
+
   - You must attach the `AmazonSSMManagedInstanceCore` role to enable Systems Manager. For more information, see [AWS Systems Manager identity-based policy examples](../../../systems-manager/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md "../../../systems-manager/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md").
   - You must attach the `CloudWatchAgentServerPolicy`
     policy to enable instance metrics and logs to be emitted through CloudWatch.

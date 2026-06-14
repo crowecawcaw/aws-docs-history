@@ -48,6 +48,7 @@ to add AWS credentials to your Kubernetes environment.
 ###### To set up permissions for an on-premises Kubernetes cluster
 
 1. Create the IAM user to be used to provide permissions to your on-premises host:
+
    1. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Choose **Users**, **Create User**.
@@ -59,6 +60,7 @@ to add AWS credentials to your Kubernetes environment.
    7. Choose **Create user**
 
 2. Create and retrieve your AWS access key and secret key:
+
    1. In the navigation pane in the IAM console, choose **Users** and then select the user name of the user that you created in the previous step.
    2. On the user's page, choose the **Security credentials** tab. Then, in the **Access keys** section, choose **Create access key**.
    3. For **Create access key Step 1**, choose **Command Line Interface (CLI)**.
@@ -135,12 +137,12 @@ traces, and logs to Application Signals.
 2.  To annotate a single workload, enter one of the following commands. Replace
     `$WORKLOAD_TYPE` and
     `$WORKLOAD_NAME` with the values for your workload.
+
     - For Java workloads:
 
     ```
     kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-java": "true"}}}}}'
     ```
-
     - For Python workloads:
 
     ```
@@ -163,7 +165,6 @@ traces, and logs to Application Signals.
     ```
     instrumentation.opentelemetry.io/otel-dotnet-auto-runtime: "linux-musl-x64"
     ```
-
     - For Node.js workloads:
 
     ```

@@ -83,6 +83,7 @@ avoid potential throttling or service disruptions.
 | Rate of PutCompositeAlarm requests                                   | Each supported Region: 3 per second                                                                 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-515B0B71 "https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-515B0B71") | The maximum number of PutCompositeAlarm requests that you can make, per second, in this account in the current region.                                                                                           |
 | Rate of PutDashboard requests                                        | Each supported Region: 10 per second                                                                | [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-6753900D "https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-6753900D") | The maximum number of PutDashboard requests that you can make, per second, in this account in the current region.                                                                                                |
 | Rate of PutInsightRule requests                                      | Each supported Region: 5 per second                                                                 | No                                                                                                                                                                                       | The maximum number of PutInsightRule requests you can make, per second in this account.                                                                                                                          |
+| Rate of PutLogAlarm requests                                         | Each supported Region: 3 per second                                                                 | No                                                                                                                                                                                       | The maximum number of PutLogAlarm requests that you can make, per second, in this account in the current region.                                                                                                 |
 | Rate of PutMetricAlarm requests                                      | Each supported Region: 3 per second                                                                 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-0720E68F "https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-0720E68F") | The maximum number of PutMetricAlarm requests that you can make, per second, in this account in the current region.                                                                                              |
 | Rate of PutMetricData requests                                       | Each supported Region: 500 per second                                                               | [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-8BC498D4 "https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-8BC498D4") | The maximum number of PutMetricData requests that you can make, per second, in this account in the current region.                                                                                               |
 | Rate of PutMetricStream requests                                     | Each supported Region: 10 per second                                                                | [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-A6D89949 "https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-A6D89949") | The maximum number of PutMetricStream requests that you can make, per second, in this account in the current region.                                                                                             |
@@ -354,13 +355,13 @@ The following list contains the CloudWatch
      `--service-code rum`.
 
 2. (Optional) Request a quota increase for a CloudWatch service:
+
    1. Identify the quota code for the quota you want to
       increase.
 
    ```
    `aws service-quotas list-service-quotas --service-code `ServiceCode``
    ```
-
    2. Note the `QuotaCode` value for the item. For
       example if you wanted to increase your quota for the
       **Rate of PutCompositeAlarm requests**

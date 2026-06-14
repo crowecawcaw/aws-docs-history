@@ -49,11 +49,11 @@ view**.
 - Trace details – Meta data about the trace such as start time, end
   time, and Trace ID
 
-![Span view](images/GenAI_span.png)
+![Span view.](images/GenAI_span.png)
 Choose **Timeline** to view the duration of each span and to
 understand the span that took the longest and contributed to a slow response.
 
-![Trajectory view](images/GenAI_agenttrajectory.png)
+![Trajectory view.](images/GenAI_agenttrajectory.png)
 To analyze span relationships and subsequent calls choose
 **Trajectory** to understand the interconnected relationship of
 the spans and subsequent calls from these spans.

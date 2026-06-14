@@ -1,6 +1,6 @@
 # PromQL querying
 
-When you ingest OpenTelemetry metrics into CloudWatch via OpenTelemetry Protocol (OTLP), the
+When you ingest OpenTelemetry metrics into CloudWatch via the [Metrics endpoint](CloudWatch-OTLPEndpoint.md#CloudWatch-MetricsEndpoint "CloudWatch-OTLPEndpoint.md#CloudWatch-MetricsEndpoint"), the
 hierarchical OTLP data model is flattened into PromQL-compatible labels. This section describes
 the label structure, the PromQL syntax for querying these labels, and the UTF-8 support in PromQL.
 
@@ -67,7 +67,7 @@ The following table summarizes the prefix conventions for each OTLP scope:
 ## Querying vended AWS metrics with PromQL
 
 To be able to query vended AWS metrics in PromQL, you first need to enable OTel enrichment
-of vended metrics. See: [Enabling vended metrics in PromQL](CloudWatch-OTelEnrichment.md "CloudWatch-OTelEnrichment.md").
+of vended metrics. See: [AWS vended metrics in OpenTelemetry format](CloudWatch-OTelEnrichment.md "CloudWatch-OTelEnrichment.md").
 
 After you enable OTel enrichment, vended AWS metrics become queryable via PromQL with
 additional labels. The metric name is the same as the original CloudWatch metric name, and the
@@ -91,15 +91,13 @@ available (the example below is for an EC2 instance):
 The following example selects `Invocations` for a specific Lambda function:
 
 ```
-histogram_sum({Invocations, FunctionName="my-api-handler"})
+{Invocations, FunctionName="my-api-handler"}
 ```
 
 The following example selects Lambda `Errors` for all functions tagged with a specific team:
 
 ```
-histogram_sum(
-  {Errors, "@instrumentation.@name"="cloudwatch.aws/lambda", "@aws.tag.Team"="backend"}
-)
+{Errors, "@instrumentation.@name"="cloudwatch.aws/lambda", "@aws.tag.Team"="backend"}
 ```
 
 The following example computes the total Lambda `Invocations` grouped by team:
@@ -117,3 +115,105 @@ CPUUtilization from EC2 and not from other AWS services such as Amazon Relationa
 ```
 histogram_avg({CPUUtilization, "@instrumentation.@name"="cloudwatch.aws/ec2"})
 ```
+
+## Querying from Grafana
+
+You can query CloudWatch PromQL data from Grafana by adding the
+**Amazon Managed Service for Prometheus** data source
+plugin and pointing it at the CloudWatch monitoring endpoint. SigV4 signing is built in to
+the plugin and is always enabled, so there is no toggle to turn on. The plugin is
+published at [grafana.com/grafana/plugins/grafana-amazonprometheus-datasource/](https://grafana.com/grafana/plugins/grafana-amazonprometheus-datasource/ "https://grafana.com/grafana/plugins/grafana-amazonprometheus-datasource/"); install
+it from the Grafana plugins catalog before adding the data source. AMP plugin v3.0.0
+requires Grafana `>=11.6.11 <12 || >=12.0.10 <12.1 || >=12.1.7
+ <12.2 || >=12.2.5`.
+
+**IAM prerequisites** — the IAM principal whose
+credentials Grafana uses must have both `cloudwatch:GetMetricData` (required
+for instant and range queries) and `cloudwatch:ListMetrics` (required for
+series and label discovery). For details, see [IAM permissions for PromQL](CloudWatch-PromQL.md#CloudWatch-PromQL-IAM "CloudWatch-PromQL.md#CloudWatch-PromQL-IAM").
+
+To configure Grafana, complete the following steps.
+
+1. Install the **Amazon Managed Service for
+   Prometheus** data source plugin from the Grafana plugins
+   catalog.
+2. In Grafana, go to **Connections**,
+   **Data sources**, choose
+   **Add data source**, and select
+   **Amazon Managed Service for Prometheus**.
+3. Set the data source **URL** to
+   `https://monitoring.`AWS
+   Region`.amazonaws.com`.
+4. Set the **Region** to your AWS Region. Choose
+   an **Authentication provider** appropriate for
+   your environment (default credential chain, access keys, or workspace IAM
+   role).
+5. Choose **Save & test**.
+
+## Querying from Amazon Managed Grafana
+
+You can query CloudWatch PromQL data from an Amazon Managed Grafana workspace by adding an
+**Amazon Managed Service for Prometheus** data source
+that points at the CloudWatch monitoring endpoint. This data source plugin signs requests
+with SigV4 using the workspace IAM role automatically; SigV4 is always enabled, with
+no toggle to configure. The plugin is available in Amazon Managed Grafana version 12
+and later. For more information, see [Connect to an
+Amazon Managed Service for Prometheus data source](../../../grafana/latest/userguide/amazon-prometheus-data-source.md "../../../grafana/latest/userguide/amazon-prometheus-data-source.md") in the
+_Amazon Managed Grafana User Guide_.
+
+**IAM prerequisites** — the Amazon Managed Grafana
+workspace IAM role must have both `cloudwatch:GetMetricData` (required for
+instant and range queries) and `cloudwatch:ListMetrics` (required for series
+and label discovery). For details, see [IAM permissions for PromQL](CloudWatch-PromQL.md#CloudWatch-PromQL-IAM "CloudWatch-PromQL.md#CloudWatch-PromQL-IAM").
+
+To configure the data source, complete the following steps.
+
+1. In your Amazon Managed Grafana workspace, add an
+   **Amazon Managed Service for Prometheus** data
+   source.
+2. Set the data source **URL** to
+   `https://monitoring.`AWS
+   Region`.amazonaws.com`.
+3. Set the **Region** to your AWS Region.
+   Amazon Managed Grafana injects credentials from the workspace IAM role
+   automatically; you do not need to configure static keys.
+4. Choose **Save & test**.
+
+## Querying with MCP tools
+
+The [CloudWatch MCP Server](https://awslabs.github.io/mcp/servers/cloudwatch-mcp-server/ "https://awslabs.github.io/mcp/servers/cloudwatch-mcp-server/") provides Model Context Protocol (MCP) tools that let
+AI assistants and development tools query CloudWatch PromQL data on your behalf. The MCP
+tools handle authentication and request formatting automatically, so you can focus on
+writing PromQL queries rather than managing HTTP requests and SigV4 signing.
+
+The following PromQL tools are available in the CloudWatch MCP Server:
+
+| Tool                         | Description                                                                                                                       |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `execute_promql_query`       | Runs an instant PromQL query, returning metric values at a<br>single point in time.                                               |
+| `execute_promql_range_query` | Runs a PromQL range query over a time window, returning time<br>series data for trend analysis and graphing.                      |
+| `get_promql_label_values`    | Retrieves values for a specific PromQL label, such as<br>`__name__` for metric names or<br>`@resource.service.name` for services. |
+| `get_promql_series`          | Finds time series matching PromQL label selectors and returns<br>the full label set of each matching series.                      |
+| `get_promql_labels`          | Lists all available PromQL label names to help discover the<br>label structure of your metrics.                                   |
+
+For full details on parameters, configuration, and setup instructions, see
+[Tools for CloudWatch PromQL](https://awslabs.github.io/mcp/servers/cloudwatch-mcp-server#tools-for-cloudwatch-promql "https://awslabs.github.io/mcp/servers/cloudwatch-mcp-server#tools-for-cloudwatch-promql") in the CloudWatch MCP Server documentation.
+
+## Querying with the HTTP API
+
+You can also query CloudWatch PromQL data programmatically by calling the
+Prometheus-compatible HTTP endpoints directly. Requests must be signed with
+[AWS
+Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") using `monitoring` as the service name.
+
+The PromQL endpoint follows the pattern
+`https://monitoring.`AWS
+Region`.amazonaws.com/api/v1/`operation``.
+ For example, for the US East (N. Virginia) (us-east-1) Region, the endpoint for an
+ instant query is
+ `https://monitoring.us-east-1.amazonaws.com/api/v1/query`.
+
+For the full API reference, including supported operations, request parameters, and
+response formats, see [Prometheus-compatible APIs](CloudWatch-PromQL-APIs.md "CloudWatch-PromQL-APIs.md"). For the list of AWS Regions where
+PromQL querying is available, see [Supported AWS Regions](CloudWatch-PromQL.md#CloudWatch-PromQL-Regions "CloudWatch-PromQL.md#CloudWatch-PromQL-Regions"). For the IAM actions required for
+each operation, see [IAM permissions for PromQL](CloudWatch-PromQL.md#CloudWatch-PromQL-IAM "CloudWatch-PromQL.md#CloudWatch-PromQL-IAM").

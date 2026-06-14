@@ -18,6 +18,7 @@ based on Metrics Insights SQL queries can operate on multiple time series.
 3. Choose **Create alarm**.
 4. Choose **Select Metric**, and then perform one of the following
    actions:
+
    - Select a namespace from the **AWS namespaces** dropdown or
      **Custom namespaces** dropdown. After you select a namespace, you
      continue choosing options until a list of metrics appears, where you select the
@@ -32,6 +33,7 @@ based on Metrics Insights SQL queries can operate on multiple time series.
    math expression.
 6. Select the **Graphed metrics** tab. For each of the metrics that you
    previously added, perform the following actions:
+
    1. Under the **Statistic** column, select the dropdown menu. In the
       dropdown menu, choose one of the predefined statistics or percentiles. Use the search
       box in the dropdown menu to specify a custom

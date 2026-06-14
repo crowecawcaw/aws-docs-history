@@ -17,6 +17,7 @@ Each event can include as many as 10 custom attributes in the metadata. The synt
 requirements for custom attributes are as follows:
 
 - **Keys**
+
   - Maximum of 128 characters
   - Can include alphanumeric characters, colons (:), and underscores
     (\_)
@@ -26,6 +27,7 @@ requirements for custom attributes are as follows:
     key name.
 
 - **Values**
+
   - Maximum of 256 characters
   - Must be strings, numbers, or Boolean values
 

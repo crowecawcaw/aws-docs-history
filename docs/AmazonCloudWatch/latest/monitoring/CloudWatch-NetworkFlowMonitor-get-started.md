@@ -23,6 +23,7 @@ about initializing Network Flow Monitor, deploying agents, and creating monitors
   see detailed metrics and information, including the network health indicator, as
   well as view network paths for specific network flows, over time periods that you select.
 - On a regular basis:
+
   - Review network flow information in the monitors that
     you've created, to learn about and help troubleshoot network impairments in your workloads.
   - Review workload insights for the network flows that

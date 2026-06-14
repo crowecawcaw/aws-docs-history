@@ -41,12 +41,12 @@ the following dimensions for all supported database engines.
 For information about analyzing Oracle PDB load in Amazon RDS, see [Analyzing top Oracle PDB load](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.TopPDB.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.UsingDashboard.AnalyzeDBLoad.TopPDB.md") in the
 _Amazon RDS User Guide_.
 
-![DB Load in the Database Instance Dashboard](images/dbi_did-dbload.png)
+![DB Load in the Database Instance Dashboard.](images/dbi_did-dbload.png)
 
 By default, CloudWatch displays DB Load with a bar chart. Choose **Line**
 to display DB Load with a stacked line chart.
 
-![Line graph for DB Load in the Database Instance Dashboard](images/dbi_did-dbload-line.png)
+![Line graph for DB Load in the Database Instance Dashboard.](images/dbi_did-dbload-line.png)
 
 ## DB Load analysis tab
 
@@ -62,7 +62,7 @@ DB Load for each of the following dimensions.
 - Application (only for Amazon Aurora PostgreSQL)
 - Session type (only for Amazon Aurora PostgreSQL)
 
-![Dashboard showing the DB load analysis tab](images/dbi_lat.png)
+![Dashboard showing the DB load analysis tab.](images/dbi_lat.png)
 
 ## Analyze statistics for a query
 
@@ -148,7 +148,7 @@ The default database instance dashboard appears. 6. To add a widget to the dashb
 The **Logs** section provides a view of database logs exported to
 CloudWatch Logs for the selected DB instance.
 
-![Database telemetry in the Database Instance Dashboard](images/dbi_did-telemetry-logs.png)
+![Database telemetry in the Database Instance Dashboard.](images/dbi_did-telemetry-logs.png)
 
 For information about publishing logs to CloudWatch Logs for Amazon RDS, see [Publishing database logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.Procedural.UploadtoCloudWatch.md") in the
 _Amazon RDS User Guide_. For information about publishing logs to
@@ -184,7 +184,7 @@ Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights
 charges. For more information, see [Cost of Enhanced Monitoring](../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.md#USER_Monitoring.OS.cost "../../../AmazonRDS/latest/AuroraUserGuide/USER_Monitoring.OS.md#USER_Monitoring.OS.cost"). Enhanced Monitoring is automatically
 enabled for Aurora PostgreSQL Limitless Databases.
 
-![Events table](images/dbinsights-osprocesses.png)
+![Events table.](images/dbinsights-osprocesses.png)
 
 In the **OS processes** view, the following data is displayed for
 each process:
@@ -247,7 +247,7 @@ slow queries affecting your DB instance.
 Database Insights displays statistics for slow queries. The statistics represent only
 queries that exceed the configured slow query duration threshold.
 
-![Displays details about an example of a slow SQL query](images/dbi_slowsql.png)
+![Displays details about an example of a slow SQL query.](images/dbi_slowsql.png)
 
 ###### Important
 
@@ -266,7 +266,7 @@ _Amazon Aurora User Guide_. For a list of events for Amazon Relational Database 
 categories and event messages for Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.md") in the
 _Amazon RDS User Guide_.
 
-![Events table](images/dbi_did-events.png)
+![Events table.](images/dbi_did-events.png)
 
 ## Calling services tab
 
@@ -281,7 +281,7 @@ However, when the endpoint called by the application is an Amazon RDS cluster, D
 Insights shows the specific database instance the application is calling within the
 Amazon RDS cluster."
 
-![Calling services tab](images/dbi_did-calling.png)
+![Calling services tab.](images/dbi_did-calling.png)
 
 ## Analyze database performance on demand with CloudWatch Database Insights
 
@@ -294,7 +294,7 @@ load** chart. The report will run for the selected time period. Use the
 **Performance analysis** tab to view performance analysis reports for
 databases in your fleet.
 
-![Performance Analysis tab](images/dbi_dl-perfanalysis.png)
+![Performance Analysis tab.](images/dbi_dl-perfanalysis.png)
 
 For information about performance analysis reports for Amazon Aurora, see [Analyzing database performance for a period of time](../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.UsingDashboard.AnalyzePerformanceTimePeriod.md") in the
 _Amazon Aurora User Guide_.

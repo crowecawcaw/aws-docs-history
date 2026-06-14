@@ -13,4 +13,3 @@ IAM permissions and network access configured.
 - [Install the CloudWatch agent using AWS Systems Manager](installing-cloudwatch-agent-ssm.md "installing-cloudwatch-agent-ssm.md")
 - [Install the CloudWatch agent on on-premises servers](install-CloudWatch-Agent-on-premise.md "install-CloudWatch-Agent-on-premise.md")
 - [Install the CloudWatch agent on new instances using CloudFormation](Install-CloudWatch-Agent-New-Instances-CloudFormation.md "Install-CloudWatch-Agent-New-Instances-CloudFormation.md")
-- [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md")

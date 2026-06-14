@@ -210,6 +210,7 @@ fields:
   `metric_declaration` sections for each Prometheus source that the
   CloudWatch agent imports from by default. These sections each include the following
   fields:
+
   - `label_matcher` is a regular expression that checks the value
     of the labels listed in `source_labels`. The metrics that match are
     enabled for inclusion in the embedded metric format sent to CloudWatch.

@@ -23,6 +23,7 @@ how to add a dashboard to the favorites list.
    of the dashboard
    that you want
    to favorite.
+
    1. (Optional) You also can favorite a dashboard
       by selecting a dashboard
       from the list

@@ -29,11 +29,11 @@ configuration], as outlined in [(Optional) Additional configuration](install-Clo
 helm repo add aws-observability https://aws-observability.github.io/helm-charts
 helm repo update aws-observability
 helm install --wait --create-namespace \
-    --namespace amazon-cloudwatch amazon-cloudwatch-observability \
-    aws-observability/amazon-cloudwatch-observability \
-    --set clusterName=`my-cluster-name` \
-    --set region=`my-cluster-region` \
-    --set k8sMode=ROSA
+  --namespace amazon-cloudwatch amazon-cloudwatch-observability \
+  aws-observability/amazon-cloudwatch-observability \
+  --set clusterName=`my-cluster-name` \
+  --set region=`my-cluster-region` \
+  --set k8sMode=ROSA
 ```
 
 3. Set up authorization for the agent operator by following the steps in Option 1,

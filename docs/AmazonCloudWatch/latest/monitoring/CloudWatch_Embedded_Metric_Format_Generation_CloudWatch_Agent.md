@@ -204,7 +204,7 @@ Permissions
 If you have not already installed Container Insights, then first ensure that your
 Amazon EKS nodes have the appropriate IAM permissions. They should have the
 **CloudWatchAgentServerPolicy** attached.
-For more information, see [Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
+For more information, see [Setup guide (AWS CLI)](container-insights-eks-classic-setup.md "container-insights-eks-classic-setup.md").
 
 **Create ConfigMap**
 

@@ -31,7 +31,7 @@ kubectl logs `pod-name` -n amazon-cloudwatch
 If your deployment fails with the error `Unauthorized panic: Cannot retrieve
  cadvisor data from kubelet`, your kubelet might not have Webhook authorization
 mode enabled. This mode is required for Container Insights. For more information, see
-[Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
+[Setup guide (AWS CLI)](container-insights-eks-classic-setup.md "container-insights-eks-classic-setup.md").
 
 ## Deploying Container Insights on a deleted and re-created cluster on Amazon ECS
 
@@ -59,7 +59,7 @@ correct information for your deployment.
 
 If you don't see any Container Insights metrics in the AWS Management Console, be sure that you
 have completed the setup of Container Insights. Metrics don't appear before Container
-Insights has been set up completely. For more information, see [Setting up Container Insights](deploy-container-insights.md "deploy-container-insights.md").
+Insights has been set up completely. For more information, see [Container Insights](ContainerInsights.md "ContainerInsights.md").
 
 ## Pod metrics missing on Amazon EKS or Kubernetes after upgrading cluster
 
@@ -158,7 +158,7 @@ container image. You can build the image directly from source at the following l
 ## CrashLoopBackoff error on the CloudWatch agent
 
 If you see a `CrashLoopBackOff` error for the CloudWatch agent, make sure that
-your IAM permissions are set correctly. For more information, see [Verifying prerequisites for Container Insights in CloudWatch](Container-Insights-prerequisites.md "Container-Insights-prerequisites.md").
+your IAM permissions are set correctly. For more information, see [Setup guide (AWS CLI)](container-insights-eks-classic-setup.md "container-insights-eks-classic-setup.md").
 
 ## CloudWatch agent or Fluentd pod stuck in pending
 

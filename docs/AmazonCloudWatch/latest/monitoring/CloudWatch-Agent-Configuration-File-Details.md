@@ -69,6 +69,7 @@ AWS configuration file.
 - `credentials` – Specifies an IAM role to use when sending
   metrics, logs, and traces to a different AWS account. If specified, this field
   contains one parameter, `role_arn`.
+
   - `role_arn` – Specifies the Amazon Resource Name (ARN) of
     an IAM role to use for authentication when sending metrics, logs, and traces
     to a different AWS account. For more information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account").
@@ -247,8 +248,10 @@ this configuration file is for a server running Linux or Windows Server.
 - `metrics_destinations` – Optional. Specifies one or more
   destinations for all metrics defined in `metrics_collected`. If
   specified here, it overrides the default destination of `cloudwatch`.
+
   - `cloudwatch` – Amazon CloudWatch.
   - `amp` – Amazon Managed Service for Prometheus.
+
     - `workspace_id` – The ID corresponding to the Amazon Managed Service for Prometheus
       workspace.
 
@@ -276,6 +279,7 @@ The default value is 60.
 - `credentials` – Specifies an IAM role to use when sending
   metrics to a different account. If specified, this field contains one parameter,
   `role_arn`.
+
   - `role_arn` – Specifies the ARN of an IAM role to use
     for authentication when sending metrics to a different account. For more
     information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If
@@ -308,6 +312,7 @@ collected.
   collected. This section is valid only for Linux instances. You must include at
   least one of the `resources` and `totalcpu` fields for any
   CPU metrics to be collected. This section can include the following fields:
+
   - `drop_original_metrics` – Optional. If you are using the
     `aggregation_dimensions` field in the `metrics`
     section to roll up metrics into aggregated results, then by default the agent
@@ -349,7 +354,6 @@ collected.
        overriding the default unit of `None` for the metric. The unit
        that you specify must be a valid CloudWatch metric unit, as listed in the
        `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
-
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the cpu metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -370,6 +374,7 @@ collected.
 - `disk` – Optional. Specifies that disk metrics are to be
   collected. Collects metrics only for mounted volumes. This section is valid only
   for Linux instances. This section can include the following fields:
+
   - `drop_original_metrics` – Optional. If you are using the
     `aggregation_dimensions` field in the `metrics`
     section to roll up metrics into aggregated results, then by default the agent
@@ -410,7 +415,6 @@ collected.
        overriding the default unit of `None` of `None` for
        the metric. The unit that you specify must be a valid CloudWatch metric unit, as
        listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
-
   - `ignore_file_system_types` – Specifies file system types
     to exclude when collecting disk metrics. Valid values include
     `sysfs`, `devtmpfs`, and so on.
@@ -452,6 +456,7 @@ collected.
 - `diskio` – Optional. Specifies that disk i/o metrics are to
   be collected. This section is valid only for Linux instances. This section can
   include the following fields:
+
   - `drop_original_metrics` – Optional. If you are using the
     `aggregation_dimensions` field in the `metrics`
     section to roll up metrics into aggregated results, then by default the agent
@@ -503,6 +508,7 @@ collected.
 - `swap` – Optional. Specifies that swap memory metrics are to
   be collected. This section is valid only for Linux instances. This section can
   include the following fields:
+
   - `drop_original_metrics` – Optional. If you are using the
     `aggregation_dimensions` field in the `metrics`
     section to roll up metrics into aggregated results, then by default the agent
@@ -529,7 +535,6 @@ collected.
        overriding the default unit of `None` of `None` for
        the metric. The unit that you specify must be a valid CloudWatch metric unit, as
        listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
-
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the swap metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -549,6 +554,7 @@ collected.
 - `mem` – Optional. Specifies that memory metrics are to be
   collected. This section is valid only for Linux instances. This section can
   include the following fields:
+
   - `drop_original_metrics` – Optional. If you are using the
     `aggregation_dimensions` field in the `metrics`
     section to roll up metrics into aggregated results, then by default the agent
@@ -577,7 +583,6 @@ collected.
        overriding the default unit of `None` for the metric. The unit
        that you specify must be a valid CloudWatch metric unit, as listed in the
        `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
-
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the mem metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -596,6 +601,7 @@ collected.
 - `net` – Optional. Specifies that networking metrics are to
   be collected. This section is valid only for Linux instances. This section can
   include the following fields:
+
   - `drop_original_metrics` – Optional. If you are using the
     `aggregation_dimensions` field in the `metrics`
     section to roll up metrics into aggregated results, then by default the agent
@@ -628,7 +634,6 @@ collected.
        overriding the default unit of `None` for the metric. The unit
        that you specify must be a valid CloudWatch metric unit, as listed in the
        `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
-
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the net metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -649,6 +654,7 @@ collected.
 - `netstat` – Optional. Specifies that TCP connection state
   and UDP connection metrics are to be collected. This section is valid only for
   Linux instances. This section can include the following fields:
+
   - `drop_original_metrics` – Optional. If you are using the
     `aggregation_dimensions` field in the `metrics`
     section to roll up metrics into aggregated results, then by default the agent
@@ -680,7 +686,6 @@ collected.
        overriding the default unit of `None` for the metric. The unit
        that you specify must be a valid CloudWatch metric unit, as listed in the
        `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
-
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the netstat metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -699,6 +704,7 @@ collected.
 - `processes` – Optional. Specifies that process metrics are
   to be collected. This section is valid only for Linux instances. This section can
   include the following fields:
+
   - `drop_original_metrics` – Optional. If you are using the
     `aggregation_dimensions` field in the `metrics`
     section to roll up metrics into aggregated results, then by default the agent
@@ -728,7 +734,6 @@ collected.
        overriding the default unit of `None` for the metric. The unit
        that you specify must be a valid CloudWatch metric unit, as listed in the
        `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
-
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the processes metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -806,6 +811,38 @@ other accelerator types. This section can include the following fields:
   the metrics collected by the standard ethtool utility, as well as network
   performance metrics from Amazon EC2 instances. For more information about the
   configuration options available for ethtool, see [Collect network performance metrics](CloudWatch-Agent-network-performance.md "CloudWatch-Agent-network-performance.md").
+- `efa` – Optional. Specifies that Elastic Fabric Adapter (EFA)
+  metrics are to be collected. This section is valid only for Linux instances that have
+  EFA devices attached. The agent collects EFA metrics from the
+  `/sys/class/infiniband/` sysfs interface.
+
+This section can include the following fields:
+
+    + `drop_original_metrics` – Optional. If you are using
+     the `aggregation_dimensions` field in the `metrics` section to roll
+     up metrics into aggregated results, then by default the agent sends both the aggregated metrics
+     and the original metrics that are separated for each value of the dimension. If you don't
+     want the original metrics to be sent to CloudWatch, you can specify this parameter with a list of
+     metrics. The metrics specified along with this
+     parameter don't have their metrics by dimension reported to CloudWatch. Instead, only the aggregated metrics
+     are reported. This reduces the number of metrics that the agent collects, reducing your costs.
+    + `measurement` – Specifies the array of EFA metrics to
+     be collected. This field is required. If you don't specify this field, the agent
+     returns an error. You can specify metric names with or without the
+     `efa_` prefix. For example, both `efa_tx_bytes` and
+     `tx_bytes` are valid.
+
+
+    For a list of the possible values to use here, see the
+     **Metric** column in the table in [Collect EFA metrics](CloudWatch-Agent-EFA.md "CloudWatch-Agent-EFA.md").
+    + `metrics_collection_interval` – Optional. Specifies how
+     often to collect the EFA metrics, overriding the global
+     `metrics_collection_interval` specified in the `agent`
+     section of the configuration file. The default value is 60 seconds.
+
+Each EFA metric is emitted with `device`, `port`,
+and `eniId` dimensions. To append the `InstanceId` dimension,
+use the `append_dimensions` field in the `metrics` section.
 
 The following is an example of a `metrics` section for a Linux server.
 In this example, three CPU metrics, three netstat metrics, three process metrics, and
@@ -1077,12 +1114,15 @@ concurrency can help with throughput.
   is included. Specifies which log files and Windows event logs are to be collected
   from the server. It can include two fields, `files` and
   `windows_events`.
+
   - `files` – Specifies which regular log files the CloudWatch agent
     is to collect. It contains one field, `collect_list`, which further
     defines these files.
+
     - `collect_list` – Required if `files` is
       included. Contains an array of entries, each of which specifies one log file
       to collect. Each of these entries can include the following fields:
+
       - `file_path` – Specifies the path of the log file
         to upload to CloudWatch Logs. Standard Unix glob matching rules are accepted, with
         the addition of `**` as a _super
@@ -1441,10 +1481,12 @@ concurrency can help with throughput.
   - The `windows_events` section specifies the type of Windows events
     to collect from servers running Windows Server. It includes the following
     fields:
+
     - `collect_list` – Required if
       `windows_events` is included. Specifies the types and levels of
       Windows events to be collected. Each log to be collected has an entry in
       this section, which can include the following fields:
+
       - `event_name` – Specifies the type of Windows
         events to log. This is equivalent to the Windows event log channel name:
         for example, `System`, `Security`,
@@ -1653,6 +1695,7 @@ alarming on partial or incomplete data.
 - `credentials` – Specifies an IAM role to use when sending
   logs to a different AWS account. If specified, this field contains one parameter,
   `role_arn`.
+
   - `role_arn` – Specifies the ARN of an IAM role to use for
     authentication when sending logs to a different AWS account. For more
     information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If specified
@@ -1677,7 +1720,7 @@ alarming on partial or incomplete data.
 
       	- `enhanced_container_insights` – Set this to
       	 `true` to enable Container Insights with enhanced observability
-      	 for Amazon EKS. For more information, see [Container Insights with enhanced observability for Amazon EKS](container-insights-detailed-metrics.md "container-insights-detailed-metrics.md").
+      	 for Amazon EKS. For more information, see [Amazon EKS](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md").
       	- `accelerated_compute_metrics` – Set this to
       	 `false` to opt out of collecting Nvidia GPU metrics on Amazon EKS
       	 clusters. For more information, see [NVIDIA GPU metrics](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU "Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU").
@@ -1799,6 +1842,7 @@ The `traces` section can include the following fields:
 - `traces_collected` – Required if the `traces`
   section is included. Specifies which SDKs to collect traces from. It can include the
   following fields:
+
   - `application_signals` – Optional. Specifies that you want
     to enable [CloudWatch
     Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md") For more information about this configuration, see
@@ -1806,6 +1850,7 @@ The `traces` section can include the following fields:
   - `xray` – Optional. Specifies that you want to collect
     traces from the X-Ray SDK. This section can include the following
     fields:
+
     - `bind_address` – Optional. Specifies the UDP address
       for the CloudWatch agent to use to listen for X-Ray traces. The format is
       `ip:port`. This address must match the address set in the
@@ -1883,6 +1928,7 @@ configuration file.
 - `credentials` – Specifies an IAM role to use when sending
   traces to a different AWS account. If specified, this field contains one
   parameter, `role_arn`.
+
   - `role_arn` – Specifies the ARN of an IAM role to use for
     authentication when sending traces to a different AWS account. For more
     information, see [Sending metrics, logs, and traces to a different account](CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account "CloudWatch-Agent-common-scenarios.md#CloudWatch-Agent-send-to-different-AWS-account"). If specified

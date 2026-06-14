@@ -18,13 +18,13 @@ You can use the code interpreter tool for the following:
 - Observe error rates and debugging information for failed executions
 - Track security sandbox isolation and compliance metrics
 
-![Code interpreter tool view](images/Code_interpreter.png)
+![Code interpreter tool view.](images/Code_interpreter.png)
 
 - **Tools** – You can monitor fetch operations and API calls made through the browser tool. Choose a tool under **Name** to view the dashboard.
 
 Choose **View details** to view the resource details.
 
-![Code interpreter tool details](images/Built-in-tools-details.png)
+![Code interpreter tool details.](images/Built-in-tools-details.png)
 
     + **Started sessions** – Total number of code interpreter sessions initiated by agents. Each session represents a sandboxed environment where agents can execute code, analyze data, and generate outputs. Monitor this metric to track code interpreter usage and capacity planning
     + **Connections** – Number of active connections to code interpreter runtime environments. This includes both successful connections and connection attempts, helping track resource utilization and concurrent usage patterns
@@ -35,17 +35,17 @@ Choose **View details** to view the resource details.
 
 - **Tool sessions** – View all the connected sessions where the tool was used.
 
-![Tool sessions view](images/Tool-sessions.png)
+![Tool sessions view.](images/Tool-sessions.png)
 
 Choose a **Session ID** under **Total sessions** to view the session dashboard.
 
 - **Traces** – View the sample traces for agents with observability enabled.
 
-![Traces view](images/Traces-view.png)
+![Traces view.](images/Traces-view.png)
 
 Choose a **Trace ID** under **Traces** to view the trace details.
 
-![Trace summary view](images/Trace-summary.png)
+![Trace summary view.](images/Trace-summary.png)
 
 ## Browser use tool
 

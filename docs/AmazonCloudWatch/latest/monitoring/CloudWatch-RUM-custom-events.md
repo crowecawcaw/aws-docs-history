@@ -19,6 +19,7 @@ Custom events consist of an event type and event details. The requirements for
 these are as follows:
 
 - **Event type**
+
   - This can be either the **type** or
     **name** of your event. For example, the CloudWatch
     RUM built-in event type called **JsError** has an
@@ -28,6 +29,7 @@ these are as follows:
     hyphens, and periods.
 
 - **Event details**
+
   - Contains the actual data that you want to record in CloudWatch
     RUM.
   - Must be an object that consists of fields and values.

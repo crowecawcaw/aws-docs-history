@@ -41,6 +41,7 @@ data into CloudWatch Logs for further analysis and alerting.
    Console. Navigate to Tanium Connect and create a new connection, select
    the type of log data and other general information. Select Amazon S3 as the
    destination. Enter the following details:
+
    1. AWS Access Key ID
    2. AWS Secret Access Key
    3. S3 Bucket Name

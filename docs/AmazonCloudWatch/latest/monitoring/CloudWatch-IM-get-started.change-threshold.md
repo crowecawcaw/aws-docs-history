@@ -39,6 +39,7 @@ following ways:
    choose **Update thresholds**.
 3. On the **Set health event threshold**page, choose the new values and options that you want for thresholds and other options that
    trigger Internet Monitor to create a health event. You can do any of the following:
+
    - Choose a new value for **Availability score threshold**,
      **Performance score threshold**, or both.
 

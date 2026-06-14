@@ -12,6 +12,7 @@ To retrieve the activities Office 365, pipelines needs to authenticate with your
 - Generate a new key for your application. Key is also known as client secret, which are used when exchanging an authorization code for an access token.
 - In the AWS Secrets Manager, create a secret and store the Application (client) ID under the key `client_id` and the client secret under the key `client_secret`
 - Specify the permissions your application requires to access the Office 365 Management APIs. The permissions you need are:
+
   - ActivityFeed.Read: Required for all the audit content types you listed, including Audit.AzureActiveDirectory, Audit.Exchange, Audit.SharePoint, and Audit.General.
   - ActivityFeed.ReadDlp: Required specifically for the DLP.All content type
 

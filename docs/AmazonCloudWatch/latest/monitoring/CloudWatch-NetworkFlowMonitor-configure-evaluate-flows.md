@@ -26,6 +26,7 @@ Network Flow Monitor classifies metrics into designated local-remote categories.
 Metrics are grouped into two types of flows:
 
 - **Network Health Indicator (NHI) Flows:** Flows which contribute to Network Health Indicator (NHI) calculations:
+
   - Between AZs (`INTER_AZ`). Always within the same VPC.
   - Within AZs (`INTRA_AZ`). Always within the same VPC.
   - Between VPCs (`INTER_VPC`). Crosses the boundary between VPCs.
@@ -34,6 +35,7 @@ Metrics are grouped into two types of flows:
   - Toward Amazon DynamoDB (`AMAZON_DYNAMODB`)
 
 - **Non Network Health Indicator (NHI) Flows:** Flows which do not contribute to Network Health Indicator (NHI) calcuations:
+
   - Toward the Internet (`INTERNET`). Flows that traverse an Internet Gateway and end on the public Internet.
   - Towards AWS Services (`AWS_SERVICE`). Flows that end at an AWS service that is not fully monitored (like CloudFront or API Gateway).
   - Towards a Transit Gateway (`TRANSIT_GATEWAY`). Flows in this classification are flows that arrive at a Transit Gateway, but the final destination of the flow is unknown.

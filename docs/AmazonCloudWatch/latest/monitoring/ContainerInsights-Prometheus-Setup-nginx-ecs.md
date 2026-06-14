@@ -31,13 +31,13 @@ docker build -t web-server-app ./`path-to-app-directory`
 
 3. Build a custom image for NGINX. First, create a directory with the
    following two files:
+
    - A sample Dockerfile:
 
    ```
    FROM nginx
    COPY nginx.conf /etc/nginx/nginx.conf
    ```
-
    - An `nginx.conf` file, modified from [https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/](https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/ "https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy/"):
 
    ```

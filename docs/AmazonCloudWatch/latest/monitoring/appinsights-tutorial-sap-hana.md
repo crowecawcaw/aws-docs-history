@@ -123,6 +123,7 @@ Manual installation of Python 3.8 or higher is required for SuSE Linux 15 SP4, R
   Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") in the _AWS Systems Manager User Guide_.
 - **Amazon EC2 instance roles** – You must
   attach the following Amazon EC2 instance roles to configure your database.
+
   - You must attach the `AmazonSSMManagedInstanceCore` role
     to enable Systems Manager. For more information, see [AWS Systems Manager identity-based policy examples](../../../systems-manager/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md "../../../systems-manager/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md").
   - You must attach the `CloudWatchAgentServerPolicy` to
@@ -162,6 +163,7 @@ Manual installation of Python 3.8 or higher is required for SuSE Linux 15 SP4, R
   database system.
 - **IAM permissions** – For non-admin
   users:
+
   - You must create an AWS Identity and Access Management (IAM) policy that allows
     Application Insights to create a service-linked role, and attach it to your
     user identity. For steps to attach the policy, see [IAM policy for CloudWatch Application Insights](appinsights-iam.md "appinsights-iam.md").
@@ -231,6 +233,7 @@ Use the following steps to set up monitoring for your SAP HANA database
 9. On the **Review detected components** page, the monitored
    components and their workloads automatically detected by CloudWatch Application Insights are
    listed.
+
    1. To add workloads to a component that contains a detected SAP HANA
       single node workload, select the component, then choose **Edit
       component**.

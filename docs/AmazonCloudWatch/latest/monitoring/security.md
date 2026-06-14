@@ -24,6 +24,7 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 ###### Contents
 
 - [Data protection in Amazon CloudWatch](data-protection.md "data-protection.md")
+- [Encryption at rest for OpenTelemetry metrics](cmk-encryption.md "cmk-encryption.md")
 - [Identity and access management for Amazon CloudWatch](auth-and-access-control-cw.md "auth-and-access-control-cw.md")
 - [Compliance validation for Amazon CloudWatch](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon CloudWatch](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

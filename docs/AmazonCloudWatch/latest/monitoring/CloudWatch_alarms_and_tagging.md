@@ -16,6 +16,7 @@ The following list explains some details about how tagging works with CloudWatch
 - Tags can be used for tag-based authorization control. For example, IAM user or role
   permissions can include conditions to limit CloudWatch calls to specific resources based on
   their tags. However, keep in mind the following
+
   - Tags with names that start with `aws:` can't be used for tag-based
     authorization control.
   - Composite alarms do not support tag-based authorization control.

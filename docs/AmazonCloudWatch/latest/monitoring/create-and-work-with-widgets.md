@@ -68,6 +68,7 @@ instances that are associated with each tag.
   one of the
   following
   options:
+
   - Add
     a single alarm in a widget, which
     displays

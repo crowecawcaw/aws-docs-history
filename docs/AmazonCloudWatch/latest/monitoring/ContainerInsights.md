@@ -31,11 +31,10 @@ charged as custom metrics. With Container Insights with enhanced observability f
 Container Insights metrics and logs are charged per observation instead of being charged per
 metric stored or log ingested. For more information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-**[Preview]** For Amazon EKS, Container Insights with OpenTelemetry
-provides an additional metric mode that collects metrics using the OpenTelemetry Protocol (OTLP)
+For Amazon EKS, OTel Container Insights collects metrics using the OpenTelemetry Protocol (OTLP)
 and supports PromQL queries. Each metric is enriched with up to 150 labels, including
 OpenTelemetry semantic convention attributes and Kubernetes pod and node labels. For more
-information, see [Container Insights with OpenTelemetry metrics for Amazon EKS](container-insights-otel-metrics.md "container-insights-otel-metrics.md").
+information, see [OTel Container Insights (Recommended)](container-insights-eks-otel.md "container-insights-eks-otel.md").
 
 In Amazon EKS, RedHatOpenshift on AWS, and Kubernetes, Container Insights uses a containerized
 version of the CloudWatch agent to discover all of the running containers in a cluster. It then
@@ -50,22 +49,10 @@ KMS keys to encrypt your log groups.
 For more information, see [Encrypt Log
 Data in CloudWatch Logs Using AWS KMS](../logs/encrypt-log-data-kms.md "../logs/encrypt-log-data-kms.md").
 
-## Supported platforms
+###### Topics
 
-Container Insights is available for Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, RedHat OpenShift on AWS, and
-Kubernetes platforms on Amazon EC2 instances.
-
-- For Amazon ECS, Container Insights collects metrics at the cluster, task, and service
-  levels on both Linux and Windows Server instances. Container Insights collects metrics at
-  the instance level only on Linux instances. Network metrics are available for containers
-  that use `bridge` network mode and `awsvpc` network mode, but are
-  not available for containers that use `host` network mode.
-- For Amazon Elastic Kubernetes Service, and Kubernetes platforms on Amazon EC2 instances, Container Insights is
-  supported on both Linux and Windows instances.
-- **[Preview]** Container Insights with OpenTelemetry
-  metrics is available for Amazon EKS. For more information, see [Container Insights with OpenTelemetry metrics for Amazon EKS](container-insights-otel-metrics.md "container-insights-otel-metrics.md").
-
-## CloudWatch agent container image
-
-Amazon provides a CloudWatch agent container image on Amazon Elastic Container Registry. For more information, see
-[cloudwatch-agent](https://gallery.ecr.aws/cloudwatch-agent/cloudwatch-agent "https://gallery.ecr.aws/cloudwatch-agent/cloudwatch-agent") on Amazon ECR.
+- [Amazon EKS](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md")
+- [Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md")
+- [Setting up Container Insights on RedHat OpenShift on AWS (ROSA)](deploy-container-insights-RedHatOpenShift.md "deploy-container-insights-RedHatOpenShift.md")
+- [Viewing Container Insights metrics](Container-Insights-view-metrics.md "Container-Insights-view-metrics.md")
+- [Metrics collected by Container Insights](Container-Insights-metrics.md "Container-Insights-metrics.md")

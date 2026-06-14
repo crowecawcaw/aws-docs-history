@@ -27,6 +27,7 @@ within the CloudWatch ingestion page](https://console.aws.amazon.com/cloudwatch/
 Be aware of the following limits that apply to CloudWatch pipelines
 
 - Maximum number of pipelines per account: 330
+
   - Up to 300 pipelines for collecting data from CloudWatch Logs
   - Up to 30 pipelines for collecting data from other sources
 
@@ -109,5 +110,3 @@ Third-party data source collection is available in regions where [OpenSearch Ing
 
 For more details, see [Amazon CloudWatch endpoints and quotas](../../../general/latest/gr/cw_region.md "../../../general/latest/gr/cw_region.md") in the
 _AWS General Reference_.
-
-###### Topics

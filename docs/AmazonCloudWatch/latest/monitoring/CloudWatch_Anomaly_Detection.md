@@ -169,7 +169,7 @@ clamp_min(
 ```
 
 You can graph both bounds together in CloudWatch Query Studio to visualize the expected range
-for your metric. For more information, see [Running PromQL queries in Query Studio (Preview)](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md").
+for your metric. For more information, see [Running PromQL queries in Query Studio](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md").
 
 ### Detecting breaches
 

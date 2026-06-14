@@ -151,6 +151,7 @@ are as follows:
 - The CloudWatch agent’s ECS task role might not have permission to retrieve the
   metadata of ECS tasks. Check that the CloudWatch agent has been granted the following
   read-only permissions:
+
   - `ec2:DescribeInstances`
   - `ecs:ListTasks`
   - `ecs:DescribeContainerInstances`

@@ -43,7 +43,7 @@ one of the periods being evaluated is not breaching, and the alarm state changes
 `OK`. During the ninth time period, the threshold is breached again, but for only
 one period. Consequently, the alarm state remains `OK`.
 
-![Alarm threshold trigger alarm](images/alarm_graph.png)
+![Alarm threshold trigger alarm.](images/alarm_graph.png)
 
 When you configure **Evaluation Periods** and **Datapoints to Alarm** as different values, you're setting an "M out of N" alarm. **Datapoints to Alarm** is ("M") and **Evaluation Periods** is ("N").The evaluation interval is the number of evaluation periods
 multiplied by the period length. For example, if you configure 4 out of 5 data points with a
@@ -60,7 +60,7 @@ from before the alarm was created when evaluating the alarm.
 
 If you set an alarm on a high-resolution metric, you can specify a high-resolution alarm
 with a period of 10 seconds, 20 seconds, or 30 seconds. There is a higher charge for high-resolution alarms. For
-more information about high-resolution metrics, see [Publish custom metrics](publishingMetrics.md "publishingMetrics.md").
+more information about high-resolution metrics, see [Publish custom metrics (PutMetricData / EMF)](publishingMetrics.md "publishingMetrics.md").
 
 ## Example of evaluating a multi-day alarm
 

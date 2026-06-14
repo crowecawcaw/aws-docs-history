@@ -57,6 +57,7 @@ one of the following scenarios:
 - A monitor that includes network flows for a specific VPC in a local Region
   to another VPC in the same Region. (Note that you can't select a specific resource,
   such as a VPC, as a network flow endpoint - that is, the remote resource - in another Region.)
+
   - For local resource, choose **Specific resources
     in _Region_**. Then, choose **VPC and
     subnets**, and then, in the table, select a specific VPC.
@@ -66,12 +67,14 @@ one of the following scenarios:
 
 - A monitor that includes all network flows from your
   workload in a local Region to a specific Availability Zone.
+
   - For local resource, choose **Everywhere in _Region_**
   - For remote resource, choose **Availability Zone**,
     and then choose a specific AZ
 
 - A monitor that includes all network flows for your
   workload within a local Region.
+
   - For local resource, choose **Everywhere in
     _Region_**
   - For remote resource, choose **Everywhere in
@@ -79,6 +82,7 @@ one of the following scenarios:
 
 - A monitor that includes all network flows for your
   workload from a local Region to the edge of another Region.
+
   - For local resource, choose **Everywhere in
     _Region_**
   - For remote resource, choose **Another Region**,
@@ -99,6 +103,7 @@ These steps are designed to be completed all at once. You won't be able to save 
    You can't change this name later.
 5. Choose **Next**.
 6. Select the local resources (one or more) for the network flows that you want to monitor.
+
    - To monitor network flows from all resources in your Region, choose **Everywhere
      in _Region_**.
    - To choose specific local resources to monitor flows from, choose **Specific resources
@@ -108,6 +113,7 @@ These steps are designed to be completed all at once. You won't be able to save 
 
 7. Choose **Next**.
 8. Select the remote resources (one or more) for the network flows that you want to monitor.
+
    - To monitor network flows to all resources in your Region, choose **Everywhere
      in _Region_**.
    - To monitor flows from specific remote resources, choose **Specific resources

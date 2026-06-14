@@ -4,7 +4,7 @@ After you have Container Insights set up and it is collecting metrics, you can v
 metrics in the CloudWatch console.
 
 For Container Insights metrics to appear on your dashboard, you must complete the
-Container Insights setup. For more information, see [Setting up Container Insights](deploy-container-insights.md "deploy-container-insights.md").
+Container Insights setup. For more information, see [Container Insights](ContainerInsights.md "ContainerInsights.md").
 
 This procedure explains how to view the metrics that Container Insights automatically
 generates from the collected log data. The rest of this section explains how to further dive

@@ -104,6 +104,7 @@ setup assistance, monitoring, data analysis, or problem detection.
 Costs for Amazon EC2 include usage of the following features:
 
 - CloudWatch Agent
+
   - CloudWatch Agent log groups
   - CloudWatch Agent metrics
   - Prometheus log groups (for JMX workloads)
@@ -378,16 +379,19 @@ the following technologies:
 
 - Front‐end: Microsoft Internet Information Services (IIS) Web Server
 - Worker‐tier:
+
   - .NET Framework
   - .NET Core
 
 - Applications:
+
   - Java
   - SAP NetWeaver standard, distributed, and high availability deployments
 
 - Active Directory
 - SharePoint
 - Databases:
+
   - Microsoft SQL Server running on Amazon RDS or Amazon EC2 (including SQL
     Server High Availability configurations. See, [Component configuration examples](component-configuration-examples.md "component-configuration-examples.md")).
   - MySQL running on Amazon RDS, Amazon Aurora, or Amazon EC2

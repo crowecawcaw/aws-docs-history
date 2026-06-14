@@ -8,7 +8,7 @@ This section contains troubleshooting tips for CloudWatch Application Signals.
 - [Application Signals Java layer cold start performance](#Application-Signals-troubleshoot-cold-start-performance "#Application-Signals-troubleshoot-cold-start-performance")
 - [Application doesn't start after Application Signals is enabled](#Application-Signals-troubleshoot-starting "#Application-Signals-troubleshoot-starting")
 - [Python application doesn't start after Application Signals is enabled](#Application-Signals-troubleshoot-starting-Python "#Application-Signals-troubleshoot-starting-Python")
-- [No Application Signals data for Python application that uses a WSGI server](#Application-Signals-troubleshoot-Python-WSGI "#Application-Signals-troubleshoot-Python-WSGI")
+- [No Application Signals data for a Python application that uses a pre-fork server (WSGI or ASGI)](#Application-Signals-troubleshoot-Python-WSGI "#Application-Signals-troubleshoot-Python-WSGI")
 - [My Node.js application is not instrumented or isn't generating Application Signals telemetry](#Application-Signals-troubleshoot-telemetry-nodejs "#Application-Signals-troubleshoot-telemetry-nodejs")
 - [My .NET application isn't instrumented or breaks for AWS SDK calls](#Application-Signals-troubleshoot-sdk-calls "#Application-Signals-troubleshoot-sdk-calls")
 - [No application data in Application Signals dashboard](#Application-Signals-troubleshoot-missingdata "#Application-Signals-troubleshoot-missingdata")
@@ -89,17 +89,26 @@ For Django applications, there are additional required configurations, which are
 - Set the `DJANGO_SETTINGS_MODULE` environment variable to the location of your Django application’s `settings.py` file.
   This ensures that OpenTelemetry can correctly access and integrate with your Django settings.
 
-## No Application Signals data for Python application that uses a WSGI server
+## No Application Signals data for a Python application that uses a pre-fork server (WSGI or ASGI)
 
-If you are using a WSGI server such as Gunicorn or uWSGI, you must make additional changes to make the ADOT Python auto-instrumentation work.
+Pre-fork servers, such as Gunicorn, uWSGI, or Uvicorn with multiple workers, fork worker processes
+from a main process. The OpenTelemetry SDK relies on background threads that don't survive a fork, so
+when the main process is instrumented, the workers can't export traces, metrics, and logs.
+
+For more background about this OpenTelemetry behavior, see
+[Pre-fork server issues](https://opentelemetry.io/docs/zero-code/python/troubleshooting/#pre-fork-server-issues "https://opentelemetry.io/docs/zero-code/python/troubleshooting/#pre-fork-server-issues")
+in the OpenTelemetry Python documentation.
+
+To resolve this, you must first initialize the auto-instrumentation in each forked worker process
+rather than in the main process, and then configure ADOT Python to skip the main process.
 
 ###### Note
 
 Be sure that you are using the latest version of ADOT Python and the Amazon CloudWatch Observability EKS add-on before proceeding.
 
-###### Additional steps to enable Application Signals with a WSGI server
+###### Additional steps to enable Application Signals with a pre-fork server
 
-1. Import the auto-instrumentation in the forked worker processes.
+1. Initialize the auto-instrumentation in the forked worker processes.
 
 For Gunicorn, use the `post_fork` hook:
 
@@ -120,8 +129,44 @@ lazy-apps = true
 import = opentelemetry.instrumentation.auto_instrumentation.sitecustomize
 ```
 
+For Uvicorn, FastAPI, or other ASGI applications that you run with multiple workers, initialize the
+instrumentation inside the worker by calling `initialize()` before you import your application.
+Place the following at the top of your application's entry-point module:
+
+```
+from opentelemetry.instrumentation.auto_instrumentation import initialize
+
+initialize()
+
+# Import your application AFTER initialize() so that it is instrumented.
+from fastapi import FastAPI
+
+app = FastAPI()
+```
+
+Then start the server as usual, for example:
+
+```
+uvicorn main:app --workers 2
+```
+
+Alternatively, if you run an ASGI application under Gunicorn, you can use Gunicorn's
+`UvicornWorker`, which preserves background threads across the fork, together with the
+`post_fork` hook shown previously:
+
+```
+opentelemetry-instrument gunicorn \
+  --workers 4 \
+  --worker-class uvicorn.workers.UvicornWorker \
+  --bind 0.0.0.0:8000 \
+  myapp.main:app
+```
+
 2. Enable the configuration for ADOT Python auto-instrumentation to skip the main process and defer to workers by setting the
    `OTEL_AWS_PYTHON_DEFER_TO_WORKERS_ENABLED` environment variable to `true`.
+
+With both steps applied, each worker process initializes its own tracer, metric, and log pipelines
+after the fork, so that traces, metrics, and logs are exported correctly.
 
 ## My Node.js application is not instrumented or isn't generating Application Signals telemetry
 
@@ -253,7 +298,7 @@ and then installing the EKS add-on. Be sure to back up any customizations you mi
 to the original CloudWatch agent setup such as a custom agent configuration, and provide these to the
 Amazon CloudWatch Observability EKS add-on when you next install or update it. If you had previously
 installed the CloudWatch agent for onboarding to Container Insights, see
-[Deleting the CloudWatch agent and Fluent Bit for Container Insights](ContainerInsights-delete-agent.md "ContainerInsights-delete-agent.md") for more information.
+[Setup guide (AWS CLI)](container-insights-eks-classic-setup.md "container-insights-eks-classic-setup.md") for more information.
 
 Alternatively, the add-on supports a conflict resolution configuration option
 that has the capability to specify `OVERWRITE`. You can use this option to proceed
@@ -370,6 +415,7 @@ the CloudWatch agent, and the AWS Distro for OpenTelemetry auto-instrumentation 
 - For the CloudWatch agent, versions older than `1.300040.0`
   won't be supported.
 - For the AWS Distro for OpenTelemetry auto-instrumentation agent:
+
   - For Java, versions older than `1.32.2` aren't supported.
   - For Python, versions older than `0.2.0` aren't supported.
   - For .NET, versions older than `1.3.2` aren't supported.
@@ -391,10 +437,12 @@ The instructions in the following sections can help you update to a supported ve
 ###### Contents
 
 - [Update the Amazon CloudWatch Observability EKS add-on](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-Upgrade-Addon "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-Upgrade-Addon")
+
   - [Use the console](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Upgrade-Addon-Console "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Upgrade-Addon-Console")
   - [Use the AWS CLI](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Upgrade-Addon-CLI "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Upgrade-Addon-CLI")
 
 - [Update the CloudWatch agent and ADOT agent](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-Upgrade-Agents "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-Upgrade-Agents")
+
   - [Update on Amazon ECS](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Upgrade-Agents-ECS "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Upgrade-Agents-ECS")
   - [Update on Amazon EC2 or other architectures](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Upgrade-Addon-EC2 "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Upgrade-Addon-EC2")
 
@@ -509,6 +557,7 @@ If you upgrade to a fixed version, be sure to use a version equal to or later th
    version `1.300040.0` or later of the CloudWatch agent version.
 2. Download the latest version of the AWS Distro for OpenTelemetry auto-instrumentation agent from one of
    the following locations:
+
    - For Java, use [aws-otel-java-instrumentation](https://gallery.ecr.aws/aws-observability/adot-autoinstrumentation-java "https://gallery.ecr.aws/aws-observability/adot-autoinstrumentation-java") .
 
    If you upgrade to a fixed version, be sure to choose `1.32.2` or later.

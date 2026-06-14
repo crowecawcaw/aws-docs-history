@@ -28,6 +28,7 @@ steps.
    application**. When you choose **Add an
    application**, you are prompted to **Choose
    Application Type**.
+
    - **Resource group-based
      application**. When you select this option, you
      can choose which resource groups in this account to monitor. To use multiple applications on a component,
@@ -320,7 +321,7 @@ Insights.
 For EKS clusters, you can enable additional monitoring with Container
 Insights to provide diagnostics information, such as container restart
 failures, to help you isolate and resolve problems. Additional steps are
-required to set up Container Insights for EKS. For information, see [Setting up Container Insights on Amazon EKS and Kubernetes](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md") for steps to set up
+required to set up Container Insights for EKS. For information, see [Amazon EKS](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md") for steps to set up
 Container Insights on EKS.
 
 Additional monitoring for EKS with Container Insights is supported on

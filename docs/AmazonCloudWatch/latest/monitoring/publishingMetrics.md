@@ -1,37 +1,13 @@
-# Publish custom metrics
+# Publish custom metrics (PutMetricData / EMF)
 
-You can publish your own metrics to CloudWatch using the OpenTelemetry Protocol (OTLP) or the
-CloudWatch API.
+You can publish your own custom metrics to CloudWatch using the
+`PutMetricData` API or the AWS CLI. This approach uses CloudWatch namespaces, metric
+names, and dimensions.
 
-## Publish metrics using OpenTelemetry (recommended)
+###### Note
 
-For new implementations, we recommend using OpenTelemetry to publish custom metrics to
-CloudWatch. OpenTelemetry provides vendor-agnostic instrumentation with richer descriptive labels
-and support for metric types including gauge, sum, histogram, and exponential
-histogram.
-
-To publish metrics using OpenTelemetry, configure your OpenTelemetry Collector or SDK to
-send metrics to the CloudWatch OTLP endpoint. Metrics sent through OTLP are available to query
-using the Prometheus Query Language (PromQL) in CloudWatch Query Studio. You can also set
-PromQL-based CloudWatch Alarms on these metrics.
-
-Key differences from the CloudWatch API approach:
-
-| Feature           | OpenTelemetry (OTLP)                              | CloudWatch API (PutMetricData)                    |
-| ----------------- | ------------------------------------------------- | ------------------------------------------------- |
-| Labels per metric | Up to 150                                         | Up to 30 dimensions                               |
-| Metric types      | Gauge, sum, histogram, exponential histogram      | Single values, statistic sets                     |
-| Granularity       | Ingested at the resolution sent                   | 1 second (high resolution) or 1 minute (standard) |
-| Query language    | PromQL                                            | GetMetricStatistics, Metrics Insights             |
-| Alarms            | PromQL-based CloudWatch Alarms                    | Standard CloudWatch Alarms                        |
-| Instrumentation   | Vendor-agnostic OpenTelemetry SDKs and Collectors | AWS SDK or CLI                                    |
-
-To get started, see [Sending metrics using OpenTelemetry](CloudWatch-OpenTelemetry-Sections.md "CloudWatch-OpenTelemetry-Sections.md").
-
-## Publish metrics using the CloudWatch API
-
-You can also publish custom metrics using the PutMetricData API or the AWS CLI. This
-approach uses CloudWatch namespaces, metric names, and dimensions.
+For new implementations, we recommend using OpenTelemetry to publish custom metrics.
+For more information, see [Send metrics using OpenTelemetry](metrics-otel-send.md "metrics-otel-send.md").
 
 ###### Topics
 

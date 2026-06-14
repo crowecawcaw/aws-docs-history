@@ -157,6 +157,7 @@ When you create a telemetry enablement rule, you specify:
 4. Choose **Add rule**.
 5. For **Rule name**, enter a name for your rule.
 6. For **Rule scope**, choose one of the following:
+
    - **Organization** – Rule applies across your entire
      AWS Organizations
    - **Organizational unit** – Rule applies to a specific
@@ -185,6 +186,7 @@ each rule affects and monitor rule compliance.
 2. In the navigation pane, choose **Ingestion**.
 3. Choose the **Enablement rules** tab.
 4. Select a rule to view its details or choose one of these actions:
+
    - **Edit rule** – Modify rule settings
    - **Delete** – Remove the rule
 

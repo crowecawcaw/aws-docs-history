@@ -66,6 +66,7 @@ This solution creates and uses resources in your account. You are charged for st
 - All metrics collected by the CloudWatch agent
   are charged as custom metrics. The number of metrics used by this solution depends on the number
   of EC2 hosts.
+
   - Each Tomcat host configured for the solution publishes a total of
     27 metrics plus one metric (`disk_used_percent`) for which the metric count
     depends on number of disk paths for that host.
@@ -299,6 +300,7 @@ parameter in Parameter Store.
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. From the navigation pane, choose **Application Management**, **Parameter Store**.
 3. Follow these steps to create a new parameter for the configuration.
+
    1. Choose **Create parameter**.
    2. In the **Name** box, enter a name that you'll use
       to reference the CloudWatch agent configuration file in later steps.
@@ -326,9 +328,11 @@ configuration that you created in the previous steps.
 3. For **Stack name**, enter a name to identity this stack,
    such as `CWAgentInstallationStack`.
 4. In the **Parameters** section, specify the following:
+
    1. For **CloudWatchAgentConfigSSM**, enter the name of the Systems Manager parameter for the agent configuration
       that you created earlier, such as `AmazonCloudWatch-Tomcat-Configuration`.
    2. To select the target instances, you have two options.
+
       1. For **InstanceIds**, specify a comma-delimited list of instance IDs
          list of instance IDs where you want to install the CloudWatch agent with this configuration.
          You can list a single instance or several instances.

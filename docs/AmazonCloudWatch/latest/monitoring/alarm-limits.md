@@ -28,7 +28,9 @@ limits:
   However, you can visualize up to two weeks of data on the alarm's detail page
   graph
 - Alarms evaluating multiple time series will limit the number of contributors in ALARM to 100
+
   - Assuming the query retrieves 150 time series:
+
     - If there are fewer than 100 contributors in ALARM (for example 95), the `StateReason`
       will be "95 out of 150 time series evaluated to ALARM"
     - If there are more than 100 contributors in ALARM (for example 105), the `StateReason`
@@ -40,6 +42,7 @@ limits:
   apply
 - During alarm evaluation, the `EvaluationState` will be set to
   `PARTIAL_DATA` for the following limits:
+
   - If the Metrics Insights query returns more than 500 time series.
   - If the Metrics Insights query matches more than 10,000 metrics.
 
@@ -52,6 +55,7 @@ When working with CloudWatch PromQL alarms, be aware of these functional
 limits:
 
 - Alarms evaluating multiple time series will limit the number of contributors in ALARM to 100
+
   - If there are fewer than 100 contributors in ALARM (for example 95), the `StateReason`
     will be "95 time series evaluated to ALARM"
   - If there are more than 100 contributors in ALARM (for example 105), the `StateReason`
@@ -104,6 +108,7 @@ specified the alarm to treat missing data. For more information, see [Alarm eval
   cases will transition the alarm to `INSUFFICIENT_DATA` regardless of the
   way that you set the alarm to treat missing data.
 - If the Lambda function returns an error:
+
   - If there is a permission problem with calling the Lambda function, the alarm
     begins having missing data transitions according to how you specified the alarm to
     treat missing data when you created it.

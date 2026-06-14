@@ -3,7 +3,7 @@
 The SentinelOne setup on AWS reads log data from Amazon S3 buckets using Amazon SQS
 notifications for new object events.
 
-Configure the Zscalar source using the following parameters:
+Configure the SentinelOne source using the following parameters:
 
 ```
 source:

@@ -73,6 +73,7 @@ When viewing Aurora Limitless databases in the Fleet Health Dashboard:
 
 - Only shard groups are visible, not individual instances
 - Shard groups appear in the following widgets:
+
   - The honeycomb chart
   - The top 10 by DBLoad
   - Events
@@ -130,7 +131,7 @@ router to the maximum vCPU.
 The Absolute view shows the number of Average active sessions (AAS) and the estimated
 vCPU. The Relative view shows the ratio of AAS to the estimated vCPU.
 
-![Database Insights dashboard showing database load distribution for a shardgroup1 Aurora PostgreSQL cluster. The interface displays a time series graph of average active sessions (AAS) and a pie chart showing load distribution across 5 database instances. The pie chart indicates a total of 261 AAS with percentages split between instances DTR-2-103, DTR-3-650, DAS-4-659, DAS-5-784, and DAS-6-336. The dashboard includes filters, alarm states, and database telemetry options."](images/dbi_limitless-doughnut.png)
+![Database Insights dashboard showing database load distribution for a shardgroup1 Aurora PostgreSQL cluster. The interface displays a time series graph of average active sessions (AAS) and a pie chart showing load distribution across 5 database instances. The pie chart indicates a total of 261 AAS with percentages split between instances DTR-2-103, DTR-3-650, DAS-4-659, DAS-5-784, and DAS-6-336. The dashboard includes filters, alarm states, and database telemetry options.](images/dbi_limitless-doughnut.png)
 
 ### Analyzing relative DB load using the Database Insights dashboard
 

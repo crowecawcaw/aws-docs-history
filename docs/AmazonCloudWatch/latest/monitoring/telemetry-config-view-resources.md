@@ -53,6 +53,7 @@ page shows the status of its telemetry by providing the following information:
 2. In the navigation pane, choose **Ingestion**.
 3. Do one of the following to view all resource types discovered by telemetry
    configuration or to view one resource type:
+
    1. To view all resources that have been discovered by CloudWatch, click **View data
       sources**. The **Discovered resources** page appears and
       shows all resources discovered.
@@ -98,6 +99,7 @@ resources. Your filter settings persist across both pages.
    **Data sources**.
 3. You can filter the discovered resources that are displayed on the page by specifying
    an account ID or tag value.
+
    1. Choose **Find resource**.
    2. Choose **Account ID** or **Tag value**, and then
       choose additional options for the filter. Statistics about telemetry coverage for each
@@ -112,6 +114,7 @@ resources. Your filter settings persist across both pages.
 2. In the navigation pane, choose **Ingestion**.
 3. To view all resource types discovered by telemetry configuration or to view one
    resource type, do one of the following:
+
    1. To view all resources discovered by CloudWatch, choose **View data
       sources**. The **Discovered resources** page appears and
       shows all resources discovered.
@@ -124,6 +127,7 @@ resources. Your filter settings persist across both pages.
    the page. You can change the columns in the page by changing your preferences for the
    **Discovered resources** page. For more information, see the
    preferences procedure below.
+
    1. Choose **Find resource**. Filters for each column in the page
       appear. Choose one, then choose additional options to define the filter. Resources
       appear in the page that match the filter settings.

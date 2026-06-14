@@ -93,6 +93,7 @@ jmx_config_reload_failure_total 0.0
 
 2. Create the Prometheus service discovery YAML file. The following
    example service discovery file performs the following:
+
    - Specifies the Prometheus JMX exporter host port as
      `localhost: 9404`.
    - Attaches labels (`Application`,
@@ -111,6 +112,7 @@ $ cat prometheus_sd_jmx.yaml
 
 3. Create the Prometheus JMX exporter configuration YAML file. The
    following example configuration file specifies the following:
+
    - The metrics retrieval job interval and timeout period.
    - The metrics retrieval jobs (`jmx` and
      `sap`), also known as scraping, which include the
@@ -141,6 +143,7 @@ scrape_configs:
    the CloudWatch agent configuration file, see [Manually create or edit the CloudWatch agent configuration
    file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md"). The following example CloudWatch agent configuration file
    performs the following:
+
    - Specifies the Prometheus JMX exporter configuration file
      path.
    - Specifies the target log group to which to publish EMF metric

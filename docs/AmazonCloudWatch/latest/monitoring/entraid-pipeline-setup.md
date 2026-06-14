@@ -7,7 +7,7 @@ Configure the Microsoft Entra ID source with the following parameters:
 
 ```
 source:
-  microsoft_entra_id:
+  microsoft_entraid:
     tenant_id: "<example-tenant-ID>"
     authentication:
       oauth2:

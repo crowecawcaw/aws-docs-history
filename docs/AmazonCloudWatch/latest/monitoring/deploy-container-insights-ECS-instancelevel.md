@@ -44,11 +44,11 @@ ClusterName=`cluster-name`
 Region=`cluster-region`
 curl -O https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/daemon-service/cwagent-ecs-instance-metric/cloudformation-quickstart/cwagent-ecs-instance-metric-cfn.json
 aws cloudformation create-stack --stack-name CWAgentECS-${ClusterName}-${Region} \
-    --template-body file://cwagent-ecs-instance-metric-cfn.json \
-    --parameters ParameterKey=ClusterName,ParameterValue=${ClusterName} \
-                 ParameterKey=CreateIAMRoles,ParameterValue=True \
-    --capabilities CAPABILITY_NAMED_IAM \
-    --region ${Region}
+  --template-body file://cwagent-ecs-instance-metric-cfn.json \
+  --parameters ParameterKey=ClusterName,ParameterValue=${ClusterName} \
+               ParameterKey=CreateIAMRoles,ParameterValue=True \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --region ${Region}
 ```
 
 **(Alternative) Using your own IAM roles**
@@ -72,12 +72,12 @@ TaskRoleArn=`task-role-arn`
 ExecutionRoleArn=`execution-role-arn`
 curl -O https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/daemon-service/cwagent-ecs-instance-metric/cloudformation-quickstart/cwagent-ecs-instance-metric-cfn.json
 aws cloudformation create-stack --stack-name CWAgentECS-${ClusterName}-${Region} \
-    --template-body file://cwagent-ecs-instance-metric-cfn.json \
-    --parameters ParameterKey=ClusterName,ParameterValue=${ClusterName} \
-                 ParameterKey=TaskRoleArn,ParameterValue=${TaskRoleArn} \
-                 ParameterKey=ExecutionRoleArn,ParameterValue=${ExecutionRoleArn} \
-    --capabilities CAPABILITY_NAMED_IAM \
-    --region ${Region}
+  --template-body file://cwagent-ecs-instance-metric-cfn.json \
+  --parameters ParameterKey=ClusterName,ParameterValue=${ClusterName} \
+               ParameterKey=TaskRoleArn,ParameterValue=${TaskRoleArn} \
+               ParameterKey=ExecutionRoleArn,ParameterValue=${ExecutionRoleArn} \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --region ${Region}
 ```
 
 **Troubleshooting the quick setup**
@@ -153,7 +153,7 @@ role.
 
 ```
 aws iam create-role --role-name CWAgentECSTaskRole \
-    --assume-role-policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Sid\": \"\",\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"ecs-tasks.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
+  --assume-role-policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Sid\": \"\",\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"ecs-tasks.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
 ```
 
 After you enter the previous command, note the value of
@@ -163,14 +163,14 @@ following command to attach the necessary policies.
 
 ```
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy \
-    --role-name CWAgentECSTaskRole
+  --role-name CWAgentECSTaskRole
 ```
 
 This next command creates the ECS task execution role.
 
 ```
 aws iam create-role --role-name CWAgentECSExecutionRole \
-    --assume-role-policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Sid\": \"\",\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"ecs-tasks.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
+  --assume-role-policy-document "{\"Version\": \"2012-10-17\",\"Statement\": [{\"Sid\": \"\",\"Effect\": \"Allow\",\"Principal\": {\"Service\": \"ecs-tasks.amazonaws.com\"},\"Action\": \"sts:AssumeRole\"}]}"
 ```
 
 After you enter the previous command, note the value of
@@ -180,10 +180,10 @@ following commands to attach the necessary policies.
 
 ```
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy \
-    --role-name CWAgentECSExecutionRole
+  --role-name CWAgentECSExecutionRole
 
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy \
-    --role-name CWAgentECSExecutionRole
+  --role-name CWAgentECSExecutionRole
 ```
 
 ### Create the task definition and launch the daemon service
@@ -203,8 +203,8 @@ ExecutionRoleArn=`execution-role-arn`
 AWSLogsRegion=`logs-region`
 Region=`cluster-region`
 curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/ecs-task-definition-templates/deployment-mode/daemon-service/cwagent-ecs-instance-metric/cwagent-ecs-instance-metric.json \
-    | sed "s|{{task-role-arn}}|${TaskRoleArn}|;s|{{execution-role-arn}}|${ExecutionRoleArn}|;s|{{awslogs-region}}|${AWSLogsRegion}|" \
-    | xargs -0 aws ecs register-task-definition --region ${Region} --cli-input-json
+  | sed "s|{{task-role-arn}}|${TaskRoleArn}|;s|{{execution-role-arn}}|${ExecutionRoleArn}|;s|{{awslogs-region}}|${AWSLogsRegion}|" \
+  | xargs -0 aws ecs register-task-definition --region ${Region} --cli-input-json
 ```
 
 Then run the following command to launch the daemon service. Replace
@@ -221,11 +221,11 @@ the command won't work.
 ClusterName=`cluster-name`
 Region=`cluster-region`
 aws ecs create-service \
-    --cluster ${ClusterName} \
-    --service-name cwagent-daemon-service \
-    --task-definition ecs-cwagent-daemon-service \
-    --scheduling-strategy DAEMON \
-    --region ${Region}
+  --cluster ${ClusterName} \
+  --service-name cwagent-daemon-service \
+  --task-definition ecs-cwagent-daemon-service \
+  --scheduling-strategy DAEMON \
+  --region ${Region}
 ```
 
 If you see this error message, `An error occurred
@@ -238,10 +238,10 @@ using the following command as an example.
 ClusterName=`cluster-name`
 Region=`cluster-region`
 aws ecs delete-service \
-    --cluster ${ClusterName} \
-    --service cwagent-daemon-service \
-    --region ${Region} \
-    --force
+  --cluster ${ClusterName} \
+  --service cwagent-daemon-service \
+  --region ${Region} \
+  --force
 ```
 
 ### (Optional) Advanced configuration
@@ -274,17 +274,17 @@ The following is an example of a customized configuration:
 
 ```
 {
-    "agent": {
-        "region": "us-east-1"
-    },
-    "logs": {
-        "metrics_collected": {
-            "ecs": {
-                "metrics_collection_interval": 30
-            }
-        },
-        "force_flush_interval": 5
-    }
+  "agent": {
+      "region": "us-east-1"
+  },
+  "logs": {
+      "metrics_collected": {
+          "ecs": {
+              "metrics_collection_interval": 30
+          }
+      },
+      "force_flush_interval": 5
+  }
 }
 ```
 
@@ -298,7 +298,7 @@ The following is an example of a customized configuration:
 
 ```
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess \
-        --role-name CWAgentECSExecutionRole
+      --role-name CWAgentECSExecutionRole
 ```
 
 2. Create the customized configuration file similar to the preceding example.
@@ -311,10 +311,10 @@ aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonSSMReadOnl
 ```
 Region=`cluster-region`
 aws ssm put-parameter \
-    --name "ecs-cwagent-daemon-service" \
-    --type "String" \
-    --value "`cat /tmp/ecs-cwagent-daemon-config.json`" \
-    --region $Region
+  --name "ecs-cwagent-daemon-service" \
+  --type "String" \
+  --value "`cat /tmp/ecs-cwagent-daemon-config.json`" \
+  --region $Region
 ```
 
 4. Download the task definition file to a local file, such as
@@ -328,25 +328,26 @@ curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-i
 
 ```
 "environment": [
-                {
-                    "name": "USE_DEFAULT_CONFIG",
-                    "value": "True"
-                }
-            ],
+              {
+                  "name": "USE_DEFAULT_CONFIG",
+                  "value": "True"
+              }
+          ],
 ```
 
 Replace that section with the following:
 
 ```
 "secrets": [
-                {
-                    "name": "CW_CONFIG_CONTENT",
-                    "valueFrom": "ecs-cwagent-daemon-service"
-                }
-            ],
+              {
+                  "name": "CW_CONFIG_CONTENT",
+                  "valueFrom": "ecs-cwagent-daemon-service"
+              }
+          ],
 ```
 
 6. Restart the agent as a daemon service by following these steps:
+
    1. Run the following command.
 
    ```
@@ -355,10 +356,9 @@ Replace that section with the following:
    AWSLogsRegion=`logs-region`
    Region=`cluster-region`
    cat /tmp/cwagent-ecs-instance-metric.json \
-       | sed "s|{{task-role-arn}}|${TaskRoleArn}|;s|{{execution-role-arn}}|${ExecutionRoleArn}|;s|{{awslogs-region}}|${AWSLogsRegion}|" \
-       | xargs -0 aws ecs register-task-definition --region ${Region} --cli-input-json
+     | sed "s|{{task-role-arn}}|${TaskRoleArn}|;s|{{execution-role-arn}}|${ExecutionRoleArn}|;s|{{awslogs-region}}|${AWSLogsRegion}|" \
+     | xargs -0 aws ecs register-task-definition --region ${Region} --cli-input-json
    ```
-
    2. Run the following command to launch the daemon service. Replace
       `cluster-name` and
       `cluster-region` with the name and Region of your
@@ -368,11 +368,11 @@ Replace that section with the following:
    ClusterName=`cluster-name`
    Region=`cluster-region`
    aws ecs create-service \
-       --cluster ${ClusterName} \
-       --service-name cwagent-daemon-service \
-       --task-definition ecs-cwagent-daemon-service \
-       --scheduling-strategy DAEMON \
-       --region ${Region}
+     --cluster ${ClusterName} \
+     --service-name cwagent-daemon-service \
+     --task-definition ecs-cwagent-daemon-service \
+     --scheduling-strategy DAEMON \
+     --region ${Region}
    ```
 
    If you see this error message, `An error occurred
@@ -385,8 +385,8 @@ Replace that section with the following:
    ClusterName=`cluster-name`
    Region=`Region`
    aws ecs delete-service \
-       --cluster ${ClusterName} \
-       --service cwagent-daemon-service \
-       --region ${Region} \
-       --force
+     --cluster ${ClusterName} \
+     --service cwagent-daemon-service \
+     --region ${Region} \
+     --force
    ```

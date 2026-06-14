@@ -4,7 +4,7 @@ Track identity and access management operations to ensure secure and compliant a
 see [Create agent and tool identities with AgentCore Identity](../../../bedrock-agentcore/latest/devguide/identity.md "../../../bedrock-agentcore/latest/devguide/identity.md") . Identity observability includes monitoring for different
 authentication methods:
 
-![Identity metrics view](images/Identity.png)
+![Identity metrics view.](images/Identity.png)
 
 - **Identities** – Access detailed trace information for identity operations
 - **Traces** – Apply advanced filters to analyze specific trace patterns
@@ -21,16 +21,17 @@ authentication methods:
   Choose **View details** to see the Identity metrics in
   graphs.
 
-![Identity details view](images/Identity_details.png)
+![Identity details view.](images/Identity_details.png)
 Under **Outbound Auths**, choose a outbound auth **Name** to view the dashboard.
 
-![Identity auth view](images/Identity_auth_view.png)
+![Identity auth view.](images/Identity_auth_view.png)
 On the **OAuth client details** page, you will see the following tabs:
 
 - **Overview** – Displays comprehensive outbound authentication usage metrics and patterns for OAuth clients
+
   - **Token fetches** – Total number of authentication token requests made by agents, including both machine-to-machine and on-behalf-of-user authentication flows. This metric tracks overall authentication activity and helps with capacity planning for identity services
   - **Token fetch error rate** – Percentage of failed token requests out of total authentication attempts. Monitor this metric to identify authentication issues, expired credentials, or permission problems. Trends over time help detect degrading authentication performance
 
 - **Traces** – Displays detailed trace information for identity and authentication operations, including OAuth flows, workload identity token requests, and third-party service integrations. Use traces to troubleshoot authentication failures, analyze token fetch latency, and monitor security compliance across agent interactions
 
-![Identity trace summary](images/Entity_trace_summary.png)
+![Identity trace summary.](images/Entity_trace_summary.png)

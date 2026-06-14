@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello CloudWatch](example_cloudwatch_Hello_section.md "example_cloudwatch_Hello_section.md")
   - [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [DeleteAlarms](example_cloudwatch_DeleteAlarms_section.md "example_cloudwatch_DeleteAlarms_section.md")
     - [DeleteAnomalyDetector](example_cloudwatch_DeleteAnomalyDetector_section.md "example_cloudwatch_DeleteAnomalyDetector_section.md")
     - [DeleteDashboards](example_cloudwatch_DeleteDashboards_section.md "example_cloudwatch_DeleteDashboards_section.md")
@@ -39,6 +41,7 @@ This topic also includes information about getting started and details about pre
     - [PutMetricData](example_cloudwatch_PutMetricData_section.md "example_cloudwatch_PutMetricData_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Creating a CloudWatch dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
   - [Get started with alarms](example_cloudwatch_Scenario_GettingStarted_section.md "example_cloudwatch_Scenario_GettingStarted_section.md")
   - [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md "example_cloudwatch_Usage_MetricsAlarms_section.md")

@@ -24,7 +24,7 @@ tutorial:
 
 To collect metrics from a sample Prometheus workload for Amazon ECS, you must be
 running Container Insights in the cluster. For information about installing Container
-Insights, see [Setting up Container Insights on Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
+Insights, see [Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
 
 ###### Topics
 

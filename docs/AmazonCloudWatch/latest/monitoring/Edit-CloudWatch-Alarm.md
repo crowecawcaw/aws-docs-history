@@ -52,6 +52,7 @@ conditions are what you want, then choose **Update alarm**.
 2. In the navigation pane, choose **Topics** and then select the ARN
    for your notification list (topic).
 3. Do one of the following:
+
    - To add an email address, choose **Create subscription**. For
      **Protocol**, choose **Email**. For
      **Endpoint**, enter the email address of the new recipient.

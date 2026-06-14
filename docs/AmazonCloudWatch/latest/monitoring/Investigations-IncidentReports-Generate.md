@@ -16,6 +16,7 @@ Before generating an incident confirm the following requirements are met:
   IAM policy statements to the investigation group role to grant CloudWatch
   Investigations the permissions needed to decrypt and access this data.
 - Investigation group role has been granted the following permissions:
+
   - `aiops:GetInvestigation`
   - `aiops:ListInvestigationEvents`
   - `aiops:GetInvestigationEvent`

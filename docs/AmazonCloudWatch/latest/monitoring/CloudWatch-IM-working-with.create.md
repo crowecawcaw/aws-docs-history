@@ -37,6 +37,7 @@ Be aware of the following:
 
 6. Choose a percentage of your application's internet traffic to monitor.
 7. Optionally, under **Advanced settings**, specify one or more of the following additional options.
+
    - **City-networks maximum** — The default city-networks maximum value is `500000`.
      If you like, you can lower this limit, to restrict the number of city-networks (locations and ASNs) that Internet Monitor will monitor
      traffic for. You can change the city-networks maximum at any time by editing your monitor. For more information,

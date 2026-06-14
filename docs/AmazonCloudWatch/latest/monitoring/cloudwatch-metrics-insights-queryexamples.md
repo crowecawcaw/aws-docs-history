@@ -103,9 +103,9 @@ FROM SCHEMA("AWS/EBS", VolumeId)
 
 ```
 SELECT AVG(CPUUtilization)
-  FROM SCHEMA("AWS/EC2", InstanceId)
-  GROUP BY InstanceId
-  ORDER BY AVG() DESC
+FROM SCHEMA("AWS/EC2", InstanceId)
+GROUP BY InstanceId
+ORDER BY AVG() DESC
 ```
 
 **Average CPU utilization across the entire
@@ -197,7 +197,7 @@ ORDER BY AVG() DESC LIMIT 10
 **Top 10 clusters by pod memory utilization**
 
 ```
-SELECT AVG(pop_memory_utilization)
+SELECT AVG(pod_memory_utilization)
 FROM SCHEMA("ContainerInsights", ClusterName)
 GROUP BY ClusterName
 ORDER BY AVG() DESC LIMIT 10

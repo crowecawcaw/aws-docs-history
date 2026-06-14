@@ -32,6 +32,7 @@ plugins:
 ```
 
 3. Enable Lambda Insights.
+
    - You can enable Lambda Insights individually per function by adding the following property to the
      serverless.yml file
 
@@ -41,7 +42,6 @@ plugins:
        handler: src/app/index.handler
        lambdaInsights: true #enables Lambda Insights for this function
    ```
-
    - You can enable Lambda Insights for all functions within the `serverless.yml`
      file by adding the following custom section:
 

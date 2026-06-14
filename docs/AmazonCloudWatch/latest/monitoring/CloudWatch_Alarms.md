@@ -107,6 +107,7 @@ The following features apply to all CloudWatch alarms:
   choosing the star symbol next to it.
 - Alarms have an evaluation period quota. The evaluation period is calculated by
   multiplying the alarm period by the number of evaluation periods used.
+
   - The maximum evaluation period is seven days for alarms with a period of at least
     one hour (3600 seconds).
   - The maximum evaluation period is one day for alarms with a shorter period.

@@ -1,27 +1,65 @@
-# Using condition keys to limit Contributor Insights users' access to log groups
+# Condition keys for Contributor Insights log group access
 
 To create a rule in Contributor Insights and see its results, a user must have
 the `cloudwatch:PutInsightRule` permission. By default, a user with
-this permission can create a Contributor Insights rule that evaluates any log
-group in CloudWatch Logs and then see the results. The results can contain contributor
-data for those log groups.
+this permission can create a rule that evaluates any log group in CloudWatch Logs
+and then view the results. Results can include contributor data from those
+log groups, which might contain sensitive information.
 
-You can create IAM policies with condition keys to grant users the
-permission to write Contributor Insights rules for some log groups while
-preventing them from writing rules for and seeing this data from other log
-groups.
+You can create IAM policies with condition keys to grant users permission
+to write Contributor Insights rules for specific log groups, while preventing
+access to data from other log groups.
 
 For more information about the `Condition` element in IAM
 policies, see [IAM
 JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md").
 
-**Allow access to write rules and view results for only
-certain log groups**
+## Understanding the Contributor Insights permissions model
 
-The following policy allows the user access to write rules and view results
-for the log group named `AllowedLogGroup` and all log groups that
-have names that start with `AllowedWildCard`. It does not grant
-access to write rules or view rule results for any other log groups.
+Contributor Insights operations use the `cloudwatch:` IAM
+namespace. Log group operations use the `logs:` namespace.
+Contributor Insights does not require or evaluate `logs:`
+permissions when it processes log group data.
+
+A principal with `cloudwatch:PutInsightRule` and
+`cloudwatch:GetInsightRuleReport` permissions can create rules
+that evaluate any log group and retrieve the results – even without
+any `logs:` permissions on those log groups.
+
+###### Important
+
+Aggregated results can contain sensitive information, such as log
+fields used as contributor keys. Grant
+`cloudwatch:PutInsightRule` and
+`cloudwatch:GetInsightRuleReport` permissions only to
+principals who need access to data across all referenced log
+groups.
+
+For cross-account access, if a source account configured an [AWS Organizations](CloudWatch-Unified-Cross-Account.md "CloudWatch-Unified-Cross-Account.md") link
+that shares log group access, a principal in the monitoring account needs
+only `cloudwatch:PutInsightRule` to create rules that target
+source account log groups.
+
+## Restricting Contributor Insights access to specific log groups
+
+Use the following condition keys to restrict which log groups a principal
+can specify when creating Contributor Insights rules:
+
+- `cloudwatch:requestInsightRuleLogGroups` –
+  Matches log group names specified in a rule
+- `cloudwatch:requestInsightRuleLogGroupARNs` –
+  Matches log group ARNs specified in a rule
+
+###### Important
+
+After a rule is created, any principal with
+`cloudwatch:GetInsightRuleReport` permission can retrieve
+its results, regardless of log group restrictions.
+
+The following policy grants permission to create Contributor Insights rules
+for the log group named `AllowedLogGroup` and log groups with
+names that start with `AllowedWildCard`. It does not grant
+permission to create rules for any other log groups.
 
 JSON
 
@@ -48,12 +86,9 @@ JSON
 
 ```
 
-**Deny writing rules for specific log groups but allow
-writing rules for all other log groups**
-
-The following policy explicitly denies the user access to write rules and view
-rule results for the log group named `ExplicitlyDeniedLogGroup`, but
-allows writing rules and viewing rule results for all other log groups.
+The following policy allows creating rules for any log group by default,
+but explicitly denies creating rules for the log group named
+`ExplicitlyDeniedLogGroup`.
 
 JSON
 
@@ -85,3 +120,63 @@ JSON
 }`
 
 ```
+
+The following policy denies creation of rules that target log groups
+with `/production/` in the ARN path.
+
+```
+
+{
+    "Version": "",
+    "Statement": [
+        {
+            "Sid": "DenyProductionLogGroupsByARN",
+            "Effect": "Deny",
+            "Action": "cloudwatch:PutInsightRule",
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:StringLike": {
+                    "cloudwatch:requestInsightRuleLogGroupARNs": [
+                        "arn:aws:logs:*:*:log-group:*/production/*"
+                    ]
+                }
+            }
+        }
+    ]
+}
+
+```
+
+###### Note
+
+- Condition keys match against the pattern strings as written in the
+  rule definition, not against the resolved log groups.
+- If rules specify log groups as full ARNs, a condition value such as
+  `/production/*` does not match because the full ARN string
+  does not start with that prefix. Use `*/production/*` as
+  the wildcard prefix to match ARN-based log group references.
+
+## Security best practices for Contributor Insights
+
+Follow these best practices to secure your Contributor Insights
+configuration.
+
+- **Apply least privilege** –
+  Grant `cloudwatch:PutInsightRule` and
+  `cloudwatch:GetInsightRuleReport` only to principals
+  who must analyze log group data
+- **Use condition keys to restrict log
+  groups** – Limit which log groups a principal can
+  reference in Contributor Insights rules
+- **Protect sensitive fields**
+  – Use CloudWatch Logs data protection to mask sensitive log data
+  before Contributor Insights processes it. For more information, see
+  [Protect sensitive log data with masking](../logs/mask-sensitive-log-data.md "../logs/mask-sensitive-log-data.md").
+- **Consider contributor key
+  sensitivity** – Contributor keys might expose
+  values such as IP addresses or user identifiers in rule
+  results
+- **Review cross-account access**
+  – Audit AWS Organizations link configurations to confirm that only
+  intended monitoring accounts can create rules against source
+  account log groups

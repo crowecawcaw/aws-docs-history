@@ -6,6 +6,7 @@ Use the steps in this section to view and continue and existing investigation
 
 1. If you aren't already on the page for the investigation, do the
    following:
+
    1. Open the CloudWatch console at
       [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
    2. In the left navigation pane, choose **AI
@@ -85,6 +86,7 @@ You have several options:
    display **Show suggested actions**. If so, choosing this
    displays possible actions that you can take, assuming that hypothesis is correct
    about the issue. Possible actions include the following:
+
    - **Documentation suggestions** are links to AWS
      documentation that can help you understand the issue that you are
      working on, and how to solve it. To view suggested documentation, choose

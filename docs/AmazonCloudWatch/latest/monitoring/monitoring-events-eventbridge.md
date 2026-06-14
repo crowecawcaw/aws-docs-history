@@ -145,6 +145,7 @@ Before you create an EventBridge rule for CloudWatch Synthetics, you should do t
 - Familiarize yourself with events, rules, and targets in EventBridge.
 - Create and configure the targets invoked by your EventBridge rules. Rules can invoke many
   types of targets, including:
+
   - Amazon SNS topics
   - AWS Lambda functions
   - Kinesis streams

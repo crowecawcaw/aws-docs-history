@@ -59,7 +59,7 @@ stream prefix, which assists in filtering. For more information, see [Fluent Bit
 					"Name": "cloudwatch_logs",
 					"region": "`us-west-2`",
 					"log_key": "log",
-                                 "log_group_name": "/aws/ecs/containerinsights/`my-cluster`/`application`",
+                               "log_group_name": "/aws/ecs/containerinsights/`my-cluster`/`application`",
 					"auto_create_group": "true",
 					"log_stream_name": "`my-task-id`"
 				}

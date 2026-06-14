@@ -5,7 +5,7 @@ associated with all agents in your account. Choose **Filters** or
 sort by columns to find a specific session. Choose a session under **Session
 ID** to view the session details.
 
-![Session view](images/GenAI_sessions.png)
+![Session view.](images/GenAI_sessions.png)
 You can view the Session summary metrics and the list of traces belonging to that
 session. Session metrics include:
 

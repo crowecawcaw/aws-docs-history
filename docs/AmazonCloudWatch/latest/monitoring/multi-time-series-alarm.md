@@ -29,6 +29,7 @@ ORDER BY MAX() DESC
 
 6. Choose **Next**.
 7. Under **Conditions**, specify the following:
+
    - For **Threshold type**, choose
      **Static**.
    - For **When metric is**, choose **Greater

@@ -38,6 +38,7 @@ New console
 3. From the dashboard screen,
    do one
    of the following:
+
    - In the
      upper area of the dashboard, select one of the predefined time ranges. These span
      from 1 hour to 1 week (**1h**,
@@ -45,6 +46,7 @@ New console
      **1d**, or
      **1w**).
    - Alternatively, you can choose one of the following custom time range options:
+
      - Choose
        **Custom**, and then choose the
        **Relative** tab.
@@ -100,6 +102,7 @@ Old console
 3. From the dashboard screen,
    do one
    of the following:
+
    - In the
      upper area of the dashboard, select one of the predefined time ranges. These span
      from 1 hour to 1 week (**1h**,
@@ -109,6 +112,7 @@ Old console
    - Alternatively, you can
      choose one of the following custom time range
      options:
+
      - Choose the
        **custom**
        dropdown, and then choose the

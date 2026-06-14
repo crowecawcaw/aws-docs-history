@@ -46,9 +46,11 @@ to integrate with AWS Organizations, and then add the accounts to work with.
 In summary, you take the following steps:
 
 1. Sign in to the AWS Management Console as the management account, and then do the following:
+
    - Complete the required steps for integrating with AWS Organizations in CloudWatch.
 
 2. Sign in to the AWS Management Console as the delegated administrator account, and then do the following:
+
    - Initialize Network Flow Monitor, including adding accounts to include in your scope.
    - Add the required permissions for accessing resources that are in other accounts from the console.
 
@@ -125,9 +127,9 @@ and AWS Organizations](../../../organizations/latest/userguide/services-that-can
 5. In the **Register delegated administrator** window,
    in the **Delegated administrator account ID** field, enter the 12-digit Organization member account ID.
 6. Choose **Register delegated administrator**.
-   At the top of the page, a message appears indicating the account was registered successfully.
+   A confirmation message appears indicating the account was registered successfully.
    The **Organization Settings** page appears. To see information about the
-   delegated administrator account, hover over the number below **Delegated administrators**.
+   delegated administrator account, hover over the number next to **Delegated administrators**.
 
 To remove or change the delegated administrator account, deregister the account first. For more information, see
 [Deregistering a delegated administrator account](telemetry-config-turn-on.md#telemetry-config-deregister-administrator "telemetry-config-turn-on.md#telemetry-config-deregister-administrator").

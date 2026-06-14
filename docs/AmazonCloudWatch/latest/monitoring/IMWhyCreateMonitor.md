@@ -23,6 +23,7 @@ in the following ways:
 - **Use the CloudWatch dashboard** to view and explore performance, availability, and health events;
   explore your application's historical data; and get insights into new ways to configure your application for better performance.
   To learn more, see the following:
+
   - [Track real-time performance and availability in Internet Monitor (Overview page)](CloudWatch-IM-overview.md "CloudWatch-IM-overview.md")
   - [Analyze historical data in Internet Monitor (Analyze page)](CloudWatch-IM-historical-explorer.md "CloudWatch-IM-historical-explorer.md")
   - [Get suggestions to optimize application performance in Internet Monitor (Optimize page)](CloudWatch-IM-insights.md "CloudWatch-IM-insights.md")

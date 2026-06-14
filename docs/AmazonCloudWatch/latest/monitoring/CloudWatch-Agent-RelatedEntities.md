@@ -20,6 +20,7 @@ The agent chooses the service name from the following options, in priority order
 - **Kubernetes workload name** – For Kubernetes
   workloads, the agent sends the name of the workload for the corresponding pod, in the
   following priority order.
+
   - Deployment name
   - ReplicaSet name
   - StatefulSet name

@@ -13,6 +13,7 @@ console or the AWS Command Line Interface. To work with Network Synthetic Monito
 1.  Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"), and then, under **Network
     Monitoring**, choose **Synthetic monitors**.
 2.  In the **Monitors** section, do one of the following:
+
     - Choose the **Name** link of the monitor that you want to add a probe
       to. Choose the **Monitor details** tab, and then in the
       **Probes** section, choose **Add probe**.
@@ -20,6 +21,7 @@ console or the AWS Command Line Interface. To work with Network Synthetic Monito
       **Add probe**.
 
 3.  On the **Add probe** page, do the following:
+
     1. Under **AWS**
        **network source**, choose a subnet to add to the monitor.
 
@@ -39,6 +41,7 @@ console or the AWS Command Line Interface. To work with Network Synthetic Monito
 4.  (Optional) In the **Tags** section, add **Key** and
     **Value** pairs to further help identify this resource, allowing you to
     search or filter on specific information.
+
     1. Choose **Add new tag**.
     2. Enter a **Key** name and associated **Value**.
     3. Choose **Add new tag** to add the new tag.

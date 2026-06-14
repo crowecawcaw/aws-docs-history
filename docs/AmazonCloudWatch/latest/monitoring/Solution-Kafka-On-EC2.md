@@ -62,6 +62,7 @@ This solution creates and uses resources in your account. You are charged for st
 
 - All metrics collected by the CloudWatch agent are charged as custom metrics. The number of metrics used by this solution depends on the number
   of EC2 hosts.
+
   - Each broker host configured for the solution publishes 33 metrics plus one metric
     (`disk_used_percent`) for which the metric count for each EC2 host depends on the number of disk paths
     for that host.
@@ -88,6 +89,7 @@ The pricing calculator can help you estimate approximate monthly costs for using
 2. In the **Metrics** section, for **Number of metrics**,
    enter `broker_metrics_count + producer_metrics_count + consumer_metrics_count`. Calculate these
    as follows:
+
    - `broker_metrics_count` = (33 + average number of disk paths per EC2 host) \* number_of_ec2_broker_hosts
    - `producer_metrics_count` = (3 \* average_number_of_topics_per_producer_host + 3) \* number_of_ec2_producer_hosts
    - `consumer_metrics_count` = (2 \* average_number_of_topics_per_consumer_host + 3) \* number_of_ec2_consumer_hosts
@@ -424,6 +426,7 @@ parameter in Parameter Store.
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. From the navigation pane, choose **Application Management**, **Parameter Store**.
 3. Follow these steps to create a new parameter for the configuration.
+
    1. Choose **Create parameter**.
    2. Provide a name for the parameter that will store
       your CloudWatch agent configuration, such as `AmazonCloudWatch-Kafka-Producer-Configuration` for producers,
@@ -456,11 +459,13 @@ configuration that you created in the previous steps.
 3. For **Stack name**, enter a name to identity this stack,
    such as `CWAgentInstallationStack`.
 4. In the **Parameters** section, specify the following:
+
    1. For **CloudWatchAgentConfigSSM**, enter the name of the Systems Manager parameter for the agent configuration
       that you created earlier, such as `AmazonCloudWatch-Kafka-Broker-Configuration` for brokers,
       `AmazonCloudWatch-Kafka-Producer-Configuration` for producers, and
       `AmazonCloudWatch-Kafka-Consumer-Configuration` for consumers.
    2. To select the target instances, you have two options.
+
       1. For **InstanceIds**, specify a comma-delimited list of instance IDs
          list of instance IDs where you want to install the CloudWatch agent with this configuration.
          You can list a single instance or several instances.

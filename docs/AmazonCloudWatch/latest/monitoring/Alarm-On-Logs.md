@@ -29,6 +29,7 @@ an alarm based on a log group-metric filter, you must complete the following act
 7. (Optional) Under **Metric**, edit **Metric
    name**, **Statistic**, and **Period**.
 8. Under **Conditions**, specify the following:
+
    1. For **Threshold type**, choose **Static** or
       **Anomaly detection**.
    2. For **Whenever `your-metric-name` is . .
@@ -38,6 +39,7 @@ an alarm based on a log group-metric filter, you must complete the following act
    3. For **than . . .**, specify a number for your threshold value.
 
 9. Choose **Additional configuration**.
+
    1. For **Data points to alarm**, specify how many data points
       trigger your alarm to go into the `ALARM` state. If you specify matching
       values, your alarm goes into the `ALARM` state if that many consecutive
@@ -51,6 +53,7 @@ an alarm based on a log group-metric filter, you must complete the following act
 11. For **Notification**, specify an Amazon SNS topic to notify when your
     alarm is in the `ALARM`, `OK`, or `INSUFFICIENT_DATA`
     state.
+
     1. (Optional) To send multiple notifications for the same alarm state or for
        different alarm states, choose **Add notification**.
     2. (Optional) To not send notifications, choose **Remove**.

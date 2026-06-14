@@ -75,6 +75,7 @@ usage, including the following:
   The metrics extracted and ingested from your logs are charged as custom metrics.
   The number of metrics used by this solution depends on the number of EC2
   hosts.
+
   - Each NGINX EC2 host configured for the solution publishes a total of eight
     metrics.
 
@@ -415,6 +416,7 @@ a parameter in Parameter Store.
 3. From the navigation pane, choose **Application Management**, **Parameter
    Store**
 4. Follow these steps to create a new parameter for the configuration.
+
    1. Choose **Create parameter**.
    2. In the **Name** box, enter a name that you'll use to reference
       the CloudWatch agent configuration file in later steps. For example, `AmazonCloudWatch-NGINX-CloudWatchAgent-Configuration`.
@@ -434,6 +436,7 @@ a parameter in Parameter Store.
 2. From the navigation pane, choose **Application Management**, **Parameter
    Store**
 3. Follow these steps to create a new parameter for the configuration.
+
    1. Choose **Create parameter**.
    2. In the **Name** box, enter a name that you'll use to reference
       the configuration file in later steps. For example, `AmazonCloudWatch-NGINX-Prometheus-Configuration`.
@@ -460,9 +463,11 @@ configuration that you created in the previous steps.
    NGINX workload is running.
 3. For **Stack name**, enter a name to identity this stack, such as `CWAgentInstallationStack`.
 4. In the **Parameters** section, specify the following:
+
    1. For **CloudWatchAgentConfigSSM**, enter the name of the AWS Systems Manager parameter for the agent configuration that you created earlier, such as `AmazonCloudWatch-NGINX-CloudWatchAgent-Configuration`.
    2. For **PrometheusConfigSSM**, enter the name of the AWS Systems Manager parameter for the agent configuration that you created earlier, such as `AmazonCloudWatch-NGINX-Prometheus-Configuration`.
    3. To select the target instances, you have two options.
+
       1. For **InstanceIds**, specify a comma-delimited list of instance IDs
          list of instance IDs where you want to install the CloudWatch agent with this
          configuration. You can list a single instance or several instances.

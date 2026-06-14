@@ -116,6 +116,7 @@ integration, follow these steps.
 3. On the **Optional configuration** tab, in the
    **Chat integration** section, do the
    following:
+
    - If you have already integrated CloudWatch investigations in chat applications
      with a third-party chat system, you can choose
      **Select SNS topic** to choose the

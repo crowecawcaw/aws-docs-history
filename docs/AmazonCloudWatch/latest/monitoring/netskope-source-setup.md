@@ -28,6 +28,7 @@ API token:
    **Create Role**.
 4. Enter a Role Name (for example, "CloudWatch-API-Role") and configure
    the following functional area permissions:
+
    - **Steering**: Application Events,
      Page Events, Network Events, Infrastructure Events, Incident Events,
      Endpoint Events, Alerts — all set to View.
@@ -45,6 +46,7 @@ API token:
    button.
 7. Choose **New Service Account** and
    configure:
+
    - **Service Account Name**: Enter a
      descriptive name (for example,
      "CloudWatch-Collector").

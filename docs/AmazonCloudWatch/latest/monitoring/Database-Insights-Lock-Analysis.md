@@ -5,11 +5,11 @@ To troubleshoot performance issues caused by locks, you can analyze lock trees f
 - **Sliced by** dropdown – Choose the **Blocking object**, **Blocking session**, or **Blocking SQL** dimensions in the **Database load** chart
   to view how distinct top blockers contribute to DB Load over time. With the DB load chart, you can analyze if top blockers are constant or change often. Then, you can troubleshoot the blockers.
 
-![The Top SQL table with Blocking Session selected in the Sliced by dropdown](images/DBInsights_TopSQLBlocking.png)
+![The Top SQL table with Blocking Session selected in the Sliced by dropdown.](images/DBInsights_TopSQLBlocking.png)
 
 - **Lock analysis** tab – Choose **DB Load Analysis**, then choose the **Lock analysis** tab to view information about lock contention in your database.
 
-![The Lock trees table in the Database load dashboard](images/DBInsights_LoadLockAnalysis.png)
+![The Lock trees table in the Database load dashboard.](images/DBInsights_LoadLockAnalysis.png)
 
 ###### Note
 
@@ -45,9 +45,9 @@ To analyze lock trees, use the following procedure.
 
 To view lock data for a DB instance, choose a period of 1 day or less. 8. Choose a snapshot window. By default, Database Insights chooses the snapshot window with the most blocked sessions.
 
-![Lock analysis table](images/dbi_lock-analysis.png) 9. To view lock data for a snapshot, choose the time Database Insights took the snapshot. 10. To expand a lock tree, choose the arrow next to the session ID.
+![Lock analysis table.](images/dbi_lock-analysis.png) 9. To view lock data for a snapshot, choose the time Database Insights took the snapshot. 10. To expand a lock tree, choose the arrow next to the session ID.
 
-![Lock tree expanded](images/dbi_lock-analysis-expand.png)
+![Lock tree expanded.](images/dbi_lock-analysis-expand.png)
 
 ## Lock snapshot data
 

@@ -25,6 +25,7 @@ The investigation pane provides you:
 
 1. Navigate to any supported telemetry source showing an issue you want to
    investigate, such as:
+
    - A CloudWatch metric showing unusual patterns
    - A CloudWatch alarm in ALARM state
    - A Lambda function's monitoring tab showing performance

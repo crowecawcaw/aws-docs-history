@@ -19,6 +19,7 @@ If you are using Aurora PostgreSQL, you also have the following prerequisites:
   upgrading your Aurora PostgreSQL DB cluster, see
   [Upgrading Amazon Aurora PostgreSQL DB clusters](../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the _Amazon Aurora User Guide_.
 - You must configure your DB cluster to analyze execution plans by setting the parameter `aurora_compute_plan_id` to `on` with one of the following options.
+
   - [Creating a DB cluster parameter group in Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.CreatingCluster.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.CreatingCluster.md") in the _Amazon Aurora User Guide_
   - [Modifying parameters in a DB cluster parameter group in Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.ModifyingCluster.md "../../../AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.ModifyingCluster.md") in the _Amazon Aurora User Guide_
 
@@ -38,16 +39,16 @@ To analyze execution plans, use the following procedure.
 7. (Optional) If the **Plans Count** column doesn't appear, choose the **Settings** icon on the
    **Top SQL** table to customize the visibility and order of columns.
 
-![Settings for the plan details table](images/DBInsights2.png) 8. Choose a digest query to expand it into its component statements.
+![Settings for the plan details table.](images/DBInsights2.png) 8. Choose a digest query to expand it into its component statements.
 
-![Expand a query into its component statements](images/dbi_did-dbload-expand.png) 9. Scroll down and view the SQL text. Then, choose the **Plans** tab.
+![Expand a query into its component statements.](images/dbi_did-dbload-expand.png) 9. Scroll down and view the SQL text. Then, choose the **Plans** tab.
 
 By default, CloudWatch displays the estimated execution plan. For Aurora PostgreSQL, to view actual execution plans, enable the `aurora_stat_plans.with_analyze`
 parameter for your DB instance. For more information about the parameter `aurora_stat_plans.with_analyze`, see [Monitoring query execution plans and peak memory for Aurora PostgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md#aurora.with_analyze "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Monitoring.Query.Plans.md#aurora.with_analyze") in the _Amazon Aurora User Guide_. 10. To compare plans from the same digest query, choose two **Plans** from the **Plans for digest query** list.
 
 You can view either one or two plans for a query at a time. In the following example screenshot, both plans are for Aurora PostgreSQL.
 
-![Compare plans](images/dbi_did-plans.png) 11. You can also view how each plan contributes to DBLoad over time by choosing **Plans** in the **Slice by** drop-down
+![Compare plans.](images/dbi_did-plans.png) 11. You can also view how each plan contributes to DBLoad over time by choosing **Plans** in the **Slice by** drop-down
 in the DBLoad chart.
 
 ![Top SQL table showing load by plans with query statements, execution metrics, and plan counts.](images/DBInsights_OverTime.png)

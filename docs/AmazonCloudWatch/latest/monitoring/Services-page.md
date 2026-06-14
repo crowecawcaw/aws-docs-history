@@ -26,7 +26,7 @@ When using dynamic service grouping, the operational health metrics automaticall
 - Aggregated performance metrics that help identify problematic service clusters
 - Quick identification of which groups require immediate attention during incidents
 
-![CloudWatch Services top graphs](images/services-top-graphs.png)
+![CloudWatch Services top graphs.](images/services-top-graphs.png)
 
 ## Monitor operational health with the Services table
 
@@ -50,7 +50,7 @@ The advanced filtering options allows you to:
 - Filter by environment
 - Filter by service health status
 
-![CloudWatch Services table](images/services-table-healthy-updated.png)
+![CloudWatch Services table.](images/services-table-healthy-updated.png)
 
 For un-instrumented services, the Service overview page displays limited information with prominent calls-to-action to enable Application Signals instrumentation. Un-instrumented services appear in the Services table even when they haven't been configured with Application Signals, helping you identify gaps in your observability coverage and prioritize which services to instrument next based on their position in your architecture.
 
@@ -65,7 +65,7 @@ Workload within CloudWatch Container Insights. For services running on Amazon EC
 displayed for each service in the table. Choose the SLI status for a service to display a pop-up containing a link
 to any unhealthy SLIs, and a link to see all SLOs for the service.
 
-![Service with unhealthy SLI](images/services-unhealthy-sli.png)
+![Service with unhealthy SLI.](images/services-unhealthy-sli.png)
 
 If no SLOs have been created for a service, choose the **Create SLO** button within the
 **SLI Status** column. To create additional SLOs for any service, select the option button next
@@ -92,4 +92,4 @@ The Audit findings section automatically detects and shows critical problems in 
 
 You can use the Change events section to identify how recent deployments or configuration changes affect your service behavior. Application Signals automatically processes CloudTrail events to track change events across your application. Monitor configuration and deployment events for services and their dependencies, providing immediate context for operational analysis and troubleshooting. Application Signals automatically correlates deployment times with performance changes, helping you quickly identify if recent deployments contributed to service issues.
 
-![Service overview](images/Service_detail.png)
+![Service overview.](images/Service_detail.png)

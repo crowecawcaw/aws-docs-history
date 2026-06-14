@@ -34,9 +34,9 @@ tab. You can then choose between a line graph, stacked area chart, number displa
 gauge, bar chart, or pie chart. 7. Choose the **Graphed metrics** tab. 8. (Optional) To change the statistic used in the graph, choose the new statistic in
 the **Statistic** column next to the metric name.
 
-For more information about CloudWatch statistics, see [CloudWatch statistics definitions](Statistics-definitions.md "Statistics-definitions.md"). For more
-information about the **p*xx* percentile statistics, see
-[Percentiles](cloudwatch_concepts.md#Percentiles "cloudwatch_concepts.md#Percentiles").** 9. (Optional) To add an anomaly detection band that shows expected values for the
+For more information about CloudWatch statistics, see [Available statistics](Statistics-definitions.md "Statistics-definitions.md"). For more
+information about the **p*xx*** percentile statistics, see
+[Percentiles](cloudwatch_concepts.md#Percentiles "cloudwatch_concepts.md#Percentiles"). 9. (Optional) To add an anomaly detection band that shows expected values for the
 metric, choose the anomaly detection icon under **Actions** next to
 the metric. For more information about anomaly detection, see [Using CloudWatch anomaly detection](CloudWatch_Anomaly_Detection.md "CloudWatch_Anomaly_Detection.md").
 
@@ -128,7 +128,7 @@ select **Create and manage data sources**, then choose
 **Create and manage data sources**. For information about the rest
 of this data source creation process, see [Connect to a prebuilt data source with a wizard](CloudWatch_MultiDataSources-Connect.md "CloudWatch_MultiDataSources-Connect.md"). 5. The wizard or query editor prompts you for the information necessary for the
 query. The workflow is different for each data source, and is tailored to the data
-source. For example, for Amazon Managed Service for Prometheus; and Prometheus data sources, a PromQL query editor box
+source. For example, for Amazon Managed Service for Prometheus and Prometheus data sources, a PromQL query editor box
 with a query helper appear. 6. When you have finished constructing the query, choose **Graph
 query**.
 
@@ -177,6 +177,7 @@ To delete an annotation, choose **x** in the
    the column heading or an individual value and then choose a different value.
 5. To add a horizontal annotation, choose **Graph options** and then
    **Add horizontal annotation**:
+
    1. For **Label**, enter a label for the annotation.
    2. For **Value**, enter the metric value where the horizontal
       annotation appears.
@@ -210,4 +211,4 @@ Minutes**.
 2. For **Actions**, choose the **Duplicate**
    icon.
 
-![Duplicate a metric](images/metric_graph_duplicate.png) 3. Update the duplicate metric as needed.
+![Duplicate a metric.](images/metric_graph_duplicate.png) 3. Update the duplicate metric as needed.

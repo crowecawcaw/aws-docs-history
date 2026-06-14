@@ -96,11 +96,16 @@ Setup IAM permissions for on-premise hosts
 
     ```
 
-4. Setup AWS credentials for your Amazon EKS or Kubernetes clusters.
-   The easiest way to get started with Amazon EKS is to use the EKS OTel Container
-   Insights add-on. If you prefer to use the OpenTelemetry Collector directly, follow
-   the procedure below to set up AWS credentials for your Amazon EKS or Kubernetes
-   clusters to send telemetry to CloudWatch.
+###### Tip
+
+For on-premises hosts that only need to send metrics or logs, you can use
+bearer token authentication as a simpler alternative to configuring AWS
+access keys. Bearer tokens don't require the `aws configure`
+step or credential files on the host. For more information, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md "CloudWatch-OTLP-MetricsBearerTokenAuth.md"). 4. Setup AWS credentials for your Amazon EKS or Kubernetes clusters.
+The easiest way to get started with Amazon EKS is to use the EKS OTel Container
+Insights add-on. If you prefer to use the OpenTelemetry Collector directly, follow
+the procedure below to set up AWS credentials for your Amazon EKS or Kubernetes
+clusters to send telemetry to CloudWatch.
 
 Setup IAM permissions for Amazon EKS
 
@@ -171,6 +176,20 @@ Setup IAM permissions for Kubernetes
 
 5. Configure the OTLP exporter in your collector configuration to send
    telemetry to the CloudWatch endpoint. See examples below.
+
+## Authenticate with a bearer token (API key)
+
+If you don't need to configure AWS credentials on the host – for
+example, when running on non-AWS infrastructure, other cloud providers, or
+CI/CD pipelines – you can use bearer token authentication instead of
+SigV4. Bearer tokens are supported for the metrics and logs endpoints (separate
+API keys are required for each service). Bearer token authentication is not
+supported for traces.
+
+For setup instructions, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md "CloudWatch-OTLP-MetricsBearerTokenAuth.md"). For logs, see [Setting up bearer token authentication for Logs](../logs/CWL_HTTP_Endpoints_BearerTokenAuth.md "../logs/CWL_HTTP_Endpoints_BearerTokenAuth.md").
+
+For a collector configuration example using bearer tokens, see the bearer token
+metrics example in the collector configuration examples below.
 
 ## Collector configuration examples
 
@@ -351,3 +370,54 @@ service:
       exporters: [**otlphttp**]
 
 ```
+
+**Metrics with bearer token authentication**
+
+The following is an example to send metrics using a bearer token to us-east-1.
+For setup instructions and security best practices, see [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md "CloudWatch-OTLP-MetricsBearerTokenAuth.md").
+
+```
+extensions:
+  bearertokenauth:
+    filename: "/etc/otel/cw-api-key"
+
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: "0.0.0.0:4318"
+
+processors:
+  batch:
+    send_batch_size: 200
+    timeout: 10s
+
+exporters:
+  otlphttp:
+    tls:
+      insecure: false
+    endpoint: "https://monitoring.us-east-1.amazonaws.com/v1/metrics"
+    auth:
+      authenticator: bearertokenauth
+
+service:
+  extensions: [bearertokenauth]
+  pipelines:
+    metrics:
+      receivers: [**otlp**]
+      processors: [**batch**]
+      exporters: [**otlphttp**]
+
+```
+
+###### Important
+
+Never hardcode API keys directly in collector configuration files. Use
+`filename` to read from a mounted secret, or `${env:VAR}`
+to read from an environment variable injected by your secrets manager.
+
+###### Note
+
+Unlike SigV4, bearer tokens don't require AWS credentials files, IAM
+roles, or IRSA configuration. The collector can run on any platform without
+AWS SDK dependencies.

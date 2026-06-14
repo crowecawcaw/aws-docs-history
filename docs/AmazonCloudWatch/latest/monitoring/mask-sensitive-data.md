@@ -20,12 +20,14 @@ your in your account.
 3. Choose the **Logs** tab.
 4. Choose **Configure the Data protection account policy**.
 5. Specify the data identifiers that are relevant to your data.
+
    - To use a a predefined data identifier, in the **Managed data identifiers** drop-down,
      select the data identifiers that are relevant to your data.
    - To use a custom data identifier, choose **Add custom data identifier**, and then
      specify a name for the identifier and a Regex pattern for the data to protect.
 
 6. (_Optional_) Choose a destination for the audit findings.
+
    - To send audit findings to a CloudWatch log, choose **Amazon CloudWatch Logs** and then select the
      destination log group.
    - To send audit findings to a Firehose stream, choose **Amazon Data Firehose** and then
@@ -42,12 +44,14 @@ your in your account.
 3. Choose the **Log groups** tab, select the log group you want to enable data protection on,
    and then choose **Create data protection policy**.
 4. Specify the data identifiers that are relevant to your data.
+
    - To use a a predefined data identifier, in the **Managed data identifiers** drop-down,
      select the data identifiers that are relevant to your data.
    - To use a custom data identifier, choose **Add custom data identifier**, and then
      specify a name for the identifier and a Regex pattern for the data to protect.
 
 5. (_Optional_) Choose a destination for the audit findings.
+
    - To send audit findings to a CloudWatch log, choose **Amazon CloudWatch Logs** and then select the
      destination log group.
    - To send audit findings to a Firehose stream, choose **Amazon Data Firehose** and then

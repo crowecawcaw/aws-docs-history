@@ -89,6 +89,27 @@ Default output format [None]: json
 
 You can enable logs and traces for your application to be sent directly to the OTLP endpoints from AWS Distro for OpenTelemetry (ADOT) SDK on Java, Node.js, Python, and .Net.
 
+###### Note
+
+When you send traces directly to the OTLP endpoint without using a collector, the SDK defaults to
+`parentbased_always_on`, which samples 100% of traces. This can result in up to 20x higher ingestion
+volume and costs compared to the recommended 5% sampling rate.
+
+If you plan to use Transaction Search for 100% trace visibility, no action is needed. If you want to moderate trace ingestion, configure a local sampler
+by setting the following environment variables before starting your application:
+
+```
+export OTEL_TRACES_SAMPLER="parentbased_traceidratio"
+export OTEL_TRACES_SAMPLER_ARG="0.05"
+```
+
+The example above samples 5% of traces. Adjust the value of `OTEL_TRACES_SAMPLER_ARG`
+between `0` and `1` to set the sampling rate appropriate for your workload.
+
+For more information about sampler configuration options, see
+[OTEL_TRACES_SAMPLER](https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler "https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler")
+in the OpenTelemetry documentation.
+
 Java
 
 ###### Note

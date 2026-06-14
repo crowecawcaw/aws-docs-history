@@ -60,6 +60,7 @@ This solution creates and uses resources in your account. You are charged for st
 
 - All metrics collected by the CloudWatch agent are charged as custom metrics. The number of metrics used by this solution depends on the number
   of EC2 hosts.
+
   - Each EC2 host configured for the solution publishes a total of 17 metrics per GPU.
 
 - One custom dashboard.
@@ -193,6 +194,7 @@ Use the following steps to store the recommended CloudWatch agent configuration 
 2. Verify that the selected Region on the console is the Region where the NVIDIA GPU workload is running.
 3. From the navigation pane, choose **Application Management**, **Parameter Store**.
 4. Follow these steps to create a new parameter for the configuration.
+
    1. Choose **Create parameter**.
    2. In the **Name** box, enter a name that you'll use to reference the CloudWatch agent configuration file in later steps.
       For example, `AmazonCloudWatch-NVIDIA-GPU-Configuration`.
@@ -214,9 +216,11 @@ You can use AWS CloudFormation to install the agent and configure it to use the 
 2. Verify that the selected Region on the console is the Region where the NVIDIA GPU workload is running.
 3. For **Stack name**, enter a name to identity this stack, such as `CWAgentInstallationStack`.
 4. In the **Parameters** section, specify the following:
+
    1. For **CloudWatchAgentConfigSSM**, enter the name of the Systems Manager parameter for the agent configuration
       that you created earlier, such as `AmazonCloudWatch-NVIDIA-GPU-Configuration`.
    2. To select the target instances, you have two options.
+
       1. For **InstanceIds**, specify a comma-delimited list of instance IDs list of instance IDs where you want to install
          the CloudWatch agent with this configuration. You can list a single instance or several instances.
       2. If you are deploying at scale, you can specify the **TagKey** and the corresponding **TagValue**

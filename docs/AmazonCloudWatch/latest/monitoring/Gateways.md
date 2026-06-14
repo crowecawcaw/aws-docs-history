@@ -10,11 +10,11 @@ comprehensive monitoring across multiple areas:
 - Observe data transformation accuracy when converting between different API formats
 - Track error rates and retry patterns for external service integrations
 
-![Gateways view](images/Gateways.png)
+![Gateways view.](images/Gateways.png)
 Expand the **View details** section to view the gateway metrics in graphs.
 
-![Gateways metrics view](images/Gateway_metrics.png)
+![Gateways metrics view.](images/Gateway_metrics.png)
 Under **Gateways**, choose a gateway **Name** to view the dashboard.
 You can also sort the list of gateways by click the column headers in the table.
 
-![Gateways details view](images/Gateways_tile.png)
+![Gateways details view.](images/Gateways_tile.png)

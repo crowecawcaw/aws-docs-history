@@ -389,6 +389,7 @@ these troubleshooting steps.
     artifact and navigate to the Amazon S3 folders or buckets through the available links.
 6.  The **Canary runs** graph uses different colored points to indicate
     various status:
+
     - Blue Points – Indicates successful scheduled runs with a consistent value
       of 100%
     - Red Points – Displays failure of both scheduled runs and all retries,

@@ -9,12 +9,18 @@ organization.
   metrics in _source accounts_ which have enabled resource tags on their telemetry.
 - **Creating tag-based CloudWatch alarms** – After you enable resource tags for telemetry in your account, you can create CloudWatch alarms on tag-based Metrics Insights queries to alert on your AWS infrastructure metrics by tag.
   Example alarms using tag-based queries can be seen in the [CloudWatch Metric Insights alarms documentation](cloudwatch-metrics-insights-alarms.md "cloudwatch-metrics-insights-alarms.md").
+- **Querying AWS metrics with PromQL using resource tags** – After you enable resource tags for telemetry in your account, you can enable OTel enrichment to query your AWS infrastructure metrics using PromQL with resource tags as labels. This lets you filter, aggregate, and alert on metrics by any tag you've applied to your AWS resources. For more information, see
+  [Enabling vended metrics in PromQL](CloudWatch-OTelEnrichment.md "CloudWatch-OTelEnrichment.md"). For example queries using tags, see
+  [Querying vended AWS metrics with PromQL](CloudWatch-PromQL-Querying.md#CloudWatch-PromQL-Querying-Vended "CloudWatch-PromQL-Querying.md#CloudWatch-PromQL-Querying-Vended").
 
 ## Supported AWS infrastructure metrics
 
 The list below displays the CloudFormation resource that support resource tags for telemetry enrichment in CloudWatch. When you enable resource tags for telemetry, CloudWatch can enrich metrics from these services with their associated resource tags.
 
+- AWS::APS::RuleGroupsNamespace
+- AWS::APS::Workspace
 - AWS::ApiGatewayV2::Api
+- AWS::AppFlow::Flow
 - AWS::AppSync::GraphQLApi
 - AWS::Athena::CapacityReservation
 - AWS::Athena::WorkGroup
@@ -22,8 +28,10 @@ The list below displays the CloudFormation resource that support resource tags f
 - AWS::Backup::BackupVault
 - AWS::CloudFront::Distribution
 - AWS::CloudWatch::MetricStream
+- AWS::CodeGuruProfiler::ProfilingGroup
 - AWS::Cognito::UserPool
 - AWS::Connect::Instance
+- AWS::DAX::Cluster
 - AWS::DataSync::Agent
 - AWS::DataSync::Task
 - AWS::DocDB::DBCluster
@@ -32,6 +40,7 @@ The list below displays the CloudFormation resource that support resource tags f
 - AWS::DynamoDB::GlobalTable
 - AWS::DynamoDB::Table
 - AWS::EC2::CapacityReservation
+- AWS::EC2::ClientVpnEndpoint
 - AWS::EC2::Host
 - AWS::EC2::Instance
 - AWS::EC2::NatGateway
@@ -44,13 +53,18 @@ The list below displays the CloudFormation resource that support resource tags f
 - AWS::EFS::FileSystem
 - AWS::EKS::Cluster
 - AWS::EMR::Cluster
+- AWS::EMRServerless::Application
 - AWS::ElastiCache::CacheCluster
 - AWS::ElastiCache::ReplicationGroup
+- AWS::ElasticBeanstalk::Environment
 - AWS::ElasticLoadBalancing::LoadBalancer
 - AWS::ElasticLoadBalancingV2::LoadBalancer
 - AWS::ElasticLoadBalancingV2::TargetGroup
 - AWS::Events::Rule
 - AWS::FSx::FileSystem
+- AWS::FraudDetector::Detector
+- AWS::GameLift::GameSessionQueue
+- AWS::GameLift::MatchmakingConfiguration
 - AWS::Glue::Job
 - AWS::IVSChat::LoggingConfiguration
 - AWS::IoT::CACertificate
@@ -58,15 +72,20 @@ The list below displays the CloudFormation resource that support resource tags f
 - AWS::IoT::SecurityProfile
 - AWS::IoT::TopicRule
 - AWS::KMS::Key
+- AWS::Kendra::DataSource
+- AWS::Kendra::Index
 - AWS::Kinesis::Stream
 - AWS::KinesisAnalyticsV2::Application
 - AWS::KinesisFirehose::DeliveryStream
 - AWS::Lambda::Function
 - AWS::M2::Application
 - AWS::MediaTailor::Channel
+- AWS::MemoryDB::Cluster
 - AWS::Neptune::DBCluster
 - AWS::Neptune::DBInstance
 - AWS::NetworkFirewall::Firewall
+- AWS::OpenSearchServerless::Collection
+- AWS::OpenSearchService::Domain
 - AWS::Pinpoint::App
 - AWS::Pipes::Pipe
 - AWS::RDS::DBCluster
@@ -76,12 +95,17 @@ The list below displays the CloudFormation resource that support resource tags f
 - AWS::RedshiftServerless::Namespace
 - AWS::RedshiftServerless::Workgroup
 - AWS::Route53::HealthCheck
+- AWS::Route53Resolver::FirewallRuleGroup
+- AWS::Route53Resolver::ResolverEndpoint
 - AWS::S3::Bucket
 - AWS::SNS::Topic
 - AWS::SQS::Queue
 - AWS::SageMaker::Endpoint
 - AWS::SageMaker::InferenceComponent
+- AWS::Scheduler::ScheduleGroup
 - AWS::Synthetics::Canary
 - AWS::Transfer::Connector
 - AWS::Transfer::Server
 - AWS::VpcLattice::Service
+- AWS::WorkSpaces::Workspace
+- AWS::WorkSpaces::WorkspacesPool

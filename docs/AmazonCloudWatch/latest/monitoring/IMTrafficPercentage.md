@@ -40,6 +40,7 @@ to get a feel for what a good application traffic percentage to choose might be,
    can evaluate the impact on the total number of city-networks that are monitored, depending on a traffic percentage that
    you choose. You can also update the percentage of traffic that you monitor or change the city-networks limit for
    your monitor.
+
    - **Explore traffic percentage options:** Under **Compare options for traffic coverage**, in the drop-down menu,
      choose one or more traffic percentages to graph and compare. For each traffic percentage that you choose,
      you can see the number of city-networks that will be monitored when you set that traffic percentage coverage.

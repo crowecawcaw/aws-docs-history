@@ -6,18 +6,19 @@ Understand how your agents store, retrieve, and use contextual information to pr
 - **Memory sessions** – Monitor memory usage within individual sessions
 - **Traces view** – Access detailed trace information for memory operations
 
-![Memory view](images/Memory.png)
+![Memory view.](images/Memory.png)
 To understand short-term or long-memory, see [Add memory to your AI agent](../../../bedrock-agentcore/latest/devguide/memory.md "../../../bedrock-agentcore/latest/devguide/memory.md") .
 
 Choose **View details** to view the memory metrics in graphs.
 
-![Memory metrics view](images/Memory_metrics.png)
+![Memory metrics view.](images/Memory_metrics.png)
 Under **Memories**, you can view all the memories associated with your account. Choose a memory **Name** to view the memory details.
 
-![Memory metrics view](images/Memory_details.png)
+![Memory metrics view.](images/Memory_details.png)
 On the **Memory details** page, you will see the following tabs:
 
 - **Overview** – Displays comprehensive memory performance metrics and usage patterns for the selected memory resource
+
   - **Associated agents** – You can view the agents using the memory. Choose an **Agent/Endpoint**
     to view the agent overview page.
   - **Memory API invocations** – Total number of API calls made to memory operations including storage, retrieval, and update requests. This metric helps track memory system usage and capacity planning

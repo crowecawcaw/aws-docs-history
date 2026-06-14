@@ -11,6 +11,7 @@ and how to work with active investigations:
 ###### Contents
 
 - [Create an investigation](Investigations-CreateInvestigation.md "Investigations-CreateInvestigation.md")
+
   - [Create an investigation from Amazon Q chat](Investigations-CreateInvestigation.md#Investigations-CreateInvestigation-QChat "Investigations-CreateInvestigation.md#Investigations-CreateInvestigation-QChat")
   - [Create an investigation from a CloudWatch alarm action](Investigations-CreateInvestigation.md#Investigations-CreateInvestigation-AlarmAction "Investigations-CreateInvestigation.md#Investigations-CreateInvestigation-AlarmAction")
 

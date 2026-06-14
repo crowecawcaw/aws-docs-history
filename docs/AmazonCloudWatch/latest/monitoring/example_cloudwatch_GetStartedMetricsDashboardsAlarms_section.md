@@ -1383,6 +1383,7 @@ Example settings.json values for the scenario.
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [DeleteAlarms](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarms.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAlarms.md")
   - [DeleteAnomalyDetector](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteAnomalyDetector.md")
   - [DeleteDashboards](../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards.md "../../../goto/DotNetSDKV4/monitoring-2010-08-01/DeleteDashboards.md")
@@ -2993,6 +2994,7 @@ public class CloudWatchActions {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [DeleteAlarms](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAlarms.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAlarms.md")
   - [DeleteAnomalyDetector](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteAnomalyDetector.md")
   - [DeleteDashboards](../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards.md "../../../goto/SdkForJavaV2/monitoring-2010-08-01/DeleteDashboards.md")
@@ -3822,6 +3824,7 @@ suspend fun listNameSpaces(): ArrayList<String> {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [DeleteAlarms](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DeleteAnomalyDetector](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DeleteDashboards](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")

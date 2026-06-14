@@ -90,7 +90,7 @@ actions).
 When you grant a user the `cloudwatch:PutInsightRule` permission,
 by default that user can create a rule that evaluates any log group in CloudWatch Logs.
 You can add IAM policy conditions that limit these permissions for a user to
-include and exclude specific log groups. For more information, see [Using condition keys to limit Contributor Insights users' access to log groups](iam-cw-condition-keys-contributor.md "iam-cw-condition-keys-contributor.md").
+include and exclude specific log groups. For more information, see [Condition keys for Contributor Insights log group access](iam-cw-condition-keys-contributor.md "iam-cw-condition-keys-contributor.md").
 
 | CloudWatch Contributor Insights API operations                                                                    | Required permissions (API actions)                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

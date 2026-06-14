@@ -25,7 +25,7 @@ The following Agent metrics are supported:
   Choose **View details** to see the Agent metrics in
   graphs.
 
-![Agents view](images/GenAI_AgentCoreGraphs.png)
+![Agents view.](images/GenAI_AgentCoreGraphs.png)
 **Runtime metrics**
 
 The Runtime metrics and dashboards display data from the Runtime primitive. Using
@@ -55,7 +55,7 @@ AgentCore Runtime supports these metrics
   View metric changes over time in the default dashboard. Expand **View
   details** to display metric graphs.
 
-![Runtime view](images/GenAI_Runtime.png)
+![Runtime view.](images/GenAI_Runtime.png)
 **Agents**
 
 Agents are components that collect and send monitoring data from your
@@ -68,10 +68,10 @@ You can use **Filter agents** to find a specific agent that you
 want to deep dive or you can also use the column names to sort the agents to find
 the required agent. Select the gear icon to show or hide additional columns.
 
-![Runtime agents view](images/GenAI_agents.png)
+![Runtime agents view.](images/GenAI_agents.png)
 You can view the details of the Agent by expanding the agent name.
 
-![Runtime agents overview](images/GenAI_agentsdetails_new.png)
+![Runtime agents overview.](images/GenAI_agentsdetails_new.png)
 **Agent details- Overview**
 
 The Overview tab displays automatic dashboards for your agent metrics. These

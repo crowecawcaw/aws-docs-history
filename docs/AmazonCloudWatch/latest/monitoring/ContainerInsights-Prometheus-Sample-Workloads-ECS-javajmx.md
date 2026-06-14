@@ -11,11 +11,12 @@ in the CloudWatch agent configuration.
 
 To collect metrics from a sample Prometheus workload for Amazon ECS, you must be
 running Container Insights in the cluster. For information about installing Container
-Insights, see [Setting up Container Insights on Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
+Insights, see [Amazon ECS](deploy-container-insights-ECS.md "deploy-container-insights-ECS.md").
 
 ###### To install the Java/JMX sample workload for Amazon ECS clusters
 
 1.  Follow the steps in these sections to create your Docker images.
+
     - [Example: Java Jar Application Docker image with Prometheus metrics](ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-jar "ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-jar")
     - [Example: Apache Tomcat Docker image with Prometheus metrics](ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-tomcat "ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-tomcat")
 

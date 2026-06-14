@@ -7,7 +7,7 @@ The **Gateway metrics** section lists all of the agents associated with the
 selected gateway, and it provides information about the number of sessions, traces and errors
 for each associated agent.
 
-![Gateway metrics](images/overview_metrics.png)
+![Gateway metrics.](images/overview_metrics.png)
 Additionally, the **Overview** tab includes the following interactive charts.
 
 Invocations
@@ -35,7 +35,7 @@ The **Policy decisions over time** chart provides information about the
 number of decisions that resulted in `allow` and `deny` authorization
 actions. To view decisions for a specific policy, select the policy in the drop-down.
 
-![Policy decisions over time chart](images/05_policydecisions.png)
+![Policy decisions over time chart.](images/05_policydecisions.png)
 
 Policy decisions: Per policy distribution
 The **Policy decisions: Per policy distribution** chart lists all of the
@@ -43,4 +43,4 @@ policy engines associated with the selected gateway, and shows the policy, numbe
 and denies, and enforcement mode for each policy engine. You can choose a policy engine or
 policy in the list to view more details about it in the Amazon Bedrock AgentCore console.
 
-![Policy decisions: Per policy distribution](images/06_policydistribution.png)
+![Policy decisions: Per policy distribution.](images/06_policydistribution.png)

@@ -29,10 +29,11 @@ customer identifiers or order numbers, correlate transactions to business events
 failed payments, and trace interactions between application components to establish root
 cause.
 
-![OpenTelemetry overview](images/OpenTelemetry.png)
+![OpenTelemetry overview.](images/OpenTelemetry.png)
 
 ###### Topics
 
 - [OTLP Endpoints](CloudWatch-OTLPEndpoint.md "CloudWatch-OTLPEndpoint.md")
 - [Getting started](CloudWatch-OTLPGettingStarted.md "CloudWatch-OTLPGettingStarted.md")
+- [Setting up bearer token authentication for Metrics](CloudWatch-OTLP-MetricsBearerTokenAuth.md "CloudWatch-OTLP-MetricsBearerTokenAuth.md")
 - [Troubleshooting](CloudWatch-OTLPTroubleshooting.md "CloudWatch-OTLPTroubleshooting.md")

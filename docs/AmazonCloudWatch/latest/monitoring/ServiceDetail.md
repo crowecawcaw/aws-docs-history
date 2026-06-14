@@ -64,14 +64,14 @@ summary of the following:
 
 The following illustration shows an overview of your services:
 
-![Service overview widgets](images/service-detail-widgets.png)
+![Service overview widgets.](images/service-detail-widgets.png)
 
 The **Overview** tab also displays a graph of dependencies with the
 highest latency across all services. Use the **p99**,
 **p90** and **p50** latency metrics to quickly assess
 which dependencies are contributing to your total service latency, as follows:
 
-![Service operations latency graph](images/service-detail-latency.png)
+![Service operations latency graph.](images/service-detail-latency.png)
 
 For example, the previous graph shows that 99% of the requests made to the
 **customer-service** dependency were completed in approximately 4,950
@@ -81,7 +81,7 @@ Graphs displaying the top four service operations by latency show the volume of 
 availability, fault rate, and error rate for those services, as shown in the following
 image:
 
-![Service operations volume, availability, fault rate, and error rate graphs](images/service-detail-operations-graphs.png)
+![Service operations volume, availability, fault rate, and error rate graphs.](images/service-detail-operations-graphs.png)
 
 The **Service details** section displays the details of the service including the **Account ID** and **Account label**.
 
@@ -94,7 +94,7 @@ metrics that measure the performance of a selected operation. These metrics incl
 status, number of dependencies, latency, volume, faults, errors, and availability, as shown in
 the following image:
 
-![Service operations table](images/service-operations-table.png)
+![Service operations table.](images/service-operations-table.png)
 
 Filter the table to make it easier to find a service operation by choosing one or more
 properties from the filter text box. As you choose each property, you are guided through
@@ -105,7 +105,7 @@ Choose the SLI status for an operation to display a popup containing a link to a
 unhealthy SLI, and a link to see all SLOs for the operation, as shown in the following
 table:
 
-![Service operation SLI status](images/service-operation-unhealthy-slo.png)
+![Service operation SLI status.](images/service-operation-unhealthy-slo.png)
 
 The service operations table lists the SLI status, the number of healthy or unhealthy
 SLIs, and the total number of SLOs for each operation.
@@ -119,6 +119,7 @@ To create an SLO, do the following:
 - If an operation does not have an SLO, choose the **Create SLO**
   button within the **SLI Status** column.
 - If an operation already has an SLO, do the following:
+
   - Select the radio button next to the operation name.
   - Choose **Create SLO** from the **Actions** down
     arrow at the top right of the table.
@@ -152,7 +153,7 @@ graph. The pane contains **Correlated traces**, **Top
 contributors**, and **Application logs** associated with the
 selected point.
 
-![Correlated traces for faults and errors](images/service-detail-correlated-traces.png)
+![Correlated traces for faults and errors.](images/service-detail-correlated-traces.png)
 
 #### Correlated traces
 
@@ -175,7 +176,7 @@ volume**, **Availability**, **Avg latency**,
 following example image shows top contributors to a suite of metrics for an application
 deployed on an Amazon EKS platform:
 
-![Service operation top contributors](images/service-operations-top-contributors.png)
+![Service operation top contributors.](images/service-operations-top-contributors.png)
 
 The top contributors contains the following metrics:
 
@@ -247,7 +248,7 @@ sort clusters, nodes or workloads by resource consumption and quickly identify a
 or and mitigate risks pro-actively before end user experience is impacted. An image
 showing how to select these options follows:
 
-![Top contributors table](images/service-operations-top-contributors-insights.png)
+![Top contributors table.](images/service-operations-top-contributors-insights.png)
 
 In **Container Insights**, you can view metrics for your Amazon EKS or
 Amazon ECS container that are specific to the grouping of your top contributors. For example,
@@ -303,7 +304,7 @@ query.
 The following image shows the sample query that is automatically generated based on
 the selected point in the service operations graph:
 
-![Application logs table](images/service-operations-application-logs.png)
+![Application logs table.](images/service-operations-application-logs.png)
 
 In the preceding image, CloudWatch has automatically detected the log group that is
 associated with your selected point, and included it in a generated query.
@@ -327,7 +328,7 @@ filter criteria and will see the complete filter below the filter text box. Choo
 by service and operation name. When grouping is turned on, expand or collapse a group of
 dependencies with the **+** icon next to the dependency name.
 
-![Dependencies table](images/service-dependencies-table.png)
+![Dependencies table.](images/service-dependencies-table.png)
 
 The **Dependency** column displays the dependency service name, while the
 **Remote Operation** column displays the service operation name. The **SLI status** column displays the number of healthy or unhealthy SLIs along with the total number of SLIs for each dependency. When
@@ -342,7 +343,7 @@ that shows correlated traces for the selected point in the graph. Choose a trace
 **Correlated traces** table to open the [X-Ray Trace details](../../../xray/latest/devguide/xray-console-traces.md "../../../xray/latest/devguide/xray-console-traces.md") page for
 the selected trace.
 
-![Dependency graphs and correlated traces](images/service-dependency-graph-traces.jpg)
+![Dependency graphs and correlated traces.](images/service-dependency-graph-traces.jpg)
 
 ## View your Synthetics canaries
 
@@ -356,7 +357,7 @@ Use the filter text box in the synthetics canaries table to find the canary that
 interested in. Each filter that you create appears below the filter text box. Choose
 **Clear filters** at any time to remove the table filter.
 
-![Synthetics canaries table](images/service-canaries-table.png)
+![Synthetics canaries table.](images/service-canaries-table.png)
 
 Select the radio button next to the name of the canary to see a set of tabs containing
 graphs detailed metrics including success percentage, errors and duration. Hover over a point
@@ -367,7 +368,7 @@ including logs, HTTP Archive (HAR) files, screenshots, and suggested steps to
 help you troubleshoot problems. Choose **Larn more** to open the [CloudWatch Synthetics Canaries](CloudWatch_Synthetics_Canaries.md "CloudWatch_Synthetics_Canaries.md") page next to
 **Canary runs**.
 
-![Synthetics canary graphs and runs](images/service-canary-graphs-runs.jpg)
+![Synthetics canary graphs and runs.](images/service-canary-graphs-runs.jpg)
 
 ## View your client pages
 
@@ -387,7 +388,7 @@ the table filter. Select **Group by Client** to group client pages by client.
 When grouped, choose the **+** icon next to a client name to expand the row
 and see all pages for that client.
 
-![Client pages table](images/service-client-pages-table.png)
+![Client pages table.](images/service-client-pages-table.png)
 
 To select a client page, select the option next to a client page in the **Client
 pages** table. You will see a set of graphs that display detailed metrics. Hover
@@ -395,7 +396,7 @@ over a point in a graph to see a popup containing more information. Select a poi
 to open a diagnostic pane that shows correlated performance navigation events for the selected
 point in the graph. Choose an event ID from the list of navigation events to open the [CloudWatch RUM Page view](CloudWatch-RUM-view-data.md "CloudWatch-RUM-view-data.md") for the chosen event.
 
-![CloudWatch RUM client page requests](images/service-client-page-graphs-events.jpg)
+![CloudWatch RUM client page requests.](images/service-client-page-graphs-events.jpg)
 
 ###### Note
 
@@ -419,7 +420,7 @@ The metrics table shows three types of metrics:
 
 You can access the Related metrics tab from Service Overview, Service Operations, Dependencies, Synthetics canaries, or RUM tabs.
 
-![View related metrics](images/Custom_metrics.png)
+![View related metrics.](images/Custom_metrics.png)
 
 - The left navigation panel starts with all operations and dependencies unselected
 - The graph initially shows the Fault metric from the operation with the highest fault rate
@@ -430,6 +431,7 @@ Before you begin correlation analysis, make sure you have data points visible in
 2. Select a data point on any graph.
 3. In the right-panel, choose **Correlate with Other Metrics**.
 4. On the **Related metrics** tab that opens, you'll see:
+
    - Your selected operation or dependency in the left navigation
    - Your selected metric graphed in the _Browse metrics_ table
    - Correlated spans when you select a data point

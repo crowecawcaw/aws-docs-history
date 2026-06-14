@@ -86,6 +86,7 @@ These steps are designed to be completed all at once. You can't save in-process 
 5. For **Protocol**, choose the network protocol for the on-premises destination.
    The protocol can be either **ICMP** or **TCP**.
 6. If you choose **TCP**, enter the following information:
+
    1. Enter the **Port** that your network uses to connect. The port must be
       a number from **1** to **65535**.
    2. Enter the **Packet size**. This is the size, in bytes, of each packet

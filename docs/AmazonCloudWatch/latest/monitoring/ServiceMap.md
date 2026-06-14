@@ -59,7 +59,7 @@ If you want to define your own custom grouping, click **Manage groups** to defin
 
 To enable grouping via OTEL resource attributes, the CloudWatch agent version must be v1.300056.0 or later.
 
-![Create custom grouping panel](images/explore-application-map-create-custom-grouping.png)
+![Create custom grouping panel.](images/explore-application-map-create-custom-grouping.png)
 
 Default grouping in Application Signals automatically organizes services based on their downstream dependencies. The system analyzes the service dependency graph and creates groups where the root node (a service with no upstream dependencies) becomes the group name. All services that depend on this root service, either directly or indirectly, are automatically included in the group. For example, if Service A calls Service B, which in turn calls Service C, all three services will be grouped together with Service A as the group name since it's the root of the dependency chain. This automatic grouping mechanism provides a natural way to visualize and manage related services based on their actual runtime interactions and dependencies.
 
@@ -69,25 +69,25 @@ For each group, you can perform the following actions:
 
 - Click **View more** to view metrics charts, the last two change events, and last deployment time for the group
 
-![View more drawer for group in application map](images/explore-application-map-view-more.png)
+![View more drawer for group in application map.](images/explore-application-map-view-more.png)
 
 - Click **View dashboard** to view metrics dashboard, change events table, and service list for the group
 
-![View application dashboard for group](images/explore-application-map-team-overview.png)
+![View application dashboard for group.](images/explore-application-map-team-overview.png)
 
-![View application dashboard for group with metrics graphs](images/explore-application-map-team-overview-2.png)
+![View application dashboard for group with metrics graphs.](images/explore-application-map-team-overview-2.png)
 
 You can use **Group and filter** on the left bar to filter groups which have services with deployment time, SLI health status or compute platform type.
 
-![Grouping and filter services on the application dashboard](images/explore-application-map-grouping-filter.png)
+![Grouping and filter services on the application dashboard.](images/explore-application-map-grouping-filter.png)
 
 You can also filter by account to view services from specific AWS accounts in your cross-account observability setup.
 
-![Filter services by account on the application dashboard](images/explore-application-map-account-filter.png)
+![Filter services by account on the application dashboard.](images/explore-application-map-account-filter.png)
 
 Use the **Search and filter** bar to search groups by name or search groups which contain specific service environment or dependency. Filter by account ID to focus on services from specific accounts.
 
-![Search and filter services in application map](images/explore-application-map-search-and-filter.png)
+![Search and filter services in application map.](images/explore-application-map-search-and-filter.png)
 
 ### Configuring custom groups
 
@@ -192,21 +192,21 @@ To view services and their dependencies in a group, click on the Group name. It 
 
 Un-instrumented services are displayed with a distinctive visual indicator (such as a dashed border or different color) to differentiate them from instrumented services. Hover over an un-instrumented service node to see instrumentation guidance and links to setup documentation.
 
-![Filter by uninstrumented services on application map](images/explore-application-map-uninstrumented-filter.png)
+![Filter by uninstrumented services on application map.](images/explore-application-map-uninstrumented-filter.png)
 
 All Canaries, RUM Clients and AWS Service nodes will be collapsed by default. If services in this group call services which are not part of this group, they will also be collapsed by default.
 
-![Canary nodes are collapsed into a group in application map](images/explore-application-map-canary-collapse.png)
+![Canary nodes are collapsed into a group in application map.](images/explore-application-map-canary-collapse.png)
 
 If your map is still too large to investigate effectively, you can apply nested grouping to narrow down your investigation. For example, after grouping services by **Business Unit**, if you still have too many services in a group, use the Group by dropdown to select **Team**, creating a nested grouping structure.
 
-![Nested grouping in application map](images/explore-application-map-nested-grouping.png)
+![Nested grouping in application map.](images/explore-application-map-nested-grouping.png)
 
 ### Service insights and details
 
 While on this page you can also click **Save view** next to search bar to save your view so next time you don't have to apply the same grouping and filtering again.
 
-![Save grouping configuration](images/explore-application-map-save-view.png)
+![Save grouping configuration.](images/explore-application-map-save-view.png)
 
 Click on **View more** in service node to view Service Audit, Change events, SLI health and Metrics graphs.
 
@@ -218,7 +218,7 @@ If you want to view service operation and other service detail, click on **View 
 
 Alternatively you can click on Edge to view metrics of a specific dependency call of a service.
 
-![CloudWatch application map node edge drawer](images/explore-application-map-edge.png)
+![CloudWatch application map node edge drawer.](images/explore-application-map-edge.png)
 
 ### Change Events
 
@@ -278,7 +278,7 @@ error rate, as shown in the following example image. Choose any link in the pane
 the [Service details](ServiceDetail.md "ServiceDetail.md") page and see detailed
 information for the chosen service or dependency.
 
-![A CloudWatch application map service edge](images/App-signals-service-edge.png)
+![A CloudWatch application map service edge.](images/App-signals-service-edge.png)
 
 When you select a edge node, a pane opens displaying detailed service information:
 
@@ -310,7 +310,7 @@ Un-instrumented services help you:
 
 Un-instrumented services display limited telemetry data since they don't actively send metrics or traces.
 
-![CloudWatch application map instrumentation filter](images/explore-application-map-instrumentation-filter.png)
+![CloudWatch application map instrumentation filter.](images/explore-application-map-instrumentation-filter.png)
 
 View dependencies
 Your application dependencies are displayed on the application map, connected to the

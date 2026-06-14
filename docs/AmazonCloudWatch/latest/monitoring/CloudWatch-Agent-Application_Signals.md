@@ -38,6 +38,7 @@ high-cardinality telemetry as outlined in this section.
   are related to CloudWatch Application Signals.
 
 - `logs`
+
   - `metrics_collected` – This field can contain sections to
     specify that the agent is to collect logs to enable use cases such as CloudWatch
     Application Signals and Container Insights with enhanced observability for
@@ -138,7 +139,9 @@ high-cardinality telemetry as outlined in this section.
       		 `true`.
 
 - `traces`
+
   - `traces_collected`
+
     - `application_signals` Optional. Specify this to enable the CloudWatch
       agent to receive traces from your auto-instrumented applications for
       facilitating CloudWatch Application Signals.

@@ -30,6 +30,7 @@ To use custom OpenTelemetry metrics with Application Signals, you must use eithe
 
 1. Onboard service to Application Signals.
 2. Configure the agent or collector.
+
    - When using the CloudWatch agent, you must [configure](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md") `metrics_collected` with an `otlp`. For example, `cloudwatch-config.json`
 
    ```
@@ -50,7 +51,6 @@ To use custom OpenTelemetry metrics with Application Signals, you must use eithe
      }
    }
    ```
-
    - When using OpenTelemetry Collector, configure a metrics pipeline.
      You must use [CloudWatch EMF Exporter for OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awsemfexporter "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awsemfexporter") and
      enable [Resource Attributes to Metric Labels](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awsemfexporter#resource-attributes-to-metric-labels "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awsemfexporter#resource-attributes-to-metric-labels"). It's recommended to configure `dimension_rollup_option: NoDimensionRollup` to
@@ -113,6 +113,7 @@ OTEL_RESOURCE_ATTRIBUTES="service.name=$YOUR_SVC_NAME,deployment.environment.nam
 ```
 
 4. Configure metric export to the CloudWatch agent or OpenTelemetry Collector. You can use one of the following approach:
+
    - (Recommended) Custom export pipeline – In the application code, create a dedicated [MeterProvider](https://opentelemetry.io/docs/specs/otel/metrics/sdk/#meterprovider "https://opentelemetry.io/docs/specs/otel/metrics/sdk/#meterprovider") exporting to the configured agent or collector endpoint. For example:
 
    ```
@@ -136,7 +137,6 @@ OTEL_RESOURCE_ATTRIBUTES="service.name=$YOUR_SVC_NAME,deployment.environment.nam
 
    Meter meter = meterProvider.get("myMeter");
    ```
-
    - Agent-based export – Configure the agent environment variables [OTEL_METRICS_EXPORTER](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection "https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection") and
      [OTEL_EXPORTER_OTLP_METRICS_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_metrics_endpoint "https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_metrics_endpoint"). For example:
 
@@ -192,6 +192,7 @@ To ensure 100% metric sampling, it's recommended to send 100% of spans to the en
     ```
 
 3. Create a metric filter with the following values. For information on how to create a metric filter, see [Create a metric filter for a log group](../logs/CreateMetricFilterProcedure.md "../logs/CreateMetricFilterProcedure.md").
+
    - Log Group – aws/spans
    - Filter pattern – { $.attributes.['myattribute'] = \* }
    - Metric name – myattribute (The values must be an exact match or span correlation will not work

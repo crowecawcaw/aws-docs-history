@@ -64,6 +64,7 @@ of a metric search** and then do the following:
 
 10. (Optional) For more settings, choose **Secondary settings** and do one or
     more of the following:
+
     - To customize the name of your variable, enter the name in
       **Custom variable name**.
     - To customize the label for the variable input field, enter the label in **Input

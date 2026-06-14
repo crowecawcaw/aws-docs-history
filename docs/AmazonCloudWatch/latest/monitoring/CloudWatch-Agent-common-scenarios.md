@@ -29,6 +29,7 @@ different user, use one of the following procedures.
 2. Create a new Linux user or use the default user named `cwagent` that the
    RPM or DEB file created.
 3. Provide credentials for this user in one of these ways:
+
    - If the file `.aws/credentials` exists in the home directory
      of the root user, you must create a credentials file for the user you are going to
      use to run the CloudWatch agent. This credentials file will be
@@ -38,6 +39,7 @@ different user, use one of the following procedures.
      For more information, see [Install the CloudWatch agent using AWS Systems Manager](installing-cloudwatch-agent-ssm.md "installing-cloudwatch-agent-ssm.md").
    - If the file `.aws/credentials` does not exist in the home
      directory of the root user, you can do one of the following:
+
      - Create a credentials file for the user you are going to use to run the CloudWatch
        agent. This credentials file will be
        `/home/`username`/.aws/credentials`.

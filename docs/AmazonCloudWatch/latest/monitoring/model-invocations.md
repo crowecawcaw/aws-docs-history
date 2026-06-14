@@ -32,7 +32,7 @@ using Amazon Bedrock invocations. After enabling `Model Invocation
  logging`, you can view the default dashboards and access the
 invocation table below them.
 
-![generative AI observability](images/GenAI.png)
+![generative AI observability.](images/GenAI.png)
 
 - **Invocation count** – Number of
   successful requests to the [Converse](../../../bedrock/latest/APIReference/API_runtime_Converse.md "../../../bedrock/latest/APIReference/API_runtime_Converse.md"), [ConverseStream](../../../bedrock/latest/APIReference/API_runtime_ConverseStream.md "../../../bedrock/latest/APIReference/API_runtime_ConverseStream.md"), [InvokeModel](../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md "../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md"), and [InvokeModelWithResponseStream](../../../bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md "../../../bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md") API operations
@@ -68,7 +68,7 @@ invocation table below them.
    to view the details of the request. You can view the model invocation input and
    output details on the right-pane.
 
-![Model Invocation - Request ID view](images/GenAI_Model_Invocation.png)
+![Model Invocation - Request ID view.](images/GenAI_Model_Invocation.png)
 On the **Request ID** page, under **Actions**
 drop-down, choose **View in Logs Insights** to view the logs in CloudWatch.
 For more information, see [Analyzing log data with

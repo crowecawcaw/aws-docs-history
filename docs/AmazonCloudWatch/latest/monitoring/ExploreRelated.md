@@ -270,7 +270,7 @@ configure it correctly. For information about configuring the agent, see
 [How to add related information to custom telemetry sent to CloudWatch](adding-your-own-related-telemetry.md "adding-your-own-related-telemetry.md"). For workloads running on Amazon EKS, you
 must have at least version `v2.3.1-eksbuild.1` of the Amazon CloudWatch
 Observability EKS add-on. For more information about this add-on, see
-[Quick start with the Amazon CloudWatch Observability EKS add-on](Container-Insights-setup-EKS-addon.md "Container-Insights-setup-EKS-addon.md").
+[Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md "container-insights-eks-otel-quickstart.md").
 
 To explore related telemetry you must be signed in with certain permissions.
 Exploring related telemetry is a read-only activity, and requires at least read-only

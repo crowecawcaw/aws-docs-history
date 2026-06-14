@@ -19,9 +19,9 @@ based on the canary's frequency. If you configure a timeout value, make it no sh
 15 seconds to allow for Lambda cold starts and the time it takes to boot up the canary
 instrumentation.
 
-## syn-nodejs-puppeteer-15.1
+## syn-nodejs-puppeteer-16.0
 
-`syn-nodejs-puppeteer-15.1` is the most recent Synthetics runtime for
+`syn-nodejs-puppeteer-16.0` is the most recent Synthetics runtime for
 Node.js and Puppeteer.
 
 ###### Important
@@ -62,22 +62,52 @@ For more information, see the following:
 - Chromium version 147.0.7727.57
 - Firefox version 147.0.4
 
+**Changes in syn-nodejs-puppeteer-16.0**
+
+- Upgrade `ImageMagick` to 7.1.2-15 to address the following CVEs:
+
+  - CVE-2023-34152
+  - CVE-2025-53014
+  - CVE-2025-53101
+  - CVE-2025-57807
+  - CVE-2026-22770
+  - CVE-2026-23876
+  - CVE-2026-25897
+  - CVE-2026-25898
+  - CVE-2026-25968
+  - CVE-2026-25971
+  - CVE-2026-25983
+  - CVE-2026-25986
+  - CVE-2026-25987
+  - CVE-2026-26284
+
+The following earlier runtime versions for Node.js and Puppeteer are still
+supported.
+
+### syn-nodejs-puppeteer-15.1
+
+**Major dependencies**:
+
+- Lambda runtime Node.js 22.x
+- Puppeteer-core version 24.42.0
+- Chromium version 147.0.7727.57
+- Firefox version 147.0.4
+
 **Changes in syn-nodejs-puppeteer-15.1**
 
 - Updated Puppeteer and browser versions.
 - Upgrade `basic-ftp` to 5.3.1 to address the following CVEs:
+
   - CVE-2026-39983
   - CVE-2026-41324
   - GHSA-6v7q-wjvx-w8wg
   - GHSA-rpmf-866q-6p89
 
 - Upgrade `Chromium` to 147.0.7727.57 to address the following CVEs:
+
   - CVE-2026-3909
   - CVE-2026-3910
   - CVE-2026-5281
-
-The following earlier runtime versions for Node.js and Puppeteer are still
-supported.
 
 ### syn-nodejs-puppeteer-15.0
 
@@ -93,19 +123,7 @@ supported.
 - Applied security patches and updated Puppeteer and browser versions.
 - Fixed bug where continueOnHttpStepFailure was not being honored, causing canary runs to be incorrectly marked as successful despite HTTP step failures occurring.
 
-For more information, see the following:
-
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24375-2026-02-19 "https://pptr.dev/CHANGELOG#24375-2026-02-19")
-- [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.37.5/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.37.5/docs/api/index.md")
-
 ### syn-nodejs-puppeteer-14.0
-
-For more information, see the following:
-
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24340-2025-12-19 "https://pptr.dev/CHANGELOG#24340-2025-12-19")
-- [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.34.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.34.0/docs/api/index.md")
 
 **Major dependencies**:
 
@@ -123,12 +141,6 @@ For more information, see the following:
 `syn-nodejs-puppeteer-13.1` is the most recent Synthetics runtime for
 Node.js and Puppeteer.
 
-For more information, see the following:
-
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24250-2025-10-15 "https://pptr.dev/CHANGELOG#24250-2025-10-15")
-- [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md")
-
 **Major dependencies**:
 
 - Lambda runtime Node.js 22.x
@@ -141,6 +153,7 @@ For more information, see the following:
 - Synthetics runtime namespace migration.
 - Type definitions are available in npm Registry. Please ensure the type
   definition package version matches your canary's runtime version.
+
   - [@aws/synthetics-puppeteer](https://www.npmjs.com/package/@aws/synthetics-puppeteer "https://www.npmjs.com/package/@aws/synthetics-puppeteer")
   - [@aws/synthetics-link](https://www.npmjs.com/package/@aws/synthetics-link "https://www.npmjs.com/package/@aws/synthetics-link")
   - [@aws/synthetics-broken-link-checker-report](https://www.npmjs.com/package/@aws/synthetics-broken-link-checker-report "https://www.npmjs.com/package/@aws/synthetics-broken-link-checker-report")
@@ -148,12 +161,6 @@ For more information, see the following:
   - [@aws/synthetics-logger](https://www.npmjs.com/package/@aws/synthetics-logger "https://www.npmjs.com/package/@aws/synthetics-logger")
 
 ### syn-nodejs-puppeteer-13.0
-
-For more information, see the following:
-
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24250-2025-10-15 "https://pptr.dev/CHANGELOG#24250-2025-10-15")
-- [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md")
 
 **Major dependencies**:
 
@@ -169,12 +176,6 @@ For more information, see the following:
   concurrent map access
 
 ### syn-nodejs-puppeteer-12.0
-
-For more information, see the following:
-
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG#24221-2025-09-23 "https://pptr.dev/CHANGELOG#24221-2025-09-23")
-- [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.22.1/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.22.1/docs/api/index.md")
 
 **Major dependencies**:
 
@@ -198,12 +199,6 @@ For more information, see the following:
   requests. Recording now terminates correctly after each step execution.
 
 ### syn-nodejs-puppeteer-11.0
-
-For more information, see the following:
-
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG "https://pptr.dev/CHANGELOG")
-- [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md")
 
 **Major dependencies**:
 
@@ -240,12 +235,6 @@ For more information, see the following:
 - Support for ES syntax
 
 ### syn-nodejs-puppeteer-10.0
-
-For more information, see the following:
-
-- [Puppeteer Change log](https://pptr.dev/CHANGELOG "https://pptr.dev/CHANGELOG")
-- [Puppeteer
-  API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.2.0/docs/api/index.md")
 
 **Major dependencies**:
 

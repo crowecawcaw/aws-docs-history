@@ -74,6 +74,7 @@ If the Lambda function returns partial data:
   returned.
 - You can use the following methods to find whether an alarm on a Lambda function
   is currently evaluating its alarm state based on partial data:
+
   - In the console, choose an alarm and choose the
     **Details** page. If you see the message
     **Evaluation warning: Not evaluating all data appears on that

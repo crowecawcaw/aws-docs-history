@@ -1,4 +1,4 @@
-# Enabling vended metrics in PromQL
+# AWS vended metrics in OpenTelemetry format
 
 ###### Tip
 

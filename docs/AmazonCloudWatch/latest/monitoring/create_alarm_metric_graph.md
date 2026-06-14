@@ -16,7 +16,7 @@ the benefit of populating many of the alarm fields for you.
 5. To create an alarm for the metric, choose the **Graphed metrics**
    tab. For **Actions**, choose the alarm icon.
 
-![Create an alarm from a graphed metric](images/metric_graph_alarm.png) 6. Under **Conditions**, choose **Static** or
+![Create an alarm from a graphed metric.](images/metric_graph_alarm.png) 6. Under **Conditions**, choose **Static** or
 **Anomaly detection** to specify whether to use a static threshold or
 anomaly detection model for the alarm.
 

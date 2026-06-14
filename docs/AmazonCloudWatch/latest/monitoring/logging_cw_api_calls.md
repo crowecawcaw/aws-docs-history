@@ -223,6 +223,11 @@ The following log file entry shows that a user called the CloudWatch Logs
 
 CloudTrail can capture API activities related to the CloudWatch data plane operations on metrics [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md"), [GetMetricWidgetImage](../APIReference/API_GetMetricWidgetImage.md "../APIReference/API_GetMetricWidgetImage.md"), [PutMetricData](../APIReference/API_PutMetricData.md "../APIReference/API_PutMetricData.md"), [GetMetricStatistics](../APIReference/API_GetMetricStatistics.md "../APIReference/API_GetMetricStatistics.md"), and [ListMetrics](../APIReference/API_ListMetrics.md "../APIReference/API_ListMetrics.md") APIs.
 
+###### Note
+
+PromQL queries are not supported for CloudTrail data events. Only the CloudWatch APIs
+listed above can be logged as data events in CloudTrail.
+
 [Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events"), also known as data plane operations, give you insight into the resource operations performed
 on or within a resource. Data events are often high-volume activities.
 

@@ -214,6 +214,7 @@ fields:
   There are `metric_declaration` sections for each Prometheus source
   that the CloudWatch agent imports from by default. These sections each include the
   following fields:
+
   - `label_matcher` is a regular expression that checks the value
     of the labels listed in `source_labels`. The metrics that match
     are enabled for inclusion in the embedded metric format sent to CloudWatch.
@@ -374,6 +375,7 @@ curl -O https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-containe
    `cwagentconfig.json` section. Add the following subsection and save
    the changes. This section puts the API server metrics onto the CloudWatch agent allow
    list. Three types of API Server metrics are added to the allow list:
+
    - etcd object counts
    - API Server registration controller metrics
    - API Server request metrics
@@ -515,6 +517,7 @@ CloudWatch.
 7. Download the following JSON file: [Kubernetes API Dashboard source](https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/kubernetes_api_server/cw_dashboard_kubernetes_api_server.json "https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/service/cwagent-prometheus/sample_cloudwatch_dashboards/kubernetes_api_server/cw_dashboard_kubernetes_api_server.json").
 8. Open the JSON file that you downloaded with a text editor, and make the
    following changes:
+
    - Replace all the `{{YOUR_CLUSTER_NAME}}` strings with the
      exact name of your cluster. Make sure not to add whitespaces before or
      after the text.

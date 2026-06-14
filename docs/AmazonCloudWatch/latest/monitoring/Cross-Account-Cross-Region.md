@@ -171,6 +171,7 @@ shared from your other accounts. This service role is called **ServiceRoleForClo
    when you're graphing a metric or creating an alarm.
 4. Under **View cross-account cross-region**, choose one
    of the following options:
+
    - **Account Id Input**. This option prompts you to manually input an account ID
      each time that you want to switch accounts when you view cross-account
      data.

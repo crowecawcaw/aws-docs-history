@@ -45,6 +45,7 @@ CloudWatch metrics** to begin querying with it. For more information, see
 
 - You can update your data source
   manually by doing the following:
+
   - To update the Amazon Managed Service for Prometheus workspace ID, update the
     `AMAZON_PROMETHEUS_WORKSPACE_ID` environment variable for the data source connector Lambda function.
   - To update the VPC configuration, see [Configuring VPC access (console)](../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring "../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring") for more information.
@@ -79,6 +80,7 @@ For example, if your domain endpoint is `https://sample-domain.us-east-1.es.amaz
 
 - You can update your data source
   manually by doing the following:
+
   - To update the OpenSearch Service domain, update the
     `AMAZON_OPENSEARCH_DOMAIN_NAME` environment variable for the data source connector Lambda function.
   - To update the VPC configuration, see [Configuring VPC access (console)](../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring "../../../lambda/latest/dg/configuration-vpc.md#vpc-configuring") for more information.
@@ -87,6 +89,7 @@ For example, if your domain endpoint is `https://sample-domain.us-east-1.es.amaz
 
 - When querying OpenSearch Service, after you select the data source in the **Multi source query** tab,
   do the following:
+
   - Select the Index to query.
   - Select the Metric name (Any numeric field in the document) and Stat.
   - Select the Time axis (Any date field in the document).
@@ -109,6 +112,7 @@ see [Amazon RDS API and interface VPC endpoints (AWS PrivateLink)](../../../Amaz
 
 - You can update your data source
   manually by doing the following:
+
   - To update the database instance, update the
     `RDS_INSTANCE` environment variable for the data source connector Lambda function.
   - To update the username and password used to connect to Amazon RDS, use
@@ -196,6 +200,7 @@ with the period in CloudWatch.
 
 - You can update your data source
   manually by doing the following:
+
   - To update the tenant ID, client ID, and client secret used to connect to Azure Monitor, you can find the ARN of
     the secret used for the data source as the `AZURE_CLIENT_SECRET` environment
     variable on the data source Lambda function. For more information about updating the
@@ -224,6 +229,7 @@ with the period in CloudWatch.
 
 - You can update your data source
   manually by doing the following:
+
   - To update the Prometheus endpoint, specify the new endpoint as
     the `PROMETHEUS_API_ENDPOINT` environment variable on
     the data source Lambda function.

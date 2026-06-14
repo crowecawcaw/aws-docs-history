@@ -163,6 +163,18 @@ The following table illustrates the calculation for a request-based SLO with an
 interval of 5 days and 85% attainment goal. In this example, we assume there is no traffic before Day 1.
 The SLO did not meet the goal on Day 10.
 
+###### Note
+
+For request-based SLOs, `TotalRequestCountPerMinute` and
+`BadRequestCountPerMinute` are emitted as additional metrics compared to
+period-based SLO metrics. These metrics are provided for observability purposes and are
+not used as inputs to attainment-rate calculations.
+
+Because these metrics are generated from periodically evaluated metric data, their
+values might occasionally differ from expected request counts due to metric publication
+timing or delays. Such discrepancies do not impact SLO attainment calculations, which
+are computed independently of these emitted per-minute metrics.
+
 | Time                                 | Total requests | Bad requests | Accumulative total requests in last 5 days | Accumulative total good requests in last 5 days | Request-based attainment | Total budget requests | Remaining budget requests |
 | ------------------------------------ | -------------- | ------------ | ------------------------------------------ | ----------------------------------------------- | ------------------------ | --------------------- | ------------------------- |
 | Day 1                                | 10             | 1            | 10                                         | 9                                               | 9/10 = 90%               | 1.5                   | 0.5                       |
@@ -239,6 +251,7 @@ The SLO interval length is determined based on the SLO interval type:
 
 - For SLOs with a rolling interval, it’s the length of the interval in hours.
 - For SLOs with a calendar-based interval:
+
   - If the unit is days or weeks, it’s the length of the interval in hours.
   - If the unit is a month, we take 30 days as the estimated length and convert it to hours.
 
@@ -305,6 +318,7 @@ The steps to do this set up are the following:
 1. Create five burn rates, with windows of five minutes, 30 minutes, one hour, six hours, and three days.
 2. Create the following three pairs of CloudWatch alarms. Each pair includes one long window and one short window that is 1/12th of the long window,
    and the thresholds are determined by using the steps in [Determine the appropriate threshold for a burn rate alarm](#ServiceLevelObjectives-calculate-threshold "#ServiceLevelObjectives-calculate-threshold"). When you calculate the threshold for each alarm in the pair, use the longer look-back window of the pair in your calculation.
+
    - Alarms on the 1-hour and 5-minute burn rates (the threshold is determined by 2% of the total budget)
    - Alarms on the 6-hour and 30-minute burn rates (the threshold is determined by 5% of the total budget)
    - Alarms on the 3-day and 6-hour burn rates (the threshold is determined by 10% of the total budget)
@@ -366,13 +380,16 @@ Use the following procedure to create a period-based SLO.
 2.  In the navigation pane, choose **Service Level Objectives (SLO)**.
 3.  Choose **Create SLO**.
 4.  For **Set Service Level Indicator (SLI)**, do one of the following:
+
     - To set the SLO on a service operation, all operations, or the dependency of a service,
       using either of the standard application metrics `Latency` or
       `Availability`:
+
       1. For **Type**, choose **Service**.
       2. Select an account that this SLO will monitor.
       3. Select the service that this SLO will monitor.
       4. For **Type**, choose one of the following:
+
          - **Service Operations** — to create an SLO on a service operation,
            all operations, or a subset of operations.
          - **Service Dependency** — to create an SLO on a dependency of the
@@ -394,7 +411,6 @@ Use the following procedure to create a period-based SLO.
 
           After you select the dependency, you can view the updated graph and historical data
            based on the dependency.
-
       7. For **Select a calculation method**, choose **Periods**.
 
       The **Select service** and **Select operation**
@@ -403,6 +419,7 @@ Use the following procedure to create a period-based SLO.
       and then set the threshold.
 
     - To set the SLO on any CloudWatch metric or a CloudWatch metric math expression:
+
       1. For **Type**, choose **CloudWatch Metric**.
       2. Choose **Select CloudWatch metric**.
 
@@ -427,14 +444,17 @@ Use the following procedure to create a period-based SLO.
     For more information about intervals and attainment goals and
     how they work together, see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts").
 8.  (Optional) For **Set SLO burn rates** do the following:
+
     - Set the length (in minutes) of the look-back window for the burn rate. For information about how to
       choose this length, see [Walkthroughs for burn rate alarms](#ServiceLevelObjectives-burnrate-examples "#ServiceLevelObjectives-burnrate-examples").
     - To create more burn rates for this SLO, choose **Add more burn rates** and set the
       look-back window for the additional burn rates.
 
 9.  (Optional) Create burn rate alarms by doing the following:
+
     - Under **Set burn rate alarms** select the check box for each burn rate that you want to create an alarm for. For each of these alarms,
       do the following:
+
       - Specify the Amazon SNS topic to use for notifications when the alarm goes into ALARM state.
       - Either set a burn rate threshold or specify the percentage of the
         estimated total budget burnt in the last look-back window you want to stay below. If you set the percentage of estimated total budget burned,
@@ -442,6 +462,7 @@ Use the following procedure to create a period-based SLO.
         threshold, see [Determine the appropriate threshold for a burn rate alarm](#ServiceLevelObjectives-calculate-threshold "#ServiceLevelObjectives-calculate-threshold").
 
 10. (Optional) Set one or more CloudWatch alarms or a warning threshold for the SLO.
+
     1. CloudWatch alarms can use
        Amazon SNS to proactively notify you
        if
@@ -461,6 +482,7 @@ Use the following procedure to create a period-based SLO.
     threshold.
 
 11. (Optional) For **Set SLO time window exclusion**, do the following:
+
     - Under **Exclude time window**, set the time window to be excluded from the SLO performance metrics.
 
     You can choose **Set time window** and enter the **Start window** for every hour or month or you can choose **Set time window with CRON** and enter the CRON expression.
@@ -491,12 +513,15 @@ Use the following procedure to create a request-based SLO.
 2.  In the navigation pane, choose **Service Level Objectives (SLO)**.
 3.  Choose **Create SLO**.
 4.  For **Set Service Level Indicator (SLI)**, do one of the following:
+
     - To set the SLO on a service operation, all operations, or the dependency of a service,
       using either of the standard application metrics `Latency` or
       `Availability`:
+
       1. For **Type**, choose **Service**.
       2. Select the service that this SLO will monitor.
       3. For **Type**, choose one of the following:
+
          - **Service Operations** — to create an SLO on a service operation,
            all operations, or a subset of operations.
          - **Service Dependency** — to create an SLO on a dependency of the
@@ -518,7 +543,6 @@ Use the following procedure to create a request-based SLO.
 
           After you select the dependency, you can view the updated graph and historical data
            based on the dependency.
-
       6. For **Select a calculation method**, choose **Requests**.
       7. The **Select service** and **Select operation**
          drop-downs are populated by services and operations that have been active within
@@ -527,8 +551,10 @@ Use the following procedure to create a request-based SLO.
          If you choose **Latency**, set the threshold.
 
     - To set the SLO on any CloudWatch metric or a CloudWatch metric math expression:
+
       1. For **Type**, choose **CloudWatch Metric**.
       2. For **Define target requests**, do the following:
+
          1. Choose whether you want to measure **Good Requests** or
             **Bad Requests**.
          2. Choose **Select CloudWatch metric**. This metric will be
@@ -566,14 +592,17 @@ Use the following procedure to create a request-based SLO.
     For more information about intervals and attainment goals and
     how they work together, see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts").
 7.  (Optional) For **Set SLO burn rates** do the following:
+
     - Set the length (in minutes) of the look-back window for the burn rate. For information about how to
       choose this length, see [Walkthroughs for burn rate alarms](#ServiceLevelObjectives-burnrate-examples "#ServiceLevelObjectives-burnrate-examples").
     - To create more burn rates for this SLO, choose **Add more burn rates** and set the
       look-back window for the additional burn rates.
 
 8.  (Optional) Create burn rate alarms by doing the following:
+
     - Under **Set burn rate alarms** select the check box for each burn rate that you want to create an alarm for. For each of these alarms,
       do the following:
+
       - Specify the Amazon SNS topic to use for notifications when the alarm goes into ALARM state.
       - Either set a burn rate threshold or specify the percentage of the
         estimated total budget burnt in the last look-back window you want to stay below. If you set the percentage of estimated total budget burned,
@@ -581,6 +610,7 @@ Use the following procedure to create a request-based SLO.
         threshold, see [Determine the appropriate threshold for a burn rate alarm](#ServiceLevelObjectives-calculate-threshold "#ServiceLevelObjectives-calculate-threshold").
 
 9.  (Optional) Set one or more CloudWatch alarms or a warning threshold for the SLO.
+
     1. CloudWatch alarms can use
        Amazon SNS to proactively notify you
        if
@@ -600,6 +630,7 @@ Use the following procedure to create a request-based SLO.
     threshold.
 
 10. (Optional) For **Set SLO time window exclusion**, do the following:
+
     - Under **Exclude time window**, set the time window to be excluded from the SLO performance metrics.
 
     You can choose **Set time window** and enter the **Start window** for every hour or month or you can choose **Set time window with CRON** and enter the CRON expression.
@@ -633,6 +664,7 @@ You can create SLOs to monitor the performance of your CloudWatch RUM app monito
 5. Select the app monitor that this SLO will monitor from the dropdown list. The list shows the app monitor name along with the supported platform (Web, iOS, or Android).
 6. (Optional) Select a specific page or screen to monitor. If you don't select a page, the SLO will monitor all pages for the app monitor.
 7. For **Select metric**, choose the metric to use for the SLI. The available metrics depend on the platform:
+
    - For web applications: `PerformanceNavigationDuration`, `JSErrorCount`, `Http4xxCount`, and `Http5xxCount`
    - For mobile applications (iOS and Android): `ScreenLoadTime`, `CrashCount`, `Http4xxCount`, and `Http5xxCount`
 
@@ -657,6 +689,7 @@ You can create SLOs to monitor the performance of your CloudWatch Synthetics can
 4. For **Set Service Level Indicator (SLI)**, choose **Synthetics Canary**.
 5. Select the canary that this SLO will monitor from the dropdown list.
 6. For **Select metric**, choose either `SuccessPercent` or `Duration`:
+
    - `SuccessPercent` measures the percentage of successful canary runs
    - `Duration` measures how long each canary run takes to complete
 
@@ -698,6 +731,7 @@ is not available for composite SLOs.
 5. Select the service that this SLO will monitor.
 6. For **Type**, choose **Service Operations**.
 7. Select the operations to include in this composite SLO. Do one of the following:
+
    - To manually select operations, choose multiple operations from the
      **Operation** dropdown. You can select between 2 and 20 operations.
 
@@ -705,8 +739,10 @@ is not available for composite SLOs.
    choosing the dismiss icon on its token.
    - To select operations by pattern, select the **Use pattern matching**
      checkbox. Then do the following:
+
      1. For **Pattern type**, choose either **Prefix** or
         **Regular expression**.
+
         - **Prefix** matches all operations whose names start with the
           text you enter. For example, entering `Invoke` matches operations named
           `InvokeFunction`, `InvokeAsync`, and so on.
@@ -742,6 +778,7 @@ and suggests optimal values for the metric threshold, SLO goal, and burn rate wi
 To receive SLO recommendations, you must provide the following information:
 
 - Choose either **Service Operation** or **Service Dependency**:
+
   - For **Service Operation**, specify the service and operation
   - For **Service Dependency**, specify the service, operation (or all operations), and dependency
 

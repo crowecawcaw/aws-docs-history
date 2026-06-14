@@ -50,6 +50,7 @@ different AWS Regions. For more information, see [Cross-Region inference](Invest
     either of the first two options, you must be signed in to an IAM principal
     that has the `iam:CreateRole`, `iam:AttachRolePolicy`, and
     `iam:PutRolePolicy` permissions.
+
     1. (Recommended) Select **Auto-create a new role with default
        investigation permissions**. This role will be granted
        permissions using the AWS managed policies for AI Operations.For more
@@ -109,6 +110,7 @@ different AWS Regions. For more information, see [Cross-Region inference](Invest
 11. For **Enhanced integrations**, choose to allow CloudWatch investigations access to
     additional services in your system, to enable it to gather more data and be more
     useful.
+
     1. In the **Tags for application boundary detection**
        section, enter the existing custom tag keys for custom applications in
        your system. Resource tags help CloudWatch investigations narrow the search space when it is

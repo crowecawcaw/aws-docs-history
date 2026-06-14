@@ -28,9 +28,9 @@ SelectRequests
 
 ListRequests
 
-SelectScannedBytes
+SelectBytesScanned
 
-SelectReturnedBytes
+SelectBytesReturned
 
 FirstByteLatency
 

@@ -11,6 +11,7 @@
    choose a dashboard.
 3. To permanently turn live data on or off for all widgets on the dashboard, do the
    following:
+
    1. Choose **Actions**, **Settings**,
       **Bulk update live data.**
    2. Choose **Live Data on** or **Live Data off**,
@@ -19,6 +20,7 @@
 4. To temporarily override the live data settings of each widget, choose
    **Actions**. Then, under **Overrides**,
    next to **Live data**, do one of the following:
+
    - Choose **On** to temporarily turn on live data for all widgets.
    - Choose **Off** to temporarily turn off live data for all
      widgets.

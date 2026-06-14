@@ -83,6 +83,7 @@ with CloudWatch Application Insights:
 - **SAP ASE database user** – The
   database user provided during Application Insights onboarding must have permission to
   access the following:
+
   - System tables in the master database and user (tenant) databases
   - Monitoring tables
 
@@ -96,6 +97,7 @@ with CloudWatch Application Insights:
   Guide_.
 - **Amazon EC2 instance roles** – You must
   attach the following Amazon EC2 instance roles to configure your database.
+
   - You must attach the `AmazonSSMManagedInstanceCore` role
     to enable Systems Manager. For more information, see [AWS Systems Manager identity-based policy examples](../../../systems-manager/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md "../../../systems-manager/latest/userguide/auth-and-access-control-iam-identity-based-access-control.md").
   - You must attach the `CloudWatchAgentServerPolicy` to
@@ -134,6 +136,7 @@ with CloudWatch Application Insights:
   database system.
 - **IAM permissions** – For non-admin
   users:
+
   - You must create an AWS Identity and Access Management (IAM) policy that allows
     Application Insights to create a service-linked role, and attach it to your
     user identity. For steps to attach the policy, see [IAM policy for CloudWatch Application Insights](appinsights-iam.md "appinsights-iam.md").
@@ -267,6 +270,7 @@ To edit an alarm for a single metric, perform the following steps:
    by CloudWatch Application Insights. Then choose **Actions**, and select
    **Edit** from the dropdown menu.
 4. Edit the following parameters under **Metric**.
+
    1. Under **Statistic**, choose one of the statistics
       or predefined percentiles, or specify a custom percentile. For
       example, `p95.45`.
@@ -276,12 +280,14 @@ To edit an alarm for a single metric, perform the following steps:
 
 5. Edit the following parameters under
    **Conditions**.
+
    1. Choose whether the metric must be greater than, less than, or
       equal to the threshold.
    2. Specify the threshold value.
 
 6. Under **Additional configuration** edit the following
    parameters.
+
    1. Under **Datapoints to alarm**, specify the number
       of data points, or evaluation periods, that must be in the
       `ALARM` state to initiate the alarm. When the two

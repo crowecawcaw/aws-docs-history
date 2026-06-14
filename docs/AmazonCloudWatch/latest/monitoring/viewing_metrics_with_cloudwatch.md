@@ -89,40 +89,40 @@ The following is example output.
 
 ```
 {
-  "Metrics" : [
-    ...
-    {
-        "Namespace": "AWS/EC2",
-        "Dimensions": [
-            {
-                "Name": "InstanceId",
-                "Value": "i-1234567890abcdef0"
-            }
-        ],
-        "MetricName": "NetworkOut"
-    },
-    {
-        "Namespace": "AWS/EC2",
-        "Dimensions": [
-            {
-                "Name": "InstanceId",
-                "Value": "i-1234567890abcdef0"
-            }
-        ],
-        "MetricName": "CPUUtilization"
-    },
-    {
-        "Namespace": "AWS/EC2",
-        "Dimensions": [
-            {
-                "Name": "InstanceId",
-                "Value": "i-1234567890abcdef0"
-            }
-        ],
-        "MetricName": "NetworkIn"
-    },
-    ...
-  ]
+"Metrics" : [
+  ...
+  {
+      "Namespace": "AWS/EC2",
+      "Dimensions": [
+          {
+              "Name": "InstanceId",
+              "Value": "i-1234567890abcdef0"
+          }
+      ],
+      "MetricName": "NetworkOut"
+  },
+  {
+      "Namespace": "AWS/EC2",
+      "Dimensions": [
+          {
+              "Name": "InstanceId",
+              "Value": "i-1234567890abcdef0"
+          }
+      ],
+      "MetricName": "CPUUtilization"
+  },
+  {
+      "Namespace": "AWS/EC2",
+      "Dimensions": [
+          {
+              "Name": "InstanceId",
+              "Value": "i-1234567890abcdef0"
+          }
+      ],
+      "MetricName": "NetworkIn"
+  },
+  ...
+]
 }
 ```
 

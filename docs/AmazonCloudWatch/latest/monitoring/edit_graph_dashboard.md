@@ -58,6 +58,7 @@ choose **Custom**.
    the position of labels on the
    Y-axis
    from left to right.
+
    1. To add a dynamic label
       for a metric,
       choose **Dynamic labels**.
@@ -93,6 +94,7 @@ choose **Custom**.
 
 8. To add or edit horizontal annotations,
    choose **Options**:
+
    1. To add a horizontal annotation,
       choose **Add horizontal annotation**.
    2. For **Label**,
@@ -143,6 +145,7 @@ choose **Custom**.
 
 9. To add or edit vertical annotations,
    choose **Options**:
+
    1. To add a vertical annotation,
       choose **Add vertical annotation**.
    2. For **Label**,
@@ -265,6 +268,7 @@ Original interface
    **_1d_**,
    **_3d_**, or
    **_1w_**).
+
    1. To set your own time range,
       choose **custom**.
 
@@ -319,6 +323,7 @@ from left to right.
 
 8. To add or edit horizontal annotations,
    choose **Graph options**:
+
    1. To add a horizontal annotation,
       choose **Add horizontal annotation**.
    2. For **Label**,
@@ -369,6 +374,7 @@ from left to right.
 
 9. To add or edit vertical annotations,
    choose **Graph options**:
+
    1. To add a vertical annotation,
       choose **Add vertical annotation**.
    2. For **Label**,

@@ -17,6 +17,7 @@ linked to this monitoring account. For more information, see [CloudWatch cross-a
 3. Choose **Create alarm**.
 4. Choose **Select Metric**.
 5. Do one of the following:
+
    - Choose the service namespace that contains the metric that you want. Continue
      choosing options as they appear to narrow the choices. When a list of metrics appears,
      select the check box next to the metric that you want.
@@ -25,6 +26,7 @@ linked to this monitoring account. For more information, see [CloudWatch cross-a
      of metrics appears. Select the check box next to the metric that you want.
 
 6. Choose the **Graphed metrics** tab.
+
    1. Under **Statistic** , choose one of the statistics or predefined
       percentiles, or specify a custom percentile (for example,
       `p95.45`).
@@ -39,6 +41,7 @@ linked to this monitoring account. For more information, see [CloudWatch cross-a
    graph and other information about the metric and statistic that you selected.
 
 7. Under **Conditions**, specify the following:
+
    1. For **Whenever `metric` is**, specify
       whether the metric must be greater than, less than, or equal to the threshold. Under
       **than...**, specify the threshold value.

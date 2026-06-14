@@ -44,5 +44,5 @@ following:
     4. To view help for a metric, select the metric name and choose **What is
      this?**.The selected metrics appear on the graph.
 
-![View the resulting metrics for a search term](images/metrics_search_results.png) 5. (Optional) Select one of the buttons in the search bar to edit that part of the
+![View the resulting metrics for a search term.](images/metrics_search_results.png) 5. (Optional) Select one of the buttons in the search bar to edit that part of the
 search term.

@@ -37,6 +37,15 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
+## Encryption at rest
+
+CloudWatch always encrypts data at rest. By default, CloudWatch uses AWS owned keys to encrypt
+your data. You don't need to take any action to use AWS owned keys.
+
+For CloudWatch Dataset resources, you can optionally use a customer managed key in AWS Key Management Service
+to encrypt your data. For more information, see
+[Encryption at rest for OpenTelemetry metrics](cmk-encryption.md "cmk-encryption.md").
+
 ## Encryption in transit
 
 CloudWatch uses end-to-end encryption of data in transit.

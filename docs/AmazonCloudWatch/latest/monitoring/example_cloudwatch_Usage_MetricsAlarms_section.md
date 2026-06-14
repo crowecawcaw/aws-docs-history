@@ -334,6 +334,7 @@ def usage_demo():
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [DeleteAlarms](../../../goto/boto3/monitoring-2010-08-01/DeleteAlarms.md "../../../goto/boto3/monitoring-2010-08-01/DeleteAlarms.md")
   - [DescribeAlarmsForMetric](../../../goto/boto3/monitoring-2010-08-01/DescribeAlarmsForMetric.md "../../../goto/boto3/monitoring-2010-08-01/DescribeAlarmsForMetric.md")
   - [DisableAlarmActions](../../../goto/boto3/monitoring-2010-08-01/DisableAlarmActions.md "../../../goto/boto3/monitoring-2010-08-01/DisableAlarmActions.md")

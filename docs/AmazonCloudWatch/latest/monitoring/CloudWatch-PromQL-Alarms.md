@@ -26,7 +26,7 @@ You can create a PromQL alarm from the CloudWatch console, the AWS CLI, or the C
 7. Configure the alarm actions, such as Amazon SNS notifications.
 8. Enter a name and description for the alarm, then choose **Create alarm**.
 
-You can also create a PromQL alarm directly from [Running PromQL queries in Query Studio (Preview)](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md") after running a query that returns a single time series.
+You can also create a PromQL alarm directly from [Running PromQL queries in Query Studio](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md") after running a query that returns a single time series.
 
 ## Creating a CloudWatch alarm using PromQL for anomaly detection
 

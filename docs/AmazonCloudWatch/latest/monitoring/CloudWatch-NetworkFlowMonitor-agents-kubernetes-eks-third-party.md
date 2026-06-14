@@ -44,15 +44,18 @@ env:
 ## EKS Network Flow Monitor add-on OpenMetric Parameters
 
 - **OPEN_METRICS:**
+
   - Enable or disable open metrics. Disabled if not supplied
   - Type: String
   - Values: ["on", "off"]
 
 - **OPEN_METRICS_ADDRESS:**
+
   - Listening IP address for open metrics endpoint. Defaults to 127.0.0.1 if not supplied
   - Type: String
 
 - **OPEN_METRICS_PORT:**
+
   - Listening port for open metrics endpoint. Defaults to 80 if not supplied
   - Type: Integer
   - Range: [0..65535]
@@ -70,14 +73,17 @@ Problem: The OpenMetrics server is configured, but metrics are not appearing in 
 Troubleshooting Steps:
 
 1. Verify that the OpenMetrics server is enabled in your add-on configuration:
+
    - Check that OPEN_METRICS is set to "on" in your configuration values. See [describe-addon](../../../cli/latest/reference/eks/describe-addon.md "../../../cli/latest/reference/eks/describe-addon.md").
    - Confirm that the add-on version is v1.1.0 or later in the _Configure selected add-ons settings_.
 
 2. Test the metrics endpoint directly:
+
    - Access the metrics at http://`pod-ip:port`/metrics (replace pod-ip with the actual pod IP address and port with your configured port).
    - If you can't access the endpoint, verify your network configuration and security group settings.
 
 3. Validate your monitoring tool configuration. Consult you monitoring tools user guide for details on how to do the following:
+
    - Ensure your monitoring tool (such as Prometheus) is configured to scrape the correct endpoint.
    - Check that the scraping interval and timeout settings are appropriate.
    - Verify that your monitoring tool has network access to the pod IP address.
@@ -99,11 +105,13 @@ Problem: You receive "connection refused" errors when trying to access the metri
 Troubleshooting Steps:
 
 1. Verify the OPEN_METRICS_ADDRESS configuration:
+
    - If set to 127.0.0.1, the endpoint is only accessible from within the pod.
    - If set to 0.0.0.0, the endpoint should be accessible from other pods in the cluster.
    - Ensure your monitoring tool can reach the configured address.
 
 2. Check the OPEN_METRICS_PORT configuration:
+
    - Verify that the port number is not already in use by another service.
    - Ensure the port is within the valid range (1-65535).
    - Confirm that any security groups or network policies allow traffic on this port.

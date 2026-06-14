@@ -30,6 +30,7 @@ and usage data.
    select **CloudWatch**.
 3. For **Group by**, choose **Usage Type**.
    You can also group your results by other categories, such as the following:
+
    - **API Operation** – See which API
      operations generated the most costs.
    - **Region** – See which Regions generated
@@ -74,8 +75,14 @@ each sub-feature, and lists the strings for `UsageType`.
 | **CloudWatch metrics**             | _Custom metrics_                                              | `MetricMonitorUsage`                            |
 |                                    | _Detailed monitoring_                                         | `MetricMonitorUsage`                            |
 |                                    | _Embedded metrics_                                            | `MetricMonitorUsage`                            |
-|                                    | _OpenTelemetry metrics_                                       | `OTEL:Values`                                   |
-|                                    |                                                               | `OTEL:Bytes`                                    |
+|                                    | _OpenTelemetry metrics (observations)_                        | `OTEL:Values`                                   |
+|                                    | _OpenTelemetry metrics (ingestion)_                           | `OTEL:Bytes`                                    |
+|                                    |                                                               | `OTEL:Bytes:EKS-CI`                             |
+|                                    |                                                               | `OTEL:Bytes:AWS`                                |
+|                                    | _PromQL queries_                                              | `PromQL:SamplesScanned`                         |
+|                                    | _PromQL alarms_                                               | `PromQLAlarmMonitorUsage`                       |
+|                                    | _Metrics centralization_                                      | `CentralizedBytes`                              |
+|                                    | _Metrics centralization (free tier)_                          | `CentralizedBytesFree`                          |
 | **CloudWatch API requests**        | _API requests_                                                | `Requests`                                      |
 |                                    | _Bulk (Get)_                                                  | `GMD-Metrics`                                   |
 |                                    | _Contributor Insights_                                        | `GIRR-Metrics`                                  |
@@ -187,7 +194,12 @@ WHEN line_item_usage_type LIKE '%%CompositeAlarmMonitorUsage%%' THEN 'Alarms (Co
 -- Container Insights with enhanced observability
 WHEN (line_item_usage_type LIKE '%%MetricsUsage%%' OR line_item_usage_type LIKE '%%ObservationUsage%%') THEN 'Container Insights (Enhanced Observability)'
 -- OpenTelemetry metrics
-WHEN line_item_usage_type LIKE '%%CW:OTEL%%' THEN 'OpenTelemetry Metrics'
+WHEN line_item_usage_type LIKE '%%CW:OTEL:Bytes%' THEN 'OpenTelemetry Metrics'
+-- PromQL
+WHEN line_item_usage_type LIKE '%%CW:PromQL:SamplesScanned%%' THEN 'PromQL Queries'
+WHEN line_item_usage_type LIKE '%%CW:PromQLAlarmMonitorUsage%%' THEN 'PromQL Alarms'
+-- Metrics Centralization
+WHEN line_item_usage_type LIKE '%%CW:CentralizedBytes%%' THEN 'Metrics Centralization'
 -- Database Insights
 WHEN line_item_usage_type LIKE '%%DatabaseInsights%%' THEN 'Database Insights'
 -- Logs

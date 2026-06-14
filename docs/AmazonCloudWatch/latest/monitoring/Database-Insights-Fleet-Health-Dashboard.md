@@ -2,7 +2,7 @@
 
 You can use the Fleet Health Dashboard to view a snapshot of the health of your database fleet.
 
-![Fleet Health Dashboard](images/dbi_fhd.png)
+![Fleet Health Dashboard.](images/dbi_fhd.png)
 
 ## Fleet health views
 
@@ -11,7 +11,7 @@ You can create a monitoring view for a database fleet by choosing filters in the
 This component allows you to apply filters on properties, such as cluster or instance names and tags.
 In the Fleet Health Dashboard, CloudWatch shows databases that match at least one of the filter conditions for the fleet health view.
 
-![Filter by properties and tags](images/dbi_filter.png)
+![Filter by properties and tags.](images/dbi_filter.png)
 
 To create, modify, or delete views for database fleets, use the procedures in the following topics.
 
@@ -23,17 +23,17 @@ To create, modify, or delete views for database fleets, use the procedures in th
 
 Use the **RDS instances overview** table to view the alarm state, max DB Load percentage, and the time of the last state update for each instance in your fleet.
 
-![Amazon RDS resources table](images/dbi_fhd-resources.png)
+![Amazon RDS resources table.](images/dbi_fhd-resources.png)
 
 ## Instances state summary
 
 Use the **Instances state summary** to view the health of all instances in your fleet. The Instances state summary provides two views based on **Alarms** and the DB Load metric. By default, CloudWatch displays the **Alarms** view.
 
-![Instances state summary](images/dbi_iss.png)
+![Instances state summary.](images/dbi_iss.png)
 
 Each node in the honeycomb represents an instance. For more information about an instance, you can choose the corresponding node and choose **Filter view by this instance**.
 
-![Instances state summary selected](images/dbi_iss-selected.png)
+![Instances state summary selected.](images/dbi_iss-selected.png)
 
 The honeycomb component summarizes the alarm state for instances in your fleet with the number of nodes in each state at the top of the honeycomb. CloudWatch displays the time of the last refresh of the data shown in the honeycomb.
 
@@ -56,7 +56,7 @@ Choose a node from the Instances state summary to display alarms and DB Load for
 
 Use the **Top 10 instances per relative DB Load** chart to view the DB Load trend over time for the 10 instances with the highest DB Load. The chart also provides the top queries and top wait events for the instance with the highest DB Load.
 
-![Top 10 instances by DB Load chart](images/dbi_top10.png)
+![Top 10 instances by DB Load chart.](images/dbi_top10.png)
 
 Use the **Top 10 instances per metric** charts to compare two key metrics for the top 10 instances in your fleet. You can select the following metrics.
 
@@ -69,17 +69,17 @@ Use the **Top 10 instances per metric** charts to compare two key metrics for th
 - Read Latency
 - Write Latency
 
-![Top 10 instances per metrics charts](images/dbi_fhd-top10per.png)
+![Top 10 instances per metrics charts.](images/dbi_fhd-top10per.png)
 
 ## Amazon RDS events
 
 Use the **Events** summary and table to view RDS events for instances in your fleet.
 
-![Events summary](images/dbi_events.png)
+![Events summary.](images/dbi_events.png)
 
 To view the **Events** table, choose **Details**.
 
-![Events details](images/dbi_events-details.png)
+![Events details.](images/dbi_events-details.png)
 
 For a list of events for Amazon RDS and Amazon Aurora, see the following topics.
 
@@ -90,7 +90,7 @@ For a list of events for Amazon RDS and Amazon Aurora, see the following topics.
 
 Use the **Calling services** table to view CloudWatch Application Signals services that are calling your database endpoints and related application-level metrics such as latency or errors.
 
-![Calling services table](images/dbi_fhd-calling.png)
+![Calling services table.](images/dbi_fhd-calling.png)
 
 Database Insights shows the services that are calling your top 10 instances by DB Load. To view calling services for another instance, choose the instance in the database instance dashboard.
 

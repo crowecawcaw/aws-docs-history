@@ -15,6 +15,7 @@ tools. If you don’t have the tools installed already, see the provided links f
 - The Helm package manager. For more information, see [Installing Helm](https://helm.sh/docs/intro/install/ "https://helm.sh/docs/intro/install/") on the Helm website.
 - The `kubectl` command line tool. For more information, see [Install kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl "https://kubernetes.io/docs/tasks/tools/#kubectl") on the Kubernetes website.
 - The `make` Linux command dependency. For more information, see the following blog post: [Intro to make Linux Command: Installation and Usage](https://ioflood.com/blog/install-make-command-linux/ "https://ioflood.com/blog/install-make-command-linux/"). For example, do one of the following:
+
   - For Debian based distributions, such as Ubuntu, use the following command: `sudo apt-get install make`
   - For RPM-based distributions, such as CentOS, use the following command: `sudo yum install make`
 

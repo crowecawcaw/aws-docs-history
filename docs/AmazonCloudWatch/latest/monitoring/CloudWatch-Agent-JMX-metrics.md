@@ -33,6 +33,7 @@ enable JMX metrics collection:
 
 - `instrumentation.opentelemetry.io/inject-java: "true"`
 - One or more of the following:
+
   - For JVM metrics: `cloudwatch.aws.amazon.com/inject-jmx-jvm:
 "true"`
   - For Kafka broker metrics:

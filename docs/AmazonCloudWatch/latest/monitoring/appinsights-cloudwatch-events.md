@@ -5,9 +5,11 @@ following events on a best effort basis:
 
 - **Problem creation.** Emitted when CloudWatch Application Insights
   detects a new problem.
+
   - Detail Type: **"Application Insights Problem
     Detected"**
   - Detail:
+
     - `problemId`: The detected problem
       ID.
     - `region`: The AWS Region where the
@@ -16,6 +18,7 @@ following events on a best effort basis:
       the registered application for which the problem was
       detected.
     - `status`: The status of the problem. Possible status and definitions are as follows:
+
       - `In progress`: A new problem has
         been identified. The problem is still receiving
         observations.
@@ -38,9 +41,11 @@ following events on a best effort basis:
   problem is updated with a new observation or when an existing
   observation is updated and the problem is subsequently updated; updates
   include a resolution or closure of the problem.
+
   - Detail Type: **"Application Insights Problem
     Updated"**
   - Detail:
+
     - `problemId`: The created problem ID.
     - `region`: The AWS Region where the
       problem was created.

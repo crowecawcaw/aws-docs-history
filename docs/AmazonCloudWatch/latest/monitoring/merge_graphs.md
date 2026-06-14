@@ -18,6 +18,7 @@ that you want to merge in.
    dashboard by selecting the graph and choosing **Open in metrics** from
    the menu at the upper right of the graph.
 3. After you have a graph open, do one of the following:.
+
    - Copy the URL from the browser bar.
    - Choose the **Source** tab and then choose
      **Copy**.

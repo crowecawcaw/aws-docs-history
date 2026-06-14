@@ -7,12 +7,9 @@
 - [Supported AWS Regions](#CloudWatch-PromQL-Regions "#CloudWatch-PromQL-Regions")
 - [IAM permissions for PromQL](#CloudWatch-PromQL-IAM "#CloudWatch-PromQL-IAM")
 - [PromQL querying](CloudWatch-PromQL-Querying.md "CloudWatch-PromQL-Querying.md")
-- [Running PromQL queries in Query Studio (Preview)](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md")
+- [Running PromQL queries in Query Studio](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md")
 - [Using PromQL in alarms](CloudWatch-PromQL-Alarms.md "CloudWatch-PromQL-Alarms.md")
-
-###### Note
-
-OTLP metrics ingestion, PromQL querying, OTel enrichment of vended AWS metrics, and Query Studio are in public preview release, are free of charge, and subject to change.
+- [Prometheus-compatible APIs](CloudWatch-PromQL-APIs.md "CloudWatch-PromQL-APIs.md")
 
 ## What is Prometheus Query Language (PromQL)?
 
@@ -32,7 +29,7 @@ With PromQL you can do the following:
 - Aggregate metrics across dimensions such as service, region, or account.
 - Compute rates, histograms, quantiles, and moving averages.
 
-You can use PromQL queries interactively in [Running PromQL queries in Query Studio (Preview)](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md") and also to create CloudWatch Alarms. For more
+You can use PromQL queries interactively in [Running PromQL queries in Query Studio](CloudWatch-PromQL-QueryStudio.md "CloudWatch-PromQL-QueryStudio.md") and also to create CloudWatch Alarms. For more
 information, see [PromQL querying](CloudWatch-PromQL-Querying.md "CloudWatch-PromQL-Querying.md") and [Using PromQL in alarms](CloudWatch-PromQL-Alarms.md "CloudWatch-PromQL-Alarms.md").
 
 ###### Note
@@ -73,28 +70,50 @@ The following table lists the limits and restrictions for PromQL:
 
 The following table lists the AWS Regions where OTLP metrics ingestion, PromQL querying, and Query Studio are available.
 
-| Region name              | Region code    | OTLP metrics ingest | PromQL query | Query Studio |
-| ------------------------ | -------------- | ------------------- | ------------ | ------------ |
-| US East (N. Virginia)    | us-east-1      | ✓                   | ✓            | ✓            |
-| US West (Oregon)         | us-west-2      | ✓                   | ✓            | ✓            |
-| Europe (Ireland)         | eu-west-1      | ✓                   | ✓            | ✓            |
-| Asia Pacific (Singapore) | ap-southeast-1 | ✓                   | ✓            | ✓            |
-| Asia Pacific (Sydney)    | ap-southeast-2 | ✓                   | ✓            | ✓            |
+| Region name               | Region code    | OTLP metrics ingest | PromQL query | Query Studio |
+| ------------------------- | -------------- | ------------------- | ------------ | ------------ |
+| US East (N. Virginia)     | us-east-1      | ✓                   | ✓            | ✓            |
+| US West (Oregon)          | us-west-2      | ✓                   | ✓            | ✓            |
+| Europe (Ireland)          | eu-west-1      | ✓                   | ✓            | ✓            |
+| Asia Pacific (Singapore)  | ap-southeast-1 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Sydney)     | ap-southeast-2 | ✓                   | ✓            | ✓            |
+| US West (N. California)   | us-west-1      | ✓                   | ✓            | ✓            |
+| US East (Ohio)            | us-east-2      | ✓                   | ✓            | ✓            |
+| Europe (London)           | eu-west-2      | ✓                   | ✓            | ✓            |
+| Europe (Paris)            | eu-west-3      | ✓                   | ✓            | ✓            |
+| Europe (Frankfurt)        | eu-central-1   | ✓                   | ✓            | ✓            |
+| Europe (Stockholm)        | eu-north-1     | ✓                   | ✓            | ✓            |
+| Europe (Milan)            | eu-south-1     | ✓                   | ✓            | ✓            |
+| Europe (Spain)            | eu-south-2     | ✓                   | ✓            | ✓            |
+| Europe (Zurich)           | eu-central-2   | ✓                   | ✓            | ✓            |
+| Asia Pacific (Tokyo)      | ap-northeast-1 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Seoul)      | ap-northeast-2 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Osaka)      | ap-northeast-3 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Mumbai)     | ap-south-1     | ✓                   | ✓            | ✓            |
+| Asia Pacific (Hyderabad)  | ap-south-2     | ✓                   | ✓            | ✓            |
+| Asia Pacific (Hong Kong)  | ap-east-1      | ✓                   | ✓            | ✓            |
+| Asia Pacific (Taipei)     | ap-east-2      | ✓                   | ✓            | ✓            |
+| Asia Pacific (Jakarta)    | ap-southeast-3 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Melbourne)  | ap-southeast-4 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Auckland)   | ap-southeast-6 | ✓                   | ✓            | ✓            |
+| Asia Pacific (Thailand)   | ap-southeast-7 | ✓                   | ✓            | ✓            |
+| South America (São Paulo) | sa-east-1      | ✓                   | ✓            | ✓            |
+| Canada (Central)          | ca-central-1   | ✓                   | ✓            | ✓            |
+| Canada West (Calgary)     | ca-west-1      | ✓                   | ✓            | ✓            |
+| Africa (Cape Town)        | af-south-1     | ✓                   | ✓            | ✓            |
+| Mexico (Central)          | mx-central-1   | ✓                   | ✓            | ✓            |
 
 ## IAM permissions for PromQL
 
 To execute PromQL queries, you need both `cloudwatch:GetMetricData` and
-`cloudwatch:ListMetrics` permissions. The following table lists the new PromQL
-API operations and their required IAM actions:
+`cloudwatch:ListMetrics` permissions. The following table lists the
+Prometheus-compatible API endpoint paths and their required IAM actions:
 
-| API operation               | Required actions                                     |
-| --------------------------- | ---------------------------------------------------- |
-| ExecuteMetricQueryPost      | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
-| ExecuteMetricQueryGet       | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
-| ExecuteMetricRangeQuery     | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
-| ExecuteMetricRangeQueryGet  | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
-| ExecuteMetricSeriesPost     | `cloudwatch:ListMetrics`                             |
-| ExecuteMetricSeriesGet      | `cloudwatch:ListMetrics`                             |
-| ExecuteMetricLabelsPost     | `cloudwatch:ListMetrics`                             |
-| ExecuteMetricLabelsGet      | `cloudwatch:ListMetrics`                             |
-| ExecuteMetricLabelValuesGet | `cloudwatch:ListMetrics`                             |
+| API endpoint path                   | HTTP methods | Required actions                                     |
+| ----------------------------------- | ------------ | ---------------------------------------------------- |
+| `/api/v1/query`                     | GET, POST    | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
+| `/api/v1/query_range`               | GET, POST    | `cloudwatch:GetMetricData`, `cloudwatch:ListMetrics` |
+| `/api/v1/series`                    | GET, POST    | `cloudwatch:ListMetrics`                             |
+| `/api/v1/labels`                    | GET, POST    | `cloudwatch:ListMetrics`                             |
+| `/api/v1/label/`label_name`/values` | GET          | `cloudwatch:ListMetrics`                             |

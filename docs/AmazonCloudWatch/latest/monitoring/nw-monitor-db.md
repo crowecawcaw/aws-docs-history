@@ -28,6 +28,7 @@ The **Overview** page displays the following information for a monitor:
 - **Probe traffic summary** — Displays the current state of the traffic
   between the source AWS subnets specified for the probes in the monitor and the probes' destination IP addresses.
   This summary displays the following:
+
   - **Probes in alarm** — This number indicates how many of your probes
     in this monitor are in a degraded state. An alarm is triggered when a metric that you've set up as an alarm
     is triggered. For information on creating alarms for metrics in Network Synthetic Monitor, see [Probe alarms](cw-nwm-create-alarm.md "cw-nwm-create-alarm.md").

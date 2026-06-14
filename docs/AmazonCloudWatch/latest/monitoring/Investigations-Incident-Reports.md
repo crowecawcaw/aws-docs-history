@@ -37,6 +37,7 @@ integrates seamlessly with your investigation workflow.
    the report. Fact extraction can take a few minutes.
 4. When fact extraction is finished, you can review the facts available in the
    following areas:
+
    1. **Incident Overview** – High-level overview
       of the incident including its severity, duration, and operational
       hypothesis.
@@ -62,11 +63,14 @@ integrates seamlessly with your investigation workflow.
    as key reference points, the report draws from all available information gathered
    during the investigation. This process can take a few minutes.
 6. After generating the report, you can then either:
+
    - Use the report as is:
+
      - Copy it to edit in your external editor if needed
      - Save it for later reference
 
    - Enhance the report by adding more data:
+
      - Choose **Add facts** (recommended
        method) to input additional text-based content such as incident
        tickets or custom narratives. The AI will analyze this content to

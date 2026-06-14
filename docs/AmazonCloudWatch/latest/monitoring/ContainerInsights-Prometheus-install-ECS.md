@@ -21,6 +21,7 @@ roles and permissions are required.
   agent container uses this role. It must include the
   **CloudWatchAgentServerPolicy** policy and a customer-managed
   policy which contains the following read-only permissions:
+
   - `ec2:DescribeInstances`
   - `ecs:ListTasks`
   - `ecs:ListServices`

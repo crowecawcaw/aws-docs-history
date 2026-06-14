@@ -102,14 +102,17 @@ Example dimension values: `Linux`, `Windows`, `iOS`, `Android`
 The following dimensions are supported for mobile application extended metrics:
 
 - `ScreenName`
+
   - Value from the screen name attribute - `attributes.screen.name` of your application
   - Example values: HomeScreen, SettingsView, ProfilePage
 
 - `DeviceModel`
+
   - Value from the device model attribute - `resource.attributes.device.model.name`
   - Example values: iPhone14,3, SM-G998B
 
 - `OSVersion`
+
   - Value from the operating system version attribute - `resource.attributes.os.version`
   - Example values: 16.0, 13.0
 

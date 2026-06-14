@@ -36,6 +36,7 @@ If you haven't already enabled Application Signals, follow the instructions in [
    enable Application Signals.
 5. If this cluster does not already have the Amazon CloudWatch Observability EKS add-on enabled, you are prompted
    to enable it. If this is the case, do the following:
+
    1. Choose **Add CloudWatch Observability EKS add-on**. The Amazon EKS console appears.
    2. Select the check box for **Amazon CloudWatch Observability**
       and choose **Next**.
@@ -52,7 +53,6 @@ If you haven't already enabled Application Signals, follow the instructions in [
    --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy \
    --policy-arn arn:aws:iam::aws:policy/AWSXRayWriteOnlyAccess
    ```
-
    5. If you want to create a service role to use the add-on, see
       [Install the CloudWatch agent with the Amazon CloudWatch Observability EKS add-on or the Helm chart](install-CloudWatch-Observability-EKS-addon.md "install-CloudWatch-Observability-EKS-addon.md").
    6. Choose **Next**, confirm the information on the screen, and
@@ -61,6 +61,7 @@ If you haven't already enabled Application Signals, follow the instructions in [
       and finish the process.
 
 6. There are two options for enabling your applications for Application Signals. For consistency, we recommend that you choose one option per cluster.
+
    - The **Console** option is simpler. Using this method causes your pods to
      restart immediately.
    - The **Annotate Manifest File** method gives you more control of when your
@@ -211,7 +212,7 @@ For more information about the **Services** view, see
 
 ###### Note
 
-If you're using a WSGI server for your Python application, see [No Application Signals data for Python application that uses a WSGI server](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI") for information to make Application Signals work.
+If you're using a pre-fork server (WSGI or ASGI) such as Gunicorn, uWSGI, or Uvicorn for your Python application, see [No Application Signals data for a Python application that uses a pre-fork server (WSGI or ASGI)](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI") for information to make Application Signals work.
 
 We've also identified other considerations that you should keep in mind when enabling Python applications
 for Application Signals. For more information, see

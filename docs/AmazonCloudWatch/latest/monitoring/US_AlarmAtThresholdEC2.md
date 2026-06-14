@@ -32,6 +32,7 @@ Use these steps to use the AWS Management Console to create a CPU usage alarm.
    `p95.45`).
 9. Choose a period (for example, `5 minutes`).
 10. Under **Conditions**, specify the following:
+
     1. For **Threshold type**, choose
        **Static**.
     2. For **Whenever CPUUtilization is**, specify
@@ -85,17 +86,16 @@ Use these steps to use the AWS CLI to create a CPU usage alarm.
 
 3. Test the alarm by forcing an alarm state change using the [set-alarm-state](../../../cli/latest/reference/cloudwatch/set-alarm-state.md "../../../cli/latest/reference/cloudwatch/set-alarm-state.md")
    command.
+
    1. Change the alarm state from `INSUFFICIENT_DATA` to
       `OK`.
 
    ```
    `aws cloudwatch set-alarm-state --alarm-name `cpu-mon` --state-reason "initializing" --state-value OK`
    ```
-
    2. Change the alarm state from `OK` to `ALARM`.
 
    ```
    `aws cloudwatch set-alarm-state --alarm-name `cpu-mon` --state-reason "initializing" --state-value ALARM`
    ```
-
    3. Check that you have received a notification about the alarm.

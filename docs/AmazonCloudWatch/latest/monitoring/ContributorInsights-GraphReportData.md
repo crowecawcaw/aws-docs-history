@@ -3,7 +3,7 @@
 Contributor Insights provides a metric math function, `INSIGHT_RULE_METRIC`.
 You can use this function to add data from a Contributor Insights report to a graph in the
 **Metrics** tab of the CloudWatch console. You can also set an alarm based on
-this math function. For more information about metric math functions, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md").
+this math function. For more information about metric math functions, see [Math expressions with metrics](using-metric-math.md "using-metric-math.md").
 
 To use this metric math function, you must be signed in to an account that has both the
 `cloudwatch:GetMetricData` and `cloudwatch:GetInsightRuleReport`

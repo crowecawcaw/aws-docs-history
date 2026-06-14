@@ -15,12 +15,15 @@ in both JavaScript and Python, and are created by a AWS CloudFormation stack. Fo
 3. Choose the **+** symbol.
 4. Choose **Custom widget**.
 5. Use one of the following methods:
+
    - To use a sample custom widget provided by AWS, do the following:
+
      1. Select the sample in the dropdown box.
 
      The CloudFormation console launches in a new browser. In the CloudFormation console, do the following: 2. (Optional) Customize the CloudFormation stack name. 3. Make selections for any parameters used by the sample. 4. Select **I acknowledge that AWS CloudFormation might create IAM resources**, and choose **Create stack**.
 
    - To create your own custom widget provided by AWS, do the following:
+
      1. Choose **Next**.
      2. Choose to either select your Lambda function from a list, or enter
         its Amazon Resource Name

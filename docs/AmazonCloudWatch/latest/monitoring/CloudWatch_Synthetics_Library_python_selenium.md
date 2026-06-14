@@ -26,6 +26,7 @@ Version 11.0 is the newest CloudWatch Synthetics runtime for Python and Selenium
 
 - Updated Python runtime and browser versions.
 - Upgrade `Chromium` to 147.0.7727.57 to address the following CVEs:
+
   - CVE-2026-3909
   - CVE-2026-3910
   - CVE-2026-5281

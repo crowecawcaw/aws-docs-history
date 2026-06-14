@@ -57,6 +57,7 @@ To access CloudWatch dashboards, you need one of the following:
   `CloudWatchFullAccess`
   policy
 - A custom policy that includes one or more of these specific permissions:
+
   - `cloudwatch:GetDashboard` and `cloudwatch:ListDashboards` to be able to view dashboards
 
   - `cloudwatch:PutDashboard` to be able to create or modify dashboards
@@ -81,6 +82,7 @@ To access CloudWatch dashboards, you need one of the following:
 - [Changing the period override setting or refresh interval](change_dashboard_refresh_interval.md "change_dashboard_refresh_interval.md")
 - [Changing the time range or time zone format](change_dashboard_time_format.md "change_dashboard_time_format.md")
 - [Dashboard Body Structure and Syntax](CloudWatch-Dashboard-Body-Structure.md "CloudWatch-Dashboard-Body-Structure.md")
+- [Explore related telemetry](ExploreRelated.md "ExploreRelated.md")
 
 ## Create a cross-account cross-Region dashboard programmatically
 
@@ -247,7 +249,7 @@ copy this dashboard JSON to use as a template to create similar dashboards.
 6. Repeat steps 4-5 to add metrics from other accounts and Regions.
 7. (Optional) Choose the **Graphed metrics** tab and add
    a metric math function that uses the metrics that you have chosen. For more
-   information, see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md").
+   information, see [Math expressions with metrics](using-metric-math.md "using-metric-math.md").
 
 You can also set up a single graph to include multiple
 `SEARCH` functions. Each search can refer to a different

@@ -60,6 +60,7 @@ Before you enable Application Signals for your Python applications, be aware of 
   [Python autoinstrumentation setting of PYTHONPATH is not compliant](https://github.com/open-telemetry/opentelemetry-operator/issues/2302 "https://github.com/open-telemetry/opentelemetry-operator/issues/2302").
 - For Django applications, there are additional required configurations, which are outlined
   in the [OpenTelemetry Python documentation](https://opentelemetry-python.readthedocs.io/en/latest/examples/django/README.html "https://opentelemetry-python.readthedocs.io/en/latest/examples/django/README.html").
+
   - Use the `--noreload` flag to prevent automatic reloading.
   - Set the `DJANGO_SETTINGS_MODULE` environment variable to the location of your Django
     application’s `settings.py` file. This ensures that OpenTelemetry can correctly access and integrate with your Django settings.

@@ -9,7 +9,9 @@ Alarm Mute Rules help you manage critical operational scenarios where alarm acti
 Alarm mute rules can be defined using: **rules** and **targets**.
 
 - **Rules** - define the time windows when alarm actions should be muted. Rules are composed of three attributes:
+
   - **Expression** – Defines when the mute period begins and how it repeats. You can use two types of expressions:
+
     - **Cron expressions** – Use standard cron syntax to create recurring mute windows. This approach is ideal for regular maintenance schedules, such as weekly system updates or daily backup operations. Cron expressions allow you to specify complex recurring patterns, including specific days of the week, months, or times.
 
     _Syntax for cron expression_
@@ -41,7 +43,6 @@ Alarm mute rules can be defined using: **rules** and **targets**.
 
          For example, `cron(0 9 * * SUN#4)` activates on the fourth Sunday of every month at 9:00 AM.
         * English names can be used for the `month` (JAN-DEC) and `day of week` (SUN-SAT) fields
-
     - **At expressions** – Use at expressions for one-time mute windows. This approach works well for planned operational events that occur once at a known time.
 
     ```

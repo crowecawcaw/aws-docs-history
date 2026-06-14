@@ -38,6 +38,7 @@ Alternatively, you can delete a monitor programmatically, for example, by using 
    monitor.
 3. If the monitor contains active probes, you must first either set the probes to inactive
    or delete them.
+
    - To set a probe to inactive, use [update-probe](../../../cli/latest/reference/networkmonitor/update-probe.md "../../../cli/latest/reference/networkmonitor/update-probe.md"), and set the state to `INACTIVE`.
    - To delete a probe, use [delete-probe](../../../cli/latest/reference/networkmonitor/delete-probe.md "../../../cli/latest/reference/networkmonitor/delete-probe.md").
 

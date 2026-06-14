@@ -25,6 +25,7 @@ my_gauge_metric < 20
 ```
 
 6. Under **Conditions**, specify the following:
+
    - For **Evaluation interval**, choose
      `1 minute`, to define how often the PromQL query is evaluated.
    - For **Pending period**, enter
@@ -88,9 +89,10 @@ directly in the PromQL expression.
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane below **Metrics**, choose
-   **Query Studio (Preview)**.
+   **Query Studio**.
 3. Select **PromQL** from the query language drop-down menu.
 4. Build your query using one of the following modes:
+
    - In **Builder** mode, select a metric name from the
      **Metric** field (for example,
      `http.server.request.duration`). Add label filters as needed (for example,
@@ -111,6 +113,7 @@ directly in the PromQL expression.
 7. You are redirected to the CloudWatch alarm creation page with your PromQL query
    pre-populated.
 8. Under **Conditions**, specify the following:
+
    - For **Evaluation interval**, choose
      `1 minute`, to define how often the PromQL query is
      evaluated.

@@ -29,7 +29,7 @@ by default that user can create a rule that
 evaluates any log group in CloudWatch Logs. You can add IAM policy conditions that limit
 these permissions
 for a user to include and exclude specific log groups. For more information,
-see [Using condition keys to limit Contributor Insights users' access to log groups](iam-cw-condition-keys-contributor.md "iam-cw-condition-keys-contributor.md").
+see [Condition keys for Contributor Insights log group access](iam-cw-condition-keys-contributor.md "iam-cw-condition-keys-contributor.md").
 
 ###### To create a rule using a built-in sample rule
 
@@ -46,6 +46,7 @@ see [Using condition keys to limit Contributor Insights users' access to log gro
    20 log groups. If you are signed in to a monitoring account that is set up for CloudWatch cross-account
    observability, you can select log groups in source accounts, and you can also set up a single rule
    to analyze log groups in different accounts.
+
    1. (Optional)
       To select all log groups
       that have names beginning
@@ -103,6 +104,7 @@ costs. For more information, see [Tagging your Amazon CloudWatch resources](Clou
    20 log groups. If you are signed in to a monitoring account that is set up for CloudWatch cross-account
    observability, you can select log groups in source accounts, and you can also set up a single rule
    to analyze log groups in different accounts.
+
    1. (Optional)
       To select all log groups
       that have names beginning
@@ -195,6 +197,7 @@ To continue using the wizard, do the following:
      you specify for **Contribution**, **Value**.
 
 9. To enter your rule as a JSON object instead of using the wizard, do the following:
+
    1. Choose the **Syntax** tab.
    2. In **Rule body**, enter the JSON object for your rule. For information about rule syntax, see
       [Contributor Insights rule syntax in CloudWatch](ContributorInsights-RuleSyntax.md "ContributorInsights-RuleSyntax.md").

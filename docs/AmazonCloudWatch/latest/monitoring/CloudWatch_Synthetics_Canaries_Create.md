@@ -29,6 +29,7 @@ runtime code.
    Canaries**.
 3. Choose **Create Canary**.
 4. Choose one of the following:
+
    - To base your canary on a blueprint script, choose **Use a
      blueprint**, and then choose the type of canary you want to create. For
      more information about what each type of blueprint does, see [Using canary blueprints](CloudWatch_Synthetics_Canaries_Blueprints.md "CloudWatch_Synthetics_Canaries_Blueprints.md").

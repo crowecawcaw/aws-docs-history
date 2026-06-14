@@ -49,6 +49,7 @@ see the [previous section](#NFMPodIdentity "#NFMPodIdentity").
 1. In the AWS Management Console, navigate to the Amazon EKS console.
 2. On the page for installing add-ons, in the list of add-ons, choose **AWS Network Flow Monitor Agent**.
 3. Configure the add-on settings.
+
    1. For **Add-on access**, choose **EKS Pod Identity**.
    2. For the IAM role to use with the add-on, use a role that has the following AWS managed policy attached:
       [CloudWatchNetworkFlowMonitorAgentPublishPolicy](../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorAgentPublishPolicy.md"). This policy gives permission for an agent to send telemetry

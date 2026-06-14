@@ -86,6 +86,7 @@ terminated.
 4. Choose **Select Metric**.
 5. For **AWS namespaces**, choose **EC2**.
 6. Do the following:
+
    1. Choose **Per-Instance Metrics**.
    2. Select the check box in the row with the correct instance and the **CPUUtilization** metric.
    3. Choose the **Graphed metrics** tab.
@@ -94,6 +95,7 @@ terminated.
    6. Choose **Select metric**.
 
 7. Under **Conditions**, do the following:
+
    1. Choose **Static**.
    2. Under **Whenever CPUUtilization is**, choose **Lower**.
    3. For **than**, type `10`.
@@ -129,6 +131,7 @@ _Amazon EC2 User Guide_.
 2. In the navigation pane, choose **Alarms**, **Create
    Alarm**.
 3. For the **Select Metric** step, do the following:
+
    1. Under **EC2 Metrics**, choose **Per-Instance Metrics**.
    2. Select the row with the instance and the **CPUUtilization** metric.
    3. For the statistic, choose **Average**.
@@ -136,6 +139,7 @@ _Amazon EC2 User Guide_.
    5. Choose **Next**.
 
 4. For the **Define Alarm** step, do the following:
+
    1. Under **Alarm Threshold**, type a unique name for the alarm (for example,
       Terminate EC2 instance) and a description of the alarm (for example, Terminate EC2 instance
       when CPU is idle for too long). Alarm names must contain only ASCII characters.
@@ -184,6 +188,7 @@ reboot alarms to three evaluation periods of one minute each.
 2. In the navigation pane, choose **Alarms**, **Create
    Alarm**.
 3. For the **Select Metric** step, do the following:
+
    1. Under **EC2 Metrics**, choose **Per-Instance Metrics**.
    2. Select the row with the instance and the **StatusCheckFailed_Instance** metric.
    3. For the statistic, choose **Minimum**.
@@ -192,6 +197,7 @@ reboot alarms to three evaluation periods of one minute each.
       **Next**.
 
 4. For the **Define Alarm** step, do the following:
+
    1. Under **Alarm Threshold**, type a unique name for the alarm (for example,
       Reboot EC2 instance) and a description of the alarm (for example, Reboot EC2 instance when
       health checks fail). Alarm names must contain only ASCII characters.
@@ -257,6 +263,7 @@ two evaluation periods of one minute each and reboot alarms to three evaluation 
 3. Choose **Create
    Alarm**.
 4. Choose **Select Metric** and then do the following:
+
    1. Choose **EC2 Metrics**, **Per-Instance Metrics**.
    2. Select the row with the instance and the **StatusCheckFailed_System** metric, and then choose **Select metric**.
    3. For the statistic, choose **Minimum**.
@@ -269,6 +276,7 @@ two evaluation periods of one minute each and reboot alarms to three evaluation 
    recover alarms to two evaluation periods of one minute each.
 
 5. For **Conditions**, do the following:
+
    1. Under **Threshold type**, choose **Static**.
    2. Under **Whenever**, choose **Greater**
       and enter `0` for **than...**.
@@ -277,6 +285,7 @@ two evaluation periods of one minute each and reboot alarms to three evaluation 
 
 6. Choose **Next**.
 7. Under **Notification**, do the following:
+
    1. For **Alarm state trigger**, choose **In alarm**.
    2. For **Send notification
       to the following SNS topic**, choose an existing SNS topic or create a new one.

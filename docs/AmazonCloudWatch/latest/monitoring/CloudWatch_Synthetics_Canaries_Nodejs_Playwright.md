@@ -182,6 +182,7 @@ Steps should run sequentially. Be sure to use `await` on promises.
   step.
 - `stepConfig` object (optional)— Step configuration overrides
   the global Synthetics configuration for this step.
+
   - `continueOnStepFailure` boolean (optional) — Whether to
     continue running the canary script after this step fails.
   - `screenshotOnStepStart` boolean (optional) — Whether to

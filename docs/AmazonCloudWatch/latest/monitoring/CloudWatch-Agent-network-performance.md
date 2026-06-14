@@ -151,7 +151,7 @@ ethtool metrics as a time series graph. For more information about setting alarm
 Because all of these metrics are aggregate counters, you can use CloudWatch metric math
 functions such as `RATE(METRICS())` to calculate the rate for these metrics
 in graphs or use them to set alarms. For more information about metric math functions,
-see [Using math expressions with CloudWatch metrics](using-metric-math.md "using-metric-math.md").
+see [Math expressions with metrics](using-metric-math.md "using-metric-math.md").
 
 ###### To view network performance metrics in the CloudWatch console
 
@@ -165,6 +165,7 @@ see [Using math expressions with CloudWatch metrics](using-metric-math.md "using
    Metrics**).
 5. The **All metrics** tab displays all metrics for that dimension
    in the namespace. You can do the following:
+
    1. To graph a metric, select the check box next to the metric. To select all
       metrics, select the check box in the heading row of the table.
    2. To sort the table, use the column heading.

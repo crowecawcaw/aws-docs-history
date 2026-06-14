@@ -19,6 +19,7 @@ console or the AWS Command Line Interface. To work with Network Synthetic Monito
 4. For the **Monitor name**, enter the new name for the monitor.
 5. For the **Aggregation period**, choose how often you want to send
    metrics to CloudWatch. Valid periods are:
+
    - **30 seconds**
    - **60 seconds**
 

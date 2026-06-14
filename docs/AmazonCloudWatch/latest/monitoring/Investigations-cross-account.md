@@ -35,7 +35,9 @@ troubleshoot complex multi-account scenarios.
 4. Add the Account ID for up to 25 accounts under the **List source
    accounts** section.
 5. Update your IAM role.
+
    1. Automatically
+
       - If you choose **Automatically update the assistant
         role (recommended)** , this creates a customer
         managed policy named
@@ -64,7 +66,6 @@ troubleshoot complex multi-account scenarios.
       }`
 
       ```
-
       - If the monitoring account owner removes a source account
         from the cross-account configuration, the IAM policy will
         not update automatically. You must manually update the IAM
@@ -76,6 +77,7 @@ troubleshoot complex multi-account scenarios.
         policies attached to your investigation role.
 
    2. Manually
+
       - The following example shows the trust policy required for
         the assistant role:
 
@@ -130,7 +132,6 @@ troubleshoot complex multi-account scenarios.
        --role-name `custom-role-name`
        --policy-arn arn:aws:iam::aws:policy/AIOpsAssistantPolicy
       ```
-
       - To grant cross-account access, the permission policy of
         the assistant role in the monitoring account must contain
         the following. If you are configuring the monitoring account
@@ -157,7 +158,6 @@ troubleshoot complex multi-account scenarios.
       }`
 
       ```
-
       - Use the AWS CLI to update the monitoring account
         investigation group with the custom source account role ARN
         using the following command, replacing the placeholder
@@ -179,6 +179,7 @@ troubleshoot complex multi-account scenarios.
    set up the monitoring account. If you used the manual setup option,
    provision the IAM role with your customized source account role
    name.
+
    1. Attach the AWS managed policy `AIOpsAssistantPolicy`
       to the role in the IAM console.
    2. The trust policy of the role on the source account looks like

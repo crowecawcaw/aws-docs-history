@@ -14,7 +14,9 @@ You can connect a custom data source to CloudWatch in two ways:
 
 - [Use a template](CloudWatch_MultiDataSources-Connect-Custom.md#CloudWatch_MultiDataSources-Connect-Custom-template "CloudWatch_MultiDataSources-Connect-Custom.md#CloudWatch_MultiDataSources-Connect-Custom-template")
 - [Create a custom data source from scratch](CloudWatch_MultiDataSources-Connect-Custom.md#CloudWatch_MultiDataSources-Connect-Custom-Lambda "CloudWatch_MultiDataSources-Connect-Custom.md#CloudWatch_MultiDataSources-Connect-Custom-Lambda")
+
   - [Step 1: Create the function](CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-Function "CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-Function")
+
     - [GetMetricData event](CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-GetMetricData "CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-GetMetricData")
     - [DescribeGetMetricData event](CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-DescribeGetMetricData "CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-DescribeGetMetricData")
     - [Important considerations for CloudWatch alarms](CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-Alarms "CloudWatch_MultiDataSources-Connect-Custom.md#MultiDataSources-Connect-Custom-Lambda-Alarms")

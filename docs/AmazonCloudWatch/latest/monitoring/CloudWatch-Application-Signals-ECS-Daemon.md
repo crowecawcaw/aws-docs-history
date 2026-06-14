@@ -255,12 +255,13 @@ Before you enable Application Signals for your Python applications, be aware of 
   [Python autoinstrumentation setting of PYTHONPATH is not compliant](https://github.com/open-telemetry/opentelemetry-operator/issues/2302 "https://github.com/open-telemetry/opentelemetry-operator/issues/2302").
 - For Django applications, there are additional required configurations, which are outlined
   in the [OpenTelemetry Python documentation](https://opentelemetry-python.readthedocs.io/en/latest/examples/django/README.html "https://opentelemetry-python.readthedocs.io/en/latest/examples/django/README.html").
+
   - Use the `--noreload` flag to prevent automatic reloading.
   - Set the `DJANGO_SETTINGS_MODULE` environment variable to the location of your Django
     application’s `settings.py` file. This ensures that OpenTelemetry can correctly access and integrate with your Django settings.
 
-- If you're using a WSGI server for your Python application, in addition to the following steps in this section,
-  see [No Application Signals data for Python application that uses a WSGI server](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI") for information to make Application Signals work.
+- If you're using a pre-fork server (WSGI or ASGI) such as Gunicorn, uWSGI, or Uvicorn for your Python application, in addition to the following steps in this section,
+  see [No Application Signals data for a Python application that uses a pre-fork server (WSGI or ASGI)](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-Python-WSGI") for information to make Application Signals work.
 
 ###### To instrument your Python application on Amazon ECS with the CloudWatch agent
 

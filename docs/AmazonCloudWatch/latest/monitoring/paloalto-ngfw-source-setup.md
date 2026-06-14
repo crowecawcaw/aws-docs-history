@@ -26,6 +26,7 @@ This integration supports OCSF schema version v1.5.0 and events that map to Auth
 **Authentication** contains the following type and subtypes:
 
 - GlobalProtect
+
   - data
   - file
   - flood
@@ -39,17 +40,20 @@ This integration supports OCSF schema version v1.5.0 and events that map to Auth
   - wildfire-virus
 
 - System Logs
+
   - auth
 
 **Network Activity** contains the following types and subtypes:
 
 - Traffic Logs
+
   - start
   - end
   - drop
   - deny
 
 - System Logs
+
   - vpn
   - url-filtering
   - app-cloud-engine
@@ -66,6 +70,7 @@ This integration supports OCSF schema version v1.5.0 and events that map to Auth
 **Process Activity** contains the following type and subtypes:
 
 - System Logs
+
   - general
   - satd
   - ras
@@ -80,6 +85,7 @@ This integration supports OCSF schema version v1.5.0 and events that map to Auth
 **Detection Finding** contains the following type and subtypes:
 
 - Threat Logs
+
   - data
   - file
   - flood

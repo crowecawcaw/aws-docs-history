@@ -49,6 +49,7 @@ to a dashboard, follow these steps.
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation pane, choose **Explorer**.
 3. Do one of the following:
+
    - To use a template, select it in the box that currently shows
      **Empty Explorer**.
 

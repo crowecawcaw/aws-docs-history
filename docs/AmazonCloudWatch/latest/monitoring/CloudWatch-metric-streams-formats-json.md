@@ -107,12 +107,14 @@ Replace the values in the following fields with the indicated values to store th
 Optimized Row Columnar (ORC) format.
 
 - **Parquet:**
+
   - inputFormat: org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
   - outputFormat: org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
   - SerDeInfo.serializationLib: org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
   - parameters.classification: parquet
 
 - **ORC:**
+
   - inputFormat: org.apache.hadoop.hive.ql.io.orc.OrcInputFormat
   - outputFormat: org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat
   - SerDeInfo.serializationLib: org.apache.hadoop.hive.ql.io.orc.OrcSerde

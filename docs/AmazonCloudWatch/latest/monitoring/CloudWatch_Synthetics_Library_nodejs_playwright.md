@@ -7,7 +7,7 @@ testing. For more information about Playwright, see [https://playwright.dev/](ht
 The naming convention for these runtime versions is `syn-`language`
  -`framework`-`majorversion`.`minorversion``.
 
-## syn-nodejs-playwright-6.1
+## syn-nodejs-playwright-7.0
 
 ###### Important
 
@@ -25,17 +25,24 @@ namespace. Legacy namespace will be deprecated in a future release.
 - Chromium version 147.0.7727.15
 - Firefox version 148.0.2
 
-**Changes in syn-nodejs-playwright-6.1**
+**Changes in syn-nodejs-playwright-7.0**
 
-- Updated Playwright and browser versions.
-- Upgrade `fast-xml-parser` to 5.5.7 to address the following CVEs:
-  - CVE-2026-27942
-  - CVE-2026-33036
+- Upgrade `ImageMagick` to 7.1.2-15 to address the following CVEs:
 
-- Upgrade `Chromium` to 147.0.7727.15 to address the following CVEs:
-  - CVE-2026-3909
-  - CVE-2026-3910
-  - CVE-2026-5281
+  - CVE-2023-34152
+  - CVE-2025-53014
+  - CVE-2025-53101
+  - CVE-2025-57807
+  - CVE-2026-22770
+  - CVE-2026-23876
+  - CVE-2026-25897
+  - CVE-2026-25898
+  - CVE-2026-25968
+  - CVE-2026-25971
+  - CVE-2026-25983
+  - CVE-2026-25986
+  - CVE-2026-25987
+  - CVE-2026-26284
 
 For more information, see the following:
 
@@ -45,6 +52,30 @@ For more information, see the following:
 
 The following earlier runtime versions for Node.js and Playwright are still
 supported.
+
+### syn-nodejs-playwright-6.1
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+- Playwright version 1.59.1
+- Playwright/test version 1.59.1
+- Chromium version 147.0.7727.15
+- Firefox version 148.0.2
+
+**Changes in syn-nodejs-playwright-6.1**
+
+- Updated Playwright and browser versions.
+- Upgrade `fast-xml-parser` to 5.5.7 to address the following CVEs:
+
+  - CVE-2026-27942
+  - CVE-2026-33036
+
+- Upgrade `Chromium` to 147.0.7727.15 to address the following CVEs:
+
+  - CVE-2026-3909
+  - CVE-2026-3910
+  - CVE-2026-5281
 
 ### syn-nodejs-playwright-6.0
 
@@ -59,12 +90,6 @@ supported.
 **Changes in syn-nodejs-playwright-6.0**
 
 - Applied security patches and updated Playwright and browser versions.
-
-For more information, see the following:
-
-- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
-- [Playwright API
-  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
 
 ### syn-nodejs-playwright-5.1
 
@@ -83,12 +108,6 @@ For more information, see the following:
   Please ensure the type definition package version matches your canary's runtime
   version.
 
-For more information, see the following:
-
-- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
-- [Playwright API
-  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
-
 ### syn-nodejs-playwright-5.0
 
 **Major dependencies**:
@@ -103,12 +122,6 @@ For more information, see the following:
 
 - Applied security patches and updated Playwright and browser versions.
 
-For more information, see the following:
-
-- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
-- [Playwright API
-  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
-
 ### syn-nodejs-playwright-4.0
 
 **Major dependencies**:
@@ -122,12 +135,6 @@ For more information, see the following:
 **Changes in syn-nodejs-playwright-4.0**
 
 - Applied security patches and updated Playwright and browser versions.
-
-For more information, see the following:
-
-- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
-- [Playwright API
-  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
 
 ### syn-nodejs-playwright-3.0
 
@@ -144,12 +151,6 @@ For more information, see the following:
   canaries in either Firefox or Chrome
 - Support for visual monitoring
 
-For more information, see the following:
-
-- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
-- [Playwright API
-  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
-
 ### syn-nodejs-playwright-2.0
 
 **Major dependencies**:
@@ -165,12 +166,6 @@ For more information, see the following:
   in HAR file is fixed.
 - Supports dry runs for the canary which allows for adhoc executions or
   performing a safe canary update.
-
-For more information, see the following:
-
-- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
-- [Playwright API
-  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
 
 ### syn-nodejs-playwright-1.0
 

@@ -37,6 +37,7 @@ To further customize the access scope:
    section.
 2. You will be redirected to the Amazon EKS console.
 3. In the Amazon EKS console, you can:
+
    1. Scope the policy to specific namespaces
    2. Configure the group feature for more granular access
       control

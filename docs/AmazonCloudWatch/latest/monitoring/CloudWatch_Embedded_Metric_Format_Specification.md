@@ -463,11 +463,13 @@ The above EMF log will generate the following Entity:
 CloudWatch processes the entity information as follows:
 
 - **KeyAttributes:**
+
   - Determines entity type based on required fields
   - For Service-type, extracts Service name and Environment
   - These become the primary identifiers for the entity
 
 - **Attributes:**
+
   - Sets PlatformType based on included platform attributes
   - Includes all relevant platform-specific information
   - Maintains relationship context for the telemetry data

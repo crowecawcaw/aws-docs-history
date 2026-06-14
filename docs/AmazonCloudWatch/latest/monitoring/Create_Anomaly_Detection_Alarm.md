@@ -37,6 +37,7 @@ visualization. For more information, see [Creating a graph](graph_a_metric.md#cr
 3. Choose **Create alarm**.
 4. Choose **Select Metric**.
 5. Do one of the following:
+
    - Choose the service namespace that contains your metric, and then continue
      choosing options as they appear to narrow down your options. When a list of metrics
      appears, select the check box that's next to your metric.
@@ -45,6 +46,7 @@ visualization. For more information, see [Creating a graph](graph_a_metric.md#cr
      metrics appears. Select the check box that's next to your metric.
 
 6. Choose **Graphed metric**.
+
    1. (Optional) For _Statistic_, choose the dropdown, and then
       select one of the predefined statistics or percentiles. You can use the search box in
       the dropdown to specify a custom percentile, such as `p95.45`.
@@ -59,6 +61,7 @@ visualization. For more information, see [Creating a graph](graph_a_metric.md#cr
 
 7. Choose **Next**.
 8. Under **_Conditions_**, specify the following:
+
    1. Choose **Anomaly detection**.
 
    If the model for this metric and statistic already exists, CloudWatch displays a
@@ -185,6 +188,7 @@ recreates the model.
 3. Choose **Browse**, and then select the metric that includes the
    anomaly detection model. You can search for your metric in the search box or select your
    metric by choosing through the options.
+
    - (Optional) If you're using the original interface, choose **All
      metrics**, and then choose the metric that includes the anomaly detection
      model. You can search for your metric in the search box or select your metric by

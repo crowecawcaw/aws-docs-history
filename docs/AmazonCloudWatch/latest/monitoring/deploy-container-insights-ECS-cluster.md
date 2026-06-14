@@ -45,12 +45,12 @@ Example output
 
 ```
 {
-    "setting": {
-        "name": "containerInsights",
-        "value": "enhanced",
-        "principalArn": "arn:aws:iam::123456789012:johndoe",
-         "type": user
-    }
+  "setting": {
+      "name": "containerInsights",
+      "value": "enhanced",
+      "principalArn": "arn:aws:iam::123456789012:johndoe",
+       "type": user
+  }
 }
 ```
 
@@ -113,12 +113,12 @@ Example output
 
 ```
 {
-    "setting": {
-        "name": "container Insights",
-        "value": "enabled",
-        "principalArn": "arn:aws:iam::123456789012:johndoe",
-         "type": user
-    }
+  "setting": {
+      "name": "container Insights",
+      "value": "enabled",
+      "principalArn": "arn:aws:iam::123456789012:johndoe",
+       "type": user
+  }
 }
 ```
 

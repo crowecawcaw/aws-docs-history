@@ -14,7 +14,7 @@ CloudWatch Logs.
 ## Setting up Fluent Bit
 
 To set up Fluent Bit to collect logs from your containers, you can follow the
-steps in [Quick Start setup for Container Insights on Amazon EKS and Kubernetes](Container-Insights-setup-EKS-quickstart.md "Container-Insights-setup-EKS-quickstart.md") or you can follow the
+steps in [Setup guide (AWS CLI)](container-insights-eks-classic-setup.md "container-insights-eks-classic-setup.md") or you can follow the
 steps in this section.
 
 With either method, the IAM role that is attached to the cluster nodes must have
@@ -145,6 +145,7 @@ If you want to verify your Fluent Bit setup, follow these steps.
 3. Make sure that you're in the Region where you deployed Fluent Bit.
 4. Check the list of log groups in the Region. You should see the
    following:
+
    - `/aws/containerinsights/`Cluster_Name`/application`
    - `/aws/containerinsights/`Cluster_Name`/host`
    - `/aws/containerinsights/`Cluster_Name`/dataplane`
@@ -184,14 +185,14 @@ To stop Fluent Bit application logs, remove the following section from the
 
 ```
 [INPUT]
-        Name                tail
-        Tag                 application.*
-        Path                /var/log/containers/fluent-bit*
-        Parser              docker
-        DB                  /fluent-bit/state/flb_log.db
-        Mem_Buf_Limit       5MB
-        Skip_Long_Lines     On
-        Refresh_Interval    10
+  Name                tail
+  Tag                 application.*
+  Path                /var/log/containers/fluent-bit*
+  Parser              docker
+  DB                  /fluent-bit/state/flb_log.db
+  Mem_Buf_Limit       5MB
+  Skip_Long_Lines     On
+  Refresh_Interval    10
 ```
 
 To remove Kubernetes metadata from being appended to log events that are sent to
@@ -202,26 +203,26 @@ and the similar fields with with the actual metadata identifiers.
 ```
 application-log.conf: |
     [FILTER]
-        Name                nest
-        Match               application.*
-        Operation           lift
-        Nested_under        kubernetes
-        Add_prefix          Kube.
+  Name                nest
+  Match               application.*
+  Operation           lift
+  Nested_under        kubernetes
+  Add_prefix          Kube.
 
     [FILTER]
-        Name                modify
-        Match               application.*
-        Remove              Kube.`<Metadata_1>`
-        Remove              Kube.`<Metadata_2>`
-        Remove              Kube.`<Metadata_3>`
+  Name                modify
+  Match               application.*
+  Remove              Kube.`<Metadata_1>`
+  Remove              Kube.`<Metadata_2>`
+  Remove              Kube.`<Metadata_3>`
 
     [FILTER]
-        Name                nest
-        Match               application.*
-        Operation           nest
-        Wildcard            Kube.*
-        Nested_under        kubernetes
-        Remove_prefix       Kube.
+  Name                nest
+  Match               application.*
+  Operation           nest
+  Wildcard            Kube.*
+  Nested_under        kubernetes
+  Remove_prefix       Kube.
 ```
 
 ## Troubleshooting

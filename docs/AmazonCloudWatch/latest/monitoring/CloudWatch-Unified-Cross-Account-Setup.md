@@ -9,6 +9,7 @@ for your organization.
 ###### Contents
 
 - [Necessary permissions](CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions "CloudWatch-Unified-Cross-Account-Setup.md#CloudWatch-Unified-Cross-Account-Setup-permissions")
+
   - [Permissions needed to create links](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-permissions-setup "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-permissions-setup")
   - [Permissions needed to monitor across accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-permissions-monitor "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-permissions-monitor")
 
@@ -16,6 +17,7 @@ for your organization.
 - [Step 1: Set up a monitoring account](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureMonitoringAccount "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureMonitoringAccount")
 - [Step 2: (Optional) Download an CloudFormation template or URL](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-TemplateOrURL")
 - [Step 3: Link the source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureSourceAccount "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-Setup-ConfigureSourceAccount")
+
   - [Use an CloudFormation template to set up all accounts in an organization or an organizational unit as source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-OrgTemplate "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-OrgTemplate")
   - [Use an CloudFormation template to set up individual source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleTemplate "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleTemplate")
   - [Use a URL to set up individual source accounts](CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleURL "CloudWatch-Unified-Cross-Account-Setup.md#Unified-Cross-Account-SetupSource-SingleURL")
@@ -347,6 +349,7 @@ longer available to download.
 4. By **Monitoring account configuration**, choose
    **Resources to link accounts**.
 5. Do one of the following:
+
    - Choose **AWS organization** to get a template to use
      to link accounts in an organization to this monitoring
      account.
@@ -354,6 +357,7 @@ longer available to download.
      accounts as source accounts.
 
 6. Do one of the following:
+
    - If you chose **AWS organization**, choose
      **Download CloudFormation template**.
    - If you chose **Any account**, choose either

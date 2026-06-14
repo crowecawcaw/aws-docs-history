@@ -11,7 +11,7 @@ to) CloudWatch alarm pages, CloudWatch metric pages, and Lambda monitoring pages
    it and then choose **Start new investigation**.
 
 Otherwise, choose the vertical ellipsis menu icon
-![Depicts the appearance of the vertical ellipsis icon on the console](images/vmore.png)
+![Depicts the appearance of the vertical ellipsis icon on the console.](images/vmore.png)
 for the metric, and choose
 **Investigate**, **Start a new
 investigation**. 3. In the **Investigation** pane, enter a name for the

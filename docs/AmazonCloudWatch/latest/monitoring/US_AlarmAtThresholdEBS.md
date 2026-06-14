@@ -62,24 +62,22 @@ Use these steps to use the AWS CLI to create an alarm based on Amazon EBS throug
 
 3. Test the alarm by forcing an alarm state change using the [set-alarm-state](../../../cli/latest/reference/cloudwatch/set-alarm-state.md "../../../cli/latest/reference/cloudwatch/set-alarm-state.md")
    command.
+
    1. Change the alarm state from `INSUFFICIENT_DATA` to
       `OK`.
 
    ```
    `aws cloudwatch set-alarm-state --alarm-name `ebs-mon` --state-reason "initializing" --state-value OK`
    ```
-
    2. Change the alarm state from `OK` to `ALARM`.
 
    ```
    `aws cloudwatch set-alarm-state --alarm-name `ebs-mon` --state-reason "initializing" --state-value ALARM`
    ```
-
    3. Change the alarm state from `ALARM` to
       `INSUFFICIENT_DATA`.
 
    ```
    `aws cloudwatch set-alarm-state --alarm-name `ebs-mon` --state-reason "initializing" --state-value INSUFFICIENT_DATA`
    ```
-
    4. Check that you have received an email notification about the alarm.

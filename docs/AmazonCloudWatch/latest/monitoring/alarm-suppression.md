@@ -47,7 +47,7 @@ compensate for any delays that can occur when a suppressor alarm changes from
 `OK` to `ALARM` within 60 seconds, set `WaitPeriod` to
 60 seconds.
 
-![Actions suppression within WaitPeriod](images/example1border.png)
+![Actions suppression within WaitPeriod.](images/example1border.png)
 
 In the image, the composite alarm changes from `OK` to `ALARM`
 at t2. A `WaitPeriod` starts at t2 and ends at t8. This gives the suppressor
@@ -60,7 +60,7 @@ composite alarm changes to `OK` following a suppressor alarm changing to
 seconds of a suppressor alarm changing to `OK`, set
 `ExtensionPeriod` to 60 seconds.
 
-![Actions suppression within ExtensionPeriod](images/example2border.png)
+![Actions suppression within ExtensionPeriod.](images/example2border.png)
 
 In the image, the suppressor alarm changes from `ALARM` to `OK`
 at t2. An `ExtensionPeriod` starts at t2 and ends at t8. This gives the
@@ -86,7 +86,7 @@ and `ExtensionPeriod` is configured as 3 time units.
 
 **Example 1: Actions are not suppressed after `WaitPeriod`**
 
-![first example of action suppression](images/example3border.png)
+![first example of action suppression.](images/example3border.png)
 
 In the image, the composite alarm changes states from `OK` to
 `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4, so it
@@ -97,7 +97,7 @@ still in `OK`.
 **Example 2: Actions are suppressed by alarm before `WaitPeriod`
 expires**
 
-![second example of action suppression](images/example4border.png)
+![second example of action suppression.](images/example4border.png)
 
 In the image, the composite alarm changes states from `OK` to
 `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4. This
@@ -110,7 +110,7 @@ actions.
 **Example 3: State transition when actions are suppressed by
 `WaitPeriod`**
 
-![third example of action suppression](images/example5border.png)
+![third example of action suppression.](images/example5border.png)
 
 In the image, the composite alarm changes states from `OK` to
 `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4. This
@@ -121,7 +121,7 @@ A new `WaitPeriod` starts at t3 and ends at t5. After the new
 
 **Example 4: State transition when actions are suppressed by alarm**
 
-![fourth example of action suppression](images/cwasexamplefourborder.png)
+![fourth example of action suppression.](images/cwasexamplefourborder.png)
 
 In the image, the composite alarm changes states from `OK` to
 `ALARM` at t2. The suppressor alarm is already in `ALARM`. The
@@ -129,7 +129,7 @@ suppressor alarm stops the composite alarm from taking actions.
 
 **Example 5: Actions are not suppressed after `ExtensionPeriod`**
 
-![fifth example of action suppression](images/example7border.png)
+![fifth example of action suppression.](images/example7border.png)
 
 In the image, the composite alarm changes states from `OK` to
 `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4. This
@@ -144,7 +144,7 @@ takes its actions.
 **Example 6: State transition when actions are suppressed by
 `ExtensionPeriod`**
 
-![sixth example of action suppression](images/cwasexamplesixrborder.png)
+![sixth example of action suppression.](images/cwasexamplesixrborder.png)
 
 In the image, the composite alarm changes states from `OK` to
 `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4. This

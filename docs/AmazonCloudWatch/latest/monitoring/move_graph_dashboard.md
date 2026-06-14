@@ -11,6 +11,7 @@
    choose
    a dashboard.
 3. Do one of the following:
+
    - Hover over the title of the graph until the selection icon appears. Select and
      drag the graph to a new location on the dashboard.
    - To move the widget to either the top left or bottom left of the dashboard,

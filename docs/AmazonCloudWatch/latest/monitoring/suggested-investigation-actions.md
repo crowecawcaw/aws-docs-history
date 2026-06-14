@@ -71,6 +71,7 @@ For each hypothesis, you can choose from the following options:
     actions** pane, review the list of suggested actions you can take
     to address the issue. Suggested actions can include one or more of the
     following:
+
     - **AWS knowledge articles** – Provides
       information about steps you can take to manually address the issue, plus
       a link to more information.
@@ -99,6 +100,7 @@ For each hypothesis, you can choose from the following options:
     inspect suggested runbooks owned by AWS and you.
 5.  When choosing **Review details** for runbooks, do the
     following:
+
     1. For **Runbook description**, review the content,
        which provides an overview of the actions the runbook can take to
        remediate the issue being investigated. Choose **View
@@ -147,7 +149,6 @@ For each hypothesis, you can choose from the following options:
         For information about supported actions and their impact
          types, see [Remediation impact types of runbook actions](../../../systems-manager/latest/userguide/remediation-impact-type.md "../../../systems-manager/latest/userguide/remediation-impact-type.md") in the
          *AWS Systems Manager User Guide*.
-
     4. Review the preview information carefully before deciding whether to
        proceed.
 

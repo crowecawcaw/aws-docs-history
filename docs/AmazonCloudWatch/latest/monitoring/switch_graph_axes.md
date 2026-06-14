@@ -24,9 +24,9 @@ values.
    **Min** can't be greater than the value of
    **Max**.
 
-![Set custom bounds for the y-axis](images/metric_graph_custom_bounds.png) 6. To create a second y-axis, specify the **Min** and
+![Set custom bounds for the y-axis.](images/metric_graph_custom_bounds.png) 6. To create a second y-axis, specify the **Min** and
 **Max** values for **Right Y Axis**. 7. To switch between the two y-axes, choose the **Graphed metrics**
 tab. For **Y Axis**, choose **Left Y Axis** or
 **Right Y Axis**.
 
-![Switch between the y-axes for a graph](images/metric_graph_switch_axis.png)
+![Switch between the y-axes for a graph.](images/metric_graph_switch_axis.png)
