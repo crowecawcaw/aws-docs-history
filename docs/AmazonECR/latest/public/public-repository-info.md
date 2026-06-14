@@ -29,6 +29,7 @@ AWS Management Console.
    **View public listing** to navigate to the repository
    detail page in the Amazon ECR Public Gallery in a new tab or use the navigation bar
    to view more details about the repository.
+
    - Choose **Images** to view information about the
      images in the repository. If there are untagged images that you want to
      delete, you can select the box to the left of the repositories to delete

@@ -28,6 +28,7 @@ requirements:
 
 - Your client and network must support IPv6.
 - Amazon ECR Public supports the following request types over IPv6:
+
   - OCI and Docker client requests:
 
   `ecr-public.aws.com`
