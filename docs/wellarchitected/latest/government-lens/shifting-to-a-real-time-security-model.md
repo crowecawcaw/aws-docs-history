@@ -11,12 +11,14 @@ in real time.
   inform business continuity planning, including an incident response plan within your
   ecosystem, taking into consideration critical infrastructure, outside interference,
   disaster preparedness, and national resilience.
+
   - **Improvement plan** – Use scenario planning, and
     conduct an AWS security audit to help identify areas to improve.
 
 - **Test and document how security threats are detected and disrupted
   in real time**, including the escalation plan and mechanisms to relevant
   security and intelligence agencies for that jurisdiction.
+
   - **Improvement plan** – Run threat scenarios with
     the organization to identify and document how threats are detected and disrupted in
     real time with clear lines of accountability. Provide AWS guidance and tools, such
@@ -25,6 +27,7 @@ in real time.
 - **Document the critical infrastructure
   considerations**, as this is of particular
   importance for national critical infrastructure. 
+
   - **Improvement plan** – Support the organization to
     identify critical dependencies and likely impacts of service disruption.
 

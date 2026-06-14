@@ -12,6 +12,7 @@ strategy.
 
 - **Take an all-hazards approach:** Include consideration of
   personnel, supply chain, cyber security, information security, and natural risks. 
+
   - Have a strong understanding of controls that can be inherited from the cloud
     service provider, for example, the physical security of data centers.
   - Consider sovereign resilience requirements, which can aid in the survival of
@@ -23,6 +24,7 @@ strategy.
 - **Develop a risk management plan:** Have a plan that
   supports ongoing risk assessment and treatment, and verifies that the service risk is
   contextualized as part of the organization’s risk profile. 
+
   - Decide what matters most to your organization, and to
     your service. Considerations include social, cultural,
     political or regional issues, economic and technology
@@ -42,6 +44,7 @@ strategy.
   implementing compliance frameworks such as [CSA](https://cloudsecurityalliance.org/ "https://cloudsecurityalliance.org/"), [NIST](https://www.nist.gov/cybersecurity "https://www.nist.gov/cybersecurity"), [CISPE](https://aws.amazon.com/compliance/cispe/ "https://aws.amazon.com/compliance/cispe/"), [ISM](https://aws.amazon.com/blogs/publicsector/how-australian-government-agencies-can-navigate-ism-essential-8-compliance-aws/ "https://aws.amazon.com/blogs/publicsector/how-australian-government-agencies-can-navigate-ism-essential-8-compliance-aws/"), and [ISO](https://aws.amazon.com/compliance/iso-certified/ "https://aws.amazon.com/compliance/iso-certified/"), verify that the framework is appropriate for the risks requiring
   mitigation and that it is considered as part of the broader organizations risk strategy
   and risk appetite statement.
+
   - **Improvement plan** – Document the preceding items
     into the relevant security documentation or concept of operations document, and
     provide relevant AWS certifications and risk management guides and case
@@ -51,6 +54,7 @@ strategy.
   engagement:** Consider the Business Impact Level (BIL) of the service to
   determine personnel requirements, such as security clearances, vetting, data handling,
   and risk training.
+
   - **Improvement plan** – Document the preceding items
     into the relevant security documentation or concept of operations document, and
     provide the AWS certification programs as required.

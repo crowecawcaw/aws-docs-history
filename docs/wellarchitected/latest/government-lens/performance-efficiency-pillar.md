@@ -21,6 +21,7 @@ Efficiency Pillar whitepaper](../performance-efficiency-pillar/welcome.md "../pe
   In some jurisdictions, this public reporting might include
   program reviews, where funds to deliver the service were
   allocated in the budget process. 
+
   - **Improvement plan** – Encourage the organization to
     consider public performance reporting in their forward planning for the
     service.
@@ -29,6 +30,7 @@ Efficiency Pillar whitepaper](../performance-efficiency-pillar/welcome.md "../pe
   and product owners must verify that government services are measuring and monitoring in a
   way that aligns with an agency’s key performance indicators (KPIs), as well as to monitor
   for service performance and user satisfaction. 
+
   - **Improvement plan** – Encourage the organization to
     include agency, policy, and mandate measures in the monitoring for the service.
 
@@ -36,6 +38,7 @@ Efficiency Pillar whitepaper](../performance-efficiency-pillar/welcome.md "../pe
   ongoing compliance and audit:** Identify opportunities to keep the duplication
   of efforts to a minimum, and maximize opportunities to automate and streamline compliance
   where possible.
+
   - **Improvement plan** – Encourage the organization to
     demonstrate and measure efforts to streamline and automate compliance, and to
     demonstrate and report costs avoided throughout the delivery of the service. Support

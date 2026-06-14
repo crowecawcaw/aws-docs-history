@@ -30,6 +30,7 @@ jurisdictions, there are specific targets to meet.
   mechanisms.** Identify relevant sustainability metrics, reporting, targets,
   and policies that not only reduce resource usage for the government customer, but also
   across the sector and nationally.
+
   - **Improvement plan** – Encourage the organization
     to consider public sustainability performance reporting in their forward planning
     for the service.
@@ -37,12 +38,14 @@ jurisdictions, there are specific targets to meet.
 - **Minimize duplication of computing power where
   possible.** Leverage and enable reusable environments, patterns, and
   marketplaces as a way to minimize duplication of computing power.
+
   - **Improvement plan** – Encourage the organization
     to minimize computing power where possible in the service.
 
 - **Share best sustainability practice across the jurisdiction or
   sector.** Use cross-agency, cross-jurisdiction, and cross-sector
   collaboration to identify and learn from examples of similar problems in other areas.
+
   - **Improvement plan** – Encourage the organization
     to engage with jurisdictional sustainability best practice throughout the delivery
     of the service.
@@ -52,6 +55,7 @@ jurisdictions, there are specific targets to meet.
   Explore the data, APIs, and tools that could be leveraged by other government
   departments, the broader economy, and the community to spur the scaling of digital
   government applications.
+
   - **Improvement plan** – Support the organization to
     include data, insights, or both in the architectural design.
 
@@ -59,6 +63,7 @@ jurisdictions, there are specific targets to meet.
   organization.** Identify any sustainable procurement guidelines or policies
   that a jurisdiction might have to adopt, such as the [Green Public
   Procurement](https://ec.europa.eu/environment/gpp/index_en.htm "https://ec.europa.eu/environment/gpp/index_en.htm") in the EU. 
+
   - **Improvement plan** – Encourage the organization
     to understand and adopt relevant sustainability policies in the design, delivery,
     and management of the service.
@@ -71,6 +76,7 @@ jurisdictions, there are specific targets to meet.
   sustainability goals.** Verify that national sustainability goals and
   reporting are built in from the beginning, or have a funded plan to have them created
   over time.
+
   - **Improvement plan** – Identify if broader
     sustainability goals are relevant to the service and how.
 
@@ -78,6 +84,7 @@ jurisdictions, there are specific targets to meet.
   service design.** Take a more holistic view using modes, such as life events
   or user journeys, to produce an improved customer experience as well as better
   sustainability outcomes by reducing duplication and consolidating services.
+
   - **Improvement plan** – Identify the end user
     context or journey as a means to identifying opportunities to consolidate or reduce
     duplication of resourcing.
@@ -86,6 +93,7 @@ jurisdictions, there are specific targets to meet.
   printing.** Design services so that they can be completed entirely digitally
   by reducing the need for printing documents, such as eliminating the need for physical
   signatures or documents.   
+
   - **Improvement plan** – Use end-to-end service
     design to minimize physical printing and environmental impacts of the
     service.
@@ -97,6 +105,7 @@ jurisdictions, there are specific targets to meet.
 - **Leverage automation and virtualization where possible.** Explore the opportunity to deploy digital technologies by rethinking
   existing processes that might improve operational efficiencies, for example, using smart
   technologies to manage built environments. 
+
   - **Improvement plan** – Plan around maximum
     virtualization of services and where components might be made available as a utility
     for ease of reuse.
@@ -105,6 +114,7 @@ jurisdictions, there are specific targets to meet.
   and modelling opportunities.** Leverage new technologies, such as IoT,
   digital twins, and AI analysis and modelling to support more sustainable systems,
   decision making, and services.
+
   - **Improvement plan** – Support the organization to
     identify opportunities to leverage sensor and modelling technologies in the service,
     where appropriate.

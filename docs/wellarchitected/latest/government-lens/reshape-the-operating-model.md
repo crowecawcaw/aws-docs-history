@@ -22,6 +22,7 @@ solution and service agility.
   assembled for the project are disbanded at the end of the project, the service is left
   without persistent product management. Establish team structures and governance models
   that can persist beyond the end of project.
+
   - **Improvement plan** – Encourage the organization
     to consider persistent team structures that span policy and delivery in their
     forward planning for the service. Consider running a Cloud Adoption Framework
@@ -35,6 +36,7 @@ solution and service agility.
   go-live protocols, and minimizing decision gaps between business owners and technology
   people, and can be complemented by oversight mechanisms without slowing or impeding good
   service delivery.
+
   - **Improvement plan** – Encourage the organization
     to consider delegation of two-door decision making, including continuous improvement
     and operational reforms in their forward planning for the service.
@@ -46,6 +48,7 @@ solution and service agility.
   include delegated decision-making mechanisms, product management in government, outcomes
   or product-based funding, and how to bring multi-disciplinary teams together to manage
   aspects of the service.
+
   - **Improvement plan** – If the organization does not
     have a Concept of Operations document, or equivalent documentation, encourage the
     organization to consider it in their forward planning for the service.
@@ -54,6 +57,7 @@ solution and service agility.
   additional feedback loops might complement the [feedback loops defined in the Operational Excellence Pillar](../operational-excellence-pillar/ops_evolve_ops_feedback_loops.md "../operational-excellence-pillar/ops_evolve_ops_feedback_loops.md") in the special
   context of the department and jurisdiction. For example, how might staff or the public
   report legal or impact concerns.
+
   - **Improvement plan** – Identify and document
     additional feedback loops, and build these into the service architecture, escalation
     mechanisms and operating model as appropriate.
@@ -68,6 +72,7 @@ solution and service agility.
   accelerates early identification of and validation of product goals, while minimizing
   risk, delivering early value, and ensuring that all product features are tested for
   effectiveness with end users.
+
   - **Improvement plan** – If the organization does not
     want to adopt an MVP-based deployment model, advise on the risk and encourage the
     organization to consider it in their forward planning for the service. Provide use
@@ -78,6 +83,7 @@ solution and service agility.
   diverse needs are included in user research, user testing, and other service
   engagements, and where possible diverse representation in product teams and governance
   can be applied.
+
   - **Improvement plan** – Encourage the organization
     to consider cultural context in their forward planning for the service.
 
@@ -93,6 +99,7 @@ great product becoming less than great over time.
   operate the service:** The more empowered public servants are to understand,
   manage, and improve their services, the more they are positioned to be proactive and
   effective in delivering great services, both directly and with vendors.
+
   - **Improvement plan** – Provide information and
     access to relevant AWS skills and capabilities training for the service, and
     support the organization to identify gaps throughout the process, with AWS digital
@@ -104,6 +111,7 @@ great product becoming less than great over time.
   evolution and maintenance of the service to match the expectations and feedback of
   consumers. If you have a fixed or scheduled approach to improvement, support the best
   practices possible.
+
   - **Improvement plan** – Run change scenarios with
     the organization, including small and significant changes to the service, to
     identify and document how continuous improvements will be enabled, and with what
@@ -112,6 +120,7 @@ great product becoming less than great over time.
 - **Implement a design-led agile development and funding
   framework:** Ensure that the operating and funding model supports a
   design-led agile approach that incorporates:
+
   - Early feedback on requirements from citizens, industry,
     and government
   - Testing and evolving of non-technical go-live processes
@@ -135,6 +144,7 @@ great product becoming less than great over time.
   accountability through various audit and reporting
   mechanisms. In some jurisdictions, there are public
   reporting requirements for public facing services.
+
   - **Improvement plan** – Include any reporting
     requirements in the concept of operations document, along with the chain of those
     responsible.
@@ -143,6 +153,7 @@ great product becoming less than great over time.
   informed:** To manage expectations and make it simple for consumers to use
   the service, create high quality communications (both marketing and transactional),
   supporting information, and technical documentation for the service. 
+
   - **Improvement plan** – Include the public
     communications approach in the concept of operations document, including who is
     responsible.
@@ -161,6 +172,7 @@ with end users.
   validate assumptions about what might work, and to proceed only with tested policy
   interventions. Sometimes the best solution is no solution at all, a regulation, or a
   change to an existing service.
+
   - **Improvement plan** – Encourage the use of the
     AWS Digital Innovation program, including Working Backwards workshops, to explore
     and identify the purpose and goals for the service. Leverage service and system
@@ -172,6 +184,7 @@ with end users.
   government legislation and rules in a desired service capability). Patterns should have
   broad use case applicability with high volumes of reuse and could be candidates for
   whole of government reusable capabilities.
+
   - **Improvement plan** – Identify and recommend
     potential reusable patterns for consideration in the solution architecture.
 
@@ -181,6 +194,7 @@ with end users.
   people, processes, and technology solutions to optimize
   delivery, implementation, and operation of one or many
   components that support a service capability.
+
   - **Improvement plan** – Consider relevant government
     architectural frameworks, including from the [Scenarios](scenarios.md "scenarios.md") section of this whitepaper.
 
@@ -204,6 +218,7 @@ technologies:
   relevant AWS reference architectures to support modular, virtualized, and utility
   based approaches, enabling greatest extendibility and scalability of the service,
   ideally with an omni-channel approach if public facing.
+
   - **Improvement plan** – Look for relevant existing
     tools, solutions, or capabilities available in the jurisdiction or globally, and
     consider the AWS open source catalog.
@@ -215,6 +230,7 @@ technologies:
   benefits of building it yourself. The capabilities and strengths of the customer's team
   should be considered and planned for to ensure service viability, both technically and
   financially.
+
   - **Improvement plan** – Consider an AWS Digital
     Innovation program to work backwards from the problem and identify the requirements
     and capabilities needed for a new solution. Support the customer to take a strategic
@@ -226,6 +242,7 @@ technologies:
 - **Consider where code, research, and efforts can be
   shared:** Reusable foundational components and solutions could be shared back
   to the open government community through open-source licensing.
+
   - **Improvement plan** – Provide guidance on sharing
     and contributing back to projects or to government.
 
@@ -238,12 +255,14 @@ technologies:
   support and leverage vendors, while maintaining the necessary internal agility for
   operational excellence. Explore flexible procurement arrangements, such as sprint or
   outcome-based procurement.
+
   - **Improvement plan** – Provide guidance, support,
     and training materials to support capability uplift.
 
 - **Consider the suitability of solution licensing:**
   Licensing conditions can sometimes constrain the effectiveness or financial viability of
   a service in several ways, such as:
+
   - If a user-based license model is used for a government service with significant
     citizen uptake.
   - License terms that are bound by hardware configurations can have an impact on

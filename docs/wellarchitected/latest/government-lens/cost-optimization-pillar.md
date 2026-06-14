@@ -32,6 +32,7 @@ and to document to make sure that value for money is achieved in a government co
 - **Document the definition of _value for
   money_** for the jurisdictional and portfolio context, and how this
   service meets that definition.
+
   - **Improvement plan** – Engage with the government
     organization to understand and document their value for money definition. Work with
     your AWS account team to optimise costs. If you're on AWS Enterprise Support, your
@@ -41,6 +42,7 @@ and to document to make sure that value for money is achieved in a government co
 - **Define how the cost and value is
   reported** to oversight and governance bodies (for
   example, parliament, and public scrutiny).
+
   - **Improvement plan** – Encourage the organization to
     automate and provide ease of cost/value reporting for the service. AWS provides
     several reporting and cost-optimization tools, including
@@ -50,6 +52,7 @@ and to document to make sure that value for money is achieved in a government co
 
 - **Build in-house capability manage costs** through training,
   tools, and equipping teams.
+
   - **Improvement plan** – Provide delivery teams with
     the services and tools that they need to be able to actively understand and manage
     their costs.
@@ -57,6 +60,7 @@ and to document to make sure that value for money is achieved in a government co
 - **Leverage existing solutions and capabilities where
   possible.** Support the reuse of platforms, panels, marketplaces, research,
   design systems, and existing solutions or components where possible.
+
   - **Improvement plan** – Encourage the organization to
     identify and leverage reusable tools, solutions, research and methods for the service.
     See the [AWS Solutions Library](https://aws.amazon.com/solutions/ "https://aws.amazon.com/solutions/").
@@ -64,6 +68,7 @@ and to document to make sure that value for money is achieved in a government co
 - **Leverage professional networks and user groups.**
   Identify and engage with cross-governmental networks, professional networks and relevant
   user groups to engage peer review and feedback on the solution.
+
   - **Improvement plan** – Encourage the organization to
     identify and leverage networks and communities of practice, and establish peer review
     sessions.
@@ -75,6 +80,7 @@ and to document to make sure that value for money is achieved in a government co
   to avoid breaking citizen trust. Fortunately, this necessary choice is temporary and works
   well with cloud economics. Service delivery teams can cost optimize and consider automatic
   scaling after release events, when utilization and popularity have normalized.
+
   - **Improvement plan** – Provide guidance and support
     on automated resource optimization.
 
@@ -84,6 +90,7 @@ and to document to make sure that value for money is achieved in a government co
   funding cycles and ensure continuity of service. Often, there is low flexibility in these
   cycles, however, government customers can be supported to build more flexibility into the
   program, project, or product-based funding mechanisms.
+
   - **Improvement plan** – Encourage the organization to
     automate and provide ease of cost/value reporting for the service, especially for
     delivery teams and decision makers.
@@ -92,6 +99,7 @@ and to document to make sure that value for money is achieved in a government co
 
 - [AWS Tools for Reporting and Cost Optimization whitepaper](../../../whitepapers/latest/cost-optimization-laying-the-foundation/reporting-cost-optimization-tools.md "../../../whitepapers/latest/cost-optimization-laying-the-foundation/reporting-cost-optimization-tools.md")
 - AWS reusable solutions, patterns, and applications:
+
   - [AWS Solutions Library](https://aws.amazon.com/solutions/ "https://aws.amazon.com/solutions/")
   - [AWS Construct Library](../../../cdk/api/v2/docs/aws-construct-library.md "../../../cdk/api/v2/docs/aws-construct-library.md")
   - [AWS Serverless Application Repository](https://serverlessrepo.aws.amazon.com/applications "https://serverlessrepo.aws.amazon.com/applications")

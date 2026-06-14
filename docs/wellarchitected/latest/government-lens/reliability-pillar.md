@@ -21,6 +21,7 @@ Pillar whitepaper](../reliability-pillar/welcome.md "../reliability-pillar/welco
   process test environments, including scaled functional testing, user testing with the
   public, war gaming for procedural and scenario testing, and the potential for regulatory
   sandboxes for policy testing.
+
   - **Improvement plan** – Consider running regular AWS
     Well-Architected _game days_ in the lead up to
     launching a new product to identify areas for improvement and end to end
@@ -32,6 +33,7 @@ Pillar whitepaper](../reliability-pillar/welcome.md "../reliability-pillar/welco
 - **Seek peer review of reliability planning:** Run and
   document feedback and recommendations from peer review sessions for the service and
   reliability planning.
+
   - **Improvement plan** – Support the customer to engage
     with relevant peers to review, share, and help assure the best possible reliability of
     the service.
@@ -51,6 +53,7 @@ not put at risk from a lack of access to critical government services and system
   seasonal emergencies (such as fire season), and waiting times at medical care facilities.
   Capture these assumptions in user journey maps and document remediations and strategies in
   the concept of operations document.
+
   - **Improvement plan** – Analyze and document the full
     impacts of downtime on end users, stakeholders, and others who depend on the service,
     using a variety of relevant planned and unplanned scenarios.
@@ -62,6 +65,7 @@ not put at risk from a lack of access to critical government services and system
   Verify that alternative service pathways are quickly discoverable by end users, even if
   the digital services are down. Have a stakeholder list, FAQs, and a communications plan
   prepared.  
+
   - **Improvement plan** – Use scenario planning, user
     journey maps, and support the organization to resource and plan for service
     degradation, failovers, and alternative pathways for the service.
@@ -72,6 +76,7 @@ not put at risk from a lack of access to critical government services and system
   often good practice to help maintain high public trust and confidence in the public
   institution. Identifying any requirements and ensuring the processes and expectations are
   clear and documented can assist in future incident management.
+
   - **Improvement plan** – Work with the organization to
     document any specific or legislative requirements to report incidents publicly, and
     document relevant processes.

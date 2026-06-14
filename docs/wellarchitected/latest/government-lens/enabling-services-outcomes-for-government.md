@@ -64,6 +64,7 @@ impact measures. 
 - **Document the user needs and measures for success:**
   Government services that a person or business interact with should also measure the user
   outcomes and satisfaction of the service. 
+
   - **User outcomes:** Identify what _done_
     is for a user, and measure it to verify that the service is delivering as expected
     outcomes for users. For example, a service might intend to support people to live at
