@@ -5,14 +5,17 @@ This page describes common questions you can encounter when using Amazon Managed
 ###### Contents
 
 - [Supported versions](mwaa-faqs.md#q-supported-versions "mwaa-faqs.md#q-supported-versions")
+
   - [What does Amazon MWAA support for Apache Airflow v2?](mwaa-faqs.md#airflow-support "mwaa-faqs.md#airflow-support")
   - [What Python version can I use?](mwaa-faqs.md#python-version "mwaa-faqs.md#python-version")
 
 - [Use cases](mwaa-faqs.md#t-common-questions "mwaa-faqs.md#t-common-questions")
+
   - [Can I use Amazon MWAA with Amazon SageMaker Unified Studio?](mwaa-faqs.md#t-use-sagemaker-unified-studio "mwaa-faqs.md#t-use-sagemaker-unified-studio")
   - [When can I use AWS Step Functions vs. Amazon MWAA?](mwaa-faqs.md#t-step-functions "mwaa-faqs.md#t-step-functions")
 
 - [Environment specifications](mwaa-faqs.md#q-supported-features "mwaa-faqs.md#q-supported-features")
+
   - [How much task storage is available to each environment?](mwaa-faqs.md#worker-storage "mwaa-faqs.md#worker-storage")
   - [What is the default operating system used for Amazon MWAA environments?](mwaa-faqs.md#default-os "mwaa-faqs.md#default-os")
   - [Can I use a custom image for my Amazon MWAA environment?](mwaa-faqs.md#custom-image "mwaa-faqs.md#custom-image")
@@ -28,10 +31,12 @@ This page describes common questions you can encounter when using Amazon Managed
   - [Can I create or integrate custom Amazon SQS queues to manage task execution and workflow orchestration in Apache Airflow?](mwaa-faqs.md#create-sqs "mwaa-faqs.md#create-sqs")
 
 - [Metrics](mwaa-faqs.md#q-metrics "mwaa-faqs.md#q-metrics")
+
   - [What metrics are used to determine whether to scale workers?](mwaa-faqs.md#metrics-workers "mwaa-faqs.md#metrics-workers")
   - [Can I create custom metrics in CloudWatch?](mwaa-faqs.md#metrics-custom "mwaa-faqs.md#metrics-custom")
 
 - [DAGs, Operators, Connections, and other questions](mwaa-faqs.md#q-dags "mwaa-faqs.md#q-dags")
+
   - [Can I use the PythonVirtualenvOperator?](mwaa-faqs.md#virtual-env-dags "mwaa-faqs.md#virtual-env-dags")
   - [How long does it take Amazon MWAA to recognize a new DAG file?](mwaa-faqs.md#recog-dag "mwaa-faqs.md#recog-dag")
   - [Why is my DAG file not picked up by Apache Airflow?](mwaa-faqs.md#dag-file-error "mwaa-faqs.md#dag-file-error")

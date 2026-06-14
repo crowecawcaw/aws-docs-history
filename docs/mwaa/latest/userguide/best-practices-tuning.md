@@ -6,16 +6,20 @@ This topic describes how to tune the performance of an Amazon Managed Workflows 
 
 - [Adding an Apache Airflow configuration option](best-practices-tuning.md#best-practices-tuning-console-add "best-practices-tuning.md#best-practices-tuning-console-add")
 - [Apache Airflow scheduler](best-practices-tuning.md#best-practices-tuning-scheduler "best-practices-tuning.md#best-practices-tuning-scheduler")
+
   - [Parameters](best-practices-tuning.md#best-practices-tuning-scheduler-params "best-practices-tuning.md#best-practices-tuning-scheduler-params")
   - [Limits](best-practices-tuning.md#best-practices-tuning-scheduler-limits "best-practices-tuning.md#best-practices-tuning-scheduler-limits")
 
 - [DAG folders](best-practices-tuning.md#best-practices-tuning-dag-folders "best-practices-tuning.md#best-practices-tuning-dag-folders")
+
   - [Parameters](best-practices-tuning.md#best-practices-tuning-dag-folders-params "best-practices-tuning.md#best-practices-tuning-dag-folders-params")
 
 - [DAG files](best-practices-tuning.md#best-practices-tuning-dag-files "best-practices-tuning.md#best-practices-tuning-dag-files")
+
   - [Parameters](best-practices-tuning.md#best-practices-tuning-dag-files-params "best-practices-tuning.md#best-practices-tuning-dag-files-params")
 
 - [Tasks](best-practices-tuning.md#best-practices-tuning-tasks "best-practices-tuning.md#best-practices-tuning-tasks")
+
   - [Parameters](best-practices-tuning.md#best-practices-tuning-tasks-params "best-practices-tuning.md#best-practices-tuning-tasks-params")
 
 ## Adding an Apache Airflow configuration option

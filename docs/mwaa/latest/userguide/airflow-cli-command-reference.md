@@ -9,15 +9,18 @@ REST API is more modern than the CLI and is designed for programmatic integratio
 ###### Contents
 
 - [Prerequisites](airflow-cli-command-reference.md#airflow-cli-command-prereqs "airflow-cli-command-reference.md#airflow-cli-command-prereqs")
+
   - [Access](airflow-cli-command-reference.md#access-airflow-ui-prereqs-access "airflow-cli-command-reference.md#access-airflow-ui-prereqs-access")
   - [AWS CLI](airflow-cli-command-reference.md#access-airflow-ui-prereqs-cli "airflow-cli-command-reference.md#access-airflow-ui-prereqs-cli")
 
 - [What changed?](airflow-cli-command-reference.md#airflow-cli-command-changed "airflow-cli-command-reference.md#airflow-cli-command-changed")
 - [Supported CLI commands](airflow-cli-command-reference.md#airflow-cli-commands "airflow-cli-command-reference.md#airflow-cli-commands")
+
   - [Supported commands](airflow-cli-command-reference.md#airflow-cli-commands-supported "airflow-cli-command-reference.md#airflow-cli-commands-supported")
   - [Using commands that parse DAGs](airflow-cli-command-reference.md#parsing-support "airflow-cli-command-reference.md#parsing-support")
 
 - [Sample code](airflow-cli-command-reference.md#airflow-cli-command-examples "airflow-cli-command-reference.md#airflow-cli-command-examples")
+
   - [Set, get or delete an Apache Airflow v2 variable](airflow-cli-command-reference.md#example-airflow-cli-commands-bash "airflow-cli-command-reference.md#example-airflow-cli-commands-bash")
   - [Add a configuration when triggering a DAG](airflow-cli-command-reference.md#example-airflow-cli-commands-trigger "airflow-cli-command-reference.md#example-airflow-cli-commands-trigger")
   - [Run CLI commands on an SSH tunnel to a bastion host](airflow-cli-command-reference.md#example-airflow-cli-commands-private "airflow-cli-command-reference.md#example-airflow-cli-commands-private")

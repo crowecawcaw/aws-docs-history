@@ -41,6 +41,7 @@ You can enable Apache Airflow logs at the `INFO`, `WARNING`, `ERROR`, or `CRITIC
 3. Choose **Edit**.
 4. Choose **Next**.
 5. Choose one or more of the following logging options:
+
    1. Choose the **Airflow scheduler log group** on the **Monitoring** pane.
    2. Choose the **Airflow webserver log group** on the **Monitoring** pane.
    3. Choose the **Airflow worker log group** on the **Monitoring** pane.

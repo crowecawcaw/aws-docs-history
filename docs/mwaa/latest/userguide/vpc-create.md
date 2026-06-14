@@ -14,6 +14,7 @@ configuring AWS PrivateLink for Amazon MWAA, refer to [Creating an Amazon VPC ne
 - [Prerequisites](vpc-create.md#vpc-create-prereqs "vpc-create.md#vpc-create-prereqs")
 - [Before you begin](vpc-create.md#vpc-create-how-networking "vpc-create.md#vpc-create-how-networking")
 - [Options to create the Amazon VPC network](vpc-create.md#vpc-create-options "vpc-create.md#vpc-create-options")
+
   - [Option one: Creating the VPC network on the Amazon MWAA console](vpc-create.md#vpc-create-mwaa-console "vpc-create.md#vpc-create-mwaa-console")
   - [Option two: Creating an Amazon VPC network with internet access](vpc-create.md#vpc-create-template-private-or-public "vpc-create.md#vpc-create-template-private-or-public")
   - [Option three: Creating an Amazon VPC network without internet access](vpc-create.md#vpc-create-template-private-only "vpc-create.md#vpc-create-template-private-only")

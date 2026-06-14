@@ -10,6 +10,7 @@ page in the _Apache Airflow reference guide_. This page describes the Apache Air
 - [Dimensions](access-metrics-cw.md#metrics-dimensions "access-metrics-cw.md#metrics-dimensions")
 - [Accessing metrics in the CloudWatch console](access-metrics-cw.md#access-metrics-cw-console "access-metrics-cw.md#access-metrics-cw-console")
 - [Apache Airflow metrics available in CloudWatch](access-metrics-cw.md#available-metrics-cw "access-metrics-cw.md#available-metrics-cw")
+
   - [Apache Airflow Counters](access-metrics-cw.md#counters-metrics "access-metrics-cw.md#counters-metrics")
   - [Apache Airflow Gauges](access-metrics-cw.md#gauges-metrics "access-metrics-cw.md#gauges-metrics")
   - [Apache Airflow Timers](access-metrics-cw.md#timers-metrics "access-metrics-cw.md#timers-metrics")

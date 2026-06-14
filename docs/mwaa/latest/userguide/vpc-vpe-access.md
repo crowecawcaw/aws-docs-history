@@ -10,15 +10,18 @@ If you chose **Both public and private network access**, the VPC endpoint for th
 
 - [Pricing](vpc-vpe-access.md#vpc-vpe-pricing "vpc-vpe-access.md#vpc-vpe-pricing")
 - [VPC endpoint overview](vpc-vpe-access.md#vpc-vpe-about "vpc-vpe-access.md#vpc-vpe-about")
+
   - [Public network access mode](vpc-vpe-access.md#vpc-vpe-about-public "vpc-vpe-access.md#vpc-vpe-about-public")
   - [Private network access mode](vpc-vpe-access.md#vpc-vpe-about-private "vpc-vpe-access.md#vpc-vpe-about-private")
 
 - [Permission to use other AWS services](vpc-vpe-access.md#vpc-vpe-permission "vpc-vpe-access.md#vpc-vpe-permission")
 - [Accessing VPC endpoints](vpc-vpe-access.md#vpc-vpe-view-all "vpc-vpe-access.md#vpc-vpe-view-all")
+
   - [Accessing VPC endpoints on the Amazon VPC console](vpc-vpe-access.md#vpc-vpe-view-endpoints "vpc-vpe-access.md#vpc-vpe-view-endpoints")
   - [Identifying the private IP addresses of your Apache Airflow webserver and its VPC endpoint](vpc-vpe-access.md#vpc-vpe-hosts "vpc-vpe-access.md#vpc-vpe-hosts")
 
 - [Accessing the VPC endpoint for your Apache Airflow webserver (private network access)](vpc-vpe-access.md#vpc-vpe-access-endpoints "vpc-vpe-access.md#vpc-vpe-access-endpoints")
+
   - [Using an AWS Client VPN](vpc-vpe-access.md#vpc-vpe-access-vpn "vpc-vpe-access.md#vpc-vpe-access-vpn")
   - [Using a Linux Bastion Host](vpc-vpe-access.md#vpc-vpe-access-bastion "vpc-vpe-access.md#vpc-vpe-access-bastion")
   - [Using a Load Balancer (advanced)](vpc-vpe-access.md#vpc-vpe-access-load-balancer "vpc-vpe-access.md#vpc-vpe-access-load-balancer")
@@ -152,6 +155,7 @@ The following section displays the configurations you'll need to apply to an [Ap
 
 4. **ACM new domain**. If you want to associate an SSL/TLS certificate in AWS Certificate Manager, you'll need to create a new domain for the HTTPS listener for your load balancer.
 5. **ACM certificate region**. If you want to associate an SSL/TLS certificate in AWS Certificate Manager, you'll need to upload to the same AWS Region as your environment. For example:
+
    1. ###### Example region to upload certificate
 
    ```

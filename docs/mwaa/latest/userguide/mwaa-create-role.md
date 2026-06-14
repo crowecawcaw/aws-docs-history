@@ -5,17 +5,20 @@ An execution role is an AWS Identity and Access Management (IAM) role with a per
 ###### Contents
 
 - [Execution role overview](mwaa-create-role.md#mwaa-create-role-how "mwaa-create-role.md#mwaa-create-role-how")
+
   - [Permissions attached by default](mwaa-create-role.md#mwaa-create-role-how-create-role "mwaa-create-role.md#mwaa-create-role-how-create-role")
   - [How to add permission to use other AWS services](mwaa-create-role.md#mwaa-create-role-how-adding "mwaa-create-role.md#mwaa-create-role-how-adding")
   - [How to associate a new execution role](mwaa-create-role.md#mwaa-create-role-how-associating "mwaa-create-role.md#mwaa-create-role-how-associating")
 
 - [Create a new role](mwaa-create-role.md#mwaa-create-role-mwaa-onconsole "mwaa-create-role.md#mwaa-create-role-mwaa-onconsole")
 - [Access and update an execution role policy](mwaa-create-role.md#mwaa-create-role-update "mwaa-create-role.md#mwaa-create-role-update")
+
   - [Attach a JSON policy to use other AWS services](mwaa-create-role.md#mwaa-create-role-attach-json-policy "mwaa-create-role.md#mwaa-create-role-attach-json-policy")
 
 - [Grant access to Amazon S3 bucket with account-level public access block](mwaa-create-role.md#mwaa-create-role-s3-publicaccessblock "mwaa-create-role.md#mwaa-create-role-s3-publicaccessblock")
 - [Use Apache Airflow connections](mwaa-create-role.md#mwaa-create-role-airflow-connections "mwaa-create-role.md#mwaa-create-role-airflow-connections")
 - [Sample JSON policies for an execution role](mwaa-create-role.md#mwaa-create-role-json "mwaa-create-role.md#mwaa-create-role-json")
+
   - [Sample policy for a customer-managed key](mwaa-create-role.md#mwaa-create-role-cmk "mwaa-create-role.md#mwaa-create-role-cmk")
   - [Sample policy for an AWS-owned key](mwaa-create-role.md#mwaa-create-role-aocmk "mwaa-create-role.md#mwaa-create-role-aocmk")
 

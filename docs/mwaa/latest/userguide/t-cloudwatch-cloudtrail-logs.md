@@ -5,6 +5,7 @@ The topics on this page contain resolutions to Amazon CloudWatch Logs and AWS Cl
 ###### Contents
 
 - [Logs](t-cloudwatch-cloudtrail-logs.md#troubleshooting-view-logs "t-cloudwatch-cloudtrail-logs.md#troubleshooting-view-logs")
+
   - [I can't find my task logs, or I received a Reading remote log from Cloudwatch log_group error](t-cloudwatch-cloudtrail-logs.md#t-task-logs "t-cloudwatch-cloudtrail-logs.md#t-task-logs")
   - [Tasks are failing without any logs](t-cloudwatch-cloudtrail-logs.md#t-task-failing-no-logs "t-cloudwatch-cloudtrail-logs.md#t-task-failing-no-logs")
   - [I get a ResourceAlreadyExistsException error in CloudTrail](t-cloudwatch-cloudtrail-logs.md#t-cloudtrail "t-cloudwatch-cloudtrail-logs.md#t-cloudtrail")
@@ -27,6 +28,7 @@ Amazon MWAA has configured Apache Airflow to read and write logs directly from a
 ```
 
 - We recommend the following steps:
+
   1.  Verify that you have enabled task logs at the `INFO` level for your environment. For more information, refer to [Accessing Airflow logs in Amazon CloudWatch](monitoring-airflow.md "monitoring-airflow.md").
   2.  Verify that the environment [execution role](mwaa-create-role.md "mwaa-create-role.md") has the correct permission policies.
   3.  Verify that your operator or task is working correctly, has sufficient resources to parse the DAG, and has the appropriate Python libraries to load. To verify your whether you have the correct dependencies, try eliminating imports until you find the one that is causing the issue. We recommend testing your Python dependencies using [aws-mwaa-docker-images](https://github.com/aws/amazon-mwaa-docker-images "https://github.com/aws/amazon-mwaa-docker-images").
@@ -114,6 +116,7 @@ For an example, refer to [Quick start tutorial for Amazon Managed Workflows for 
 ### I get `Cannot locate a 64-bit Oracle Client library: "libclntsh.so: cannot open shared object file: No such file or directory` in Apache Airflow logs
 
 - We recommend the following steps:
+
   1.  If you're using Apache Airflow v2, add `core.lazy_load_plugins : False` as an Apache Airflow configuration option.
       To learn more, refer to [Using configuration options to load plugins in 2](configuring-env-variables.md#configuring-2.0-airflow-override "configuring-env-variables.md#configuring-2.0-airflow-override").
 

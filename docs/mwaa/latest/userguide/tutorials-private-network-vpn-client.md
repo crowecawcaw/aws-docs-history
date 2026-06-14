@@ -101,21 +101,21 @@ A Client VPN endpoint supports 1024-bit and 2048-bit RSA key sizes only. The fol
 
 1. Follow these quick steps to create and upload the certificates to ACM through the AWS CLI in [Client authentication and authorization: Mutual authentication](../../../vpn/latest/clientvpn-admin/client-authentication.md#mutual "../../../vpn/latest/clientvpn-admin/client-authentication.md#mutual").
 2. In these steps, you **must** specify the same AWS Region as an Amazon MWAA environment in the AWS CLI command when uploading your server and client certificates. Here's some examples of how to specify the region in these commands:
+
    1. ###### Example region for server certificate
 
    ```
    aws acm import-certificate --certificate fileb://server.crt --private-key fileb://server.key --certificate-chain fileb://ca.crt `--region us-west-2`
    ```
-
    2. ###### Example region for client certificate
 
    ```
    aws acm import-certificate --certificate fileb://client1.domain.tld.crt --private-key fileb://client1.domain.tld.key --certificate-chain fileb://ca.crt `--region us-west-2`
    ```
-
    3. After these steps, save the value returned in the AWS CLI response for the server certificate and client certificate ARNs. You'll be specifying these ARNs in your CloudFormation template to create the Client VPN.
 
 3. In these steps, a client certificate and a private key are saved to your computer. Here's an example of where to find these credentials:
+
    1. ###### Example on macOS
 
    On macOS the contents are saved at `/Users/`your-user`/custom_folder`. If you list all (`ls -a`) contents of this directory, you get something similar to the following:
@@ -129,7 +129,6 @@ A Client VPN endpoint supports 1024-bit and 2048-bit RSA key sizes only. The fol
    server.crt
    server.key
    ```
-
    2. After these steps, save the contents or note the location of the client certificate in `client1.domain.tld.crt`, and the private key in `client1.domain.tld.key`. You'll be adding these values to the configuration file for your Client VPN.
 
 ## Step three: Save the CloudFormation template locally
@@ -207,6 +206,7 @@ SecurityGroupIds:
 2. Choose the **Client VPN Endpoints** page.
 3. Select your Client VPN, and then choose the **Associations** tab, **Associate**.
 4. Choose the following in the dropdown list:
+
    - Your Amazon VPC in **VPC**.
    - One of your private subnets in **Choose a subnet to associate**.
 
@@ -226,12 +226,12 @@ You need to add an authorization ingress rule using the CIDR rule for your VPC t
 2. Choose the **Client VPN Endpoints** page.
 3. Select your Client VPN, and then choose the **Authorization** tab, **Authorize Ingress**.
 4. Specify the following:
+
    - Your Amazon VPC's CIDR rule in **Destination network to enable**. For example:
 
    ```
    10.192.0.0/16
    ```
-
    - Choose **Allow access to all users** in **Grant access to**.
    - Enter a descriptive name in **Description**.
 
@@ -247,6 +247,7 @@ Depending on the networking components for your Amazon VPC, you might also need 
 
 1. Follow these quick steps to download the Client VPN configuration file at [Download the Client VPN endpoint configuration file](../../../vpn/latest/clientvpn-admin/cvpn-getting-started.md#cvpn-getting-started-config "../../../vpn/latest/clientvpn-admin/cvpn-getting-started.md#cvpn-getting-started-config").
 2. In these steps, you're asked to prepend a string to your Client VPN endpoint DNS name. Here's an example:
+
    1. ###### Example endpoint DNS name
 
    If your Client VPN endpoint DNS name is:
@@ -262,6 +263,7 @@ Depending on the networking components for your Amazon VPC, you might also need 
    ```
 
 3. In these steps, you're asked to add the contents of the client certificate between a new set of `<cert></cert>` tags and the contents of the private key between a new set of `<key></key>` tags. Here's an example:
+
    1. Open a command prompt and change directories to the location of your client certificate and private key.
    2. ###### Example macOS client1.domain.tld.crt
 
@@ -279,7 +281,6 @@ Depending on the networking components for your Amazon VPC, you might also need 
    -----END CERTIFICATE-----
    </cert>
    ```
-
    3. ###### Example macOS client1.domain.tld.key
 
    To show the contents of the `client1.domain.tld.key`, you can use `cat client1.domain.tld.key`.

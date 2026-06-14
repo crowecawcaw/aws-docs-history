@@ -66,6 +66,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
@@ -668,6 +669,7 @@ Let's say you're using a group in IAM named `AirflowDevelopmentGroup` to apply p
 4. Choose the **JSON** tab.
 5. Paste the JSON policy for `AmazonMWAAFullConsoleAccess`.
 6. Substitute the following values:
+
    1. `123456789012` – Your AWS account ID (such as `0123456789`)
    2. `{your-kms-id}` – The unique identifer for a customer managed key, applicable only if you use a customer managed key for encryption at-rest.
 
@@ -683,6 +685,7 @@ Let's say you're using a group in IAM named `AirflowDevelopmentGroup` to apply p
 4. Choose the **JSON** tab.
 5. Paste the JSON policy for `AmazonMWAAWebServerAccess`.
 6. Substitute the following values:
+
    1. `us-east-1` – the region of your Amazon MWAA environment (such as `us-east-1`)
    2. `123456789012` – your AWS account ID (such as `0123456789`)
    3. `{your-environment-name}` – your Amazon MWAA environment name (such as `MyAirflowEnvironment`)

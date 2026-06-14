@@ -13,6 +13,7 @@ the Apache Airflow version. This guide describes the steps to update an Amazon M
 - [Worker replacement strategy](update-environment.md#worker-replacement-strategy "update-environment.md#worker-replacement-strategy")
 - [Update environment resources](update-environment.md#update-environment-resources "update-environment.md#update-environment-resources")
 - [Update an environment](update-environment.md#update-environment-start "update-environment.md#update-environment-start")
+
   - [Step one: Specify details](update-environment.md#update-environment-start-details "update-environment.md#update-environment-start-details")
   - [Step two: Configure advanced settings](update-environment.md#update-environment-start-advanced "update-environment.md#update-environment-start-advanced")
   - [Step three: Review and update](update-environment.md#update-environment-start-review "update-environment.md#update-environment-start-review")
@@ -91,6 +92,7 @@ Apache Airflow version. For more information, refer to [Changing the Apache Airf
 ###### To configure advanced settings
 
 1. Under **webserver access**, select your preferred [Apache Airflow access mode](configuring-networking.md "configuring-networking.md"):
+
    1. **Private network**. This limits access of the Apache Airflow UI to users _within your Amazon VPC_ that have been granted access to the [IAM policy for your environment](access-policies.md "access-policies.md"). You need permission to create Amazon VPC endpoints for this step.
 
    ###### Note
@@ -98,6 +100,7 @@ Apache Airflow version. For more information, refer to [Changing the Apache Airf
    Choose the **Private network** option if your Apache Airflow UI is only accessed within a corporate network, and you do not require access to public repositories for webserver requirements installation. If you choose this access mode option, you need to create a mechanism to access your Apache Airflow webserver in your Amazon VPC. For more information, refer to [Accessing the VPC endpoint for your Apache Airflow webserver (private network access)](vpc-vpe-access.md#vpc-vpe-access-endpoints "vpc-vpe-access.md#vpc-vpe-access-endpoints"). 2. **Public network**. This allows the Apache Airflow UI to be accessed over the internet by users granted access to the [IAM policy for your environment](access-policies.md "access-policies.md"). 3. **Both public and private network access**. Available for Apache Airflow version 3.2.1 and later. This allows the Apache Airflow UI to be accessed over the internet, while workers communicate with the webserver through a private VPC endpoint. Choose this option if the Amazon VPC hosting your environment lacks internet access.
 
 2. Under **Security groups**, choose the security group used to secure your [Amazon VPC](vpc-create.md "vpc-create.md"):
+
    1. By default, Amazon MWAA creates a security group in your Amazon VPC with specific inbound and outbound rules in **Create new security group**.
    2. **Optional**. Deselect the check box in **Create new security group** to select up to 5 security groups.
 
@@ -123,6 +126,7 @@ For more information about web server automatic scaling, refer to [Configuring A
     You must have permissions to the key to select it on the Amazon MWAA console. You must also grant permissions for Amazon MWAA to use the key by attaching the policy described in [Attach key policy](custom-keys-certs.md#custom-keys-certs-grant-policies-attach "custom-keys-certs.md#custom-keys-certs-grant-policies-attach").
 
 7. **Recommended**. Under **Monitoring**, choose one or more log categories for **Airflow logging configuration** to send Apache Airflow logs to CloudWatch Logs:
+
    1. **Airflow task logs**. Choose the type of Apache Airflow task logs to send to CloudWatch Logs in **Log level**.
    2. **Airflow webserver logs**. Choose the type of Apache Airflow webserver logs to send to CloudWatch Logs in **Log level**.
    3. **Airflow scheduler logs**. Choose the type of Apache Airflow scheduler logs to send to CloudWatch Logs in **Log level**.

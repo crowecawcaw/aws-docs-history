@@ -8,17 +8,21 @@ This topic describes the steps to install Apache Airflow Python dependencies on 
 - [Prerequisites](working-dags-dependencies.md#working-dags-dependencies-prereqs "working-dags-dependencies.md#working-dags-dependencies-prereqs")
 - [How it works](working-dags-dependencies.md#working-dags-dependencies-how "working-dags-dependencies.md#working-dags-dependencies-how")
 - [Python dependencies overview](working-dags-dependencies.md#working-dags-dependencies-overview "working-dags-dependencies.md#working-dags-dependencies-overview")
+
   - [Python dependencies location and size limits](working-dags-dependencies.md#working-dags-dependencies-quota "working-dags-dependencies.md#working-dags-dependencies-quota")
 
 - [Creating a requirements.txt file](working-dags-dependencies.md#working-dags-dependencies-test-create "working-dags-dependencies.md#working-dags-dependencies-test-create")
+
   - [Step one: Test Python dependencies using the Amazon MWAA CLI utility](working-dags-dependencies.md#working-dags-dependencies-cli-utility "working-dags-dependencies.md#working-dags-dependencies-cli-utility")
   - [Step two: Create the requirements.txt](working-dags-dependencies.md#working-dags-dependencies-syntax-create "working-dags-dependencies.md#working-dags-dependencies-syntax-create")
 
 - [Uploading requirements.txt to Amazon S3](working-dags-dependencies.md#configuring-dag-dependencies-upload "working-dags-dependencies.md#configuring-dag-dependencies-upload")
+
   - [Using the AWS CLI](working-dags-dependencies.md#configuring-dag-dependencies-upload-cli "working-dags-dependencies.md#configuring-dag-dependencies-upload-cli")
   - [Using the Amazon S3 console](working-dags-dependencies.md#configuring-dag-dependencies-upload-console "working-dags-dependencies.md#configuring-dag-dependencies-upload-console")
 
 - [Installing Python dependencies on your environment](working-dags-dependencies.md#configuring-dag-dependencies-installing "working-dags-dependencies.md#configuring-dag-dependencies-installing")
+
   - [Specifying the path to requirements.txt on the Amazon MWAA console (the first time)](working-dags-dependencies.md#configuring-dag-dependencies-first "working-dags-dependencies.md#configuring-dag-dependencies-first")
   - [Specifying the requirements.txt version on the Amazon MWAA console](working-dags-dependencies.md#working-dags-dependencies-mwaaconsole-version "working-dags-dependencies.md#working-dags-dependencies-mwaaconsole-version")
 

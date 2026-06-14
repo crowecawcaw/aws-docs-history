@@ -11,6 +11,7 @@ The AWS CLI token is intended as a replacement for synchronous shell actions, no
 ###### Contents
 
 - [Prerequisites](call-mwaa-apis-cli.md#call-mwaa-apis-cli-prereqs "call-mwaa-apis-cli.md#call-mwaa-apis-cli-prereqs")
+
   - [Access](call-mwaa-apis-cli.md#access-airflow-ui-prereqs-access "call-mwaa-apis-cli.md#access-airflow-ui-prereqs-access")
   - [AWS CLI](call-mwaa-apis-cli.md#access-airflow-ui-prereqs-cli "call-mwaa-apis-cli.md#access-airflow-ui-prereqs-cli")
 

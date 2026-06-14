@@ -73,6 +73,7 @@ the configuration you create in the following steps takes precedence and overrid
 3. Choose **Edit**.
 4. Choose **Next**.
 5. Choose **Add custom configuration** in the **Airflow configuration options** pane. Add the following key-value pairs:
+
    1. `secrets.backend`: `airflow.providers.amazon.aws.secrets.secrets_manager.SecretsManagerBackend`
    2. `secrets.backend_kwargs`: `{"connections_prefix" : "airflow/connections", "variables_prefix" : "airflow/variables"}`
       This configures Apache Airflow to search for connection strings and variables at `airflow/connections/*` and `airflow/variables/*` paths.
@@ -140,42 +141,37 @@ python3
 ```
 
 6. Use the "tab" key on your keyboard to indent each of the following key-value pairs in your connection object. Substitute the sample values in `red`.
+
    1. Specify the AWS connection type:
 
    ```
    **...** conn_id='`aws`',
    ```
-
    2. Specify the Apache Airflow database option:
 
    ```
    **...** conn_type='`mysql`',
    ```
-
    3. Specify the Apache Airflow UI URL on Amazon MWAA:
 
    ```
    **...** host='`288888a0-50a0-888-9a88-1a111aaa0000.a1.us-east-1.airflow.amazonaws.com/home`',
    ```
-
    4. Specify the AWS access key ID (username) to log in to Amazon MWAA:
 
    ```
    **...** login='`YOUR_AWS_ACCESS_KEY_ID`',
    ```
-
    5. Specify the AWS secret access key (password) to log in to Amazon MWAA:
 
    ```
    **...** password='`YOUR_AWS_SECRET_ACCESS_KEY`',
    ```
-
    6. Specify the `extra` shell session variable:
 
    ```
    **...** extra=extra
    ```
-
    7. Close the connection object.
 
    ```
@@ -264,6 +260,7 @@ airflow/variables/test-variable
 
 8. Choose **Next**.
 9. On the **Configure secret** page, on the **Secret name and description** pane, do the following.
+
    1. For **Secret name**, provide a name for your secret.
    2. (Optional) For **Description**, provide a description for your secret.Choose **Next**.
 
@@ -309,6 +306,7 @@ airflow/connections/myconn
 
 8. Choose **Next**.
 9. On the **Configure secret** page, on the **Secret name and description** pane, do the following.
+
    1. For **Secret name**, provide a name for your secret.
    2. (Optional) For **Description**, provide a description for your secret.Choose **Next**.
 

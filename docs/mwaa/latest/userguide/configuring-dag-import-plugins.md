@@ -9,21 +9,26 @@ Amazon Managed Workflows for Apache Airflow supports Apache Airflow's built-in p
 - [How it works](configuring-dag-import-plugins.md#configuring-dag-plugins-how "configuring-dag-import-plugins.md#configuring-dag-plugins-how")
 - [When to use the plugins](configuring-dag-import-plugins.md#configuring-dag-plugins-changed "configuring-dag-import-plugins.md#configuring-dag-plugins-changed")
 - [Custom plugins overview](configuring-dag-import-plugins.md#configuring-dag-plugins-overview "configuring-dag-import-plugins.md#configuring-dag-plugins-overview")
+
   - [Custom plugins directory and size limits](configuring-dag-import-plugins.md#configuring-dag-plugins-quota "configuring-dag-import-plugins.md#configuring-dag-plugins-quota")
 
 - [Examples of custom plugins](configuring-dag-import-plugins.md#configuring-dag-plugins-airflow-ex "configuring-dag-import-plugins.md#configuring-dag-plugins-airflow-ex")
+
   - [Example using a flat directory structure in plugins.zip](configuring-dag-import-plugins.md#configuring-dag-plugins-overview-simple "configuring-dag-import-plugins.md#configuring-dag-plugins-overview-simple")
   - [Example using a nested directory structure in plugins.zip](configuring-dag-import-plugins.md#configuring-dag-plugins-overview-complex "configuring-dag-import-plugins.md#configuring-dag-plugins-overview-complex")
 
 - [Creating a plugins.zip file](configuring-dag-import-plugins.md#configuring-dag-plugins-test-create "configuring-dag-import-plugins.md#configuring-dag-plugins-test-create")
+
   - [Step one: Test custom plugins using the Amazon MWAA CLI utility](configuring-dag-import-plugins.md#configuring-dag-plugins-cli-utility "configuring-dag-import-plugins.md#configuring-dag-plugins-cli-utility")
   - [Step two: Create the plugins.zip file](configuring-dag-import-plugins.md#configuring-dag-plugins-zip "configuring-dag-import-plugins.md#configuring-dag-plugins-zip")
 
 - [Uploading plugins.zip to Amazon S3](configuring-dag-import-plugins.md#configuring-dag-plugins-upload "configuring-dag-import-plugins.md#configuring-dag-plugins-upload")
+
   - [Using the AWS CLI](configuring-dag-import-plugins.md#configuring-dag-plugins-upload-cli "configuring-dag-import-plugins.md#configuring-dag-plugins-upload-cli")
   - [Using the Amazon S3 console](configuring-dag-import-plugins.md#configuring-dag-plugins-upload-console "configuring-dag-import-plugins.md#configuring-dag-plugins-upload-console")
 
 - [Installing custom plugins on your environment](configuring-dag-import-plugins.md#configuring-dag-plugins-mwaa-installing "configuring-dag-import-plugins.md#configuring-dag-plugins-mwaa-installing")
+
   - [Specifying the path to plugins.zip on the Amazon MWAA console (the first time)](configuring-dag-import-plugins.md#configuring-dag-plugins-mwaa-first "configuring-dag-import-plugins.md#configuring-dag-plugins-mwaa-first")
   - [Specifying the plugins.zip version on the Amazon MWAA console](configuring-dag-import-plugins.md#configuring-dag-plugins-s3-mwaaconsole "configuring-dag-import-plugins.md#configuring-dag-plugins-s3-mwaaconsole")
 

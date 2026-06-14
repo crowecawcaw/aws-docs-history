@@ -28,6 +28,7 @@ The service-linked role created in your account grants Amazon MWAA access to the
 - Amazon CloudWatch Logs (CloudWatch Logs) – To create log groups for Apache Airflow logs.
 - Amazon CloudWatch (CloudWatch) – To publish metrics related to your environment and its underlying components to your account.
 - Amazon Elastic Compute Cloud (Amazon EC2) – To create the following resources:
+
   - An Amazon VPC endpoint in your VPC for an AWS-managed Amazon Aurora PostgreSQL database cluster to be used by the Apache Airflow scheduler and worker.
   - An additional Amazon VPC endpoint to enable network access to the webserver if you choose the [private network](configuring-networking.md "configuring-networking.md") option for your Apache Airflow webserver.
   - [Elastic Network Interfaces (ENIs)](../../../vpc/latest/userguide/VPC_ElasticNetworkInterfaces.md "../../../vpc/latest/userguide/VPC_ElasticNetworkInterfaces.md") in your Amazon VPC to enable network access to AWS resources hosted in your Amazon VPC.

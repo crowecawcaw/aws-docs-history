@@ -78,6 +78,7 @@ key.
 4. On the **List Connections** page, choose **+**,
    or **Add a new record** button to add a new connection.
 5. On the **Add Connection** page, add the following information:
+
    1. For **Connection Id**, enter
       `ssh_new`.
    2. For **Connection Type**, choose **SSH** from the dropdown list.

@@ -5,24 +5,29 @@ The topics on this page describe resolutions to Apache Airflow v2 and v3 Python 
 ###### Contents
 
 - [Connections](t-apache-airflow-202.md#troubleshooting-conn-202 "t-apache-airflow-202.md#troubleshooting-conn-202")
+
   - [I can't connect to Secrets Manager](t-apache-airflow-202.md#access-secrets-manager "t-apache-airflow-202.md#access-secrets-manager")
   - [How do I configure secretsmanager:ResourceTag/<tag-key> secrets manager conditions or a resource restriction in my execution role policy?](t-apache-airflow-202.md#access-secrets-manager-condition-keys "t-apache-airflow-202.md#access-secrets-manager-condition-keys")
   - [I can't connect to Snowflake](t-apache-airflow-202.md#missing-snowflake "t-apache-airflow-202.md#missing-snowflake")
   - [I can't find my connection in the Airflow UI](t-apache-airflow-202.md#connection-type-missing "t-apache-airflow-202.md#connection-type-missing")
 
 - [Webserver](t-apache-airflow-202.md#troubleshooting-webserver-202 "t-apache-airflow-202.md#troubleshooting-webserver-202")
+
   - [I get a 5xx error accessing the webserver](t-apache-airflow-202.md#5xx-webserver-202 "t-apache-airflow-202.md#5xx-webserver-202")
   - [I get a The scheduler does not seem to be running error](t-apache-airflow-202.md#error-scheduler-202 "t-apache-airflow-202.md#error-scheduler-202")
 
 - [Tasks](t-apache-airflow-202.md#troubleshooting-tasks-202 "t-apache-airflow-202.md#troubleshooting-tasks-202")
+
   - [I get my tasks stuck or not completing](t-apache-airflow-202.md#stranded-tasks-202 "t-apache-airflow-202.md#stranded-tasks-202")
   - [I get task failures without logs in Airflow v3](t-apache-airflow-202.md#failed-task-no-log "t-apache-airflow-202.md#failed-task-no-log")
 
 - [CLI](t-apache-airflow-202.md#troubleshooting-cli-202 "t-apache-airflow-202.md#troubleshooting-cli-202")
+
   - [I get a '503' error when triggering a DAG in the CLI](t-apache-airflow-202.md#cli-toomany-202 "t-apache-airflow-202.md#cli-toomany-202")
   - [Why does the dags backfill Apache Airflow CLI command fail? Is there a workaround?](t-apache-airflow-202.md#troubleshooting-cli-backfill "t-apache-airflow-202.md#troubleshooting-cli-backfill")
 
 - [Operators](t-apache-airflow-202.md#troubleshooting-operators-202 "t-apache-airflow-202.md#troubleshooting-operators-202")
+
   - [I received a PermissionError: [Errno 13] Permission denied error using the S3Transform operator](t-apache-airflow-202.md#op-s3-transform "t-apache-airflow-202.md#op-s3-transform")
 
 ## Connections
@@ -156,10 +161,12 @@ The following topic describes the errors you might receive for Apache Airflow ta
 If your Apache Airflow tasks are "stuck" or not completing, we recommend the following steps:
 
 1. There might be a large number of DAGs defined. Reduce the number of DAGs and perform an update of the environment (such as changing a log level) to force a reset.
+
    1. Airflow parses DAGs whether they are enabled or not. If you're using greater than 50% of your environment's capacity you might start overwhelming the Apache Airflow scheduler. This leads to large _Total Parse Time_ in CloudWatch Metrics or long DAG processing times in CloudWatch Logs. There are other ways to optimize Apache Airflow configurations which are outside the scope of this guide.
    2. To learn more about the best practices we recommend to tune the performance of your environment, refer to [Performance tuning for Apache Airflow on Amazon MWAA](best-practices-tuning.md "best-practices-tuning.md").
 
 2. There might be a large number of tasks in the queue. This is often shown as a large—and growing—number of tasks in the `None` state, or as a large number in `Queued Tasks` and/or `Tasks Pending` in CloudWatch. This can occur for the following reasons:
+
    1. If there are more tasks to run than the environment has the capacity to run, and/or a large number of tasks that were queued before autoscaling has time to detect the tasks and deploy additional workers.
    2. If there are more tasks to run than an environment has the capacity to run, we recommend **reducing** the number of tasks that your DAGs run concurrently, and/or increasing the minimum Apache Airflow workers.
    3. If there are a large number of tasks that were queued before autoscaling has had time to detect and deploy additional workers, we recommend **staggering** task deployment and/or increasing the minimum Apache Airflow workers.
@@ -168,7 +175,6 @@ If your Apache Airflow tasks are "stuck" or not completing, we recommend the fol
    ```
    aws mwaa update-environment --name MyEnvironmentName --min-workers 2 --max-workers 10
    ```
-
    5. To learn more about the best practices we recommend to tune the performance of your environment, refer to [Performance tuning for Apache Airflow on Amazon MWAA](best-practices-tuning.md "best-practices-tuning.md").
 
 3. If your tasks are stuck in the "running" state, you can also clear the tasks or mark them as succeeded or failed. This allows the autoscaling component for your environment to scale down the number of workers running on your environment. The following image depicts an example of a stranded task.

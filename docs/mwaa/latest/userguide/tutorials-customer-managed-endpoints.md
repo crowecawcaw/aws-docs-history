@@ -115,6 +115,7 @@ Use the Amazon MWAA console to create a new environment with customer-managed Am
 3. For **Airflow version** choose the latest version.
 4. Choose an **Amazon S3 bucket** and a **DAGs folder**, such as `dags/` to use with the environment, then choose **Next**.
 5. On the **Configure advanced settings** page, do the following:
+
    1. For **Virtual Private Cloud**, choose the Amazon VPC you created in the [previous step](#tutorials-customer-managed-endpoints-create-vpc "#tutorials-customer-managed-endpoints-create-vpc").
    2. For **webserver access**, choose **Public network (internet accessible)**.
    3. For **Security groups**, choose the security group you created with CloudFormation. Because the security groups for the

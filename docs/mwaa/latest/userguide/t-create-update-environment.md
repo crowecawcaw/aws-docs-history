@@ -5,15 +5,19 @@ The topics on this page contain errors you can encounter when creating and updat
 ###### Contents
 
 - [Updating requirements.txt](t-create-update-environment.md#troubleshooting-reqs "t-create-update-environment.md#troubleshooting-reqs")
+
   - [I specified a new version of my requirements.txt and it's taking more than 20 minutes to update my environment](t-create-update-environment.md#t-requirements "t-create-update-environment.md#t-requirements")
 
 - [Plugins](t-create-update-environment.md#troubleshooting-plugins "t-create-update-environment.md#troubleshooting-plugins")
+
   - [Does Amazon MWAA support implementing custom UI?](t-create-update-environment.md#custom-ui "t-create-update-environment.md#custom-ui")
 
 - [Create bucket](t-create-update-environment.md#troubleshooting-create-bucket "t-create-update-environment.md#troubleshooting-create-bucket")
+
   - [I can't select the option for S3 Block Public Access settings](t-create-update-environment.md#t-create-bucket "t-create-update-environment.md#t-create-bucket")
 
 - [Create environment](t-create-update-environment.md#troubleshooting-create-environment "t-create-update-environment.md#troubleshooting-create-environment")
+
   - [I tried to create an environment and it's stuck in the Creating state](t-create-update-environment.md#t-stuck-failure "t-create-update-environment.md#t-stuck-failure")
   - [I tried to create an environment but it displays the status as Create failed](t-create-update-environment.md#t-create-environ-failed "t-create-update-environment.md#t-create-environ-failed")
   - [I tried to select a VPC and received a Network Failure error](t-create-update-environment.md#t-network-failure "t-create-update-environment.md#t-network-failure")
@@ -22,9 +26,11 @@ The topics on this page contain errors you can encounter when creating and updat
   - [I tried to create an environment and my user name is a bunch of random character names](t-create-update-environment.md#t-create-environ-random-un "t-create-update-environment.md#t-create-environ-random-un")
 
 - [Update environment](t-create-update-environment.md#troubleshooting-update-environment "t-create-update-environment.md#troubleshooting-update-environment")
+
   - [I tried changing the environment class but the update failed](t-create-update-environment.md#t-rollback-billing-failure "t-create-update-environment.md#t-rollback-billing-failure")
 
 - [Access environment](t-create-update-environment.md#troubleshooting-access-environment "t-create-update-environment.md#troubleshooting-access-environment")
+
   - [I can't access the Apache Airflow UI](t-create-update-environment.md#t-no-access-airflow-ui "t-create-update-environment.md#t-no-access-airflow-ui")
 
 ## Updating `requirements.txt`
@@ -93,9 +99,11 @@ The following topic describes the errors you might receive when creating an envi
 We recommend the following steps:
 
 1. Check VPC network with _public routing_. If you're using an Amazon VPC with internet access, verify the following:
+
    1. That your Amazon VPC is configured to allow network traffic between the different AWS resources used by your Amazon MWAA environment, as defined in [About networking on Amazon MWAA](networking-about.md "networking-about.md"). For example, your VPC security group must either allow all traffic in a self-referencing rule, or optionally specify the port range for HTTPS port range 443 and a TCP port range 5432.
 
 2. Check VPC network with _private routing_. If you're using an Amazon VPC without internet access, verify the following:
+
    1. That your Amazon VPC is configured to allow network traffic between the different AWS resources for your Amazon MWAA environment, as defined in [About networking on Amazon MWAA](networking-about.md "networking-about.md"). For example, your two private subnets must **not** have a route table to a NAT gateway (or NAT instance), **nor** an internet gateway.
 
 3. To run a troubleshooting script that checks the Amazon VPC network setup and configuration for your Amazon MWAA environment, refer to the [Verify Environment](https://github.com/awslabs/aws-support-tools/tree/master/MWAA "https://github.com/awslabs/aws-support-tools/tree/master/MWAA") script in AWS Support Tools on GitHub.
@@ -112,6 +120,7 @@ We recommend the following steps:
 5. To run a troubleshooting script that checks the Amazon VPC network setup and configuration for your Amazon MWAA environment, refer to the [Verify Environment](https://github.com/awslabs/aws-support-tools/tree/master/MWAA "https://github.com/awslabs/aws-support-tools/tree/master/MWAA") script in AWS Support Tools on GitHub.
 6. If you are using an Amazon VPC _without_ internet access, ensure that you've created an Amazon S3 gateway endpoint, and granted
    the minimum required permisions to Amazon ECR to access Amazon S3. To learn more about creating an Amazon S3 gateway endpoint, refer to the following:
+
    - [Creating an Amazon VPC network without internet access](vpc-create.md#vpc-create-template-private-only "vpc-create.md#vpc-create-template-private-only")
    - [Create the Amazon S3 gateway endpoint](../../../AmazonECR/latest/userguide/vpc-endpoints.md#ecr-setting-up-s3-gateway "../../../AmazonECR/latest/userguide/vpc-endpoints.md#ecr-setting-up-s3-gateway")
      in the _Amazon Elastic Container Registry User Guide_

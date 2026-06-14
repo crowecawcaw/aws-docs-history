@@ -10,6 +10,7 @@ The following sample walks you through the steps to create a custom plugin using
 - [Requirements](samples-oracle.md#samples-oracle-dependencies "samples-oracle.md#samples-oracle-dependencies")
 - [Code sample](samples-oracle.md#samples-oracle-code "samples-oracle.md#samples-oracle-code")
 - [Create the custom plugin](samples-oracle.md#samples-oracle-create-pluginszip-steps "samples-oracle.md#samples-oracle-create-pluginszip-steps")
+
   - [Download dependencies](samples-oracle.md#samples-oracle-install "samples-oracle.md#samples-oracle-install")
   - [Custom plugin](samples-oracle.md#samples-oracle-plugins-code "samples-oracle.md#samples-oracle-plugins-code")
   - [Plugins.zip](samples-oracle.md#samples-oracle-pluginszip "samples-oracle.md#samples-oracle-pluginszip")

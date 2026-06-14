@@ -5,16 +5,19 @@ The Amazon Managed Workflows for Apache Airflow console contains built-in option
 ###### Contents
 
 - [Apache Airflow access modes](configuring-networking.md#configuring-networking-onconsole "configuring-networking.md#configuring-networking-onconsole")
+
   - [Public network](configuring-networking.md#webserver-options-public-network-onconsole "configuring-networking.md#webserver-options-public-network-onconsole")
   - [Private network](configuring-networking.md#webserver-options-private-network "configuring-networking.md#webserver-options-private-network")
   - [Both public and private network access](configuring-networking.md#webserver-options-public-and-private-network "configuring-networking.md#webserver-options-public-and-private-network")
 
 - [Access modes overview](configuring-networking.md#configuring-networking-access-overview "configuring-networking.md#configuring-networking-access-overview")
+
   - [Public network access mode](configuring-networking.md#access-overview-public "configuring-networking.md#access-overview-public")
   - [Private network access mode](configuring-networking.md#access-overview-private "configuring-networking.md#access-overview-private")
   - [Both public and private network access mode](configuring-networking.md#access-overview-public-and-private "configuring-networking.md#access-overview-public-and-private")
 
 - [Setup for access modes](configuring-networking.md#access-network-choose "configuring-networking.md#access-network-choose")
+
   - [Setup for public network](configuring-networking.md#access-network-public "configuring-networking.md#access-network-public")
   - [Setup for private network](configuring-networking.md#access-network-private "configuring-networking.md#access-network-private")
   - [Setup for both public and private network access](configuring-networking.md#access-network-public-and-private "configuring-networking.md#access-network-public-and-private")

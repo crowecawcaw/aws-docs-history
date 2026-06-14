@@ -12,10 +12,12 @@ If you chose **Both public and private network access**, the VPC endpoint for th
 - [Private network and private routing](vpc-vpe-create-access.md#vpc-vpc-create-onconsole "vpc-vpe-create-access.md#vpc-vpc-create-onconsole")
 - [(Required) VPC endpoints](vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-examples "vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-examples")
 - [Attaching the required VPC endpoints](vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-attach-all "vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-attach-all")
+
   - [VPC endpoints required for AWS services](vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-attach-services "vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-attach-services")
   - [VPC endpoints required for Apache Airflow](vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-attach-aa "vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-attach-aa")
 
 - [(Optional) Enable private IP addresses for your Amazon S3 VPC interface endpoint](vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-s3-exception "vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-s3-exception")
+
   - [Using Route 53](vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-s3-exception-route53 "vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-s3-exception-route53")
   - [VPCs with custom DNS](vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-s3-exception-customdns "vpc-vpe-create-access.md#vpc-vpe-create-view-endpoints-s3-exception-customdns")
 
@@ -82,6 +84,7 @@ The following section displays the steps to attach the VPC endpoints for the AWS
 1. Open the [Endpoints page](https://console.aws.amazon.com/vpc/home#Endpoints:sort=vpcEndpointType "https://console.aws.amazon.com/vpc/home#Endpoints:sort=vpcEndpointType") on the Amazon VPC console.
 2. Select your AWS Region.
 3. Create the endpoint for Amazon S3:
+
    1. Choose **Create Endpoint**.
    2. In the _Filter by attributes or search by keyword_ text field, type: `.s3`, then press _Enter_ on your keyboard.
    3. We recommend choosing the service endpoint listed for the **Gateway** type.
@@ -89,6 +92,7 @@ The following section displays the steps to attach the VPC endpoints for the AWS
    For example, `com.amazonaws.us-west-2.s3 amazon Gateway` 4. Choose your environment's Amazon VPC in **VPC**. 5. Ensure that your two private subnets in different Availability Zones are selected, and that that private DNS is enabled by selecting **Enable DNS name**. 6. Choose your environment's Amazon VPC security groups. 7. Choose **Full Access** in **Policy**. 8. Choose **Create endpoint**.
 
 4. Create the endpoint for CloudWatch Logs:
+
    1. Choose **Create Endpoint**.
    2. In the _Filter by attributes or search by keyword_ text field, type: `.logs`, then press _Enter_ on your keyboard.
    3. Select the service endpoint.
@@ -99,6 +103,7 @@ The following section displays the steps to attach the VPC endpoints for the AWS
    8. Choose **Create endpoint**.
 
 5. Create the endpoint for CloudWatch Monitoring:
+
    1. Choose **Create Endpoint**.
    2. In the _Filter by attributes or search by keyword_ text field, type: `.monitoring`, then press _Enter_ on your keyboard.
    3. Select the service endpoint.
@@ -109,6 +114,7 @@ The following section displays the steps to attach the VPC endpoints for the AWS
    8. Choose **Create endpoint**.
 
 6. Create the endpoint for Amazon SQS:
+
    1. Choose **Create Endpoint**.
    2. In the _Filter by attributes or search by keyword_ text field, type: `.sqs`, then press _Enter_ on your keyboard.
    3. Select the service endpoint.
@@ -119,6 +125,7 @@ The following section displays the steps to attach the VPC endpoints for the AWS
    8. Choose **Create endpoint**.
 
 7. Create the endpoint for AWS KMS:
+
    1. Choose **Create Endpoint**.
    2. In the _Filter by attributes or search by keyword_ text field, type: `.kms`, then press _Enter_ on your keyboard.
    3. Select the service endpoint.
@@ -137,6 +144,7 @@ The following section displays the steps to attach the VPC endpoints for Apache 
 1. Open the [Endpoints page](https://console.aws.amazon.com/vpc/home#Endpoints:sort=vpcEndpointType "https://console.aws.amazon.com/vpc/home#Endpoints:sort=vpcEndpointType") on the Amazon VPC console.
 2. Select your AWS Region.
 3. Create the endpoint for the Apache Airflow API:
+
    1. Choose **Create Endpoint**.
    2. In the _Filter by attributes or search by keyword_ text field, type: `.airflow.api`, then press _Enter_ on your keyboard.
    3. Select the service endpoint.
@@ -147,6 +155,7 @@ The following section displays the steps to attach the VPC endpoints for Apache 
    8. Choose **Create endpoint**.
 
 4. Create the first endpoint for the Apache Airflow environment:
+
    1. Choose **Create Endpoint**.
    2. In the _Filter by attributes or search by keyword_ text field, type: `.airflow.env`, then press _Enter_ on your keyboard.
    3. Select the service endpoint.
@@ -157,6 +166,7 @@ The following section displays the steps to attach the VPC endpoints for Apache 
    8. Choose **Create endpoint**.
 
 5. Create the second endpoint for Apache Airflow operations:
+
    1. Choose **Create Endpoint**.
    2. In the _Filter by attributes or search by keyword_ text field, type: `.airflow.ops`, then press _Enter_ on your keyboard.
    3. Select the service endpoint.

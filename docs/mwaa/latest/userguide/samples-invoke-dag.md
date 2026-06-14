@@ -67,6 +67,7 @@ cd dags
 
 2. Copy the content of the following code example and save it locally as `invoke_dag.py`. Replace the following values
    with your information.
+
    - `your-new-environment-name` – The name of the other environment where
      you want to invoke the DAG.
    - `your-target-dag-id` – The ID of the DAG in the other environment

@@ -8,6 +8,7 @@ This guide describes the steps to create an Amazon MWAA environment.
 - [Before you begin](create-environment.md#create-environment-before "create-environment.md#create-environment-before")
 - [Apache Airflow versions](create-environment.md#create-environment-regions-aa-versions "create-environment.md#create-environment-regions-aa-versions")
 - [Create an environment](create-environment.md#create-environment-start "create-environment.md#create-environment-start")
+
   - [Step one: Specify details](create-environment.md#create-environment-start-details "create-environment.md#create-environment-start-details")
   - [Step two: Configure advanced settings](create-environment.md#create-environment-start-advanced "create-environment.md#create-environment-start-advanced")
   - [Step three: Review and create](create-environment.md#create-environment-start-review "create-environment.md#create-environment-start-review")
@@ -65,6 +66,7 @@ The following section describes the steps to create an Amazon MWAA environment.
 2. Select your AWS Region.
 3. Choose **Create environment**.
 4. On the **Specify details** page, under **Environment details**:
+
    1. Enter a unique name for your environment in **Name**.
    2. Choose the Apache Airflow version in **Airflow version**.
 
@@ -73,6 +75,7 @@ The following section describes the steps to create an Amazon MWAA environment.
    If no value is specified, defaults to the latest Apache Airflow version. The latest available version is Apache Airflow v3.0.6.
 
 5. Under **DAG code in Amazon S3** specify the following:
+
    1. **S3 Bucket**. Choose **Browse S3** and select your Amazon S3 bucket, or enter the Amazon S3 URI.
    2. **DAGs folder**. Choose **Browse S3** and select the `dags` folder in your Amazon S3 bucket, or enter the Amazon S3 URI.
    3. **Plugins file - _optional_**. Choose **Browse S3** and select the `plugins.zip` file on your Amazon S3 bucket, or enter the Amazon S3 URI.
@@ -86,11 +89,13 @@ The following section describes the steps to create an Amazon MWAA environment.
 ###### To configure advanced settings
 
 1. On the **Configure advanced settings** page, under **Networking**:
+
    1. Choose your [Amazon VPC](vpc-create.md "vpc-create.md").
 
    This step populates two of the private subnets in your Amazon VPC.
 
 2. Under **webserver access**, select your preferred [Apache Airflow access mode](configuring-networking.md "configuring-networking.md"):
+
    1. **Private network**. This limits access of the Apache Airflow UI to users _within your Amazon VPC_ that have been granted access to the [IAM policy for your environment](access-policies.md "access-policies.md"). You need permission to create Amazon VPC endpoints for this step.
 
    ###### Note
@@ -100,6 +105,7 @@ The following section describes the steps to create an Amazon MWAA environment.
    [Accessing the VPC endpoint for your Apache Airflow webserver (private network access)](vpc-vpe-access.md#vpc-vpe-access-endpoints "vpc-vpe-access.md#vpc-vpe-access-endpoints"). 2. **Public network**. This allows the Apache Airflow UI to be accessed over the internet by users granted access to the [IAM policy for your environment](access-policies.md "access-policies.md"). 3. **Both public and private network access**. Available for Apache Airflow version 3.2.1 and later. This allows the Apache Airflow UI to be accessed over the internet, while workers communicate with the webserver through a private VPC endpoint. Choose this option if the Amazon VPC hosting your environment lacks internet access.
 
 3. Under **Security groups**, choose the security group used to secure your [Amazon VPC](vpc-create.md "vpc-create.md"):
+
    1. By default, Amazon MWAA creates a security group in your Amazon VPC with specific inbound and outbound rules in **Create new security group**.
    2. **Optional**. Deselect the check box in **Create new security group** to select up to 5 security groups.
 
@@ -125,6 +131,7 @@ For more information about web server automatic scaling, refer to [Configuring A
     You must have permissions to the key to select it on the Amazon MWAA console. You must also grant permissions for Amazon MWAA to use the key by attaching the policy described in [Attach key policy](custom-keys-certs.md#custom-keys-certs-grant-policies-attach "custom-keys-certs.md#custom-keys-certs-grant-policies-attach").
 
 8. **Recommended**. Under **Monitoring**, choose one or more log categories for **Airflow logging configuration** to send Apache Airflow logs to CloudWatch Logs:
+
    1. **Airflow task logs**. Choose the type of Apache Airflow task logs to send to CloudWatch Logs in **Log level**.
    2. **Airflow webserver logs**. Choose the type of Apache Airflow webserver logs to send to CloudWatch Logs in **Log level**.
    3. **Airflow scheduler logs**. Choose the type of Apache Airflow scheduler logs to send to CloudWatch Logs in **Log level**.

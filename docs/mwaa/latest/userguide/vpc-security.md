@@ -7,14 +7,17 @@ This page describes the Amazon VPC components used to secure your Amazon Managed
 - [Terms](vpc-security.md#networking-security-defs "vpc-security.md#networking-security-defs")
 - [Security overview](vpc-security.md#vpc-security-about "vpc-security.md#vpc-security-about")
 - [Network access control lists (ACLs)](vpc-security.md#vpc-security-acl "vpc-security.md#vpc-security-acl")
+
   - [(Recommended) Example ACLs](vpc-security.md#vpc-security-acl-example "vpc-security.md#vpc-security-acl-example")
 
 - [VPC security groups](vpc-security.md#vpc-security-sg "vpc-security.md#vpc-security-sg")
+
   - [(Recommended) Example all access self-referencing security group](vpc-security.md#vpc-security-sg-example "vpc-security.md#vpc-security-sg-example")
   - [(Optional) Example security group that restricts inbound access to port 5432](vpc-security.md#vpc-security-sg-example-port5432 "vpc-security.md#vpc-security-sg-example-port5432")
   - [(Optional) Example security group that restricts inbound access to port 443](vpc-security.md#vpc-security-sg-example-port443 "vpc-security.md#vpc-security-sg-example-port443")
 
 - [VPC endpoint policies (private routing only)](vpc-security.md#vpc-external-vpce-policies "vpc-security.md#vpc-external-vpce-policies")
+
   - [(Recommended) Example VPC endpoint policy to allow all access](vpc-security.md#vpc-external-vpce-policies-all "vpc-security.md#vpc-external-vpce-policies-all")
   - [(Recommended) Example Amazon S3 gateway endpoint policy to allow bucket access](vpc-security.md#vpc-external-vpce-policies-s3 "vpc-security.md#vpc-external-vpce-policies-s3")
 

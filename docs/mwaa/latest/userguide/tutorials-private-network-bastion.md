@@ -68,6 +68,7 @@ The following section describes the steps to create the linux bastion instance u
 3. Choose **Next**.
 4. Enter a name in the **Stack name** text field, such as `mwaa-linux-bastion`.
 5. On the **Parameters**, **Network configuration** pane, choose the following options:
+
    1. Choose your Amazon MWAA environment's **VPC ID**.
    2. Choose your Amazon MWAA environment's **Public subnet 1 ID**.
    3. Choose your Amazon MWAA environment's **Public subnet 2 ID**.
@@ -78,6 +79,7 @@ The following section describes the steps to create the linux bastion instance u
    The simplest way to identify a range is to use the same CIDR range as your public subnets. For example, the public subnets in the CloudFormation template on the [Create the VPC network](vpc-create.md "vpc-create.md") page are `10.192.10.0/24` and `10.192.11.0/24`.
 
 6. On the **Amazon EC2 configuration** pane, choose the following:
+
    1. Choose your SSH key in the dropdown list in **Key pair name**.
    2. Enter a name in **Bastion Host Name**.
    3. Choose **true** for **TCP forwarding**.

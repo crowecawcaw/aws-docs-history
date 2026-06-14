@@ -67,6 +67,7 @@ To use this code example with Apache Airflow v2 and later, no additional depende
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
 2. Choose your Lambda function from the **Functions** list.
 3. On the function page, copy the following code and replace the following with the names of your resources:
+
    - `YOUR_ENVIRONMENT_NAME` – The name of your Amazon MWAA
      environment.
    - `YOUR_DAG_NAME` – The name of the DAG that you want to
@@ -106,6 +107,7 @@ def lambda_handler(event, context):
 4. Choose **Deploy**.
 5. Choose **Test** to invoke your function using the Lambda console.
 6. To verify that your Lambda successfully invoked your DAG, use the Amazon MWAA console to navigate to your environment's Apache Airflow UI, then do the following:
+
    1. On the **DAGs** page, locate your new target DAG in the list of DAGs.
    2. Under **Last Run**, check the timestamp for the latest DAG run. This timestamp should closely match the latest timestamp for
       `invoke_dag` in your other environment.

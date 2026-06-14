@@ -10,11 +10,13 @@ and how to use these options to override Apache Airflow configuration settings o
 - [How it works](configuring-env-variables.md#configuring-env-variables-how "configuring-env-variables.md#configuring-env-variables-how")
 - [Using configuration options to load plugins](configuring-env-variables.md#configuring-2.0-airflow-override "configuring-env-variables.md#configuring-2.0-airflow-override")
 - [Configuration options overview](configuring-env-variables.md#configuring-env-variables-customizing "configuring-env-variables.md#configuring-env-variables-customizing")
+
   - [Apache Airflow configuration options](configuring-env-variables.md#configuring-env-variables-airflow-ref "configuring-env-variables.md#configuring-env-variables-airflow-ref")
   - [Apache Airflow reference](configuring-env-variables.md#configuring-env-variables-reference-options "configuring-env-variables.md#configuring-env-variables-reference-options")
   - [Using the Amazon MWAA console](configuring-env-variables.md#configuring-env-variables-console-add "configuring-env-variables.md#configuring-env-variables-console-add")
 
 - [Configuration reference](configuring-env-variables.md#configuring-env-variables-reference "configuring-env-variables.md#configuring-env-variables-reference")
+
   - [Email configurations](configuring-env-variables.md#configuring-env-variables-email "configuring-env-variables.md#configuring-env-variables-email")
   - [Task configurations](configuring-env-variables.md#configuring-env-variables-tasks "configuring-env-variables.md#configuring-env-variables-tasks")
   - [Scheduler configurations](configuring-env-variables.md#configuring-env-variables-scheduler "configuring-env-variables.md#configuring-env-variables-scheduler")
@@ -24,6 +26,7 @@ and how to use these options to override Apache Airflow configuration settings o
 
 - [Unsupported configurations](configuring-env-variables.md#configuring-env-variables-unsupported "configuring-env-variables.md#configuring-env-variables-unsupported")
 - [Examples and sample code](configuring-env-variables.md#configuring-env-variables-code "configuring-env-variables.md#configuring-env-variables-code")
+
   - [Example DAG](configuring-env-variables.md#configuring-env-variables-dag "configuring-env-variables.md#configuring-env-variables-dag")
   - [Example email notification settings](configuring-env-variables.md#configuring-env-variables-email "configuring-env-variables.md#configuring-env-variables-email")
 

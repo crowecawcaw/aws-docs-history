@@ -7,8 +7,10 @@ This topic describes how to install and manage Python dependencies in a
 
 - [Testing DAGs using the Amazon MWAA CLI utility](best-practices-dependencies.md#best-practices-dependencies-cli-utility "best-practices-dependencies.md#best-practices-dependencies-cli-utility")
 - [Installing Python dependencies using PyPi.org Requirements File Format](best-practices-dependencies.md#best-practices-dependencies-different-ways "best-practices-dependencies.md#best-practices-dependencies-different-ways")
+
   - [Option one: Python dependencies from the Python Package Index](best-practices-dependencies.md#best-practices-dependencies-pip-extras "best-practices-dependencies.md#best-practices-dependencies-pip-extras")
   - [Option two: Python wheels (.whl)](best-practices-dependencies.md#best-practices-dependencies-python-wheels "best-practices-dependencies.md#best-practices-dependencies-python-wheels")
+
     - [Using the plugins.zip file on an Amazon S3 bucket](best-practices-dependencies.md#best-practices-dependencies-python-wheels-s3 "best-practices-dependencies.md#best-practices-dependencies-python-wheels-s3")
     - [Using a WHL file hosted on a URL](best-practices-dependencies.md#best-practices-dependencies-python-wheels-url "best-practices-dependencies.md#best-practices-dependencies-python-wheels-url")
     - [Creating a WHL files from a DAG](best-practices-dependencies.md#best-practices-dependencies-python-wheels-dag "best-practices-dependencies.md#best-practices-dependencies-python-wheels-dag")
@@ -18,6 +20,7 @@ This topic describes how to install and manage Python dependencies in a
 - [Enabling logs on the Amazon MWAA console](best-practices-dependencies.md#best-practices-dependencies-troubleshooting-enable "best-practices-dependencies.md#best-practices-dependencies-troubleshooting-enable")
 - [Accessing logs on the CloudWatch Logs console](best-practices-dependencies.md#best-practices-dependencies-troubleshooting-view "best-practices-dependencies.md#best-practices-dependencies-troubleshooting-view")
 - [Accessing errors in the Apache Airflow UI](best-practices-dependencies.md#best-practices-dependencies-troubleshooting-aa "best-practices-dependencies.md#best-practices-dependencies-troubleshooting-aa")
+
   - [Log in to Apache Airflow](best-practices-dependencies.md#airflow-access-and-login "best-practices-dependencies.md#airflow-access-and-login")
 
 - [Example requirements.txt scenarios](best-practices-dependencies.md#best-practices-dependencies-ex-mix-match "best-practices-dependencies.md#best-practices-dependencies-ex-mix-match")
@@ -241,6 +244,7 @@ This method you can use to use the same libraries offline.
 The following section describes how to install an Apache Airflow extra that's hosted on a private URL with authentication.
 
 1. Add your user name and password as [Apache Airflow configuration options](configuring-env-variables.md "configuring-env-variables.md"). For example:
+
    - `foo.user` : `YOUR_USER_NAME`
    - `foo.pass` : `YOUR_PASSWORD`
 

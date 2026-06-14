@@ -22,6 +22,7 @@ To use the sample code on this page, you'll need the following:
 - An [Amazon MWAA environment](get-started.md "get-started.md").
 - Amazon MWAA and the RDS for SQL Server are running in the same Amazon VPC/
 - VPC security groups of Amazon MWAA and the server are configured with the following connections:
+
   - An inbound rule for the port `1433` open for Amazon RDS in Amazon MWAA's security group
   - Or an outbound rule for the port of `1433` open from Amazon MWAA To RDS
 

@@ -9,6 +9,7 @@ Effective August 19, 2025, Amazon MWAA added support for IPv6 endpoints, and now
 ###### Contents
 
 - [Prerequisites](call-mwaa-apis-web.md#call-mwaa-apis-web-prereqs "call-mwaa-apis-web.md#call-mwaa-apis-web-prereqs")
+
   - [Access](call-mwaa-apis-web.md#access-airflow-ui-prereqs-access "call-mwaa-apis-web.md#access-airflow-ui-prereqs-access")
   - [AWS CLI](call-mwaa-apis-web.md#access-airflow-ui-prereqs-cli "call-mwaa-apis-web.md#access-airflow-ui-prereqs-cli")
 

@@ -1,7 +1,7 @@
 # Configuring the Amazon MWAA environment class
 
 The environment class you choose for your Amazon MWAA environment determines the size of the AWS-managed AWS Fargate containers where the
-[Celery Executor](https://airflow.apache.org/docs/apache-airflow/stable/executor/celery.html "https://airflow.apache.org/docs/apache-airflow/stable/executor/celery.html") runs, and the AWS-managed Amazon Aurora PostgreSQL
+[Celery Executor](https://airflow.apache.org/docs/apache-airflow-providers-celery/stable/celery_executor.html "https://airflow.apache.org/docs/apache-airflow-providers-celery/stable/celery_executor.html") runs, and the AWS-managed Amazon Aurora PostgreSQL
 metadata database where the Apache Airflow schedulers creates task instances. This topic describes each Amazon MWAA environment class, and how to update the environment
 class on the Amazon MWAA console.
 
@@ -27,6 +27,7 @@ mw1.micro
 - Up to 25 DAG capacity
 - 3 concurrent tasks (by default)
 - Components:
+
   - Webserver: 1 vCPU, 3GB RAM
   - Worker and scheduler: 1 vCPU, 3GB RAM
   - Database: 2 vCPU, 4GB RAM
@@ -40,6 +41,7 @@ mw1.small
 - Up to 50 DAG capacity
 - 5 concurrent tasks (by default)
 - Components:
+
   - Webservers: 1 vCPU, 2GB RAM each
   - Workers: 1 vCPU, 2GB RAM each
   - Schedulers: 1 vCPU, 2GB RAM each
@@ -50,6 +52,7 @@ mw1.medium
 - Up to 250 DAG capacity
 - 10 concurrent tasks (by default)
 - Components:
+
   - Webservers: 1 vCPU 2GB RAM each
   - Workers: 2 vCPU 4GB RAM each
   - Schedulers: 2 vCPU 4GB RAM each
@@ -60,6 +63,7 @@ mw1.large
 - Up to 1000 DAG capacity
 - 20 concurrent tasks (by default)
 - Components:
+
   - Webservers: 2 vCPU 4GB RAM each
   - Workers: 4 vCPU 8GB RAM each
   - Schedulers: 4 vCPU 8GB RAM each
@@ -70,6 +74,7 @@ mw1.xlarge
 - Up to 2000 DAG capacity
 - 40 concurrent tasks (by default)
 - Components:
+
   - Webservers: 4 vCPU 12GB RAM each
   - Workers: 8 vCPU 24GB RAM each
   - Schedulers: 8 vCPU 24GB RAM each
@@ -80,6 +85,7 @@ mw1.2xlarge
 - Up to 4000 DAG capacity
 - 80 concurrent tasks (by default)
 - Componenets:
+
   - Webservers: 8 vCPU 24GB RAM each
   - Workers: 16 vCPU 48GB RAM each
   - Schedulers: 16 vCPU 48GB RAM each

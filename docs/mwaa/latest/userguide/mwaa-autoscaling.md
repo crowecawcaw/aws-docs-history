@@ -6,7 +6,7 @@ that run on your environment using the Amazon MWAA console.
 
 ###### Note
 
-Amazon MWAA uses Apache Airflow metrics to determine when additional [Celery Executor](https://airflow.apache.org/docs/apache-airflow/stable/executor/celery.html "https://airflow.apache.org/docs/apache-airflow/stable/executor/celery.html") workers are needed,
+Amazon MWAA uses Apache Airflow metrics to determine when additional [Celery Executor](https://airflow.apache.org/docs/apache-airflow-providers-celery/stable/celery_executor.html "https://airflow.apache.org/docs/apache-airflow-providers-celery/stable/celery_executor.html") workers are needed,
 and as required increases the number of Fargate workers up to the value specified by `max-workers`. As the additional workers complete work and work load
 decreases, Amazon MWAA removes them, thus downscaling back to the value set by `min-workers`.
 
