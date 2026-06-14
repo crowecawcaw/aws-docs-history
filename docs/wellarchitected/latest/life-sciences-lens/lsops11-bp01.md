@@ -25,6 +25,7 @@ organization's requirements.
 ### Implementation steps
 
 1. Configure collaborative workflows:
+
    - Implement data exchange protocols specific to
      organizational relationships.
    - Establish shared metadata repositories with

@@ -39,6 +39,7 @@ example, consider using
 ### Implementation steps
 
 1. Form the Cloud Center of Excellence (CCoE):
+
    - Identify key stakeholders from your organization's
      departments.
    - Define roles and responsibilities for each CCoE member.
@@ -46,6 +47,7 @@ example, consider using
      implementation.
 
 2. Develop the cloud cost allocation model:
+
    - Map out existing research projects and therapeutic
      areas.
    - Create a cost structure that links cloud expenses to
@@ -54,6 +56,7 @@ example, consider using
      accurately.
 
 3. Implement tagging policies:
+
    - Define a comprehensive tagging strategy for cloud
      resources.
    - Create service control policies (SCPs) to enforce the
@@ -62,21 +65,25 @@ example, consider using
      consistency.
 
 4. Establish approval workflows:
+
    - Define thresholds for high-cost cloud resources at
      different research stages
    - Set up AWS Budgets for cost management:
+
      - Create budget alerts for various spending
        thresholds.
      - Configure notifications for key stakeholders when
        budgets are approaching limits.
 
    - Implement Service Catalog:
+
      - Create a portfolio of pre-approved services and
        resources.
      - Set up governance and access controls for the
        Service Catalog.
 
 5. Continuous improvement:
+
    - Stay informed about new cloud services and cost
      optimization strategies.
    - Regularly update the framework to incorporate best

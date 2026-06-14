@@ -33,6 +33,7 @@ across multiple research projects.
 ### Implementation steps
 
 1. Establish a vendor management system:
+
    - Select and implement a vendor management solution.
    - Document contract terms, renewal dates, and pricing
      structures.
@@ -40,6 +41,7 @@ across multiple research projects.
      reviews.
 
 2. Implement a multicloud strategy:
+
    - Assess current cloud service providers and their
      offerings.
    - Develop migration plans for workload distribution.
@@ -47,16 +49,19 @@ across multiple research projects.
      providers.
 
 3. Standardize your vendor evaluation process:
+
    - Create a formal evaluation checklist for new services.
    - Define approval workflows for new vendor onboarding.
    - Establish security and regulatory requirements.
 
 4. Negotiate volume-based agreements:
+
    - Identify high-usage software and services.
    - Analyze usage patterns across research projects.
    - Develop negotiation strategies for bulk pricing.
 
 5. Implement continuous improvement:
+
    - Schedule regular vendor performance reviews.
    - Monitor market trends and new offerings.
    - Update vendor management strategies.

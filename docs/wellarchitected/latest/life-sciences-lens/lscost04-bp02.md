@@ -31,6 +31,7 @@ verifying that regulatory requirements are met.
 
 1. Analyze current data storage costs and usage patterns across
    research phases.
+
    1. Document regulatory requirements for different data
       types and research stages.
    2. Define metrics for measuring storage optimization
@@ -40,6 +41,7 @@ verifying that regulatory requirements are met.
 
 2. Create comprehensive data lifecycle policies that define
    storage tiers, retention periods, and movement criteria.
+
    1. Develop automation rules for data movement between
       storage tiers based on age and access patterns.
    2. Establish regulatory documentation requirements for data
@@ -49,6 +51,7 @@ verifying that regulatory requirements are met.
 
 3. Deploy automated tools for monitoring data usage and
    implementing lifecycle policies.
+
    1. Configure storage tiering based on defined policies and
       regulatory requirements.
    2. Implement automated documentation and audit trail
@@ -58,6 +61,7 @@ verifying that regulatory requirements are met.
 
 4. Regularly review storage costs and usage patterns to
    identify optimization opportunities.
+
    1. Adjust automation rules based on changing research needs
       and cost patterns.
    2. Conduct periodic audits to verify that requirements are

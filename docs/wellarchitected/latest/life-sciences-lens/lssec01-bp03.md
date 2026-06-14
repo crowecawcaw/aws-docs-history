@@ -24,6 +24,7 @@ Perform periodic audits of control effectiveness.
    [IAM user is created](../../../prescriptive-guidance/latest/patterns/send-a-notification-when-an-iam-user-is-created.md "../../../prescriptive-guidance/latest/patterns/send-a-notification-when-an-iam-user-is-created.md") or when conflicting permissions are
    added to a user or role, such as being able to approve its
    own requests on a given workflow.
+
    1. The added notification can be set up using a combination
       of
       [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"),

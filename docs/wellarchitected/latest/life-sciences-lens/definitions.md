@@ -4,6 +4,7 @@
   Administration (FDA) that specify requirements for GxP systems.
 - **ALCOA+:** Framework to verify data integrity based on the
   following principles:
+
   - Attributable
   - Legible
   - Contemporaneously recorded, original, or a true copy

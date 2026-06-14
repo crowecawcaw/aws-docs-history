@@ -71,6 +71,7 @@ or underutilized compute instances.
 
 1. Analyze and categorize your research computing workloads by
    resource requirements:
+
    - Profile CPU, memory, and GPU utilization patterns for
      different analysis types.
    - Use AWS Compute Optimizer to identify optimal instance
@@ -80,6 +81,7 @@ or underutilized compute instances.
 
 2. Design compute environments aligned with workload
    characteristics:
+
    - Create CPU-optimized environments for sequence alignment
      and variant calling.
    - Configure GPU-optimized environments for molecular
@@ -91,6 +93,7 @@ or underutilized compute instances.
 
 3. Implement multi-queue strategy for efficient resource
    allocation:
+
    - Configure high-priority queues for time-sensitive
      analyses using on-demand instances.
    - Set up spot instance queues for fault-tolerant workloads
@@ -101,6 +104,7 @@ or underutilized compute instances.
      environments.
 
 4. Enable automated scaling and resource optimization:
+
    - Configure auto scaling policies based on queue depth and
      resource utilization.
    - Use AWS Auto Scaling to automatically adjust compute
@@ -111,6 +115,7 @@ or underutilized compute instances.
      metrics.
 
 5. Establish monitoring and optimization processes:
+
    - Track energy efficiency metrics using normalized compute
      hours per analysis.
    - Monitor cost and utilization patterns with AWS Cost Explorer.

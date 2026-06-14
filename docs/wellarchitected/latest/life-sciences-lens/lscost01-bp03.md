@@ -34,21 +34,25 @@ the organization.
 ### Implementation steps
 
 1. Develop training programs:
+
    - Create role-specific training modules.
    - Design hands-on workshops for cloud cost optimization.
    - Develop compliance-focused training materials.
 
 2. Implement a gamification system:
+
    - Design reward mechanisms for cost-effective cloud usage.
    - Set up AWS GameDay framework.
    - Define metrics for measuring success.
 
 3. Create a cloud cost management advocacy program:
+
    - Identify potential advocates across departments.
    - Develop advocate training curriculum.
    - Define advocate responsibilities.
 
 4. Foster collaborative learning:
+
    - Organize cost optimization workshops.
    - Create cross-functional teams.
    - Schedule knowledge-sharing sessions.

@@ -72,6 +72,7 @@ that may be accessed across multiple research projects.
 ### Implementation steps
 
 1. Establish centralized data catalogs and governance:
+
    - Centralize the management of data by implementing
      services such as AWS Lake Formation for research data
      cataloging and governance.
@@ -82,6 +83,7 @@ that may be accessed across multiple research projects.
    - Establish data ownership and access control policies.
 
 2. Implement intelligent storage lifecycle management:
+
    - Configure lifecycle policies to automatically transition
      data between storage classes.
    - Use Amazon S3 Standard for active research data
@@ -92,6 +94,7 @@ that may be accessed across multiple research projects.
      access storage such as Amazon Glacier or S3 Glacier Deep Archive.
 
 3. Deploy deduplication and compression strategies:
+
    - Implement data deduplication for reference datasets and
      genomic databases.
    - Use compression algorithms appropriate for different
@@ -102,6 +105,7 @@ that may be accessed across multiple research projects.
      storage across projects.
 
 4. Optimize data placement and movement:
+
    - Analyze data access patterns.
    - Implement regional data placement strategies to minimize
      transfer costs.
@@ -111,6 +115,7 @@ that may be accessed across multiple research projects.
      optimization.
 
 5. Monitor and continuously optimize storage efficiency:
+
    - Use AWS Cost Explorer to track storage costs and
      utilization patterns.
    - Implement Amazon CloudWatch metrics for storage

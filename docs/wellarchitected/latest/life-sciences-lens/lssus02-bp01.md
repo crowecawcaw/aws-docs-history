@@ -71,6 +71,7 @@ by correlating proxy metrics with actual carbon footprint data.
 
 1. Establish comprehensive tagging strategy for research
    workloads:
+
    - Implement consistent tags for research type (genomics,
      proteomics, drug discovery).
    - Tag resources by project phase (discovery, validation,
@@ -81,6 +82,7 @@ by correlating proxy metrics with actual carbon footprint data.
      tag management.
 
 2. Define and implement normalized sustainability metrics:
+
    - Calculate vCPU hours per genome processed for genomics
      workloads.
    - Track GPU hours per molecular structure analyzed for
@@ -91,6 +93,7 @@ by correlating proxy metrics with actual carbon footprint data.
      performance indicators.
 
 3. Create sustainability KPIs aligned with research outputs:
+
    - Combine resource utilization metrics with research
      milestone achievements.
    - Track energy efficiency improvements over time using
@@ -101,6 +104,7 @@ by correlating proxy metrics with actual carbon footprint data.
      consumption analysis.
 
 4. Integrate metrics with AWS Customer Carbon Footprint Tool:
+
    - Correlate proxy metrics with account and Region-level
      carbon footprint data.
    - Establish regular reporting cycles for sustainability
@@ -111,6 +115,7 @@ by correlating proxy metrics with actual carbon footprint data.
      visualization.
 
 5. Establish continuous monitoring and optimization processes:
+
    - Integrate sustainability metrics into research workflow
      planning.
    - Conduct regular sustainability reviews with research

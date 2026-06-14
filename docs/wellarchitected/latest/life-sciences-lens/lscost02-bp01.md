@@ -36,6 +36,7 @@ mechanisms.
 ### Implementation steps
 
 1. Audit existing credits:
+
    1. Document the current AWS credits across your
       organization, including types, amounts, expiration
       dates, and utilization rates.
@@ -43,18 +44,21 @@ mechanisms.
       opportunities.
 
 2. Establish credit governance:
+
    1. Designate a credit management team and create
       centralized tracking using AWS Cost Explorer.
    2. Set up automated alerts for expiration dates and
       implement standardized allocation policies.
 
 3. Deploy allocation framework:
+
    1. Create criteria for credit requests based on business
       impact and innovation potential.
    2. Implement tagging strategies and cross-departmental
       sharing processes to maximize utilization.
 
 4. Monitor and optimize:
+
    1. Set up real-time tracking with AWS Cost and Usage
       Reports and regular review cycles.
    2. Create dashboards for stakeholders and establish key

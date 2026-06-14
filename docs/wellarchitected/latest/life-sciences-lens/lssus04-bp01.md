@@ -66,6 +66,7 @@ to operational conditions and baseline activity levels.
 ### Implementation steps
 
 1. Deploy IoT sensors for comprehensive equipment monitoring:
+
    - Install IoT sensors on critical manufacturing equipment
      (bioreactors, HVAC systems, analytical instruments).
    - Monitor energy consumption, water usage, compressed air
@@ -76,6 +77,7 @@ to operational conditions and baseline activity levels.
      processing and local data aggregation.
 
 2. Establish real-time monitoring and data collection systems:
+
    - Use Amazon Kinesis Data Streams for real-time data
      ingestion from manufacturing equipment.
    - Implement AWS IoT Analytics for processing and analyzing
@@ -86,6 +88,7 @@ to operational conditions and baseline activity levels.
      operational visibility.
 
 3. Implement adaptive sampling and data efficiency strategies:
+
    - Configure dynamic sampling rates based on equipment
      operational states.
    - Use AWS IoT Rules Engine to filter and route data based
@@ -97,6 +100,7 @@ to operational conditions and baseline activity levels.
 
 4. Deploy predictive analytics for maintenance and
    optimization:
+
    - Use Amazon SageMaker AI to build predictive models for
      equipment maintenance.
    - Implement anomaly detection using Amazon Lookout for

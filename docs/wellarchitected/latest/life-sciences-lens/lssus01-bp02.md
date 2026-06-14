@@ -69,6 +69,7 @@ improvements.
 
 1. Evaluate and migrate to energy-efficient processor
    architectures:
+
    - Assess workload compatibility with AWS Graviton
      processors for ARM-based computing.
    - Use Amazon EC2 M6g, C6g, and R6g instances for
@@ -81,6 +82,7 @@ improvements.
 
 2. Use managed services with built-in sustainability
    optimizations:
+
    - Migrate genomics workflows to AWS HealthOmics for
      automated resource optimization.
    - Use AWS HealthLake for healthcare data processing
@@ -91,6 +93,7 @@ improvements.
      with energy-efficient training.
 
 3. Optimize service configurations for energy efficiency:
+
    - Enable AWS Auto Scaling to automatically adjust capacity
      based on demand.
    - Configure AWS Lambda for event-driven processing to
@@ -101,12 +104,14 @@ improvements.
      orchestration.
 
 4. Monitor and measure energy efficiency improvements:
+
    - Track performance-per-watt metrics using Amazon CloudWatch custom metrics.
    - Monitor cost savings and energy reduction.
    - Implement AWS Config rules to adhere to energy
      efficiency policies.
 
 5. Establish continuous optimization processes:
+
    - Regularly review AWS service updates for new energy
      efficiency features.
    - Conduct periodic assessments of hardware and service

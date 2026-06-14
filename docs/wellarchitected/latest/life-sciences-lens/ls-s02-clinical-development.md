@@ -41,12 +41,14 @@ trials.
 ![Clinical development reference architecture](images/clinical-development-reference-architecture.png)
 
 1. Data ingestion:
+
    - Use AWS Glue for both batch and real-time data integration from various
      sources.
    - Schedule AWS Glue jobs to ingest streaming or batch data using an API based on
      events or a schedule.
 
 2. Secure collaboration:
+
    - Use AWS Clean Rooms to build a secure environment for multi-party collaboration using
      the raw, identified data.
    - AWS Clean Rooms can be used while data is still being gathered to allow for faster
@@ -58,6 +60,7 @@ trials.
      enable permission granting and simple right to forget for individual patients.
 
 3. Transform and explore:
+
    - Create AWS Glue workflows managing AWS Glue jobs or scripts to transform and
      prepare the data
    - Insert data into AWS HealthLake for interoperability through the FHIR model.
@@ -71,6 +74,7 @@ trials.
      analysis, exploration, and visualization creation.
 
 4. Results sharing:
+
    - Use AWS Data Exchange to make the study's findings available to the broader research
      community.
    - AWS Data Exchange can be used to monetized resulting data.
