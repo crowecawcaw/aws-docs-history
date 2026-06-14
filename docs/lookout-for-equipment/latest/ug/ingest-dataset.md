@@ -128,6 +128,7 @@ Moving your data to Amazon S3 is a prerequisite to [ingesting your data](#ingest
 5. On the page with the list of buckets, choose your new bucket.
 6. Choose **Create folder**.
 7. Name your folder.
+
    - If you chose to use one file for each asset, then the folder should be named after the facility.
    - If you chose to use one file for each sensor, then the folder should be named after the asset.
 

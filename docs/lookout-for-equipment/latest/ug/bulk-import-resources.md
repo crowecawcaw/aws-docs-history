@@ -62,6 +62,7 @@ target AWS account.
    information, [JupyterLab versioning](../../../sagemaker/latest/dg/nbi-jl.md "../../../sagemaker/latest/dg/nbi-jl.md").
    Enter a name for the new notebook and use the default configurations.
 2. Make sure that the IAM role that you use has following managed policy permissions:
+
    - [AmazonSageMakerFullAccess](../../../sagemaker/latest/dg/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "../../../sagemaker/latest/dg/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess").
    - [AmazonLookoutEquipmentFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLookoutEquipmentFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLookoutEquipmentFullAccess").
      Alternatively, grant permissions
@@ -83,6 +84,7 @@ AWS account.
     notebook instance that you created in step 1 of [Creating the Amazon SageMaker AI notebook instances](#bulk-import-create-notebook-instance "#bulk-import-create-notebook-instance").
 2.  Copy each of the following scripts into separate cells within the
     notebook.
+
     - [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md")
     - [Resource configuration script](bulk-import-resources-resource-configuration-script.md "bulk-import-resources-resource-configuration-script.md")
 
@@ -122,6 +124,7 @@ AWS account.
    account to the target AWS account, in the same location where this
    script is located in the jupyter lab.
 4. Run the [Bulk import script](bulk-import-trigger-script.md "bulk-import-trigger-script.md"). The script prompts for the following:
+
    - The Amazon Web Services Region in which you want to run the script.
    - The name and path of the csv file (_import_input_file\_{current_time}.csv_) that you copied in step 3.
 

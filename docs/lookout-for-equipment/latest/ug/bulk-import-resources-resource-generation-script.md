@@ -49,6 +49,7 @@ columns from the CSV file.
   The ARN of the dataset that will be imported. At the target AWS account in
   case If you don’t want to the import dataset and just want to perform import
   model, do the following:
+
   - Change the value of `Source_dataset_arn` to
     `None`.
   - Change the value of `New_dataset_name` to the existing
