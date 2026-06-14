@@ -12,13 +12,13 @@ You can attach `CloudWatchFullAccessV2` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: August 01, 2023, 11:32 UTC
-- **Edited time:** February 12, 2026, 18:00 UTC
+- **Edited time:** June 08, 2026, 13:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/CloudWatchFullAccessV2`
 
 ## Policy version
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -242,6 +242,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3tables:PutTableBucketPolicy"
       ],
       "Resource" : "arn:aws:s3tables:*:*:bucket/aws-cloudwatch"
+    },
+    {
+      "Sid" : "LogAlarmScheduledQueryPassRolePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "logs.amazonaws.com"
+        },
+        "ArnLike" : {
+          "iam:AssociatedResourceArn" : "arn:aws:logs:*:*:scheduled-query:*"
+        }
+      }
+    },
+    {
+      "Sid" : "LogAlarmLogLinesPassRolePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "cloudwatch.amazonaws.com"
+        },
+        "ArnLike" : {
+          "iam:AssociatedResourceArn" : "arn:aws:cloudwatch:*:*:alarm:*"
+        }
+      }
     }
   ]
 }

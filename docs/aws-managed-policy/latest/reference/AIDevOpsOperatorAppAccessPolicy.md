@@ -12,13 +12,13 @@ You can attach `AIDevOpsOperatorAppAccessPolicy` to your users, groups, and role
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** June 06, 2026, 02:27 UTC
+- **Edited time:** June 12, 2026, 23:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsOperatorAppAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -33,18 +33,22 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowOperatorAgentSpaceActions",
       "Effect" : "Allow",
       "Action" : [
+        "aidevops:CreateAccessToken",
         "aidevops:CreateAsset",
         "aidevops:CreateAssetFile",
         "aidevops:CreateBacklogTask",
         "aidevops:CreateChat",
         "aidevops:CreateKnowledgeItem",
+        "aidevops:CreateTrigger",
         "aidevops:DeleteAsset",
         "aidevops:DeleteAssetFile",
         "aidevops:DeleteKnowledgeItem",
+        "aidevops:DeleteTrigger",
         "aidevops:DescribeServices",
         "aidevops:DescribeSupportLevel",
         "aidevops:DiscoverTopology",
         "aidevops:EndChatForCase",
+        "aidevops:GetAccessToken",
         "aidevops:GetAgentSpace",
         "aidevops:GetAsset",
         "aidevops:GetAssetContent",
@@ -53,7 +57,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aidevops:GetBacklogTask",
         "aidevops:GetKnowledgeItem",
         "aidevops:GetRecommendation",
+        "aidevops:GetTrigger",
         "aidevops:InitiateChatForCase",
+        "aidevops:ListAccessTokens",
         "aidevops:ListAssetFiles",
         "aidevops:ListAssets",
         "aidevops:ListAssetTypes",
@@ -68,13 +74,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aidevops:ListKnowledgeItemVersions",
         "aidevops:ListPendingMessages",
         "aidevops:ListRecommendations",
+        "aidevops:ListTriggers",
+        "aidevops:RevokeAccessToken",
+        "aidevops:RotateAccessToken",
         "aidevops:SendMessage",
         "aidevops:UpdateAsset",
         "aidevops:UpdateAssetFile",
         "aidevops:UpdateBacklogTask",
         "aidevops:UpdateGoal",
         "aidevops:UpdateKnowledgeItem",
-        "aidevops:UpdateRecommendation"
+        "aidevops:UpdateRecommendation",
+        "aidevops:UpdateTrigger"
       ],
       "Resource" : "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
       "Condition" : {

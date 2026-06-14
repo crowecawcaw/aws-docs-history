@@ -12,13 +12,13 @@ You can attach `AIDevOpsAgentFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** June 06, 2026, 02:27 UTC
+- **Edited time:** June 12, 2026, 23:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsAgentFullAccess`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -35,6 +35,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "aidevops:AllowVendedLogDeliveryForResource",
         "aidevops:AssociateService",
+        "aidevops:CreateAccessToken",
         "aidevops:CreateAgentSpace",
         "aidevops:CreateAsset",
         "aidevops:CreateAssetFile",
@@ -43,11 +44,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aidevops:CreateKnowledgeItem",
         "aidevops:CreateOneTimeLoginSession",
         "aidevops:CreatePrivateConnection",
+        "aidevops:CreateTrigger",
         "aidevops:DeleteAgentSpace",
         "aidevops:DeleteAsset",
         "aidevops:DeleteAssetFile",
         "aidevops:DeleteKnowledgeItem",
         "aidevops:DeletePrivateConnection",
+        "aidevops:DeleteTrigger",
         "aidevops:DeregisterService",
         "aidevops:DescribePrivateConnection",
         "aidevops:DescribeServices",
@@ -57,6 +60,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aidevops:DiscoverTopology",
         "aidevops:EnableOperatorApp",
         "aidevops:EndChatForCase",
+        "aidevops:GetAccessToken",
         "aidevops:GetAccountUsage",
         "aidevops:GetAgentSpace",
         "aidevops:GetAsset",
@@ -68,7 +72,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aidevops:GetOperatorApp",
         "aidevops:GetRecommendation",
         "aidevops:GetService",
+        "aidevops:GetTrigger",
         "aidevops:InitiateChatForCase",
+        "aidevops:ListAccessTokens",
         "aidevops:ListAgentSpaces",
         "aidevops:ListAssetFiles",
         "aidevops:ListAssets",
@@ -87,8 +93,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aidevops:ListRecommendations",
         "aidevops:ListServices",
         "aidevops:ListTagsForResource",
+        "aidevops:ListTriggers",
         "aidevops:ListWebhooks",
         "aidevops:RegisterService",
+        "aidevops:RevokeAccessToken",
+        "aidevops:RotateAccessToken",
         "aidevops:SearchServiceAccessibleResource",
         "aidevops:SendMessage",
         "aidevops:TagResource",
@@ -103,6 +112,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aidevops:UpdateOperatorAppIdpConfig",
         "aidevops:UpdatePrivateConnectionCertificate",
         "aidevops:UpdateRecommendation",
+        "aidevops:UpdateTrigger",
         "aidevops:ValidateAwsAssociations"
       ],
       "Resource" : "*"

@@ -1,24 +1,24 @@
-# AIDevOpsAgentReadOnlyAccess
+# ReInventTicketApprovalAccess
 
-**Description**: Provides read only access to Amazon DevOps Agent via the AWS Management Console
+**Description**: Grants an IAM role or user full access to view re:Invent pass charge details and approve billing to their AWS accounts
 
-`AIDevOpsAgentReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`ReInventTicketApprovalAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AIDevOpsAgentReadOnlyAccess` to your users, groups, and roles.
+You can attach `ReInventTicketApprovalAccess` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** June 11, 2026, 00:57 UTC
+- **Creation time**: June 10, 2026, 18:57 UTC
+- **Edited time:** June 10, 2026, 18:57 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AIDevOpsAgentReadOnlyAccess`
+  `arn:aws:iam::aws:policy/ReInventTicketApprovalAccess`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,14 +30,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "AIDevOpsAgentReadOnlyAccess",
+      "Sid" : "AllowBillToAWSActions",
       "Effect" : "Allow",
       "Action" : [
-        "aidevops:DescribePrivateConnection",
-        "aidevops:DescribeServices",
-        "aidevops:Get*",
-        "aidevops:List*",
-        "aidevops:SearchServiceAccessibleResource"
+        "eventsbilltoaws:info",
+        "eventsbilltoaws:approve"
       ],
       "Resource" : "*"
     }

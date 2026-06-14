@@ -12,13 +12,13 @@ You can attach `AWSSecurityAgentWebAppPolicy` to your users, groups, and roles.
 
 - **Type**: Service role policy
 - **Creation time**: February 05, 2026, 23:19 UTC
-- **Edited time:** May 08, 2026, 17:57 UTC
+- **Edited time:** June 11, 2026, 18:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSSecurityAgentWebAppPolicy`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -50,48 +50,63 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "securityagent:AddArtifact",
-        "securityagent:BatchDeletePentests",
+        "securityagent:CreateThreat",
         "securityagent:BatchDeleteCodeReviews",
+        "securityagent:BatchDeletePentests",
+        "securityagent:BatchDeleteThreatModels",
         "securityagent:BatchGetAgentSpaces",
         "securityagent:BatchGetArtifactMetadata",
-        "securityagent:BatchGetFindings",
-        "securityagent:BatchGetPentestJobs",
         "securityagent:BatchGetCodeReviewJobs",
-        "securityagent:BatchGetPentests",
-        "securityagent:BatchGetCodeReviews",
-        "securityagent:BatchGetPentestJobContentMetadata",
-        "securityagent:BatchGetPentestJobTasks",
         "securityagent:BatchGetCodeReviewJobTasks",
+        "securityagent:BatchGetCodeReviews",
+        "securityagent:BatchGetFindings",
+        "securityagent:BatchGetPentestJobContentMetadata",
+        "securityagent:BatchGetPentestJobs",
+        "securityagent:BatchGetPentestJobTasks",
+        "securityagent:BatchGetPentests",
+        "securityagent:BatchGetThreatModelJobs",
+        "securityagent:BatchGetThreatModelJobTasks",
+        "securityagent:BatchGetThreatModels",
+        "securityagent:BatchGetThreats",
+        "securityagent:CreateCodeReview",
         "securityagent:CreateDesignReview",
         "securityagent:CreatePentest",
-        "securityagent:CreateCodeReview",
+        "securityagent:CreateThreatModel",
         "securityagent:DeleteArtifact",
-        "securityagent:GetArtifact",
         "securityagent:DeleteDesignReview",
+        "securityagent:GetArtifact",
         "securityagent:GetDesignReview",
         "securityagent:GetDesignReviewArtifact",
+        "securityagent:GetDesignReviewFeedback",
         "securityagent:ListArtifacts",
-        "securityagent:ListDiscoveredEndpoints",
+        "securityagent:ListCodeReviewJobsForCodeReview",
+        "securityagent:ListCodeReviewJobTasks",
+        "securityagent:ListCodeReviews",
         "securityagent:ListDesignReviewComments",
         "securityagent:ListDesignReviews",
+        "securityagent:ListDiscoveredEndpoints",
         "securityagent:ListFindings",
         "securityagent:ListIntegratedResources",
         "securityagent:ListPentestJobsForPentest",
-        "securityagent:ListCodeReviewJobsForCodeReview",
-        "securityagent:ListPentests",
-        "securityagent:ListCodeReviews",
         "securityagent:ListPentestJobTasks",
-        "securityagent:ListCodeReviewJobTasks",
+        "securityagent:ListPentests",
+        "securityagent:ListThreatModelJobs",
+        "securityagent:ListThreatModelJobTasks",
+        "securityagent:ListThreatModels",
+        "securityagent:ListThreats",
+        "securityagent:PutDesignReviewFeedback",
         "securityagent:StartCodeRemediation",
-        "securityagent:StartPentestJob",
         "securityagent:StartCodeReviewJob",
-        "securityagent:StopPentestJob",
+        "securityagent:StartPentestJob",
+        "securityagent:StartThreatModelJob",
         "securityagent:StopCodeReviewJob",
+        "securityagent:StopPentestJob",
+        "securityagent:StopThreatModelJob",
+        "securityagent:UpdateCodeReview",
         "securityagent:UpdateFinding",
         "securityagent:UpdatePentest",
-        "securityagent:UpdateCodeReview",
-        "securityagent:GetDesignReviewFeedback",
-        "securityagent:PutDesignReviewFeedback"
+        "securityagent:UpdateThreat",
+        "securityagent:UpdateThreatModel"
       ],
       "Resource" : "arn:aws:securityagent:*:*:agent-space*",
       "Condition" : {

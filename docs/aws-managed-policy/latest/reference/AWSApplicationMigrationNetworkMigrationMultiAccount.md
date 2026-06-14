@@ -12,13 +12,13 @@ You can attach `AWSApplicationMigrationNetworkMigrationMultiAccount` to your use
 
 - **Type**: AWS managed policy
 - **Creation time**: November 10, 2025, 09:04 UTC
-- **Edited time:** February 12, 2026, 17:58 UTC
+- **Edited time:** June 11, 2026, 07:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSApplicationMigrationNetworkMigrationMultiAccount`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -87,13 +87,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:subnet/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -173,8 +173,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:cloudformation:*:*:stack/Nmd*",
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService",
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -308,13 +308,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:security-group-rule/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -366,13 +366,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:elastic-ip/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "ec2:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "ec2:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -389,13 +389,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:transit-gateway-attachment/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceOrgID" : "${aws:PrincipalOrgID}"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceOrgID" : "${aws:PrincipalOrgID}"
         }
       }
     },
@@ -433,13 +433,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:vpc/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -455,13 +455,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:route-table/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -477,13 +477,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:elastic-ip/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -499,13 +499,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:transit-gateway-route-table/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -522,13 +522,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:subnet/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -572,13 +572,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:network-insights-path/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -666,14 +666,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ssm:*:*:parameter/network-migration/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -691,13 +691,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ssm:*:*:parameter/network-migration/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -709,14 +709,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ram:*:*:resource-share/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -728,16 +728,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ram:*:*:resource-share/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
+        "Bool" : {
+          "ram:RequestedAllowsExternalPrincipals" : "false"
         },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
         },
-        "Bool" : {
-          "ram:RequestedAllowsExternalPrincipals" : "false"
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -749,16 +749,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ram:*:*:resource-share/*",
       "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
         "StringEquals" : {
           "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService",
           "ram:RequestedResourceType" : [
             "ec2:TransitGateway",
             "ssm:Parameter"
-          ]
-        },
-        "ForAnyValue:StringEquals" : {
-          "aws:CalledVia" : [
-            "cloudformation.amazonaws.com"
           ]
         }
       }
@@ -773,13 +773,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ram:*:*:resource-share/*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -821,14 +821,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:lambda:*:*:function:network-migration*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService",
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -836,7 +836,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "GetCustomResource",
       "Effect" : "Allow",
       "Action" : [
-        "lambda:GetFunction"
+        "lambda:GetFunction",
+        "lambda:ListTags"
       ],
       "Resource" : [
         "arn:aws:lambda:*:*:function:network-migration*"
@@ -862,13 +863,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:lambda:*:*:function:network-migration*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -881,14 +882,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:iam::*:role/Nmd*modifyTransitGateway*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:RequestTag/CreatedBy" : "AWSApplicationMigrationService",
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -938,13 +939,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:iam::*:role/Nmd*modifyTransitGateway*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -956,9 +957,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:iam::*:role/Nmd*modifyTransitGateway*",
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ArnEquals" : {
           "iam:PolicyARN" : [
             "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
@@ -969,6 +967,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },
@@ -1057,13 +1058,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:security-group-rule/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "cloudformation.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/CreatedBy" : "AWSApplicationMigrationService"
         }
       }
     },

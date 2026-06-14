@@ -25,7 +25,9 @@ Each policy reference page includes the following information:
 - **Using this policy** – Whether you can attach the
   policy to users, groups, and roles
 - **Policy details**
+
   - **Type** – The type of AWS managed policy
+
     - `AWS managed policy` – A standard AWS managed policy
     - `Job function policy` – Policy that aligns with common industry job
       functions

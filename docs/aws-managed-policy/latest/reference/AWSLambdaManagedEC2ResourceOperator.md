@@ -12,13 +12,13 @@ You can attach `AWSLambdaManagedEC2ResourceOperator` to your users, groups, and 
 
 - **Type**: AWS managed policy
 - **Creation time**: November 30, 2025, 08:34 UTC
-- **Edited time:** April 23, 2026, 20:42 UTC
+- **Edited time:** June 10, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSLambdaManagedEC2ResourceOperator`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -86,6 +86,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "ec2:Owner" : "amazon"
         }
       }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogGroup"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:*:log-stream:*"
     }
   ]
 }

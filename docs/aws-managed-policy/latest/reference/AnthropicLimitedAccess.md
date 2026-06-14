@@ -12,13 +12,13 @@ You can attach `AnthropicLimitedAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: April 01, 2026, 04:57 UTC
-- **Edited time:** May 08, 2026, 22:27 UTC
+- **Edited time:** June 12, 2026, 16:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AnthropicLimitedAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -52,6 +52,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-external-anthropic:CreateSkill",
         "aws-external-anthropic:CreateUserProfile",
         "aws-external-anthropic:CreateVault",
+        "aws-external-anthropic:CreateWebhook",
         "aws-external-anthropic:DeleteBatchInference",
         "aws-external-anthropic:DeleteEnvironment",
         "aws-external-anthropic:DeleteFile",
@@ -59,13 +60,17 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "aws-external-anthropic:DeleteSession",
         "aws-external-anthropic:DeleteSkill",
         "aws-external-anthropic:DeleteVault",
+        "aws-external-anthropic:DeleteWebhook",
+        "aws-external-anthropic:ProcessEnvironmentWork",
+        "aws-external-anthropic:RotateWebhookSecret",
         "aws-external-anthropic:UpdateAgent",
         "aws-external-anthropic:UpdateEnvironment",
         "aws-external-anthropic:UpdateMemoryStore",
         "aws-external-anthropic:UpdateSession",
         "aws-external-anthropic:UpdateSkill",
         "aws-external-anthropic:UpdateUserProfile",
-        "aws-external-anthropic:UpdateVault"
+        "aws-external-anthropic:UpdateVault",
+        "aws-external-anthropic:UpdateWebhook"
       ],
       "Resource" : "arn:aws:aws-external-anthropic:*:*:workspace/*"
     },
