@@ -162,6 +162,7 @@ problems. For more information, see [RDS Custom support perimeter](custom-concep
 With RDS Custom, you can do the following:
 
 - Automate many of the same administrative tasks as Amazon RDS, including the following:
+
   - Lifecycle management of databases
   - Automated backups and point-in-time recovery (PITR)
   - Monitoring the health of RDS Custom DB instances and observing changes to the infrastructure, operating

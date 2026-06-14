@@ -38,8 +38,10 @@ the AWS CLI , or the RDS API.
 
 - **vCPU count** varies by replica mode and
   licensing model:
+
   - **Standby replicas** always use two vCPUs
     regardless of DB instance size.
+
     - **BYOL model** – AWS License Manager
       configurations show that RDS for Db2 DB instances use two
       vCPUs.
@@ -49,6 +51,7 @@ the AWS CLI , or the RDS API.
 
   - **Read-only replicas** use the same vCPU
     count as the DB instance size.
+
     - **BYOL model** – AWS License Manager
       configurations show that RDS for Db2 DB instances use the same
       number of vCPUs that match the DB instance size.
@@ -91,16 +94,19 @@ following replication considerations:
   `LOAD` command from the source DB instance, you will receive
   inconsistent data.
 - RDS for Db2 doesn't replicate the following items:
+
   - Storage access. Be aware of data, such as external tables, that rely
     on storage access.
   - Non-inline LOBs that are not logged.
   - Binaries of external stored procedures (in C or Java).
 
 - For standby replicas, RDS for Db2 replicates the following items:
+
   - Local users, except master users
   - Database configuration parameters
 
 - For read-only replicas, RDS for Db2 replicates the following items:
+
   - Local users, except master users
   - SID group mappings
 

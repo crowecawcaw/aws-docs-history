@@ -34,6 +34,7 @@ with memcached](https://dev.mysql.com/doc/refman/8.0/en/innodb-memcached.html "h
    information about how to modify option settings, see [Modifying an option setting](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.ModifyOption").
 5. Apply the option group to an instance. Amazon RDS enables `memcached` support for that instance
    when the option group is applied:
+
    - You enable `memcached` support for a new instance by specifying the custom option group when you
      launch the instance. For more information about launching a MySQL
      instance, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
@@ -194,6 +195,7 @@ set by using `daemon_memcached_options` are available as individual
   information logged in the MySQL error log by the `memcached` service. The
   default is v. The option does not take effect until the instance is
   restarted. The allowed values are:
+
   - `v` – Logs errors and warnings while
     running the main event loop.
   - `vv` – In addition to the information

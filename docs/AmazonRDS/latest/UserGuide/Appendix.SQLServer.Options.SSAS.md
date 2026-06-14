@@ -12,11 +12,13 @@ documentation](https://docs.microsoft.com/en-us/analysis-services "https://docs.
 Amazon RDS supports SSAS for SQL Server Standard and Enterprise Editions on the following versions:
 
 - Tabular mode:
+
   - SQL Server 2019, version 15.00.4043.16.v1 and higher
   - SQL Server 2017, version 14.00.3223.3.v1 and higher
   - SQL Server 2016, version 13.00.5426.0.v1 and higher
 
 - Multidimensional mode:
+
   - SQL Server 2019, version 15.00.4153.1.v1 and higher
   - SQL Server 2017, version 14.00.3381.3.v1 and higher
   - SQL Server 2016, version 13.00.5882.1.v1 and higher
@@ -25,6 +27,7 @@ Amazon RDS supports SSAS for SQL Server Standard and Enterprise Editions on the 
 
 - [Limitations](Appendix.SQLServer.Options.SSAS.md#SSAS.Limitations "Appendix.SQLServer.Options.SSAS.md#SSAS.Limitations")
 - [Turning on SSAS](SSAS.Enabling.md "SSAS.Enabling.md")
+
   - [Creating an option group for SSAS](SSAS.Enabling.md#SSAS.OptionGroup "SSAS.Enabling.md#SSAS.OptionGroup")
   - [Adding the SSAS option to the option group](SSAS.Enabling.md#SSAS.Add "SSAS.Enabling.md#SSAS.Add")
   - [Associating the option group with your DB instance](SSAS.Enabling.md#SSAS.Apply "SSAS.Enabling.md#SSAS.Apply")
@@ -34,6 +37,7 @@ Amazon RDS supports SSAS for SQL Server Standard and Enterprise Editions on the 
 - [Deploying SSAS projects on Amazon RDS](SSAS.Deploy.md "SSAS.Deploy.md")
 - [Monitoring the status of a deployment task](SSAS.Monitor.md "SSAS.Monitor.md")
 - [Using SSAS on Amazon RDS](SSAS.Use.md "SSAS.Use.md")
+
   - [Setting up a Windows-authenticated user for SSAS](SSAS.Use.md#SSAS.Use.Auth "SSAS.Use.md#SSAS.Use.Auth")
   - [Adding a domain user as a database administrator](SSAS.Use.md#SSAS.Admin "SSAS.Use.md#SSAS.Admin")
   - [Creating an SSAS proxy](SSAS.Use.md#SSAS.Use.Proxy "SSAS.Use.md#SSAS.Use.Proxy")
@@ -42,6 +46,7 @@ Amazon RDS supports SSAS for SQL Server Standard and Enterprise Editions on the 
 
 - [Backing up an SSAS database](SSAS.Backup.md "SSAS.Backup.md")
 - [Restoring an SSAS database](SSAS.Restore.md "SSAS.Restore.md")
+
   - [Restoring a DB instance to a specified time](SSAS.Restore.md#SSAS.PITR "SSAS.Restore.md#SSAS.PITR")
 
 - [Changing the SSAS mode](SSAS.ChangeMode.md "SSAS.ChangeMode.md")

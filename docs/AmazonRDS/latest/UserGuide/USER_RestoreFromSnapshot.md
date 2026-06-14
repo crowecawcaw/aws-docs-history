@@ -211,6 +211,7 @@ cases, you can also change the edition of the DB instance. The following limitat
 
 - The DB snapshot must have enough storage allocated for the new edition.
 - Only the following edition changes are supported:
+
   - From Standard Edition to Enterprise Edition
   - From Web Edition to Standard Edition or Enterprise Edition
   - From Express Edition to Web Edition, Standard Edition, or Enterprise Edition

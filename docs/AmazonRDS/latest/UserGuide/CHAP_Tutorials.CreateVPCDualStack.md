@@ -51,6 +51,7 @@ Use the following procedure to create a VPC with both public and private subnets
 4. For **Resources to create** under **VPC settings**, choose
    **VPC and more**.
 5. For the remaining **VPC settings**, set these values:
+
    - **Name tag auto-generation** – `tutorial-dual-stack`
    - **IPv4 CIDR block** – `10.0.0.0/16`
    - **IPv6 CIDR block** – **Amazon-provided IPv6 CIDR block**
@@ -86,6 +87,7 @@ from the internet.
     Groups**, and then choose **Create security
     group**.
 3.  On the **Create security group** page, set these values:
+
     - **Security group name:**
       `tutorial-dual-stack-securitygroup`
     - **Description:**
@@ -94,6 +96,7 @@ from the internet.
       example: **vpc-`identifier` (tutorial-dual-stack-vpc)**
 
 4.  Add inbound rules to the security group.
+
     1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
        (SSH).
 
@@ -145,6 +148,7 @@ only.
    group**.
 3. On the **Create security group** page, set these
    values:
+
    - **Security group name:**
      `tutorial-dual-stack-db-securitygroup`
    - **Description:**
@@ -153,12 +157,14 @@ only.
      example: **vpc-`identifier` (tutorial-dual-stack-vpc)**
 
 4. Add inbound rules to the security group:
+
    1. In the **Inbound rules** section, choose **Add rule**.
    2. Set the following values for your new inbound rule to allow MySQL
       traffic on port 3306 from your Amazon EC2 instance. If you do, you can
       connect from your EC2 instance to your DB instance. Doing
       this means that you can send data from your EC2 instance
       to your database.
+
       - **Type:**
         **MySQL/Aurora**
       - **Source:** The identifier of the
@@ -182,6 +188,7 @@ an IPv6 CIDR associated with it.
 ###### To create a DB subnet group
 
 1. Identify the private subnets for your database in the VPC.
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **Subnets**.
@@ -259,6 +266,7 @@ that runs in dual-stack mode.
    **Standard create** option is chosen, and then
    choose the MySQL DB engine type.
 6. In the **Connectivity** section, set these values:
+
    - **Network type** – Choose **Dual-stack
      mode**.
 
@@ -310,6 +318,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
 ###### To delete a VPC and related resources
 
 1. Delete the DB subnet group:
+
    1. Open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the navigation pane, choose **Subnet groups**.
@@ -318,6 +327,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
    4. Choose **Delete**, and then choose **Delete** in the confirmation window.
 
 2. Note the VPC ID:
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **VPCs**.
@@ -326,6 +336,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
       created. You need this VPC ID in subsequent steps.
 
 3. Delete the security groups:
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **Security
@@ -342,6 +353,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
       the confirmation page.
 
 4. Delete the NAT gateway:
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **NAT Gateways**.
@@ -352,6 +364,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
    5. On the confirmation page, enter `delete`, and then choose **Delete**.
 
 5. Delete the VPC:
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **VPCs**.
@@ -364,6 +377,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
    will also be deleted, including the subnets associated with it. 5. On the confirmation page, enter `delete`, and then choose **Delete**.
 
 6. Release the Elastic IP addresses:
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. Choose **EC2 Dashboard**, and then choose **Elastic IPs**.

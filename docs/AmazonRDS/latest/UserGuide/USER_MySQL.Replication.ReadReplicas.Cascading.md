@@ -36,6 +36,7 @@ decide to promote `read-replica-2`. The chain is affected as
 follows:
 
 - Promoting `read-replica-2` removes it from the replication chain.
+
   - It is now a full read/write DB instance.
   - It continues replicating to `read-replica-3`, just as it was doing before
     promotion.

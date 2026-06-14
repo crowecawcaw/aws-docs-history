@@ -124,6 +124,7 @@ rds-custom!oracle-do-not-delete-db-ABCDEFG12HIJKLNMNOPQRS3TUVWX-789012-dg
    an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/manage_update-secret.md "../../../secretsmanager/latest/userguide/manage_update-secret.md").
 8. If your database is a standalone database or a source database in an
    Oracle Data Guard configuration:
+
    1. Start your Oracle SQL client and log in as
       `SYS`.
    2. Run a SQL statement in the following form for each database user

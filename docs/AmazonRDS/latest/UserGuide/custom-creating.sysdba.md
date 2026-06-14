@@ -30,6 +30,7 @@ You can find the password using the AWS Management Console.
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the RDS console, complete the following steps:
+
    1. In the navigation pane, choose
       **Databases**.
    2. Choose the name of your RDS Custom for Oracle DB instance.
@@ -40,6 +41,7 @@ You can find the password using the AWS Management Console.
 
 3. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 4. In the Secrets Manager console, complete the following steps:
+
    1. In the left navigation pane, choose
       **Secrets**.
    2. Filter the secrets by the resource ID that you copied in step

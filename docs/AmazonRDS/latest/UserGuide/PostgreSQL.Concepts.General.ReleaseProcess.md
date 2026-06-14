@@ -9,6 +9,7 @@ releases are labeled as R1, R2, R3, and so on.
 - R1 is the initial release of a minor version. It occasionally includes new
   features, extensions, or upgrades to existing extensions.
 - Subsequent release versions (R2, R3, and later) include:
+
   - Security updates
   - Performance improvements
   - Bug fixes

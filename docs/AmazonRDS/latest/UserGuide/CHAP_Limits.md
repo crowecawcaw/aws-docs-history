@@ -109,6 +109,7 @@ Quotas User Guide_](../../../servicequotas/latest/userguide/request-quota-increa
 The naming constraints in Amazon RDS are as follows:
 
 - DB instance identifier:
+
   - Must contain 1–63 alphanumeric characters or hyphens.
   - First character must be a letter.
   - Can't end with a hyphen or contain two consecutive
@@ -117,6 +118,7 @@ The naming constraints in Amazon RDS are as follows:
     Region.
 
 - Initial database name:
+
   - Database name constraints differ for each database engine. For more
     information, see the available settings when creating each DB
     instance.
@@ -127,6 +129,7 @@ The naming constraints in Amazon RDS are as follows:
   engine. For more information, see the available settings when creating the DB
   instance.
 - Master password:
+
   - The password for the database master user can include any printable
     ASCII character except `/`, `'`, `"`,
     `@`, or a space.
@@ -135,18 +138,21 @@ The naming constraints in Amazon RDS are as follows:
   character limitation.
   - The password can contain the following number of printable ASCII
     characters depending on the DB engine:
+
     - Db2: 8–255
     - MariaDB and MySQL: 8–41
     - Oracle: 8–30
     - SQL Server and PostgreSQL: 8–128
 
 - DB parameter group:
+
   - Must contain 1–255 alphanumeric characters.
   - First character must be a letter.
   - Hyphens are allowed, but the name cannot end with a hyphen or contain
     two consecutive hyphens.
 
 - DB subnet group:
+
   - Must contain 1–255 characters.
   - Alphanumeric characters, spaces, hyphens, underscores, and periods are
     allowed.

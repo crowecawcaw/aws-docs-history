@@ -55,6 +55,7 @@ The following are requirements for connecting an EC2 instance with the DB cluste
 If no EC2 instances exist in the AWS Region, the console provides a link to create one.
 
 - The user who is creating the DB cluster must have permissions to perform the following operations:
+
   - `ec2:AssociateRouteTable`
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:AuthorizeSecurityGroupIngress`

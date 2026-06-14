@@ -16,6 +16,7 @@ subscribers will not be affected.
 1. Turn on logical replication – To create
    logical decoding on a standby, you must turn on logical replication on your
    source DB instance and its physical replica. For more information, see [Read replica configuration with PostgreSQL](USER_PostgreSQL.Replication.ReadReplicas.Configuration.md "USER_PostgreSQL.Replication.ReadReplicas.Configuration.md").
+
    - To turn on logical replication for a newly
      created RDS for PostgreSQL DB instance – Create a new DB custom
      parameter group and set the static parameter

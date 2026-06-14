@@ -112,3 +112,5 @@ To verify the current license model of your DB instance, use the `describe-db-in
 ## Considerations
 
 - Converting from BYOM to License Included is not supported.
+- If your License-Included (LI) instance has read replicas, remove them before converting license model to BYOM, then recreate them after. The new replicas will automatically inherit the BYOM licensing model.
+- If your LI DB instance is running on an instance class that is not supported for BYOM (for example, db.m5 or db.r6i), you cannot convert directly to BYOM. First, modify your instance to a supported instance class (7th generation or newer), then convert the license model as a separate modify operation.

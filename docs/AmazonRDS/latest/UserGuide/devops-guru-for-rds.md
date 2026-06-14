@@ -160,6 +160,7 @@ To view alerts from DevOps Guru in the RDS console, your AWS Identity and Acces
 
 - The AWS managed policy `AmazonDevOpsGuruConsoleFullAccess`
 - The AWS managed policy `AmazonDevOpsGuruConsoleReadOnlyAccess` and either of the following policies:
+
   - The AWS managed policy `AmazonRDSFullAccess`
   - A customer managed policy that includes `pi:GetResourceMetrics` and
     `pi:DescribeDimensionKeys`
@@ -252,7 +253,7 @@ might display the following banner about missing permissions.
 4. Choose a DB instance in the cluster that you just created.
 5. Choose the switch to turn on **DevOps Guru for RDS**.
 
-![Choose the switch to turn on DevOps Guru for RDS.](images/devops-guru-pi-toggle-off.png) 6. Choose a tag value. For more information, see "[Use tags to identify resources in your DevOps Guru
+![The switch to turn on DevOps Guru for RDS.](images/devops-guru-pi-toggle-off.png) 6. Choose a tag value. For more information, see "[Use tags to identify resources in your DevOps Guru
 applications](../../../devops-guru/latest/userguide/working-with-resource-tags.md "../../../devops-guru/latest/userguide/working-with-resource-tags.md")" in the _Amazon DevOps Guru User Guide_.
 
 ![Turn on DevOps Guru in the Amazon RDS console.](images/devops-guru-turn-on.png) 7. Choose **Turn on DevOps Guru**.

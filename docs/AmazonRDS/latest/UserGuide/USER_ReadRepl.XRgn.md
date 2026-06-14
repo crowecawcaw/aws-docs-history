@@ -57,6 +57,7 @@ You can create a read replica across AWS Regions using the AWS Management Consol
    that you use the same or larger DB instance class and storage type for the
    read replica.
 8. To create an encrypted read replica in another AWS Region:
+
    1. Choose **Enable encryption**.
    2. For **AWS KMS key**, choose the
       AWS KMS key identifier of the KMS key in the destination

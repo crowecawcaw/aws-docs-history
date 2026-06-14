@@ -227,6 +227,7 @@ impact on network performance. To support this additional in-transit traffic
 encryption between instances, the following requirements must be met:
 
 - The instances use the following instance types:
+
   - **General purpose**: M6i,
     M6id, M6in, M6idn, M7g
   - **Memory optimized**: R6i,

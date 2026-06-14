@@ -188,6 +188,7 @@ db2 connect to `database_name` user `master_username` using `master_password`
 ```
 
 3.  Run the `bind` command to bind the packages.
+
     1. Navigate to the directory where the bind files exist on the client
        machine.
     2. Run the `bind` command for each file.

@@ -20,6 +20,7 @@ For more information about recommendations, see [Recommendations from Amazon RDS
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, do any of the following:
+
    - Choose **Recommendations**.
 
    The **Recommendations** page displays a list of

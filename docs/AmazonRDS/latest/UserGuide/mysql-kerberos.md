@@ -140,7 +140,7 @@ The VPC for the directory. Create the MySQL DB instance in this same VPC.
 Subnets for the directory servers. The two subnets must be in different Availability Zones. 7. Review the directory information and make any necessary changes. When the information is correct, choose
 **Create directory**.
 
-![The Review & create window during directory creation in the Directory Service console.](images/WinAuth2.png)
+![The Review and create window during directory creation in the Directory Service console.](images/WinAuth2.png)
 
 It takes several minutes for the directory to be created. When it has been successfully created, the
 **Status** value changes to **Active**.

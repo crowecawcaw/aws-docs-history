@@ -23,6 +23,7 @@ Use the following procedure to create an option group for SQL Server Standard Ed
 2. In the navigation pane, choose **Option groups**.
 3. Choose **Create group**.
 4. In the **Create option group** window, do the following:
+
    1. For **Name**, enter a name for the option group that is unique within your AWS account,
       such as `teradata-odbc-se-2019`.
       The name can contain only letters, digits, and hyphens.
@@ -72,6 +73,7 @@ Use the following procedure creates an option group for SQL Server Standard Edit
 3. Choose your new option group.
 4. Choose **Add option**.
 5. Under **Option details**:
+
    1. Choose **ODBC_TERADATA** for **Option name**.
    2. For `17.20.33.00` for **Option version**.
 

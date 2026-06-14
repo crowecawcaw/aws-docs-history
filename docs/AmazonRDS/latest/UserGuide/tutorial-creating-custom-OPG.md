@@ -78,6 +78,7 @@ For more information on other parameters available for MySQL DB instances, see
 2. For **Custom parameter groups**, choose
    **Create parameter group**.
 3. Set the parameter group details.
+
    1. Enter a name for the parameter group.
    2. Enter a description of the parameter group.
    3. For **Engine type**, choose
@@ -133,6 +134,7 @@ This plugin logs server activity for security and compliance. For more informati
 2. For **Option Groups**, choose
    **Create group**.
 3. Set the option group details.
+
    - Enter a name for the option group.
    - Enter a description of the option group.
    - For **Engine**, select
@@ -159,6 +161,7 @@ Use the following steps to add a option to the new option group that you created
 3. Under **Options**, choose
    **Add option**.
 4. Set the option group details.
+
    - For **Option name**, choose the option MariaDB Audit Plugin,
      **MARIADB_AUDIT_PLUGIN**.
    - For **Option settings**, leave all the default options selected.
@@ -188,6 +191,7 @@ custom parameter and new option group.
    .
 5. For **Availability and durability**, choose **Single DB instance.** This step is necessary to support a custom parameter or new option group.
 6. Select **Additional Configuration**.
+
    - For **Initial database name**, choose a name for your DB instance.
    - Under the **DB parameter group** dropdown, select the name of the
      custom parameter group you created previously.

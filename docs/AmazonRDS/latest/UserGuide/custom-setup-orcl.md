@@ -203,6 +203,7 @@ resources:
 2.  Start the Create Stack wizard, and choose **Create
     Stack**.
 3.  On the **Create stack** page, do the following:
+
     1. For **Prepare template**, choose
        **Template is ready**.
     2. For **Template source**, choose **Upload
@@ -213,6 +214,7 @@ resources:
 
 4.  On the **Specify stack details** page, do the
     following:
+
     1. For **Stack name**, enter
        `custom-oracle-iam`.
     2. Choose **Next**.
@@ -221,6 +223,7 @@ resources:
     **Next**.
 6.  On the **Review custom-oracle-iam** page, do the
     following:
+
     1. Select the \***\*I acknowledge that
        CloudFormation might create IAM resources with custom
        names\*\*** check box.
@@ -230,6 +233,7 @@ resources:
 
 7.  In the left panel, choose **custom-oracle-iam**. In the
     right panel, do the following:
+
     1.  Choose **Stack info**. Your stack has an ID in
         the format
         **arn:aws:cloudformation:`region`:`account-no`:stack/custom-oracle-iam/`identifier`**.
@@ -746,6 +750,7 @@ For more information, see [Make sure your VPC can access dependent AWS services]
 2. Start the Create Stack wizard, and choose **Create Stack** and
    then **With new resources (standard)**.
 3. On the **Create stack** page, do the following:
+
    1. For **Prepare template**, choose **Template is
       ready**.
    2. For **Template source**, choose **Upload a
@@ -756,6 +761,7 @@ For more information, see [Make sure your VPC can access dependent AWS services]
 
 4. On the **Specify stack details** page, do the
    following:
+
    1. For **Stack name**, enter `custom-vpc`.
    2. For **Parameters**, choose the private subnets to use for RDS Custom DB instances.
    3. Choose the private VPC ID to use for RDS Custom DB instances.

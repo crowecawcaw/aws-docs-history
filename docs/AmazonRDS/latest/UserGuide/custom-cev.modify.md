@@ -26,6 +26,7 @@ has one of the following status values:
 4. For **Actions**, choose
    **Modify**.
 5. Make any of the following changes:
+
    - For **CEV status settings**, choose a new
      availability status.
    - For **Version description**, enter a new

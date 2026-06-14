@@ -18,6 +18,7 @@ the OU that you create for RDS Custom for SQL Server.
 - You must have a service account in your AD domain with delegated permissions to join computers to the domain.
   A domain service account is a user account in your AD that has delegated permission to perform certain tasks.
 - Delegate the following permissions to your domain service account in the Organizational Unit that you're joining your RDS Custom for SQL Server instance to:
+
   - Validated ability to write to the DNS host name
   - Validated ability to write to the service principal name
   - Create and delete computer objects
@@ -114,6 +115,7 @@ Console
 - In AWS Secrets Manager, choose **Store a new secret**.
 - For **Secret type**, choose **Other type of secret**.
 - For **Key/value pairs**, add two keys:
+
   - The first key, `SELF_MANAGED_ACTIVE_DIRECTORY_USERNAME` and enter
     the name of your AD user (without the domain prefix) for the value.
   - For the second key, enter `SELF_MANAGED_ACTIVE_DIRECTORY_PASSWORD` and enter the

@@ -63,6 +63,7 @@ Multi-AZ deployments on RDS on Outposts have the following prerequisites:
 - Have at least two Outposts, connected over local connections and attached to
   different Availability Zones in an AWS Region.
 - Make sure that your DB subnet groups contain the following:
+
   - At least two subnets in at least two Availability Zones in a given AWS Region.
   - Subnets only in Outposts.
   - At least two subnets in at least two Outposts within the same virtual private cloud (VPC).

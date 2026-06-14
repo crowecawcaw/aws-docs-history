@@ -7,6 +7,7 @@ customize the instance, do the following:
    automation.
 2. Customize the RDS Custom for SQL Server DB instance as needed.
 3. Do either of the following:
+
    - Resume automation manually.
    - Wait for the pause period to end. In this case, RDS Custom resumes monitoring and instance
      recovery automatically.
@@ -23,6 +24,7 @@ Pausing and resuming automation are the only supported automation tasks when mod
    want to modify.
 3. Choose **Modify**. The **Modify DB instance** page appears.
 4. For **RDS Custom automation mode**, choose one of the following options:
+
    - **Paused** pauses the monitoring and instance
      recovery for the RDS Custom DB instance. Enter the pause duration
      that you want (in minutes) for **Automation mode

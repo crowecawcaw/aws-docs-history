@@ -51,6 +51,7 @@ For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInst
 11. In the **Settings** section, enter a unique name for
     the **DB instance identifier**.
 12. To enter your master password, do the following:
+
     1. In the **Settings** section, open **Credential Settings**.
     2. Clear the **Auto generate a password** check box.
     3. Change the **Master username** value and enter the same password in **Master

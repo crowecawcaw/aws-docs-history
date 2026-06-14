@@ -12,6 +12,7 @@ You must obtain the SQL Server Developer Edition installation media from Microso
 
 1. **Option A:** Use your [Visual Studio subscription](https://visualstudio.microsoft.com/subscriptions/ "https://visualstudio.microsoft.com/subscriptions/") to download the Developer Edition ISO. Only the English version is supported.
 2. **Option B: Using SQL Server Installer**
+
    1. Download the [SQL Server Developer Edition installer](https://download.microsoft.com/download/c/c/9/cc9c6797-383c-4b24-8920-dc057c1de9d3/SQL2022-SSEI-Dev.exe "https://download.microsoft.com/download/c/c/9/cc9c6797-383c-4b24-8920-dc057c1de9d3/SQL2022-SSEI-Dev.exe").
    2. Run the installer and choose **Download Media** to download the full ISO.
    3. Choose **English** as the preferred language.

@@ -6,6 +6,7 @@ Consider the following prerequisites and limitations:
 - The tenant database and DB instance must exist.
 - For the deletion to succeed, one of the following situations must
   exist:
+
   - The tenant database and DB instance are available.
 
   ###### Note

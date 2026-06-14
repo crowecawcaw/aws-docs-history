@@ -5,7 +5,7 @@ DB with Kerberos authentication, log in using the Kerberos authentication type. 
 after launching Oracle SQL Developer, choose **Kerberos
 Authentication** as the authentication type, as shown in the following example.
 
-![Shows the New/Select Database Connection dialog box in Oracle SQL Developer. The Kerberos Authentication checkbox is selected.](images/ora-kerberos-auth.png)
+![The Database Connection dialog in Oracle SQL Developer with Kerberos Authentication selected.](images/ora-kerberos-auth.png)
 To connect to Oracle with Kerberos authentication with SQL\*Plus:
 
 1. At a command prompt, run the following command:

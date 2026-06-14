@@ -35,6 +35,7 @@ The following example shows the use of a foreign server linked to an Amazon RDS 
 ###### To create a foreign server linked to an RDS for Oracle database
 
 1. Note the following on the RDS for Oracle DB instance:
+
    - Endpoint
    - Port
    - Database name

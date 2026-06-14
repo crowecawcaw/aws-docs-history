@@ -46,6 +46,7 @@ The following procedure creates a parameter group for SQL Server Standard Editio
 2. In the navigation pane, choose **Parameter groups**.
 3. Choose **Create parameter group**.
 4. In the **Create parameter group** pane, do the following:
+
    1. For **Parameter group family**, choose
       **sqlserver-se-13.0**.
    2. For **Group name**, enter an identifier for the parameter group, such

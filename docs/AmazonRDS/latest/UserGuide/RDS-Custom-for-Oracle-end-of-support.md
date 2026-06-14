@@ -164,12 +164,15 @@ Launch an EC2 instance with the following considerations:
      workloads.
 
 2. Configure storage architecture
+
    1. File system storage (recommended for most scenarios)
+
       - Use standard file system directories for Oracle data files
       - Simpler to manage and suitable for most workloads
       - This guidance uses file system storage examples
 
    2. Oracle Automatic Storage Management (ASM)
+
       - If your workload requires ASM, install and configure standalone ASM on the EC2 instance
       - Adjust all path parameters in the init file accordingly to use ASM disk groups (e.g., +DATA, +FRA)
       - The migration process is similar for ASM, with path adjustments
@@ -3104,6 +3107,7 @@ Key metrics to compare:
 ### Post-migration optimization
 
 1. After migration, optimize database performance:
+
    1. **Database performance tuning:**
 
    **Gather statistics:**
@@ -3144,7 +3148,6 @@ Key metrics to compare:
    SQL> ALTER SYSTEM SET RESULT_CACHE_MAX_SIZE = 1G;
    SQL> ALTER SYSTEM SET RESULT_CACHE_MODE = MANUAL;
    ```
-
    2. Storage optimization:
 
    **Enable compression:**
@@ -3176,7 +3179,6 @@ Key metrics to compare:
        PARTITION sales_2026 VALUES LESS THAN (MAXVALUE)
    );
    ```
-
    3. Implement monitoring and alerting:
 
    **CloudWatch custom metrics:**
@@ -3230,7 +3232,6 @@ Key metrics to compare:
      --comparison-operator GreaterThanThreshold \
      --alarm-actions arn:aws:sns:region:account-id:topic-name
    ```
-
    4. Security hardening:
 
    **Database security:**

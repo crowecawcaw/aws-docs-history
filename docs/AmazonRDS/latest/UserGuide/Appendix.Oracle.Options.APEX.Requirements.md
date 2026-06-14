@@ -32,6 +32,7 @@ Note the following prerequisites for using Oracle APEX and ORDS:
 
 - Your system must use the Java Runtime Environment (JRE).
 - Your Oracle client installation must include the following:
+
   - SQL\*Plus or SQL Developer for administration tasks
   - Oracle Net Services for configuring connections to your RDS for Oracle
     DB instance

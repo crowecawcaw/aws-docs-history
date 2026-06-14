@@ -70,6 +70,7 @@ one or more accounts.
 4. For **Actions**, choose
    **Share snapshot**.
 5. Choose one of the following options for **DB snapshot visibility**.
+
    - If the source is unencrypted, choose **Public** to permit all AWS
      accounts to restore a DB instance from your manual DB snapshot, or
      choose **Private** to permit only AWS accounts that you

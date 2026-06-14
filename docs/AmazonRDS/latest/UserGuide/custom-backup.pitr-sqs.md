@@ -29,6 +29,7 @@ In RDS Custom for SQL Server, PITR differs in the following important ways from 
   C: drive.
 - For an RDS Custom for SQL Server DB instance, a database is backed up automatically and is eligible for PITR only under the
   following conditions:
+
   - The database is online.
   - Its recovery model is set to `FULL`.
   - It's writable.

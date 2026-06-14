@@ -32,6 +32,7 @@ The following limitations apply to copying a DB snapshot for RDS Custom for SQL 
 - If you delete any dependent AWS resources of the source DB snapshot before
   or during the copy process, your copy snapshot request could fail
   asynchronously.
+
   - If you delete the Service Master Key (SMK) backup file for your source
     DB instance stored in the RDS Custom managed S3 bucket in your account, the
     DB snapshot copy succeeds asynchronously. However, SQL Server features
@@ -261,6 +262,7 @@ required for all scenarios.
 
 - `--source-db-snapshot-identifier` ‐ The identifier
   for the source DB snapshot.
+
   - If the source snapshot is in a different AWS Region than
     the copy, specify a valid DB snapshot ARN. For example,
     `arn:aws:rds:us-west-2:123456789012:snapshot:instance1-snapshot-12345678`.
@@ -271,6 +273,7 @@ required for all scenarios.
   encrypted DB snapshot. The KMS key identifier is the Amazon
   Resource Name (ARN), key identifier, or key alias for the KMS
   key.
+
   - If you copy an encrypted snapshot to a different
     AWS Region, then you must specify a KMS key for the
     destination AWS Region. KMS keys are specific to the
@@ -323,6 +326,7 @@ parameters are used to copy a DB snapshot. Not all parameters are required:
 
 - `SourceDBSnapshotIdentifier` ‐ The identifier for
   the source DB snapshot.
+
   - If the source snapshot is in a different AWS Region than
     the copy, specify a valid DB snapshot ARN. For example,
     `arn:aws:rds:us-west-2:123456789012:snapshot:instance1-snapshot-12345678`.
@@ -333,6 +337,7 @@ parameters are used to copy a DB snapshot. Not all parameters are required:
   encrypted DB snapshot. The KMS key identifier is the Amazon
   Resource Name (ARN), key identifier, or key alias for the KMS
   key.
+
   - If you copy an encrypted snapshot to a different
     AWS Region, then you must specify a KMS key for the
     destination AWS Region. KMS keys are specific to the

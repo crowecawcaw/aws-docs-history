@@ -3,6 +3,7 @@
 Amazon RDS on AWS Outposts supports the following DB instance classes:
 
 - General purpose DB instance classes
+
   - db.m7i.48xlarge
   - db.m7i.24xlarge
   - db.m7i.16xlarge

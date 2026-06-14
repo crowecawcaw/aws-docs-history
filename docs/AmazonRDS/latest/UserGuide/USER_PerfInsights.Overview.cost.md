@@ -9,7 +9,7 @@ In the RDS console, you can choose any of the following retention periods for yo
 - **`n` months**, where **`n`** is a number
   from 1–24
 
-![Choose a retention period for your Performance Insights data.](images/pi-retention-periods.png)
+![The retention period options for Performance Insights data.](images/pi-retention-periods.png)
 To learn how to set a retention period using the AWS CLI, see [Turning Performance Insights on and off for Amazon RDS](USER_PerfInsights.Enabling.md "USER_PerfInsights.Enabling.md").
 
 ###### Note

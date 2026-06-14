@@ -90,6 +90,7 @@ instance is available.
    group or use an existing option group. If you want to use an existing option
    group, skip to the next step. Otherwise, create a custom DB option group with
    the following settings:
+
    1. For **Engine**, choose the Oracle edition for your DB
       instance.
    2. For **Major engine version**, choose the version of
@@ -98,6 +99,7 @@ instance is available.
 2. Add the **SPATIAL** option to the option group. For more
    information about adding options, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 3. Apply the option group to a new or existing DB instance:
+
    - For a new DB instance, you apply the option group when you launch the
      instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
    - For an existing DB instance, you apply the option group by modifying
@@ -145,6 +147,7 @@ ORDER BY 1,2,3;
 
 3. Drop any objects that reference data types or features of the `SPATIAL` option.
 4. Do one of the following:
+
    - Remove the `SPATIAL` option from the option group it belongs to. This change affects
      all DB instances that use the option group. For more information, see [Removing an option from an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.RemoveOption").
    - Modify the DB instance and specify a different option group that doesn't include the

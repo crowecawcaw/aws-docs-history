@@ -26,6 +26,7 @@ The following are requirements for connecting an EC2 instance with a Multi-AZ DB
 If no EC2 instances exist in the same VPC, the console provides a link to create one.
 
 - The user who is setting up connectivity must have permissions to perform the following EC2 operations:
+
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:AuthorizeSecurityGroupIngress`
   - `ec2:CreateSecurityGroup`
@@ -93,7 +94,7 @@ AWS Management Console. You can't set up a connection automatically with the AWS
 
 The **Set up EC2 connection** page appears. 4. On the **Set up EC2 connection** page, choose the EC2 instance.
 
-![Set up EC2 connection page.](images/auto-connect-rds-ec2-set-up.png)
+![Set up EC2 connection page.](/images/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2-set-up.png)
 
 If no EC2 instances exist in the same VPC, choose **Create EC2 instance**
 to create one. In this case, make sure the new EC2 instance is in the same VPC as the
@@ -157,4 +158,4 @@ For a compute resource to be listed, the following conditions must apply:
 3. On the **Connectivity & security** tab, view the compute resources in the
    **Connected compute resources**.
 
-![Connected compute resources.](images/ec2-connected-compute-resources.png)
+![Connected compute resources.](/images/AmazonRDS/latest/UserGuide/images/ec2-connected-compute-resources.png)

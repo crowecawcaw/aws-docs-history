@@ -73,6 +73,7 @@ The following parameters are optional:
 
 - `@kms_master_key_arn` – The ARN for the symmetric encryption KMS key to use to
   encrypt the item.
+
   - You can't use the default encryption key. If you use the
     default key, the database won't be backed up.
   - If you don't specify a KMS key identifier, the backup file
@@ -84,6 +85,7 @@ The following parameters are optional:
 
 - `@overwrite_s3_backup_file` – A value that indicates whether to
   overwrite an existing backup file.
+
   - `0` – Doesn't overwrite an existing file. This value is the
     default.
 
@@ -156,6 +158,7 @@ For example, if the file names in the S3 ARN are
 - `@enable_bucket_default_encryption` – A value that
   indicates whether to use the S3 bucket's default encryption configuration for
   server-side encryption in S3. Directory buckets always use the bucket's default encryption configuration regardless of this setting.
+
   - `0` – Server-side encryption uses Advanced
     Encryption Standard (AES) 256-bit encryption through SSE-S3.
   - `1` – Server-side encryption uses your S3
@@ -315,9 +318,11 @@ The following parameters are required:
   database with the same name as an existing database.
 - `@s3_arn_to_restore_from` – The ARN indicating the Amazon S3 prefix and
   names of the backup files used to restore the database.
+
   - For a single-file backup, provide the entire file name.
   - For a multifile backup, provide the prefix that the files have in common, then suffix
     that with an asterisk (`*`).
+
     - If using a directory bucket, the ARN must end with `/*` due to [differences for directory buckets](../../../AmazonS3/latest/userguide/s3-express-differences.md "../../../AmazonS3/latest/userguide/s3-express-differences.md").
 
   - If `@s3_arn_to_restore_from` is empty, the following error message
@@ -328,6 +333,7 @@ restores:
 
 - `@with_norecovery` – The recovery clause to use for the restore
   operation.
+
   - Set it to `0` to restore with RECOVERY. In this case, the database is
     online after the restore.
   - Set it to `1` to restore with NORECOVERY. In this case, the database
@@ -539,6 +545,7 @@ The following parameters are optional:
   to decrypt the log.
 - `@with_norecovery` – The recovery clause to use for the restore
   operation. This value defaults to `1`.
+
   - Set it to `0` to restore with RECOVERY. In this case, the database is
     online after the restore. You can't restore further log backups while the
     database is online.

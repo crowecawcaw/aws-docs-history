@@ -47,6 +47,7 @@ CEV you create after June 30, 2025. Do the following for the migration.
 3. **Migrate your database** from the existing DB
    instance that doesn’t support Multi-AZ deployment to the newly created instance using one
    of following methods:
+
    - [Physical migration of Oracle databases to Amazon RDS Custom using
      Data Guard](https://aws.amazon.com/blogs//database/physical-migration-of-oracle-databases-to-amazon-rds-custom-using-data-guard/ "https://aws.amazon.com/blogs//database/physical-migration-of-oracle-databases-to-amazon-rds-custom-using-data-guard/")
    - [Physical migration of Oracle databases to Amazon RDS Custom using

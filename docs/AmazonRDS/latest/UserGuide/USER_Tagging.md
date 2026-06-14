@@ -213,6 +213,7 @@ sensitive information in tags.
 
 - Automate tagging to ensure consistency. For example, you can use the following
   techniques:
+
   - Include tags in an CloudFormation template. When you create resources with the template,
     the resources are tagged automatically.
   - Define and apply tags using AWS Lambda functions.

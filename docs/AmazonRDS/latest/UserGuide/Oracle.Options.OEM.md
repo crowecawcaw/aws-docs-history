@@ -13,4 +13,6 @@ the supported OEM options.
 
 ###### Note
 
-You can use OEM Database or OEM Management Agent, but not both.
+You can use OEM Database or OEM Management Agent, but not both. Use OEM Database Express for lightweight,
+built-in monitoring of a single database without additional infrastructure. Use OEM Management Agent to manage
+the DB instance centrally through an existing Oracle Enterprise Manager Cloud Control installation.

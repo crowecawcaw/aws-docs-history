@@ -15,6 +15,7 @@ see [Using native Db2 tools to migrate data from Db2 to Amazon RDS for Db2](db2-
 ###### To copy data from a self-managed Db2 database to an RDS for Db2 database
 
 1. Catalog the RDS for Db2 DB instance on the self-managed Db2 instance.
+
    1. Catalog the node. In the following example, replace
       `dns_ip_address` and
       `port` with the DNS name or the IP address and
@@ -23,7 +24,6 @@ see [Using native Db2 tools to migrate data from Db2 to Amazon RDS for Db2](db2-
    ```
    db2 catalog tcpip node remnode REMOTE `dns_ip_address` SERVER `port`
    ```
-
    2. Catalog the database. In the following example, replace
       `rds_database_name` with the name of the
       database on your RDS for Db2 DB instance.
@@ -42,6 +42,7 @@ db2 update dbm cfg using FEDERATED YES `source_database_name`
 ```
 
 3. Create tables on the RDS for Db2 DB instance.
+
    1. Catalog the node. In the following example, replace
       `dns_ip_address` and
       `port` with the DNS name or the IP address and
@@ -50,7 +51,6 @@ db2 update dbm cfg using FEDERATED YES `source_database_name`
    ```
    db2 catalog tcpip node srcnode REMOTE `dns_ip_address` server `port`
    ```
-
    2. Catalog the database. In the following example, replace
       `source_database_name` and
       `source_database_alias` with the name of the
@@ -75,6 +75,7 @@ db2look -d `source_database_alias` -i `user_id` -w `user_password` -e -l -a -f -
 
 5. Set up federation, and create a nickname for the RDS for Db2 database table on the
    self-managed Db2 instance.
+
    1. Connect to your local database. In the following example, replace
       `source_database_name` with the name of the
       database on your self-managed Db2 instance.
@@ -82,13 +83,11 @@ db2look -d `source_database_alias` -i `user_id` -w `user_password` -e -l -a -f -
    ```
    db2 connect to `source_database_name`
    ```
-
    2. Create a wrapper to access Db2 data sources.
 
    ```
    db2 create wrapper drda
    ```
-
    3. Define a data source on a federated database. In the following example,
       replace `admin` and
       `admin_password` with your credentials for your
@@ -101,7 +100,6 @@ db2look -d `source_database_alias` -i `user_id` -w `user_password` -e -l -a -f -
        wrapper drda authorization "`admin`" password "`admin_password`" \
        options( dbname '`rds_database_name`', node 'remnode')"
    ```
-
    4. Map the users on the two databases. In the following example, replace
       `master_username` and
       `master_password` with your credentials for
@@ -111,13 +109,11 @@ db2look -d `source_database_alias` -i `user_id` -w `user_password` -e -l -a -f -
    db2 "create user mapping for user server rdsdb2 \
        options (REMOTE_AUTHID '`master_username`', REMOTE_PASSWORD '`master_password`')"
    ```
-
    5. Verify the connection to the RDS for Db2 server.
 
    ```
    db2 set passthru rdsdb2
    ```
-
    6. Create a nickname for the table in the remote RDS for Db2 database. In the
       following example, replace `NICKNAME` and
       `TABLE_NAME` with a nickname for the table and

@@ -62,6 +62,7 @@ recommended.
 1. Connect to the EC2 instance in your Single-AZ deployment using AWS Systems Manager Session Manager or
    SSH.
 2. Perform either of the following customizations:
+
    - Install third-party software on the data volume
      (`/rdsdbdata`).
    - Customize files on the root volume (`/`).

@@ -61,6 +61,7 @@ version 8.4 or higher.
   for RDS for MySQL 8.4.
 - **Parameter behavior changes** – The
   following parameters changed for MySQL 8.4.
+
   - `innodb_dedicated_server` – This parameter is
     now enabled by default. For more information, see [Configuring buffer pool size and redo log capacity in MySQL 8.4](Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md "Appendix.MySQL.CommonDBATasks.Config.Size.8.4.md").
   - `innodb_buffer_pool` – The database engine now
@@ -75,12 +76,14 @@ version 8.4 or higher.
   RDS for MySQL removed the following parameters from parameter groups for MySQL
   8.4 DB instances. The `innodb_redo_log_capacity` parameter now
   controls the size of the redo log files.
+
   - `innodb_log_file_size`
   - `innodb_log_files_in_group`
 
 - **New default values for parameters**
   – The following parameters have new default values for MySQL 8.4 DB
   instances:
+
   - Various MySQL community parameters related to performance changed.
     For more information, see [What is New in MySQL 8.4 since MySQL 8.0](https://dev.mysql.com/doc/refman/8.4/en/mysql-nutshell.html "https://dev.mysql.com/doc/refman/8.4/en/mysql-nutshell.html").
 

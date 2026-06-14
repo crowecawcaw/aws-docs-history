@@ -24,6 +24,7 @@ For more information, see [RDS Custom support perimeter](custom-concept.md#custo
 3. Choose the DB instance that you want to modify.
 4. Choose **Modify**.
 5. Make the following changes as needed:
+
    1. For **DB engine version**, choose the new version.
    2. Change the value for **DB instance class**.
       For supported classes, see

@@ -73,16 +73,19 @@ you haven't created any CEVs, the page is empty. 3. Choose **Create custom engin
      version.
 
 5. In **Version details**, do the following:
+
    1. Enter a valid name in **Custom engine version
       name**. For example, you might enter the name
       `19.cdb_cev1`.
    2. (Optional) Enter a description for your CEV.
 
 6. In **Installation media**, do the following:
+
    1. (Optional) For **AMI ID**, either leave the field
       blank to use the latest service-provided AMI, or enter an AMI that
       you previously used to create a CEV. To obtain valid AMI IDs, use
       either of the following techniques:
+
       - In the console, choose **Custom engine
         versions** in the left navigation pane, and
         choose the name of a CEV. The AMI ID used by the CEV appears

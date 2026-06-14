@@ -649,7 +649,7 @@ RDS in Secrets Manager with the RDS console, the AWS CLI, or the RDS API.
 
 In **Master Credentials ARN**, you can view the secret ARN.
 
-![View the details about a secret managed by RDS. in Secrets Manager](images/secrets-manager-integration-view-instance.png)
+![View the details about a secret managed by RDS in Secrets Manager.](images/secrets-manager-integration-view-instance.png)
 
 You can follow the **Manage in Secrets Manager** link to view and manage the secret
 in the Secrets Manager console.
@@ -748,7 +748,7 @@ the AWS CLI, or the RDS API.
 
 In **Master Credentials ARN**, you can view the secret ARN.
 
-![View the details about a secret managed by RDS. in Secrets Manager](images/secrets-manager-integration-view-taz-cluster.png)
+![View the details about a secret managed by RDS in Secrets Manager.](images/secrets-manager-integration-view-taz-cluster.png)
 
 You can follow the **Manage in Secrets Manager** link to view and manage the secret in
 the Secrets Manager console.

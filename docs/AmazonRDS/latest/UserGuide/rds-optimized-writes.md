@@ -70,11 +70,14 @@ during database creation:
 
 - You specify a DB engine version and DB instance class that support RDS
   Optimized Writes.
+
   - RDS Optimized Writes is supported for RDS for MySQL version 8.0.30 and
     higher. For information about RDS for MySQL versions, see [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md").
   - RDS Optimized Writes is supported for RDS for MySQL databases that use
     the following DB instance classes:
 
+        - db.m8g
+        - db.m8gd
         - db.m7i
         - db.m7g
         - db.m6g
@@ -82,6 +85,8 @@ during database creation:
         - db.m6i
         - db.m5
         - db.m5d
+        - db.r8g
+        - db.r8gd
         - db.r7i
         - db.r7g
         - db.r6g

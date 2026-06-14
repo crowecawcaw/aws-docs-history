@@ -59,6 +59,7 @@ aws rds add-option-to-option-group ^
 
 3. Associate the option group with your DB instance in either of the
    following ways:
+
    - Create a new Oracle DB instance and associate the option group
      with it. For information about creating a DB instance, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
    - Modify an Oracle DB instance to associate the option group with

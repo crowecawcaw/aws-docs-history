@@ -30,12 +30,12 @@ the AWS Region where your AWS resources are. For more information, see
 and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md"). 3. In the navigation pane, choose **Metrics** and then **All
 metrics**.
 
-![Choose metric namespace.](images/cw-all-metrics.png) 4. Scroll down and choose the **RDS** metric
+![The metric namespace selection.](images/cw-all-metrics.png) 4. Scroll down and choose the **RDS** metric
 namespace.
 
 The page displays the Amazon RDS dimensions. For descriptions of these dimensions, see [Amazon CloudWatch dimensions for Amazon RDS](dimensions.md "dimensions.md").
 
-![Choose metric namespace.](images/rds-monitoring-01.png) 5. Choose a metric dimension, for example **By Database
+![The metric namespace selection.](images/rds-monitoring-01.png) 5. Choose a metric dimension, for example **By Database
 Class**.
 
 ![Filter metrics.](images/metrics-by-instance-class.png) 6. Do any of the following actions:

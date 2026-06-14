@@ -37,6 +37,7 @@ in the `model` database on your CEV. You can manually recreate your modification
 - When you create a DB instance from an RDS Custom for SQL Server custom engine version (CEV) and select a different collation from that of the CEV,
   ensure that your golden image (AMI) used for CEV creation meets the following requirements so the Microsoft SQL Server system databases on
   the new DB instance can be rebuilt:
+
   - For SQL Server 2022, ensure the `setup.exe` file is located in the following path:
     `C:\Program Files\Microsoft SQL Server\160\Setup Bootstrap\SQL2022\setup.exe`
   - For SQL Server 2019, ensure the `setup.exe` file is located in the following path:

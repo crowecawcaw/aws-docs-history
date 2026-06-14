@@ -26,6 +26,7 @@ Following are general requirements for using Management Agent:
   or non-CDB architecture.
 - You must use an Oracle Management Service (OMS) that is configured to connect
   to your DB instance. Note the following OMS requirements:
+
   - Management Agent version 24.1.0.0.v1 requires OMS version
     24.1.
   - Management Agent versions 13.5.0.0.v2 and 13.5.0.0.v3 require OMS
@@ -41,6 +42,7 @@ Following are general requirements for using Management Agent:
 - You can use Management Agent with Oracle Enterprise Manager Cloud Control for
   12c and 13c. Ensure that you have sufficient storage space for your OEM
   release:
+
   - At least 8.5 GiB for OEM 24.1 Release 1
   - At least 8.5 GiB for OEM 13c Release 5
   - At least 8.5 GiB for OEM 13c Release 4
@@ -90,6 +92,7 @@ DB instance to the OMS HTTP port (default 4903).
   rules, see [Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md "CHAP_Tutorials.WebServerDB.CreateVPC.md").
 - To connect from your OMS to the Management Agent, if your OMS doesn't have a
   publicly resolvable host name, use one of the following:
+
   - If your OMS is hosted on an Amazon Elastic Compute Cloud (Amazon EC2) instance in a private
     VPC, you can set up VPC peering to connect from OMS to Management Agent.
     For more information, see [A DB instance in a VPC accessed by an EC2 instance in a different VPC](USER_VPC.Scenarios.md#USER_VPC.Scenario3 "USER_VPC.Scenarios.md#USER_VPC.Scenario3").
@@ -217,6 +220,7 @@ Oracle Support document [2202569.1](https://support.oracle.com/epmos/faces/DocCo
     option group or use an existing option group. If you want to use an
     existing option group, skip to the next step. Otherwise, create a
     custom DB option group with the following settings:
+
     1. For **Engine** choose the oracle edition
        for your DB instance.
     2. For **Major engine version** choose the
@@ -312,6 +316,7 @@ target.
    list. Make sure that the specified host name matches the endpoint of the
    Amazon RDS DB instance.
 7. Specify the following database properties:
+
    - For **Target name**, enter a name.
    - For **Database system name**, enter a
      name.

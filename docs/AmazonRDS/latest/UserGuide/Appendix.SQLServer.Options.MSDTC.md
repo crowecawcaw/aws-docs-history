@@ -17,6 +17,7 @@ transactions among hosts, where a single host can be one of the following:
 
 - [Limitations](Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.Limitations "Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.Limitations")
 - [Enabling MSDTC](Appendix.SQLServer.Options.MSDTC.Enabling.md "Appendix.SQLServer.Options.MSDTC.Enabling.md")
+
   - [Creating the option group for MSDTC](Appendix.SQLServer.Options.MSDTC.Enabling.md#Appendix.SQLServer.Options.MSDTC.OptionGroup "Appendix.SQLServer.Options.MSDTC.Enabling.md#Appendix.SQLServer.Options.MSDTC.OptionGroup")
   - [Adding the MSDTC option to the option group](Appendix.SQLServer.Options.MSDTC.Enabling.md#Appendix.SQLServer.Options.MSDTC.Add "Appendix.SQLServer.Options.MSDTC.Enabling.md#Appendix.SQLServer.Options.MSDTC.Add")
   - [Creating the parameter group for MSDTC](Appendix.SQLServer.Options.MSDTC.Enabling.md#MSDTC.CreateParamGroup "Appendix.SQLServer.Options.MSDTC.Enabling.md#MSDTC.CreateParamGroup")
@@ -25,6 +26,7 @@ transactions among hosts, where a single host can be one of the following:
   - [Modifying the MSDTC option](Appendix.SQLServer.Options.MSDTC.Enabling.md#Appendix.SQLServer.Options.MSDTC.Modify "Appendix.SQLServer.Options.MSDTC.Enabling.md#Appendix.SQLServer.Options.MSDTC.Modify")
 
 - [Using transactions](Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.Using "Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.Using")
+
   - [Using distributed transactions](Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.UsingXA "Appendix.SQLServer.Options.MSDTC.md#Appendix.SQLServer.Options.MSDTC.UsingXA")
   - [Using XA transactions](Appendix.SQLServer.Options.MSDTC.md#MSDTC.XA "Appendix.SQLServer.Options.MSDTC.md#MSDTC.XA")
   - [Using transaction tracing](Appendix.SQLServer.Options.MSDTC.md#MSDTC.Tracing "Appendix.SQLServer.Options.MSDTC.md#MSDTC.Tracing")
@@ -199,6 +201,7 @@ The first line indicates the overall result of the operation: `OK` or
 indicate details about the tracing session status:
 
 - `SessionStatus` can be one of the following:
+
   - `Started` if a tracing session is running.
   - `Stopped` if no tracing session is running.
 

@@ -73,6 +73,7 @@ You can't change the KMS key for a read replica.
 - Read replicas have the same time zone and collation as the source DB instance,
   regardless of Availabilty Zone they're created in.
 - The following aren't supported on Amazon RDS for SQL Server:
+
   - Backup retention of read replicas
   - Point-in-time recovery from read replicas
   - Manual snapshots of read replicas

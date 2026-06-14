@@ -19,6 +19,7 @@ exec msdb.dbo.rds_download_from_s3
 ```
 
 2. Submit the deployment task, making sure of the following:
+
    - The folder is present in the SSIS catalog.
    - The project name matches the project name that you used while developing the SSIS
      project.

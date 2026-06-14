@@ -33,6 +33,7 @@ API.
    multitenant architecture**.
 9. For **Architecture configuration**, do either
    of the following:
+
    - Choose **Multi-tenant configuration** and proceed
      to the next step.
    - Choose **Single-tenant configuration** and skip
@@ -40,6 +41,7 @@ API.
 
 10. (Multi-tenant configuration) For **Tenant database
     settings**, make the following changes:
+
     - For **Tenant database name**, enter the name of
       your initial PDB. The PDB name must be different from the CDB name,
       which defaults to `RDSCDB`.
@@ -48,6 +50,7 @@ API.
       master username to log in to the CDB itself.
     - For **Credentials management**, choose either of
       the following credentials management options:
+
       - **Managed in AWS Secrets Manager**
 
       The managed password is for the initial tenant database

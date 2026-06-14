@@ -4,6 +4,7 @@ RDS Custom for SQL Server provides the following methods to apply operating syst
 
 - _system-update maintenance actions_
 - _database minor version upgrades_
+
   - DB minor engine version upgrades using RPEV include up to date Operating System updates. This approach is particularly useful if you want to combine OS updates with SQL Server minor version upgrades. For more information, see [Upgrading an Amazon RDS Custom for SQL Server DB instance](custom-upgrading-sqlserver.md "custom-upgrading-sqlserver.md").
 
 ## Scenarios for Operating system update
@@ -12,6 +13,7 @@ There are two ways to ways to manage Operating system updates for your RDS Custo
 
 - For Single-AZ instances, the instance is unavailable during the Operating system update.
 - For Multi-AZ deployments, RDS applies operating system updates in the following manner:
+
   - First, RDS performs an Operating system update on the standby instance.
   - RDS fails over to the upgraded standby DB instance, making it the new primary DB instance.
   - Lastly, RDS performs an Operating system update on the new standby DB instance.

@@ -35,7 +35,7 @@ For more information, see [Oracle Application Express (APEX)](Appendix.Oracle.Op
 
 For more information, see [Generating performance reports with Automatic Workload Repository (AWR)](Appendix.Oracle.CommonDBATasks.AWR.md "Appendix.Oracle.CommonDBATasks.AWR.md").
 
-- Active Data Guard with Maximum Performance in the same AWS Region or across AWS Regions
+- Active Data Guard with Maximum Performance in the same AWS Region or across AWS Regions (Enterprise Edition only; requires the Oracle Active Data Guard option license)
 
 For more information, see [Working with read replicas for Amazon RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md").
 
@@ -48,7 +48,7 @@ For more information, see [Managing Blockchain Tables](https://docs.oracle.com/e
 For more information, see [Using Continuous Query Notification (CQN)](https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35 "https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/cqn.html#GUID-373BAF72-3E63-42FE-8BEA-8A2AEFBF1C35") in the Oracle documentation.
 
 - Data Redaction
-- Database In-Memory
+- Database In-Memory (Enterprise Edition only; requires the Oracle Database In-Memory option license)
 - Distributed Queries and Transactions
 - Edition-Based Redefinition
 
@@ -115,11 +115,15 @@ For more information, see [Oracle Spatial](Oracle.Options.Spatial.md "Oracle.Opt
 - Star Query Optimization
 - Streams and Advanced Queuing
 - Summary Management – Materialized View Query Rewrite
-- Text (File and URL data store types are not supported)
+- Text. The `FILE` and `URL` data store types are not supported because Amazon RDS for Oracle doesn't provide host file system access or outbound file retrieval.
 - Total Recall
 - Transparent Data Encryption (TDE)
 
 For more information, see [Oracle Transparent Data Encryption](Appendix.Oracle.Options.AdvSecurity.md "Appendix.Oracle.Options.AdvSecurity.md").
+
+###### Note
+
+After you enable TDE on a DB instance, you can't disable it.
 
 - Unified Auditing, Mixed Mode
 

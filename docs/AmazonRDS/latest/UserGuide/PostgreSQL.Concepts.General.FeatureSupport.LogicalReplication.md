@@ -43,6 +43,7 @@ a PostgreSQL DB instance.
 ###### To turn on logical decoding for an RDS for PostgreSQL DB instance
 
 1. Make sure that the user account that you're using has these roles:
+
    - The `rds_superuser` role so you can turn on logical
      replication
    - The `rds_replication` role to grant permissions to manage
@@ -151,7 +152,6 @@ INSERT 0 1000
    CREATE PUBLICATION
 
    ```
-
    - Use a SELECT query to verify the details of the publication that was
      created:
 
@@ -164,7 +164,6 @@ INSERT 0 1000
    (1 row)
 
    ```
-
    - Verify that the source tables are added to the publication:
 
    ```
@@ -176,7 +175,6 @@ INSERT 0 1000
    (1 rows)
 
    ```
-
    - To replicate all tables in a database, use:
 
    ```
@@ -184,7 +182,6 @@ INSERT 0 1000
    CREATE PUBLICATION testpub FOR ALL TABLES;
 
    ```
-
    - If the publication is already created for individual table and you
      need to add new table, you can run below query to add any new tables
      into the existing publication:
@@ -205,7 +202,6 @@ INSERT 0 1000
    CREATE TABLE
 
    ```
-
    - Make sure that there's no data present in the target tables by running
      a SELECT query on the target tables:
 
@@ -231,7 +227,6 @@ INSERT 0 1000
    CREATE SUBSCRIPTION
 
    ```
-
    - Use a SELECT query to verify that the subscription is enabled:
 
    ```
@@ -243,7 +238,6 @@ INSERT 0 1000
    (1 row)
 
    ```
-
    - When the subscription is created, it loads all data from the source
      tables to the target tables. Run a SELECT query on the target tables to
      verify that the initial data loads:
@@ -291,7 +285,6 @@ testsub   | pgoutput | logical   | 115048 | source   | f         | t      |     
    (1 row)
 
    ```
-
    - Verify the number of rows in the target tables to confirm that new
      inserts are being replicated:
 
@@ -314,7 +307,6 @@ testsub   | pgoutput | logical   | 115048 | source   | f         | t      |     
    ALTER SUBSCRIPTION <subscription_name> REFRESH PUBLICATION;
 
    ```
-
    - This command fetches missing table information from the publisher and
      starts replication for tables that were added to the subscribed-to
      publications since the subscription was created or last

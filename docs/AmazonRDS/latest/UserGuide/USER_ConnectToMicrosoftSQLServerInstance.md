@@ -27,6 +27,7 @@ You need both the endpoint and the port number to connect to the DB instance.
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the upper-right corner of the Amazon RDS console, choose the AWS Region of your DB instance.
 3. Find the Domain Name System (DNS) name (endpoint) and port number for your DB instance:
+
    1. Open the RDS console and choose **Databases** to display a list of your DB instances.
    2. Choose the SQL Server DB instance name to display its details.
    3. On the **Connectivity & security** tab, copy the endpoint.

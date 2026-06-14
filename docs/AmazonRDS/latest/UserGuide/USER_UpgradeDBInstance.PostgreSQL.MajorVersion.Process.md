@@ -18,6 +18,7 @@ an Amazon RDS for PostgreSQL database:
     information, see [Supported DB engines for DB instance classes](Concepts.DBInstanceClass.Support.md "Concepts.DBInstanceClass.Support.md").
 3.  **Check for unsupported
     usage:**
+
     - **Prepared
       transactions** – Commit or roll
       back all open prepared transactions before
@@ -30,7 +31,6 @@ an Amazon RDS for PostgreSQL database:
     ```
     SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
     ```
-
     - **Reg\* data
       types** – Remove all uses of the
       \*reg\** data types before

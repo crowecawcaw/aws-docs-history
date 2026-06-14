@@ -179,9 +179,11 @@ aws rds create-db-subnet-group ^
 - Use the [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") command. Specify an
   Availability Zone for the Outpost, an Amazon VPC security group associated with the Outpost, and the DB subnet group
   you created for the Outpost. You can include the following options:
+
   - `--db-instance-identifier`
   - `--db-instance-class`
   - `--engine` – The database engine. Use one of the following values:
+
     - MySQL – Specify `mysql`.
     - PostgreSQL – Specify `postgres`.
     - Microsoft SQL Server – Specify `sqlserver-ee`, `sqlserver-se`,

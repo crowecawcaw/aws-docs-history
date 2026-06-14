@@ -26,6 +26,7 @@ Use the following procedure to create an option group for SQL Server Enterprise 
 2. In the navigation pane, choose **Option groups**.
 3. Choose **Create group**.
 4. In the **Create option group** window, do the following:
+
    1. For **Name**, enter a name for the option group that is unique within your AWS account,
       such as `resource-governor-ee-2022`. The name can contain only letters, digits, and hyphens.
    2. For **Description**, enter a brief description of the option group,

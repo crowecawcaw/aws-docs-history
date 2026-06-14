@@ -36,6 +36,7 @@ it.
    group or use an existing option group. If you want to use an existing option
    group, skip to the next step. Otherwise, create a custom DB option group with
    the following settings:
+
    1. For **Engine**, choose the Oracle edition that
       you want to use. The `APEX` and `APEX-DEV`
       options are supported on all editions.
@@ -136,6 +137,7 @@ passwd apexuser;
 3. Log in to `myapexhost.example.com` as `apexuser`,
    and download the Oracle APEX installation file from Oracle to your
    `/home/apexuser` directory:
+
    - [http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html](http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html")
    - [Oracle application Express prior release archives](http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html")
 
@@ -190,6 +192,7 @@ passwd apexuser;
 3. Log in to `myapexhost.example.com` as
    `apexuser`, and download the Oracle APEX installation file
    from Oracle to your `/home/apexuser` directory:
+
    - [http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html](http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/index.html")
    - [Oracle application Express prior release archives](http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html "http://www.oracle.com/technetwork/developer-tools/apex/downloads/all-archives-099381.html")
 
@@ -252,6 +255,7 @@ Database is not yet configured
 5. From your web browser, go to the URL provided by the Oracle APEX
    Listener program. The Oracle Application Express Listener
    administration window appears. Enter the following information:
+
    - Username –
      `APEX_PUBLIC_USER`
    - Password – the

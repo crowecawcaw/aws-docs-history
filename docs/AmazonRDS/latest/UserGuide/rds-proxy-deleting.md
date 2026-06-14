@@ -31,7 +31,6 @@ aws rds deregister-db-proxy-targets
 ```
 
 To delete a DB proxy, call the Amazon RDS API function
-[DeleteDBProxy](../APIReference/API_DeleteDBProxy.md "../APIReference/API_DeleteDBProxy.md"). To delete related items and
-associations, you also call the functions
-[DeleteDBProxyTargetGroup](../APIReference/API_DeleteDBProxyTargetGroup.md "../APIReference/API_DeleteDBProxyTargetGroup.md") and
+[DeleteDBProxy](../APIReference/API_DeleteDBProxy.md "../APIReference/API_DeleteDBProxy.md"). To deregister targets from the proxy,
+you can call
 [DeregisterDBProxyTargets](../APIReference/API_DeregisterDBProxyTargets.md "../APIReference/API_DeregisterDBProxyTargets.md").

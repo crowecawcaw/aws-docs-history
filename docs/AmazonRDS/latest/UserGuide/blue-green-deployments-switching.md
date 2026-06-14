@@ -136,11 +136,13 @@ In addition to the above mentioned switchover actions, if the blue cluster is a 
 of an Amazon RDS Proxy, the following behavior applies during switchover:
 
 - Switchover Guardrails
+
   - Amazon RDS runs additional guardrail checks to validate that the proxy can
     successfully reach both blue and green environments and is ready for
     switchover.
 
 - Application Traffic Routing During Switchover
+
   - During switchover, the Blue database enters read-only mode before Green
     environment is promoted. Amazon RDS Proxy continues routing connections to the blue
     database during this transitional period.
@@ -157,6 +159,7 @@ of an Amazon RDS Proxy, the following behavior applies during switchover:
     occurred.
 
 - RDS Proxy API Behavior
+
   - Proxy APIs such as `describe-db-proxy-targets` reflect the updated
     targets only after the switchover is fully complete, even though traffic routing
     occurs earlier.
@@ -194,6 +197,7 @@ that the status has changed to `SWITCHOVER_IN_PROGRESS`.
   [Lazy loading and storage initialization for blue/green deployments](blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading "blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading").
 - For RDS for PostgreSQL blue/green deployments that use logical
   replication, do the following:
+
   - Review the logical replication limitations and take any required actions prior to
     switchover. For more information, see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres "blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres").
   - Run the `ANALYZE` operation to refresh the `pg_statistics`
@@ -286,7 +290,7 @@ You can switch over a blue/green deployment using the AWS Management Console, th
 
 The **Switch over** page appears.
 
-![Switch over blue/green deployment.](images/blue-green-deployment-switch-over.png) 4. On the **Switch over** page, review the switchover summary. Make sure
+![Switch over blue-green deployment.](images/blue-green-deployment-switch-over.png) 4. On the **Switch over** page, review the switchover summary. Make sure
 the resources in both environments match what you expect. If they don't, choose
 **Cancel**. 5. For **Timeout settings**, enter the time limit for
 switchover. 6. If your instance is running
@@ -344,7 +348,7 @@ If you delete the blue/green deployment resource, RDS retains the
 `-old`n`` and
  `-new`n`` resources.
 
-![After switching over a blue/green deployment.](images/blue-green-deployment-after-switchover.png)
+![After switching over a blue-green deployment.](images/blue-green-deployment-after-switchover.png)
 
 ### Updating the parent node for consumers
 

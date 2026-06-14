@@ -74,6 +74,7 @@ The following are some recommendations for working with Multi-AZ deployments on 
 
 - For databases used in production or preproduction, we recommend the following
   options:
+
   - Multi-AZ deployments for high availability
   - "Provisioned IOPS" for fast, consistent performance
   - "Memory optimized" rather than "General purpose"

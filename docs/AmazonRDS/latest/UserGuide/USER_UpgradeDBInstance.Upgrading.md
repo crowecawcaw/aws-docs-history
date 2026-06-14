@@ -69,6 +69,7 @@ the AWS CLI, or the RDS API.
 4. For **DB engine version**, choose the new version.
 5. Choose **Continue** and check the summary of modifications.
 6. Decide when to schedule your upgrade:
+
    - To put the changes into the pending modifications queue,
      choose **Apply during the next scheduled maintenance
      window**. During the next maintenance window, RDS

@@ -143,7 +143,7 @@ Console
 ![Modify DB instance or Multi-AZ DB cluster.](images/ssl-rotate-cert-modify.png) 4. In the **Connectivity** section,
 choose **rds-ca-rsa2048-g1**.
 
-![Choose CA certificate.](images/ssl-rotate-cert-ca-rsa2048-g1.png) 5. Choose **Continue** and check the
+![The CA certificate selection.](images/ssl-rotate-cert-ca-rsa2048-g1.png) 5. Choose **Continue** and check the
 summary of modifications. 6. To apply the changes immediately, choose
 **Apply immediately**. 7. On the confirmation page, review your changes. If they
 are correct, choose **Modify DB

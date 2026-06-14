@@ -21,6 +21,7 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    `db2look.sql` file on the client machine by directly
    attaching to the remote instance. Then catalog the remote self-managed Db2
    instance.
+
    1. Catalog the node. In the following example, replace
       `dns_ip_address` and
       `port` with the DNS name or the IP address and
@@ -29,7 +30,6 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    ```
    db2 catalog tcpip node srcnode REMOTE `dns_ip_address` server `port`
    ```
-
    2. Catalog the database. In the following example, replace
       `source_database_name` and
       `source_database_alias` with the name of the
@@ -40,7 +40,6 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    db2 catalog database `source_database_name` as `source_database_alias` at node srcnode \
        authentication server_encrypt
    ```
-
    3. Attach to the source database. In the following example, replace
       `source_database_alias`,
       `user_id`, and
@@ -57,6 +56,7 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    machine, copy the `db2look.sql` file to the client machine.
    Then catalog the RDS for Db2 DB
    instance.
+
    1. Catalog the node. In the following example, replace
       `dns_ip_address` and
       `port` with the DNS name or the IP address and
@@ -65,7 +65,6 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    ```
    db2 catalog tcpip node remnode REMOTE `dns_ip_address` server `port`
    ```
-
    2. Catalog the database. In the following example, replace
       `rds_database_name` and
       `rds_database_alias` with the name of the
@@ -76,7 +75,6 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    db2 catalog database `rds_database_name` as `rds_database_alias` at node remnode \
        authentication server_encrypt
    ```
-
    3. Catalog the admin database that manages RDS for Db2. You can't use
       this database to store any data.
 
@@ -87,6 +85,7 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
 4. Create buffer pools and tablespaces. The administrator doesn't have privileges
    to create buffer pools or tablespaces. However, you can use Amazon RDS stored
    procedures to create them.
+
    1. Find the names and definitions of the buffer pools and tablespaces in the
       `db2look.sql` file.
    2. Connect to Amazon RDS using the master username and master password for your
@@ -98,7 +97,6 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    ```
    db2 connect to rdsadmin user `master_username` using `master_password`
    ```
-
    3. Create a buffer pool by calling `rdsadmin.create_bufferpool`.
       For more information, see [rdsadmin.create_bufferpool](db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool "db2-sp-managing-buffer-pools.md#db2-sp-create-buffer-pool").
 
@@ -113,7 +111,6 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
        `number_block_pages`,
        `block_size`)"
    ```
-
    4. Create a tablespace by calling `rdsadmin.create_tablespace`.
       For more information, see [rdsadmin.create_tablespace](db2-sp-managing-tablespaces.md#db2-sp-create-tablespace "db2-sp-managing-tablespaces.md#db2-sp-create-tablespace").
 
@@ -126,7 +123,6 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
        `tablespace_increase_size`,
        '`tablespace_type`')"
    ```
-
    5. Repeat steps c or d for each additional buffer pool or tablespace
       that you want to add.
    6. Terminate your connection.
@@ -136,6 +132,7 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    ```
 
 5. Create tables and objects.
+
    1. Connect to your RDS for Db2 database using the master username and master
       password for your RDS for Db2 DB instance. In the following example, replace
       `rds_database_name`,
@@ -146,13 +143,11 @@ db2look -d `database_name` -e -l -a -f -wlm -cor -createdb -printdbcfg -o db2loo
    ```
    db2 connect to `rds_database_name` user `master_username` using `master_password`
    ```
-
    2. Run the `db2look.sql` file.
 
    ```
    db2 -tvf db2look.sql
    ```
-
    3. Terminate your connection.
 
    ```

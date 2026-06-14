@@ -340,6 +340,7 @@ The **Create database by restoring from S3** page appears.
      you specify the prefix backups/gzip\_backup1.
 
 6. Under **Engine options**:
+
    1. For **Engine type**, choose **MySQL**.
    2. For **Source engine version**, choose the MySQL major version of your source database.
    3. For **Engine Version**, choose the default minor
@@ -352,6 +353,7 @@ The **Create database by restoring from S3** page appears.
 7. For **IAM role**, create or choose IAM role with
    the required trust policy and permissions policy that allows Amazon RDS to
    access your Amazon S3 bucket. Perform one of the following actions:
+
    - (Recommended) Choose **Create a new role**, and enter the **IAM role
      name**. With this option, Amazon RDS automatically
      creates the role with the trust policy and permissions policy
@@ -443,6 +445,7 @@ to an RDS for MySQL DB instance:
 - The Amazon S3 bucket and the RDS for MySQL DB instance must be in the same
   AWS Region.
 - You can't restore from the following sources:
+
   - A DB instance snapshot export to Amazon S3. You also can't migrate data
     from a DB instance snapshot export to your Amazon S3 bucket.
   - An encrypted source database. However, you can encrypt the data being
@@ -473,6 +476,7 @@ to an RDS for MySQL DB instance:
   `rdsadmin` user when it creates the DB instance. Because
   `rdsamin` is a reserved user in Amazon RDS, the following limitations
   apply:
+
   - Amazon RDS doesn't import functions, procedures, views, events, and
     triggers with the `'rdsadmin'@'localhost'` definer. For more
     information, see [Stored objects with 'rdsamin'@'localhost' as the definer](#MySQL.Procedural.Importing.StoredObjects "#MySQL.Procedural.Importing.StoredObjects") and [Master user account privileges](UsingWithRDS.MasterAccounts.md "UsingWithRDS.MasterAccounts.md").
@@ -513,6 +517,7 @@ supports, see [General Purpose SSD storage](CHAP_Storage.md#Concepts.Storage.Gen
   save the database schema and values for the following items from your source
   MySQL system database, and then add them to your restored RDS for MySQL DB instance
   after it has been created:
+
   - User accounts
   - Functions
   - Stored procedures

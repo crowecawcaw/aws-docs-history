@@ -9,6 +9,7 @@ recommend that you use the following procedure.
 
 1. Review the upgrade documentation for the new version of the database engine to see if there
    are compatibility issues that might affect your database or applications:
+
    - [Changes in MySQL 5.7](http://dev.mysql.com/doc/refman/5.7/en/upgrading-from-previous-series.html "http://dev.mysql.com/doc/refman/5.7/en/upgrading-from-previous-series.html")
    - [Changes in MySQL 8.0](http://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html "http://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html")
    - [Changes in MySQL 8.4](http://dev.mysql.com/doc/refman/8.4/en/upgrading-from-previous-series.html "http://dev.mysql.com/doc/refman/8.4/en/upgrading-from-previous-series.html")

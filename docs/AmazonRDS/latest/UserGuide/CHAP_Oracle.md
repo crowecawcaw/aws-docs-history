@@ -11,8 +11,12 @@ Oracle Database 11g, Oracle Database 12c, and Oracle Database 18c are legacy ver
 that are no longer supported in Amazon RDS.
 
 Before creating a DB instance, complete the steps in the [Setting up your Amazon RDS environment](CHAP_SettingUp.md "CHAP_SettingUp.md") section of this guide. When you create a DB instance using your master account,
-the account gets DBA privileges, with some limitations. Use this account for administrative tasks such as creating
-additional database accounts. You can't use SYS, SYSTEM, or other Oracle-supplied administrative accounts.
+the account gets DBA privileges, with some limitations. For example, the master user can't perform operations that
+require SYSDBA privileges, and access to certain Oracle-supplied packages and tables is restricted. For more
+information, see [RDS for Oracle users and privileges](Oracle.Concepts.Privileges.md "Oracle.Concepts.Privileges.md"). Use this
+account for administrative tasks such as creating additional database accounts. You can't use SYS, SYSTEM, or other
+Oracle-supplied administrative accounts. To grant privileges on objects owned by SYS, use the
+`rdsadmin.rdsadmin_util.grant_sys_object` procedure. For more information, see [How to manage privileges on SYS objects](Oracle.Concepts.Privileges.md#Oracle.Concepts.Privileges.SYS-objects "Oracle.Concepts.Privileges.md#Oracle.Concepts.Privileges.SYS-objects").
 
 You can create the following:
 
@@ -22,8 +26,9 @@ You can create the following:
 - Automated backups
 - Manual backups
   You can use DB instances running Oracle Database inside a VPC. You can also add features to your DB instance by
-  enabling various options, such as Oracle Spatial or Oracle Statspack. Amazon RDS supports Multi-AZ deployments for Oracle as a high-availability, failover
-  solution.
+  enabling various options, such as Oracle Spatial or Oracle Statspack. To use an option, you create an option group,
+  add the option to it, and associate the option group with your DB instance. For more information, see [Adding options to Oracle DB instances](Appendix.Oracle.Options.md "Appendix.Oracle.Options.md"). Amazon RDS supports Multi-AZ deployments
+  for Oracle as a high-availability, failover solution.
 
 ###### Important
 

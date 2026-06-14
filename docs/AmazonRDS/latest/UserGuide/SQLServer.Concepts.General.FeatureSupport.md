@@ -39,6 +39,7 @@ SQL Server 2019 includes many new features, such as the following:
 - Accelerated database recovery (ADR) – Reduces crash recovery time after a restart or a
   long-running transaction rollback.
 - Intelligent Query Processing (IQP):
+
   - Row mode memory grant feedback – Corrects excessive grants automatically, that
     would otherwise result in wasted memory and reduced
     concurrency.
@@ -49,6 +50,7 @@ SQL Server 2019 includes many new features, such as the following:
     variables.
 
 - Intelligent performance:
+
   - `OPTIMIZE_FOR_SEQUENTIAL_KEY` index option – Improves throughput for
     high-concurrency inserts into indexes.
   - Improved indirect checkpoint scalability – Helps databases with
@@ -57,6 +59,7 @@ SQL Server 2019 includes many new features, such as the following:
     rather than an exclusive latch.
 
 - Monitoring improvements:
+
   - `WAIT_ON_SYNC_STATISTICS_REFRESH` wait type – Shows accumulated
     instance-level time spent on synchronous statistics refresh
     operations.

@@ -25,6 +25,7 @@ Coordinator**. 3. Open the context (right-click) menu for **Local DTC** and choo
     * **Allow Outbound**
 
 6. Make sure that the correct authentication mode is chosen:
+
    - **Mutual Authentication Required** – The
      client machine is joined to the same domain as other nodes
      participating in distributed transaction, or there is a trust

@@ -228,6 +228,7 @@ To scale down your RDS resources, perform the following manual actions:
 - For storage, you can't manually reduce the allocated storage of a DB instance using the
   `modify-db-instance` command. Instead, choose one of the
   following techniques:
+
   - Use a blue/green deployment if your DB engine supports it. Create
     a green database with a lower storage size, and then promote your
     green database to be your blue database. For more information, see

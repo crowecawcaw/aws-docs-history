@@ -6,24 +6,30 @@ perform the following tasks.
 ###### Contents
 
 - [Prerequisites for setting up RDS Custom for SQL Server](custom-setup-sqlserver.md#custom-setup-sqlserver.review "custom-setup-sqlserver.md#custom-setup-sqlserver.review")
+
   - [Automated instance profile creation using the AWS Management Console](custom-setup-sqlserver.md#custom-setup-sqlserver.instanceProfileCreation "custom-setup-sqlserver.md#custom-setup-sqlserver.instanceProfileCreation")
 
 - [Step 1: Grant required permissions to your IAM principal](custom-setup-sqlserver.md#custom-setup-sqlserver.iam-user "custom-setup-sqlserver.md#custom-setup-sqlserver.iam-user")
 - [Step 2: Configure networking, instance profile, and encryption](custom-setup-sqlserver.md#custom-setup-sqlserver.iam-vpc "custom-setup-sqlserver.md#custom-setup-sqlserver.iam-vpc")
+
   - [Configuring with CloudFormation](custom-setup-sqlserver.md#custom-setup-sqlserver.cf "custom-setup-sqlserver.md#custom-setup-sqlserver.cf")
+
     - [Parameters required by CloudFormation](custom-setup-sqlserver.md#custom-setup-sqlserver.cf.params "custom-setup-sqlserver.md#custom-setup-sqlserver.cf.params")
     - [Download CloudFormation template file](custom-setup-sqlserver.md#custom-setup-sqlserver.cf.download "custom-setup-sqlserver.md#custom-setup-sqlserver.cf.download")
     - [Configuring resources using CloudFormation](custom-setup-sqlserver.md#custom-setup-sqlserver.cf.config "custom-setup-sqlserver.md#custom-setup-sqlserver.cf.config")
 
   - [Configuring manually](custom-setup-sqlserver.md#custom-setup-sqlserver.manual "custom-setup-sqlserver.md#custom-setup-sqlserver.manual")
+
     - [Make sure that you have a symmetric encryption AWS KMS key](custom-setup-sqlserver.md#custom-setup-sqlserver.cmk "custom-setup-sqlserver.md#custom-setup-sqlserver.cmk")
     - [Creating your IAM role and instance profile manually](custom-setup-sqlserver.md#custom-setup-sqlserver.iam "custom-setup-sqlserver.md#custom-setup-sqlserver.iam")
+
       - [Create the AWSRDSCustomSQLServerInstanceRole IAM role](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-role "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-role")
       - [Add an access policy to AWSRDSCustomSQLServerInstanceRole](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-policy "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-policy")
       - [Create your RDS Custom for SQL Server instance profile](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-profile "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.create-profile")
       - [Add AWSRDSCustomSQLServerInstanceRole to your RDS Custom for SQL Server instance profile](custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-profile "custom-setup-sqlserver.md#custom-setup-sqlserver.iam.add-profile")
 
     - [Configuring your VPC manually](custom-setup-sqlserver.md#custom-setup-sqlserver.vpc "custom-setup-sqlserver.md#custom-setup-sqlserver.vpc")
+
       - [Configure your VPC security group](custom-setup-sqlserver.md#custom-setup-sqlserver.vpc.sg "custom-setup-sqlserver.md#custom-setup-sqlserver.vpc.sg")
       - [Configure endpoints for dependent AWS services](custom-setup-sqlserver.md#custom-setup-sqlserver.vpc.endpoints "custom-setup-sqlserver.md#custom-setup-sqlserver.vpc.endpoints")
       - [Configure the instance metadata service](custom-setup-sqlserver.md#custom-setup-sqlserver.vpc.imds "custom-setup-sqlserver.md#custom-setup-sqlserver.vpc.imds")
@@ -49,6 +55,7 @@ prerequisites:
   AWS Identity and Access Management (IAM) user or role needed to make a `create-db-instance`
   request to RDS.
 - Configure prerequisite resources required by RDS Custom for SQL Server DB instance:
+
   - Configure the AWS KMS key required for encryption of RDS Custom instance.
     RDS Custom requires a customer managed key at the time of instance creation for encryption.
     The KMS key ARN, ID, alias ARN, or alias name is passed as `kms-key-id` parameter
@@ -338,6 +345,7 @@ your AWS account:
   resources:
 
 - Configuring RDP access to public subnet from your source IP address:
+
   - Network ACL rules that allow RDP connection from your
     source IP to public subnet.
   - Ingress access to RDP port from your source IP to VPC
@@ -416,6 +424,7 @@ If you used CloudFormation to create resources, you can skip [Configuring manual
 You can also update some of the configuration on the CloudFormation stack after creation. The configurations that can be updated are:
 
 - Availability Configuration for RDS Custom for SQL Server
+
   - **Select an availability configuration for prerequisites setup**:
     Update this parameter to switch between Single-AZ and Multi-AZ configuration.
     If you are using this CloudFormation stack for at least one Multi-AZ instance, you must update the stack to choose Multi-AZ configuration.

@@ -1408,6 +1408,7 @@ during the replication process. Perform the following steps to set the correct
 2. Determine the `gtid_executed` value. This value represents the
    set of all GTIDs that were committed on the server. To retrieve this value,
    on the source instance, do one of the following:
+
    - Run the SQL statement `SELECT @@GLOBAL.GTID_EXECUTED;`
      at the time the backup was taken.
    - If any related options are included in the respective backup

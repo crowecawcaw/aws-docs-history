@@ -39,6 +39,7 @@ state.
 - You might want to perform a major database version upgrade and a conversion of
   non-CDB to CDB at the same time. In this case, we recommend that you proceed as
   follows:
+
   1.  Create a new RDS Custom for Oracle DB instance that uses the Oracle multitenant
       architecture.
   2.  Plug in a non-CDB into your CDB root, creating it as a PDB. Make sure that

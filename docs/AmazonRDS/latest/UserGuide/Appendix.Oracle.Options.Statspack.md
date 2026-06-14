@@ -23,6 +23,7 @@ To run Statspack scripts, you must add the Statspack option.
    account.
 2. Do either of the following actions, depending on whether Statspack is
    installed:
+
    - If Statspack is installed, and the `PERFSTAT` account
      is associated with Statspack, skip to Step 4.
    - If Statspack is not installed, and the `PERFSTAT`
@@ -75,6 +76,7 @@ A Statspack report compares two snapshots.
 
 1. In a SQL client, log in to the Oracle DB with the `PERFSTAT` account.
 2. Create a snapshot using either of the following techniques:
+
    - Create a Statspack snapshot manually.
    - Create a job that takes a Statspack snapshot after a given time interval. For example, the following job creates a Statspack
      snapshot every hour:

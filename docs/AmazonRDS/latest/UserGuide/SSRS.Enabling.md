@@ -28,6 +28,7 @@ The following procedure creates an option group for SQL Server Standard Edition 
 2. In the navigation pane, choose **Option groups**.
 3. Choose **Create group**.
 4. In the **Create option group** pane, do the following:
+
    1. For **Name**, enter a name for the option group that is unique within your AWS account, such as
       `ssrs-se-2017`. The name can contain only letters, digits, and
       hyphens.
@@ -80,6 +81,7 @@ Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option to 
 4.  Under **Option details**, choose **SSRS** for **Option
     name**.
 5.  Under **Option settings**, do the following:
+
     1. Enter the port for the SSRS service to listen on. The default is 8443. For a list of allowed
        values, see [Limitations and recommendations](Appendix.SQLServer.Options.SSRS.md#SSRS.Limitations "Appendix.SQLServer.Options.SSRS.md#SSRS.Limitations").
     2. Enter a value for **Max memory**.
@@ -91,6 +93,7 @@ Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option to 
 
 6.  To use SSRS Email to send reports, choose the **Configure email delivery options** check
     box under **Email delivery in reporting services**, and then do the following:
+
     1. For **Sender email address**, enter the
        email address to use in the **From** field
        of messages sent by SSRS Email.
@@ -119,7 +122,6 @@ Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option to 
 
 
         For more information on creating the secret, see [Using SSRS Email to send reports](SSRS.Email.md "SSRS.Email.md").
-
     5. Select the **Use Secure Sockets Layer (SSL)** check box to encrypt email messages
        using SSL.
 
@@ -130,7 +132,9 @@ Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option to 
 ###### To add the SSRS option
 
 1. Create a JSON file, for example `ssrs-option.json`.
+
    1. Set the following required parameters:
+
       - `OptionGroupName` – The name of option group that you created or chose
         previously (`ssrs-se-2017` in the following example).
       - `Port` – The port for the SSRS service to listen on. The default is
@@ -142,6 +146,7 @@ Next, use the AWS Management Console or the AWS CLI to add the `SSRS` option to 
         memory of the DB instance. The allowed values are 10–80.
 
    2. (Optional) Set the following parameters to use SSRS Email:
+
       - `SMTP_ENABLE_EMAIL` – Set to `true` to use SSRS Email. The
         default is `false`.
       - `SMTP_SENDER_EMAIL_ADDRESS` –

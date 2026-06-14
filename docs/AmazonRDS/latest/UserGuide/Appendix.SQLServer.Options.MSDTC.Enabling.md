@@ -27,6 +27,7 @@ The following procedure creates an option group for SQL Server Standard Edition 
 2. In the navigation pane, choose **Option groups**.
 3. Choose **Create group**.
 4. In the **Create option group** pane, do the following:
+
    1. For **Name**, enter a name for the option group that is unique
       within your AWS account, such as
       `msdtc-se-2016`. The name can
@@ -90,6 +91,7 @@ information, see [Can't connect to Amazon RDS DB instance](CHAP_Troubleshooting.
   for your RDS DB instance.
 - **Authentication type** – The authentication mode between hosts.
   The following authentication types are supported:
+
   - Mutual – The RDS instances are mutually authenticated to each other using
     integrated authentication. If this option is selected, all
     instances associated with this option group must be
@@ -124,6 +126,7 @@ The following option settings are optional:
 4. Choose **Add option**.
 5. Under **Option details**, choose **MSDTC** for **Option name**.
 6. Under **Option settings**:
+
    1. For **Port**, enter the port number for accessing MSDTC. The default
       is **5000**.
    2. For **Security groups**, choose the VPC security group to associate with the option.
@@ -131,6 +134,7 @@ The following option settings are optional:
    4. For **Transaction log size**, enter a value from 4–1024. The default is **4**.
 
 7. Under **Additional configuration**, do the following:
+
    1. For **Connections**, as needed choose **Enable inbound
       connections** and **Enable outbound
       connections**.
@@ -199,6 +203,7 @@ The following example creates a parameter group for SQL Server Standard Edition 
 2. In the navigation pane, choose **Parameter groups**.
 3. Choose **Create parameter group**.
 4. In the **Create parameter group** pane, do the following:
+
    1. For **Parameter group family**, choose
       **sqlserver-se-13.0**.
    2. For **Group name**, enter an identifier for the parameter group,

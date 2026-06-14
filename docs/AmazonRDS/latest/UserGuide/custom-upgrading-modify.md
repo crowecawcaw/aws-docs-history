@@ -26,6 +26,7 @@ Before you begin, review [Requirements for RDS Custom for Oracle upgrades](custo
 3. Choose **Modify**. The **Modify DB instance** page appears.
 4. For **DB engine version**, choose a new CEV. Do the
    following:
+
    - If you are patching the database, make sure that the CEV specifies
      database binaries that are different from those used by your DB
      instance, and doesn't specify an AMI that is different from the AMI

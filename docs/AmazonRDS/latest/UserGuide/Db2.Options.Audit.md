@@ -156,6 +156,7 @@ You can create an IAM policy by using the AWS Management Console or the AWS Comm
     type**, choose **All Resources**. Then,
     choose **Add resource**.
 12. If you're using your own KMS keys to encrypt the data:
+
     1. Choose **Add new statement**.
     2. In **Add actions**, filter by KMS. Add
        access **GenerateDataKey** and
@@ -417,6 +418,7 @@ audit logs in your S3 bucket.
 ###### To add and configure Db2 audit logging on a DB instance's option group
 
 1. Choose one of the following:
+
    - Use an existing option group.
    - Create a custom DB option group, and use that option group. For
      more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
@@ -424,6 +426,7 @@ audit logs in your S3 bucket.
 2. Add the **DB2_AUDIT** option to the option group, and
    configure the option settings. For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
+
    - For **IAM_ROLE_ARN**, enter the ARN of the IAM
      role that you created in [Step 3: Create an IAM role and attach your IAM policy](#db2-audit-create-iam-role "#db2-audit-create-iam-role").
    - For **S3_BUCKET_ARN**, enter the ARN of the S3
@@ -434,6 +437,7 @@ audit logs in your S3 bucket.
 
 3. Apply the option group to a new or existing DB instance. Choose one of the
    following:
+
    - If you are creating a new DB instance, apply the option group when
      you launch the instance.
    - On an existing DB instance, apply the option group by modifying

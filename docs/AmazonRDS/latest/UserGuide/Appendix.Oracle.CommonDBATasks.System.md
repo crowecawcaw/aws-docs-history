@@ -78,6 +78,7 @@ removing rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#AddRemoveRul
 
 - The routing path between the Amazon RDS DB instance and the DNS server has to
   be configured correctly to allow DNS traffic.
+
   - If the Amazon RDS DB instance and the DNS server are not in the same
     VPC, a peering connection has to be set up between them. For more
     information, see [What is VPC

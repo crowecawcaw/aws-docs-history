@@ -102,6 +102,7 @@ limitations:
 
 - If your primary DB instance uses the single-tenant or multi-tenant configuration of the multitenant
   architecture, consider the following:
+
   - You must use Oracle Database 19c or higher with the Enterprise
     Edition.
   - Your primary CDB instance must be in an `ACTIVE`
@@ -142,6 +143,7 @@ Before you create an RDS for Oracle replica, consider the following:
   DB instance, RDS does not automatically modify storage volumes in the replica. You need
   to modify your replica to update storage volume configurations.
 - When managing datafile locations across volumes, note that changes made on your primary instance don't automatically sync to replicas.
+
   - For read-only replicas: You can either use parameter group settings
     to control default file locations, or manually move files after they're created.
   - For mounted replicas: Manual changes to datafile locations in the primary database

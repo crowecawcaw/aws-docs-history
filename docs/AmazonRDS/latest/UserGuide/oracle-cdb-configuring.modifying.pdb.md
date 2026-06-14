@@ -26,6 +26,7 @@ your CDB. Note the following requirements and limitations:
 5. Choose **Modify**.
 6. For **Tenant database settings**, do any of the
    following:
+
    - For **Tenant database name**, enter the new name of
      your new PDB.
    - For **Tenant database master password**, enter a

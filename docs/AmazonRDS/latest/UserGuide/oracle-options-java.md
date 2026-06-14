@@ -96,6 +96,7 @@ Oracle DB instance is available.
     For more information about adding options,
     see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 3.  Apply the option group to a new or existing DB instance:
+
     - For a new DB instance, apply the option group when you launch the
       instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
     - For an existing DB instance, apply the option group by modifying the

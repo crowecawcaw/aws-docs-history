@@ -47,12 +47,14 @@ In MariaDB 11.8, the default value for `require_secure_transport` is now `1`, re
   For more information, see [Requiring SSL/TLS for all connections to a MariaDB DB instance on Amazon RDS](mariadb-ssl-connections.require-ssl.md "mariadb-ssl-connections.require-ssl.md").
 - **Vector support** – You can use the MariaDB Vector to store and search AI-generated vectors directly in MariaDB.
   This feature introduces the following system variables:
+
   - The variable [`mhnsw_default_distance`](https://mariadb.com/docs/server/reference/sql-structure/vectors/vector-system-variables#mhnsw_default_distance "https://mariadb.com/docs/server/reference/sql-structure/vectors/vector-system-variables#mhnsw_default_distance") specifies the default distance metric for MHNSW vector indexing.
   - The variable [`mhnsw_default_m`](https://mariadb.com/docs/server/reference/sql-structure/vectors/vector-system-variables#mhnsw_default_m "https://mariadb.com/docs/server/reference/sql-structure/vectors/vector-system-variables#mhnsw_default_m") defines the default value for the `M` parameter in MHNSW vector indexing.
   - The variable [`mhnsw_ef_search`](https://mariadb.com/docs/server/reference/sql-structure/vectors/vector-system-variables#mhnsw_ef_search "https://mariadb.com/docs/server/reference/sql-structure/vectors/vector-system-variables#mhnsw_ef_search") defines the minimal number of result candidates for vector index searches.
   - The variable [`mhnsw_max_cache_size`](https://mariadb.com/docs/server/reference/sql-structure/vectors/vector-system-variables#mhnsw_max_cache_size "https://mariadb.com/docs/server/reference/sql-structure/vectors/vector-system-variables#mhnsw_max_cache_size") sets the upper limit for one MHNSW vector index cache.
 
 - **Temporary file size limits** – You can now limit the size of created disk temporary files and tables using two system variables available in the RDS Maria DB 11.8 parameter group:
+
   - The variable [`max_tmp_session_space_usage`](https://mariadb.com/docs/server/security/limiting-size-of-created-disk-temporary-files-and-tables/max_tmp_session_space_usage-system-variable "https://mariadb.com/docs/server/security/limiting-size-of-created-disk-temporary-files-and-tables/max_tmp_session_space_usage-system-variable") limits the temporary space allowance per user.
   - The variable [`max_tmp_total_space_usage`](https://mariadb.com/docs/server/security/limiting-size-of-created-disk-temporary-files-and-tables/max_tmp_total_space_usage-system-variable "https://mariadb.com/docs/server/security/limiting-size-of-created-disk-temporary-files-and-tables/max_tmp_total_space_usage-system-variable") limits the temporary space allowance for all users.
 
@@ -81,6 +83,7 @@ version 11.4 or higher.
   see [Using the password validation plugins for RDS for MariaDB](MariaDB.Concepts.PasswordValidationPlugins.md "MariaDB.Concepts.PasswordValidationPlugins.md").
 - **InnoDB enhancements** – These
   enhancements include the following items:
+
   - The change buffer was removed. For more information, see [InnoDB Change Buffering](https://mariadb.com/kb/en/innodb-change-buffering/ "https://mariadb.com/kb/en/innodb-change-buffering/").
   - InnoDB Defragmentation was removed. For more information, see [InnoDB Defragmentation](https://mariadb.com/kb/en/defragmenting-innodb-tablespaces/#innodb-defragmentation "https://mariadb.com/kb/en/defragmenting-innodb-tablespaces/#innodb-defragmentation").
 
@@ -96,6 +99,7 @@ version 11.4 or higher.
 - **Deprecated or removed parameters** –
   The following parameters have been deprecated or removed for MariaDB version
   11.4 DB instances:
+
   - `engine_condition_pushdown` is removed from [optimizer_switch](https://mariadb.com/kb/en/optimizer-switch/ "https://mariadb.com/kb/en/optimizer-switch/")
   - [innodb_change_buffer_max_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffer_max_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffer_max_size")
   - [innodb_defragment](https://mariadb.com/kb/en/innodb-system-variables/#innodb_defragment "https://mariadb.com/kb/en/innodb-system-variables/#innodb_defragment")
@@ -107,6 +111,7 @@ version 11.4 or higher.
 - **New valid values for parameters** –
   The following parameters have new valid values for MariaDB version 11.4 DB
   instances:
+
   - The valid values for the [binlog_row_image](https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#binlog_row_image "https://mariadb.com/kb/en/replication-and-binary-log-system-variables/#binlog_row_image") parameter now include
     `FULL_NODUP`.
   - The valid values for the [OLD_MODE](https://mariadb.com/kb/en/old-mode/ "https://mariadb.com/kb/en/old-mode/") parameter now include
@@ -114,6 +119,7 @@ version 11.4 or higher.
 
 - **New parameters** – The following
   parameters are new for MariaDB version 11.4 DB instances:
+
   - The [transaction_isolation](https://mariadb.com/kb/en/server-system-variables/#transaction_isolation "https://mariadb.com/kb/en/server-system-variables/#transaction_isolation") parameter replaces the [tx_isolation](https://mariadb.com/kb/en/server-system-variables/#tx_isolation "https://mariadb.com/kb/en/server-system-variables/#tx_isolation")
     parameter.
   - The [transaction_read_only](https://mariadb.com/kb/en/server-system-variables/#transaction_read_only "https://mariadb.com/kb/en/server-system-variables/#transaction_read_only") parameter replaces the [tx_read_only](https://mariadb.com/kb/en/server-system-variables/#tx_read_only "https://mariadb.com/kb/en/server-system-variables/#tx_read_only")
@@ -164,6 +170,7 @@ version 10.11 or higher.
   [SFORMAT](https://mariadb.com/kb/en/sformat/ "https://mariadb.com/kb/en/sformat/").
 - **InnoDB enhancements** – These
   enhancements include the following items:
+
   - Performance improvements in the redo log to reduce write
     amplification and to improve concurrency.
   - The ability for you to change the undo tablespace without
@@ -176,6 +183,7 @@ version 10.11 or higher.
 
 - **Binlog changes** – These changes
   include the following items:
+
   - Logging `ALTER` in two phases to decrease replication
     latency. The `binlog_alter_two_phase` parameter is
     disabled by default, but can be enabled through parameter
@@ -205,6 +213,7 @@ REPLACE` is now atomic. Either the statement succeeds or it's
 - **Deprecated or removed parameters** –
   The following parameters have been deprecated or removed for MariaDB version
   10.11 DB instances:
+
   - [innodb_change_buffering](https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffering "https://mariadb.com/kb/en/innodb-system-variables/#innodb_change_buffering")
   - [innodb_disallow_writes](https://mariadb.com/kb/en/innodb-system-variables/#innodb_disallow_writes "https://mariadb.com/kb/en/innodb-system-variables/#innodb_disallow_writes")
   - [innodb_log_write_ahead_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_write_ahead_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_write_ahead_size")
@@ -214,6 +223,7 @@ REPLACE` is now atomic. Either the statement succeeds or it's
 
 - **Dynamic parameters** – The following
   parameters are now dynamic for MariaDB version 10.11 DB instances:
+
   - [innodb_log_file_size](https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size "https://mariadb.com/kb/en/innodb-system-variables/#innodb_log_file_size")
   - [innodb_write_io_threads](https://mariadb.com/kb/en/innodb-system-variables/#innodb_write_io_threads "https://mariadb.com/kb/en/innodb-system-variables/#innodb_write_io_threads")
   - [innodb_read_io_threads](https://mariadb.com/kb/en/innodb-system-variables/#innodb_read_io_threads "https://mariadb.com/kb/en/innodb-system-variables/#innodb_read_io_threads")
@@ -221,6 +231,7 @@ REPLACE` is now atomic. Either the statement succeeds or it's
 - **New default values for parameters**
   – The following parameters have new default values for MariaDB
   version 10.11 DB instances:
+
   - The default value of the [explicit_defaults_for_timestamp](https://mariadb.com/kb/en/server-system-variables/#explicit_defaults_for_timestamp "https://mariadb.com/kb/en/server-system-variables/#explicit_defaults_for_timestamp") parameter changed from
     `OFF` to `ON`.
   - The default value of the [optimizer_prune_level](https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level "https://mariadb.com/kb/en/server-system-variables/#optimizer_prune_level") parameter changed from
@@ -229,6 +240,7 @@ REPLACE` is now atomic. Either the statement succeeds or it's
 - **New valid values for parameters** –
   The following parameters have new valid values for MariaDB version 10.11 DB
   instances:
+
   - The valid values for the [old](https://mariadb.com/kb/en/server-system-variables/#old "https://mariadb.com/kb/en/server-system-variables/#old") parameter were merged into those for the [old_mode](https://mariadb.com/kb/en/server-system-variables/#old_mode "https://mariadb.com/kb/en/server-system-variables/#old_mode") parameter.
   - The valid values for the [histogram_type](https://mariadb.com/kb/en/server-system-variables/#histogram_type "https://mariadb.com/kb/en/server-system-variables/#histogram_type") parameter now include
     `JSON_HB`.
@@ -243,6 +255,7 @@ REPLACE` is now atomic. Either the statement succeeds or it's
 
 - **New parameters** – The following
   parameters are new for MariaDB version 10.11 DB instances:
+
   - The [binlog_alter_two_phase](https://mariadb.com/kb/en/replication-and-binary-log-system-variables//#binlog_alter_two_phase "https://mariadb.com/kb/en/replication-and-binary-log-system-variables//#binlog_alter_two_phase") parameter can improve
     replication performance.
   - The [log_slow_min_examined_row_limit](https://mariadb.com/kb/en/server-system-variables/#log_slow_min_examined_row_limit "https://mariadb.com/kb/en/server-system-variables/#log_slow_min_examined_row_limit") parameter can improve
@@ -301,6 +314,7 @@ DATABASE` and related DDL statements are now atomic. Either the
   performance improvements. For more information, see [JSON_TABLE](https://mariadb.com/kb/en/json_table/ "https://mariadb.com/kb/en/json_table/").
 - **New default values for parameters** – The following parameters have
   new default values for MariaDB version 10.6 DB instances:
+
   - The default value for the following parameters has changed from `utf8` to `utf8mb3`:
 
         - [character\_set\_client](https://mariadb.com/kb/en/server-system-variables/#character_set_client "https://mariadb.com/kb/en/server-system-variables/#character_set_client")
@@ -369,6 +383,7 @@ to return similar information. For more information, see [mysql.rds_replica_stat
   new privilege isn't granted to the RDS master user.
 - **New default values for parameters** – The following parameters have
   new default values for MariaDB version 10.5 DB instances:
+
   - The default value of the [max_connections](https://mariadb.com/kb/en/server-system-variables/#max_connections "https://mariadb.com/kb/en/server-system-variables/#max_connections")
     parameter has changed to `LEAST({DBInstanceClassMemory/25165760},12000)`. For information about the `LEAST` parameter function,
     see [DB parameter functions](USER_ParamValuesRef.md#USER_ParamFunctions "USER_ParamValuesRef.md#USER_ParamFunctions").

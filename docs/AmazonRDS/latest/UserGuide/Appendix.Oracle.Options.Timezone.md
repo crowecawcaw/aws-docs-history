@@ -65,6 +65,7 @@ Complete the following steps to add the time zone option to your DB instance:
 
 1. (Recommended) Take a snapshot of your DB instance.
 2. Do one of the following tasks:
+
    - Create a new option group from scratch. For more information, see [Creating an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Create").
    - Copy an existing option group using the AWS CLI or API. For more information,
      see [Copying an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.Copy").

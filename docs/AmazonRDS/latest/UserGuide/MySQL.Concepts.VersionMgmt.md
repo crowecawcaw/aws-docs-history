@@ -67,13 +67,16 @@ dates. We recommend that you upgrade to the latest available minor version as of
 
 | MySQL engine version | Community release date | RDS release date | RDS end of standard support date |
 | -------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 8.0.46               | 21 April 2026          | 8 May 2026       | 31 July 2026                     |
+| 8.0.46\*             | 21 April 2026          | 8 May 2026       | 31 July 2026                     |
 | 8.0.45               | 20 January 2026        | 3 February 2026  | 31 July 2026                     |
 | 8.0.44               | 21 October 2025        | 13 November 2025 | 31 July 2026                     |
 | 8.0.43               | 22 July 2025           | 1 August 2025    | 31 July 2026                     |
 | 8.0.42               | 15 April 2025          | 29 April 2025    | 31 July 2026                     |
 | 8.0.41               | 21 January 2025        | 19 February 2025 | 31 May 2026                      |
 | 8.0.40               | 15 October 2024        | 13 November 2024 | 31 May 2026                      |
+
+\* Amazon RDS Extended Support eligible minor engine version. For more information, see
+[Using Amazon RDS Extended Support](extended-support.md "extended-support.md").
 
 The following table shows the minor versions of MySQL 5.7 that are available under
 Amazon RDS Extended Support.
@@ -88,6 +91,7 @@ the latest available minor version as often as possible for all major versions.
 
 | MySQL engine version  | Community release date | RDS release date  | RDS end of Extended Support date |
 | --------------------- | ---------------------- | ----------------- | -------------------------------- |
+| 5.7.44-RDS.20260521\* | Not applicable         | 4 June 2026       | 30 June 2027                     |
 | 5.7.44-RDS.20260212\* | Not applicable         | 26 February 2026  | 28 February 2027                 |
 | 5.7.44-RDS.20251212\* | Not applicable         | 12 December 2025  | 30 December 2026                 |
 | 5.7.44-RDS.20250818\* | Not applicable         | 15 September 2025 | 30 September 2026                |
@@ -364,6 +368,7 @@ The following content lists all releases of RDS Extended Support for RDS for MyS
 
 ###### Releases
 
+- [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521](#mysql-extended-support-releases-version-5.7.44-RDS.20260521 "#mysql-extended-support-releases-version-5.7.44-RDS.20260521")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260212](#mysql-extended-support-releases-version-5.7.44-RDS.20260212 "#mysql-extended-support-releases-version-5.7.44-RDS.20260212")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20251212](#mysql-extended-support-releases-version-5.7.44-RDS.20251212 "#mysql-extended-support-releases-version-5.7.44-RDS.20251212")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250818](#mysql-extended-support-releases-version-5.7.44-RDS.20250818 "#mysql-extended-support-releases-version-5.7.44-RDS.20250818")
@@ -373,6 +378,31 @@ The following content lists all releases of RDS Extended Support for RDS for MyS
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240808](#mysql-extended-support-releases-version-5.7.44-20240808 "#mysql-extended-support-releases-version-5.7.44-20240808")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240529](#mysql-extended-support-releases-version-5.7.44-20240529 "#mysql-extended-support-releases-version-5.7.44-20240529")
 - [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240408](#mysql-extended-support-releases-version-5.7.44-20240408 "#mysql-extended-support-releases-version-5.7.44-20240408")
+
+### RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521 is available.
+
+**Bugs fixed:**
+
+- Fixes a memory leak during shutdown.
+
+**CVEs fixed:**
+
+- [CVE-2026-34270](https://nvd.nist.gov/vuln/detail/CVE-2026-34270 "https://nvd.nist.gov/vuln/detail/CVE-2026-34270")
+- [CVE-2026-34271](https://nvd.nist.gov/vuln/detail/CVE-2026-34271 "https://nvd.nist.gov/vuln/detail/CVE-2026-34271")
+- [CVE-2026-34272](https://nvd.nist.gov/vuln/detail/CVE-2026-34272 "https://nvd.nist.gov/vuln/detail/CVE-2026-34272")
+- [CVE-2026-22004](https://nvd.nist.gov/vuln/detail/CVE-2026-22004 "https://nvd.nist.gov/vuln/detail/CVE-2026-22004")
+- [CVE-2026-34304](https://nvd.nist.gov/vuln/detail/CVE-2026-34304 "https://nvd.nist.gov/vuln/detail/CVE-2026-34304")
+- [CVE-2026-35236](https://nvd.nist.gov/vuln/detail/CVE-2026-35236 "https://nvd.nist.gov/vuln/detail/CVE-2026-35236")
+- [CVE-2026-35237](https://nvd.nist.gov/vuln/detail/CVE-2026-35237 "https://nvd.nist.gov/vuln/detail/CVE-2026-35237")
+- [CVE-2026-35238](https://nvd.nist.gov/vuln/detail/CVE-2026-35238 "https://nvd.nist.gov/vuln/detail/CVE-2026-35238")
+- [CVE-2026-21998](https://nvd.nist.gov/vuln/detail/CVE-2026-21998 "https://nvd.nist.gov/vuln/detail/CVE-2026-21998")
+- [CVE-2026-22005](https://nvd.nist.gov/vuln/detail/CVE-2026-22005 "https://nvd.nist.gov/vuln/detail/CVE-2026-22005")
+- [CVE-2026-22002](https://nvd.nist.gov/vuln/detail/CVE-2026-22002 "https://nvd.nist.gov/vuln/detail/CVE-2026-22002")
+- [CVE-2026-34267](https://nvd.nist.gov/vuln/detail/CVE-2026-34267 "https://nvd.nist.gov/vuln/detail/CVE-2026-34267")
+- [CVE-2026-34278](https://nvd.nist.gov/vuln/detail/CVE-2026-34278 "https://nvd.nist.gov/vuln/detail/CVE-2026-34278")
+- [CVE-2026-35240](https://nvd.nist.gov/vuln/detail/CVE-2026-35240 "https://nvd.nist.gov/vuln/detail/CVE-2026-35240")
 
 ### RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260212
 

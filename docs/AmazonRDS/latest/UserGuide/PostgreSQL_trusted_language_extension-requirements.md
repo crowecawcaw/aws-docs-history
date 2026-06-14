@@ -5,6 +5,7 @@ The following are requirements for setting up and using the TLE development kit.
 - RDS for PostgreSQL versions – Trusted Language Extensions
   is supported on
   RDS for PostgreSQL versions 13.12 and higher 13 versions, 14.5 and higher 14 versions, and 15.2 and higher versions only.
+
   - If you need to upgrade your RDS for PostgreSQL instance,
     see
     [Upgrades of the RDS for PostgreSQL DB engine](USER_UpgradeDBInstance.PostgreSQL.md "USER_UpgradeDBInstance.PostgreSQL.md").
@@ -22,6 +23,7 @@ The following are requirements for setting up and using the TLE development kit.
 - Requires a custom DB
   parameter group – Your RDS for PostgreSQL DB instance must be
   configured with a custom DB parameter group.
+
   - If your
     RDS for PostgreSQL DB instance
     isn't configured with a custom DB parameter group, you should
@@ -44,6 +46,7 @@ instance to use it.
 2. Choose Parameter groups from the Amazon RDS menu.
 3. Choose **Create parameter group**.
 4. In the **Parameter group details** page, enter the following information.
+
    - For **Parameter group family**, choose
      postgres14.
    - For **Type**, choose DB Parameter Group.

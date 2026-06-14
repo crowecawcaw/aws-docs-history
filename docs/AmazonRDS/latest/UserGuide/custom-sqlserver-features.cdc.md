@@ -42,6 +42,7 @@ When implementing CDC on RDS Custom for SQL Server, be aware the following key c
   is set to a format that matches `*.rds.amazonaws.com` or `*.awsrds.*.com`, RDS Custom for SQL Server does not attempt to modify it to match `SERVERPROPERTY('ServerName')`.
 - RDS cannot modify the local server (that has `server_id = 0`) in `sys.servers` to a new
   hostname while remote logins or linked servers are actively using the old hostname. This limitation applies in two scenarios:
+
   - When a linked server establishes a connection to the local server using a remote login associated with the old hostname
   - When an RDS Custom for SQL Server instance acts as a publisher or distributor and has linked logins associated with the old hostname to its subscriber instances.
 

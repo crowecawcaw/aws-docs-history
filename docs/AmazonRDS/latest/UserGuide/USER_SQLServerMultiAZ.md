@@ -22,14 +22,17 @@ Amazon RDS supports Multi-AZ with Always On AGs for the following SQL Server ver
 editions:
 
 - SQL Server 2022:
+
   - Standard Edition
   - Enterprise Edition
 
 - SQL Server 2019:
+
   - Standard Edition 15.00.4073.23 and higher
   - Enterprise Edition
 
 - SQL Server 2017:
+
   - Standard Edition 14.00.3401.7 and higher
   - Enterprise Edition 14.00.3049.1 and higher
 

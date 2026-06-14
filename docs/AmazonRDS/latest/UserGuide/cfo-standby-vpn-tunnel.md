@@ -46,6 +46,7 @@ ipsec initnss --nssdir /etc/ipsec.d
 ```
 
 4. Generate RSA keys as follows:
+
    1. On the primary instance, generate the keys using either of the
       following `ipsec` commands, depending on your OS
       version.
@@ -54,7 +55,6 @@ ipsec initnss --nssdir /etc/ipsec.d
    ipsec newhostkey --nssdir /etc/ipsec.d       ## for Oracle Linux Version 8
    ipsec newhostkey --output /etc/ipsec.secrets ## for Oracle Linux version 7.9
    ```
-
    2. Obtain the public key, which you need to create the configuration. In
       the following example, the primary instance is `left` because
       in `ipsec` parlance, `left` refers to the device
@@ -64,14 +64,12 @@ ipsec initnss --nssdir /etc/ipsec.d
    ```
    ipsec showhostkey --left --ckaid `ckaid-returned-in-last-statement`
    ```
-
    3. On the standby instance, generate keys for the standby instance.
 
    ```
    ipsec newhostkey --nssdir /etc/ipsec.d       ## for Oracle Linux Version 8
    ipsec newhostkey --output /etc/ipsec.secrets ## for Oracle Linux version 7.9
    ```
-
    4. Obtain the public key for the standby instance, which you need to
       create the configuration. In the following example, the standby instance
       is `right` because it refers to the device at the other end

@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Amazon RDS](example_rds_Hello_section.md "example_rds_Hello_section.md")
   - [Learn the basics](example_rds_Scenario_GetStartedInstances_section.md "example_rds_Scenario_GetStartedInstances_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateDBInstance](example_rds_CreateDBInstance_section.md "example_rds_CreateDBInstance_section.md")
     - [CreateDBParameterGroup](example_rds_CreateDBParameterGroup_section.md "example_rds_CreateDBParameterGroup_section.md")
     - [CreateDBSnapshot](example_rds_CreateDBSnapshot_section.md "example_rds_CreateDBSnapshot_section.md")
@@ -36,8 +38,10 @@ This topic also includes information about getting started and details about pre
     - [RebootDBInstance](example_rds_RebootDBInstance_section.md "example_rds_RebootDBInstance_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Create an Aurora Serverless work item tracker](example_cross_RDSDataTracker_section.md "example_cross_RDSDataTracker_section.md")
   - [Creating an Amazon RDS DB instance](example_rds_GettingStarted_036_section.md "example_rds_GettingStarted_036_section.md")
 
 - [Serverless examples](service_code_examples_serverless_examples.md "service_code_examples_serverless_examples.md")
+
   - [Connecting to an Amazon RDS database in a Lambda function](example_serverless_connect_RDS_Lambda_section.md "example_serverless_connect_RDS_Lambda_section.md")

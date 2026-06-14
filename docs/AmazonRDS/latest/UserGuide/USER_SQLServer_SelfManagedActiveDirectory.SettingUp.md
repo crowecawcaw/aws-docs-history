@@ -56,12 +56,14 @@ The domain service account credentials will be used for the secret in AWS Secret
 6. On the **Users or Groups** section, confirm your AD domain service account was added and click **Next**.
 7. On the **Tasks to Delegate** section, choose **Create a custom task to delegate** and click **Next**.
 8. On the **Active Directory Object Type** section:
+
    1. Choose **Only the following objects in the folder**.
    2. Select **Computer Objects**.
    3. Select **Create selected objects in this folder**.
    4. Select **Delete selected objects in this folder** and click **Next**.
 
 9. On the **Permissions** section:
+
    1. Keep **General** selected.
    2. Select **Validated write to DNS host name**.
    3. Select **Validated write to service principal name** and click **Next**.
@@ -75,6 +77,7 @@ The domain service account credentials will be used for the secret in AWS Secret
     **Finish**.
 11. For Kerberos authentication, open the DNS Manager and open **Server**
     properties.
+
     1. In the Windows dialog box, type `dnsmgmt.msc`.
     2. Add the AD domain service account under the
        **Security** tab.
@@ -97,6 +100,7 @@ to join to your self-managed AD.
 2. For **Key Type**, choose **Symmetric**.
 3. For **Key Usage**, choose **Encrypt and decrypt**.
 4. For **Advanced options**:
+
    1. For **Key material origin**, choose **KMS**.
    2. For **Regionality**, choose **Single-Region key** and click **Next**.
 
@@ -137,6 +141,7 @@ to join to your self-managed AD.
 1. In AWS Secrets Manager, choose **Store a new secret**.
 2. For **Secret type**, choose **Other type of secret**.
 3. For **Key/value pairs**, add your two keys:
+
    1. For the first key, enter `SELF_MANAGED_ACTIVE_DIRECTORY_USERNAME`.
    2. For the value of the first key, enter only the username (without the domain prefix) of the AD user.
       Do not include the domain name as this causes instance creation to fail.

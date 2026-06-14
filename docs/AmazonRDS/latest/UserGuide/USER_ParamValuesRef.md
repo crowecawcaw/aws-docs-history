@@ -23,6 +23,7 @@ a Boolean DB parameter. See [Boolean DB parameter expressions](#USER_ParamBoolea
 ###### Contents
 
 - [DB parameter formulas](USER_ParamValuesRef.md#USER_ParamFormulas "USER_ParamValuesRef.md#USER_ParamFormulas")
+
   - [DB parameter formula variables](USER_ParamValuesRef.md#USER_FormulaVariables "USER_ParamValuesRef.md#USER_FormulaVariables")
   - [DB parameter formula operators](USER_ParamValuesRef.md#USER_FormulaOperators "USER_ParamValuesRef.md#USER_FormulaOperators")
 

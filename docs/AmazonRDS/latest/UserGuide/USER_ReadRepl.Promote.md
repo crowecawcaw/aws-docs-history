@@ -87,6 +87,7 @@ characteristics:
 Before you promote a read replica, do the following:
 
 - Review your backup strategy:
+
   - We recommend that you enable backups and complete at least one backup.
     Backup duration is a function of the number of changes to the database
     since the previous backup.

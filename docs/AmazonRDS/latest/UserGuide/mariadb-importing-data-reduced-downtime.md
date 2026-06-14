@@ -390,6 +390,7 @@ database.
 2. Create a DB instance in the AWS Region that contains your Amazon EC2
    instance. Follow the instructions in [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md") and use the following
    guidelines:
+
    - Specify a DB engine version that is compatible with your source DB
      instance.
    - Specify the same virtual private cloud (VPC) and VPC security

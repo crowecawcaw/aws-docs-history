@@ -41,6 +41,7 @@ value, you must reboot your DB instance for the change to take effect.
 ###### To force all connections to your DB instance to use SSL
 
 1. Determine the parameter group that is attached to your DB instance:
+
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the top right corner of the Amazon RDS console, choose the AWS Region of your DB instance.
@@ -144,7 +145,7 @@ Root Certification Authorities**, and then choose
 **Certificates**. Locate the certificate to confirm it
 exists, as shown here.
 
-![In the MMC console, in the navigation pane, the Certificates folder is selected drilled down from Console Root, Certificates (Local Computer), and Trusted Root Certification Authority. In the main page, select the required CA certificate.](images/rds_sql_ssl_cert.png)
+![The MMC Certificates snap-in with the Trusted Root Certification Authority folder selected.](images/rds_sql_ssl_cert.png)
 
 ### Encrypting connections to an Amazon RDS DB instance running Microsoft SQL Server
 

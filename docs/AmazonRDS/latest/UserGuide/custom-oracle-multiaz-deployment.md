@@ -125,6 +125,7 @@ aws cloudformation create-stack \
    Availability Zones](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance--examples--Deploying_RDS_Custom_for_Oracle_with_single_and_multiple_Availability_Zones "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-rds-dbinstance.md#aws-resource-rds-dbinstance--examples--Deploying_RDS_Custom_for_Oracle_with_single_and_multiple_Availability_Zones")
 2. Copy the template in your preferred format (YAML or JSON)
 3. Update the following parameters in the template if needed:
+
    - `BucketName`
    - `CEVS3Prefix`
    - Database master password (replace \*\*\*\*\*\*\*\*\*\*\*\*\*)

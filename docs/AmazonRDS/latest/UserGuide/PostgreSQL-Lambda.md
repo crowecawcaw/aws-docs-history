@@ -75,6 +75,7 @@ that TCP can use port 443 to send packets to any IPv4 addresses
   use the Lambda VPC endpoint until you change the value of the
   `rds.custom_dns_resolution` from its default value of 0 (not
   enabled) to 1. To do so:
+
   - Create a custom DB parameter group.
   - Change the value of the `rds.custom_dns_resolution` parameter from its default of `0` to `1`.
   - Modify your DB instance to use your custom DB parameter group.

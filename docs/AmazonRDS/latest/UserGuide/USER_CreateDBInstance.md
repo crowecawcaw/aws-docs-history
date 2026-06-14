@@ -61,6 +61,7 @@ link to create one.
 
 - The user who is creating the DB instance must have permissions to perform
   the following operations:
+
   - `ec2:AssociateRouteTable`
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:AuthorizeSecurityGroupIngress`

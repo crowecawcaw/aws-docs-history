@@ -27,6 +27,7 @@ When using extended events on RDS for SQL Server, the following limitations appl
 - For pair matching targets, set the `respond_to_memory_pressure` property to `1`.
 - Ring buffer target memory can't be greater than 4 MB.
 - The following actions aren't supported:
+
   - `debug_break`
   - `create_dump_all_threads`
   - `create_dump_single_threads`

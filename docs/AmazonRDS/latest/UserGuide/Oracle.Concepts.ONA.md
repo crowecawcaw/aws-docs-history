@@ -45,6 +45,7 @@ Before configuring access, consider the following:
 - You can use SMTP with the UTL_MAIL option. For more information, see [Oracle UTL_MAIL](Oracle.Options.UTLMAIL.md "Oracle.Options.UTLMAIL.md").
 - The Domain Name Server (DNS) name of the remote host can be any of the
   following:
+
   - Publicly resolvable.
   - The endpoint of an Amazon RDS DB instance.
   - Resolvable through a custom DNS server. For more information, see

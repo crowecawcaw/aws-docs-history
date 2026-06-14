@@ -13,6 +13,7 @@ ENGINE=innodb, ALGORITHM=COPY;`
   after a crash by using the `REPAIR TABLE` command. For more information,
   see [http://mariadb.com/kb/en/mariadb/repair-table/](http://mariadb.com/kb/en/mariadb/repair-table/ "http://mariadb.com/kb/en/mariadb/repair-table/").
 - If you want to take a snapshot of your Aria tables before restoring, follow these steps:
+
   1.  Stop all activity to your Aria tables (that is, close all sessions).
   2.  Lock and flush each of your Aria tables.
   3.  Create a snapshot of your DB instance or Multi-AZ DB cluster. When the snapshot has

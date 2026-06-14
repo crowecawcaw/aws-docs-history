@@ -39,6 +39,7 @@ restarted.
 1. Determine the option group you want to use. You can create a new option group or use an existing option group.
    If you want to use an existing option group, skip to the next step.
    Otherwise, create a custom DB option group with the following settings:
+
    1. For **Engine**
       choose the oracle edition for your DB instance.
    2. For **Major engine version**

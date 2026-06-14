@@ -81,6 +81,7 @@ Perform the following steps to prepare the source MySQL DB instance as the repli
     ingress rule that allows TCP connections to the port used by the source MySQL DB
     instance from the IP address of the external MySQL database.
 4.  Specify the egress rules:
+
     - If the source MySQL DB instance is running in a VPC, specify the ingress rules in a VPC
       security group. For more information, see [Controlling access with security groups](Overview.RDSSecurityGroups.md "Overview.RDSSecurityGroups.md").
 
@@ -122,6 +123,7 @@ Perform the following steps to copy the database.
 
 1. Connect to the RDS read replica of the source MySQL DB instance, and run the MySQL
    `SHOW REPLICA STATUS\G` statement. Note the values for the following:
+
    - `Master_Host`
    - `Master_Port`
    - `Master_Log_File`

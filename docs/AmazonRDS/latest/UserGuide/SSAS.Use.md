@@ -9,12 +9,15 @@ After deploying the SSAS project, you can directly process the OLAP database on 
 2. Expand **Databases**. The newly deployed SSAS database appears.
 3. Locate the connection string, and update the user name and password to give access to the source SQL database. Doing
    this is required for processing SSAS objects.
+
    1. For Tabular mode, do the following:
+
       1. Expand the **Connections** tab.
       2. Open the context (right-click) menu for the connection object, and then choose **Properties**.
       3. Update the user name and password in the connection string.
 
    2. For Multidimensional mode, do the following:
+
       1. Expand the **Data Sources** tab.
       2. Open the context (right-click) menu for the data source object, and then choose **Properties**.
       3. Update the user name and password in the connection string.

@@ -22,6 +22,7 @@ CALL mysql.rds_set_master_auto_position(0);
 ```
 
 2. Reset the `gtid_mode` to `ON_PERMISSIVE`.
+
    1. Make sure that the parameter group associated
       with the MySQL DB instance and each read replica has
       `gtid_mode` set to `ON_PERMISSIVE`.
@@ -31,6 +32,7 @@ CALL mysql.rds_set_master_auto_position(0);
    replica. For more information about rebooting, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md").
 
 3. Reset the `gtid_mode` to `OFF_PERMISSIVE`.
+
    1. Make sure that the parameter group associated
       with the MySQL DB instance and each read replica has
       `gtid_mode` set to `OFF_PERMISSIVE`.
@@ -40,6 +42,7 @@ CALL mysql.rds_set_master_auto_position(0);
 4. Wait for all of the GTID transactions to be applied on
    all of the read replicas. To check that these are applied, do the following
    steps:
+
    1. On the MySQL DB
       instance, run the following command:
 
@@ -100,9 +103,11 @@ CALL mysql.rds_set_master_auto_position(0);
    ```
 
 5. Reset the GTID parameters to disable GTID-based replication.
+
    1. Make sure that the parameter group associated
       with the MySQL DB instance and each read replica has the following
       parameter settings:
+
       - `gtid_mode` – `OFF`
       - `enforce_gtid_consistency` – `OFF`
 

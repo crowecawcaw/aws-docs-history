@@ -7,6 +7,7 @@ when compared to Multi-AZ deployments. For more information about Multi-AZ DB cl
 The following limitations apply to Multi-AZ DB clusters.
 
 - Multi-AZ DB clusters don't support the following features:
+
   - IPv6 connections (dual-stack mode)
   - Cross-Region automated backups
   - Kerberos authentication
@@ -21,6 +22,7 @@ The following limitations apply to Multi-AZ DB clusters.
   - Encrypting an unencrypted Multi-AZ DB cluster
 
 - RDS for MySQL Multi-AZ DB clusters support only the following system stored procedures:
+
   - `mysql.rds_rotate_general_log`
   - `mysql.rds_rotate_slow_log`
   - `mysql.rds_show_configuration`

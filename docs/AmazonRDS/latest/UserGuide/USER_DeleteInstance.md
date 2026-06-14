@@ -30,6 +30,7 @@ replica status. Consider the following issues:
 
 - You can choose whether to create a final DB snapshot. You have the following
   options:
+
   - If you take a final snapshot, you can use it to restore your deleted DB instance. RDS retains
     both the final snapshot and any manual snapshots that you took
     previously. You can't create a final DB snapshot of your DB instance if it isn't in the
@@ -40,6 +41,7 @@ replica status. Consider the following issues:
     DB instance to the point in time of the earlier snapshot.
 
 - You can choose whether to retain automated backups. You have the following options:
+
   - If you retain automated backups, RDS keeps them for the retention period that is in
     effect for the DB instance at the time when you delete it. You can use
     automated backups to restore your DB instance to a time during but not after

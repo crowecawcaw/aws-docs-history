@@ -18,6 +18,7 @@ If you are using Kerberos authentication, see [Connecting to Oracle with Kerbero
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the upper-right corner of the console, choose the AWS Region of your DB instance.
 3. Find the DNS name and port number for your DB instance.
+
    1. Choose **Databases** to display a list of your DB instances.
    2. Choose the Oracle DB instance name to display the instance details.
    3. On the **Connectivity & security** tab, copy the endpoint. Also, note

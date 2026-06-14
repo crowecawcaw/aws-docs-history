@@ -78,7 +78,7 @@ page.
 
 
 
-    ![Choose an Amazon Machine Image.](images/tutorial_ec2_sqlserver_create1.png)
+    ![The Amazon Machine Image selection.](images/tutorial_ec2_sqlserver_create1.png)
     3. Under **Instance type**, choose **t2.micro**.
     4. Under **Key pair (login)**, choose a **Key pair name** to use an existing key
      pair. To create a new key pair for the Amazon EC2 instance, choose **Create new key pair**
@@ -260,6 +260,7 @@ Follow the steps below:
 2. Choose **Create Stack**.
 3. In the Specify template section, select **Upload a template file from your computer**, and then choose **Next**.
 4. In the **Specify stack details** page, set the following parameters:
+
    1. Set **Stack name** to **SQLServerTestStack**.
    2. Under **Parameters**, set **Availability Zones** by selecting three availability zones.
    3. Under **Linux Bastion Host configuration**, for **Key Name**, select a key pair to login to your EC2 instance.
@@ -297,6 +298,7 @@ Server Management Studio (SSMS).
 ###### To connect to an RDS for SQL Server DB instance using SSMS
 
 1. Find the endpoint (DNS name) and port number for your DB instance.
+
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the upper-right corner of the Amazon RDS console, choose the AWS Region for the DB instance.
@@ -358,6 +360,7 @@ You can explore your sample DB instance by using Microsoft SQL Server Management
 
 1. Your SQL Server DB instance comes with SQL Server's standard built-in system databases (master, model, msdb, and tempdb).
    To explore the system databases, do the following:
+
    1. In SSMS, on the **View** menu, choose **Object Explorer**.
    2. Expand your DB instance, expand **Databases**, and then expand **System Databases** as shown.
 
@@ -369,6 +372,7 @@ You can explore your sample DB instance by using Microsoft SQL Server Management
 2. Start creating your own databases and running queries against your DB instance and
    databases as usual. To run a test query against your sample DB instance, do the
    following:
+
    1. In SSMS, on the **File** menu, point to
       **New** and then choose **Query with
       Current Connection**.
@@ -377,7 +381,6 @@ You can explore your sample DB instance by using Microsoft SQL Server Management
    ```
    select @@VERSION
    ```
-
    3. Run the query.
       SSMS returns the SQL Server version of your Amazon RDS DB instance.
 

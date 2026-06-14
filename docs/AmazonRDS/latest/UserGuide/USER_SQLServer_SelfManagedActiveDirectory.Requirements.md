@@ -79,6 +79,7 @@ Make sure that you have met the following requirements for an AD domain service 
 
 - To use Kerberos authentication, you need to provide Service Principal Names (SPNs) and
   DNS permissions to your AD domain service account:
+
   - **Write SPN**: Delegate the **Write
     SPN** permission to the AD domain service account in
     the OU where you need to join the RDS for SQL Server DB instance. This permissions is
@@ -86,6 +87,7 @@ Make sure that you have met the following requirements for an AD domain service 
   - **DNS permissions**: Provide the following permissions
     to the AD domain service account in the DNS manager at the server
     level for your domain controller:
+
     - List contents
     - Read all properties
     - Read permissions

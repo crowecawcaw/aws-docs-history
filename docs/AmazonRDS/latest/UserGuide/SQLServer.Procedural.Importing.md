@@ -33,32 +33,41 @@ additional advantages to using native backup and restore. For example, you can d
 
 - [Limitations and recommendations](SQLServer.Procedural.Importing.md#SQLServer.Procedural.Importing.Native.Limitations "SQLServer.Procedural.Importing.md#SQLServer.Procedural.Importing.Native.Limitations")
 - [Setting up for native backup and restore](SQLServer.Procedural.Importing.Native.Enabling.md "SQLServer.Procedural.Importing.Native.Enabling.md")
+
   - [Manually creating an IAM role for native backup and restore](SQLServer.Procedural.Importing.Native.Enabling.md#SQLServer.Procedural.Importing.Native.Enabling.IAM "SQLServer.Procedural.Importing.Native.Enabling.md#SQLServer.Procedural.Importing.Native.Enabling.IAM")
 
 - [Using native backup and restore](SQLServer.Procedural.Importing.Native.Using.md "SQLServer.Procedural.Importing.Native.Using.md")
+
   - [Backing up a database](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Using.Backup "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Using.Backup")
+
     - [Usage](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Backup.Syntax "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Backup.Syntax")
     - [Examples](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Backup.Examples "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Backup.Examples")
 
   - [Restoring a database](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Using.Restore "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Using.Restore")
+
     - [Usage](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Syntax "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Syntax")
     - [Examples](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Examples "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Examples")
 
   - [Restoring a log](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Log "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Log")
+
     - [Usage](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Log.Syntax "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Log.Syntax")
     - [Examples](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Log.Examples "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Restore.Log.Examples")
 
   - [Finishing a database restore](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Finish.Restore "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Finish.Restore")
+
     - [Usage](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Finish.Restore.Syntax "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Finish.Restore.Syntax")
 
   - [Working with partially restored databases](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Partially.Restored "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Partially.Restored")
+
     - [Dropping a partially restored database](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Drop.Partially.Restored "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Drop.Partially.Restored")
     - [Snapshot restore and point-in-time recovery behavior for partially restored databases](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Snapshot.Restore "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Snapshot.Restore")
 
   - [Canceling a task](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Using.Cancel "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Using.Cancel")
+
     - [Usage](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Cancel.Syntax "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Cancel.Syntax")
 
   - [Tracking the status of tasks](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Tracking "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Tracking")
+
     - [Usage](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Tracking.Syntax "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Tracking.Syntax")
     - [Examples](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Tracking.Examples "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Tracking.Examples")
     - [Response](SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Tracking.Response "SQLServer.Procedural.Importing.Native.Using.md#SQLServer.Procedural.Importing.Native.Tracking.Response")
@@ -66,24 +75,31 @@ additional advantages to using native backup and restore. For example, you can d
 - [Compressing backup files](SQLServer.Procedural.Importing.Native.Compression.md "SQLServer.Procedural.Importing.Native.Compression.md")
 - [Troubleshooting](SQLServer.Procedural.Importing.Native.Troubleshooting.md "SQLServer.Procedural.Importing.Native.Troubleshooting.md")
 - [Importing and exporting SQL Server data using other methods](SQLServer.Procedural.Importing.Snapshots.md "SQLServer.Procedural.Importing.Snapshots.md")
+
   - [Importing data into RDS for SQL Server by using a snapshot](SQLServer.Procedural.Importing.Snapshots.md#SQLServer.Procedural.Importing.Procedure "SQLServer.Procedural.Importing.Snapshots.md#SQLServer.Procedural.Importing.Procedure")
+
     - [Import the data](SQLServer.Procedural.Importing.Snapshots.md#ImportData.SQLServer.Import "SQLServer.Procedural.Importing.Snapshots.md#ImportData.SQLServer.Import")
+
       - [Generate and Publish Scripts Wizard](SQLServer.Procedural.Importing.Snapshots.md#ImportData.SQLServer.MgmtStudio.ScriptWizard "SQLServer.Procedural.Importing.Snapshots.md#ImportData.SQLServer.MgmtStudio.ScriptWizard")
       - [Import and Export Wizard](SQLServer.Procedural.Importing.Snapshots.md#ImportData.SQLServer.MgmtStudio.ImportExportWizard "SQLServer.Procedural.Importing.Snapshots.md#ImportData.SQLServer.MgmtStudio.ImportExportWizard")
       - [Bulk copy](SQLServer.Procedural.Importing.Snapshots.md#ImportData.SQLServer.MgmtStudio.BulkCopy "SQLServer.Procedural.Importing.Snapshots.md#ImportData.SQLServer.MgmtStudio.BulkCopy")
 
   - [Exporting data from RDS for SQL Server](SQLServer.Procedural.Importing.Snapshots.md#SQLServer.Procedural.Exporting "SQLServer.Procedural.Importing.Snapshots.md#SQLServer.Procedural.Exporting")
+
     - [SQL Server Import and Export Wizard](SQLServer.Procedural.Importing.Snapshots.md#SQLServer.Procedural.Exporting.SSIEW "SQLServer.Procedural.Importing.Snapshots.md#SQLServer.Procedural.Exporting.SSIEW")
     - [SQL Server Generate and Publish Scripts Wizard and bcp utility](SQLServer.Procedural.Importing.Snapshots.md#SQLServer.Procedural.Exporting.SSGPSW "SQLServer.Procedural.Importing.Snapshots.md#SQLServer.Procedural.Exporting.SSGPSW")
 
 - [Using BCP utility from Linux to import and export data](SQLServer.Procedural.Importing.BCP.Linux.md "SQLServer.Procedural.Importing.BCP.Linux.md")
+
   - [Prerequisites](SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Prerequisites "SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Prerequisites")
   - [Installing SQL Server command-line tools on Linux](SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Installing "SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Installing")
   - [Exporting data from RDS for SQL Server](SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Exporting "SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Exporting")
+
     - [Basic export syntax](SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Exporting.Basic "SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Exporting.Basic")
     - [Export example](SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Exporting.Example "SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Exporting.Example")
 
   - [Importing data to RDS for SQL Server](SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Importing "SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Importing")
+
     - [Basic import syntax](SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Importing.Basic "SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Importing.Basic")
     - [Import example](SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Importing.Example "SQLServer.Procedural.Importing.BCP.Linux.md#SQLServer.Procedural.Importing.BCP.Linux.Importing.Example")
 

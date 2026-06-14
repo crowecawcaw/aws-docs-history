@@ -137,6 +137,7 @@ For RDS for SQL Server, the following interactions also cause pinning:
 - Using distributed transaction coordinator (DTC) communication.
 - Creating temporary tables, transactions, cursors, or prepared statements.
 - Using the following `SET` statements:
+
   - `SET ANSI_DEFAULTS`
   - `SET ANSI_NULL_DFLT`
   - `SET ARITHIGNORE`

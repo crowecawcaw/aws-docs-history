@@ -55,6 +55,7 @@ server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.
     operations](../../../AmazonS3/latest/userguide/using-with-s3-actions.md#using-with-s3-actions-related-to-objects "../../../AmazonS3/latest/userguide/using-with-s3-actions.md#using-with-s3-actions-related-to-objects").
 
 6.  Choose **Resources**, and then do the following:
+
     1. Choose **Specific**.
     2. For **bucket**, choose **Add
        ARN**. Enter your bucket ARN. The bucket name is filled
@@ -73,10 +74,12 @@ server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.
 
 7.  (Optional) Choose **Add additional permissions** to add resources to the policy. For example, do the
     following:
+
     1. If your bucket is encrypted with a custom KMS key, select
        **KMS** for the service.
     2. For **Manual actions**, select the
        following:
+
        - **Encrypt**
        - **ReEncrypt from** and
          **ReEncrypt to**

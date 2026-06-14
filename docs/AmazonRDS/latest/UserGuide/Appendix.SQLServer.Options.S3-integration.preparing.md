@@ -12,6 +12,7 @@ To configure this access, you create both an IAM policy and an IAM role.
    service.
 4. For **Actions**, choose the following to grant the access that your DB instance
    requires:
+
    - `ListAllMyBuckets` – required
    - `ListBucket` – required
    - `GetBucketAcl` – required

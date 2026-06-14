@@ -74,6 +74,7 @@ activities:
 5.  On the **\*\***Enter directory
     information**\*\*** page, provide the
     following information:
+
     - **Edition** – Choose the edition that meets
       your requirements.
     - **Directory DNS name**– The fully qualified name for the directory, such
@@ -109,6 +110,7 @@ activities:
 6.  Choose **Next**.
 7.  On the **Choose VPC and subnets** page, provide the following
     information:
+
     - **VPC** – Choose the VPC for the directory.
       You can create the RDS for Db2 DB instance in this same VPC or in a
       different VPC.
@@ -121,7 +123,7 @@ activities:
     **Previous** and make the changes. When the information is
     correct, choose **Create directory**.
 
-![The Review & create window during directory creation in the Directory Service console.](images/db2-create-ADS-directory.png)
+![The Review and create window during directory creation in the Directory Service console.](images/db2-create-ADS-directory.png)
 
 It takes several minutes for the directory to be created. When it has been
 successfully created, the **Status** value changes to

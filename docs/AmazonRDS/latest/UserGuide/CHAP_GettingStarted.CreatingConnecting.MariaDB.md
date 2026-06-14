@@ -79,7 +79,7 @@ page.
 
 
 
-    ![Choose an Amazon Machine Image.](images/Tutorial_WebServer_12.png)
+    ![The Amazon Machine Image selection.](images/Tutorial_WebServer_12.png)
     3. Under **Instance type**, choose **t2.micro**.
     4. Under **Key pair (login)**, choose a **Key pair name** to use an existing key
      pair. To create a new key pair for the Amazon EC2 instance, choose **Create new key pair**
@@ -266,6 +266,7 @@ Follow the steps below:
 2. Choose **Create Stack**.
 3. In the Specify template section, select **Upload a template file from your computer**, and then choose **Next**.
 4. In the **Specify stack details** page, set the following parameters:
+
    1. Set **Stack name** to **MariaDBTestStack**.
    2. Under **Parameters**, set **Availability Zones** by selecting three availability zones.
    3. Under **Linux Bastion Host configuration**, for **Key Name**, select a key pair to login to your EC2 instance.
@@ -301,6 +302,7 @@ this example, you connect to a MariaDB DB instance using the mysql command-line 
 ###### To connect to a MariaDB DB instance
 
 1. Find the endpoint (DNS name) and port number for your DB instance.
+
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the upper-right corner of the Amazon RDS console, choose the AWS Region for the DB instance.

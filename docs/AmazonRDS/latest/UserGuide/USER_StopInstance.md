@@ -167,6 +167,7 @@ The following are some limitations of the stopping operation:
 - You can't delete an option group that is associated with a stopped DB instance.
 - You can't delete a DB parameter group that is associated with a stopped DB instance.
 - In a Multi-AZ deployment, note the following limitations:
+
   - You can't stop an RDS for SQL Server DB instance.
   - The primary and secondary Availability Zones might be switched after
     you start the DB instance.

@@ -36,6 +36,7 @@ You can modify the replica mode using the AWS Management Console, the AWS CLI, o
 3. Choose the replica database that you want to modify.
 4. Choose **Modify**.
 5. For **Replica mode**, choose the desired mode:
+
    - **Read-only** – For read workloads
    - **Standby** – For disaster recovery
 

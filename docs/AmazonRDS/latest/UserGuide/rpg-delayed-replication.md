@@ -44,6 +44,7 @@ parameter and steps described below.
    information, see [DB parameter groups for Amazon RDS DB instances](USER_WorkingWithDBInstanceParamGroups.md "USER_WorkingWithDBInstanceParamGroups.md").
 2. In the parameter group, configure the `recovery_min_apply_delay`
    parameter:
+
    - Set the value to the desired delay in milliseconds. For example,
      3600000 for a 1-hour delay.
    - Allowed range: 0 to 86400000 ms (0 to 24 hours)
@@ -121,6 +122,7 @@ Consider the following when planning delayed replication with RDS for PostgreSQL
   This behavior can cause WAL accumulation on the source instance, potentially
   leading to storage exhaustion. Consider the following preventive
   measures:
+
   - Configure CloudWatch alarms to monitor storage utilization on source
     instances.
   - Enable storage auto-scaling to handle unexpected WAL growth.
@@ -147,6 +149,7 @@ The delayed replication feature for Amazon RDS for PostgreSQL has the following 
 
 - Blue/Green deployments have the following limitations when configuring delayed
   replication:
+
   - **Green source instance** — The
     `recovery_min_apply_delay parameter` is disregarded, even
     if configured in the parameter group. Any delay settings on the green
@@ -163,6 +166,7 @@ The delayed replication feature for Amazon RDS for PostgreSQL has the following 
   source instance completed the upgrade, you must manually recreate the
   delayed replicas.
 - Delayed replication is not compatible with the following features.
+
   - RDS for PostgreSQL Logical Replication
   - RDS for PostgreSQL Multi-AZ Clusters (including both inbound and outbound
     replication)

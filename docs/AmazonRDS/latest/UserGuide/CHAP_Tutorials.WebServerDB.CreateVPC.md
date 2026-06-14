@@ -49,6 +49,7 @@ Use the following procedure to create a VPC with both public and private subnets
 4. For **Resources to create** under **VPC settings**, choose
    **VPC and more**.
 5. For the **VPC settings**, set these values:
+
    - **Name tag auto-generation** – `tutorial`
    - **IPv4 CIDR block** – `10.0.0.0/16`
    - **IPv6 CIDR block** – **No IPv6 CIDR block**
@@ -83,6 +84,7 @@ traffic to connect from the internet.
     Groups**, and then choose **Create security
     group**.
 3.  On the **Create security group** page, set these values:
+
     - **Security group name:**
       `tutorial-securitygroup`
     - **Description:**
@@ -91,6 +93,7 @@ traffic to connect from the internet.
       example: **vpc-`identifier` (tutorial-vpc)**
 
 4.  Add inbound rules to the security group.
+
     1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
        (SSH). To determine your public IP address, in a different browser window or tab,
        you can use the service at [https://checkip.amazonaws.com](https://checkip.amazonaws.com "https://checkip.amazonaws.com").
@@ -116,10 +119,10 @@ traffic to connect from the internet.
         `SSH`
         * **Source:** The IP address or range from Step a, for
          example: `203.0.113.25/32`.
-
     4. Choose **Add rule**.
     5. Set the following values for your new inbound rule to allow HTTP
        access to your web server:
+
        - **Type:**
          `HTTP`
        - **Source:**
@@ -146,6 +149,7 @@ only.
    group**.
 3. On the **Create security group** page, set these
    values:
+
    - **Security group name:**
      `tutorial-db-securitygroup`
    - **Description:**
@@ -154,12 +158,14 @@ only.
      example: **vpc-`identifier` (tutorial-vpc)**
 
 4. Add inbound rules to the security group.
+
    1. In the **Inbound rules** section, choose **Add rule**.
    2. Set the following values for your new inbound rule to allow MySQL
       traffic on port 3306 from your Amazon EC2 instance. If you do this, you can
       connect from your web server to your DB instance. By
       doing so, you can store and retrieve data from your web application to
       your database.
+
       - **Type:**
         `MySQL/Aurora`
       - **Source:** The identifier of the
@@ -179,6 +185,7 @@ VPC when creating DB instances.
 ###### To create a DB subnet group
 
 1. Identify the private subnets for your database in the VPC.
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **Subnets**.
@@ -228,6 +235,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
 ###### To delete a VPC and related resources
 
 1. Delete the DB subnet group.
+
    1. Open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the navigation pane, choose **Subnet groups**.
@@ -235,6 +243,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
    4. Choose **Delete**, and then choose **Delete** in the confirmation window.
 
 2. Note the VPC ID.
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **VPCs**.
@@ -244,6 +253,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
       need the VPC ID in later steps.
 
 3. Delete the security groups.
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **Security
@@ -260,6 +270,7 @@ VPC](../../../vpc/latest/userguide/working-with-vpcs.md#VPC_Deleting "../../../v
       the confirmation page.
 
 4. Delete the VPC.
+
    1. Open the Amazon VPC console at
       [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Choose **VPC Dashboard**, and then choose **VPCs**.

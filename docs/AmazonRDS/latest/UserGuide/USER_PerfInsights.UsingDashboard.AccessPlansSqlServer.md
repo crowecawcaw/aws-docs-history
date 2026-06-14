@@ -22,12 +22,12 @@ In the following example, the top SQL digest has three plans.
 The presence of a question mark in the SQL statement indicates that the statement is a digest.
 To view the full SQL statement, choose a value in the **SQL statements** column.
 
-![Choose a digest plan.](images/top-sql-plans-unselected-sqlserver.png) 6. Choose the digest to expand it into its component statements.
+![The digest plan selection.](images/top-sql-plans-unselected-sqlserver.png) 6. Choose the digest to expand it into its component statements.
 
 In the following example, the `SELECT` statement is a digest query. The component queries in the digest
 use three different execution plans. The colors assigned to the plans correspond to the database load chart.
 
-![Choose a digest plan.](images/pi-digest-plan-sqlserver.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
+![The digest plan selection.](images/pi-digest-plan-sqlserver.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
 query** list.
 
 You can view either one or two plans for a query at a time. The following screenshot

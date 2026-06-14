@@ -38,8 +38,10 @@ and read replicas:
 
 3. Reset the GTID parameters for GTID-based replication that allows anonymous
    transactions until the read replicas have processed all of them.
+
    1. Make sure that the parameter group associated with the DB instance and
       each read replica has the following parameter settings:
+
       - `gtid_mode` – `ON_PERMISSIVE`
       - `enforce_gtid_consistency` – `ON`
 
@@ -49,6 +51,7 @@ and read replicas:
 
 4. Wait for all of your anonymous transactions to be replicated. To check
    that these are replicated, do the following:
+
    1. Run the following statement on your source DB instance.
 
    **MySQL 8.4**
@@ -82,8 +85,10 @@ and read replicas:
    when the query returns for all read replicas.
 
 5. Reset the GTID parameters for GTID-based replication only.
+
    1. Make sure that the parameter group associated with the DB instance and
       each read replica has the following parameter settings:
+
       - `gtid_mode` – `ON`
       - `enforce_gtid_consistency` – `ON`
 

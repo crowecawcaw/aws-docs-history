@@ -28,7 +28,7 @@ RDS for PostgreSQL DB instance. 5. In the **Parameters** search field, type `sha
 find the `shared_preload_libraries` parameter. 6. Choose **Edit parameters** to access the property values. 7. Add `pgaudit` to the list in the **Values** field. Use
 a comma to separate items in the list of values.
 
-![Image of the shared_preload_libaries parameter with pgAudit added.](images/apg_rpg_shared_preload_pgaudit.png) 8. Reboot the RDS for PostgreSQL DB instance so that
+![The shared_preload_libaries parameter with pgAudit added.](images/apg_rpg_shared_preload_pgaudit.png) 8. Reboot the RDS for PostgreSQL DB instance so that
 your change to the `shared_preload_libraries` parameter takes effect. 9. When the instance is available, verify that pgAudit
 has been initialized. Use `psql` to connect to the RDS for PostgreSQL DB instance,
 and then run the following command.
@@ -62,7 +62,7 @@ CREATE EXTENSION pgaudit;
     shown in the following image captures inserts, updates, deletes, and
     some other types changes to the log.
 
-![Image of the pgaudit.log parameter with setting.](images/rpg_set_pgaudit-log-level.png)
+![The pgaudit.log parameter with setting.](images/rpg_set_pgaudit-log-level.png)
 
 You can also choose one of the following values for the `pgaudit.log` parameter.
 

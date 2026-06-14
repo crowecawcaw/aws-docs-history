@@ -154,12 +154,14 @@ the parameter changes as a rolling reboot to each replica. You must apply the
 following rules, when you set the parameters:
 
 - Increasing the parameter values:
+
   - You should always increase the parameter values of all the read
     replicas first, and perform a rolling reboot of all replicas. Then,
     apply the parameter changes on the primary instance and
     reboot.
 
 - Decreasing the parameter values:
+
   - You should first decrease the parameter values of the primary
     instance and perform a reboot. Then, apply the parameter changes to
     all the associated read replicas and perform a rolling

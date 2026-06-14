@@ -114,6 +114,7 @@ Before you begin, complete the following tasks:
 
 - Review the requirements for transportable tablespaces described in the
   following documents in My Oracle Support:
+
   - [Reduce Transportable Tablespace Downtime using Cross Platform
     Incremental Backup (Doc ID 2471245.1)](https://support.oracle.com/epmos/faces/DocumentDisplay?id=2471245.1 "https://support.oracle.com/epmos/faces/DocumentDisplay?id=2471245.1")
   - [Transportable Tablespace (TTS) Restrictions and Limitations:
@@ -141,12 +142,14 @@ For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER
   databases.
 - Make sure that the database character sets on the source and target
   databases meet either of the following requirements:
+
   - The character sets are the same.
   - The character sets are compatible. For a list of compatibility
     requirements, see [General Limitations on Transporting Data](https://docs.oracle.com/en/database/oracle/oracle-database/19/spmdu/general-limitations-on-transporting-data.html#GUID-28800719-6CB9-4A71-95DD-4B61AA603173 "https://docs.oracle.com/en/database/oracle/oracle-database/19/spmdu/general-limitations-on-transporting-data.html#GUID-28800719-6CB9-4A71-95DD-4B61AA603173") in the Oracle
     Database documentation.
 
 - If you plan to transfer files using Amazon S3, do the following:
+
   - Make sure that an Amazon S3 bucket is available for file transfers, and
     that the Amazon S3 bucket is in the same AWS Region as your DB instance. For
     instructions, see [Create a bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md") in the _Amazon Simple Storage Service Getting
@@ -628,13 +631,13 @@ delete them. For syntax and semantics of these procedures, see [Listing orphaned
 
 1. Remove old backups in `DATA_PUMP_DIR` as
    follows:
+
    1. List the backup files by running
       `rdsadmin.rdsadmin_file_util.listdir`.
 
    ```
    SELECT * FROM TABLE(rdsadmin.rds_file_util.listdir(p_directory => '`DATA_PUMP_DIR`'));
    ```
-
    2. Remove the backups one by one by calling
       `UTL_FILE.FREMOVE`.
 
@@ -644,6 +647,7 @@ delete them. For syntax and semantics of these procedures, see [Listing orphaned
 
 2. If you imported tablespaces but didn't import metadata for these tablespaces,
    you can delete the orphaned data files as follows:
+
    1. List the orphaned data files that you need to delete. The following
       example runs the procedure
       `rdsadmin.rdsadmin_transport_util.list_xtts_orphan_files`.
@@ -656,7 +660,6 @@ delete them. For syntax and semantics of these procedures, see [Listing orphaned
    datafile_7.dbf 104865792
    datafile_8.dbf 104865792
    ```
-
    2. Delete the orphaned files by running the procedure
       `rdsadmin.rdsadmin_transport_util.cleanup_incomplete_xtts_import`.
 
@@ -688,6 +691,7 @@ delete them. For syntax and semantics of these procedures, see [Listing orphaned
 3. If you imported tablespaces and imported metadata for these tablespaces, but
    you encountered compatibility errors or other Oracle Data Pump issues, clean up
    the partially transported data files as follows:
+
    1. List the tablespaces that contain partially transported data files by
       querying `DBA_TABLESPACES`.
 
@@ -698,7 +702,6 @@ delete them. For syntax and semantics of these procedures, see [Listing orphaned
    --------------------------------------------------------------------------------
    TBS_3
    ```
-
    2. Drop the tablespaces and the partially transported data files.
 
    ```

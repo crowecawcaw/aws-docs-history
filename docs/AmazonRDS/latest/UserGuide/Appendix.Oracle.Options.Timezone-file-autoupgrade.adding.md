@@ -23,6 +23,7 @@ following states:
    group or use an existing option group. If you want to use an existing option
    group, skip to the next step. Otherwise, create a custom DB option group
    with the following settings:
+
    1. For **Engine** choose the Oracle Database edition
       for your DB instance.
    2. For **Major engine version** choose the version
@@ -31,6 +32,7 @@ following states:
 4. Choose the option group that you want to modify, and then choose
    **Add option**.
 5. In the **Add option** window, do the following:
+
    1. Choose **TIMEZONE_FILE_AUTOUPGRADE**.
    2. To enable the option on all associated DB instances as soon as
       you add it, for **Apply Immediately**, choose

@@ -77,6 +77,7 @@ as soon as the option group is active, Label Security is active.
    You can create a new option group or use an existing option group.
    If you want to use an existing option group, skip to the next step.
    Otherwise, create a custom DB option group with the following settings:
+
    1. For **Engine**,
       choose **oracle-ee**.
    2. For **Major engine version**,

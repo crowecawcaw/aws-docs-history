@@ -107,7 +107,7 @@ queried.
 SELECT * from `my_db`."`books_table`";
 ```
 
-![Run a SELECT statement within the query editor. The result is a single row of sample data that was added to the Amazon RDS database.](images/zero-etl-redshift-editor.png)
+![Query editor results showing sample data added to the Amazon RDS database.](images/zero-etl-redshift-editor.png)
 
     * ``my_db`` is the RDS database schema name.
     * ``books_table`` is the RDS table name.

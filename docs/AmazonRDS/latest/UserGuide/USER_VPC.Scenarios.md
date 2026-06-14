@@ -81,7 +81,7 @@ You can set up network connectivity between an Amazon EC2 instance and a DB inst
 The following screen shows an inbound rule with a security group for its
 source.
 
-![Adding a security group to another security group's rules.](images/con-vpc-add-sg-rule.png)
+![Adding a security group to another security group rules.](images/con-vpc-add-sg-rule.png)
 
 For more information about connecting to the DB instance from your EC2
 instance, see [Connecting to an Amazon RDS DB instance](CHAP_CommonTasks.Connect.md "CHAP_CommonTasks.Connect.md")
@@ -112,7 +112,7 @@ gateway to enable communication over the internet.
 
 The following diagram shows this scenario.
 
-![A DB instance. in a VPC accessed by a client application through the internet.](images/GS-VPC-network.png)
+![DB instance in a VPC accessed by a client application through the internet.](images/GS-VPC-network.png)
 
 We recommend the following configuration:
 

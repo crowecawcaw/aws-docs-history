@@ -354,6 +354,11 @@ Common errors include:
 - `ORA-39083`: Object type failed to create. Typically caused by missing privileges or tablespace. Grant the required privileges or remap the tablespace using `METADATA_REMAP`.
 - `ORA-39166`: Object was not found. The source schema or object does not exist in the dump file.
 - `ORA-31693`: Table data object failed to load. Check for tablespace quota or space issues.
+- `ORA-31634`: Job already exists. A Data Pump job with the same name already exists, often because a
+  previous job left an orphaned master table. Query `DBA_DATAPUMP_JOBS` to find jobs in the
+  `NOT RUNNING` state, drop the leftover master table (for example, `DROP TABLE
+`job_name`;`), or specify a unique `job_name` in your
+  `DBMS_DATAPUMP.OPEN` call.
 
 To re-run an import that partially failed, add `TABLE_EXISTS_ACTION => 'REPLACE'` to your import parameters to overwrite existing objects.
 

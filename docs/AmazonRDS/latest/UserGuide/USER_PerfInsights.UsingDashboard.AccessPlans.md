@@ -20,13 +20,13 @@ the right of the color-coded squares. Each hash value uniquely identifies a plan
 In the following example, the top SQL digest has two plans. You can tell that it's a digest by the question mark in
 the statement.
 
-![Choose a digest plan.](images/top-sql-plans-unselected.png) 6. Choose the digest to expand it into its component statements.
+![The digest plan selection.](images/top-sql-plans-unselected.png) 6. Choose the digest to expand it into its component statements.
 
 In the following example, the `SELECT` statement is a digest query. The component queries in the digest
 use two different plans. The colors of the plans correspond to the database load chart. The total number of
 plans in the digest is shown in the second column.
 
-![Choose a digest plan.](images/pi-digest-plan.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
+![The digest plan selection.](images/pi-digest-plan.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
 query** list.
 
 You can view either one or two plans for a query at a time. The following screenshot compares the two plans in the

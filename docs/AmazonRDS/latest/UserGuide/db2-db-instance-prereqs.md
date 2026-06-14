@@ -43,10 +43,12 @@ Before creating a DB instance, consider the following items:
 - Each Amazon RDS for Db2 DB instance can host up to 50 Db2 databases. For more
   information, see [Multiple databases on an Amazon RDS for Db2 DB instance](db2-multiple-databases.md "db2-multiple-databases.md").
 - Initial database name
+
   - If you don't provide a database name when you create a DB instance,
     Amazon RDS doesn't create a database.
   - Don't provide a database name under the following
     circumstances:
+
     - You want to modify the `db2_compatibility_vector`
       parameter. For more information, see [Setting the db2_compatibility_vector parameter](db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector "db2-known-issues-limitations.md#db2-known-issues-limitations-db2-compatibility-vector").
 

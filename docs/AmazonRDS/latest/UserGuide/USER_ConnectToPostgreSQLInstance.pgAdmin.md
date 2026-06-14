@@ -13,6 +13,7 @@ your client computer.
    **General** tab to identify the server in pgAdmin.
 4. On the **Connection** tab, type the following information
    from your DB instance:
+
    - For **Host**, type the endpoint, for example
      `mypostgresql.c6c8dntfzzhgv0.us-east-2.rds.amazonaws.com`.
    - For **Port**, type the assigned port.
@@ -22,12 +23,12 @@ your client computer.
    - For **Password**, type the password that you entered
      when you created the DB instance.
 
-![Type the password that you entered when creating the DB instance.](images/Postgres-Connect01.png) 5. Choose **Save**.
+![The password field for the DB instance connection.](images/Postgres-Connect01.png) 5. Choose **Save**.
 
 If you have any problems connecting, see [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.Troubleshooting.md "USER_ConnectToPostgreSQLInstance.Troubleshooting.md"). 6. To access a database in the pgAdmin browser, expand
 **Servers**, the DB instance, and
 **Databases**. Choose the DB instance's database
 name.
 
-![Choose the DB instance's database name in the pgAdmin browser.](images/Postgres-Connect02.png) 7. To open a panel where you can enter SQL commands, choose
+![The DB instance database name in the pgAdmin browser.](images/Postgres-Connect02.png) 7. To open a panel where you can enter SQL commands, choose
 **Tools**, **Query Tool**.

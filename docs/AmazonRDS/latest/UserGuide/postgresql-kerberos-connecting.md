@@ -28,6 +28,7 @@ following steps:
 4. On the **Connection** tab, enter the following
    information from your
    RDS for PostgreSQL database.
+
    - For **Host**, enter the endpoint for the
 
    RDS for PostgreSQL DB
@@ -50,7 +51,6 @@ following steps:
    ```
    `RDS-DB-instance`.`111122223333`.`aws-region`.corp.example.com
    ```
-
    - For **Port**, enter the assigned port.
    - For **Maintenance database**, enter the name
      of the initial database to which the client will connect.

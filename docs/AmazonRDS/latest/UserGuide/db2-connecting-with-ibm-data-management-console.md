@@ -141,8 +141,10 @@ internet, allow traffic to the database port. For more information, see [Creatin
 
 1.  Log in to IBM Db2 Data Management Console with the credentials you set during installation.
 2.  Configure the repository.
+
     1. In the **Connection and database** section, enter the
        following information for your RDS for Db2 DB instance:
+
        - For **Host**, enter the DNS name of the DB
          instance.
        - For **Port**, enter the port number for the
@@ -159,7 +161,6 @@ internet, allow traffic to the database port. For more information, see [Creatin
          database administrator for the DB instance.
         * For **Password**, enter the password of the
          database administrator for the DB instance.
-
     3. Choose **Test connection**.
 
     ###### Note

@@ -176,12 +176,14 @@ configuration:
 - All PDBs in a CDB use the same endpoint and database listener.
 - The following operations aren't supported at the PDB level but are
   supported at the CDB level:
+
   - Backup and recovery
   - Database upgrades
   - Maintenance actions
 
 - The following features aren't supported at the PDB level but are supported
   at the CDB level:
+
   - Option groups (options are installed on all PDBs on your CDB
     instance)
   - Parameter groups (all parameters are derived from the parameter

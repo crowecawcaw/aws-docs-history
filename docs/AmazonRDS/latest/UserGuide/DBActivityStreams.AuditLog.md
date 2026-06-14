@@ -663,6 +663,7 @@ Take the following steps to decrypt the contents of the `databaseActivityEvents`
    in binary format, of the audit payload.
 3. Decrypt the binary ciphertext with the data encryption key that you decoded in the first step.
 4. Decompress the decrypted payload.
+
    - The encrypted payload is in the `databaseActivityEvents` field.
    - The `databaseActivityEventList` field contains an array of audit records. The
      `type` fields in the array can be `record` or `heartbeat`.

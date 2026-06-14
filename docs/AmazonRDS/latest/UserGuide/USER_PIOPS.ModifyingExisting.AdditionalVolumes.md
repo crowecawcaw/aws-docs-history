@@ -33,6 +33,7 @@ The additional volumes must use the volume names shown in the following table.
 4. Choose **Modify**.
 5. In the **Storage** section, choose **Add additional storage volume**.
 6. Configure the additional storage volume:
+
    - **Volume name** – Choose `rdsdbdata2`,
      `rdsdbdata3`, or
      `rdsdbdata4`.

@@ -21,6 +21,7 @@ instead.
 
 1. Log in to your client machine with IBM Db2 Data Management Console. For more information, see [Connecting to your Amazon RDS for Db2 DB instance with IBM Db2 Data Management Console](db2-connecting-with-ibm-data-management-console.md "db2-connecting-with-ibm-data-management-console.md").
 2. Catalog the RDS for Db2 database on the client machine.
+
    1. Catalog the node. In the following example, replace
       `dns_ip_address` and
       `port` with the DNS name or the IP address and
@@ -29,7 +30,6 @@ instead.
    ```
    db2 catalog tcpip node srcnode REMOTE `dns_ip_address` server `port`
    ```
-
    2. Catalog the database. In the following example, replace
       `source_database_name` and
       `source_database_alias` with the name of the

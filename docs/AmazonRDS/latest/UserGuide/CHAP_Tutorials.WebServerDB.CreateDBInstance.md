@@ -20,11 +20,11 @@ RDS for MariaDB
 6. For **Engine options**, choose
    **MariaDB**.
 
-![Select engine type.](images/tutorial-create-mariadb.png) 7. For **Templates**, choose
+![The engine type selection.](images/tutorial-create-mariadb.png) 7. For **Templates**, choose
 **Free tier** or **Sandbox**. **Free tier**
 appears for free plan accounts. **Sandbox** appears for paid plan accounts.
 
-![Select template.](images/tutorial-create-template.png) 8. In the **Availability and durability**
+![The template selection.](images/tutorial-create-template.png) 8. In the **Availability and durability**
 section, keep the defaults. 9. In the **Settings** section, set these
 values:
 
@@ -98,13 +98,13 @@ RDS for MySQL
 6. For **Engine options**, choose
    **MySQL**.
 
-![Select engine type.](images/tutorial-create-mysql.png) 7. For **Templates**, choose **Free
+![The engine type selection.](images/tutorial-create-mysql.png) 7. For **Templates**, choose **Free
 tier** or **Sandbox**.
 **Free tier** appears for free plan
 accounts. **Sandbox** appears for paid
 plan accounts.
 
-![Select template.](images/tutorial-create-template.png) 8. In the **Availability and durability**
+![The template selection.](images/tutorial-create-template.png) 8. In the **Availability and durability**
 section, keep the defaults. 9. In the **Settings** section, set these
 values:
 
@@ -178,13 +178,13 @@ RDS for PostgreSQL
 6. For **Engine options**, choose
    **PostgreSQL**.
 
-![Select engine type.](images/tutorial-create-postgres.png) 7. For **Templates**, choose **Free
+![The engine type selection.](images/tutorial-create-postgres.png) 7. For **Templates**, choose **Free
 tier** or **Sandbox**.
 **Free tier** appears for free plan
 accounts. **Sandbox** appears for paid
 plan accounts.
 
-![Select template.](images/tutorial-create-template.png) 8. In the **Availability and durability**
+![The template selection.](images/tutorial-create-template.png) 8. In the **Availability and durability**
 section, keep the defaults. 9. In the **Settings** section, set these
 values:
 

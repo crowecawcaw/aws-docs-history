@@ -17,6 +17,7 @@ To use IAM authentication for replication connections, you need to meet all of t
 
 - Your RDS for PostgreSQL DB instance must be version 11 or later.
 - On your publisher RDS for PostgreSQL DB instance:
+
   - Enable IAM database authentication. For more information, see [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md").
   - Enable logical replication by setting the `rds.logical_replication` parameter to 1.
 
@@ -68,6 +69,7 @@ You can disable IAM authentication for replication connections by using any of t
 
 - Set the `rds.iam_auth_for_replication` parameter to 0 in your DB parameter group for DB instances or DB cluster parameter group for Multi-AZ clusters.
 - Alternatively, you can disable either of these features on your RDS for PostgreSQL DB cluster or instance:
+
   - Disable logical replication by setting the `rds.logical_replication` parameter to 0
   - Disable IAM authentication
 

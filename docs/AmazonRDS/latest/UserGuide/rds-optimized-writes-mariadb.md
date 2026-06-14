@@ -72,6 +72,7 @@ when both of the following conditions apply during database creation:
 
 - You specify a DB engine version and DB instance class that support RDS
   Optimized Writes.
+
   - RDS Optimized Writes is supported for the following RDS for MariaDB
     versions:
 

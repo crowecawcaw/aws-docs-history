@@ -37,6 +37,7 @@ the main partition but keeping historical data for analysis.
 
 - New partitions inherit the parent database table properties, including the
   following:
+
   - Indexes
   - Primary keys, which must include the partition key column
   - Foreign keys
@@ -237,6 +238,7 @@ Following, you can find a step-by-step explanation of the preceding example:
    table.
 4. Run the command `SET` . . . to configure the
    `data_mart.events` table, with these clauses:
+
    1. `infinite_time_partitions = true,` – Configures
       the table to be able to automatically create new partitions without
       any limit.

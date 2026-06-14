@@ -43,6 +43,7 @@ apply.
 - In RDS Custom, you can manually specify an arbitrary number of hours to retain
   archived redo logs before RDS Custom deletes them after upload. Specify the number of
   hours as follows:
+
   1.  Create a text file named
       `/opt/aws/rdscustomagent/config/redo_logs_custom_configuration.json`.
   2.  Add a JSON object in the following format:
@@ -55,6 +56,7 @@ apply.
   you create or modify a PDB, we recommend that you always back it up.
 - We recommend that you don't customize database initialization parameters. For example, modifying the following
   parameters affects PITR:
+
   - `CONTROL_FILE_RECORD_KEEP_TIME` affects the rules for uploading and deleting logs.
   - `LOG_ARCHIVE_DEST_*n*` doesn't
     support multiple destinations.

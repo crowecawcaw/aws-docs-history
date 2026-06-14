@@ -37,12 +37,14 @@ Before you attempt to create or connect to an RDS Custom DB instance, complete t
    **Standard create**.
 5. In the **Engine options** section, do the
    following:
+
    1. For **Engine type**, choose
       **Oracle**.
    2. For **Database management type**, choose
       **Amazon RDS Custom**.
    3. For **Architecture settings**, do one of the
       following:
+
       - Select **Multitenant architecture** to
         create a container database (CDB). At creation, your CDB
         contains one PDB seed and one initial PDB.
@@ -73,6 +75,7 @@ Before you attempt to create or connect to an RDS Custom DB instance, complete t
 6. In **Templates**, choose
    **Production**.
 7. In the **Settings** section, do the following:
+
    1. For **DB instance identifier**, enter a unique name for
       your DB instance.
    2. For **Master username**, enter a username. You
@@ -103,6 +106,7 @@ For supported classes, see [DB instance class support for RDS Custom for Oracle]
     private cloud (VPC)**, **DB subnet group**,
     and **VPC security group (firewall)**.
 11. For **RDS Custom security**, do the following:
+
     1.  For **IAM instance profile**, choose the
         instance profile for your RDS Custom for Oracle DB instance.
 
@@ -116,6 +120,7 @@ For supported classes, see [DB instance class support for RDS Custom for Oracle]
     [Step 1: Create or reuse a symmetric encryption AWS KMS key](custom-setup-orcl.md#custom-setup-orcl.cmk "custom-setup-orcl.md#custom-setup-orcl.cmk").
 
 12. For **Database options**, do the following:
+
     1.  (Optional) For **System ID (SID)**, enter a value
         for the Oracle SID, which is also the name of your CDB. The SID is
         the name of the Oracle database instance that manages your database

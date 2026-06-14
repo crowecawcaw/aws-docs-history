@@ -54,6 +54,7 @@ RDS for MySQL DB instance.
   data consistency and durability before you create your blue/green deployment. For more
   information, see [Using GTID-based replication](mysql-replication-gtid.md "mysql-replication-gtid.md").
 - If the green environment experiences replica lag, consider the following:
+
   - Temporarily set the `innodb_flush_log_at_trx_commit` parameter to
     `2` in the green DB parameter group. After replication
     catches up, revert to the default value of `1` before switchover. If an
@@ -98,6 +99,7 @@ from an RDS for PostgreSQL DB instance.
   blue/green deployment. For more information, see [Upgrading PostgreSQL extensions in RDS for PostgreSQL databases](USER_UpgradeDBInstance.PostgreSQL.ExtensionUpgrades.md "USER_UpgradeDBInstance.PostgreSQL.ExtensionUpgrades.md").
 - Long-running transactions can cause significant replica lag. To reduce replica
   lag, consider doing the following:
+
   - Reduce long-running transactions that can be delayed until after the green
     environment catches up to the blue environment.
   - Reduce bulk operations on the blue environment until after the green
@@ -143,6 +145,7 @@ replication instead of physical replication, see [PostgreSQL replication methods
   `logical_decoding_work_mem` DB parameter in the blue environment. Doing so
   allows for less decoding on disk and instead uses memory. For more information, see
   the [PostgreSQL documentation](https://www.postgresql.org/docs/13/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM "https://www.postgresql.org/docs/13/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM").
+
   - You can monitor transaction overflow being written to disk using the
     `ReplicationSlotDiskUsage` CloudWatch metric. This metric offers insights
     into the disk usage of replication slots, helping identify when transaction data

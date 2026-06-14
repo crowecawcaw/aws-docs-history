@@ -76,6 +76,7 @@ One way of creating an option group is by using the AWS Management Console.
 3. Choose **Create group**.
 4. In the **Create option group** window, do the
    following:
+
    1. For **Name**, type a name for the option
       group that is unique within your AWS account. The name can
       contain only letters, digits, and hyphens.
@@ -84,6 +85,7 @@ One way of creating an option group is by using the AWS Management Console.
       display purposes.
    3. For **Engine**, choose any of the
       following RDS Custom for Oracle DB engines:
+
       - **custom-oracle-ee**
       - **custom-oracle-se2**
       - **custom-oracle-ee-cdb**

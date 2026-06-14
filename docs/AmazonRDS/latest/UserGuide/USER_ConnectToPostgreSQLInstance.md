@@ -26,6 +26,7 @@ accessibility, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.Sce
 - [Connecting to RDS for PostgreSQL with the Amazon Web Services (AWS) JDBC Driver](PostgreSQL.Connecting.JDBCDriver.md "PostgreSQL.Connecting.JDBCDriver.md")
 - [Connecting to RDS for PostgreSQL with the Amazon Web Services (AWS) Python Driver](PostgreSQL.Connecting.PythonDriver.md "PostgreSQL.Connecting.PythonDriver.md")
 - [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.Troubleshooting.md "USER_ConnectToPostgreSQLInstance.Troubleshooting.md")
+
   - [Error – FATAL: database name does not exist](USER_ConnectToPostgreSQLInstance.Troubleshooting.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname "USER_ConnectToPostgreSQLInstance.Troubleshooting.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-DBname")
   - [Error – Could not connect to server: Connection timed out](USER_ConnectToPostgreSQLInstance.Troubleshooting.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout "USER_ConnectToPostgreSQLInstance.Troubleshooting.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-timeout")
   - [Errors with security group access rules](USER_ConnectToPostgreSQLInstance.Troubleshooting.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules "USER_ConnectToPostgreSQLInstance.Troubleshooting.md#USER_ConnectToPostgreSQLInstance.Troubleshooting-AccessRules")

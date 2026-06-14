@@ -279,6 +279,7 @@ found on the AWS site. In addition, you need the following:
   looks for the certificate in the same directory as this Java code
   example, so that the class loader can find it.
 - Modify the values of the following variables as needed:
+
   - `RDS_INSTANCE_HOSTNAME` – The host name of
     the DB instance that you want to
     access.

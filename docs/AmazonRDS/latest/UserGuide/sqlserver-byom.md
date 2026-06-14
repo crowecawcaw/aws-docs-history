@@ -12,6 +12,8 @@ You download your SQL Server Release To Manufacturing (RTM) installation media a
 
 After Amazon RDS creates the instance, it manages all ongoing database operations including patching, automated backups, high availability, and monitoring using the same infrastructure as License Included instances. BYOM supports SQL Server Enterprise Edition and Standard Edition.
 
+Amazon RDS SQL Server also supports BYOM for Developer Edition, however, there are some feature differences between them. For more details, see [Differences between Developer Edition and BYOM](sqlserver-byom-comparison.md "sqlserver-byom-comparison.md").
+
 ## Benefits
 
 - **Use your existing licenses** You pay for AWS infrastructure (compute, storage, I/O, and data transfer) and Windows OS fees. Your existing Microsoft licenses cover the SQL Server license cost. AWS does not charge a SQL Server license fee.
@@ -104,11 +106,13 @@ There is no additional charge for AWS License Manager. For pricing information, 
 - **Major version upgrades** In-place major version upgrades are not supported. You cannot upgrade a BYOM instance from SQL Server 2019 to SQL Server 2022 directly. To move to a newer major version, create a new BYOM DB instance with the target version and migrate your data using native backup and restore.
 - A BYOM engine version is specific to your AWS account and Region. Each account must create its own BYOM engine versions independently. Cross-account operations are currently not supported.
 - **Cross-region operations** BYOM engine versions are Region-specific. To perform cross-region operations, you must first create a BYOM engine version for the same engine version in the target Region. This applies to:
+
   - Cross-region read replicas
   - Cross-region snapshot copies
   - Cross-region automated backup replication
 
 - BYOM does not support the following features:
+
   - SQL Server Analysis Services (SSAS)
   - SQL Server Reporting Services (SSRS)
 

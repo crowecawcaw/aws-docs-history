@@ -12,6 +12,7 @@ When your blue instance is attached to RDS Proxy, the following process occurs
 during switchover:
 
 - Switchover Guardrails
+
   - Amazon RDS runs additional guardrail checks to validate that the proxy can
     successfully reach both blue and green environments and is ready for
     switchover.
@@ -37,6 +38,7 @@ For the list of switchover actions, see [Switchover actions](../AuroraUserGuide/
      occurred.
 
 - RDS Proxy API Behavior
+
   - Proxy APIs such as `describe-db-proxy-targets` reflect the updated
     targets only after the switchover is fully complete, even though traffic routing
     occurs earlier.

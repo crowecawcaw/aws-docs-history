@@ -32,6 +32,7 @@ volumes with RDS for SQL Server:
 - You can add up to 3 additional storage volumes per instance.
 - Volume names are automatically mapped to Windows drive letters as
   follows:
+
   - `rdsdbdata2` – `H:` drive
   - `rdsdbdata3` – `I:` drive
   - `rdsdbdata4` – `J:` drive

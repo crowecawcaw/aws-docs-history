@@ -26,17 +26,21 @@ Resource governor uses three fundamental concepts:
 - [Supported versions and Regions](Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.SupportedVersions "Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.SupportedVersions")
 - [Limitations and recommendations](Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.Limitations "Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.Limitations")
 - [Enabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.Enabling.md "ResourceGovernor.Enabling.md")
+
   - [Creating the option group for RESOURCE_GOVERNOR](ResourceGovernor.Enabling.md#ResourceGovernor.OptionGroup "ResourceGovernor.Enabling.md#ResourceGovernor.OptionGroup")
   - [Adding the RESOURCE_GOVERNOR option to the option group](ResourceGovernor.Enabling.md#ResourceGovernor.Add "ResourceGovernor.Enabling.md#ResourceGovernor.Add")
   - [Associating the option group with your DB instance](ResourceGovernor.Enabling.md#ResourceGovernor.Apply "ResourceGovernor.Enabling.md#ResourceGovernor.Apply")
 
 - [Using Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.Using.md "ResourceGovernor.Using.md")
+
   - [Manage resource pool](ResourceGovernor.Using.md#ResourceGovernor.ManageResourcePool "ResourceGovernor.Using.md#ResourceGovernor.ManageResourcePool")
+
     - [Create resource Pool](ResourceGovernor.Using.md#ResourceGovernor.CreateResourcePool "ResourceGovernor.Using.md#ResourceGovernor.CreateResourcePool")
     - [Alter resource pool](ResourceGovernor.Using.md#ResourceGovernor.AlterResourcePool "ResourceGovernor.Using.md#ResourceGovernor.AlterResourcePool")
     - [Drop resource pool](ResourceGovernor.Using.md#ResourceGovernor.DropResourcePool "ResourceGovernor.Using.md#ResourceGovernor.DropResourcePool")
 
   - [Manage workload groups](ResourceGovernor.Using.md#ResourceGovernor.ManageWorkloadGroups "ResourceGovernor.Using.md#ResourceGovernor.ManageWorkloadGroups")
+
     - [Create workload group](ResourceGovernor.Using.md#ResourceGovernor.CreateWorkloadGroup "ResourceGovernor.Using.md#ResourceGovernor.CreateWorkloadGroup")
     - [Alter workload group](ResourceGovernor.Using.md#ResourceGovernor.AlterWorkloadGroup "ResourceGovernor.Using.md#ResourceGovernor.AlterWorkloadGroup")
     - [Drop workload group](ResourceGovernor.Using.md#ResourceGovernor.DropWorkloadGroup "ResourceGovernor.Using.md#ResourceGovernor.DropWorkloadGroup")
@@ -53,6 +57,7 @@ Resource governor uses three fundamental concepts:
 - [Considerations for Multi-AZ deployment](Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.Considerations "Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.Considerations")
 - [Considerations for read replicas](Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.ReadReplica "Appendix.SQLServer.Options.ResourceGovernor.md#ResourceGovernor.ReadReplica")
 - [Monitor Microsoft SQL Server resource governor using system views for your RDS for SQL Server instance](ResourceGovernor.Monitoring.md "ResourceGovernor.Monitoring.md")
+
   - [Resource pool runtime statistics](ResourceGovernor.Monitoring.md#ResourceGovernor.ResourcePoolStats "ResourceGovernor.Monitoring.md#ResourceGovernor.ResourcePoolStats")
 
 - [Disabling Microsoft SQL Server resource governor for your RDS for SQL Server instance](ResourceGovernor.Disabling.md "ResourceGovernor.Disabling.md")
@@ -72,27 +77,33 @@ Amazon RDS supports resource governor for the following SQL Server versions and 
 The following limitations and recommendations apply to resource governor:
 
 - Edition and service restrictions:
+
   - Available only in SQL Server Enterprise Edition.
   - Resource management is limited to the SQL Server Database Engine.
     Resource governor for Analysis Services, Integration Services, and Reporting Services are not supported.
 
 - Configuration restrictions:
+
   - Must use Amazon RDS stored procedures for all configurations.
   - Native DDL statements and SQL Server Management Studio GUI configurations aren't supported.
 
 - Resource pool parameters:
+
   - Pool names starting with `rds_` aren't supported.
   - Internal and default resource pool modifications aren't permitted.
   - For the user-defined resource pools the following resource pool parameters aren't supported:
+
     - `MIN_MEMORY_PERCENT`
     - `MIN_CPU_PERCENT`
     - `MIN_IOPS_PER_VOLUME`
     - `AFFINITY`
 
 - Workload group parameters:
+
   - Workload group names starting with `rds_` aren't supported.
   - Internal workload group modification isn't permitted.
   - For the default workload group:
+
     - Only the `REQUEST_MAX_MEMORY_GRANT_PERCENT` parameter can be modified.
     - For the default workload group, `REQUEST_MAX_MEMORY_GRANT_PERCENT` must be between 1 and 70.
     - All other parameters are locked and can't be changed.
@@ -100,6 +111,7 @@ The following limitations and recommendations apply to resource governor:
   - User-defined workload groups allow modification of all parameters.
 
 - Classifier function limitations:
+
   - Classifier function routes connections to custom workload groups
     based on specified criteria (user name, database, host, or application name).
   - Supports up to two user-defined workload groups with their

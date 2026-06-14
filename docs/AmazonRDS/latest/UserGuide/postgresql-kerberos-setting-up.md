@@ -143,7 +143,7 @@ To see information about your directory, choose the directory ID in the director
 listing. Make a note of the **Directory ID** value. You need this
 value when you create or modify your PostgreSQL DB instance.
 
-![Image of details page.](images/WinAuth3.png)
+![The details page.](images/WinAuth3.png)
 
 ## Step 2: (Optional) Create a trust relationship between your on-premises Active Directory and Directory Service
 
@@ -458,6 +458,7 @@ To configure a PostgreSQL client, take the following steps:
 - Create a krb5.conf file (or equivalent) to point to the domain.
 - Verify that traffic can flow between the client host and Directory Service. Use a
   network utility such as Netcat for the following:
+
   - Verify traffic over DNS for port 53.
   - Verify traffic over TCP/UDP for port 53 and for Kerberos, which
     includes ports 88 and 464 for Directory Service.

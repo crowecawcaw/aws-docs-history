@@ -101,6 +101,7 @@ as soon as the option group is active, SQLT is active.
    group or use an existing option group. If you want to use an existing option
    group, skip to the next step. Otherwise, create a custom DB option group with
    the following settings:
+
    1. For **Engine**,
       choose the Oracle edition that you want to use. The SQLT option is supported on all editions.
    2. For **Major engine version**,
@@ -111,12 +112,14 @@ as soon as the option group is active, SQLT is active.
    For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 3. Apply the option group to a new or existing DB instance:
+
    - For a new DB instance, you apply the option group when you launch the instance.
      For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
    - For an existing DB instance, you apply the option group by modifying the instance and attaching the new option group.
      For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 
 4. (Optional) Verify the SQLT installation on each DB instance with the SQLT option.
+
    1. Use a SQL client to connect to the DB instance as the master user.
 
    For information about connecting to an Oracle DB instance using a SQL
@@ -133,6 +136,7 @@ as soon as the option group is active, SQLT is active.
    available on Amazon RDS.
 
 5. Change the passwords of the users that are created by the SQLT option.
+
    1. Use a SQL client to connect to the DB instance as the master user.
    2. Run the following SQL statement to change the password for the `SQLTXADMIN` user:
 

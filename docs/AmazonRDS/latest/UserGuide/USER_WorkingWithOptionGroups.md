@@ -133,6 +133,7 @@ One way of creating an option group is by using the AWS Management Console.
    groups**.
 3. Choose **Create group**.
 4. In the **Create option group** window, do the following:
+
    1. For **Name**, type a name for the option group that is unique
       within your AWS account. The name can contain only letters, digits, and hyphens.
    2. For **Description**, type a brief description of the option group.
@@ -640,6 +641,7 @@ You can use the AWS Management Console to remove an option from an option group.
    remove, and then choose **Delete option**.
 4. In the **Delete option** window, do the
    following:
+
    - Select the check box for the option that you want to delete.
    - For the deletion to take effect as soon as you make it, for
      **Apply immediately**, choose

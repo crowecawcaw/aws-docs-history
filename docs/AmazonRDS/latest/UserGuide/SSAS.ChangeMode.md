@@ -21,6 +21,7 @@ sets the `MAX_MEMORY` parameter to 70 percent.
    (`ssas-se-2017` in the previous examples).
 4. Choose **Modify option**.
 5. Change the option settings:
+
    1. For **Max memory**, enter `70`.
    2. For **Mode**, choose **Tabular**.
 

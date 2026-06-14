@@ -31,6 +31,7 @@ transmission, storage, and processing of the streams.
 
 - [How database activity streams work](DBActivityStreams.md#DBActivityStreams.Overview.how-they-work "DBActivityStreams.md#DBActivityStreams.Overview.how-they-work")
 - [Auditing in Oracle Database and Microsoft SQL Server Database](DBActivityStreams.md#DBActivityStreams.Overview.auditing "DBActivityStreams.md#DBActivityStreams.Overview.auditing")
+
   - [Unified auditing in Oracle Database](DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing "DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing")
   - [Auditing in Microsoft SQL Server](DBActivityStreams.md#DBActivityStreams.Overview.SQLServer-auditing "DBActivityStreams.md#DBActivityStreams.Overview.SQLServer-auditing")
   - [Non-native audit fields for Oracle Database and SQL Server](DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing.non-native "DBActivityStreams.md#DBActivityStreams.Overview.unified-auditing.non-native")

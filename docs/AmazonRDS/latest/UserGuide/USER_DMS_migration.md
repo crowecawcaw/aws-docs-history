@@ -40,6 +40,7 @@ The migration process involves the following steps:
   in the _AWS Database Migration Service User Guide_. For instructions on creating your database, see
   [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
 - Choose the type of replication for your database:
+
   - **Full load migration** – RDS copies the complete source database
     to the target database, creating new tables in the target when necessary.
 
@@ -72,6 +73,7 @@ type of replication and the size of the source database.
 - [Setting up a network](../../../dms/latest/userguide/dm-network.md "../../../dms/latest/userguide/dm-network.md")
   (for EC2s in the same region, account and VPC, it can be skipped)
 - Setting up source and target databases
+
   - **MySQL and MariaDB**
 
   Please follow the following basic prerequisites for your source database:
@@ -107,6 +109,7 @@ The following limitations apply to the auto-migrate process:
 
 - Your target database status must be **Available** to begin source database migration.
 - You can migrate your source database only to a database:
+
   - that is not a member of a cluster
   - that uses a supported version of MySQL, PostgreSQL, or MariaDB as listed
     [here](../../../dms/latest/userguide/CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations "../../../dms/latest/userguide/CHAP_Introduction.Sources.md#CHAP_Introduction.Sources.HomogeneousDataMigrations")

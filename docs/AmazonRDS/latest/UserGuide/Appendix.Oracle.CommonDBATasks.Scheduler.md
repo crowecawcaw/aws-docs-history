@@ -66,6 +66,7 @@ window settings for the following reasons:
   load, you might see wait events such as `resmgr:cpu quantum`.
   This wait event is related to Database Resource Manager. You have the
   following options:
+
   - Ensure that maintenance windows are active during off-peak times
     for your DB instance.
   - Disable the default maintenance plan by setting the

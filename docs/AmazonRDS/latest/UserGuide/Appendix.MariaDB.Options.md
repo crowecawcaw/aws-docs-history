@@ -63,6 +63,7 @@ As soon as the option group is active, auditing begins immediately.
    For more information about each setting,
    see [Audit Plugin option settings](#Appendix.MariaDB.Options.AuditPlugin.Options "#Appendix.MariaDB.Options.AuditPlugin.Options").
 3. Apply the option group to a new or existing DB instance.
+
    - For a new DB instance, you apply the option group when you launch the instance.
      For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
    - For an existing DB instance, you apply the option group by modifying the DB instance and attaching the new option group.

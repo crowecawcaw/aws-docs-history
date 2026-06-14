@@ -73,6 +73,7 @@ parameters in this list:
   parameter. The default is 0.
 - `log_output `option``: You can specify one of the following
 options for the `log_output` parameter.
+
   - TABLE
     (default) – Write general queries to the
     `mysql.general_log` table, and slow queries to the `mysql.slow_log` table.

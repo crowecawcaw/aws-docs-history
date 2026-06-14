@@ -1,6 +1,6 @@
 # Working with SQL Server Developer Edition on RDS for SQL Server
 
-RDS for SQL Server supports SQL Server Developer Edition. Developer Edition includes all SQL Server Enterprise Edition features but is licensed only for non-production use. You can create RDS for SQL Server Developer Edition instances using your own installation media through the custom engine version (CEV) feature.
+RDS for SQL Server supports SQL Server Developer Edition. Developer Edition includes all SQL Server Enterprise Edition features but is licensed only for non-production use. You can create RDS for SQL Server Developer Edition instances using your own installation media through the custom engine version (CEV) feature. Amazon RDS SQL Server also supports Bring Your Own Media (BYOM) for Standard Edition and Enterprise Edition, however, there are some feature differences between them. For more details, see [Differences between Developer Edition and BYOM](sqlserver-byom-comparison.md "sqlserver-byom-comparison.md").
 
 ## Benefits
 
@@ -49,6 +49,7 @@ Before using SQL Server Developer Edition on RDS for SQL Server, ensure you have
 
 - You must obtain the installation binaries directly from Microsoft and ensure compliance with Microsoft's licensing terms.
 - You must have access to use the following resources to create a Developer Edition DB instance:
+
   - AWS account with `AmazonRDSFullAccess` and `s3:GetObject` permissions.
 
 - An Amazon S3 bucket is required for storing installation media. You will need an ISO and cumulative update file to upload to the Amazon S3 bucket as part of CEV creation. For more information, see [Uploading installation media to an Amazon S3 bucket](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md").

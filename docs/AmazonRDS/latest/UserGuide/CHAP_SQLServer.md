@@ -172,6 +172,7 @@ of SQL Server 2019 (15.x)](https://docs.microsoft.com/en-us/sql/sql-server/editi
   can't install any components on the same server as the DB instance.
 
 - The minimum storage size for SQL Server DB instances is the following:
+
   - General Purpose (SSD) storage – 20 GiB for Enterprise, Standard, Web, and Express Editions
   - Provisioned IOPS storage – 20 GiB for Enterprise, Standard, Web, and Express Editions
   - Magnetic storage – 20 GiB for Enterprise, Standard, Web, and Express Editions
@@ -198,6 +199,7 @@ DATABASE` command was issued. This type of restore means that you
   the transaction logs for that database.
 - For SQL Server, you create your databases after you create your DB instance. Database names follow the usual SQL Server naming rules
   with the following differences:
+
   - Database names can't start with `rdsadmin`.
   - They can't start or end with a space or a tab.
   - They can't contain any of the characters that create a new line.

@@ -68,6 +68,7 @@ The following options are used to copy a DB snapshot. Not all options are requir
 examples that follow to determine which options to use.
 
 - `--source-db-snapshot-identifier` – The identifier for the source DB snapshot.
+
   - If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot identifier. For example,
     `rds:mysql-instance1-snapshot-20130805`.
   - If the source snapshot is in the same AWS Region as the copy, and has been shared with your
@@ -96,6 +97,7 @@ more information, see [Considerations for option groups](#USER_CopySnapshot.Opti
 
 - `--kms-key-id` – The KMS key identifier for an encrypted DB snapshot.
   The KMS key identifier is the Amazon Resource Name (ARN), key identifier, or key alias for the KMS key.
+
   - If you copy an encrypted DB snapshot from your AWS account, you can specify a value for this parameter to encrypt the copy
     with a new KMS key. If you don't specify a value for this parameter, then the copy of the DB snapshot
     is encrypted with the same KMS key as the source DB snapshot.
@@ -196,6 +198,7 @@ The following parameters are used to copy a DB snapshot. Not all parameters are 
 and the examples that follow to determine which parameters to use.
 
 - `SourceDBSnapshotIdentifier` – The identifier for the source DB snapshot.
+
   - If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot identifier. For example,
     `rds:mysql-instance1-snapshot-20130805`.
   - If the source snapshot is in the same AWS Region as the copy, and has been shared with your
@@ -223,6 +226,7 @@ when copying across Regions. For more information, see [Considerations for optio
 
 - `KmsKeyId` – The KMS key identifier for an encrypted DB snapshot. The KMS key identifier is the Amazon
   Resource Name (ARN), key identifier, or key alias for the KMS key.
+
   - If you copy an encrypted DB snapshot from your AWS account, you can specify a value for this parameter to encrypt the copy
     with a new KMS key. If you don't specify a value for this parameter, then the copy of the DB snapshot
     is encrypted with the same KMS key as the source DB snapshot.

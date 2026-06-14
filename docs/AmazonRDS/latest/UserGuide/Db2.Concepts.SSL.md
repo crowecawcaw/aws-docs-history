@@ -128,6 +128,7 @@ done
 4. To connect to your Db2 server, run the following command. Replace
    the following placeholders in the example with your RDS for Db2 DB
    instance information.
+
    - `ip_address` – The IP
      address for your DB instance endpoint.
    - `port` – The port number
@@ -165,6 +166,7 @@ Node.js
 2. Create a JavaScript file based on the following
    content. Replace the following placeholders in the example with your
    RDS for Db2 DB instance information.
+
    - `ip_address` – The IP
      address for your DB instance endpoint.
    - `master_username` – The
@@ -207,6 +209,7 @@ Python
 1. Create a Python file with the following content.
    Replace the following placeholders in the example with your RDS for Db2
    DB instance information.
+
    - `port` – The port number
      for the SSL connection. This can be any port number except
      the number that's used for the non-SSL port.

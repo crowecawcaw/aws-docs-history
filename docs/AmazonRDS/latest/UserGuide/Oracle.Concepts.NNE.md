@@ -9,6 +9,7 @@ NNE has the following advantages over TLS:
 
 - You can control NNE on the client and server using settings in the NNE
   option:
+
   - `SQLNET.ALLOW_WEAK_CRYPTO_CLIENTS` and
     `SQLNET.ALLOW_WEAK_CRYPTO`
   - `SQLNET.CRYPTO_CHECKSUM_CLIENT` and

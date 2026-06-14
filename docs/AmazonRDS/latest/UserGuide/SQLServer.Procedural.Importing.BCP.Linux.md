@@ -15,6 +15,7 @@ Before using BCP with your RDS for SQL Server DB instance from Linux, ensure you
 
 - A Linux environment with network connectivity to your RDS for SQL Server DB instance
 - Microsoft SQL Server command-line tools installed on your Linux system, including:
+
   - sqlcmd - SQL Server command-line query tool
   - bcp - Bulk Copy Program utility
 

@@ -57,6 +57,7 @@ A `passcheck` hook function takes the following arguments.
 - `password_type` – Specify the
   `pgtle.password_type` format of the password. This format can
   be one of the following options.
+
   - `PASSWORD_TYPE_PLAINTEXT` – A plaintext
     password.
   - `PASSWORD_TYPE_MD5` – A password that's

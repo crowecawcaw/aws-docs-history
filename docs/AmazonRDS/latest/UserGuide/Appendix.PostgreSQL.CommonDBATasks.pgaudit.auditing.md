@@ -17,7 +17,7 @@ track changes in the following ways.
   The following steps assume that `pgaudit` has been initialized and that
   you have created the `pgaudit` extension by following the procedure in [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md "Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md").
 
-![Image of the PostgreSQL log file after setting up pgAudit.](images/pgaudit-log-example.png)
+![The PostgreSQL log file after setting up pgAudit.](images/pgaudit-log-example.png)
 As shown in this example, the "LOG: AUDIT: SESSION" line provides information about the table and its schema, among other
 details.
 

@@ -78,7 +78,7 @@ page.
 
 
 
-    ![Choose an Amazon Machine Image.](images/Tutorial_WebServer_12.png)
+    ![The Amazon Machine Image selection.](images/Tutorial_WebServer_12.png)
     3. Under **Instance type**, choose **t2.micro**.
     4. Under **Key pair (login)**, choose a **Key pair name** to use an existing key
      pair. To create a new key pair for the Amazon EC2 instance, choose **Create new key pair**
@@ -278,6 +278,7 @@ sure your resources are created properly. Follow the steps below:
    **Next**.
 4. In the **Specify stack details** page, set the following
    parameters:
+
    1. Set **Stack name** to
       **PostgreSQLTestStack**.
    2. Under **Parameters**, set **Availability
@@ -332,6 +333,7 @@ client.
 ###### To connect to a PostgreSQL DB instance using psql
 
 1. Find the endpoint (DNS name) and port number for your DB instance.
+
    1. Sign in to the AWS Management Console and open the Amazon RDS console at
       [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
    2. In the upper-right corner of the Amazon RDS console, choose the

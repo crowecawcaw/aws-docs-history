@@ -19,8 +19,10 @@ If you change the secret later, you also have to update the `SSRS` option in the
 
 1. Follow the steps in [Create a
    secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User Guide_.
+
    1. For **Select secret type**, choose **Other type of secrets**.
    2. For **Key/value pairs**, enter the following:
+
       - `SMTP_USERNAME` – Enter a user with permission to send mail from the SMTP
         server.
       - `SMTP_PASSWORD` – Enter a password for the SMTP user.

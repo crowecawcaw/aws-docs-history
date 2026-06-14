@@ -50,6 +50,7 @@ The following general limitations apply to blue/green deployments:
 - Amazon RDS Proxy with blue/green deployments is not supported for Aurora Global
   Databases.
 - Blue/green deployments aren't supported for the following features:
+
   - Cascading read replicas
   - Cross-Region read replicas
   - CloudFormation
@@ -87,6 +88,7 @@ replication instead of logical replication, see [PostgreSQL replication methods 
   (subscriber).
 - Blue/Green deployments have the following limitations when configuring delayed
   replication in RDS for PostgreSQL:
+
   - **Green source instance** — The
     `recovery_min_apply_delay parameter` is disregarded, even
     if configured in the parameter group. Any delay settings on the green
@@ -124,6 +126,7 @@ replication instead of physical replication, see [PostgreSQL replication methods
   (AWS DMS)](../../../dms/latest/userguide/data-migrations.md "../../../dms/latest/userguide/data-migrations.md").
 - Blue/Green deployments have the following limitations when configuring delayed
   replication in RDS for PostgreSQL:
+
   - **Green source instance** — The
     `recovery_min_apply_delay parameter` is disregarded, even
     if configured in the parameter group. Any delay settings on the green
@@ -140,6 +143,7 @@ replication instead of physical replication, see [PostgreSQL replication methods
   blue environment to the green environment. However, existing partitioned tables and
   their data will be replicated to the green environment.
 - The following limitations apply to PostgreSQL extensions:
+
   - The `pg_partman` extension must be disabled in the blue environment
     when you create a blue/green deployment. The extension performs DDL operations
     such as `CREATE TABLE`, which break logical replication from the blue

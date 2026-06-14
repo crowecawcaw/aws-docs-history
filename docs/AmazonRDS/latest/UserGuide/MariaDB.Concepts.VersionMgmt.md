@@ -45,7 +45,8 @@ supports.
 
 | MariaDB engine version | Community release date | RDS release date | RDS end of standard support date |
 | ---------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 11.8.6                 | 04 February 2026       | 10 February 2026 | February 2027                    |
+| 11.8.8                 | 27 May 2026            | 5 June 2026      | June 2027                        |
+| 11.8.6                 | 4 February 2026        | 10 February 2026 | February 2027                    |
 | 11.8.5                 | 14 November 2025       | 20 November 2025 | November 2026                    |
 | 11.8.3                 | 6 August 2025          | 25 August 2025   | September 2026                   |
 
@@ -54,7 +55,8 @@ supports.
 
 | MariaDB engine version | Community release date | RDS release date | RDS end of standard support date |
 | ---------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 11.4.10                | 04 February 2026       | 10 February 2026 | February 2027                    |
+| 11.4.12                | 27 May 2026            | 5 June 2026      | June 2027                        |
+| 11.4.10                | 4 February 2026        | 10 February 2026 | February 2027                    |
 | 11.4.9                 | 6 November 2025        | 18 November 2025 | November 2026                    |
 | 11.4.8                 | 6 August 2025          | 13 August 2025   | September 2026                   |
 | 11.4.7                 | 22 May 2025            | 4 June 2025      | September 2026                   |
@@ -67,7 +69,8 @@ supports.
 
 | MariaDB engine version | Community release date | RDS release date | RDS end of standard support date |
 | ---------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 10.11.16               | 04 February 2026       | 10 February 2026 | February 2027                    |
+| 10.11.18               | 27 May 2026            | 5 June 2026      | June 2027                        |
+| 10.11.16               | 4 February 2026        | 10 February 2026 | February 2027                    |
 | 10.11.15               | 6 November 2025        | 18 November 2025 | November 2026                    |
 | 10.11.14               | 6 August 2025          | 13 August 2025   | September 2026                   |
 | 10.11.13               | 22 May 2025            | 4 June 2025      | September 2026                   |
@@ -80,10 +83,11 @@ supports.
 
 | MariaDB engine version | Community release date | RDS release date | RDS end of standard support date |
 | ---------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 10.6.25                | 04 February 2026       | 10 February 2026 | July 2026                        |
-| 10.6.24                | 6 November 2025        | 18 November 2025 | July 2026                        |
-| 10.6.23                | 6 August 2025          | 13 August 2025   | July 2026                        |
-| 10.6.22                | 6 May 2025             | 20 May 2025      | July 2026                        |
+| 10.6.27                | 27 May 2026            | 5 June 2026      | July 2026                        |
+| 10.6.25                | 4 February 2026        | 10 February 2026 | November 2026                    |
+| 10.6.24                | 6 November 2025        | 18 November 2025 | November 2026                    |
+| 10.6.23                | 6 August 2025          | 13 August 2025   | November 2026                    |
+| 10.6.22                | 6 May 2025             | 20 May 2025      | November 2026                    |
 | 10.6.21                | 4 February 2025        | 24 February 2025 | May 2026                         |
 | 10.6.20                | 1 November 2024        | 20 December 2024 | May 2026                         |
 | 10.6.19                | 8 August 2024          | 4 September 2024 | May 2026                         |
@@ -93,8 +97,8 @@ supports.
 
 | MariaDB engine version | Community release date | RDS release date | RDS end of standard support date |
 | ---------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 10.5.29                | 6 May 2025             | 20 May 2025      | June 2026                        |
-| 10.5.28                | 4 February 2025        | 24 February 2025 | June 2026                        |
+| 10.5.29                | 6 May 2025             | 20 May 2025      | August 2026                      |
+| 10.5.28                | 4 February 2025        | 24 February 2025 | August 2026                      |
 | 10.5.27                | 1 November 2024        | 20 December 2024 | May 2026                         |
 
 You can specify any currently supported MariaDB version when creating a new DB
@@ -134,21 +138,25 @@ aws rds describe-db-engine-versions --default-only --engine mariadb --engine-ver
 
 ###### Minor versions
 
+- [MariaDB version 11.8.8](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.8.8 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.8.8")
 - [MariaDB version 11.8.6](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.8.6 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.8.6")
 - [MariaDB version 11.8.5](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.8.5 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.8.5")
 - [MariaDB version 11.8.3](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.8.3 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.8.3")
+- [MariaDB version 11.4.12](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.12 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.12")
 - [MariaDB version 11.4.10](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.10 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.10")
 - [MariaDB version 11.4.9](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.9 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.9")
 - [MariaDB version 11.4.8](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.8 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.8")
 - [MariaDB version 11.4.7](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.7 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.7")
 - [MariaDB version 11.4.5](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.5 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.5")
 - [MariaDB version 11.4.4](#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.4 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.11.4.4")
+- [MariaDB version 10.11.18](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.18 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.18")
 - [MariaDB version 10.11.16](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.16 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.16")
 - [MariaDB version 10.11.15](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.15 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.15")
 - [MariaDB version 10.11.14](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.14 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.14")
 - [MariaDB version 10.11.13](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.13 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.13")
 - [MariaDB version 10.11.11](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.11 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.11")
 - [MariaDB version 10.11.10](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.10 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.11.10")
+- [MariaDB version 10.6.27](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.6.27 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.6.27")
 - [MariaDB version 10.6.25](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.6.25 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.6.25")
 - [MariaDB version 10.6.24](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.6.24 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.6.24")
 - [MariaDB version 10.6.23](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.6.23 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.6.23")
@@ -158,6 +166,16 @@ aws rds describe-db-engine-versions --default-only --engine mariadb --engine-ver
 - [MariaDB version 10.5.29](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.5.29 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.5.29")
 - [MariaDB version 10.5.28](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.5.28 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.5.28")
 - [MariaDB version 10.5.27](#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.5.27 "#MariaDB.Concepts.VersionMgmt.Supported.Minor.10.5.27")
+
+#### MariaDB version 11.8.8
+
+MariaDB version 11.8.8 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MariaDB community and Amazon RDS.
+
+**New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2026b`.
 
 #### MariaDB version 11.8.6
 
@@ -184,6 +202,16 @@ and improvements added by the MariaDB community and Amazon RDS.
 
 - **New default value for parameter** – The default value of `require_secure_transport` parameter changed from `0` to `1`, enforcing secure transport connections by default.
   For more information, see [Requiring SSL/TLS for all connections to a MariaDB DB instance on Amazon RDS](mariadb-ssl-connections.require-ssl.md "mariadb-ssl-connections.require-ssl.md").
+
+#### MariaDB version 11.4.12
+
+MariaDB version 11.4.12 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MariaDB community and Amazon RDS.
+
+**New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2026b`.
 
 #### MariaDB version 11.4.10
 
@@ -237,6 +265,16 @@ and improvements added by the MariaDB community and Amazon RDS.
   recovery (PITR) to fail. For more information, see [MariaDB Server Jira
   issue MDEV-35528](https://jira.mariadb.org/browse/MDEV-35528 "https://jira.mariadb.org/browse/MDEV-35528").
 
+#### MariaDB version 10.11.18
+
+MariaDB version 10.11.18 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MariaDB community and Amazon RDS.
+
+**New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2026b`.
+
 #### MariaDB version 10.11.16
 
 MariaDB version 10.11.16 is now available on Amazon RDS. This release contains fixes
@@ -288,6 +326,16 @@ fixes and improvements added by the MariaDB community and Amazon RDS.
 - Reverted two MariaDB community changes that cause point-in-time
   recovery (PITR) to fail. For more information, see [MariaDB Server Jira
   issue MDEV-35528](https://jira.mariadb.org/browse/MDEV-35528 "https://jira.mariadb.org/browse/MDEV-35528").
+
+#### MariaDB version 10.6.27
+
+MariaDB version 10.6.27 is now available on Amazon RDS. This release contains fixes
+and improvements added by the MariaDB community and Amazon RDS.
+
+**New features and enhancements**
+
+- Updated the time zone information to base it on
+  `tzdata2026b`.
 
 #### MariaDB version 10.6.25
 
@@ -392,7 +440,7 @@ running the [describe-db-major-engine-versions](../../../cli/latest/reference/rd
 | MariaDB 11.8          | 6 August 2025          | 25 August 2025   | June 2030                  | June 2030                        |
 | MariaDB 11.4          | 8 August 2024          | 15 October 2024  | May 2029                   | May 2029                         |
 | MariaDB 10.11         | 16 February 2023       | 21 August 2023   | 16 February 2028           | February 2028                    |
-| MariaDB 10.6          | 6 July 2021            | 3 February 2022  | 6 July 2026                | August 2026                      |
+| MariaDB 10.6          | 6 July 2021            | 3 February 2022  | 6 July 2026                | November 2026                    |
 | MariaDB 10.5          | 24 June 2020           | 21 January 2021  | 24 June 2025               | August 2026                      |
 
 ## Working with the Database Preview environment

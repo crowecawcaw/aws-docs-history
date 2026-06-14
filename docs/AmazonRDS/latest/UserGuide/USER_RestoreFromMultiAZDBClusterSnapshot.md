@@ -24,6 +24,7 @@ Single-AZ deployment or Multi-AZ DB instance deployment.
 4. For **Actions**, choose **Restore snapshot**.
 5. On the **Restore snapshot** page, in **Availability and durability**,
    choose one of the following:
+
    - **Single DB instance** – Restores the snapshot to one DB instance
      with no standby DB instance.
    - **Multi-AZ DB instance** – Restores the snapshot to a Multi-AZ DB instance deployment with one primary DB instance and one standby DB instance.

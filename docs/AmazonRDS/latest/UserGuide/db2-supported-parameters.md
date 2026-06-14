@@ -133,6 +133,7 @@ db2 "select service_level, fixpack_num from table(sysproc.env_get_inst_info()) a
 ```
 
 3. View the parameters for a specific Db2 version.
+
    - View database manager configuration parameters by running the
      following command:
 
@@ -143,7 +144,6 @@ db2 "select service_level, fixpack_num from table(sysproc.env_get_inst_info()) a
        from sysibmadm.dbmcfg
        order by name asc with UR"
    ```
-
    - View all of your database configuration parameters by running the
      following command:
 
@@ -153,7 +153,6 @@ db2 "select service_level, fixpack_num from table(sysproc.env_get_inst_info()) a
        cast(substr(value,1,64) as varchar(64)) as current_value
        from table(db_get_cfg(null)) order by name asc, member asc with UR"
    ```
-
    - View the currently set registry variables by running the following
      command:
 

@@ -47,6 +47,7 @@ When you make direct storage changes using Amazon EC2 or Amazon EBS, Amazon RDS 
 3. Choose the DB instance that you want to modify.
 4. Choose **Modify**.
 5. Make the following changes as needed:
+
    1. Enter a new value for **Allocated storage**. It must be greater than the current value, and from 20
       GiB–16 TiB.
    2. Change the value for **Storage type**. You can choose from the available General Purpose

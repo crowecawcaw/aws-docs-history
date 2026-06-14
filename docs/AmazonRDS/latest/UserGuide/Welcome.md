@@ -118,7 +118,7 @@ standalone database instance. You can create and modify a DB instance by using t
 The following image shows a typical use case of a dynamic website that uses Amazon RDS
 DB instances for database storage:
 
-![Shows a Region that contains a VPC containing two Availability Zones. Each AZ contains an application server and DB instance. An Elastic Load Balancer forwards user requests to the application servers.](images/aws-cloud-deployment-architecture.png)
+![A Region with a VPC spanning two Availability Zones, each containing an application server and DB instance.](images/aws-cloud-deployment-architecture.png)
 
 The primary components of the preceding architecture are as follows:
 
@@ -321,7 +321,7 @@ security group named `rds-ec2-*x*` specifies
 to an RDS DB instance. According to the security group rules, client applications can't directly
 access the DB instance, but the EC2 instance can access the DB instance.
 
-![DB instance. and EC2 instance in a VPC](images/con-VPC-sec-grp.png)
+![DB instance and EC2 instance in a VPC.](images/con-VPC-sec-grp.png)
 
 For more information about security groups, see [Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md") .
 
@@ -381,7 +381,7 @@ The AWS Management Console is a simple web-based user interface. You can manage 
 with no programming required. To access the Amazon RDS console, sign in to the AWS Management Console and open the Amazon RDS console at
 [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 
-![Home page of the RDS console. The left panel includes links for Dashboard, Databases, and so on. The central panel lists resources such as DB instances.](images/rds_console.png)
+![Home page of the RDS console with navigation links and resource listings.](images/rds_console.png)
 
 ### Command line interface
 
@@ -420,6 +420,7 @@ You can use AWS Free Tier on Amazon RDS with the following engines and DB instan
 - **Engine types** – MariaDB, MySQL, PostgreSQL,
   or SQL Server Express Edition
 - **DB instance classes**
+
   - **t3.micro** – For all engine
     types
   - **t4g.micro** – For all engine types

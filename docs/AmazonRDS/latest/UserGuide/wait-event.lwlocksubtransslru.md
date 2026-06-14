@@ -67,6 +67,7 @@ Common causes of subtransaction SLRU contention include:
   through driver configurations. Many commonly used ORM tools and application
   frameworks support nested transactions natively. Here are some common
   examples:
+
   - The JDBC driver parameter `autosave`, if set to
     `always` or `conservative`, generates
     savepoints before each query.
@@ -164,6 +165,7 @@ parameter changes to take effect.
   subtransactions.
 - Reduce savepoint usage – Minimize
   the use of savepoints in your transactions:
+
   - Review PL/pgSQL procedures and functions with EXCEPTION blocks.
     EXCEPTION blocks automatically create implicit savepoints, which can
     contribute to subtransaction overflow. Each EXCEPTION clause creates
@@ -286,7 +288,6 @@ parameter changes to take effect.
   $$ LANGUAGE plpgsql;
 
   ```
-
   - JDBC driver – The `autosave` parameter, if set
     to `always` or `conservative`, generates
     savepoints before each query. Evaluate whether the

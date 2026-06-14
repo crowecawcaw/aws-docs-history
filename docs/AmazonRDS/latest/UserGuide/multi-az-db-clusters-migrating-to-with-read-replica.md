@@ -45,6 +45,7 @@ a read replica, complete the following steps using the AWS Management Console.
 1.  Sign in to the AWS Management Console and open the Amazon RDS console at
     [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2.  Create the Multi-AZ DB cluster read replica.
+
     1. In the navigation pane, choose **Databases**.
     2. Choose the DB instance that you want to use as the source for a read replica.
     3. For **Actions**, choose **Create read

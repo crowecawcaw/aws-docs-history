@@ -152,6 +152,7 @@ following is true:
   redo log files and uploading them to Amazon S3. PITR in an
   `unsupported-configuration` state differs in the
   following ways:
+
   - PITR can take a long time to completely restore to a new
     RDS Custom DB instance. This situation occurs because you can't take
     either automated or manual snapshots while the instance is in

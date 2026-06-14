@@ -22,6 +22,7 @@ instance is created or deleted. For more information, see the [Amazon CloudWatch
 2. Under **Events** in the navigation pane, choose **Rules**.
 3. Choose **Create rule**.
 4. For **Event Source**, do the following:
+
    1. Choose **Event Pattern**.
    2. For **Service Name**, choose **Relational Database Service (RDS)**.
    3. For **Event Type**, choose the type of Amazon RDS resource that triggers the event. For example, if a DB instance triggers the event, choose **RDS DB Instance Event**.
@@ -31,6 +32,7 @@ instance is created or deleted. For more information, see the [Amazon CloudWatch
 6. In the other fields in this section, enter information specific to this target type, if any is needed.
 7. For many target types, EventBridge needs permissions to send events to the target. In these cases, EventBridge can create the IAM role needed for
    your event to run:
+
    - To create an IAM role automatically, choose **Create a new role for this specific resource**.
    - To use an IAM role that you created before, choose **Use existing role**.
 
@@ -70,16 +72,19 @@ Create a Lambda function to log the state change events. You specify this functi
    function**.
 3. Choose **Author from scratch**.
 4. On the **Create function** page, do the following:
+
    1. Enter a name and description for the Lambda function. For example, name the function `RDSInstanceStateChange`.
    2. In **Runtime**, select **Node.js 16x**.
    3. For **Architecture**, choose **x86_64**.
    4. For **Execution role**, do either of the following:
+
       - Choose **Create a new role with basic Lambda permissions**.
       - For **Existing role**, choose **Use an existing role**. Choose the role that you want to use.
 
    5. Choose **Create function**.
 
 5. On the **RDSInstanceStateChange** page, do the following:
+
    1. In **Code source**, select **index.js**.
    2. In the **index.js** pane, delete the existing code.
    3. Enter the following code:
@@ -91,7 +96,6 @@ Create a Lambda function to log the state change events. You specify this functi
        console.log('Received event:', JSON.stringify(event));
    };
    ```
-
    4. Choose **Deploy**.
 
 ### Step 2: Create a rule

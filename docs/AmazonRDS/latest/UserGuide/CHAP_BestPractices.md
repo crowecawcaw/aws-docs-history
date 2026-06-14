@@ -43,6 +43,7 @@ you follow these guidelines:
 - If your database workload requires more I/O than you have provisioned, recovery after a
   failover or database failure will be slow. To increase the I/O capacity of a DB
   instance, do any or all of the following:
+
   - Migrate to a different DB instance class with high I/O capacity.
   - Convert from magnetic storage to either General Purpose or Provisioned IOPS storage, depending
     on how much of an increase you need. For information on available
@@ -592,6 +593,7 @@ following:
   address might change and the cached value might no longer be in service.
 - We recommend that you _do not_ enable the following modes because they turn
   off transaction logging, which is required for Multi-AZ:
+
   - Simple recover mode
   - Offline mode
   - Read-only mode
@@ -601,6 +603,7 @@ following:
   You should also test your application's ability to continue working if a
   failover occurs.
 - To shorten failover time, do the following:
+
   - Ensure that you have sufficient Provisioned IOPS allocated for your workload. Inadequate I/O
     can lengthen failover times. Database recovery requires I/O.
   - Use smaller transactions. Database recovery relies on transactions, so if you can break up

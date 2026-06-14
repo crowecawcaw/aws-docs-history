@@ -22,6 +22,7 @@ linked servers with Oracle OLEDB, you can:
 - [Supported versions and Regions](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.VersionRegionSupport "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.VersionRegionSupport")
 - [Limitations and recommendations](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Limitations "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Limitations")
 - [Activating linked servers with Oracle](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Enabling "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Enabling")
+
   - [Creating the option group for OLEDB_ORACLE](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.OptionGroup "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.OptionGroup")
   - [Adding the OLEDB_ORACLE option to the option group](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Add "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Add")
   - [Modifying the OLEDB_ORACLE version option to another version](Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Modify "Appendix.SQLServer.Options.LinkedServers_Oracle_OLEDB.md#LinkedServers_Oracle_OLEDB.Modify")
@@ -107,6 +108,7 @@ The following procedure creates an option group for SQL Server Standard Edition 
 2. In the navigation pane, choose **Option groups**.
 3. Choose **Create group**.
 4. In the **Create option group** window, do the following:
+
    1. For **Name**, enter a name for the option group that is unique
       within your AWS account, such as
       `oracle-oledb-se-2019`. The name can

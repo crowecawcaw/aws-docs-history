@@ -58,6 +58,7 @@ during a maintenance window or during a time of low database workload.
    For more information about each setting,
    see [Audit Plugin option settings](#Appendix.MySQL.Options.AuditPlugin.Options "#Appendix.MySQL.Options.AuditPlugin.Options").
 3. Apply the option group to a new or existing DB instance.
+
    - For a new DB instance, you apply the option group when you launch the instance.
      For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
    - For an existing DB instance, you apply the option group by

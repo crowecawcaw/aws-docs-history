@@ -22,6 +22,7 @@ versions.
 2. Create a read replica of your MariaDB 10.5 DB instance. This process creates
    an upgradable copy of your database. Other read replicas of the DB instance
    might also exist.
+
    1. In the console, choose **Databases**, and then choose the DB instance that you want
       to upgrade.
    2. For **Actions**, choose **Create read replica**.
@@ -50,6 +51,7 @@ backups now.
 4. When the read replica **Status** shows
    **Available**, upgrade the read replica to MariaDB
    10.6.
+
    1. In the console, choose **Databases**, and then choose the read replica that
       you just created.
    2. Choose **Modify**.

@@ -84,6 +84,7 @@ instance, do the following tasks:
 
 4. Configure your Db2 client, and verify that traffic can flow between the client
    host and Directory Service for the following ports:
+
    - TCP/UDP port 53 – DNS
    - TCP 88 – Kerberos authentication
    - TCP 389 – LDAP

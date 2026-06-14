@@ -16,13 +16,13 @@ The action is a notification sent to an Amazon SNS topic or Amazon EC2 Auto Scal
 The following image shows the **Select metric** page with a
 Multi-AZ DB cluster named `rds-cluster` entered.
 
-![Select metric page.](images/multi-az-db-cluster-cw-tutorial-select-metric.png) 6. Choose **RDS**, **Per-Database Metrics**. 7. In the search box, enter `ReplicaLag` and press Enter, then
+![The metric selection page.](images/multi-az-db-cluster-cw-tutorial-select-metric.png) 6. Choose **RDS**, **Per-Database Metrics**. 7. In the search box, enter `ReplicaLag` and press Enter, then
 select each DB instance in the DB cluster.
 
 The following image shows the **Select metric** page with the DB instances
 selected for the **ReplicaLag** metric.
 
-![Select metric page with DB instances selected for the ReplicaLag metric.](images/multi-az-db-cluster-cw-tutorial-metric-replica-lag.png)
+![The metric selection page.with DB instances selected for the ReplicaLag metric.](images/multi-az-db-cluster-cw-tutorial-metric-replica-lag.png)
 
 This alarm considers the replica lag for all three of the DB instances in the
 Multi-AZ DB cluster. The alarm responds when any DB instance exceeds the threshold.

@@ -87,6 +87,7 @@ You receive AWS health notifications:
 Amazon RDS event notifications:
 
 - Notifications for resources enabled for automatic minor version upgrades, including:
+
   - When your resource becomes eligible for upgrade based on its upgrade order ([first], [second], or [last])
   - Scheduled upgrade timeline during the maintenance window
   - Individual database upgrade start and completion status

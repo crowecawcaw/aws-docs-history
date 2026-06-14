@@ -27,6 +27,7 @@ upgrade. For more information, see [Prechecks for upgrades from MySQL 5.7 to 8.0
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. Create a read replica of your MySQL 5.7 DB instance. This process creates an
    upgradable copy of your database. Other read replicas of the DB instance might also exist.
+
    1. In the console, choose **Databases**, and then choose the DB instance that you want
       to upgrade.
    2. For **Actions**, choose **Create read replica**.
@@ -52,6 +53,7 @@ configure a Multi-AZ deployment and enable backups.
     6. Choose **Modify DB instance**.
 
 4. When the read replica **Status** shows **Available**, upgrade the read replica to MySQL 8.0:
+
    1. In the console, choose **Databases**, and then choose the read replica that
       you just created.
    2. Choose **Modify**.

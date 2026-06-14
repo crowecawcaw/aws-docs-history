@@ -149,7 +149,13 @@ following preparation steps:
   or replace any parameters that are no longer supported.
 - Verify that your option group is compatible with the target version. Some
   options require updates or have different settings for different major
-  versions.
+  versions. To list the options available for a target version, run the
+  [describe-option-group-options](../../../cli/latest/reference/rds/describe-option-group-options.md "../../../cli/latest/reference/rds/describe-option-group-options.md") AWS CLI command, for example:
+
+```
+aws rds describe-option-group-options --engine-name oracle-ee --major-engine-version 21
+```
+
 - Verify that your parameter group is compatible with the target version. Some
   parameters have different valid ranges or default values in newer
   versions.
@@ -234,3 +240,13 @@ SELECT COMP_NAME, VERSION, STATUS FROM DBA_REGISTRY;
 
 SELECT OWNER, OBJECT_NAME, OBJECT_TYPE FROM DBA_OBJECTS WHERE STATUS = 'INVALID' ORDER BY OWNER, OBJECT_TYPE;
 ```
+
+If the last query returns invalid objects that you own, recompile them by running the following procedure as the master user,
+substituting your schema name:
+
+```
+EXEC DBMS_UTILITY.COMPILE_SCHEMA(schema => '`schema_name`');
+```
+
+If a component in `DBA_REGISTRY` shows a status other than `VALID`, or if Oracle-supplied objects
+(owned by `SYS` or `SYSTEM`) remain invalid after the upgrade, contact AWS Support.

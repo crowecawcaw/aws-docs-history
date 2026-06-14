@@ -12,11 +12,13 @@ You can use the AWS Management Console to determine whether a Multi-AZ deploymen
 In the navigation pane, choose **Databases**, and then choose a **DB identifier**.
 
 - A Multi-AZ DB instance deployment has the following characteristics:
+
   - There is only one row for the DB instance.
   - The value of **Role** is **Instance** or **Primary**.
   - The value of **Multi-AZ** is **Yes**.
 
 - A Multi-AZ DB cluster deployment has the following characteristics:
+
   - There is a cluster-level row with three DB instance rows under it.
   - For the cluster-level row, the value of **Role** is **Multi-AZ DB cluster**.
   - For each instance-level row, the value of **Role** is **Writer instance**

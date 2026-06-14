@@ -75,6 +75,7 @@ db2 "call rdsadmin.create_database('`database_name`')"
 
 4. (Optional) Confirm that your database was created by using one of the
    following methods:
+
    - Call `rdsadmin.list_databases`. For more information, see
      [rdsadmin.list_databases](db2-user-defined-functions.md#db2-udf-list-databases "db2-user-defined-functions.md#db2-udf-list-databases").
    - Run the following SQL command:
@@ -675,12 +676,12 @@ db2 "call rdsadmin.create_tablespace('database_name',\
 
 4. Open the `db2mon.sh` script, and modify the line about connecting to a
    database.
+
    1. Remove the following line.
 
    ```
    db2 -v connect to $dbName
    ```
-
    2. Replace the line in the previous step with the following line. In the
       following example, replace `master_username` and
       `master_password` with the master username and
@@ -689,7 +690,6 @@ db2 "call rdsadmin.create_tablespace('database_name',\
    ```
    db2 -v connect to $dbName user `master_username` using `master_password`
    ```
-
    3. Remove the following lines.
 
    ```

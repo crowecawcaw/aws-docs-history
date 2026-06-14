@@ -432,6 +432,7 @@ deployment.
 
 1. Modify a DB subnet group to support dual-stack mode, or create a
    DB subnet group that supports dual-stack mode:
+
    1. Associate an IPv6 CIDR block with your VPC.
 
    For instructions, see [Add an IPv6 CIDR block to your VPC](../../../vpc/latest/userguide/modify-vpcs.md#vpc-associate-ipv6-cidr "../../../vpc/latest/userguide/modify-vpcs.md#vpc-associate-ipv6-cidr") in the

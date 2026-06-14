@@ -121,3 +121,9 @@ in role is the only change to the database. Amazon RDS doesn't set up features s
 If you perform a switchover to a cross-Region replica with different options, the new primary database keeps its own options.
 Amazon RDS won't migrate the options on the original primary database. If the original primary database had options such as SSL, NNE,
 OEM, and OEM_AGENT, Amazon RDS doesn't propagate them to the new primary database.
+
+###### Note
+
+Because the switchover changes only the database role, the new primary database isn't protected by Multi-AZ
+until you enable it. After the switchover completes, review the new primary database and, if needed, enable Multi-AZ
+and reconfigure any options (such as SSL, NNE, OEM, and OEM_AGENT) that your application requires.

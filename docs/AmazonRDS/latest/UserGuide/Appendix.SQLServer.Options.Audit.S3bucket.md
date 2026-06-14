@@ -29,6 +29,7 @@ The schema is composed of the following elements:
   is one node for a Single-AZ instance and two replication nodes for a Multi-AZ
   instance. These are not primary and secondary nodes, because the roles of primary
   and secondary change over time. Instead, the node identifier is a simple label.
+
   - `node1` – The first replication node
     (Single-AZ has one node only).
   - `node2` – The second replication node
@@ -38,6 +39,7 @@ The schema is composed of the following elements:
   file name is taken as-is from SQL Server.
 - `ext` – The extension of the file
   (`zip` or `sqlaudit`):
+
   - `zip` – If compression is enabled
     (default).
   - `sqlaudit` – If compression is

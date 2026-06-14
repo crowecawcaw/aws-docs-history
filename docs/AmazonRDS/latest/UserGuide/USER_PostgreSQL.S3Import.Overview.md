@@ -35,7 +35,7 @@ the Amazon Resource Name (ARN) later, to set up access to Amazon S3 through an I
 For more more information, see [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.AccessPermission.md "USER_PostgreSQL.S3Import.AccessPermission.md").
 The image following shows an example.
 
-![Image of a file object in an Amazon S3 bucket.](images/aws_s3_import-export_s3_bucket-info.png) 3. You can verify the path to the data on the Amazon S3 bucket by using the AWS CLI command `aws s3 cp`.
+![A file object in an Amazon S3 bucket.](images/aws_s3_import-export_s3_bucket-info.png) 3. You can verify the path to the data on the Amazon S3 bucket by using the AWS CLI command `aws s3 cp`.
 If the information is correct, this command downloads a copy of the Amazon S3 file.
 
 ```

@@ -8,6 +8,7 @@ For example, using the Amazon RDS API, you can do the following:
 
 - To reattempt a self-managed domain join for a failed membership, use the [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") API
   operation and specify the same set of parameters:
+
   - `--domain-fqdn`
   - `--domain-dns-ips`
   - `--domain-ou`
@@ -17,6 +18,7 @@ For example, using the Amazon RDS API, you can do the following:
   and specify `--disable-domain` for the domain parameter.
 - To move a DB instance from one self-managed domain to another, use the `ModifyDBInstance` API operation
   and specify the domain parameters for the new domain:
+
   - `--domain-fqdn`
   - `--domain-dns-ips`
   - `--domain-ou`

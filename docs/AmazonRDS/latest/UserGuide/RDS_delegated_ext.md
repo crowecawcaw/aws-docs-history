@@ -51,6 +51,7 @@ Postgres => grant rds_extension to `user_name`;
    `rds.allowed_delegated_extensions` allows you to specify a subset
    of the available extensions using `rds.allowed_extensions` in the DB
    cluster parameter. You can perform this at one of the following levels:
+
    - In the cluster or the instance parameter group, through the AWS Management Console
      or API. For more information, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
    - Use the following command at the database level:
@@ -59,7 +60,6 @@ Postgres => grant rds_extension to `user_name`;
    alter database `database_name` set rds.allowed_delegated_extensions = '`extension_name_1`,
                        `extension_name_2`,...`extension_name_n`';
    ```
-
    - Use the following command at the user level:
 
    ```

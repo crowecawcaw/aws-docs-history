@@ -53,6 +53,7 @@ The following limitations apply to RDS Custom for SQL Server:
   initiate a snapshot or point-in-time restore operation. If the RDS Custom for SQL Server DB instance
   was created with a CEV, then those changes are persisted.
 - Not all options are supported. For example, when you create an RDS Custom for SQL Server DB instance, you can't do the following:
+
   - Change the number of CPU cores and threads per core on the DB instance class.
   - Turn on storage autoscaling.
   - Specify your own DB parameter group, option group, or character set.

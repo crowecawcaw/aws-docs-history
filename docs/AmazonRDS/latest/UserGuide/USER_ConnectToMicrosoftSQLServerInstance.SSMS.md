@@ -59,6 +59,7 @@ If you can't connect to your DB instance, see [Security group considerations](US
 6. You can now start creating your own databases and running queries against your
    DB instance and databases as usual. To run a test query against your DB
    instance, do the following:
+
    1. In SSMS, on the **File** menu point to
       **New** and then choose **Query with
       Current Connection**.
@@ -67,7 +68,6 @@ If you can't connect to your DB instance, see [Security group considerations](US
    ```
    select @@VERSION
    ```
-
    3. Run the query. SSMS returns the SQL Server version of your Amazon RDS DB
       instance.
 

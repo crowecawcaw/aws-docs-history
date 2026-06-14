@@ -394,6 +394,7 @@ website](http://www.microsoft.com/en-us/search/Results.aspx?q=sql%20server%20man
    **Export Data**. The wizard appears.
 3. On the **Choose a Data Source** page, do the
    following:
+
    1. For **Data source**, choose `SQL Server
 Native Client 11.0`.
 
@@ -409,6 +410,7 @@ Native Client 11.0`.
 
 4. On the **Choose a Destination** page, do the
    following:
+
    1. For **Destination**, choose `SQL Server
 Native Client 11.0`.
 
@@ -440,6 +442,7 @@ Native Client 11.0`.
    **Next**.
 7. On the **Select Source Tables and Views** page, do the
    following:
+
    1. Select the tables and views that you want to export, or verify
       that the query you provided is selected.
    2. Choose **Edit Mappings** and specify database and

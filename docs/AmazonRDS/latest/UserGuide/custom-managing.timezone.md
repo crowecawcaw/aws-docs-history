@@ -57,6 +57,7 @@ If you choose to set the time zone for your DB instance, consider the following:
   DB instance to its previous time zone setting. For this reason, we strongly
   suggest that you to use one of the following strategies before you add the
   time zone option to your instance:
+
   - If your RDS Custom for Oracle DB instance uses the default option group, take a
     snapshot of your DB instance. For more information, see [Creating an RDS Custom for Oracle snapshot](custom-backup.creating.md "custom-backup.creating.md").
   - If your DB instance currently uses a nondefault option group, take a
@@ -80,6 +81,7 @@ Note the following limitations:
   create an option group.
 - Because the time zone option is a persistent option (but not a permanent
   option), you can't do the following:
+
   - Remove the option from an option group after you add the
     option.
   - Modify the time zone setting of the option to a different time
@@ -112,6 +114,7 @@ group. For general information about option groups in Amazon RDS, see [Working w
 3. Choose the option group that you want to modify, and then choose
    **Add option**.
 4. In the **Add option** window, do the following:
+
    1. Choose **Timezone**.
    2. In **Option settings**, choose a time
       zone.

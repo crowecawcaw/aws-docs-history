@@ -118,6 +118,7 @@ The following parameter is optional:
 
 - `@overwrite_s3_files` – Indicates whether to overwrite
   the existing certificate and private key files in S3:
+
   - `0` – Doesn't overwrite the existing files. This value is the default.
 
   Setting `@overwrite_s3_files` to 0 returns an error if a file already exists.

@@ -561,6 +561,7 @@ calculation is the sum of the following values:
 
 - **Value 1** – The sum of the following
   parameters:
+
   - `innodb_additional_mem_pool_size`
   - `innodb_buffer_pool_size`
 
@@ -595,6 +596,7 @@ calculation is the sum of the following values:
 - **Value 2** – The
   `max_connections` parameter multiplied by the sum of the
   following parameters:
+
   - `binlog_cache_size`
   - `join_buffer_size`
   - `read_buffer_size`

@@ -31,6 +31,7 @@ You can see the following details.
   functions that they use. If you have `pgtle_admin` privileges, you
   use the following Trusted Language Extensions functions to add and update that information in
   the table.
+
   - [pgtle.register_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature")
   - [pgtle.register_feature_if_not_exists](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.register_feature_if_not_exists")
   - [pgtle.unregister_feature](PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature "PostgreSQL_trusted_language_extension-functions-reference.md#pgtle.unregister_feature")

@@ -64,6 +64,7 @@ Note the following issues:
   information, see [Rotating RDS Custom for Oracle credentials for compliance programs](custom-security.cred-rotation.md "custom-security.cred-rotation.md"). If you use an on-premises
   primary/standby configuration, credential rotation might affect the following
   resources:
+
   - Manually created standby RDS Custom for Oracle instances
 
   To resolve this issue, drop the manual standby databases, and then
@@ -82,6 +83,7 @@ Note the following issues:
   recommend that you keep a backup of `crontab`.
 - Note the following guidelines when you configure the
   `listener.ora` file:
+
   - Make sure that every entry in the file is on a single line. This
     approach avoids issues with indentation during instance creation.
   - Make sure that `GLOBAL_DBNAME` is equal to the value of

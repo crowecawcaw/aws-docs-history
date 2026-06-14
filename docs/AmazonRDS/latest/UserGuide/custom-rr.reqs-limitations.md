@@ -73,6 +73,7 @@ the following:
   Guard replication. Trying to use port 1140 could cause conflicts with RDS Custom automation.
 - The `/rdsdbdata/config/tnsnames.ora` file contains network service names mapped to listener protocol
   addresses. Note the following requirements and recommendations:
+
   - Entries in `tnsnames.ora` prefixed with `rds_custom_` are reserved for RDS Custom
     when handling Oracle replica operations.
 

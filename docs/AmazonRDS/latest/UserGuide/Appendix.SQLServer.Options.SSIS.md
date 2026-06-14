@@ -25,6 +25,7 @@ RDS supports SSIS for SQL Server Standard and Enterprise Editions on the followi
 
 - [Limitations and recommendations](Appendix.SQLServer.Options.SSIS.md#SSIS.Limitations "Appendix.SQLServer.Options.SSIS.md#SSIS.Limitations")
 - [Enabling SSIS](Appendix.SQLServer.Options.SSIS.md#SSIS.Enabling "Appendix.SQLServer.Options.SSIS.md#SSIS.Enabling")
+
   - [Creating the option group for SSIS](Appendix.SQLServer.Options.SSIS.md#SSIS.OptionGroup "Appendix.SQLServer.Options.SSIS.md#SSIS.OptionGroup")
   - [Adding the SSIS option to the option group](Appendix.SQLServer.Options.SSIS.md#SSIS.Add "Appendix.SQLServer.Options.SSIS.md#SSIS.Add")
   - [Creating the parameter group for SSIS](Appendix.SQLServer.Options.SSIS.md#SSIS.CreateParamGroup "Appendix.SQLServer.Options.SSIS.md#SSIS.CreateParamGroup")
@@ -33,17 +34,20 @@ RDS supports SSIS for SQL Server Standard and Enterprise Editions on the followi
   - [Enabling S3 integration](Appendix.SQLServer.Options.SSIS.md#SSIS.EnableS3 "Appendix.SQLServer.Options.SSIS.md#SSIS.EnableS3")
 
 - [Administrative permissions on SSISDB](SSIS.Permissions.md "SSIS.Permissions.md")
+
   - [Setting up a Windows-authenticated user for SSIS](SSIS.Permissions.md#SSIS.Use.Auth "SSIS.Permissions.md#SSIS.Use.Auth")
 
 - [Deploying an SSIS project](SSIS.Deploy.md "SSIS.Deploy.md")
 - [Monitoring the status of a deployment task](SSIS.Monitor.md "SSIS.Monitor.md")
 - [Using SSIS](SSIS.Use.md "SSIS.Use.md")
+
   - [Setting database connection managers for SSIS projects](SSIS.Use.md#SSIS.Use.ConnMgrs "SSIS.Use.md#SSIS.Use.ConnMgrs")
   - [Creating an SSIS proxy](SSIS.Use.md#SSIS.Use.Proxy "SSIS.Use.md#SSIS.Use.Proxy")
   - [Scheduling an SSIS package using SQL Server Agent](SSIS.Use.md#SSIS.Use.Schedule "SSIS.Use.md#SSIS.Use.Schedule")
   - [Revoking SSIS access from the proxy](SSIS.Use.md#SSIS.Use.Revoke "SSIS.Use.md#SSIS.Use.Revoke")
 
 - [Disable and drop SSIS database](SSIS.DisableDrop.md "SSIS.DisableDrop.md")
+
   - [Disabling SSIS](SSIS.DisableDrop.md#SSIS.Disable "SSIS.DisableDrop.md#SSIS.Disable")
   - [Dropping the SSISDB database](SSIS.DisableDrop.md#SSIS.Drop "SSIS.DisableDrop.md#SSIS.Drop")
 
@@ -60,6 +64,7 @@ If you enable the `clr enabled` parameter on SQL Server 2017 or 2019, you can't 
 (CLR) on your DB instance. For more information, see [Features not supported and features with limited support](SQLServer.Concepts.General.FeatureNonSupport.md "SQLServer.Concepts.General.FeatureNonSupport.md").
 
 - The following control flow tasks are supported:
+
   - Analysis Services Execute DDL Task
   - Analysis Services Processing Task
   - Bulk Insert Task
@@ -86,6 +91,7 @@ If you enable the `clr enabled` parameter on SQL Server 2017 or 2019, you can't 
 - SSIS log records can be inserted only into user-created databases.
 - Use only the `D:\S3` folder for working with files. Files placed in any other
   directory are deleted. Be aware of a few other file location details:
+
   - Place SSIS project input and output files in the `D:\S3` folder.
   - For the Data Flow Task, change the location for `BLOBTempStoragePath` and `BufferTempStoragePath` to a file
     inside the `D:\S3` folder. The file path must start with `D:\S3\`.
@@ -144,6 +150,7 @@ The following procedure creates an option group for SQL Server Standard Edition 
 2. In the navigation pane, choose **Option groups**.
 3. Choose **Create group**.
 4. In the **Create option group** window, do the following:
+
    1. For **Name**, enter a name for the option group that is unique
       within your AWS account, such as
       `ssis-se-2016`. The name can
@@ -244,6 +251,7 @@ The following procedure creates a parameter group for SQL Server Standard Editio
 2. In the navigation pane, choose **Parameter groups**.
 3. Choose **Create parameter group**.
 4. In the **Create parameter group** pane, do the following:
+
    1. For **Parameter group family**, choose
       **sqlserver-se-13.0**.
    2. For **Group name**, enter an identifier for the parameter group,

@@ -28,6 +28,7 @@ The following requirements must be met before enabling access to transaction log
 - An Amazon S3 bucket must exist in the same account and Region as the source DB instance. Before enabling access to transaction log backups, choose an existing
   Amazon S3 bucket or [create a new bucket](../../../AmazonS3/latest/userguide/CreatingaBucket.md "../../../AmazonS3/latest/userguide/CreatingaBucket.md") to use for your transaction log backup files.
 - An Amazon S3 bucket permissions policy must be configured as follows to allow Amazon RDS to copy transaction log files into it:
+
   1.  Set the object account ownership property on the bucket to **Bucket Owner Preferred**.
   2.  Add the following policy. There will be no policy by default, so use the bucket Access Control Lists (ACL)
       to edit the bucket policy and add it.

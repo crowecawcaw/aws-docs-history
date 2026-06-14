@@ -23,6 +23,7 @@ Security for MySQL DB instances is managed at three levels:
   instance.
 - To authenticate login and permissions for a MySQL DB instance, you can take either
   of the following approaches, or a combination of them:
+
   - You can take the same approach as with a stand-alone instance of MySQL. Commands
     such as `CREATE USER`, `RENAME USER`, `GRANT`,
     `REVOKE`, and `SET PASSWORD` work just as they do in

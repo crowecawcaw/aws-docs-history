@@ -1220,7 +1220,7 @@ db2 "call rdsadmin.rollforward_database(
     ?,
     'TESTDB',
     'amzn-s3-demo-bucket',
-    'logsfolder/,
+    'logsfolder/',
     'END_OF_BACKUP',
     'TRUE')"
 ```
@@ -1350,7 +1350,10 @@ Collects information about an RDS for Db2 database.
 ### Syntax
 
 ```
-db2 "call rdsadmin.db2pd_command('`db2pd_cmd`')"
+db2 "call rdsadmin.db2pd_command(
+                '`db2pd_cmd`',
+                '`s3_bucket_name`',
+                '`s3_prefix`')"
 ```
 
 ### Parameters
@@ -1380,7 +1383,6 @@ The following options aren't supported:
 - `-dbpartitionnum`
 - `-debug`
 - `-dump`
-- `-everything`
 - `-file | -o`
 - `-ha`
 - `-interactive`
@@ -1392,7 +1394,6 @@ The following options aren't supported:
 `-pages summary` is supported.
 
 - `-pdcollection`
-- `-repeat`
 - `-stack`
 - `-totalmem`
 
@@ -1401,6 +1402,23 @@ The `file` suboption isn't supported, for example,
 
 The use of the `stacks` option isn't supported, for
 example, `db2pd -edus interval=5 top=10 stacks`.
+
+The following parameters are optional:
+
+`s3_bucket_name`
+
+The name of the Amazon S3 bucket where you want to upload the output
+file. The data type is `varchar`.
+If neither `s3_bucket_name` nor `s3_prefix`
+is provided, the collected information can be retrieved by
+calling [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
+
+`s3_prefix`
+
+The prefix of the path to Amazon S3 where RDS for Db2 uploads the output files.
+The data type is `varchar`. If prefix is specified, `s3_bucket_name`
+must also be provided. If omitted while `s3_bucket_name`
+is present, the output file is uploaded to the root directory of the specified bucket.
 
 ### Usage notes
 
@@ -1415,6 +1433,20 @@ utility to run various commands. For more information about the utility, see [db
 documentation.
 
 The output is restricted to a maximum of 2 GB.
+
+Before calling the stored procedure, review the following requirements:
+
+- To upload the output to Amazon S3, you must have already configured the
+  integration. For more information, see [Integrating an Amazon RDS for Db2 DB instance with Amazon S3](db2-s3-integration.md "db2-s3-integration.md").
+- For an RDS for Db2 DB instance to be able to interact with Amazon S3, you must
+  have a VPC and an Amazon S3 gateway endpoint for private subnets to use. For more
+  information, see [Step 1: Create a VPC gateway endpoint for Amazon S3](db2-troubleshooting.md#db2-creating-endpoint "db2-troubleshooting.md#db2-creating-endpoint") and [Step 2: Confirm that your VPC gateway endpoint for Amazon S3 exists](db2-troubleshooting.md#db2-confirming-endpoint "db2-troubleshooting.md#db2-confirming-endpoint").
+- A valid Amazon S3 bucket destination is required for `-everything`
+  and `-repeat` options.
+- For `-repeat` option: Default syntax is `'[command] -repeat [interval_seconds] [count]'`.
+  The interval must be at least 1 second, and the count of execution must not exceed 100.
+  The total execution time (`interval_seconds` × `count`) must not exceed 600 seconds.
+  If no values are provided, the defaults are an interval of `5` seconds and a count of `10`.
 
 For information about checking the status of collecting information about the
 database, see [rdsadmin.get_task_status](db2-user-defined-functions.md#db2-udf-get-task-status "db2-user-defined-functions.md#db2-udf-get-task-status").
@@ -1455,6 +1487,17 @@ database called `TESTDB`:
 
 ```
 db2 "call rdsadmin.db2pd_command('-inst -db TESTDB -memsets')"
+```
+
+**Example 5: Returning repeated memory usage of DB instance**
+
+The following example returns the memory usage of an RDS for Db2 DB instance every 10 seconds for 6 times:
+
+```
+db2 "call rdsadmin.db2pd_command(
+                '-dbptnmem -repeat 10 6',
+                'amzn-s3-demo-bucket',
+                'db2pdResults')"
 ```
 
 ## rdsadmin.force_application

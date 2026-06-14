@@ -101,6 +101,7 @@ patches.
 4. Choose **Continue**.
 5. Clear the **Download Queue** check box.
 6. Choose the option that corresponds to your base release:
+
    - **Oracle Database 19.3.0.0.0 - Long Term
      Release**.
    - **Oracle Database 18.0.0.0.0**
@@ -123,6 +124,7 @@ patches.
 10. Download your desired Oracle patches from `updates.oracle.com` or
     `support.oracle.com` to your local system. You can find the URLs for
     the patches in the following locations:
+
     - The readme files in the .zip file that you downloaded in [Step 1 (Optional): Download the manifest templates](#custom-cev.preparing.templates "#custom-cev.preparing.templates")
     - The patches listed in each Release Update (RU) in [Release
       notes for Amazon Relational Database Service (Amazon RDS) for Oracle](../OracleReleaseNotes.md "../OracleReleaseNotes.md")
@@ -304,6 +306,7 @@ aws s3api get-bucket-policy \
 ```
 
 3. Edit the media bucket permissions as follows:
+
    - In the `Resource` element of your template, specify the S3 bucket into which you uploaded your Oracle Database
      installation files.
    - In the `Principal` element, specify the ARNs for all AWS accounts that you intend to use to create CEVs. You
@@ -410,6 +413,7 @@ for Amazon Relational Database Service (Amazon RDS) for Oracle](../OracleRelease
 1. List all installation files that you plan to apply, in the order that you want to apply them.
 2. Correlate the installation files with the JSON fields described in [JSON fields in the CEV manifest](#custom-cev.preparing.manifest.fields "#custom-cev.preparing.manifest.fields").
 3. Do either of the following:
+
    - Create the CEV manifest as a JSON text file.
    - Edit the CEV manifest template when you create the CEV in the console. For more information, see [Creating a CEV](custom-cev.create.md "custom-cev.create.md").
 

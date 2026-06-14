@@ -56,6 +56,7 @@ an RDS Custom for Oracle DB instance:
   the modify operation fails.
 - All RDS Custom for Oracle tags must be present.
 - If you use RDS Custom for Oracle replication, note the following requirements and limitations:
+
   - For primary DB instances and read replicas, you can change the instance class
     for only one DB instance at a time.
   - If your RDS Custom for Oracle DB instance has an on-premises primary or replica database,
@@ -101,6 +102,7 @@ You can modify the DB instance class or storage using the console, AWS CLI, or R
    [DB instance class support for RDS Custom for Oracle](custom-oracle-feature-support.md#custom-reqs-limits.instances "custom-oracle-feature-support.md#custom-reqs-limits.instances").
 6. (Optional) In **Storage**, make the following changes
    as needed:
+
    1. Enter a new value for **Allocated storage**.
       It must be greater than the current value, and from 40
       GiB–64 TiB.
@@ -115,6 +117,7 @@ You can modify the DB instance class or storage using the console, AWS CLI, or R
 
 7. (Optional) In **Additional configuration**, make the
    following changes as needed:
+
    1. For **Option group**, choose a new option
       group. For more information, see [Working with option groups in RDS Custom for Oracle](custom-oracle-option-groups.md "custom-oracle-option-groups.md").
 

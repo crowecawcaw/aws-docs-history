@@ -73,6 +73,7 @@ You can pause and resume automation for your DB instance using the console or CL
    want to modify.
 3. Choose **Modify**. The **Modify DB instance** page appears.
 4. For **RDS Custom automation mode**, choose one of the following options:
+
    - **Paused** pauses the monitoring and instance
      recovery for the RDS Custom DB instance. Enter the pause duration
      that you want (in minutes) for **Automation mode

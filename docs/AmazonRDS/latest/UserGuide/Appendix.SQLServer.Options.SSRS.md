@@ -20,6 +20,7 @@ RDS supports SSRS for SQL Server Standard and Enterprise Editions on the followi
 
 - [Limitations and recommendations](Appendix.SQLServer.Options.SSRS.md#SSRS.Limitations "Appendix.SQLServer.Options.SSRS.md#SSRS.Limitations")
 - [Turning on SSRS](SSRS.Enabling.md "SSRS.Enabling.md")
+
   - [Creating an option group for SSRS](SSRS.Enabling.md#SSRS.OptionGroup "SSRS.Enabling.md#SSRS.OptionGroup")
   - [Adding the SSRS option to your option group](SSRS.Enabling.md#SSRS.Add "SSRS.Enabling.md#SSRS.Add")
   - [Associating your option group with your DB instance](SSRS.Enabling.md#SSRS.Apply "SSRS.Enabling.md#SSRS.Apply")
@@ -28,11 +29,13 @@ RDS supports SSRS for SQL Server Standard and Enterprise Editions on the followi
 - [Report server databases](Appendix.SQLServer.Options.SSRS.md#SSRS.DBs "Appendix.SQLServer.Options.SSRS.md#SSRS.DBs")
 - [SSRS log files](Appendix.SQLServer.Options.SSRS.md#SSRS.Logs "Appendix.SQLServer.Options.SSRS.md#SSRS.Logs")
 - [Accessing the SSRS web portal](SSRS.Access.md "SSRS.Access.md")
+
   - [Using SSL on RDS](SSRS.Access.md#SSRS.Access.SSL "SSRS.Access.md#SSRS.Access.SSL")
   - [Granting access to domain users](SSRS.Access.md#SSRS.Access.Grant "SSRS.Access.md#SSRS.Access.Grant")
   - [Accessing the web portal](SSRS.Access.md#SSRS.Access "SSRS.Access.md#SSRS.Access")
 
 - [Deploying reports and configuring report data sources](SSRS.DeployConfig.md "SSRS.DeployConfig.md")
+
   - [Deploying reports to SSRS](SSRS.DeployConfig.md#SSRS.Deploy "SSRS.DeployConfig.md#SSRS.Deploy")
   - [Configuring the report data source](SSRS.DeployConfig.md#SSRS.ConfigureDataSource "SSRS.DeployConfig.md#SSRS.ConfigureDataSource")
 
@@ -40,6 +43,7 @@ RDS supports SSRS for SQL Server Standard and Enterprise Editions on the followi
 - [Revoking system-level permissions](SSRS.Access.Revoke.md "SSRS.Access.Revoke.md")
 - [Monitoring the status of a task](SSRS.Monitor.md "SSRS.Monitor.md")
 - [Disabling and deleting SSRS databases](SSRS.DisableDelete.md "SSRS.DisableDelete.md")
+
   - [Turning off SSRS](SSRS.DisableDelete.md#SSRS.Disable "SSRS.DisableDelete.md#SSRS.Disable")
   - [Deleting the SSRS databases](SSRS.DisableDelete.md#SSRS.Drop "SSRS.DisableDelete.md#SSRS.Drop")
 

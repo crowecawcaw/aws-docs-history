@@ -50,6 +50,7 @@ when disabling. The duration of this operation is influenced by several
 factors:
 
 - Number of transaction logs:
+
   - Larger databases with more transactions generate more logs,
     increasing the time required for copying.
   - Transaction logs can accumulate on the primary DB instance if
@@ -58,6 +59,7 @@ factors:
     is current, and remove any unnecessary slots.
 
 - Storage configuration:
+
   - DB instance EBS bandwidth – Higher bandwidth allows for
     faster data transfer.
   - Number of Provisioned IOPS – More input/output operations

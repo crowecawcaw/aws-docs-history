@@ -9,6 +9,7 @@ user is automatically granted the privilege `SELECT … WITH GRANT OPTION` on th
 The `rdsadmin.rdsadmin_util` procedures are available in the following cases:
 
 - Existing DB instances that have never been upgraded and use the following releases:
+
   - `21.0.0.0.ru-2023-10.rur-2023-10.r1` and higher 21c releases
   - `19.0.0.0.ru-2023-10.rur-2023-10.r1` and higher 19c releases
 

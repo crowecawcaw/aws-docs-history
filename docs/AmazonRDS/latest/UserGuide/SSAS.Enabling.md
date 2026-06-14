@@ -28,6 +28,7 @@ The following console procedure creates an option group for SQL Server Standard 
 2. In the navigation pane, choose **Option groups**.
 3. Choose **Create group**.
 4. In the **Create option group** pane, do the following:
+
    1. For **Name**, enter a name for the option group that is unique
       within your AWS account, such as
       `ssas-se-2017`. The name can
@@ -84,6 +85,7 @@ group.
    **SSAS** for **Option
    name**.
 6. Under **Option settings**, do the following:
+
    1. For **Max memory**, enter a value in
       the range 10–80.
 

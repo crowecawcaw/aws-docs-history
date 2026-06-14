@@ -165,6 +165,7 @@ JSON
 ```
 
 11. Update the Amazon RDS security group inbound and outbound rules to allow port 1120.
+
     1.  In **Security Groups**, choose the `-rds-custom-instance-sg` group.
     2.  For **Inbound Rules**, create a **Custom TCP** rule to allow port `1120` from the source `-rds-custom-instance-sg` group.
     3.  For **Outbound Rules**, create a **Custom TCP** rule to allow port `1120` to the destination `-rds-custom-instance-sg` group.

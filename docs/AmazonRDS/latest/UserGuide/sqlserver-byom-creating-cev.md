@@ -56,6 +56,7 @@ Use `describe-db-engine-versions` to verify which engine versions are eligible f
 5. For **Engine type**, choose **SQL Server**.
 6. For **Database management type**, choose **Amazon RDS**.
 7. For **Edition**, choose one of the following:
+
    - SQL Server Enterprise Edition
    - SQL Server Standard Edition
 

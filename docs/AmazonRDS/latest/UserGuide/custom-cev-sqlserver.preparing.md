@@ -18,6 +18,7 @@ The following steps use an AMI with **Windows Server 2019 Base** as an example.
 4. Choose **Microsoft Windows Server 2019 Base**.
 5. Choose an appropriate instance type, key pair, network and storage settings, and launch the instance.
 6. After launching or creating the EC2 instance, ensure the correct Windows AMI was selected from Step 4:
+
    1. Select the EC2 instance in the Amazon EC2 console.
    2. In the **Details** section, check the **Usage operation** and ensure that it is set to **RunInstances:0002**.
 
@@ -70,6 +71,7 @@ GO
 
 1. Choose the latest available AWS EC2 Windows Amazon Machine Image (AMI) with License Included
    (LI) Microsoft Windows Server and SQL Server.
+
    1. Search for **CU20** within the [Windows AMI version history](../../../AWSEC2/latest/WindowsGuide/ec2-windows-ami-version-history.md "../../../AWSEC2/latest/WindowsGuide/ec2-windows-ami-version-history.md").
    2. Note the Release number. For SQL Server 2019 CU20, the release number is
       `2023.05.10`.
@@ -128,10 +130,12 @@ CEV creation for RDS Custom for SQL Server is supported for the following operat
 database editions:
 
 - For CEVs using pre-installed media:
+
   - SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR and CU24-GDR.
   - SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 
 - For CEVs using bring your own media (BYOM):
+
   - SQL Server 2022 Enterprise, Standard, or Developer, with CU9, CU13,
     CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR and CU24-GDR.
   - SQL Server 2019 Enterprise, Standard, or Developer, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.

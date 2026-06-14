@@ -7,6 +7,7 @@ You can move one or more dismissed Amazon RDS recommendations to active recommen
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
 2. In the navigation pane, perform any of the following:
+
    - Choose **Recommendations**.
 
    The **Recommendations** page displays a list of
@@ -27,11 +28,11 @@ selected recommendations from dismissed to active status.
 
 The following example shows the banner with the successful message.
 
-![a banner in the console showing the message with the number of resources moved successfully from dismissed to active recommendations.](images/Recommendation-DismissToActive-Banner.png)
+![Console banner showing resources moved from dismissed to active recommendations.](images/Recommendation-DismissToActive-Banner.png)
 
 The following example shows the banner with the failure message.
 
-![a banner in the console showing the message with the resource that failed to move from dismissed to active recommendations.](images/Recommendation-DismissToActive-Banner-Failure.png)
+![Console banner showing the resource that failed to update.](images/Recommendation-DismissToActive-Banner-Failure.png)
 
 ###### To change a dismissed RDS recommendation to active recommendation using the AWS CLI
 

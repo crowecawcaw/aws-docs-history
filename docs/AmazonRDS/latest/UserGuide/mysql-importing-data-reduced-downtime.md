@@ -289,12 +289,12 @@ On Windows, run the command window as an administrator.
    You need this information when determining how large an Amazon EC2 instance to
    create. When you are done, compress the backup file using GZIP or your
    preferred compression utility.
+
    - To compress SQL output, use the following command:
 
    ```
    gzip backup.sql
    ```
-
    - To compress delimited-text output, use the following
      command:
 

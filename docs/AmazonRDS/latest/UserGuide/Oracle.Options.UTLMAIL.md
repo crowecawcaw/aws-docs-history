@@ -62,6 +62,7 @@ as soon as the option group is active, UTL_MAIL is active.
    You can create a new option group or use an existing option group.
    If you want to use an existing option group, skip to the next step.
    Otherwise, create a custom DB option group with the following settings:
+
    1. For **Engine**,
       choose the edition of Oracle you want to use.
    2. For **Major engine version**,
@@ -72,6 +73,7 @@ as soon as the option group is active, UTL_MAIL is active.
    For more information about adding options,
    see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption").
 3. Apply the option group to a new or existing DB instance:
+
    - For a new DB instance, you apply the option group when you launch the instance.
      For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
    - For an existing DB instance, you apply the option group by modifying the instance and attaching the new option group.

@@ -13,6 +13,7 @@ depends on the size of your database. For more information about using Amazon S3
 1. Prepare to back up your database. Configure sufficient storage amount to hold the
    backup on your self-managed Db2 system.
 2. Back up your database.
+
    1. Run the [db2look system command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2look-db2-statistics-ddl-extraction-tool "https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2look-db2-statistics-ddl-extraction-tool") to extract the data
       definition language (DDL) file for all objects.
    2. Run either the [Db2 export utility](https://www.ibm.com/docs/en/db2/11.5?topic=utility-exporting-data "https://www.ibm.com/docs/en/db2/11.5?topic=utility-exporting-data"), the [db2move system command](https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2move-database-movement-tool "https://www.ibm.com/docs/en/db2/11.5?topic=commands-db2move-database-movement-tool"), or a [CREATE EXTERNAL TABLE statement](https://www.ibm.com/docs/en/db2/11.5?topic=statements-create-table-external "https://www.ibm.com/docs/en/db2/11.5?topic=statements-create-table-external") to unload

@@ -59,12 +59,14 @@ database using either the AWS Management Console or the AWS CLI.
 4. In **Settings**, for **DB instance identifier**,
    enter `MySQLForLambda`.
 5. Set your username and password by doing the following:
+
    1. In **Credentials settings**, leave **Master
       username** set to `admin`.
    2. For **Master password**, enter and confirm a password to access
       your database.
 
 6. Specify the database name by doing the following:
+
    - Leave all the remaining default options selected and scroll down to the
      **Additional configuration** section.
    - Expand this section and enter `ExampleDB` as the
@@ -131,6 +133,7 @@ permissions for many common use cases and are available in your AWS account. For
    **Lambda**.
 3. Choose **Next**.
 4. Add the IAM managed policies by doing the following:
+
    1. Using the policy search box, search for `AWSLambdaSQSQueueExecutionRole`.
    2. In the results list, select the check box next to the role, then choose
       **Clear filters**.
@@ -303,6 +306,7 @@ queue.
    **Environment variables**.
 2. Choose **Edit**.
 3. To add your database access credentials, do the following:
+
    1. Choose **Add environment variable**, then for
       **Key** enter `USER_NAME` and for
       **Value** enter `admin`.

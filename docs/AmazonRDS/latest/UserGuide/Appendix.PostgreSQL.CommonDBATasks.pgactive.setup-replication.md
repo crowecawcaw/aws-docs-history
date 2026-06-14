@@ -40,6 +40,7 @@ psql --host=`firstinstance.111122223333`.`aws-region`.rds.amazonaws.com --port=5
 ```
 
 4. Create and populate a sample table using the following SQL statements:
+
    1. Create an example table using the following SQL statement.
 
    ```
@@ -48,7 +49,6 @@ psql --host=`firstinstance.111122223333`.`aws-region`.rds.amazonaws.com --port=5
    id int PRIMARY KEY, product_name text NOT NULL,
    created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP);
    ```
-
    2. Populate the table with some sample data by using the following SQL
       statement.
 
@@ -57,7 +57,6 @@ psql --host=`firstinstance.111122223333`.`aws-region`.rds.amazonaws.com --port=5
    VALUES (1, 'soap'), (2, 'shampoo'), (3, 'conditioner');
 
    ```
-
    3. Verify that data exists in the table by using the following SQL statement.
 
    ```

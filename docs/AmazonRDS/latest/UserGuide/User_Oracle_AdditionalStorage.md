@@ -38,6 +38,7 @@ Consider the following when using additional storage volumes with RDS for Oracle
 
 - You can add up to 3 additional storage volumes per instance.
 - Additional storage volumes must use the following volume names:
+
   - rdsdbdata2
   - rdsdbdata3
   - rdsdbdata4
@@ -55,16 +56,19 @@ For optimal performance, check the following when you are using additional stora
 volumes:
 
 - Data movement planning
+
   - Schedule large movements during off-peak hours
   - Break large operations into smaller chunks
   - Monitor system resources during moves
 
 - Resource management
+
   - Keep sufficient free space on both volumes
   - Monitor I/O patterns using AWR or Statspack
   - Watch for storage-full scenarios
 
 - Best practices
+
   - Use online datafile relocation operations where possible
   - Maintain appropriate indexes
   - Regularly monitor space usage
@@ -91,6 +95,7 @@ The following limitations apply to using additional storage volumes with RDS for
   is 256 TiB total across all volumes.
 - The following capabilities aren’t supported for DB instances with
   additional storage volumes:
+
   - Cross-region automated backups
   - Storage autoscaling (for additional storage volumes)
   - Public snapshots
