@@ -33,9 +33,11 @@ Ensure you are in the AWS Region where both your Log Archive bucket and Amazon Q
 [![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources")
 
 1. Specify the following parameters:
+
    - `Log Archive account ID` Enter the AWS account ID of the Log Archive account. Notice this in **not** where you are currently logged in (Required).
    - `Log Archive bucket` Enter the name of the Amazon S3 bucket that collects AWS Config data (Required).
    - `ARN of the KMS key that encrypts the Log Archive bucket` If you encrypt the Log Archive bucket with a KMS key, copy the key’s ARN here.
+
      - If a KMS key ARN is passed here, the CloudFormation template will create a new KMS key and use it to encrypt the the Dashboard bucket.
 
    - `Dashboard account ID` Enter the AWS account ID where you are currently logged in (Required).
@@ -57,6 +59,7 @@ Ensure you are in the AWS Region where both your Log Archive bucket and Amazon Q
 [![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-resources.yaml&stackName=config-dashboard-resources")
 
 1. Specify the following parameters:
+
    - `Log Archive account ID` Enter the AWS account ID where you are currently logged in (Required).
    - `Log Archive bucket` Enter the name of the Amazon S3 bucket that collects AWS Config data (Required).
    - `ARN of the KMS key that encrypts the Log Archive bucket` If you encrypt the Log Archive bucket with a KMS key, copy the key’s ARN here.
@@ -65,6 +68,7 @@ Ensure you are in the AWS Region where both your Log Archive bucket and Amazon Q
    - `ARN of the KMS key that encrypts the Dashboard bucket` This parameter is used only at this step of the Dashboard account deployment. If you encrypt the Log Archive bucket with a KMS key, insert the ARN of the KMS key created in Step 1 (it’s `DashboardBucketKmsKeyArn` on the CloudFormation Outputs).
    - `Configure S3 event notification` Leave at the default value. This parameter is ignored in this deployment mode.
    - `Configure cross-account replication` (Required)
+
      - Select `yes` to configure S3 replication from the Log Archive bucket to the Dashboard bucket.
      - Select `no` if you already have configured S3 replication rules on the Log Archive bucket. You will have to setup S3 replication manually (see below).
      - The S3 replication configuration is performed by an ad-hoc Lambda function (**Configure bucket replication** in the diagram above) that will be called by the CloudFormation template automatically.
@@ -105,6 +109,7 @@ pip3 install --upgrade cid-cmd
 ```
 
 1. Deploy the dashboard by running the following command (replace the parameters accordingly):
+
    - `--tag1` The name of the first tag you use to categorize resources.
    - `--tag2` The name of the second tag you use to categorize resources.
    - `--tag3` The name of the third tag you use to categorize resources.
@@ -125,6 +130,7 @@ pip3 install --upgrade cid-cmd
    ```
 
 1. The CID-CMD tool will prompt you to select a datasource: `[quicksight-datasource-id] Please choose DataSource (Select the first one if not sure):`.
+
    - If you have installed other CID/CUDOS dashboards, select the existing datasource `CID-CMD-Athena`.
    - Otherwise select `CID-CMD-Athena <CREATE NEW DATASOURCE>`.
 

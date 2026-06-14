@@ -142,6 +142,7 @@ Make sure to uncheck Pixel-Perfect Reports option unless specifically needed, as
 ![Quick Sight configuration page - uncheck Pixel-Perfect Reports option](images/pixel-perfect-china.png)
 
 1. Complete the account creation:
+
    - Select the appropriate Authentication method
    - Enter a unique name for your Quick Suite account
    - Enter an email address for notifications

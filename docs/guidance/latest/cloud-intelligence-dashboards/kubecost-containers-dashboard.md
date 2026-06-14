@@ -21,16 +21,19 @@ customizable visuals per cost metric.
 The dashboard has three tabs:
 
 - Executive Summary:
+
   - KPI visuals per cost metric (CPU cost, RAM cost, total cost,
     efficiency metrics, and more)
   - Total Cost by Account ID
   - Top Spending Clusters
 
 - Workloads Explorer:
+
   - Interactive stacked-bar chart and pivot table visuals that show cost
     by different dimensions based on in-dashboard aggregations and filters
 
 - EKS Breakdown
+
   - Distribution Graphs Area - a collection of pie charts showing pod
     distribution by different dimensions (capacity type, instance type, and
     more)

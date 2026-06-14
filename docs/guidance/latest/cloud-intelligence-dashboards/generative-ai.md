@@ -37,15 +37,18 @@ Amazon Quick Suite generative AI features incur additional charges. Review Autho
 ![Quick Suite Create Space](images/QuickSuite_create_space.gif)
 
 1. **Navigate to Quick Suite Spaces**
+
    - Open Amazon Quick Suite console
    - Select "Spaces" from navigation menu
    - Click "Create space"
 
 2. **Configure Space Settings**
+
    - Name: "CID Dashboards Space"
    - Description: "Comprehensive knowledge base for all Cloud Intelligence Dashboards"
 
 3. **Add CID Dashboards**
+
    - Click on "Dashboards"
    - Under the Dashboards list, click on "Add Dashboards"
    - Select your deployed CID dashboards
@@ -58,11 +61,13 @@ Amazon Quick Suite generative AI features incur additional charges. Review Autho
 #### Create Chat Agent
 
 1. **Navigate to Chat Agents**
+
    - In Quick Suite console, select "Chat Agents"
    - Click "Create Chat Agent"
    - Click "Skip" when the prompt box appears
 
 2. **Configure Basic Settings**
+
    - Agent name: "CID Operations Advisor"
    - Description: "Customer CID dashboard advisor for cost, security, and operations analysis"
 
@@ -180,12 +185,14 @@ Be concise for simple queries. Provide detailed analysis with multiple data poin
 #### Link Knowledge Sources
 
 1. **Connect Your CID Dashboards Space**
+
    - Scroll to "Knowledge sources" section
    - Click "Link spaces"
    - Select your CID Dashboards Space
    - Click "Add" or "Link"
 
 2. **Review and Launch**
+
    - Verify all configuration is correct
    - Click "Launch Chat Agent"
 
@@ -596,15 +603,18 @@ For full details on Web Crawler integration, see [Web Crawler integration in Ama
 ### Step 1: Create a Web Crawler Knowledge Base
 
 1. **Navigate to Quick Suite Knowledge Bases**
+
    - Open Amazon Quick Suite console
    - Select "Knowledge bases" from navigation menu
    - Click "Create knowledge base"
 
 2. **Select Web Crawler as Source**
+
    - Choose "Web Crawler" as the integration type
    - Click "Create"
 
 3. **Configure the Web Crawler**
+
    - Knowledge base name: "CFM Technical Implementation Playbooks"
    - Description: "Cloud Financial Management TIPs from the AWS Cloud Financial Framework workshop"
    - Source URL: `https://catalog.workshops.aws/awscff/en-US`
@@ -612,22 +622,26 @@ For full details on Web Crawler integration, see [Web Crawler integration in Ama
    - Review crawl scope and content filter settings as needed
 
 4. **Start Data Sync**
+
    - After clicking create, the initial data sync starts automatically
    - Wait for the sync to complete before proceeding
 
 ### Step 2: Add Knowledge Base to Your CID Space
 
 1. **Open Your CID Space**
+
    - In Quick Suite console, select "Spaces"
    - Open your existing "CID Dashboards Space"
 
 2. **Link the CFM Knowledge Base**
+
    - Click on "Knowledge bases"
    - Click "Add knowledge base"
    - Select "CFM Technical Implementation Playbooks"
    - Click "Add"
 
 3. **Verify Integration**
+
    - Confirm the knowledge base appears in your Space’s linked sources
    - The CID Operations Advisor chat agent and flows linked to this Space will now have access to CFM TIPs content
 

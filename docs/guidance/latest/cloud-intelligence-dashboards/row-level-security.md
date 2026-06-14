@@ -60,6 +60,7 @@ The RLS dataset maps users and groups to the AWS accounts they can access. This 
 The RLS implementation follows this workflow:
 
 1. **(Optional) Tag Configuration**: Organization Admin sets OU or Account Tags in AWS Console with the following Tag keys:
+
    1. `cid_users`: Colon-separated (`:`) list of user emails (must match Quick Suite exactly)
    2. `cid_groups`: Colon-separated (`:`) list of Quick Suite groups with access
    3. Users and groups with Management Account access inherit access to all organization accounts
@@ -80,12 +81,14 @@ CID constructs an RLS dataset from several sources.
 1. **full_access_users** - is a view or a table that contains a list of emails of users who are supposed to have a full unrestricted access to protected datasets. This view can be edited in Athena directly (https://docs.aws.amazon.com/athena/latest/ug/views-managing.html) as [linline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with the tables that comes from other sources (your identity management or a simple csv file on Amazon S3). We do not recommend using individual users for this and rather prioritize user management with groups, but it can be handy on the initial setup phase. Please make sure you put exactly the same email as you have in Quick Suite.
 2. **full_access_groups** - is a view or a table that contains a list of Quick Suite Groups with users who will to have a full unrestricted access to protected datasets. This view can be edited in Athena directly (https://docs.aws.amazon.com/athena/latest/ug/views-managing.html) as [linline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with the tables that comes from other sources (your identity management or a simple csv file on Amazon S3).
 3. **account_access** - a view or a table that has the following fields:
+
    1. `account_id` - AWS Account Id (12 digits)
    2. `payer_account_id` - an AWS Management Account Id. Users and groups that have access to the `account_id` == `payer_id` will have access to all accounts under the AWS Organization with this management account id. The tool supports multiple AWS Organizations.
    3. `emails` - a list of emails of users who will have access to the account information (note that it is not a comma separated list but it must be Athena type `ARRAY<VARCHAR>`)
    4. `groups` - a list of Quick Suite Groups who will have access to the account information (note that it is not a comma separated list but it must be Athena type `ARRAY<VARCHAR>`)
 
 4. **permission view** - is a union of several sub tables based on **full_access_users**, **full_access_groups** and **account_access**. It results to a following fields:
+
    1. `email` - email of users
    2. `group` - a Quick Suite Group
    3. `payer_account_id` - a comma separated list of accounts
@@ -264,6 +267,7 @@ cid-cmd update --force --recursive --rls ENABLED
 ```
 
 4. **RLS Management Options**:
+
    - Disable RLS: `--rls DISABLED`
    - Remove RLS: `--rls CLEAR`
 

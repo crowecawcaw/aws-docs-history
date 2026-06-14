@@ -18,6 +18,7 @@ This solution helps teams make data-driven decisions to optimize costs, improve 
 The dashboard has six tabs:
 
 - **Summary**:
+
   - Break down of EUC services costs for last 3 months.
   - Top Spending accounts for each service.
   - High level summary of your EUC estate.
@@ -25,7 +26,9 @@ The dashboard has six tabs:
 ![Insights](images/euc/workspace_insights.png)
 
 - **Amazon WorkSpaces Insights**:
+
   - In-dept break down of WorkSpaces costs for entire environment, additional insights not available in the Cost Usage Report including:
+
     - Protocol
     - Operating Systems
 
@@ -39,25 +42,30 @@ The dashboard has six tabs:
 ![Insights](images/euc/workspace_logon_details.png)
 
 - **Amazon WorkSpaces Usage**:
+
   - WorkSpaces User connections.
   - Top10 Daily usage.
   - Directory cost breakdown.
   - WorkSpaces daily usage and Hours used.
   - WorkSpaces Logon information
+
     - Last Logon
     - Low Usage
     - AlwaysOn WorkSpaces Logon information
     - Never Logged on
 
 - **Amazon WorkSpaces Metrics**:
+
   - This tab is additional will breaks down Cloudwatch CPU/Memory utilization of WorkSpaces.
 
 ![AppStream 2.0 Highlights](images/euc/as2_details.png)
 
 - **Amazon AppStream 2.0**
+
   - Detail overview of AppStream 2.0 environment.
 
 - **EUC Cost Optimization**
+
   - Cost saving opportunities in your EUC environment.
 
 ## Architecture
@@ -71,6 +79,7 @@ The dashboard has six tabs:
 
 1. Deploy one or more of the foundational dashboards: [CUDOS, Cost Intelligence, or KPI Dashboard](cudos-cid-kpi.md "cudos-cid-kpi.md"). This will enable CUR and will enable required Quick Sight and Athena resources needed for this dashboard.
 2. [Deploy](data-collection-deployment.md "data-collection-deployment.md") or [Update](data-collection-update.md "data-collection-update.md") the Data Collection Lab and make sure the following modules are enabled. Version 3.2.0 or higher required.
+
    - **Include Inventory Collector Module** (Mandatory) - This enables the collection of WorkSpaces environmental information using the WorkSpaces API.
    - **Include WorkSpaces Utilization Data Collection Module** (Optional) - This enables the collection of Cloudwatch metrics for WorkSpaces. Please see **Visualizing WorkSpaces Cloudwatch Metric** section below to configure this.
    - **EUC Module Settings** (Optional) - You can choose to scan all linked accounts in an organization or specify accounts that have WorkSpaces deployed, provide a comma-separated list of account IDS in the field to only scan these accounts. Leaving blank will scan all accounts.

@@ -19,22 +19,27 @@ experience to drill down into EKS and ECS in-cluster cost.
 The dashboard has three tabs:
 
 - Executive Summary:
+
   - KPI visuals per cost metric (CPU cost, GPU cost, RAM cost, shared cost, total
     cost)
   - Total Cost by Account ID
   - Top Spending Clusters
 
 - Workloads Explorer:
+
   - Interactive stacked-bar chart and pivot table visuals that show cost
     by different dimensions based on in-dashboard aggregations and filters
 
 - Cluster Breakdown:
+
   - Coverage and drill-down visuals
 
 - Labels/Tags Explorer:
+
   - Drill down into your pods/tasks split cost by dimensions that are customized using K8s pod labels/AWS ECS tasks tags, and combine them with tagged AWS resources costs to implement Total Cost of Ownership (TCO)
 
 - Data on EKS:
+
   - Allocate costs to Spark and Flink applications running on EKS (directly or using EMR on EKS), with ability to combine EMR on EKS service cost and split cost
 
 ## Demo Dashboard
@@ -59,6 +64,7 @@ Please visit review the [Containers Cost Allocation dashboards comparison in the
 - [Prerequisites](scad-containers-dashboard-prerequisites.md "scad-containers-dashboard-prerequisites.md")
 - [Deployment](scad-containers-dashboard-deployment.md "scad-containers-dashboard-deployment.md")
 - [Post Deployment](scad-containers-dashboard-post-deployment.md "scad-containers-dashboard-post-deployment.md")
+
   - [Adding K8s Pods Labels or Amazon ECS Tasks Tags to the Dashboard](scad-containers-dashboard-add-labels-tags.md "scad-containers-dashboard-add-labels-tags.md")
   - [Total Cost of Ownership Using Kubernetes Labels and AWS Tags](scad-containers-dashboard-tco.md "scad-containers-dashboard-tco.md")
   - [Data on EKS - Cost Allocation for Spark and Flink Applications Running on EKS](scad-containers-dashboard-data-on-eks.md "scad-containers-dashboard-data-on-eks.md")
@@ -66,6 +72,7 @@ Please visit review the [Containers Cost Allocation dashboards comparison in the
 ## Learn more
 
 - Split Cost Allocation Data for EKS documentation:
+
   - [SCAD
     EKS what’s new post](https://aws.amazon.com/about-aws/whats-new/2024/04/aws-split-cost-allocation-data-amazon-eks/ "https://aws.amazon.com/about-aws/whats-new/2024/04/aws-split-cost-allocation-data-amazon-eks/")
   - [SCAD

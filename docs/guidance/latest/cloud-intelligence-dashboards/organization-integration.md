@@ -98,6 +98,7 @@ can see the added fields to use them in your Dashboards and Analyses.
 ![Quick Sight edit dataset page with add data button highlighted](images/customizations/out-integration/ou-integration-03.png)
 
 1. Make the following selections:
+
    - Select DataSource from the first drop down.
    - Next select the same DataSource that issued for `summary_view`.
    - Leave the Catalog as AwsDataCatalog.
@@ -328,6 +329,7 @@ as a control.
 ![Add filters drop down with ou highlighted](images/customizations/out-integration/ou-integration-17.png)
 
 1. Click on the _ou_ filter to edit it and make the following selections:
+
    - Filter type: **Custom filter**
    - Filter condition: **equals**
    - Use Parameters: **checked**
@@ -339,6 +341,7 @@ as a control.
 
 1. When you make a selection with the _Organization_ control, all the visuals on the sheet should be updated to be filtered by that organization unit.
 2. To add this control to other sheets in the analysis, follow these steps:
+
    1. Select the sheet you want to add the control.
    2. Click the parameters icon from the toolbar.
    3. Search for `organization` in the parameters search.
@@ -354,6 +357,7 @@ as a control.
    13. Select a visual from the sheet and click on the _filters_ icon from the analysis menu.
    14. Click the ` ADD` button under the **Filters** heading, search for the _ou_ field to add it to the filters.
    15. Click on the `ou` filter to edit it and make the following selections:
+
        1. Filter type: **Custom filter**
        2. Filter condition: **equals**
        3. Use Parameters: **checked**

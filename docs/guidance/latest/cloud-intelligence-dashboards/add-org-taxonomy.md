@@ -28,7 +28,9 @@ patterns:
         ownership based on organizational policies
 
 2.  [Resource-Level Allocation](#add-org-taxonomy-resource-level-cost-allocation "#add-org-taxonomy-resource-level-cost-allocation") - Enables more granular allocation through:
+
     1. AWS Cost Allocation Tags (user-defined and AWS-generated)
+
        1. [Account Tags as Cost Allocation Tags](../../../awsaccountbilling/latest/aboutv2/account-tags-cost-allocation.md "../../../awsaccountbilling/latest/aboutv2/account-tags-cost-allocation.md") (available in CUR2)
        2. [IAM Principal Tags](../../../awsaccountbilling/latest/aboutv2/iam-principal-cost-allocation.md "../../../awsaccountbilling/latest/aboutv2/iam-principal-cost-allocation.md") (available in CUR2)
        3. [User Attributes](../../../awsaccountbilling/latest/aboutv2/user-attributes-cost-allocation.md "../../../awsaccountbilling/latest/aboutv2/user-attributes-cost-allocation.md") (available in CUR2)
@@ -267,6 +269,7 @@ CUR2 introduces additional tag types in the `tags` MAP column that enable attrib
 **Prerequisites:**
 
 - [Data export stack](data-exports.md "data-exports.md") version `v0.11.0` or above. This will ensure:
+
   - CUR2 data export includes the **Tags** column (for IAM Principal Tags and User Attributes)
   - CUR2 data export includes `line_item_iam_principal` column
 

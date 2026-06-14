@@ -32,6 +32,7 @@ edit and share the analysis.
 ![Quick Sight top navigation with the share button dropdown and share dashboard item highlighted](images/share_dashboard2.png)
 
 1. Do one of the following:
+
    - Check what permissions already exist by choosing **Manage dashboard
      access**. Then choose **Add users** to return to this screen.
    - You have the option to share with all the users in your Amazon

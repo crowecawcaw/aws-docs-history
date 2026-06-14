@@ -18,6 +18,7 @@ AWS Marketplace investments effectively.
 The dashboard has five tabs:
 
 - **Spend Summary**:
+
   - AWS Marketplace Cumulative Spend by Seller
   - AWS Marketplace Cumulative Spend by Product
   - AWS Marketplace Spend by Seller
@@ -25,16 +26,19 @@ The dashboard has five tabs:
   - Marketplace Invoice Tracker
 
 - **Spend Deep Dive**:
+
   - Spend by Product
   - Spend by AWS Account ID
   - Spend Mapping by Seller
   - Spend Details by Invoice
 
 - **Bedrock 3P Foundational Model (FM) Spend**
+
   - 3P FM Spend by Seller
   - Spend and Usage by FM Product
 
 - **Granted and Entitled Licenses**
+
   - Upcoming Contract Expirations
   - Org View of Licenses
   - License Summary by Product
@@ -42,6 +46,7 @@ The dashboard has five tabs:
   - Product mapping to License Grants
 
 - **Marketplace Agreements**
+
   - Active Agreement Count by Deployment Status
   - Active Agreement Value by Deployment Status
   - Agreement Information

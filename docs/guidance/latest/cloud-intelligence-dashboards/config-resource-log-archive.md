@@ -128,6 +128,7 @@ pip3 install --upgrade cid-cmd
 ```
 
 1. Deploy the dashboard by running the following command (replace the parameters accordingly):
+
    - `--tag1` The name of the first tag you use to categorize resources.
    - `--tag2` The name of the second tag you use to categorize resources.
    - `--tag3` The name of the third tag you use to categorize resources.
@@ -148,6 +149,7 @@ cid-cmd deploy \
 ```
 
 1. The CID-CMD tool will prompt you to select a datasource: `[quicksight-datasource-id] Please choose DataSource (Select the first one if not sure):`.
+
    - If you have installed other CID/CUDOS dashboards, select the existing datasource `CID-CMD-Athena`.
    - Otherwise select `CID-CMD-Athena <CREATE NEW DATASOURCE>`.
 

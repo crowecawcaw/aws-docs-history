@@ -39,11 +39,13 @@ If your Log Archive bucket is SSE-KMS encrypted, and you do not provide the ARN 
 ## Prerequisites
 
 1. AWS Config enabled in the accounts and AWS Regions you want to track, with an AWS Config delivery channel sending files to a centralized Amazon S3 bucket (which we will call the Log Archive bucket) in a dedicated account (which we will call the Log Archive account).
+
    - We recommend that your AWS Config delivery channel delivers AWS Config configuration snapshot files every 24 hours for all accounts and Regions where AWS Config is active (see below for more information).
 
 2. An AWS account where you’ll deploy the dashboard.
 3. An IAM Role or IAM User with permissions to deploy the infrastructure using CloudFormation.
 4. Sign up for [Amazon Quick Sight](../../../quicksight/latest/user/signing-up.md "../../../quicksight/latest/user/signing-up.md") and create a user:
+
    1. Select **Enterprise** edition.
    2. For the **Get Paginated Reports add-on**, choose the option you prefer (this is not required for deploying the CRCD dashboard).
    3. **Use IAM federated identities and Quick Sight-managed users**.

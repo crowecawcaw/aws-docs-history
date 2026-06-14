@@ -34,6 +34,7 @@ Quick Sight that do not have this option enabled please use the
 For this solution, you must have the following:
 
 - AWS Organizations and IAM Identity Center enabled
+
   - For instructions on setting up IAM Identity Center, please follow the documentation [here](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md")
 
 - Data Collection AWS account should be part of the same AWS

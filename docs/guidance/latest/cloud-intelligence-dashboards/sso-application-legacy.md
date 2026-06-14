@@ -232,6 +232,7 @@ Note: This step is done in the target account where the CID lives, this may diff
 ![Images/sso_iic_edit_mapping.png](images/customizations/sso_legacy/sso_iic_edit_mapping.png)
 
 1. Add two new mappings by clicking on **Add new attribute mapping**, replacing your `ACCOUNT_ID` with your `CID Quick Sight` account `ID`.
+
    - ADD **Attribute:**
      `https://aws.amazon.com/SAML/Attributes/Role`
      **Value:**
