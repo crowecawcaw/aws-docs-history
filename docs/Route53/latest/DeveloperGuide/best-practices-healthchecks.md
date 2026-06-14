@@ -29,10 +29,12 @@ Here are some best practices to consider when setting up and managing Amazon Rou
     Fore more information, see [Monitoring health checks using CloudWatch](monitoring-health-checks.md "monitoring-health-checks.md").
 
 4.  **Utilize health check Regions strategically:**
+
     - Choose health check Regions based on the geographic distribution of your users and resources.
     - Consider using multiple health check regions for critical resources to improve reliability and reduce the impact of regional outages.
 
 5.  **Monitor health check logs and metrics:**
+
     - Regularly review Route 53 health check logs and CloudWatch metrics to identify potential issues or performance bottlenecks
     - Analyze health check failure reasons and take appropriate actions to resolve underlying problems.
 

@@ -83,6 +83,7 @@ Perform the following procedure.
 1. Using the method provided by your DNS service, back up the zone file for the
    parent domain.
 2. In the Route 53 console, get the name servers for your Route 53 hosted zone:
+
    1. Sign in to the AWS Management Console and open the Route 53 console at
       [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
    2. In the navigation pane, click **Hosted zones**.

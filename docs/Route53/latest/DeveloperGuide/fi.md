@@ -19,6 +19,7 @@ Open to the public, with some restrictions:
   number is required for a company registrant, and you must
   provide the following information during
   registration:
+
   - Whether or not the contact is based on a physical
     or moral person in Finland.
   - The identifier of the register where the name is

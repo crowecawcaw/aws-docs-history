@@ -87,6 +87,7 @@ limitations](../../../acm/latest/userguide/acm-certificate-characteristics.md ".
 - You can configure Route 53 to return the same response to DNS queries both for all subdomains at the same level and
   for the domain name. For example, you can configure Route 53 to respond to DNS queries such as acme.example.com and zenith.example.com
   using the example.com record. Perform the following steps:
+
   1.  Create a record for the domain, such as example.com.
   2.  Create an alias record for the subdomain, such as \*.example.com. Specify the record that you created in step 1
       as the target for the alias record.

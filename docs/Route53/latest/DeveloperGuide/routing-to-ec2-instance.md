@@ -14,6 +14,7 @@ Amazon Route 53, if you're hosting a website or running a web application on an
 To get started, you need the following:
 
 - An Amazon EC2 instance. For information about launching an EC2 instance, see the following documentation:
+
   - **Linux** – See
     [Getting started with Amazon EC2 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md") in the
     _Amazon EC2 User Guide_
@@ -43,6 +44,7 @@ To configure Amazon Route 53 to route traffic to an EC2 instance, perform the f
 ###### To route traffic to an Amazon EC2 instance
 
 1. Get the IP address for the Amazon EC2 instance:
+
    1. Sign in to the AWS Management Console and open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. In the Regions list in the upper right corner of the console, choose the Region that you

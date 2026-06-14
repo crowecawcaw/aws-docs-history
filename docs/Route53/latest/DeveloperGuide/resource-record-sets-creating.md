@@ -36,6 +36,7 @@ create a hosted zone:
 6. Choose **Create record**.
 7. Choose and define the applicable routing policy and values. For more information, see the
    topic for the kind of record that you want to create:
+
    - [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
    - [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
    - [Values specific for simple records](resource-record-sets-values-basic.md "resource-record-sets-values-basic.md")

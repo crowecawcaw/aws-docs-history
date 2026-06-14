@@ -6,6 +6,7 @@ domains will go through a deletion process:
 1. We will notify you that your account is closed and your domain will be suspended in the next 5
    days on a daily basis.
 2. Once your domain is suspended, the following will take place:
+
    - If your registrar is Amazon Registrar, we will notify you that we will delete your domain in 30 days.
      For more information, see [Finding your registrar and other information about your domain](find-your-registrar.md "find-your-registrar.md").
    - If your registrar is Gandi, we will notify you that we will release your domain to Gandi when

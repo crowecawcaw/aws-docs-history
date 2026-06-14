@@ -18,6 +18,7 @@ A DNS view is a logical grouping defines security policies for a group of client
 3. Choose the **DNS views** tab.
 4. Choose **Create DNS view**.
 5. In the **DNS view details** section:
+
    1. For **DNS view name**, enter a descriptive name for your
       DNS view (up to 128 characters).
    2. (Optional) For **Description**, enter a description for
@@ -25,6 +26,7 @@ A DNS view is a logical grouping defines security policies for a group of client
 
 6. In the **DNS query handling** section, configure the
    following settings:
+
    - **DNSSEC validation** - Choose **Enable** or **Disable**. DNSSEC validation enables
      the Global Resolver to verify the authenticity of DNS responses.
    - **Firewall rules fail open behavior** - Choose **Enable** to allow queries to proceed when DNS Firewall cannot evaluate

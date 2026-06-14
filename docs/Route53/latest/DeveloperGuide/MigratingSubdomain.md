@@ -112,6 +112,7 @@ Perform the following procedure.
    expire, you can safely delete the records that are stored at the previous provider
    and make changes only to Route 53.
 3. In the Route 53 console, get the name servers for your Route 53 hosted zone:
+
    1. Sign in to the AWS Management Console and open the Route 53 console at
       [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
    2. In the navigation pane, click **Hosted zones**.

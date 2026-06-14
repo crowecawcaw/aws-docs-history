@@ -26,6 +26,7 @@ Open to the public, with some restrictions:
   contact must be a company.
 - During the registration process, you must indicate the
   following:
+
   - Your registration type: ABN (Australian Business
     Number), ACN (Australian Company Number), or TM
     (Trademark) if the domain name corresponds to your
@@ -38,6 +39,7 @@ Open to the public, with some restrictions:
     (Trademark).
   - Your eligibility type, which refers to the type of legal entity registering the domain name.
   - The reason why you are allowed to register this domain name (Policy reason):
+
     - The domain name matches the acronym or abbreviation of the registrant's company or
       trading name, organization or association name, or trademark. (Policy reason 1)
     - The domain name meets the allocation rules but is not an acronym or abbreviation of the r

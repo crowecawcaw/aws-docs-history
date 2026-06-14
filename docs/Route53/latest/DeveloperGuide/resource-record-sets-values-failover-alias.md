@@ -186,6 +186,7 @@ Health checking behavior depends on the type of load balancer:
 - **Application and Network Load Balancers** – If you specify an ELB Application or Network
   Load Balancer and you set **Evaluate Target health** to **Yes**, Route 53 routes queries to the
   load balancer based on the health of the target groups that are associated with the load balancer:
+
   - For an Application or Network Load Balancer to be
     considered healthy, a target group that contains targets
     must contain at least one healthy target. If any target

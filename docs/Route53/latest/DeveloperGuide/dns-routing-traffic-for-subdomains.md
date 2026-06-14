@@ -185,6 +185,7 @@ the domain, perform the following procedure:
 
 1. In the Route 53 console, get the name servers for the hosted zone for the
    subdomain:
+
    1. In the navigation pane, choose **Hosted
       zones**.
    2. On the **Hosted zones** page, choose the name

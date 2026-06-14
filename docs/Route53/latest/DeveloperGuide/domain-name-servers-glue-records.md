@@ -129,6 +129,7 @@ information, see [How Amazon Route 53 routes traffic for your domain](welcome-d
     servers**.
 6.  In the **Edit name servers** dialog box, you can do the
     following:
+
     - Change the DNS service for the domain by doing one of the
       following:
 

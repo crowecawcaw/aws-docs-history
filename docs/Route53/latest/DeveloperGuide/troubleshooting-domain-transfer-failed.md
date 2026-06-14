@@ -37,6 +37,7 @@ following steps:
 
 1. Contact the current registrar for the domain and request a new
    authorization code. Confirm the following:
+
    - How long the new authorization code will remain active. You must
      request a domain transfer before the code expires.
    - The new authorization code is different from the code that isn't

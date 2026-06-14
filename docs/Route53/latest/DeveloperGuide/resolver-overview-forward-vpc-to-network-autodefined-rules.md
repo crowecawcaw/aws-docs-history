@@ -61,6 +61,7 @@ The following autodefined rules are for the reverse DNS lookup for the rules tha
 - 254.169.254.169.in-addr.arpa
 - Rules for each of the CIDR ranges for the VPC. For example, if a VPC that has a CIDR range of
   10.0.0.0/23, VPC Resolver creates the following rules:
+
   - 0.0.10.in-addr.arpa
   - 1.0.10.in-addr.arpa
 
@@ -82,6 +83,7 @@ peering, and with DNS support enabled:
 If you add an IPv4 CIDR block to a VPC, VPC Resolver adds an autodefined rule for the new IP address range.
 
 - If the other VPC is in another Region, the following domain names:
+
   - `Region-name`.compute.internal.
     The us-east-1 Region doesn't use this domain name.
   - `Region-name`.compute.`amazon-domain-name`.

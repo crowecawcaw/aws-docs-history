@@ -53,6 +53,7 @@ There are a few additional considerations to be aware of related to the accelera
 3. [CloudFront flat-rate plans](../../../AmazonCloudFront/latest/DeveloperGuide/flat-rate-pricing-plan.md "../../../AmazonCloudFront/latest/DeveloperGuide/flat-rate-pricing-plan.md") are not supported at this time.
 4. Hosted zones with accelerated recovery enabled cannot be deleted. You must disable accelerated recovery before attempting to delete the hosted zone.
 5. During failover, the following API methods will continue to be supported for public hosted zones with accelerated recovery enabled. However, all other Route 53 API methods will not be functional until a failback occurs.
+
    - `ChangeResourceRecordSets`
    - `GetChange`
    - `GetGeoLocation`

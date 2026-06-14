@@ -23,6 +23,7 @@ Open to the public, with some restrictions:
 - Names and terms are subject to an AFNIC prior review
   (Naming Charter Article 2.4) and to the following additional
   conditions:
+
   - Domain names previously reserved or prohibited are
     open to applicants that justify a legitimate right
     and act in good faith.

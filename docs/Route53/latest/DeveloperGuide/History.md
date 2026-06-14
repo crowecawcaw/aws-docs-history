@@ -388,6 +388,7 @@ With this release, Route 53 adds the following new features:
   all domain registration charges, by domain, for a specified time period. The report includes all domain registration operations
   for which there is a fee, including registering domains, transferring domains to Route 53, renewing domain registration, and
   (for some TLDs), changing the owner of a domain. For more information, see the following documentation:
+
   - **Route 53 console** – See
     [Downloading a domain billing report](domain-billing-report.md "domain-billing-report.md")
   - **Route 53 API** – See
@@ -401,6 +402,7 @@ With this release, Route 53 adds the following new features:
   determine whether the registrant contact has clicked the link in the confirmation email and, if not, whether the link is
   still valid. You can also programmatically request that we send another confirmation email. For more information,
   see the following documentation in the _Amazon Route 53 API Reference_:
+
   - [GetContactReachabilityStatus](../APIReference/API_GetContactReachabilityStatus.md "../APIReference/API_GetContactReachabilityStatus.md")
   - [ResendContactReachabilityEmail](../APIReference/API_ResendContactReachabilityEmail.md "../APIReference/API_ResendContactReachabilityEmail.md")
 
@@ -412,6 +414,7 @@ With this release, Route 53 adds the following new features:
   health checks that are based on the alarm state of any CloudWatch metric. This is useful for checking the health of endpoints
   that can't be reached by a standard Route 53 health check, such as instances within an Amazon Virtual Private Cloud (VPC) that have only
   private IP addresses. For more information, see the following documentation:
+
   - **Route 53 console** – See
     [Monitoring a CloudWatch alarm](health-checks-creating-values.md#health-checks-creating-values-cloudwatch "health-checks-creating-values.md#health-checks-creating-values-cloudwatch")
     in the "Values that You Specify When You Create or Update Health Checks" topic.
@@ -424,6 +427,7 @@ With this release, Route 53 adds the following new features:
   health checking regions that check the health of your resources, which reduces the load on the endpoint from
   health checks. This is useful if your customers are concentrated in one or a few geographic regions.
   For more information, see the following documentation:
+
   - **Route 53 console** – See
     [Advanced configuration ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced")
     in the "Values that You Specify When You Create or Update Health Checks" topic.
@@ -436,6 +440,7 @@ With this release, Route 53 adds the following new features:
   failover alias records in a private hosted zone. When you combine this feature with metric-based health checks,
   you can configure DNS failover even for endpoints that have only private IP addresses and can't be reached by using
   standard Route 53 health checks. For more information, see the following documentation:
+
   - **Route 53 console** – See
     [Configuring failover in a private hosted zone](dns-failover-private-hosted-zones.md "dns-failover-private-hosted-zones.md").
   - **Route 53 API** – See
@@ -447,6 +452,7 @@ With this release, Route 53 adds the following new features:
   hosted zone. With this release, you can also create alias records that route DNS queries to Elastic Beanstalk environments
   that have regionalized subdomains, Elastic Load Balancing load balancers, and Amazon S3 buckets. (You still can't create alias records
   that route DNS queries to a CloudFront distribution.) For more information, see the following documentation:
+
   - **Route 53 console** – See
     [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").
   - **Route 53 API** – See

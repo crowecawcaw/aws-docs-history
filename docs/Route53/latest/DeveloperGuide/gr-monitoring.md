@@ -13,6 +13,7 @@ service:
   from Amazon EC2 instances, CloudTrail, and other sources. Route 53 Global Resolver can deliver DNS query logs directly
   to CloudWatch Logs for real-time monitoring and analysis. You can also archive your log data in highly
   durable storage. For more information, see the [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md").
+
   - You can use metric filters to search and filter log data coming into CloudWatch Logs and
     create CloudWatch metrics from the log events. Use these metrics to track DNS query volumes,
     response times, and security events. You can also create dashboards to monitor DNS

@@ -88,6 +88,7 @@ ns2.apac.hr.example.com IN A 10.0.0.40 # Glue Record
 ```
 
 2. For the on-premises name server in the Europe on-premises region:
+
    - Hosted Zone: `eu.hr.example.com` NS IP: `10.0.0.30`
 
 ```
@@ -178,6 +179,7 @@ Follow the example steps to configure your on-premises DNS and the VPC Resolver.
 ###### Configure on-premise DNS
 
 1. For the on-premises name server in the central on-premises region:
+
    - **Parent hosted zone:**
      `hr.example.com`
 
@@ -199,6 +201,7 @@ ns2.apac.hr.example.com IN A 10.0.0.40 # Glue record
 2. For the on-premises name server in the Europe on-premises region (the configuration for the
    Europe, Asia, and North America name servers is the same as for the private hosted zone
    to outbound delegation):
+
    - Hosted Zone: `eu.hr.example.com` NS IP: `10.0.0.30`
 
 ```

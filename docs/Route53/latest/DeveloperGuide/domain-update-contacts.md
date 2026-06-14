@@ -188,6 +188,7 @@ complete this checklist:
 5. If you don't have access to the email address for the registrant contact,
    perform the following steps. If you have access to the email address for the
    registrant contact, skip to step 6.
+
    1. Change _only_ the email address for the
       registrant contact. Don't change any other values for any of the
       contacts for the domain. If you also want to change other values,

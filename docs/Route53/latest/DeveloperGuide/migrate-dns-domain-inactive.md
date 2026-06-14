@@ -37,6 +37,7 @@ _records list_. For information about the required format of the zone file, see
   routing features** – Review the following documentation to see whether you want to use Route 53 features
   that aren't available from other DNS service providers. If so, you can either create records manually, or you can
   import a zone file and then create or update records later:
+
   - [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md")
     explains the advantages of Route 53 alias records, which route traffic to some AWS resources, such as CloudFront distributions and
     Amazon S3 buckets, for no charge.
@@ -135,6 +136,7 @@ Amazon Route 53. Perform the following procedure to update settings with the do
 ###### To update the name servers for the domain
 
 1. In the Route 53 console, get the name servers for your Route 53 hosted zone:
+
    1. Open the Route 53 console at
       [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
    2. In the navigation pane, choose **Hosted zones**.

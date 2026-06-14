@@ -14,6 +14,7 @@ The Route 53 VPC Resolver console includes a wizard that guides you through the 
 2. On the **Welcome to Route 53 VPC Resolver** page, choose **Configure endpoints**.
 3. On the navigation bar, choose the Region where you want to create a Resolver endpoint.
 4. Under **Basic configuration**, choose the direction that you want to forward DNS queries:
+
    - **Inbound and outbound**: The wizard guides you through settings that let you both
      forward DNS queries from resolvers on your network to VPC Resolver in a VPC, and forward specified queries (such as example.com or
      example.net) from a VPC to resolvers on your network.

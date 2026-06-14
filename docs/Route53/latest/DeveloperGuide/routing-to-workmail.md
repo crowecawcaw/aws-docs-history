@@ -26,6 +26,7 @@ For more information, see [Making Amazon Route 53 the DNS service for an existi
    to Amazon WorkMail.
 3. Open another browser tab, and open the [Route 53 console](https://console.aws.amazon.com/route53/home "https://console.aws.amazon.com/route53/home").
 4. In the Route 53 console, do the following:
+
    1. In the navigation pane, choose **Hosted zones**.
    2. Choose the name of the hosted zone that you want to use for your Amazon WorkMail email domain.
 
@@ -41,6 +42,7 @@ For example, if your Amazon WorkMail email domain is **example.com** and the val
 
 7. In the Amazon WorkMail console, for the TXT record, copy the value of the **Value** column, including the quotation marks.
 8. In the Route 53 console, do the following:
+
    1. For **Value/Route traffic to**, choose **IP address or another value depending on the record type**, and paste the value
       that you copied in step 7.
 
@@ -52,6 +54,7 @@ For example, if your Amazon WorkMail email domain is **example.com** and the val
    row that has a **Record type** of **MX**, and copy the value of the
    **Value** column.
 2. In the Route 53 console, do the following:
+
    1. Choose **Create record**.
    2. For **Value/Route traffic to**, choose **IP address or another value depending on the record type**, and paste the value
       that you copied in step 1.
@@ -75,6 +78,7 @@ For example, if your Amazon WorkMail email domain is **example.com** and the val
 3. In the Amazon WorkMail console, in the first row that has a **Record type** of **CNAME**,
    copy the value of the **Value** column.
 4. In the Route 53 console, do the following:
+
    1. For **Value/Route traffic to**, choose **IP address or another value depending on the record type**, and paste the value
       that you copied in step 3.
 

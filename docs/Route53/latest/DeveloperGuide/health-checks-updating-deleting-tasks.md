@@ -19,6 +19,7 @@ recommend that you perform the following tasks:
 1. Identify the records that are associated with the health checks. To
    identify the records that are associated with a health check, you must do
    one of the following:
+
    - Review the records in each hosted zone using the Route 53 console.
      For more information, see [Listing records](resource-record-sets-listing.md "resource-record-sets-listing.md").
    - Run the `ListResourceRecordSets` API action on each

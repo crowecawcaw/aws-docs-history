@@ -111,6 +111,7 @@ Requirements vary, but the following requirements are typical:
   must have been restored at least 60 days ago.
 - The domain cannot have any of the following domain name status
   codes:
+
   - clientTransferProhibited
   - pendingDelete
   - pendingTransfer
@@ -478,6 +479,7 @@ the internet.
 12. When domain transfer is complete, your next step depends on whether you
     want to use Route 53 or another DNS service as the DNS service for the
     domain:
+
     - **Route 53** – In the hosted zone
       that Route 53 created when you registered the domain, create records to
       tell Route 53 how you want to route traffic for the domain and
@@ -613,6 +615,7 @@ the internet.
 14. When domain transfer is complete, your next step depends on whether you
     want to use Route 53 or another DNS service as the DNS service for the
     domain:
+
     - **Route 53** – In the hosted zone
       that Route 53 created when you registered the domain, create records to
       tell Route 53 how you want to route traffic for the domain and

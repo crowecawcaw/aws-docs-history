@@ -17,15 +17,18 @@ Firewall rules define how Route 53 Global Resolver handles DNS queries based on 
 2. Choose the **Firewall rules** tab.
 3. Choose **Create firewall rule**.
 4. In the **Rule details** section:
+
    1. For **Rule name**, enter a descriptive name for the rule (up to 128 characters).
    2. (Optional) For **Rule description**, enter a description for the rule (up to 255 characters).
 
 5. In the **Rule configuration** section, choose the **Rule configuration type**:
+
    - **Customer managed domain lists** - Use a domain list that you create and manage
    - **AWS managed domain lists** - Use domain lists provided by Amazon that you can utilize
    - **DNS Firewall Advanced protections** - Choose from a range of managed protections and specify a confidence threshold
 
 6. For **Rule action**, choose the action to take when the rule matches:
+
    - **Allow** - The DNS query is resolved
    - **Alert** - Allows the DNS query but creates an alert
    - **Block** - The DNS query is blocked

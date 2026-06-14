@@ -57,6 +57,7 @@ phishing, malware, or spam, send an email to trustandsafety@support.aws.com.
 ###### To view information about domains that are registered with Route 53
 
 1. In a web browser, go to one of the following websites:
+
    - **Amazon Registrar WHOIS:**
      [https://registrar.amazon.com/whois](https://registrar.amazon.com/whois "https://registrar.amazon.com/whois")
    - **Amazon Registrar RDAP:**

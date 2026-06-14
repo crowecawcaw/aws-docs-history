@@ -454,6 +454,7 @@ whether this health check is healthy:
   number of health checks that you added to **Health
   checks to monitor** are healthy. Note the
   following:
+
   - If you specify a number greater than the number of
     health checks in **Health checks to
     monitor**, Route 53 always considers this
@@ -515,6 +516,7 @@ whether this health check is healthy:
   number of health checks that you added to **Health
   checks to monitor** are healthy. Note the
   following:
+
   - If you specify a number greater than the number of
     health checks in **Health checks to
     monitor**, Route 53 always considers this

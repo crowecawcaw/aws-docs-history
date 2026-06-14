@@ -661,6 +661,7 @@ New console
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2. To create a new traffic policy by importing a JSON document, perform the following steps:
+
    1. In the navigation pane, choose **Traffic policies**.
    2. Choose **Create traffic policy**.
    3. On the **Name policy** page, specify the applicable values. For more information, see
@@ -668,6 +669,7 @@ New console
    4. Skip to step 4.
 
 3. To create a new version of an existing traffic policy by importing a JSON document, perform the following steps:
+
    1. In the navigation pane, choose **Traffic policies**.
    2. Choose the name of the traffic policy that you want to base the new version on.
    3. In the **Traffic policy versions** table, select the check box for the version that
@@ -691,6 +693,7 @@ Old console
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2. To create a new traffic policy by importing a JSON document, perform the following steps:
+
    1. In the navigation pane, choose **Traffic policies**.
    2. Choose **Create traffic policy**.
    3. On the **Name policy** page, specify the applicable values. For more information, see
@@ -698,6 +701,7 @@ Old console
    4. Skip to step 4.
 
 3. To create a new version of an existing traffic policy by importing a JSON document, perform the following steps:
+
    1. In the navigation pane, choose **Traffic policies**.
    2. Choose the name of the traffic policy that you want to base the new version on.
    3. In the **Traffic policy versions** table, select the check box for the version that

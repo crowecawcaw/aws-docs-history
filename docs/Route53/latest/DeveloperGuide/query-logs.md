@@ -61,6 +61,7 @@ logs within several minutes after you create the query logging configuration.
 5. Choose an existing log group or create a new log group.
 6. If you receive an alert about permissions (this happens if you haven't configured query logging with the new console before), do one of
    the following:
+
    - If you have 10 resource policies already, you can't create any more. Select any of your resource policies, and select
      **Edit** . Editing will give Route 53 permissions to write logs to your log groups. Choose
      **Save**. The alert goes away and you can continue to the next step.

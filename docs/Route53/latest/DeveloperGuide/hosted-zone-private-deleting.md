@@ -34,6 +34,7 @@ To use the Route 53 console to delete a private hosted zone, perform the follow
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2. Confirm that the hosted zone that you want to delete contains only an NS and an SOA record. If it contains
    additional records, delete them:
+
    1. Choose the name of the hosted zone that you want to delete.
    2. On the **Record** page, if the list of records includes any records for which the value of the
       **Type** column is something other than **NS** or **SOA**, choose the

@@ -166,6 +166,7 @@ perform the following steps:
 
 8. If you're transferring DNS service to another provider, use the methods that
    are provided by the new DNS service to perform the following tasks:
+
    - Create a hosted zone
    - Create records that reproduce the functionality of your Route 53
      records

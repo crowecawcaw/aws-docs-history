@@ -139,6 +139,7 @@ Restoring internet service for the domain can take up to 48 hours.
 3. Get the names of the name servers that Route 53 assigned to the new hosted zone. For more information, see
    [Getting the name servers for a public hosted zone](GetInfoAboutHostedZone.md "GetInfoAboutHostedZone.md").
 4. Update the domain registration to use the name servers that you got in step 3:
+
    - If the domain is registered with Route 53, see
      [Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
    - If the domain is registered with another domain registrar, use the method provided by the registrar to update the

@@ -3,31 +3,39 @@
 This page covers the following troubleshooting topics for Amazon Route 53:
 
 1. **Domain unavailability:**
+
    - Understand common reasons why your domain might be unavailable on the internet, such as not confirming the registrant email,
      DNS service transfer issues, incorrect name server settings, or deleted hosted zones.
 
 2. **Domain suspension:**
+
    - Learn about the causes of domain suspension (ClientHold status) and how to get your domain unsuspended,
      including expired domains, unverified registrant email changes, and payment processing issues.
 
 3. **Failed domain operation:**
+
    - Resolve domain operation failures including registration, transfer, renewal, and contact update issues caused by invalid contact information.
 
 4. **Failed domain transfer:**
+
    - Discover common reasons for a failed domain transfer to Route 53, such as not authorizing the transfer,
      invalid authorization codes, or issues with internationalized domain names.
 
 5. **DNS settings not taking effect:**
+
    - Troubleshoot situations where your DNS settings changes haven't taken effect yet, including DNS resolver caching,
      incorrect name server updates, and multiple hosted zones with the same name.
 
 6. **"Server Not Found" error:**
+
    - Find solutions for "Server Not Found" errors in your browser, such as missing records, incorrect record values, or unavailable resources.
 
 7. **Routing traffic to S3 buckets:**
+
    - Resolve issues when trying to route traffic to an Amazon S3 bucket configured for website hosting.
 
 8. **Billing issues:**
+
    - Understand common billing scenarios, including being billed twice for the same hosted zone, multiple invoices for domains, and domain registration concerns
      when your AWS account is closed or permanently closed.
 

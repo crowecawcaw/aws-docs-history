@@ -28,6 +28,7 @@ After you have your AWS Outposts racks delivered, you can opt in to Route 53 on 
 4. On the **Resolver on Outpost** page, choose **Create
    VPC Resolver**.
 5. On the **Create VPC Resolver** page:
+
    - Under **AWS Outposts** select an AWS Outposts you want to create
      the VPC Resolver on.
    - Type in a name for the VPC Resolver in the **VPC Resolver name**

@@ -59,6 +59,7 @@ see, [Replacing the hosted zone for a domain that is registered with Route 53](
     [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2.  In the navigation pane, choose **Domains** and then **Registered domains**.
 3.  On the **Registered domains** page, choose **Register domains**.
+
     1. In the **Search for domain** section, enter the domain name that you want to register, and choose **Search** to find out whether the domain
        name is available.
 
@@ -203,6 +204,7 @@ For some TLDs, the verification email might not include the domain name in the s
 9. When domain registration is complete, your next step depends on whether you want to use Route 53
    or another DNS service as the DNS service for the
    domain:
+
    - **Route 53** – In the hosted zone that Route 53 created when you registered
      the domain, create records to tell Route 53 how you want to route traffic for the domain and subdomains.
 

@@ -12,6 +12,7 @@ Here's how Route 53 chooses a healthy record:
 1. Route 53 initially chooses a record based on the routing policy and on the values that you specify for each record.
    For example, for weighted records, Route 53 chooses a record based on the weight that you specify for each record.
 2. Route 53 determines whether the record is healthy:
+
    - **Non-alias record with an associated health check** – If you associated
      a health check with a non-alias record, Route 53 checks the current status of the health check.
 
@@ -73,6 +74,7 @@ Note the following:
 
 - Both the primary and secondary records can be a non-alias record or an alias record.
 - If you associate health checks with both the primary and secondary failover records, here's how Route 53 responds to requests:
+
   - If Route 53 considers the primary record healthy (if the health check endpoint is healthy), Route 53 returns only
     the primary record in response to a DNS query.
   - If Route 53 considers the primary record unhealthy and the secondary record healthy, Route 53 returns the

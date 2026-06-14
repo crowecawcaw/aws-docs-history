@@ -131,6 +131,7 @@ for the domain. You have two options, depending on whether the domain is current
 - **If the domain is in use**,
   see [Making Route 53 the DNS service for a domain that's in use](migrate-dns-domain-in-use.md "migrate-dns-domain-in-use.md").
 - **If the domain is currently inactive**, perform the following tasks:
+
   1.  Get the name servers for the hosted zone that you want to use to route traffic to your domain.
       See [Getting the name servers for a public hosted zone](GetInfoAboutHostedZone.md "GetInfoAboutHostedZone.md").
   2.  In the hosted zone that you got name servers for in step 1, confirm that the NS record is using

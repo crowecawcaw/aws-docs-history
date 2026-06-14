@@ -9,6 +9,7 @@ Here's an overview of how health checking works if you want to be notified when 
 
 1. You create a health check and specify values that define how you want the health check
    to work, such as the following:
+
    - The IP address or domain name of the endpoint, such as a web server, that you want Route 53 to monitor.
      (You can also monitor the status of other health checks, or the state of a CloudWatch alarm.)
    - The protocol that you want Amazon Route 53 to use to perform the check: HTTP, HTTPS, or TCP.

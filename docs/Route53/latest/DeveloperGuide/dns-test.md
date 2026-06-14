@@ -37,6 +37,7 @@ You can use the tool to see what response Amazon Route 53 returns in response t
    records for that hosted zone.
 4. To go directly to the **Check response from Route 53** page, choose **Test record**.
 5. Specify the following values:
+
    - The name of the record, excluding the name of the hosted zone. For example, to check
      **www.example.com**, enter **www**. To check **example.com**,
      leave the **Record name** field blank.

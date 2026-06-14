@@ -23,6 +23,7 @@ To edit a Resolver on Outpost, perform the following procedure.
 4. Select the checkmark next to the VPC Resolver that is in operational state and
    choose **Edit**.
 5. You can edit the following information:
+
    - The VPC Resolver name
    - The instance type
    - The number of instances

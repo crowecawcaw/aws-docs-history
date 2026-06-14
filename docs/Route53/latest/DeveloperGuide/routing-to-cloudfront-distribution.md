@@ -106,6 +106,7 @@ using the name of the alias record that you create in this procedure.
 
 1. Get the domain name that CloudFront assigned to your distribution and determine
    whether IPv6 is enabled:
+
    1. Sign in to the AWS Management Console and open the CloudFront console at
       [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
    2. in the **ID** column, select the linked name of
@@ -127,6 +128,7 @@ using the name of the alias record that you create in this procedure.
    _Amazon CloudFront Developer Guide_.
 
 2. For a CloudFront distribution tenant,
+
    1. Choose **SaaS** in the left nav, then
       **Distribution tenants**, and choose the
       distribution tenant with the domain name that you want to route

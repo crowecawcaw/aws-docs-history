@@ -60,6 +60,7 @@ To do this, put your cursor into the **Filter** textbox, select
   on the third label from the right in the record name. For example, suppose the hosted zone example.com contains
   100 records named record1.example.com through record100.example.com. (Record1 is the third label from the right.)
   Here's what happens when you search on the following values:
+
   - **record1** – The Route 53 console searches for
     **record1\*.example.com**, which returns **record1.example.com**,
     **record10.example.com** through **record19.example.com**, and

@@ -61,12 +61,14 @@ at the TLD registry, which returns two values:
 
 4. The DNS resolver sends the original request to another DNS resolver. If that resolver doesn't have the IP address,
    it repeats the process until a resolver sends the request to a name server at your DNS service provider. The name server returns two values:
+
    - The record for the domain, such as example.com. Typically this contains the IP address
      of a host.
    - The signature for the record, which you created when you configured DNSSEC.
 
 5. The DNS resolver uses the public key that you provided to the domain registrar and the
    registrar forwarded to the TLD registry to do two things:
+
    - Establish a chain of trust.
    - Verify that the signed response from the DNS service provider is legitimate and hasn't been replaced
      with a bad response from an attacker.
@@ -93,6 +95,7 @@ Route 53 supports DNSSEC signing and DNSSEC for domain registration. To learn m
 - You must configure DNSSEC with the DNS service provider for your domain before you
   add public keys for the domain to Route 53.
 - The number of public keys that you can add to a domain depends on the TLD for the domain:
+
   - **.com and .net domains** – up to thirteen keys
   - **All other domains** – up to four keys
 

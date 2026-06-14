@@ -19,6 +19,7 @@ your DNS infrastructure.
    individual IP addresses: `203.0.113.5/32` or `2001:db8::1/128`.
 6. For **Protocol**, select the DNS protocols this rule applies
    to:
+
    - **Do53** - Standard DNS over UDP/TCP (port 53)
    - **DoT** - DNS over TLS (port 853)
    - **DoH** - DNS over HTTPS (port 443)

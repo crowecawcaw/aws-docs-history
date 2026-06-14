@@ -600,6 +600,7 @@ public class Route53Wrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [CheckDomainAvailability](../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainAvailability.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainAvailability.md")
   - [CheckDomainTransferability](../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainTransferability.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/CheckDomainTransferability.md")
   - [GetDomainDetail](../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainDetail.md "../../../goto/DotNetSDKV3/route53domains-2014-05-15/GetDomainDetail.md")
@@ -963,6 +964,7 @@ public class Route53Scenario {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CheckDomainAvailability](../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainAvailability.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainAvailability.md")
   - [CheckDomainTransferability](../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainTransferability.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/CheckDomainTransferability.md")
   - [GetDomainDetail](../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainDetail.md "../../../goto/SdkForJavaV2/route53domains-2014-05-15/GetDomainDetail.md")
@@ -1283,6 +1285,7 @@ suspend fun listDomains() {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [CheckDomainAvailability](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CheckDomainTransferability](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [GetDomainDetail](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")

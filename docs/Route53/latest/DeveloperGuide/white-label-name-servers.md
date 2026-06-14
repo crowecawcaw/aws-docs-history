@@ -226,6 +226,7 @@ four white-label name servers, for example, `ns1.example.com`, `ns2.example.com`
 Use the method provided by the registrar to create glue records and change the registrar's name servers:
 
 1. Add glue records:
+
    - **If you're updating the domain that has the same domain name as the white-label name servers** –
      Create four glue records for which the names and IP addresses match the values that you got in step 4. Include both the
      IPv4 and the IPv6 address for a white-label name server in the corresponding glue record, for example:

@@ -21,6 +21,7 @@ servers to point to
 8. (Optional) Delete the hosted zone that Route 53 created automatically when you
    registered your domain. This prevents you from being charged for a hosted zone
    that you aren't using.
+
    1. In the navigation pane, choose **Hosted
       Zones**.
    2. Select the radio button for the hosted zone that has the same name as

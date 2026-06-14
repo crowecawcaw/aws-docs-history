@@ -30,6 +30,7 @@ operate.
    want to instantiate the global resolver. Choose Regions closest to your clients for optimal
    performance.
 6. For **IP address type**, choose the IP address type for this resolver.
+
    - **IPv4** - Includes only IPv4 addresses.
    - **Dualstack** - Includes IPv4 and IPv6 addresses.
 

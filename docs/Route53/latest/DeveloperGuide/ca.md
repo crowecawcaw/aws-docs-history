@@ -36,6 +36,7 @@ Open to the public, with some restrictions:
   Canada.
 - You must select one of the following legal types during
   the registration process:
+
   - ABO: Aboriginal Peoples (individuals or groups)
     indigenous to Canada
   - ASS: Canadian unincorporated association
