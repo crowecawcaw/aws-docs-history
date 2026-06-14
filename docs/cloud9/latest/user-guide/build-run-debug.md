@@ -51,6 +51,7 @@ If the **Debugger** button is not visible, choose **Window**, **Debugger** on th
 
 1. Open a file that corresponds to the code you want to run, if the file isn't already open and selected.
 2. On the menu bar, choose one of the following:
+
    - To run the code with the closest matching built-in runner, choose **Run, Run**. If AWS Cloud9
      cannot find one, this command is disabled.
    - To run the code with the run configuration that AWS Cloud9 last used, choose **Run, Run Last**.
@@ -69,6 +70,7 @@ If the **Debugger** button is not visible, choose **Window**, **Debugger** on th
 1. On the run configuration tab for your code, choose **Run in Debug Mode**. The bug icon turns to green on a white background. For more information,
    see [Run Your Code](#build-run-debug-run "#build-run-debug-run") and [Create a Run Configuration](build-run-debug-create-run-config.md "build-run-debug-create-run-config.md").
 2. Set any breakpoints in your code you want to pause at during the run, as follows:
+
    1. Open each file that you want to set a breakpoint in.
    2. At each point in a file where you want to set a breakpoint, choose the blank area in the gutter
       to the left of the line number. A red circle appears.
@@ -86,6 +88,7 @@ If the **Debugger** button is not visible, choose **Window**, **Debugger** on th
    on the menu bar choose **Window**, **Debugger**.
 
 3. Set any watch expressions for which you want to get the value at the point where a run pauses, as follows:
+
    1. In the **Debugger** window, in **Watch Expressions**, choose **Type an expression here**.
    2. Type the expression you want to watch, and then press `Enter`.
 

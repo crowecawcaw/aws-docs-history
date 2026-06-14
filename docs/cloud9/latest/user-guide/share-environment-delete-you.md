@@ -16,6 +16,7 @@ Removing your user from an environment doesn't remove your user from IAM.
    **Environment Members**, if the list of members isn't
    visible.
 2. Do one of the following actions:
+
    - Next to **You**, choose the trash can icon.
    - Open the context (right-click) menu for **You**, and then
      choose **Leave environment**.

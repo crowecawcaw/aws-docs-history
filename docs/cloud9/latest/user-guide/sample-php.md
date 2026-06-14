@@ -301,6 +301,7 @@ listMyBuckets($s3);
    Auto**, and then choose **PHP (cli)**.
 3. For **Command**, type `s3.php America/Los_Angeles
 my-test-bucket us-east-2`, where:
+
    - `America/Los_Angeles` is your default time zone ID. For more IDs,
      see [List of Supported
      Timezones](http://php.net/manual/en/timezones.php "http://php.net/manual/en/timezones.php") on the PHP website.

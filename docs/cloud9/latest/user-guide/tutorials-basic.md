@@ -44,6 +44,7 @@ Create an EC2 Environment with the
 console
 
 1. Sign in to the AWS Cloud9 console:
+
    - If you're the only one that using your AWS account or you're an IAM user
      in a single AWS account, go to [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/ "https://console.aws.amazon.com/cloud9/").
    - If your organization uses AWS IAM Identity Center, ask your AWS account administrator for
@@ -434,6 +435,7 @@ console
 1. To open the dashboard, on the menu bar in the IDE, choose
    **AWS Cloud9**, **Go To Your Dashboard**.
 2. Do one of the following:
+
    - Choose the title inside of the **my-demo-environment** card,
      and then choose **Delete**.
 
@@ -485,6 +487,7 @@ started with AWS Cloud9 Console](tutorials-basic.md "tutorials-basic.md").
   the
   following
   topic:
+
   - [Working with Amazon Lightsail instances in the AWS Cloud9 IDE](lightsail-instances.md "lightsail-instances.md")
 
 - While the AWS Cloud9 development environment is being created, you're directed AWS Cloud9 to create an Amazon EC2

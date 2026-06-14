@@ -257,6 +257,7 @@ are called "API Gateway V2 APIs."
 
 1. Choose one of the following approaches to create a launch config for an
    AWS SAM API Gateway resource:
+
    - **Option 1**: Visit the handler
      source code (specifically, a .js, .cs, or .py file) in your AWS SAM
      project, hover over the Lambda handler, and choose **Add

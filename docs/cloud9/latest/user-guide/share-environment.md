@@ -99,6 +99,7 @@ following criteria.
   `AWSCloud9User` (or `AWSCloud9EnvironmentMember`, to be a
   member only) attached. For more information, see [AWS Managed (Predefined)
   Policies](security-iam.md#auth-and-access-control-managed-policies "security-iam.md#auth-and-access-control-managed-policies").
+
   - To attach one of the preceding managed policies to an IAM group, you can
     use the [AWS Management Console](#share-environment-member-roles-console "#share-environment-member-roles-console") or the [AWS
     Command Line Interface (AWS CLI)](#share-environment-member-roles-cli "#share-environment-member-roles-cli") as described in the following
@@ -165,6 +166,7 @@ AWS account with a user in that same account.
    want to invite already has the corresponding environment member access role. For
    instructions, see [About Environment
    Member Access Roles](#share-environment-member-roles "#share-environment-member-roles").
+
    - The **AWS account root user**.
    - An **Administrator user**.
    - A **user who belongs to an IAM group**, a
@@ -175,6 +177,7 @@ AWS account with a user in that same account.
 2. Open the environment that you own and want to invite the user to, if the environment isn't
    already open.
 3. In the menu bar in the AWS Cloud9 IDE, do one of the following.
+
    - Choose **Window, Share**.
    - Choose **Share** (located next to the
      **Preferences** gear icon).
@@ -183,6 +186,7 @@ AWS account with a user in that same account.
 
 4. In the **Share this environment** dialog box, for
    **Invite Members**, type one of the following.
+
    - To invite an **IAM user**, enter the name of
      the user.
    - To invite the **AWS account root user**,

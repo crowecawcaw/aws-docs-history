@@ -159,6 +159,7 @@ sudo touch /tmp/authorized_keys
 ```
 
 4. Add the AWS Cloud9 SSH public key to the `authorized_keys` file. To get the AWS Cloud9 SSH public key, do the following:
+
    1. Open the AWS Cloud9 console at [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/ "https://console.aws.amazon.com/cloud9/").
    2. In the AWS navigation bar, in the AWS Region selector, choose the AWS Region where you'll want to create the AWS Cloud9 development environment later in this topic.
    3. If a welcome page is displayed, for **New AWS Cloud9 environment**, choose **Create environment**. Otherwise, choose **Create environment**.

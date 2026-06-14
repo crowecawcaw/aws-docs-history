@@ -353,6 +353,7 @@ still working on unfinished content and need to switch branches without delay.
 
 1. To stash your working directory's current state, go to the
    **Git panel** menu and choose one of the following options:
+
    - **Stash**: All modified or staged files in working
      directory are added to the stash. Untracked files aren't added.
    - **Stash (include Untracked)**: All files in the working
@@ -367,6 +368,7 @@ been cleaned.
 
 1. To retrieve a stash and apply it to your working directory, go to the
    **Git panel** menu and choose one of the following options:
+
    - **Apply Stash**: Apply a selected stash to your working
      directory and keep the stash for later use.
    - **Pop Stash**: Apply a selected stash to your working

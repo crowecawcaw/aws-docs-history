@@ -35,6 +35,7 @@ files that have the following file extensions:
     + Any file containing content in Markdown format.
 
 - Open a file with one of the following file extensions:
+
   - `.pdf`
   - `.svg`
 
@@ -74,6 +75,7 @@ On the file preview tab, choose one of the following from the preview type list:
 
 - **Browser**: Previews the file in a web browser format, for the
   following file types only:
+
   - `.htm`
   - `.html`
   - `.pdf`

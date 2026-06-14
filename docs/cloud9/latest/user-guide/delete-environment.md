@@ -20,6 +20,7 @@ permanently deleting all related settings, user data, and uncommitted code. Dele
 environments can't be recovered.
 
 1. Sign in to the AWS Cloud9 console:
+
    - If you're the only one using your AWS account or you're an IAM user in a
      single AWS account, go to [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/ "https://console.aws.amazon.com/cloud9/").
    - If your organization uses AWS IAM Identity Center, ask your AWS account administrator
@@ -46,6 +47,7 @@ following actions.
 
 4. In the **Delete** dialog box, type `Delete`, and then
    choose **Delete**.
+
    - **EC2 environment**
 
    AWS Cloud9 also terminates the Amazon EC2 instance that was connected to that

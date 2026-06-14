@@ -31,6 +31,7 @@ you can sign in to the AWS Cloud9 console and create environments.
 ## Create an EC2 environment with the console
 
 1. Sign in to the AWS Cloud9 console:
+
    - If you're the only one that using your AWS account or you're an IAM user
      in a single AWS account, go to [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/ "https://console.aws.amazon.com/cloud9/").
    - If your organization uses AWS IAM Identity Center, ask your AWS account administrator for
@@ -60,6 +61,7 @@ If you already have AWS Cloud9 environments, the button is shown as follows.
    **Description** field.
 3. For **Environment type**, choose **New EC2 instance** to
    create an Amazon EC2 environment:
+
    - **New EC2 instance** – Launches a new Amazon EC2 instance that
      AWS Cloud9 can connect to directly over SSH. You can use the Systems Manager to interact with new Amazon EC2
      instances, for more information, see [Accessing no-ingress EC2 instances with AWS Systems Manager](ec2-ssm.md "ec2-ssm.md").
@@ -68,6 +70,7 @@ If you already have AWS Cloud9 environments, the button is shown as follows.
      that requires SSH login details for which the Amazon EC2 instance must have an inbound security
      group
      rule.
+
      - If you select the **Existing compute** option, a service role is
        automatically created.
 

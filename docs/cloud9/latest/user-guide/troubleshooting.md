@@ -232,6 +232,7 @@ display for more than five minutes.
   AWS access permissions to open the environment.
 - If the environment is associated with an AWS cloud compute instance (for example,
   an Amazon EC2 instance), then the possible might be true:
+
   - The VPC that's associated with the instance isn't set to the correct
     settings for AWS Cloud9.
   - The instance is transitioning between states or is failing automated
@@ -269,6 +270,7 @@ display for more than five minutes.
 
 - If the environment is associated with an AWS cloud compute instance (for example,
   an Amazon EC2 instance), do the following:
+
   - Make sure that the VPC that's associated with the instance is set to the
     correct settings for AWS Cloud9, and then try opening the environment again. For more
     information, see [Amazon VPC requirements for AWS Cloud9](vpc-settings.md#vpc-settings-requirements "vpc-settings.md#vpc-settings-requirements").

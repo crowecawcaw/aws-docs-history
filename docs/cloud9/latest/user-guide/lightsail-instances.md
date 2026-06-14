@@ -130,6 +130,7 @@ appears. 8. [Download and run the AWS Cloud9 Installer](installer.md#installer-d
 In this step, you use the AWS Cloud9 console and the instance's terminal to create an SSH environment and then connect the environment to the running instance.
 
 1. With the terminal session still open from the previous step, sign in to the AWS Cloud9 console, as follows:
+
    - If you're the only individual using your AWS account or you're an
      IAM user in a single AWS account, go to [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/ "https://console.aws.amazon.com/cloud9/").
    - If your organization uses AWS IAM Identity Center, see your AWS account administrator

@@ -648,6 +648,7 @@ the Amazon VPC console.
    VPC. Doing so creates a tag with a key of `Name` and the
    value that you specify.
 5. For **IPv4 CIDR block**, do one of the following:
+
    - Choose **IPv4 CIDR manual input** and enter an IPv4 address
      range for your VPC. The recommended IPv4 range for AWS Cloud9 is
      `10.0.0.0/16`.
@@ -665,6 +666,7 @@ the Amazon VPC console.
 6. (Optional) To create a dual stack VPC, specify an IPv6 address range
    for your VPC. For **IPv6 CIDR block**, do one of the
    following:
+
    - Choose **IPAM-allocated IPv6 CIDR block** and
      select your IPAM IPv6 address pool. The size of the CIDR block
      is limited by the allocation rules on the IPAM pool.

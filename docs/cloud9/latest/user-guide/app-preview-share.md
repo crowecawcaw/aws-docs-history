@@ -25,6 +25,7 @@ incoming application requests. Then, share the public IP address to others so th
 can access the running application.
 
 1. Get the Amazon EC2 instance's ID. To get this, do one of the following:
+
    - In a terminal session in the AWS Cloud9 IDE for the environment, run the following
      command to get the Amazon EC2 instance's ID.
 
@@ -45,6 +46,7 @@ can access the running application.
 
 2. Get the Amazon EC2 instance's public IP address. To get this, do one of the
    following:
+
    - In the IDE for the environment, on the menu bar, choose
      **Share**. In the **Share this
      environment** dialog box, make a note of the public IP address
@@ -109,6 +111,7 @@ groups and network ACLs, see the following:
    for an administrator in your AWS account. Then, complete the following
    instructions. If you can't do this, check with your AWS account
    administrator.
+
    1. Sign in to the AWS Management Console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") if you're not already signed in.
    2. Open the Amazon EC2 console. To do this, in the navigation bar, choose
       **Services**. Then, choose

@@ -79,6 +79,7 @@ requirements for AWS Cloud9 to connect it to an SSH environment.
   command **`python --version`**. To install
   Python on the instance or server, see one of the following
   resources:
+
   - [Step 1: Install Required Tools](sample-python.md#sample-python-install "sample-python.md#sample-python-install") in
     the _Python
     Sample_.

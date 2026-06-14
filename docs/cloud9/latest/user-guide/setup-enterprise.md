@@ -178,6 +178,7 @@ permissions to use AWS Cloud9.
 - If you're using an IAM Identity Center directory for the organization, follow these sets of
   instructions in the _AWS IAM Identity Center User Guide_. Repeat these steps as
   many times as needed until you have all of the groups and users that you want:
+
   1.  [Add
       groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md"). We recommend creating at least one group for any AWS Cloud9
       administrators across the organization. Then, repeat this step to create
@@ -235,6 +236,7 @@ accounts.
    **Policy name** entry. (Don't choose the policy name itself. If
    you don't see a policy name in the list, enter the policy name in the
    **Search** box to display it.)
+
    - For the `AWSCloud9AdministratorsPerms` permission set, select
      **AWSCloud9Administrator**.
    - For the `AWSCloud9UsersPerms` permission set, select

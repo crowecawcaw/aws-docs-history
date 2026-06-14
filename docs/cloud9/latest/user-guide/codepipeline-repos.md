@@ -46,6 +46,7 @@ supports:
   Development Environment, Connect It to the Code Repository, and Upload Your
   Code](#codepipeline-repos-connect-to-repo "#codepipeline-repos-connect-to-repo"). Otherwise, to use CodeCommit, follow these instructions in the _AWS CodeCommit Sample_ in this order, and then
   return to this topic:
+
   - [Step 1: Set Up Your IAM Group
     with Required Access Permissions](sample-codecommit.md#sample-codecommit-permissions "sample-codecommit.md#sample-codecommit-permissions")
   - [Step 2: Create a Repository in
@@ -56,6 +57,7 @@ supports:
   Repository, and Upload Your Code](#codepipeline-repos-connect-to-repo "#codepipeline-repos-connect-to-repo"). Otherwise, to use Amazon S3, follow these
   instructions in the _Amazon Simple Storage Service User Guide_ in this order, and then
   return to this topic:
+
   - [Sign Up
     for Amazon S3](../../../AmazonS3/latest/gsg/SigningUpforS3.md "../../../AmazonS3/latest/gsg/SigningUpforS3.md")
   - [Create a

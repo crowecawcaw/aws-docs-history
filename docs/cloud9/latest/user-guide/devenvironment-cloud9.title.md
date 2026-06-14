@@ -68,6 +68,7 @@ Dev Environment settings:
    Settings** to open the **Dev Environment
    Settings** view.
 4. From the **Dev Environment Settings** view, the following sections contain options for your Dev Environment:
+
    - **Alias:** View and change the **Alias** that's assigned to
      your Dev Environment.
    - **Status:** View your current Dev Environment status, the project that it's been

@@ -56,6 +56,7 @@ each environment associated with your IAM user.
 1. On the menu bar, choose **AWS Cloud9**, **Preferences**.
 2. On the **Preferences** tab, in the side navigation pane, choose **Keybindings**.
 3. For **Keyboard Mode**, choose one of these keyboard modes:
+
    - **Default** to use a set of default keybindings.
    - **Vim** to use Vim mode. For more information, see the [Vim help files](https://vimhelp.appspot.com/ "https://vimhelp.appspot.com/") website.
    - **Emacs** to use Emacs mode. For more information, see [The Emacs Editor](https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html "https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html") on the GNU Operating System website.
@@ -69,6 +70,7 @@ across each environment associated with your IAM user.
 1. On the menu bar, choose **AWS Cloud9**, **Preferences**.
 2. On the **Preferences** tab, in the side navigation pane, choose **Keybindings**.
 3. For **Operating System**, choose one of these operating systems:
+
    - **Auto** for the AWS Cloud9 IDE to attempt to detect which set of operating system keybindings to use.
    - **MacOS** for the AWS Cloud9 IDE to use the keybindings that are
      listed in the macOS format.

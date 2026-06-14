@@ -33,6 +33,7 @@ The following steps outline how to update the timeout period for an Amazon EC2 e
 ## Change environment settings with the console
 
 1. Sign in to the AWS Cloud9 console as follows:
+
    - If you're the only individual using your AWS account or you're an
      IAM user in a single AWS account, go to [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/ "https://console.aws.amazon.com/cloud9/").
    - If your organization uses AWS IAM Identity Center, see your AWS account administrator
@@ -91,6 +92,7 @@ actions to have it be displayed.
 
 - In the dropdown menu bar on the **Environments** page, choose one or
   more of the following.
+
   - Choose **My environments** to display all environments that your
     AWS entity owns within the selected AWS Region and AWS account.
   - Choose **Shared with me** to display all environments your

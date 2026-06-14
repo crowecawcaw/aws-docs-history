@@ -55,6 +55,7 @@ schema.
 3. Open the context (right-click) menu for the title of the Schema, and then
    choose **Download code bindings**.
 4. In the resulting wizard pages, choose the following:
+
    - The **Version** of the schema
    - The code binding language
    - The workspace folder where you want to store the generated code on

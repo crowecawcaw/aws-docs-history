@@ -12,6 +12,7 @@ This procedure assumes that you already created an AWS Cloud9 development enviro
 [Creating an Environment](create-environment.md "create-environment.md").
 
 1. Sign in to the AWS Cloud9 console as follows:
+
    - If you're the only one using your AWS account or you're an IAM user in a
      single AWS account, go to [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/ "https://console.aws.amazon.com/cloud9/").
    - If your organization uses AWS IAM Identity Center, ask your AWS account administrator for
@@ -39,6 +40,7 @@ actions to have it be displayed.
 
 - In the dropdown menu bar on the **Environments** page, choose one or
   more of the following.
+
   - Choose **My environments** to display all environments that your
     AWS entity owns within the selected AWS Region and AWS account.
   - Choose **Shared with me** to display all environments your

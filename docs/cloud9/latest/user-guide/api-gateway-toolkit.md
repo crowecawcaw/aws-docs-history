@@ -39,6 +39,7 @@ interact with. 4. For **Select a method**, choose one of the following method ty
     * **POST**: Creates a new resource on the backend service that's accessed through the API.
 
 5. To supply input to your API method call, you can use a query string or JSON-formatted payload:
+
    - **Query string**: Enter a query string using the format:
      `parameter1=value1&parameter2=value2`. (Before you use query strings,
      create a [mapping

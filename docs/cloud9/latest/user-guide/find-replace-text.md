@@ -94,6 +94,7 @@ single file or multiple files.
 2.  In the find and replace bar, for **Find**, type the text you want to find.
 3.  To specify additional find options, see [Find and Replace Options](#find-replace-text-replace-options "#find-replace-text-replace-options").
 4.  In the box to the right of the **Find** button (the box with `*.*, -.*`), type any set of files to include or exclude in the find. For example:
+
     - Blank, `*`, or `*.*`: All files.
     - `my-file.txt`: Only the file named `my-file.txt`.
     - `my*`: Only files with file names staring with `my`.

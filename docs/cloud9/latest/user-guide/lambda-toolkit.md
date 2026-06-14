@@ -109,6 +109,7 @@ So, you might need to add it manually.
 2. Next, check that your Lambda function is included in a
    `/home/ec2-user/.c9/launch.json` file. If it isn't present, do the
    following to add a CodeLens link to your function's code:
+
    1. Open the source code file that defines the Lambda function (for example, a
       `.js` or `.py` file). Then, check if there's
       a CodeLens link that you can use to add your lambda function to a
@@ -122,6 +123,7 @@ files` command. Choose the command to run it.
 
 3. If you can't add a CodeLens even after toggling the SAM hint option, do the following to add
    the launch configuration:
+
    1. Choose **Go** (the magnifying glass icon) on the left of the IDE, and type "config" to display the `AWS: SAM Debug Configuration Editor` command. Choose the command to run it.
    2. The **SAM Debug Configuration Editor** displays. You can use this
       editor to define launch configuration properties. For information, see the step for

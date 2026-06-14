@@ -11,6 +11,7 @@ with other team members.
 1. Make sure the corresponding access policy is attached to the group or role for
    your user. For more information, see [About Environment Member Access Roles](share-environment.md#share-environment-member-roles "share-environment.md#share-environment-member-roles").
 2. Sign in to the AWS Cloud9 console as follows:
+
    - If you're the only individual using your AWS account or you're an IAM
      user in a single AWS account, go to [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/ "https://console.aws.amazon.com/cloud9/").
    - If your organization uses IAM Identity Center, see your AWS account administrator for

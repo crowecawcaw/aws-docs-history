@@ -94,6 +94,7 @@ fi
    `resize.sh` file. Then run either of the following commands,
    replacing `20` with the size in GiB that you want to resize the Amazon EBS volume
    to:
+
    - ```
      bash resize.sh 20
      ```

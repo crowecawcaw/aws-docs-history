@@ -19,6 +19,7 @@ Removing a member doesn't remove the user from IAM.
 2. In the **Collaborate** window, expand **Environment
    Members**, if the list of members isn't visible.
 3. Do one of the following:
+
    - Next to the name of the member you want to delete, choose the trash can
      icon.
    - Open the context (right-click) menu for the name of the member that you want

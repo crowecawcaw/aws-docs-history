@@ -137,6 +137,7 @@ procedures:
 
 1. Create a new environment in the same Availability Zone with a different base
    image:
+
    1. Complete the steps in the [Creating an EC2 Environment](create-environment-main.md "create-environment-main.md") section to
       create a new environment.
 
@@ -185,6 +186,7 @@ are located outside the `~/environment` directory.
 
 1. Close all AWS Cloud9 IDE tabs that are open in the existing environment.
 2. Complete the following steps to stop the existing instance:
+
    1. In the AWS Cloud9 console, select the environment to navigate to view its
       details.
    2. On the **Environment details** page, under the **EC2
@@ -197,6 +199,7 @@ are located outside the `~/environment` directory.
 
 3. Create a new environment in the same Availability Zone with a different base
    image:
+
    1. Complete the steps in the [Creating an EC2 Environment](create-environment-main.md "create-environment-main.md") section to
       create a new environment.
 
@@ -209,6 +212,7 @@ are located outside the `~/environment` directory.
    volume size.
 
 4. Complete the following steps to detach the volume from the existing instance:
+
    1. On the **Instance summary** page, choose the
       **Storage** tab and select the volume. The device name of the
       selected volume must be the same as the one that is specified in the **Root

@@ -96,13 +96,13 @@ sudo chmod u=rx dotnet-install.sh
    the environment (for example, the `.bashrc` file), add the
    `$HOME/.dotnet` subdirectory to the `PATH` variable
    for the environment, as follows.
+
    1. Open the `.bashrc` file for editing by using the
       **`vi`** command.
 
    ```
    vi ~/.bashrc
    ```
-
    2. For Amazon Linux, using the down arrow or `j` key, move to the line that
       starts with `export PATH`.
 
@@ -125,7 +125,6 @@ sudo chmod u=rx dotnet-install.sh
    ```
    export PATH=$HOME/.dotnet:$PATH
    ```
-
    6. Save the file. To do this, press the `Esc` key (`-- INSERT
 ---` will disappear from the end of the display), type
       `:wq` (to write to and then quit the file), and then press
@@ -244,6 +243,7 @@ In this step, you build the project and its dependencies into a set of binary fi
 including a runnable application file. Then you run the application.
 
 1. In the IDE, create a builder for .NET as follows.
+
    1. On the menu bar, choose **Run, Build System, New Build
       System**.
    2. On the **My Builder.build** tab, replace the tab's contents
@@ -255,7 +255,6 @@ including a runnable application file. Then you run the application.
      "info" : "Building..."
    }
    ```
-
    3. Choose **File, Save As**.
    4. For **Filename**, type `.NET.build`.
    5. For **Folder**, type `/.c9/builders`.
@@ -304,6 +303,7 @@ name depending on the version you've installed. 3. Create a runner for .NET as f
 
 4. Run the application with two integers to add (for example, `5` and
    `9`) as follows.
+
    1. With the contents of the `Program.cs` file displayed in
       the editor, choose **Run, Run Configurations, New Run
       Configuration**.
@@ -488,6 +488,7 @@ including a runnable application file. Then you run the application.
 2. Run the application with the name of the Amazon S3 bucket to create and the ID of the
    AWS Region to create the bucket in (for example, `my-test-bucket` and
    `us-east-2`) as follows.
+
    1. With the contents of the `s3/Program.cs` file still
       displayed in the editor, choose **Run, Run Configurations, New Run
       Configuration**.

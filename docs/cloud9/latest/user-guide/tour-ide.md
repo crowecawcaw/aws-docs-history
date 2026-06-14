@@ -428,6 +428,7 @@ some JavaScript code by doing the following.
    Node.js is installed, the Node.js version number is shown in the output, and you can
    skip ahead to step 3 in this procedure ("Write some JavaScript code...").
 2. If you need to install Node.js, do the following.
+
    1. Run the following two commands, one at a time, to be sure your environment has the
       latest updates and then download Node Version Manager (nvm). (nvm is a simple
       Bash shell script that is useful for installing and managing Node.js versions.
@@ -447,7 +448,6 @@ some JavaScript code by doing the following.
    sudo apt update
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
    ```
-
    2. Use a text editor to update your shell profile file (for example,
       `~/.bashrc`) to enable nvm to load. For example, in the
       **Environment** window of the IDE, choose the gear icon,
@@ -470,7 +470,6 @@ some JavaScript code by doing the following.
    export NVM_DIR="/home/ubuntu/.nvm"
    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm.
    ```
-
    5. Save the file.
    6. Close that terminal session and start a new one. Then run the following
       command to install the latest version of Node.js.

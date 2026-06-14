@@ -98,6 +98,7 @@ _attribute_):
 - State name (`State`)
 - Forecast weather conditions (`Conditions`)
 - Forecast temperatures (`Temperatures`)
+
   - Forecast high, in degrees Fahrenheit (`HighF`)
   - Forecast low, in degrees Fahrenheit (`LowF`)
 
@@ -554,6 +555,7 @@ aws dynamodb get-item \
 ```
 
 2. To run the DynamoDB**`scan`** command, specify:
+
    - The name of the table (`--table-name`).
    - The search to run (`--filter-expression`).
    - The search criteria to use
@@ -578,6 +580,7 @@ aws dynamodb scan \
 ```
 
 3. To run the DynamoDB**`query`** command, specify:
+
    - The name of the table (`--table-name`).
    - The search to run (`--key-condition-expression`).
    - The attribute values to use in the search

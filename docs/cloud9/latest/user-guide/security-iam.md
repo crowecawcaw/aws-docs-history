@@ -1633,6 +1633,7 @@ For an AWS Cloud9 EC2 development environment, AWS managed temporary credentials
 in the caller's AWS account, with the following restrictions:
 
 - For AWS Cloud9, only the following actions are allowed:
+
   - `cloud9:CreateEnvironmentEC2`
   - `cloud9:CreateEnvironmentSSH`
   - `cloud9:DescribeEnvironmentMemberships`
@@ -1641,6 +1642,7 @@ in the caller's AWS account, with the following restrictions:
   - `cloud9:UpdateEnvironment`
 
 - For IAM, only the following actions are allowed:
+
   - `iam:AttachRolePolicy`
   - `iam:ChangePassword`
   - `iam:CreatePolicy`
@@ -1673,6 +1675,7 @@ in the caller's AWS account, with the following restrictions:
   starting with `Cloud9-`. However, `iam:PassRole` works with
   all role names.
 - For AWS Security Token Service (AWS STS), only the following actions are allowed:
+
   - `sts:GetCallerIdentity`
   - `sts:DecodeAuthorizationMessage`
 

@@ -131,6 +131,7 @@ from a separate installation of the AWS Command Line Interface (AWS CLI).
 1. Install and configure the AWS CLI on your computer, if you haven't done so
    already. To do this, see the following in the
    _AWS Command Line Interface User Guide_:
+
    - [Installing
      the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md")
    - [Quick configuration](../../../cli/latest/userguide/cli-chap-getting-started.md#cli-quick-configuration "../../../cli/latest/userguide/cli-chap-getting-started.md#cli-quick-configuration")
@@ -356,6 +357,7 @@ from a separate installation of the AWS Command Line Interface (AWS CLI).
 1. Install and configure the AWS CLI on your computer, if you haven't done so
    already. To do this, see the following in the
    _AWS Command Line Interface User Guide_:
+
    - [Installing
      the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md")
    - [Quick Configuration](../../../cli/latest/userguide/cli-chap-getting-started.md#cli-quick-configuration "../../../cli/latest/userguide/cli-chap-getting-started.md#cli-quick-configuration")

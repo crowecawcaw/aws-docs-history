@@ -367,6 +367,7 @@ export AWS_DEFAULT_REGION=
    terminal session. To make these environment variables available across terminal
    sessions, you must add them to your shell profile file as user environment
    variables, as follows.
+
    1. In the **Environment** window of the IDE, choose the
       gear icon, and then choose **Show Home in Favorites**.
       Repeat this step and choose **Show Hidden Files** as
@@ -386,7 +387,6 @@ export AWS_DEFAULT_REGION=
    export AWS_SECRET_ACCESS_KEY=
    export AWS_DEFAULT_REGION=
    ```
-
    4. Save the file.
    5. Source the `~/.bashrc` file to load these new
       environment variables.
