@@ -26,6 +26,7 @@ Follow these steps to find them in the AWS Management Console.
    instances.
 4. In the **Connectivity & security** section, find the
    **Endpoint** and **Port** settings.
+
    - The **Endpoint** is the DNS address for your DB instance. You
      use this as part of the connection string when you connect with a database
      client.

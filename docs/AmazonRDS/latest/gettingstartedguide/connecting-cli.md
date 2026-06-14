@@ -39,6 +39,7 @@ problems.
 
 1. Check network settings. Network issues often stem from incorrect security group or
    VPC configurations.
+
    - **Verify security group rules**. Make sure that the
      security group associated with your DB instance allows inbound traffic on the
      database port (for example, 3306 for MySQL or 5432 for PostgreSQL) from your IP
@@ -64,6 +65,7 @@ problems.
 
 2. Validate configuration details. Authentication errors can occur due to incorrect
    credentials or improper IAM configuration.
+
    - **Reset the master password**. If the master
      password is incorrect or you forgot it, reset it using the following [moidfy-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md")
      command:

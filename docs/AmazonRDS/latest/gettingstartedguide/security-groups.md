@@ -33,6 +33,7 @@ group.
    Groups** under the **Network & Security** menu.
 2. Select or create a security group for your DB instance.
 3. Configure inbound rules:
+
    - Add a rule to allow access on the database port (for example, port 3306 for
      MySQL) from a specific IP address or IP range.
    - For the **Source**, choose **My IP** for

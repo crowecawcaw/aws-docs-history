@@ -27,6 +27,7 @@ Follow these steps to set up a connection and start working with your MySQL data
 2. Choose **Database**, **Manage Connections** from
    the menu.
 3. Create a new connection and configure the following settings:
+
    - **Hostname**: Enter the endpoint retrieved from the
      AWS Management Console.
    - **Port**: Use the port number displayed in the
@@ -59,6 +60,7 @@ connection and interact with your database.
 3. In the **General** tab, enter a name for the connection. For
    example, "My RDS instance".
 4. In the **Connection** tab, configure the following settings:
+
    - **Host**: Enter the endpoint from the
      AWS Management Console.
    - **Port**: Use the port number provided (typically
