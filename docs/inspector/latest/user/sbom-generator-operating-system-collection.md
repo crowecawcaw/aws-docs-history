@@ -189,6 +189,7 @@ HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion
 ```
 
 - **Registry Value**
+
   - ProductName – OS name and edition (e.g., "Windows Server 2025 Datacenter")
   - CurrentMajorVersionNumber – the major version of OS
   - CurrentMinorVersionNumber – The minor version of OS

@@ -230,6 +230,7 @@ Amazon Chime setup
 4. From the **Configuration details** pane,
    enter a name for the channel.
 5. In Amazon Chime, open the desired chat room.
+
    1. Choose the gear icon in the upper-right corner and
       choose **Manage webhooks and
       bots**.

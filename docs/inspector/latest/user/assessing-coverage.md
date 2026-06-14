@@ -13,6 +13,7 @@ The following procedure describes how to assess coverage of your Amazon Inspecto
 1. Sign in using your credentials, and then open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home "https://console.aws.amazon.com/inspector/v2/home").
 2. From the navigation pane, choose **Account management**.
 3. To review coverage, choose one of the following tabs:
+
    - Choose **Accounts** to review account-level coverage.
    - Choose **Instances** to review coverage for Amazon Elastic Compute Cloud (Amazon EC2) instances.
    - Choose **Container repositories** to review coverage of Amazon Elastic Container Registry (Amazon ECR) repositories.
@@ -156,6 +157,7 @@ to continuously monitor and scan the instance.
   supports, see [Amazon EC2
   instances status values](supported.md#supported-os-ec2 "supported.md#supported-os-ec2").
 - **Actively monitoring with partial errors** – This status means that EC2 scanning is active, but there are errors associated with [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md "deep-inspection.md"). The possible deep inspections errors are:
+
   - **Deep inspection package collection limit exceeded** – The instance
     has exceeded the 5000 package limit for Amazon Inspector deep inspection.
     To resume deep inspection for this instance, you can try to adjust

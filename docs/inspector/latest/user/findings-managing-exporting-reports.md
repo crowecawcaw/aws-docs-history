@@ -461,6 +461,7 @@ type**, specify a file format for the report:
 
 6. Under **Export location**, for **S3 URI**,
    specify the S3 bucket where you want to store the report:
+
    - To store the report in a bucket that your account owns, choose
      **Browse S3**. Amazon Inspector displays a table of the S3
      buckets for your account. Select the row for the bucket that you want,
@@ -493,6 +494,7 @@ type**, specify a file format for the report:
 
 7. For **KMS key**, specify the AWS KMS key that you want
    to use to encrypt the report:
+
    - To use a key from your own account, choose the key from the list. The
      list displays customer managed, symmetric encryption KMS keys for your
      account.

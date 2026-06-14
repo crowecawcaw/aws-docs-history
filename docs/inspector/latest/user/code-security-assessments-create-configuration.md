@@ -40,14 +40,18 @@ None will be visible in Amazon Inspector.
 2. From the navigation pane, choose **Code Security**.
 3. Choose **Configurations**, and then choose **Create scan configuration**.
 4. Under **Scan details**, do the following:
+
    1. For **Configuration name**, enter a name for the scan configuration.
 
 5. Under **Scan frequency**, specify how often code is scanned by choosing **Change-based and periodic scanning** or **Customized scanning types and triggers**.
+
    1. (Option 1) If you choose **Change based and periodic scanning**, choose **Enable periodic scanning** or **Disable periodic scanning**.
+
       1. .
          If you choose **Enable periodic scanning**, set the scan frequency by choosing the week and day you want code to be scanned.
 
    2. (Option 2) If you choose **Customized scanning**, decide whether to enable scanning when code is changed and periodic scanning.
+
       1. Choose **Enable scanning when code is changed** or **Disable scanning when code is changed**.
          If you choose **Enable scanning when code is changed**, specify when scans are triggered from the dropdown.
       2. Choose **Enable periodic scanning** or **Disable periodic scanning**.
@@ -58,7 +62,9 @@ None will be visible in Amazon Inspector.
          To trigger a new scan, close and reopen the pull request.
 
 6. Under **Scan analysis**, decide whether to configure a complete scanning analysis or customized scanning analysis:
+
    1. (Option 1) If you choose **Complete scanning analysis**, you apply all of the following scan analyses:
+
       - _Static Application Security Testing_ – Analyzes source code for vulnerabilities.
       - _IaC scanning_ – Analyzes scripts and code that configure and provision infrastructure.
       - _Static software composition analysis_ – Examines open source packages in applications.
@@ -69,6 +75,7 @@ None will be visible in Amazon Inspector.
    You can create up to 50 tags.
 8. Choose **Next**.
 9. Under **Repository selection**, choose **All repositories** or **Specific repositories**.
+
    1. (Option 1) If you choose **All repositories**, scanning is enabled for any of your existing repositories.
    2. (Option 2) If you choose **Specific repositories**, scanning is enabled only for the repositories that you specify.
 

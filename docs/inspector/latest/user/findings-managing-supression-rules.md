@@ -33,6 +33,7 @@ Only stand alone accounts and Amazon Inspector delegated administrators can crea
    rules**. Then choose **Create
    rule**.
 3. For each criterion, do the following:
+
    - Select the filter bar to see a list of filter criteria that you
      can add to your suppression rule.
    - Select the filter criteria for your suppression rule.

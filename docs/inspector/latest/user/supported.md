@@ -235,10 +235,9 @@ Even though Amazon Inspector doesn't provide full support for discontinued opera
 As a security best practice, Amazon Inspector will generate a CRITICAL finding for resources using a discontinued operating system and recommends moving to a supported version.
 Findings that Amazon Inspector generates for discontinued operating systems should be used for informational purposes only.
 
-In accordance with vendor policy, discontinued operating systems no longer receive patch updates.
-New security advisories might not be released for discontinued operating systems.
-Vendors can remove existing security advisories and detections from their feeds for operating systems that reach the end of standard support.
-As a result, Amazon Inspector can stop generating findings for known CVEs.
+In accordance with vendor policy, discontinued operating systems no longer receive patch updates or security advisories.
+Vendors can also remove existing security advisories and detections from their feeds for operating systems that reach the end of standard support.
+As a result, Amazon Inspector will stop generating findings for discontinued operating systems 12 months after the associated dates listed below.
 
 | Operating system                    | Version | Discontinued      |
 | ----------------------------------- | ------- | ----------------- |
@@ -391,9 +390,11 @@ Amazon Inspector doesn't scan for toolchain vulnerabilities in Rust.
 The version of the programming language compiler used to build the application introduces these vulnerabilities.
 
 - Go
+
   - go1.x
 
 - Java
+
   - java8
   - java8.al2
   - java11
@@ -402,11 +403,13 @@ The version of the programming language compiler used to build the application i
   - java25
 
 - .NET
+
   - .NET 6
   - .NET 8
   - .NET 10
 
 - Node.js
+
   - nodejs12.x
   - nodejs14.x
   - nodejs16.x
@@ -416,6 +419,7 @@ The version of the programming language compiler used to build the application i
   - nodejs24.x
 
 - Python
+
   - python3.7
   - python3.8
   - python3.9
@@ -425,11 +429,13 @@ The version of the programming language compiler used to build the application i
   - python3.13
 
 - Ruby
+
   - ruby2.7
   - ruby3.2
   - ruby3.3
 
 - Custom runtimes
+
   - AL2
   - AL2023
 
@@ -438,6 +444,7 @@ The version of the programming language compiler used to build the application i
 Amazon Inspector Lambda code scanning currently supports the following runtimes for the programming languages it can use when scanning Lambda functions for vulnerabilities in code:
 
 - Java
+
   - java8
   - java8.al2
   - java11
@@ -446,10 +453,12 @@ Amazon Inspector Lambda code scanning currently supports the following runtimes 
   - java25
 
 - .NET
+
   - .NET 6
   - .NET 8
 
 - Node.js
+
   - nodejs12.x
   - nodejs14.x
   - nodejs16.x
@@ -458,6 +467,7 @@ Amazon Inspector Lambda code scanning currently supports the following runtimes 
   - nodejs22.x
 
 - Python
+
   - python3.7
   - python3.8
   - python3.9
@@ -467,6 +477,7 @@ Amazon Inspector Lambda code scanning currently supports the following runtimes 
   - python3.13
 
 - Ruby
+
   - ruby2.7
   - ruby3.2
   - ruby3.3

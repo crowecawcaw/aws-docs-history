@@ -530,6 +530,7 @@ This section provides details about Curl and Libcurl applicatons.
 ###### Supported platforms
 
 - Unix – Linux and macOS
+
   - /usr/local/bin/curl
 
 ###### Key features – Curl
@@ -567,6 +568,7 @@ Sample PURL: pkg:generic/curl/curl@8.14.1
 ###### Supported platforms
 
 - Unix – Linux and macOS
+
   - /usr/local/bin/curl/curlver.h
 
 ###### Key features – Libcurl
@@ -1183,6 +1185,7 @@ Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
 ```
 
 - .NET Framework – Parses Windows Registry and reads file metadata to detect installed .NET Framework versions. The scanner checks the following registry key and value, and files.
+
   - **Registry Key** (<VERSION_SUB_KEY> represents the .NET Framework version, such as v2.0.50727, v3.5, or v4\Full)
 
   ```
@@ -1194,6 +1197,7 @@ Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
   ```
 
   - **Registry Value**
+
     - Install – Indicates whether the .NET Framework version is installed.
     - Version – Installed .NET Framework version (version 4.0 or lower)
     - Release – A REG_DWORD value that maps to the installed .NET Framework version (version 4.5 or later)
@@ -1221,17 +1225,19 @@ HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\A
 ```
 
 - Microsoft Office 365 / Microsoft 365 – Parses Windows Registry, and extracts version from the following registry key and value.
+
   - Registry Key
 
   ```
   HKLM\SOFTWARE\Microsoft\Office\ClickToRun\Configuration
   ```
-
   - Registry Value
+
     - VersionToReport – Microsoft Office Version
     - ProductReleaseIds – List of product IDs. This is used to identify installed Office products. For more information about product IDs, see [product IDs](https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run "https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/office-suite-issues/product-ids-supported-office-deployment-click-to-run") on the Microsoft website.
 
 - Microsoft Office Suite – Collects installed each Office applications by examining the following executable files:
+
   - `EXCEL.EXE` – Microsoft Excel
   - `WINWORD.EXE` – Microsoft Word
   - `POWERPNT.EXE` – Microsoft PowerPoint

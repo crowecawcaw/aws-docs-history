@@ -247,6 +247,7 @@ Amazon Inspector will use the agentless method to scan an instance if it meets t
   For more information, see the >Agent-based scan support column of [Supported operating systems: Amazon EC2 scanning](supported.md#supported-os-ec2 "supported.md#supported-os-ec2").
 - The instance has a status of `Unmanaged EC2 instance`, `Stale inventory`, or `No inventory`.
 - The instance is backed by Amazon EBS and has one of the following file system formats:
+
   - `ext3`
   - `ext4`
   - `xfs`

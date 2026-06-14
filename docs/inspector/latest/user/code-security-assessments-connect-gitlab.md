@@ -46,6 +46,7 @@ If you close the pop-up, you will not be able to proceed.
 2. From the navigation pane, choose **Code Security**.
    Choose **Connect to** and choose **GitLab Self Managed**.
 3. Under **Integration details**, enter the following:
+
    1. For **Integration name**, enter the name added to the body of your integration.
    2. For **Endpoint URL**, enter the URL used to access your GitLab self-managed instance.
    3. For **Personal access token**, enter your personal access token with the required scopes.

@@ -81,6 +81,7 @@ page:
 - Discounts aren't included in the projected costs.
 - The projected cost represent the total cost for the 30 day usage period per scan type. If there has been less than 30 days of usage for an account, Amazon Inspector projects the cost after 30 days as if any currently covered resources will remain covered for the rest of the 30 day period.
 - The cost per scan type is calculated based on the following:
+
   - EC2 scanning: cost reflects the average number of EC2 instances covered by Amazon Inspector in the last 30 days.
   - ECR container scanning: cost reflects the sum of the number of initial image scans + image rescans in the last 30 days.
   - Lambda standard scanning: cost reflects the average number of Lambda functions covered by Amazon Inspector in the last 30 days.

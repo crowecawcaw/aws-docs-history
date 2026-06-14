@@ -17,6 +17,7 @@ For more information about adding tags in Lambda, see [Using tags on Lambda func
 3. Choose the name of the function you would want to exclude from Amazon Inspector Lambda code scans.
 4. Choose **Configuration**, and then choose **Tags**.
 5. Choose **Manage tags**, and then **Add new tag**.
+
    1. For **Key**, enter `InspectorCodeExclusion`.
    2. For **Value**, enter `LambdaCodeScanning`
 

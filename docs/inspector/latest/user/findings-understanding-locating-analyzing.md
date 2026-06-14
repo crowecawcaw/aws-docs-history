@@ -21,6 +21,7 @@ Console
    To exclude findings from the list, [create a suppression rule](findings-managing-supression-rules.md "findings-managing-supression-rules.md").
    To view details for a finding, choose the name of the finding.
 4. (Optional) From the navigation pane, choose one of the following options to view your findings by category:
+
    - By vulnerability – Shows vulnerabilities with the most critical findings.
    - By account – Shows accounts with the most critical findings.
      This category is only available to delegated administrators.

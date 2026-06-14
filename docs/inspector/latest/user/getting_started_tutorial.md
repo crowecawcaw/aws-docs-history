@@ -28,6 +28,7 @@ When you use an organization policy, Amazon Inspector enablement is automaticall
   For instructions, see [Enabling trusted access for Amazon Inspector](../../../organizations/latest/userguide/services-that-can-integrate-inspector2.md#integrate-enable-ta-inspector2 "../../../organizations/latest/userguide/services-that-can-integrate-inspector2.md#integrate-enable-ta-inspector2") in the _AWS Organizations User Guide_.
 - The Amazon Inspector service-linked roles should exist in the management account.
   To create them, enable Amazon Inspector in the management account or run the following commands from the management account:
+
   - `aws iam create-service-linked-role --aws-service-name inspector2.amazonaws.com`
   - `aws iam create-service-linked-role --aws-service-name agentless.inspector2.amazonaws.com`
 
@@ -64,6 +65,7 @@ In the **Capability Selection**, do one of the following:
     * Choose **Select subset of capabilities**. Select any scan type capabilities that should be turned on.
 
 6.  In the **Account selection** section, select one of the following options:
+
     - Choose **All organizational units and accounts** if you want to apply the configuration to all organizational units and accounts.
     - Choose **Specific organizational units and accounts** if you want to apply the configuration to specific organizational units and accounts. If you choose this option, use the search bar or organizational structure tree to specify the organizational units and accounts where the policy will be applied.
     - Choose **No organizational units or accounts** if you do not want to apply the configuration to any organizational unit or account.

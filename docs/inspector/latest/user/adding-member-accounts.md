@@ -33,6 +33,7 @@ For information about Amazon Inspector scanning types, see [Automated scan types
 4. Under **Organization**, select the box next to **Account number**.
    Then choose **Activate** to select which scanning options you want to apply to member accounts.
    You can select the following scanning types:
+
    - Amazon EC2 scanning
    - Amazon ECR scanning
    - Lambda standard scanning
@@ -63,6 +64,7 @@ If the total number of member accounts decreases to less than 5,000, the setting
 4. Under **Organization**, select the box next to each member account number you want to activate scanning for.
    Then choose **Activate** to select which scanning options you want to apply to member accounts.
    You can select the following scanning types:
+
    - Amazon EC2 scanning
    - Amazon ECR scanning
    - Lambda standard scanning
@@ -81,6 +83,7 @@ You can choose the gear icon to change the number of accounts displayed on each 
 4. Under **Organization**, select the box next to your account number.
    Then choose **Activate** to select which scanning options you want to apply.
    You can select the following scanning types:
+
    - Amazon EC2 scanning
    - Amazon ECR scanning
    - Lambda standard scanning

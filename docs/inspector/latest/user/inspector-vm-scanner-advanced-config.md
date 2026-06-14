@@ -21,6 +21,7 @@ Use `--state-dir` with `--send-results disabled` to save the SBOM locally.
 - `--cpu-profile` enables the Go runtime CPU profiler and configures where the result is written.
 - `--mem-profile` enables the Go runtime memory profiler and configures where the result is written.
 - `--config-path` directs Inspector VM Scanner to derive arguments from a local configuration file. If the same argument is passed in both the CLI and configuration file, the CLI value is prioritized.
+
   - Inspector VM Scanner configuration files are specified in TOML, with all argument names identical to the CLI.
 
 The following example shows a configuration file:

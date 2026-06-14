@@ -39,6 +39,7 @@ This finding type has the following details:
 - **Fix available** – Indicates if the
   vulnerability is fixed in a newer version of the affected packages.
   Has one of the following values:
+
   - `YES`, which means all the affected packages
     have a fixed version.
   - `NO`, which means no affected packages have a
@@ -48,6 +49,7 @@ This finding type has the following details:
 
 - **Exploit available** – Indicates the
   vulnerability has a known exploit.
+
   - `YES`, which means the vulnerability discovered
     in your environment has a known exploit. Amazon Inspector doesn't have
     visibility into the use of exploits in an environment.
@@ -91,6 +93,7 @@ fix may be available.
   severity scores for the finding. For more information about severity
   scoring such as, see [Understanding severity levels for your Amazon Inspector findings](findings-understanding-severity.md "findings-understanding-severity.md"). The following
   scores are included, including the scoring vectors for each:
+
   - [Exploit Prediction Scoring System (EPSS) score](https://www.first.org/epss/ "https://www.first.org/epss/")
   - Inspector score
   - CVSS 3.1 from Amazon CVE

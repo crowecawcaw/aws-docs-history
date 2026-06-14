@@ -12,6 +12,7 @@ The permissions policy for the role, which is named `AmazonInspector2AgentlessSe
 Amazon Inspector to perform tasks such as:
 
 - Use Amazon Elastic Compute Cloud (Amazon EC2) actions to retrieve information about your EC2 instances, volumes, and snapshots.
+
   - Use Amazon EC2 tagging actions to tag snapshots for scans with the `InspectorScan` tag key.
   - Use Amazon EC2 snapshot actions to create snapshots, tag them with the `InspectorScan` tag key, and then delete snapshots of Amazon EBS volumes that have been tagged with the `InspectorScan` tag key.
 

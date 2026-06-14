@@ -70,6 +70,7 @@ You can add Amazon Inspector Scan to your build by adding a build step in your p
 2. Choose between two inspector-sbomgen installation methods: **Automatic** or **Manual**.
    The automatic option allows the plugin to download the most recent version.
    It also makes sure you always have the latest features, security updates, and bug fixes.
+
    1. (Option 1) Choose **Automatic** to download the latest version of inspector-sbomgen.
       This option automatically detects the operating system and CPU architecture that's currently in use.
    2. (Option 2) Choose **Manual** if you want to set up the Amazon Inspector SBOM Generator binary for scanning.
@@ -77,11 +78,13 @@ You can add Amazon Inspector Scan to your build by adding a build step in your p
       For more information, see [Installing Amazon Inspector SBOM Generator (Sbomgen)](sbom-generator.md#install-sbomgen "sbom-generator.md#install-sbomgen") in [Amazon Inspector SBOM Generator](sbom-generator.md "sbom-generator.md").
 
 3. Complete the following to finish configuring the Amazon Inspector Scan build step:
+
    1. Input your **Image Id**.
       The image can be local, remote, or archived.
       Image names should follow the Docker naming convention.
       If analyzing an exported image, provide the path to the expected tar file.
       See the following example Image Id paths:
+
       1. For local or remote containers: `NAME[:TAG|@DIGEST]`
       2. For a tar file: `/path/to/image.tar`
 
@@ -92,6 +95,7 @@ You can add Amazon Inspector Scan to your build by adding a build step in your p
       Consider this option for directories that do not need to be scanned due to size.
    5. (Optional) For **Docker credentials**, select your Docker username. Do this only if your container image is in a private repository.
    6. (Optional) You can provide the following supported AWS authentication methods:
+
       1. (Optional) For **IAM role**, provide a role ARN (arn:aws:iam::`AccountNumber`:role/`RoleName`).
       2. (Optional) For **AWS credentials**, specify AWS credentials to authenticate based on an IAM user.
       3. (Optional) For **AWS profile name**, provide the name of a profile to authenticate using a profile name.
