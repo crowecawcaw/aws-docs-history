@@ -25,11 +25,13 @@ To create a domain, complete the following steps:
 1. Sign in to the AWS Management Console and open the Amazon Connect Health console.
 2. Choose **Create domain**.
 3. Choose the scope of AI capabilities for the domain:
+
    - **Agents for patient engagement** — Enables AI agents for automated administrative support for patients and EHR integration, with testing and agent customization provided in an application.
    - **Agents for point of care** — Provides agents for use by healthcare professionals and office staff to support clinical workflows with a unified SDK.
    - **For both** — Enables all patient engagement and point of care capabilities simultaneously.
 
 4. Enter domain details:
+
    - **Name** — Enter a domain name (for example, your EHR or health system name). Valid characters are a–z, A–Z, 0–9, underscore (\_), and hyphen (-), up to 100 characters.
    - **Customize Encryption Settings** — Data is encrypted by default using an AWS managed key. Optionally, select **Customize encryption settings (advanced)** to use a customer managed key.
 
@@ -40,6 +42,7 @@ To create a domain, complete the following steps:
 5. Add users through AWS IAM Identity Center to provide access to the Amazon Connect Health application.
 6. (Optional) Configure an integration function. Set up an AWS Lambda function for the AI agent to perform insurance verification using your own insurance RTE vendor. See [sample-healthcare-realtime-eligibility](https://github.com/aws-samples/sample-healthcare-realtime-eligibility "https://github.com/aws-samples/sample-healthcare-realtime-eligibility") on GitHub for a reference implementation. Choose **Create function** to build a new function, then enter the Lambda ARN in the provided field.
 7. (Optional) Deploy a sample agent flow. Set up an Amazon Connect instance to deploy a sample contact flow and test the agent in an end-to-end patient conversation:
+
    - **Skip for now** — Defer this setup to a later time.
    - **Create and use a new Amazon Connect instance** (selected by default) — Recommended for most users. The access URL is auto-populated based on the domain name.
    - **Use an existing Amazon Connect instance** — For organizations with an existing Amazon Connect instance.

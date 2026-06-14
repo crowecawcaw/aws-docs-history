@@ -15,6 +15,7 @@ The following table summarizes the customization areas available for each agent.
 
 1. Open the Amazon Connect Health console and choose **Customize** on the Agent setup card.
 2. In the customization page, enable or disable scheduling capabilities:
+
    - Schedule appointments
    - Reschedule appointments
    - Cancel appointments
@@ -23,6 +24,7 @@ The following table summarizes the customization areas available for each agent.
    Unchecked tasks are routed to a representative.
 
 3. Configure three sequential identity verification steps by selecting the required patient inputs:
+
    - **Step 1** – Phone number or MRN
    - **Step 2** – Date of birth
    - **Step 3** – Zip code or last four digits of Social Security number (SSN)
