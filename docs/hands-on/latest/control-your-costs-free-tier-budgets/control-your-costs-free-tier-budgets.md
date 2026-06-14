@@ -21,6 +21,7 @@ AWS Free Tier includes:
 
 - $100 USD in credits
 - Up to $100 USD additional credits ($20 each) for exploring key services:
+
   - [Amazon EC2](https://aws.amazon.com/pm/ec2/ "https://aws.amazon.com/pm/ec2/") - You'll learn how to launch
     an EC2 instance and terminate it.
   - [Amazon RDS](https://aws.amazon.com/free/database/ "https://aws.amazon.com/free/database/") - You'll learn the
