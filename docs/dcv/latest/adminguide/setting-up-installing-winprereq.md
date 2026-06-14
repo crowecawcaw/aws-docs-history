@@ -104,6 +104,7 @@ drivers.
 1. Download the Amazon DCV Virtual Display driver installer from the
    [Amazon DCV website](http://download.amazondcv.com "http://download.amazondcv.com").
 2. Install the driver by doing one of the following:
+
    - Run the installation wizard
    - Double-click the installation file
    - Use the following command to run an unattended installation

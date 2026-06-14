@@ -53,6 +53,7 @@ Windows Amazon DCV server
    key.
 3. Locate the **auth-token-verifier** parameter in the [security Parameters](config-param-ref.md#security "config-param-ref.md#security").
 4. Do one of the following:
+
    - For **Value data**, enter the URL of the external authentication server and the port over which to communicate, in the following
      format: ``url`:`port``.
 

@@ -38,12 +38,12 @@ The default desktop environment for RHEL, CentOS , and Rocky Linux is Gnome3 and
 ###### To install and configure the desktop environment and desktop manager on RHEL, CentOS, and Rocky Linux
 
 1. Install the desktop environment and the desktop manager packages.
+
    - RHEL and Rocky Linux
 
    ```
    `$` sudo yum groupinstall 'Server with GUI'
    ```
-
    - CentOS
 
    ```
@@ -297,12 +297,12 @@ step.
 ###### To disable the Wayland protocol
 
 1. Open the following file using your preferred text editor.
+
    - RHEL, CentOS, SUSE Linux Enterprise 15.x, and Amazon Linux 2023
 
    ```
    /etc/gdm/custom.conf
    ```
-
    - Ubuntu
 
    ```
@@ -318,18 +318,17 @@ WaylandEnable=false
 ```
 
 3. Restart the GDM service.
+
    - RHEL, CentOS, and Amazon Linux 2023
 
    ```
    `$` sudo systemctl restart gdm
    ```
-
    - Ubuntu
 
    ```
    `$` sudo systemctl restart gdm3
    ```
-
    - SUSE Linux Enterprise 15.x
 
    ```
@@ -504,6 +503,7 @@ sudo rm -rf /etc/X11/XF86Config*
 ```
 
 2. Restart the X server for the changes to take effect.
+
    - ```
      `$` sudo systemctl isolate multi-user.target
      ```

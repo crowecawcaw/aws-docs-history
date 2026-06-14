@@ -18,6 +18,7 @@ On macOS, time zone redirection is applied after login.
 You can enable and disable this feature for all users on a specific session.
 
 1. Modify the [enable-timezone-redirection](config-param-ref.md#paramref.redirection.enable-timezone-redirection "config-param-ref.md#paramref.redirection.enable-timezone-redirection") parameter to one of the following values:
+
    - `always-on`: Time Zone Redirection is always enabled.
 
    The feature will be turned on and the session displays the time zone information of the client. The user will not be able to turn the feature off.

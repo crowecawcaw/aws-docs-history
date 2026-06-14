@@ -253,6 +253,7 @@ Windows Amazon DCV server
    **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management**
    key.
 3. Create a `create-session` parameter:
+
    1. In the navigation pane, open the context (right-click) menu for the
       **session-management** key and choose **New**, **DWORD
       (32-bit) Value**.
@@ -265,6 +266,7 @@ Windows Amazon DCV server
    **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management/automatic-console-session**
    key.
 5. Create an `owner` parameter:
+
    1. In the navigation pane, open the context (right-click) menu for the
       **automatic-console-session** key and choose **New**,
       **String Value**.

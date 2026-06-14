@@ -8,12 +8,12 @@ A permissions file can include multiple imports. An imported permissions file mi
 ###### To import a permissions file into your permissions file
 
 - Use the `#import` statement and specify the location of the file with an absolute or a relative path
+
   - Windows Amazon DCV server:
 
   ```
   #import `..\file_path\file`
   ```
-
   - Linux Amazon DCV server:
 
   ```

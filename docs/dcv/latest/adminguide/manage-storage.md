@@ -19,6 +19,7 @@ the Windows Registry Editor.
 
 1.  Create the folder to use for session storage (for example, `c:\session-storage`).
 2.  Configure the `storage-root` parameter.
+
     1. Open the Windows Registry Editor.
     2. Navigate to the
        **HKEY_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management\automatic-console-session** key and select
@@ -29,7 +30,6 @@ the Windows Registry Editor.
         1. In the navigation pane, open the context (right-click) menu for the **session-management/automatic-console-session**
          key. Then, choose **New**, **String**.
         2. For **Name**, enter `storage-root` and press **Enter**.
-
     3. Open the **storage-root** parameter. For **Value data**, enter the full path to the folder that's
        created in step 1.
 
@@ -55,6 +55,7 @@ To enable session storage, create the folder to use for session storage and then
 
 1. Create the folder to use for session storage (for example, `/opt/session-storage/`).
 2. Configure the `storage-root` parameter.
+
    1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
    2. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section. Replace the
       existing path with the full path to the folder that you created in step 1.
@@ -92,6 +93,7 @@ To enable session storage, create the folder to use for session storage and then
 
 1. Create the folder to use for session storage (for example, `/opt/session-storage/`).
 2. Configure the `storage-root` parameter.
+
    1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
    2. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section. Replace the
       existing path with the full path to the folder that you created in step 1.

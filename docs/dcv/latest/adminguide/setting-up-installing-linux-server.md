@@ -35,12 +35,12 @@ available for servers based on the 64-bit ARM architecture.
 3. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com "http://download.amazondcv.com").
    The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive
    for your operating system.
+
    - 64-bit x86
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-amzn2-x86_64.tgz
    ```
-
    - 64-bit ARM
 
    ```
@@ -68,12 +68,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
     ```
 
 4. Extract the contents of the `.tgz` archive and navigate into the extracted directory.
+
    - 64-bit x86
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-amzn2-x86_64.tgz && cd nice-dcv-2025.0-20103-amzn2-x86_64
    ```
-
    - 64-bit ARM
 
    ```
@@ -81,12 +81,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
    ```
 
 5. Install the Amazon DCV server.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-dcv-server-2025.0.20103-1.el7.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -95,12 +95,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 6. (Optional) To use the web client with Amazon DCV version 2021.2 and later,
    install the `nice-dcv-web-viewer` package.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el7.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -109,12 +109,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 7. (Optional) To use virtual sessions, install the `nice-xdcv`
    package.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-xdcv-2025.0.688-1.el7.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -123,6 +123,7 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 8. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl`
    package.
+
    - 64-bit x86
 
    ```
@@ -212,12 +213,12 @@ architecture.
 3. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com "http://download.amazondcv.com").
    The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive
    for your operating system.
+
    - 64-bit x86
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-amzn2023-x86_64.tgz
    ```
-
    - 64-bit ARM
 
    ```
@@ -245,12 +246,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
     ```
 
 4. Extract the contents of the `.tgz` archive and navigate into the extracted directory.
+
    - 64-bit x86
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-amzn2023-x86_64.tgz && cd nice-dcv-2025.0-20103-amzn2023-x86_64
    ```
-
    - 64-bit ARM
 
    ```
@@ -258,12 +259,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
    ```
 
 5. Install the Amazon DCV server.
+
    - 64-bit x86
 
    ```
    `$` sudo dnf install nice-dcv-server-2025.0.20103-1.amzn2023.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -272,12 +273,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 6. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later,
    install the `nice-dcv-web-viewer` package.
+
    - 64-bit x86
 
    ```
    `$` sudo dnf install nice-dcv-web-viewer-2025.0.20103-1.amzn2023.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -286,12 +287,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 7. (Optional) To use virtual sessions, install the `nice-xdcv`
    package.
+
    - 64-bit x86
 
    ```
    `$` sudo dnf install nice-xdcv-2025.0.688-1.amzn2023.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -300,6 +301,7 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 8. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl`
    package.
+
    - 64-bit x86
 
    ```
@@ -379,12 +381,12 @@ architecture.
 3. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com "http://download.amazondcv.com").
    The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive
    for your operating system.
+
    - 64-bit x86
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-el8-x86_64.tgz
    ```
-
    - 64-bit ARM
 
    ```
@@ -412,12 +414,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
     ```
 
 4. Extract the contents of the `.tgz` archive and navigate into the extracted directory.
+
    - 64-bit x86
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-el8-x86_64.tgz && cd nice-dcv-2025.0-20103-el8-x86_64
    ```
-
    - 64-bit ARM
 
    ```
@@ -425,12 +427,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
    ```
 
 5. Install the Amazon DCV server.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-dcv-server-2025.0.20103-1.el8.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -439,12 +441,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 6. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later,
    install the `nice-dcv-web-viewer` package.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el8.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -453,12 +455,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 7. (Optional) To use virtual sessions, install the `nice-xdcv`
    package.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-xdcv-2025.0.688-1.el8.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -467,6 +469,7 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 8. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl`
    package.
+
    - 64-bit x86
 
    ```
@@ -556,12 +559,12 @@ architecture.
 3. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com "http://download.amazondcv.com").
    The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive
    for your operating system.
+
    - 64-bit x86
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-el9-x86_64.tgz
    ```
-
    - 64-bit ARM
 
    ```
@@ -589,12 +592,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
     ```
 
 4. Extract the contents of the `.tgz` archive and navigate into the extracted directory.
+
    - 64-bit x86
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-el9-x86_64.tgz && cd nice-dcv-2025.0-20103-el9-x86_64
    ```
-
    - 64-bit ARM
 
    ```
@@ -602,12 +605,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
    ```
 
 5. Install the Amazon DCV server.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-dcv-server-2025.0.20103-1.el9.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -616,12 +619,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 6. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later,
    install the `nice-dcv-web-viewer` package.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el9.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -630,12 +633,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 7. (Optional) To use virtual sessions, install the `nice-xdcv`
    package.
+
    - 64-bit x86
 
    ```
    `$` sudo yum install nice-xdcv-2025.0.688-1.el9.x86_64.rpm
    ```
-
    - 64-bit ARM
 
    ```
@@ -644,6 +647,7 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 8. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl`
    package.
+
    - 64-bit x86
 
    ```
@@ -727,12 +731,12 @@ based on the 64-bit x86 architecture only.
 3. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com "http://download.amazondcv.com").
    The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive
    for your operating system.
+
    - SLES 12.x
 
    ```
    `$` curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-sles12-x86_64.tgz
    ```
-
    - SLES 15.x
 
    ```
@@ -760,12 +764,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
     ```
 
 4. Extract the contents of the `.tgz` archive and navigate into the extracted directory.
+
    - SLES 12.x
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-sles12-x86_64.tgz && cd nice-dcv-2025.0-20103-sles12-x86_64
    ```
-
    - SLES 15.x
 
    ```
@@ -773,12 +777,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
    ```
 
 5. Install the Amazon DCV server.
+
    - SLES 12.x
 
    ```
    `$` sudo zypper install nice-dcv-server-2025.0.20103-1.sles12.x86_64.rpm
    ```
-
    - SLES 15.x
 
    ```
@@ -787,12 +791,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 6. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later,
    install the `nice-dcv-web-viewer` package.
+
    - SLES 12.x
 
    ```
    `$` sudo zypper install nice-dcv-web-viewer-2025.0.20103-1.sles12.x86_64.rpm
    ```
-
    - SLES 15.x
 
    ```
@@ -801,12 +805,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 7. (Optional) To use virtual sessions, install the `nice-xdcv`
    package.
+
    - SLES 12.x
 
    ```
    `$` sudo zypper install nice-xdcv-2025.0.688-1.sles12.x86_64.rpm
    ```
-
    - SLES 15.x
 
    ```
@@ -815,12 +819,12 @@ You can use these links to automatically retrieve the newest Amazon DCV packages
 
 8. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl`
    package.
+
    - SLES 12.x
 
    ```
    `$` sudo zypper install nice-dcv-gl-2025.0.1112-1.sles12.x86_64.rpm
    ```
-
    - SLES 15.x
 
    ```
@@ -955,30 +959,27 @@ aren't available for servers based on the 64-bit ARM architecture.
    download website](http://download.amazondcv.com "http://download.amazondcv.com"). The RPM and deb packages are packaged into a
    `.tgz` archive. Make sure that you download the correct archive
    for your operating system.
+
    - Ubuntu 20.04 (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-ubuntu2004-x86_64.tgz
    ```
-
    - Ubuntu 22.04 (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-ubuntu2204-x86_64.tgz
    ```
-
    - Ubuntu 22.04 (64-bit ARM)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-ubuntu2204-aarch64.tgz
    ```
-
    - Ubuntu 24.04 (64-bit x86)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-ubuntu2404-x86_64.tgz
    ```
-
    - Ubuntu 24.04 (64-bit ARM)
 
    ```
@@ -1030,30 +1031,27 @@ packages.
 
 4. Extract the contents of the `.tgz` archive and navigate into
    the extracted directory.
+
    - Ubuntu 20.04 (64-bit x86)
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-ubuntu2004-x86_64.tgz && cd nice-dcv-2025.0-20103-ubuntu2004-x86_64
    ```
-
    - Ubuntu 22.04 (64-bit x86)
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-ubuntu2204-x86_64.tgz && cd nice-dcv-2025.0-20103-ubuntu2204-x86_64
    ```
-
    - Ubuntu 22.04 (64-bit ARM)
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-ubuntu2204-aarch64.tgz && cd nice-dcv-2025.0-20103-ubuntu2204-aarch64
    ```
-
    - Ubuntu 24.04 (64-bit x86)
 
    ```
    `$` tar -xvzf nice-dcv-2025.0-20103-ubuntu2404-x86_64.tgz && cd nice-dcv-2025.0-20103-ubuntu2404-x86_64
    ```
-
    - Ubuntu 24.04 (64-bit ARM)
 
    ```
@@ -1061,30 +1059,27 @@ packages.
    ```
 
 5. Install the Amazon DCV server.
+
    - Ubuntu 20.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-dcv-server_2025.0.20103-1_amd64.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-dcv-server_2025.0.20103-1_amd64.ubuntu2204.deb
    ```
-
    - Ubuntu 22.04 (64-bit ARM)
 
    ```
    `$` sudo apt install ./nice-dcv-server_2025.0.20103-1_arm64.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-dcv-server_2025.0.20103-1_amd64.ubuntu2404.deb
    ```
-
    - Ubuntu 24.04 (64-bit ARM)
 
    ```
@@ -1093,30 +1088,27 @@ packages.
 
 6. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and
    later, install the `nice-dcv-web-viewer` package.
+
    - Ubuntu 20.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-dcv-web-viewer_2025.0.20103-1_amd64.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-dcv-web-viewer_2025.0.20103-1_amd64.ubuntu2204.deb
    ```
-
    - Ubuntu 22.04 (64-bit ARM)
 
    ```
    `$` sudo apt install ./nice-dcv-web-viewer_2025.0.20103-1_arm64.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-dcv-web-viewer_2025.0.20103-1_amd64.ubuntu2404.deb
    ```
-
    - Ubuntu 24.04 (64-bit ARM)
 
    ```
@@ -1131,30 +1123,27 @@ packages.
 
 8. (Optional) If you plan to use virtual sessions, install the
    `nice-xdcv` package.
+
    - Ubuntu 20.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-xdcv_2025.0.688-1_amd64.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-xdcv_2025.0.688-1_amd64.ubuntu2204.deb
    ```
-
    - Ubuntu 22.04 (64-bit ARM)
 
    ```
    `$` sudo apt install ./nice-xdcv_2025.0.688-1_arm64.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04 (64-bit x86)
 
    ```
    `$` sudo apt install ./nice-xdcv_2025.0.688-1_amd64.ubuntu2404.deb
    ```
-
    - Ubuntu 24.04 (64-bit ARM)
 
    ```
@@ -1163,6 +1152,7 @@ packages.
 
 9. (Optional) If you plan to use GPU sharing, install the
    `nice-dcv-gl` package.
+
    - Ubuntu 22.04 (64-bit x86)
 
    ```

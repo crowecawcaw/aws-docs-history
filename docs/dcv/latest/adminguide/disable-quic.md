@@ -30,6 +30,7 @@ Linux Amazon DCV server
 
 1. Open `/etc/dcv/dcv.conf` with your preferred text editor.
 2. In the `[connectivity]` section, do the following:
+
    - For `enable-quic-frontend`, specify `false`.
 
 ```
@@ -47,6 +48,7 @@ macOS Amazon DCV server
 
 1. Open `/etc/dcv/dcv.conf` with your preferred text editor.
 2. In the `[connectivity]` section, do the following:
+
    - For `enable-quic-frontend`, specify `false`.
 
 ```

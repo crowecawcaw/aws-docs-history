@@ -185,6 +185,7 @@ file includes the following information:
   requests. If not specified a random port is picked by RLM at startup.
 - The Amazon DCV products covered by the license, along with the following details for each
   product:
+
   - The major version that's covered by the license (for example, `2017` for the 2017
     Amazon DCV products).
   - The expiration date. `Permanent` indicates that the license doesn't expire.
@@ -273,6 +274,7 @@ For more information about the RLM startup options, see the
 ```
 
 6. Confirm that the RLM server is running.
+
    1. Open `C:\RLM\nice.dlog` with your preferred text editor and confirm that
       the following line appears.
 
@@ -300,13 +302,13 @@ For more information about the RLM startup options, see the
 2. Copy the `/usr/share/dcv/license/nice.set` file from your Amazon DCV server and place it in
    `/opt/nice/rlm` on your RLM server.
 3. Create an RLM server service and make sure that it starts automatically at startup.
+
    1. Create a file named `dcv-rlm` in the `/opt/nice/rlm/`
       folder:
 
    ```
    `$` touch /opt/nice/rlm/dcv-rlm
    ```
-
    2. Open the file using your preferred text editor and add the following script. Save and close
       the file.
 
@@ -406,7 +408,6 @@ For more information about the RLM startup options, see the
 
    # ex:ts=4:et:
    ```
-
    3. Make the script executable, copy it to `/etc/init.d/`, and then add it to
       the `chkconfig` utility:
 

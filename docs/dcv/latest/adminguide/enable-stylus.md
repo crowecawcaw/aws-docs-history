@@ -73,6 +73,7 @@ EndSection
 
 4. Save the changes and close the file.
 5. Restart the X server.
+
    - RHEL, Rocky, CentOS, Amazon Linux 2, Ubuntu, and SUSE Linux Enterprise 12.x
 
    ```

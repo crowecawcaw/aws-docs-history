@@ -9,18 +9,17 @@ If you're using a Windows Amazon DCV server, no additional configuration is requ
 ###### To enable printer redirection on your Linux Amazon DCV server
 
 1. Install `CUPS` service on your server.
+
    - Amazon Linux 2, RHEL, and CentOS
 
    ```
    `$` sudo yum install cups
    ```
-
    - Ubuntu
 
    ```
    `$` sudo apt-get install cups
    ```
-
    - SUSE Linux Enterprise
 
    ```

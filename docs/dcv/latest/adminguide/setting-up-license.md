@@ -116,6 +116,7 @@ When using Amazon DCV on Amazon EC2 Mac instance, Amazon DCV server the instance
   need one license for each concurrent Amazon DCV session. Production licenses are
   distributed as a license file that you must install on a Reprise License Manager (RLM)
   server. There are two types of production licenses:
+
   - **Perpetual Licenses**— Perpetual licenses
     don't have an expiration date and can be used for an indefinite period.
   - **Subscriptions**— Subscriptions are valid
