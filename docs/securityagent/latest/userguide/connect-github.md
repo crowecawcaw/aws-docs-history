@@ -2,6 +2,10 @@
 
 Connect your AWS Security Agent to GitHub repositories to enable code review and penetration testing capabilities. AWS Security Agent supports both cloud-hosted GitHub and cloud-hosted GitHub Enterprise. GitHub integration serves multiple purposes:
 
+###### Note
+
+This page covers cloud-hosted GitHub (github.com) and cloud-hosted GitHub Enterprise. For self-hosted GitHub Enterprise Server, see [Connect AWS Security Agent to GitHub Enterprise Server](connect-github-enterprise-server.md "connect-github-enterprise-server.md").
+
 - **Code review** - Automatically analyze pull requests against your organizational security requirements
 - **Penetration testing context** - Provide application understanding by analyzing source code, data flows, and architecture
 - **Automated remediation** - Submit pull requests with fixes for vulnerabilities discovered during penetration testing
@@ -32,31 +36,37 @@ If your GitHub enterprise organization has enabled IP allowlisting, you must acc
 The following IP addresses are used to access your GitHub resources:
 
 - Asia Pacific (Sydney) (ap-southeast-2)
+
   - `13.237.95.197`
   - `13.238.84.102`
   - `52.64.174.242`
 
 - Asia Pacific (Tokyo) (ap-northeast-1)
+
   - `13.192.12.233`
   - `35.74.181.230`
   - `57.183.50.158`
 
 - Europe (Frankfurt) (eu-central-1)
+
   - `18.158.110.140`
   - `52.57.96.160`
   - `52.59.55.56`
 
 - Europe (Ireland) (eu-west-1)
+
   - `34.251.85.24`
   - `52.30.157.157`
   - `52.51.192.222`
 
 - US East (N. Virginia) (us-east-1)
+
   - `34.228.181.128`
   - `44.219.176.187`
   - `54.226.244.221`
 
 - US West (Oregon) (us-west-2)
+
   - `34.212.16.133`
   - `52.89.67.212`
   - `54.187.135.61`
@@ -88,8 +98,10 @@ You’ll be redirected to GitHub to complete the authorization. Ensure you’re 
 8. Click **Install and authorize**.
 9. You’ll be redirected back to the AWS Management Console to complete the registration.
 10. In the **Registration details** section, configure the following fields:
+
     1. **Registration name** - Enter a descriptive name for this GitHub connection. Use a name that identifies the GitHub organization or user account, such as "Acme-Corp-Org" or "Production-Repos".
     2. **Account type** - Select one of the following from the dropdown:
+
        - **Organization** - If you connected a GitHub organization account
        - **User** - If you connected a personal GitHub user account
 

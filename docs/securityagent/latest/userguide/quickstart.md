@@ -12,6 +12,7 @@ You need access to AWS Management console to setup a new penetration test
 2. Select **Set up AWS Security Agent**
 3. Create an agent space. An agent space can be used by multiple users and should be specific for every application you want to test. Enter a name and description for your first agent space. This name appears to users in the web application. The name of the agent space should be based on the application you want to penetration test.
 4. Select **IAM-only access** under _User access configuration_
+
    - This quickstart does not cover enabling single sign-on (SSO) with IAM Identity Center. This allows users to directly access the AWS Security Agent web application, from the AWS Console.
    - If you want to enable users without AWS Management Console Access to perform tasks such as starting a penetration test or design review, you should enable the IAM Identity Center integration.
 
@@ -31,6 +32,7 @@ In the AWS console, you define the scope of what can be tested. Users then run s
 2. From the header, select **Enable penetration test** to enable this capability.
 3. **Step 1 — Configure domain**: Enter the target domain you want to test and select a verification method (**DNS_TXT** or **HTTP_ROUTE**). The domain should be live and host the application you want to penetration test. Choose **Next** to proceed.
 4. **Step 2 — Verify domains**: Verify ownership of each domain in the **Target domains** table:
+
    - For Route 53 domains in the same AWS account: select the domain and choose **One-click verification**. AWS Security Agent creates the DNS record and completes verification automatically.
    - For other DNS providers: copy the verification token, add the TXT record with your DNS registrar, then select the domain and choose **Verify**.
    - AWS Security Agent can only run penetration tests against verified domains.
@@ -47,6 +49,7 @@ This step is optional, however we recommend connecting to your GitHub account to
 2. Click **Create new registration**
 3. Select **GitHub** and then **Next**
 4. Click **Install and authorize**. You’ll be redirected to GitHub to complete the installation.
+
    1. Select the _GitHub User_ or _GitHub Organization_ that owns the repository you want to test.
    2. Select either **All repositories** or **Only select repositories**. AWS suggests installing AWS Security Agent on all repositories, and then creating a unique agent space for each repository you want to test.
    3. Select **Install & Authorize** and complete GitHub authentication.
@@ -67,6 +70,7 @@ You can create and run a penetration test only in the AWS Security Agent web app
 1. Select the **Web app** tab and then **Admin access** to launch the AWS Security Agent Web Application with administrator privileges. This will only work if you had setup your agent using **IAM-only access** under _User access configuration_. Alternatively, you will need to add users and create a login.
 2. In the left sidebar, click **Penetration Test**, then select **Create your first penetration test**.
 3. Define the penetration test details:
+
    1. Select the domain you want to test or specify one or more paths. You can only test verified domains.
    2. If your application needs to access URLs that are outside of your target domain, add them to the **Accessible URLs** field.
 
@@ -77,6 +81,7 @@ You can create and run a penetration test only in the AWS Security Agent web app
 4. (Optional) If your application requires a login, then input the credentials directly into the web application. Define how AWS Security Agent should authenticate to your application. Provide authentication instructions into **Agent Space login prompt**, then click **Next**.
 5. (Optional) Provide additional resources to help test your application. You can upload files such as design documents, threat model, API specifications or other documents that are helpful to understand the application context.
 6. Click **Create and execute**. You’ll be redirected to the penetration test detail screen.
+
    - To save the configuration for future use without running it immediately, click **Create penetration test** instead.
 
 ## Step 5: Review penetration test findings

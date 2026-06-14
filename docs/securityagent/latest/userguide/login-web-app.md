@@ -45,6 +45,7 @@ Bookmark this URL for easy access. This is the universal entry point to view all
 2. Navigate to the AWS Security Agent console.
 3. Navigate to the Agent Space you want to access.
 4. Click one of the following:
+
    - **Launch web application** button on the Agent Space overview page
    - **Launch web app** button in the Code review section
    - **Launch web app** button in the Penetration testing section

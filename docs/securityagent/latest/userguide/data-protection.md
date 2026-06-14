@@ -37,7 +37,9 @@ AWS Security Agent uses AWS Key Management Service (AWS KMS) to manage encryptio
 
 ## Internetwork traffic privacy
 
-AWS Security Agent uses the public internet to communicate with GitHub.
+AWS Security Agent uses the public internet to communicate with cloud-hosted source control providers (GitHub, GitLab, Bitbucket) and Confluence Cloud.
+
+For self-hosted providers (GitLab Self-Managed, GitHub Enterprise Server), you can configure private connections using Amazon VPC Lattice to keep all traffic within the AWS network. For more information, see [Connect to privately hosted source control](connect-private-connection.md "connect-private-connection.md").
 
 In the default configuration, AWS Security Agent uses the public internet to reach your app for penetration testing. You can optionally configure penetration tests to use a VPC to access your application. For more information, see [Connect agent to private VPC resources](connect-agent-vpc.md "connect-agent-vpc.md").
 

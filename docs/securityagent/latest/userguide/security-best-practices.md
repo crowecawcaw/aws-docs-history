@@ -67,16 +67,15 @@ Accessible URLs specify additional endpoints that the penetration testing enviro
 
 ## Cross Region Inference
 
-AWS Security Agent will automatically select the optimal region within your geography to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where the request originated, however, input prompts and output results may be processed outside that region. All data will be transmitted encrypted across Amazon’s secure network.
+AWS Security Agent will automatically select the optimal region to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where the request originated, however, input prompts and output results may be processed outside that region. All data will be transmitted encrypted across Amazon’s secure network.
 
-AWS Security Agent will securely route your inference requests to available compute resources within the geographic area where the request originated, as follows:
+The following table describes where your inference requests are processed based on the geography where the request originated and the feature used.
 
-- Inference requests originating in the European Union will be processed within the European Union.
-- Inference requests originating in the United States will be processed within the United States.
-- Inference requests originating in Australia will be processed within Australia.
-- Inference requests originating within Japan will be processed within Japan.
+| Request origin | All features except Code Remediation | [Code Remediation](remediate-code-scan-findings.md "remediate-code-scan-findings.md") |
+| -------------- | ------------------------------------ | ------------------------------------------------------------------------------------- |
+| European Union | European Union                       | European Union                                                                        |
+| United States  | United States                        | United States                                                                         |
+| Australia      | Australia                            | European Union                                                                        |
+| Japan          | Japan                                | European Union                                                                        |
 
-Cross-Region inference is always enabled and cannot be opted out of.
-
-- **Data residency** – All data processing occurs within your geographic area. If your organization requires data processing within a specific single region, evaluate whether processing across the broader geographic boundary satisfies your compliance obligations.
-- **IAM and Service Control Policies** – Ensure your IAM policies and Service Control Policies (SCPs) allow access to regions within your geography used for cross-Region inference operations.
+Cross-Region inference is always enabled and cannot be opted out of. Cross-region inference is not impacted by customer policies in Service Control Policies (SCPs) or Control Tower that restrict customer content to specific regions.

@@ -12,9 +12,11 @@ Before you begin, ensure you have:
 
 - Navigate to the Target Domains overview page.
 - You should see all target domain resources associated with your account
+
   - If you don’t see any target domains associated with your account, follow the steps in [Enable penetration test](enable-penetration-test.md "enable-penetration-test.md") to create and verify a target domain
 
 - Target domains can be reused between agent spaces and share verification status
+
   - To add an existing target domain to an agent space, navigate to the **Penetration test** tab of the agent space. Select **Add domain** and click the desired domain under **Select from available previously registered domains** in the domain name field
   - Target domains must be associated with an agent space before they can be used in a penetration test
 

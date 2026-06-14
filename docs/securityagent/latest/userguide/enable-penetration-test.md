@@ -22,6 +22,7 @@ In the first step of the wizard, specify the target domains you want to test and
 
 1. In the **Target domains** section, enter your domain in the **Domain** field.
 2. Select a **Verification method**:
+
    - **DNS_TXT** – Prove domain ownership by adding a TXT record to your domain’s DNS configuration.
    - **HTTP_ROUTE** – Prove domain ownership by hosting a verification file at a specific URL on your domain.
    - **PRIVATE_VPC** - Only usable for private VPC penetration testing. Verifies that the domain resolves to an IP in a private CIDR range
@@ -36,6 +37,7 @@ In the second step of the wizard, verify ownership of each domain you configured
 
 1. Review the domains listed in the **Target domains** table.
 2. For each domain, select it and trigger verification based on your chosen method:
+
    - **Route 53 domains (same AWS account)**: Choose **One-click verification**. AWS Security Agent automatically creates the DNS record and completes verification.
    - **DNS TXT (other DNS providers)**: Copy the verification token, add the TXT record with your DNS registrar, then select the domain and choose **Verify**.
    - **HTTP route**: Place the verification token at the required route path on your web server, then select the domain and choose **Verify**. For details, see [Enable an application domain for penetration testing](enable-test-domain.md "enable-test-domain.md").
@@ -124,10 +126,12 @@ AWS Security Agent requires an IAM role to access your AWS resources (VPC, Cloud
 1. Expand the **Service access** section.
 2. By default, AWS Security Agent uses a default IAM role with the required permissions for penetration testing.
 3. To customize the IAM role, select one of the following options:
+
    1. **Create default role** – AWS Security Agent automatically creates a new IAM role with the necessary permissions
    2. **Use an existing service role** – Select an existing IAM role from the dropdown menu
 
 4. If using an existing role:
+
    1. Click the dropdown menu under **Choose an existing role**
    2. Select your IAM role from the list
    3. Click the refresh icon to update the list if needed

@@ -68,6 +68,7 @@ Select how users will access the Security Agent Web Application. You’ll choose
 If you choose IAM-only access and later want to use IAM Identity Center, you’ll need to delete your AWS Security Agent setup and complete the setup process again.
 
 1. In the **Access method** section, select one of the following options:
+
    - **IAM Identity Center (SSO)** - Enable SSO access for your team through IAM Identity Center. This option is recommended for teams that need centralized user management and want users to access the web application directly without going through the AWS Console.
    - **IAM-only access** - Provide access through an admin access link in the AWS Console. This option is simpler to set up and suitable for teams that prefer console-based access or don’t require SSO capabilities.
 
@@ -105,6 +106,7 @@ Configure the IAM role that your Security Agent Web Application uses to access A
 1. Locate the **Permissions configuration - optional** section.
 2. If the section is collapsed, click to expand it.
 3. Select one of the following options:
+
    - **Create default role** - AWS Security Agent automatically creates a new IAM role with the necessary permissions for the web application
    - **Use another role** - Select an existing IAM role from the available options
 

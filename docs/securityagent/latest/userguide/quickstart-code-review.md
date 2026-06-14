@@ -14,6 +14,7 @@ If you haven’t already set up AWS Security Agent, complete the initial setup:
 2. Select **Set up AWS Security Agent**.
 3. Create an Agent Space. An agent space can be used by multiple users and should be specific for every application you want to test. Enter a name and description for your first agent space. This name appears to users in the web application. The name should identify the application whose code you want to review.
 4. Select **IAM-only access** under _User access configuration_.
+
    - This quickstart does not cover enabling single sign-on (SSO) with IAM Identity Center. This allows users to directly access the AWS Security Agent web application, from the AWS Console.
    - If you want to enable users without AWS Management Console Access to perform tasks such as starting a penetration test or design review, you should enable the IAM Identity Center integration.
 
@@ -37,9 +38,11 @@ If you already have GitHub repositories or S3 buckets connected to your Agent Sp
 ### Step 1: Connect integrations, repos, and buckets
 
 1. **(If you don’t have a GitHub integration yet)** Create a GitHub registration. If you already have one, skip to the next step.
+
    1. In the **Connected integrations** section, choose **Add** and then **Create new registration**.
    2. Select **GitHub** and choose **Next**.
    3. Choose **Install and authorize**, then complete installation in GitHub:
+
       1. Select the GitHub user or organization that owns the repository you want to review.
       2. Select **All repositories** or **Only select repositories**.
       3. Choose **Install & Authorize** and complete GitHub authentication.
@@ -50,8 +53,10 @@ If you already have GitHub repositories or S3 buckets connected to your Agent Sp
    For the full GitHub integration flow, see [Connect AWS Security Agent to GitHub repositories](connect-github.md "connect-github.md").
 
 2. Connect GitHub repositories. In the **Connected integrations** section, choose **Add**, then select your GitHub registration. The two-step **Connect GitHub** wizard opens:
+
    1. On **Connect GitHub repositories**, select the repositories to include and choose **Next**.
    2. On **Manage capabilities**, toggle the following per repository:
+
       - **Code review comments** – Let AWS Security Agent post security findings as comments on pull requests in the repository.
       - **Automatic remediation** – Let users of the AWS Security Agent web application request pull requests that fix findings.
 
@@ -76,6 +81,7 @@ You create and run code reviews only in the AWS Security Agent web application.
 2. In the left sidebar, click **Code reviews**.
 3. Click **Create code review**.
 4. Configure the code review:
+
    1. Enter a **Title** that identifies the scope of this review (for example, "billing-service-security-review").
    2. Under **Sources**, select the GitHub repositories or enter the S3 sources you want to scan.
    3. Select the **Service role** from your configured roles.
@@ -89,6 +95,7 @@ You create and run code reviews only in the AWS Security Agent web application.
 1. The code review typically takes 30–60 minutes depending on the size of your codebase.
 2. Once complete, navigate to the completed run and select the **Findings** tab.
 3. Review findings in the list-detail view:
+
    1. Select a finding from the left panel to view its details.
    2. Review the **Description**, **Code locations**, and **Risk reasoning** sections.
    3. Use **Remediate code** to generate a pull request with a fix, or review automatic remediation PRs if you enabled that option.

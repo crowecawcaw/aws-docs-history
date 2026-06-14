@@ -40,6 +40,7 @@ GitHub repositories are integrated through a multi-step process that connects or
 1. **Register at the tenant level** - Authorize the AWS Security Agent GitHub App for your GitHub organization or user account once
 2. **Connect at the Agent Space level** - Select specific repositories to connect to each Agent Space
 3. **Configure usage per repository** - Enable specific capabilities for each connected repository:
+
    - **Code review** - Full source code scanning and automated pull request analysis
    - **Penetration testing context** - Application understanding from source code during penetration tests
    - **Automatic code remediation** - Automated pull requests with vulnerability fixes for code review and penetration testing findings

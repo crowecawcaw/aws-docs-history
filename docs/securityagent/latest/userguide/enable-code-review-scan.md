@@ -16,6 +16,7 @@ Before you begin, ensure you have:
 
 - An Agent Space created in the AWS Management Console (see [Create an Agent Space](create-agent-space.md "create-agent-space.md"))
 - At least one of the following source code inputs:
+
   - A GitHub organization or user account with the AWS Security Agent GitHub App installed (see [Connect AWS Security Agent to GitHub repositories](connect-github.md "connect-github.md"))
   - An S3 bucket containing source code you want to review
 
@@ -28,6 +29,7 @@ Navigate to the code review setup for your Agent Space.
 
 1. In the AWS Security Agent console, select your Agent Space.
 2. Choose **Enable code review** from one of the following locations:
+
    - The **Code review** card at the top of the Agent Space page
    - The **Code review** tab, then choose **Enable code review**
 
@@ -78,7 +80,7 @@ Pull request comments are only available for private GitHub repositories.
 
 When **Automatic remediation** is enabled for a repository, web app users can start remediation for both code review and penetration test findings on that repository, and AWS Security Agent delivers each fix as a pull request. For more information, see [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md").
 
-For more information about how pull request findings appear in GitHub and how to respond to them, see [Review code security findings in GitHub pull requests](review-code-findings-github.md "review-code-findings-github.md").
+For more information about how pull request findings appear in GitHub and how to respond to them, see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md").
 
 ### Add S3 buckets
 
@@ -101,6 +103,7 @@ You can add S3 buckets that contain source code, configuration files, infrastruc
 Configure the types of security issues AWS Security Agent analyzes during code reviews. This setting applies to all repositories and sources with code review enabled in this Agent Space.
 
 1. In the **Code review settings** section, select one of the following options:
+
    - **Security requirement validation** – Validate whether code complies with the custom security requirements you’ve enabled.
    - **Security vulnerability findings** – Identify common security vulnerabilities in code.
    - **Security requirements and vulnerability findings** – Analyze code for both compliance with your organization’s custom security requirements and common security vulnerabilities. This is the default setting.
@@ -132,6 +135,7 @@ Configure the IAM service role that AWS Security Agent uses to access your AWS r
 
 1. Expand the **Service access** section.
 2. Select one of the following options:
+
    - **Create default role** – AWS Security Agent automatically creates a new IAM role with the necessary permissions for code review.
    - **Use an existing service role** – Select an existing IAM role from the dropdown menu.
 
@@ -168,4 +172,4 @@ After setting up code review configurations:
 - Launch the web application to create and run code reviews (see [Create a code review](perform-code-review-scan.md "perform-code-review-scan.md"))
 - Connect additional GitHub repositories or S3 buckets as your codebase grows
 - Configure custom security requirements for organization-specific validation (see [Manage security requirements](security-requirements.md "security-requirements.md"))
-- Review how pull request findings appear in GitHub (see [Review code security findings in GitHub pull requests](review-code-findings-github.md "review-code-findings-github.md"))
+- Review how pull request findings appear in GitHub (see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md"))

@@ -22,6 +22,7 @@ Use this path to add GitHub repositories for penetration testing and configure r
 1. Navigate to the Agent Space overview page.
 2. Choose the **Penetration test** tab.
 3. Select a GitHub registration that owns your repositories:
+
    1. If you haven’t associated any GitHub registration with the Agent Space, choose **Add** in the **Connect GitHub to AWS Security Agent** information box to select a registration.
    2. If one or more GitHub registrations are already associated, choose **Add** in the **Connected integrations** section to select another.
 

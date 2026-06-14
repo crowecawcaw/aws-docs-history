@@ -26,6 +26,7 @@ Enable AWS-managed security requirements to enforce industry-standard security p
 3. Choose the **Managed security requirements** tab.
 4. Select the checkbox next to one or more security requirements you want to enable or disable.
 5. Do one of the following:
+
    1. To enable the selected requirements, choose **Enable**.
    2. To disable the selected requirements, choose **Disable**.
 
@@ -76,6 +77,7 @@ Selecting a managed requirement pre-populates the form fields with that requirem
     5. **Remediation guidance** (Optional) – Provide step-by-step instructions for fixing violations, including specific technical details, configuration examples, and links to your organization’s internal documentation or standards (maximum 10,000 characters).
 
 7. Do one of the following:
+
    1. To create the requirement without enabling it, choose **Create security requirement**.
    2. To create and immediately enable the requirement for all future security reviews, choose **Create and enable security requirement**.
 
@@ -108,6 +110,7 @@ Enable or disable your custom security requirements to control which policies AW
 3. Choose the **Custom security requirements** tab.
 4. Select the checkbox next to one or more custom security requirements you want to enable or disable.
 5. Do one of the following:
+
    1. To enable the selected requirements, from _Actions_ choose **Enable**.
    2. To disable the selected requirements, from _Actions_ choose **Disable**.
 

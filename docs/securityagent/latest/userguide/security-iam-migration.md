@@ -33,6 +33,7 @@ In order to avoid seeing issues after March 9, 2026 while continuing to use AWS 
 2. In the left hand panel, select **Settings** and click the role under **Service role**
 3. In the IAM console for the associated role, select **Add permissions** and **Attach policies**
 4. Select **AWSSecurityAgentWebAppPolicy** and click **Add permissions**
+
    1. **Important Note:** Verify that you have selected **AWSSecurityAgentWebAppPolicy** as the new policy and not **SecurityAgentWebAppAPIPolicy**
 
 5. Verify that your IAM role now has both **AWSSecurityAgentWebAppPolicy** and **SecurityAgentWebAppAPIPolicy** under **Permissions policies**
@@ -90,6 +91,7 @@ In order to avoid seeing issues after March 9, 2026 while continuing to use AWS 
 
 1. Navigate back to the **AWS Security Agent console**. From the left-hand panel, select **Agent Spaces**
 2. For each Agent Space you have with penetration testing enabled, perform the following steps
+
    1. Navigate to the Agent Space and select **Penetration test**
    2. Scroll down to **Service access** and click the role under **Service role name**
    3. In the IAM console for the associated role, select **Trust relationships** then **Edit trust policy**

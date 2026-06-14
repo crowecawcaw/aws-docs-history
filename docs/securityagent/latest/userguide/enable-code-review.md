@@ -4,4 +4,4 @@ Pull request code review is now configured as part of the code review setup wiza
 
 For complete setup instructions, see [Enable code review](enable-code-review-scan.md "enable-code-review-scan.md").
 
-For information about how pull request findings appear in GitHub and how to respond to them, see [Review code security findings in GitHub pull requests](review-code-findings-github.md "review-code-findings-github.md").
+For information about how pull request findings appear in GitHub and how to respond to them, see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md").

@@ -2,7 +2,7 @@
 
 Create code reviews in the AWS Security Agent web application to scan your source code repositories and S3 sources for security vulnerabilities. Code reviews perform comprehensive static analysis across your entire codebase, identifying security issues and providing remediation guidance.
 
-Unlike pull request-based code review which analyzes individual code changes (see [Review code security findings in GitHub pull requests](review-code-findings-github.md "review-code-findings-github.md")), on-demand code reviews scan your full source code to identify security vulnerabilities and validate compliance with your organization’s security requirements.
+Unlike pull request-based code review which analyzes individual code changes (see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md")), on-demand code reviews scan your full source code to identify security vulnerabilities and validate compliance with your organization’s security requirements.
 
 In this procedure, you’ll create a code review by selecting source code inputs, configuring permissions, and running the review.
 
@@ -126,6 +126,7 @@ Track the progress of your code review as it executes.
 A code review run progresses through three phases, displayed as a progress indicator at the top of the run detail page:
 
 1. **Preflight** – AWS Security Agent validates access to your source code and sets up the testing environment. The preflight checks include:
+
    - Service infrastructure setup
    - S3 source access validation
    - Setup testing environment

@@ -47,7 +47,8 @@ AWS Security Agent will create your Agent Space. You can now configure capabilit
 
 After creating your Agent Space:
 
-- Connect GitHub repositories for code review and penetration testing context
+- Connect source code repositories (GitHub, GitLab, Bitbucket, or GitHub Enterprise Server) for code review and penetration testing context
+- Connect Confluence for documentation context in design reviews and penetration testing
 - Enable code review capability for connected repositories (see [Enable pull request code review for GitHub repositories](enable-code-review.md "enable-code-review.md"))
 - Configure penetration testing capabilities including domain verification
 - **(If using IAM Identity Center)** Assign users to this Agent Space under the Web App section of the Agent Space page. (see [Grant users access to the AWS Security Agent web app](grant-user-access.md "grant-user-access.md"))

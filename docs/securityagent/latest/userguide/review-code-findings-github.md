@@ -1,10 +1,14 @@
-# Review code security findings in GitHub pull requests
+# Review code security findings in pull requests
 
-After enabling code review for pull requests for your repositories, AWS Security Agent automatically analyzes pull requests and posts security findings directly in GitHub. This allows developers to address security issues within their normal workflow without leaving the pull request.
+After enabling code review for pull requests for your repositories, AWS Security Agent automatically analyzes pull requests and posts security findings directly in your source control provider. This allows developers to address security issues within their normal workflow without leaving the pull request.
 
-## How code review works in GitHub
+###### Note
 
-When you submit a pull request in a repository with code review enabled, AWS Security Agent automatically begins analysis.
+This page applies to GitHub pull requests, GitLab merge requests, and Bitbucket pull requests. The experience is similar across all providers.
+
+## How code review works in pull requests
+
+When you submit a pull request (or merge request in GitLab) in a repository with code review enabled, AWS Security Agent automatically begins analysis.
 
 1. **Pull request analysis trigger** - Code review is triggered when a pull request is marked as "Ready for review" in repositories where you’ve enabled the code review capability. Draft pull requests are not analyzed.
 2. **Analysis acknowledgment** - When AWS Security Agent begins analyzing your pull request, it posts an initial comment: "AWS Security Agent is analyzing your code…​" This lets you know the analysis has started and is in progress.
@@ -20,6 +24,7 @@ If AWS Security Agent identifies security issues in your code changes, it posts 
 
 - **Summary** - A high-level overview of all security findings at the top of the review, describing the types of issues identified and their potential impact
 - **Individual findings** - Detailed security findings appear as threaded comments under the main review, with each finding including:
+
   - Description of the security issue
   - Location in your code where the issue was found
   - Remediation guidance explaining how to address the issue
@@ -35,10 +40,10 @@ If AWS Security Agent completes analysis and finds no security issues in your co
 
 ## Responding to security findings
 
-After reviewing the security findings posted by AWS Security Agent, you can take action directly in GitHub.
+After reviewing the security findings posted by AWS Security Agent, you can take action directly in your source control provider.
 
 - **Address findings** - Update your code based on the remediation guidance provided in the findings, then push new commits to the pull request. AWS Security Agent will analyze the updated code.
-- **Resolve conversations** - After addressing a security finding, mark the conversation as resolved in GitHub to track your progress.
+- **Resolve conversations** - After addressing a security finding, mark the conversation as resolved to track your progress.
 
 ###### Tip
 

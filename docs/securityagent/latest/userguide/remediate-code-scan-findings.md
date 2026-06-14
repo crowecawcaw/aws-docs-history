@@ -43,6 +43,7 @@ After AWS Security Agent submits a remediation pull request to a private GitHub 
 1. Navigate to your GitHub repository.
 2. Locate the pull request created by AWS Security Agent.
 3. Review the changes, including:
+
    - The description explaining the security finding and fix
    - The code changes addressing the vulnerability
    - Any relevant context about the remediation approach

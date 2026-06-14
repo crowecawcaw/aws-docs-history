@@ -24,6 +24,7 @@ Track the progress of your code review run using the step indicator at the top o
 
 1. Locate the horizontal step indicator below the page header.
 2. Review the status of each phase:
+
    - **Preflight** – Validates access to your source code and sets up the scanning environment. Checks include service infrastructure setup, S3 source access validation, and testing environment setup, which includes GitHub access checks.
    - **Static analysis** – Scans your source code for security vulnerabilities and requirement violations.
    - **Finalizing** – Compiles findings and generates the results summary.
@@ -47,6 +48,7 @@ Navigate to the **Preflight** tab to verify that all source access checks passed
 1. Select the **Preflight** tab.
 2. Review the **Preflight progress** indicator showing the number of checks completed.
 3. Verify that each check shows a success status:
+
    - **Service infrastructure setup** – Confirms the testing environment is ready
    - **S3 Source Access Validation** – Confirms access to S3 source code (if applicable)
    - **Setup Testing Environment** – Confirms the analysis environment is configured
@@ -74,8 +76,10 @@ Select the **Findings** tab to view all security findings from the run.
 1. Select the **Findings** tab.
 2. The findings display in a split view with the findings list on the left and the selected finding’s details on the right.
 3. Review the information displayed on each finding card:
+
    - **Finding title** – A descriptive name summarizing the security issue
    - **Severity badge** – Color-coded severity indicator:
+
      - **Critical** (red) – Requires immediate action; exploitation could lead to system compromise
      - **High** (red) – Requires prompt attention; exploitation could result in significant security impact
      - **Medium** (orange) – Should be addressed in a reasonable timeframe; contributes to overall security risk
@@ -89,11 +93,13 @@ Select individual findings to view comprehensive information about each vulnerab
 
 1. Click on a finding in the left panel to display its details in the right panel.
 2. Review the available actions at the top of the detail panel:
+
    - **Resolve finding** – Mark the finding as resolved after you’ve addressed it
    - **Remediate code** – Generate a pull request with a fix (available for GitHub sources)
 
 3. Provide feedback using **Was this finding accurate?** – Select **Yes** or **No** to help improve future analysis accuracy.
 4. Review the key attributes in the **Overview** section:
+
    - **Agent confidence** – The confidence level AWS Security Agent has in this finding
    - **Severity** – The risk level with a color-coded badge
    - **Risk Type** – The category of security risk
@@ -101,17 +107,20 @@ Select individual findings to view comprehensive information about each vulnerab
    - **Last updated** – Timestamp of the most recent update
 
 5. Expand the **Description** section to read:
+
    - A detailed explanation of the security issue
    - How the vulnerability could be exploited
    - The potential impact on your application
    - Verification steps the agent performed to confirm the finding
 
 6. Expand the **Code locations** section to view:
+
    - Specific file paths where the issue was identified
    - A brief description of what was found at each location
    - Line number badges linking to the relevant code
 
 7. Expand the **Risk reasoning** section to understand:
+
    - Why this finding represents a security risk
    - How the vulnerability could be exploited in practice
    - References to relevant security standards or best practices

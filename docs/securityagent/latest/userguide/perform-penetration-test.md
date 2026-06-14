@@ -80,15 +80,15 @@ Specify URL paths that should not be tested during the penetration test. AWS Sec
 
 1. Locate the **Out-of-scope URLs** section.
 2. Click in the input field and enter a URL path to exclude (for example, `/admin/delete` or `/api/reset`).
-3. To add multiple out-of-scope paths:
-   1. Click **Add URL**.
-   2. Enter each additional path.
-
-4. To remove a path, click **Remove** next to the path.
 
 ###### Warning
 
-Out-of-scope paths will not be tested for vulnerabilities. Ensure you only exclude paths that should not be accessed during testing, such as destructive operations or sensitive administrative functions.
+Out-of-scope paths will not be tested for vulnerabilities. Ensure you only exclude paths that should not be accessed during testing, such as destructive operations or sensitive administrative functions. 3. To add multiple out-of-scope paths:
+
+    1. Click **Add URL**.
+    2. Enter each additional path.
+
+4. To remove a path, click **Remove** next to the path.
 
 ### Add accessible domains (optional)
 
@@ -99,7 +99,7 @@ Specify domains that are required for the test but are not targets for vulnerabi
 
 ###### Note
 
-Add accessible domains for third-party services (such as Okta, Auth0, Stripe) that are outside your target domain. This is required so AWS Security Agent can access these URLs for login and navigation during testing. AWS Security Agent does NOT penetration test these domains—they are used solely for access purposes. 3. To add multiple accessible domains:
+Add accessible domains for third-party services (such as Okta, Auth0, Stripe) that are outside your target domain. This is required so AWS Security Agent can access these URLs for login and navigation during testing. AWS Security Agent does NOT penetration test these domains—they are used solely for access purposes. Accessible domains do not require ownership verification, even if they belong to a different domain than your target. Only target domains require verified ownership. 3. To add multiple accessible domains:
 
     1. Click **Add URL**.
     2. Enter each additional domain.
@@ -169,6 +169,7 @@ Skip this step if your target domains do not require authentication or if all ar
 Provide authentication credentials that AWS Security Agent will use to access your application.
 
 1. In the **Credential #1** section, select a credential input method:
+
    - **Input credentials** - Enter your credentials directly into AWS Security Agent.
    - **Advanced setting** - For sensitive credential information, use advanced options such as AWS Secrets Manager or AWS Lambda functions. See [Provide authentication credentials for penetration testing](provide-testing-credentials.md "provide-testing-credentials.md") for details.
 
@@ -233,6 +234,7 @@ Additional resources are optional but recommended. Providing comprehensive infor
 Select existing resources or upload new files that will help guide the penetration test.
 
 1. In the **Connected resources** section, you can:
+
    - Click **Select from available** to choose from resources already connected to AWS Security Agent (such as GitHub repositories or S3 buckets).
    - Click **Upload** to add new files directly from your local system.
 
@@ -246,6 +248,7 @@ Choose from resources that are already integrated with AWS Security Agent.
 
 1. Click **Select from existing resources**.
 2. Browse the list of available resources from connected sources such as:
+
    - GitHub repositories, under the **GitHub repositories tab**
    - S3 buckets
    - Previously uploaded files
@@ -272,6 +275,7 @@ Upload files directly from your local system or provide plain text content to AW
 
 1. Click **Upload**.
 2. Choose one of the following input methods:
+
    - **Upload local files** - Select one or more files from your local system.
    - **Paste plain text** - Type or paste text content directly into the input field. Click **Upload**.
 
@@ -316,6 +320,7 @@ After configuring all settings, you’re ready to create the penetration test.
 
 1. Review all configuration sections to ensure accuracy.
 2. Choose one of the following options:
+
    - Click **Create penetration** to save the configuration without running it immediately.
    - Click **Create and execute** to save the configuration and immediately start the penetration test.
    - Click **Cancel** to discard the penetration test configuration.

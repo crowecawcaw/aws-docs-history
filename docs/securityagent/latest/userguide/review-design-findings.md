@@ -41,10 +41,12 @@ Use the filtering and search capabilities to focus on specific findings or compl
 
 1. In the **Review findings** section, locate the filter controls.
 2. To filter by status:
+
    1. Click the status dropdown menu.
    2. Select a specific compliance status to view only findings with that status.
 
 3. To search for specific security requirements:
+
    1. Enter keywords in the search field.
    2. Results update automatically as you type.
 
@@ -73,6 +75,7 @@ Select individual findings to view detailed justification and remediation guidan
 
 1. In the findings table, click on a security requirement name.
 2. Review the finding details, which include:
+
    - The specific security requirement being evaluated
    - A comment explaining why the finding received its compliance status, including specific details about what’s missing or non-compliant
    - Recommended remediation guidance to address the finding

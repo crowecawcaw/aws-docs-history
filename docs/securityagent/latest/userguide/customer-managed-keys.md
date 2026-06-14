@@ -42,6 +42,7 @@ When you explicitly specify a KMS key during resource creation, it takes precede
 Before you configure a customer managed key, complete the following prerequisites:
 
 - Create a symmetric encryption KMS key in AWS KMS. The key must meet the following requirements:
+
   - Key type: Symmetric
   - Key usage: Encrypt and decrypt
   - Key spec: `SYMMETRIC_DEFAULT`
@@ -110,7 +111,8 @@ Replace the following placeholder values in the policy:
       },
       "Action": [
         "kms:GenerateDataKeyWithoutPlaintext",
-        "kms:ReEncrypt*",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom",
         "kms:Decrypt"
       ],
       "Resource": "*",
@@ -152,7 +154,8 @@ Replace the following placeholder values in the policy:
       "Action": [
         "kms:GenerateDataKeyWithoutPlaintext",
         "kms:Decrypt",
-        "kms:ReEncrypt*"
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
       ],
       "Resource": "*",
       "Condition": {
@@ -182,7 +185,7 @@ Replace the following placeholder values in the policy:
 
 ###### Important
 
-To rotate branch keys, your KMS key policy must grant `kms:GenerateDataKeyWithoutPlaintext` and `kms:ReEncrypt*` permissions to the AWS Security Agent service principal (`securityagent.amazonaws.com`), or branch key rotation will fail. For more information about the required permissions, see [Rotate a branch key](../../../database-encryption-sdk/latest/devguide/rotate-branch-key.md "../../../database-encryption-sdk/latest/devguide/rotate-branch-key.md").
+To rotate branch keys, your KMS key policy must grant `kms:GenerateDataKeyWithoutPlaintext`, `kms:ReEncryptTo`, and `kms:ReEncryptFrom` permissions to the AWS Security Agent service principal (`securityagent.amazonaws.com`), or branch key rotation will fail. For more information about the required permissions, see [Rotate a branch key](../../../database-encryption-sdk/latest/devguide/rotate-branch-key.md "../../../database-encryption-sdk/latest/devguide/rotate-branch-key.md").
 
 #### Key policy for integrations
 
@@ -208,7 +211,8 @@ Replace the following placeholder values in the policy:
         "kms:GenerateDataKeyWithoutPlaintext",
         "kms:Decrypt",
         "kms:Encrypt",
-        "kms:ReEncrypt*"
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
       ],
       "Resource": "*",
       "Condition": {
@@ -239,7 +243,8 @@ Replace the following placeholder values in the policy:
         "kms:GenerateDataKeyWithoutPlaintext",
         "kms:Decrypt",
         "kms:Encrypt",
-        "kms:ReEncrypt*"
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
       ],
       "Resource": "*",
       "Condition": {
@@ -257,7 +262,100 @@ Replace the following placeholder values in the policy:
 
 ###### Note
 
-You can combine the Agent Space and integration key policy statements into a single key policy if you want to use the same KMS key for both resource types.
+You can combine the Agent Space, integration, and security requirement pack key policy statements into a single key policy if you want to use the same KMS key for multiple resource types.
+
+#### Key policy for security requirement packs
+
+The following key policy grants AWS Security Agent the permissions required to encrypt and decrypt security requirement pack data. Security requirement packs do not use a web application role. The policy uses two access paths:
+
+- **Synchronous path** – When you call the API, the service uses your forwarded credentials to call AWS KMS on your behalf (via the `kms:ViaService` condition).
+- **Asynchronous path** – For asynchronous operations where the packs can be used, the service uses its own service principal to call AWS KMS directly.
+
+Replace the following values in the policy:
+
+- `*111122223333*` – Your AWS account ID
+- `*MyRole*` – The IAM role you use to invoke security requirement pack operations
+- `*us-east-1*` – The AWS Region where you use AWS Security Agent
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowKeyMetadataValidation",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/MyRole"
+      },
+      "Action": [
+        "kms:DescribeKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "securityagent.us-east-1.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "AllowUseOfHierarchicalKeyringForSecurityPacks",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/MyRole"
+      },
+      "Action": [
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom",
+        "kms:Decrypt"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": "securityagent.us-east-1.amazonaws.com"
+        },
+        "StringLike": {
+          "kms:EncryptionContext:aws:securityagent:security-requirement-pack": "arn:aws:securityagent:us-east-1:111122223333:security-requirement-pack/*"
+        }
+      }
+    },
+    {
+      "Sid": "AllowAsynchronousDataAccessForSecurityPacks",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "securityagent.amazonaws.com"
+      },
+      "Action": [
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:Decrypt",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:EncryptionContext:aws:securityagent:security-requirement-pack": "arn:aws:securityagent:us-east-1:111122223333:security-requirement-pack/*"
+        },
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:securityagent:us-east-1:111122223333:security-requirement-pack/*"
+        }
+      }
+    }
+  ]
+}
+```
+
+The policy contains three statements:
+
+- **AllowKeyMetadataValidation** – Grants `kms:DescribeKey` so that AWS Security Agent can validate that your customer managed key exists, is enabled, and uses symmetric encryption when you specify a CMK during resource creation. Uses the `kms:ViaService` condition to ensure the call originates through the service.
+- **AllowUseOfHierarchicalKeyringForSecurityPacks** – Grants `kms:GenerateDataKeyWithoutPlaintext` (create new branch keys), `kms:ReEncryptTo` and `kms:ReEncryptFrom` (rotate existing branch keys), and `kms:Decrypt` (retrieve existing branch keys) for hierarchical keyring operations. These operations use your forwarded credentials through the synchronous path and are scoped to security requirement pack resources by the encryption context condition.
+- **AllowAsynchronousDataAccessForSecurityPacks** – Grants `kms:GenerateDataKeyWithoutPlaintext`, `kms:Decrypt`, `kms:ReEncryptTo`, and `kms:ReEncryptFrom` to the AWS Security Agent service principal for asynchronous operations when no caller credentials are available.
+
+Unlike the Agent Spaces key policy, the security requirement pack policy does not include a web application role principal. Security requirement packs are accessed through the AWS Management Console using your administrator role, not through the AWS Security Agent web application. All synchronous operations use the single caller role (via `kms:ViaService`).
+
+###### Note
+
+If you use the same KMS key for both Agent Spaces and security requirement packs, you can combine the key policy statements from both sections into a single key policy.
 
 #### Key policy for CMK-encrypted AWS resources
 
@@ -581,6 +679,7 @@ AWS Security Agent validates the KMS key to confirm that it exists, is enabled, 
 3. Enter a name and optional description for your Agent Space.
 4. Expand the **Advanced** section.
 5. Under **Data encryption**, choose one of the following:
+
    - **Use application default key** – Uses the default KMS key configured during AWS Security Agent setup. This option is selected by default if a default key is configured.
    - **Use a different key** – Specify a different KMS key for this Agent Space. Select **Customize encryption settings (advanced)**, then for **Choose an AWS KMS key**, select a KMS key from your account or enter an ARN.
 

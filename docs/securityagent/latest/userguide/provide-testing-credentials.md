@@ -6,6 +6,7 @@ Provide credentials to enable AWS Security Agent to test authenticated areas of 
 
 1. In the penetration test creation workflow, locate the **Authentication credentials - Optional** section.
 2. In the **Credential #1** section, choose your credential input method:
+
    - **Input credentials** - Enter credentials directly. Best for development and testing environments.
    - **Advanced setting** - Use AWS-native credential management. Recommended for production environments and sensitive credentials.
 
@@ -23,6 +24,7 @@ If you select **Advanced setting**, you can choose from three credential strateg
 2. Enter the **User name** and **Password**.
 3. In the **Access URL** dropdown, select the URL where these credentials will be used. This must be selected from the list of target endpoints.
 4. (Optional) In the **2FA - optional** field, provide a TOTP secret for applications that require two-factor authentication. You can either:
+
    - Enter the TOTP secret directly (for example, `JBSWY3DPEHPK3PXP`), or enter the full `otpauth://totp/` URI (for example, `otpauth://totp/Example:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Example`).
    - Click the upload icon to upload a QR code image from your authenticator app setup page. The QR code is scanned locally and the TOTP URI is extracted automatically.
 

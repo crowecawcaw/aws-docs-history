@@ -67,42 +67,55 @@ Yes. AWS Security Agent integrates with AWS IAM Identity Center, allowing admins
 AWS Security Agent detects vulnerabilities in the OWASP Top 10 for web applications. AWS Security Agent provides specific risk types that you can include or exclude in testing outlined below. Findings could arise within these risk categories or from novel findings discovered by following leads from a combination of these risk categories.
 
 - [Arbitrary File Upload](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html "https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html")
+
   - Arbitrary File Upload confirms that the application should be able to fend off bogus and malicious files in a way to keep the application and the users safe
 
 - [Code Injection](https://owasp.org/www-community/attacks/Code_Injection "https://owasp.org/www-community/attacks/Code_Injection")
+
   - Code Injection is the general term for attack types which consist of injecting code that is then interpreted/executed by the application
 
 - [Command Injection](https://owasp.org/www-community/attacks/Command_Injection "https://owasp.org/www-community/attacks/Command_Injection")
+
   - Command injection is an attack in which the goal is execution of arbitrary commands on the host operating system via a vulnerable application
 
 - [Cross-Site Scripting](https://owasp.org/www-community/attacks/xss/ "https://owasp.org/www-community/attacks/xss/") (XSS)
+
   - Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites
 
 - [Insecure Direct Object Reference](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References "https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References")
+
   - Insecure Direct Object References (IDOR) occur when an application provides direct access to objects based on user-supplied input
 
 - [JSON Web Token Vulnerabilities](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/10-Testing_JSON_Web_Tokens "https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/10-Testing_JSON_Web_Tokens")
+
   - JWTs are a common source of vulnerabilities, both in how they are implemented in applications, and in the underlying libraries
 
 - [Local File Inclusion](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_Local_File_Inclusion "https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_Local_File_Inclusion")
+
   - File Inclusion vulnerability allows an attacker to include a file, usually exploiting a “dynamic file inclusion” mechanisms implemented in the target application
 
 - [Path Traversal](https://owasp.org/www-community/attacks/Path_Traversal "https://owasp.org/www-community/attacks/Path_Traversal")
+
   - Path Traversal attack (also known as directory traversal) aims to access files and directories that are stored outside the web root folder
 
 - [Privilege Escalation](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/03-Testing_for_Privilege_Escalation "https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/03-Testing_for_Privilege_Escalation")
+
   - Privilege escalation occurs when a user gets access to more resources or functionality than they are normally allowed, and such elevation or changes should have been prevented by the application
 
 - [Server-Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery "https://owasp.org/www-community/attacks/Server_Side_Request_Forgery") (SSRF)
+
   - Server-Side Request Forgery (SSRF) occurs when the attacker can abuse functionality on the server to read or update internal resources
 
 - [Server-Side Template Injection](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server_Side_Template_Injection "https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server_Side_Template_Injection")
+
   - Server Side Template Injection vulnerabilities (SSTI) occur when user input is embedded in a template in an unsafe manner and results in remote code execution on the server
 
 - [SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection "https://owasp.org/www-community/attacks/SQL_Injection")
+
   - SQL injection attack consists of insertion or “injection” of a SQL query via the input data from the client to the application
 
 - [XML External Entity](<https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing> "https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing")
+
   - XML External Entity attack is a type of attack against an application that parses XML input. This attack occurs when XML input containing a reference to an external entity is processed by a weakly configured XML parser
 
 #### What authentication methods does AWS Security Agent support?

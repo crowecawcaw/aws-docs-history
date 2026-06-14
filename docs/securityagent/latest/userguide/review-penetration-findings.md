@@ -29,6 +29,7 @@ Track the progress of your penetration test run using the step indicator at the 
 
 1. Locate the horizontal step indicator below the page header.
 2. Review the status of each testing phase:
+
    - **Preflight** – Initial setup and connectivity checks
    - **Static analysis** – Code and configuration analysis
    - **Pentests** – Runtime testing and vulnerability scanning
@@ -50,6 +51,7 @@ Access detailed logs of all actions AWS Security Agent executed during the pente
 
 1. The actions are categorized by action type and risk-types.
 2. Click on a specific action to view detailed logs:
+
    - **Testing Summary** – High-level summary of the agent actions and results
    - **Penetration test logs** – Detailed logs of all testing activities
 
@@ -74,6 +76,7 @@ Review the information displayed on each finding card:
 - **Finding name** – The title and identifier for the vulnerability
 - **Confidence badge** – Indicates the agent’s confidence level in the finding (High, Medium, or Low)
 - **Severity badge** – Shows the risk level with color coding:
+
   - **Critical** (red) – Requires immediate action; exploitation could lead to system compromise
   - **High** (red) – Requires prompt attention; exploitation could result in significant security impact
   - **Medium** (orange) – Should be addressed in a reasonable timeframe; contributes to overall security risk
@@ -104,12 +107,14 @@ If a finding displays the Unknown "This finding is not validated by AWS Security
     * **Risk type** – The category or type of security risk (e.g., Authentication Bypass, SQL Injection)
 
 4. Expand the **Description** section to read:
+
    - A detailed explanation of the vulnerability
    - How the vulnerability works
    - Why it represents a security risk
    - The potential impact on your application
 
 5. Expand the **Risk Reasoning** section to understand the severity calculation:
+
    - CVSS (Common Vulnerability Scoring System) metrics breakdown
    - Attack Vector (AV) – How the vulnerability can be exploited
    - Attack Complexity (AC) – How difficult the exploit is
@@ -119,11 +124,13 @@ If a finding displays the Unknown "This finding is not validated by AWS Security
    - Confidentiality, Integrity, and Availability impacts
 
 6. Expand the **Steps to reproduce** section to view:
+
    - Detailed technical steps to recreate the vulnerability
    - Request and response examples
    - Specific parameters or conditions that trigger the issue
 
 7. The Verification Script section provides an executable way to reproduce the finding. Expand this section (when available) to view:
+
    - **Instructions** – How to set up and run the verification script
    - **Environment variables** – Lists the required variables you must configure before running the script. Sensitive values are redacted for security.
    - **Download Script** – Choose to download the executable verification script
@@ -169,6 +176,7 @@ For **Critical** and **High** severity findings with **High** confidence:
 1. Review the Description and Steps to reproduce sections thoroughly.
 2. Access the detailed logs via the "Trace actions & logs" link to gather complete evidence.
 3. Access ready-to-implement code fixes through one of these methods:
+
    - For automatic remediation: Use the pull request link in the remediation section
    - For manual requests: Click 'Remediation Code' on the findings page to request a pull request
      **Prerequisites:**
