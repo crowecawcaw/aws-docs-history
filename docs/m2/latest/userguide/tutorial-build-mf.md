@@ -309,6 +309,7 @@ In this step, you create the CodeBuild project.
 7. Under **Image registry**, choose **Other
    registry**.
 8. In the **External registry URL** field,
+
    - For Rocket Software v9: Enter
      `673918848628.dkr.ecr.us-west-1.amazonaws.com/m2-enterprise-build-tools:9.0.7.R1`.
      If you're using a different AWS Region with Rocket Software v9, you can also specify `673918848628.dkr.ecr.<m2-region>.amazonaws.com/m2-enterprise-build-tools:9.0.7.R1`,

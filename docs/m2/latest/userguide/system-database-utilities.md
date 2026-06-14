@@ -244,6 +244,7 @@ Please see [Available properties for optional web applications](ba-runtime-key-v
 - If the target database is not part of the supported databases engines (PostgreSQL, Oracle and DB2), the program return code will be set to 8 and an `UnsupportedOperationException` will be thrown.
 - If the program fails to delete temporary files, the return code will be set to 4, an error message will be logged, but the program run won't be interrupted.
 - For all the following cases, the program return code will set to either 4 or 8, and an `AbendException` will be thrown (halting the program run):
+
   - If the `SYSREC` dataset is not one of the supported kinds (either GDG or File system based dataset); return code 4;
   - If the `SYSPUNCH` dataset is not one of the supported kinds (either GDG or File system based dataset or `DUMMY`); return code 4;
   - If the program is unable to retrieve the `SYSREC` dataset record size (not set or not defined in the datasets catalog) ; return code 8;

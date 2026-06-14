@@ -33,6 +33,7 @@ console.
    mainframe. Once confirmed, choose **Next**.
 5. On the **Configure data transfer endpoint** page, add basic
    information for your data transfer endpoint.
+
    1. In the basic information section, enter your data transfer endpoint
       name.
 
@@ -61,7 +62,6 @@ console.
       "Resource" : "*"
    }
    ```
-
    4. Specify the **S3 location for intermediate data**,
       which is the intermediate S3 location where transferred datasets from
       the mainframe are stored before they are converted and transferred to

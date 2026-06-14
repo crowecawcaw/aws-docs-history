@@ -20,6 +20,7 @@ process.
 - [Step 4: Create an IAM role](assembler-conversion-steps.md#tutorial-assembler-conversion-IAM-role "assembler-conversion-steps.md#tutorial-assembler-conversion-IAM-role")
 - [Step 5: Attach the IAM policy to the IAM role](assembler-conversion-steps.md#tutorial-assembler-conversion-attach "assembler-conversion-steps.md#tutorial-assembler-conversion-attach")
 - [Step 6: Create the CodeBuild project](assembler-conversion-steps.md#tutorial-assembler-conversion-create-project "assembler-conversion-steps.md#tutorial-assembler-conversion-create-project")
+
   - [Step 6.1: Create the Define project](assembler-conversion-steps.md#tutorial-conversion-define-project "assembler-conversion-steps.md#tutorial-conversion-define-project")
   - [Step 6.2: Create the Code Analysis project](assembler-conversion-steps.md#tutorial-conversion-analysis-project "assembler-conversion-steps.md#tutorial-conversion-analysis-project")
   - [Step 6.3: Create the Code Conversion project](assembler-conversion-steps.md#tutorial-conversion-code-project "assembler-conversion-steps.md#tutorial-conversion-code-project")
@@ -64,6 +65,7 @@ _Amazon S3 User Guide_.
 2. In **General configuration**, provide a name for
    the bucket and specify the AWS Region where you want to create the bucket. An
    example name is `*codebuild-regionId-accountId-bucket*`, where:
+
    - `regionId` is the AWS Region of the bucket.
    - `accountId` is your AWS account ID.
 
@@ -238,6 +240,7 @@ In this step, you create three different CodeBuild projects based on the
    `IAMRoleTaskExecutionRoleForCodeBuild`).
 9. Expand the **Additional configuration** section,
    do the following:
+
    1. VPC: Configure if needed based on your setup.
    2. Timeout: Set to **60 minutes**.
    3. Queued timeout: Set to **480
@@ -246,6 +249,7 @@ In this step, you create three different CodeBuild projects based on the
       fine).
    5. In the **Environment variables** section,
       add the following one by one:
+
       - Name : **PROJECT_BUCKET**. Value
         : `**codebuild-regionId-accountId-
 bucket**`. Type : **Plaintext**
@@ -294,6 +298,7 @@ information, see [Environment variables in build environments](../../../codebuil
 
 13. For the **Logs** section, do the
     following:
+
     - CloudWatch logs: **Disabled**
     - S3 Logs: **Enabled**
 
@@ -328,6 +333,7 @@ information, see [Environment variables in build environments](../../../codebuil
    (e.g.,`IAMRoleTaskExecutionRoleForCodeBuild`).
 10. Expand the **Additional configuration** section,
     do the following:
+
     1. VPC: Configure if needed based on your setup.
     2. Timeout: Set to **60 minutes**.
     3. Queued timeout: Set to **480
@@ -336,6 +342,7 @@ information, see [Environment variables in build environments](../../../codebuil
        fine).
     5. In the **Environment variables** section,
        add the following one by one:
+
        - Name: **PROJECT_BUCKET**. Value :
          `**codebuild-regionId-accountId-bucket**`.
          Type : **Plaintext**
@@ -389,6 +396,7 @@ information, see [Environment variables in build environments](../../../codebuil
 
 14. For the **Logs** section, do the
     following:
+
     - CloudWatch logs: **Disabled**
     - S3 Logs: **Enabled**
 
@@ -422,6 +430,7 @@ information, see [Environment variables in build environments](../../../codebuil
    you created previously; for example, `IAMRoleTaskExecutionRoleForCodeBuild`.
 10. Expand the **Additional configuration** section,
     do the following:
+
     1. VPC: Configure if needed based on your setup.
     2. Timeout: Set to **60 minutes**.
     3. Queued timeout: Set to **480
@@ -430,6 +439,7 @@ information, see [Environment variables in build environments](../../../codebuil
        fine).
     5. In the **Environment variables** section,
        add the following one by one:
+
        - Name: **PROJECT_BUCKET**. Value :
          `**codebuild-regionId-accountId-bucket**`.
          Type : **Plaintext**
@@ -480,6 +490,7 @@ information, see [Environment variables in build environments](../../../codebuil
 
 14. For the **Logs** section, do the
     following:
+
     - CloudWatch logs: **Disabled**
     - S3 Logs: **Enabled**
 
@@ -507,6 +518,7 @@ In this step, you start the build. To do this:
 7. Go to the Amazon S3 console.
 8. Locate and click on Amazon S3 bucket named
    `codebuild-regionId-accountId-bucket`
+
    - **`CODEBUILD-LOGS/`**
      folder contains the AWS CodeBuild logs for the running AWS CodeBuild
      projects.
@@ -526,6 +538,7 @@ In this step, you start the build. To do this:
    - **`macrolib/`** folder
      contains the Assembler macros to be converted. It's used during the
      analysis and convert step.
+
      1. Select `macrolib/`.
      2. By default one Assembler macro named
         `MACRO1.mac` is provided as a sample
@@ -542,6 +555,7 @@ In this step, you start the build. To do this:
    - **`srclib/`** folder
      contains the Assembler programs to be converted. It's used during the
      analysis and convert step.
+
      1. Choose `srclib/`.
      2. By default, two Assembler programs named
         `SQtest01.asm` and
@@ -578,11 +592,13 @@ In this step, you kickoff another build:
 5. From the AWS Management Console, go to the Amazon S3 service console.
 6. Locate and click on the Amazon S3 bucket:
    `codebuild-regionId-accountId-bucket`
+
    1. **`ARTIFACTS/`** folder
       contains the outputs of _analysis_ and
       _convert_ steps.
    2. Choose `ARTIFACTS/prj_codebuild_01/_Reports/`.
    3. The following reports will be available:
+
       - `AWSM2CCM-Analysis-Report-<timestamp>.pdf`
         is an executive report that provides the AWS Mainframe Modernization Code
         conversion billing and scope, improving the conversion,
@@ -596,6 +612,7 @@ In this step, you kickoff another build:
         status”) for each instruction found in each component. This provides
         a quick way to identify whether instructions are clear that the
         converter does not support. Possible _Conversion status_ results are:
+
         - **Totally converted**: the
           instruction will be accurately converted to COBOL.
         - **Partially converted**: the
@@ -650,6 +667,7 @@ build.
 1.  From the AWS Management Console, go to the Amazon S3 service.
 2.  Locate and click on the Amazon S3 bucket:
     `codebuild-regionId-accountId-bucket`.
+
     1. Go to `prj_codebuild_01/`.
     2. Select `project_settings.json`, and choose **Download**.
     3. Open the `project_settings.json` file to see the following JSON
@@ -810,7 +828,6 @@ build.
          this is true, the *DECIMAL-POINT IS
          COMMA* clause will be added to the "SPECIAL-NAMES"
          COBOL paragraph.
-
     4. Based on your requirements, change appropriate parameters, and then
        save the `project_settings.json`.
     5. Remove the existing `project_settings.json` file
@@ -819,6 +836,7 @@ build.
 
 3.  Go back to the AWS CodeBuild service.
 4.  Select the project to build you created previously : `3-awsm2ccm-convert`
+
     1. Choose **Start build**, and then
        **Start now** to convert Assembler
        programs and Macros to COBOL programs and copybooks.

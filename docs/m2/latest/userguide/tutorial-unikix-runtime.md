@@ -48,6 +48,7 @@ the NTT DATA Unikix runtime.
 
 - Log in to UniKix runtime EC2 instance as `ec2-user`.
 - Extract the downloaded CardDemo runtime components using this link: [UniKix_CardDemo_runtime_v1.zip](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/samples/m2/unikix/UniKix_CardDemo_runtime_v1.zip "https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/samples/m2/unikix/UniKix_CardDemo_runtime_v1.zip").
+
   - The extracted directory should contain `bin` and
     `migrated_app` directories.
   - Move both `bin` and `migrated_app` directories
@@ -55,6 +56,7 @@ the NTT DATA Unikix runtime.
     `/home/ec2-user`.
   - You should have the following directories in your
     `$HOME`:
+
     - `/home/ec2-user/bin`
     - `/home/ec2-user/migrated_app`
 

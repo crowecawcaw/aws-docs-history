@@ -74,6 +74,7 @@ follow the procedure to create a virtual Windows disk as described in [Tutorial:
 ## Step 1: Setup by individual Enterprise Developer users
 
 1. Obtain your IAM credentials:
+
    1. Connect to the AWS console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Follow the procedure described in step 3 of [Setup for HTTPS users using Git
       credentials](../../../codecommit/latest/userguide/setting-up-gc.md "../../../codecommit/latest/userguide/setting-up-gc.md") in the _AWS CodeCommit User Guide_.
@@ -117,6 +118,7 @@ server_side_encryption = AES256
 ```
 
 3. In `m2-rclone.cmd`, make the following changes:
+
    - Change `amzn-s3-demo-bucket` to your Amazon S3 bucket name. For example,
      `m2-s3-mybucket`.
    - Change `your-s3-folder-key` to your Amazon S3 bucket key. For example,

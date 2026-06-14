@@ -277,6 +277,7 @@ influences the way sign digits are represented. The following values are valid:
 - _EBCDIC_STRICT_: Default. Use strict definition for signs
   handling. Depending on whether the character set is EBCDIC or ASCII, the sign digit
   representation uses the following characters:
+
   - EBCDIC characters that correspond to bytes (`Cn+Dn`) to represent
     positive and negative digit ranges (`+0` to `+9`, `-0`
     to `-9`). The characters are displayed as `{`,`A` to
@@ -379,6 +380,7 @@ date/time objects in UNLOAD queries. Default is `false`.
   configuration file (`application-main.yml`).
 - If set to `false`, uses the following date and time formatting
   properties:
+
   - `unload.format.date`: Specifies a date formatting pattern. Default is
     `MM/dd/yyyy`.
   - `unload.format.time`: Specifies a time formatting pattern. Default is

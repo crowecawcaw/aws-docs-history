@@ -29,6 +29,7 @@ This release of AWS Transform for mainframe Runtime and Transformation Engines i
 Introduced a dedicated Easytrieve transformation engine enabling automated conversion of Easytrieve programs to modern Java. Main features include preprocessing, Library Section, JOB Activity, Control Flow, File & IMS data access, and Report Generation. The Runtime, which already covered most Easytrieve statements due to its proximity with COBOL, was extended with synchronized file processing support.
 
 - **Major Framework Upgrades**
+
   - **Spring Boot & Spring Core** – Upgraded to Spring Boot 4.0.4 and Spring Core 7.0.6, migrating from Spring Boot 3.5.7 and Spring Core 6.2.12. See migration notes for full details.
   - **Apache Tomcat** – Upgraded to Tomcat 11.0.15, migrating from Tomcat 10.
   - **Front-end Modernization** – Front-end applications have been upgraded to Angular 21 from Angular 20, bringing the latest features and performance improvements to the user interface.
@@ -58,6 +59,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - COBOL
+
   - Added support for SORT streams without FIN statement
   - Improved support for SORT statement for variable-length records
   - Improved support for MOVE ALL with numeric edited fields where the decimal digits need to be set to 0
@@ -67,6 +69,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for PERFORM in MQ CALL ON EXCEPTION catch
 
 - CICS
+
   - Improved SOAP envelope namespace URIs to use HTTP protocol and formatting per W3C specifications
   - Improved support for SOAP fault message handling with SOAP 1.1 compatibility and fault retrieval
   - Improved support for INQUIRE REQID command
@@ -82,6 +85,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for LOAD PROGRAM statement
 
 - Blusam
+
   - Improved support for Large KSDS data loader when append mode is on
   - Improved support for Large KSDS Pagination by ensuring page capacity is taken into consideration, preventing memory and performance degradation as the dataset grows
   - Improved support for large KSDS and ESDS data loaders in multi-schema PostgreSQL configurations by enhancing initialization order
@@ -90,12 +94,14 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for open release lock for Read dataset
 
 - Redis
+
   - Added support for TTL (timeToLive) for the warmUp flag to improve reading performance
   - Added configurable batch processing for Redis cache clear operations to prevent RESP protocol errors when clearing large datasets with two new properties bluesam.redis.enableBatchClear (default: false, Type: Boolean) to enable batching and bluesam.redis.batchClearSize (default: 1000, Type: Integer) to control batch size
   - Added configurable session timeout via server.servlet.session.timeout when using Redis as session store
   - Updated Redis error handling from ERROR to WARNING level
 
 - IMS - MFS
+
   - Added support for STACK/UNSTACK statements
   - Added support for GRAPHIC=NO or GRAPHIC=YES on SEG statements
   - Added support for multiple messages in a single screen
@@ -105,14 +111,17 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for Empty message
 
 - IMS - DBD
+
   - Improved support for flexible NAME parameter positioning in SEGM, FIELD, LCHILD, and XDFLD statements by allowing it to appear anywhere in the parameter list
   - Improved support for the full RULES= parameter syntax
 
 - IMS - CBLTDLI
+
   - Improved support for function PCB
   - Improved support for function TERM
 
 - SQL
+
   - Added support for DB2 database keywords as SQL column names and handled PostgreSQL reserved word quoting
   - Added support for SMALLINT DB2 function
   - Improved support for USE and TIME keywords as column name
@@ -120,26 +129,32 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for CASE statement and conversion of app format timestamps
 
 - JCL - ICEGENER
+
   - Added support for SYSOUT as output
 
 - JCL - DSNUTILB
+
   - Improved support for LOAD return code
   - Improved support for COPY and GDGLIMIT during old files removal
   - Improved support for COPY TABLESPACE command through Control Card
 
 - JCL - INFUTILB
+
   - Improved support for SYSPUNCH cursor position after retrieving blob column
   - Improved support for Oracle Database by excluding Rownum from columns to process
 
 - JCL - DSNTEP
+
   - Improved support for CURRENT_DATE and CURRENT_TIMESTAMP
   - Improved support for inline SQL comments
 
 - JCL - IDCAMS
+
   - Enhanced parsing support of LISTCAT, DELETE, and DEFINE CLUSTER statements
   - Added support for SystemOutput with comma (,) as output value
 
 - JCL - DFSORT
+
   - Added support for DCB attribute inheritance from SORTIN DUMMY
   - Improved support for OUTFIL filenames with 1/2-char alphanumeric suffix
   - Improved date output behavior when DATENS=(YMD)
@@ -148,6 +163,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for OVERLAY where INREC/OUTREC OVERLAY operations produce records that exceed the original input size
 
 - JCL - Misc
+
   - Improved support for multiple Groovy scripts running concurrently
   - Added support for DSNTIAD utility
 
@@ -156,10 +172,12 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - RPG
+
   - Improved support of READ LAST operation and file status code 23 for START/RETRIEVE commands
   - Improved support for functions READE and PRIORE after a cursor set
 
 - CL
+
   - Improved JOBQ resolution with library-qualified lookup
   - Improved support for OVRDBF MBR(\*FIRST) to dynamically resolve member names instead of using literal values in QTEMP DAO
   - Improved support for OVRDBF command without the TOFILE parameter
@@ -171,25 +189,30 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved QTempHelper to manage flat files with thread isolation and session cleanup
 
 - Database access
+
   - Improved Name-based column mapping in RowMapperHelper to fix SELECT \* with auto-generated id column
   - Enforced new transactions for partition creation/deletion operations
   - Improved query generation after a setOnEqual in data access layer
   - Improved boost performance for partition and member retrieval with a cache
 
 - Screen
+
   - Improved support for DSPMSG screen message
   - Improved tab close handling to prevent break message thread leak and interactive job race condition on tab close
   - Improved support for QMHSNDPM to handle call stack entry/counter parameters
   - Improved workstation initialization to display screen titles on first render by pre-populating INFDS
 
 - Job
+
   - Improved Quartz job key uniqueness using AtomicLong sequential counter
   - Added interactive job persistence and job number strategy
 
 - MQ
+
   - Improved support for MQGET using CMQC.MQMI_NONE/MQCI_NONE for blank messageId/correlationId values
 
 - Misc
+
   - Improved support for renamed fields in Input Specifications
 
 ## AWS Transform for mainframe Transformation Engines
@@ -199,6 +222,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - COBOL
+
   - Added support for CURRENT-DATE and TIME-OF-DAY special registers
   - Added support for IN and OF in report group source
   - Improved support for composed conditions to preserve operator grouping for parenthesized OR lists
@@ -212,6 +236,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for CICS HANDLE ABEND statements to avoid creating state machines
 
 - SQL
+
   - Improved support for cast from long to int
   - Improved support for cast for legacy local DATE type field in query
   - Improved support for CREATE and DROP STOGROUP statements
@@ -220,10 +245,12 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Normalized DB2 CONCAT infix operator to || during SQL modernization
 
 - JCL
+
   - Added DCB param to DummyFileConfiguration
   - Improved search JCL procedure method
 
 - Easytrieve - major features supported
+
   - Preprocessing (macros inlining, comments, line continuations)
   - Library Section (file definitions, field definitions with data types/positions/VALUE/OCCURS/MASK/REDEFINES, working storage, records, TABLE, COPY)
   - JOB Activity (JOB INPUT, synchronized file processing, SORT)
@@ -238,6 +265,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - RPG
+
   - Improved support for function calls like %STR to allow passing lowercase external methods as arguments
   - Improved support for space-padded EXTPROC names in prototype declaration
   - Improved support for non-literal INZ values in sub procedure field initialization
@@ -251,9 +279,11 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for RI conditions with ERRMSG
 
 - CL
+
   - Improved support of GOTOs in CL programs
 
 - Screen
+
   - Improved support for subfile HTML generation to prevent extra empty div
   - Added support for WRITE statements without FROM keyword
   - Improved support for PARAM List processing to restrict Linkage Section to ENTRY parameters only
@@ -308,6 +338,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - COBOL
+
   - Added support for SQL copybooks with missing 01 level
   - Improved support for MOVE statement from LOW VALUES to variable size
   - Improved support for MOVE to COMP-X statement
@@ -320,6 +351,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support for IEBDG System utility
 
 - JCL - SORT
+
   - Improved support for OVERLAY and date conversion from Julian to Georgian format
   - Improved support for Y4T format in OUTFIL statements
   - Improved support for DEBUG ABEND phrase at end of the card
@@ -338,6 +370,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support for bytes and integer BI comparison
 
 - JCL - DSNUTILB
+
   - Improved support for LOAD command with POSITION(start:end) option
   - Improved support for LOAD command with columns of type DECIMAL (without EXTERNAL)
   - Improved support for LOAD command when handling RDW in SORT context
@@ -345,6 +378,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved output file path construction during COPY operation
 
 - JCL - IDCAMS
+
   - Improved support for ALTER statement to handle non-VSAM files
   - Improved support for REPRO statement to handle REPLACE parameter for KSDS dataset
   - Improved support for REPRO command to handle input and output file/dataset existence validation returning RC=12 with error code U4020 when files are missing
@@ -354,11 +388,13 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for return code in the case of the PRINT command
 
 - JCL - ICETOOL
+
   - Improved support for patterns of SORT, SPLICE, SELECT and OCCUR to accept any order of their parameters
   - Improved support for flexible operand order parsing and return code
   - Improved support for COPY/SORT without TO parameter when no Output file is defined in OUTFIL command
 
 - JCL - Misc
+
   - Improved support for dollar symbol in PROC execution
   - Improved support for temporary dataset in JCL processing
   - Improved support for DD statement to handle inline comment inside parentheses
@@ -367,6 +403,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support for JCL DD parameters including DD \* (asterisk) and DD
 
 - Blusam
+
   - Improved selective warmup process for multischema datasets cache loading by removing case sensitivity adherence in bluesam.fileList
   - Improved warmup process where the warmup flag is being set twice during combined data load and program run operations preventing duplicate warmup operations and ensuring consistent behavior across different execution scenarios
   - Improved support for large KSDS file containing only one record and that record is deleted via REWRITE operation
@@ -378,10 +415,12 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - BAC - Improved updateRecord endpoint to use primary key if no id is passed
 
 - SQL
+
   - Improved support for "PARTITION BY" clause to accept multiple arguments
   - Improved support for EXTRACT statement and TIME parameters with HOURS/MINUTES/SECONDS
 
 - IMS
+
   - Implemented epoch timestamp-based concat key generation for HSAM segments without sequence fields, ensuring every segment has a valid navigation key
   - Improved support for GNP call with command D
   - Improved support for ISRT statement with qualified SSA Parent on record insertion by removing current database position lookup logic that overrides qualified SSAs
@@ -395,6 +434,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for paired segment insertion with logical parents to resolve logical parent database names and implement cumulative field selection algorithm for accurate JOIN condition generation in logical views
 
 - CICS
+
   - Improved support for RETURN command to handle group fields
   - Improved support for ENTER command with TRACEID and TRACENUM
   - Improved support for ENTER command with group fields
@@ -413,11 +453,13 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added flexible order for CICS MAP and MAPSET
 
 - PL/1
+
   - Added support for Language Environment (LE) callable services transformation for PL/I programs
   - Added support for DAYS and DAYSTODATE built-in function
   - Added support for LABEL argument for ABEND CICS command
 
 - MQ
+
   - Improved queue manager to disconnect queues only the run unit ends
   - Added support for properties ReplyToQ and ReplyToQMgr in MQ JSM Put operation
 
@@ -426,6 +468,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - RPG
+
   - Improved support of extension specification and end-of-file records
   - Improved support of sub-procedure returning Boolean type
   - Improved support of sub-procedure returning pointer type
@@ -436,11 +479,13 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for \*LONGJUL date format
 
 - COBOL
+
   - Improved support for USING phrase when the parameter in is a substring
   - Improved support "INSPECT" statement with Hexadecimal literal values
   - Improved support of indicators area on separate mode (INDARA) in display file I/O operations.
 
 - CL
+
   - Improved general design of file handling to handle OPNID parameter of RCVF command
   - Improved support of parameters for SBMJOB command to handle blank values
   - Improved support for SBMJOB command for RQSDTA parameter without CMD
@@ -466,6 +511,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support of FTP command to handle APPEND statement
 
 - Database access
+
   - Improved DAO cache mechanism to ensure reliable sequential reads when records are modified concurrently, maintaining consistent performance.
   - Enhanced performance of table and partition existence checking components
   - Improved support of multiple entities database file overriding
@@ -479,6 +525,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved cache support for input operations with flat file entities
 
 - Screen
+
   - Improved support of READ operation on terminal records
   - Improved support for ambiguous fields within subfile records
   - Improved support for CHANGE keyword for field modification detection
@@ -493,6 +540,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for USRRSTDSP keyword
 
 - Printer
+
   - Added support for Advanced Function Presentation Data Stream (AFPDS) printer control keywords ENDPAGE, LINE, PAGSEG, OVERLAY, FNTCHRSET
   - Improved text report layout
   - Upgraded Jasper dependency to version 7
@@ -500,15 +548,18 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support for font id (2308/2309)
 
 - Job
+
   - Added support for default job date format configuration, improving date handling flexibility based on YML properties system.date.format and system.date.separator (new)
   - Added comprehensive message content filtering support to Job Queue API with multi-field filtering capabilities
 
 - User Space
+
   - Improved removal of objects
   - Added support for error indicator on User Space functions
   - Improved performance on Redis support
 
 - Misc
+
   - Improved plain text conversion of numbers with exponents
   - Improved resolution of byte array from an indexed array range reference
   - Improved support of active session on Redis
@@ -522,6 +573,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - COBOL
+
   - Added support for PROGRAM COLLATING SEQUENCE statement
   - Added support for pound sign (£, \x00A3) in PIC[TURE] clauses
   - Improved support for communication area (COMMAREA) size determination for undeclared scenarios
@@ -538,14 +590,17 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for JSON GENERATE statement with RENAME functionality to use fully qualified COBOL field paths instead of simple field names
 
 - JCL
+
   - Improved support JCL PROCs containing symbolic parameters with the name "SET"
 
 - CICS
+
   - Added support for translator option NOLINKAGE to prevent rewriting of linkage section and procedure division
   - Improved support for DFHCOMMAREA linkage
   - Added support of DELAY FOR MINUTES and HOURS options
 
 - SQL
+
   - Added support for SQL copybooks with missing 01 leveL
   - Improved support for EXEC SQL WHENEVER NOT FOUND statement
   - Improved support for USAGE IS SQL statement with TYPE IS BLOB
@@ -558,6 +613,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - RPG
+
   - Improved support for MOVEA operation with indicator array \*IN
   - Improved support for MOVE operations for standalone fields with different length
   - Improved support for MOVE operation with different size Data Structure
@@ -583,6 +639,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for Return statement by extracting each nested call and replacing each one by its return variable
 
 - DDS
+
   - Improved handling of reference fields to prevent circular references
   - Improved support of JREF keyword for JOIN logical files
   - Improved support of COMP keyword to handle reference to another field
@@ -590,13 +647,16 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support for ALTER TABLE ADD COLUMN
 
 - CL
+
   - Added support of unsigned zoned and packed type to support numeric type defined with specific edit keyword (EDTCDE/EDTWRD)
 
 - PRTF
+
   - Improved report template generation to enhance band and page height calculations
   - Added template generation support for AFPDS printer keywords (ENDPAGE, LINE, PAGSEG, OVERLAY, FNTCHRSET) and POSITION keyword
 
 - COBOL
+
   - Improved support for IBM data queue utilities QCLRDTAQ, QRCVDTAQ and QSNDDTAQ
   - Improved support of COPY DDS statement to generation suffix RECORD only in File Section
   - Improved support of Program-described file with multiple records
@@ -614,6 +674,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support of indicators with REWRITE SUBFILE operation
 
 - DAO
+
   - Improved generation of large size integers
   - Improved the support of condition fields defined in a JOIN logical file
   - Enhanced support of SQL long column names labeling
@@ -669,6 +730,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - COBOL
+
   - Added Support for CEELOCT, CEESECS, CEEDATE utility routines
   - Improved support for JSON GENERATE statement and option COUNT
   - Improved support for BY VALUE clause in PROCEDURE DIVISION statement
@@ -679,6 +741,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for CALL statement with USING clause
 
 - JCL - SORT
+
   - Added support for DATE format "4MD/"
   - Added support for RESTART keyword
   - Added support for DATENS and TIMENS keywords
@@ -689,18 +752,22 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for numeric and alphanumeric checks for INCLUDE statement
 
 - JCL - DSNUTILB
+
   - Improved support for COPYDDN when GDG file is used as parameter
 
 - JCL - IDCAMS
+
   - Improved support for dataset definition with single quotes
 
 - JCL - Misc
+
   - Added support to handle empty PARM passing to program through JCL
   - Added support for INZUTILB utility
   - Added support for parameterized generation number in GDG DD statement
   - Enhanced read of SYSIN files with a record size
 
 - Blusam
+
   - Change default value for property openwarmup from true to false
   - Added new YML property useBatchInMemoryAtomic to enable in-memory-atomic mode for Redis batch read operations
   - Improved support for indexed data sets rewrite when an invalid key is encountered
@@ -708,15 +775,18 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for large KSDS data read when fetching the previous/next page
 
 - SQL
+
   - Improved support for host variables in SQL CONNECT statement
   - Improved support for Data conversion in SQL query
   - Improved support for parameterized queries with double-quoted identifiers
 
 - IMS
+
   - Improved support for NULLVAL in XDFLD statement
   - Added support for SEG statement and multiple END statement
 
 - CICS
+
   - Improved support for RETURN command to handle INPUTMSG option
 
 ### AS400
@@ -724,6 +794,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - RPG
+
   - Added support for multi table in LOOKUP for CTDATA
   - Added support for \*OMIT parameter in feedback code handling of CEELOCT API
   - Added support for \*LOVAL assigned to date, time and timestamp field types
@@ -740,6 +811,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support of keyword \*JOBRUN to set the separators for type Date and Time
 
 - CL
+
   - Added support for QRCVDTAQ command
   - Added support for RNMOBJ command
   - Improved support for CPYFTOIMPF command involving decimal value under 1 and empty values
@@ -767,6 +839,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved view retrieval for RTVMBRD without whereConditions
 
 - Database access
+
   - Enhanced file override capabilities to support JOIN files
   - Enhanced precedence rules of AND/OR operators when processing multiple Select/Omit conditions
   - Improved concurrent cache synchronization using timestamp-based record versioning
@@ -778,6 +851,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support of LIBL for DataArea and CURLIB accross jobs
 
 - Screen
+
   - Improved escaping of single-quotes for String value
   - Improved web component cleanup when handling write operations with no overlay, specifically for components marked with keep keyword
   - Improved support for keyword SLNO
@@ -788,17 +862,20 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support of Terminal ID accross an online session
 
 - Printer
+
   - Improved support for page number generation
   - Added support for overflow handling in reports
   - Added support for INFDS keyword for printer files
 
 - Job
+
   - Improved job resources cleaning at the end of a online session
   - Improved Quartz job logging to include username and formatted jobNumber to job properties
   - Improved JobHistory creation to dynamically use netName for interactive sessions
   - Improved support for job submission and date format validation
 
 - Misc
+
   - Added support for EBCDIC CP1047 sort function for Postgres
   - User Space - Improved Error code parameters for Errc0100 Format for User Space
   - Upgraded Jedis to version 6.0.0 to improve session persistence in Redis and extended session tracking support across multiple endpoints.
@@ -814,6 +891,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - COBOL
+
   - Improved support for line continuation and multi-line string
   - Improved support for statement INITIALIZE with multiple fields
   - Improved support for copybooks containing occurs statement in the dependencies
@@ -822,17 +900,20 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for JSON GENERATE statement to handle NAME phrase
 
 - CICS
+
   - Improved support for LINK command with SYNCONRETURN option
   - Improved support for GET CONTAINER command with NODATA option
   - Improved support for WRITE OPERATOR TEXT command for option ROUTECODES & NUMROUTES
   - Added support for INQUIRE TSPOOL command
 
 - IMS
+
   - Improved support for SLASHSX and DDATA in DBD files transformation
   - Enhanced support for TITLE after PRINT keyword in MFS map
   - Added support for COPY and EQU statements support for MFS files
 
 - SQL
+
   - Accept FLOOR keyword as column name
   - Improved support for TIME-ZONE fields
   - Improved support for if condition and consective subqueries within FROM and JOIN clause
@@ -842,6 +923,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - RPG
+
   - Improved support of DO operation
   - Added support for result indicators on MOVE/MOVEL operation
   - Improved support for MOVE operation for standalone array field
@@ -865,19 +947,23 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved handling \*LOVAL with Packed, Float and Double types
 
 - CL
+
   - Improved support for DCL statement to handle duplicate occurrences
   - Improved support for SUBROUTINE and OTHERWISE statement
 
 - DDS
+
   - Improved key fields detection for packed type fields
   - Improved support of LIKE keyword in physical files
 
 - DSPF
+
   - Improved support for DSPATR keyword when COLOR is not explicitly specified
   - Improved support of field override through keyword REFFLD
   - Improved support for input specification for record with no input fields in new design
 
 - PRTF
+
   - Improved program described prtf transformation with empty .prtf legacy file
   - Improved layout setting on JASPER template generation
   - Improved handling of AS400 output specifications with edit words (formatting patterns)
@@ -886,6 +972,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support for Output Indicators for PRTF files
 
 - Misc
+
   - Improved support for PFkey convertion to take into account encoding when converting symbolic constants for CICS aid keys
 
 ## AWS Transform for mainframe Transformation Engines & Runtime for GS21
@@ -893,28 +980,36 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - Languages:
+
   - ADL: AIM Description Language, used to describe AIM artifacts (PEDs, NDB (sub)schemas, VSAM schemas, AIM Procedures, etc..)
+
     - Transformed into database configuration records, DDL scripts, JSON files processed by the Data Migrator, etc...
 
   - ACSGEN: ACS Environment Generator, used to generate system data sets, control tables, ADL sources, application program entry points...
+
     - Transformed into database configuration records
 
   - PSAM: Presentation Service Access Method, used to describe online screens
+
     - Transformed into Angular artifacts
 
   - JCLXSP: Job Control Language used on the GS21 XSP platform: special syntax of JCL with specific functionalities
+
     - Transformed into Groovy scripts
 
   - GS21 COBOL: support for GS21 specific constructs (mainly related to Japanese language support)
 
 - Database:
+
   - NDB: Network Database
+
     - Customizable transformation to a modern relational database
     - Data Migration processing the GS21 TDUMP format
     - Transformation of the network links to modern SQL relations (using foreign keys and additional columns to retain the NEXT/PRIOR order stemming from the legacy database)
     - Code Generation of a modern Java DAO layer backed by the newly introduced GS21 runtime
 
 - GS21 ecosystems:
+
   - AIM: Advanced Information Manager. Main GS21 middleware handling screens, printers, workstations, databases, and external communications via a messaging approach backed by queues.
   - ACSAPI: GS21 special program implementing the ACS protocol that enables screen scenarios (programs inter-communication, PSAM/printer interactions, VSAM access, etc...) (ancestor of AIM).
   - OFM: Online Format Management, GS21 subsystem used for program communication using message files (ancestor of ACS).
@@ -922,6 +1017,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Support for OS commands
 
 - Specific Encoding: JEF
+
   - Double-byte encoding (same principles as IBM930 but different SOSI values (0x28, 0x29)).
   - Custom JEF-PU encoding preserving private use characters
   - The corresponding font is used in the webapps/pdfs in order to reproduce the display with maximum fidelity
@@ -964,6 +1060,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - COBOL
+
   - Improved support for the JCL-COBOL parameter communication with robust byte-level handling to prevent array boundary exceptions
   - Improved support for DFHEILBK and DFHEIBLC in copy statements
   - Improved support for MOVE statement functionality to handle non-numeric to numeric field conversions with expected zero value output
@@ -973,14 +1070,17 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Added support for FREE statement and adapt ALLOCATE statement
 
 - JCL - IDCAMS
+
   - Added support for keyword SKIP in the REPRO statement
   - Improved support of the DELETE statement for NONVSAM files
 
 - JCL - ICEGENER
+
   - Improved handling of DCB parameters for dummy SYSUT1
   - Improved support for the Dynamic Control Block (DCB) parameter handling when SYSUT1 is defined as DUMMY, ensuring proper data set allocation and preventing processing errors that could occur during copy operations with dummy input data sets
 
 - JCL - SORT
+
   - Added support for the case of concatenated empty files
   - Improved record comparison by updating byte calculation for ZD (Zone Decimal) fields
   - Improved support for JOINKEY - FILL and REFORMAT FIELD
@@ -988,9 +1088,11 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Enhanced Sort grammar and corresponding runtime handling for X'..' (hex literals), DATE=(...), and TIME keywords used in HEADER and TRAILER clauses of OUTFIL.
 
 - JCL - ICETOOL
+
   - Added support for some COUNT operator options : EMPTY, NOTEMPTY, HIGHER(x), LOWER(y), EQUAL(v), NOTEQUAL(w)
 
 - JCL - DSNUTILB
+
   - Improved support for null DATE columns insertion
   - Added support for VARCHAR, DECIMAL & INTEGER data types when using delimiters
   - Improved support for default value insertions when columns are not specified in control cards
@@ -1000,6 +1102,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for WORKDDN parameter when used in combination with FORMAT DELIMITED and POSITION(\*) specifications
 
 - JCL - Misc
+
   - Added support for SystemOut definitions with comma-based syntax like SYSOUT=(,)
   - Improved support for DD statements containing special character #
   - Improved support for handling multiple conditions within enclosing brackets
@@ -1011,6 +1114,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Enabled dynamic allocation of temporary files through a YML property
 
 - Blusam
+
   - Improved support for CLEAR operations by enhancing metadata cleanup processes to ensure all references to previously stored data are completely removed
   - Improved performance of WRITE operations with write-behind mode enabled
   - Improved support of data set operations by optimizing table existence verification processes, eliminating redundant lookup operations and enhancing overall performance through reduced database queries
@@ -1021,15 +1125,18 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Enabled asynchronous execution of Redis bulk write operations to improve performance. The feature is configurable through a YML property.
 
 - SQL
+
   - Added support for the CONNECT statement
   - Enhanced SQL support for variable names and operator expression UPDATE queries involving cursors
   - Improved string replacement in SQL Prepare statement
 
 - Security
+
   - Enhanced API security: implemented mandatory authentication and role-based authorization for all gapwalk-application REST endpoints when security configuration is enabled.
   - Improved JWT token authorization by implementing custom scope-to-role mapping, enabling proper access to protected endpoints when using Cognito-issued bearer tokens.
 
 - Misc
+
   - Enhanced Redis integration with comprehensive logging, error handling, and diagnostics, including 50+ new context checks and 137 refined error messages.
   - Improved initialization of the job at first running transaction
 
@@ -1039,12 +1146,14 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 
 - Added support for the library list feature to automate the library resolution depending on the available libraries and the library list
 - CL
+
   - Added support for QDBRTVFD command that retrieves the description of a database file
   - Added support for command QCMDCHK for checking and analysis.
 
 **Improvements**
 
 - RPG
+
   - Improved support of Z-ADD operation to handle the case of adding 2 arrays of Packed Type
   - Improved support of constant initialization with built-in functions
   - Improved support of EDTWRD with an empty string
@@ -1052,11 +1161,13 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support of \*LOVAL keyword for Character and Zoned types
 
 - COBOL
+
   - Improved support of COBOL File status to handle the case when the field is not an elementary range
   - Improved setting of the file status code on retrieve in Random mode
   - Improved string encoding for the COBOL function DISPLAY-OF
 
 - CL
+
   - Added support for command QCMDCHK
   - Improved support for CPYF command to handle multi-record format LFs
   - Improved support for RMVM command to delete member when other objects depend on it
@@ -1074,10 +1185,12 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved thread synchronization in CHGDTAARA
 
 - Database access
+
   - Enhanced file override capabilities to support JOIN files
   - Enhanced precedence rules of AND/OR operators when processing multiple Select/Omit conditions
 
 - Screen
+
   - Improved cursor location when two screens share a field name
   - Improved support of RRN field for Workstation file
   - Handled additional messages screen from Modal windows
@@ -1087,9 +1200,11 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved session handling in the front-end to enable running multiple sessions on the same browser with multiple tabs
 
 - Printer
+
   - Improved overflow handling for printer files with multiple record headers.
 
 - Misc
+
   - Added Redis support for user spaces
   - Added support for the API QUSLFLD that generates a list of fields within a specified file record format name using the user space.
 
@@ -1100,6 +1215,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - COBOL
+
   - Improved support for CLOB-LOCATOR / DBBLOB-LOCATOR / BLOB-LOCATOR
   - Improved support for IF statement with abbreviated binary conditions
   - Improved support for DFHEIBLK/EIBLK handling both with and without copy statements
@@ -1108,10 +1224,12 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support of word REPLACING ALL in INITIALIZE statement
 
 - SQL
+
   - Improved support for SQL alias declaration for update query
   - Improved support for postgreSQL partition creation by ignoring ENDING and INCLUSIVE keywords
 
 - Common
+
   - Improved Error reporting for Transformation Errors
 
 ### AS400
@@ -1119,13 +1237,16 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
 **Improvements**
 
 - DSPF
+
   - Enhanced field length calculation to accurately match value format, preventing display issues
 
 - PRTF
+
   - Improved generation of page number on multi-pages report
   - Improved constant display on report
 
 - RPG
+
   - Added support for \*ALL when used with Z-ADD on an array
   - Improved support of figurative constant \*ALL with Hexadecimal types
   - Added support for \*HIVAL when specified as a parameter for INZ option
@@ -1139,6 +1260,7 @@ This version of the AWS Transform for mainframe Runtime has been tested with the
   - Improved support for keyword \*ZEROS when used on MOVEA operation
 
 - Misc
+
   - Improved support of large numbers using BigDecimal
 
 ## Release notes 4.9.0
@@ -1182,6 +1304,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 **Improvements**
 
 - COBOL
+
   - Added support for DATE-TO-YYYYMMDD function
   - Improved support for UNSTRING statement to enhance TALLYING computation
   - Added Support for DFHRESP(NORMAL) value on 88 Level variable
@@ -1196,9 +1319,11 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support for MOD and REM calculation to handle negative values
 
 - PL/I
+
   - Improved support of SUBSTR function with bit operations
 
 - JCL - IDCAMS
+
   - Enhanced support for GDG files for the order of copy
   - Added support to override any CLUSTER-level specification when KEYS is defined in the DATA component
   - Added support for ALTER NEWNAME statement
@@ -1206,6 +1331,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Enhanced condition code handling by ensuring MAXCC overrides persist through control commands (SET, IF-THEN-ELSE) while resetting appropriately before functional commands
 
 - JCL - SORT
+
   - Improved support for handling of ZD fields with a combination of Packed and Numeric data
   - Improved support for Zoned Decimal Comparison with Character Field in INCLUDE statement
   - Improved support for INREC FINDREP to handle brackets in OUT parameter
@@ -1215,11 +1341,13 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support for UNPAIRED in JOINKEYS
 
 - JCL - DSNUTILB
+
   - Added support for the DOUBLE PRECISION data type
   - Improved support for LOAD DATA with COLDEL keyword and uses of regex-special delimiters
   - Improved support of TEMPLATE for LOAD statement
 
 - JCL - Misc
+
   - Improved support to truncate Fixed Block Output record based on LRECL
   - Improved file deletion to prevent issues in high availability environments
   - Added support for IKJEFT1B system utility
@@ -1229,6 +1357,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support to make processing procedure variables available in multi-threading context
 
 - Blusam
+
   - Improved the read of Blusam Large KSDS when navigating to next/previous
     records at page or index boundaries
   - Improved the clear and load of large Blusam files
@@ -1241,20 +1370,25 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
     multiple interactions with remote cache
 
 - SQL
+
   - Improved support for statement with HAVING and without GROUP BY clause
   - Improved database schemas metadata caching mechanism
 
 - Message Queue Integration
+
   - Improved support for MQ CLOSE operation when job is executed in multi-threaded approach
   - Improved performance by implementing JMSTemplate reuse for MQ Operations
 
 - MFS
+
   - Enhanced support for DSCA parameter in MFS DEV statement
 
 - Screen
+
   - Improved data entry mechanics to prevent entering single-byte characters into double-byte fields, especially when using virtual keyboard e.g. Text Composition System.
 
 - Misc
+
   - Added more configuration options for the Redis connection pool, such as `connectionPoolSize`, `connectionMinimumIdleSize`, `idleConnectionTimeout`, and `connectTimeout`
   - Enhanced /triggerscript/{scriptId:.+} endpoint to support POST requests with JSON payload, allowing for complex parameter passing in addition to existing query parameters
 
@@ -1263,6 +1397,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 **Improvements**
 
 - RPG
+
   - Improved the support for `L0` indicator in total calculations
   - Improved the support of TIME opcode through job initialization
   - Improved DaoCycleManager to read primary and secondary files with different number of match fields
@@ -1270,11 +1405,13 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved the support of edit code grouping for edit code 4
 
 - COBOL
+
   - Improved support of REWRITE on dynamic mode when clause WITH DUPLICATE specified on the file RECORD KEY
   - Enable key field update on Dynamic mode with DUPLICATES keyword
   - Improved resource handling on SORT operation
 
 - CL
+
   - Improved support for `CHKOBJ` command to handle trailing spaces in the object names
   - Improved support for `CHKOBJ` command to check for the existence of a view with a library
   - Improved the parsing of parameter lists for the `SBMJOB` command
@@ -1284,6 +1421,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support for the `CHGVAR` command to handle parameter without VAR optional keyword
 
 - Database access
+
   - Improved support of DELETE operation for concurrent jobs
   - Improved support of DELETE operation as first operation on a file.
   - Improved data integrity when reading from join files
@@ -1294,12 +1432,14 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Added support for Relative Key on Transaction File
 
 - Screen
+
   - Improved the handling multiple error message for same field
   - Handled display of STATUS messages when sent to external message queue of job
   - Added message line service to dynamically control the display of error messages
   - Improved the resolution of message for additional message screen
 
 - Misc
+
   - Improved the session tracking mechanism to return properly formatted last update timestamp and creation timestamp
   - Improved consistency in all record collections when updating/deleting records in database
   - Improved the initialization of as400 switches upon job start by introducing a new YML property `job.default.encoding`
@@ -1314,11 +1454,13 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 **New features**
 
 - SQL
+
   - Added support of DDL and in-lined queries transformation from DB2 zOS to DB2 LUW
 
 **Improvements**
 
 - COBOL
+
   - Improved support Level 88 fields with 01 level parent field
   - Improved support for special names `CTL` and the `WRITE .... AFTER CTL` statement
   - Improved fall-through from Paragraph to Section during `PERFORM SECTION`
@@ -1349,12 +1491,15 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support for COBOL declarative call
 
 - PSB
+
   - Improved support for the `SENSEG` statement where `PROCOPT` is before `PARENT`
 
 - JCL
+
   - IDCAMS - Added support for the abbreviations REPL, IMBD, and WCK for REPLICATE, IMBED, and WRITECHECK, respectively
 
 - SQL
+
   - Improved support for nested table expression
 
 ### AS400
@@ -1362,15 +1507,19 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 **Improvements**
 
 - CL
+
   - Improved support of field types on CL-to-groovy generation
 
 - DDS
+
   - DPSF RTNCSRLOC keyword support multiple space separating parameters
   - Improved record format name determination for indexes in SQL-DDS.
   - Improved support for quote escape sequence `''` inside SQL-DDS.
 
 - RPG
+
   - RPG
+
     - Improved support of `LEAVE` statement inside a loop rewritten to support GOTO
     - Added support for `%TIMESTAMP` built-in function used in a procedure cal
     - Improved support for F-Spec keyword containing mixed case
@@ -1385,6 +1534,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
     - Enhanced local data area read/write generation with UDS
 
 - SQL
+
   - Enhanced support for SQL syntax with parentheses in FROM clause.
 
 ## Release notes 4.8.0
@@ -1431,6 +1581,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 **Improvements**
 
 - COBOL
+
   - Improved support for AT END condition on READ file statement
   - Improved support for MOVE signed numeric literals to alphanumeric fields without moving the sign
   - Improved support for the UNSTRING statement to handle non-numeric to numeric field conversions and retain low-values when the delimiter is not found and no value is moved to other variables
@@ -1441,23 +1592,29 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support for STRING concatenation to handle the form feed character
 
 - JCL - IDCAMS
+
   - Added support for deleting gdg generations using a base name without the GDG parameter
   - Improved support for handling the VOLUME parameter as a variant of the standard VOLUMES
     parameter for the DEFINE CLUSTER statement
 
 - JCL - SORT
+
   - Added support for SYMNAMES with JOINKEYS command
 
 - JCL - IEBGENER
+
   - Improved support for IEBGENER to handle invalid SYSIN content by introducing validation checks and automatic fallback to ICEGENER, ensuring continuous operation even with incorrect control statements
 
 - JCL - INFUTILB
+
   - Improved handling of unload INTO and FROM clauses
 
 - JCL - DSNUTILB
+
   - Added support for DOUBLE PRECISION data type
 
 - JCL - Misc
+
   - Improved overriding file configurations using DD names in child procedure from the job
   - DSNTIAUL/INFUTILB - Enhanced customization of SYSREC padding bytes for unload utility
   - Added support for OUTDD option for DISPLAY statement redirection
@@ -1469,19 +1626,23 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Added support to retain the job level 'scriptContext' parameters in the JCL checkpoint metadata and the job context for use at restart
 
 - Blusam
+
   - Improved record insertion on Blusam large indexed data sets when
     writing after loading an empty data set
   - Improved performance for large data sets by enabling a warm-up mechanism and introducing an optional prefetch window for records, as well as local storage for indexes and pages
   - Improved support for Export Data Set to handle a larger dataset with AWS Key Management Service
 
 - SQL
+
   - Improved support for JDBC BLOB data type
 
 - Message Queue Integration
+
   - Added support for User Identifier on MQ PUT command when XA is activated
   - Added support for concurrent MQ connections when XA is activated
 
 - IMS
+
   - Added a YML property `jhdb.keepParent` to control whether IMS ISRT calls populate \_parent and \_logicalparent fields in the database when set to true
   - Improved robustness by removing message queue for invalid transaction code
 
@@ -1494,6 +1655,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 **Improvements**
 
 - CL
+
   - Improved support of QRYSLT parameter in OPNQRYF command to handle RANGE keyword, to parse value when string columns have purely numeric values and to handle empty string values
   - Added support for FTP SENDPASV command
   - Improved support for query formation in command DSPDBR executed using Qcmdexc
@@ -1504,9 +1666,11 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Improved support of MonMsgs in command CHKOBJ to handle the case when file doesn't exist in library
 
 - Screen
+
   - Improved handling of BigDecimal values with more than 15 digits by building the value manually and then turning it into a number to be displayed rather than letting the Number be rounded
 
 - Misc
+
   - Improved support for UserSpace with Replace as NO when UserSpace already exists
   - Enhanced BLU4IVLIB functionality to support both retrieval and writing of records to overridden libraries
   - Improved support for multi-dimensional array fields using DIM and OCCURS operations
@@ -1526,6 +1690,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 **Improvements**
 
 - COBOL
+
   - Improved Printer mode generation for multiple files.
   - Improved support for SPECIAL-NAMES to handle optional end-dot and multiple dots.
   - Improved support of COPY with relative path /REPLACE OFF/COPY-REPLACING statements.
@@ -1540,6 +1705,7 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
   - Added support for REPORT SECTION.
 
 - SQL
+
   - Added support for DDL transformation from IBM IMS database.
 
 ### AS400
@@ -1547,23 +1713,28 @@ We tested this version of the AWS Transform for mainframe Runtime with the follo
 **Improvements**
 
 - CL
+
   - Enhanced support of CL by setting the transformation to JAVA as the default support
   - Improved the transformation to groovy script by adding the use of a metamodel
   - Added keywords CONTINUE and FOR to list of reserved keywords
 
 - DDS
+
   - Improved support of DSPF fields defined relatively to the prior one
   - Improved support for DDS character field with keyword VARLEN
   - Improved transformation/generation of LF entity DAOs by generating the explicit setting of renamed fields in the convert and updateJPAFromVo methods.
 
 - RPG
+
   - Improved support of PREFIX keyword parameter to handle cases where values don't have quotes
   - Improved handling of nested method calls in array indices
 
 - COBOL400
+
   - Improved the generation of record entities imported from a DSPF with directive COPY DDS-ALL-FORMATS
 
 - SQL
+
   - Improved the transformation of SQL WHERE clauses with non-enclosed OR conditions.
 
 ## Release notes 4.7.0
@@ -1604,34 +1775,42 @@ be compatible.
 **Improvements**
 
 - COBOL
+
   - Improved support for INSPECT statement with AFTER INITIAL and BEFORE INITIAL clauses
   - Upgraded Numeric Edited Type support with optimized byte conversion enhancing overall data handling efficiency
   - Added support for FUNCTION MIN & MAX with alphanumeric comparison
   - Improved support for FUNCTION INTEGER for negative values
 
 - PL/I
+
   - Enhanced support of the PUT statement with FBA/VBA SYSPRINT dataset
 
 - JCL - SORT
+
   - Added support of the OUTREC option SQZ with the subparameters SHIFT, LEAD, TRAIL, MID, PREBLANK, and PAIR
   - Enhanced cataloging DCB attributes for the SORTOUT file
 
 - JCL - DSNUTILB
+
   - Enhanced support for DECIMAL EXTERNAL data type
   - Improved support for the NULLIF condition related to another column's values/position
   - Improved support for BYTEA columns
 
 - JCL - INFUTILB
+
   - Improved support for keywords CURRENT [DATE/TIME/TIMESTAMP] in UNLOAD operation
 
 - JCL - Improved support for qualified return code of called PROCs
 - Data Processing
+
   - Enhanced numeric comparison logic when processing blank-valued fields redefined from alphanumeric to numeric types, ensuring correct evaluation against zero
 
 - Blusam
+
   - Improved support for START command to handle partial key searches using segments of the primary key, providing more flexible record retrieval capabilities
 
 - SQL
+
   - Added support for input parameter passed in ON clause
   - Added support for REPEAT function
   - Improved support for UPDATE statement with an assignment involving column name
@@ -1639,6 +1818,7 @@ be compatible.
   - Added support for DB2 XML function for DB2 database target
 
 - Message Queue Integration
+
   - Enhanced error handling in MQ GET operations, providing clearer status indication MQCC_FAILED for empty message bodies
   - Enhanced support for MQ PUT operations by handling MQRFH2 header in XA transaction context
   - Improved support for AWS Transform for mainframeRuntime secrets to handle
@@ -1646,6 +1826,7 @@ be compatible.
   - Enhanced JMS MQ connection pool configuration capacity
 
 - Misc
+
   - System Integration - Added support for the schema environment in DFSRRC00 program calls
   - Added compatibility for IMS transaction when Blusam is
     disabled
@@ -1660,6 +1841,7 @@ be compatible.
 **Improvements**
 
 - CL
+
   - Added file locking mechanism through the ALCOBJ/DLCOBJ commands
   - Improved the CPYF command functionality to maintain record sequence integrity during file copying
   - Improved CPYF command to support output as a flat file
@@ -1675,9 +1857,11 @@ be compatible.
   - Added support for keyword \*ALL in DTAARA parameter for RTVDTAARA command
 
 - Screen
+
   - Improved the color of a white attribute in the front end
 
 - RPG
+
   - Improved support for TESTB operation to better handle different encodings
   - Improved support for EDITC operation with edit code 'Y' and 'P'
   - Improved support for EDITCODE for codes K, Q and Z
@@ -1685,11 +1869,13 @@ be compatible.
   - Handled parameters passed by value for external procedures
 
 - COBOL
+
   - Improved SORT statement to handle targeted library
   - Truncated a partition when the associated DAO is opened in OUTPUT mode
   - Added support for PREFIX keyword
 
 - DataQueue
+
   - Added keystore and truststore configuration options for RabbitMQ data and hybrid message queues, enabling secure messaging in production deployments
   - Optimized server restart performance by eliminating redundant data queue existence check
   - Streamlined architecture by removing DataQueueRegistry and DataQueueConnectionProvider components
@@ -1697,6 +1883,7 @@ be compatible.
   - Improved queue creation process by ensuring proper exchange creation and queue-to-exchange binding
 
 - Misc
+
   - Added transaction request size validation to prevent system overload related to excessive range requests
   - Improved lock management on job resource cleaning
   - Improved the DAO locking mechanism to prevent locking a record when the file is opened in INPUT mode
@@ -1707,9 +1894,11 @@ be compatible.
   - Improved support for DateHelper#moveDate to support date-to-timestamp conversions
 
 - DDS
+
   - Improved support of Select/Omit conditions combined with synthetic operation such as SST or CONCAT
 
 - SQL
+
   - Optimized the SQLExecutorBuilder to handle partial record fetching more efficiently, particularly when retrieving multiple rows with fetch limits exceeding one
 
 ## AWS Transform for mainframeTransformation Engine 4.7.0
@@ -1719,6 +1908,7 @@ be compatible.
 **Improvements**
 
 - COBOL
+
   - Added support for CODE-SET statement
   - Added support for option NOT END OF PAGE from WRITE statement
   - Added support for a new syntax on ALTER
@@ -1734,6 +1924,7 @@ be compatible.
   - Improved the transformation of RENAMES when specified on a group using the REDEFINES clause
 
 - PL/1
+
   - Added Support for option DATA or LIST for PUT STRING
   - Added support for Multiple Entry program support
 
@@ -1742,15 +1933,18 @@ be compatible.
 **Improvements**
 
 - CL
+
   - Improved the parsing of parameters for QCMDEXC to be able to execute ALCOBJ/DLCOBJ through QCMDEXC
   - Added support for ElseIf statement on CL
   - Added support for builtin function %SWITCH to set the job switches.
 
 - DDS
+
   - Improved support of program-described DSPF record to handle dummy record in input specifications
   - Improved the DAO generation WHERE clause conditions in the case of an CREATE INDEX SQLDDS file
 
 - RPG
+
   - Added support for ZEROES initialization INZ(\*ZEROS) on Unsigned Integer
   - Improved support of command EXCEPT with a file type of Workstation and SQL Index
   - Improved support of RPG internal data type for numeric fields defined externally
@@ -1765,11 +1959,13 @@ be compatible.
   - Improved the support for PREFIX keyword to handle character replacement
 
 - COBOL400
+
   - Improved support for REWRITE and UPDATE operation on Dynamic access mode
   - Added support for ACCEPT Statement FOR clause in CBLLE
   - Improved support of built-in %STATUS to get the current status of a file after an operation
 
 - Misc
+
   - Improved transformation of programs which define data structures that share the same name as one of the fields in the specified PF/LF
   - Improved array access generation on kanji variables
 
@@ -1801,6 +1997,7 @@ be compatible.
 **Improvements**
 
 - COBOL
+
   - Enhanced `WRITE ADVANCING` capabilities with improved accuracy
     for sequential file line writing, supporting
     multiple contexts (`BEFORE`>, `AFTER`, and Implicit uses)
@@ -1812,29 +2009,36 @@ be compatible.
   - Improved display handling of BINARY type data
 
 - PL/I
+
   - Improved conversion of binary literal values in assignment statements
 
 - JCL — SORT
+
   - Improved support for consecutive `OVERLAY` parameters in the same
     `OUTFIL` statement
 
 - JCL — DSNUTILB
+
   - Optimized loading mechanisms, resulting in 25% faster data retrieval times
   - Enhanced support for XA transactions for external business data-sources
 
 - JCL — INFUTILB
+
   - UNLOAD - Added support of FLOAT8 data type
 
 - JCL — IDCAMS
+
   - Optimized handling of return codes for `IDCAMS` commands
   - Added support to delete all GDG generations based on GDG base name
   - Added support for files deletion without `NONVSAM` parameter
 
 - JCL — Misc
+
   - Enhanced Batch Restart Metadata handling to improve workflow status management during
     restart mode
 
 - Blusam
+
   - Added support of TTL for Blusam cache in both Ehcache and Redis
     implementations
   - Improved support for `DEPENDING ON` field on COBOL File Description
@@ -1846,15 +2050,18 @@ be compatible.
   - Improved padding to the right on variable block concatenated input dataset `READ`
 
 - BAC
+
   - Added support for dataset creation in Multi-schema mode, including a new "Schema"
     column to indicate schema association for each dataset
 
 - MFS
+
   - Improved propagation of user info from Front-end to shared context, ensuring proper
     propagation to JHDB context
   - Added support for IBM MQ IMS information header on XA transactions
 
 - SQL
+
   - Enhanced `SQLCODE` handling to set 305 during cursor fetch when all column values are
     NULL
   - Added support for `IN` clause involving `OCCURS` parameter
@@ -1864,6 +2071,7 @@ be compatible.
     conversions at execution according targeted database engine
 
 - Misc
+
   - Enhanced IBM930 charset to allow both Unicode characters U+2014 and U+2015 to
     correspond to x'44x4A' in EBCDIC
   - TDQUEUE - Refactored SQS implementation to support multi-threading
@@ -1886,6 +2094,7 @@ be compatible.
 **Improvements**
 
 - CL
+
   - CLRPFM - Improved handling of member when the command is called for QTEMP
     library
   - SMBJOB - Improved support of parameter `PARM` to handle dynamically built argument
@@ -1907,6 +2116,7 @@ be compatible.
     mbfile, mblib, mbfcdt, mfccn
 
 - Screen
+
   - Improved cursor position priority for `DSPATR(PC)`
   - Improved the validation of subfile record fields by ignoring the front-end validation
     of “protected” fields
@@ -1917,6 +2127,7 @@ be compatible.
     command keys)
 
 - RPG
+
   - Enhanced program cycle support for a better handling of the fields read from
     primary/secondary files
   - Added support for Split Control Field for primary/secondary files reading
@@ -1925,16 +2136,19 @@ be compatible.
   - Improved support of ZERO indicator for MVR operation
 
 - DDS
+
   - Added support of multi-format logical files with record format that refer to the same
     physical record
 
 - DataQueue
+
   - Improved job interruption handling for jobs waiting on data queue messages by cleaning
     up the consumer during interrupts
   - Migrated from RabbitMQ to Spring-AMQP for better channel management and thread
     scaling
 
 - Misc
+
   - Improved SQLExecutorBuilder to support queries with multiple white spaces and open
     braces without leading spaces
   - Improved DAO support to handle correctly the cursor positioning while changing the
@@ -1950,6 +2164,7 @@ be compatible.
 **Improvements**
 
 - COBOL
+
   - Improved parsing of `RESERVE` clause with optional `AREA/AREAS`
     literal
   - Enhanced COBOL support with optional `DATA DIVISION` declaration,
@@ -1968,6 +2183,7 @@ be compatible.
     `LOW-VALUES` in `delimited by` clause
 
 - SQL
+
   - Improved transformation of default value for postgreSQL target to
     handle quotes around the `CURRENT_TIMESTAMP` default value
   - Handle `WITH CHECK OPTION` clause of SQL views
@@ -1977,15 +2193,18 @@ be compatible.
 **Improvements**
 
 - DDS
+
   - Improved support of multi-format logical files that refer to the same physical record
     multiple times
 
 - RPG
+
   - Enhanced `MOVE` and `MOVEL` operations to better handle padding
     zeros
   - Enhanced handling of nested function calls in evaluations and conditions
 
 - COBOL400
+
   - Added support for transforming the `IN` keyword in `SELECT`
     statements
   - Improved support for missing dots in data description entries, aligning with the
@@ -1997,6 +2216,7 @@ be compatible.
     input/output data structure
 
 - Misc
+
   - StateMachines - Improved transformation to enhance composite states declaration in
     alignment with stateless4j paradigm
   - Improved sanitization for LF files containing special characters
@@ -2066,6 +2286,7 @@ be compatible.
 **Improvements**
 
 - COBOL
+
   - Enhanced support of DISPLAY statement leveraging the NO ADVANCING option
   - Increased accuracy in management of currency signs allowing the user to benefit from a
     more accurate transformed COBOL structure
@@ -2074,11 +2295,13 @@ be compatible.
   - Improved support for block size for GDG files and concatenated files
 
 - CICS
+
   - Added support for OpenStatus and EnableStatus of Blusam
     datasets
   - Added support for the `SET DATASET` command
 
 - JCL — SORT
+
   - Improved handling of data set record size
   - Improved support for the `OUTFIL` statement to produce output files
     containing only the records from the input files according values specified in STARTREC and
@@ -2093,10 +2316,12 @@ be compatible.
     JCL to handle empty input files and benefit from empty file generation
 
 - JCL — ICETOOL
+
   - Enhanced support for the `SORT FIELDS=COPY` statement through the
     `SORT` program
 
 - JCL — INFUTILB
+
   - Improved support for record size computing if it is not specified in the JCL and the
     property DFSIGDCB is disabled
   - Improved UNLOAD with INTO clause for DECIMAL by updating the precision and scale
@@ -2107,6 +2332,7 @@ be compatible.
     flexibility and accuracy in data extraction processes.
 
 - JCL — IDCAMS
+
   - Improved deletion for file with wildcard suffix and name defined either directly either
     enclosed by parenthesis or by simple quotes
   - Improved accuracy to leverage MAXCC return code
@@ -2116,15 +2342,18 @@ be compatible.
 - JCL — Improved support for BDW property for a generated output file in a JCL step
   and subsequent steps use the same file system as input and `DISP=PASS`
 - MF
+
   - Improved support for 2-byte header for Record Sequential file
   - Improved handling of return codes for the DELETE command
   - Improved Write Advancing Line for Record Sequential file
 
 - Redis
+
   - Improved Redis template initialization for JCL checkpoints and Jics TSQueues
   - Improved Redis dataset record lock information accessibility and readability
 
 - SQL
+
   - Improved parsing of FOREIGN KEY with REFERENCES clause
   - Provided an extendable caching feature to store original legacy graphic types in the
     database, enhancing data traceability and facilitate graphic compute
@@ -2134,6 +2363,7 @@ be compatible.
     with DECIMAL DB2 built-in function.
 
 - Misc
+
   - Enhanced support of NumericEditedType using SIGN operand
   - Improved primary datasource configuration generation in SpringBootLauncher in the
     modernized application
@@ -2159,11 +2389,13 @@ be compatible.
 **Improvements**
 
 - COBOL400
+
   - Improved support of EOF in File Status
   - Increase the precision support of Cobol START statement to support EQUAL keyword into
     KEY IS clause
 
 - CL
+
   - Added support for command UPDENVPARM
   - CRTPF - Added support for table accessed with a partition
   - RCVF - Improved support of logical files with override
@@ -2189,6 +2421,7 @@ be compatible.
   - CHGDTAARA - Added support for \*ALL keyword to change the entire data area
 
 - Screen
+
   - Improved tables/subfile displaying by increasing accuracy for scrolling and
     position/priority of cursor
   - Improved `CHECK(RZ)` and `CHECK(RB)` functionality for
@@ -2196,6 +2429,7 @@ be compatible.
   - Improved support of help screen feature for keyword `HLPARA`
 
 - RPG
+
   - Improved support of built-in `%SubDt`
   - Improved support for procedure using a local data structure which is
     externally-described
@@ -2206,6 +2440,7 @@ be compatible.
     %TLOOKUPLE, %TLOOKUPLT)
 
 - Dataarea
+
   - Improved support for OUT operation when factor1 is blank
   - Improved concurrent reads on the same data area
   - Added configuration variable `blu4iv.dtaara.library.disable` to disable
@@ -2214,12 +2449,14 @@ be compatible.
     structure data area location as he wish.
 
 - DataQueue
+
   - Improved RabbitMQ channel usage
   - Improved RabbitMQ Consumer to only attempt to cancel the consumer once
   - Improved data queue retrieve from RabbitMQ by only attempting basicGet when wait time
     is 0
 
 - Misc
+
   - User Space - Improved behavior when multiple jobs attempt to retrieve the same
     userspace simultaneously
   - Improved support of uncommitted record deletion under commitment control
@@ -2241,6 +2478,7 @@ be compatible.
 
 - JCL - Improved groovy generation for KSDS dataset based on LISTCAT parsing
 - COBOL
+
   - Improved parsing of `COPY-REPLACING` statement to handle replacement of
     qualified subfield when ambiguity for this subfield name is present
   - Improved support for `SYSOUT` defined in `SPECIAL-NAMES`
@@ -2260,11 +2498,13 @@ be compatible.
 **Improvements**
 
 - DDS
+
   - Improved support of implicit length of type DATE
   - Improved support of stop-zero-suppression character on keyword EDITWORD
   - Improved support of column name DESC as it is a reserved word in DB
 
 - RPG
+
   - Improved support of built-in %TIME
   - Improved generation of EVALR statements to handle assignment from a string value to a
     variable of shorter length with a better right-adjustement
@@ -2276,13 +2516,16 @@ be compatible.
   - Improved support of built-in %SUBST to handle double byte values
 
 - COBOL400
+
   - Screen - Improved support of DSPF record around I/O operations
 
 - CL
+
   - Improved renaming of reserved variable names
   - Improved support of Select/Omits conditions to handle multiple formats file
 
 - Misc
+
   - Reduced duplicated entities around file operations (EOF, FOUND, EQUAL)
   - Improved generation of JRXML files for QPRINT, a standard printer on AS/400. When it
     is used, the created JSON file will not contain any reference to the program or the file.
@@ -2434,6 +2677,7 @@ sections.
 
 - Added support for Multi-record format Database files
 - Redesigned the AS400 Database access framework
+
   - Enhanced capabilities around file overriding
   - Removed obsolete components and reduce complexity
   - Streamlined the code generated from legacy programs
@@ -2531,6 +2775,7 @@ gapwalk-application.cl:ftpservice:passive` to enable passive mode
 - Added new metadata.ini property `legacy.compilerto` specify the legacy
   compiler of the artifacts to transform. The support of some COBOL statements, like NEXT
   SENTENCE, is different depending on the value you set.
+
   - "ZOS" for a z/OS legacy system.
   - "ILE" or "OPM" for AS400 system. Default = "ILE" when `legacy.system` =
     "as400"
@@ -2562,6 +2807,7 @@ gapwalk-application.cl:ftpservice:passive` to enable passive mode
 **Improvements**
 
 - DDS Record generation enhancement
+
   - Improved the support of DDS record to generate entities that correspond to the DDS
     record structure
   - Provided support for shared fields and mapping functions that match better with the
@@ -3087,6 +3333,7 @@ key features and changes in this release are:
   Applications modernized with AWS Transform for mainframe must comply with security standards. We have made some major
   upgrades to the Blusam Administration Console (BAC) and the JICS
   Administration Console (JAC) to make them more secure:
+
   - Updated the application to Angular v17.
   - In addition to the native support for AWS Cognito, we added generic support for OAuth
     that will enable more flexibility to let customers use the identity provider of their

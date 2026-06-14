@@ -21,14 +21,17 @@ The LISTCAT JSON format is defined by the following attributes:
 - "maxRecordSize": Maximal Record size in bytes, expressed as an integer. Should be equal to
   avgRecordSize for fixed length record size.
 - for KSDS only: Mandatory primary Key definition (as nested object)
+
   - labelled "primaryKey"
   - "offset": 0-based bytes offset for the primary key in the record.
   - "length": length in bytes of the primary key.
   - "unique": must be set to true for primary key.
 
 - for KSDS/ESDS, collection of alternate keys (as collection of nested objects):
+
   - labelled "alternateKeys"
   - For each alternate key:
+
     - "offset": 0-based bytes offset for the alternate key in the record.
     - "length": length in bytes of the alternate key.
     - "unique": must be set to true for alternate key, if the key does not accept duplicate

@@ -89,6 +89,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/post/script/{scriptId:.+}`
 - Arguments:
+
   - identifier of the script to launch **Input validation**: Script ID must not be blank,
     cannot exceed 255 characters, and must match the pattern: `^[a-zA-Z0-9._-]+$`
   - optionally: parameters to pass to the script, using request parameters (seen as a
@@ -97,6 +98,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
     Parameter map cannot exceed 50 entries.
 
 - The call executes the script (identified by scriptId) with optional parameters and waits for completion before returning a `ResponseEntityString` with either:
+
   - HTTP 200: "Done." or JSON success message on successful execution
   - HTTP 200: A JSON error message with execution failure details. Additional information available in server logs.
 
@@ -135,6 +137,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/triggerscript/{scriptId:.+}`
 - Arguments:
+
   - identifier of the script to launch **Input validation**: Script ID must not be blank,
     cannot exceed 255 characters, and must match the pattern: `^[a-zA-Z0-9._-]+$`
   - optionally: parameters to pass to the script, using request parameters (seen as a
@@ -182,8 +185,10 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - Paths: `/triggeredscripts/{status:.+}`,
   `/triggeredscripts/{status:.+}/{namefilter}`
 - Arguments:
+
   - Status (mandatory): the status of the triggered scripts to retrieve. **Input validation**:
     Status must not be blank and cannot exceed 50 characters. Possibles values are:
+
     - `all` : show all job execution details, whether the jobs are still running
       or not.
     - `running`: only show jobs details for jobs that are currently
@@ -225,6 +230,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/getjobexecutioninfo/{jobexecutionid:.+}`
 - Arguments:
+
   - jobexecutionid (mandatory): the unique job execution identifier to retrieve the
     corresponding job execution details. **Input validation**: Job execution ID
     must not be blank and cannot exceed 255 characters
@@ -297,6 +303,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/restarts/{scriptId}/{jobId}`
 - Arguments:
+
   - scriptId (optional - string): the script being restarted.
   - jobId (optional - string): the unique identifier of a job execution.
 
@@ -313,6 +320,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/restart/{hashcode}/{scriptId}/{skipflag}`
 - Arguments:
+
   - hashcode (integer - mandatory): restart the most recent execution of a job, using the
     provided hashcode as checkpoint value (see the `/restarts` endpoint above to
     learn how to retrieve a valid checkpoint value).
@@ -330,6 +338,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/triggerrestart/{hashcode}/{scriptId}/{skipflag}`
 - Arguments:
+
   - hashcode (integer - mandatory): restart the most recent execution of a job, using the
     provided hashcode as checkpoint value (see the `/restarts` endpoint above to
     learn how to retrieve a valid checkpoint value).
@@ -400,6 +409,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
   informations to be purged. **Input validation**:
   Must be between 0 and 365 inclusive.
 - Returns a message with the following informations:
+
   - Name of the purge file where purged job execution informations are being stored for
     archiving purpose.
   - Number of purged job execution informations.
@@ -421,6 +431,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - Path: `/metrics/jvm`
 - Arguments: none
 - Returns a message with the following information:
+
   - threadActiveCount: Number of active threads.
   - jvmMemoryUsed: Memory actively used by the Java Virtual Machine.
   - jvmMemoryMax: Maximum memory allowed for the Java Virtual Machine.
@@ -438,6 +449,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - Path: `/metrics/session`
 - Arguments: none
 - Returns a message with the following information:
+
   - sessionCount: Number of active user sessions currently maintained by the server.
 
 ### Batch
@@ -448,6 +460,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/metrics/batch`
 - Arguments:
+
   - startTimestamp (optional, number): Starting timestamp for data filtering.
     **Input validation**: Must be a valid numeric value.
   - endTimestamp (optional, number): Ending timestamp for data filtering.
@@ -459,6 +472,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
   - **Input validation**: Parameter map cannot exceed 20 entries
 
 - Returns a message with the following information:
+
   - content: List of batch execution metrics.
   - pageNumber: Current page number in pagination.
   - pageSize: Number of items displayed per page.
@@ -475,6 +489,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/metrics/transaction`
 - Arguments:
+
   - startTimestamp (optional, number): Starting timestamp for data filtering.
     **Input validation**: Must be a valid numeric value.
   - endTimestamp (optional, number): Ending timestamp for data filtering.
@@ -486,6 +501,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
   - **Input validation**: Parameter map cannot exceed 20 entries
 
 - Returns a message with the following information:
+
   - content: List of transaction execution metrics.
   - pageNumber: Current page number in pagination.
   - pageSize: Number of items displayed per page.
@@ -575,6 +591,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Path: `/jicstransrunner/{jtrans:.+}`
 - Arguments:
+
   - JICS transaction identifier (string, required) : identifier of the JICS transaction to
     be launched (8 characters long at max.)
   - required: additional input data to pass to the transaction, as a
@@ -583,6 +600,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
     the transaction.
   - optional: Http headers entries, to customize the run environment for the given
     transaction. The following header keys are being supported:
+
     - `jics-channel`: The name of the JICS CHANNEL to be used by the program
       that will be launched by this transaction launch.
     - `jics-container`: The name of the JICS CONTAINER to be used for this JICS
@@ -765,6 +783,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - Path:
   `/list-jobs?status={status}&size={size}&page={page}&sort={sort}`
 - Arguments:
+
   - page: Page number to retrieve (default = 1)
   - size: Size of the page (default = 50, max = 300)
   - sort: The order of the Jobs. (default = “executionId”). “executionId” is currently the
@@ -782,6 +801,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - Path: `/release-all`
 - Returns a message indicating the outcome for the release attempt operation. Two possible
   cases here:
+
   - HTTP 200 and a message "All job released with success!" if all jobs were successfully
     released.
   - HTTP 503 and a message "Jobs not released. An unknown error occurred. See log for more
@@ -801,6 +821,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - Arguments: the job name to look for, as a string. Mandatory.
 - Returns a message indicating the outcome for the release attempt operation. Two possible
   cases here:
+
   - HTTP 200 and a message "Jobs in group <name> (<number of released jobs>)
     released with success!" jobs were successfully released.
   - HTTP 503 and a message "Jobs in group <name> not released. An unknown error
@@ -858,6 +879,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - Path:
   `/schedule/list?status={status}&size={size}&page={page}&sort={sort}`
 - Arguments:
+
   1.  page: Page number to retrieve (default = 1)
   2.  size: Size of the page (default = 50, max = 300)
   3.  sort: The order of the Jobs. (default = “id”). “id” is the only supported value for

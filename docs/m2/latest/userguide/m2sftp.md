@@ -74,6 +74,7 @@ If your migrated applications are running on AWS Mainframe Modernization runtime
 
 1.  Change the [Micro Focus JES Program Path](https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-BC8A1796-9EDE-48EB-8363-31C9BDE7F96B.html "https://www.microfocus.com/documentation/enterprise-developer/ed80/ED-Eclipse/GUID-BC8A1796-9EDE-48EB-8363-31C9BDE7F96B.html") to include the binary location for batch utilities.
     If you need to specify multiple paths, use colons (`:`) to separate paths on Linux and semicolons (`;`) on Windows.
+
     - Linux: `/opt/aws/m2/microfocus/utilities/64bit`
     - Windows (32bit): `C:\AWS\M2\MicroFocus\Utilities\32bit`
     - Windows (64bit): `C:\AWS\M2\MicroFocus\Utilities\64bit`

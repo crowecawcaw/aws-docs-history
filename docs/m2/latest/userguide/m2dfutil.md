@@ -67,6 +67,7 @@ This script can be found in the following locations:
 Configure your Enterprise Server region with the following:
 
 - Add the following variables in **[ES-Environment]**
+
   - `M2DFUTILS_BASE_LOC` - The default location for DUMP output
   - `M2DFUTILS_SCRIPTPATH` - The location of the
     `compare.sh` script documented in **Asset
@@ -118,6 +119,7 @@ Following are the required parameters for DUMP:
 
 - `SYSPRINT DD NAME` - To contain additional logging information
 - `TARGET` - Target location. It can be either:
+
   - Full path of the dump location
   - Subdirectory name created in the location defined in the **M2DFUTILS_BASE_LOC** variable
 
@@ -203,6 +205,7 @@ Following are the required parameters for RESTORE:
 
 - `SYSPRINT DD NAME` - To contain additional logging information
 - `SOURCE` - Source location. It can be either:
+
   - Full path of the dump location
   - Subdirectory name created in the location defined in the **M2DFUTILS_BASE_LOC** variable
 

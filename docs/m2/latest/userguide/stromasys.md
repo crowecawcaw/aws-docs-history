@@ -149,8 +149,10 @@ Amazon EC2 instances.
 Minimum requirements for Charon-SSP:
 
 - Minimum number of host system CPU cores:
+
   - At least one CPU core for the host operating system, plus:
   - For each emulated SPARC system:
+
     - One CPU core for each emulated CPU of the instance, plus:
     - At least one additional CPU core for I/O processing (at least two, if server JIT
       optimization is used). See the CPU Configuration section mentioned above for configuration
@@ -158,12 +160,14 @@ Minimum requirements for Charon-SSP:
       visible to the Charon host to I/O processing.
 
 - Minimum memory requirements:
+
   - 4GB or more of RAM for the Linux host operating system. The actual requirements may be
     higher and will depend on the requirements of the non- emulator services running on the Linux
     host. The previous recommendation of at least 2GB of RAM for the Linux host will still be
     valid for many systems, but the increasing requirements of the Linux operating system and
     applications have led to the updated recommendation for new installations. Plus:
   - For each emulated SPARC system:
+
     - The configured memory of the emulated instance, plus:
     - 2GB of RAM (6GB of RAM if server JIT is used) to allow for DIT optimization, emulator
       requirements, run-time buffers, SMP and graphics emulation.
@@ -182,6 +186,7 @@ Minimum requirements for Charon-SSP:
   or AMD-v/NPT (baremetal instances) and therefore cannot run in all cloud environments. Please
   check your cloud provider's documentation for the availability of such hardware. In addition,
   note the following points:
+
   - Charon-SSP/4U+ and Charon-SSP/4V+ are only available when using a Linux kernel supported
     by Stromasys.
   - If you need this type of emulated SPARC hardware, contact Stromasys or your Stromasys
@@ -199,6 +204,7 @@ specific prerequisites. However, depending on your use case, consider the follow
 prerequisites:
 
 - Amazon account and AWS Marketplace subscriptions
+
   - To set up a Linux instance in AWS, you need an AWS account with administrator
     access.
   - Identify the AWS Region in which you plan to launch your instance. Ensure that AWS
@@ -218,7 +224,9 @@ prerequisites:
 
 - The instance hardware and software prerequisites will be different depending on the
   planned use of the instance:
+
   - Option 1: the instance is to be used as a Charon emulator host system:
+
     - Refer to the hardware and software prerequisite sections of the User's Guide and/or
       Getting Started guide of your Charon product to determine the exact hardware and software
       prerequisites that must be fulfilled by the Linux instance. The image you use to launch
@@ -229,6 +237,7 @@ prerequisites:
       Stromasys representative or Stromasys VAR for additional information.
 
   - Option 2: the instance is to be used as a dedicated VE license server:
+
     - See the VE License Server Guide for detailed prerequisites.
 
 - Certain legacy operating systems that can run in the emulated systems provided by Charon

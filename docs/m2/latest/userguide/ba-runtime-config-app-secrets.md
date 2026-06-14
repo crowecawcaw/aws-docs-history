@@ -149,6 +149,7 @@ The `application-utility-pgm.yml` can reference the secret ARN for various
 resources.
 
 - `spring.aws.client.datasources.primary`
+
   - `secret`
 
   Secret ARN for the application database.
@@ -164,6 +165,7 @@ Type: string
 Default: `com.zaxxer.hikari.HikariDataSource`
 
 - `spring.aws.client.utility.pgm.datasources`
+
   - `names`
 
 List of data source names.
@@ -171,6 +173,7 @@ List of data source names.
 Type: string
 
 - `dsname`
+
   - `dbname`
 
 Name of the host.

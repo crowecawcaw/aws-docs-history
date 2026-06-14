@@ -164,6 +164,7 @@ environment, creating or redeploying an application, and creating a deployment. 
 that AWS Mainframe Modernization creates support the following operations:
 
 - Create or update a runtime environment grant:
+
   - Decrypt
   - Encrypt
   - ReEncryptFrom
@@ -173,9 +174,11 @@ that AWS Mainframe Modernization creates support the following operations:
   - CreateGrant
 
 - Create or redeploy an application grant:
+
   - GenerateDataKey
 
 - Create a deployment grant:
+
   - Decrypt
 
 You can revoke access to the grant, or remove the service's access to the customer managed key at

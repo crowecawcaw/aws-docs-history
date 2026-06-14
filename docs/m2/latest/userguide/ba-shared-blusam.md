@@ -14,6 +14,7 @@ There are four data set organizations:
 - **KSDS**: Key-Sequenced data sets - records are indexed by a
   primary key (no duplicate keys allowed) and optionally, additional "alternate" keys. All key
   values are subsets of the record byte array, each key being defined by:
+
   - an offset (0-based, 0 being the start of the record byte array content, measured in
     bytes)
   - a length (expressed in bytes)
@@ -65,6 +66,7 @@ Two cache engines are currently supported, EhCache and Redis, each having its ow
 use-case:
 
 - EhCache : Standalone embedded volatile local cache
+
   - **NOT** eligible for AWS Mainframe Modernization managed
     environment deployment.
   - Typically used when a single node, like a single Apache Tomcat server, is used to run the
@@ -77,6 +79,7 @@ use-case:
     machine).
 
 - Redis: Shared persistent cache
+
   - Eligible for AWS Mainframe Modernization managed environment deployment.
   - Typically used in multi-nodes situations, in particular when several servers are behind
     a load-balancer. The cache content is shared amongst all nodes.
@@ -140,7 +143,9 @@ customize it, see [Blusam configuration](#ba-shared-blusam-configuration "#ba-sh
   details, see [General data set metadata attributes](#ba-shared-blusam-metadata "#ba-shared-blusam-metadata").
 - The second row has the data set name with the suffix `__internal'` as the
   value of the _name_ column. The _metadata_ column binary content depends on the "weight" of the data set.
+
   - For small/medium data sets, the content is a compressed serialization of:
+
     - definition of the keys used by the data set; the primary key definition (for KSDS)
       and alternate keys definitions if applicable (for KSDS / ESDS)
     - the key indexes if applicable (KSDS / ESDS with alternate keys definitions): used for
@@ -148,6 +153,7 @@ customize it, see [Blusam configuration](#ba-shared-blusam-configuration "#ba-sh
     - records length map: used for sequential / relative browsing of records;
 
   - For Large/Very Large data sets, the content is a compressed serialization of:
+
     - definition of the keys used by the data set; the primary key definition (for KSDS)
       and alternate keys definitions if applicable (for KSDS / ESDS)
 
@@ -304,6 +310,7 @@ service.
 Common properties:
 
 - Mandatory (for all kinds of data sets)
+
   - "bluesamManager" : expected value is
     `applicationContext.getBean(BluesamManager.class)`
   - "datasetName" : name of the data set, as a String
@@ -333,18 +340,23 @@ Common properties:
   Data set kind dependant properties:
 
 - KSDS/Large KSDS:
+
   - mandatory
+
     - "primaryKey" : the primary key definition, using a
       `com.netfective.bluage.gapwalk.bluesam.metadata.Key` constructor
       call.
 
   - optional:
+
     - "alternateKeys" : a List ( `java.util.List` ) of alternate key
       definitions, built using `com.netfective.bluage.gapwalk.bluesam.metadata.Key`
       constructor calls.
 
 - ESDS/Large ESDS:
+
   - optional:
+
     - "alternateKeys" : a List ( `java.util.List` ) of alternate key
       definitions, built using `com.netfective.bluage.gapwalk.bluesam.metadata.Key`
       constructor calls.
@@ -548,6 +560,7 @@ prefix:
 
 - `cache`: to be valued with the chosen cache implementation. Valid values
   are:
+
   - `ehcache`: For local embedded ehcache usage. See the related use case
     restrictions above.
   - `redis`: For shared remote redis cache usage. This is the preferred option
@@ -583,6 +596,7 @@ Blusam Locks: the properties are prefixed with `locks`
 - `locksCheck`: a string, used to define the locking check strategy used by
   the current Blusam lock manager, about expired locks removal. To be picked amongst the
   following values:
+
   - `off`: no checks are performed. Discouraged, as dead locks might
     happen.
   - `reboot`: checks are performed at reboot or application start time. All
@@ -603,6 +617,7 @@ key:
   (under 3 seconds). The format for the delay string is: `<integer
 value><optional whitespace><time unit>` where `<time
 unit>` is to be picked amongst the following values:
+
   - `"ns"`: nanoseconds
   - `"µs"`: microseconds
   - `"ms"`: milliseconds
@@ -624,12 +639,14 @@ Embedded EhCache fine-tuning: the properties are prefixed with `ehcache`
 key:
 
 - `resource-pool`:
+
   - `size`: allocated memory size for the embedded cache, expressed as a
     string. Defaults to `"1024MB"` (1 gigabyte). To be adjusted with regards to the
     available memory of the machine hosting the Blusam engine and the size of the datasets
     being used by the application. The format of the size string is: `<integer
 value><optional whitespace><memory unit>` where
     `<memory-unit>` is to be picked amongst the following values:
+
     - `B`: bytes
     - `KB`: kilobytes
     - `MB`: megabytes
@@ -685,6 +702,7 @@ bluesam:
 - `multiSchema`: false (default value) or true, to disable or enable the
   Multi-schema mode for Blusam - Available starting version 4.4.0.
 - `pgsql`:
+
   - `schemas`: A list of schema names that the application will utilize in Multi-schema
     mode for Blusam.
   - `fallbackSchema`: The fallback schema name for use in Multi-schema mode. If a data set
@@ -786,6 +804,7 @@ General data set metadata serialization attributes list:
 - next offset (next avaliable offset for adding a new record to the data set)
 - if meaningful, definition of the keys used by the data set; each key being defined by its
   kind (primary or part of the alternate keys collection) and three attributes:
+
   - offset : position in the record of the starting byte of the key value;
   - length : length in bytes of the key value. Thus the key value is the byte array which
     is the subset of the record starting at `key offset` and ending at position
@@ -852,11 +871,13 @@ where ' / ' stands for the integer division.
 Examples:
 
 - data set 1:
+
   - number of records = 459 996
   - key length = 15 therefore (key length / 8) = 1
   - index footprint = 459 996 \* (83 + (8\*1)) = 41 859 636 bytes (= 39 MB approx.)
 
 - data set 2:
+
   - number of records = 13 095 783
   - key length = 18 therefore (key length / 8) = 2
   - index footprint = 13 095 783 \* (83 + (8\*2)) = 1 296 482 517 bytes ( = 1.2 GB

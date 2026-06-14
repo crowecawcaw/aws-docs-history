@@ -69,6 +69,7 @@ Log files are written in two locations during each CodeBuild project execution:
   the log files in the main Project bucket path with the filename pattern
   `<Project_Bucket_name>_.log` (e.g. `project-
 bucket_202406131200.log`). These logs provide:
+
   - A configuration summary noting input and output locations.
   - A log of each Assembler or Macro component processed with the target
     filename.

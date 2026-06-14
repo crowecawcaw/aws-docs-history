@@ -125,6 +125,7 @@ server_side_encryption = AES256
 ```
 
 3. In `m2-rclone.cmd`, make the following changes:
+
    - Change `amzn-s3-demo-bucket` to your Amazon S3 bucket name. For example,
      `m2-s3-mybucket`.
    - Change `your-s3-folder-key` to your Amazon S3 bucket key. For example,

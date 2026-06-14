@@ -39,6 +39,7 @@ columns:
 - Selection checkbox: A checkbox to select the current data set.
 - Name: The name of the data set.
 - Type: The type of the data set, one of the following:
+
   - KSDS
   - ESDS
   - RRDS
@@ -111,6 +112,7 @@ following page.
 The page is made of:
 
 - a header, with:
+
   - Dataset: the data set name
   - Record size: the fixed record length, expressed in bytes
   - Total Records: the total number of records stored for this data set
@@ -124,7 +126,6 @@ The page is made of:
 
       - save the configuration for this data set and current work session
       - reset the configuration to default values for all fields.
-
   - A list of configurable properties to tailor the browsing experience for the given data
     set.
 
@@ -179,12 +180,14 @@ image.
 
 - Filter operator: An operator to apply to the selected column. The following operators
   are available.
+
   - equals to: the column value for the record must be equal to the filter value
   - starts with: the column value for the record must start with the filter value
   - ends with: the column value for the record must end with the filter value
   - contains: the column value for the record must contain the filter value
 
 - Filter options:
+
   - Inverse: apply the inverse condition for the filter operator; for instance, 'equals
     to' is replaced by 'not equals to';
   - Ignore case: ignore case on alphanumeric comparisons for the filter operator
@@ -239,6 +242,7 @@ Viewing the record's contents in detail:
 ![Data mask table showing fields for a transaction record with name, type, options, and value columns.](images/bac-bac-record-ro-details.png)
 
 - Three toggle buttons for hiding or showing some columns:
+
   - Hide/show the type
   - Hide/show the display flag
   - Hide/show the range
@@ -246,6 +250,7 @@ Viewing the record's contents in detail:
 - To leave this dedicated page and go back to the results table, choose
   **Close**.
 - Each row represents a column from the data mask, with the following columns:
+
   - Name: the column's name
   - Type: the column's type
   - Display: the display indicator; a green check will be displayed if the matching mask
@@ -268,6 +273,7 @@ values are editable. Three buttons control the update process:
   checkbox if validation succeeded, `ERROR` and red cross if validation failed,
   alongside an error message giving hints about the validation failure). If the validation
   succeeded, two new buttons will appear:
+
   - Save: attempt to update the existing record into Blusam storage
   - Save a copy: attempt to create a new record into Blusam storage
 
@@ -334,6 +340,7 @@ Blusam** buttons are disabled.
 Reading parameters:
 
 - Record length kind:
+
   - Fixed or Variable record length: use the radio-button to specify whether the legacy
     data set export uses fixed length records or variable length records (the records are
     expected to start with RDW bytes). If you choose Fixed, the record length must be
@@ -341,6 +348,7 @@ Reading parameters:
     pre-filled by the information coming from the data set. If you choose Variable, the given
     input field disappears.
   - File selection:
+
     - Local: choose the data set file from your local computer, using the file selector
       below (Note: the file selector uses your browser's locale for printing its messages --
       here in french, but it might look different on your side, which is expected). After you

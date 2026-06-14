@@ -25,6 +25,7 @@ The utilities web-application has its own configuration file, named `application
 Available utility programs, listed according to their domain of application:
 
 - [Datasets Utilities](system-datasets-utilities.md "system-datasets-utilities.md")
+
   - [BLUESAMCOPY/BLUESAMCREATE/BLUESAMDELETE/BLUESAMCLEAR](system-datasets-utilities.md#bluesam-utilities "system-datasets-utilities.md#bluesam-utilities")
   - [BPXWDYN](system-datasets-utilities.md#bpxwdyn "system-datasets-utilities.md#bpxwdyn")
   - [GDGUTILS](system-datasets-utilities.md#gdgutils "system-datasets-utilities.md#gdgutils")
@@ -35,21 +36,25 @@ Available utility programs, listed according to their domain of application:
   - [JCLBCICS](system-datasets-utilities.md#jclbcics-utility "system-datasets-utilities.md#jclbcics-utility")
 
 - [Database Utilities](system-database-utilities.md "system-database-utilities.md")
+
   - [DSNTEP2/DSNTEP4](system-database-utilities.md#dsntep2-dsntep4 "system-database-utilities.md#dsntep2-dsntep4")
   - [DSNUTILB](system-database-utilities.md#dsnutilb "system-database-utilities.md#dsnutilb")
   - [INFUTILB / INZUTILB](system-database-utilities.md#infutilb-inzutilb "system-database-utilities.md#infutilb-inzutilb")
   - [JXHDBCLR](system-database-utilities.md#jxhdbclr "system-database-utilities.md#jxhdbclr")
 
 - [Commands Utilities](system-commands-utilities.md "system-commands-utilities.md")
+
   - [IKJEFT1A/IKJEFT1B/KEQEFT01/IKJEFT01/DSNDBTCH](system-commands-utilities.md#ikjeft1a-ikjeft1b-keqeft01-ikjeft01-dsndbtch "system-commands-utilities.md#ikjeft1a-ikjeft1b-keqeft01-ikjeft01-dsndbtch")
   - [QCMDEXC](system-commands-utilities.md#qcmdexc "system-commands-utilities.md#qcmdexc")
 
 - [Sort Utilities](system-sort-utilities.md "system-sort-utilities.md")
+
   - [ICETOOL](system-sort-utilities.md#icetool "system-sort-utilities.md#icetool")
   - [MFSORT](system-sort-utilities.md#mfsort "system-sort-utilities.md#mfsort")
   - [SORT/SYNCSORT/ICEMAN](system-sort-utilities.md#sort-syncsort-iceman "system-sort-utilities.md#sort-syncsort-iceman")
 
 - [Other / Miscellaneous Utilities](system-misc-utilities.md "system-misc-utilities.md")
+
   - [CBL_AND/CBL_OR/CBL_XOR/CBL_EQ/CBL_IMP/CBL_NOT](system-misc-utilities.md#cbl-bitwise "system-misc-utilities.md#cbl-bitwise")
   - [CEE3ABD](system-misc-utilities.md#cee3abd "system-misc-utilities.md#cee3abd")
   - [CEEDATE](system-misc-utilities.md#ceedate "system-misc-utilities.md#ceedate")

@@ -374,6 +374,7 @@ dumpParameters
 - Requires authentication and the ROLE_ADMIN role.
 - Path: `/api/services/rest/bluesamservice/createAllDataSets`
 - Arguments:
+
   - List of data sets
 
   name

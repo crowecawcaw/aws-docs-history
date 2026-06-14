@@ -436,6 +436,7 @@ Notes
 - You must declare it as a Prototype component, and use the @Lazy annotation.
 - The constructor refers to the associated configuration, using the @Qualifier annotation to target the proper configuration class.
 - If the utility program uses some extra data structures, they should be:
+
   - written and added to the `*base package*.business.model` package.
   - referenced in the context.
     Take a look at other existing context classes to see how to reference data strcutures classes and adapt the context methods (constructor / clean-up / reset) as needed.

@@ -63,8 +63,10 @@ A batch job restart is available on the following engine versions:
 5. Select the batch job you want to restart from the generated list. Navigate to the **Actions** menu, and choose **Restart job**.
 6. Specify how you want to restart the batch job. You can do the following for Micro Focus (Rocket)
    environment engine and AWS Transform for mainframe environment engine:
+
    - For Micro Focus (Rocket) environment engine, you can either choose to **Restart from
      the beginning** or **Restart using steps or procsteps**.
+
      - **Restart from the beginning** option allows you to restart all
        steps of a batch job from the beginning.
      - **Restart using steps or procsteps** option allows you to choose a

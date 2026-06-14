@@ -17,6 +17,7 @@ optional elements.
 - [Definition section overview](applications-m2-definition.md#applications-m2-definition-overview "applications-m2-definition.md#applications-m2-definition-overview")
 - [AWS Transform for mainframe application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba")
 - [AWS Transform for mainframe definition details](applications-m2-definition.md#applications-m2-definition-ba-details "applications-m2-definition.md#applications-m2-definition-ba-details")
+
   - [Listener(s) - required](applications-m2-definition.md#applications-m2-definition-ba-details-listener "applications-m2-definition.md#applications-m2-definition-ba-details-listener")
   - [AWS Transform for mainframe application - required](applications-m2-definition.md#applications-m2-definition-ba-details-application "applications-m2-definition.md#applications-m2-definition-ba-details-application")
   - [Blusam - optional](applications-m2-definition.md#applications-m2-definition-ba-details-blusam "applications-m2-definition.md#applications-m2-definition-ba-details-blusam")
@@ -25,6 +26,7 @@ optional elements.
 
 - [Rocket Software (formerly Micro Focus) application definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf")
 - [Rocket Software definition details](applications-m2-definition.md#applications-m2-definition-mf-details "applications-m2-definition.md#applications-m2-definition-mf-details")
+
   - [Listener(s) - required](applications-m2-definition.md#applications-m2-definition-mf-details-listeners "applications-m2-definition.md#applications-m2-definition-mf-details-listeners")
   - [Data set locations - required](applications-m2-definition.md#applications-m2-definition-mf-details-datasets "applications-m2-definition.md#applications-m2-definition-mf-details-datasets")
   - [Amazon Cognito authentication and authorization handler - optional](applications-m2-definition.md#applications-m2-definition-mf-details-cognito "applications-m2-definition.md#applications-m2-definition-mf-details-cognito")

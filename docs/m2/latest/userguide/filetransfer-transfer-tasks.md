@@ -35,6 +35,7 @@ tasks.
     your transfer task. If you have not created any transfer tasks previously, you
     can create your first one by choosing the **Create Transfer
     task** option.
+
     - On this page, enter the basic information of your transfer task,
       including the transfer task name, description, and secret key.
 
@@ -87,6 +88,7 @@ tasks.
 6.  On the **Add data sets** page, in the **Transfer task configuration** section, you can choose to either
     configure your transfer task in binary mode or to convert and transfer your data
     sets.
+
     - **Transfer in binary mode** option allows
       you to transfer data sets by skipping code page conversions and
       retaining their Record Descriptor Word (RDW) bytes.

@@ -72,6 +72,7 @@ sets or records. You can adjust the following parameters in the application defi
 - `locksCheck`: defines the Blusam locks manager strategy for checking locks.
   All Blusam locks in ElastiCache are timestamped and have an expiration time. The
   `locksCheck` parameter value determines whether expired locks are removed.
+
   - `off`: no check is executed at any time. Deadlocks might occur. (Not
     recommended)
   - `reboot`: checks are executed when an AWS Mainframe Modernization application instance running

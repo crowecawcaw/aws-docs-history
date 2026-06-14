@@ -32,6 +32,7 @@ If your migrated applications are running on AWS Mainframe Modernization Managed
 
 - Create a REXX EXEC library called `AWS.M2.REXX.EXEC`. Download these
   [REXX modules](https://drm0z31ua8gi7.cloudfront.net/utilities/mf/TXT2PDF/rexx/TXT2PDF_rexx.zip "https://drm0z31ua8gi7.cloudfront.net/utilities/mf/TXT2PDF/rexx/TXT2PDF_rexx.zip") and copy them into the library.
+
   - `TXT2PDF.rex` - TXT2PDF z/OS freeware (modified)
   - `TXT2PDFD.rex` - TXT2PDF z/OS freeware (unmodified)
   - `TXT2PDFX.rex` - TXT2PDF z/OS freeware (modified)
@@ -58,6 +59,7 @@ If you need to specify multiple paths, use colons (`:`) to separate paths on Lin
 
 3. Create a REXX EXEC library called `AWS.M2.REXX.EXEC``.
    Download these [REXX modules](https://drm0z31ua8gi7.cloudfront.net/utilities/mf/TXT2PDF/rexx/TXT2PDF_rexx.zip "https://drm0z31ua8gi7.cloudfront.net/utilities/mf/TXT2PDF/rexx/TXT2PDF_rexx.zip") and copy them into the library.
+
    - `TXT2PDF.rex` - TXT2PDF z/OS freeware (modified)
    - `TXT2PDFD.rex` - TXT2PDF z/OS freeware (unmodified)
    - `TXT2PDFX.rex` - TXT2PDF z/OS freeware (modified)

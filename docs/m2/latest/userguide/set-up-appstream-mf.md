@@ -49,6 +49,7 @@ The steps in this tutorial are based on the downloadable CloudFormation template
   default security group, see [Default and custom
   security groups](../../../AWSEC2/latest/UserGuide/default-custom-security-groups.md "../../../AWSEC2/latest/UserGuide/default-custom-security-groups.md") in the _Amazon EC2 User Guide_.
 - Make sure you have the following permissions:
+
   - create stacks, fleets, and users in WorkSpaces Applications.
   - create stacks in CloudFormation using a template.
   - create buckets and upload files to buckets in Amazon S3.

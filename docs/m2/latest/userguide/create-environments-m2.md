@@ -20,6 +20,7 @@ These instructions assume that you've completed the steps in [Set up for AWS Mai
    environment**.
 4. On the **Specify basic information** page, provide the following
    information:
+
    1. In the **Name and description** section, enter a name for the
       environment.
    2. (Optional). In the **Environment description** field, enter a
@@ -37,6 +38,7 @@ These instructions assume that you've completed the steps in [Set up for AWS Mai
 
 5. On the **Specify configurations** page, provide the following
    information:
+
    1. In the **Availability** section, choose **Standalone
       runtime environment** or **High availability
       cluster**.
@@ -56,6 +58,7 @@ These instructions assume that you've completed the steps in [Set up for AWS Mai
    guidance.
 
 6. In the **Security and network** section, do the following:
+
    1. If you want the applications to be publicly accessible, choose **Allow
       applications deployed to this environment to be publicly
       accessible**.

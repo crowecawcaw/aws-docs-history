@@ -71,6 +71,7 @@ Frequently encountered legacy environments and choreographies are available:
 - JCL-driven batches, once modernized to Java programs and Groovy scripts, can be started in a synchronous (blocking) or asynchronous (detached) way.
   In the latter case, their execution can be monitored through REST endpoints.
 - A AWS Transform for mainframe subsystem provides an execution environment similar to CICS through:
+
   - an entry point used to start a CICS transaction and run associated programs while respecting CICS "run levels" choreography,
   - an external storage for Resource Definitions,
   - an homogeneous set of Java fluent APIs reproducing `EXEC CICS` statements,

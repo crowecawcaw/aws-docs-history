@@ -59,6 +59,7 @@ This message can either be a simple message if the job execution is not finished
 - exitCode: numeric exit code; negative values indicate failure situations.
 - program: latest program launched by the job.
 - status: one possible value amongst:
+
   - `Error`: when exitCode = -1; this corresponds to an (technical) error occurring during job execution.
   - `Failed`: when exitcode = -2; This corresponds to a failure occurring during a service program execution (like an ABEND situation).
   - `Succeeded`: when exitCode >= 0;

@@ -27,6 +27,7 @@ These instructions assume that you have completed the steps in [Set up for AWS M
 4. On the application details page, choose **Data sets**.
 5. Choose **Import**.
 6. Do one of the following:
+
    - Choose **Use data set configuration JSON file in an Amazon S3 bucket**
      and provide the location of the data set configuration.
    - Choose **Specify the data set configuration values separately** with

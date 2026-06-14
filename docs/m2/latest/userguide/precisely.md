@@ -36,6 +36,7 @@ product's AMI.
 1. Sign in to the AWS Management Console and open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace "https://console.aws.amazon.com/marketplace").
 2. Choose **Manage subscriptions**.
 3. Navigate to any of the following links based on your use case:
+
    - **Data Replication for IBM z/OS**: [https://aws.amazon.com/marketplace/pp/prodview-doe2lroefogia](https://aws.amazon.com/marketplace/pp/prodview-doe2lroefogia "https://aws.amazon.com/marketplace/pp/prodview-doe2lroefogia")
    - **Data Replication for IBM i**: [https://aws.amazon.com/marketplace/pp/prodview-iqrkflccxf7ko](https://aws.amazon.com/marketplace/pp/prodview-iqrkflccxf7ko "https://aws.amazon.com/marketplace/pp/prodview-iqrkflccxf7ko")
 

@@ -11,6 +11,7 @@ properties including integrations.
 ###### Topics
 
 - [Supported third party integrations for Rocket Software](mf-app-config.md#mf-app-config-integations "mf-app-config.md#mf-app-config-integations")
+
   - [Printers](mf-app-config.md#mf-app-config-integations-printers "mf-app-config.md#mf-app-config-integations-printers")
 
 ## Supported third party integrations for Rocket Software

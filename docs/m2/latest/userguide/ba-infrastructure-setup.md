@@ -53,6 +53,7 @@ security group in the following procedures instead of creating a new one.
 3. In the central pane, choose **Create role**.
 4. In the **Use case** section, depending on your compute
    choice, choose one of the following:
+
    - **EC2** (for Amazon EC2 and Amazon EKS on Amazon EC2)
    - **Elastic Container Service** and then **EC2
      Role for Elastic Container Service** (for Amazon ECS on

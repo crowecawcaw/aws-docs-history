@@ -24,6 +24,7 @@ These instructions assume that you have completed the steps in [Set up for AWS M
 4. On the details page for the environment, choose **Actions**, and
    then choose **Edit environment**.
 5. Make any of the following changes:
+
    - In the **Engine options** section, choose the engine version
      that you want.
    - In the **Resources** section, choose the instance type that you

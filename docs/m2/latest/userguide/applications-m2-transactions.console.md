@@ -24,6 +24,7 @@ These instructions assume that you have completed the steps in [Set up for AWS M
 4. On the **Transactions** tab, under **Transaction
    resources**, choose how you want your resources displayed from the dropdown list.
    You can display resources according to transaction resources, groups, lists, or SITs.
+
    - **Transaction resources** allow you to choose the resource type
      according to file definitions, transaction definitions, program definitions, or transient
      data queue definitions.
@@ -37,6 +38,7 @@ These instructions assume that you have completed the steps in [Set up for AWS M
    - **Lists** are ordered collection of groups. You can see all your
      transaction resources and groups in a list view. The **startup list**
      determines which resources are loaded when the server is initialized.
+
      - With AWS Transform for mainframe refactor engine, you specify the lists to be included at the startup. There
        is no limit to number of lists.
      - With Rocket Software replatform engine, you can specify up to four lists in one SIT.

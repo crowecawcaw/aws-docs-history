@@ -65,12 +65,14 @@ The access to the BAC features is protected using a role-based policy and relies
 following roles.
 
 - ROLE_USER:
+
   - Basic user role
   - No import, export, creation, or deletion of data sets allowed
   - No control over caching policies
   - No administration features allowed
 
 - ROLE_ADMIN:
+
   - Inherits ROLE_USER permissions
   - All data set operations allowed
   - Caching policies administration allowed
@@ -146,12 +148,14 @@ INSERT INTO mask (name, length) VALUES ('cbact04c_fd_tran_cat_bal_record', 50);
 Masks are stored in the Blusam storage using two tables:
 
 - mask: used to identify masks. The columns of the mas table are:
+
   - name: used to store mask identification (used as primary key, so must be unique)
   - length: size in bytes of the record mask
 
 - mask_item: used to store mask details. Every elementary field from a FD record definition
   will produce a row in the mask_item table, with details on how to interpret the given record
   part. The columns of the mask_item table are:
+
   - name: name of the record field, based on the elementary name, using lowercase and
     replacing dash with underscore
   - c_offset: 1-based offset of the record sub-part, used for the field content
