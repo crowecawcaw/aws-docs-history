@@ -1,4 +1,4 @@
-# Getting started with Amazon Neptune
+# Getting started with graph databases
 
 The following code example shows how to:
 

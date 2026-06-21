@@ -1,4 +1,4 @@
-# Getting started with Elastic Load Balancing
+# Getting started with load balancing
 
 The following code example shows how to:
 

@@ -1,4 +1,4 @@
-# Get started with Marketplace Buyer using the CLI
+# Get started with software marketplace purchasing using the CLI
 
 The following code example shows how to:
 

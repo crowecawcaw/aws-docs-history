@@ -5,9 +5,9 @@ The following code examples show how to use `RevokeSecurityGroupIngress`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Getting started with Amazon DocumentDB](example_docdb_GettingStarted_025_section.md "example_docdb_GettingStarted_025_section.md")
-- [Getting started with Amazon ElastiCache](example_ec2_GettingStarted_065_section.md "example_ec2_GettingStarted_065_section.md")
-- [Getting started with Amazon MSK](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+- [Getting started with document databases](example_docdb_GettingStarted_025_section.md "example_docdb_GettingStarted_025_section.md")
+- [Getting started with in-memory caching](example_ec2_GettingStarted_065_section.md "example_ec2_GettingStarted_065_section.md")
+- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
 
 CLI
 

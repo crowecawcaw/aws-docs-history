@@ -1,4 +1,4 @@
-# Working with VPC peering connections
+# Working with network peering connections
 
 The following code example shows how to:
 

@@ -1,4 +1,4 @@
-# Run CPU stress tests on EC2 instances using FIS
+# Run CPU stress tests on virtual machine instances using fault injection
 
 The following code example shows how to:
 

@@ -1,4 +1,4 @@
-# Get started using Amazon VPC IPAM using the CLI
+# Get started using IP address management using the CLI
 
 The following code example shows how to:
 

@@ -5,7 +5,7 @@ The following code examples show how to use `RevokeSecurityGroupEgress`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Getting started with Amazon MSK](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
 
 CLI
 

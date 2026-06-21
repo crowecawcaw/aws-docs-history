@@ -1,4 +1,4 @@
-# Getting started with Amazon EC2
+# Getting started with virtual machines
 
 The following code example shows how to:
 

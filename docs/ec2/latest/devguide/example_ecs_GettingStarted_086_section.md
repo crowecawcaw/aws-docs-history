@@ -1,4 +1,4 @@
-# Create an Amazon ECS Linux task for the Fargate launch type
+# Create a container task for the serverless launch type
 
 The following code example shows how to:
 

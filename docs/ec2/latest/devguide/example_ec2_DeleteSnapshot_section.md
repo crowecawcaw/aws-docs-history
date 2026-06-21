@@ -5,7 +5,7 @@ The following code examples show how to use `DeleteSnapshot`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Working with Amazon EBS encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md "example_ec2_GettingStarted_022_section.md")
+- [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md "example_ec2_GettingStarted_022_section.md")
 
 CLI
 

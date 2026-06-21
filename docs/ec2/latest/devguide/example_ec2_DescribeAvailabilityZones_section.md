@@ -6,14 +6,14 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
-- [Create a basic VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Creating and managing Amazon EBS volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
-- [Getting started with Amazon MSK](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
-- [Getting started with Amazon Neptune](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
-- [Getting started with Amazon VPC Transit Gateway](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
-- [Getting started with Elemental MediaConnect](example_mediaconnect_GettingStarted_081_section.md "example_mediaconnect_GettingStarted_081_section.md")
-- [VPC with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
-- [Working with Amazon EBS encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md "example_ec2_GettingStarted_022_section.md")
+- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
+- [Getting started with graph databases](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
+- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+- [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
+- [Getting started with video transport streaming](example_mediaconnect_GettingStarted_081_section.md "example_mediaconnect_GettingStarted_081_section.md")
+- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+- [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md "example_ec2_GettingStarted_022_section.md")
 
 .NET
 

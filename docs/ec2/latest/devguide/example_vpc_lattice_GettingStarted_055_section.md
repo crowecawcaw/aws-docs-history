@@ -1,4 +1,4 @@
-# Creating and managing a VPC Lattice service network
+# Creating and managing a service networking mesh
 
 The following code example shows how to:
 

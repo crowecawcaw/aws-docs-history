@@ -1,4 +1,4 @@
-# Getting started with Amazon ElastiCache
+# Getting started with in-memory caching
 
 The following code example shows how to:
 

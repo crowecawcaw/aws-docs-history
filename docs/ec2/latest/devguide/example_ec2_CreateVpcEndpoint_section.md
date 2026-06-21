@@ -5,7 +5,7 @@ The following code examples show how to use `CreateVpcEndpoint`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [VPC with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
 
 CLI
 

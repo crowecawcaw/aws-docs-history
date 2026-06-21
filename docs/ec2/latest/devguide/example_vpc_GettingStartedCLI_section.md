@@ -1,4 +1,4 @@
-# Getting started with Amazon VPC
+# Getting started with virtual private networks
 
 The following code example shows how to:
 

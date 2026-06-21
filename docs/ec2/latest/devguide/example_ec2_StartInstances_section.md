@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Getting started with Amazon EC2](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
+- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
 
 .NET
 

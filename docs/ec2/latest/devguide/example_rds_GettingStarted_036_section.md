@@ -1,4 +1,4 @@
-# Creating an Amazon RDS DB instance
+# Creating a relational database instance
 
 The following code example shows how to:
 

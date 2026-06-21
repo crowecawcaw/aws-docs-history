@@ -1,4 +1,4 @@
-# Getting started with Amazon VPC Transit Gateway
+# Getting started with network transit gateways
 
 The following code example shows how to:
 

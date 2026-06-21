@@ -5,7 +5,7 @@ The following code examples show how to use `AcceptVpcPeeringConnection`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Working with VPC peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
+- [Working with network peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
 
 CLI
 

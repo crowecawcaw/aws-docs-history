@@ -6,11 +6,11 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Create a basic VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Create an Amazon ECS Linux task for the Fargate launch type](example_ecs_GettingStarted_086_section.md "example_ecs_GettingStarted_086_section.md")
-- [Creating and managing a VPC Lattice service network](example_vpc_lattice_GettingStarted_055_section.md "example_vpc_lattice_GettingStarted_055_section.md")
-- [Getting started with Amazon ElastiCache](example_ec2_GettingStarted_065_section.md "example_ec2_GettingStarted_065_section.md")
-- [Getting started with Amazon MSK](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md "example_ecs_GettingStarted_086_section.md")
+- [Creating and managing a service networking mesh](example_vpc_lattice_GettingStarted_055_section.md "example_vpc_lattice_GettingStarted_055_section.md")
+- [Getting started with in-memory caching](example_ec2_GettingStarted_065_section.md "example_ec2_GettingStarted_065_section.md")
+- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
 
 .NET
 

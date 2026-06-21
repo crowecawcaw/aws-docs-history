@@ -5,8 +5,8 @@ The following code examples show how to use `DescribeRouteTables`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Create a basic VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Getting started with Amazon VPC Transit Gateway](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
+- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
 
 CLI
 

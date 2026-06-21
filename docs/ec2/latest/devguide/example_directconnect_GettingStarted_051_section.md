@@ -1,4 +1,4 @@
-# Get started with Aws Direct Connect using the CLI
+# Get started with dedicated network connections using the CLI
 
 The following code example shows how to:
 

@@ -1,4 +1,4 @@
-# Getting started with Amazon DocumentDB
+# Getting started with document databases
 
 The following code example shows how to:
 

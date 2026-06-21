@@ -1,4 +1,4 @@
-# Create a VPC with private subnets and NAT gateways using the CLI
+# Create a virtual private network with private subnets and network address translation gateways using the CLI
 
 The following code example shows how to:
 

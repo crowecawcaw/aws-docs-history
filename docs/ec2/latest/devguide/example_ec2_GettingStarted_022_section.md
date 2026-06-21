@@ -1,4 +1,4 @@
-# Working with Amazon EBS encryption, snapshots, and volume initialization
+# Working with block storage encryption, snapshots, and volume initialization
 
 The following code example shows how to:
 

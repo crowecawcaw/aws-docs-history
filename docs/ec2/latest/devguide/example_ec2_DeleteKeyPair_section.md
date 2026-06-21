@@ -6,11 +6,11 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Create a basic VPC](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Creating an Amazon ECS service for the EC2 launch type](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
-- [Get started with Marketplace Buyer](example_ec2_GettingStarted_030_section.md "example_ec2_GettingStarted_030_section.md")
-- [Getting started with Amazon EC2](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
-- [Getting started with Amazon MSK](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
+- [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
+- [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md "example_ec2_GettingStarted_030_section.md")
+- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
 
 .NET
 

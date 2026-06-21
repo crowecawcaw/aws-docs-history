@@ -1,4 +1,4 @@
-# Creating an Amazon ECS service for the EC2 launch type
+# Creating a container service for virtual machine instances
 
 The following code example shows how to:
 

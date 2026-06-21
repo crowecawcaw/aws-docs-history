@@ -1,4 +1,4 @@
-# Getting started with Elemental MediaConnect
+# Getting started with video transport streaming
 
 The following code example shows how to:
 

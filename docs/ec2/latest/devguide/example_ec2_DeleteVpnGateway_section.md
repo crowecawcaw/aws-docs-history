@@ -5,7 +5,7 @@ The following code examples show how to use `DeleteVpnGateway`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Get started with Aws Direct Connect](example_directconnect_GettingStarted_051_section.md "example_directconnect_GettingStarted_051_section.md")
+- [Get started with dedicated network connections](example_directconnect_GettingStarted_051_section.md "example_directconnect_GettingStarted_051_section.md")
 
 CLI
 

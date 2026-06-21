@@ -1,4 +1,4 @@
-# Creating and managing Amazon EBS volumes
+# Creating and managing block storage volumes
 
 The following code example shows how to:
 
