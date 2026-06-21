@@ -24,8 +24,9 @@ For more information on how to manage the dashboard, refer to
 
 HealthOmics provides the following types of logs for workflows:
 
-- Engine logs – The underlying workflow engines (Nextflow, WDL, and CWL) produce engine logs for runs.
-  These logs can help you troubleshoot workflow definition issues.
+- Engine logs – Engine logs such as `.nextflow.log` and `workflow.log` are
+  produced by the underlying workflow engines (Nextflow, WDL, and CWL). These logs can help you troubleshoot
+  workflow definition issues.
 - Run manifest logs – These logs provide high level information about each run task, such as task status,
   start time, stop time, and fail reason (if the task failed).
 
@@ -55,8 +56,8 @@ resource optimization opportunities. These statistics include:
 
 ## Logs in CloudWatch
 
-CloudWatch generates workflow logs for failed runs and successful runs. All logs are available for failed runs and
-successful runs, except engine logs are available only for failed runs.
+CloudWatch generates workflow logs for failed runs and successful runs. All logs are available for successful runs
+and failed runs.
 
 You can find the CloudWatch workflow logs in the following log group: `/aws/omics/WorkflowLog`. Also, the
 output of the **get-run** API operation provides the CloudWatch log stream ARNs for the engine logs and
@@ -66,11 +67,11 @@ By default, AWS keeps the CloudWatch Logs indefinitely. You can adjust the reten
 a retention period between 10 years and one day.
 
 The following table provides a summary of the CloudWatch Logs in HealthOmics. All workflow logs are available for successful
-runs and failed runs, except engine logs are available only for failed runs.
+runs and failed runs.
 
 | Log name                   | Available in CloudWatch Logs | When is log available | Log stream format                    |
 | -------------------------- | ---------------------------- | --------------------- | ------------------------------------ |
-| Engine logs                | Yes, for failed runs         | After run completes   | run/`runID`/engine                   |
+| Engine logs                | Yes                          | In real time          | run/`runID`/engine                   |
 | Run manifest logs          | Yes                          | After run completes   | manifest/run/`runID`/`runUUID`       |
 | Run logs                   | Yes                          | In real time          | run/`runID`                          |
 | Task logs                  | Yes                          | In real time          | run/`runID`/task/`taskID`            |
@@ -79,7 +80,8 @@ runs and failed runs, except engine logs are available only for failed runs.
 
 ## Logs in Amazon S3
 
-Only the engine logs and the `outputs.json` file are delivered to Amazon S3.
+Among the [Log types for HealthOmics workflows](#log-descriptions "#log-descriptions"), only the engine logs and the
+`outputs.json` file are delivered to Amazon S3.
 
 After a run completes, the engine logs are delivered to your S3 bucket and are available indefinitely until
 you delete them. These logs are located in the logs directory of the S3 output URI that you specified for the

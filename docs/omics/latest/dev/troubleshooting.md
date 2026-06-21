@@ -16,7 +16,7 @@ stores.
 
 - [How do I troubleshoot a failed run?](#troubleshooting-run-fail "#troubleshooting-run-fail")
 - [How do I troubleshoot a failed task?](#troubleshooting-task-fail "#troubleshooting-task-fail")
-- [Where do I find the engine logs for successfully completed runs?](#troubleshooting-engine-logs "#troubleshooting-engine-logs")
+- [Where do I find the engine logs?](#troubleshooting-engine-logs "#troubleshooting-engine-logs")
 - [How can I reduce the input parameter size for a workflow?](#troubleshooting-input-file-size "#troubleshooting-input-file-size")
 - [Why is my run not completing?](#troubleshooting-unresponsive-runs "#troubleshooting-unresponsive-runs")
 
@@ -31,10 +31,11 @@ Review the error code from the task failure message to understand the failure. R
 CloudWatch to see detailed logging messages for the task. If you aren’t getting detailed log messages, you can revise
 your workflow to output additional log statements. For more information, see [Monitoring HealthOmics with CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md").
 
-### Where do I find the engine logs for successfully completed runs?
+### Where do I find the engine logs?
 
-HealthOmics publishes logs to CloudWatch for failed runs only. If a run completes successfully, HealthOmics
-delivers the engine logs to your Amazon S3 bucket. For more information, see
+HealthOmics publishes engine logs to CloudWatch in near real-time for all runs (successful and failed). Engine logs
+are also delivered to your Amazon S3 bucket after the run completes. For more information, see
+[Monitoring HealthOmics with CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md") and
 [Logs in Amazon S3](monitoring-cloudwatch-logs.md#s3-logs "monitoring-cloudwatch-logs.md#s3-logs").
 
 ### How can I reduce the input parameter size for a workflow?
@@ -77,9 +78,9 @@ In the `/aws/omics/WorkflowLog` CloudWatch log group, open the log stream for th
 3. If a cache entry was created, verify that the CPUs, memory, GPUs and container digest are identical
    for both tasks. The task ARN for the task that created the cache entry is in the log message.
 4. If the compute requirements for both tasks match, verify that the inputs have not changed between the
-   tasks. To do this, open the engine logs. If the run has a status of FAILED, the logs will be in Cloudwatch
-   Log Group /aws/omics/WorkflowLog. Otherwise the engine logs can be found in the output directory of the
-   run.
+   tasks. To do this, open the engine logs. Engine logs are available in CloudWatch Log Group
+   /aws/omics/WorkflowLog for all runs. They are also available in the output directory of the run after
+   completion.
 
 ### Why is the call caching for a task disabled?
 
