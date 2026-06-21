@@ -17,10 +17,10 @@ configure, and test a variety of security settings. STIG Hardened EC2 Windows Se
 are pre-configured with over 160 required security settings. Amazon EC2 supports the following
 operating systems for STIG Hardened AMIs:
 
+- Windows Server 2025
 - Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012 R2
   The STIG Hardened AMIs include updated Department of Defense (DoD) certificates to help you
   get started and achieve STIG compliance. STIG Hardened AMIs are available in all commercial
   AWS and GovCloud (US) Regions. You can launch instances from these AMIs
@@ -34,11 +34,11 @@ and components.
 
 - [Find a STIG Hardened AMI](#find-windows-stig-ami "#find-windows-stig-ami")
 - [Core and base operating systems](#base-os-stig "#base-os-stig")
-- [Microsoft .NET Framework 4.0 STIG Version 2 Release 6](#dotnet-os-stig "#dotnet-os-stig")
+- [Microsoft .NET Framework 4.0 STIG Version 2 Release 7](#dotnet-os-stig "#dotnet-os-stig")
 - [WindowsFirewall STIG Version 2 Release 2](#windows-firewall-stig "#windows-firewall-stig")
-- [Internet Explorer (IE) 11 STIG Version 2 Release 5](#ie-os-stig "#ie-os-stig")
-- [Microsoft Edge STIG Version 2 Release 2](#edge-stig "#edge-stig")
-- [Microsoft Defender STIG Version 2 Release 4](#defender-stig "#defender-stig")
+- [Internet Explorer (IE) 11 STIG Version 2 Release 6](#ie-os-stig "#ie-os-stig")
+- [Microsoft Edge STIG Version 2 Release 4](#edge-stig "#edge-stig")
+- [Microsoft Defender STIG Version 2 Release 7](#defender-stig "#defender-stig")
 - [Version history](#stig-version-history "#stig-version-history")
 
 ## Find a STIG Hardened AMI
@@ -48,14 +48,21 @@ the EC2 console, or you can search for an AMI in the CLI or in PowerShell, as fo
 
 ###### Name patterns for STIG Hardened Windows AMIs
 
+- Windows_Server-2025-English-STIG-Full-`YYYY.MM.DD`
+- Windows_Server-2025-English-STIG-Core-`YYYY.MM.DD`
 - Windows_Server-2022-English-STIG-Full-`YYYY.MM.DD`
 - Windows_Server-2022-English-STIG-Core-`YYYY.MM.DD`
 - Windows_Server-2019-English-STIG-Full-`YYYY.MM.DD`
 - Windows_Server-2019-English-STIG-Core-`YYYY.MM.DD`
 - Windows_Server-2016-English-STIG-Full-`YYYY.MM.DD`
 - Windows_Server-2016-English-STIG-Core-`YYYY.MM.DD`
-- Windows_Server-2012-R2-English-STIG-Full-`YYYY.MM.DD`
-- Windows_Server-2012-R2-English-STIG-Core-`YYYY.MM.DD`
+
+###### Name patterns for NitroTPM STIG Hardened Windows AMIs
+
+- TPM-Windows_Server-2025-English-STIG-Full-`YYYY.MM.DD`
+- TPM-Windows_Server-2025-English-STIG-Core-`YYYY.MM.DD`
+- TPM-Windows_Server-2022-English-STIG-Full-`YYYY.MM.DD`
+- TPM-Windows_Server-2022-English-STIG-Core-`YYYY.MM.DD`
 
 Console
 You can select an AMI from the **Community AMIs** tab when you
@@ -171,53 +178,84 @@ Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=wind
 
 This release includes the following STIG settings for Windows operating systems:
 
+V-278082, V-278083, V-278084, V-278085, V-278098, V-278104, V-278110, V-278231,
+V-278015, V-278016, V-278019, V-278020, V-278021, V-278022, V-278023, V-278024,
+V-278025, V-278026, V-278033, V-278034, V-278035, V-278036, V-278037, V-278038,
+V-278039, V-278047, V-278048, V-278049, V-278050, V-278051, V-278052, V-278053,
+V-278054, V-278055, V-278056, V-278057, V-278058, V-278059, V-278060, V-278061,
+V-278062, V-278063, V-278064, V-278065, V-278066, V-278067, V-278068, V-278069,
+V-278070, V-278071, V-278072, V-278073, V-278074, V-278075, V-278076, V-278077,
+V-278078, V-278079, V-278080, V-278086, V-278088, V-278089, V-278091, V-278092,
+V-278093, V-278094, V-278095, V-278096, V-278097, V-278102, V-278103, V-278105,
+V-278106, V-278107, V-278108, V-278109, V-278111, V-278112, V-278113, V-278114,
+V-278115, V-278116, V-278117, V-278118, V-278119, V-278120, V-278122, V-278123,
+V-278124, V-278126, V-278127, V-278129, V-278130, V-278131, V-278165, V-278168,
+V-278169, V-278170, V-278171, V-278174, V-278180, V-278181, V-278182, V-278183,
+V-278184, V-278185, V-278187, V-278188, V-278189, V-278192, V-278193, V-278194,
+V-278195, V-278198, V-278199, V-278200, V-278201, V-278202, V-278203, V-278204,
+V-278205, V-278206, V-278209, V-278210, V-278211, V-278212, V-278213, V-278214,
+V-278218, V-278220, V-278221, V-278222, V-278223, V-278226, V-278227, V-278228,
+V-278229, V-278230, V-278232, V-278233, V-278234, V-278235, V-278236, V-278237,
+V-278238, V-278239, V-278240, V-278241, V-278243, V-278244, V-278245, V-278247,
+V-278248, V-278249, V-278251, V-278252, V-278253, V-278254, V-278255, V-278256,
+V-278257, V-278258, V-278259, V-278260, V-278261, V-278262, V-279916, V-279917,
+V-279918, V-279919, V-279920, V-279921, V-279922, V-279923, V-278040, V-278099,
+V-278100, V-278101, V-278121, V-278125, V-278128, V-278196, V-278215, V-278216,
+V-278217, V-278219, V-278225, V-278242, V-278246, and V-278250
+
+This release includes the following STIG settings for Windows operating systems:
+
 V-254335, V-254336, V-254337, V-254338, V-254351, V-254357, V-254363, V-254481,
-V-254247, V-254265, V-254269, V-254270, V-254271, V-254272, V-254273, V-254274,
+V-254247, V-254269, V-254270, V-254271, V-254272, V-254273, V-254274, V-254275,
 V-254276, V-254277, V-254278, V-254285, V-254286, V-254287, V-254288, V-254289,
-V-254290, V-254291, V-254292, V-254300, V-254301, V-254302, V-254303, V-254304,
-V-254305, V-254306, V-254307, V-254308, V-254309, V-254310, V-254311, V-254312,
-V-254313, V-254314, V-254315, V-254316, V-254317, V-254318, V-254319, V-254320,
-V-254321, V-254322, V-254323, V-254324, V-254325, V-254326, V-254327, V-254328,
-V-254329, V-254330, V-254331, V-254332, V-254333, V-254334, V-254339, V-254341,
-V-254342, V-254344, V-254345, V-254346, V-254347, V-254348, V-254349, V-254350,
-V-254355, V-254356, V-254356, V-254358, V-254359, V-254360, V-254361, V-254362,
-V-254364, V-254365, V-254366, V-254367, V-254368, V-254369, V-254370, V-254371,
-V-254372, V-254373, V-254375, V-254376, V-254377, V-254379, V-254380, V-254382,
-V-254383, V-254384, V-254431, V-254432, V-254433, V-254434, V-254435, V-254436,
-V-254438, V-254439, V-254442, V-254443, V-254444, V-254445, V-254449, V-254450,
+V-254290, V-254291, V-254292, V-254296, V-254297, V-254298, V-254299, V-254300,
+V-254301, V-254302, V-254303, V-254304, V-254305, V-254307, V-254309, V-254311,
+V-254312, V-254313, V-254314, V-254315, V-254316, V-254319, V-254320, V-254321,
+V-254322, V-254323, V-254324, V-254325, V-254326, V-254327, V-254328, V-254329,
+V-254330, V-254331, V-254332, V-254333, V-254334, V-254339, V-254341, V-254342,
+V-254344, V-254345, V-254346, V-254347, V-254348, V-254349, V-254350, V-254355,
+V-254356, V-254358, V-254359, V-254360, V-254361, V-254362, V-254364, V-254365,
+V-254366, V-254367, V-254368, V-254369, V-254370, V-254371, V-254372, V-254373,
+V-254375, V-254376, V-254377, V-254379, V-254380, V-254382, V-254383, V-254384,
+V-254431, V-254433, V-254434, V-254435, V-254436, V-254438, V-254439, V-254440,
+V-254442, V-254443, V-254444, V-254445, V-254447, V-254448, V-254449, V-254450,
 V-254451, V-254452, V-254453, V-254454, V-254455, V-254456, V-254459, V-254460,
 V-254461, V-254462, V-254463, V-254464, V-254468, V-254470, V-254471, V-254472,
 V-254473, V-254476, V-254477, V-254478, V-254479, V-254480, V-254482, V-254483,
-V-254484, V-254485, V-254486, V-254487, V-254488, V-254489, V-254490, V-254493,
-V-254494, V-254495, V-254497, V-254499, V-254501, V-254502, V-254503, V-254504,
-V-254505, V-254507, V-254508, V-254509, V-254510, V-254511, V-254512, V-254293,
-V-254352, V-254353, V-254354, V-254374, V-254378, V-254381, V-254446, V-254465,
-V-254466, V-254467, V-254469, V-254474, V-254475, and V-254500
+V-254484, V-254485, V-254486, V-254487, V-254488, V-254489, V-254491, V-254493,
+V-254494, V-254495, V-254497, V-254498, V-254499, V-254501, V-254502, V-254503,
+V-254504, V-254505, V-254506, V-254507, V-254508, V-254509, V-254510, V-254511,
+V-254512, V-278942, V-278943, V-278944, V-278945, V-278946, V-278947, V-278948,
+V-278949, V-254250, V-254293, V-254352, V-254353, V-254354, V-254374, V-254378,
+V-254381, V-254446, V-254466, V-254467, V-254469, V-254474, V-254475, V-254492,
+V-254496, and V-254500
 
 This release includes the following STIG settings for Windows operating systems:
 
 V-205691, V-205819, V-205858, V-205859, V-205860, V-205870, V-205871, V-205923,
 V-205625, V-205626, V-205627, V-205629, V-205630, V-205633, V-205634, V-205635,
-V-205636, V-205637, V-205638, V-205639, V-205643, V-205644, V-205648, V-205649,
-V-205650, V-205651, V-205652, V-205655, V-205656, V-205659, V-205660, V-205662,
-V-205671, V-205672, V-205673, V-205675, V-205676, V-205678, V-205679, V-205680,
-V-205681, V-205682, V-205683, V-205684, V-205685, V-205686, V-205687, V-205688,
-V-205689, V-205690, V-205692, V-205693, V-205694, V-205697, V-205698, V-205708,
-V-205709, V-205712, V-205714, V-205716, V-205717, V-205718, V-205719, V-205720,
-V-205722, V-205729, V-205730, V-205733, V-205747, V-205751, V-205752, V-205754,
-V-205756, V-205758, V-205759, V-205760, V-205761, V-205762, V-205764, V-205765,
-V-205766, V-205767, V-205768, V-205769, V-205770, V-205771, V-205772, V-205773,
-V-205774, V-205775, V-205776, V-205777, V-205778, V-205779, V-205780, V-205781,
-V-205782, V-205783, V-205784, V-205795, V-205796, V-205797, V-205798, V-205801,
-V-205808, V-205809, V-205810, V-205811, V-205812, V-205813, V-205814, V-205815,
-V-205816, V-205817, V-205821, V-205822, V-205823, V-205824, V-205825, V-205826,
-V-205827, V-205828, V-205830, V-205832, V-205833, V-205834, V-205835, V-205836,
-V-205837, V-205838, V-205839, V-205840, V-205841, V-205842, V-205861, V-205863,
-V-205865, V-205866, V-205867, V-205868, V-205869, V-205872, V-205873, V-205874,
-V-205911, V-205912, V-205915, V-205916, V-205917, V-205918, V-205920, V-205921,
-V-205922, V-205924, V-205925, V-236001, V-257503, V-205653, V-205654, V-205711,
-V-205713, V-205724, V-205725, V-205757, V-205802, V-205804, V-205805, V-205806,
-V-205849, V-205908, V-205913, V-205914, and V-205919
+V-205636, V-205637, V-205638, V-205639, V-205640, V-205641, V-205642, V-205643,
+V-205644, V-205648, V-205649, V-205650, V-205651, V-205652, V-205655, V-205656,
+V-205659, V-205660, V-205662, V-205671, V-205672, V-205673, V-205675, V-205676,
+V-205678, V-205679, V-205680, V-205681, V-205682, V-205683, V-205684, V-205685,
+V-205686, V-205687, V-205688, V-205689, V-205690, V-205692, V-205693, V-205694,
+V-205697, V-205698, V-205708, V-205709, V-205712, V-205714, V-205716, V-205717,
+V-205718, V-205719, V-205720, V-205722, V-205730, V-205731, V-205733, V-205747,
+V-205748, V-205749, V-205751, V-205752, V-205754, V-205755, V-205756, V-205758,
+V-205759, V-205760, V-205761, V-205762, V-205763, V-205764, V-205765, V-205766,
+V-205767, V-205768, V-205769, V-205770, V-205771, V-205772, V-205773, V-205774,
+V-205775, V-205776, V-205777, V-205778, V-205779, V-205780, V-205781, V-205782,
+V-205783, V-205784, V-205795, V-205796, V-205797, V-205798, V-205801, V-205808,
+V-205809, V-205810, V-205811, V-205812, V-205813, V-205814, V-205815, V-205816,
+V-205817, V-205821, V-205822, V-205823, V-205824, V-205825, V-205826, V-205827,
+V-205828, V-205830, V-205832, V-205833, V-205835, V-205836, V-205837, V-205838,
+V-205842, V-205861, V-205863, V-205865, V-205866, V-205867, V-205868, V-205869,
+V-205872, V-205873, V-205874, V-205909, V-205910, V-205911, V-205912, V-205915,
+V-205916, V-205917, V-205918, V-205920, V-205921, V-205922, V-205925, V-257503,
+V-278934, V-278935, V-278936, V-278937, V-278938, V-278939, V-278940, V-278941,
+V-205653, V-205654, V-205663, V-205711, V-205713, V-205724, V-205725, V-205750,
+V-205753, V-205757, V-205802, V-205804, V-205805, V-205806, V-205849, V-205908,
+V-205914, and V-205919
 
 This release includes the following STIG settings for Windows operating systems:
 
@@ -244,44 +282,7 @@ V-225093, V-236000, V-257502, V-224874, V-224932, V-224933, V-224934, V-224954,
 V-224958, V-224961, V-225025, V-225044, V-225045, V-225046, V-225048, V-225053,
 V-225054, and V-225079
 
-This release includes the following STIG settings for Windows operating systems:
-
-V-225250, V-225318, V-225319, V-225324, V-225327, V-225328, V-225330, V-225331,
-V-225332, V-225333, V-225334, V-225335, V-225336, V-225342, V-225343, V-225355,
-V-225357, V-225358, V-225359, V-225360, V-225362, V-225363, V-225376, V-225392,
-V-225394, V-225412, V-225459, V-225460, V-225462, V-225468, V-225473, V-225476,
-V-225479, V-225480, V-225481, V-225482, V-225483, V-225484, V-225485, V-225487,
-V-225488, V-225489, V-225490, V-225511, V-225514, V-225525, V-225526, V-225536,
-V-225537, V-225239, V-225259, V-225260, V-225261, V-225263, V-225264, V-225265,
-V-225266, V-225267, V-225268, V-225269, V-225270, V-225271, V-225272, V-225273,
-V-225275, V-225276, V-225277, V-225278, V-225279, V-225280, V-225281, V-225282,
-V-225283, V-225284, V-225285, V-225286, V-225287, V-225288, V-225289, V-225290,
-V-225291, V-225292, V-225293, V-225294, V-225295, V-225296, V-225297, V-225298,
-V-225299, V-225300, V-225301, V-225302, V-225303, V-225304, V-225305, V-225314,
-V-225315, V-225316, V-225317, V-225325, V-225326, V-225329, V-225337, V-225338,
-V-225339, V-225340, V-225341, V-225344, V-225345, V-225346, V-225347, V-225348,
-V-225349, V-225350, V-225351, V-225352, V-225353, V-225356, V-225367, V-225368,
-V-225369, V-225370, V-225371, V-225372, V-225373, V-225374, V-225375, V-225377,
-V-225378, V-225379, V-225380, V-225381, V-225382, V-225383, V-225384, V-225385,
-V-225386, V-225389, V-225391, V-225393, V-225395, V-225397, V-225398, V-225400,
-V-225401, V-225402, V-225404, V-225405, V-225406, V-225407, V-225408, V-225409,
-V-225410, V-225411, V-225413, V-225414, V-225415, V-225441, V-225442, V-225443,
-V-225448, V-225452, V-225453, V-225454, V-225455, V-225456, V-225457, V-225458,
-V-225461, V-225463, V-225464, V-225469, V-225470, V-225471, V-225472, V-225474,
-V-225475, V-225477, V-225478, V-225486, V-225494, V-225500, V-225501, V-225502,
-V-225503, V-225504, V-225506, V-225508, V-225509, V-225510, V-225513, V-225515,
-V-225516, V-225517, V-225518, V-225519, V-225520, V-225521, V-225522, V-225523,
-V-225524, V-225527, V-225528, V-225529, V-225530, V-225531, V-225532, V-225533,
-V-225534, V-225535, V-225538, V-225539, V-225540, V-225541, V-225542, V-225543,
-V-225544, V-225545, V-225546, V-225548, V-225549, V-225550, V-225551, V-225553,
-V-225554, V-225555, V-225557, V-225558, V-225559, V-225560, V-225561, V-225562,
-V-225563, V-225564, V-225565, V-225566, V-225567, V-225568, V-225569, V-225570,
-V-225571, V-225572, V-225573, V-225574, V-225274, V-225354, V-225364, V-225365,
-V-225366, V-225390, V-225396, V-225399, V-225444, V-225449, V-225491, V-225492,
-V-225493, V-225496, V-225497, V-225498, V-225505, V-225507, V-225547, V-225552,
-and V-225556
-
-## Microsoft .NET Framework 4.0 STIG Version 2 Release 6
+## Microsoft .NET Framework 4.0 STIG Version 2 Release 7
 
 The following list contains STIG settings that apply to
 Windows operating system components for STIG Hardened EC2 AMIs. The following list contains STIG settings that apply for STIG Hardened
@@ -292,9 +293,9 @@ settings apply, such as a requirement for administrators to review document sett
 For a complete list of Windows STIGs, see the [STIGs
 Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows "https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows"). For information about how to view the complete list, see [STIG Viewing Tools](https://public.cyber.mil/stigs/srg-stig-tools/ "https://public.cyber.mil/stigs/srg-stig-tools/").
 
-###### .NET Framework on Windows Server 2019, 2016, and 2012 R2 MS
+###### .NET Framework on Windows Server 2025, 2022, 2019, and 2016
 
-V-225238
+V-225223, V-225230, V-225235, and V-225238
 
 ## WindowsFirewall STIG Version 2 Release 2
 
@@ -307,13 +308,13 @@ settings apply, such as a requirement for administrators to review document sett
 For a complete list of Windows STIGs, see the [STIGs
 Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows "https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows"). For information about how to view the complete list, see [STIG Viewing Tools](https://public.cyber.mil/stigs/srg-stig-tools/ "https://public.cyber.mil/stigs/srg-stig-tools/").
 
-###### WindowsFirewall on Windows Server 2022, 2019, 2016, and 2012 R2 MS
+###### WindowsFirewall on Windows Server 2025, 2022, 2019, and 2016
 
 V-241994, V-241995, V-241996, V-241999, V-242000, V-242001, V-242006, V-242007,
 V-242008, V-241989, V-241990, V-241991, V-241993, V-241998, V-242003, V-241992,
 V-241997, and V-242002
 
-## Internet Explorer (IE) 11 STIG Version 2 Release 5
+## Internet Explorer (IE) 11 STIG Version 2 Release 6
 
 The following list contains STIG settings that apply to
 Windows operating system components for STIG Hardened EC2 AMIs. The following list contains STIG settings that apply for STIG Hardened
@@ -324,7 +325,7 @@ settings apply, such as a requirement for administrators to review document sett
 For a complete list of Windows STIGs, see the [STIGs
 Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows "https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows"). For information about how to view the complete list, see [STIG Viewing Tools](https://public.cyber.mil/stigs/srg-stig-tools/ "https://public.cyber.mil/stigs/srg-stig-tools/").
 
-###### IE 11 on Windows Server 2022, 2019, 2016, and 2012 R2 MS
+###### IE 11 on Windows Server 2022, 2019, and 2016
 
 V-223016, V-223056, V-223078, V-223015, V-223017, V-223018, V-223019, V-223020,
 V-223021, V-223022, V-223023, V-223024, V-223025, V-223026, V-223027, V-223028,
@@ -345,7 +346,7 @@ V-223136, V-223137, V-223138, V-223139, V-223140, V-223141, V-223142, V-223143,
 V-223144, V-223145, V-223146, V-223147, V-223148, V-223149, V-250540, V-250541,
 and V-252910
 
-## Microsoft Edge STIG Version 2 Release 2
+## Microsoft Edge STIG Version 2 Release 4
 
 The following list contains STIG settings that apply to
 Windows operating system components for STIG Hardened EC2 AMIs. The following list contains STIG settings that apply for STIG Hardened
@@ -356,7 +357,7 @@ settings apply, such as a requirement for administrators to review document sett
 For a complete list of Windows STIGs, see the [STIGs
 Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows "https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows"). For information about how to view the complete list, see [STIG Viewing Tools](https://public.cyber.mil/stigs/srg-stig-tools/ "https://public.cyber.mil/stigs/srg-stig-tools/").
 
-###### Microsoft Edge on Windows Server 2022
+###### Microsoft Edge on Windows Server 2022 and 2025
 
 V-235727, V-235731, V-235751, V-235752, V-235765, V-235720, V-235721, V-235723,
 V-235724, V-235725, V-235726, V-235728, V-235729, V-235730, V-235732, V-235733,
@@ -366,7 +367,7 @@ V-235750, V-235754, V-235756, V-235760, V-235761, V-235763, V-235764, V-235766,
 V-235767, V-235768, V-235769, V-235770, V-235771, V-235772, V-235773, V-235774,
 V-246736, V-235758, and V-235759
 
-## Microsoft Defender STIG Version 2 Release 4
+## Microsoft Defender STIG Version 2 Release 7
 
 The following list contains STIG settings that apply to
 Windows operating system components for STIG Hardened EC2 AMIs. The following list contains STIG settings that apply for STIG Hardened
@@ -377,12 +378,17 @@ settings apply, such as a requirement for administrators to review document sett
 For a complete list of Windows STIGs, see the [STIGs
 Document Library](https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows "https://public.cyber.mil/stigs/downloads/?_dl_facet_stigs=windows"). For information about how to view the complete list, see [STIG Viewing Tools](https://public.cyber.mil/stigs/srg-stig-tools/ "https://public.cyber.mil/stigs/srg-stig-tools/").
 
-###### Microsoft Defender on Windows Server 2022
+###### Microsoft Defender on Windows Server 2022 and 2025
 
 V-213427, V-213429, V-213430, V-213431, V-213432, V-213433, V-213434, V-213435,
 V-213436, V-213437, V-213438, V-213439, V-213440, V-213441, V-213442, V-213443,
 V-213444, V-213445, V-213446, V-213447, V-213448, V-213449, V-213450, V-213451,
-V-213455, V-213464, V-213465, V-213466, V-213426, V-213452, and V-213453
+V-213454, V-213455, V-213456, V-213457, V-213458, V-213459, V-213460, V-213461,
+V-213462, V-213463, V-213464, V-213465, V-213466, V-278647, V-278648, V-278649,
+V-278650, V-278651, V-278652, V-278653, V-278654, V-278655, V-278656, V-278658,
+V-278659, V-278660, V-278661, V-278662, V-278668, V-278669, V-278672, V-278674,
+V-278675, V-278676, V-278677, V-278678, V-278679, V-278680, V-278863, V-213426,
+V-213428, V-213452, and V-213453
 
 ## Version history
 
@@ -391,6 +397,8 @@ to Windowsoperating systems and Windowscomponents.
 
 | Date       | AMIs                                                                                                                                                                                                                                                                                                                                                                                                                                                | Details                                                                                        |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| 05/14/2026 | Windows Server 2025 STIG Version 1 Release 1                                                                                                                                                                                                                                                                                                                                                                                                        | Added support for Windows Server 2025 with STIG Version 1<br>Release 1 applied.                |
+| 03/12/2026 | Windows Server 2022 STIG Version 2 Release 7<br>Windows Server 2019 STIG Version 3 Release 7<br>Windows Server 2016 STIG Version 2 Release 10<br>Windows Server 2012 R2 MS STIG Version 3 Release 5<br>Microsoft .NET Framework 4.0 STIG Version 2 Release 7<br>WindowsFirewall STIG Version 2 Release 2<br>Internet Explorer 11 STIG Version 2 Release 6<br>Microsoft Edge STIG Version 2 Release 4<br>Microsoft Defender STIG Version 2 Release 7 | Updated all applicable STIGs to first quarter 2026 releases.                                   |
 | 06/19/2025 | Windows Server 2022 STIG Version 2 Release 4<br>Windows Server 2019 STIG Version 3 Release 4<br>Windows Server 2016 STIG Version 2 Release 10<br>Windows Server 2012 R2 MS STIG Version 3 Release 5<br>Microsoft .NET Framework 4.0 STIG Version 2 Release 6<br>WindowsFirewall STIG Version 2 Release 2<br>Internet Explorer 11 STIG Version 2 Release 5<br>Microsoft Edge STIG Version 2 Release 2<br>Microsoft Defender STIG Version 2 Release 4 | AMIs released for 2025 Q1 and Q2 with updated versions where applicable,<br>and applied STIGs. |
 | 03/06/2025 | Windows Server 2022 STIG Version 2 Release 2<br>Windows Server 2019 STIG Version 3 Release 2<br>Windows Server 2016 STIG Version 2 Release 9<br>Windows Server 2012 R2 MS STIG Version 3 Release 5<br>Microsoft .NET Framework 4.0 STIG Version 2 Release 2<br>WindowsFirewall STIG Version 2 Release 2<br>Internet Explorer 11 STIG Version 2 Release 5<br>Microsoft Edge STIG Version 2 Release 2<br>Microsoft Defender STIG Version 2 Release 4  | AMIs released for 2024 Q4 with updated versions where applicable,<br>and applied STIGs.        |
 | 04/24/2023 | Windows Server 2022 STIG Version 1 Release 1<br>Microsoft Edge STIG Version 1 Release 6<br>Microsoft Defender STIG Version 2 Release 4                                                                                                                                                                                                                                                                                                              | Added support for Windows Server 2022, Microsoft Edge, and<br>Microsoft Defender.              |
