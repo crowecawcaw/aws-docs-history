@@ -6,7 +6,7 @@ From this page, you can view your current costs, see projected monthly costs, ex
 ## Who can access the Usage page
 
 The Usage page is available from any account that has Security Hub enabled.
-To access it, open the Security Hub console and choose **Usage** under **Settings** in the left navigation panel.
+To access it, open the Security Hub console and choose **Usage** under **Settings** in the navigation pane.
 
 ###### Important
 
@@ -114,7 +114,7 @@ You can see the current usage, free usage, current costs, free trial value, and 
 
 ## Cost optimization strategies
 
-Choose **Cost optimization strategies** at the top of the Usage page to navigate to a dedicated page with actionable ways to manage your costs while maintaining your security coverage.
+Choose **Cost optimization strategies** on the Usage page to navigate to a dedicated page with actionable ways to manage your costs while maintaining your security coverage.
 
 Each strategy is presented as an independent option that you can evaluate and apply based on your organization's needs.
 Options without security tradeoffs are listed first.
