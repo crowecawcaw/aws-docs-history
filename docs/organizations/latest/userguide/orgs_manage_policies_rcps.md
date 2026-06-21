@@ -70,6 +70,7 @@ RCPs apply to actions for the following AWS services:
 - [AWS Health](../../../health.md "../../../health.md")
 - [Amazon Kinesis Video Streams](../../../kinesisvideo.md "../../../kinesisvideo.md")
 - [Amazon OpenSearch Serverless](../../../opensearch-service.md "../../../opensearch-service.md")
+- [AWS Sign-In](../../../signin.md "../../../signin.md")
 - [AWS Support](../../../support.md "../../../support.md")
 - [Amazon Textract](../../../textract.md "../../../textract.md")
 - [Amazon Transcribe](../../../transcribe.md "../../../transcribe.md")

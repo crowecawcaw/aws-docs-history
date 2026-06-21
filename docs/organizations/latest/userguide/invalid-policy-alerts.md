@@ -66,13 +66,9 @@ If you receive an invalid effective policy notification, you can navigate throug
 
 Effective policies on an account can become invalid if they violate the constraints defined for the particular policy type. For example, a policy might be missing a required parameter in the final effective policy or exceed certain quotas defined for the policy type.
 
-**Backup policy example**
-
-Suppose that you create a backup policy with nine backup rules and attach it to the root of your organization. Later, you create another backup policy for the same backup plan – with two more rules – and attach it to any account in the organization. In that situation, there's an invalid effective policy on the account. It is invalid because the aggregation of the two policies defines 11 rules for the backup plan. The limit is 10 backup rules in a plan.
-
-###### Warning
-
-If any account in the organization has an invalid effective policy, that account will not receive effective policy updates for the particular policy type. It continues with the last applied valid effective policy for the account, unless all the errors are fixed.
+AWS Organizations validates effective policies before applying them to the accounts in your organization. This auditing process is especially beneficial if you
+have a large organization structure, and if your organization's policies are managed by more
+than one team.
 
 **Examples of possible errors for effective policies**
 
@@ -80,6 +76,19 @@ If any account in the organization has an invalid effective policy, that account
 - `ELEMENTS_TOO_FEW` – Occurs when a particular attribute in an effective policy does not meet the minimum limit, such as when no region is defined for a backup plan.
 - `KEY_REQUIRED` – Occurs when a required configuration is missing in the effective policy, such as when a backup plan is missing a backup rule.
 
-AWS Organizations validates effective policies before applying them to the accounts in your organization. This auditing process is especially beneficial if you
-have a large organization structure, and if your organization's policies are managed by more
-than one team.
+###### Warning
+
+If any account in the organization has an invalid effective policy, that account will not receive effective policy updates for the particular policy type. It continues with the last applied valid effective policy for the account, unless all the errors are fixed.
+
+## Validations by policy type
+
+**Backup policy**
+
+Suppose that you create a backup policy with nine backup rules and attach it to the root of your organization. Later, you create another backup policy for the same backup plan – with two more rules – and attach it to any account in the organization. In that situation, there's an invalid effective policy on the account. It is invalid because the aggregation of the two policies defines 11 rules for the backup plan. The limit is 10 backup rules in a plan.
+
+**Tag policy**
+
+Tag policy effective policies are subject to the following validations:
+
+- The effective tag policy size must not exceed 395,000 characters. Multi-byte characters (such as those in Chinese, Japanese, or Korean) consume more space and will reduce this limit accordingly. If the aggregation of all inherited and directly attached tag policies at an account level results in an effective policy larger than 395,000 characters, the effective policy is considered invalid.
+- The number of unique required tag keys per resource type must not exceed 50. Suppose that you attach a tag policy with 30 required tag keys for EC2 instances to the root, and later attach another tag policy with 25 different required tag keys for EC2 instances to an OU. In that situation, there's an invalid effective policy on accounts in that OU. It is invalid because the aggregation of the two policies defines 55 unique required tag keys for a single resource type. The limit is 50 unique required tag keys per resource type. This limit is validated both on individual tag policies and on the aggregated effective policy.
