@@ -240,7 +240,7 @@ JSON
  "Sid": "TrustQueryEngineRoleForSystemDriver",
  "Effect": "Allow",
  "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:role/`QueryExecutionRole`"
+ "AWS": "arn:aws:iam::`123456789012`:role/`QueryEngineRole`"
  },
  "Action": [
  "sts:AssumeRole",

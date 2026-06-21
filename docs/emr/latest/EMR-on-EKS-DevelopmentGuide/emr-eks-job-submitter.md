@@ -84,6 +84,15 @@ Sets a custom image for the job submitter pod's `job-runner` container.
 Sets the [imagePullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy "https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy")
 for the job submitter pod's containers.
 
+**`jobsubmitter.gracefulTermination`**
+
+By default or when this config is set to `false`, after the job runner
+pod creates the driver pod it continues running, watches the driver pod, and
+periodically logs the driver status for the lifetime of the job. When this config is set
+to `true`, the job runner pod instead terminates immediately after starting
+the Spark driver pod. This means the job runner pod consumes CPU and memory for less
+time, but job runner logs are no longer available.
+
 We recommend to place job submitter pods on On-Demand Instances. Placing job submitter
 pods on Spot instances might result in a job failure if the instance where the job submitter
 pod runs is subject to a Spot Instance interruption. You can also [place the job submitter pod in a single
@@ -100,6 +109,7 @@ Availability Zone or use any Kubernetes labels that are applied to the nodes](#e
 - [StartJobRun request with logging disabled for the job submitter pod](#emr-eks-job-submitter-logging-disabled "#emr-eks-job-submitter-logging-disabled")
 - [StartJobRun request with custom logging container image, CPU, and memory for the job submitter pod](#emr-eks-job-submitter-custom "#emr-eks-job-submitter-custom")
 - [StartJobRun request with a custom job submitter container image and pull policy](#emr-eks-job-submitter-custom-container "#emr-eks-job-submitter-custom-container")
+- [StartJobRun request with graceful termination enabled for the job submitter pod](#emr-eks-job-submitter-graceful-termination "#emr-eks-job-submitter-graceful-termination")
 
 ### `StartJobRun` request with On-Demand node placement for the job submitter pod
 
@@ -258,6 +268,21 @@ aws emr-containers start-job-run --cli-input-json file:///spark-python-in-s3-nod
       "properties": {
         "jobsubmitter.container.image": "`123456789012.dkr.ecr.us-west-2.amazonaws.com/emr6.11_custom_repo`",
         "jobsubmitter.container.image.pullPolicy": "`kubernetes pull policy`"
+      }
+    }
+  ]
+}
+```
+
+### `StartJobRun` request with graceful termination enabled for the job submitter pod
+
+```
+"configurationOverrides": {
+  "applicationConfiguration": [
+    {
+      "classification": "emr-job-submitter",
+      "properties": {
+        "jobsubmitter.gracefulTermination": "true"
       }
     }
   ]
