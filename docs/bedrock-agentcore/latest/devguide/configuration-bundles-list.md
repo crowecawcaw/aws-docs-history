@@ -14,25 +14,25 @@ AgentCore CLI
 List versions of a bundle:
 
 ```
-agentcore config-bundle versions --bundle myAgentConfig
+agentcore config-bundle versions --name myAgentConfig
 ```
 
 Filter by branch:
 
 ```
-agentcore config-bundle versions --bundle myAgentConfig --branch mainline
+agentcore config-bundle versions --name myAgentConfig --branch mainline
 ```
 
 Show only the latest version per branch:
 
 ```
-agentcore config-bundle versions --bundle myAgentConfig --latest-per-branch
+agentcore config-bundle versions --name myAgentConfig --latest-per-branch
 ```
 
 Filter by creator (for example, versions created by a recommendation job):
 
 ```
-agentcore config-bundle versions --bundle myAgentConfig --created-by recommendation
+agentcore config-bundle versions --name myAgentConfig --created-by recommendation
 ```
 
 AWS SDK (boto3)

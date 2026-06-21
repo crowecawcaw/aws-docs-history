@@ -20,6 +20,22 @@ print(f"Deleted: {response['batchEvaluationId']}")
 print(f"Status: {response['status']}")
 ```
 
+AgentCore CLI
+To delete your batch evaluation job record from the service and clear local history, use `agentcore archive batch-evaluation`.
+
+```
+# Archive (delete) a batch evaluation job record on the service and clear local history
+agentcore archive batch-evaluation -i <batch-evaluation-id>
+```
+
+For a still-running job, you must first stop it before archiving:
+
+```
+agentcore stop batch-evaluation -i <batch-evaluation-id>
+```
+
+Both subcommands accept `-i, --id <id>`, plus `--region` and `--json`.
+
 ## Request parameters
 
 | Parameter           | Type   | Required | Description                                                    |
@@ -36,11 +52,11 @@ print(f"Status: {response['status']}")
 
 ## Errors
 
-| Error                       | HTTP status | Description                                                        |
-| --------------------------- | ----------- | ------------------------------------------------------------------ |
-| `ResourceNotFoundException` | 404         | No batch evaluation found with the specified ID.                   |
-| `ConflictException`         | 409         | The batch evaluation is still running. Stop it first, then delete. |
-| `ValidationException`       | 400         | Invalid batch evaluation ID format.                                |
-| `AccessDeniedException`     | 403         | Insufficient permissions.                                          |
-| `ThrottlingException`       | 429         | Request rate exceeded.                                             |
-| `InternalServerException`   | 500         | Service-side error.                                                |
+| Error                       | HTTP status | Description                                                                                                                                                                                                                                                  |
+| --------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ResourceNotFoundException` | 404         | No batch evaluation found with the specified ID.                                                                                                                                                                                                             |
+| `ConflictException`         | 409         | The batch evaluation is still running. Stop it first, then delete. With the AgentCore CLI, stop the running job using `agentcore stop batch-evaluation -i <batch-evaluation-id>` (flag is `-i, --id`; optional `--region` and `--json`) before archiving it. |
+| `ValidationException`       | 400         | Invalid batch evaluation ID format.                                                                                                                                                                                                                          |
+| `AccessDeniedException`     | 403         | Insufficient permissions.                                                                                                                                                                                                                                    |
+| `ThrottlingException`       | 429         | Request rate exceeded.                                                                                                                                                                                                                                       |
+| `InternalServerException`   | 500         | Service-side error.                                                                                                                                                                                                                                          |

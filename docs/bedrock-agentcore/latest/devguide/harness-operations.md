@@ -8,6 +8,11 @@ Every harness invocation automatically generates traces, logs, and metrics throu
 
 ###### Example
 
+AWS CLI/boto3
+Traces, logs, and metrics flow to CloudWatch through the harness execution role. View them in the [AgentCore Observability dashboard](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#/gen-ai-observability/agent-core/agents "https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#/gen-ai-observability/agent-core/agents"), or query programmatically through the CloudWatch Logs and X-Ray APIs.
+
+Before you see traces, [enable Transaction Search in CloudWatch](../../../AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.md "../../../AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.md") (one-time per account). See [AgentCore Observability getting started](observability-get-started.md "observability-get-started.md") for setup details.
+
 AgentCore CLI
 
 ```
@@ -23,11 +28,6 @@ agentcore traces list --harness research-agent
 # Get a specific trace
 agentcore traces get <trace-id> --harness research-agent
 ```
-
-AWS CLI/boto3
-Traces, logs, and metrics flow to CloudWatch through the harness execution role. View them in the [AgentCore Observability dashboard](https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#/gen-ai-observability/agent-core/agents "https://us-west-2.console.aws.amazon.com/cloudwatch/home?region=us-west-2#/gen-ai-observability/agent-core/agents"), or query programmatically through the CloudWatch Logs and X-Ray APIs.
-
-Before you see traces, [enable Transaction Search in CloudWatch](../../../AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.md "../../../AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.md") (one-time per account). See [AgentCore Observability getting started](observability-get-started.md "observability-get-started.md") for setup details.
 
 Learn more: [Observability overview](observability.md "observability.md") · [metrics](observability-runtime-metrics.md "observability-runtime-metrics.md") · [telemetry](observability-telemetry.md "observability-telemetry.md")
 
@@ -58,6 +58,18 @@ All limits are optional; omit them to use service defaults. Because harness is b
 
 ###### Example
 
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control update-harness \
+  --harness-id "MyHarness-UuFdkQoXSL" \
+  --max-iterations 50 \
+  --timeout-seconds 1800 \
+  --max-tokens 8192
+```
+
+Or override on a single invocation by passing `maxIterations`, `timeoutSeconds`, or `maxTokens` in `invoke_harness`.
+
 AgentCore CLI
 Set defaults:
 
@@ -78,23 +90,20 @@ agentcore invoke --harness bounded-agent --max-iterations 20 --harness-timeout 6
   "Quick lookup: what's the weather in Seattle?"
 ```
 
-AWS CLI/boto3
-
-```
-aws bedrock-agentcore-control update-harness \
-  --harness-id "MyHarness-UuFdkQoXSL" \
-  --max-iterations 50 \
-  --timeout-seconds 1800 \
-  --max-tokens 8192
-```
-
-Or override on a single invocation by passing `maxIterations`, `timeoutSeconds`, or `maxTokens` in `invoke_harness`.
-
 ## Tags
 
 Apply tags to your harness for cost allocation and access control.
 
 ###### Example
+
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control create-harness \
+  --harness-name "MyHarness" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
+  --tags '{"team": "platform", "environment": "staging"}'
+```
 
 AgentCore CLI
 Set tags in `harness.json`:
@@ -110,20 +119,11 @@ Set tags in `harness.json`:
 
 Run `agentcore deploy` to apply.
 
-AWS CLI/boto3
-
-```
-aws bedrock-agentcore-control create-harness \
-  --harness-name "MyHarness" \
-  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
-  --tags '{"team": "platform", "environment": "staging"}'
-```
-
 Tags flow through to deployed CloudFormation resources.
 
 ### Related topics
 
-- [Persist memory and filesystem](harness-memory.md "harness-memory.md") - memory persists conversation context across sessions
-- [Environment and Skills](harness-environment.md "harness-environment.md") - environment variables and custom containers
+- [Memory](harness-memory.md "harness-memory.md") - memory persists conversation context across sessions
+- [Environment and filesystem](harness-environment.md "harness-environment.md") - environment variables and custom containers
 - [Security and access controls](harness-security.md "harness-security.md") - execution role policy and IAM permissions
 - [API Documentation](harness-get-started.md#api-documentation "harness-get-started.md#api-documentation")

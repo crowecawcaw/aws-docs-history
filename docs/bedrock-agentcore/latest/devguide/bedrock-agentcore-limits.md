@@ -14,6 +14,10 @@ To request a quota increase, contact AWS support.
 - [AgentCore Browser Service Quotas](#browser-service-limits "#browser-service-limits")
 - [AgentCore Code Interpreter Service Quotas](#code-interpreter-service-limits "#code-interpreter-service-limits")
 - [AgentCore Evaluations Service Quotas](#evaluation-service-limits "#evaluation-service-limits")
+- [AgentCore Batch Evaluation Service Quotas](#optimization-batch-evaluation-limits "#optimization-batch-evaluation-limits")
+- [AgentCore AB Testing Service Quotas](#optimization-ab-testing-limits "#optimization-ab-testing-limits")
+- [AgentCore Recommendations Service Quotas](#optimization-recommendations-limits "#optimization-recommendations-limits")
+- [AgentCore Configuration Bundle Service Quotas](#optimization-configuration-bundle-limits "#optimization-configuration-bundle-limits")
 - [AgentCore Policy Service Quotas](#policy-service-limits "#policy-service-limits")
 - [AgentCore Resource Based Policies](#resource-based-policies-quotas "#resource-based-policies-quotas")
 - [AWS Agent Registry Service Quotas](#registry-limits "#registry-limits")
@@ -342,6 +346,108 @@ The following table describes the service quotas for AgentCore Evaluations:
 | Size of all spans in a sampled session (in MB)      | 15            | No         |       |
 | Active online evaluation configurations per account | 100           | No         |       |
 | Evaluators per online evaluation configuration      | 10            | No         |       |
+
+## AgentCore Batch Evaluation Service Quotas
+
+The following are the service quotas for AgentCore Batch Evaluation. These quotas ensure service stability and availability.
+
+### Throttling limits
+
+The following table describes the rate quotas for AgentCore Batch Evaluation APIs. Requests exceeding these quotas are throttled.
+
+| Limit                          | Value  | Adjustable | Notes                               |
+| ------------------------------ | ------ | ---------- | ----------------------------------- |
+| CreateBatchEvaluation API rate | 3 TPS  | No         | Transactions per second per account |
+| StopBatchEvaluation API rate   | 3 TPS  | No         | Transactions per second per account |
+| DeleteBatchEvaluation API rate | 3 TPS  | No         | Transactions per second per account |
+| GetBatchEvaluation API rate    | 60 TPS | No         | Transactions per second per account |
+| ListBatchEvaluations API rate  | 60 TPS | No         | Transactions per second per account |
+
+### Resource limits
+
+| Limit                                 | Value | Adjustable | Notes                                                                                      |
+| ------------------------------------- | ----- | ---------- | ------------------------------------------------------------------------------------------ |
+| Active evaluations per account        | 5     | No         | Maximum concurrent batch evaluations running                                               |
+| Maximum batch evaluations per account | 2,000 | No         | Total batch evaluations that can exist. To create more, delete existing batch evaluations. |
+| Spans per evaluation job              | 500   | No         | Maximum number of spans per batch evaluation job                                           |
+| Evaluators per job                    | 10    | No         | Maximum number of evaluators per batch evaluation job                                      |
+
+## AgentCore AB Testing Service Quotas
+
+The following are the service quotas for AgentCore AB Testing. These quotas ensure service stability and availability.
+
+### Throttling limits
+
+The following table describes the rate quotas for AgentCore AB Testing APIs. Requests exceeding these quotas are throttled.
+
+| Limit                 | Value  | Adjustable | Notes                               |
+| --------------------- | ------ | ---------- | ----------------------------------- |
+| CreateABTest API rate | 3 TPS  | No         | Transactions per second per account |
+| UpdateABTest API rate | 3 TPS  | No         | Transactions per second per account |
+| DeleteABTest API rate | 3 TPS  | No         | Transactions per second per account |
+| GetABTest API rate    | 60 TPS | No         | Transactions per second per account |
+| ListABTests API rate  | 60 TPS | No         | Transactions per second per account |
+
+### Resource limits
+
+| Limit                        | Value | Adjustable | Notes                                                                    |
+| ---------------------------- | ----- | ---------- | ------------------------------------------------------------------------ |
+| Active AB tests per account  | 20    | No         | AB tests with execution status of PAUSED or RUNNING                      |
+| Maximum AB tests per gateway | 1     | No         |                                                                          |
+| Treatments per AB test       | 2     | No         | Control and one treatment variant                                        |
+| Maximum AB tests per account | 2,000 | No         | Total AB tests that can exist. To create more, delete existing AB tests. |
+
+## AgentCore Recommendations Service Quotas
+
+The following are the service quotas for AgentCore Recommendations. These quotas ensure service stability and availability.
+
+### Throttling limits
+
+The following table describes the rate quotas for AgentCore Recommendations APIs. Requests exceeding these quotas are throttled.
+
+| Limit                         | Value  | Adjustable | Notes                               |
+| ----------------------------- | ------ | ---------- | ----------------------------------- |
+| StartRecommendation API rate  | 3 TPS  | No         | Transactions per second per account |
+| DeleteRecommendation API rate | 3 TPS  | No         | Transactions per second per account |
+| GetRecommendation API rate    | 60 TPS | No         | Transactions per second per account |
+| ListRecommendations API rate  | 60 TPS | No         | Transactions per second per account |
+
+### Resource limits
+
+| Limit                               | Value             | Adjustable | Notes                                                                                  |
+| ----------------------------------- | ----------------- | ---------- | -------------------------------------------------------------------------------------- |
+| Active recommendations per account  | 5                 | No         | Maximum concurrent recommendations running                                             |
+| Maximum recommendations per account | 2,000             | No         | Total recommendations that can exist. To create more, delete existing recommendations. |
+| Sessions per recommendation         | 20                | No         | Number of sessions sampled per recommendation                                          |
+| Spans per request (inline)          | 1,000             | No         | Maximum size of sessionSpans list when using inline input                              |
+| Inline payload size                 | 15 MB             | No         | Maximum size of the entire request body when using inline option                       |
+| Prompt size                         | 20,000 characters | No         | Maximum prompt size for both inline and configuration bundle paths                     |
+
+## AgentCore Configuration Bundle Service Quotas
+
+The following are the service quotas for AgentCore Configuration Bundles. These quotas ensure service stability and availability.
+
+### Throttling limits
+
+The following table describes the rate quotas for AgentCore Configuration Bundle APIs. Requests exceeding these quotas are throttled.
+
+| Limit                           | Value   | Adjustable | Notes                               |
+| ------------------------------- | ------- | ---------- | ----------------------------------- |
+| GetConfigBundleVersion API rate | 500 TPS | No         | Transactions per second per account |
+| CreateConfigBundle API rate     | 3 TPS   | No         | Transactions per second per account |
+| UpdateConfigBundle API rate     | 3 TPS   | No         | Transactions per second per account |
+| DeleteConfigBundle API rate     | 3 TPS   | No         | Transactions per second per account |
+| GetConfigBundle API rate        | 60 TPS  | No         | Transactions per second per account |
+| ListConfigBundles API rate      | 60 TPS  | No         | Transactions per second per account |
+
+### Resource limits
+
+| Limit                                     | Value | Adjustable | Notes |
+| ----------------------------------------- | ----- | ---------- | ----- |
+| Maximum configuration bundles per account | 100   | No         |       |
+| Maximum bundle versions per account       | 1,000 | No         |       |
+| Branches per bundle                       | 20    | No         |       |
+| Maximum payload (JSON) size               | 5 MB  | No         |       |
 
 ## AgentCore Policy Service Quotas
 

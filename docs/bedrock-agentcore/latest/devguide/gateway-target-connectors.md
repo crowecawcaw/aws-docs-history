@@ -2,8 +2,10 @@
 
 Amazon Bedrock AgentCore lets you add the following built-in connectors as targets in your gateway:
 
+- Amazon Bedrock Managed Knowledge Bases
 - Web Search Tool
 
 ###### Topics
 
-- [Web Search Tool as Connector Target](gateway-target-connector-web-search-tool.md "gateway-target-connector-web-search-tool.md")
+- [Amazon Bedrock Managed Knowledge Bases as Connector Target](gateway-target-connector-managed-kb.md "gateway-target-connector-managed-kb.md")
+- [Web Search Tool](gateway-target-connector-web-search-tool.md "gateway-target-connector-web-search-tool.md")

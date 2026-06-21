@@ -252,10 +252,11 @@ AgentCore CLI
 ```
 agentcore run batch-evaluation \
   --runtime AcmeSupport \
-  --evaluator Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness
+  --evaluator Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness \
+  --wait
 ```
 
-The CLI resolves the CloudWatch log group and service name from your project configuration, starts the job, and polls until it completes. You will see per-evaluator average scores:
+By default, `agentcore run batch-evaluation` starts the job and returns immediately (without blocking). Pass `--wait` to block until the job reaches a terminal state. With `--wait`, the CLI resolves the CloudWatch log group and service name from your project configuration, starts the job, blocks until it reaches a terminal state, and then prints per-evaluator average scores:
 
 ```
 Batch evaluation completed: acme-eval-a1b2c3d4
@@ -268,7 +269,17 @@ Builtin.GoalSuccessRate             0.7200
 Builtin.Helpfulness                 0.8100
 Builtin.Faithfulness                0.8500
 
-Results saved to .cli/eval-job-results/
+Results saved to .cli/jobs/batch-eval-results/
+```
+
+Add `--json` to emit machine-readable results (including `batchEvaluationId` and the per-evaluator `averageScore`) for scripting, and `-n <name>` to label the run so you can compare results across runs. For example:
+
+```
+agentcore run batch-evaluation \
+  --runtime AcmeSupport \
+  --evaluator Builtin.GoalSuccessRate Builtin.Helpfulness Builtin.Faithfulness \
+  -n acme_baseline \
+  --wait
 ```
 
 AWS SDK (boto3)
@@ -316,7 +327,24 @@ print(json.dumps(result, indent=4, default=str))
 
 ## Step 4: Read per-session detail
 
-The aggregate scores tell you the overall picture. To see per-turn, per-evaluator scores for individual sessions, read the evaluation events from CloudWatch Logs.
+The aggregate scores tell you the overall picture. To see per-turn, per-evaluator scores for individual sessions, use the built-in CLI viewing commands or read the evaluation events directly from CloudWatch Logs.
+
+###### Example
+
+AgentCore CLI
+The CLI provides first-class commands to view completed batch evaluation jobs and their results. View a specific job by its batch evaluation job ID, or list past jobs:
+
+```
+# View a batch evaluation job and its results
+agentcore view batch-evaluation acme-eval-a1b2c3d4
+
+# List batch evaluation jobs
+agentcore batch-evaluations history
+```
+
+These commands run interactively when no flags are given. Add `--json` for non-interactive, machine-readable output, for example `agentcore view batch-evaluation acme-eval-a1b2c3d4 --json`.
+
+AWS SDK (boto3)
 
 ```
 # Get the output location from the batch evaluation result

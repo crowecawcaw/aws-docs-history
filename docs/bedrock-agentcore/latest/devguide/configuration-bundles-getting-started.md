@@ -126,7 +126,7 @@ Retrieve the current configuration to verify the update took effect.
 AgentCore CLI
 
 ```
-agentcore config-bundle versions --bundle myAgentConfig
+agentcore config-bundle versions --name myAgentConfig
 ```
 
 Output shows the version history with commit messages:
@@ -159,7 +159,7 @@ Diff two versions to see exactly what changed:
 AgentCore CLI
 
 ```
-agentcore config-bundle diff --bundle myAgentConfig --from <version-1> --to <version-2>
+agentcore config-bundle diff --name myAgentConfig --from <version-1> --to <version-2>
 ```
 
 AWS SDK (boto3)

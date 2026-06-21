@@ -12,6 +12,7 @@ Select a topic to see examples of adding a target type:
 - [Add a Smithy target](#gateway-add-target-api-smithy "#gateway-add-target-api-smithy")
 - [Add an HTTP runtime target](#gateway-add-target-api-http-runtime "#gateway-add-target-api-http-runtime")
 - [Add an MCP server target](#gateway-add-target-api-MCPserver "#gateway-add-target-api-MCPserver")
+- [Add a Connector target with Amazon Bedrock Managed Knowledge Bases](#gateway-add-target-api-connector-managed-kb "#gateway-add-target-api-connector-managed-kb")
 - [Add a Connector target with Web Search Tool](#gateway-add-target-api-connector-web-search "#gateway-add-target-api-connector-web-search")
 
 ## Add a Lambda target
@@ -723,6 +724,254 @@ target = agentcore_client.create_gateway_target(
     ]
 )
 ````
+
+## Add a Connector target with Amazon Bedrock Managed Knowledge Bases
+
+You can add the Amazon Bedrock Managed Knowledge Bases connector as a target to your gateway.
+
+For more information about the Amazon Bedrock Managed Knowledge Bases connector, see [Amazon Bedrock Managed Knowledge Bases](gateway-target-connector-managed-kb.md "gateway-target-connector-managed-kb.md").
+
+### Set up a managed knowledge base
+
+The connector exposes two tools, each named after its backend operation: `AgenticRetrieveStream` (multi-step, streaming agentic retrieval) and `Retrieve` (a single hybrid search). You add a configuration entry per tool.
+
+For `AgenticRetrieveStream`, set `retrievers` (the managed knowledge bases to query) and `agenticRetrieveConfiguration` in `parameterValues`. Both are required — omitting `agenticRetrieveConfiguration` causes a runtime error. It can be an empty object (`{}`) to accept service-managed defaults, but specifying `foundationModelType` and `rerankingModelType` makes the configuration explicit. The agent does not supply knowledge base IDs at call time. For `Retrieve`, set the `knowledgeBaseId` in `parameterValues`; it is required.
+
+The connector supports only managed knowledge bases. Connector targets support only the `GATEWAY_IAM_ROLE` credential provider type.
+
+###### Example
+
+Boto3
+
+1. The following Python code shows how to create a Gateway Target with the Amazon Bedrock Managed Knowledge Bases connector configuration using the AWS Python SDK (Boto3):
+
+```
+import boto3
+
+gateway_client = boto3.client("bedrock-agentcore-control", region_name="<REGION>")
+
+gateway_client.create_gateway_target(
+    name="managed-kb",
+    gatewayIdentifier="<GATEWAY_ID>",
+    targetConfiguration={
+        "mcp": {
+            "connector": {
+                "source": {"connectorId": "bedrock-knowledge-bases"},
+                "configurations": [
+                    {
+                        "name": "AgenticRetrieveStream",
+                        "parameterValues": {
+                            "retrievers": [
+                                {
+                                    "description": "Product documentation",
+                                    "configuration": {"knowledgeBase": {"knowledgeBaseId": "<KB_ID_1>"}},
+                                },
+                                {
+                                    "description": "Engineering runbooks",
+                                    "configuration": {"knowledgeBase": {"knowledgeBaseId": "<KB_ID_2>"}},
+                                },
+                            ],
+                            "agenticRetrieveConfiguration": {
+                                "foundationModelType": "MANAGED",
+                                "rerankingModelType": "MANAGED",
+                            },
+                        },
+                    },
+                    {
+                        "name": "Retrieve",
+                        "parameterValues": {"knowledgeBaseId": "<KB_ID>"},
+                    },
+                ],
+            }
+        }
+    },
+    credentialProviderConfigurations=[
+        {"credentialProviderType": "GATEWAY_IAM_ROLE"}
+    ],
+)
+```
+
+AWS CLI
+
+1. The following command creates a Gateway Target with the Amazon Bedrock Managed Knowledge Bases connector configuration using the AWS CLI:
+
+```
+aws bedrock-agentcore-control create-gateway-target \
+  --gateway-identifier "<GATEWAY_ID>" \
+  --name "managed-kb" \
+  --target-configuration '{
+    "mcp": {
+      "connector": {
+        "source": {
+          "connectorId": "bedrock-knowledge-bases"
+        },
+        "configurations": [
+          {
+            "name": "AgenticRetrieveStream",
+            "parameterValues": {
+              "retrievers": [
+                {
+                  "description": "Product documentation",
+                  "configuration": {"knowledgeBase": {"knowledgeBaseId": "<KB_ID_1>"}}
+                },
+                {
+                  "description": "Engineering runbooks",
+                  "configuration": {"knowledgeBase": {"knowledgeBaseId": "<KB_ID_2>"}}
+                }
+              ],
+              "agenticRetrieveConfiguration": {
+                "foundationModelType": "MANAGED",
+                "rerankingModelType": "MANAGED"
+              }
+            }
+          },
+          {
+            "name": "Retrieve",
+            "parameterValues": {
+              "knowledgeBaseId": "<KB_ID>"
+            }
+          }
+        ]
+      }
+    }
+  }' \
+  --credential-provider-configurations '[{"credentialProviderType": "GATEWAY_IAM_ROLE"}]' \
+  --region "<REGION>"
+```
+
+After you call `CreateGatewayTarget`, the Gateway validates the configuration asynchronously (typically within about 30 seconds), which includes a `GetKnowledgeBase` check on each bound knowledge base. Poll `GetGatewayTarget` until `status` is `READY`; a `FAILED` status includes a reason describing the problem.
+
+To customize agentic retrieval — for example, to cap planning iterations or attach a guardrail — add the optional fields to `agenticRetrieveConfiguration`. If you omit them, service-managed defaults apply. For all accepted values, see [Configuration reference](gateway-target-connector-managed-kb.md#gateway-target-connector-managed-kb-config-reference "gateway-target-connector-managed-kb.md#gateway-target-connector-managed-kb-config-reference").
+
+```
+{
+  "name": "AgenticRetrieveStream",
+  "parameterValues": {
+    "retrievers": [
+      { "configuration": { "knowledgeBase": { "knowledgeBaseId": "<KB_ID>" } } }
+    ],
+    "agenticRetrieveConfiguration": {
+      "maxAgentIteration": 5,
+      "policyConfiguration": {
+        "guardrailConfiguration": {
+          "guardrailId": "<GUARDRAIL_ID>",
+          "guardrailVersion": "1"
+        }
+      }
+    }
+  }
+}
+```
+
+### Control which parameters the agent can set
+
+Each tool configuration entry accepts two parameter controls that determine what the calling agent sees and what the Gateway sends to the knowledge base:
+
+- `parameterValues` — administrator-set values sent to the knowledge base on every call, such as the bound `knowledgeBaseId` or a default `numberOfResults`. These are used unless the agent overrides a field you have exposed.
+- `parameterOverrides` — a list that controls which request fields the agent can see and set at call time. Each entry has:
+
+  - `path` — the field in the `Retrieve` request, for example `$.retrievalQuery.text` or `$.retrievalConfiguration.managedSearchConfiguration.numberOfResults`.
+  - `description` — optional text shown to the agent describing the field.
+  - `visible` — set to `true` to expose the field to the agent, or `false` to hide it while still sending any administrator-configured default.
+
+Bind `knowledgeBaseId` in `parameterValues` and do not expose it.
+
+The following configuration entry binds the knowledge base, sets a default of 10 results, and exposes the query text and result count to the agent:
+
+```
+{
+  "name": "Retrieve",
+  "description": "Search the knowledge base for relevant documents.",
+  "parameterValues": {
+    "knowledgeBaseId": "<KB_ID>",
+    "retrievalConfiguration": {
+      "managedSearchConfiguration": {
+        "numberOfResults": 10
+      }
+    }
+  },
+  "parameterOverrides": [
+    {
+      "path": "$.retrievalQuery.text",
+      "description": "The search query. Use specific keywords for best results.",
+      "visible": true
+    },
+    {
+      "path": "$.retrievalConfiguration.managedSearchConfiguration.numberOfResults",
+      "description": "Number of results to retrieve (1-100).",
+      "visible": true
+    }
+  ]
+}
+```
+
+### Configure the Gateway Service Role
+
+This connector uses the **gateway execution role** — the IAM role ARN you pass to `CreateGateway`, which the AgentCore service assumes to call the backend on your behalf. This is a role you create, not a service-linked role. For the Amazon Bedrock Managed Knowledge Bases connector, it needs the following permissions:
+
+- `bedrock:GetKnowledgeBase` — to validate the bound knowledge base when the target is created. Scoped to the managed knowledge base resource.
+- `bedrock:Retrieve` — for the `Retrieve` tool. Scoped to the managed knowledge base resource.
+- `bedrock:AgenticRetrieveStream` — for the `AgenticRetrieveStream` tool. This action is not scoped to a managed knowledge base resource, so grant it on `*`.
+
+The Gateway signs the backend calls as the `bedrock` service. Include `bedrock:GetKnowledgeBase` regardless of which tools you add; if you add only one tool, include only that tool’s retrieval action.
+
+###### Note
+
+`bedrock-agentcore:InvokeGateway` is not part of the execution role. That permission belongs to the **caller** — the agent or application invoking the Gateway — not to the role the Gateway assumes.
+
+Add a policy with the following content to the execution role attached to the Gateway:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ValidateKnowledgeBase",
+      "Effect": "Allow",
+      "Action": "bedrock:GetKnowledgeBase",
+      "Resource": "arn:aws:bedrock:<REGION>:<ACCOUNT_ID>:knowledge-base/<KB_ID>"
+    },
+    {
+      "Sid": "RetrieveFromKnowledgeBase",
+      "Effect": "Allow",
+      "Action": "bedrock:Retrieve",
+      "Resource": "arn:aws:bedrock:<REGION>:<ACCOUNT_ID>:knowledge-base/<KB_ID>"
+    },
+    {
+      "Sid": "AgenticRetrieveStream",
+      "Effect": "Allow",
+      "Action": "bedrock:AgenticRetrieveStream",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+The service role must also trust the AgentCore service so that it can assume the role. Attach the following trust policy, scoping it to your account and Gateway with the `aws:SourceAccount` and `aws:SourceArn` conditions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowAgentCoreToAssumeRole",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "bedrock-agentcore.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "<ACCOUNT_ID>"
+        },
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:bedrock-agentcore:<REGION>:<ACCOUNT_ID>:gateway/*"
+        }
+      }
+    }
+  ]
+}
+```
 
 ## Add a Connector target with Web Search Tool
 

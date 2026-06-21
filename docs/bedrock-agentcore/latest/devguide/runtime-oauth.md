@@ -73,16 +73,59 @@ An AgentCore Runtime can support either IAM SigV4 or JWT Bearer Token based inbo
 
 ###### Topics
 
+- [Restrict IAM (SigV4) inbound invocation to your gateway](#runtime-restrict-iam-gateway "#runtime-restrict-iam-gateway")
 - [JWT inbound authorization and OAuth outbound access sample](#oauth-sample-overview "#oauth-sample-overview")
 - [Prerequisites](#oauth-prerequisites "#oauth-prerequisites")
 - [Step 1: Create your agent project](#prepare-agent "#prepare-agent")
 - [Step 2: Set up AWS Cognito user pool and add a user](#setup-cognito "#setup-cognito")
-- [Step 3: Deploy your agent](#deploy-agent "#deploy-agent")
-- [Step 4: Use bearer token to invoke your agent](#oauth-invoke-agent "#oauth-invoke-agent")
+- [Step 3 (Optional): Front your runtime with an AgentCore Gateway](#runtime-front-with-gateway "#runtime-front-with-gateway")
+- [Step 4: Deploy your agent](#deploy-agent "#deploy-agent")
+- [Step 5: Use bearer token to invoke your agent](#oauth-invoke-agent "#oauth-invoke-agent")
 - [OAuth Error Responses](#oauth-error-responses "#oauth-error-responses")
-- [Step 5: Set up your agent to access tools using OAuth](#oauth-outbound-access "#oauth-outbound-access")
-- [Step 6: (Optional) Propagate a JWT token to AgentCore Runtime](#oauth-propagate-jwt-token "#oauth-propagate-jwt-token")
+- [Step 6: Set up your agent to access tools using OAuth](#oauth-outbound-access "#oauth-outbound-access")
+- [Step 7: (Optional) Propagate a JWT token to AgentCore Runtime](#oauth-propagate-jwt-token "#oauth-propagate-jwt-token")
 - [Troubleshooting](#troubleshooting "#troubleshooting")
+
+## Restrict IAM (SigV4) inbound invocation to your gateway
+
+You can front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime — giving you policy-based authorization, Amazon Bedrock Guardrails, request and response interceptors, and unified observability, all applied outside the agent’s own environment. For the full rationale and how to set this up, see [Front your runtime with an AgentCore Gateway](runtime-security-best-practices.md#security-bp-front-with-gateway "runtime-security-best-practices.md#security-bp-front-with-gateway").
+
+But this is only useful if callers can’t reach the runtime directly bypassing the gateway. If your runtime uses the default IAM (SigV4) inbound authorization, you can restrict invocation to the gateway so that traffic reaches the runtime only through it. To achieve this, attach a resource-based policy to the runtime that restricts invocation to your gateway’s execution role. The gateway assumes its service role to sign requests to the runtime, so the gateway role is the principal that invokes the runtime. Allow that role, and add an explicit `Deny` for every other principal so that no other identity can invoke the runtime even with a permissive identity-based policy. For more information about resource-based policies on runtimes, see [Resource-based policies for Amazon Bedrock AgentCore](resource-based-policies.md "resource-based-policies.md").
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowOnlyGatewayRole",
+            "Effect": "Allow",
+            "Principal": { "AWS": "arn:aws:iam::111122223333:role/MyGatewayExecutionRole" },
+            "Action": "bedrock-agentcore:InvokeAgentRuntime",
+            "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/RUNTIME_ID"
+        },
+        {
+            "Sid": "DenyOtherPrincipals",
+            "Effect": "Deny",
+            "Principal": { "AWS": "*" },
+            "Action": "bedrock-agentcore:InvokeAgentRuntime",
+            "Resource": "arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/RUNTIME_ID",
+            "Condition": {
+                "ArnNotEquals": {
+                    "aws:PrincipalArn": "arn:aws:iam::111122223333:role/MyGatewayExecutionRole"
+                }
+            }
+        }
+    ]
+}
+```
+
+###### Tip
+
+An explicit `Deny` always overrides any `Allow`, including identity-based policies in the same account. Keying the `Deny` on `aws:PrincipalArn` ensures that only your gateway’s execution role can invoke the runtime, regardless of what other permissions exist in your account.
+
+###### Important
+
+Restricting the runtime to the gateway’s execution role is only as strong as the controls on who can assume that role. Any principal that can assume the gateway execution role can invoke the runtime as if it were the gateway. Lock the role down by adding `aws:SourceArn` and `aws:SourceAccount` conditions to the **gateway execution role’s** trust policy so that only your gateway can assume it. The [Confused deputy prevention](runtime-security-best-practices.md#security-bp-confused-deputy "runtime-security-best-practices.md#security-bp-confused-deputy") guidance shows the same technique applied to a runtime’s execution role; apply the same pattern here, but set the trust policy on the gateway execution role and scope `aws:SourceArn` to your gateway ARN.
 
 ## JWT inbound authorization and OAuth outbound access sample
 
@@ -213,7 +256,15 @@ Open a terminal window and set the following environment variables:
 
 This script creates a Cognito user pool, a user pool client, adds a user, and generates a bearer token for the user. The token is valid for 60 minutes by default.
 
-## Step 3: Deploy your agent
+## Step 3 (Optional): Front your runtime with an AgentCore Gateway
+
+You can front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime — giving you policy-based authorization, Amazon Bedrock Guardrails, request and response interceptors, and unified observability, all applied outside the agent’s own environment. For the full rationale and how to set this up, see [Front your runtime with an AgentCore Gateway](runtime-security-best-practices.md#security-bp-front-with-gateway "runtime-security-best-practices.md#security-bp-front-with-gateway").
+
+If you want to front this runtime, [create the gateway](gateway-create.md "gateway-create.md") now, before you deploy the runtime in the next step. After you deploy, you’ll [add the runtime as a gateway target](gateway-target-http-runtime.md "gateway-target-http-runtime.md").
+
+To make sure callers can’t bypass the gateway, restrict the runtime to accept invocations only from that gateway. You configure this in the next step, as part of the authorizer, using `allowedWorkloadConfiguration` (see [allowedWorkloadConfiguration: restrict invocation to your gateway](#deploy-agent-allowed-workload "#deploy-agent-allowed-workload")).
+
+## Step 4: Deploy your agent
 
 ###### Important
 
@@ -248,33 +299,86 @@ For detailed information about the service-linked role, see [Identity service-li
 
 Now you’ll deploy your agent with JWT authorization using the Cognito user pool you created. You will need to create an agent with authorizer configuration. The following table represents the various authorizer configuration parameters and how we use them to validate the incoming token.
 
-| authorizer_configuration | claim in decoded token | Notes                                                                                                              |
-| ------------------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| discovery url → issuer   | iss                    | The discovery url should point to an issuer url. This should match the iss claim in the decoded token.             |
-| allowedClients           | client_id              | client_id in the token should match one of the allowed clients specified in the authorizer                         |
-| allowedAudience          | aud                    | One of the values in aud claim from the token should match one of the allowed audience specified in the authorizer |
+| authorizer_configuration     | claim in decoded token | Notes                                                                                                                                                                                             |
+| ---------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| discovery url → issuer       | iss                    | The discovery url should point to an issuer url. This should match the iss claim in the decoded token.                                                                                            |
+| allowedClients               | client_id              | client_id in the token should match one of the allowed clients specified in the authorizer                                                                                                        |
+| allowedAudience              | aud                    | One of the values in aud claim from the token should match one of the allowed audience specified in the authorizer                                                                                |
+| allowedWorkloadConfiguration | `internal`             | Optional. At launch, used to allow only your AgentCore Gateway to invoke the runtime. See [Restrict invocation to your gateway](#deploy-agent-allowed-workload "#deploy-agent-allowed-workload"). |
 
 If both client_id and aud is provided, the agent runtime authorizer will verify both.
+
+### allowedWorkloadConfiguration: restrict invocation to your gateway
+
+The `allowedWorkloadConfiguration` field on the `customJWTAuthorizer` restricts which workloads in the request’s identity chain are allowed to invoke the runtime. Set the allowed workload to your gateway so that the runtime accepts a request only when its identity chain includes that gateway — this is how an OAuth (JWT) runtime enforces that traffic arrives only through the gateway you set up in Step 3.
+
+You provide the allowed workloads using either of the following fields. You can specify one or both — a request is accepted if its identity chain matches an entry in **either** field, so you don’t need to provide both.
+
+- **hostingEnvironments** – A list of hosting environments whose workloads are allowed to invoke the target. Each entry is an object with an `arn`. At launch, the only supported hosting environment is AgentCore Gateway, so each `arn` must be an AgentCore Gateway ARN.
+- **workloadIdentities** – A list of workload identity names that are allowed to invoke the target. A workload identity name is **not** an ARN. It is the final segment of the gateway’s workload identity ARN, which you can find in the `workloadIdentityDetails` field of the `GetGateway` response. For example, if `workloadIdentityDetails.workloadIdentityArn` is `arn:aws:bedrock-agentcore:us-east-1:111122223333:workload-identity-directory/default/workload-identity/my-gateway-workload-identity`, then the workload identity name is `my-gateway-workload-identity`.
+
+The following example creates an agent runtime that restricts invocation to a specific AgentCore Gateway by its ARN. Specifying `hostingEnvironments` alone is the simplest way to allow a gateway:
+
+```
+{
+    "authorizerConfiguration": {
+        "customJWTAuthorizer": {
+            "discoveryUrl": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_example/.well-known/openid-configuration",
+            "allowedClients": ["your-client-id"],
+            "allowedWorkloadConfiguration": {
+                "hostingEnvironments": [
+                    {
+                        "arn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway-id"
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+Alternatively, you can identify the gateway by its workload identity name, or specify both fields. When both are present, a request is allowed if it matches an entry in either field. The following `allowedWorkloadConfiguration` snippet allows two different gateways — one identified by its ARN and one by its workload identity name:
+
+```
+"allowedWorkloadConfiguration": {
+    "hostingEnvironments": [
+        {
+            "arn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway-1-id"
+        }
+    ],
+    "workloadIdentities": [
+        "my-gateway-2-workload-identity"
+    ]
+}
+```
+
+###### Note
+
+At launch, `allowedWorkloadConfiguration` is supported only for AgentCore Runtime targets, and the allowed workloads are AgentCore Gateways.
+
+### Create and deploy the agent runtime
+
+With your authorizer configuration ready, create and deploy the agent runtime. The following examples show how to do this with the AgentCore CLI or the AWS SDK for Python (Boto3). Note the agent runtime ARN from the output — you’ll need it to invoke the agent in the next step.
 
 ###### Example
 
 AgentCore CLI
 
-1. [#deploy-agent.title]
-   **To configure and deploy your agent**
-2. Create your agent project with the AgentCore CLI:
+**To configure and deploy your agent**
+
+1. Create your agent project with the AgentCore CLI:
 
 ```
 agentcore create
 ```
 
-When prompted, choose your framework (choose Strands Agents for this tutorial). 3. Deploy your agent:
+When prompted, choose your framework (choose Strands Agents for this tutorial). 2. Deploy your agent:
 
 ```
 agentcore deploy
 ```
 
-4. Note the agent runtime ARN from the output. You’ll need this in the next step.
+3. Note the agent runtime ARN from the output. You’ll need this in the next step.
 
 ###### Tip
 
@@ -317,10 +421,15 @@ lifecycleConfiguration={
 
 
 
-## Step 4: Use bearer token to invoke your agent
+## Step 5: Use bearer token to invoke your agent
 
 
 Now that your agent is deployed with JWT authorization, you can invoke it using the bearer token.
+
+
+###### Note
+
+If you fronted your runtime with a gateway in [Step 3](#runtime-front-with-gateway "#runtime-front-with-gateway"), add the deployed runtime as a gateway target before you invoke — see [AgentCore Runtime targets](gateway-target-http-runtime.md "gateway-target-http-runtime.md") — and then invoke through the gateway endpoint shown in the examples that follow, rather than the runtime endpoint.
 
 
 ###### Important
@@ -385,8 +494,16 @@ Use cURL
 1. ```
 // Invoke with OAuth token
 export PAYLOAD='{"prompt": "hello what is 1+1?"}'
+
 export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://bedrock-agentcore.us-east-1.amazonaws.com"
-curl -v -X POST "${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT" \
+# If you fronted the runtime with a gateway (Step 3), the core endpoint URL is now your gateway URL
+# export BEDROCK_AGENT_CORE_ENDPOINT_URL="https://${GATEWAY_ID}.gateway.bedrock-agentcore.us-east-1.amazonaws.com/${TARGET_NAME}"
+
+export INVOKE_URL="${BEDROCK_AGENT_CORE_ENDPOINT_URL}/runtimes/${ESCAPED_AGENT_ARN}/invocations?qualifier=DEFAULT"
+# If you fronted the runtime with a gateway (Step 3), the above works but there is also a simpler alternative:
+# export INVOKE_URL="${BEDROCK_AGENT_CORE_ENDPOINT_URL}/invocations"
+
+curl -v -X POST "${INVOKE_URL}" \
 -H "Authorization: Bearer ${TOKEN}" \
 -H "X-Amzn-Trace-Id: your-trace-id" \
 -H "Content-Type: application/json" \
@@ -417,8 +534,12 @@ print(f"Using Agent ARN from environment: {invoke_agent_arn}")
 # URL encode the agent ARN
 escaped_agent_arn = urllib.parse.quote(invoke_agent_arn, safe='')
 
-# Construct the URL
+# Construct the URL — invoke the runtime directly
 url = f"https://bedrock-agentcore.{REGION_NAME}.amazonaws.com/runtimes/{escaped_agent_arn}/invocations?qualifier=DEFAULT"
+
+# If you are fronting the runtime with a gateway (see Step 3), invoke through
+# the gateway target instead (replace GATEWAY_ID and my-target):
+# url = f"https://GATEWAY_ID.gateway.bedrock-agentcore.{REGION_NAME}.amazonaws.com/my-target/invocations"
 
 # Set up headers
 headers = {
@@ -486,7 +607,7 @@ The `resource_metadata` URL in the WWW-Authenticate header points to the Protect
 
 You must pre-register your OAuth client in Cognito (via AWS Console or CLI) to obtain a `client_id` before using the discovered endpoints. Amazon Cognito does not support Dynamic Client Registration (RFC 7591).
 
-## Step 5: Set up your agent to access tools using OAuth
+## Step 6: Set up your agent to access tools using OAuth
 
 In this section, you’ll learn how to connect your agent code with AgentCore Credential Providers for secure access to external resources using OAuth2 authentication.
 
@@ -494,7 +615,7 @@ The example below demonstrates how your agent running in Agent Runtime can reque
 
 For more information about setting up identity, see [Get started with AgentCore Identity](identity-getting-started.md "identity-getting-started.md").
 
-### Step 5.1: Set up Credential Providers
+### Step 6.1: Set up Credential Providers
 
 To set up a Google Credential Provider, you need to:
 
@@ -524,7 +645,7 @@ Obtain the `callbackUrl` from the [CreateOauth2CredentialProvider](../../../bedr
 
 Make sure your invocation role has the necessary permissions for accessing the credential provider.
 
-### Step 5.2: Enable agent to read Google Drive contents
+### Step 6.2: Enable agent to read Google Drive contents
 
 Create a tool with agent core SDK annotations as shown below to automatically initiate the three-legged OAuth process. When your agent invokes this tool, users will be prompted to open the authorization URL in their browser and grant consent for the agent to access their Google Drive.
 
@@ -568,11 +689,11 @@ When this code runs, the following process occurs:
 
 AgentCore Identity Service stores the Google access token in the AgentCore Token Vault using the agent workload identity and user ID (from the inbound JWT token, such as AWS Cognito token) as the binding key, eliminating repeated consent requests until the Google token expires.
 
-## Step 6: (Optional) Propagate a JWT token to AgentCore Runtime
+## Step 7: (Optional) Propagate a JWT token to AgentCore Runtime
 
 Optionally, you can pass an Authorization header to an AgentCore Runtime to extract claims. This can be done by using the request header allowlist configuration. For more information, see [RequestHeaderConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_RequestHeaderConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_RequestHeaderConfiguration.md").
 
-### Step 6.1: Modify your agent code to read headers
+### Step 7.1: Modify your agent code to read headers
 
 In this step you make changes to your agent code so that you can decode and extract claims from a JWT token using PyJWT library.
 
@@ -611,7 +732,7 @@ def invoke(payload, context):
     .....
 ```
 
-### Step 6.2: Create the agent with request header allowlist
+### Step 7.2: Create the agent with request header allowlist
 
 Use the AgentCore CLI to configure the agent with request header allowlist. Navigate to your generated project directory and run:
 
@@ -626,7 +747,7 @@ agentcore deploy
 
 The AgentCore CLI creates the project structure and configuration files. Adjust the agent configuration in `agentcore/agentcore.json` as needed for your framework choice.
 
-### Step 6.3: Invoke your agent
+### Step 7.3: Invoke your agent
 
 [Invoke](#oauth-invoke-agent "#oauth-invoke-agent") your agent using OAuth and you should see the claims in your agent logs in CloudWatch Logs.
 

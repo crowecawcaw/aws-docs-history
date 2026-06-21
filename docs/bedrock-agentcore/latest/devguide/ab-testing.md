@@ -17,11 +17,11 @@ Use A/B testing when you need to:
 
 An A/B test follows this flow:
 
-1. **You create an A/B test** by specifying an AgentCore Gateway, two variants (control and treatment), traffic weights, an online evaluation configuration for scoring, and an IAM execution role. Each variant references either an AgentCore Gateway target or a configuration bundle version.
-2. **You start the test.** The AgentCore Gateway begins splitting incoming traffic between the two variants based on the runtime session ID. Assignment is sticky; a given session ID always routes to the same variant.
+1. **You initiate an A/B test** with `agentcore run ab-test`, specifying an already-deployed AgentCore Gateway, two variants (control and treatment), traffic weights, and online evaluation configuration(s) for scoring. (The execution role is optional — pass `--role-arn` to bring your own, or let the CLI create one.) Each variant references either an AgentCore Gateway target or a configuration bundle version. The test starts RUNNING as soon as the command returns (use `--disable-on-create` to start it stopped).
+2. **The AgentCore Gateway splits traffic.** Once the test is running, the gateway splits incoming traffic between the two variants based on the runtime session ID. Assignment is sticky; a given session ID always routes to the same variant.
 3. **Online evaluation scores each session.** The online evaluation configuration you specified runs evaluators against each session as it completes. The A/B test aggregation pipeline maps scores to variants.
-4. **The service computes statistical significance.** As sample sizes grow, the service calculates per-evaluator metrics for each variant: mean score, absolute and percent change, p-value, confidence interval, and a significance flag. A p-value below 0.05 indicates the difference is statistically significant. You can poll results at any time without affecting statistical validity.
-5. **You stop the test and deploy the winner.** When results are significant, stop the A/B test and route 100% of traffic to the winning variant. The losing variant stops receiving traffic.
+4. **The service computes statistical significance.** As sample sizes grow, the service calculates per-evaluator metrics for each variant: mean score, absolute and percent change, p-value, confidence interval, and a significance flag. A p-value below 0.05 indicates the difference is statistically significant. Poll results with `agentcore view ab-test <id>` at any time without affecting statistical validity.
+5. **You promote the treatment variant.** When results are significant, run `agentcore promote ab-test -i <id>` to stop the test and write the treatment variant into `agentcore.json`, then `agentcore deploy` to roll it out. (You can also `agentcore stop ab-test -i <id>` without promoting.)
 
 ## A/B test patterns
 

@@ -25,3 +25,4 @@ A configuration bundle is a versioned, immutable snapshot of your agent’s dyna
 - [List configuration bundles](configuration-bundles-list.md "configuration-bundles-list.md")
 - [Delete a configuration bundle](configuration-bundles-delete.md "configuration-bundles-delete.md")
 - [Use configuration bundles at runtime](configuration-bundles-runtime.md "configuration-bundles-runtime.md")
+- [Configuration bundle encryption](configuration-bundles-encryption.md "configuration-bundles-encryption.md")

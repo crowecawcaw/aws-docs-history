@@ -120,6 +120,29 @@ payment_proof_headers = manager.generate_payment_header(
 
 `payment_proof_headers` contains the payment proof header. Include this header when retrying the request to the paid endpoint. You can also call the `process_payment` method of `PaymentManager` for more control over inputs.
 
+AgentCore CLI
+If your agent is deployed with payment capabilities configured, invoke it with payment context and the x402 interceptor handles payment processing automatically:
+
+```
+agentcore invoke \
+  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
+  --payment-instrument-id <INSTRUMENT_ID> \
+  --auto-session \
+  --payment-user-id user@example.com
+```
+
+To use an explicit session instead of auto-creating one:
+
+```
+agentcore invoke \
+  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
+  --payment-instrument-id <INSTRUMENT_ID> \
+  --payment-session-id <SESSION_ID> \
+  --payment-user-id user@example.com
+```
+
+The deployed agent’s x402 plugin intercepts HTTP 402 responses, calls `ProcessPayment`, and retries the request with proof. Requires AgentCore CLI v0.19.0 or later.
+
 Strands SDK
 The AgentCore payments plugin provides automated payment processing for Strands Agents. It supports the [x402 Payment Required](https://www.x402.org/ "https://www.x402.org/") protocol, enabling agents to automatically handle HTTP 402 responses.
 

@@ -104,6 +104,7 @@ The Resource Management Role is used by administrators to create and manage Amaz
 
 - Create, update, and delete Gateways and Gateway targets
 - Create, update, and delete Policy Engines and Cedar policies
+- Call the Gateway during policy creation (`InvokeGateway`) so Policy in AgentCore can validate the actions in a Cedar statement against the target Gateway’s capabilities
 - Pass the Gateway Execution Role to Amazon Bedrock AgentCore Gateway resources during creation
 - Tag resources for organization and management
 - Read IAM role information to validate execution role configurations
@@ -226,6 +227,10 @@ Replace these placeholders: \* `us-east-1` with the AWS Region \* `123456789012`
 
 ###### Important
 
+`bedrock-agentcore:InvokeGateway` is required to create or update Cedar policies, not just to invoke the Gateway at runtime. `CreatePolicy` and `UpdatePolicy` validate the actions in your Cedar statement against the Gateway, an operation authorized as `InvokeGateway` on the Gateway ARN. Without it, the policy transitions to `CREATE_FAILED` with `Insufficient permissions to call gateway with ID <gateway-id>`.
+
+###### Important
+
 The `ManageResourceScopedPolicy` and `ManageAdminPolicy` actions are permission-only gates that control what types of Cedar policies administrators can create: \* `ManageResourceScopedPolicy` - Grants permission to create Cedar policies that target specific gateway ARNs (e.g., policies applying to `gateway/my-gateway-123` ) \* `ManageAdminPolicy` - Grants permission to create Cedar policies with wildcards (e.g., policies applying to gateway/\* ) Both permissions are required for full policy management capability. These are not API operations but rather authorization checks that determine the scope of Cedar policies that can be created through the Policy Management APIs.
 
 ###### Note
@@ -284,6 +289,27 @@ This section covers common issues when configuring IAM permissions for Amazon Be
 ###### Note
 
 If you attach a Policy Engine to an existing Gateway using the Policy Engine console, the IAM permissions may not be automatically updated. You must manually add these permissions to the Gateway’s Service-Linked Role.
+
+### "Insufficient permissions to call gateway" on CreatePolicy
+
+**Symptom:**
+`CreatePolicy` returns a `policyId`, but the policy then transitions to `CREATE_FAILED` with `Insufficient permissions to call gateway with ID <gateway-id>` — even when the Gateway Execution Role has `AuthorizeAction`, `PartiallyAuthorizeActions`, and `GetPolicyEngine`.
+
+**Root Cause:** The gap is on the Resource Management Role that calls `CreatePolicy`, not the Gateway Execution Role. Policy validation calls the Gateway (authorized as `bedrock-agentcore:InvokeGateway`); the error names the Gateway but the fix is on the policy-creation role.
+
+**Solution:** Add `bedrock-agentcore:InvokeGateway` (scoped to the Gateway ARN) to the Resource Management Role:
+
+```
+{
+  "Effect": "Allow",
+  "Action": [
+    "bedrock-agentcore:InvokeGateway"
+  ],
+  "Resource": [
+    "arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/<gateway-id>"
+  ]
+}
+```
 
 ### Silent Failures in LOG_ONLY Mode
 

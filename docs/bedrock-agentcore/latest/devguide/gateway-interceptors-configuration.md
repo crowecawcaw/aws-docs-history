@@ -14,6 +14,27 @@ A boolean value that determines whether request headers are included in the inte
 
 Use caution when setting this to `true` as request headers may contain sensitive information such as authentication tokens and credentials.
 
+**payloadFilter**
+
+For HTTP targets (AgentCore Runtime and passthrough) and inference targets, which share the `http` interceptor payload shape, an optional filter that excludes fields from the interceptor input payload. Lambda synchronous invocation has a 6 MB limit for the request and response combined, so excluding a large response body keeps the payload within that limit. To exclude the response body, set `payloadFilter.exclude` to a list containing the `RESPONSE_BODY` field:
+
+```
+{
+  "inputConfiguration": {
+    "passRequestHeaders": false,
+    "payloadFilter": {
+      "exclude": [{ "field": "RESPONSE_BODY" }]
+    }
+  }
+}
+```
+
+###### Note
+
+`passRequestHeaders` is required in `inputConfiguration`. Include it (for example, `"passRequestHeaders": false`) alongside `payloadFilter`.
+
+When the response body is excluded, the `body` field in the response interceptor input payload is `null`. Your function can still inspect the `statusCode`, `contentType`, and `headers`, and can inject headers or override the status code. If your function returns `body: null`, the gateway uses the original response body.
+
 ## Configuring interceptors during gateway creation
 
 The following examples show how to create a gateway with interceptors that have `passRequestHeaders` set to `true` :

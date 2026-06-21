@@ -9,6 +9,8 @@ To learn more about a credential provider configuration, select a topic:
 - [AgentCore Gateway service role (IAM) authorization](#gateway-building-adding-targets-authorization-service-role "#gateway-building-adding-targets-authorization-service-role")
 - [OAuth authorization](#gateway-building-adding-targets-authorization-oauth "#gateway-building-adding-targets-authorization-oauth")
 - [API key authorization](#gateway-building-adding-targets-authorization-api-key "#gateway-building-adding-targets-authorization-api-key")
+- [Caller IAM credentials authorization](#gateway-building-adding-targets-authorization-caller-iam "#gateway-building-adding-targets-authorization-caller-iam")
+- [JWT passthrough authorization](#gateway-building-adding-targets-authorization-jwt-passthrough "#gateway-building-adding-targets-authorization-jwt-passthrough")
 
 ## AgentCore Gateway service role (IAM) authorization
 
@@ -152,5 +154,33 @@ If you set up API key authorization, you specify the `credentialProviderType` as
             "credentialPrefix": "string"
         }
     }
+}
+```
+
+## Caller IAM credentials authorization
+
+If you want the gateway to use the IAM identity and permissions of the caller to sign requests to the downstream target, specify the `credentialProviderType` as `CALLER_IAM_CREDENTIALS`. With this authorization type, the gateway makes a request to the downstream target on behalf of the gateway caller using SigV4. This allows the downstream target to apply IAM policies based on who originally called the gateway.
+
+###### Note
+
+`CALLER_IAM_CREDENTIALS` is only available for gateways that have `AWS_IAM` or `AUTHENTICATE_ONLY` as the authorizer type.
+
+```
+{
+    "credentialProviderType": "CALLER_IAM_CREDENTIALS"
+}
+```
+
+## JWT passthrough authorization
+
+If you want the gateway to pass the bearer token from the incoming request directly to the downstream target without modification, specify the `credentialProviderType` as `JWT_PASSTHROUGH`. The gateway validates the inbound token and then forwards it to the target in the outbound request. This is useful when the target service handles its own authorization using the original caller’s token.
+
+###### Note
+
+`JWT_PASSTHROUGH` is only available for HTTP targets (passthrough and AgentCore Runtime).
+
+```
+{
+    "credentialProviderType": "JWT_PASSTHROUGH"
 }
 ```

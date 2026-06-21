@@ -4,9 +4,65 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 
 ## June 2026
 
+### Web Search Tool is now Generally Available
+
+Web Search is a fully managed tool that enables agents to ground responses in current, accurate web knowledge while keeping data residency within your secured AWS environment with zero data egress. Built on Amazon’s search infrastructure, it combines a proprietary web index with structured knowledge graph data. The tool is exposed as a built-in connector target on AgentCore gateway using the Model Context Protocol (MCP), returning ranked results with relevant snippets, source URLs, titles, and publication dates optimized for agentic retrieval. See [Web Search documentation](web-search.md "web-search.md").
+
+### AgentCore Policy Now Supports Bedrock Guardrails
+
+AgentCore now supports Bedrock Guardrails in policy, giving enterprises deeper safety and security controls as they scale AI agents in production. Guardrails evaluates outputs from authorized agent actions and inputs to gateway targets for prompt injection attempts, harmful content, and sensitive data exposure. These checks run at the gateway layer, outside the agent’s code, where the agent cannot reason around them. Because every tool and context source routes through the gateway, every new agent capability is automatically governed by the same security layer. Policies can be authored using natural language or policy-as-code formats. See [Guardrails integration documentation](gateway-guardrails.md "gateway-guardrails.md").
+
+### AgentCore Harness is now Generally Available
+
+The managed AgentCore harness is now generally available in all AWS Regions where AgentCore is supported. You can define an agent with CreateHarness and run it with InvokeHarness, with no orchestration code and no container to build. GA adds built-in memory by default, or bring your own, more model providers through LiteLLM and Bedrock Mantle (which unlocks OpenAI GPT-5.5 and GPT-5.4 and others on Bedrock), the AWS-curated skills catalog with a one-toggle setup, evaluations and optimization, unified observability across capabilities, versioning and endpoints, and export to Strands code. See [documentation](harness.md "harness.md").
+
+### Recommendations is now Generally Available
+
+The agent performance loop capabilities enable teams to continuously improve agent quality using real production data. The recommendations capabilities in AgentCore analyze production traces and evaluation outputs to suggest specific improvements to system prompts and tool descriptions, grounded in how the agent actually behaves. This capability works regardless of where agents run: on AgentCore runtime, AWS Lambda, Amazon EKS, or non-AWS environments. See [Optimization documentation](optimization.md "optimization.md").
+
+### Batch Evaluations is now Generally Available
+
+As part of the agent performance loop, batch evaluation tests recommended changes against a defined test dataset and reports aggregate scores, catching regressions before changes reach production. Teams can validate prompt and tool description improvements with confidence before rolling them out to live traffic. See [Batch Evaluations documentation](batch-evaluations-getting-started.md "batch-evaluations-getting-started.md").
+
+### A/B Testing is now Generally Available
+
+A/B testing is the validation step in the agent performance loop. The A/B testing capabilities in AgentCore run a controlled comparison between agent versions by splitting live production traffic, providing real evidence that a change works under production conditions before customers commit to it. This capability works regardless of where agents run: on AgentCore runtime, AWS Lambda, Amazon EKS, or non-AWS environments. See [A/B Testing documentation](optimization-ab-testing.md "optimization-ab-testing.md").
+
+### Amazon Bedrock Managed Knowledge Base is now Generally Available
+
+Developers can now build production-ready AI agents grounded in enterprise data with Managed Knowledge Bases in AgentCore. Managed Knowledge Base provides a fully managed retrieval-augmented generation (RAG) pipeline that agents can query through the gateway, eliminating the need to build and maintain custom retrieval infrastructure. Six native connectors (Amazon S3, SharePoint, Confluence, Google Drive, OneDrive, and Web Crawler) handle data ingestion with automatic syncing and managed vector storage. The service supports hybrid search, document ranking, and advanced retrieval orchestration for complex queries, and handles text, video, audio, and image content. See [Managed Knowledge Base documentation](knowledge-base.md "knowledge-base.md").
+
+### Failure Insights is now in Public Preview
+
+New capabilities can now turn production traces into continuous improvement for agents. The failure insights capabilities in AgentCore discover recurring failure patterns across hundreds of agent sessions, including silent behavioral failures that produce no error signal, explain the root cause of each, and rank them by how widespread they are. Customers can enable continuous monitoring with daily or weekly reports, or run a targeted investigation after a deployment or a spike in complaints, with results in minutes. See [Failure Insights documentation](optimization-insights.md "optimization-insights.md").
+
+### Gateway: AgentCore Runtime targets are now generally available
+
+You can add an Amazon Bedrock AgentCore Runtime agent as a target on your gateway. Your gateway sends traffic directly to the runtime agent without aggregation or protocol translation. This integration is now generally available (GA). As part of GA, you can provide an API schema for the runtime target so that the gateway policy engine applies guardrails. You can also use request and response interceptor Lambda functions to inspect or transform traffic, and enforce that the runtime accepts invocations only when they originate from your gateway. See [AgentCore Runtime targets](gateway-target-http-runtime.md "gateway-target-http-runtime.md").
+
+### Gateway: HTTP passthrough targets
+
+AgentCore Gateway now supports HTTP passthrough targets. These targets route traffic through your gateway to any HTTP endpoint without protocol translation. Passthrough targets are ideal for fronting agent URLs, external APIs, application-to-application (A2A) agents, external Model Context Protocol (MCP) servers, or custom inference endpoints. They provide a single gateway endpoint with unified authentication, policy enforcement, and observability. You can provide an API schema to enable policy engine features such as guardrails. You can also configure session stickiness so that weighted routing rules keep a session on the same target. See [HTTP passthrough targets](gateway-target-http-passthrough.md "gateway-target-http-passthrough.md").
+
+### Gateway: Inference targets
+
+AgentCore Gateway now supports inference targets for fronting model providers. Inference connector targets provide a preconfigured setup for supported providers. Your gateway automatically handles operations, model discovery, model ID translation, and path rewriting. Inference provider targets give you explicit control over the endpoint, model mappings, per-model token limits, operations, and path rewriting. This includes providers that do not have a built-in connector. See [Inference connector targets](gateway-target-inference-connector.md "gateway-target-inference-connector.md") and [Inference provider targets](gateway-target-inference-provider.md "gateway-target-inference-provider.md").
+
+### Gateway: Enforce inbound traffic from the gateway
+
+You can now configure an Amazon Bedrock AgentCore Runtime to accept invocations only when they originate from your gateway. This prevents callers from bypassing the gateway and reaching the runtime directly. Source validation works across both inbound authorization types. For IAM (Signature Version 4, or SigV4) runtimes, use a resource-based policy that enforces the `aws:SourceArn` condition key. For OAuth (JSON Web Token, or JWT) runtimes, use `allowedWorkloadConfiguration` to restrict the allowed workload to your gateway. See [AgentCore Runtime targets](gateway-target-http-runtime.md "gateway-target-http-runtime.md").
+
+### AgentCore achieves SOC compliance
+
+AgentCore is now System and Organization Controls (SOC) compliant and in scope for SOC 1, 2, and 3 reports. The service is officially listed on the [AWS Compliant Services in Scope](https://aws.amazon.com/compliance/services-in-scope/SOC/ "https://aws.amazon.com/compliance/services-in-scope/SOC/") page.
+
 ### Identity: Reference Existing Secrets in AWS Secrets Manager
 
 Amazon Bedrock AgentCore Identity now allows you to reference existing AWS Secrets Manager secret ARNs directly in AgentCore Identity Credential Providers. You can create and manage your secrets in AWS Secrets Manager using your own governance and compliance policies. These policies include custom CMKs, tagging strategies, automatic rotation, and resource policies. You can then reference the existing secret ARN when you configure a Credential Provider in AgentCore Identity. This gives you full ownership of how your secrets are created, classified, and governed, without changing how AgentCore Identity uses them at runtime.
+
+### AgentCore CLI and CDK: Payments Support
+
+The AgentCore CLI (v0.19.0) and CDK constructs (v0.1.0-alpha.36) now include the Payments feature. The `agentcore add payment-manager` and `agentcore add payment-connector` commands create a Payment Manager and Payment Connector via CloudFormation, automatically connected to your Strands agent through the AgentCore SDK’s `AgentCorePaymentsPlugin`. After deploying with `agentcore deploy`, invoke your payments-eligible agent by passing `--payment-instrument-id` and `--payment-user-id` as flags through `agentcore invoke`, along with `--auto-session` to create or reuse a budget-limited session. The CLI also supports interactive TUI wizards for payment setup and `agentcore remove` commands for teardown. Requires CLI version 0.19.0 or later. See the [Payments quick start](payments-getting-started.md "payments-getting-started.md") for both SDK and CLI paths.
 
 ### Runtime: Interactive Shells (Terminals)
 

@@ -2,7 +2,7 @@
 
 Retrieve a configuration bundle to inspect its metadata or read the full configuration content of a specific version. Two operations are available:
 
-- **GetConfigurationBundle** — Returns the latest version on a branch (defaults to `mainline`). Use this to read the current active configuration.
+- **GetConfigurationBundle** — Returns the latest version of a bundle. If `branchName` is specified, returns the latest version on that branch. If omitted, returns the newest version across all branches. Use this to read the current active configuration.
 - **GetConfigurationBundleVersion** — Returns a specific historical version by version ID. Use this to inspect past configurations or compare versions.
 
 ## Bundle metadata vs version content
@@ -19,16 +19,20 @@ AgentCore CLI
 View version history for a bundle:
 
 ```
-agentcore config-bundle versions --bundle myAgentConfig
+agentcore config-bundle versions --name myAgentConfig
 ```
 
 Compare two versions side by side:
 
 ```
-agentcore config-bundle diff --bundle myAgentConfig \
+agentcore config-bundle diff --name myAgentConfig \
   --from <version-1> \
   --to <version-2>
 ```
+
+###### Note
+
+There is no direct "get bundle content" CLI command — the `config-bundle` subcommands are `versions`, `diff`, and `create-branch`. To enumerate versions and capture their IDs, use `agentcore config-bundle versions --name myAgentConfig --json` (optionally with `--branch <name>`, `--latest-per-branch`, or `--created-by <name>`), then feed the version IDs into `config-bundle diff`. To fetch the full configuration content of a bundle version, use the SDK/REST `GetConfigurationBundleVersion` operation shown below.
 
 AWS SDK (boto3)
 Get bundle metadata and latest version content:
@@ -44,7 +48,7 @@ response = client.get_configuration_bundle(
 
 print(f"Bundle: {response['bundleName']}")
 print(f"Version: {response['versionId']}")
-print(f"Branch: {response.get('lineageMetadata', {}).get('branchName', 'mainline')}")
+print(f"Branch: {response.get('lineageMetadata', {}).get('branchName', 'N/A')}")
 print(f"Components: {response['components']}")
 ```
 
@@ -66,10 +70,10 @@ print(f"Components: {response['components']}")
 
 ### GetConfigurationBundle
 
-| Parameter    | Type   | Required | Description                                                         |
-| ------------ | ------ | -------- | ------------------------------------------------------------------- |
-| `bundleId`   | String | Yes      | The ID of the configuration bundle. Passed as a path parameter.     |
-| `branchName` | String | No       | Branch name to get the latest version from. Defaults to `mainline`. |
+| Parameter    | Type   | Required | Description                                                                                             |
+| ------------ | ------ | -------- | ------------------------------------------------------------------------------------------------------- |
+| `bundleId`   | String | Yes      | The ID of the configuration bundle. Passed as a path parameter.                                         |
+| `branchName` | String | No       | Branch name to get the latest version from. If omitted, returns the newest version across all branches. |
 
 ### GetConfigurationBundleVersion
 

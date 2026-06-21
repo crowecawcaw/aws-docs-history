@@ -447,6 +447,58 @@ connector_id = response["paymentConnector"]["paymentConnectorId"]
 provider_arn = response["credentialProvider"]["credentialProviderArn"]
 ```
 
+AgentCore CLI
+The AgentCore CLI creates the credential provider, Payment Manager, and Payment Connector together from your project directory. Requires CLI v0.19.0 or later.
+
+**Interactive wizard:**
+
+```
+agentcore add payment-manager
+```
+
+The wizard prompts for manager name, pattern, auto-payment toggle, spend limit, and optionally walks through adding a connector with provider credentials.
+
+**Non-interactive (Coinbase CDP):**
+
+```
+agentcore add payment-manager \
+  --name MyPaymentManager \
+  --auto-payment \
+  --default-spend-limit 10.00
+
+agentcore add payment-connector \
+  --manager MyPaymentManager \
+  --name CoinbaseConnector \
+  --provider CoinbaseCDP \
+  --api-key-id <YOUR_API_KEY_ID> \
+  --api-key-secret <YOUR_API_KEY_SECRET> \
+  --wallet-secret <YOUR_WALLET_SECRET>
+
+agentcore deploy
+```
+
+**Non-interactive (Stripe/Privy):**
+
+```
+agentcore add payment-manager \
+  --name MyPaymentManager \
+  --auto-payment \
+  --default-spend-limit 10.00
+
+agentcore add payment-connector \
+  --manager MyPaymentManager \
+  --name StripePrivyConnector \
+  --provider StripePrivy \
+  --app-id <YOUR_APP_ID> \
+  --app-secret <YOUR_APP_SECRET> \
+  --authorization-id <YOUR_AUTHORIZATION_ID> \
+  --authorization-private-key <YOUR_PRIVATE_KEY_BASE64>
+
+agentcore deploy
+```
+
+Running `agentcore deploy` provisions IAM roles, stores credentials in AgentCore Identity, and creates the Payment Manager and Connector.
+
 ## Lifecycle states
 
 After creation, the Payment Manager transitions through the following states:
@@ -492,6 +544,12 @@ response = payment_client.get_payment_manager(
 print(f"Status: {response['status']}")
 ```
 
+AgentCore CLI
+
+```
+agentcore status
+```
+
 ## List Payment Managers
 
 ###### Example
@@ -520,6 +578,12 @@ payment_client = PaymentClient(region_name="us-east-1")
 response = payment_client.list_payment_managers()
 for pm in response['paymentManagers']:
     print(f"{pm['name']} - {pm['status']}")
+```
+
+AgentCore CLI
+
+```
+agentcore status
 ```
 
 ## Delete a Payment Manager
@@ -552,6 +616,16 @@ payment_client.delete_payment_manager(
     payment_manager_id="<paymentManagerId>"
 )
 ```
+
+AgentCore CLI
+
+```
+agentcore remove payment-connector --manager MyPaymentManager --name CoinbaseConnector --yes
+agentcore remove payment-manager --name MyPaymentManager --yes
+agentcore deploy
+```
+
+The `remove` commands update local configuration. The follow-up `deploy` tears down the payment infrastructure in your account.
 
 ## Next steps
 

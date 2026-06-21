@@ -1,13 +1,5 @@
 # Batch evaluation
 
-###### Note
-
-Batch evaluation is in public preview. Features and APIs may change before general availability.
-
-###### Important
-
-Amazon Bedrock AgentCore Batch Evaluation is in preview release and does not support AWS CloudTrail. API calls to this feature do not appear in your CloudTrail event history or configured trails; support will be added shortly. Other AWS service events in your account are not affected. Do not use this feature for workloads that require a CloudTrail audit trail until support is added.
-
 Batch evaluation runs evaluators against multiple agent sessions in a single job with server-side orchestration. Unlike on-demand evaluation where you collect spans and call the Evaluate API yourself, batch evaluation handles session discovery, span collection, and scoring entirely on the service side. You submit a job, and the service processes all matching sessions and returns aggregate results.
 
 Use batch evaluation when you need to:
@@ -48,3 +40,4 @@ A batch evaluation job follows this flow:
 - [Stop batch evaluation](batch-evaluations-stop.md "batch-evaluations-stop.md")
 - [Delete batch evaluation](batch-evaluations-delete.md "batch-evaluations-delete.md")
 - [Understanding results and output](batch-evaluations-results.md "batch-evaluations-results.md")
+- [Batch evaluation encryption](batch-evaluations-encryption.md "batch-evaluations-encryption.md")

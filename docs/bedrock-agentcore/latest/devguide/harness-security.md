@@ -8,17 +8,94 @@ The harness gives you the same security primitives as the rest of AgentCore, wir
 - **Inbound OAuth Support.** JWT configured Harness resources require callers to present a valid JWT issued by a configured identity provider before they can invoke the harness. [AgentCore Identity](identity.md "identity.md") threads the end-user identity through the agent, so downstream tools can call APIs with scoped user credentials instead of a shared service account.
 - **VPC.** Connect harness sessions to your VPC for private access to internal resources.
 - **Policies on Gateway.** When tools are served through [AgentCore Gateway](gateway.md "gateway.md"), Cedar-based [policies](policy.md "policy.md") can be configured to gate every call: who can call which tool, under which conditions, with which arguments.
-  Harness follows the AgentCore [shared responsibility model](runtime-security-best-practices.md#security-bp-shared-responsibility "runtime-security-best-practices.md#security-bp-shared-responsibility")
 
 ###### Note
 
 **SigV4 and per-user identity.** When callers authenticate with SigV4 (AWS IAM), the harness does not propagate per-user identity into downstream tool calls. This means per-user credential scoping features in [AgentCore Identity](identity.md "identity.md") Token Vault - such as user-scoped OAuth token storage and on-behalf-of token exchange - are only available when callers authenticate with a Bearer JWT via the OAuth inbound path. If your use case requires per-user credential scoping for downstream tools, configure inbound OAuth on the harness. SigV4 support for per-user identity is planned for a future release.
+
+## Shared responsibility model
+
+The harness is built on AgentCore Runtime. The security boundary is the same: IAM or JWT authentication combined with microVM isolation. The harness does not add a security layer between the caller and the microVM.
+
+###### AWS responsibilities:
+
+- Secure infrastructure and microVM isolation at the hardware level
+- OS kernel patching
+- Language runtime patching for direct code deployments
+- Network infrastructure security
+- Service availability and resilience
+
+###### Your responsibilities:
+
+- Agent code security and dependency management
+- IAM access controls and resource policies
+- Security of commands executed in runtime sessions
+- Session-to-user mapping enforcement
+- Input validation and prompt injection prevention - including validating all `InvokeHarness` input (see [Trust boundary and input validation](#harness-trust-boundary "#harness-trust-boundary"))
+- Model configuration validation - such as `additionalParams`, `apiBase`, and `modelId` fields (see [Model configuration parameters](#harness-model-params-security "#harness-model-params-security"))
+- Skill and instruction sources - ensuring that S3 buckets, Git repositories, and URLs used for skills contain trusted content (see [Skills and instructions](#harness-skills-security "#harness-skills-security"))
+- Container image updates (for container deployments) - rebuild with the latest secure base image regularly
+- Network configuration (security groups, VPC endpoints, route tables)
+
+For the full AgentCore Runtime shared responsibility model, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md#security-bp-shared-responsibility "runtime-security-best-practices.md#security-bp-shared-responsibility").
+
+### Trust boundary and input validation
+
+All `InvokeHarness` and `InvokeAgentRuntimeCommand` input is trusted. Any principal that passes the IAM or JWT authentication and authorization gate has access to the full microVM session, including the tools and capabilities configured on the harness. The harness does not sanitize input, filter content blocks, or enforce behavioral constraints.
+
+If you expose the harness to end users you do not fully trust (employees, external consumers, or third-party integrations), validate and sanitize messages in your application layer before passing them to `InvokeHarness`. This includes stripping content-block types or model configuration fields you do not want dispatched. This is the same pattern as any service that accepts payloads from authorized callers, such as Lambda, Amazon API Gateway, and Amazon SQS.
+
+### Model configuration parameters
+
+The `model` field in `InvokeHarness` accepts `additionalParams` for Bedrock, OpenAI, and LiteLLM configurations. These parameters are passed through to the underlying model provider unchanged. The harness does not validate, filter, or restrict these parameters.
+
+Callers who can set `additionalParams` can:
+
+- **Redirect requests to arbitrary endpoints** - LiteLLM’s `aws_bedrock_runtime_endpoint` parameter overrides the Bedrock endpoint URL. A caller can route the signed request - including the SigV4 signature and session credentials - to an endpoint that is specified in the trust model configuration.
+- **Override HTTP headers** - OpenAI’s `extra_headers` parameter injects or overrides HTTP headers on the outbound request to the model provider, including the `Authorization` header.
+- **Attempt IAM role assumption** - LiteLLM’s `aws_role_name` parameter instructs the runtime to assume a different IAM role before calling the model provider. The attempt succeeds or fails based on the execution role’s `sts:AssumeRole` permissions.
+- **Change the target model or region** - The `modelId` and `apiBase` fields can redirect inference to a different model, region, or provider entirely.
+
+If your application exposes `InvokeHarness` capabilities to callers you do not fully trust, consider implementing input validation in your application layer. Examples include:
+
+- Stripping or allowlisting the `model` field before forwarding requests
+- Validating or removing `additionalParams`, `apiBase`, and `modelId`
+- Denying `sts:AssumeRole` on the execution role if role switching is not required
+- Scoping the harness network access using VPC security groups
+
+### Skills and instructions
+
+Skills are bundles of markdown and scripts that the harness fetches from Amazon S3 or Git at invocation time and injects into the agent’s context. The harness treats all skill content as trusted input. It does not validate, sanitize, or inspect the content or source of skills before providing them to the agent.
+
+You are responsible for:
+
+- Ensuring that skill sources (S3 buckets, Git repositories, URLs) are trusted and access-controlled
+- Reviewing skill content - including markdown instructions and any embedded scripts - before configuring them on the harness
+- Controlling which principals can override the `skills` field per invocation, since callers can point the harness at arbitrary S3 or Git sources
+
+Skills can be overridden per `InvokeHarness` call. If your application forwards caller-supplied input to `InvokeHarness`, a caller can supply their own skill sources containing arbitrary instructions or scripts. Examples of mitigations include:
+
+- Stripping or ignoring the `skills` field from caller-supplied requests
+- Allowlisting permitted S3 prefixes or Git repositories
+
+### Observability and trace correlation
+
+The harness automatically propagates correlation identifiers to downstream AgentCore primitives (Gateway, Memory, Code Interpreter, Browser) to enable unified trace views in CloudWatch. These identifiers are used for observability only - they are never used for authorization or data access decisions.
 
 ## Network configuration
 
 By default, harness sessions run on the public network. To access private resources (databases, internal APIs, private subnets), deploy the harness in your VPC.
 
 ###### Example
+
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control create-harness \
+  --harness-name "VpcHarness" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
+  --environment '{"agentCoreRuntimeEnvironment": {"networkConfiguration": {"networkMode": "VPC", "vpcConfig": {"securityGroupIds": ["sg-0abc1234def56789a"], "subnetIds": ["subnet-0abc1234def56789a"]}}}}'
+```
 
 AgentCore CLI
 
@@ -28,15 +105,6 @@ agentcore add harness --name internal-agent \
   --subnets subnet-0abc1234def56789a \
   --security-groups sg-0abc1234def56789a
 agentcore deploy
-```
-
-AWS CLI/boto3
-
-```
-aws bedrock-agentcore-control create-harness \
-  --harness-name "VpcHarness" \
-  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
-  --environment '{"agentCoreRuntimeEnvironment": {"networkConfiguration": {"networkMode": "VPC", "vpcConfig": {"securityGroupIds": ["sg-0abc1234def56789a"], "subnetIds": ["subnet-0abc1234def56789a"]}}}}'
 ```
 
 ###### Important
@@ -50,24 +118,6 @@ For additional network configuration guidance, see [Configure AgentCore Runtime 
 Require callers to present a valid JWT issued by a configured identity provider before they can invoke the harness. [AgentCore Identity](identity.md "identity.md") threads the end-user identity through the agent, so downstream tools can call APIs with scoped user credentials instead of a shared service account.
 
 ###### Example
-
-AgentCore CLI
-
-```
-agentcore add harness --name MyNewHarness \
-  --authorizer-type CUSTOM_JWT \
-  --discovery-url {DISCOVERY_URL} \
-  --allowed-clients {CLIENT_ID}
-agentcore deploy
-```
-
-Invoke with a bearer token:
-
-```
-agentcore invoke --harness MyNewHarness --bearer-token "{token}" "Hello"
-```
-
-See [inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md") for the full OAuth setup flow.
 
 AWS CLI/boto3
 
@@ -87,6 +137,70 @@ curl -X POST "https://bedrock-agentcore.us-west-2.amazonaws.com/harnesses/invoke
   -H "X-Amzn-Bedrock-AgentCore-Runtime-Session-Id: $(uuidgen)" \
   -d '{"messages": [{"role": "user", "content": [{"text": "Hi"}]}]}'
 ```
+
+AgentCore CLI
+
+```
+agentcore add harness --name MyNewHarness \
+  --authorizer-type CUSTOM_JWT \
+  --discovery-url {DISCOVERY_URL} \
+  --allowed-clients {CLIENT_ID}
+agentcore deploy
+```
+
+Invoke with a bearer token:
+
+```
+agentcore invoke --harness MyNewHarness --bearer-token "{token}" "Hello"
+```
+
+When your identity provider’s OIDC discovery endpoint is reachable only over PrivateLink, add private-endpoint flags to the CUSTOM_JWT authorizer. Use a service-managed VPC endpoint:
+
+```
+agentcore add harness --name MyNewHarness \
+  --authorizer-type CUSTOM_JWT \
+  --discovery-url {DISCOVERY_URL} \
+  --allowed-clients {CLIENT_ID} \
+  --private-endpoint-vpc-id vpc-0abc1234def56789a \
+  --private-endpoint-subnets subnet-0abc1234def56789a,subnet-0def5678abc12349b \
+  --private-endpoint-ip-type IPV4 \
+  --private-endpoint-security-groups sg-0abc1234def56789a
+agentcore deploy
+```
+
+Or point at an existing VPC Lattice resource configuration instead of a managed VPC endpoint:
+
+```
+agentcore add harness --name MyNewHarness \
+  --authorizer-type CUSTOM_JWT \
+  --discovery-url {DISCOVERY_URL} \
+  --allowed-clients {CLIENT_ID} \
+  --private-endpoint-lattice-arn rcfg-0abc1234def56789a
+agentcore deploy
+```
+
+###### Note
+
+The private-endpoint flags are valid only with `--authorizer-type CUSTOM_JWT`. `--private-endpoint-vpc-id` and `--private-endpoint-lattice-arn` are mutually exclusive — choose one. With `--private-endpoint-vpc-id`, both `--private-endpoint-subnets` and `--private-endpoint-ip-type` (`IPV4` or `IPV6`) are required.
+
+See [inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md") for the full OAuth setup flow.
+
+Interactive
+Run `agentcore` in a project directory, select **add** , choose **Harness** , and advance to **Advanced settings** . Enable **Authentication** (and **Network** for VPC access) with **Space** , then press **Enter** .
+
+1. Choose the authorizer type: **AWS IAM** (default) or **Custom JWT** for OIDC bearer-token auth.
+
+![Select the harness authorizer type](images/tui/harness-security-02-auth-type.png) 2. For **Custom JWT** , enter the OIDC discovery URL.
+
+![Configure Custom JWT: discovery URL](images/tui/harness-security-03-jwt.png) 3. Select which token constraints to validate - allowed audiences, allowed clients, allowed scopes, or custom claims.
+
+![Select JWT constraints to configure](images/tui/harness-security-04-jwt-constraints.png) 4. Choose how the harness reaches the IdP discovery endpoint: **None** (publicly reachable), a **VPC Lattice resource** , or a **Managed VPC endpoint** (PrivateLink).
+
+![PrivateLink options for the IdP discovery endpoint](images/tui/harness-security-05-privatelink.png) 5. For **Network** , choose VPC mode and provide the subnet IDs and security group IDs.
+
+![Enter VPC subnet IDs](images/tui/harness-security-06-network-subnets.png)
+
+Confirm the wizard, then run `agentcore deploy` to apply.
 
 Learn more: [AgentCore Identity](identity.md "identity.md") · [inbound JWT authorizer](inbound-jwt-authorizer.md "inbound-jwt-authorizer.md") · [outbound credentials](identity-outbound-credential-provider.md "identity-outbound-credential-provider.md")
 
@@ -113,17 +227,23 @@ The harness assumes an IAM execution role you provide. The role’s trust policy
 
 ### Required IAM permissions for callers
 
-Harness APIs require permissions on both the harness resource and the underlying [AgentCore Runtime](runtime-how-it-works.md "runtime-how-it-works.md") resource. The following table lists the required actions for each API:
+Harness APIs require permissions on both the harness resource and the underlying [AgentCore Runtime](runtime-how-it-works.md "runtime-how-it-works.md") and optional [AgentCore Memory](memory.md "memory.md") resources. The following table lists the required actions for each API:
 
-| API                         | Required IAM actions                                                                  |
-| --------------------------- | ------------------------------------------------------------------------------------- |
-| `InvokeHarness`             | `bedrock-agentcore:InvokeHarness`, `bedrock-agentcore:InvokeAgentRuntime`             |
-| `InvokeAgentRuntimeCommand` | `bedrock-agentcore:InvokeAgentRuntimeCommand`, `bedrock-agentcore:InvokeAgentRuntime` |
-| `CreateHarness`             | `bedrock-agentcore:CreateHarness`, `bedrock-agentcore:CreateAgentRuntime`             |
-| `UpdateHarness`             | `bedrock-agentcore:UpdateHarness`, `bedrock-agentcore:UpdateAgentRuntime`             |
-| `DeleteHarness`             | `bedrock-agentcore:DeleteHarness`, `bedrock-agentcore:DeleteAgentRuntime`             |
-| `GetHarness`                | `bedrock-agentcore:GetHarness`                                                        |
-| `ListHarnesses`             | `bedrock-agentcore:ListHarnesses`                                                     |
+| API                         | Required IAM actions                                                                                        |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `InvokeHarness`             | `bedrock-agentcore:InvokeHarness`, `bedrock-agentcore:InvokeAgentRuntime`                                   |
+| `InvokeAgentRuntimeCommand` | `bedrock-agentcore:InvokeAgentRuntimeCommand`, `bedrock-agentcore:InvokeAgentRuntime`                       |
+| `CreateHarness`             | `bedrock-agentcore:CreateHarness`, `bedrock-agentcore:CreateAgentRuntime`, `bedrock-agentcore:CreateMemory` |
+| `UpdateHarness`             | `bedrock-agentcore:UpdateHarness`, `bedrock-agentcore:UpdateAgentRuntime`, `bedrock-agentcore:UpdateMemory` |
+| `DeleteHarness`             | `bedrock-agentcore:DeleteHarness`, `bedrock-agentcore:DeleteAgentRuntime`, `bedrock-agentcore:DeleteMemory` |
+| `GetHarness`                | `bedrock-agentcore:GetHarness`                                                                              |
+| `ListHarnesses`             | `bedrock-agentcore:ListHarnesses`                                                                           |
+| `CreateHarnessEndpoint`     | `bedrock-agentcore:CreateHarnessEndpoint`, `bedrock-agentcore:CreateAgentRuntimeEndpoint`                   |
+| `UpdateHarnessEndpoint`     | `bedrock-agentcore:UpdateHarnessEndpoint`, `bedrock-agentcore:UpdateAgentRuntimeEndpoint`                   |
+| `DeleteHarnessEndpoint`     | `bedrock-agentcore:DeleteHarnessEndpoint`, `bedrock-agentcore:DeleteAgentRuntimeEndpoint`                   |
+| `GetHarnessEndpoint`        | `bedrock-agentcore:GetHarnessEndpoint`                                                                      |
+| `ListHarnessEndpoints`      | `bedrock-agentcore:ListHarnessEndpoints`                                                                    |
+| `ListHarnessVersions`       | `bedrock-agentcore:ListHarnessVersions`                                                                     |
 
 All actions are scoped to the harness ARN (e.g., `arn:aws:bedrock-agentcore:{region}:{account}:harness/{id}`).
 
@@ -502,7 +622,7 @@ The trailing `-*` on Secrets Manager resources accounts for the random suffix th
 
 #### Related topics
 
-- [Connect to tools](harness-tools.md "harness-tools.md") - tool types and allowedTools patterns
-- [Environment and Skills](harness-environment.md "harness-environment.md") - custom environments and ECR permissions
+- [Tools](harness-tools.md "harness-tools.md") - tool types and allowedTools patterns
+- [Environment and filesystem](harness-environment.md "harness-environment.md") - custom environments and ECR permissions
 - [Control cost with limits](harness-operations.md#harness-limits "harness-operations.md#harness-limits") - execution limits to control cost
 - [API Documentation](harness-get-started.md#api-documentation "harness-get-started.md#api-documentation")

@@ -1,4 +1,6 @@
-# Environment and Skills
+# Environment and filesystem
+
+Every harness session runs in an isolated microVM with its own filesystem and shell. This page covers configuring the execution environment (default or custom container), running commands directly on the VM, setting environment variables, and mounting persistent filesystems.
 
 ## Run commands on the environment
 
@@ -12,24 +14,6 @@ Use it to:
 - Inspect the VM during development: `ls`, `cat`, `env`, `python --version` without a round trip through the model.
 
 ###### Example
-
-AgentCore CLI
-
-```
-# Install dependencies before the agent starts
-agentcore invoke --exec --harness my-agent --session-id "$(uuidgen)" \
-  "pip install pandas matplotlib"
-
-# After the agent finishes, inspect what it created
-agentcore invoke --exec --harness my-agent --session-id "$(uuidgen)" \
-  "ls -la /tmp && cat /tmp/results.csv"
-```
-
-###### Note
-
-The base environment includes Python and bash. For tools like `git`, `node`, or other runtimes, install them at session start (e.g. `apt-get install -y git`) or use a [custom environment](#harness-custom-container "#harness-custom-container").
-
-In the TUI, press `!` to enter exec mode and run commands inline.
 
 AWS CLI/boto3
 
@@ -52,6 +36,24 @@ for event in response["stream"]:
         print(f"\n[exit code: {chunk['contentStop']['exitCode']}]")
 ```
 
+AgentCore CLI
+
+```
+# Install dependencies before the agent starts
+agentcore invoke --exec --harness my-agent --session-id "$(uuidgen)" \
+  "pip install pandas matplotlib"
+
+# After the agent finishes, inspect what it created
+agentcore invoke --exec --harness my-agent --session-id "$(uuidgen)" \
+  "ls -la /tmp && cat /tmp/results.csv"
+```
+
+###### Note
+
+The base environment includes Python and bash. For tools like `git`, `node`, or other runtimes, install them at session start (e.g. `apt-get install -y git`) or use a [custom environment](#harness-custom-container "#harness-custom-container").
+
+In the TUI, press `!` to enter exec mode and run commands inline.
+
 See [InvokeAgentRuntimeCommand API](../APIReference/API_InvokeAgentRuntimeCommand.md "../APIReference/API_InvokeAgentRuntimeCommand.md") for details.
 
 ###### Note
@@ -67,6 +69,18 @@ Container images must be built for the `linux/arm64` platform.
 The harness overrides your container’s `ENTRYPOINT` and `CMD` to keep it running as an environment. Your installed software, filesystem, and environment variables are available to the agent; your container’s startup command is not executed. If you need a background process (such as a dev server), start it via `InvokeAgentRuntimeCommand` after the session begins.
 
 ###### Example
+
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control create-harness \
+  --harness-name "CodingAgent" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
+  --environment-artifact '{"containerConfiguration": {"containerUri": "123456789012.dkr.ecr.us-west-2.amazonaws.com/my-dev-env:latest"}}' \
+  --system-prompt '[{"text": "You are an expert TypeScript developer."}]'
+```
+
+The execution role needs ECR pull permissions. See the [execution role policy](harness-security.md#harness-execution-role-policy "harness-security.md#harness-execution-role-policy") for details.
 
 AgentCore CLI
 Scaffold a harness with a Dockerfile:
@@ -86,23 +100,20 @@ agentcore create --name node-agent \
 agentcore deploy
 ```
 
-AWS CLI/boto3
-
-```
-aws bedrock-agentcore-control create-harness \
-  --harness-name "CodingAgent" \
-  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
-  --environment-artifact '{"optionalValue": {"containerConfiguration": {"containerUri": "123456789012.dkr.ecr.us-west-2.amazonaws.com/my-dev-env:latest"}}}' \
-  --system-prompt '[{"text": "You are an expert TypeScript developer."}]'
-```
-
-The execution role needs ECR pull permissions. See the [execution role policy](harness-security.md#harness-execution-role-policy "harness-security.md#harness-execution-role-policy") for details.
-
 ## Environment variables
 
 Set environment variables that are passed to the runtime container. Environment variables are available to the agent and any custom container running in the session.
 
 ###### Example
+
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control create-harness \
+  --harness-name "MyHarness" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
+  --environment-variables '{"MY_API_URL": "https://api.example.com", "LOG_LEVEL": "debug"}'
+```
 
 AgentCore CLI
 Set environment variables in `harness.json`:
@@ -118,112 +129,174 @@ Set environment variables in `harness.json`:
 
 Run `agentcore deploy` to apply.
 
+## Filesystem
+
+The harness mounts persistent storage at paths you specify. Files written to these mounts survive session termination and are visible to later invocations.
+
+A harness supports three filesystem types:
+
+- **Session storage** - service-managed, per-session storage that persists across stop/resume cycles for the same `runtimeSessionId`. No VPC required.
+- **Amazon EFS access point** - bring-your-own EFS file system, shared across sessions and agents. VPC required.
+- **Amazon S3 Files access point** - bring-your-own S3 Files file system that syncs bidirectionally with an S3 bucket. VPC required.
+
+For prerequisites (VPC networking, IAM permissions, security groups), type comparison, limits, and lifecycle behavior, see [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md"). The same requirements apply to harnesses.
+
+### Configure the environment and filesystem in the AgentCore CLI
+
+###### Example
+
+Interactive
+Run `agentcore` in a project directory to open the TUI, select **add** , then choose **Harness** . The wizard walks you through the execution environment and, in **Advanced settings** , the persistent filesystem.
+
+1. On the **Custom environment** step, keep the default environment or choose a pre-built container image (ECR URI) or a Dockerfile.
+
+![Add Harness wizard: custom environment](images/tui/harness-env-01-custom-environment.png) 2. Filesystem mounts require VPC mode, so on **Advanced settings** enable both **Network** and **Filesystem Storage** with **Space** , then press **Enter** .
+
+![Advanced settings with Network and Filesystem Storage enabled](images/tui/harness-env-02-advanced.png) 3. Choose **VPC** network mode, then provide the subnets and security groups for the harness.
+
+![Select VPC network mode](images/tui/harness-env-03-network.png) 4. Set the session storage mount path (under `/mnt`).
+
+![Enter the session storage mount path](images/tui/harness-env-04-fs-type.png) 5. To attach an Amazon EFS file system, enter the EFS access point ARN (and its mount path on the next step).
+
+![Enter the EFS access point ARN](images/tui/harness-env-05-efs.png) 6. To attach Amazon S3 Files, enter the S3 Files access point ARN (and its mount path).
+
+![Enter the S3 Files access point ARN](images/tui/harness-env-06-s3.png)
+
+Confirm the wizard, then run `agentcore deploy` to apply.
+
+### Session storage
+
+Files written to the mount path persist across stop/resume cycles when you invoke with the same `runtimeSessionId`.
+
+###### Example
+
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control update-harness \
+  --harness-id "MyHarness-UuFdkQoXSL" \
+  --environment '{"agentCoreRuntimeEnvironment": {"filesystemConfigurations": [{"sessionStorage": {"mountPath": "/mnt/data/"}}]}}'
+```
+
+AgentCore CLI
+
+```
+# At create time
+agentcore create --name myagent --session-storage-mount-path /mnt/data/
+
+# Or add to an existing harness
+agentcore add harness --name my-agent --session-storage /mnt/data/
+agentcore deploy
+```
+
+### Amazon EFS access point
+
+Attach an EFS access point ARN at a mount path under `/mnt`. Data persists in your account and can be shared with other harnesses or agent runtimes that mount the same access point.
+
+###### Example
+
 AWS CLI/boto3
 
 ```
 aws bedrock-agentcore-control create-harness \
-  --harness-name "MyHarness" \
+  --harness-name "SharedToolsAgent" \
   --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
-  --environment-variables '{"MY_API_URL": "https://api.example.com", "LOG_LEVEL": "debug"}'
-```
-
-## Agent Skills
-
-[Agent Skills](https://strandsagents.com/docs/user-guide/concepts/plugins/skills/ "https://strandsagents.com/docs/user-guide/concepts/plugins/skills/") are bundles of markdown and scripts that give the agent domain knowledge on demand (e.g. how to work with Excel files, how to use a specific API). Each entry in the `skills` list is either a `path` to a skill already in the harness environment, or an `s3` or `git` source that the harness fetches for you at invocation time. You can set `skills` as a default on the harness, or override it per invocation.
-
-### Fetch a skill from S3 or Git
-
-Instead of placing a skill in the environment yourself, point the harness at a skill stored in Amazon S3 or a Git repository and the harness fetches it for you - no image rebuild and no session setup required.
-
-- **Amazon S3** - set `s3.uri` to the skill directory (for example, `s3://my-skills-bucket/skills/company-style/`). The harness downloads it with the execution role, which needs `s3:GetObject` and `s3:ListBucket` on the bucket (see [Security and access controls](harness-security.md "harness-security.md")).
-- **Git over HTTPS** - set `git.url` to the repository URL, and `git.path` to pull a single skill from a subdirectory. For a private repository, set `git.auth.credentialArn` to an [AgentCore Identity](identity.md "identity.md") credential provider holding a personal access token (`git.auth.username` is optional, default `oauth2`).
-
-###### Example
-
-boto3
-Attach a skill from S3 and a skill from a public Git repository for a single invocation:
-
-```
-response = client.invoke_harness(
-    harnessArn=HARNESS_ARN,
-    runtimeSessionId=SESSION_ID,
-    skills=[
-        {"s3": {"uri": "s3://my-skills-bucket/skills/company-style/"}},
-        {"git": {"url": "https://github.com/anthropics/skills", "path": "skills/docx"}},
-    ],
-    messages=[{"role": "user", "content": [{"text": "Draft a one-paragraph summary of this report."}]}],
-)
-```
-
-To fetch a skill from a private Git repository, add `auth` with the ARN of a credential provider that holds a personal access token:
-
-```
-skills=[
-    {
-        "git": {
-            "url": "https://github.com/my-org/internal-skills",
-            "path": "excel",
-            "auth": {
-                "credentialArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-github-pat"
-            },
+  --environment '{
+    "agentCoreRuntimeEnvironment": {
+      "networkConfiguration": {
+        "networkMode": "VPC",
+        "networkModeConfig": {
+          "subnets": ["subnet-abc123", "subnet-def456"],
+          "securityGroups": ["sg-abc123"]
         }
+      },
+      "filesystemConfigurations": [
+        {
+          "efsAccessPoint": {
+            "accessPointArn": "arn:aws:elasticfilesystem:us-west-2:123456789012:access-point/fsap-0123456789abcdef0",
+            "mountPath": "/mnt/efs"
+          }
+        }
+      ]
     }
-]
+  }'
 ```
-
-The harness fetches each skill on the first invocation of a session and re-fetches it when a new session starts, so the agent always gets the current version. Each source must contain a `SKILL.md`, an S3 skill must be 1 GB or smaller, and a Git fetch must complete within 60 seconds; otherwise the invocation fails with a descriptive error.
-
-S3 sources need no internet access; Git (HTTPS) sources require internet egress, the same as pulling a custom container image or reaching a remote MCP server.
-
-### Getting skills into the environment
-
-**Bake into the container image** - include the skill directory in your custom image at a known path (e.g. `.agents/skills/xlsx`). Available to all invocations automatically. This is the recommended approach for production.
-
-**Install at session start** - use `InvokeAgentRuntimeCommand` to install skills after the session begins, before invoking the agent:
-
-```
-agentcore invoke --exec --harness my-agent --session-id "$(uuidgen)" \
-  "npx @anthropic-ai/agent-skills add xlsx github"
-```
-
-### Pointing the harness at installed skills
-
-###### Example
 
 AgentCore CLI
-Persist skills on the harness:
+Attach an EFS access point with `--efs-access-point` as `<accessPointArn>:<mountPath>`. EFS requires VPC network mode:
 
 ```
-agentcore add harness --name my-agent \
-  --skill-path .agents/skills/xlsx \
-  --skill-path .agents/skills/github
+agentcore add harness --name shared-tools-agent \
+  --network-mode VPC \
+  --subnets subnet-abc123,subnet-def456 \
+  --security-groups sg-abc123 \
+  --efs-access-point arn:aws:elasticfilesystem:us-west-2:123456789012:access-point/fsap-0123456789abcdef0:/mnt/efs
 agentcore deploy
 ```
 
-Skills configured this way are stored on the harness and passed to every invocation.
+###### Note
 
-Override skills on a single invocation:
+The mount path must be under `/mnt`. The flag is repeatable (up to 2 EFS mounts); `--network-mode VPC` with `--subnets` and `--security-groups` is required for EFS and S3 Files mounts.
 
-```
-agentcore invoke --harness my-agent --skill-path .agents/skills/xlsx \
-  "Find errors in the Excel files"
-```
+### Amazon S3 Files access point
+
+Attach an S3 Files access point ARN at a mount path under `/mnt`. Files at the mount path sync bidirectionally with the backing S3 bucket.
+
+###### Example
 
 AWS CLI/boto3
-Pass `skills` in the invoke call to override the harness-configured skills for that call only:
 
 ```
-response = client.invoke_harness(
-    harnessArn=HARNESS_ARN,
-    runtimeSessionId=SESSION_ID,
-    skills=[{"path": ".agents/skills/xlsx"}],
-    messages=[{"role": "user", "content": [{"text": "Find errors in the Excel files"}]}],
-)
+aws bedrock-agentcore-control create-harness \
+  --harness-name "DataAgent" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
+  --environment '{
+    "agentCoreRuntimeEnvironment": {
+      "networkConfiguration": {
+        "networkMode": "VPC",
+        "networkModeConfig": {
+          "subnets": ["subnet-abc123", "subnet-def456"],
+          "securityGroups": ["sg-abc123"]
+        }
+      },
+      "filesystemConfigurations": [
+        {
+          "s3FilesAccessPoint": {
+            "accessPointArn": "arn:aws:s3files:us-west-2:123456789012:file-system/fs-0123456789abcdef0/access-point/fsap-0123456789abcdef0",
+            "mountPath": "/mnt/s3data"
+          }
+        }
+      ]
+    }
+  }'
 ```
 
-### Related topics
+AgentCore CLI
+Attach an S3 Files access point with `--s3-access-point` as `<accessPointArn>:<mountPath>`. S3 Files requires VPC network mode:
 
-- [Connect to tools](harness-tools.md "harness-tools.md") - connect MCP servers, Gateway, Browser, and Code Interpreter
-- [Persist memory and filesystem](harness-memory.md "harness-memory.md") - persist conversations and files across sessions
-- [Security and access controls](harness-security.md "harness-security.md") - execution roles and VPC configuration
+```
+agentcore add harness --name data-agent \
+  --network-mode VPC \
+  --subnets subnet-abc123,subnet-def456 \
+  --security-groups sg-abc123 \
+  --s3-access-point arn:aws:s3files:us-west-2:123456789012:file-system/fs-0123456789abcdef0/access-point/fsap-0123456789abcdef0:/mnt/s3data
+agentcore deploy
+```
+
+###### Note
+
+The access point ARN itself contains colons; the mount path is taken from the segment after the final colon. The flag is repeatable (up to 2 S3 Files mounts).
+
+###### Important
+
+`UpdateHarness` replaces the entire `filesystemConfigurations` list. To add a new mount to a harness that already has filesystems configured, call `GetHarness` first, then send the full desired list (existing entries plus the new one) in `UpdateHarness`.
+
+Learn more: [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md").
+
+#### Related topics
+
+- [Skills](harness-skills.md "harness-skills.md") - attach skills from Git, S3, or AWS Skills
+- [Memory](harness-memory.md "harness-memory.md") - persist conversations across sessions
+- [Tools](harness-tools.md "harness-tools.md") - connect tools to your harness
+- [Security and access controls](harness-security.md "harness-security.md") - execution role policies and VPC configuration
 - [API Documentation](harness-get-started.md#api-documentation "harness-get-started.md#api-documentation")

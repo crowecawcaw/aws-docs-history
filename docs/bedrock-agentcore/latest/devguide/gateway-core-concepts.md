@@ -1,16 +1,16 @@
 # Core concepts for Amazon Bedrock AgentCore Gateway
 
-Amazon Bedrock AgentCore Gateway provides a standardized way for AI agents to discover and interact with tools and services. Understanding the core concepts of Gateway will help you design and implement effective tool integration strategies for your AI agents.
+Amazon Bedrock AgentCore Gateway provides a standardized, secure entry point for agentic traffic, letting AI agents discover and interact with tools, other agents, and large language models (LLMs). Understanding the core concepts of Gateway will help you design and implement effective integration strategies for your AI agents.
 
 ## Key concepts
 
 **Gateway**
 
-An AgentCore Gateway provides a single access point for an agent to interact with tools and services. A gateway can operate in two modes. In aggregation mode, the gateway acts as an MCP server, combining the capabilities of all its MCP targets into a unified virtual MCP server. For HTTP targets, the gateway sends traffic directly to the target without aggregation or protocol translation. A gateway can have multiple targets, each representing a different tool or set of tools.
+An AgentCore Gateway provides a single, secure access point for an agent to reach tools, other agents, and models. A gateway can have multiple targets across three categories—MCP, HTTP, and inference. For MCP targets, the gateway operates in aggregation mode, acting as an MCP server that combines the capabilities of all its MCP targets into a unified virtual MCP server. For HTTP targets, the gateway sends traffic directly to the target (for example, another agent or an A2A service) without aggregation or protocol translation. For inference targets, the gateway routes LLM requests to one or more model providers through a unified, model-based routing endpoint.
 
 **Gateway Target**
 
-A target defines the backend service that a gateway connects to. There are two categories of targets. MCP targets define APIs, Lambda functions, MCP servers, or tool definitions that the gateway aggregates into a unified MCP server. HTTP targets define HTTP-based services, such as AgentCore Runtime agents, that the gateway proxies requests to directly.
+A target defines the backend that a gateway connects to. There are three categories of targets. MCP targets define APIs, Lambda functions, MCP servers, or tool definitions that the gateway aggregates into a unified MCP server. HTTP targets define HTTP-based services, such as AgentCore Runtime agents and other agents, that the gateway proxies requests to directly. Inference targets route LLM traffic to one or more model providers through a unified endpoint, selecting the destination based on the requested model.
 
 **AgentCore Gateway Authorizer**
 
@@ -22,7 +22,7 @@ When Gateway makes calls to your APIs or Lambda function it must use some creden
 
 ## Target types
 
-Gateway supports two categories of targets:
+Gateway supports three categories of targets:
 
 **MCP target**
 
@@ -30,7 +30,11 @@ MCP targets operate in aggregation mode. The gateway combines the capabilities o
 
 **HTTP target**
 
-HTTP targets send traffic directly to the target without aggregation or protocol translation. HTTP targets do not support capability synchronization or semantic tool search. Clients address each target individually through path-based routing. HTTP target types include Amazon Bedrock AgentCore Runtime agents.
+HTTP targets send traffic directly to the target without aggregation or protocol translation. HTTP targets do not support capability synchronization or semantic tool search. Clients address each target individually through path-based routing. HTTP target types include Amazon Bedrock AgentCore Runtime agents, other agents (including Agent-to-Agent (A2A) services), external MCP servers, and any HTTP endpoint reached through a passthrough target.
+
+**Inference target**
+
+Inference targets route large language model (LLM) traffic to one or more model providers through a unified endpoint. The gateway selects the destination provider based on the `model` field in the request, giving agents a single, consistent interface across providers such as Amazon Bedrock, OpenAI, and Anthropic.
 
 ## MCP tool types
 

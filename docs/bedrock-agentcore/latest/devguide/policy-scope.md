@@ -75,6 +75,16 @@ Components:
 
 Actions represent tool calls in the MCP AgentCore Gateway. Each tool has a corresponding action entity.
 
+### Action names by target type
+
+The action identifier in your policy depends on the target type configured on your gateway:
+
+| Target type       | Action format                          | Example                                       |
+| ----------------- | -------------------------------------- | --------------------------------------------- |
+| MCP               | `<TargetName>___<ToolName>`            | `NotesTool___manage_notes`                    |
+| AgentCore Runtime | `<TargetName>___<METHOD>:/invocations` | `StrandsAgentTarget___POST:/invocations`      |
+| Proxy (HTTP)      | `<TargetName>___<METHOD>:<uri>`        | `MyAPI___POST:/inference/v1/chat/completions` |
+
 ### Multiple actions
 
 Cedar does **not** support wildcard actions. Each action must be referenced explicitly using the exact action identifier ( `AgentCore::Action::"ToolName___operation"` ). To group multiple tools under a single rule, use a **Gateway Target** (an Action Group) and write policies against that target.

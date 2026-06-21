@@ -152,30 +152,30 @@ The AgentCore Code Interpreter includes a comprehensive set of pre-installed Pyt
 
 ### File Processing and Documents
 
-| Library        | Description                    |
-| -------------- | ------------------------------ |
-| `openpyxl`     | Excel file processing          |
-| `xlrd`         | Excel file reading             |
-| `XlsxWriter`   | Excel file writing             |
-| `pyxlsb`       | Excel binary format reader     |
-| `et-xmlfile`   | XML file handling for openpyxl |
-| `PyPDF2`       | PDF processing                 |
-| `pdfplumber`   | PDF text extraction            |
-| `pdf2image`    | PDF to image conversion        |
-| `pdfkit`       | HTML to PDF conversion         |
-| `pypdfium2`    | PDF processing library         |
-| `pdfminer.six` | PDF text extraction            |
-| `pdfrw`        | PDF reader/writer              |
-| `python-docx`  | Word document processing       |
-| `docx2txt`     | Word document text extraction  |
-| `reportlab`    | PDF generation                 |
-| `fpdf`         | Simple PDF generation          |
-| `rarfile`      | RAR archive processing         |
-| `xml-python`   | XML processing                 |
-| `svglib`       | SVG to PDF/bitmap conversion   |
-| `svgwrite`     | SVG creation library           |
-| `proglog`      | Progress logging               |
-| `lazy_loader`  | Lazy module loading            |
+| Library        | Description                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `openpyxl`     | Excel file processing                                                                                                                                       |
+| `xlrd`         | Excel file reading                                                                                                                                          |
+| `XlsxWriter`   | Excel file writing                                                                                                                                          |
+| `pyxlsb`       | Excel binary format reader                                                                                                                                  |
+| `et-xmlfile`   | XML file handling for openpyxl                                                                                                                              |
+| `PyPDF2`       | PDF processing                                                                                                                                              |
+| `pdfplumber`   | PDF text extraction                                                                                                                                         |
+| `pdf2image`    | PDF to image conversion                                                                                                                                     |
+| `pdfkit`       | HTML to PDF conversion. Requires the `wkhtmltopdf` and is not pre-installed in the runtime. To use `pdfkit`, install `wkhtmltopdf` yourself in the session. |
+| `pypdfium2`    | PDF processing library                                                                                                                                      |
+| `pdfminer.six` | PDF text extraction                                                                                                                                         |
+| `pdfrw`        | PDF reader/writer                                                                                                                                           |
+| `python-docx`  | Word document processing                                                                                                                                    |
+| `docx2txt`     | Word document text extraction                                                                                                                               |
+| `reportlab`    | PDF generation                                                                                                                                              |
+| `fpdf`         | Simple PDF generation                                                                                                                                       |
+| `rarfile`      | RAR archive processing                                                                                                                                      |
+| `xml-python`   | XML processing                                                                                                                                              |
+| `svglib`       | SVG to PDF/bitmap conversion                                                                                                                                |
+| `svgwrite`     | SVG creation library                                                                                                                                        |
+| `proglog`      | Progress logging                                                                                                                                            |
+| `lazy_loader`  | Lazy module loading                                                                                                                                         |
 
 ### Image and Media Processing
 

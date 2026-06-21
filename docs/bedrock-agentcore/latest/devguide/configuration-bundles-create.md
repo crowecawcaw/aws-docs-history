@@ -16,10 +16,25 @@ Create with inline components JSON, then deploy:
 ```
 agentcore add config-bundle \
   --name myAgentConfig \
+  --description "Initial config" \
+  --branch mainline \
+  --commit-message "Initial bundle creation" \
   --components '{"arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/MyAgent-abc123": {"configuration": {"system_prompt": "You are a helpful assistant.", "model_id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0"}}}'
 
 agentcore deploy
 ```
+
+The `--components` keys can be ARNs or placeholders in the form `{{runtime:<name>}}` or `{{gateway:<name>}}`. Placeholders resolve to real ARNs at deploy time, so use the placeholder form for resources managed in your project. Raw ARN keys require the resource to already exist:
+
+```
+agentcore add config-bundle \
+  --name myAgentConfig \
+  --components '{"{{runtime:MyAgent}}": {"configuration": {"system_prompt": "You are a helpful assistant."}}}'
+
+agentcore deploy
+```
+
+Add `--description`, `--branch`, and `--commit-message` to set version metadata, or `--json` to output the result as JSON.
 
 Create from a components file, then deploy:
 

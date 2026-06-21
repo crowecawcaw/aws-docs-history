@@ -1,10 +1,10 @@
-# Web Search Tool as Connector Target
+# Web Search Tool
 
-AI agents are transforming how organizations interact with information, but they face a fundamental limitation: their knowledge is frozen at training time. When a user asks about today’s stock prices, breaking news, or a software release that shipped an hour ago, an agent relying solely on its training data cannot provide accurate answers.
+AI agents are transforming how organizations interact with information, but they face a fundamental limitation: their knowledge is frozen at training time. When a user asks about today’s stock prices or a software release that shipped an hour ago, an agent relying solely on its training data cannot provide accurate answers.
 
 Building custom web search integrations to solve this is costly — procuring third-party search APIs, managing keys and quotas and rate limits, parsing inconsistent result formats across providers, building snippet extraction logic so models get relevant passages instead of raw HTML, reasoning about where customer queries travel and how data might be retained, and maintaining freshness and coverage over time. Each of these is a project in itself.
 
-Web Search Tool on Amazon Bedrock AgentCore eliminates that complexity. It is a fully managed, MCP-compliant web search capability that lets your agents retrieve information from the live web without any infrastructure overhead. It is available as a managed connector that you connect to your AgentCore Gateway. Agents discover it with a standard `tools/list` call and invoke it like any other Model Context Protocol tool. There are no search APIs to provision, no outbound credentials to manage, and no result-parsing glue to maintain.
+Web Search Tool on Amazon Bedrock AgentCore eliminates that complexity. It is a fully managed, MCP-compliant web search capability that lets your agents retrieve information from the web without any infrastructure overhead. It is available as a managed connector that you connect to your AgentCore Gateway. Agents discover it with a standard `tools/list` call and invoke it like any other Model Context Protocol tool. There are no search APIs to provision, no outbound credentials to manage, and no result-parsing glue to maintain.
 
 The following sections walk through the key capabilities, the architecture of the purpose-built web index, privacy guarantees, use cases, and how to set up Web Search Tool.
 
@@ -21,28 +21,28 @@ The following sections walk through the key capabilities, the architecture of th
 - [Input schema](#gateway-target-connector-web-search-tool-input-schema "#gateway-target-connector-web-search-tool-input-schema")
 - [Response format](#gateway-target-connector-web-search-tool-response-format "#gateway-target-connector-web-search-tool-response-format")
 - [Availability](#gateway-target-connector-web-search-tool-availability "#gateway-target-connector-web-search-tool-availability")
-- [Terms and Conditions](#gateway-target-connector-web-search-tool-terms-and-conditions "#gateway-target-connector-web-search-tool-terms-and-conditions")
+- [Acceptable use](#gateway-target-connector-web-search-tool-acceptable-use "#gateway-target-connector-web-search-tool-acceptable-use")
 
 ## Key capabilities
 
-- **Near real-time information access** — Retrieve current web results with titles, URLs, snippets, and publication dates to ground agent responses in up-to-date information.
+- **Up-to-date information access** — Retrieve current web results with titles, URLs, snippets, and publication dates to ground agent responses in up-to-date information.
 - **Zero infrastructure management** — No third-party search APIs to provision or scaling to configure. The Gateway exposes web search as a standard MCP tool automatically.
 - **Framework agnostic** — Works with Strands Agents, LangChain, LangGraph, CrewAI, or any MCP-compatible client through the standard Model Context Protocol.
-- **Purpose-built web index** — Backed by an Amazon-owned and operated web index spanning tens of billions of documents, not a thin wrapper over a third-party search engine.
+- **Purpose-built web index** — Backed by an Amazon-operated web index spanning tens of billions of documents.
 - **Knowledge graph for high-confidence facts** — Grounds entities and their relationships to provide factual answers rather than leaving the model to infer them from extracted page text.
 - **Semantic snippet extraction** — Pulls semantically relevant passages from each web page, optimized for a model’s context window, rather than returning raw HTML or full pages.
 
 ## Purpose-built web index
 
-Many solutions that add web search to an agent are thin wrappers over a third-party search engine. Web Search Tool on Amazon Bedrock AgentCore is different — it is backed by a web index that Amazon builds and operates directly.
+Many solutions that add web search to an agent are wrappers over a third-party search engine. Web Search Tool on Amazon Bedrock AgentCore is different — it is backed by a web index that Amazon builds and operates directly.
 
 **Broad coverage**
 
-The index spans tens of billions of documents. That scale matters for coverage — long-tail questions about niche libraries, regional news items, or obscure product specifications can be more effectively answered when the index is broad rather than limited to the most popular pages.
+The index spans tens of billions of documents. That scale matters for coverage — long-tail questions about niche libraries or obscure product specifications can be more effectively answered when the index is broad rather than limited to the most popular pages.
 
 **Continuously updated**
 
-Amazon refreshes the index on an ongoing basis, reflecting new and changed content within minutes. For agents answering questions about breaking news, price movements, or just-published announcements, that recency window is the difference between a grounded answer and a confidently wrong one. When your agent searches for "what happened today," the results reflect what actually happened today.
+Amazon refreshes the index on an ongoing basis, reflecting new and changed content within minutes. For agents answering questions about price movements, or just-published announcements, that recency window is the difference between a grounded answer and a confidently wrong one. When your agent searches for "what happened today," the results reflect what actually happened today.
 
 **Knowledge graph for high-confidence facts**
 
@@ -58,11 +58,7 @@ For many enterprises, the question that stalls a web search rollout isn’t "doe
 
 **Queries never leave AWS**
 
-When your agent issues a search, the query is served entirely within AWS infrastructure. Customer queries are not sent to a third-party search engine or routed outside the AWS boundary. The Gateway authenticates to the AWS-owned connector and routes the request internally, so the data path stays inside AWS end to end. For teams with data-residency or third-party egress concerns, this removes an entire category of review.
-
-**Your data is never used for training**
-
-Your queries and the data they touch are not used to train models or to improve the service. There is no feedback loop that turns your users' questions into someone else’s product improvement. What you search stays yours.
+When your agent issues a search, the query is served entirely within AWS infrastructure. Customer queries are not sent to a third-party search engine or routed outside AWS. The Gateway authenticates to the AWS-owned connector and routes the request internally, so the data path stays inside AWS end to end. For teams with data egress concerns, this removes an entire category of review.
 
 ## How it works
 
@@ -76,7 +72,7 @@ The Web Search Tool is a built-in **connector**. The Gateway handles schema mana
 
 ## Use cases
 
-- **Real-time research** — Answer questions about current events, stock prices, or recent announcements by searching the web and synthesizing results with source citations.
+- **Up-to-date research** — Answer questions about current events, stock prices, or recent announcements by searching the web and synthesizing results with source citations.
 - **Fact-checking** — Verify claims in documents by searching for primary sources and confirming or correcting figures using knowledge graph-backed factual answers.
 - **Competitive intelligence** — Monitor competitor announcements, product launches, or pricing changes from public web sources.
 - **Stale knowledge elimination** — Give agents access to information published after their training cutoff, such as new software releases, policy changes, or breaking developments.
@@ -148,8 +144,8 @@ The Web Search Tool returns results in the following MCP-compliant format:
 
 The Web Search Tool connector is available in the US East (N. Virginia) `us-east-1` Region.
 
-Because Amazon owns and operates the full search stack, improvements to freshness, coverage, relevance, and snippet quality flow to your agents automatically through the same managed connector. No version upgrades or migrations are needed on your side.
+Because Amazon operates the full search stack, improvements to freshness, coverage, relevance, and snippet quality flow to your agents automatically through the same managed connector. No version upgrades or migrations are needed on your side.
 
-## Terms and Conditions
+## Acceptable use
 
 If you use Web Search Tool, you are responsible for your use, and any use by your end users, of content retrieved from Web Search Tool (“Search Results”). You must retain and display the source citations and links provided with each Search Result in any output you surface to your end users that uses the Search Result. You may not use Web Search Tool to (a) extract, store, or reproduce content from Search Results in bulk, or (b) build or populate a competing index or database.

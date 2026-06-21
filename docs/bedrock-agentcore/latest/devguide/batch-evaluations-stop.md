@@ -11,8 +11,10 @@ Stopping a batch evaluation is useful when you realize the job was started with 
 AgentCore CLI
 
 ```
-agentcore stop batch-evaluation --id <batch-evaluation-id>
+agentcore stop batch-evaluation --id <batch-evaluation-id> [--region <region>] [--json]
 ```
+
+You can use `-i` as the short alias for `--id`. The `--region` flag specifies the AWS Region (auto-detected if omitted), and `--json` outputs the response as JSON.
 
 AWS SDK (boto3)
 

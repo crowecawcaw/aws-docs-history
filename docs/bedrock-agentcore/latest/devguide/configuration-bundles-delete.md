@@ -19,6 +19,14 @@ agentcore deploy
 
 The CLI prompts you to select which bundle to remove.
 
+To remove a specific bundle non-interactively (for example, in a script), pass the bundle name with `--name` and skip the confirmation prompt with `-y`:
+
+```
+agentcore remove config-bundle --name MyBundle -y
+
+agentcore deploy
+```
+
 AWS SDK (boto3)
 
 ```

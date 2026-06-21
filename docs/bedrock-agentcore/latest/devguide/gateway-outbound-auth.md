@@ -59,6 +59,14 @@ When you use IAM-based outbound authorization with an MCP server or OpenAPI targ
 
 For Lambda, API Gateway, and Smithy targets, do not include the `iamCredentialProvider` field. These target types only support the basic `GATEWAY_IAM_ROLE` configuration with `credentialProviderType` only. For more information about specifying the credential provider configuration, see [AgentCore Gateway service role (IAM) authorization](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-service-role "gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-service-role").
 
+### Security best practices for IAM-based outbound authorization
+
+The gateway execution role is shared across all targets configured with `GATEWAY_IAM_ROLE`. Its permissions are the upper bound for what any authorized caller can exercise through the gateway. Follow these best practices to limit exposure:
+
+- **Scope the execution role to minimum permissions** – Grant only the permissions needed across all configured targets. Avoid broad `Action` or `Resource` wildcards.
+- **Use separate gateways for different trust boundaries** – If targets have different sensitivity levels or serve different workloads, deploy them behind separate gateways with distinct execution roles.
+- **Use the policy engine to restrict caller access** – On shared gateways, use the [policy engine](policy-getting-started.md "policy-getting-started.md") to control which callers can invoke which targets, limiting the blast radius of any single caller’s permissions.
+
 ## Set up outbound authorization with an OAuth client
 
 To set up outbound authorization with an OAuth client, you use the AgentCore Identity service and specify client credentials that you receive from creating a client in either a built-in identity provider (see [Provider setup and configuration](identity-idps.md "identity-idps.md") or a custom identity provider.

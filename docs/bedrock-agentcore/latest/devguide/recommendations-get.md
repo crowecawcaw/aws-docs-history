@@ -7,16 +7,18 @@ Retrieve the status and results of a recommendation. Poll this operation until t
 ###### Example
 
 AgentCore CLI
-The CLI automatically polls until completion when you run `agentcore run recommendation`. To view past recommendation runs from the local project cache:
+
+`agentcore run recommendation` submits a fire-and-forget job. Pass `--wait` to block until it reaches a terminal state, or check on it later by ID:
 
 ```
-agentcore recommendations history
+agentcore view recommendation <recommendation-id>
 ```
 
-View as JSON:
+List all recommendation jobs, or view as JSON:
 
 ```
-agentcore recommendations history --json
+agentcore view recommendation
+agentcore view recommendation <recommendation-id> --json
 ```
 
 AWS SDK (boto3)

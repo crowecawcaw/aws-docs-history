@@ -19,13 +19,13 @@ Use the following procedure to set up a PingOne OAuth2 application and obtain th
 **To configure a PingOne OAuth2 application**
 
 1. Sign onto the PingOne admin console.
-2. In the left navigation bar, under **Applications** , choose **Application**.
+2. In the navigation bar, under **Applications** , choose **Application**.
 3. On the page, choose the **+** icon next to **Applications** to create a new application.
 4. To configure your application as a M2M OAuth2 client:
 
    - Select **Client Credentials** for Grant Type.
    - Select **Client Secret Post** for Token Endpoint Authentication Method.
-   - Create a custom resource under Applications→Resources in the tabs on the left side of the page, including a scope. Then, add that scope to the application under its personal **Resources** tab. Then, make sure that scope is present in the 'scopes' field of GetResourceOauth2AccessToken.
+   - Create a custom resource under Applications→Resources in the tabs, including a scope. Then, add that scope to the application under its personal **Resources** tab. Then, make sure that scope is present in the 'scopes' field of GetResourceOauth2AccessToken.
 
 5. To configure your application as a user federation Oauth2 client:
 

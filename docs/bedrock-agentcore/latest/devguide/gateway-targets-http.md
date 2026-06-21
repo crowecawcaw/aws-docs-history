@@ -7,3 +7,4 @@ The following topics describe the HTTP target types that you can add to your gat
 ###### Topics
 
 - [Amazon Bedrock AgentCore Runtime targets](gateway-target-http-runtime.md "gateway-target-http-runtime.md")
+- [HTTP passthrough targets](gateway-target-http-passthrough.md "gateway-target-http-passthrough.md")

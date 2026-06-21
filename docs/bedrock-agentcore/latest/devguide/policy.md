@@ -1,4 +1,4 @@
-# Policy in Amazon Bedrock AgentCore: Control Agent-to-Tool Interactions
+# Policy in Amazon Bedrock AgentCore: Control Agent Interactions
 
 Policy in Amazon Bedrock AgentCore enables developers to define and enforce security controls for AI agent interactions with tools by creating a protective boundary around agent operations. AI agents can dynamically adapt to solve complex problems - from processing customer inquiries to automating workflows across multiple tools and systems. However, this flexibility introduces new security challenges, as agents may inadvertently misinterpret business rules, or act outside their intended authority.
 

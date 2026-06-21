@@ -22,6 +22,14 @@ print(f"Deleted: {response['recommendationId']}")
 print(f"Status: {response['status']}")
 ```
 
+AgentCore CLI
+
+```
+agentcore archive recommendation -i MyPromptRec-Ab1Cd2Ef3G
+```
+
+The recommendation must be in a terminal state (`COMPLETED` or `FAILED`). This command archives the recommendation job record on the service and clears local history.
+
 ## Request parameters
 
 | Parameter          | Type   | Required | Description                                                  |

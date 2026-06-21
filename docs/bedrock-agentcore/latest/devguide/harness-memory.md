@@ -1,64 +1,87 @@
-# Persist memory and filesystem
+# Memory
 
-The harness persists state at two layers: conversation state in [AgentCore Memory](memory.md "memory.md"), and file state on the agent’s filesystem.
+The harness automatically persists conversation state in [AgentCore Memory](memory.md "memory.md"). On every invocation, the conversation is saved, scoped by session ID (and additionally by actor ID, if provided). On subsequent invocations with the same session ID, the agent’s history is loaded from Memory before it reasons - it remembers what happened in previous turns, even after the underlying microVM session has expired. You do not need to pass previous messages yourself; just send the new message.
 
-**Memory.** Attach an [AgentCore Memory](memory.md "memory.md") instance to the harness and every invocation saves the conversation automatically, scoped by session ID (and additionally by actor ID, if provided). On subsequent invocations with the same session ID, the agent’s history is loaded from Memory before it reasons, so it remembers what happened in previous turns, even after the underlying microVM session has expired. You do not need to pass previous messages yourself; just send the new message.
+## How memory works
 
-- **Short-term memory** captures raw events (messages, tool calls) within a session.
+- **Short-term memory** captures raw events (messages, tool calls) within a session. This is what gives the agent continuity across turns.
 - **Long-term memory** extracts durable knowledge via configurable strategies ([semantic](semantic-memory-strategy.md "semantic-memory-strategy.md"), [summarization](summary-strategy.md "summary-strategy.md"), [user preference](user-preference-memory-strategy.md "user-preference-memory-strategy.md"), [episodic](episodic-memory-strategy.md "episodic-memory-strategy.md"), or [custom](memory-custom-strategy.md "memory-custom-strategy.md")) and makes them retrievable via semantic search in later sessions.
-- **Actor ID** - identifies the entity interacting with the agent (a user, another agent, or a system). Memory events are scoped by actorId + sessionId, so each actor has isolated memory. Long-term retrieval uses actorId as a template variable in
-  namespace paths (e.g. /summary/{actorId}/{sessionId}/), mapping to the configured memory strategies.
+- **Actor ID** identifies the entity interacting with the agent (a user, another agent, or a system). Memory events are scoped by actorId + sessionId, so each actor has isolated memory. Long-term retrieval uses actorId as a template variable in namespace paths (e.g. `/summary/{actorId}/{sessionId}/`), mapping to the configured memory strategies.
 
-**Filesystem.** If enabled, each session runs in a Firecracker microVM with a working filesystem. Files written during a session persist through the session’s lifetime. For state that needs to outlast a single session, mount S3-backed storage through [AgentCore Runtime file system configurations](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md").
+## Managed memory (default)
 
-## Add memory
+By default, the harness provisions an [AgentCore Memory](memory.md "memory.md") instance automatically with sensible defaults (semantic + summarization strategies, 30-day event expiry). You don’t need to create or configure anything - memory just works.
+
+To customize the managed memory at create time:
 
 ###### Example
 
+AWS CLI/boto3
+
+```
+aws bedrock-agentcore-control create-harness \
+  --harness-name "MyHarness" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
+  --memory '{"managedMemoryConfiguration": {"strategies": ["SEMANTIC", "SUMMARIZATION", "USER_PREFERENCE"], "eventExpiryDuration": 60}}'
+```
+
+To update strategies on an existing harness:
+
+```
+aws bedrock-agentcore-control update-harness \
+  --harness-id "MyHarness-UuFdkQoXSL" \
+  --memory '{"optionalValue": {"managedMemoryConfiguration": {"strategies": ["SEMANTIC", "SUMMARIZATION", "USER_PREFERENCE", "EPISODIC"]}}}'
+```
+
 AgentCore CLI
-When you create a harness with `agentcore create`, long-term memory is enabled by default - the CLI creates a memory resource and wires it to the harness automatically. To skip it, pass `--no-harness-memory`:
+Memory is enabled by default when you create a harness:
 
 ```
-# Create with memory (default)
 agentcore create --name myagent
-
-# Create without memory
-agentcore create --name myagent --no-harness-memory
-```
-
-After creation, deploy to provision the memory resource:
-
-```
 agentcore deploy
 ```
 
-To scope memory to a specific user, pass `--actor-id` at invoke time. Each actor gets isolated memory - the agent remembers that user’s context even across different sessions:
+To skip managed memory:
 
 ```
-# Session 1: user Alice asks a question
-agentcore invoke --harness research-agent \
-  --session-id "$(uuidgen)" \
-  --actor-id alice \
-  "Research tropical vacations under $3k"
-
-# Session 2 (new session): Alice's memory carries over
-agentcore invoke --harness research-agent \
-  --session-id "$(uuidgen)" \
-  --actor-id alice \
-  "What did we decide about the Portugal option?"
+agentcore create --name myagent --no-harness-memory
 ```
 
-Continue a conversation within the same session by reusing the same session ID:
+Interactive
+Run `agentcore` in a project directory, select **add** , then choose **Harness** . The wizard includes a memory step.
 
-```
-SESSION_ID="$(uuidgen)"
-agentcore invoke --harness research-agent \
-  --session-id "$SESSION_ID" \
-  "Research tropical vacations under $3k"
-agentcore invoke --harness research-agent \
-  --session-id "$SESSION_ID" \
-  "What did we decide about the Portugal option?"
-```
+1. On the **Memory** step, choose **No persistent memory** or **Enabled** to create persistent memory for the harness.
+
+![Memory step: No persistent memory or Enabled](images/tui/harness-memory-01-memory.png) 2. When memory is **Enabled** , an extra **Memory tuning** option appears in **Advanced settings** . Enable it with **Space** and press **Enter** to tune retrieval.
+
+![Advanced settings: Memory tuning option](images/tui/harness-memory-02-advanced-memory-tuning.png) 3. Optionally set the messages count, retrieval top K, and relevance score (each can be skipped).
+
+![Memory tuning: messages count, top K, relevance score](images/tui/harness-memory-03-messages-count.png)
+
+Confirm the wizard, then run `agentcore deploy` to apply.
+
+Managed memory is fully managed by the harness:
+
+- Strategy configuration is controlled through `UpdateHarness`. You can still read/write events and query records directly through the Memory APIs.
+- Managed memory cannot be deleted directly through the Memory APIs. To turn managed memory into a regular AgentCore memory resource, you can disassociate it from the harness in two ways:
+
+  - Use `UpdateHarness` to switch to BYO (`agentCoreMemoryConfiguration`) or disabled.
+  - Pass `deleteManagedMemory=false` on deletion to disassociate instead - `DeleteHarness` cascade-deletes the managed memory by default.
+
+### Available strategies
+
+| Strategy          | Description                                                                     |
+| ----------------- | ------------------------------------------------------------------------------- |
+| `SEMANTIC`        | Extracts factual knowledge from conversations, retrievable via semantic search. |
+| `SUMMARIZATION`   | Creates running summaries of conversations, scoped by actor and session.        |
+| `USER_PREFERENCE` | Captures user preferences and settings expressed during conversations.          |
+| `EPISODIC`        | Records significant events and experiences as discrete episodes.                |
+
+## Add existing memory (BYO)
+
+If you need advanced configuration beyond what managed memory provides - custom namespace templates, KMS encryption, or shared memory across multiple harnesses - attach an existing [AgentCore Memory](memory.md "memory.md") instance instead.
+
+###### Example
 
 AWS CLI/boto3
 Create a memory instance:
@@ -78,9 +101,26 @@ aws bedrock-agentcore-control update-harness \
   --memory '{"optionalValue": {"agentCoreMemoryConfiguration": {"arn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc123"}}}'
 ```
 
-Reuse the same `runtimeSessionId` across invocations and the agent recalls prior turns from Memory, even after the microVM session expires.
+AgentCore CLI
 
-To scope memory to a specific user, pass `actorId` at invoke time:
+```
+agentcore create --name myagent --memory-arn "arn:aws:bedrock-agentcore:us-west-2:123456789012:memory/MyMemory-abc123"
+agentcore deploy
+```
+
+## Disable memory
+
+To disable memory entirely:
+
+```
+aws bedrock-agentcore-control update-harness \
+  --harness-id "MyHarness-UuFdkQoXSL" \
+  --memory '{"optionalValue": {"disabled": {}}}'
+```
+
+## Per-user memory scoping with actor ID
+
+Pass `actorId` at invoke time to scope memory to a specific user. Each actor gets isolated short-term and long-term memory:
 
 ```
 response = client.invoke_harness(
@@ -91,18 +131,16 @@ response = client.invoke_harness(
 )
 ```
 
-The `actorId` determines whose memory is loaded. Long-term memory strategies (semantic, summarization, etc.) use the actorId to scope extracted knowledge - each actor gets their own isolated memory namespace. For more details on configuring long-term memory, see [configuring long-term memory strategies](long-term-configuring-built-in-strategies.md "long-term-configuring-built-in-strategies.md").
-
 ## Long-term memory retrieval
 
-When you attach a Memory instance that has active strategies (semantic, user preference, episodic, etc.), the harness automatically derives a retrieval configuration from those strategies. This means long-term memory retrieval works out of the box - you don’t need to manually specify a `retrievalConfig`.
+When a harness has active memory strategies (managed or BYO), retrieval works automatically - the harness derives a retrieval configuration from the Memory instance’s active strategies. On each invocation, the agent queries relevant long-term memories and injects them into the conversation context before reasoning.
 
-**How it works:**
+**Default behavior:**
 
-- When you create or update a harness with a Memory ARN, the service reads the Memory instance’s active strategies and automatically configures retrieval for each strategy’s namespaces with default parameters (`topK=10`, `relevanceScore=0.2`).
-- On each invocation, the agent queries these namespaces for relevant long-term memories and injects them into the conversation context before reasoning.
+- Retrieval is configured automatically with default parameters (`topK=10`, `relevanceScore=0.2`) for each active strategy’s namespace.
+- No manual configuration needed for either managed or BYO memory.
 
-**Override the defaults:** If you explicitly provide a `retrievalConfig` in the memory configuration, your values take priority and no automatic derivation occurs. This lets you customize which namespaces are queried, adjust `topK` or `relevanceScore`, or disable retrieval for specific strategies.
+**Override the defaults:** If you explicitly provide a `retrievalConfig` in the BYO memory configuration, your values take priority and no automatic derivation occurs. This lets you customize which namespaces are queried, adjust `topK` or `relevanceScore`, or disable retrieval for specific strategies.
 
 ```
 aws bedrock-agentcore-control update-harness \
@@ -112,120 +150,28 @@ aws bedrock-agentcore-control update-harness \
 
 ###### Important
 
-If you update your Memory instance’s strategies (add or remove) after creating the harness, call `UpdateHarness` to refresh the retrieval configuration. Invocations will continue to work with the previous configuration until updated.
+If you update your BYO Memory instance’s strategies (add or remove) after attaching it to a harness, call `UpdateHarness` to refresh the retrieval configuration. For managed memory, strategy changes through `UpdateHarness` refresh the configuration automatically.
 
-## Filesystem
+## Context truncation
 
-The harness mounts persistent storage at paths you specify. Files written to these mounts survive session termination and are visible to later invocations.
+When conversation history grows beyond the model’s context window, the harness applies a truncation strategy. Configure this on the harness or override per invocation.
 
-A harness supports three filesystem types:
-
-- **Session storage** - service-managed, per-session storage that persists across stop/resume cycles for the same `runtimeSessionId`. No VPC required.
-- **Amazon EFS access point** - bring-your-own EFS file system, shared across sessions and agents. VPC required.
-- **Amazon S3 Files access point** - bring-your-own S3 Files file system that syncs bidirectionally with an S3 bucket. VPC required.
-
-For prerequisites (VPC networking, IAM permissions, security groups), type comparison, limits, and lifecycle behavior, see [File system configurations for AgentCore Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md"). The same requirements apply to harnesses.
-
-### Session storage
-
-Files written to the mount path persist across stop/resume cycles when you invoke with the same `runtimeSessionId`.
-
-###### Example
-
-AgentCore CLI
-
-```
-# At create time
-agentcore create --name myagent --session-storage /mnt/data/
-
-# Or add to an existing harness
-agentcore add harness --name my-agent --session-storage /mnt/data/
-agentcore deploy
-```
-
-AWS CLI/boto3
+- **`sliding_window`** (default) - keeps the most recent N messages. Simple and predictable.
+- **`summarization`** - compresses older messages into a summary, preserving more context in fewer tokens.
+- **`none`** - no truncation. Use only if you manage context size yourself.
 
 ```
 aws bedrock-agentcore-control update-harness \
   --harness-id "MyHarness-UuFdkQoXSL" \
-  --environment '{"agentCoreRuntimeEnvironment": {"filesystemConfigurations": [{"sessionStorage": {"mountPath": "/mnt/data/"}}]}}'
+  --truncation '{"strategy": "sliding_window", "slidingWindowConfig": {"numMessages": 30}}'
 ```
 
-### Amazon EFS access point
+Learn more: [AgentCore Memory](memory.md "memory.md"), [create a memory store](memory-create-a-memory-store.md "memory-create-a-memory-store.md"), [long-term memory strategies](long-term-configuring-built-in-strategies.md "long-term-configuring-built-in-strategies.md").
 
-Attach an EFS access point ARN at a mount path under `/mnt`. Data persists in your account and can be shared with other harnesses or agent runtimes that mount the same access point.
+### Related topics
 
-###### Example
-
-AWS CLI/boto3
-
-```
-aws bedrock-agentcore-control create-harness \
-  --harness-name "SharedToolsAgent" \
-  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
-  --environment '{
-    "agentCoreRuntimeEnvironment": {
-      "networkConfiguration": {
-        "networkMode": "VPC",
-        "networkModeConfig": {
-          "subnets": ["subnet-abc123", "subnet-def456"],
-          "securityGroups": ["sg-abc123"]
-        }
-      },
-      "filesystemConfigurations": [
-        {
-          "efsAccessPoint": {
-            "accessPointArn": "arn:aws:elasticfilesystem:us-west-2:123456789012:access-point/fsap-0123456789abcdef0",
-            "mountPath": "/mnt/efs"
-          }
-        }
-      ]
-    }
-  }'
-```
-
-### Amazon S3 Files access point
-
-Attach an S3 Files access point ARN at a mount path under `/mnt`. Files at the mount path sync bidirectionally with the backing S3 bucket.
-
-###### Example
-
-AWS CLI/boto3
-
-```
-aws bedrock-agentcore-control create-harness \
-  --harness-name "DataAgent" \
-  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole" \
-  --environment '{
-    "agentCoreRuntimeEnvironment": {
-      "networkConfiguration": {
-        "networkMode": "VPC",
-        "networkModeConfig": {
-          "subnets": ["subnet-abc123", "subnet-def456"],
-          "securityGroups": ["sg-abc123"]
-        }
-      },
-      "filesystemConfigurations": [
-        {
-          "s3FilesAccessPoint": {
-            "accessPointArn": "arn:aws:s3files:us-west-2:123456789012:file-system/fs-0123456789abcdef0/access-point/fsap-0123456789abcdef0",
-            "mountPath": "/mnt/s3data"
-          }
-        }
-      ]
-    }
-  }'
-```
-
-###### Important
-
-`UpdateHarness` replaces the entire `filesystemConfigurations` list. To add a new mount to a harness that already has filesystems configured, call `GetHarness` first, then send the full desired list (existing entries plus the new one) in `UpdateHarness`.
-
-Learn more: [AgentCore Memory](memory.md "memory.md"), [create a memory store](memory-create-a-memory-store.md "memory-create-a-memory-store.md"), [long-term memory strategies](long-term-configuring-built-in-strategies.md "long-term-configuring-built-in-strategies.md"), [file system configurations on Runtime](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md").
-
-#### Related topics
-
-- [Configure agents and models](harness-config-and-models.md "harness-config-and-models.md") - configure models and system prompts
-- [Environment and Skills](harness-environment.md "harness-environment.md") - bring your own container with persistent storage mounts
-- [Control cost with limits](harness-operations.md#harness-limits "harness-operations.md#harness-limits") - execution limits
+- [Models and instructions](harness-models.md "harness-models.md") - configure models and system prompts
+- [Environment and filesystem](harness-environment.md "harness-environment.md") - environment, filesystem, and custom containers
+- [Skills](harness-skills.md "harness-skills.md") - attach skills from Git, S3, or AWS Skills
+- [Security and access controls](harness-security.md "harness-security.md") - execution role policies for memory access
 - [API Documentation](harness-get-started.md#api-documentation "harness-get-started.md#api-documentation")

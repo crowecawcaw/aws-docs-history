@@ -22,6 +22,10 @@ Verify your credentials are configured:
 aws sts get-caller-identity
 ```
 
+###### Tip
+
+If you have the AgentCore CLI v0.19.0 or later installed, you can use CLI commands as an alternative to the SDK in Steps 2, 3, 5, and 6. Each step below shows both options.
+
 ## Step 1: Obtain payment provider credentials
 
 AgentCore payments connects to an external payment provider for wallet operations. You need credentials from one of the supported providers before proceeding.
@@ -109,10 +113,30 @@ print(f"Credential provider created: {CREDENTIAL_PROVIDER_ARN}")
 
 For the complete request and response schema, see [CreatePaymentCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md") in the API Reference.
 
+### CLI alternative: Store credentials
+
+With the AgentCore CLI, credential storage happens automatically when you add a payment connector (Step 3). Skip this step if you plan to use the CLI path.
+
 ## Step 3: Create a Payment Manager and Connector
 
 A Payment Manager is the top-level resource that coordinates payment operations. A Payment Connector links the manager to your payment provider credentials. Before creating these resources, set up the required IAM roles as described in [IAM roles for AgentCore payments](payments-iam-roles.md "payments-iam-roles.md").
 
+###### Example
+
+AWS CLI
+Create the Payment Manager:
+
+```
+aws bedrock-agentcore-control create-payment-manager \
+  --name "my-first-payment-manager" \
+  --authorizer-type AWS_IAM \
+  --role-arn "<YOUR_SERVICE_ROLE_ARN>" \
+  --region us-west-2
+```
+
+After the manager reaches `READY` status, create a credential provider and connector. See [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md") for the full AWS CLI workflow.
+
+AWS SDK
 First, create the Payment Manager (the same for both providers):
 
 ```
@@ -137,9 +161,7 @@ while True:
 
 Then create the Payment Connector for your provider:
 
-###### Example
-
-Coinbase CDP
+**Coinbase CDP:**
 
 ```
 connector = client.create_payment_connector(
@@ -152,7 +174,7 @@ PAYMENT_CONNECTOR_ID = connector["paymentConnectorId"]
 print(f"Connector created: {PAYMENT_CONNECTOR_ID}")
 ```
 
-Privy
+**Privy:**
 
 ```
 connector = client.create_payment_connector(
@@ -167,9 +189,87 @@ print(f"Connector created: {PAYMENT_CONNECTOR_ID}")
 
 If you do not have a service role, see [IAM roles for AgentCore payments](payments-iam-roles.md "payments-iam-roles.md") for instructions on creating one. The console can also create a role on your behalf. For the complete request and response schemas, see [CreatePaymentManager](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md") and [CreatePaymentConnector](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentConnector.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentConnector.md") in the API Reference.
 
+AgentCore CLI
+The CLI creates the credential provider, Payment Manager, and Payment Connector in one flow. From your AgentCore project directory, add a payment manager and connector together.
+
+**Interactive wizard:**
+
+```
+agentcore add payment-manager
+```
+
+The wizard prompts for the manager name, pattern (interceptor), auto-payment toggle, and default spend limit. It then asks whether to add a connector and walks through provider selection and credential input.
+
+**Non-interactive (Coinbase CDP):**
+
+```
+agentcore add payment-manager \
+  --name my-payment-manager \
+  --auto-payment \
+  --default-spend-limit 5.00
+
+agentcore add payment-connector \
+  --manager my-payment-manager \
+  --name my-coinbase-connector \
+  --provider CoinbaseCDP \
+  --api-key-id <YOUR_CDP_API_KEY_ID> \
+  --api-key-secret <YOUR_CDP_API_KEY_SECRET> \
+  --wallet-secret <YOUR_CDP_WALLET_SECRET>
+```
+
+**Non-interactive (Privy):**
+
+```
+agentcore add payment-manager \
+  --name my-payment-manager \
+  --auto-payment \
+  --default-spend-limit 5.00
+
+agentcore add payment-connector \
+  --manager my-payment-manager \
+  --name my-privy-connector \
+  --provider StripePrivy \
+  --app-id <YOUR_PRIVY_APP_ID> \
+  --app-secret <YOUR_PRIVY_APP_SECRET> \
+  --authorization-id <YOUR_PRIVY_AUTHORIZATION_ID> \
+  --authorization-private-key <YOUR_PRIVY_PRIVATE_KEY_BASE64>
+```
+
+After adding, deploy to provision the payment infrastructure:
+
+```
+agentcore deploy
+```
+
+The deploy step creates IAM roles, stores credentials in AgentCore Identity, and provisions the Payment Manager and Connector. You will see "Creating payment infrastructure…​" in the output.
+
 ## Step 4: Create a payment instrument
 
 A payment instrument is an embedded crypto wallet that your agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network.
+
+###### Example
+
+AWS CLI
+
+```
+aws bedrock-agentcore create-payment-instrument \
+    --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
+    --payment-connector-id "$PAYMENT_CONNECTOR_ID" \
+    --user-id "test-user-123" \
+    --payment-instrument-type "EMBEDDED_CRYPTO_WALLET" \
+    --payment-instrument-details '{
+        "embeddedCryptoWallet": {
+            "network": "ETHEREUM",
+            "linkedAccounts": [{"email": {"emailAddress": "your-email@example.com"}}]
+        }
+    }' \
+    --client-token "$(uuidgen)" \
+    --region us-west-2
+```
+
+Save the `paymentInstrumentId` and `redirectUrl` from the response.
+
+AWS SDK
 
 ```
 import uuid
@@ -200,7 +300,7 @@ For the complete request and response schema, see [CreatePaymentInstrument](../A
 
 ### Fund the wallet and grant permissions
 
-Before the agent can transact, the end user must fund the wallet and grant signing permissions. Open the `REDIRECT_URL` printed above in a browser. From the wallet hub, the user can:
+Before the agent can transact, the end user must fund the wallet and grant signing permissions. Open the `redirectUrl` from the response above in a browser. From the wallet hub, the user can:
 
 - Top up the wallet using crypto transfer, credit/debit card, Apple Pay, Google Pay, or ACH
 - Grant the agent permission to sign transactions on their behalf
@@ -208,6 +308,19 @@ Before the agent can transact, the end user must fund the wallet and grant signi
 For a test environment, fund the wallet with testnet USDC.
 
 After funding, poll the instrument status until it becomes `ACTIVE`:
+
+###### Example
+
+AWS CLI
+
+```
+aws bedrock-agentcore get-payment-instrument \
+    --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
+    --payment-instrument-id "$INSTRUMENT_ID" \
+    --region us-west-2
+```
+
+AWS SDK
 
 ```
 while True:
@@ -228,6 +341,22 @@ For more details on funding flows by provider, see [Funding the wallet](payments
 
 A payment session is a time-bounded context with optional spending limits. When the session expires or the budget is exhausted, the agent cannot make further payments within that session.
 
+###### Example
+
+AWS CLI
+
+```
+aws bedrock-agentcore create-payment-session \
+    --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
+    --user-id "test-user-123" \
+    --expiry-time-in-minutes 60 \
+    --limits '{"maxSpendAmount": {"value": "5.00", "currency": "USD"}}' \
+    --client-token "$(uuidgen)" \
+    --region us-west-2
+```
+
+AWS SDK
+
 ```
 session = dp_client.create_payment_session(
     userId="test-user-123",
@@ -242,9 +371,55 @@ print(f"Session created: {SESSION_ID} (expires in 60 minutes, $5.00 limit)")
 
 For the complete request and response schema, see [CreatePaymentSession](../APIReference/API_CreatePaymentSession.md "../APIReference/API_CreatePaymentSession.md") in the API Reference.
 
+AgentCore CLI
+When using the CLI, you do not need to create a session manually. Pass `--auto-session` to `agentcore invoke` and the CLI creates or reuses a session with the default spend limit you configured on the payment manager.
+
+```
+agentcore invoke \
+  --prompt "your prompt here" \
+  --payment-instrument-id <INSTRUMENT_ID> \
+  --auto-session \
+  --payment-user-id test-user-123
+```
+
+To use a specific session you created through the SDK, pass `--payment-session-id` instead of `--auto-session`.
+
 ## Step 6: Process a payment with a Strands agent
 
 With all resources in place, create a Strands agent that handles x402 payments automatically. When the agent calls a paid endpoint and receives an HTTP 402 response, the payments plugin signs the transaction and retries the request.
+
+###### Example
+
+AWS CLI
+Call `process-payment` directly with an x402 payload (used when you handle payment orchestration yourself):
+
+```
+aws bedrock-agentcore process-payment \
+    --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
+    --payment-session-id "$SESSION_ID" \
+    --payment-instrument-id "$INSTRUMENT_ID" \
+    --payment-type "CRYPTO_X402" \
+    --payment-input '{
+        "cryptoX402": {
+            "version": "2",
+            "payload": {
+                "scheme": "exact",
+                "network": "eip155:84532",
+                "amount": "100000",
+                "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+                "payTo": "0xMERCHANT_ADDRESS",
+                "maxTimeoutSeconds": 300,
+                "extra": {"name": "USDC", "version": "2"}
+            }
+        }
+    }' \
+    --client-token "$(uuidgen)" \
+    --region us-west-2
+```
+
+For the complete request and response schema, see [ProcessPayment](../APIReference/API_ProcessPayment.md "../APIReference/API_ProcessPayment.md") in the API Reference.
+
+AWS SDK
 
 ```
 from strands import Agent
@@ -274,9 +449,48 @@ print(response)
 
 For the complete request and response schema of the underlying API call, see [ProcessPayment](../APIReference/API_ProcessPayment.md "../APIReference/API_ProcessPayment.md") in the API Reference.
 
+AgentCore CLI
+Invoke your deployed agent with payment context. The CLI passes the payment instrument and session to the agent at runtime, and the agent’s x402 interceptor handles payment automatically.
+
+```
+agentcore invoke \
+  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
+  --payment-instrument-id <INSTRUMENT_ID> \
+  --auto-session \
+  --payment-user-id test-user-123
+```
+
+To pass an explicit session instead of auto-creating one:
+
+```
+agentcore invoke \
+  --prompt "Access the premium endpoint at https://example-x402-merchant.com/paid-api" \
+  --payment-instrument-id <INSTRUMENT_ID> \
+  --payment-session-id <SESSION_ID> \
+  --payment-user-id test-user-123
+```
+
 ## Verify the payment
 
 After the agent processes a payment, check the session to confirm the transaction was recorded:
+
+###### Example
+
+AWS CLI
+
+```
+aws bedrock-agentcore get-payment-session \
+    --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
+    --payment-session-id "$SESSION_ID" \
+    --region us-west-2
+
+aws bedrock-agentcore get-payment-instrument-balance \
+    --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
+    --payment-instrument-id "$INSTRUMENT_ID" \
+    --region us-west-2
+```
+
+AWS SDK
 
 ```
 session_status = dp_client.get_payment_session(
@@ -311,6 +525,28 @@ print(f"Remaining balance: {balance['amount']} {balance['currency']}")
 
 Delete the resources you created during this tutorial:
 
+###### Example
+
+AWS CLI
+
+```
+aws bedrock-agentcore delete-payment-instrument \
+    --payment-manager-arn "$PAYMENT_MANAGER_ARN" \
+    --payment-instrument-id "$INSTRUMENT_ID" \
+    --region us-west-2
+
+aws bedrock-agentcore-control delete-payment-connector \
+    --payment-manager-id "$PAYMENT_MANAGER_ID" \
+    --payment-connector-id "$PAYMENT_CONNECTOR_ID" \
+    --region us-west-2
+
+aws bedrock-agentcore-control delete-payment-manager \
+    --payment-manager-id "$PAYMENT_MANAGER_ID" \
+    --region us-west-2
+```
+
+AWS SDK
+
 ```
 # Delete payment instrument
 dp_client.delete_payment_instrument(
@@ -331,6 +567,16 @@ client.delete_payment_manager(
 
 print("All payment resources deleted.")
 ```
+
+AgentCore CLI
+
+```
+agentcore remove payment-connector --manager my-payment-manager --name my-coinbase-connector --yes
+agentcore remove payment-manager --name my-payment-manager --yes
+agentcore deploy
+```
+
+The `remove` commands update the local configuration. The follow-up `deploy` tears down the payment infrastructure in your account.
 
 ## What you’ve built
 

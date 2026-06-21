@@ -9,6 +9,10 @@ Key configuration for target-based A/B tests:
 - Gateway filter: `gatewayFilter.targetPaths` scopes which AgentCore Gateway paths the A/B test intercepts
   This walkthrough deploys two versions of the customer support agent — one using Claude Sonnet (control) and one using Claude Opus (treatment) — creates named endpoints for each version, creates an A/B test, sends traffic, reviews results, and deploys the winner.
 
+###### Note
+
+This walkthrough is for agents hosted on an AgentCore Runtime. If your agent runs **outside** an AgentCore Runtime (a third-party or self-hosted agent — for example on AWS Lambda), see [Run an A/B test for agents hosted outside of AgentCore](ab-testing-3p-agents.md "ab-testing-3p-agents.md") instead.
+
 For a detailed comparison of A/B test patterns, see [Choosing a pattern](ab-testing.md#ab-testing-pattern-comparison "ab-testing.md#ab-testing-pattern-comparison").
 
 ## Step 1: Create the project
@@ -156,11 +160,10 @@ You now have:
 - Runtime endpoint `control` — serving version 1 with Claude Sonnet.
 - Runtime endpoint `treatment` — serving version 2 with Claude Opus.
 
-Verify both endpoints are working:
+Verify the runtime is working:
 
 ```
-agentcore invoke --runtime csAgent --target control --prompt "What is the status of order ORD-1003?"
-agentcore invoke --runtime csAgent --target treatment --prompt "What is the status of order ORD-1003?"
+agentcore invoke --runtime csAgent --prompt "What is the status of order ORD-1003?"
 ```
 
 You now have:
@@ -196,31 +199,53 @@ After each deployment, note the online evaluation config ARN — you will need b
 
 For more details on evaluator options and configuration, see [Create online evaluation](create-online-evaluations.md "create-online-evaluations.md").
 
-## Step 5: Create the A/B test
+## Step 5: Create the gateway and targets
 
-Create an A/B test that routes traffic between the two endpoints. Each variant references an endpoint as an AgentCore Gateway target and has its own online evaluation config. The CLI registers both endpoints as AgentCore Gateway targets and creates the AgentCore Gateway automatically.
+A target-based A/B test routes traffic through an AgentCore Gateway, so the gateway and its two targets must already be deployed before you start the test. Add a gateway and register each runtime endpoint as an `http-runtime` target, then deploy:
+
+```
+agentcore add gateway --name csGateway
+
+agentcore add gateway-target \
+  --name customer-support-control \
+  --gateway csGateway \
+  --type http-runtime \
+  --runtime csAgent \
+  --runtime-endpoint control
+
+agentcore add gateway-target \
+  --name customer-support-treatment \
+  --gateway csGateway \
+  --type http-runtime \
+  --runtime csAgent \
+  --runtime-endpoint treatment
+
+agentcore deploy
+```
+
+## Step 6: Create the A/B test
+
+Start the A/B test with `agentcore run ab-test`. Each variant references one of the gateway targets you created and has its own online evaluation config. The command initiates the test directly on the service against the already-deployed gateway.
 
 ###### Example
 
 AgentCore CLI
 
 ```
-agentcore add ab-test \
+agentcore run ab-test \
   --mode target-based \
   --name customerSupportTargetTest \
+  --gateway csGateway \
   --runtime csAgent \
-  --control-endpoint control \
-  --treatment-endpoint treatment \
+  --control-target customer-support-control \
+  --treatment-target customer-support-treatment \
   --control-online-eval controlEvalTb \
   --treatment-online-eval treatmentEvalTb \
   --control-weight 80 \
-  --treatment-weight 20 \
-  --enable
-
-agentcore deploy
+  --treatment-weight 20
 ```
 
-This command adds the A/B test to your local `agentcore.json`. Run `agentcore deploy` to create it in your AWS account. The CLI also creates an AgentCore Gateway and registers both endpoints as targets. Optionally, use `--gateway <name>` to select an existing AgentCore Gateway that already has the endpoints set as targets.
+The test is RUNNING as soon as the command returns. Pass `--disable-on-create` to create it stopped. The `--gateway` flag is required and must reference the gateway you deployed in Step 5. Only one test can be RUNNING per gateway at a time. The command prints the test’s job ID, which is also available from `--json` as the `id` field. You need this ID for the lifecycle commands below.
 
 AWS SDK (boto3)
 
@@ -329,7 +354,7 @@ print(f"Status: {response['status']}")
 print(f"Execution status: {response['executionStatus']}")
 ```
 
-## Step 6: Send traffic through the AgentCore Gateway
+## Step 7: Send traffic through the AgentCore Gateway
 
 After the A/B test is running, send traffic through the AgentCore Gateway HTTP endpoint. The AgentCore Gateway assigns each request to a variant (control or treatment) based on the runtime session ID.
 
@@ -341,7 +366,7 @@ Session assignment is **sticky**: once a session ID is assigned to a variant, al
 
 ### Generate traffic for testing
 
-Save the following script as `loadgen.sh`, replacing `<gateway-id>` and `<target-name>` with the values from your deployment output:
+Save the following script as `loadgen.sh`, replacing `<gateway-id>` and `<target-name>` with the values from your deployment output. You can also copy the full invocation URL from `agentcore view ab-test <ab-test-id>`:
 
 ```
 #!/bin/bash
@@ -386,23 +411,23 @@ Run the script:
 bash loadgen.sh
 ```
 
-## Step 7: Get results
+## Step 8: Get results
 
 Poll the A/B test to monitor results as sample sizes grow. Polling does not affect statistical validity.
 
 ###### Example
 
 AgentCore CLI
-Get current results:
+Get current results (replace `<ab-test-id>` with the job ID from Step 6):
 
 ```
-agentcore ab-test customerSupportTargetTest
+agentcore view ab-test <ab-test-id>
 ```
 
 Get results as JSON:
 
 ```
-agentcore ab-test customerSupportTargetTest --json
+agentcore view ab-test <ab-test-id> --json
 ```
 
 AWS SDK (boto3)
@@ -466,23 +491,23 @@ The time it takes for results to appear depends primarily on the session timeout
 - **p-value >= 0.05:** Not enough evidence to conclude a difference. Continue collecting samples or increase traffic to the treatment.
 - **Check all evaluators:** A treatment may improve one metric while regressing another. Review all evaluator results before deciding.
 
-## Step 8: Confirm results and stop the A/B test
+## Step 9: Confirm results and stop the A/B test
 
 Once the A/B test reaches statistical significance, review the results and stop the experiment.
 
 1. **Confirm significance.** Verify that the target evaluator has `isSignificant: true` and a positive `percentChange` on the treatment variant (or confirm the control is the winner if the treatment regressed).
-2. **Stop the A/B test.** Set `executionStatus` to `STOPPED`. Traffic routing ends immediately and all requests revert to the default target. See [Start, pause, and stop](ab-testing-manage.md#manage-ab-test-start-stop "ab-testing-manage.md#manage-ab-test-start-stop").
+2. **Stop the A/B test.** Run `agentcore stop ab-test -i <ab-test-id>`. Traffic routing ends immediately and all requests revert to the default target. See [View, pause, resume, and stop](ab-testing-manage.md#manage-ab-test-start-stop "ab-testing-manage.md#manage-ab-test-start-stop").
 
-## Step 9: Deploy the winner
+## Step 10: Deploy the winner
 
 After stopping the A/B test, route all traffic to the winning variant.
 
 ```
-agentcore promote ab-test customerSupportTargetTest
+agentcore promote ab-test -i <ab-test-id>
 agentcore deploy
 ```
 
-This stops the A/B test, updates the control endpoint to point to the winning version (for example, updating `control` from version 1 to version 2), and removes the treatment endpoint. Run `agentcore deploy` to apply the changes.
+`promote` stops the A/B test (if still running), updates the control endpoint to point to the treatment version (for example, updating `control` from version 1 to version 2), and removes the treatment endpoint. Run `agentcore deploy` to apply the changes.
 
 Alternatively, you can manually deploy the winner by doing one of the following:
 

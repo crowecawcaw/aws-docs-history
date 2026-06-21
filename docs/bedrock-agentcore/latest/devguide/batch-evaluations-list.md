@@ -38,6 +38,19 @@ for evaluation in all_evaluations:
     )
 ```
 
+AgentCore CLI
+List all batch evaluation jobs (running jobs are refreshed from the service). Use `--json` for machine-readable output:
+
+```
+agentcore batch-evaluations history --json
+```
+
+To view a single batch evaluation job and its results, pass the job ID:
+
+```
+agentcore view batch-evaluation <batch-evaluation-id> --json
+```
+
 ## Request parameters
 
 | Parameter    | Type    | Required | Description                                                                 |

@@ -205,7 +205,23 @@ Set `--sampling-rate 100.0` during A/B testing so every session is evaluated and
 
 For more details on evaluator options and configuration, see [Create online evaluation](create-online-evaluations.md "create-online-evaluations.md").
 
-## Step 6: Create the A/B test
+## Step 6: Create the gateway and target
+
+A config-bundle A/B test routes traffic through an AgentCore Gateway, so the gateway and its target must already be deployed before you start the test. Add a gateway with the runtime as an `http-runtime` target, then deploy:
+
+```
+agentcore add gateway --name csGateway
+
+agentcore add gateway-target \
+  --name customer-support \
+  --gateway csGateway \
+  --type http-runtime \
+  --runtime csAgent
+
+agentcore deploy
+```
+
+## Step 7: Create the A/B test
 
 Create an A/B test that splits traffic 80/20 between the control and treatment prompts. Both variants reference configuration bundles on the same AgentCore Runtime and share a single online evaluation config for scoring.
 
@@ -214,9 +230,10 @@ Create an A/B test that splits traffic 80/20 between the control and treatment p
 AgentCore CLI
 
 ```
-agentcore add ab-test \
+agentcore run ab-test \
   --mode config-bundle \
   --name customerSupportPromptTest \
+  --gateway csGateway \
   --runtime csAgent \
   --control-bundle customerSupportControl \
   --control-version <control-bundle-version-id> \
@@ -224,13 +241,10 @@ agentcore add ab-test \
   --treatment-version <treatment-bundle-version-id> \
   --online-eval customerSupportEval \
   --control-weight 80 \
-  --treatment-weight 20 \
-  --enable
-
-agentcore deploy
+  --treatment-weight 20
 ```
 
-This command adds the A/B test to your local `agentcore.json`. Run `agentcore deploy` to create it in your AWS account. The CLI also creates an AgentCore Gateway with your runtime as a target. Optionally, use `--gateway <name>` to select an existing AgentCore Gateway that already has the runtime set as a target.
+`agentcore run ab-test` initiates an A/B test job on the service. The test is RUNNING as soon as the command returns. Pass `--disable-on-create` to create it stopped. To review the job, run `agentcore view ab-test <id>`, or look in the job JSON under `.cli/jobs/ab-tests/`. The `--gateway` flag is required and must reference the gateway you deployed in Step 6. Only one test can be RUNNING per gateway at a time. The command prints the test’s job ID, which is also available from `--json` as the `id` field. You need this ID for the lifecycle commands below.
 
 ###### Note
 
@@ -283,7 +297,7 @@ print(f"Status: {response['status']}")
 print(f"Execution status: {response['executionStatus']}")
 ```
 
-## Step 7: Send traffic through the AgentCore Gateway
+## Step 8: Send traffic through the AgentCore Gateway
 
 After the A/B test is running, send traffic through the AgentCore Gateway HTTP endpoint. The AgentCore Gateway assigns each request to a variant (control or treatment) based on the runtime session ID.
 
@@ -340,23 +354,23 @@ Run the script:
 bash loadgen.sh
 ```
 
-## Step 8: Get results
+## Step 9: Get results
 
 Poll the A/B test to monitor results as sample sizes grow. Polling does not affect statistical validity.
 
 ###### Example
 
 AgentCore CLI
-Get current results:
+Get current results (replace `<ab-test-id>` with the job ID from Step 6):
 
 ```
-agentcore ab-test customerSupportPromptTest
+agentcore view ab-test <ab-test-id>
 ```
 
 Get results as JSON:
 
 ```
-agentcore ab-test customerSupportPromptTest --json
+agentcore view ab-test <ab-test-id> --json
 ```
 
 AWS SDK (boto3)
@@ -422,23 +436,23 @@ The time it takes for results to appear depends primarily on the session timeout
 
 For a detailed explanation of the results structure and field definitions, see [Understanding results](ab-testing-target-based.md#target-based-results-shape "ab-testing-target-based.md#target-based-results-shape") in the target-based routing guide.
 
-## Step 9: Confirm results and stop the A/B test
+## Step 10: Confirm results and stop the A/B test
 
 Once the A/B test reaches statistical significance, review the results and stop the experiment.
 
 1. **Confirm significance.** Verify that the target evaluator has `isSignificant: true` and a positive `percentChange` on the treatment variant (or confirm the control is the winner if the treatment regressed).
-2. **Stop the A/B test.** Set `executionStatus` to `STOPPED`. Traffic routing ends immediately and all requests revert to the default configuration. See [Start, pause, and stop](ab-testing-manage.md#manage-ab-test-start-stop "ab-testing-manage.md#manage-ab-test-start-stop").
+2. **Stop the A/B test.** Run `agentcore stop ab-test -i <ab-test-id>`. Traffic routing ends immediately and all requests revert to the default configuration. See [View, pause, resume, and stop](ab-testing-manage.md#manage-ab-test-start-stop "ab-testing-manage.md#manage-ab-test-start-stop").
 
-## Step 10: Deploy the winner
+## Step 11: Deploy the winner
 
 After stopping the A/B test, route all traffic to the winning configuration bundle version.
 
 ```
-agentcore promote ab-test customerSupportPromptTest
+agentcore promote ab-test -i <ab-test-id>
 agentcore deploy
 ```
 
-This stops the A/B test and updates the control configuration bundle to use the winning version. Run `agentcore deploy` to apply the changes.
+`promote` stops the A/B test (if still running) and updates the control configuration bundle to use the treatment version. Run `agentcore deploy` to apply the changes.
 
 Alternatively, you can manually deploy the winner by doing one of the following:
 
@@ -453,6 +467,91 @@ After deploying the winner:
 - **Delete the A/B test** to clean up resources. See [Delete an A/B test](ab-testing-manage.md#manage-ab-test-remove "ab-testing-manage.md#manage-ab-test-remove").
 - **Monitor the new baseline.** Online evaluation continues scoring sessions on the winning configuration. Watch for regressions.
 - **Start the next iteration.** New traces from the winning configuration provide the foundation for the next recommendation cycle. See [How it works](optimization-how-it-works.md "optimization-how-it-works.md").
+
+## Example: A/B testing tool descriptions
+
+You can use the same configuration bundle pattern to test optimized tool descriptions. Unlike system prompt A/B tests where the agent reads the bundle directly, tool description overrides are applied by the AgentCore Gateway. When the agent calls `tools/list` through the gateway, the gateway reads the configuration bundle and returns tool descriptions with overrides applied. No agent code changes are needed.
+
+For details on how the gateway applies tool description overrides, see [Behavior on MCP targets](gateway-rules-propagation.md#gateway-rules-propagation-mcp "gateway-rules-propagation.md#gateway-rules-propagation-mcp").
+
+### Configuration bundles
+
+Control bundle — current tool descriptions:
+
+```
+agentcore add config-bundle \
+  --name toolDescControl \
+  --components '{
+    "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/csAgent-abc123": {
+      "configuration": {
+        "tools": {
+          "lookup_order": {
+            "description": "Look up an order by ID."
+          },
+          "initiate_return": {
+            "description": "Initiate a return for an order."
+          },
+          "apply_discount": {
+            "description": "Apply a discount to an order."
+          }
+        }
+      }
+    }
+  }'
+
+agentcore deploy
+```
+
+Treatment bundle — optimized tool descriptions from a recommendation:
+
+```
+agentcore add config-bundle \
+  --name toolDescTreatment \
+  --components '{
+    "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/csAgent-abc123": {
+      "configuration": {
+        "tools": {
+          "lookup_order": {
+            "description": "Look up order details including status, item, and total by order ID. Use when the customer asks about an order or references an order number."
+          },
+          "initiate_return": {
+            "description": "Start a return process for an order. Use only when the customer explicitly requests a return or exchange, not for order status inquiries."
+          },
+          "apply_discount": {
+            "description": "Apply a percentage discount to an order. Use when compensating for service issues such as delivery delays. Requires a reason."
+          }
+        }
+      }
+    }
+  }'
+
+agentcore deploy
+```
+
+### How it works
+
+1. When the agent calls `tools/list` through the gateway (MCP targets), the A/B test assigns each session to a variant (control or treatment) on the gateway and resolves the corresponding configuration bundle.
+2. Gateway reads the configuration bundle and returns tool descriptions with overrides applied.
+3. The agent uses the returned descriptions for tool selection — no agent code changes required.
+
+### Create the A/B test
+
+```
+agentcore run ab-test \
+  --mode config-bundle \
+  --name toolDescTest \
+  --gateway csGateway \
+  --runtime csAgent \
+  --control-bundle toolDescControl \
+  --control-version <control-bundle-version-id> \
+  --treatment-bundle toolDescTreatment \
+  --treatment-version <treatment-bundle-version-id> \
+  --online-eval customerSupportEval \
+  --control-weight 80 \
+  --treatment-weight 20
+```
+
+The remaining steps (send traffic, get results, deploy the winner) are identical to the preceding system prompt example.
 
 ## Troubleshooting
 

@@ -6,6 +6,10 @@ A trail is a configuration that enables delivery of events as log files to an Am
 
 The contents of the requests and responses for data events are redacted, and the JSON Web Token (JWT) claims have HTML entities sanitized for security purposes.
 
+###### Note
+
+For management events, only request parameters that are defined by the Gateway API are eligible for redaction. Any additional fields that you include in a request that are not part of the API are recorded in CloudTrail exactly as you sent them and are not redacted. Do not include passwords or other sensitive information in fields that are not part of the API.
+
 The following sections show examples of CloudTrail events:
 
 ###### Topics

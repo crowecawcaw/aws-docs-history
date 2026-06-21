@@ -277,14 +277,16 @@ What the interceptor can override depends on whether it is the first or a subseq
 
 ## Interceptors for HTTP targets
 
-HTTP targets use a different interceptor payload structure than MCP targets. For example, Amazon Bedrock AgentCore Runtime targets use this structure. The payload uses an `http` key instead of an `mcp` key. Request bodies are base64-encoded strings rather than parsed JSON objects.
+HTTP targets use a different interceptor payload structure than MCP targets. HTTP targets (AgentCore Runtime and passthrough) and inference targets all use this `http` payload structure. Inference is a separate target type that happens to share the HTTP interceptor payload shape. The payload uses an `http` key instead of an `mcp` key. Request and response bodies are base64-encoded strings rather than parsed JSON objects.
 
-HTTP targets currently support only REQUEST interceptors. Support for response interceptors with HTTP targets is coming soon.
+HTTP targets support both REQUEST and RESPONSE interceptors in buffered mode, in which the gateway buffers the full response before invoking the response interceptor. Interceptors are not yet supported in streaming mode.
 
-The following list summarizes the key differences for HTTP target interceptors:
+The following list summarizes the key behaviors for HTTP target interceptors:
 
 - The `httpMethod` field is read-only.
-- The same override behavior applies: if `transformedGatewayResponse` is present in the output, the gateway returns that response immediately without calling the target.
+- The request and response `body` fields are base64-encoded strings.
+- The `headers` field is included in the request payload only when `passRequestHeaders` is set to `true` in the interceptor configuration.
+- If `transformedGatewayResponse` is present in a REQUEST interceptor’s output, the gateway returns that response immediately without calling the target (a short-circuit). The RESPONSE interceptor does not run after a short-circuit.
 
 ### Request interceptor input payload example
 
@@ -351,14 +353,79 @@ Important notes about HTTP request interceptor output:
 - The `body` field must be a base64-encoded string.
 - The `httpMethod` is not included in the output because it cannot be modified.
 
+### Response interceptor input payload example
+
+When you configure a RESPONSE interceptor for an HTTP target, the gateway buffers the target response and passes it to your Lambda function. The following JSON example shows the structure of the input payload:
+
+```
+{
+  "interceptorInputVersion": "1.0",
+  "http": {
+    "gatewayRequest": null,
+    "gatewayResponse": {
+      "statusCode": 200,
+      "headers": null,
+      "body": "<base64_encoded_body>",
+      "contentType": "application/json"
+    }
+  }
+}
+```
+
+###### Note
+
+Note the following about the response input payload:
+
+- The `body` field is a base64-encoded string that represents the raw HTTP response body.
+- The `body` field is `null` if you exclude the response body with a payload filter. For more information, see [Handle large response payloads](#gateway-interceptors-types-http-large "#gateway-interceptors-types-http-large").
+
+### Response interceptor output payload example
+
+The following JSON example shows the structure of the output payload that your response interceptor Lambda function returns when transforming an HTTP target response:
+
+```
+{
+  "interceptorOutputVersion": "1.0",
+  "http": {
+    "transformedGatewayResponse": {
+      "statusCode": 200,
+      "headers": {
+        "X-Custom-Header": "custom-value"
+      },
+      "body": "<base64_encoded_body>",
+      "contentType": "application/json"
+    }
+  }
+}
+```
+
+###### Important
+
+Important notes about HTTP response interceptor output:
+
+- The `interceptorOutputVersion` must be set to `"1.0"`.
+- The `statusCode`, `body`, and `contentType` fields each override the original response value. If you omit a field (or set it to `null`), the gateway uses the original value.
+- The `body` field must be a base64-encoded string.
+- To pass the response through unchanged, return an empty `http` object: `{"interceptorOutputVersion": "1.0", "http": {}}`.
+
+### Handle large response payloads
+
+Lambda synchronous invocation has a 6 MB payload limit for the request and response combined. If a target returns a large body — which is common with inference models — the base64-encoded payload can exceed this limit and cause an error.
+
+To avoid this, exclude the response body from the interceptor input by configuring a payload filter that excludes the `RESPONSE_BODY` field. Your interceptor can still inspect the `statusCode`, `contentType`, and `headers`, and can inject headers or override the status code. When the response body is excluded, the `body` field in the input payload is `null`, and if your function returns `body: null`, the gateway uses the original (unmodified) response body.
+
+### Client context
+
+For HTTP targets, the gateway passes request metadata to your Lambda function through the invocation’s client context. Your function can read the following custom values: `GATEWAY_ARN`, `GATEWAY_ACCOUNT_ID`, `REQUEST_ID`, and `SOURCE_IP`. The `GATEWAY_ARN`, `GATEWAY_ACCOUNT_ID`, and `REQUEST_ID` values are always present. The `SOURCE_IP` value is included only when a source IP is available, so your function should treat it as optional.
+
 ### Key differences between MCP and HTTP interceptor payloads
 
 The following table summarizes the differences between MCP and HTTP target interceptor payloads.
 
-| Field                | MCP target                        | HTTP target                                                   |
-| -------------------- | --------------------------------- | ------------------------------------------------------------- |
-| Body format          | Map<String, Object> (parsed JSON) | String (base64-encoded)                                       |
-| Path                 | Always "/mcp"                     | Actual HTTP path (for example, "/my-target-name/invocations") |
-| httpMethod           | Immutable                         | Immutable                                                     |
-| rawGatewayRequest    | Included                          | Not included                                                  |
-| Response interceptor | Supported                         | Not supported                                                 |
+| Field                | MCP target                        | HTTP target                                                      |
+| -------------------- | --------------------------------- | ---------------------------------------------------------------- |
+| Body format          | Map<String, Object> (parsed JSON) | String (base64-encoded)                                          |
+| Path                 | Always "/mcp"                     | Actual HTTP path (for example, "/my-target-name/invocations")    |
+| httpMethod           | Immutable                         | Immutable                                                        |
+| rawGatewayRequest    | Included                          | Not included                                                     |
+| Response interceptor | Supported                         | Supported in buffered mode (not yet supported in streaming mode) |

@@ -6,6 +6,7 @@ Schema checks always run to verify that policies comply with the Cedar schema fo
 
 ###### Topics
 
+- [Test a policy in LOG_ONLY mode](policy-test-a-policy.md "policy-test-a-policy.md")
 - [Validation and analysis overview](policy-validation-overview.md "policy-validation-overview.md")
 - [Policy generation: per-policy validation](policy-generation-validation.md "policy-generation-validation.md")
 - [Policy create and update: per-policy engine validation](policy-create-update-validation.md "policy-create-update-validation.md")

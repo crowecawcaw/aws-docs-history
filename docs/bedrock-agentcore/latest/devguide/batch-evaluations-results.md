@@ -149,3 +149,23 @@ for eid in baseline_summaries:
     delta = t - b
     print(f"{eid:<35} {b:>10.4f} {t:>10.4f} {delta:>+10.4f}")
 ```
+
+## Viewing results from the CLI
+
+In addition to the `GetBatchEvaluation` API, the AgentCore CLI surfaces the same results:
+
+- `agentcore view batch-evaluation <batch-evaluation-id>` — view a single job and its results (add `--json` for the raw output).
+- `agentcore batch-evaluations history` — list batch evaluation jobs (running jobs are refreshed from the service; add `--json`).
+- `agentcore run batch-evaluation …​ --json` — returns the same `batchEvaluationId` / `evaluationResults` / `evaluatorSummaries` object shown in the JSON example above.
+
+```
+# View a single batch evaluation job and its results
+agentcore view batch-evaluation 12345678-1234-1234-1234-123456789012 --json
+
+# List batch evaluation jobs (running jobs are refreshed from the service)
+agentcore batch-evaluations history --json
+```
+
+###### Note
+
+The run command flag for selecting evaluators is `-e, --evaluator <ids…​>` (or `--evaluator-arn <arns…​>`).

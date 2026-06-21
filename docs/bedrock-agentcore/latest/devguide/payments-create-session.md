@@ -53,6 +53,10 @@ session = manager.create_payment_session(
 )
 ```
 
+###### Tip
+
+If you use the AgentCore CLI (v0.19.0+), pass `--auto-session` to `agentcore invoke` to create or reuse a session with the default spend limit configured on your payment manager. This removes the need to create sessions manually for most workflows.
+
 ## Get a payment session
 
 ###### Example

@@ -1,6 +1,6 @@
-# Amazon Bedrock AgentCore Gateway: Securely connect tools and other resources to your Gateway
+# Amazon Bedrock AgentCore Gateway: A secure AI gateway for agents, tools, and models
 
-Amazon Bedrock AgentCore Gateway provides an easy and secure way for developers to build, deploy, discover, and connect to tools at scale. AI agents need tools to perform real-world tasks—from querying databases to sending messages to analyzing documents. With Gateway, developers can convert APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools and make them available to agents through Gateway endpoints with just a few lines of code. Gateway supports OpenAPI, Smithy, and Lambda as input types, and is the only solution that provides both comprehensive ingress authentication and egress authentication in a fully-managed service. Gateway also provides 1-click integration with several popular tools such as Salesforce, Slack, Jira, Asana, and Zendesk. Gateway eliminates weeks of custom code development, infrastructure provisioning, and security implementation so developers can focus on building innovative agent applications.
+Amazon Bedrock AgentCore Gateway is a fully-managed AI gateway that provides a single, secure entry point for agentic traffic—connecting agents to tools, to other agents, and to large language models (LLMs). Rather than serving only as an MCP tool gateway, Gateway routes and secures any agentic traffic through one endpoint: it converts APIs, Lambda functions, and existing services into Model Context Protocol (MCP)-compatible tools; fronts other agents and HTTP services through passthrough targets (including Agent-to-Agent (A2A) traffic); and routes inference requests across multiple model providers through a unified, model-based routing endpoint. Gateway supports OpenAPI, Smithy, and Lambda as tool input types, and is the only solution that provides both comprehensive ingress authentication and egress authentication in a fully-managed service. Gateway also provides 1-click integration with several popular tools such as Salesforce, Slack, Jira, Asana, and Zendesk. Gateway eliminates weeks of custom code development, infrastructure provisioning, and security implementation so developers can focus on building innovative agent applications.
 
 ###### Topics
 
@@ -26,7 +26,7 @@ Transform existing enterprise resources into agent-ready tools in just a few lin
 
 **Accelerate agent development through unified access**
 
-Enable your agents to discover and use tools through a single, secure endpoint. By combining multiple tool sources—from APIs to Lambda functions—into one unified interface, developers can build and scale agent workflows faster without managing multiple tool connections or reimplementing integrations.
+Enable your agents to discover and reach tools, other agents, and models through a single, secure endpoint. By combining multiple sources—from APIs and Lambda functions to other agents and model providers—into one unified interface, developers can build and scale agent workflows faster without managing multiple connections or reimplementing integrations.
 
 **Scale with confidence through intelligent tool discovery**
 
@@ -50,7 +50,7 @@ Gateway provides the following key capabilities:
 
 - **Security Guard** - Manages OAuth authorization to ensure only valid users and agents can access tools and resources.
 - **Translation** - Converts agent requests using protocols like Model Context Protocol (MCP) into API requests and Lambda invocations, eliminating the need to manage protocol integration or version support.
-- **Composition** - Combines multiple APIs, functions, and tools into a single MCP endpoint for streamlined agent access.
+- **Composition** - Combines multiple APIs, functions, tools, agents, and model providers behind a single endpoint for streamlined agent access, including model-based routing of inference traffic across providers.
 - **Secure Credential Exchange** - Handles credential injection for each tool, enabling agents to use tools with different authentication requirements seamlessly.
 - **Semantic Tool Selection** - Enables agents to search across available tools to find the most appropriate ones for specific contexts, allowing agents to leverage thousands of tools while minimizing prompt size and reducing latency.
 - **Infrastructure Manager** - Provides a serverless solution with built-in observability and auditing, eliminating infrastructure management overhead.

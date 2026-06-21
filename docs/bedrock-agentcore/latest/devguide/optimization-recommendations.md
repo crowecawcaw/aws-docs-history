@@ -21,6 +21,7 @@ Amazon Bedrock AgentCore supports two recommendation types:
 - [Get recommendation](recommendations-get.md "recommendations-get.md")
 - [List recommendations](recommendations-list.md "recommendations-list.md")
 - [Delete recommendation](recommendations-delete.md "recommendations-delete.md")
+- [Recommendation encryption](recommendations-encryption.md "recommendations-encryption.md")
 
 ## Configuration input modes
 
@@ -71,7 +72,8 @@ agentcore run recommendation \
   --runtime MyAgent \
   --evaluator Builtin.GoalSuccessRate \
   --inline "You are a helpful assistant..." \
-  --lookback 7
+  --lookback 7 \
+  --wait
 ```
 
 AWS SDK (boto3)
@@ -163,6 +165,10 @@ agent_traces = {
 }
 ```
 
+###### Note
+
+`agentcore run recommendation` is asynchronous. Without `--wait`, the command submits the recommendation job and returns immediately; the job starts in a non-terminal state (such as `PENDING` or `IN_PROGRESS`), and you retrieve the result later. Pass `--wait` to block until the recommendation reaches a terminal state. To poll for or retrieve a submitted job’s result, run `agentcore view recommendation <id>`, where `id` is the recommendation job ID.
+
 The AgentCore CLI provides convenience flags that map to the underlying API trace source types:
 
 | CLI flag              | API mapping                                              | Description                                                                                                                                                                              |
@@ -170,3 +176,4 @@ The AgentCore CLI provides convenience flags that map to the underlying API trac
 | `--lookback <days>`   | `cloudwatchLogs` with computed `startTime` and `endTime` | Collects traces from the last N days via CloudWatch Logs. The CLI resolves log group ARNs and service names from the runtime configuration.                                              |
 | `--session-id <id>`   | `sessionSpans` (inline)                                  | Collects spans for the specified session client-side and passes them as inline session spans. The recommendation API itself does not support session ID filtering on CloudWatch sources. |
 | `--spans-file <path>` | `sessionSpans` (inline)                                  | Reads spans from a local JSON file and passes them as inline session spans.                                                                                                              |
+| `--wait`              | n/a (client-side polling)                                | Block until the recommendation reaches a terminal state.                                                                                                                                 |

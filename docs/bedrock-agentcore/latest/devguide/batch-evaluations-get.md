@@ -7,7 +7,29 @@ Retrieve the status and results of a batch evaluation job. Poll this operation u
 ###### Example
 
 AgentCore CLI
-The CLI automatically polls `GetBatchEvaluation` when you run `agentcore run batch-evaluation`. To check the status of a previously started job, use the batch evaluation ID from the CLI output or from `ListBatchEvaluations`.
+The `--wait` flag controls how `agentcore run batch-evaluation` behaves:
+
+- With `--wait`: the command blocks until the job reaches a terminal state.
+- Without `--wait`: the command starts the job and returns immediately. You poll for status separately.
+
+```
+# Start a job and block until it reaches a terminal state
+agentcore run batch-evaluation -r MyAgent -e Builtin.Correctness --wait
+
+# List previously started jobs (running jobs are refreshed from the service)
+agentcore batch-evaluations history
+
+# Check the status and results of a single job
+agentcore view batch-evaluation <batch-evaluation-id>
+
+# Non-interactive (JSON) output, the CLI analogue of a get_batch_evaluation polling loop
+agentcore view batch-evaluation <batch-evaluation-id> --json
+
+# Stop a running job
+agentcore stop batch-evaluation -i <batch-evaluation-id>
+```
+
+Use the batch evaluation ID from the CLI output of `agentcore run batch-evaluation` or from the `agentcore batch-evaluations history` list.
 
 AWS SDK (boto3)
 

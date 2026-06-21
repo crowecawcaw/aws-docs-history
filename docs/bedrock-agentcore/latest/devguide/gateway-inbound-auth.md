@@ -4,12 +4,7 @@ Before you create your gateway, you must set up inbound authorization. Inbound a
 
 - **JSON Web Token (JWT)** – A secure and compact token used for authorization. After creating the JWT, you specify it as the authorization configuration when you create the gateway. You can create a JWT with any of the identity providers at [Provider setup and configuration](identity-idps.md "identity-idps.md").
 - **IAM identity** – Authorizes through the credentials of the AWS IAM identity trying to access the gateway.
-- **Authenticate only** – The gateway validates the inbound JWT token to verify the caller’s identity but does not perform full authorization. The authenticated identity or token is passed through to the target for downstream authorization. This is useful when you want the gateway to verify authentication while delegating authorization decisions to the target service, such as when using passthrough outbound authorization with HTTP targets.
-- **No Authorization** – The gateway will not perform any inbound authorization. This makes your gateway accessible to all users to be invoked.
-
-###### Important
-
-Do not use No Authorization gateways for production workloads unless you have implemented your own authentication mechanism, such as an interceptor Lambda function. See [No Authorization](#gateway-inbound-auth-none "#gateway-inbound-auth-none") for security best practices.
+- **Offloaded authorization types** – The gateway makes no authorization decision of its own and instead offloads authorization to another component, such as the downstream target, a policy engine attached to the gateway, or an interceptor Lambda function. This category includes **Authenticate only** and **No Authorization**. For details and guidance, see [Offloaded inbound authorization](#gateway-inbound-auth-offloaded "#gateway-inbound-auth-offloaded").
 
 ###### Note
 
@@ -21,7 +16,7 @@ If you don’t plan to use the default authorization configuration using Amazon 
 
 - [IAM-based inbound authorization](#gateway-inbound-auth-iam "#gateway-inbound-auth-iam")
 - [JSON Web Token (JWT)-based inbound authorization](#gateway-inbound-auth-jwt "#gateway-inbound-auth-jwt")
-- [No Authorization](#gateway-inbound-auth-none "#gateway-inbound-auth-none")
+- [Offloaded inbound authorization](#gateway-inbound-auth-offloaded "#gateway-inbound-auth-offloaded")
 
 ## IAM-based inbound authorization
 
@@ -188,7 +183,38 @@ If your token or JWKS endpoints use a different domain than the discovery URL, a
 
 For self-managed Lattice, cross-account setups, and advanced configurations, see [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md "vpc-egress-private-endpoints.md"). For a comprehensive guide covering both inbound and outbound private IdP scenarios, see [Connect to private identity providers](identity-private-idp.md "identity-private-idp.md").
 
-## No Authorization
+## Offloaded inbound authorization
+
+With offloaded inbound authorization, the gateway does not make any authorization decision of its own. Instead, it offloads authorization to another component:
+
+- The downstream target service, which authorizes the request it receives.
+- A policy engine attached to the gateway, which evaluates access policies.
+- An interceptor Lambda function, which runs your custom authentication or authorization logic before requests reach your targets.
+
+AgentCore offers two offloaded types:
+
+- **Authenticate only** (`AUTHENTICATE_ONLY`) – The gateway verifies the caller’s SigV4 signature to authenticate the caller, but makes no authorization decision. Requests must be signed, but any authenticated caller is forwarded to the target.
+- **No Authorization** (`NONE`) – The gateway performs no inbound authentication or authorization. Requests can be unauthenticated, and any caller is forwarded to the target.
+
+With either type, you decide where authorization is actually enforced:
+
+- **Policy engine** – Attach a policy engine to the gateway to evaluate access policies centrally. This is a recommended pattern for production gateways and is frequently used together with OAuth.
+- **Interceptor Lambda function** – Run your own authentication or authorization logic before requests reach your targets. This is recommended for production gateways when the built-in inbound authorization options do not meet your requirements.
+- **Downstream target** – Let the target enforce authorization on the request it receives. This is useful for experimentation and progressive onboarding — for example, putting a gateway in front of an existing runtime **without changing the runtime’s authentication and authorization** — so you can adopt gateway capabilities incrementally while the runtime continues to enforce the auth it already trusts.
+
+###### Important
+
+If you offload inbound authorization by choosing either `AUTHENTICATE_ONLY` or `NONE`, AgentCore Gateway does not enforce authorization on its own. In this scenario, you must offload authorization to a separate component — a policy engine, an interceptor Lambda function, or the downstream target — otherwise any caller can reach your target.
+
+### Authenticate-only authorization
+
+With authenticate-only authorization (`AUTHENTICATE_ONLY`), the gateway verifies the caller’s Signature Version 4 (SigV4) signature to confirm their identity, but does not make any authorization decision of its own. Any authenticated IAM principal can invoke the gateway regardless of their permissions, and the request is forwarded to the target. Authorization is delegated to the downstream target service or to a policy engine attached to the gateway.
+
+###### Important
+
+With `AUTHENTICATE_ONLY`, the gateway does not enforce any authorization policies. Any valid SigV4-signed request will be forwarded to the target. Ensure that your downstream targets implement their own authorization logic, or attach a policy engine to the gateway to control access. Without proper authorization at the target or gateway policy level, any authenticated caller can reach your backend services.
+
+### No Authorization
 
 You can create a gateway that is configured with no authorization by using `authorizerType=NONE` . The gateway will not perform any authorization on the incoming gateway request and the request can be unauthenticated.
 
@@ -201,3 +227,18 @@ Do not use No Authorization gateways for production workloads unless you have im
 1. Use the `bedrock-agentcore:GatewayAuthorizerType` condition key to selectively allow/deny access within your organization for creating gateways with `authorizerType=NONE`
 2. Do not use No Authorization gateways out of convenience for testing. They should be used for gateways you intend to make public but have implemented your own custom throttling rules and checks to ensure your public gateway can handle unauthenticated users
 3. Do not use No Authorization gateways with targets that may respond with sensitive information. Although targets are configured with their own authorization configurations, it is best to add another security layer on the gateway.
+
+### Onboard an existing runtime without changing its auth
+
+When you pair an offloaded inbound type with a matching outbound authorization type that forwards the caller’s identity to the runtime, onboarding to a gateway can be as simple as setting an endpoint override on your existing client — no auth changes required:
+
+- **IAM runtimes** – Combine `AUTHENTICATE_ONLY` inbound authorization with **Caller IAM credentials** (`CALLER_IAM_CREDENTIALS`) outbound authorization. The gateway authenticates the SigV4 caller and then signs the request to the runtime with that same caller identity, so the runtime’s existing IAM authorization continues to apply unchanged. For more information, see [Caller IAM credentials](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-caller-iam "gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-caller-iam").
+- **OAuth runtimes** – Combine **No Authorization** inbound authorization with **Token passthrough** (`JWT_PASSTHROUGH`) outbound authorization. The gateway forwards the inbound JWT to the runtime without modification, so the runtime validates the token exactly as it does today. (Token passthrough forwards a bearer token, so it requires a JWT-bearing inbound type — JWT inbound authorization or `NONE`. It is not available with `AUTHENTICATE_ONLY`, which is SigV4-based and carries no bearer token.) For more information, see [Token passthrough](gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-jwt-passthrough "gateway-building-adding-targets-authorization.md#gateway-building-adding-targets-authorization-jwt-passthrough").
+
+###### Note
+
+Token passthrough (`JWT_PASSTHROUGH`) is **not** the recommended approach for production. When you forward the inbound token unchanged, the same token is accepted by both the gateway and the downstream target, so it should be tightly scoped — for example, each token’s audience (`aud`) should be restricted to the intended resource. The recommended pattern is [on-behalf-of (OBO) token exchange](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md"), where the gateway exchanges the caller’s token for a fresh, audience-scoped token for the target instead of replaying the caller’s token. Use token passthrough for easy experimentation, testing, and onboarding, and move to OBO for long-term production workloads.
+
+###### Warning
+
+The identity-forwarding configurations in this section rely solely on the downstream runtime to authorize requests; the gateway adds no authorization of its own. They are intended for testing, experimentation, and low-disruption onboarding. For a production gateway, enforce authorization at the gateway — configure JWT or IAM inbound authorization, attach a policy engine, or use an interceptor Lambda function. To ensure callers cannot bypass the gateway once you adopt it, see [Enforcing traffic through the gateway](gateway-target-http-runtime.md#gateway-target-http-runtime-source-validation "gateway-target-http-runtime.md#gateway-target-http-runtime-source-validation").

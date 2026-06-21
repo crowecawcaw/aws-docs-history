@@ -113,7 +113,7 @@ The way you write resource-based policies depends on the authentication type con
 
 SigV4 Authentication
 
-Use specific AWS principals (IAM users, roles, or accounts) in the `Principal` element. For example: `"Principal": {"AWS": "arn:aws:iam::123456789012:role/MyRole"}` . The policy is evaluated in conjunction with the caller’s IAM permissions.
+Use specific AWS principals (IAM users, roles, or accounts) in the `Principal` element. For example: `"Principal": {"AWS": "arn:aws:iam::123456789012:role/MyRole"}` . The policy is evaluated in conjunction with the caller’s IAM permissions. For an example that restricts a runtime to only be invoked by an AgentCore Gateway, see [Restrict IAM (SigV4) inbound invocation to your gateway](runtime-oauth.md#runtime-restrict-iam-gateway "runtime-oauth.md#runtime-restrict-iam-gateway").
 
 OAuth Authentication
 

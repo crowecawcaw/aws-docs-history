@@ -8,6 +8,7 @@ This topic consolidates security best practices for Amazon Bedrock AgentCore Run
 - [IAM and least privilege](#security-bp-iam-least-privilege "#security-bp-iam-least-privilege")
 - [Resource-based policies and cross-account access](#security-bp-resource-policies "#security-bp-resource-policies")
 - [Confused deputy prevention](#security-bp-confused-deputy "#security-bp-confused-deputy")
+- [Front your runtime with an AgentCore Gateway](#security-bp-front-with-gateway "#security-bp-front-with-gateway")
 - [Authentication best practices](#security-bp-authentication "#security-bp-authentication")
 - [Credential and secret management](#security-bp-credentials "#security-bp-credentials")
 - [Network security](#security-bp-network "#security-bp-network")
@@ -93,6 +94,21 @@ Protect your execution roles from the confused deputy problem by using global co
 - **Use the full ARN when possible** — If you know the specific runtime resource, use its full ARN in `aws:SourceArn` instead of wildcards.
 
 For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+
+## Front your runtime with an AgentCore Gateway
+
+A common pattern is to front your AgentCore Runtime with an AgentCore Gateway so that the gateway becomes the single, governed entry point to the runtime. Placing a gateway in front lets you apply controls **outside** of the agent’s own environment:
+
+- **Policy-based authorization** — Use the gateway’s policy engine to control which callers can invoke which targets and under what conditions. For more information, see [Use policies to control access to gateway targets](policy.md "policy.md").
+- **Guardrails** — Apply Amazon Bedrock Guardrails through the policy engine to screen requests and responses. For more information, see [Use guardrails in policies](policy-guardrails-in-policies.md "policy-guardrails-in-policies.md").
+- **Request and response interceptors** — Inspect or transform traffic with interceptor Lambda functions configured on the gateway.
+
+These controls only protect you if all traffic actually flows through the gateway. If a caller can reach the runtime directly, it bypasses the gateway’s policies, guardrails, and interceptors entirely. To prevent this, restrict the runtime to accept invocations only when they originate from your gateway. How you do this depends on the runtime’s inbound authorization type:
+
+- **IAM (SigV4) runtimes** — Attach a resource-based policy that restricts invocation to the gateway’s execution role. See [Restrict IAM (SigV4) inbound invocation to your gateway](runtime-oauth.md#runtime-restrict-iam-gateway "runtime-oauth.md#runtime-restrict-iam-gateway").
+- **OAuth (JWT) runtimes** — Configure `allowedWorkloadConfiguration` on the runtime’s authorizer. See [Restrict invocation to your gateway](runtime-oauth.md#deploy-agent-allowed-workload "runtime-oauth.md#deploy-agent-allowed-workload").
+
+To set this up, you [create the gateway](gateway-create.md "gateway-create.md"), [deploy your runtime](runtime-oauth.md#deploy-agent "runtime-oauth.md#deploy-agent"), and then [add the runtime as a gateway target](gateway-target-http-runtime.md "gateway-target-http-runtime.md") on that gateway. For the target configuration, outbound authorization, and the invocation URL format, see [AgentCore Runtime targets](gateway-target-http-runtime.md "gateway-target-http-runtime.md").
 
 ## Authentication best practices
 
@@ -227,8 +243,7 @@ Security patches can expose issues with existing code that relies on previous in
 
 The managed harness is built on AgentCore Runtime. It does not add a security layer between the caller and the microVM. The security boundary is the same as AgentCore Runtime: IAM or JWT authentication combined with microVM isolation.
 
-- All `InvokeHarness` input considered trusted input — Any principal that passes the IAM or JWT authentication gate has full access to the capabilities configured on the harness. The harness does not perform any custom input sanitization, content-block filtering, or behavioral enforcement on your behalf. Design your architecture with the assumption that every authenticated caller is fully trusted to use the configured capabilities.
-- Validate untrusted input in your own application layer — If you expose the harness to end users you do not fully trust (employees, external consumers, or third-party integrations) between your frontend and `InvokeHarness`, it is your responsibility to sanitize, validate, or otherwise review messages before passing them to the harness. This includes stripping content block types that you do not want dispatched directly. This is the same pattern as any service that accepts payloads from authorized callers, such as Lambda, Amazon API Gateway, and Amazon SQS.
+For the full harness security model, including trust boundary details, model configuration parameter risks, and input validation guidance, see [Harness shared responsibility model](harness-security.md#harness-shared-responsibility "harness-security.md#harness-shared-responsibility").
 
 ## Command execution security
 

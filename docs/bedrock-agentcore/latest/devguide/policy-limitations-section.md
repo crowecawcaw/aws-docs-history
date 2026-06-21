@@ -20,5 +20,6 @@ The following limitations are specific to the current Amazon Bedrock AgentCore G
 - **Cedar schema size** - supported schemas size under 400 KB. This limit applies to the combined Cedar schema generated from all tools across all gateways associated with the policy engine. The schema size is driven by the total number of tools and the complexity of their input parameter shapes, not just the tool or target count. If the combined schema exceeds this limit, use separate policy engines for different gateways, or remove tools that are no longer in use.
 - **Max Policies per Engine** - 1,000
 - **Max Policy Engines per account** - 1,000
+- **Mixing `context.input.` and `context.output.`** in a single invocation is rejected
 
 These implementation limitations may be addressed in future releases.

@@ -14,6 +14,8 @@ when {
 
 - `when { …​ }` - Policy applies only if the condition is true
 - `unless { …​ }` - Policy applies only if the condition is false
+- `when guardrails { …​ }` - Policy applies only if the condition asserted on the output(s) of one or more guardrails evaluates to true
+- `unless guardrails { …​ }` - Policy applies only if the condition asserted on the output(s) of one or more guardrails evaluates to false
 
 ## Tool arguments
 

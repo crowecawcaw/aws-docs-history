@@ -25,6 +25,10 @@ A/B testing supports built-in, custom LLM-as-judge, and code-based evaluators, b
 
 The A/B test execution role must trust the `bedrock-agentcore.amazonaws.com` service principal and have permissions for AgentCore Gateway operations, configuration bundle reads, online evaluation config reads, and CloudWatch Logs access.
 
+###### Note
+
+You only need to create this role manually if you bring your own execution role and pass it with `agentcore run ab-test --role-arn <arn>`. If you omit `--role-arn`, the AgentCore CLI auto-creates an execution role for the test.
+
 Example trust policy:
 
 ```

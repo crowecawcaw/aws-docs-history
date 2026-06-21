@@ -141,6 +141,16 @@ MyAgent/
 
 The `agentcore/agentcore.json` file contains your project and agent configuration. The `app/MyAgent/main.py` file contains starter agent code using your selected framework.
 
+To add payment capabilities to your project, run:
+
+```
+agentcore add payment-manager --name MyPayments --auto-payment --default-spend-limit 5.00
+agentcore add payment-connector --manager MyPayments --name MyConnector --provider CoinbaseCDP \
+  --api-key-id <KEY_ID> --api-key-secret <KEY_SECRET> --wallet-secret <WALLET_SECRET>
+```
+
+This configures the `AgentCorePaymentsPlugin` in your agent and provisions payment infrastructure on deploy. See [Payments quick start](payments-getting-started.md "payments-getting-started.md") for the full workflow.
+
 ## Step 3: Test your agent locally
 
 Before deploying to AWS, test your agent locally using the development server. First, change into the project directory:
@@ -309,6 +319,20 @@ To maintain a conversation across multiple invocations, use the `--session-id` f
 ```
 
 agentcore invoke --session-id my-session "What else can you tell me?"
+
+```
+
+If your agent has payments configured, provide payment context:
+
+
+
+```
+
+agentcore invoke \
+ --prompt "Access https://example-x402-merchant.com/paid-api" \
+ --payment-instrument-id <INSTRUMENT_ID> \
+ --auto-session \
+ --payment-user-id user@example.com
 
 ```
 
@@ -602,6 +626,9 @@ agentcore add memory --name MyMemory --strategies SEMANTIC
 
 # Add an API key credential for external services
 agentcore add credential --name MyApiKey --type api-key --api-key your-api-key
+
+# Add a payment manager for x402 microtransactions
+agentcore add payment-manager --name MyPayments --auto-payment --default-spend-limit 5.00
 ```
 
 After adding resources, run `agentcore deploy` to provision the new resources in AWS.

@@ -22,7 +22,7 @@ With optional flags:
 agentcore run batch-evaluation \
   --runtime MyAgent \
   --evaluator Builtin.GoalSuccessRate \
-  --name "baseline-eval" \
+  --name my_baseline_eval \
   --lookback-days 1
 
 # Specific sessions
@@ -38,7 +38,20 @@ agentcore run batch-evaluation \
   --ground-truth ground-truth.json
 ```
 
-The CLI polls until the job reaches a terminal state (`COMPLETED`, `FAILED`, or `STOPPED`), displays per-evaluator average scores, and saves results to `.cli/eval-job-results/`.
+By default the command starts the job and returns immediately. Pass `--wait` to block until the job reaches a terminal state (`COMPLETED`, `FAILED`, or `STOPPED`), after which the CLI displays per-evaluator average scores and saves results to `.cli/jobs/batch-eval-results/`.
+
+`agentcore run batch-evaluation` also supports the following flags:
+
+- `--wait` — block until the job reaches a terminal state.
+- `--json` — emit machine-readable JSON output.
+- `--kms-key <arn>` — encrypt batch evaluation results with a customer-managed KMS key.
+- `--dataset <name>` / `--dataset-version <version>` — invoke the agent with dataset scenarios before batch evaluation (omit the version for a local file, or use `N`/`DRAFT`).
+- `--endpoint <name>` — target a specific runtime endpoint (for example, `PROMPT_V1`); defaults to the `AGENTCORE_RUNTIME_ENDPOINT` environment variable, then `DEFAULT`.
+- `--evaluator-arn <arns…​>` — reference evaluators by ARN instead of `-e`.
+
+Most flags have short aliases: `-r` (`--runtime`), `-e` (`--evaluator`), `-n` (`--name`), `-d` (`--lookback-days`), `-s` (`--session-ids`), and `-g` (`--ground-truth`).
+
+To manage a job after it starts, run `agentcore stop batch-evaluation -i <id>` to stop a running job and `agentcore archive batch-evaluation -i <id>` to archive a job record.
 
 AWS SDK (boto3)
 

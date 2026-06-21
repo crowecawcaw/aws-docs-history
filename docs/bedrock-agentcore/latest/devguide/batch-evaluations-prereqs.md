@@ -78,3 +78,13 @@ The `BedrockInvokeForCustomEvaluators` statement is required only if you use a c
 
 - **AWS SDK (boto3):** Python 3.10 or later.
 - **AgentCore CLI:** Run `agentcore --version` to check your version.
+
+###### Note
+
+The batch-evaluation CLI surface consists of the following commands:
+
+- `agentcore run batch-evaluation` — start a batch evaluation
+- `agentcore stop batch-evaluation -i <id>` — stop a running batch evaluation
+- `agentcore view batch-evaluation [id]` and `agentcore batch-evaluations history` — view a job or list jobs
+- `agentcore archive batch-evaluation -i <id>` — archive a batch evaluation job record on the service and clear local history
+  The `bedrock-agentcore:DeleteBatchEvaluation` IAM action is backed by the CLI’s `archive batch-evaluation` command; there is no literal `delete` CLI verb.

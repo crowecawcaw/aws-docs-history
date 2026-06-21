@@ -13,6 +13,12 @@ Edit the configuration in `agentcore.json` and redeploy. The CLI detects the exi
 # Edit the bundle configuration in agentcore.json (change model_id, system prompt, etc.)
 # Then redeploy to create a new version:
 agentcore deploy
+
+# After deploying, confirm a new immutable version was created:
+agentcore cb versions --name MyBundle
+
+# Inspect what changed between two versions (get IDs from `cb versions`):
+agentcore cb diff --name MyBundle --from <v1> --to <v2>
 ```
 
 AWS SDK (boto3)

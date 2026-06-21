@@ -54,6 +54,6 @@ The principal type depends on the authentication method configured for your Agen
 ## What You Cannot Do
 
 - Cannot reference entity types outside AgentCore namespace
-- Cannot access context fields other than `context.input`
+- Cannot access context fields other than `context.input` (`context.output` can only be used with guardrails)
 - Cannot use custom attributes on OAuthUser (use tags instead)
 - Cannot define new entity types in policies

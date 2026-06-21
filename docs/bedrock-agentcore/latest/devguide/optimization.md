@@ -18,3 +18,4 @@ AgentCore optimization builds on [AgentCore Evaluations](evaluations.md "evaluat
 - [Configuration bundles](configuration-bundles.md "configuration-bundles.md")
 - [Recommendations](optimization-recommendations.md "optimization-recommendations.md")
 - [A/B testing](ab-testing.md "ab-testing.md")
+- [AgentCore insights: Triage agent failures with pattern analysis](insights.md "insights.md")

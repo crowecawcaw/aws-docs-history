@@ -4,20 +4,62 @@ You can use the harness through the [AgentCore CLI](https://github.com/aws/agent
 
 ## Prerequisites
 
-- AWS credentials configured in one of the preview regions: US East (N. Virginia), US West (Oregon), Europe (Frankfurt), or Asia Pacific (Sydney).
-- For the CLI: Node.js 20+, AgentCore CLI installed with the preview channel:
-
-```
-npm install -g @aws/agentcore@preview
-```
-
-- For the SDK/boto3: Python 3.10+, `boto3` installed, and an IAM execution role the harness can assume. See the [execution role policy](harness-security.md#harness-execution-role-policy "harness-security.md#harness-execution-role-policy") for minimum permissions.
+- AWS credentials configured in one of the [supported regions](agentcore-regions.md "agentcore-regions.md").
+- For the CLI: Node.js 20+
+- For the SDK/boto3: Python 3.10+, [`boto3` installed](../../../boto3/latest/guide/quickstart.md "../../../boto3/latest/guide/quickstart.md"), and an IAM execution role the harness can assume. See the [execution role policy](harness-security.md#harness-execution-role-policy "harness-security.md#harness-execution-role-policy") for minimum permissions.
 
 ## Get started
 
 ###### Example
 
+AWS CLI/boto3
+Create the harness with a name and execution role:
+
+```
+aws bedrock-agentcore-control create-harness \
+  --harness-name "MyHarness" \
+  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole"
+```
+
+Poll `get-harness` until `"status": "READY"`. Note the `arn` in the response.
+
+```
+aws bedrock-agentcore-control get-harness \
+  --harness-id "MyHarness-XyZ123"
+```
+
+Invoke from Python. If you don’t specify a model, the harness defaults to Anthropic Claude Sonnet 4.6 on Amazon Bedrock:
+
+```
+import boto3
+
+client = boto3.client("bedrock-agentcore", region_name="us-west-2")
+
+response = client.invoke_harness(
+    harnessArn="arn:aws:bedrock-agentcore:us-west-2:123456789012:harness/MyHarness-XyZ123",  # Replace with your harness ARN
+    runtimeSessionId="1234abcd-12ab-34cd-56ef-1234567890ab",
+    messages=[{
+        "role": "user",
+        "content": [{"text": "Research three tropical vacation options under $3k."}]
+    }],
+)
+
+for event in response["stream"]:
+    if "contentBlockDelta" in event:
+        delta = event["contentBlockDelta"].get("delta", {})
+        if "text" in delta:
+            print(delta["text"], end="", flush=True)
+    elif "runtimeClientError" in event:
+        print(f"\nError: {event['runtimeClientError']['message']}")
+```
+
 AgentCore CLI
+Install AgentCore CLI installed with the preview channel:
+
+```
+npm install -g @aws/agentcore@preview
+```
+
 Create a harness project non-interactively with flags:
 
 ```
@@ -93,47 +135,6 @@ Expand **Harness Settings** to view and override the harness configuration for t
 
 ![Agent inspector: harness settings and configuration](images/tui/harness-agent-inspector-settings.png)
 
-AWS CLI/boto3
-Create the harness with a name and execution role:
-
-```
-aws bedrock-agentcore-control create-harness \
-  --harness-name "MyHarness" \
-  --execution-role-arn "arn:aws:iam::123456789012:role/MyHarnessRole"
-```
-
-Poll `get-harness` until `"status": "READY"`. Note the `arn` in the response.
-
-```
-aws bedrock-agentcore-control get-harness \
-  --harness-id "MyHarness-XyZ123"
-```
-
-Invoke from Python. If you don’t specify a model, the harness defaults to Anthropic Claude Sonnet 4.6 on Amazon Bedrock:
-
-```
-import boto3
-
-client = boto3.client("bedrock-agentcore", region_name="us-west-2")
-
-response = client.invoke_harness(
-    harnessArn="arn:aws:bedrock-agentcore:us-west-2:123456789012:harness/MyHarness-XyZ123",  # Replace with your harness ARN
-    runtimeSessionId="1234abcd-12ab-34cd-56ef-1234567890ab",
-    messages=[{
-        "role": "user",
-        "content": [{"text": "Research three tropical vacation options under $3k."}]
-    }],
-)
-
-for event in response["stream"]:
-    if "contentBlockDelta" in event:
-        delta = event["contentBlockDelta"].get("delta", {})
-        if "text" in delta:
-            print(delta["text"], end="", flush=True)
-    elif "runtimeClientError" in event:
-        print(f"\nError: {event['runtimeClientError']['message']}")
-```
-
 That’s all you need to get a harness running. The following sections cover everything you can configure.
 
 ###### Note
@@ -149,8 +150,14 @@ For additional details, see the API Reference:
 - [UpdateHarness API](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateHarness.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateHarness.md")
 - [DeleteHarness API](../../../bedrock-agentcore-control/latest/APIReference/API_DeleteHarness.md "../../../bedrock-agentcore-control/latest/APIReference/API_DeleteHarness.md")
 - [ListHarnesses API](../../../bedrock-agentcore-control/latest/APIReference/API_ListHarnesses.md "../../../bedrock-agentcore-control/latest/APIReference/API_ListHarnesses.md")
+- [ListHarnessVersions API](../../../bedrock-agentcore-control/latest/APIReference/API_ListHarnessVersions.md "../../../bedrock-agentcore-control/latest/APIReference/API_ListHarnessVersions.md")
 - [InvokeHarness API](../APIReference/API_InvokeHarness.md "../APIReference/API_InvokeHarness.md")
 - [InvokeAgentRuntimeCommand API](../APIReference/API_InvokeAgentRuntimeCommand.md "../APIReference/API_InvokeAgentRuntimeCommand.md")
+- [CreateHarnessEndpoint API](../../../bedrock-agentcore-control/latest/APIReference/API_CreateHarnessEndpoint.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateHarnessEndpoint.md")
+- [GetHarnessEndpoint API](../../../bedrock-agentcore-control/latest/APIReference/API_GetHarnessEndpoint.md "../../../bedrock-agentcore-control/latest/APIReference/API_GetHarnessEndpoint.md")
+- [UpdateHarnessEndpoint API](../../../bedrock-agentcore-control/latest/APIReference/API_UpdateHarnessEndpoint.md "../../../bedrock-agentcore-control/latest/APIReference/API_UpdateHarnessEndpoint.md")
+- [DeleteHarnessEndpoint API](../../../bedrock-agentcore-control/latest/APIReference/API_DeleteHarnessEndpoint.md "../../../bedrock-agentcore-control/latest/APIReference/API_DeleteHarnessEndpoint.md")
+- [ListHarnessesEndpoints API](../../../bedrock-agentcore-control/latest/APIReference/API_ListHarnessesEndpoint.md "../../../bedrock-agentcore-control/latest/APIReference/API_ListHarnessesEndpoint.md")
 
 ## Streaming response format
 

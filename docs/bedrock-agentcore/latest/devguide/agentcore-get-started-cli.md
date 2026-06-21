@@ -146,6 +146,16 @@ agentcore status
 agentcore invoke --prompt "Hello, what can you do?"
 ```
 
+If your agent has payments configured, provide payment context at invoke time:
+
+```
+agentcore invoke \
+  --prompt "Access https://example-x402-merchant.com/paid-api" \
+  --payment-instrument-id <INSTRUMENT_ID> \
+  --auto-session \
+  --payment-user-id user@example.com
+```
+
 That’s the loop. Iterate on `app/MyAgent/main.py`, test with `agentcore dev`, deploy with `agentcore deploy`, invoke with `agentcore invoke`.
 
 ## Add capabilities to your project
@@ -158,6 +168,8 @@ agentcore add agent         # Add a second agent to the same project
 agentcore add gateway       # Connect external APIs/tools through Gateway
 agentcore add credential    # Add an API key for a non-Bedrock provider
 agentcore add evaluator     # Quality evaluation
+agentcore add payment-manager   # Payments: create a payment manager
+agentcore add payment-connector # Payments: link a payment provider
 ```
 
 Each add command scaffolds the config and prompts for required values. After adding, run `agentcore deploy` to provision.
@@ -171,6 +183,7 @@ Deep dives for the capabilities you can attach:
 - [AgentCore Identity](identity.md "identity.md") - OAuth, API key credential providers, workload identity
 - [AgentCore Observability](observability.md "observability.md") - traces, logs, and metrics in CloudWatch
 - [AgentCore VPC](agentcore-vpc.md "agentcore-vpc.md") - run agents inside your VPC
+- [AgentCore Payments](payments.md "payments.md") - microtransaction payments for agents via x402
 
 ## View logs and traces
 

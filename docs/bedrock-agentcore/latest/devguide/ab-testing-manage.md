@@ -2,29 +2,40 @@
 
 Update an A/B test to start it, pause it, or stop it. You use the `UpdateABTest` operation to change execution status.
 
+###### Note
+
+The AgentCore CLI lifecycle commands (`view`, `pause`, `resume`, `stop`, `promote`, `archive`) identify a test by its **job ID** passed with `-i, --id`, not by name. Get the ID from `agentcore run ab-test --json` (the `id` field) or by listing tests with `agentcore view ab-test`. The job ID uses the format `name-suffix`. For example: `customerSupportTargetTest-Ab1Cd2Ef3G`. Job records are stored locally as JSON under `.cli/jobs/ab-tests/` in your project.
+
 ## Code samples
 
-### Start, pause, and stop
+### View, pause, resume, and stop
 
 ###### Example
 
 AgentCore CLI
-Start (resume) a paused test:
+List all A/B test jobs, or view one in detail (also surfaces the invocation URL and results):
 
 ```
-agentcore resume ab-test customerSupportTargetTest
+agentcore view ab-test
+agentcore view ab-test <ab-test-id>
+```
+
+Resume a paused test:
+
+```
+agentcore resume ab-test -i <ab-test-id>
 ```
 
 Pause a running test. Traffic stops splitting and all requests route to the control variant. Can be resumed.
 
 ```
-agentcore pause ab-test customerSupportTargetTest
+agentcore pause ab-test -i <ab-test-id>
 ```
 
 Stop a test permanently. All traffic reverts to the control variant. This cannot be undone.
 
 ```
-agentcore stop ab-test customerSupportTargetTest
+agentcore stop ab-test -i <ab-test-id>
 ```
 
 AWS SDK (boto3)
@@ -66,6 +77,22 @@ response = client.update_ab_test(
 print(f"Execution status: {response['executionStatus']}")
 ```
 
+### Promote the treatment variant
+
+When the results are statistically significant, promote the treatment variant. `promote` stops the test and writes the treatment variant into `agentcore.json`; run `agentcore deploy` afterward to roll it out.
+
+###### Example
+
+AgentCore CLI
+
+```
+agentcore promote ab-test -i <ab-test-id>
+agentcore deploy
+```
+
+AWS SDK (boto3)
+The SDK has no single "promote" operation. Stop the test, then apply the winning variant to your resources yourself (for example, by updating the control configuration bundle or gateway target to match the treatment).
+
 ### Delete an A/B test
 
 Delete an A/B test and its associated metadata. The test must be in `STOPPED` execution status before it can be deleted. Deleting a test does not affect the configuration bundles, AgentCore Gateway, or online evaluation configuration that the test referenced.
@@ -75,7 +102,7 @@ Delete an A/B test and its associated metadata. The test must be in `STOPPED` ex
 AgentCore CLI
 
 ```
-agentcore remove ab-test --name customerSupportTargetTest
+agentcore archive ab-test -i <ab-test-id>
 ```
 
 AWS SDK (boto3)

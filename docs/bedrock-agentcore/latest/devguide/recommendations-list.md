@@ -7,16 +7,22 @@ List all recommendations in your account. Results are paginated and can be filte
 ###### Example
 
 AgentCore CLI
-List past recommendation runs from the local project cache:
+List past recommendation jobs (running jobs are refreshed from the service):
 
 ```
-agentcore recommendations history
+agentcore view recommendation
 ```
 
-View as JSON:
+View a single recommendation by ID:
 
 ```
-agentcore recommendations history --json
+agentcore view recommendation <recommendation-id>
+```
+
+Add `--json` for machine-readable output:
+
+```
+agentcore view recommendation --json
 ```
 
 AWS SDK (boto3)
