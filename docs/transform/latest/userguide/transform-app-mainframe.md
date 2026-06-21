@@ -18,13 +18,12 @@ transformation process.
 - [High-level overview of mainframe modernization journey](transform-app-mainframe-modernization-journey.md "transform-app-mainframe-modernization-journey.md")
 - [Transformation of mainframe applications](transform-app-mainframe-workflow.md "transform-app-mainframe-workflow.md")
 - [Build and deploy your modernized application post-refactoring](transform-app-mainframe-workflow-build-deploy.md "transform-app-mainframe-workflow-build-deploy.md")
-- [Tutorial: Reimagining mainframe applications with exported artifacts from AWS Transform for mainframe](transform-forward-engineering-tutorial.md "transform-forward-engineering-tutorial.md")
 
 ## Capabilities and key features
 
 AWS Transform provides the following capabilities for mainframe modernization:
 
-- Supports modernization of zOS mainframe applications written in COBOL (Common Business-Oriented Language) with associated JCL (Job Control Language),
+- Supports modernization of z/OS mainframe applications written in COBOL (Common Business-Oriented Language) and PL/I (Programming Language One) with associated JCL (Job Control Language),
   CICS (Customer Information Control System) transactions, BMS (Basic Mapping Support) screens, Db2 databases, and VSAM (Virtual Storage Access Method) data files.
 - Supports refactoring of Fujitsu GS21 mainframe applications with PSAM (Presentation Service Access Method), Japanese character sets,
   and NDB (Network Data Base) data files.
@@ -47,18 +46,15 @@ applications.
    the high-level goal into intermediate steps.
 3. Depending on the goal you provided, AWS Transform can:
 
-   - Analyze the codebase
-   - Generate technical documentation
-   - Extract business logic from your mainframe applications
-   - Decompose the monolithic application into functional domains
-   - Plan waves for code modernization
-   - Refactor the application assets, including transforming the COBOL
-     codebase to Java-based architecture, and optionally Reforge to improve
-     the quality of refactored code
-   - Re-run your jobs as needed
+   - Assess and reimagine the codebase
+   - Create a custom job based on the objective
 
 Along the way, AWS Transform might request information from you to execute the
 tasks.
+
+###### Note
+
+For more information about AWS Transform for mainframe refactor capabilities, see [Create a project](https://bluinsights.aws/docs/transformation-center-create-a-project/ "https://bluinsights.aws/docs/transformation-center-create-a-project/") in the AWS Transform for mainframe refactor documentation.
 
 ## Human in the loop (HITL)
 
@@ -74,16 +70,16 @@ AWS Transform will gather additional information from you in the following scena
 
 ## Supported file types for transformation of mainframe applications
 
-The supported file types for zOS include:
+The supported file types for z/OS include:
 
 - COBOL artifacts and related CPY (Copybooks)
+- PL/I source files
 - JCL (Job Control Language) and JCL Procedure (PROC)
 - CICS System Definition (CSD)
 - BMS (Basic Mapping Support)
 - Db2 databases
 - VSAM (Virtual Storage Access Method)
 - IMS TM (Transaction Manager)
-- PL/I support for business logic extraction and technical documentation generation
 
 The supported file types for Fujitsu GS21 include:
 

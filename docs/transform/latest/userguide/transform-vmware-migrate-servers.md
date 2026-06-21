@@ -17,7 +17,7 @@ generating Docker artifacts, publishing container images, and deploying to Amazo
 or Amazon Elastic Kubernetes Service. For the full containerization workflow, see
 [Source code containerization](transform-containers.md "transform-containers.md").
 
-1. Prerequisites and migration execution defaults
+1. Prerequisites and Configure Migration Defaults
 2. Step 1: Set up migration wave
 3. Step 2: Validate and confirm inventory
 4. Step 3: Deploy replication agents
@@ -25,12 +25,27 @@ or Amazon Elastic Kubernetes Service. For the full containerization workflow, se
 6. Step 5: Testing
 7. Step 6: Cutover
 
-## Prerequisites and migration execution defaults
+## Prerequisites and Configure Migration Defaults
 
 ### Prerequisites
 
 Before starting rehost migration, ensure you have the following in
 place:
+
+###### Note
+
+If you completed all the steps of an end-to-end migration job in
+AWS Transform, your target accounts and inventory file are already prepared —
+the inventory file will have been generated for you during the migration
+planning step. Network infrastructure set up through AWS Transform network
+migration is also ready. If you did not build your network infrastructure
+through AWS Transform, ensure it is set up in advance before starting rehost
+migration.
+
+Before starting rehost migration, verify that you have the networking
+resources and infrastructure in place to host your servers. You can use
+AWS Transform landing zone and network migration capabilities or any other tools
+for that.
 
 - **Target accounts for migration** – The
   AWS account IDs where you need your servers to be migrated. You can
@@ -45,19 +60,13 @@ place:
   instance type preferences. You can use AWS Transform migration planning to
   generate this file.
 
-###### Important
+### Configure Migration Defaults
 
-Before starting rehost migration, verify that you have the networking
-resources and infrastructure in place to host your servers. You can use
-AWS Transform landing zone and network migration capabilities or any other tools
-for that.
-
-### Migration execution defaults
-
-Before starting wave execution, you configure default settings that apply to
-all your target accounts. These defaults define how your Amazon EC2 instances are
-launched and how the general migration is configured. You can override these
-defaults at the wave level during wave setup.
+Before starting your multi-account migration execution, you should configure
+default settings that apply to all your target accounts. These defaults define
+how your Amazon EC2 instances are launched and how the general migration is
+configured. You can override these defaults at the wave level during wave
+setup.
 
 #### Amazon EC2 recommendation preferences
 
@@ -75,11 +84,55 @@ recommendations from the [Migration
 Evaluator](https://aws.amazon.com/migration-evaluator/ "https://aws.amazon.com/migration-evaluator/"), [AWS Optimization and Licensing Assessment (OLA)](../../../prescriptive-guidance/latest/optimize-costs-microsoft-workloads/aws-ola.md "../../../prescriptive-guidance/latest/optimize-costs-microsoft-workloads/aws-ola.md"), or an
 AWS Transform assessment job.
 
-#### Default launch settings
+#### Migration initialization
 
-To change default launch settings, go to the MGN console and apply the
-changes you want. For more information, see [Launch settings](../../../mgn/latest/ug/launch-settings.md "../../../mgn/latest/ug/launch-settings.md") in
-the _MGN User Guide_.
+To start migration, AWS Transform initializes MGN for every AWS Region
+in which you plan to migrate, as well as all target accounts the service
+will be used in. During the initialization process:
+
+- The required IAM roles and policies are created.
+- The required default templates are configured.
+
+For information on the initialization process, see [Initializing
+AWS Transform MGN with the console](../../../mgn/latest/ug/mgn-initialize-console.md "../../../mgn/latest/ug/mgn-initialize-console.md") in the
+_MGN User Guide_.
+
+#### Amazon EC2 launch template
+
+The launch settings include two parts: the general launch settings, and
+the Amazon EC2 launch template, which determines how a test or cutover instance
+is launched for each source server in AWS.
+
+Launch settings, including the Amazon EC2 launch template, can be defined at
+the account level and are then applied to each source server automatically
+each time you add a source server to AWS Transform MGN. The launch settings
+defaults defined in this section can be applied to all your target accounts
+automatically.
+
+AWS Transform presents the list of available launch template settings. You
+can choose to continue with the defaults or configure your launch template.
+If you choose to configure, AWS Transform provides a link to a human-in-the-loop
+(HITL) review that contains all the parameters of the launch template
+settings. You can also make modifications directly through the chat
+interface for any parameters you wish.
+
+[Source servers](../../../mgn/latest/ug/source-servers.md "../../../mgn/latest/ug/source-servers.md") are
+created with the account launch template settings.
+Once source servers are created with these default settings, you can change
+them at the source server launch settings level. You can change source
+server settings on any parameter using the chat interface, or for bulk
+operations using the inventory Excel file during [Step 2: Validate and confirm inventory](#transform-vmware-ms-validate-inventory "#transform-vmware-ms-validate-inventory").
+
+To review the full list of launch template settings and details, see
+[Launch general
+settings](../../../mgn/latest/ug/launch-general-settings.md "../../../mgn/latest/ug/launch-general-settings.md") in the _MGN User Guide_.
+
+#### Additional Amazon EC2 launch template changes
+
+For additional Amazon EC2 launch template changes, you should perform them on
+the template ID for each target account. This option is available inside
+the wave setup. AWS Transform guides you through it and provides the
+appropriate link.
 
 ## Step 1: Set up migration wave
 
@@ -126,34 +179,46 @@ This role is deployed across all migration target accounts.
 ### Resource tagging verification
 
 After service permissions are confirmed, AWS Transform verifies that all
-required resources are properly tagged. The following tags are required:
+required resources are properly tagged for the migration to be operated by
+the agent successfully. If any resources are missing required tags,
+AWS Transform provides a link to the tagging page where you can apply the
+missing tags before continuing. The following tags are required:
 
-- Source servers must have tags
+- Existing source servers must have tags
   `CreatedBy: AWSTransform` and
-  `ATWorkspace: <workspace_id>`.
-- VPCs and subnets must have tags
-  `CreatedFor: AWSTransform` and
-  `ATWorkspace: <workspace_id>`. VPCs and subnets
-  created by the AWS Transform network migration agent are automatically
-  tagged with these tags.
+  `ATWorkspace: <workspace_id>`. If you have
+  already started replication on source servers and created them in
+  the AWS Transform MGN service, you need to tag these servers so that
+  AWS Transform can correlate them with the source servers discovered
+  from your on-premises environment, and avoid unnecessary creation
+  of duplicate source servers. AWS Transform automatically correlates
+  between them using the user-provided ID, FQDN, or hostname
+  keys.
+- Network resources must be properly tagged for both replication
+  (staging area) and launch instances. AWS Transform displays the full
+  list of network resources in your target account, with an indication
+  of whether each resource is already tagged or not. You can review
+  the list and select any untagged resources you want to add. For each
+  resource you select, AWS Transform applies the relevant tag:
 
-If any resources are missing required tags, AWS Transform provides a link to
-the tagging page where you can apply the missing tags before
-continuing.
+      + `CreatedBy: AWSTransform` or
+       `CreatedFor: AWSTransform`, depending on the
+       resource type.
+      + `ATWorkspace: <workspace_id>` is applied
+       to all selected resources.
 
-###### Note
+  VPCs and subnets created by the AWS Transform network migration agent
+  are automatically tagged.
 
-VPCs and subnets created by the AWS Transform network migration agent are
-automatically tagged. If you set up your own VPCs and subnets, you must
-manually apply the following tags so that they appear in AWS Transform's
-list of available subnets:
-
-- Key: `CreatedFor` Value:
-  `AWSTransform`
-- Key: `ATWorkspace` Value:
-  `workspace-id` (find your workspace ID
-  in the AWS Transform web app URL:
-  `https://.../workspace/`workspace-id`/job/`job-id``)
+- In addition to VPCs and subnets, AWS Transform also displays all
+  existing Elastic Network Interfaces (ENIs) found in your target
+  account. If you want AWS Transform to use them as part of your instance
+  launch, they must be tagged with `CreatedFor: AWSTransform`
+  and `ATWorkspace: <workspace_id>`. For more
+  information on how to attach or add ENIs to the Amazon EC2 launch
+  template, see [Detailed
+  considerations](../../../mgn/latest/ug/detailed-considerations.md "../../../mgn/latest/ug/detailed-considerations.md") in the _MGN User
+  Guide_.
 
 ### Add networking data to inventory
 
@@ -164,10 +229,39 @@ during the migrate network phase.
 
 ### Replication and launch settings
 
-To change replication and launch settings, go to the MGN console and
-apply the changes you want. For more information, see [Replication
-settings](../../../mgn/latest/ug/replication-settings.md "../../../mgn/latest/ug/replication-settings.md") and [Launch settings](../../../mgn/latest/ug/launch-settings.md "../../../mgn/latest/ug/launch-settings.md") in
-the _MGN User Guide_.
+#### Replication settings configuration
+
+Replication settings determine how data is replicated from your
+source servers to AWS. Configure the replication settings in the
+replication template before adding source servers to AWS Transform MGN.
+AWS Transform shows you all the replication settings parameters — you can
+configure them through a dedicated HITL or through the chat
+interface.
+
+For more details about the replication settings parameters, see
+[Replication
+settings template](../../../mgn/latest/ug/replication-settings-template.md "../../../mgn/latest/ug/replication-settings-template.md") in the
+_MGN User Guide_.
+
+#### Launch template settings
+
+The launch template allows you to control the way AWS Transform MGN
+launches instances in AWS. The default configuration defined in the
+template is automatically applied to every newly added server. You can
+configure launch template settings through a dedicated HITL or through
+the chat interface.
+
+For more details about the launch template settings parameters, see
+[Launch
+template](../../../mgn/latest/ug/launch-template.md "../../../mgn/latest/ug/launch-template.md") in the _MGN User
+Guide_.
+
+AWS Transform also provides a link to the Amazon EC2 launch template ID
+associated with the launch template, allowing you to change additional
+Amazon EC2 launch template attributes. To edit the Amazon EC2 launch template,
+follow the instructions in [Launch
+template](../../../mgn/latest/ug/launch-template.md "../../../mgn/latest/ug/launch-template.md") in the _MGN User
+Guide_.
 
 ### IP assignment strategy
 
@@ -562,8 +656,11 @@ data from source servers to AWS.
 The replication process consists of two phases:
 
 - **Initial sync** – A complete copy of
-  the source server data to AWS. Data is stored as EBS snapshots in the
-  target account. Duration depends on data volume and network
+  the source server data to AWS. Data is stored as Amazon Elastic Block Store (Amazon EBS) snapshots
+  or on Amazon FSx for NetApp ONTAP (FSx for ONTAP) volumes in the target account, depending
+  on your configured target storage type. For more information, see
+  [Target storage type](../../../mgn/latest/ug/replication-server-settings.md#ebs-volume "../../../mgn/latest/ug/replication-server-settings.md#ebs-volume") in the _MGN User
+  Guide_. Duration depends on data volume and network
   bandwidth.
 - **Continuous replication** – Ongoing
   synchronization of changed blocks with minimal impact on source server

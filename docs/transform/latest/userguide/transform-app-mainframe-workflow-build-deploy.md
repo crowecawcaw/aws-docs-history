@@ -25,9 +25,7 @@ Environment_ document which provides instructions to set up a IDE
 Before you begin, make sure you have:
 
 - Successfully completed a refactoring job with AWS Transform.
-- Access to the Amazon S3 bucket containing your modernized code. You can
-  find this path on the console under **Refactor code →
-  View results** or see [Step 1: Retrieve the modernized code](#transform-app-mainframe-workflow-build-deploy-retrieve "#transform-app-mainframe-workflow-build-deploy-retrieve").
+- Access to your modernized code.
 - Installed and configured build software tool stack on your development
   machine, such as [Apache
   Maven](https://maven.apache.org/index.html "https://maven.apache.org/index.html") or [Apache
@@ -47,14 +45,11 @@ Before you begin, make sure you have:
 
 To retrieve the modernized code
 
-1. Navigate to your **Refactor code → View
-   results** page on the console and locate the S3 path containing
-   your generated code.
-2. Download and extract the generated code package.
-3. Open `codebase/app-pom/pom.xml` and note the required
+1. Download and extract the generated code package.
+2. Open `codebase/app-pom/pom.xml` and note the required
    runtime engine version. For example
    `<gapwalk.version>4.6.0</gapwalk.version>`.
-4. Locate the _Set up the AWS Automated Refactor
+3. Locate the _Set up the AWS Automated Refactor
    Development Environment_ document from the downloaded code
    package for reference.
 
@@ -62,8 +57,7 @@ To retrieve the modernized code
 
 To build your modernized application
 
-1. Access the runtime version from a dedicated Amazon S3 bucket on the
-   AWS account used with AWS Transform:
+1. Access the Runtime from the AWS Transform for mainframe Toolbox.
 2. Download and install the appropriate runtime version (identified in [Step 1: Retrieve the modernized code](#transform-app-mainframe-workflow-build-deploy-retrieve "#transform-app-mainframe-workflow-build-deploy-retrieve")) on
    your local development machine.
 

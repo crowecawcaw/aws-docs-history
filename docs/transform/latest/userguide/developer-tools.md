@@ -49,8 +49,7 @@ Follow the instructions in the agent-plugins repository README.
 
 ## IDE plugin
 
-The AWS Transform IDE plugin is available on VS Code and Open VSX compatible editors. It
-exposes AWS Transform custom features, including creating and running transformation definitions.
+The AWS Transform IDE plugin is available on VS Code and Open VSX compatible editors. It exposes AWS Transform custom features, including creating and running transformation definitions. It also exposes mainframe features, including traceability between modernization requirements, business rules, and source code, as well as the ability to generate technical documentation on demand. To get started, install using one of the following methods:
 
 - **VS Code:** Install from the
   [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-transform-plugin "https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-transform-plugin").

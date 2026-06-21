@@ -5,6 +5,23 @@ For supported AWS Transform regions, see [Supported Regions](regions.md "regions
 regions, see the [account
 connector setup page](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
 
+## June 2026
+
+- AWS Transform now allows you to configure your replication settings and launch settings for
+  your migration. You can set the configuration per your target account or across specific
+  source servers. [Learn
+  more about replication and launch settings](transform-vmware-migrate-servers.md#transform-vmware-ms-prereqs-and-defaults "transform-vmware-migrate-servers.md#transform-vmware-ms-prereqs-and-defaults").
+- AWS Transform now allows you to attach existing Elastic Network Interfaces (ENIs) to your
+  launch template for your migration. AWS Transform displays all existing ENIs found in your target
+  account, and you can tag them so that they are available for use through the launch
+  configuration when instances are launched. [Learn
+  more about network resource tagging](transform-vmware-migrate-servers.md#transform-vmware-ms-resource-tagging "transform-vmware-migrate-servers.md#transform-vmware-ms-resource-tagging").
+- AWS Transform for VMware migrations now supports all AWS commercial regions as migration
+  targets, excluding Middle East (Bahrain) and Middle East (UAE). A migration target region
+  is the AWS Region where migrated resources are deployed, including landing zones, network
+  infrastructure, and server rehosting. [Learn
+  more about supported target regions](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
+
 ## May 2026
 
 - AWS Transform now detects existing VPCs in your target account during network migration review.

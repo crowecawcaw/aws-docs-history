@@ -86,3 +86,4 @@ You can modernize your .NET code by using either the AWS Transform web applicati
 
 - [Modernizing your .NET code by using the AWS Transform web application](dotnet-web-app.md "dotnet-web-app.md")
 - [Modernizing .NET in the IDE](dotnet-ide.md "dotnet-ide.md")
+- [Best practices for .NET transformations](dotnet-best-practices.md "dotnet-best-practices.md")

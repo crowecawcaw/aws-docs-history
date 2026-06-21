@@ -1,4 +1,4 @@
-# Connect target AWS accounts
+# Connect target AWS accounts and regions
 
 Configure your target AWS account connector for network migration, landing zone
 build, and server migration.
@@ -214,44 +214,49 @@ _IAM User Guide_.
 
 ### Supported target regions
 
-When you create the connector, specify a target AWS Region. You can use
-any of the following AWS Regions:
+A migration target region is the AWS Region where migrated resources
+are deployed, including landing zones, network infrastructure, and server
+rehosting. When you create the connector, specify a target AWS Region.
+You can use any of the following AWS Regions:
 
 - US East (N. Virginia)
 - US East (Ohio)
+- US West (N. California)
 - US West (Oregon)
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Taipei)
 - Asia Pacific (Mumbai)
+- Asia Pacific (Hyderabad)
 - Asia Pacific (Tokyo)
 - Asia Pacific (Seoul)
 - Asia Pacific (Osaka)
 - Asia Pacific (Singapore)
 - Asia Pacific (Sydney)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Melbourne)
+- Asia Pacific (Malaysia)
+- Asia Pacific (New Zealand)
+- Asia Pacific (Thailand)
 - Canada (Central)
+- Canada West (Calgary)
 - Europe (Frankfurt)
+- Europe (Zurich)
 - Europe (Ireland)
 - Europe (London)
 - Europe (Paris)
 - Europe (Stockholm)
+- Europe (Milan)
+- Europe (Spain)
+- Israel (Tel Aviv)
+- Mexico (Central)
 - South America (São Paulo)
 
 ###### Important
 
 If you specify a target AWS Region that differs from the
-AWS Transform AWS Region, your data is transferred across
+AWS Transform AWS Region, some of your data is transferred across
 AWS Regions.
 
-###### Note
-
-If you plan to run a job that includes only server migration (without
-network migration), additional commercial AWS Regions are
-available as target Regions. These Regions include US West
-(N. California), Europe (Milan), Asia Pacific (Jakarta), Europe
-(Zurich), Europe (Spain), Asia Pacific (Hyderabad), Asia Pacific
-(Melbourne), Middle East (Tel Aviv), Asia Pacific (Bangkok), Asia
-Pacific (Kuala Lumpur), Middle East (Bahrain), Africa (Cape Town),
-Asia Pacific (Hong Kong), and Middle East (UAE).
-
-To use one of these additional Regions before Q3 2026, contact
-your AWS account team to request access. After Q3 2026,
-these Regions will be generally available without an access
-request.
+Note that your server replication data goes directly from your
+source environment to your target account and region.

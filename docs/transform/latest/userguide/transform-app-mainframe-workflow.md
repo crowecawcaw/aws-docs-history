@@ -9,19 +9,9 @@ AWS Transform accelerates the transformation of your mainframe modernization app
 - [Sign-in and create a job](#transform-app-mainframe-workflow-signin "#transform-app-mainframe-workflow-signin")
 - [Tracking transformation progress](#transform-app-mainframe-workflow-track-progress "#transform-app-mainframe-workflow-track-progress")
 - [Set up a connector](#transform-app-mainframe-workflow-setup-connector "#transform-app-mainframe-workflow-setup-connector")
-- [Analyze code](#transform-app-mainframe-workflow-code-analysis "#transform-app-mainframe-workflow-code-analysis")
-- [Data analysis](#transform-app-mainframe-workflow-data-analysis "#transform-app-mainframe-workflow-data-analysis")
-- [Activity metrics analysis](#transform-app-mainframe-workflow-activity-metrics "#transform-app-mainframe-workflow-activity-metrics")
-- [Generate technical documentation](#transform-app-mainframe-workflow-generate-documentation "#transform-app-mainframe-workflow-generate-documentation")
-- [Extract business logic](#transform-app-mainframe-workflow-extract-business-logic "#transform-app-mainframe-workflow-extract-business-logic")
-- [Decomposition](#transform-app-mainframe-workflow-decomposition "#transform-app-mainframe-workflow-decomposition")
-- [Migration wave planning](#transform-app-mainframe-workflow-wave-planning "#transform-app-mainframe-workflow-wave-planning")
-- [Refactor code](#transform-app-mainframe-workflow-refactor-code "#transform-app-mainframe-workflow-refactor-code")
-- [Reforge code](#transform-app-mainframe-workflow-refactor-code-reforge "#transform-app-mainframe-workflow-refactor-code-reforge")
-- [Plan your modernized applications testing](#transform-app-mainframe-workflow-test-planning "#transform-app-mainframe-workflow-test-planning")
-- [Generate test data collection scripts](#transform-app-mainframe-workflow-test-data-collection "#transform-app-mainframe-workflow-test-data-collection")
-- [Test automation script generation](#transform-app-mainframe-workflow-test-automation "#transform-app-mainframe-workflow-test-automation")
-- [Deployment capabilities in AWS Transform](#transform-app-mainframe-features-deployment "#transform-app-mainframe-features-deployment")
+- [Assess and reimagine job plan](#transform-app-mainframe-workflow-assess-and-reimagine "#transform-app-mainframe-workflow-assess-and-reimagine")
+- [Reimagine job plan](#transform-app-mainframe-workflow-reimagine-job-plan "#transform-app-mainframe-workflow-reimagine-job-plan")
+- [Custom job plan](#transform-app-mainframe-workflow-custom-job-plan "#transform-app-mainframe-workflow-custom-job-plan")
 
 ## Prerequisite: Prepare project inputs in S3
 
@@ -41,20 +31,6 @@ make sure you have all the assets in your S3 location.
 - Glossary: AWS Transform AWS Transform leverages automation with Generative AI for documentation generation and business rule extraction. Including a glossary CSV file with information about important abbreviations and terminologies in the root directory of your zip file will help improve the generated documentation quality.
 - Test data: If available, upload test data sets that can be used to validate the modernized application. This data should be stored in a new folder in the S3 bucket where the source code is stored.
 
-**Download modernization tools**
-
-For a test environment modernizing mainframe applications, beyond the automation necessary to run test cases at scale, AWS Transform makes tools available to achieve specific testing tasks. These tools include Data Migrator, designed to facilitate the migration of database schemas and data from legacy systems, Compare tool, to automate the verification that a
-modernized application produces the same results as reference data, and Terminals, to provide capabilities to connect to legacy
-mainframe and midrange screen interfaces to capture scenario scripts and videos, in the context of capturing online test cases. These tools are downloaded in your S3 bucket.
-
-**Optional configuration of S3 vector
-bucket.**
-
-In Regions where S3 vector buckets are available, AWS Transform will store searchable vector
-encodings of job output in this S3 vector bucket in your account to provide an AI powered search and chat experience. Data is not used outside of this job, and is not used to train models. T
-o enable this, you must create and provide S3 vector bucket. AWS Transform automatically creates
-and attaches a role with required permissions to write to this bucket.
-
 Details on project inputs can be found [here](transform-app-mainframe-source-artifacts.md "transform-app-mainframe-source-artifacts.md").
 
 ## Sign-in and create a job
@@ -66,12 +42,6 @@ documentation.
 **To create and
 start a job:** Follow the steps in [Start your project.](transform-environment.md#start-workflow "transform-environment.md#start-workflow")
 
-When setting up your workspace for mainframe transformation, you can optionally
-set up an Amazon S3 bucket to be used with the S3 connector. After creating the bucket
-and uploading the desired input files into the bucket, save that S3 bucket ARN for
-use later. Or you can set up the S3 bucket when setting up the connector as well.
-For more information, see [Set up a connector](#transform-app-mainframe-workflow-setup-connector "#transform-app-mainframe-workflow-setup-connector").
-
 **Create workspace:** Name and
 describe your workspace where jobs, collaborators, and associated
 artifacts will be stored.
@@ -79,13 +49,6 @@ artifacts will be stored.
 **Create job:** Create a job by selecting from
 preconfigured job plans, or customize the job plan based on your objective by
 selecting from the list of supported capabilities.
-
-When you set up your workspace for
-mainframe transformation, you must set up an Amazon S3 bucket to be used
-with the S3 connector. After creating the bucket and uploading the
-desired input files into the bucket, save that S3 bucket ARN for use
-later. Alternatively, you can set up the S3 bucket when setting up the
-connector as well.
 
 ###### Important
 
@@ -110,35 +73,41 @@ ways:
   metrics on number of jobs transformed, transformation applied, and estimated
   time to complete the transformation of mainframe applications. You can also
   see details of each step including, lines of code by file types, generated
-  documentation by each file type, the decomposed code, migration plan, and
-  the refactored code.
+  documentation by each file type, the decomposed code, and the migration plan.
 
 ## Set up a connector
 
-Set up a connector with your Amazon S3 bucket so that AWS Transform can access your resources and perform transformation functions.
+AWS Transform uses a connector to access resources in your account that are required for mainframe modernization functions. Your connector is automatically configured with the first job you run in the workspace. Depending on the job plan you choose, AWS Transform guides you to create your connector.
 
-This is some of the information that AWS Transform might ask you to provide:
+### Mainframe reimagine connector
 
-- AWS account ID for performing mainframe modernization capabilities
-- Amazon S3 bucket ARN where your transformation resources are stored
-- Amazon S3 bucket path for the input resources you want to transform
-- Whether to enable AWS Transform chat to learn from your job progress
-  (optional)
+The mainframe reimagine connector is for jobs running the assess and reimagine workflow. It uses an S3 bucket to access and store transformation resources, and an Amazon Neptune cluster to store extracted artifacts. The Neptune cluster serves as the unified knowledge graph that stores all extracted artifacts about your job, and the knowledge graph answers all questions in the AWS Transform chat interface.
 
-Once you have set up your S3 connector and S3 project inputs, and shared an S3 vector bucket for indexed output, you can create a job based on the objective of the mainframe modernization project.
-Here is the full list of capabilities you can select from with dependencies noted For example, code analysis is required for most steps.
+You must deploy the Amazon Neptune cluster in a VPC where AWS Transform can create elastic network interfaces (ENIs) in the VPC, load data from S3 into Neptune, and query the graph. Provide the following details when you configure your connector:
+
+- **S3 bucket ARN** – The S3 bucket ARN identifies the bucket that stores all transformation resources.
+- **Neptune cluster ARN and resource ID** – We recommend an Amazon Neptune Serverless cluster with scaling from 1–128 NCUs.
+- **Subnets and security group** – AWS Transform requires a subnet and security group with access to the Neptune cluster and to the internet to reach AWS Transform APIs.
+
+We recommend using the following CloudFormation template to create the resources required for your mainframe reimagine connector. Use the same S3 bucket that you plan to use for the connector when you run the template. The Outputs tab of the CloudFormation template includes the details you need to configure the connector.
+
+[Download the CloudFormation template](https://d3lxw3eiclnnkx.cloudfront.net/neptune-kg-setup.yaml "https://d3lxw3eiclnnkx.cloudfront.net/neptune-kg-setup.yaml").
+
+### S3 connector
+
+For jobs with a custom job plan, AWS Transform can use an S3 connector. The S3 connector uses an S3 bucket to access and store transformation resources, and an S3 vector bucket for indexed output.
 
 ###### Important
 
-Your data is stored and persisted in the AWS Transform's artifact store in your
-workspace and is used only for running the job.
+Your data is stored and persisted in the AWS Transform artifact store in your workspace and is used only for running the job.
 
-### S3 bucket CORS permissions
+**Optional configuration of S3 vector bucket.**
 
-When setting up your S3 bucket to view artifacts in AWS Transform, you need to add
-this policy to the S3 bucket's CORS permission. If this policy is not set up
-correctly, you may not be able to use the inline viewing or file comparison
-functionalities of AWS Transform.
+In Regions where S3 vector buckets are available, AWS Transform will store searchable vector encodings of job output in this S3 vector bucket in your account to provide an AI powered search and chat experience. Data is not used outside of this job, and is not used to train models. To enable this, you must create and provide S3 vector bucket. AWS Transform automatically creates and attaches a role with required permissions to write to this bucket.
+
+#### S3 bucket CORS permissions
+
+When setting up your S3 bucket to view artifacts in AWS Transform, you need to add this policy to the S3 bucket's CORS permission. If this policy is not set up correctly, you might not be able to use the inline viewing or file comparison functionalities of AWS Transform.
 
 ```
 [
@@ -164,7 +133,124 @@ functionalities of AWS Transform.
 
 ```
 
-## Analyze code
+## Assess and reimagine job plan
+
+The Assess and reimagine job plan is a predefined workflow for modernizing mainframe applications. It guides you through two phases: assessing your codebase to identify business functions, and reimagining the functions you select. To choose individual capabilities instead, use the Custom job plan.
+
+### Assess
+
+Mainframe modernization journeys typically start with evaluating the codebase to identify contents and understand relationships and dependencies. After this evaluation, you can start to decompose and select portions of the source code to modernize. The boundaries of decomposition are determined based on business functions.
+
+The business function catalog decomposes your codebase into discrete business functions, which are built on a foundation of deterministic data paths that map each business function from start to finish. A data path is the route that data takes, starting with a business trigger through to the final write within the mainframe code. Rather than limiting analysis to a single entry point, the system spans batch jobs, CICS transactions, and their shared data stores to identify coherent units of business work.
+
+A business function is a body of work that starts from a business trigger and ends at a measurable business outcome. AWS Transform provides a catalog of business functions that a line of business can act on, enabling informed decisions about what to modernize first.
+
+Benefits of assessing your codebase to modernize using business functions:
+
+- **Full-estate visibility** – Understand how your batch jobs, online transactions, and data stores connect into meaningful functions for your business.
+- **Actionable boundaries** – Each identified business function is a self-contained unit that your line-of-business stakeholders can review and prioritize for modernization effort.
+- **Consistency from code to specification** – The same code blocks that define a business function are used to generate its specifications, with no translation layer and no reconciliation required.
+- **Reduced discovery time** – Automated detection replaces months of manual tribal-knowledge interviews with systematic, repeatable analysis.
+
+#### Results of assessment provided through the chat
+
+The results of assessment provided through the chat include a list of business functions, including the number of data paths, what each function spans in terms of batch and CICS transactions, and a business description. You are provided with a link to the artifacts generated in the Amazon S3 bucket, and you can also access them through the chat. Two artifacts are provided: business function details and business function summary.
+
+- **Business function summary** – Provides a list of the business functions and a natural-language description of what functions the elements within the code are performing.
+- **Business function details** – Provides an interactive graph that depicts the relationships across the source code.
+
+To interact with the graph, select an element to show additional details about it, or open an element to interrogate its details. Within each page, there is a summary of all elements at that level and a graphical interface to interact with and learn more about each component, including the following:
+
+- **Business function** – Depicts which business functions are connected to each other and provides an overview of each business function. When you select a business function, the following information is provided:
+
+  - Number of data paths
+  - Number of lines of code
+  - Business description: an overview of the business function that describes, in natural language, what functions the elements within the code are performing.
+  - Interfaces: details how data elements within the business function relate (for example, exchange or write).
+
+- **Business function details** – Depicts the connections across the data paths within a single business function, allowing you to dive deeper into the composition of the business function. When you select an element, you see how that element connects across the business function, along with the following details:
+
+  - Datastore: writers and readers for the datastore.
+  - Other elements: an overview of the related data path that describes, in natural language, the actions and outcomes handled within the data path, a list of programs, and readers and writers.
+
+- **Data paths** – Depicts the details of one data path and how the elements within the data path relate to each other.
+
+  - Description: an overview of the data path that describes, in natural language, the actions and outcomes handled within the data path.
+  - Contents of the data path:
+
+    - Entry point
+    - Reads
+    - Writes
+    - Programs
+
+Through the chat, you can interrogate the outputs to understand the elements contained within each business function, and explore the boundaries through the business function graph.
+
+After you identify the boundaries of your modernization, the chat prompts you to select the business functions that you want to reimagine. You can select a single business function or multiple business functions. AWS Transform sends the selected boundaries and the required assessment outputs to the reimagine flow to continue the modernization journey.
+
+After you complete your first modernization, you can use the chat to select an additional set of business functions to modernize.
+
+### Reimagine
+
+In the reimagine phase, you can select one or all of the business functions that assessment identified and prepare them for modernization. This triggers business logic extraction followed by requirement generation for the selected business functions. The generated requirements are the primary input for forward engineering, translating legacy system understanding into a precise specification of what the modernized application must deliver.
+
+#### Extract business logic
+
+After you select one or more business functions, AWS Transform begins generating business logic for the selected business functions. After extraction is complete, AWS Transform stores the results in an Amazon S3 bucket in JSON format for downstream use. You can monitor the progress of the extraction and review any issues directly within the AWS Transform console.
+
+###### To review business logic extraction results
+
+1. In the left navigation pane, choose the **Extract business logic** step to expand it.
+2. View the following from the step details:
+
+   - **S3 bucket link**: The location where the extracted business logic results are stored in JSON format.
+   - **Issues**: A list of any issues encountered during the business logic extraction process.
+
+If any files encountered issues during extraction, the following details are displayed for each affected file:
+
+- **File name**: The name of the file that encountered an issue.
+- **File type**: The type of the file (for example, COBOL or JCL).
+- **File path**: The location of the file within your application.
+- **Status**: The current status of the file's extraction.
+- **Details**: A description of the issue encountered.
+
+###### Note
+
+After the extraction step completes, AWS Transform automatically begins generating requirements. You are not prompted for any additional inputs before this process starts.
+
+#### Generate requirements
+
+After business logic extraction completes, the Generate Requirements agent consumes extracted artifacts (code analysis, data analysis, business rules) and produces modernization requirements. These requirements are formal functional specifications that are technology-agnostic and include testable acceptance criteria. AWS Transform produces one `requirements.md` file for each business function you select and stores the output in an Amazon S3 bucket. To view the Amazon S3 location of the output, choose the **Generate requirements** step.
+
+Each `requirements.md` file is organized into the following parts:
+
+- **Title** – Names the business function and the workflow it represents.
+- **Global preconditions** – Conditions that must hold true across the entire workflow before and during processing. Configurable values appear as parameter placeholders.
+- **Numbered workflow sections** – Each section represents a discrete stage of the business function. Every section contains the following:
+
+  - A **user story** that states the goal as a role, the action that role wants to take, and the resulting outcome.
+  - A list of **Requirements** in EARS (Easy Approach to Requirements Syntax) format, each with a unique identifier.
+
+###### Note
+
+Selecting a second set of business functions restarts the reimagine step for the newly selected functions. The console then shows results only for the new selection, so any issues with the business rules from your previous business functions, and the Amazon S3 links that store the outputs for the business logic and requirements, are no longer displayed. Your earlier outputs are not lost. You can still access them from the **Artifacts** tab or in your Amazon S3 bucket.
+
+### Traceability between transformation artifacts
+
+AWS Transform maintains traceability between the artifacts it generates throughout the assess and reimagine workflow. Traceability lets you trace each requirement to your extracted business rules, or directly to the original source code that produced the requirement.
+
+You can view all the traceability details for each business function using the `traceability.yaml` file. It describes how each business rule maps to a requirement.
+
+For interactive traceability, you can use the IDE plugin in VS Code and Open VSX compatible editors. For more information, see [Developer tools](developer-tools.md#developer-tools-ide-plugin "developer-tools.md#developer-tools-ide-plugin").
+
+## Reimagine job plan
+
+For applications that you have scoped for modernization and are ready to reimagine, you can run a standalone reimagine job. The job analyzes your code and data, extracts business logic, identifies business domains, and generates modernization requirements for each business domain.
+
+## Custom job plan
+
+A custom job plan lets you build your own modernization workflow by selecting the capabilities you want to run. It gives you full control over which capabilities are included. Choose from the following capabilities based on your modernization objective. Some capabilities depend on others being run first. For example, code analysis is required for most other capabilities.
+
+### Analyze code
 
 After you share the Amazon S3 bucket path with AWS Transform, it will analyze the code
 for each file with details such as file name, file type, lines of code, and their
@@ -201,8 +287,7 @@ In the job plan select Analyze code in the left navigation pane to view your res
 - Number of files
 - Cyclomatic Complexity - Cyclomatic complexity represents the number of
   linearly independent paths through a program’s source code. AWS Transform will show
-  a cyclomatic complexity for each of the files. With this metric, you can
-  evaluate code maintainability and identify areas that need refactoring.
+  a cyclomatic complexity for each of the files.
 
 **Missing files**– Missing files from the
 mainframe modernization code analysis. These files ideally, should be added as a
@@ -258,7 +343,7 @@ After reclassification, AWS Transform will:
 You can reclassify files only after the initial analysis loop
 completes.
 
-### Inline viewer and file comparison
+#### Inline viewer and file comparison
 
 The Inline viewer is a feature in the AWS Transform for mainframe capabilities that
 provides two key visualization capabilities:
@@ -301,7 +386,7 @@ If you're having issues with inline viewer or file comparison make sure
 that the S3 bucket is set up correctly. For more information on S3 bucket's
 CORS policy, see [S3 bucket CORS permissions](#transform-app-mainframe-workflow-setup-connector-s3 "#transform-app-mainframe-workflow-setup-connector-s3").
 
-## Data analysis
+### Data analysis
 
 AWS Transform provides data analysis to help understand the impact of data relationships and elements to the mainframe modernization project. The two outputs provided are:
 
@@ -315,7 +400,7 @@ On completion of the analysis, there will be two tabs present for each output, a
 When you request data anlysis. AWS Transform performs code analysis, which is required in order to perform
 data analysis.
 
-### Data lineage
+#### Data lineage
 
 AWS Transform provides multiple views based on the data relationships that need to be
 understood across the code base being modernized. The four table views available
@@ -333,7 +418,7 @@ in data lineage include:
 
 Summary provides an overview of data sources, and their relationships to programs and JCLs, as well as summary information about how the data sources are leveraged and total operations found in the codebase.
 
-### Data dictionary
+#### Data dictionary
 
 Understanding the data elements within the data sources present in the codebase is the next step to realize how the various data sources are dependent. Data dictionary is a data catalog providing field level metadata with business language descriptions for accurate transformation mapping.
 
@@ -351,46 +436,43 @@ elements. The navigation between data lineage and dictionary, provides
 integrated data visibility with data lineage providing the "what" - structure
 and meaning, alongside the "where" - usage and relationship.
 
-## Activity metrics analysis
+### Activity metrics analysis
 
-Activity metrics analysis allows you to analyze System Management Facility (SMF) records type 30 and type 110. The analysis provides insights into batch jobs and CICS transactions that used within your mainframe application, and can help with retiring unused code or decisions around target architecture for modernized application. If you choose to include activity metrics analysis in your job, then we recommend completing the code analysis step first to provide richer SMF outputs, though this is not required.
+Activity metrics analysis lets you analyze System Management Facility (SMF) records of type 14, 15, 30, 64, 102, and 110. The analysis provides insights into how elements are used within your mainframe application. It can help with retiring unused code or with decisions about the target architecture for the modernized application. If you include activity metrics analysis in your job, completing the code analysis step first provides richer SMF outputs, although it is not required.
 
 ###### Note
 
-When you negotiate the job plan for mainframe modernization,
-we recommend completing the code analysis and decomposition steps first to provide richer outputs.
+When you negotiate the job plan for mainframe modernization, completing the code analysis and decomposition steps first provides richer outputs.
 
-### Onboard SMF records for analysis
+#### Onboard SMF records for analysis
 
-You must provide the SMF record location within your S3 bucket as the initial
-step for SMF analysis. We recommend providing a minimum of 13 months of records
-to capture annual occurrences that shorter time frames might miss. While 13
-months is recommended, any time frame with detectable SMF records will produce
-analysis results.
+You must provide the SMF record location within your Amazon S3 bucket as the initial step for SMF analysis. Provide a minimum of 13 months of records to capture annual occurrences that shorter time frames might miss. Although 13 months is recommended, any time frame with detectable SMF records produces analysis results.
 
 Your SMF extract must meet these format requirements:
 
-- Include types 30 (sub-type 5) and 110
-- Use raw binary file in EBCDIC format
-- Include RDW bytes
+- Include types 14, 15, 30 (sub-type 5), 64, 102, and 110.
+- Use a raw binary file in EBCDIC format.
+- Include RDW bytes.
 
-Provide a link to the SMF records within your S3 bucket, ensuring the records are in a folder separate from your source code. Records must be in .zip file format. If you provide a link to a folder where SMF records are not detected, you will receive an error message and no analysis will be completed.
+Provide a link to the SMF records within your Amazon S3 bucket, ensuring the records are in a folder separate from your source code. Format options include .zip (up to 600 MB) or .tar.gz (up to 5 GB) compressed. If you provide a link to a folder where SMF records are not detected, you receive an error message and no analysis is completed.
 
-### Analysis output
+#### Analysis output
 
-The analysis output contains three components: tabular view, .csv output (available in your S3 bucket), and visualization within the dashboard. The header displays the time range of your provided records so you can identify any missing key dates. For example, if your records span May 1 - October 31st but exclude the busy day after Thanksgiving, you can easily understand that key records are missing. Timestamps in the web application reflect your system's time zone and the SMF records.
+The analysis output contains two components, depending on the type of record: a tabular view and a .csv output (available in your Amazon S3 bucket). Within AWS Transform, outputs are displayed for type 30 and 110. Through the artifacts in your Amazon S3 bucket, you can explore the analysis on other types of records. In the user interface, the header displays the time range of your provided records so that you can identify any missing key dates. For example, if your records span May 1 to October 31 but exclude the busy day after Thanksgiving, you can see that key records are missing. Timestamps in the web application reflect your system's time zone and the SMF records.
 
-#### Tabular view
+Artifacts available in Amazon S3 provide analysis for any record type found in the records provided.
 
-The tabular view contains up to three main components for batch jobs and CICS transactions:
+##### Tabular view
 
-- **Summary** - Provides key jobs and transactions
-- **Batch job/CICS transactions analysis** - Provides aggregated analysis across jobs and transactions
-- **Code analysis comparison** (batch only) - Available when code analysis step is executed prior to SMF analysis
+The tabular view, available only for SMF 30 and 110, contains up to three main components for batch jobs and CICS transactions:
+
+- **Summary** – Provides key jobs and transactions.
+- **Batch job/CICS transactions analysis** – Provides aggregated analysis across jobs and transactions.
+- **Code analysis comparison (batch only)** – Provides comparison data when the code analysis step runs prior to SMF analysis.
 
 The discovery summary provides three groups of jobs and transactions that help you quickly identify items for deeper analysis.
 
-Batch job and CICS transaction analysis provides aggregated analysis across jobs and transactions. Analysis results have some columns hidden by default - use the gear icon to display additional fields.
+Batch job and CICS transaction analysis provides aggregated analysis across jobs and transactions. Some columns in the analysis results are hidden by default. Choose the gear icon to display additional fields.
 
 The transaction key generates unique data aggregation for CICS transactions, combining four fields into a single key value:
 
@@ -399,15 +481,15 @@ The transaction key generates unique data aggregation for CICS transactions, com
 - SysPlex ID
 - SysID
 
-You can search by the complete key or any component of the key in the analysis output.
+You can search by the complete key or by any component of the key in the analysis output.
 
-Code analysis comparison highlights jobs found in either SMF records or the analyze code step but not present in both. This shows jobs that haven't run during your SMF record timeframe or weren't present in the analyze code step. This output is only available when you execute the code analysis step before SMF analysis in your job.
+Code analysis comparison highlights jobs found in either the SMF records or the analyze code step, but not present in both. This shows jobs that have not run during your SMF record time frame or were not present in the analyze code step. This output is available only when you run the code analysis step before SMF analysis in your job.
 
 #### Best practices
 
-To get comprehensive outputs, for **Batch jobs (type 30)**, ensure your JCL file name matches the job name to get meaningful outputs in the code analysis comparison.
+To get comprehensive outputs for batch jobs (type 30), ensure that your JCL file name matches the job name to get meaningful outputs in the code analysis comparison.
 
-## Generate technical documentation
+### Generate technical documentation
 
 You can generate technical documentation for your mainframe
 applications undergoing modernization. By analyzing your code, AWS Transform can
@@ -453,7 +535,7 @@ generated and stored. 6. Once the documentation is generated, you can also use A
 questions about the generated documentation and decide the next
 steps.
 
-### Add user information into the documentation
+#### Add user information into the documentation
 
 ```
 ARTIFACT_ID.zip
@@ -567,7 +649,7 @@ SWOT,"Strengths, Weaknesses, Opportunities and Threats"
     	- The font size and logo size shall be dynamically changed based
     	 on the number of words or logo file size.
 
-### Generate documentation inline viewer
+#### Generate documentation inline viewer
 
 You can view the PDF files in the generate technical documentation step.
 
@@ -590,7 +672,7 @@ If you're having issues with documentation inline viewer, make sure that
 the S3 bucket is set up correctly. For more information on S3 bucket's CORS
 policy, see [S3 bucket CORS permissions](#transform-app-mainframe-workflow-setup-connector-s3 "#transform-app-mainframe-workflow-setup-connector-s3").
 
-## Extract business logic
+### Extract business logic
 
 You can extract essential business logic from your mainframe
 applications that are undergoing modernization. AWS Transform automatically analyzes your code to
@@ -640,7 +722,7 @@ The number of generated business rule files might be larger than your initial
 selection. Some selected files may trigger business rule extraction to include
 additional dependent files, which will also appear in the results table.
 
-### View the extracted business documentation inline
+#### View the extracted business documentation inline
 
 You can view the business logic in the Extract business rule step. To do
 this,
@@ -650,7 +732,7 @@ this,
 
 The business documentation page opens in a new browser tab.
 
-## Decomposition
+### Decomposition
 
 You can decompose your code into domains that account for dependencies
 between programs and components. This helps the related files and programs to be
@@ -696,7 +778,7 @@ AWS Transform gives you a tabular and graph view of decomposed domains as depend
 
 Repeat these steps to add more domains or to reconfigure your already created domains with a different set of seeds if you don't like current domain structure. 7. When completed, choose **Continue**.
 
-### Seeds
+#### Seeds
 
 Seeds are the foundational inputs for the decompose code phase. Each component
 or file (e.g., JCL, COBOL, Db2 tables, CSD, and scheduler files) can be assigned
@@ -710,7 +792,7 @@ grouping in the scheduler, and transaction-level grouping defined in the CICS
 system. Additionally, database tables can also serve as seeds, providing another
 layer of structure for decomposition.
 
-### Import and/or update dependencies files
+#### Import and/or update dependencies files
 
 During decomposition, you can upload a JSON file for the dependencies that
 replaces the existing files generated by the dependencies analysis AWS Transform
@@ -749,7 +831,7 @@ After that, the graph in the decomposition step will be updated.
 AWS Transform will import the dependency file and create a new dependencies graph
 based on your input.
 
-### Import and/or Update Domains
+#### Import and/or Update Domains
 
 For customers that have domains, seed, and/or file relationships mapped prior to the decomposition step, you can upload this domain definition through the Import domains file function available through the Actions menu. Some examples of when this function may be utilized:
 
@@ -758,7 +840,7 @@ For customers that have domains, seed, and/or file relationships mapped prior to
 
 Once the domains file has been imported, the user can either run decomposition against the domain definition, or if satisfied can Save and then Submit the domain definition.
 
-### Parent/child/neighbor files
+#### Parent/child/neighbor files
 
 In a dependencies graph, programs relate to each other through different types
 of connections. Understanding these relationships helps you analyze program
@@ -779,136 +861,7 @@ in the file hierarchy.
 files at the same hierarchical level. They share the same parent program and
 might interact with each other directly.
 
-## Migration wave planning
-
-Based on the domains you created in the previous step, AWS Transform generates a migration
-wave plan with recommended modernization order.
-
-###### Note
-
-Decomposition is a required step that must be completed in your job plan prior to running migration wave planning. If migration wave planning is not selected, but added to the job plan due to the inclusion of decomposition, this step will auto complete.
-
-1. To view the planning results, choose **Plan Migration
-   Wave**, and then choose **Review Planning
-   Results**.
-2. Review the domain wave plan (either in a table view or a chart
-   view).
-3. You can either choose to go with the recommended migration wave plan
-   generated by AWS Transform or add your preference manually by importing a JSON
-   file.
-
-###### Note
-
-You can choose to migrate multiple domains in a single wave. 4. (Optional) If you decide to manually adjust migration wave plan, AWS Transform
-generates a new migration wave plan per your preference. You can also adjust
-the domains in each wave as required by choosing **Add preference** and then, **Add and regenerate**. 5. After verifying, choose **Continue**.
-
-If you're satisfied with this migration plan, you can move next step for
-refactoring the code. If you need to adjust the preference, you can follow these
-steps again.
-
-## Refactor code
-
-In this step, AWS Transform refactors the code in all or selected domain files into Java
-code. The goal of this step is to preserve the critical business logic of your
-application while refactoring it to a modernized cloud-optimized Java
-application.
-
-###### Note
-
-When you request refactoring, AWS Transform performs code analysis, including code dependency analysis, which are required in order to perform refactoring.
-We also recommend that you perform decomposition and wave migration planning before refactoring, for better results.
-
-1. Navigate to **Refactor code** in the left
-   navigation pane, and choose **Domains to migrate**.
-2. Select the domains you want to refactor.
-3. Choose **Continue**. You can track the status of
-   refactoring domains (and files in it) using the worklog. AWS Transform will do the
-   transformation of the mainframe code, and generate results without any
-   manual input.
-4. After refactoring completes, it will change the status to
-   `Completed` in the worklog. You can view the results of
-   refactored code by going to the Amazon S3 bucket where the results are
-   stored. Each domain will provide a status for **Transform** (with each file), and **Generate** and will be marked as `Done`.
-
-###### Note
-
-Along with the refactored code, your S3 bucket will also have the AWS Transform for mainframe Runtime to be compiled.
-
-You might also see certain domains that have a `Done with issues`
-status. Expand those to see files showing a `Warning` status or an
-`Error` status. You can view the issues for the `Warning`
-and `Error` files, and choose to fix them for better refactoring results.
-Additional guidance for fixing these errors and warnings can be found in the console
-by viewing each of these files.
-
-### File transformation status
-
-After your refactoring completes, AWS Transform will give you transformation
-status for all your files. These may include:
-
-**Ignored** – AWS Transform will also give you the
-`Ignored files` after the code refactor. These are the files that
-are ignored during refactoring and haven’t been included in the
-transformation.
-
-**Missing** – `Missing files`
-are not included during the refactoring and transformation. These should be
-added again as a part of the source input in Amazon S3 bucket for better and
-cohesive results. AWS Transform will give you the number and information of missing
-files in the console.
-
-**Pass through** – `Pass
- through` files are not modified during the refactoring step, and do
-not go through any transformation. This status is useful for the Refactoring
-action which may not have changed the file depending on the configured
-refactoring.
-
-**Fatal** – An unexpected error occurred
-during the transformation of this file.
-
-**Error** – An error occurred during the
-transformation of this file and these files need to go through refactoring
-again.
-
-**Warning** – The transformation generated
-all expected outputs for this file, but some elements might be missing or need
-additional input. Fixing these and running the refactoring steps again would
-give you better transformation results.
-
-**Success** – The transformation generated
-all expected outputs for this file and it has detected nothing
-suspicious.
-
-### Custom transformation configuration
-
-Refactor transformation allows you to change and/or modify configuration to
-improve the results of transformation.
-
-###### To customize your transformation configuration
-
-1. In **Refactor code** section, go to
-   **Configure transformation** under
-   Select domains.
-2. In **Configure refactor** modal, specify
-   the **Refactor engine version** (e.g.
-   `4.6.0`) which will be used to compile and run the
-   generated application. For more information on available engine
-   versions, see [AWS Transform for mainframe Runtime release notes](../../../m2/latest/userguide/ba-release-notes.md "../../../m2/latest/userguide/ba-release-notes.md").
-3. Add your project name, root package, and target database. The target
-   database is target RDMS for the project.
-4. Under **Legacy encoding**, define the
-   default encoding for your files (e.g., `CP1047`). And mark the check boxes
-   next to **Export Blusam masks** and
-   **Specify generate file format**. You
-   can also choose to specify conversion table encoding file format.
-5. Review all you changes. Then, choose **Save and
-   close**.
-
-This will allow you to reconfigure your code with the new specified
-properties.
-
-## Reforge code
+### Reforge code
 
 **Reforge** uses Large Language Models (LLMs) to
 improve the quality of refactored code. The initial COBOL-to-Java transformation
@@ -984,7 +937,7 @@ with the reforged files only if the reforging process is successful. Otherwise, 
 - **tokenizer_map.json** contains a mapping of token IDs to your data,
   such as file paths and class/method names, that are tokenized in the logs for privacy protection. You can provide this file to AWS support in case of an issue.
 
-## Plan your modernized applications testing
+### Plan your modernized applications testing
 
 You can create and manage test plans for your mainframe modernized applications based on extracted code attributes, job complexity, and scheduler paths. AWS Transform helps prioritize which jobs to test and identifies the specific artifacts needed for each test case. The test planning process is divided into three main phases: configuration, scoping, and review.
 
@@ -1022,7 +975,7 @@ The generated test plan provides comprehensive information including:
     * Lines of code metrics
     * Business function mappings
 
-### Test plan customization options
+#### Test plan customization options
 
 Your test plan can be customized to address specific needs. For example, you can:
 
@@ -1034,7 +987,7 @@ Your test plan can be customized to address specific needs. For example, you can
 - Modify test case descriptions and attributes
 - Adjust execution order
 
-### Detailed test case information
+#### Detailed test case information
 
 Each test case provides details that describe its content and the related dataset or datafiles:
 
@@ -1046,7 +999,7 @@ Each test case provides details that describe its content and the related datase
 - Interactive dependency graph visualization
 - Execution prerequisites and requirements
 
-### Data management features
+#### Data management features
 
 These details help you understand the data related to the test case. You can:
 
@@ -1059,7 +1012,7 @@ These details help you understand the data related to the test case. You can:
 
 AWS Transform automatically analyzes scheduler dependencies and assigns complexity scores to help prioritize testing efforts. Higher complexity scores indicate jobs that may require more thorough testing or isolation during the testing process.
 
-### Business rules and test case guidance
+#### Business rules and test case guidance
 
 The AWS Transform test plan provides recommendations for your test case plan based on Business Rule Extraction:
 
@@ -1074,9 +1027,9 @@ The final test plan is stored in the specified S3 location and includes all of t
 
 While synthetic test case guidance is provided, the actual test artifacts must be created separately based on the guidance. The test plan serves as a comprehensive blueprint for your testing strategy but does not generate the test data or execution scripts.
 
-### Test case creation rules - Summary
+#### Test case creation rules - Summary
 
-#### General rules
+##### General rules
 
 - A test case contains 1 to many JCLs in schedule execution order
 - Test cases are created from valid supported schedulers (CA7 and Control-M)
@@ -1085,7 +1038,7 @@ While synthetic test case guidance is provided, the actual test artifacts must b
 - One JCL can be executed by multiple scheduled tasks
 - One JCL can exist without being in a schedule
 
-#### Default test case creation rules
+##### Default test case creation rules
 
 - If a single JCL is in a test case:
 
@@ -1098,7 +1051,7 @@ While synthetic test case guidance is provided, the actual test artifacts must b
 - If JCL is on a convergent scheduled task: JCL can start a new test case but won't be included in previous branches
 - Missing JCLs are skipped and execution continues (with planned future enhancement to cut test case at missing JCL point)
 
-#### User operations rules
+##### User operations rules
 
 - **Create Test Case**: user selects from available JCLs
 
@@ -1129,7 +1082,7 @@ While synthetic test case guidance is provided, the actual test artifacts must b
 
 You cannot create, add, or merge test cases from different scheduler branches/path. A future enhancement is planned to allow operations beyond divergent/convergent tasks in the scheduler.
 
-## Generate test data collection scripts
+### Generate test data collection scripts
 
 You can generate JCL scripts to collect test data from your mainframe systems
 based on the test plan created in the previous step. AWS Transform automatically creates
@@ -1192,7 +1145,7 @@ The generated scripts provide comprehensive data collection capabilities includi
     * Generated JCL scripts are ready for mainframe execution
     * Variable substitution is based on user configuration defined in the templates
 
-### Script generation features
+#### Script generation features
 
 Generated scripts are automatically customized based on your templates and configuration:
 
@@ -1202,7 +1155,7 @@ Generated scripts are automatically customized based on your templates and confi
 - **Collection for test cases**: Generates both "before" and "after" data collection scripts
 - **Sequential dataset processing**: AWS provided sample provides for a file transfer function, but this can be customized to compression utilities available at your site or utilities such as Connect Direct or managed file transfer etc.
 
-### Data collection strategy
+#### Data collection strategy
 
 The generated scripts support comprehensive data collection strategies:
 
@@ -1215,7 +1168,7 @@ The generated scripts support comprehensive data collection strategies:
 
 AWS Transform generates scripts based on your templates and configuration. Review all generated JCL before executing on your mainframe environment to ensure compatibility with your specific system configuration and security requirements.
 
-### Template customization and best practices
+#### Template customization and best practices
 
 ATX Test Data Collection provides flexible template customization capabilities:
 
@@ -1226,7 +1179,7 @@ ATX Test Data Collection provides flexible template customization capabilities:
 - **Security integration**: Include appropriate security and access controls
 - **Performance optimization**: Configure for efficient data collection and transfer
 
-### Generated output structure
+#### Generated output structure
 
 The generated scripts are organized in your S3 bucket with the following structure:
 
@@ -1242,7 +1195,7 @@ The final script collection is stored in the specified S3 location and includes 
 
 While comprehensive JCL scripts are generated, actual execution must be performed on your mainframe environment. The scripts serve as ready-to-use data collection tools but require appropriate mainframe access and execution permissions.
 
-## Test automation script generation
+### Test automation script generation
 
 You can generate test automation scripts to execute test cases on your modernized application based on the test plan created in the previous step.
 AWS Transform automatically creates comprehensive test scripts that utilize the data collected from the test data collection process. The test automation script generation process
@@ -1284,7 +1237,7 @@ consists of three main phases: input configuration, test case selection, and scr
    - Each test case has its corresponding automation script stored in individual S3 locations.
    - Scripts are ready for deployment and execution on your modernized application environment.
 
-### Test automation script features
+#### Test automation script features
 
 The generated automation scripts provide comprehensive testing capabilities:
 
@@ -1294,7 +1247,7 @@ The generated automation scripts provide comprehensive testing capabilities:
 - **Organized structure**: Scripts are systematically organized by test case in your S3 bucket
 - **Ready-to-deploy format**: Scripts are formatted for direct deployment to your testing environment
 
-### Generated output structure
+#### Generated output structure
 
 The generated test automation scripts are organized in your S3 bucket with the following structure:
 
@@ -1302,7 +1255,7 @@ The generated test automation scripts are organized in your S3 bucket with the f
 - **Execution-ready format**: Scripts are formatted for immediate deployment and execution after setting up some variable depending from your environment
 - **Centralized access**: All scripts are accessible from a single S3 bucket location for easy management
 
-### Test execution strategy
+#### Test execution strategy
 
 The generated scripts support comprehensive test execution workflows:
 
@@ -1315,7 +1268,7 @@ The generated scripts support comprehensive test execution workflows:
 
 AWS Transform generates test automation scripts based on your test plan and selected test cases. The scripts are designed for execution on your modernized application environment and utilize the test data collected in the previous step. Review all generated scripts before deployment to ensure compatibility with your specific application configuration and testing requirements.
 
-### Best practices for test automation
+#### Best practices for test automation
 
 - **Environment validation**: Ensure your modernized application environment is properly configured before script execution
 - **Data verification**: Validate that the required test data from the collection phase is available and accessible
@@ -1325,7 +1278,7 @@ AWS Transform generates test automation scripts based on your test plan and sele
 
 The final collection of test automation scripts provides a complete testing framework for validating your modernized application functionality. The scripts can be integrated into your continuous testing processes or executed as part of your application validation workflow.
 
-## Deployment capabilities in AWS Transform
+### Deployment capabilities in AWS Transform
 
 AWS Transform helps you set up cloud environments for modernized mainframe applications by
 providing ready-to-use Infrastructure as Code (IaC) templates. Through the AWS Transform

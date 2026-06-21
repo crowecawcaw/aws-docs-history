@@ -30,8 +30,11 @@ The following AWS-managed transformations are currently available:
 
 - `AWS/java-aws-sdk-v1-to-v2` - Upgrade the AWS SDK from V1 to V2 for Java projects using Maven or Gradle.
 - `AWS/python-boto2-to-boto3` - Migrate Python applications from boto2 to boto3, based on the official AWS migration documentation.
-- `AWS/nodejs-aws-sdk-v2-to-v3` - Upgrade Node.js applications from AWS SDK for JavaScript v2 to v3 to leverage modular architecture, first-class TypeScript support, middleware stack, and improved performance while ensuring all AWS
-  service interactions continue to function correctly, without modifying the underlying Node.js version.
+- `AWS/nodejs-aws-sdk-v2-to-v3` - Upgrade Node.js applications from AWS SDK for JavaScript v2 to v3 to leverage modular architecture, first-class TypeScript support, middleware stack, and improved performance while ensuring all AWS service interactions continue to function correctly, without modifying the underlying Node.js version.
+
+**GenAI Model Migrations:**
+
+- To use this transformation, specify `AWS/mke-genai-model-migration` as the transformation name. The transformation assesses your generative AI workloads and produces a migration plan. It helps you move from third-party model providers to . The transformation scans your codebase to identify every AI SDK and model in use. The agent gathers migration requirements through interactive questions. Then it maps models to equivalents with transparent cost comparisons and production-ready code changes. Supports migrations from OpenAI, Google Gemini, direct Anthropic SDK usage, and open-source models through LiteLLM or Ollama. Handles direct SDK integrations and framework-wrapped patterns including LangChain, LlamaIndex, CrewAI, LangGraph, and multi-provider routing layers. The transformation preserves your application architecture while swapping only the model layer. Includes intelligent cost optimization with tiered model routing recommendations and prompt caching analysis. The transformation uses model lifecycle awareness to exclude models within 90 days of end-of-life from all recommendations. For some workloads, it recommends 's OpenAI-compatible endpoints as a zero-code-change migration path.
 
 **Analysis:**
 
