@@ -1,4 +1,4 @@
-# Setting up Amazon Simple Email Service (SES)
+# Setting up email sending services
 
 The following code example shows how to:
 

@@ -1,9 +1,11 @@
 # Global deliverability
 
-Global deliverability extends your visibility beyond Amazon SES with analytics
+Global deliverability extends your visibility beyond Amazon SES. It provides analytics
 based on a representative sample of your sending—across every provider your domains
-send through, not just Amazon SES. It enables you to validate campaigns before they ship, track
-inbox placement at the ISP level, and monitor your IPs and domains against the major
+send through, not just Amazon SES.
+
+You can validate campaigns before they ship, track
+inbox placement at the ISP level, and monitor your IPs and domains against major
 blocklist operators—all from the Amazon SES console.
 
 Global deliverability is enabled per region. In any region, domain monitoring tracks

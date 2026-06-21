@@ -1,6 +1,6 @@
 # Use `SendBulkEmail` with an AWS SDK
 
-The following code example shows how to use `SendBulkEmail`.
+The following code examples show how to use `SendBulkEmail`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
@@ -108,6 +108,54 @@ class SESv2Wrapper:
 - For API details, see
   [SendBulkEmail](../../../goto/boto3/sesv2-2019-09-27/SendBulkEmail.md "../../../goto/boto3/sesv2-2019-09-27/SendBulkEmail.md")
   in _AWS SDK for Python (Boto3) API Reference_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
+
+```
+    TRY.
+        " Build the default template content used for all bulk recipients
+        DATA(lo_template) = NEW /aws1/cl_se2template(
+          iv_templatename = iv_template_name
+          iv_templatedata = iv_template_data ).
+
+        DATA(lo_default_content) = NEW /aws1/cl_se2bulkemailcontent(
+          io_template = lo_template ).
+
+        DATA(lo_result) = lo_se2->sendbulkemail(
+          iv_fromemailaddress = iv_from_address
+          io_defaultcontent   = lo_default_content
+          it_bulkemailentries = it_bulk_entries ).
+
+        ot_results = lo_result->get_bulkemailentryresults( ).
+        MESSAGE |Bulk email sent to { lines( it_bulk_entries ) } recipient(s).| TYPE 'I'.
+      CATCH /aws1/cx_se2messagerejected INTO DATA(lo_rejected).
+        MESSAGE lo_rejected TYPE 'I' DISPLAY LIKE 'E'.
+        RAISE EXCEPTION lo_rejected.
+      CATCH /aws1/cx_se2mailfrmdomnotver00 INTO DATA(lo_not_verified).
+        MESSAGE lo_not_verified TYPE 'I' DISPLAY LIKE 'E'.
+        RAISE EXCEPTION lo_not_verified.
+      CATCH /aws1/cx_se2notfoundexception INTO DATA(lo_not_found).
+        MESSAGE lo_not_found TYPE 'I' DISPLAY LIKE 'E'.
+        RAISE EXCEPTION lo_not_found.
+      CATCH /aws1/cx_se2badrequestex INTO DATA(lo_bad_request).
+        MESSAGE lo_bad_request TYPE 'I' DISPLAY LIKE 'E'.
+        RAISE EXCEPTION lo_bad_request.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [SendBulkEmail](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

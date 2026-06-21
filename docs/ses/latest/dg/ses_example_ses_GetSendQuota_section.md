@@ -5,7 +5,7 @@ The following code examples show how to use `GetSendQuota`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Setting up Amazon Simple Email Service (SES)](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
+- [Setting up email sending services](ses_example_ses_GettingStarted_033_section.md "ses_example_ses_GettingStarted_033_section.md")
 
 .NET
 

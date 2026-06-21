@@ -112,6 +112,36 @@ async fn is_verified(client: &Client, email: &str) -> Result<(), Error> {
   [GetEmailIdentity](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.get_email_identity "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.get_email_identity")
   in _AWS SDK for Rust API reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/se2#code-examples").
+
+```
+    TRY.
+        oo_result = lo_se2->getemailidentity(
+          iv_emailidentity = iv_email_identity ).
+        MESSAGE |Identity type: { oo_result->get_identitytype( ) }, | &&
+                |verified for sending: { oo_result->get_verifiedforsendingstatus( ) }| TYPE 'I'.
+      CATCH /aws1/cx_se2notfoundexception.
+        MESSAGE |Email identity { iv_email_identity } not found.| TYPE 'I'.
+      CATCH /aws1/cx_se2badrequestex INTO DATA(lo_bad_request).
+        MESSAGE lo_bad_request TYPE 'I' DISPLAY LIKE 'E'.
+        RAISE EXCEPTION lo_bad_request.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetEmailIdentity](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using Amazon SES with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.
