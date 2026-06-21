@@ -13,7 +13,7 @@ The End User Computing (EUC) Dashboard provides a unified view of your AWS EUC e
 
 This solution helps teams make data-driven decisions to optimize costs, improve operational efficiency, and enhance the end-user experience across their EUC estate.
 
-![EUC Dashboard Screenshot](images/euc/executive_summary.png)
+![EUC Dashboard Screenshot](/images/guidance/latest/cloud-intelligence-dashboards/images/euc/executive_summary.png)
 
 The dashboard has six tabs:
 
