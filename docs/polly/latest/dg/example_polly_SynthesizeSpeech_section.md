@@ -5,7 +5,7 @@ The following code examples show how to use `SynthesizeSpeech`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Getting started with Amazon Polly](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")
+- [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")
 
 .NET
 

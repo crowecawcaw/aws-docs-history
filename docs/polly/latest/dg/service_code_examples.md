@@ -31,4 +31,4 @@ This topic also includes information about getting started and details about pre
   - [Convert text to speech and back to text](example_cross_Telephone_section.md "example_cross_Telephone_section.md")
   - [Create a lip-sync application](example_polly_LipSync_section.md "example_polly_LipSync_section.md")
   - [Create an application to analyze customer feedback](example_cross_FSA_section.md "example_cross_FSA_section.md")
-  - [Getting started with Amazon Polly](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")
+  - [Getting started with text-to-speech synthesis](example_polly_GettingStarted_082_section.md "example_polly_GettingStarted_082_section.md")

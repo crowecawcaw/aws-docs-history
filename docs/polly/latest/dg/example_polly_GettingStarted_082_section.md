@@ -1,4 +1,4 @@
-# Getting started with Amazon Polly
+# Getting started with text-to-speech synthesis
 
 The following code example shows how to:
 
