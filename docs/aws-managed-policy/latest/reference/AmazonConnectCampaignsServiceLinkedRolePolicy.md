@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: September 23, 2021, 20:54 UTC
-- **Edited time:** May 27, 2026, 01:42 UTC
+- **Edited time:** June 18, 2026, 23:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectCampaignsServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -37,6 +37,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "connect-campaigns:ListCampaigns"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "ConnectCampaignsMetricsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "connect:GetMetricDataV2"
+      ],
+      "Resource" : "arn:aws:connect-campaigns:*:*:campaign/*"
     },
     {
       "Sid" : "ConnectAccess",

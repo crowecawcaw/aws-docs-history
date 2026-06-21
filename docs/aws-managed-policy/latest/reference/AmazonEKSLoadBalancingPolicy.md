@@ -12,13 +12,13 @@ You can attach `AmazonEKSLoadBalancingPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: October 30, 2024, 20:18 UTC
-- **Edited time:** June 03, 2026, 22:12 UTC
+- **Edited time:** June 16, 2026, 00:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -145,7 +145,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticloadbalancing:SetIpAddressType",
         "elasticloadbalancing:SetSecurityGroups",
         "elasticloadbalancing:SetSubnets",
-        "elasticloadbalancing:SetRulePriorities",
         "elasticloadbalancing:ModifyTargetGroup",
         "elasticloadbalancing:ModifyTargetGroupAttributes",
         "elasticloadbalancing:ModifyListener",
@@ -213,7 +212,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "wafv2:GetWebACL",
         "wafv2:GetWebACLForResource",
         "elasticloadbalancing:SetWebAcl",
-        "elasticloadbalancing:DescribeTargetGroups"
+        "elasticloadbalancing:DescribeTargetGroups",
+        "elasticloadbalancing:SetRulePriorities"
       ],
       "Resource" : "*"
     },
@@ -234,7 +234,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeCoipPools",
         "ec2:GetCoipPoolUsage",
         "ec2:GetSecurityGroupsForVpc",
-        "ec2:DescribeVpcPeeringConnections"
+        "ec2:DescribeVpcPeeringConnections",
+        "ec2:DescribeIpamPools"
       ],
       "Resource" : "*"
     },

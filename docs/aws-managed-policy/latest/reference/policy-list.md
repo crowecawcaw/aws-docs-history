@@ -1126,6 +1126,7 @@
 - [AWSRepostSpaceSupportOperationsPolicy](AWSRepostSpaceSupportOperationsPolicy.md "AWSRepostSpaceSupportOperationsPolicy.md")
 - [AWSResilienceHubAsssessmentExecutionPolicy](AWSResilienceHubAsssessmentExecutionPolicy.md "AWSResilienceHubAsssessmentExecutionPolicy.md")
 - [AWSResilienceHubServiceRolePolicy](AWSResilienceHubServiceRolePolicy.md "AWSResilienceHubServiceRolePolicy.md")
+- [AWSResilienceHubV2AssessmentExecutionPolicy](AWSResilienceHubV2AssessmentExecutionPolicy.md "AWSResilienceHubV2AssessmentExecutionPolicy.md")
 - [AWSResourceAccessManagerFullAccess](AWSResourceAccessManagerFullAccess.md "AWSResourceAccessManagerFullAccess.md")
 - [AWSResourceAccessManagerReadOnlyAccess](AWSResourceAccessManagerReadOnlyAccess.md "AWSResourceAccessManagerReadOnlyAccess.md")
 - [AWSResourceAccessManagerResourceShareParticipantAccess](AWSResourceAccessManagerResourceShareParticipantAccess.md "AWSResourceAccessManagerResourceShareParticipantAccess.md")

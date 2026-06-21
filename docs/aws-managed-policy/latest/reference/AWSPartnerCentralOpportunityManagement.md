@@ -12,13 +12,13 @@ You can attach `AWSPartnerCentralOpportunityManagement` to your users, groups, a
 
 - **Type**: AWS managed policy
 - **Creation time**: November 14, 2024, 19:09 UTC
-- **Edited time:** March 12, 2026, 17:12 UTC
+- **Edited time:** June 16, 2026, 13:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSPartnerCentralOpportunityManagement`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -48,6 +48,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "partnercentral:GetEngagement",
         "partnercentral:GetEngagementInvitation",
         "partnercentral:GetOpportunity",
+        "partnercentral:GetProspectingFromEngagementTask",
         "partnercentral:GetResourceSnapshot",
         "partnercentral:GetResourceSnapshotJob",
         "partnercentral:ListEngagementByAcceptingInvitationTasks",
@@ -58,6 +59,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "partnercentral:ListEngagements",
         "partnercentral:ListOpportunities",
         "partnercentral:ListOpportunityFromEngagementTasks",
+        "partnercentral:ListProspectingFromEngagementTasks",
         "partnercentral:ListResourceSnapshotJobs",
         "partnercentral:ListResourceSnapshots",
         "partnercentral:ListSolutions",
@@ -65,6 +67,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "partnercentral:StartEngagementByAcceptingInvitationTask",
         "partnercentral:StartEngagementFromOpportunityTask",
         "partnercentral:StartOpportunityFromEngagementTask",
+        "partnercentral:StartProspectingFromEngagementTask",
         "partnercentral:StartResourceSnapshotJob",
         "partnercentral:StopResourceSnapshotJob",
         "partnercentral:SubmitOpportunity",

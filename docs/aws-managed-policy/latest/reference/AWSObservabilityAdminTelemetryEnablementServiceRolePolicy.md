@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: August 01, 2025, 18:04 UTC
-- **Edited time:** April 29, 2026, 21:12 UTC
+- **Edited time:** June 16, 2026, 20:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -268,7 +268,21 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "TelemetryOperationsForBedrock",
       "Effect" : "Allow",
       "Action" : [
-        "bedrock-agentcore:AllowVendedLogDeliveryForResource"
+        "bedrock-agentcore:AllowVendedLogDeliveryForResource",
+        "bedrock:AllowVendedLogDeliveryForResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryOperationsForS3",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:AllowVendedLogDeliveryForResource"
       ],
       "Resource" : "*",
       "Condition" : {

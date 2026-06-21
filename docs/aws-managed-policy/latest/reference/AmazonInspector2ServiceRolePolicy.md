@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 16, 2021, 20:27 UTC
-- **Edited time:** February 13, 2026, 17:12 UTC
+- **Edited time:** June 16, 2026, 19:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonInspector2ServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v26 (default)
+**Policy version:** v27 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -58,6 +58,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeTransitGatewayAttachments",
         "ec2:DescribeTransitGatewayConnects",
         "ec2:DescribeTransitGatewayPeeringAttachments",
+        "ec2:DescribeTransitGatewayPolicyTables",
         "ec2:DescribeTransitGatewayRouteTables",
         "ec2:DescribeTransitGatewayVpcAttachments",
         "ec2:DescribeTransitGateways",
@@ -68,6 +69,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeVpnConnections",
         "ec2:DescribeVpnGateways",
         "ec2:GetManagedPrefixListEntries",
+        "ec2:GetSecurityGroupsForVpc",
+        "ec2:GetTransitGatewayPolicyTableAssociations",
+        "ec2:GetTransitGatewayPolicyTableEntries",
         "ec2:GetTransitGatewayRouteTablePropagations",
         "ec2:SearchTransitGatewayRoutes",
         "elasticloadbalancing:DescribeListeners",

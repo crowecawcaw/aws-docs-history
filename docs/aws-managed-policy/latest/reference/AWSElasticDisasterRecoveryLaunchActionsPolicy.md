@@ -12,13 +12,13 @@ You can attach `AWSElasticDisasterRecoveryLaunchActionsPolicy` to your users, gr
 
 - **Type**: AWS managed policy
 - **Creation time**: September 13, 2023, 07:38 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** June 18, 2026, 22:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryLaunchActionsPolicy`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -85,6 +85,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ssm:*::document/AWSDisasterRecovery-*",
         "arn:aws:ssm:*::document/AWSDistroOTel-*",
         "arn:aws:ssm:*::document/AWSDocs-*",
+        "arn:aws:ssm:*::document/AWSDRS-*",
         "arn:aws:ssm:*::document/AWSEC2-*",
         "arn:aws:ssm:*::document/AWSEC2Launch-*",
         "arn:aws:ssm:*::document/AWSFIS-*",
@@ -123,6 +124,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ssm:*::automation-definition/AWSDisasterRecovery-*:*",
         "arn:aws:ssm:*::automation-definition/AWSDistroOTel-*:*",
         "arn:aws:ssm:*::automation-definition/AWSDocs-*:*",
+        "arn:aws:ssm:*::automation-definition/AWSDRS-*:*",
         "arn:aws:ssm:*::automation-definition/AWSEC2-*:*",
         "arn:aws:ssm:*::automation-definition/AWSEC2Launch-*:*",
         "arn:aws:ssm:*::automation-definition/AWSFIS-*:*",

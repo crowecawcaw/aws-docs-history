@@ -12,13 +12,13 @@ You can attach `SecurityAudit` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:41 UTC
-- **Edited time:** May 18, 2026, 15:42 UTC
+- **Edited time:** June 15, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 
-**Policy version:** v88 (default)
+**Policy version:** v89 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -387,6 +387,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ecr:ListTagsForResource",
         "ecs:Describe*",
         "ecs:List*",
+        "eks:DescribeAccessEntry",
         "eks:DescribeCluster",
         "eks:DescribeFargateProfile",
         "eks:DescribeNodeGroup",
@@ -742,6 +743,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3express:GetBucketPolicy",
         "s3express:GetEncryptionConfiguration",
         "s3express:ListAllMyDirectoryBuckets",
+        "s3files:GetAccessPoint",
+        "s3files:GetFileSystem",
+        "s3files:GetFileSystemPolicy",
+        "s3files:GetMountTarget",
+        "s3files:GetSynchronizationConfiguration",
+        "s3files:ListAccessPoints",
+        "s3files:ListFileSystems",
+        "s3files:ListMountTargets",
+        "s3files:ListTagsForResource",
         "s3tables:GetNamespace",
         "s3tables:GetTableBucketMaintenanceConfiguration",
         "s3tables:GetTableBucketPolicy",

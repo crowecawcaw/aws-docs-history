@@ -12,13 +12,13 @@ You can attach `ReadOnlyAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:39 UTC
-- **Edited time:** May 18, 2026, 15:42 UTC
+- **Edited time:** June 15, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/ReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v185 (default)
+**Policy version:** v186 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -2444,6 +2444,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3express:ListAccessPointsForDirectoryBuckets",
         "s3express:ListAllMyDirectoryBuckets",
         "s3express:ListTagsForResource",
+        "s3files:GetAccessPoint",
+        "s3files:GetFileSystem",
+        "s3files:GetFileSystemPolicy",
+        "s3files:GetMountTarget",
+        "s3files:GetSynchronizationConfiguration",
+        "s3files:ListAccessPoints",
+        "s3files:ListFileSystems",
+        "s3files:ListMountTargets",
+        "s3files:ListTagsForResource",
         "s3tables:GetNamespace",
         "s3tables:GetTable",
         "s3tables:GetTableBucket",
@@ -2500,13 +2509,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:GetResourcePolicy",
         "secretsmanager:List*",
         "securityagent:BatchGetAgentSpaces",
-        "securityagent:BatchGetTargetDomains",
         "securityagent:BatchGetArtifactMetadata",
+        "securityagent:BatchGetCodeReviewJobs",
+        "securityagent:BatchGetCodeReviewJobTasks",
+        "securityagent:BatchGetCodeReviews",
         "securityagent:BatchGetFindings",
-        "securityagent:BatchGetPentestJobs",
-        "securityagent:BatchGetPentests",
         "securityagent:BatchGetPentestJobContentMetadata",
+        "securityagent:BatchGetPentestJobs",
         "securityagent:BatchGetPentestJobTasks",
+        "securityagent:BatchGetPentests",
+        "securityagent:BatchGetTargetDomains",
         "securityagent:GetApplication",
         "securityagent:GetArtifact",
         "securityagent:GetDesignReview",
@@ -2514,13 +2526,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "securityagent:GetDesignReviewFeedback",
         "securityagent:GetIntegration",
         "securityagent:ListAgentSpaces",
-        "securityagent:ListTargetDomains",
         "securityagent:ListApplications",
         "securityagent:ListArtifacts",
-        "securityagent:ListSecurityRequirements",
-        "securityagent:ListDiscoveredEndpoints",
+        "securityagent:ListCodeReviewJobsForCodeReview",
+        "securityagent:ListCodeReviewJobTasks",
+        "securityagent:ListCodeReviews",
         "securityagent:ListDesignReviewComments",
         "securityagent:ListDesignReviews",
+        "securityagent:ListDiscoveredEndpoints",
+        "securityagent:ListSecurityRequirements",
+        "securityagent:ListTargetDomains",
         "securityagent:ListFindings",
         "securityagent:ListIntegratedResources",
         "securityagent:ListIntegrations",

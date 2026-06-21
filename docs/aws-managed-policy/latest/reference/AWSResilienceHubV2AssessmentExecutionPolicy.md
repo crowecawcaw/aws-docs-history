@@ -1,0 +1,291 @@
+# AWSResilienceHubV2AssessmentExecutionPolicy
+
+**Description**: Allows AWS Resilience Hub to access resources in your account for resilience discovery, assessment, and management. This policy grants wildcarded read-only permissions that may include sensitive information in the output.
+
+`AWSResilienceHubV2AssessmentExecutionPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+
+## Using this policy
+
+You can attach `AWSResilienceHubV2AssessmentExecutionPolicy` to your users, groups, and roles.
+
+## Policy details
+
+- **Type**: AWS managed policy
+- **Creation time**: June 17, 2026, 22:57 UTC
+- **Edited time:** June 17, 2026, 22:57 UTC
+- **ARN**:
+  `arn:aws:iam::aws:policy/AWSResilienceHubV2AssessmentExecutionPolicy`
+
+## Policy version
+
+**Policy version:** v1 (default)
+
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
+request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+
+## JSON policy document
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "AWSResilienceHubV2ReadResourceConfigStatement",
+      "Effect" : "Allow",
+      "Action" : [
+        "acm:Describe*",
+        "acm:List*",
+        "application-autoscaling:Describe*",
+        "application-autoscaling:GetPredictiveScalingForecast",
+        "application-autoscaling:ListTagsForResource",
+        "arc-region-switch:Get*",
+        "arc-region-switch:List*",
+        "arc-zonal-shift:Get*",
+        "arc-zonal-shift:List*",
+        "autoscaling:Describe*",
+        "autoscaling:GetPredictiveScalingForecast",
+        "backup:Describe*",
+        "backup:GetBackupPlan",
+        "backup:GetBackupSelection",
+        "backup:GetBackupVaultAccessPolicy",
+        "backup:GetBackupVaultNotifications",
+        "backup:GetRestoreTestingPlan",
+        "backup:GetRestoreTestingSelection",
+        "backup:List*",
+        "cloudformation:Describe*",
+        "cloudformation:GetResource",
+        "cloudformation:GetStackPolicy",
+        "cloudformation:GetTemplate",
+        "cloudformation:List*",
+        "cloudfront:Get*",
+        "cloudfront:List*",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:GetMetricStatistics",
+        "config:Describe*",
+        "config:GetStoredQuery",
+        "config:List*",
+        "datasync:Describe*",
+        "datasync:List*",
+        "dlm:Get*",
+        "docdb-elastic:Get*",
+        "docdb-elastic:List*",
+        "drs:Describe*",
+        "drs:Get*",
+        "drs:List*",
+        "ds:Describe*",
+        "dsql:Get*",
+        "dsql:List*",
+        "dynamodb:Describe*",
+        "dynamodb:GetResourcePolicy",
+        "dynamodb:List*",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeCapacityReservations",
+        "ec2:DescribeClientVpnConnections",
+        "ec2:DescribeClientVpnEndpoints",
+        "ec2:DescribeCustomerGateways",
+        "ec2:DescribeDhcpOptions",
+        "ec2:DescribeFastSnapshotRestores",
+        "ec2:DescribeFleets",
+        "ec2:DescribeFlowLogs",
+        "ec2:DescribeHosts",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceAttribute",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeKeyPairs",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeManagedPrefixLists",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeNetworkAcls",
+        "ec2:DescribeNetworkInsightsAnalyses",
+        "ec2:DescribeNetworkInsightsPaths",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribePlacementGroups",
+        "ec2:DescribeRegions",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSnapshots",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeTags",
+        "ec2:DescribeTransitGatewayAttachments",
+        "ec2:DescribeTransitGatewayPeeringAttachments",
+        "ec2:DescribeTransitGatewayRouteTables",
+        "ec2:DescribeTransitGateways",
+        "ec2:DescribeTransitGatewayVpcAttachments",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpointConnectionNotifications",
+        "ec2:DescribeVpcEndpointConnections",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcEndpointServiceConfigurations",
+        "ec2:DescribeVpcEndpointServicePermissions",
+        "ec2:DescribeVpcEndpointServices",
+        "ec2:DescribeVpcPeeringConnections",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeVpnConnections",
+        "ec2:DescribeVpnGateways",
+        "ec2:GetTransitGatewayRouteTableAssociations",
+        "ecr:Describe*",
+        "ecs:Describe*",
+        "ecs:List*",
+        "eks:Describe*",
+        "eks:List*",
+        "elasticache:Describe*",
+        "elasticache:List*",
+        "elasticfilesystem:Describe*",
+        "elasticfilesystem:ListTagsForResource",
+        "elasticloadbalancing:Describe*",
+        "events:Describe*",
+        "events:List*",
+        "firehose:Describe*",
+        "firehose:List*",
+        "fis:Get*",
+        "fis:List*",
+        "fsx:Describe*",
+        "fsx:List*",
+        "globalaccelerator:Describe*",
+        "globalaccelerator:List*",
+        "iam:GetInstanceProfile",
+        "iam:GetPolicy",
+        "iam:GetPolicyVersion",
+        "iam:GetRole",
+        "iam:GetRolePolicy",
+        "iam:ListAttachedRolePolicies",
+        "iam:ListInstanceProfiles",
+        "iam:ListRolePolicies",
+        "iam:ListRoles",
+        "iam:ListRoleTags",
+        "kafka:Describe*",
+        "kafka:GetClusterPolicy",
+        "kafka:List*",
+        "kafkaconnect:Describe*",
+        "kafkaconnect:List*",
+        "kinesis:Describe*",
+        "kinesis:List*",
+        "lambda:GetAlias",
+        "lambda:GetCodeSigningConfig",
+        "lambda:GetEventSourceMapping",
+        "lambda:GetFunctionCodeSigningConfig",
+        "lambda:GetFunctionConfiguration",
+        "lambda:GetFunctionEventInvokeConfig",
+        "lambda:GetFunctionRecursionConfig",
+        "lambda:GetFunctionUrlConfig",
+        "lambda:GetLayerVersion",
+        "lambda:GetLayerVersionPolicy",
+        "lambda:GetPolicy",
+        "lambda:GetProvisionedConcurrencyConfig",
+        "lambda:GetRuntimeManagementConfig",
+        "lambda:List*",
+        "memorydb:Describe*",
+        "memorydb:List*",
+        "network-firewall:Describe*",
+        "network-firewall:List*",
+        "qldb:Describe*",
+        "qldb:List*",
+        "ram:Get*",
+        "ram:List*",
+        "rds:Describe*",
+        "rds:List*",
+        "redshift:Describe*",
+        "redshift:List*",
+        "resource-groups:Get*",
+        "resource-groups:List*",
+        "resource-groups:Search*",
+        "route53-recovery-cluster:Get*",
+        "route53-recovery-cluster:List*",
+        "route53-recovery-control-config:Describe*",
+        "route53-recovery-control-config:Get*",
+        "route53-recovery-control-config:List*",
+        "route53-recovery-readiness:Get*",
+        "route53-recovery-readiness:List*",
+        "route53:Get*",
+        "route53:List*",
+        "route53domains:Check*",
+        "route53domains:List*",
+        "route53resolver:Get*",
+        "route53resolver:List*",
+        "s3:ListBucket",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:ListSecrets",
+        "servicecatalog:GetApplication",
+        "servicecatalog:ListAssociatedResources",
+        "shield:Describe*",
+        "shield:Get*",
+        "shield:List*",
+        "sns:GetDataProtectionPolicy",
+        "sns:GetSubscriptionAttributes",
+        "sns:GetTopicAttributes",
+        "sns:List*",
+        "sqs:GetQueueAttributes",
+        "sqs:GetQueueUrl",
+        "sqs:List*",
+        "ssm:Describe*",
+        "ssm:GetDefaultPatchBaseline",
+        "ssm:GetDocument",
+        "ssm:GetMaintenanceWindow",
+        "ssm:GetParameters",
+        "ssm:GetPatchBaseline",
+        "ssm:GetResourcePolicies",
+        "ssm:List*",
+        "ssm-incidents:GetReplicationSet",
+        "ssm-incidents:GetResponsePlan",
+        "ssm-incidents:List*",
+        "states:Describe*",
+        "states:List*",
+        "tag:GetResources",
+        "vpc-lattice:Get*",
+        "vpc-lattice:List*",
+        "wafv2:Get*",
+        "wafv2:List*"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AWSResilienceHubApiGatewayStatement",
+      "Effect" : "Allow",
+      "Action" : [
+        "apigateway:GET"
+      ],
+      "Resource" : [
+        "arn:aws:apigateway:*::/apis/*",
+        "arn:aws:apigateway:*::/restapis/*",
+        "arn:aws:apigateway:*::/usageplans",
+        "arn:aws:apigateway:*::/domainnames/*"
+      ]
+    },
+    {
+      "Sid" : "AWSResilienceHubS3AccessStatement",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:GetBucketLocation",
+        "s3:GetBucketLogging",
+        "s3:GetBucketObjectLockConfiguration",
+        "s3:GetBucketPolicy",
+        "s3:GetBucketPolicyStatus",
+        "s3:GetBucketTagging",
+        "s3:GetBucketVersioning",
+        "s3:GetMultiRegionAccessPointRoutes",
+        "s3:GetReplicationConfiguration",
+        "s3:ListAllMyBuckets",
+        "s3:ListMultiRegionAccessPoints"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    }
+  ]
+}
+```
+
+## Learn more
+
+- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
+- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
+- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
+- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")

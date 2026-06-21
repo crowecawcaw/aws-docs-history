@@ -12,13 +12,13 @@ You can attach `AWSElasticDisasterRecoveryConsoleFullAccess_v2` to your users, g
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2023, 13:35 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** June 18, 2026, 22:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryConsoleFullAccess_v2`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -123,11 +123,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:snapshot/*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -169,11 +169,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:volume/*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -190,11 +190,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:instance/*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -208,11 +208,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:security-group/*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -224,11 +224,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:volume/*",
       "Condition" : {
-        "Null" : {
-          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -246,11 +246,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:security-group/*",
       "Condition" : {
-        "Null" : {
-          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -262,11 +262,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:volume/*",
       "Condition" : {
-        "Null" : {
-          "ec2:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "ec2:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -278,11 +278,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:snapshot/*",
       "Condition" : {
-        "Null" : {
-          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -295,11 +295,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:instance/*",
       "Condition" : {
-        "Null" : {
-          "ec2:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "ec2:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -315,13 +315,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:instance/*",
       "Condition" : {
-        "StringEquals" : {
-          "ec2:ResourceTag/AWSDRS" : "AllowLaunchingIntoThisInstance"
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "drs.amazonaws.com"
           ]
+        },
+        "StringEquals" : {
+          "ec2:ResourceTag/AWSDRS" : "AllowLaunchingIntoThisInstance"
         }
       }
     },
@@ -333,11 +333,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:volume/*",
       "Condition" : {
-        "Null" : {
-          "ec2:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "ec2:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -362,11 +362,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:instance/*",
       "Condition" : {
-        "Null" : {
-          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -402,6 +402,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:network-interface/*"
       ],
       "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        },
         "StringEquals" : {
           "ec2:CreateAction" : [
             "CreateSecurityGroup",
@@ -410,9 +413,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "RunInstances",
             "CreateNetworkInterface"
           ]
-        },
-        "Bool" : {
-          "aws:ViaAWSService" : "true"
         }
       }
     },
@@ -480,6 +480,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ssm:*:*:document/AWSMigration-ValidateDiskSpace",
         "arn:aws:ssm:*:*:document/AWSMigration-VerifyProcessIsRunning",
         "arn:aws:ssm:*:*:document/AWSMigration-LinuxTimeSyncSetting",
+        "arn:aws:ssm:*:*:document/AWSDRS-ValidateNetworkConnectivity",
+        "arn:aws:ssm:*:*:document/AWSDRS-VerifyMountedVolumes",
+        "arn:aws:ssm:*:*:document/AWSDRS-ValidateHttpResponse",
+        "arn:aws:ssm:*:*:document/AWSDRS-ValidateDiskSpace",
+        "arn:aws:ssm:*:*:document/AWSDRS-VerifyProcessIsRunning",
+        "arn:aws:ssm:*:*:document/AWSDRS-LinuxTimeSyncSetting",
+        "arn:aws:ssm:*:*:document/AWSDRS-InstallDRAgentOnInstance",
+        "arn:aws:ssm:*:*:document/AWSDRS-VerifyTags",
         "arn:aws:ssm:*:*:document/AWSEC2-ApplicationInsightsCloudwatchAgentInstallAndConfigure",
         "arn:aws:ssm:*:*:automation-execution/*"
       ],
@@ -581,11 +589,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:instance/*"
       ],
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -620,14 +628,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:ec2:*:*:instance/*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "ec2:CreateAction" : [
-            "CreateFleet"
-          ]
-        },
         "ForAnyValue:StringEquals" : {
           "aws:CalledVia" : [
             "drs.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "ec2:CreateAction" : [
+            "CreateFleet"
           ]
         }
       }
@@ -640,11 +648,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:snapshot/*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -656,11 +664,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:network-interface/*",
       "Condition" : {
-        "Null" : {
-          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:RequestTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     },
@@ -683,11 +691,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:ec2:*:*:network-interface/*",
       "Condition" : {
-        "Null" : {
-          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
-        },
         "Bool" : {
           "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSElasticDisasterRecoveryManaged" : "false"
         }
       }
     }
