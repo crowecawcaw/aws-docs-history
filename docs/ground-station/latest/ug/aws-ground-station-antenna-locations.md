@@ -10,9 +10,9 @@ supported AWS Region. This includes the AWS Region in which data is delivered.
 
 The AWS Ground Station global network includes ground station locations that are not physically located
 in the [AWS Region](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/ "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/") to which they are connected.
-The list of ground stations that you have access to can be retrieved via the AWS SDK [ListGroundStation](../APIReference/API_ListGroundStations.md "../APIReference/API_ListGroundStations.md") response.
-The full list of ground station locations is presented below, with more coming soon. Please
-refer to the onboarding guide to add or modify site approvals for your satellites.
+The list of ground stations that you have access to can be retrieved via the AWS SDK [ListGroundStation](../APIReference/API_ListGroundStations.md "../APIReference/API_ListGroundStations.md") response. As of June 16, 2026, AWS Ground Station no longer supports antenna resources in Seoul.
+The full list of ground station locations is presented below.
+Please refer to the onboarding guide to add or modify site approvals for your satellites.
 
 | Ground Station Name | Ground Station Location | AWS Region Name           | AWS Region Code | Notes                                   |
 | ------------------- | ----------------------- | ------------------------- | --------------- | --------------------------------------- |
@@ -25,7 +25,6 @@ refer to the onboarding guide to add or modify site approvals for your satellite
 | Ohio 1              | Ohio, USA               | US East (Ohio)            | us-east-2       |                                         |
 | Oregon 1            | Oregon, USA             | US West (Oregon)          | us-west-2       |                                         |
 | Punta Arenas 1      | Punta Arenas, Chile     | South America (São Paulo) | sa-east-1       | Not physically located in an AWS region |
-| Seoul 1             | Seoul, South Korea      | Asia Pacific (Seoul)      | ap-northeast-2  |                                         |
 | Singapore 1         | Singapore               | Asia Pacific (Singapore)  | ap-southeast-1  |                                         |
 | Stockholm 1         | Stockholm, Sweden       | Europe (Stockholm)        | eu-north-1      |                                         |
 
