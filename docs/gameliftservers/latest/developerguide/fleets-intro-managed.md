@@ -52,8 +52,8 @@ don't have to:
 For managed fleets, Amazon GameLift Servers sets up the fleet resource and also deploys a set of compute
 resources with your game server software installed and running. When the creation
 workflow is complete and successful, the fleet has one active EC2 instance in the fleet
-home Region and one each in the fleet's remote locations. All instances have game are
-ready to host game sessions.
+home Region and one each in the fleet's remote locations. All instances have game
+servers and are ready to host game sessions.
 
 1. Amazon GameLift Servers creates the fleet resource in the fleet's home Region and sets desired
    capacity in each location to one (1) instance. Fleet and location status is set to

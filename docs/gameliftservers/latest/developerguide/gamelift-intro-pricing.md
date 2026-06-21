@@ -31,6 +31,8 @@ use.
 
 - **Data transfer** – Pay for traffic between game clients and hosted game servers
 
+Network bandwidth is free for all instance types from generation 6 and later.
+
 **Anywhere hosting**
 
 Anywhere hosting runs on game hosting resources that you supply and manage, so there

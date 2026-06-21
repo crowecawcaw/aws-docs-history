@@ -32,6 +32,9 @@ using the Amazon GameLift Servers plugin for Unity, see also [Amazon GameLift Se
 - [GetComputeCertificateResult](#integration-server-sdk5-csharp-datatypes-getcomputecertificateresult "#integration-server-sdk5-csharp-datatypes-getcomputecertificateresult")
 - [GetFleetRoleCredentialsOutcome](#integration-server-sdk5-csharp-datatypes-getfleetrolecredentialsoutcome "#integration-server-sdk5-csharp-datatypes-getfleetrolecredentialsoutcome")
 - [GetFleetRoleCredentialsResult](#integration-server-sdk5-csharp-datatypes-getfleetrolecredentialsresult "#integration-server-sdk5-csharp-datatypes-getfleetrolecredentialsresult")
+- [ListContainersNetworkInfoOutcome](#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinfooutcome "#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinfooutcome")
+- [ListContainersNetworkInfoResult](#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinforesult "#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinforesult")
+- [ContainerNetworkInfo](#integration-server-sdk5-csharp-datatypes-containernetworkinfo "#integration-server-sdk5-csharp-datatypes-containernetworkinfo")
 - [AwsDateTimeOutcome](#integration-server-sdk5-csharp-datatypes-awsdatetimeoutcome "#integration-server-sdk5-csharp-datatypes-awsdatetimeoutcome")
 - [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")
 - [Enums](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums")
@@ -320,6 +323,36 @@ This data type results from an action and produces an object with the following 
 | Success            | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                             |
 | Error              | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
 
+## ListContainersNetworkInfoOutcome
+
+This data type results from an action and produces an object with the following properties:
+
+| Properties | Description                                                                                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result     | The result of the action.<br>**Type:\*<br>• [ListContainersNetworkInfoResult](#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinforesult "#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinforesult")<br>**Required:\*<br>• No |
+| Success    | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                     |
+| Error      | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-csharp-datatypes-gamelifterror "#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No                         |
+
+## ListContainersNetworkInfoResult
+
+Network information for all containers running on the same instance as the calling
+game server process.
+
+| Properties            | Description                                                                                                                                                                                                                                                                                      |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:\*<br>• A list of [ContainerNetworkInfo](#integration-server-sdk5-csharp-datatypes-containernetworkinfo "#integration-server-sdk5-csharp-datatypes-containernetworkinfo") objects<br>**Required:\*<br>• No |
+
+## ContainerNetworkInfo
+
+Network information for a single container running on the instance.
+
+| Properties         | Description                                                                                                                                                                                                                             |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainerName      | The name of the container, as defined in the container group definition.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                            |
+| ContainerId        | The unique identifier of the container.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                                             |
+| IpAddress          | The container's local IPv4 address on the Docker bridge network.<br>**Type:\*<br>• `string`<br>**Required:\*<br>• No                                                                                                                    |
+| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:\*<br>• A `ContainerGroupType` [enum](#integration-server-sdk5-csharp-datatypes-enums "#integration-server-sdk5-csharp-datatypes-enums").<br>**Required:\*<br>• No |
+
 ## AwsDateTimeOutcome
 
 This data type results from an action and produces an object with the following properties:
@@ -360,6 +393,7 @@ String value indicating the error type. Valid values include:
 - **GAMESESSION_ID_NOT_SET** – The game session ID has not been set.
 - **BAD_REQUEST_EXCEPTION**
 - **INTERNAL_SERVICE_EXCEPTION**
+- **UNSUPPORTED_COMPUTE_TYPE_EXCEPTION** – The API that was called was unsupported on the compute type.
 - **ALREADY_INITIALIZED** – The Amazon GameLift Servers Server or Client has already been initialized with Initialize().
 - **FLEET_MISMATCH** – The target fleet does not match the fleet of a gameSession or playerSession.
 - **GAMELIFT_CLIENT_NOT_INITIALIZED** – The Amazon GameLift Servers client has not been initialized.
@@ -404,3 +438,13 @@ Valid values include:
 - **NOT_SET**
 - **RESERVED**
 - **TIMEDOUT**
+
+**ContainerGroupType**
+
+The type of container group that a container belongs to. Valid values
+include:
+
+- `GAME_SERVER` – A game server replica container
+  group. An instance can have multiple game server container groups.
+- `PER_INSTANCE` – A per-instance daemon container
+  group. An instance has exactly one per-instance container group.

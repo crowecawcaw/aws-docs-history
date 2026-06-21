@@ -18,11 +18,12 @@ GitHub organization.](https://github.com/amazon-gamelift/ "https://github.com/am
 | Service release | AWS SDK                                                                                                                                  | Server SDK | Plugin for Unreal | Plugin for Unity | Client SDK   | Realtime client SDK |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------- | ---------------- | ------------ | ------------------- | ----- | ----- | ----- | ------------ | ----- |
 |                 | C++                                                                                                                                      | C#         | Unity (C#)        | C++              | Unreal (C++) | Go                  |       |       | C++   | Unreal (C++) |       |
-| 2026-04-30      | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later | 5.4.0      | 5.4.0             | 5.4.1            | 5.4.1        | 5.4.0               | 3.2.1 | 3.2.1 | 1.0.1 | 1.0.0        | 1.2.0 |
+| 2026-06-18      | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later | 5.5.0      | 5.5.0             | 5.5.0            | 5.5.0        | 5.5.0               | 3.3.0 | 3.3.0 | 1.0.1 | 1.0.0        | 1.2.0 |
 
 | Service release                                                                                                                                                       | AWS SDK                                                                                                                                  | Server SDK            | Plugin for Unreal | Plugin for Unity | Client SDK | Realtime client SDK |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------------- | ---------------- | ---------- | ------------------- | ----- | ----- | ----- | ------------ | ----- |
 |                                                                                                                                                                       | C++                                                                                                                                      | C#                    | C# Unity          | C++              | C++ Unreal | Go                  |       |       | C++   | Unreal (C++) |       |
+| [2026-04-29](#release-notes-04292026 "#release-notes-04292026")                                                                                                       | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later | 5.4.0                 | 5.4.0             | 5.4.1            | 5.4.1      | 5.4.0               | 3.2.1 | 3.2.1 | 1.0.1 | 1.0.0        | 1.2.0 |
 | [2026-03-04](#release-notes-03042026 "#release-notes-03042026")                                                                                                       | [1.11.762](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.762") or later | 5.4.0                 | 5.4.0             | 5.4.0            | 5.4.0      | 5.4.0               | 3.2.0 | 3.2.1 | 1.0.1 | 1.0.0        | 1.2.0 |
 | [2026-02-24](#release-notes-02242026 "#release-notes-02242026")                                                                                                       | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.4.0                 | 5.4.0             | 5.4.0            | 5.4.0      | 5.4.0               | 3.1.1 | 3.2.1 |       |              | 1.2.0 |
 | [2025-10-28](#release-notes-10282025 "#release-notes-10282025")                                                                                                       | [1.11.595](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.595") or later | 5.4.0                 | 5.4.0             | 5.4.0            | 5.4.0      | 5.4.0               | 3.1.0 | 3.2.0 |       |              | 1.2.0 |
@@ -95,6 +96,59 @@ GitHub organization.](https://github.com/amazon-gamelift/ "https://github.com/am
 The following release notes are in chronological order, with the latest updates listed
 first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those
 listed here, see the release date links in [SDK versions](#release-notes-history "#release-notes-history").
+
+This release adds two improvements for container fleets: support for
+customizing Linux capabilities for containers, and a new server SDK action for
+discovering container network information.
+
+**Customize Linux capabilities**
+
+You can now specify additional Linux capabilities in a container group
+definition, giving you finer control over the default Docker capabilities. This
+is useful for game server or support containers that require capabilities beyond
+the default set, such as `NET_RAW` for custom networking or
+`SYS_PTRACE` for debugging. You can add Linux capabilities when you
+create a container group definition with
+`CreateContainerGroupDefinition`, or update an existing one with
+`UpdateContainerGroupDefinition`. This feature is available through
+the Amazon GameLift Servers console, AWS CLI, AWS SDK, and AWS CloudFormation.
+
+**Discover container network information**
+
+Game servers running on container fleets can now call the new
+`ListContainersNetworkInfo()` server SDK action to retrieve network
+information (including the name, ID, local IP address, and container
+group type) for all containers running on the same instance. With this
+information, containers can discover one another and establish network
+communication across different container group definitions on the same
+instance. For example, a container in the game server container group can now
+emit metrics to a container in the per-instance container group over the
+instance's local network. This action is available in the Amazon GameLift Servers server SDK 5.5
+or later for Go, C++, and C#, and in the Amazon GameLift Servers plugins for Unreal Engine and
+Unity.
+
+###### **Learn more:**
+
+- [CreateContainerGroupDefinition](../apireference/API_CreateContainerGroupDefinition.md "../apireference/API_CreateContainerGroupDefinition.md"), _Amazon GameLift Servers API Reference_
+- [UpdateContainerGroupDefinition](../apireference/API_UpdateContainerGroupDefinition.md "../apireference/API_UpdateContainerGroupDefinition.md"), _Amazon GameLift Servers API Reference_
+- [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md"), _Amazon GameLift Servers Developer Guide_
+- [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md"), _Amazon GameLift Servers Developer Guide_
+- [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md"), _Amazon GameLift Servers Developer Guide_
+- [C++ (Unreal) server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md"), _Amazon GameLift Servers Developer Guide_
+  Starting today, Amazon GameLift Servers provides network bandwidth in and out of AWS at no
+  additional charge for all instance types from generation 6 and later, including
+  On-Demand and Spot, with no commitment required. You now pay only for your Amazon GameLift Servers
+  instance hours; all network bandwidth is free.
+
+Multiplayer game servers generate continuous network traffic to connected
+players, making bandwidth one of the most unpredictable cost components for game
+studio customers. With free network bandwidth included, Amazon GameLift Servers eliminates this
+cost, giving you the simplicity of bare-metal hosting with the global reach of
+AWS.
+
+Free network bandwidth applies with no enrollment, pricing agreement, or
+configuration change required. Existing customers on eligible fleets receive the
+benefit immediately.
 
 Amazon GameLift Servers has launched a new public API for container fleets,
 `DescribeContainerGroupPortMappings`. This operation retrieves the

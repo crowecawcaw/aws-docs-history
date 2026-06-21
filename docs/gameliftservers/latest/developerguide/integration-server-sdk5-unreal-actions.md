@@ -29,6 +29,7 @@ Specifically, this documentation applies to code that you compile with the `-DBU
 - [StopMatchBackfill()](#integration-server-sdk5-unreal-stopmatchbackfill "#integration-server-sdk5-unreal-stopmatchbackfill")
 - [GetComputeCertificate()](#integration-server-sdk5-unreal-getcomputecertificate "#integration-server-sdk5-unreal-getcomputecertificate")
 - [GetFleetRoleCredentials()](#integration-server-sdk5-unreal-getfleetrolecredentials "#integration-server-sdk5-unreal-getfleetrolecredentials")
+- [ListContainersNetworkInfo()](#integration-server-sdk5-unreal-listcontainersnetworkinfo "#integration-server-sdk5-unreal-listcontainersnetworkinfo")
 - [Destroy()](#integration-server-sdk5-unreal-ref-destroy "#integration-server-sdk5-unreal-ref-destroy")
 
 ## GetSdkVersion()
@@ -755,6 +756,74 @@ FGameLiftGetFleetRoleCredentialsOutcome FGameLiftServerSDKModule::GetFleetRoleCr
   #else
   return FGameLiftGetFleetRoleCredentialsOutcome(FGameLiftGetFleetRoleCredentialsResult());
   #endif
+}
+```
+
+## ListContainersNetworkInfo()
+
+Retrieves network information for all containers running on the same instance,
+including each container's name, ID, local IP address, and container group type. Use this
+information to enable game server processes to discover and communicate with other
+containers that are running on the same instance.
+
+This action is supported only on container fleets. When called from any other compute
+type, it returns an `UNSUPPORTED_COMPUTE_TYPE_EXCEPTION` error. Amazon GameLift Servers obtains
+the network information from a discovery server that runs locally on the instance.
+
+### Syntax
+
+```
+FGameLiftListContainersNetworkInfoOutcome FGameLiftServerSDKModule::ListContainersNetworkInfo()
+```
+
+### Return value
+
+Returns a [FGameLiftListContainersNetworkInfoOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinfooutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinfooutcome") object.
+
+### Example
+
+```
+FGameLiftListContainersNetworkInfoOutcome FGameLiftServerSDKModule::ListContainersNetworkInfo()
+{
+#if WITH_GAMELIFT
+    auto outcome = Aws::GameLift::Server::ListContainersNetworkInfo();
+    if (outcome.IsSuccess()) {
+        auto& outres = outcome.GetResult();
+        FGameLiftListContainersNetworkInfoResult result;
+
+        const int count = outres.GetContainersNetworkInfoCount();
+        if (count > 0) {
+            const auto* containersNetworkInfo = outres.GetContainersNetworkInfo();
+            result.m_containersNetworkInfo.Reserve(count);
+
+            for (int i = 0; i < count; ++i) {
+                const auto& info = containersNetworkInfo[i];
+                FContainerNetworkInfo& dst = result.m_containersNetworkInfo.AddDefaulted_GetRef();
+                dst.m_containerName = UTF8_TO_TCHAR(info.GetContainerName());
+                dst.m_containerId   = UTF8_TO_TCHAR(info.GetContainerId());
+                dst.m_ipAddress     = UTF8_TO_TCHAR(info.GetIpAddress());
+                switch (info.GetContainerGroupType()) {
+                    case Aws::GameLift::Server::Model::ContainerGroupType::GAME_SERVER:
+                        dst.m_containerGroupType = EContainerGroupType::GAME_SERVER;
+                        break;
+                    case Aws::GameLift::Server::Model::ContainerGroupType::PER_INSTANCE:
+                        dst.m_containerGroupType = EContainerGroupType::PER_INSTANCE;
+                        break;
+                    default:
+                        dst.m_containerGroupType = EContainerGroupType::GAME_SERVER;
+                        break;
+                }
+            }
+        }
+
+        return FGameLiftListContainersNetworkInfoOutcome(result);
+    }
+    else {
+        return FGameLiftListContainersNetworkInfoOutcome(FGameLiftError(outcome.GetError()));
+    }
+#else
+    return FGameLiftListContainersNetworkInfoOutcome(FGameLiftListContainersNetworkInfoResult());
+#endif
 }
 ```
 

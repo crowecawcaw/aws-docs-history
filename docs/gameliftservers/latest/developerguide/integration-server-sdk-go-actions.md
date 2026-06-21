@@ -26,6 +26,7 @@ Amazon GameLift Servers. For guidance about the integration process, see [Add Am
 - [StopMatchBackfill()](#integration-server-sdk-go-stopmatchbackfill "#integration-server-sdk-go-stopmatchbackfill")
 - [GetComputeCertificate()](#integration-server-sdk-go-getcomputecertificate "#integration-server-sdk-go-getcomputecertificate")
 - [GetFleetRoleCredentials()](#integration-server-sdk-go-getfleetrolecredentials "#integration-server-sdk-go-getfleetrolecredentials")
+- [ListContainersNetworkInfo()](#integration-server-sdk-go-listcontainersnetworkinfo "#integration-server-sdk-go-listcontainersnetworkinfo")
 - [Destroy()](#integration-server-sdk-go-destroy "#integration-server-sdk-go-destroy")
 
 ## GetSdkVersion()
@@ -714,6 +715,56 @@ getFleetRoleCredentialsRequest := request.NewGetFleetRoleCredentials()
 getFleetRoleCredentialsRequest.RoleArn = "`arn:aws:iam::123456789012:role/service-role/exampleGameLiftAction`"
 
 credentials, err := server.GetFleetRoleCredentials(getFleetRoleCredentialsRequest)
+```
+
+## ListContainersNetworkInfo()
+
+Retrieves network information for all containers running on the same instance,
+including each container's name, ID, local IP address, and container group type. Use this
+information to enable game server processes to discover and communicate with other
+containers that are running on the same instance.
+
+This action is supported only on container fleets. When called from any other compute
+type, it returns an `UnsupportedComputeTypeException` error. Amazon GameLift Servers obtains the
+network information from a discovery server that runs locally on the instance.
+
+### Syntax
+
+```
+func ListContainersNetworkInfo() (result.ListContainersNetworkInfoResult, error)
+```
+
+### Return value
+
+If successful, returns a `ListContainersNetworkInfoResult` object that
+contains the following:
+
+- `ContainersNetworkInfo` - A list of
+  `ContainerNetworkInfo` entries, with one entry for each
+  container running on the instance. Each entry contains the following:
+
+  - `ContainerName` - The name of the container.
+  - `ContainerID` - The unique identifier of the
+    container.
+  - `IPAddress` - The local IP address of the container on
+    the instance.
+  - `ContainerGroupType` - The type of container group that
+    the container belongs to. Valid values are
+    `GAME_SERVER` and `PER_INSTANCE`.
+
+### Example
+
+```
+networkInfo, err := server.ListContainersNetworkInfo()
+if err != nil {
+  fmt.Println("ListContainersNetworkInfo() failed. Error: ", err)
+  return
+}
+
+for _, container := range networkInfo.ContainersNetworkInfo {
+  fmt.Printf("Container %s (%s) at %s, group type %s\n",
+    container.ContainerName, container.ContainerID, container.IPAddress, container.ContainerGroupType)
+}
 ```
 
 ## Destroy()

@@ -37,6 +37,9 @@ Specifically, this documentation applies to code that you compile with the `-DDG
 - [GetComputeCertificateResult](#integration-server-sdk5-cpp-datatypes-getcomputecertificateresult "#integration-server-sdk5-cpp-datatypes-getcomputecertificateresult")
 - [GetFleetRoleCredentialsOutcome](#integration-server-sdk5-cpp-datatypes-getfleetrolecredentialsoutcome "#integration-server-sdk5-cpp-datatypes-getfleetrolecredentialsoutcome")
 - [GetFleetRoleCredentialsResult](#integration-server-sdk5-cpp-datatypes-getfleetrolecredentialsresult "#integration-server-sdk5-cpp-datatypes-getfleetrolecredentialsresult")
+- [ListContainersNetworkInfoOutcome](#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinfooutcome "#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinfooutcome")
+- [ListContainersNetworkInfoResult](#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinforesult "#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinforesult")
+- [ContainerNetworkInfo](#integration-server-sdk5-cpp-datatypes-containernetworkinfo "#integration-server-sdk5-cpp-datatypes-containernetworkinfo")
 - [InitSDKOutcome](#integration-server-sdk5-cpp-datatypes-initsdkoutcome "#integration-server-sdk5-cpp-datatypes-initsdkoutcome")
 - [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")
 - [Enums](#integration-server-sdk5-cpp-dataypes-enums "#integration-server-sdk5-cpp-dataypes-enums")
@@ -347,6 +350,37 @@ This data type results from an action and produces an object with the following 
 | Success            | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                                                                                   |
 | Error              | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
 
+## ListContainersNetworkInfoOutcome
+
+This data type results from an action and produces an object with the following properties:
+
+| Properties          | Description                                                                                                                                                                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:\*<br>• [ListContainersNetworkInfoResult](#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinforesult "#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinforesult")<br>**Required:\*<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `Aws::GameLift::Server::Model::ListContainersNetworkInfoResult&&`<br>**Required\*\*: No                                       |
+| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                               |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](#integration-server-sdk5-cpp-datatypes-gamelifterror "#integration-server-sdk5-cpp-datatypes-gamelifterror")<br>**Required:\*<br>• No                         |
+
+## ListContainersNetworkInfoResult
+
+Network information for all containers running on the same instance as the calling
+game server process.
+
+| Properties            | Description                                                                                                                                                                                                                                                                      |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:\*<br>• `std::vector<ContainerNetworkInfo>` when `GAMELIFT_USE_STD` is defined; otherwise a fixed array with an accessor named `GetContainersNetworkInfoCount()`.<br>**Required:\*<br>• No |
+
+## ContainerNetworkInfo
+
+Network information for a single container running on the instance.
+
+| Properties         | Description                                                                                                                                                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainerName      | The name of the container, as defined in the container group<br>definition.<br>**Type:\*<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:\*<br>• No                                    |
+| ContainerId        | The unique identifier of the container.<br>**Type:\*<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:\*<br>• No                                                                        |
+| IpAddress          | The container's local IPv4 address on the Docker bridge<br>network.<br>**Type:\*<br>• `std::string` when `GAMELIFT_USE_STD` is defined; otherwise `char[]`.<br>**Required:\*<br>• No                                            |
+| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:\*<br>• A `ContainerGroupType` [enum](#integration-server-sdk5-cpp-dataypes-enums "#integration-server-sdk5-cpp-dataypes-enums").<br>**Required:\*<br>• No |
+
 ## InitSDKOutcome
 
 ###### Note
@@ -378,6 +412,7 @@ String value indicating the error type. Valid values include:
 - **BAD_REQUEST_EXCEPTION**
 - **GAMESESSION_ID_NOT_SET** – The game session ID has not been set.
 - **INTERNAL_SERVICE_EXCEPTION**
+- **UNSUPPORTED_COMPUTE_TYPE_EXCEPTION** – The API that was called was unsupported on the compute type.
 - **LOCAL_CONNECTION_FAILED** – The local connection to Amazon GameLift Servers failed.
 - **NETWORK_NOT_INITIALIZED** – The network has not been initialized.
 - **SERVICE_CALL_FAILED** – A call to an AWS service has failed.
@@ -412,6 +447,14 @@ String value indicating the error type. Valid values include:
 - **WEBSOCKET_SEND_MESSAGE_FAILURE** – Failure to send a message to the GameLift Service WebSocket.
 - **MATCH_BACKFILL_REQUEST_VALIDATION** – Validation of the request failed.
 - **PLAYER_SESSION_REQUEST_VALIDATION** – Validation of the request failed.
+
+**ContainerGroupType**
+
+The type of container group that a container belongs to. Valid values
+include:
+
+- **GAME_SERVER** – A game server replica container group. An instance can have multiple game server container groups.
+- **PER_INSTANCE** – A per-instance daemon container group. An instance has exactly one per-instance container group.
 
 **PlayerSessionCreationPolicy**
 

@@ -30,6 +30,7 @@ Specifically, this documentation applies to code that you compile with the `-DDG
 - [StopMatchBackfill()](#integration-server-sdk5-cpp-stopmatchbackfill "#integration-server-sdk5-cpp-stopmatchbackfill")
 - [GetComputeCertificate()](#integration-server-sdk5-cpp-getcomputecertificate "#integration-server-sdk5-cpp-getcomputecertificate")
 - [GetFleetRoleCredentials()](#integration-server-sdk5-cpp-getfleetrolecredentials "#integration-server-sdk5-cpp-getfleetrolecredentials")
+- [ListContainersNetworkInfo()](#integration-server-sdk5-cpp-listcontainersnetworkinfo "#integration-server-sdk5-cpp-listcontainersnetworkinfo")
 - [Destroy()](#integration-server-sdk5-cpp-ref-destroy "#integration-server-sdk5-cpp-ref-destroy")
 
 ## GetSdkVersion()
@@ -800,6 +801,33 @@ getFleetRoleCredentialsRequest.SetRoleArn("`arn:aws:iam::123456789012:role/servi
 getFleetRoleCredentialsRequest.SetRoleSessionName("`MyFleetRoleSession`");
 
 Aws::GameLift::GetFleetRoleCredentialsOutcome credentials = Aws::GameLift::Server::GetFleetRoleCredentials(getFleetRoleCredentialsRequest);
+```
+
+## ListContainersNetworkInfo()
+
+Retrieves network information for all containers running on the same instance,
+including each container's name, ID, local IP address, and container group type. Use this
+information to enable game server processes to discover and communicate with other
+containers that are running on the same instance.
+
+This action is supported only on container fleets. When called from any other compute
+type, it returns an `UNSUPPORTED_COMPUTE_TYPE_EXCEPTION` error. Amazon GameLift Servers obtains
+the network information from a discovery server that runs locally on the instance.
+
+### Syntax
+
+```
+ListContainersNetworkInfoOutcome ListContainersNetworkInfo()
+```
+
+### Return value
+
+Returns a [ListContainersNetworkInfoOutcome](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinfooutcome "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-listcontainersnetworkinfooutcome").
+
+### Example
+
+```
+Aws::GameLift::ListContainersNetworkInfoOutcome containersNetworkInfo = Aws::GameLift::Server::ListContainersNetworkInfo();
 ```
 
 ## Destroy()

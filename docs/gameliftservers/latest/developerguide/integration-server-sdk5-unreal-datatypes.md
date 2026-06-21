@@ -33,6 +33,9 @@ Specifically, this documentation applies to code that you compile with the `-DBU
 - [FGameLiftGetComputeCertificateResult](#integration-server-sdk5-unreal-dataypes-getcomputecertificateresult "#integration-server-sdk5-unreal-dataypes-getcomputecertificateresult")
 - [FGameLiftGetFleetRoleCredentialsOutcome](#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsoutcome "#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsoutcome")
 - [FGetFleetRoleCredentialsResult](#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsresult "#integration-server-sdk5-unreal-dataypes-getfleetrolecredentialsresult")
+- [FGameLiftListContainersNetworkInfoOutcome](#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinfooutcome "#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinfooutcome")
+- [FGameLiftListContainersNetworkInfoResult](#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinforesult "#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinforesult")
+- [FContainerNetworkInfo](#integration-server-sdk5-unreal-dataypes-containernetworkinfo "#integration-server-sdk5-unreal-dataypes-containernetworkinfo")
 - [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")
 - [Enums](#integration-server-sdk5-unreal-dataypes-enums "#integration-server-sdk5-unreal-dataypes-enums")
 
@@ -279,6 +282,37 @@ This data type results from an action and produces an object with the following 
 | Success            | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                                                                                   |
 | Error              | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [GameLiftError](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-gamelifterror")<br>**Required:\*<br>• No |
 
+## FGameLiftListContainersNetworkInfoOutcome
+
+This data type results from an action and produces an object with the following properties:
+
+| Properties          | Description                                                                                                                                                                                                                                                          |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Result              | The result of the action.<br>**Type:\*<br>• [FGameLiftListContainersNetworkInfoResult](#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinforesult "#integration-server-sdk5-unreal-dataypes-listcontainersnetworkinforesult")<br>**Required:\*<br>• No |
+| ResultWithOwnership | The result of the action, cast as an rvalue, so that the calling code can take ownership of the object.<br>**Type:\*<br>• `FGameLiftListContainersNetworkInfoResult&&`<br>**Required\*\*: No                                                                         |
+| Success             | Whether the action was successful or not.<br>**Type:\*<br>• `bool`<br>**Required\*\*: Yes                                                                                                                                                                            |
+| Error               | The error that occurred if the action was unsuccessful.<br>**Type:\*<br>• [FGameLiftError](#integration-server-sdk5-unreal-dataypes-gamelifterror "#integration-server-sdk5-unreal-dataypes-gamelifterror")<br>**Required:\*<br>• No                                 |
+
+## FGameLiftListContainersNetworkInfoResult
+
+Network information for all containers running on the same instance as the calling
+game server process.
+
+| Properties            | Description                                                                                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ContainersNetworkInfo | The list of network information for each container running on the instance.<br>**Type:\*<br>• `TArray<FContainerNetworkInfo>`<br>**Required:\*<br>• No |
+
+## FContainerNetworkInfo
+
+Network information for a single container running on the instance.
+
+| Properties         | Description                                                                                                                                                                                                                             |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ContainerName      | The name of the container, as defined in the container group<br>definition.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                        |
+| ContainerId        | The unique identifier of the container.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                                            |
+| IpAddress          | The container's local IPv4 address on the Docker bridge<br>network.<br>**Type:\*<br>• `FString`<br>**Required:\*<br>• No                                                                                                                |
+| ContainerGroupType | The type of container group that the container belongs to.<br>**Type:\*<br>• An `EContainerGroupType` [enum](#integration-server-sdk5-unreal-dataypes-enums "#integration-server-sdk5-unreal-dataypes-enums").<br>**Required:\*<br>• No |
+
 ## FGameLiftError
 
 | Properties   | Description                                                                                                                                                                                                                                                            |
@@ -336,6 +370,7 @@ String value indicating the error type. Valid values include:
 - **WEBSOCKET_SEND_MESSAGE_FAILURE** – Failure to send a message to the GameLift Service WebSocket.
 - **MATCH_BACKFILL_REQUEST_VALIDATION** – Validation of the request failed.
 - **PLAYER_SESSION_REQUEST_VALIDATION** – Validation of the request failed.
+- **UNSUPPORTED_COMPUTE_TYPE_EXCEPTION** – The API that was called was unsupported on the compute type.
 
 **EPlayerSessionCreationPolicy**
 
@@ -353,3 +388,15 @@ Valid values include:
 - **NOT_SET**
 - **RESERVED**
 - **TIMEDOUT**
+
+**EContainerGroupType**
+
+The type of container group that a container belongs to. Valid values
+include:
+
+- **GAME_SERVER** – A game server
+  replica container group. An instance can run multiple game server
+  container groups.
+- **PER_INSTANCE** – A per-instance
+  daemon container group. An instance runs exactly one per-instance
+  container group.

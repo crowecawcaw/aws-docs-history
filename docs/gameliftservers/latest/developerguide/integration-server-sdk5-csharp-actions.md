@@ -25,6 +25,7 @@ using the Amazon GameLift Servers plugin for Unity, see also [Amazon GameLift Se
 - [StopMatchBackfill()](#integration-server-sdk5-csharp-stopmatchbackfill "#integration-server-sdk5-csharp-stopmatchbackfill")
 - [GetComputeCertificate()](#integration-server-sdk5-csharp-getcomputecertificate "#integration-server-sdk5-csharp-getcomputecertificate")
 - [GetFleetRoleCredentials()](#integration-server-sdk5-csharp-getfleetrolecredentials "#integration-server-sdk5-csharp-getfleetrolecredentials")
+- [ListContainersNetworkInfo()](#integration-server-sdk5-csharp-listcontainersnetworkinfo "#integration-server-sdk5-csharp-listcontainersnetworkinfo")
 - [Destroy()](#integration-server-sdk5-csharp-destroy "#integration-server-sdk5-csharp-destroy")
 
 ## GetSdkVersion()
@@ -658,6 +659,33 @@ GetFleetRoleCredentialsRequest getFleetRoleCredentialsRequest = new GetFleetRole
   RoleArn = "`arn:aws:iam::123456789012:role/service-role/exampleGameLiftAction`"
 };
 GetFleetRoleCredentialsOutcome GetFleetRoleCredentialsOutcome credentials = GetFleetRoleCredentials(getFleetRoleCredentialsRequest);
+```
+
+## ListContainersNetworkInfo()
+
+Retrieves network information for all containers running on the same instance,
+including each container's name, ID, local IP address, and container group type. Use this
+information to enable game server processes to discover and communicate with other
+containers that are running on the same instance.
+
+This action is supported only on container fleets. When called from any other compute
+type, it returns an `UNSUPPORTED_COMPUTE_TYPE_EXCEPTION` error. Amazon GameLift Servers obtains
+the network information from a discovery server that runs locally on the instance.
+
+### Syntax
+
+```
+ListContainersNetworkInfoOutcome ListContainersNetworkInfo();
+```
+
+### Return value
+
+Returns a [ListContainersNetworkInfoOutcome](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinfooutcome "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-listcontainersnetworkinfooutcome") object.
+
+### Example
+
+```
+ListContainersNetworkInfoOutcome listContainersNetworkInfoOutcome = GameLiftServerAPI.ListContainersNetworkInfo();
 ```
 
 ## Destroy()

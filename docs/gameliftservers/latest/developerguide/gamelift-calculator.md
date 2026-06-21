@@ -115,6 +115,9 @@ This section helps you estimate the cost for traffic between your game clients a
 servers. Data transfer fees apply to outbound traffic only. Inbound data transfer has no
 cost.
 
+Network bandwidth is free for all instance types from generation 6 and
+later.
+
 On the [Configure Amazon GameLift Servers
 page](https://calculator.aws/#/createCalculator/GameLiftServers "https://calculator.aws/#/createCalculator/GameLiftServers") of AWS Pricing Calculator, expand **Data transfer out (DTO)**, and then complete
 the following fields:
