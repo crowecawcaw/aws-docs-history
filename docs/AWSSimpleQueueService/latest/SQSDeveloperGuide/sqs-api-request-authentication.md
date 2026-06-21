@@ -3,7 +3,7 @@
 Authentication is the process of identifying and verifying the party that sends a request.
 During the first stage of authentication, AWS verifies the identity of the producer and
 whether the producer is [registered to use AWS](https://aws.amazon.com/ "https://aws.amazon.com/") (for
-more information, see [Step 1: Create an AWS account and IAM user](sqs-setting-up.md#sqs-creating-aws-account "sqs-setting-up.md#sqs-creating-aws-account")). Next, AWS abides by the following
+more information, see [Setting up Amazon SQS](sqs-setting-up.md "sqs-setting-up.md")). Next, AWS abides by the following
 procedure:
 
 1. The producer (sender) obtains the necessary credential.
