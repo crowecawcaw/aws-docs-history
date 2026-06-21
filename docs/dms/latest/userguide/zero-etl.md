@@ -99,7 +99,12 @@ Before creating a zero-ETL integration, ensure you have the following:
 
 - An IAM user or role with appropriate permissions to create and manage integrations
 - Configure AWS DMS source endpoints for your self-managed databases. For more information, see [Source database configuration before creating integration](#zero-etl.source-database-configuration "#zero-etl.source-database-configuration").
-- An Amazon Redshift provisioned cluster or serverless namespace as the target
+- An Amazon Redshift provisioned cluster as the target
+
+###### Note
+
+Amazon Redshift Serverless cannot be used as a target for zero-ETL integrations from self-managed sources.
+
 - Network configuration including VPC subnets and security groups
 
 ### Creating a KMS key
@@ -268,7 +273,6 @@ Save the following policy to a file (for example, `/tmp/zetl-policy.json`):
             "Effect": "Allow",
             "Action": [
                 "redshift:*",
-                "redshift-serverless:*",
                 "ec2:DescribeAccountAttributes",
                 "ec2:DescribeAddresses",
                 "ec2:DescribeAvailabilityZones",
