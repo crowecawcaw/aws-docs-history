@@ -1,4 +1,4 @@
-# Logging your quantum tasks with CloudTrail
+# Logging your Braket actions with CloudTrail
 
 Amazon Braket is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in Amazon Braket. CloudTrail captures all API
@@ -16,6 +16,7 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 
 - [Amazon Braket information in CloudTrail](#braket-ct-logs-info "#braket-ct-logs-info")
 - [Understanding Amazon Braket log file entries](#understanding-braket-entries "#understanding-braket-entries")
+- [Monitor spending limit changes with CloudTrail events](#braket-ct-spending-limits "#braket-ct-spending-limits")
 
 ## Amazon Braket information in CloudTrail
 
@@ -144,3 +145,27 @@ The following shows a log entry for the `GetDevice` action, which returns the de
   "recipientAccountId": "foobar"
 }
 ```
+
+## Monitor spending limit changes with CloudTrail events
+
+You can use EventBridge to receive CloudTrail events when spending limit resources are created, updated,
+or deleted. This allows you to track changes to your spending limits. To filter for
+spending limit operations, use the following event pattern in EventBridge:
+
+```
+{
+  "source": ["aws.braket"],
+  "detail-type": ["AWS API Call via CloudTrail"],
+  "detail": {
+    "eventSource": ["braket.amazonaws.com"],
+    "eventName": [
+      "CreateSpendingLimit",
+      "UpdateSpendingLimit",
+      "DeleteSpendingLimit"
+    ]
+  }
+}
+```
+
+This event pattern matches CloudTrail events for any write operations against your spending limits,
+enabling you to audit and monitor changes to your cost control settings.
