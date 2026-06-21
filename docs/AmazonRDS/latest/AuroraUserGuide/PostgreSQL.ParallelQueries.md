@@ -14,13 +14,13 @@ To get the most benefit from parallel queries in Aurora PostgreSQL, it's importa
 
 PostgreSQL uses several parameters to control the behavior and availability of parallel queries. Understanding and tuning these is critical to achieving predictable performance:
 
-| Parameter                         | Description                                                          | Default                       |
-| --------------------------------- | -------------------------------------------------------------------- | ----------------------------- |
-| `max_parallel_workers`            | Maximum number of background worker processes that can run in total  | GREATEST($DBInstanceVCPU/2,8) |
-| `max_parallel_workers_per_gather` | Maximum number of workers per query plan node (e.g., per `Gather`)   | 2                             |
-| `parallel_setup_cost`             | Planner cost added for initiating parallel query infrastructure      | 1000                          |
-| `parallel_tuple_cost`             | Cost per tuple processed in parallel mode (impacts planner decision) | 0.1                           |
-| `force_parallel_mode`             | Forces planner to test parallel plans (`off`, `on`, `regress`)       | `off`                         |
+| Parameter                         | Description                                                          | Default                                                                                         |
+| --------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `max_parallel_workers`            | Maximum number of background worker processes that can run in total  | GREATEST($DBInstanceVCPU/2,8)                                                                   |
+| `max_parallel_workers_per_gather` | Maximum number of workers per query plan node (e.g., per `Gather`)   | 2 for Aurora PostgreSQL 17 and earlier versions. 0 for Aurora PostgreSQL 18 and later versions. |
+| `parallel_setup_cost`             | Planner cost added for initiating parallel query infrastructure      | 1000                                                                                            |
+| `parallel_tuple_cost`             | Cost per tuple processed in parallel mode (impacts planner decision) | 0.1                                                                                             |
+| `force_parallel_mode`             | Forces planner to test parallel plans (`off`, `on`, `regress`)       | `off`                                                                                           |
 
 ### Key Considerations
 

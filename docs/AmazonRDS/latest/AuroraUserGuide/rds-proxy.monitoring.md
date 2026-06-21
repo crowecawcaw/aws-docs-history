@@ -6,6 +6,10 @@ choose **RDS**, and choose **Per-Proxy Metrics**. For more information, see
 [Using Amazon
 CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") in the Amazon CloudWatch User Guide.
 
+You can also use the monitoring dashboard available in the RDS Proxy console. The dashboard provides a
+pre-configured set of metrics arranged into widgets, designed to help you perform common observability
+and troubleshooting tasks. For more information, see [RDS Proxy monitoring dashboard](rds-proxy-monitoring-dashboard.md "rds-proxy-monitoring-dashboard.md").
+
 ###### Note
 
 RDS publishes these metrics for each underlying Amazon EC2 instance associated with a proxy. A single proxy might

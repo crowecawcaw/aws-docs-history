@@ -23,36 +23,36 @@ Authentication with Aurora MySQL.
 | US East (Ohio)             | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | US West (N. California)    | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | US West (Oregon)           | Version 3.03.0 and higher | Version 8.4.7 and higher |
-| Africa (Cape Town)         | Not available             | Not available            |
-| Asia Pacific (Hong Kong)   | Not available             | Not available            |
-| Asia Pacific (Jakarta)     | Not available             | Not available            |
-| Asia Pacific (Malaysia)    | Not available             | Not available            |
-| Asia Pacific (Melbourne)   | Not available             | Not available            |
+| Africa (Cape Town)         | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Hong Kong)   | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Jakarta)     | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Malaysia)    | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Melbourne)   | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Asia Pacific (Mumbai)      | Version 3.03.0 and higher | Version 8.4.7 and higher |
-| Asia Pacific (New Zealand) | Not available             | Not available            |
-| Asia Pacific (Osaka)       | Not available             | Not available            |
+| Asia Pacific (New Zealand) | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Osaka)       | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Asia Pacific (Seoul)       | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Asia Pacific (Singapore)   | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Asia Pacific (Sydney)      | Version 3.03.0 and higher | Version 8.4.7 and higher |
-| Asia Pacific (Taipei)      | Not available             | Not available            |
-| Asia Pacific (Thailand)    | Not available             | Not available            |
+| Asia Pacific (Taipei)      | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Asia Pacific (Thailand)    | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Asia Pacific (Tokyo)       | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Canada (Central)           | Version 3.03.0 and higher | Version 8.4.7 and higher |
-| Canada West (Calgary)      | Not available             | Not available            |
+| Canada West (Calgary)      | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | China (Beijing)            | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | China (Ningxia)            | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Europe (Frankfurt)         | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Europe (Ireland)           | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Europe (London)            | Version 3.03.0 and higher | Version 8.4.7 and higher |
-| Europe (Milan)             | Not available             | Not available            |
+| Europe (Milan)             | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Europe (Paris)             | Version 3.03.0 and higher | Version 8.4.7 and higher |
-| Europe (Spain)             | Not available             | Not available            |
+| Europe (Spain)             | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | Europe (Stockholm)         | Version 3.03.0 and higher | Version 8.4.7 and higher |
-| Europe (Zurich)            | Not available             | Not available            |
-| Israel (Tel Aviv)          | Not available             | Not available            |
-| Mexico (Central)           | Not available             | Not available            |
-| Middle East (Bahrain)      | Not available             | Not available            |
-| Middle East (UAE)          | Not available             | Not available            |
+| Europe (Zurich)            | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Israel (Tel Aviv)          | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Mexico (Central)           | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Middle East (Bahrain)      | Version 3.03.0 and higher | Version 8.4.7 and higher |
+| Middle East (UAE)          | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | South America (São Paulo)  | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | AWS GovCloud (US-East)     | Version 3.03.0 and higher | Version 8.4.7 and higher |
 | AWS GovCloud (US-West)     | Version 3.03.0 and higher | Version 8.4.7 and higher |
@@ -72,16 +72,16 @@ Authentication with Aurora PostgreSQL.
 | Asia Pacific (Hong Kong)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Hyderabad)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Jakarta)     | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Asia Pacific (Malaysia)    | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Asia Pacific (Malaysia)    | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Melbourne)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Mumbai)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Asia Pacific (New Zealand) | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
-| Asia Pacific (Osaka)       | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Asia Pacific (New Zealand) | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Osaka)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Seoul)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Singapore)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Sydney)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Asia Pacific (Taipei)      | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
-| Asia Pacific (Thailand)    | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Asia Pacific (Taipei)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Thailand)    | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Tokyo)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Canada (Central)           | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Canada West (Calgary)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
@@ -96,7 +96,7 @@ Authentication with Aurora PostgreSQL.
 | Europe (Stockholm)         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Europe (Zurich)            | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Israel (Tel Aviv)          | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Mexico (Central)           | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Mexico (Central)           | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Middle East (Bahrain)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Middle East (UAE)          | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | South America (São Paulo)  | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
@@ -117,19 +117,19 @@ The following Regions and engine versions are available for ActiveDirectory with
 | Asia Pacific (Hong Kong)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Hyderabad)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Jakarta)     | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Asia Pacific (Malaysia)    | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Asia Pacific (Malaysia)    | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Melbourne)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Mumbai)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Asia Pacific (New Zealand) | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
-| Asia Pacific (Osaka)       | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Asia Pacific (New Zealand) | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Osaka)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Seoul)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Singapore)   | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Sydney)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Asia Pacific (Taipei)      | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
-| Asia Pacific (Thailand)    | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Asia Pacific (Taipei)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
+| Asia Pacific (Thailand)    | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Asia Pacific (Tokyo)       | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Canada (Central)           | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Canada West (Calgary)      | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Canada West (Calgary)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | China (Beijing)            | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | China (Ningxia)            | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Europe (Frankfurt)         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
@@ -141,7 +141,7 @@ The following Regions and engine versions are available for ActiveDirectory with
 | Europe (Stockholm)         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Europe (Zurich)            | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Israel (Tel Aviv)          | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
-| Mexico (Central)           | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        | Not available        |
+| Mexico (Central)           | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Middle East (Bahrain)      | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | Middle East (UAE)          | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |
 | South America (São Paulo)  | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         | All versions         |

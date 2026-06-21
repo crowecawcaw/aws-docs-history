@@ -109,7 +109,7 @@ the **Status** value changes to **Active**.
 To see information about your directory, choose the directory name in the directory listing. Note the **Directory
 ID** value because you need this value when you create or modify your Aurora MySQL DB cluster.
 
-![Directory ID in the Directory details page.](/images/AmazonRDS/latest/AuroraUserGuide/images/WinAuth3.png)
+![Directory ID in the Directory details page.](images/WinAuth3.png)
 
 ## Step 2: (Optional) Create a trust for an on-premises Active Directory
 
@@ -198,6 +198,60 @@ JSON
  }
  ]
 }`
+
+```
+
+For opt-in AWS Regions, use Region-specific service principals in IAM role trust
+policies. When you create a trust policy for services in these Regions, specify the Region
+code in the service principal.
+
+The following example shows a trust policy that includes Region-specific service
+principals:
+
+```
+
+{
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "directoryservice.rds.REGION-CODE.amazonaws.com",
+          "rds.REGION-CODE.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
+```
+
+Replace REGION-CODE with the code for your specific Region. For example, use the
+following service principals for the Asia Pacific (Melbourne) Region:
+
+```
+
+"Service": [
+  "directoryservice.rds.ap-southeast-4.amazonaws.com",
+  "rds.ap-southeast-4.amazonaws.com"
+]
+
+```
+
+For AWS Regions launched after Israel (Tel Aviv), starting with
+Canada West (Calgary), use the engine-specific service principal
+`directoryservice-`engine`.rds.`region-code`.amazonaws.com`,
+where `engine` is `aurora-mysql`. For example, for
+Canada West (Calgary) Region:
+
+```
+
+"Service": [
+  "directoryservice-aurora-mysql.rds.ca-west-1.amazonaws.com",
+  "rds.ca-west-1.amazonaws.com"
+]
 
 ```
 
