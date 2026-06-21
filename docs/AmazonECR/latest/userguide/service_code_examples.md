@@ -34,4 +34,4 @@ This topic also includes information about getting started and details about pre
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
 
-  - [Getting started with Amazon ECR](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")
+  - [Getting started with container registries](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")

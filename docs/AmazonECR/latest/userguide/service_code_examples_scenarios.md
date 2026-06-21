@@ -9,4 +9,4 @@ Scenarios target an intermediate level of experience to help you understand serv
 
 ###### Examples
 
-- [Getting started with Amazon ECR](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")
+- [Getting started with container registries](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")

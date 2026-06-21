@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md "example_ecr_Scenario_RepositoryManagement_section.md")
-- [Getting started with Amazon ECR](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")
+- [Getting started with container registries](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")
 
 CLI
 

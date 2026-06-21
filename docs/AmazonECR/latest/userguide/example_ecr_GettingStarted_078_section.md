@@ -1,4 +1,4 @@
-# Getting started with Amazon ECR
+# Getting started with container registries
 
 The following code example shows how to:
 
