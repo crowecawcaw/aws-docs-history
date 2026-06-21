@@ -53,7 +53,7 @@ The Aliases per KMS key quota replaces the Aliases per Region quota that limited
 ## Grants per KMS key: 50,000
 
 Each [customer managed key](concepts.md#customer-mgn-key "concepts.md#customer-mgn-key") can have up to 50,000
-[grants](grants.md "grants.md"), including the grants created by [AWS services that are integrated with AWS KMS](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration").
+[grants](grants.md "grants.md"), including the grants created by [AWS services that are integrated with AWS KMS](https://aws.amazon.com/kms/features/#aws-service-integration "https://aws.amazon.com/kms/features/#aws-service-integration").
 This quota does not apply to [AWS managed keys](concepts.md#aws-managed-key "concepts.md#aws-managed-key") or
 [AWS owned keys](concepts.md#aws-owned-key "concepts.md#aws-owned-key").
 

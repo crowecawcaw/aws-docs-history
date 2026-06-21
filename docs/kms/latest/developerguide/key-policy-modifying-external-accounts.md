@@ -284,7 +284,7 @@ Note the following details about this policy:
   element, you might inadvertently give access to more KMS keys than you
   intend.
 - To allow the external user to use the KMS key with [AWS services that integrate with
-  AWS KMS,](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration") you might need to add permissions to the key policy or the
+  AWS KMS,](https://aws.amazon.com/kms/features/#aws-service-integration "https://aws.amazon.com/kms/features/#aws-service-integration") you might need to add permissions to the key policy or the
   IAM policy. For details, see [Allowing use of external KMS keys with AWS services](#cross-account-service "#cross-account-service").
 
 For more information about working with IAM policies, see [IAM policies](iam-policies.md "iam-policies.md").

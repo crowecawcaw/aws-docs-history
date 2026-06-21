@@ -1139,7 +1139,7 @@ statement in a key policy.
 
 Allows or denies permission for the [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md"), [ListGrants](../APIReference/API_ListGrants.md "../APIReference/API_ListGrants.md"), or
 [RevokeGrant](../APIReference/API_RevokeGrant.md "../APIReference/API_RevokeGrant.md") operations only when an
-[AWS service integrated with AWS KMS](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration")
+[AWS service integrated with AWS KMS](https://aws.amazon.com/kms/features/#aws-service-integration "https://aws.amazon.com/kms/features/#aws-service-integration")
 calls the operation on the user's behalf. This policy condition doesn't allow the user to
 call these grant operations directly.
 
@@ -2505,7 +2505,7 @@ allows the KMS key to be used only for requests that come from the service that 
 the KMS key. To see the key policy for an AWS managed key, use the [GetKeyPolicy](../APIReference/API_GetKeyPolicy.md "../APIReference/API_GetKeyPolicy.md") operation.
 
 The `kms:ViaService` condition key is valid in IAM and key policy
-statements. The services that you specify must be [integrated with AWS KMS](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration") and support the `kms:ViaService` condition
+statements. The services that you specify must be [integrated with AWS KMS](https://aws.amazon.com/kms/features/#aws-service-integration "https://aws.amazon.com/kms/features/#aws-service-integration") and support the `kms:ViaService` condition
 key.
 
 ### Services that support the `kms:ViaService` condition key

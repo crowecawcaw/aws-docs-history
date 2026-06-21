@@ -49,7 +49,7 @@ To find: How many KMS key can I have in each Region of my account? How many
 aliases can I have on each KMS key?
 
 - [AWS
-  services integrated with AWS KMS](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration"). Lists the AWS services that use KMS
+  services integrated with AWS KMS](https://aws.amazon.com/kms/features/#aws-service-integration "https://aws.amazon.com/kms/features/#aws-service-integration"). Lists the AWS services that use KMS
   keys to protect the resources that they create, store, and manage.
 
 To find: Does Connect Customer use KMS keys to protect my Connect resources?

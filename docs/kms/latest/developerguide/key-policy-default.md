@@ -565,7 +565,7 @@ need to protect their data in AWS services that use grants. AWS services often u
 grants to get specific and limited permission to use a KMS key.
 
 This key policy statement allows the key user to create, view, and revoke grants on the
-KMS key, but only when the grant operation request comes from an [AWS service integrated with AWS KMS](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration"). The [kms:GrantIsForAWSResource](conditions-kms.md#conditions-kms-grant-is-for-aws-resource "conditions-kms.md#conditions-kms-grant-is-for-aws-resource") policy
+KMS key, but only when the grant operation request comes from an [AWS service integrated with AWS KMS](https://aws.amazon.com/kms/features/#aws-service-integration "https://aws.amazon.com/kms/features/#aws-service-integration"). The [kms:GrantIsForAWSResource](conditions-kms.md#conditions-kms-grant-is-for-aws-resource "conditions-kms.md#conditions-kms-grant-is-for-aws-resource") policy
 condition doesn't allow the user to call these grant operations directly. When the key user
 allows it, an AWS service can create a grant on the user's behalf that allows the service
 to use the KMS key to protect the user's data.

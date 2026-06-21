@@ -10,7 +10,7 @@ Amazon S3 buckets, and Amazon RDS databases. The following sections will cover t
 configure and manage AWS KMS encryption keys for specific AWS services, ensuring data
 confidentiality and integrity across your AWS environment.For the complete list of AWS services
 integrated with AWS KMS, see [AWS Service
-Integration](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration").
+Integration](https://aws.amazon.com/kms/features/#aws-service-integration "https://aws.amazon.com/kms/features/#aws-service-integration").
 
 The following topics discuss in detail how particular services use AWS KMS, including the
 KMS keys they support, how they manage data keys, the permissions they require, and how to

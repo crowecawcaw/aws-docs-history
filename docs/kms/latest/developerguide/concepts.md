@@ -89,7 +89,7 @@ details, see [AWS Key Management Service Pricing](https://aws.amazon.com/kms/pri
 ## AWS managed keys
 
 _AWS managed keys_ are KMS keys in your account
-that are created, managed, and used on your behalf by an [AWS service integrated with AWS KMS](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration").
+that are created, managed, and used on your behalf by an [AWS service integrated with AWS KMS](https://aws.amazon.com/kms/features/#aws-service-integration "https://aws.amazon.com/kms/features/#aws-service-integration").
 
 Some AWS services let you choose an AWS managed key or a customer managed key to protect your
 resources in that service. In general, unless you are required to control the encryption key
