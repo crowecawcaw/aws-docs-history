@@ -3,7 +3,7 @@
 With speaker diarization, you can distinguish between different speakers in your
 transcription output. Amazon Transcribe can differentiate between a maximum of 30 unique
 speakers and labels the text from each unique speaker with a unique value (`spk_0`
-through `spk_9`).
+through `spk_29`).
 
 In addition to the [standard transcript sections](how-input.md#how-it-works-output "how-input.md#how-it-works-output")
 (`transcripts` and `items`), requests with speaker partitioning

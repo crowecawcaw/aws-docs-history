@@ -117,7 +117,7 @@ see the following for examples:
    **Create job** (top right). This opens the **Specify job
    details** page.
 
-![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](images/console-batch-job-details-1.png) 3. Fill in any fields you want to include on the **Specify job details**
+![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](/images/transcribe/latest/dg/images/console-batch-job-details-1.png) 3. Fill in any fields you want to include on the **Specify job details**
 page, then select **Next**. This takes you to the
 **Configure job - _optional_** page.
 
