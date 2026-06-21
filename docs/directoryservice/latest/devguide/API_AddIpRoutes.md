@@ -58,42 +58,44 @@ directory controllers." Following are the new rules:
 Inbound:
 
 - Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: AWS Managed Microsoft AD VPC
-  IPv4 CIDR
+  IPv4 CIDR, or IPv6 CIDR
 - Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: AWS Managed Microsoft AD VPC
-  IPv4 CIDR
+  IPv4 CIDR, or IPv6 CIDR
 - Type: DNS (UDP), Protocol: UDP, Range: 53, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 - Type: DNS (TCP), Protocol: TCP, Range: 53, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
-- Type: LDAP, Protocol: TCP, Range: 389, Source: AWS Managed Microsoft AD VPC IPv4 CIDR
+  CIDR, or IPv6 CIDR
+- Type: LDAP, Protocol: TCP, Range: 389, Source: AWS Managed Microsoft AD VPC IPv4 CIDR, or
+  IPv6 CIDR
 - Type: All ICMP, Protocol: All, Range: N/A, Source: AWS Managed Microsoft AD VPC IPv4
-  CIDR
+  CIDR, or IPv6 CIDR
 
 Outbound:
 
-- Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0
+- Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0 or ::/0 if
+  directory supports IPv6
 
 These security rules impact an internal network interface that is not exposed
 publicly.
