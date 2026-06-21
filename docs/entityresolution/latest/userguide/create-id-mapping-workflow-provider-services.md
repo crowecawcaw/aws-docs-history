@@ -61,7 +61,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
     ![The Target field on the Specify source and target page](images/specify-target-id-namespace.PNG) 5. To specify the **Service access** permissions, choose an option
     and take the recommended action.
 
-    ![The Service access options on the Specify source and target page](/images/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
+    ![The Service access options on the Specify source and target page](images/specify-source-target-service-access.PNG)
 
     | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
     | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,7 +81,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
     2. View the **LiveRamp generated output**.
     3. Choose **Next**.
 
-    ![The Data output destination fields on the Specify data output location page](images/specify-data-ouput-IDM.PNG)
+    ![The Data output destination fields on the Specify data output location page](/images/entityresolution/latest/userguide/images/specify-data-ouput-IDM.PNG)
 
 8.  For **Step 4: Review and create**, do the following.
 
