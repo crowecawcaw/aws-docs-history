@@ -1,4 +1,4 @@
-# Setting up Systems Manager
+# Setting up systems management
 
 The following code example shows how to:
 

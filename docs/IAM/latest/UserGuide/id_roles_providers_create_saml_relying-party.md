@@ -22,8 +22,7 @@ example shows a regional sign-in URL that includes a unique identifier.
 For a list of possible `region-code` values, see the
 **Region** column in [AWS Sign-In
 endpoints](../../../general/latest/gr/signin-service.md "../../../general/latest/gr/signin-service.md"). For the AWS value, you can also use the non-Regional endpoint
-`https://signin.aws.amazon.com/saml`
-.
+`https://signin.aws.amazon.com/saml`.
 
 If you can't specify a URL directly, then download the XML document from the preceding URL
 and import it into your IdP software.

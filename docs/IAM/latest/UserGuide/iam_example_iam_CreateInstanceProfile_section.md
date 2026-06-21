@@ -6,9 +6,9 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Build and manage a resilient service](iam_example_cross_ResilientService_section.md "iam_example_cross_ResilientService_section.md")
-- [Creating an Amazon ECS service for the EC2 launch type](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
-- [Getting started with Amazon MSK](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Run CPU stress tests on EC2 instances using FIS](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+- [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
+- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
+- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
 
 .NET
 

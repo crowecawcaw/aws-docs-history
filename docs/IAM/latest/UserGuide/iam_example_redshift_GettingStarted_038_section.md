@@ -1,4 +1,4 @@
-# Get started with Redshift Serverless using the CLI
+# Get started with serverless data warehouses using the CLI
 
 The following code example shows how to:
 

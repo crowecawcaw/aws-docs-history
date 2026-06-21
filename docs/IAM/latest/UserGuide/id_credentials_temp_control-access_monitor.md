@@ -372,7 +372,7 @@ JSON
  ],
  "Condition": {
  "StringEquals": {
- "SAML:aud": "https://signin.aws.amazon.com/saml"
+ "SAML:aud": "https://`region-code`.signin.aws.amazon.com/saml"
  }
  }
  },

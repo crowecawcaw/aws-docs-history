@@ -1,4 +1,4 @@
-# Getting started with Amazon SageMaker Feature Store
+# Getting started with machine learning feature stores
 
 The following code example shows how to:
 

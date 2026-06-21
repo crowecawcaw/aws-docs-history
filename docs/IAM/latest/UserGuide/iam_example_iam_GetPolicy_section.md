@@ -5,7 +5,7 @@ The following code examples show how to use `GetPolicy`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Getting started with Amazon MSK](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
+- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
 - [Work with the IAM Policy Builder API](iam_example_iam_Scenario_IamPolicyBuilder_section.md "iam_example_iam_Scenario_IamPolicyBuilder_section.md")
 
 .NET

@@ -1,4 +1,4 @@
-# Moving hardcoded secrets to Secrets Manager
+# Moving hardcoded secrets to secure secret storage
 
 The following code example shows how to:
 

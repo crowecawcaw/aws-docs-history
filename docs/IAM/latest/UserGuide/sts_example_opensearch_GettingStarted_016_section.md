@@ -1,4 +1,4 @@
-# Getting started with Amazon OpenSearch Service
+# Getting started with search and analytics engines
 
 The following code example shows how to:
 

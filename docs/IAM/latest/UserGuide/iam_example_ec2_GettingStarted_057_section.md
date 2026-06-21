@@ -1,4 +1,4 @@
-# Getting started with Amazon MSK
+# Getting started with managed streaming
 
 The following code example shows how to:
 

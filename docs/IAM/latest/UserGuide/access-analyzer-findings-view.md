@@ -14,6 +14,11 @@ all of the findings in your account until you have zero active findings. After y
 zero findings, you know that any new **Active** findings that are generated
 are from a recent change in your environment.
 
+###### Tip
+
+If you have a large number of findings to review, use the IAM Access Analyzer API or
+AWS CLI commands to programmatically retrieve and manage your findings.
+
 ###### To review active findings for all types of access analyzers
 
 1. Open the IAM console at

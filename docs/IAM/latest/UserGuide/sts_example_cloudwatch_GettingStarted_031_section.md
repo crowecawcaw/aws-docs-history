@@ -1,4 +1,4 @@
-# Creating a CloudWatch dashboard with function name as a variable
+# Creating a monitoring dashboard with function name as a variable
 
 The following code example shows how to:
 

@@ -177,8 +177,7 @@ access to the AWS Management Console through the console sign-in web endpoint at
 a list of possible `region-code` values, see the
 **Region** column in [AWS Sign-In
 endpoints](../../../general/latest/gr/signin-service.md "../../../general/latest/gr/signin-service.md"). You can optionally use the following URL:
-`https://signin.aws.amazon.com/static/saml`
-. Note that this attribute extends
+`https://signin.aws.amazon.com/static/saml`. Note that this attribute extends
 sessions only to the AWS Management Console. It cannot extend the lifetime of other credentials. However,
 if it is present in an `AssumeRoleWithSAML` API call, it can be used to _shorten_ the duration of the session. The default lifetime of the
 credentials returned by the call is 60 minutes.

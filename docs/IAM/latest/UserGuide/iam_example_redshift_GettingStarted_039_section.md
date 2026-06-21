@@ -1,4 +1,4 @@
-# Getting started with Amazon Redshift provisioned clusters
+# Getting started with provisioned data warehouse clusters
 
 The following code example shows how to:
 

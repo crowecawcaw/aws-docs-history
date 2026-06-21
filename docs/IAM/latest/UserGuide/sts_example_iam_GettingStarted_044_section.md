@@ -1,4 +1,4 @@
-# Creating an Amazon Managed Grafana workspace
+# Creating a managed monitoring workspace
 
 The following code example shows how to:
 

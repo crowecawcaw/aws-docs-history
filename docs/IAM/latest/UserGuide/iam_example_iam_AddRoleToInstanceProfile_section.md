@@ -5,9 +5,9 @@ The following code examples show how to use `AddRoleToInstanceProfile`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Creating an Amazon ECS service for the EC2 launch type](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
-- [Getting started with Amazon MSK](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Run CPU stress tests on EC2 instances using FIS](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+- [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
+- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
+- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
 
 CLI
 

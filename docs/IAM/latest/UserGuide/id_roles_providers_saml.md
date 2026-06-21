@@ -196,7 +196,7 @@ JSON
  "Action": "sts:AssumeRoleWithSAML",
  "Condition": {
  "StringEquals": {
- "saml:aud": "https://`ap-east-1`.signin.amazonaws.cn/saml",
+ "saml:aud": "https://`cn-north-1`.signin.amazonaws.cn/saml",
  "saml:iss": "https://openidp.feide.no"
  },
  "ForAllValues:StringLike": {

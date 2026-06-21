@@ -91,7 +91,7 @@ JSON
  "`qas`"
  ]
  },
- "StringEquals": {"SAML:aud": "https://signin.aws.amazon.com/saml"}
+ "StringEquals": {"SAML:aud": "https://`region-code`.signin.aws.amazon.com/saml"}
  }
  }
  ]

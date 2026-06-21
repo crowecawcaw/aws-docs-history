@@ -1,4 +1,4 @@
-# Getting started with Amazon EKS
+# Getting started with managed kubernetes clusters
 
 The following code example shows how to:
 

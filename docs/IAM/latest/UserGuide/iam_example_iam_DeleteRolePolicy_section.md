@@ -5,11 +5,11 @@ The following code examples show how to use `DeleteRolePolicy`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Get started with Redshift Serverless](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
-- [Getting started with Amazon Redshift provisioned clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
-- [Getting started with Config](iam_example_config_service_GettingStarted_053_section.md "iam_example_config_service_GettingStarted_053_section.md")
-- [Getting Started with IoT Device Defender](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
-- [Run CPU stress tests on EC2 instances using FIS](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+- [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
+- [Getting started with configuration management](iam_example_config_service_GettingStarted_053_section.md "iam_example_config_service_GettingStarted_053_section.md")
+- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
+- [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
+- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
 
 .NET
 

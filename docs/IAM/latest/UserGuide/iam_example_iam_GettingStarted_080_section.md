@@ -1,4 +1,4 @@
-# Getting started with Step Functions
+# Getting started with workflow orchestration
 
 The following code example shows how to:
 

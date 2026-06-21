@@ -5,7 +5,7 @@ The following code examples show how to use `ListRolePolicies`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Getting Started with IoT Device Defender](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
+- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
 
 .NET
 

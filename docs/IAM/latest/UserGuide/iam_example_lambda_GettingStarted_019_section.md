@@ -1,4 +1,4 @@
-# Creating your first Lambda function
+# Creating your first serverless function
 
 The following code example shows how to:
 

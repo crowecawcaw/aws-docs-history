@@ -1,4 +1,4 @@
-# Getting started with WAF
+# Getting started with web application firewalls
 
 The following code example shows how to:
 

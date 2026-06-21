@@ -1,4 +1,4 @@
-# Getting started with End User Messaging Push
+# Getting started with push notifications
 
 The following code example shows how to:
 

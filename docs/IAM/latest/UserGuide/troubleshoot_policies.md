@@ -290,7 +290,7 @@ better understand the policy.
 
 In the IAM console, if a [policy
 summary](access_policies_understand.md "access_policies_understand.md") includes a warning symbol (
-![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
+![Warning hazard sign icon with yellow triangle background.](/images/IAM/latest/UserGuide/images/console-alert-icon.console.png)
 ), then the policy might include an unrecognized service, action, or
 resource type. To learn about warnings within a policy summary, see [Policy summary (list of services)](access_policies_understand-policy-summary.md "access_policies_understand-policy-summary.md").
 

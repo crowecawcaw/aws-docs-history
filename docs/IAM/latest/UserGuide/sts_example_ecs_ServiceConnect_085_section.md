@@ -1,4 +1,4 @@
-# Configure Amazon ECS Service Connect
+# Configure container service connectivity
 
 The following code example shows how to:
 

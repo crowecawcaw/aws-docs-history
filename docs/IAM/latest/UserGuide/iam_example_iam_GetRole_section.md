@@ -5,16 +5,16 @@ The following code examples show how to use `GetRole`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Configure Amazon ECS Service Connect](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
-- [Create an Amazon ECS Linux task for the Fargate launch type](iam_example_ecs_GettingStarted_086_section.md "iam_example_ecs_GettingStarted_086_section.md")
-- [Creating an Amazon ECS service for the EC2 launch type](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
-- [Get started with Redshift Serverless](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
-- [Getting started with Amazon EKS](iam_example_eks_GettingStarted_034_section.md "iam_example_eks_GettingStarted_034_section.md")
-- [Getting started with Amazon MSK](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
-- [Getting started with Amazon Redshift provisioned clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
-- [Getting started with Amazon SageMaker Feature Store](iam_example_iam_GettingStarted_028_section.md "iam_example_iam_GettingStarted_028_section.md")
-- [Getting Started with IoT Device Defender](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
-- [Run CPU stress tests on EC2 instances using FIS](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
+- [Configure container service connectivity](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
+- [Create a container task for the serverless launch type](iam_example_ecs_GettingStarted_086_section.md "iam_example_ecs_GettingStarted_086_section.md")
+- [Creating a container service for virtual machine instances](iam_example_ecs_GettingStarted_018_section.md "iam_example_ecs_GettingStarted_018_section.md")
+- [Get started with serverless data warehouses](iam_example_redshift_GettingStarted_038_section.md "iam_example_redshift_GettingStarted_038_section.md")
+- [Getting started with internet of things device protection](iam_example_iot_GettingStarted_079_section.md "iam_example_iot_GettingStarted_079_section.md")
+- [Getting started with machine learning feature stores](iam_example_iam_GettingStarted_028_section.md "iam_example_iam_GettingStarted_028_section.md")
+- [Getting started with managed kubernetes clusters](iam_example_eks_GettingStarted_034_section.md "iam_example_eks_GettingStarted_034_section.md")
+- [Getting started with managed streaming](iam_example_ec2_GettingStarted_057_section.md "iam_example_ec2_GettingStarted_057_section.md")
+- [Getting started with provisioned data warehouse clusters](iam_example_redshift_GettingStarted_039_section.md "iam_example_redshift_GettingStarted_039_section.md")
+- [Run CPU stress tests on virtual machine instances using fault injection](iam_example_iam_GettingStarted_069_section.md "iam_example_iam_GettingStarted_069_section.md")
 
 .NET
 
