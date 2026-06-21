@@ -27,7 +27,7 @@ An internal load balancer can only route requests that come from clients with ac
 the VPC for the load balancer.
 
 Your load balancer sends requests to its registered targets using private IP addresses.
-Therefore, your targets do not need public IP addresses to receive requests from
+Therefore, your targets do not need public IP addresses in order to receive requests from
 a load balancer.
 
 To call the Elastic Load Balancing API from your VPC using private IP addresses, use AWS PrivateLink. For
