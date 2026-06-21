@@ -33,4 +33,4 @@ This topic also includes information about getting started and details about pre
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
 
-  - [Getting started with Config](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")
+  - [Getting started with configuration management](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")

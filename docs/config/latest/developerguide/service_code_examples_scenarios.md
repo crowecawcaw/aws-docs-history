@@ -9,4 +9,4 @@ Scenarios target an intermediate level of experience to help you understand serv
 
 ###### Examples
 
-- [Getting started with Config](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")
+- [Getting started with configuration management](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")

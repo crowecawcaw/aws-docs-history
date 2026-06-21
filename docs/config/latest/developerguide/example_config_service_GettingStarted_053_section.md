@@ -1,4 +1,4 @@
-# Getting started with Config
+# Getting started with configuration management
 
 The following code example shows how to:
 
