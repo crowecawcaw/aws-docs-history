@@ -84,6 +84,8 @@ Returns all file paths in the artifact as a table of strings.
 
 These functions perform matching outside the Lua VM and return only the matched paths, completing in under 1 millisecond even on 300K-file artifacts. Use `get_file_list()` only when your matching logic cannot be expressed with any of the above.
 
+The `find_files_by_*` and `glob_find_files` helpers skip symlinks, returning only concrete files, so a symlink alias and its target are not both inventoried. `get_file_list()` returns every entry, including symlinks.
+
 ```
 -- AVOID in discovery plugins when possible:
 local files = sbomgen.get_file_list()
@@ -129,7 +131,7 @@ fh:close()
 
 ### `sbomgen.glob_find_files(pattern)`
 
-Returns files matching a Go `filepath.Match` glob pattern. The pattern is matched against the base filename.
+Returns files matching a Go `filepath.Match` glob pattern. The pattern is matched against the base filename. Symlinks are skipped; only concrete files are returned.
 
 - **Returns:** `{string, ...}, err`
 
@@ -144,7 +146,7 @@ Use `sbomgen.get_file_list()` with `string.match` for full path pattern matching
 Returns files whose basename (last path component) exactly matches one of the given names. The iteration and comparison happen in Go, making this significantly faster than iterating `sbomgen.get_file_list()` in Lua.
 
 - **Parameters:** `names` — table of strings (basenames to match)
-- **Returns:** `{string, ...}` — matching file paths (no error tuple)
+- **Returns:** `{string, ...}` — matching file paths, excluding symlinks (no error tuple)
 
 ```
 local curl_bins = sbomgen.find_files_by_name({"curl", "curl.exe"})
@@ -156,7 +158,7 @@ local headers = sbomgen.find_files_by_name({"curlver.h"})
 Returns files whose basename matches one of the given names, ignoring case. For example, `"version"` matches `VERSION`, `Version`, and `version`. Like `find_files_by_name`, matching happens outside the Lua VM.
 
 - **Parameters:** `names` — table of strings (basenames to match, case-insensitive)
-- **Returns:** `{string, ...}` — matching file paths (no error tuple)
+- **Returns:** `{string, ...}` — matching file paths, excluding symlinks (no error tuple)
 
 ```
 local version_files = sbomgen.find_files_by_name_icase({"version"})
@@ -168,7 +170,7 @@ local war_files = sbomgen.find_files_by_name_icase({"jenkins.war"})
 Returns files whose full (forward-slash-normalized) path ends with one of the given suffixes. Like `find_files_by_name`, matching happens outside the Lua VM.
 
 - **Parameters:** `suffixes` — table of strings (path suffixes to match)
-- **Returns:** `{string, ...}` — matching file paths (no error tuple)
+- **Returns:** `{string, ...}` — matching file paths, excluding symlinks (no error tuple)
 
 ```
 local pom_files = sbomgen.find_files_by_suffix({"/pom.properties"})
@@ -180,7 +182,7 @@ local release_headers = sbomgen.find_files_by_suffix({"ap_release.h", "opensslv.
 Returns files whose forward-slash-normalized path matches any of the given Go (RE2) regex patterns. Matching happens outside the Lua VM, which makes this efficient on large file lists.
 
 - **Parameters:** `patterns` — table of Go regex strings
-- **Returns:** `{string, ...}` — matching file paths (no error tuple)
+- **Returns:** `{string, ...}` — matching file paths, excluding symlinks (no error tuple)
 - **Raises:** a Lua error if any pattern fails to compile
 
 ```

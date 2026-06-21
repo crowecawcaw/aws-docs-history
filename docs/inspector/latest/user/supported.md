@@ -74,9 +74,9 @@ For some operating systems, like Ubuntu, a reboot is required for upgrades to sh
 | Debian Server (Bookworm)            | 12              | DSA CVE                                                                                                           | Yes                    | Yes                      |
 | Debian Server (Trixie)              | 13              | DSA CVE                                                                                                           | Yes                    | Yes                      |
 | Fedora                              | 43              | Errata CVE                                                                                                        | Yes                    | Yes                      |
-| Oracle Linux (Oracle)               | 8               | Errata CVE                                                                                                        | Yes                    | Yes                      |
-| Oracle Linux (Oracle)               | 9               | Errata CVE                                                                                                        | Yes                    | Yes                      |
-| Oracle Linux (Oracle)               | 10              | Errata CVE                                                                                                        | Yes                    | Yes                      |
+| Oracle Linux                        | 8               | Errata CVE                                                                                                        | Yes                    | Yes                      |
+| Oracle Linux                        | 9               | Errata CVE                                                                                                        | Yes                    | Yes                      |
+| Oracle Linux                        | 10              | Errata CVE                                                                                                        | Yes                    | Yes                      |
 | Red Hat Enterprise Linux (RHEL)     | 8               | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   | Yes                    | Yes                      |
 | Red Hat Enterprise Linux (RHEL)     | 9               | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   | Yes                    | Yes                      |
 | Red Hat Enterprise Linux (RHEL)     | 10              | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   | Yes                    | Yes                      |
@@ -112,9 +112,10 @@ It also specifies the vendor security advisory for each operating system.
 | AlmaLinux                           | 8       | Errata CVE                                                                                                        |
 | AlmaLinux                           | 9       | Errata CVE                                                                                                        |
 | AlmaLinux                           | 10      | Errata CVE                                                                                                        |
-| Alpine Linux (Alpine)               | 3.21    | Errata CVE                                                                                                        |
-| Alpine Linux (Alpine)               | 3.22    | Errata CVE                                                                                                        |
-| Alpine Linux (Alpine)               | 3.23    | Errata CVE                                                                                                        |
+| Alpine Linux                        | 3.21    | Errata CVE                                                                                                        |
+| Alpine Linux                        | 3.22    | Errata CVE                                                                                                        |
+| Alpine Linux                        | 3.23    | Errata CVE                                                                                                        |
+| Alpine Linux                        | 3.24    | Errata CVE                                                                                                        |
 | Amazon Linux (AL2)                  | AL2     | ALAS Errata and [Extras](../../../linux/al2/ug/al2-extras-list.md "../../../linux/al2/ug/al2-extras-list.md") CVE |
 | Amazon Linux 2023 (AL2023)          | AL2023  | ALAS Errata CVE                                                                                                   |
 | Azure Linux                         | 3       | Errata CVE                                                                                                        |
@@ -126,9 +127,9 @@ It also specifies the vendor security advisory for each operating system.
 | Echo                                | 2       | Errata CVE                                                                                                        |
 | Fedora                              | 43      | Errata CVE                                                                                                        |
 | Minimus                             | –       | Errata CVE                                                                                                        |
-| Oracle Linux (Oracle)               | 8       | Errata CVE                                                                                                        |
-| Oracle Linux (Oracle)               | 9       | Errata CVE                                                                                                        |
-| Oracle Linux (Oracle)               | 10      | Errata CVE                                                                                                        |
+| Oracle Linux                        | 8       | Errata CVE                                                                                                        |
+| Oracle Linux                        | 9       | Errata CVE                                                                                                        |
+| Oracle Linux                        | 10      | Errata CVE                                                                                                        |
 | Photon OS                           | 4       | Errata CVE                                                                                                        |
 | Photon OS                           | 5       | Errata CVE                                                                                                        |
 | Red Hat Enterprise Linux (RHEL)     | 8       | RHEL CVE (BaseOS & EUS/E2S/E4S)                                                                                   |
@@ -190,6 +191,7 @@ For more information, see [ScanSbom](../../v2/APIReference/API_scan_ScanSbom.md 
 | Alpine Linux             | 3.21    |
 | Alpine Linux             | 3.22    |
 | Alpine Linux             | 3.23    |
+| Alpine Linux             | 3.24    |
 | Amazon Linux             | 2       |
 | Amazon Linux             | 2023    |
 | Bottlerocket             | –       |
@@ -241,25 +243,25 @@ As a result, Amazon Inspector will stop generating findings for discontinued ope
 
 | Operating system                    | Version | Discontinued      |
 | ----------------------------------- | ------- | ----------------- |
-| Alpine Linux (Alpine)               | 3.2     | May 1, 2017       |
-| Alpine Linux (Alpine)               | 3.3     | November 1, 2017  |
-| Alpine Linux (Alpine)               | 3.4     | May 1, 2018       |
-| Alpine Linux (Alpine)               | 3.5     | November 1, 2018  |
-| Alpine Linux (Alpine)               | 3.6     | May 1, 2019       |
-| Alpine Linux (Alpine)               | 3.7     | November 1, 2019  |
-| Alpine Linux (Alpine)               | 3.8     | May 1, 2020       |
-| Alpine Linux (Alpine)               | 3.9     | November 1, 2020  |
-| Alpine Linux (Alpine)               | 3.10    | May 1, 2021       |
-| Alpine Linux (Alpine)               | 3.11    | November 1, 2021  |
-| Alpine Linux (Alpine)               | 3.12    | May 1, 2022       |
-| Alpine Linux (Alpine)               | 3.13    | November 1, 2022  |
-| Alpine Linux (Alpine)               | 3.14    | May 1, 2023       |
-| Alpine Linux (Alpine)               | 3.15    | November 1, 2023  |
-| Alpine Linux (Alpine)               | 3.16    | May 23, 2024      |
-| Alpine Linux (Alpine)               | 3.17    | November 22, 2024 |
-| Alpine Linux (Alpine)               | 3.18    | May 9, 2025       |
-| Alpine Linux (Alpine)               | 3.19    | November 1, 2025  |
-| Alpine Linux (Alpine)               | 3.20    | April 1, 2026     |
+| Alpine Linux                        | 3.2     | May 1, 2017       |
+| Alpine Linux                        | 3.3     | November 1, 2017  |
+| Alpine Linux                        | 3.4     | May 1, 2018       |
+| Alpine Linux                        | 3.5     | November 1, 2018  |
+| Alpine Linux                        | 3.6     | May 1, 2019       |
+| Alpine Linux                        | 3.7     | November 1, 2019  |
+| Alpine Linux                        | 3.8     | May 1, 2020       |
+| Alpine Linux                        | 3.9     | November 1, 2020  |
+| Alpine Linux                        | 3.10    | May 1, 2021       |
+| Alpine Linux                        | 3.11    | November 1, 2021  |
+| Alpine Linux                        | 3.12    | May 1, 2022       |
+| Alpine Linux                        | 3.13    | November 1, 2022  |
+| Alpine Linux                        | 3.14    | May 1, 2023       |
+| Alpine Linux                        | 3.15    | November 1, 2023  |
+| Alpine Linux                        | 3.16    | May 23, 2024      |
+| Alpine Linux                        | 3.17    | November 22, 2024 |
+| Alpine Linux                        | 3.18    | May 9, 2025       |
+| Alpine Linux                        | 3.19    | November 1, 2025  |
+| Alpine Linux                        | 3.20    | April 1, 2026     |
 | Amazon Linux (AL1)                  | 2012    | December 31, 2021 |
 | CentOS Linux (CentOS)               | 7       | June 30, 2024     |
 | CentOS Linux (CentOS)               | 8       | December 31, 2021 |
@@ -281,8 +283,8 @@ As a result, Amazon Inspector will stop generating findings for discontinued ope
 | OpenSUSE Leap                       | 15.4    | December 7, 2023  |
 | OpenSUSE Leap                       | 15.5    | December 31, 2024 |
 | OpenSUSE Leap                       | 15.6    | April 30, 2026    |
-| Oracle Linux (Oracle)               | 6       | March 1, 2021     |
-| Oracle Linux (Oracle)               | 7       | December 31, 2024 |
+| Oracle Linux                        | 6       | March 1, 2021     |
+| Oracle Linux                        | 7       | December 31, 2024 |
 | Photon OS                           | 2       | December 2, 2021  |
 | Photon OS                           | 3       | March 1, 2024     |
 | Red Hat Enterprise Linux (RHEL)     | 6       | June 30, 2020     |
@@ -337,10 +339,16 @@ The version of the programming language compiler used to build the application i
 - Ruby
 - Rust
 
-### Supported programming languages: Amazon EC2 deep inspection
+### Supported programming languages: Amazon Inspector VM Scanner
 
-Amazon Inspector currently supports the following programming languages when performing deep inspection scans on Amazon EC2 Linux instances.
-For more information, see [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](scanning-ec2.md#agentles "scanning-ec2.md#agentles").
+The Amazon Inspector VM Scanner supports the same programming languages as Amazon EC2 agentless scanning.
+For the list of supported languages, see [Supported programming languages: Amazon EC2 agentless scanning](#supported-programming-languages-agentless "#supported-programming-languages-agentless").
+
+### Supported programming languages: Amazon Inspector SSM plugin
+
+Amazon Inspector currently supports the following programming languages when performing deep inspection scans on Amazon EC2 Linux instances using the Amazon Inspector SSM plugin.
+Deep inspection through the Amazon Inspector SSM plugin supports a subset of the programming languages supported by the Amazon Inspector VM Scanner.
+For more information, see [Amazon Inspector deep inspection for Linux-based Amazon EC2 instances](deep-inspection.md "deep-inspection.md").
 
 - Java (.ear, .jar, .par, and .war archive formats)
 - JavaScript
