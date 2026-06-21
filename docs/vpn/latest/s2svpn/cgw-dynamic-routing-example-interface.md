@@ -141,7 +141,7 @@ VPN domain.
    file, for example, `54.84.169.196`. Save your settings
    and close the dialog box.
 
-![Check Point Interoperable Device dialog box](/images/vpn/latest/s2svpn/images/check-point-network-device.png) 6. In the left category pane, choose **Topology**. 7. In the **VPN Domain** section, choose
+![Check Point Interoperable Device dialog box](images/check-point-network-device.png) 6. In the left category pane, choose **Topology**. 7. In the **VPN Domain** section, choose
 **Manually defined**, and then browse to and
 select the empty simple group that you created in step 2. Choose
 **OK**. 8. Repeat these steps to create a second network object, using the
