@@ -32,7 +32,7 @@ Your AWS account has the following quotas related to VPC Lattice.
 | VPC associations per service network                           | Each supported Region: 500          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/vpc-lattice/quotas/L-EF6E2D62 "https://console.aws.amazon.com/servicequotas/home/services/vpc-lattice/quotas/L-EF6E2D62") | The maximum number of VPCs that you can associate with a single service network. For additional capacity and limit increases, contact AWS Support.       |
 | VPC endpoints of type service network per service network      | Each supported Region: 200          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/vpc-lattice/quotas/L-89DEA27F "https://console.aws.amazon.com/servicequotas/home/services/vpc-lattice/quotas/L-89DEA27F") | The maximum number of service network endpoints associated with a service network. For additional capacity and limit increases, contact AWS Support.     |
 
-The following Availability Zones aren't supported for VPC Lattice: `use1-az3`, `usw1-az2`, `apne1-az3`, `apne2-az2`, `euw1-az4`, `cac1-az3`,
+The following Availability Zones aren't supported for VPC Lattice: `use1-az3`, `usw1-az2`, `apne1-az3`, `euw1-az4`, `cac1-az3`,
 `ilc1-az2`.
 
 The following limits also apply.
