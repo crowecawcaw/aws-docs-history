@@ -107,8 +107,8 @@ connect to the internet, see [Routing your gateway deployed on EC2 through an HT
 ###### Note
 
 You can reuse the same static IP address or hostname from the old gateway
-VM to avoid reconfiguring NFS or SMB clients. 8. Start the new Storage Gateway VM. 9. Attach the disks that you detached from the old gateway VM to the new gateway
-VM. Do not detach the existing root disk from the new gateway VM.
+VM to avoid reconfiguring NFS or SMB clients. 8. Start the new Storage Gateway VM. 9. Attach all of the disks that you detached from the old gateway VM to the new gateway
+VM. This includes the old gateway's root disk and cache disk(s). Do not detach the new gateway VM's own root disk.
 
 ###### Note
 
