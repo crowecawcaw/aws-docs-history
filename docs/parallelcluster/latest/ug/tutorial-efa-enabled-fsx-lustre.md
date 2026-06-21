@@ -43,18 +43,25 @@ aws ec2 create-security-group \
 In the remainder of the tutorial, we will assume `sg-client` and `sg-file-system`
 are the security group ids of the client and file system, respectively.
 
-Configure the security group for the client to allow all outbound traffic to the file system, as
-[required
-by EFA](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security").
+Configure the security group for the client to allow all inbound/outbound traffic to and from the
+file system, as [required by EFA](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security").
 
 ```
+# Allow all inbound traffic from the file system to the client
+aws ec2 authorize-security-group-ingress \
+    --group-id `sg-client` \
+    --protocol -1 \
+    --port -1 \
+    --source-group `sg-file-system` \
+    --region `region`
+
 # Allow all outbound traffic from the client to the file system
 aws ec2 authorize-security-group-egress \
- --group-id `sg-client` \
- --protocol -1 \
- --port -1 \
- --source-group `sg-file-system` \
- --region `region`
+    --group-id `sg-client` \
+    --protocol -1 \
+    --port -1 \
+    --source-group `sg-file-system` \
+    --region `region`
 ```
 
 Configure the security group for the file system to allow all inbound/outbound traffic within itself
@@ -67,7 +74,7 @@ aws ec2 authorize-security-group-ingress \
     --protocol -1 \
     --port -1 \
     --source-group `sg-file-system` \
-    --region region
+    --region `region`
 
 # Allow all outbound traffic within this security group
 aws ec2 authorize-security-group-egress \
@@ -128,11 +135,34 @@ tutorial, replace `fs-id` with this file system id.
       - Compute nodes must be in the same AZ where the file system is.
       - Compute nodes must have [Efa/Enabled](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa-Enabled "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa-Enabled")
         set to true.
-      - Compute nodes must run the configuration script `configure-efa-fsx-lustre-client.sh`
-        as an [OnNodeStart](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-CustomActions-OnNodeStart "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-CustomActions-OnNodeStart")
-        custom action. The script, provided in the [FSx official documentation](../../../fsx/latest/LustreGuide/configure-efa-clients.md "../../../fsx/latest/LustreGuide/configure-efa-clients.md")
-        and offered in our public bucket for your convenience, is meant to configure
-        the FSx Lustre client on compute nodes to let them use EFA.
+      - Compute nodes must configure the FSx Lustre client to use EFA by following
+        [Configuring
+        EFA clients](../../../fsx/latest/LustreGuide/configure-efa-clients.md "../../../fsx/latest/LustreGuide/configure-efa-clients.md") in the _FSx for Lustre User Guide_. That guide
+        provides the `configure-efa-fsx-lustre-client` package, which you download,
+        extract, and run with `setup.sh`. To apply it automatically on every compute
+        node, run these steps from an [OnNodeStart](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-CustomActions-OnNodeStart "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-CustomActions-OnNodeStart") custom
+        action, as shown below.
+      - Create the file `configure-efa-fsx-lustre-client-wrapper.sh` and upload
+        it to a bucket, for example `your-bucket`, that is reachable from the compute
+        nodes. Following the steps in the FSx documentation referenced above, the wrapper
+        performs the equivalent of:
+
+      ```
+      #!/bin/bash
+      set -euo pipefail
+
+      # Download the FSx Lustre EFA client configuration package.
+      # See: https://docs.aws.amazon.com/fsx/latest/LustreGuide/configure-efa-clients.html
+      # Replace the source below with a location reachable from your compute nodes
+      # (for example, your own S3 bucket populated from the FSx documentation package).
+      cd /tmp
+      aws s3 cp `s3://your-bucket/configure-efa-fsx-lustre-client.zip` .
+      unzip -o configure-efa-fsx-lustre-client.zip
+      cd configure-efa-fsx-lustre-client
+
+      # Configure the FSx Lustre client to use EFA.
+      ./setup.sh
+      ```
 
 2. Create a cluster configuration file `config.yaml`:
 
@@ -167,9 +197,13 @@ Scheduling:
           - `sg-client`
         PlacementGroup:
           Enabled: false
+      Iam:
+        S3Access:
+          - BucketName: `your-bucket`
       CustomActions:
         OnNodeStart:
-          Script: https://us-east-1-aws-parallelcluster.s3.us-east-1.amazonaws.com/scripts/fsx-lustre-efa/configure-efa-fsx-lustre-client.sh
+          # Point this at the wrapper script you created and hosted (see step above).
+          Script: `s3://your-bucket/configure-efa-fsx-lustre-client-wrapper.sh`
 SharedStorage:
   - MountDir: /fsx
     Name: my-fsxlustre-efa-external
