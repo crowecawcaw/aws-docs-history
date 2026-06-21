@@ -97,6 +97,7 @@ The following Local Zones are available in Asia Pacific:
 | Philippines (Manila)       | `ap-southeast-1-mnl-1a` | `apse1-mnl1-az1` | `ap-southeast-1-mnl-1` | `ap-southeast-1`   | `apse1-az1`    | `Philippines` |
 | Taiwan (Taipei)\*          | `ap-northeast-1-tpe-1a` | `apne1-tpe1-az1` | `ap-northeast-1-tpe-1` | `ap-northeast-1`   | `apne1-az2`    | `Taiwan`      |
 | Thailand (Bangkok)         | `ap-southeast-1-bkk-1a` | `apse1-bkk1-az1` | `ap-southeast-1-bkk-1` | `ap-southeast-1`   | `apse1-az1`    | `Thailand`    |
+| Vietnam (Hanoi)            | `ap-southeast-1-han-1a` | `apse1-han-az1`  | `ap-southeast-1-han-1` | `ap-southeast-1`   | `apse1-az3`    | `Vietnam`     |
 
 ### Europe
 
