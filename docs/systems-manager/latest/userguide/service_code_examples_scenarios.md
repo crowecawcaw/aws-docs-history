@@ -9,6 +9,6 @@ Scenarios target an intermediate level of experience to help you understand serv
 
 ###### Examples
 
-- [Creating an Amazon ECS service for the EC2 launch type](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
-- [Getting started with Amazon EC2](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
-- [Setting up Systems Manager](example_iam_GettingStarted_046_section.md "example_iam_GettingStarted_046_section.md")
+- [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
+- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
+- [Setting up systems management](example_iam_GettingStarted_046_section.md "example_iam_GettingStarted_046_section.md")

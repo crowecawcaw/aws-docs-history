@@ -5,7 +5,7 @@ The following code examples show how to use `GetParameters`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Creating an Amazon ECS service for the EC2 launch type](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
+- [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
 
 CLI
 

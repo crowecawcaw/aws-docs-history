@@ -117,7 +117,7 @@ in your fleet that are out of patch compliance.
 2. In the navigation pane, choose
    **Findings**.
 3. Choose the **Add filters** (
-   ![The Search icon](images/search-icon.png)
+   ![The Search icon](/images/systems-manager/latest/userguide/images/search-icon.png)
    ) box.
 4. In the menu, under **Filters**, choose
    **Product name**.
