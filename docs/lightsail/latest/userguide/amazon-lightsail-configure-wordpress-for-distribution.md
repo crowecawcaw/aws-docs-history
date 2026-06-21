@@ -9,11 +9,11 @@ determines whether the connection between your distribution and your instance is
 encrypted.
 
 - Your WordPress website uses HTTP only – If your
-  website uses HTTP only as the origin of your distribution, and it is not configured to use
-  HTTPS, you can configure your distribution to terminate SSL/TLS and forward all content
+  website uses HTTP only and is not configured for HTTPS, you can configure your distribution
+  to terminate SSL/TLS. The distribution forwards all content
   requests to your instance using an unencrypted connection.
 - Your WordPress website uses HTTPS – If your website
-  uses HTTPS as the origin of your distribution, you can configure your distribution to
+  uses HTTPS as the origin, you can configure your distribution to
   forward all content requests to your instance using an encrypted connection. This
   configuration is known as end-to-end encryption.
 

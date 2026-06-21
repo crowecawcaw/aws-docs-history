@@ -33,15 +33,26 @@ Snapshots are point-in-time backups that let you restore your instance from a go
 known state, and provide a reliable recovery mechanism. To learn more, see [Create a snapshot of your
 instance](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md").
 
-## Am I responsible for applying updates and patches to my existing instances using blueprints packaged by Bitnami?
+## Do I need to migrate my existing application to a new instance?
 
-Yes. You are responsible for keeping your running instances up-to-date by applying any
-software updates and security patches. Customers who maintain instances follow a pattern of
-manually applying patches and updates. The nature of this responsibility model provides the
-flexibility and control. Starting May 19, 2026, Lightsail will not provide newer versions
-of blueprints packaged by Bitnami. Your operational model for maintaining existing instances
-remains unchanged.
+No. As long as you regularly update, patch, and secure the operating system and
+applications on your instance, you do not need to migrate your existing application.
 
-When creating a new instance through the Lightsail console or API, use a blueprint
-packaged by Lightsail to get the up-to-date blueprint. Blueprints packaged by Lightsail
-are available for WordPress, WordPress Multisite, LAMP, Nginx, and Node.js.
+The deprecation does not require you to modify your operating model. If you were
+updating your operating system and application regularly, you can continue doing that. If
+you were migrating your application to a new instance every time Lightsail released an
+updated blueprint, then you can consider migrating now as well. To learn more about how you
+can migrate your existing application, refer to [Migrating from Bitnami blueprints
+to Lightsail blueprints](migrate-from-bitnami-to-lightsail-blueprints.md "migrate-from-bitnami-to-lightsail-blueprints.md").
+
+## Am I responsible for applying updates and patches to my existing instances that use blueprints packaged by Bitnami?
+
+Yes. Your operational model for maintaining existing instances is not affected. You are
+responsible for keeping your running instances up-to-date by applying any software updates
+and security patches. The nature of this responsibility model provides flexibility and
+control. To learn more, refer to [Update management](amazon-lightsail-update-management.md "amazon-lightsail-update-management.md").
+
+When creating a new instance through the Lightsail console or API, we recommend using
+a blueprint packaged by Lightsail to get the up-to-date blueprint. Blueprints packaged by
+Lightsail are available for WordPress, WordPress Multisite, LAMP, Nginx, and
+Node.js.

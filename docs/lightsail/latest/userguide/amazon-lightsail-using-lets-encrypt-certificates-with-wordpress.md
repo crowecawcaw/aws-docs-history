@@ -148,7 +148,7 @@ ACME-enabled client that interacts with Let's Encrypt.
    you want to connect to. For example, with a WordPress instance named
    _Example_:
 
-![SSH quick connect on the Lightsail home page.](/images/lightsail/latest/userguide/images/instances/resource_cards/ssh-quick-connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
+![SSH quick connect on the Lightsail home page.](images/instances/resource_cards/ssh-quick-connect.png) 3. After your Lightsail browser-based SSH session is connected, enter the following
 command to update the packages on your instance:
 
 ```
@@ -336,7 +336,7 @@ _acme-challenge.example.com
 
 
 
-    ![Confirmation that TXT records propagated.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
+    ![Confirmation that TXT records propagated.](images/instances/lets-encrypt/mxtoolbox-propagated-text-record-lookup.png)
     * If your TXT records have not propagated to the internet's DNS, you see a
      **DNS Record not found** response. Confirm that you added the
      correct DNS records to your domains' DNS zone. If you added the correct records, wait
@@ -494,7 +494,7 @@ sudo /opt/bitnami/ctlscript.sh start
 
 You should see a result similar to the following:
 
-![Instance services started.](/images/lightsail/latest/userguide/images/amazon-lightsail-ssh-start-services.png)
+![Instance services started.](images/amazon-lightsail-ssh-start-services.png)
 
 The SSL certificate files for your WordPress instance are now in the correct
 directory. 5. Continue to the [next section](#integrate-certificates-with-wordpress-using-really-simple-ssl-plugin "#integrate-certificates-with-wordpress-using-really-simple-ssl-plugin") of this tutorial.

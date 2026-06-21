@@ -190,7 +190,7 @@ echo $DOMAIN && echo $WILDCARD
 
 You should see a result similar to the following:
 
-![Confirm the domain environment variables.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/bitnami-confirm-variables.png) 3. Enter the following command to start Certbot in interactive mode. This command tells
+![Confirm the domain environment variables.](images/instances/lets-encrypt/bitnami-confirm-variables.png) 3. Enter the following command to start Certbot in interactive mode. This command tells
 Certbot to use a manual authorization method with DNS challenges to verify domain
 ownership. It requests a wildcard certificate for your top-level domain, as well as its
 subdomains.
@@ -313,7 +313,7 @@ The message confirms that your certificate, chain, and key files are stored in t
 `/etc/letsencrypt/live/`example.com`/`. 2. Make note of the expiration date specified in the message. You use it to renew your
 certificate by that date.
 
-![Let's Encrypt certificate renewal date.](/images/lightsail/latest/userguide/images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let’s Encrypt SSL certificate, continue to the [next section](#link-the-lets-encrypt-certificate-files-in-the-apache-directory-lamp "#link-the-lets-encrypt-certificate-files-in-the-apache-directory-lamp") of this tutorial.
+![Let's Encrypt certificate renewal date.](images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let’s Encrypt SSL certificate, continue to the [next section](#link-the-lets-encrypt-certificate-files-in-the-apache-directory-lamp "#link-the-lets-encrypt-certificate-files-in-the-apache-directory-lamp") of this tutorial.
 
 ## Step 7: Create links to the Let’s Encrypt certificate files in the Apache server directory
 
