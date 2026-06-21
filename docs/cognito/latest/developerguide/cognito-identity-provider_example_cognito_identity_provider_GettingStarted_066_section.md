@@ -1,4 +1,4 @@
-# Getting started with Amazon Cognito user pools
+# Getting started with user pools
 
 The following code example shows how to:
 
