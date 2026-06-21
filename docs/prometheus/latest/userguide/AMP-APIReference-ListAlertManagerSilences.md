@@ -11,6 +11,11 @@ Valid URIs:
 
 `/workspaces/`workspaceId`/alertmanager/api/v2/silences`
 
+URL query parameters:
+
+`filter` An array of strings. A list of matchers to filter
+silences by. Optional
+
 **Sample request**
 
 ```

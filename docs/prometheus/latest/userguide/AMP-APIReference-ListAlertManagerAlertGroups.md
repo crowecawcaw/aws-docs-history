@@ -22,6 +22,9 @@ silenced alerts. The default is true. Optional
 `inhibited` Boolean. If true, the returned list includes
 inhibited alerts. The default is true. Optional
 
+`muted` Boolean. If true, the returned list includes muted
+alerts. The default is true. Optional
+
 `filter` An array of strings. A list of matchers to filter
 alerts by. Optional
 

@@ -11,6 +11,23 @@ Valid URIs:
 
 `/workspaces/`workspaceId`/alertmanager/api/v2/alerts`
 
+URL query parameters:
+
+`active` Boolean. If true, the returned list includes active
+alerts. The default is true. Optional
+
+`silenced` Boolean. If true, the returned list includes
+silenced alerts. The default is true. Optional
+
+`inhibited` Boolean. If true, the returned list includes
+inhibited alerts. The default is true. Optional
+
+`filter` An array of strings. A list of matchers to filter
+alerts by. Optional
+
+`receiver` String. A regular expression matching receivers to
+filter alerts by. Optional
+
 **Sample request**
 
 ```
