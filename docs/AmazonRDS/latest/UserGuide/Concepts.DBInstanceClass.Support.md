@@ -63,6 +63,21 @@ versions](PostgreSQL.Concepts.General.DBVersions.md "PostgreSQL.Concepts.General
 The following tables show the supported databases and database versions for the
 general-purpose instance classes.
 
+**db.m9g – general-purpose instance classes powered by AWS
+Graviton5 processors**
+
+| Instance class  | Db2 | MariaDB                                                                                                     | Microsoft SQL Server | MySQL                                     | Oracle | PostgreSQL                                                                                                            |
+| --------------- | --- | ----------------------------------------------------------------------------------------------------------- | -------------------- | ----------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
+| db.m9g.48xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+| db.m9g.24xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+| db.m9g.16xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+| db.m9g.12xlarge | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+| db.m9g.8xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+| db.m9g.4xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+| db.m9g.2xlarge  | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+| db.m9g.xlarge   | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+| db.m9g.large    | No  | MariaDB 10.5.27 and higher, 10.6.19 and higher, 10.11.9 and higher,<br>11.4.3 and higher, 11.8.3 and higher | No                   | MySQL 8.0.40 and higher, 8.4.3 and higher | No     | PostgreSQL 13.18 and higher, 14.17 and higher, 15.10 and higher,<br>16.6 and higher, 17.2 and higher, 18.1 and higher |
+
 **db.m8g – general-purpose instance classes powered by AWS
 Graviton4 processors**
 
@@ -331,6 +346,20 @@ memory-optimized instance classes.
 | db.x2iedn.2xlarge  | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition and Standard Edition 2 (SE2) | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
 | db.x2iedn.xlarge   | Yes | MariaDB 11.8, 11.4, 10.11, 10.6, 10.5, and 10.4 | Enterprise and Standard Editions only, SQL Server 2014 12.00 and<br>higher | MySQL 8.4 and 8.0 | Enterprise Edition and Standard Edition 2 (SE2) | All PostgreSQL 17, 16, and 15 versions, 14.5 and higher 14 versions, 13.7 and higher 13 versions, and 13.4 |
 | db.x2iedn.metal    | No  | No                                              | No                                                                         | No                | BYOL only                                       | No                                                                                                         |
+
+**db.x2m – memory-optimized instance classes with local NVMe-based SSDs, powered by
+3rd generation Intel Xeon Scalable processors**
+
+| Instance class  | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL |
+| --------------- | --- | ------- | -------------------- | ----- | ------ | ---------- |
+| db.x2m.32xlarge | No  | No      | Yes                  | No    | No     | No         |
+| db.x2m.24xlarge | No  | No      | Yes                  | No    | No     | No         |
+| db.x2m.16xlarge | No  | No      | Yes                  | No    | No     | No         |
+| db.x2m.8xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.x2m.4xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.x2m.2xlarge  | No  | No      | Yes                  | No    | No     | No         |
+| db.x2m.xlarge   | No  | No      | Yes                  | No    | No     | No         |
+| db.x2m.metal    | No  | No      | No                   | No    | No     | No         |
 
 **db.x2iezn – memory-optimized instance classes powered by 2nd generation Intel Xeon
 Scalable processors**

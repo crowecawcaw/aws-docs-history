@@ -83,7 +83,7 @@ supports.
 
 | MariaDB engine version | Community release date | RDS release date | RDS end of standard support date |
 | ---------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 10.6.27                | 27 May 2026            | 5 June 2026      | July 2026                        |
+| 10.6.27                | 27 May 2026            | 5 June 2026      | November 2026                    |
 | 10.6.25                | 4 February 2026        | 10 February 2026 | November 2026                    |
 | 10.6.24                | 6 November 2025        | 18 November 2025 | November 2026                    |
 | 10.6.23                | 6 August 2025          | 13 August 2025   | November 2026                    |

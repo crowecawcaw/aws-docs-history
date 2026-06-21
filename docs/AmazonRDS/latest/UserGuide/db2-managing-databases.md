@@ -26,6 +26,7 @@ collection of information about your databases.
 - [Collecting information about databases](#db2-collecting-info-db "#db2-collecting-info-db")
 - [Forcing applications off of databases](#db2-forcing-application-off-db "#db2-forcing-application-off-db")
 - [Generating performance reports](#db2-generating-performance-reports "#db2-generating-performance-reports")
+- [Generating db2exfmt reports](#db2-generating-db2exfmt-reports "#db2-generating-db2exfmt-reports")
 
 ## Creating a database
 
@@ -735,4 +736,111 @@ db2 connect to rdsadmin user `master_username` using `master_password`
 db2 "call rdsadmin.drop_tablespace('`database_name`','db2montmptbsp')"
 
 db2 "call rdsadmin.drop_bufferpool('`database_name`','db2monbp')"
+```
+
+## Generating db2exfmt reports
+
+`db2exfmt` is a query performance analyzer tool that you can use to debug
+query performance issues in an RDS for Db2 database.
+
+###### Prerequisites
+
+Before using `db2exfmt`, ensure the following requirements are met:
+
+Database access
+
+- Run `db2exfmt` only against user databases.
+- Cannot run `db2exfmt` against RDSADMIN. It will generate an authorization
+  error (SQL0551N).
+
+Client setup
+
+- The target RDS for Db2 database must be cataloged and accessible from
+  the client machine where you run the `db2exfmt`
+  command.
+- IBM client installations do not package the `db2exfmt`
+  binary. A full Db2 installation is required, such as Db2 Community
+  Edition.
+
+Confirm that the `db2exfmt` binary is available on the client
+machine:
+
+```
+ls -l `DB2_INSTALL_PATH`/bin/db2exfmt
+```
+
+###### To run db2exfmt
+
+1. Create a shell script (for example, `db2exfmt.sh`) to run the
+   `db2exfmt` tool.
+
+```
+#!/bin/bash
+MYUSER=`master_username`        # Master user name
+MYPASS=`master_password`        # Master user password
+
+DBNAME=`database_name`          # Database name
+QRY=q1.sql                    # Filename that contains the SQL statement
+OUTPUT_FL=my_db2exfmt.out     # Filename where db2exfmt output will be saved
+
+echo "select * from MASTERUSER.NAMES ;" > $QRY
+
+db2 connect to $DBNAME user $MYUSER using $MYPASS
+db2 set current query optimization = 5
+db2 set current explain mode explain
+db2 -tvf $QRY
+db2 set current explain mode no
+db2exfmt -d $DBNAME -g TIC -w -1 -n % -s % -# 0 -u $MYUSER $MYPASS -o ${OUTPUT_FL}
+```
+
+This script does the following:
+
+    * Connects to the RDS for Db2 database
+    * Sets the query optimization level
+    * Enables explain mode to capture query execution plans
+    * Executes the SQL query
+    * Runs `db2exfmt` to generate a formatted analysis report
+
+For a complete list and explanation of `db2exfmt` command parameters, see
+[db2exfmt - Explain table format command](https://www.ibm.com/docs/en/db2/11.5.x?topic=commands-db2exfmt-explain-table-format "https://www.ibm.com/docs/en/db2/11.5.x?topic=commands-db2exfmt-explain-table-format") in the IBM Db2
+documentation. 2. Execute the script:
+
+```
+$ ./db2exfmt.sh
+```
+
+Sample output:
+
+```
+
+   Database Connection Information
+
+ Database server        = DB2/LINUXX8664 11.5.9.0
+ SQL authorization ID   = MASTERUS...
+ Local database alias   = UHPROD01
+
+DB20000I  The SQL command completed successfully.
+DB20000I  The SQL command completed successfully.
+select * from MASTERUSER.NAMES
+SQL0217W  The statement was not executed as only Explain information requests
+are being processed.  SQLSTATE=01604
+
+DB20000I  The SQL command completed successfully.
+DB2 Universal Database Version 11.5, 5622-044 (c) Copyright IBM Corp. 1991, 2019
+Licensed Material - Program Property of IBM
+IBM DATABASE 2 Explain Table Format Tool
+
+Connecting to the Database as user masteruser.
+Connect to Database Successful.
+Using SYSTOOLS schema for Explain tables.
+Output is in my_db2exfmt.out.
+Executing Connect Reset -- Connect Reset was Successful.
+```
+
+If `SYSTOOLS.EXPLAIN*` tables are not found on the target database, create
+the explain tables by running the following commands:
+
+```
+db2 -v CONNECT TO `database_name` user `master_username` using `master_password`
+db2 -v "CALL SYSPROC.SYSINSTALLOBJECTS('EXPLAIN', 'C', CAST (NULL AS VARCHAR(128)), CAST (NULL AS VARCHAR(128)))"
 ```

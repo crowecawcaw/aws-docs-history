@@ -40,7 +40,7 @@ This topic also includes information about getting started and details about pre
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
 
   - [Create an Aurora Serverless work item tracker](example_cross_RDSDataTracker_section.md "example_cross_RDSDataTracker_section.md")
-  - [Creating an Amazon RDS DB instance](example_rds_GettingStarted_036_section.md "example_rds_GettingStarted_036_section.md")
+  - [Creating a relational database instance](example_rds_GettingStarted_036_section.md "example_rds_GettingStarted_036_section.md")
 
 - [Serverless examples](service_code_examples_serverless_examples.md "service_code_examples_serverless_examples.md")
 

@@ -16,7 +16,12 @@ Kerberos authentication isn't available with the following engines:
   you must use a regionalized service principal of the form
   `directoryservice.rds.`region_name`.amazonaws.com`. For
   example, for Africa (Cape Town), you must add service principal
-  `directoryservice.rds.af-south-1.amazonaws.com` to your trust policy. For
+  `directoryservice.rds.af-south-1.amazonaws.com` to your trust policy. For AWS Regions
+  launched after Israel (Tel Aviv), starting with Canada West (Calgary), you must use the
+  engine-specific service principal
+  `directoryservice-`engine`.rds.`region_name`.amazonaws.com`.
+  For example, for RDS PostgreSQL in Canada West (Calgary), you must add service principal
+  `directoryservice-postgresql.rds.ca-west-1.amazonaws.com` to your trust policy. For
   more information, see [Kerberos authentication](database-authentication.md#kerberos-authentication "database-authentication.md#kerberos-authentication").
 
 ###### Topics
@@ -88,19 +93,19 @@ RDS for MySQL.
 | Asia Pacific (Hong Kong)   | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Hyderabad)   | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Jakarta)     | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Malaysia)    | Not available     | Not available     | Not available                                  |
+| Asia Pacific (Malaysia)    | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Melbourne)   | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Mumbai)      | All versions      | All versions      | All versions                                   |
-| Asia Pacific (New Zealand) | Not available     | Not available     | Not available                                  |
+| Asia Pacific (New Zealand) | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Osaka)       | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Seoul)       | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Singapore)   | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Sydney)      | All versions      | All versions      | All versions                                   |
-| Asia Pacific (Taipei)      | Not available     | Not available     | Not available                                  |
-| Asia Pacific (Thailand)    | Not available     | Not available     | Not available                                  |
+| Asia Pacific (Taipei)      | All versions      | All versions      | All versions                                   |
+| Asia Pacific (Thailand)    | All versions      | All versions      | All versions                                   |
 | Asia Pacific (Tokyo)       | All versions      | All versions      | All versions                                   |
 | Canada (Central)           | All versions      | All versions      | All versions                                   |
-| Canada West (Calgary)      | Not available     | Not available     | Not available                                  |
+| Canada West (Calgary)      | All versions      | All versions      | All versions                                   |
 | China (Beijing)            | All versions      | All versions      | All versions                                   |
 | China (Ningxia)            | All versions      | All versions      | All versions                                   |
 | Europe (Frankfurt)         | All versions      | All versions      | All versions                                   |
@@ -112,7 +117,7 @@ RDS for MySQL.
 | Europe (Stockholm)         | All versions      | All versions      | All versions                                   |
 | Europe (Zurich)            | All versions      | All versions      | All versions                                   |
 | Israel (Tel Aviv)          | All versions      | All versions      | All versions                                   |
-| Mexico (Central)           | Not available     | Not available     | Not available                                  |
+| Mexico (Central)           | All versions      | All versions      | All versions                                   |
 | Middle East (Bahrain)      | All versions      | All versions      | All versions                                   |
 | Middle East (UAE)          | All versions      | All versions      | All versions                                   |
 | South America (São Paulo)  | All versions      | All versions      | All versions                                   |
@@ -180,19 +185,19 @@ RDS for PostgreSQL.
 | Asia Pacific (Hong Kong)   | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Asia Pacific (Hyderabad)   | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Asia Pacific (Jakarta)     | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Malaysia)    | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
+| Asia Pacific (Malaysia)    | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Asia Pacific (Melbourne)   | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Asia Pacific (Mumbai)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (New Zealand) | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| Asia Pacific (Osaka)       | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
+| Asia Pacific (New Zealand) | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
+| Asia Pacific (Osaka)       | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Asia Pacific (Seoul)       | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Asia Pacific (Singapore)   | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Asia Pacific (Sydney)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Asia Pacific (Taipei)      | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
-| Asia Pacific (Thailand)    | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
+| Asia Pacific (Taipei)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
+| Asia Pacific (Thailand)    | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Asia Pacific (Tokyo)       | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Canada (Central)           | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Canada West (Calgary)      | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
+| Canada West (Calgary)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | China (Beijing)            | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | China (Ningxia)            | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Europe (Frankfurt)         | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
@@ -204,7 +209,7 @@ RDS for PostgreSQL.
 | Europe (Stockholm)         | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Europe (Zurich)            | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Israel (Tel Aviv)          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
-| Mexico (Central)           | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         | Not available         |
+| Mexico (Central)           | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Middle East (Bahrain)      | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | Middle East (UAE)          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |
 | South America (São Paulo)  | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          | All versions          |

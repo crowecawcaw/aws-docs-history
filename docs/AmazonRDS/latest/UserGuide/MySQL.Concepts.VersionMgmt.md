@@ -358,7 +358,7 @@ information, see [Viewing support dates for engine versions in Amazon RDS Extend
 | ------------------- | ---------------------- | ---------------- | -------------------------- | -------------------------------- | ------------------------------------------------- | ------------------------------------------------- | -------------------------------- |
 | MySQL 8.4           | 30 April 2024          | 21 November 2024 | 30 April 2029              | 31 July 2029                     | 1 August, 2029                                    | 1 August 2031                                     | 31 July 2032                     |
 | MySQL 8.0           | 19 April 2018          | 23 October 2018  | 30 April 2026              | 31 July 2026                     | 1 August 2026                                     | 1 August 2028                                     | 31 July 2029                     |
-| MySQL 5.7\*         | 21 October 2015        | 22 February 2016 | 31 October 2023            | 29 February 2024                 | 1 March 2024                                      | 1 March 2026                                      | 28 February 2027                 |
+| MySQL 5.7\*         | 21 October 2015        | 22 February 2016 | 31 October 2023            | 29 February 2024                 | 1 March 2024                                      | 1 March 2026                                      | 30 June 2029                     |
 
 \* MySQL 5.7 is now only available under RDS Extended Support. For more information, see [Amazon RDS Extended Support with Amazon RDS](extended-support.md "extended-support.md").
 

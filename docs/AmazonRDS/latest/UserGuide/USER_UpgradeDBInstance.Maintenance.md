@@ -254,6 +254,16 @@ the system changes, such as a change in DB instance class, are being applied and
 an outage. Your DB instance is unavailable only for the minimum amount of time required to
 make the necessary changes.
 
+###### Modifying your maintenance window does not prevent mandatory upgrades
+
+If you repeatedly modify your DB instance maintenance window to avoid a pending
+mandatory upgrade, Amazon RDS can still apply the upgrade outside of your
+preferred maintenance window after the mandatory apply date has passed. This
+applies to all forced upgrades, including engine version deprecations and
+instance type deprecation campaigns. To avoid unplanned downtime, we recommend
+proactively upgrading your DB instances before the mandatory apply date rather
+than relying on maintenance window scheduling to delay the upgrade.
+
 In the following example, you adjust the preferred maintenance window for a DB
 instance.
 

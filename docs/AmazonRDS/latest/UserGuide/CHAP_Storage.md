@@ -238,9 +238,9 @@ Storage performance for gp3 volumes on Amazon RDS DB engines, including the thre
 per storage volume, is shown in the following table. In RDS for Oracle and SQL Server,
 you can attach up to three additional storage volumes in addition to the primary
 storage volume. You can provision up to 256 TiB storage size in total with three gp3
-additional storage volumes in RDS for Oracle. You can provision up to 64 TiB storage
+additional storage volumes in RDS for Oracle. You can provision up to 256 TiB storage
 size in total with three gp3 additional storage volumes in RDS for SQL Server because
-each gp3 storage volume can be sized up to 16 TiB. With additional storage volumes, you
+each gp3 storage volume can be sized up to 64 TiB. With additional storage volumes, you
 can have higher provisioned IOPS and maximum throughput for your DB instance. However, your DB instance
 might not be able to fully utilize the provisioned IOPS and maximum throughput if your
 instance class has lower limits than the values you've provisioned for your storage volumes.
@@ -252,7 +252,7 @@ For more information, see [Factors that affect database performance](#CHAP_Stora
 | Db2, MariaDB, MySQL, and PostgreSQL | 400–65,536 GiB | 12,000 IOPS/500 MiB/s        | 12,000–64,000 IOPS        | 500–4,000 MiB/s                         |
 | Oracle                              | 20–199 GiB     | 3,000 IOPS/125 MiB/s         | N/A                       | N/A                                     |
 | Oracle                              | 200–65,536 GiB | 12,000 IOPS/500 MiB/s        | 12,000–64,000 IOPS        | 500–4,000 MiB/s                         |
-| SQL Server                          | 20–16,384 GiB  | 3,000 IOPS/125 MiB/s         | 3,000–16,000 IOPS         | 125–1,000 MiB/s                         |
+| SQL Server                          | 20–65,536 GiB  | 3,000 IOPS/125 MiB/s         | 3,000–80,000 IOPS         | 125–2,000 MiB/s                         |
 
 For every DB engine except RDS for SQL Server, you can provision additional IOPS and storage
 throughput when storage size is at or above the threshold value. For RDS for SQL Server, you

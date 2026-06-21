@@ -285,6 +285,21 @@ following service principals for the Asia Pacific (Melbourne) Region:
 
 ```
 
+For AWS Regions launched after Israel (Tel Aviv), starting with
+Canada West (Calgary), use the engine-specific service principal
+`directoryservice-`engine`.rds.`region-code`.amazonaws.com`,
+where `engine` is `postgresql`.
+For example, for Canada West (Calgary) Region:
+
+```
+
+"Service": [
+  "directoryservice-postgresql.rds.ca-west-1.amazonaws.com",
+  "rds.ca-west-1.amazonaws.com"
+]
+
+```
+
 ## Step 4: Create and configure users
 
 You can create users by using the Active Directory Users and Computers tool. This

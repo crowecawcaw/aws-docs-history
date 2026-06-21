@@ -86,6 +86,21 @@ The network speed relative to other DB instance classes.
 The following tables show the compute, memory, storage, and bandwidth specifications for
 the general-purpose instance classes.
 
+**db.m9g – general-purpose instance classes powered by AWS
+Graviton5 processors**
+
+| Instance class   | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) |
+| ---------------- | ---- | --- | ------------ | ---------------------- | ------------------------- | ------------------------ |
+| db.m9g.48xlarge  | 192  | —   | 768          | EBS-optimized only     | 72,000                    | 100                      |
+| db.m9g.24xlarge  | 96   | —   | 384          | EBS-optimized only     | 36,000                    | 50                       |
+| db.m9g.16xlarge  | 64   | —   | 256          | EBS-optimized only     | 24,000                    | 34                       |
+| db.m9g.12xlarge  | 48   | —   | 192          | EBS-optimized only     | 18,000                    | 25                       |
+| db.m9g.8xlarge   | 32   | —   | 128          | EBS-optimized only     | 12,000                    | 17                       |
+| db.m9g.4xlarge\* | 16   | —   | 64           | EBS-optimized only     | Up to 12,000              | Up to 17                 |
+| db.m9g.2xlarge\* | 8    | —   | 32           | EBS-optimized only     | Up to 12,000              | Up to 17                 |
+| db.m9g.xlarge\*  | 4    | —   | 16           | EBS-optimized only     | Up to 12,000              | Up to 15                 |
+| db.m9g.large\*   | 2    | —   | 8            | EBS-optimized only     | Up to 12,000              | Up to 15                 |
+
 **db.m8g – general-purpose instance classes powered by AWS
 Graviton4 processors**
 

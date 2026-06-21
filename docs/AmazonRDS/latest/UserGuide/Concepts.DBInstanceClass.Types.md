@@ -15,6 +15,16 @@ supports DB instance classes for the following use cases:
 
 The following general-purpose DB instance classes are available:
 
+- db.m9g – General-purpose DB instance classes
+  powered by AWS Graviton5 processors. These instance classes deliver balanced
+  compute, memory, and networking for a broad range of general-purpose workloads. They
+  are powered by the AWS Nitro System, a combination of dedicated hardware and
+  lightweight hypervisor.
+
+You can modify a DB instance to use one of the DB instance classes powered by AWS Graviton5
+processors. To do so, complete the same steps as with any other DB instance
+modification.
+
 - db.m8g – General-purpose DB instance classes
   powered by AWS Graviton4 processors. These instance classes deliver balanced
   compute, memory, and networking for a broad range of general-purpose workloads.

@@ -43,6 +43,28 @@ including their default and valid values for CPU cores, CPU threads per core and
 | `r8i.48xlarge`               | 96            | 96            | 6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,93,96                                                | 1               |
 | `r8i.96xlarge`               | 192           | 192           | 12,18,24,30,36,42,48,54,60,66,72,78,84,90,96,102,108,114,120,126,132,138,144,150,156,162,168,174,180,186,192                              | 1               |
 
+**X2M instances**
+
+Amazon RDS for SQL Server launched memory-optimized X2M database instances based on the Amazon EC2 X2iedn instance.
+Hyper-threading is disabled on RDS SQL Server for instance sizes 2xlarge and above for X2m database instances.
+This results in the total number of vCPUs available being half of that supported by the corresponding EC2 instance.
+For example, the EC2 instance type `x2m.2xlarge` (`x2iedn.2xlarge`) by default supports 4 cores and 2 threadsPerCore, resulting in a total of 8 vCPUs.
+In contrast, the RDS for SQL Server `x2m.2xlarge` (`x2iedn.2xlarge`) instance, with hyper-threading disabled, results in 4 cores and 1 threadsPerCore, overall 4 vCPUs.
+
+With unbundled pricing, database costs are calculated with separate charges for instance price (price per CPU hour) and licensing (price per vCPU hour).
+For more details about pricing, please refer to [Amazon RDS for SQL Server Pricing](https://aws.amazon.com/rds/sqlserver/pricing/ "https://aws.amazon.com/rds/sqlserver/pricing/").
+The table below outlines X2M instance classes that support the Optimize CPU, including their default and valid values for CPU cores, CPU threads per core and vCPUs.
+
+| Memory optimized instances | Instance type | Default vCPUs | Default CPU cores                                                                                                                                                                      | Valid CPU cores | Valid threads per core |
+| -------------------------- | ------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------------- |
+| `x2m.xlarge`               | 4             | 2             | 1,2                                                                                                                                                                                    | 2               |
+| `x2m.2xlarge`              | 4             | 4             | 1,2,3,4                                                                                                                                                                                | 1               |
+| `x2m.4xlarge`              | 8             | 8             | 1,2,3,4,5,6,7,8                                                                                                                                                                        | 1               |
+| `x2m.8xlarge`              | 16            | 16            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16                                                                                                                                                 | 1               |
+| `x2m.16xlarge`             | 32            | 32            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32                                                                                                 | 1               |
+| `x2m.24xlarge`             | 48            | 48            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48                                                 | 1               |
+| `x2m.32xlarge`             | 64            | 64            | 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64 | 1               |
+
 **AMD instances**
 
 Unlike equivalent Intel instances, each vCPU in AMD instances corresponds to a physical CPU core,
