@@ -7,3 +7,4 @@ see [View runbook content](automation-runbook-reference.md#view-automation-json 
 ###### Topics
 
 - [AWSSupport-TroubleshootMWAAEnvironmentCreation](automation-troubleshoot-mwaa-environment-creation.md "automation-troubleshoot-mwaa-environment-creation.md")
+- [AWSSupport-ValidateMWAADependencies](automation-awssupport-validatemwaadependencies.md "automation-awssupport-validatemwaadependencies.md")

@@ -34,3 +34,12 @@ the user that starts this runbook.
 Type: StringList
 
 Description: (Required) EC2 instances to start.
+
+- FailOnUnexpectedStopped
+
+Type: Boolean
+
+Default: True
+
+Description: (Optional) If set to true, the automation fails if the instance
+transitions to a stopped state during the start operation.
