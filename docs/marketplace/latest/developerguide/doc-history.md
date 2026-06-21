@@ -1,0 +1,147 @@
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+# Document history
+
+The following table describes the documentation updates for this guide.
+
+| Change                                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Date               |
+| ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| AWS Marketplace Discovery API public launch                                                                   | The AWS Marketplace Discovery API is now available. Added 9 API operations:<br>GetListing, GetProduct, GetOffer, GetOfferTerms, GetOfferSet,<br>ListPurchaseOptions, ListFulfillmentOptions, SearchFacets, and<br>SearchListings. Standard AWS SDK support and IAM-based access.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | April 8, 2026      |
+| Updates to ML products                                                                                        | Updated seller product machine learning information.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | March 26, 2025     |
+| CustomerIdentifier                                                                                            | Added notice of deprecation of CustomerIdentifier in March 2026.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | March 25, 2025     |
+| AWS Marketplace Catalog API topic updates                                                                     | Updated CPPO prerequisites.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | May 9, 2024        |
+| AWS Marketplace Catalog API topic updates                                                                     | Updated instances of the `Details` attribute to<br>`DetailsDocument`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | April 30, 2024     |
+| AWS Marketplace Catalog API topic updates                                                                     | Added notes to [Working with<br>offers](../../../marketplace-catalog/latest/api-reference/offers.md "../../../marketplace-catalog/latest/api-reference/offers.md") to clarify constraints.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | April 17, 2024     |
+| AWS Marketplace Catalog API supports service-linked for resale authorization                                  | Updated resale authorization prerequisites for service-linked role.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | March 20, 2024     |
+| AWS Marketplace Catalog API supports organization units                                                       | Added content to enable private marketplace support at Organization Unit (OU)<br>level.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | February 16, 2024  |
+| AWS Marketplace Catalog API supports setting intent on requests                                               | Sellers now can request changes for entities with specific intent using the<br>AWS Marketplace Catalog API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | February 9, 2024   |
+| AWS Marketplace Catalog API supports wildcard filter validation                                               | Added wildcard filter validation in ListEntities API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | February 5, 2024   |
+| AWS Marketplace Catalog API supports Amazon EKS add-ons                                                       | Added content and error messages related to publishing to Amazon EKS add-ons from<br>AWS Marketplace container-based product.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | January 29, 2024   |
+| AWS Marketplace Catalog API supports listing details about entities                                           | Sellers can now list details about entities using the AWS Marketplace Catalog API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | December 19, 2023  |
+| The AWS Marketplace Deployment Service API reference is now generally available                               | This service provides an API interface that supports a secure method for<br>passing deployment parameters (for example, API keys and external IDs) during<br>the Quick Launch experience.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | November 29, 2023  |
+| The AWS Marketplace Agreement Service API reference is now generally available                                | This service provides an API interface that helps AWS Marketplace sellers<br>manage their product-related agreements, including listing, searching, and<br>filtering agreements.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | November 29, 2023  |
+| AWS Marketplace Catalog API supports the ability to create products, offers, Resale Authorizations, and CPPOs | Sellers can now use the AWS Marketplace Catalog API to create and update [products](../../../marketplace-catalog/latest/api-reference/seller-products.md "../../../marketplace-catalog/latest/api-reference/seller-products.md"), [offers](../../../marketplace-catalog/latest/api-reference/offers.md "../../../marketplace-catalog/latest/api-reference/offers.md"), [Resale Authorizations](../../../marketplace-catalog/latest/api-reference/resale-authorizations.md "../../../marketplace-catalog/latest/api-reference/resale-authorizations.md"), and [channel partner<br>private offers (CPPOs)](../../../marketplace-catalog/latest/api-reference/cppos.md "../../../marketplace-catalog/latest/api-reference/cppos.md"). | November 29, 2023  |
+| AWS Marketplace Catalog API supports enhanced filtering and sorting capabilities                              | Sellers can now sort and filter products using the AWS Marketplace Catalog API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | November 29, 2023  |
+| AWS Marketplace Catalog API supports resource sharing                                                         | The AWS Marketplace Catalog API integrates with AWS Resource Access Manager (AWS RAM) to enable<br>resource sharing. See [Working with AWS RAM to share resources](../../../marketplace-catalog/latest/api-reference/resource-sharing-ram.md "../../../marketplace-catalog/latest/api-reference/resource-sharing-ram.md").                                                                                                                                                                                                                                                                                                                                                                                                         | April 12, 2023     |
+| AWS Marketplace Discovery API topic update                                                                    | The AWS Marketplace Discovery API now supports CloudTrail. See [Logging AWS Marketplace Discovery API calls using AWS CloudTrail](../../../marketplace-catalog/latest/api-reference/logging-using-cloudtrail.md "../../../marketplace-catalog/latest/api-reference/logging-using-cloudtrail.md").                                                                                                                                                                                                                                                                                                                                                                                                                                  | December 15, 2022  |
+| AWS Marketplace supports archiving private marketplace experiences                                            | Buyers can now archive and reactivate private marketplace experiences in<br>AWS Marketplace. See [Working with a private marketplace](../../../marketplace-catalog/latest/api-reference/private-marketplace.md "../../../marketplace-catalog/latest/api-reference/private-marketplace.md").                                                                                                                                                                                                                                                                                                                                                                                                                                        | December 12, 2022  |
+| AWS Marketplace Private marketplace granular permissions                                                      | Buyers now have more granular permissions to manage private marketplace<br>experiences. See [Working with a private marketplace](../../../marketplace-catalog/latest/api-reference/private-marketplace.md "../../../marketplace-catalog/latest/api-reference/private-marketplace.md").                                                                                                                                                                                                                                                                                                                                                                                                                                             | September 8, 2022  |
+| AWS Marketplace Discovery API release notes                                                                   | Added [Release notes](../../../marketplace-catalog/latest/api-reference/discovery-api-release-notes.md "../../../marketplace-catalog/latest/api-reference/discovery-api-release-notes.md") for the AWS Marketplace Discovery API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | May 20, 2022       |
+| AWS Marketplace Discovery API topic update                                                                    | Documentation-only update to the [AWS Marketplace<br>Discovery API topic](../../../marketplace-catalog/latest/api-reference/discovery-api.md "../../../marketplace-catalog/latest/api-reference/discovery-api.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | January 14, 2022   |
+| Support for Helm chart delivery options and QuickLaunch for container-based products                          | Added documentation for adding or updating Helm chart delivery options in<br>container-based product versions, including enabling QuickLaunch for buyers. See<br>[Working with container-based products](../../../marketplace-catalog/latest/api-reference/container-products.md "../../../marketplace-catalog/latest/api-reference/container-products.md").                                                                                                                                                                                                                                                                                                                                                                       | November 29, 2021  |
+| Support for managing seller products                                                                          | Added the ability to manage AMI and container products programmatically. See<br>[Working<br>with seller products](../../../marketplace-catalog/latest/api-reference/seller-products.md "../../../marketplace-catalog/latest/api-reference/seller-products.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | March 26, 2021     |
+| Support for managing private marketplaces                                                                     | Added the ability to create and maintain private marketplaces for AWS Organizations<br>programmatically. See [Working with a private marketplace](../../../marketplace-catalog/latest/api-reference/private-marketplace.md "../../../marketplace-catalog/latest/api-reference/private-marketplace.md").                                                                                                                                                                                                                                                                                                                                                                                                                            | December 3, 2020   |
+| The AWS Marketplace Discovery API is now available                                                            | The Discovery API provides programmatic access to find products in the AWS Marketplace.<br>For details, see [Discovery<br>API](../../../marketplace-catalog/latest/api-reference/discovery-api.md "../../../marketplace-catalog/latest/api-reference/discovery-api.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                           | September 30, 2020 |
+| The AWS Marketplace Catalog API is now generally available                                                    | This service provides an API interface for approved providers to<br>programmatically access the self-service publishing capabilities on the<br>AWS Marketplace Management Portal.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | November 12, 2019  |
+
+## Release notes for AWS Marketplace Discovery API
+
+Release notes for AWS Marketplace Discovery API. Details about new features, improvements,
+fixes, and announcements.
+
+### Discovery API release notes for 2026
+
+#### April 8, 2026
+
+The AWS Marketplace Discovery API is now publicly available through the
+standard AWS SDK. The API provides programmatic access to the AWS Marketplace
+catalog, including searching and browsing listings, retrieving product details
+and fulfillment options, and accessing public and private offer pricing and
+terms.
+
+##### Launch announcements
+
+- 9 API operations available: GetListing, GetProduct, GetOffer,
+  GetOfferTerms, GetOfferSet, ListPurchaseOptions,
+  ListFulfillmentOptions, SearchFacets, and SearchListings.
+- Standard AWS SDK support in all languages (Java, Python, JavaScript,
+  .NET, Go, and others). No private SDK required.
+- IAM-based access control with resource-level permissions. No manual
+  onboarding required.
+- Available in US East (N. Virginia), US West (Oregon), and
+  Europe (Ireland).
+
+### Discovery API release notes for 2024
+
+#### August 15, 2024
+
+Discovery API customers can access the updated Discovery API documentation and
+SDK on the Amazon Simple Storage Service bucket provided by the Discovery API team. Customers can
+refer to the Change Log in the private documentation for more details.
+
+##### Launch announcements
+
+The Discovery API Private SDK is now available in JavaScript V3.
+
+- For information about using the AWS SDK for JavaScript V3, see
+  the [AWS
+  SDK for JavaScript V3 Developer Guide](../../../sdk-for-javascript/v3/developer-guide/welcome.md "../../../sdk-for-javascript/v3/developer-guide/welcome.md").
+- For information about migrating from V2 to V3, see [Migrate from version 2.x to 3.x of the AWS SDK for
+  JavaScript](../../../sdk-for-javascript/v3/developer-guide/migrating.md "../../../sdk-for-javascript/v3/developer-guide/migrating.md"), in the _AWS SDK for JavaScript V3
+  Developer Guide_.
+
+##### Improvements
+
+- AWS SDK paginators are now available for the
+  `SearchListings` and
+  `ListListingViewQueries` API operations in all
+  supported languages that have native SDK support for
+  paginators.
+
+You can still use `NextToken` to manually paginate. You
+can use `NextToken` with the `SearchListings`,
+`ListListingViewQueries`, and
+`GetSearchFacets` API operations across all the SDKs
+that we vend.
+
+- SDK updated for all supported languages with the latest AWS SDK
+  artifacts.
+- Private documentation updated to include an SDK usage section for
+  JavaScript V3.
+
+### Discovery API release notes for 2022
+
+#### May 20, 2022
+
+Published on May 20, 2022
+
+Discovery API customers can access the updated Discovery API documentation and
+SDK on the Amazon Simple Storage Service (Amazon S3) bucket that the Discovery API team shared with them
+previously. Refer to the Change Log in the private documentation for more
+details.
+
+Discovery API announces the following launch, and improvements:
+
+##### Launch announcements
+
+- Discovery API launched in two additional AWS Regions:
+
+  - US West (Oregon) – `us-west-2`
+  - Europe (Ireland) – `eu-west-1`
+
+- Discovery API Private SDK is now available in Java 2.x:
+
+  - For more information about how to use the AWS SDK for Java 2.x,
+    see the [AWS SDK for Java 2.x Developer Guide](../../../sdk-for-java/v2/developer-guide/welcome.md "../../../sdk-for-java/v2/developer-guide/welcome.md").
+  - For more information about migration, see [migrating from version 1.x to 2.x of the
+    AWS SDK for Java](../../../sdk-for-java/v2/migration-guide/what-is-java-migration.md "../../../sdk-for-java/v2/migration-guide/what-is-java-migration.md") in the _AWS SDK for Java 2.x Developer Guide_.
+  - For more information about changes between versions 1.11.x
+    and 2.x of the AWS SDK for Java 2.x, see [1.11 to 2.x Changelog](https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md "https://github.com/aws/aws-sdk-java-v2/blob/master/docs/LaunchChangelog.md") on the GitHub
+    website.
+
+##### Improvements
+
+- Enhanced sorting functionality for the `SearchListings`
+  API operation by introducing new options for:
+
+  - `SortBy` –
+    `AVERAGE_CUSTOMER_RATING`,
+    `CREATION_TIME`,
+    `LAST_MODIFIED_TIME`
+  - `SortOrder` –
+    `ASCENDING`
+
+- SDK updated for all the existing languages with the latest AWS
+  SDK artifacts.
+- Documentation updated to include SDK usage section for all
+  languages.

@@ -1,0 +1,2354 @@
+The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+# Work with private offers using the AWS Marketplace APIs
+
+You can use the AWS Marketplace Catalog API to automate tasks for working with offers.
+
+While the _product_ describes
+what is being sold in AWS Marketplace, the _offer_
+describes the terms and rules of how a product is purchased and consumed.
+AWS Marketplace products can have multiple offers sold by different sellers. Each
+AWS Marketplace offer, however, can only be created for one product. An _offer_ contains a collection of agreement terms
+between two parties. The accepted offer terms are translated into an
+agreement as proof of a transaction.
+
+There are two types of offers:
+
+- **Private offers** are for
+  sellers and buyers to negotiate pricing. Sellers sign an end-user
+  license agreement (EULA) for software purchases in AWS Marketplace. An offer
+  is visible only to a specified buyer. For more information, see [Private
+  offers](../userguide/private-offers-overview.md "../userguide/private-offers-overview.md") in the _AWS Marketplace Seller Guide_.
+- **Public offers** are for
+  global purchasing programs. Sellers identify customers based on
+  available programs and geographical locations, which makes the offer
+  accessible only to specific customers.
+  See the following resources:
+
+- For working code examples, see [Manage offers with API](https://catalog.workshops.aws/mpseller/en-US/manage-offers-with-api "https://catalog.workshops.aws/mpseller/en-US/manage-offers-with-api") in the _AWS Marketplace
+  seller workshop_.
+- For API request code examples, see [Python](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/python/src/catalog_api/offers "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/python/src/catalog_api/offers") and [Java](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java/resources/changeSets/offers "https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java/resources/changeSets/offers") examples in _AWS
+  Samples_ on GitHub.
+- For a video on creating private offers, see [Create a Private Offer
+  Using the AWS Marketplace Catalog API](https://www.youtube.com/watch?v=Gg9JR0tB330 "https://www.youtube.com/watch?v=Gg9JR0tB330") on YouTube.
+- For a video on updating AMI pricing, see [Update AMI Product
+  Pricing Using the AWS Marketplace Catalog API](https://www.youtube.com/watch?v=AVIRlzHKEJw "https://www.youtube.com/watch?v=AVIRlzHKEJw") on YouTube.
+  The following topics describe how to use the Catalog API to create and update
+  offers:
+
+###### Topics
+
+- [Create an offer](#create-offer "#create-offer")
+- [Create a replacement offer](#create-replacement-offer "#create-replacement-offer")
+- [Update offer information](#update-offer-information "#update-offer-information")
+- [Update targeting configuration](#update-targeting-offers "#update-targeting-offers")
+- [Update refund policy](#update-support-terms "#update-support-terms")
+- [Update legal resources](#update-legal-terms "#update-legal-terms")
+- [Update pricing](#update-pricing-terms "#update-pricing-terms")
+- [Update the discoverability of the offer](#update-availability "#update-availability")
+- [Define the expiration date of agreements created using the offer](#update-validity-terms "#update-validity-terms")
+- [Update payment schedule details](#update-payment-schedule-terms "#update-payment-schedule-terms")
+- [Modify renewal options](#update-renewal-terms "#update-renewal-terms")
+- [Publish an offer](#release-offer "#release-offer")
+- [Describe existing offer details](#describe-entity "#describe-entity")
+
+## Create an offer
+
+You can use the Catalog API to create a new offer in AWS Marketplace. If
+your request processes successfully, the AWS Marketplace Catalog API creates a
+`Draft`, which is an incomplete offer that's invisible to
+buyers. To complete an offer, use the `Update` change type.
+When the offer is complete, use the [ReleaseOffer](#release-offer "#release-offer") change
+type to create and release it. Releasing an offer validates it and makes
+it visible to buyers in AWS Marketplace.
+
+To create a new offer, call the `StartChangeSet` API operation with the
+`CreateOffer` change type, as shown in the following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "CreateOffer",
+      "Entity": {
+        "Type": "Offer@1.0"
+      },
+      "DetailsDocument": {
+        "ProductId": "prod-ad8EXAMPLE51",
+        "Name": "Test Offer",
+        "OfferSetId": "offerset-b3f9EXAMPLE27"
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `CreateOffer` change
+type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **ProductId** (string) (required)
+    – The unique identifier of the product being offered.
+  - **Name** (string) (optional) –
+    The name associated with the offer for better readability to you and
+    your customers. It is displayed as a part of the Agreement
+    information as well.
+  - **OfferSetId** (string) (optional) –
+    The ID of the offer set to associate this offer with. Only specify this field when creating an offer that will be part of an offer set. If OfferSetId is not provided, an individual offer will be created that can be purchased standalone. Note that specifying an OfferSetId during offer creation only indicates your intent to associate the offer with that offer set. To complete the association, you must [use the AssociateOffers change type](work-with-offer-sets.md#associate-offers "work-with-offer-sets.md#associate-offers") after the offer is created.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+If the `Status` is `SUCCEEDED`, then a new
+`OfferId` is generated.
+
+The response looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef",
+  "ChangeSetName": "Submitted by 123456789012",
+  "StartTime": "2021-05-27T22:21:26Z",
+  "EndTime": "2021-05-27T22:32:19Z",
+  "Status": "SUCCEEDED",
+  "ChangeSet": [
+    {
+      "ChangeType": "CreateOffer",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "ProductId": "prod-ad8EXAMPLE51",
+        "Name": "Test Offer"
+      },
+      "ErrorDetailList": []
+    }
+  ]
+}
+```
+
+**Synchronous Validations**
+
+The following schema validations are specific to `CreateOffer` actions
+in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field | Validation rule                                                                                          | HTTP code |
+| ----------- | -------------------------------------------------------------------------------------------------------- | --------- |
+| ProductId   | Required<br>Length must be between 1 and 50 characters<br>Must not contain illegal characters (\, <, >)  | 422       |
+| ProductId   | RequiredUser must be authorized to create offer for<br>the given product                                 | 403       |
+| ProductId   | RequiredMust be an existing product in the catalog<br>or being created in the same change set            | 404       |
+| Name        | Optional<br>Length must be between 1 and 150 characters<br>Must not contain illegal characters (\, <, >) | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `CreateOffer` actions in the
+AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet`
+after a change set is processing. For more information about using
+`DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code           | Error message                                                                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| INCOMPATIBLE_PRODUCT | **`Use an active product in `Limited` or<br>`Public` state.`**                                                                                   |
+| INCOMPATIBLE_PRODUCT | **`Managing offers for your chosen product type isn't<br>currently supported in the AWS Marketplace Catalog API.`**                              |
+| INCOMPATIBLE_PRODUCT | **`Managing offers for the product isn't currently<br>supported in the AWS Marketplace Catalog API.`**                                           |
+| INCOMPATIBLE_PRODUCT | **`OfferSetId isn't supported in offers for the product.`**                                                                                      |
+| INCOMPATIBLE_PRODUCT | **`CreateOffer change type can't be invoked to create an<br>offer for the product. Use<br>CreateOfferUsingResaleAuthorization change<br>type.`** |
+
+## Create a replacement offer
+
+You can use the Catalog API to create a replacement
+offer (also
+known as an agreement-based offer) in AWS Marketplace.
+
+If your request has been processed successfully, AWS Marketplace Catalog API will have an offer in
+`Draft` state generated for you, which is an incomplete offer and not
+visible to buyers on AWS Marketplace. You will use `Update` change types to
+complete the offer. After the offer is completed, you will use [ReleaseOffer](#release-offer "#release-offer") change type to complete offer creation process
+and release the offer, which will validate the entire offer and make your offer
+visible to buyers on AWS Marketplace. From there, the buyer has the option to accept the
+replacement offer or to continue to operate under the original agreement.
+
+To create a replacement offer, call the `StartChangeSet` API operation
+with the `CreateReplacementOffer` change type and provide a pre-existing
+agreement id, as shown in the following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "CreateReplacementOffer",
+      "Entity": {
+        "Type": "Offer@1.0"
+      },
+      "DetailsDocument": {
+        "AgreementId": "agmt-12345",
+        "Name": "Offer name"
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `CreateReplacementOffer`
+change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **AgreementId** (string) (required)
+    – The unique identifier for the current agreement to be
+    replaced.
+  - **Name** (string) (optional) –
+    The name associated with the offer for better readability to you and
+    your customers. It will be displayed as part of Agreement
+    information as well.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to
+`CreateReplacementOffer` actions in the AWS Marketplace Catalog API. These validations
+are performed when you call `StartChangeSet`. If the request doesn’t meet
+the following requirements, it will fail with an HTTP response.
+
+| Input field | Validation rule                                                                                        | HTTP Code |
+| ----------- | ------------------------------------------------------------------------------------------------------ | --------- |
+| AgreementId | RequiredLength must be between 1 and 64<br>characters                                                  | 422       |
+| AgreementId | RequiredUser must be authorized to create offer for<br>the given agreement                             | 403       |
+| Name        | OptionalLength must be between 1 and 150<br>charactersMust not contain invalid characters (\,<br><, >) | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `CreateReplacementOffer` actions
+in the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+information about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code             | Error message                                                                                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE_PRODUCT   | **`Replacement offers aren't supported for the<br>product.`**                                                                                                                       |
+| INCOMPATIBLE_AGREEMENT | **`CreateReplacementOffer change type can't be invoked to<br>create a replacement offer for the agreement. Use<br>CreateReplacementOfferUsingResaleAuthorization change<br>type.`** |
+
+## Update offer information
+
+You can use the Catalog API to update the offer information in AWS Marketplace.
+
+To update the offer information, call the `StartChangeSet` API
+operation with the `UpdateInformation` change type, as shown in the
+following example. All other information will remain unchanged.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateInformation",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "Name": "New offer name",
+        "Description": "New offer description",
+        "PreExistingAgreement": {
+          "AcquisitionChannel": "External",
+          "PricingModel": "Contract"
+        }
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `UpdateInformation`
+change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **Name** (string) (optional) –
+    Name associated with the offer for better readability. It is
+    displayed as part of agreement information.
+  - **Description** (string) (optional)
+    – A free-form text that is meant to be used only by you and
+    will never be visible to buyers.
+  - **PreExistingAgreement** (object)
+    (optional) – Determines if this offer is a renewal for an
+    existing agreement with an existing customer for the same underlying
+    product. The existing agreement can be within or outside AWS Marketplace.
+    AWS may audit and verify your offer is a renewal. If AWS is
+    unable to verify your offer, then AWS may revoke the offer and
+    entitlements from your customer.
+
+    - **AcquisitionChannel**
+      (string) (required) – Indicates if the existing
+      agreement was signed outside AWS Marketplace or within AWS Marketplace.
+
+    Possible values: `External`,
+    `AwsMarketplace`
+    - **PricingModel** (string)
+      (required) – Indicates which pricing model the
+      existing agreement uses.
+
+    Possible values: `Contract`,
+    `Usage`, `Byol`,
+    `Free`
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdateInformation`
+actions in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field                             | Validation rule                                                                                          | HTTP code |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------- | --------- |
+| Properties                              | At least one of the following properties must be provided                                                | 422       |
+| Name                                    | Optional<br>Length must be between 1 and 150 characters<br>Must not contain illegal characters (\, <, >) | 422       |
+| Description                             | Optional<br>Length must be between 1 and 255 characters                                                  | 422       |
+| PreExistingAgreement                    | OptionalCan be null to remove<br>`PreExistingAgreement` from offer                                       | 422       |
+| PreExistingAgreement.PricingModel       | Required<br>Can be one of these values: [`Byol`,<br>`Free`, `Usage`,<br>`Contract`]                      | 422       |
+| PreExistingAgreement.AcquisitionChannel | Required<br>Can be one of these values: [`AwsMarketplace`,<br>`External`]                                | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateInformation` actions in the
+AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet`
+after a change set is processing. For more information about using
+`DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                          | Error message                                                               |
+| ----------------------------------- | --------------------------------------------------------------------------- |
+| INCOMPATIBLE_PRE_EXISTING_AGREEMENT | **`PreExistingAgreement can't be changed after the offer<br>is released.`** |
+
+## Update targeting configuration
+
+You can use the Catalog API to update the targeting configuration of your offer in
+AWS Marketplace.
+
+All existing targeting options that aren't included in the latest request and will
+be removed from the offer.
+
+###### Note
+
+An offer can optionally include `PositiveTargeting` or
+`NegativeTargeting`, but not both.
+
+**Positive Targeting options:**
+
+- **Country codes only** – Creates a public offer available to buyers in the specified countries.
+- **Buyer accounts only** – Creates a private offer targeted to specific AWS accounts.
+- **Both country codes and buyer accounts** – Creates a private offer where targeted accounts can only accept the offer if they are located in one of the specified countries.
+  **Negative Targeting options:**
+
+- **Country codes** – Excludes buyers from the specified countries. This creates a public offer available to all countries except those listed.
+
+To update the targeting configuration of your offer, call the
+`StartChangeSet` API operation with the `UpdateTargeting`
+change type, as shown in the following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateTargeting",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "PositiveTargeting": {
+          "CountryCodes": [
+            "US",
+            "CA"
+          ],
+          "BuyerAccounts": [
+            "111122223333"
+          ]
+        },
+        "NegativeTargeting": {
+          "CountryCodes": [
+            "XX"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `UpdateTargeting` change
+type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **PositiveTargeting** (object)
+    (optional) – Positive targeting defines the criteria which
+    any buyer's profile should fulfill in order to be allowed to access
+    the offer. This field is optional, but at least one targeting option
+    should be provided when this field is present.
+
+    - **CountryCodes** (array of
+      strings) (optional) – List as option for allowing
+      targeting based on country. If the intention isn’t to target
+      the offer to a country, this field should be omitted. If
+      it’s present, the list must contain at least one country
+      code. Each element in this list should be a valid 2-letter
+      country code, using this format: ISO 3166-1 alpha-2.
+    - **BuyerAccounts** (array of
+      strings) (optional) – List as an option to allow
+      targeting based on AWS accounts (also known as Private
+      Offer). If the intention is to not target the offer to an
+      AWS account, this field should be omitted.
+
+  - **NegativeTargeting** (object)
+    (optional) – Negative targeting defines the criteria which
+    any customer's profile should fulfill to be restricted to access the
+    offer. Although this field is optional, at least one targeting
+    option should be provided when this field is present.
+
+    - **CountryCodes** (array of
+      strings) (required) – List as option for allowing
+      targeting based on country. If the intention isn’t to target
+      the offer to a specific country, then this field should be
+      omitted. If it’s present, the list must contain at least one
+      country code. Each element in this list should be a valid
+      2-letter country code using this format: ISO 3166-1
+      alpha-2.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdateTargeting`
+actions in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field                     | Validation rule                                                                                                | HTTP code |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------- | --------- |
+| NegativeTargeting               | Optional<br>Can have either one of the following:<br>[`CountryCodes`]                                          | 422       |
+| NegativeTargeting.CountryCodes  | Optional<br>List size must be between 1 and 244<br>Country codes must be valid (ISO 3166-1 alpha-2)            | 422       |
+| PositiveTargeting               | Optional<br>Can have either one of the following:<br>[`CountryCodes`,<br>`BuyerAccounts`]                      | 422       |
+| PositiveTargeting.BuyerAccounts | Optional<br>List size must be between 1 and 26<br>AWS account IDs must be in valid format (12-digit<br>number) | 422       |
+| PositiveTargeting.CountryCodes  | Optional<br>List size must be between 1 and 244<br>Country codes must be valid (ISO 3166-1 alpha-2)            | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateTargeting` actions in the
+AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet`
+after a change set is processing. For more information about using
+`DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                        | Error message                                                                                                                                                                                                         |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INVALID_BUYER_ACCOUNTS            | **`Provide valid buyer accounts. Invalid accounts:<br>[x].`**                                                                                                                                                         |
+| INVALID_COUNTRY_CODES             | **`Provide supported country codes.`**                                                                                                                                                                                |
+| INVALID_TARGETING                 | **`Use either negative or positive targeting on the same<br>attribute.`**                                                                                                                                             |
+| INCOMPATIBLE_PRODUCT              | **`Country-based targeting isn't supported for the<br>product.`**                                                                                                                                                     |
+| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Provide BuyerAccounts that are compatible with the<br>ResaleAuthorization.`**                                                                                                                                      |
+| INCOMPATIBLE_TARGETING            | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                         |
+| INCOMPATIBLE_TARGETING            | **`The requested change can't be performed after the<br>offer is expired.`**                                                                                                                                          |
+| INCOMPATIBLE_TARGETING            | **`Targeting can't be updated on a replacement offer. If<br>the buyer isn't associated with the provided AgreementId, then<br>create a new private offer by providing an AgreementId<br>associated with the buyer.`** |
+| TOO_MANY_BUYER_ACCOUNTS           | **`Provide BuyerAccounts within the allowed<br>limits.`**                                                                                                                                                             |
+| INCOMPATIBLE_TARGETING            | **`BuyerAccounts can't be removed after the offer is<br>released.`**                                                                                                                                                  |
+| INCOMPATIBLE_TARGETING            | **`BuyerAccounts can't be added after the offer is<br>released.`**                                                                                                                                                    |
+| MISSING_COUNTRY_CODES             | **`Provide PositiveTargeting with CountryCodes:<br>[x].`**                                                                                                                                                            |
+| INCOMPATIBLE_COUNTRY_CODES        | **`Provide CountryCodes that are<br>compatible.`**                                                                                                                                                                    |
+| INCOMPATIBLE_BUYER_ACCOUNTS       | **`Provide BuyerAccounts that are compatible with the<br>agreement.`**                                                                                                                                                |
+
+## Update refund policy
+
+You can use the Catalog API to update the refund policy of your offer in AWS Marketplace.
+
+This change doesn’t affect existing agreements. The support terms that aren't
+included in the latest request will be removed from the offer.
+
+To update the refund policy, call the `StartChangeSet` API operation
+with the `UpdateSupportTerms` change type, as shown in the following
+example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateSupportTerms",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "Terms": [
+          {
+            "Type": "SupportTerm",
+            "RefundPolicy": "Updated refund policy description"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `UpdateSupportTerms`
+change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **Terms** (array of structures)
+    (required) – List of support terms that you would like to
+    update. Accepted support terms are:
+
+    - **SupportTerm** (object)
+      (required) – Defines the customer support available
+      for the acceptors when they purchase the software.
+
+      - **Type** (string)
+        (required) – Type of the term being updated.
+        This is the object value:
+        `"SupportTerm"`.
+      - **RefundPolicy**
+        (string) (required) – Free-text field about
+        the refund policy description that will be shown to
+        customers as is on the website and console.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdateSupportTerms`
+actions in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field          | Validation rule                                                                | HTTP code |
+| -------------------- | ------------------------------------------------------------------------------ | --------- |
+| Terms                | Required                                                                       | 422       |
+| Terms[].RefundPolicy | Required<br>Length must be between 1 and 500<br>Cannot lead or end with spaces | 422       |
+| Terms[].Type         | RequiredCan only be `SupportTerm`                                              | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateSupportTerms` actions in
+the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+information about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code           | Error message                                                                 |
+| -------------------- | ----------------------------------------------------------------------------- |
+| INCOMPATIBLE_PRODUCT | **`SupportTerm isn't supported in private offers for the<br>product.`**       |
+| INCOMPATIBLE_TERMS   | **`SupportTerm isn't supported for free trial<br>offers.`**                   |
+| INCOMPATIBLE_TERMS   | **`The requested change can't be performed after the<br>offer is released.`** |
+| INCOMPATIBLE_TERMS   | **`The requested change can't be performed after the<br>offer is expired.`**  |
+
+## Update legal resources
+
+You can use the Catalog API to replace the existing legal documents, such as an
+end user license agreement (EULA). The legal terms that aren't included in the
+latest request will be removed from the offer.
+
+To update legal resources of your offer, call the `StartChangeSet` API
+operation with the `UpdateLegalTerms` change type, as shown in the
+following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateLegalTerms",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "Terms": [
+          {
+            "Type": "LegalTerm",
+            "Documents": [
+              {
+                "Type": "CustomEula",
+                "Url": "https://s3.amazonaws.com/EULA/custom-eula-1234.txt"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `UpdateLegalTerms` change
+type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **LegalTerm** (object) (required)
+    – Defines the list of text agreements to be proposed to the
+    acceptors. One example of such an agreement is the end user license
+    agreement (EULA).
+
+    - **Type** (string) (required)
+      – Type of the term being updated. This is the object
+      value: `"LegalTerm"`.
+    - **Documents** (array of
+      structures) (required) – List of references to legal
+      resources to be proposed to the buyers. One example of such
+      a resource is the end user license agreement (EULA). Each
+      reference is made up of a `Type` and a
+      `URL`:
+
+      - **Type** (string)
+        (required) – Type of document. Available
+        document types are:
+
+        - **CustomEula**
+          – A custom EULA provided by you as seller.
+          Either a public S3 URL or a [presigned URL](../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md "../../../AmazonS3/latest/userguide/ShareObjectPreSignedURL.md") is
+          required for this document type.
+        - **StandardEula** – Standard
+          Contract For AWS Marketplace (SCMP). For more information
+          about SCMP, see the AWS Marketplace Seller Guide. You don’t
+          provide a URL for this type because it is managed
+          by AWS Marketplace.
+
+      - **Url** (string)
+        (conditionally required) – A URL to the legal
+        document for buyers to read. Required when
+        `Type` is one of the following
+        [`CustomEula`].
+      - **Version** (string)
+        (conditionally required) – Version of
+        standard contracts provided by AWS Marketplace. Required when
+        `Type` is [`StandardEula`].
+        Available version:
+
+        - **2022-07-14**
+          – This version of the Standard Contract for
+          AWS Marketplace is available from this Amazon S3 bucket: [https://s3.amazonaws.com/aws-mp-standard-contracts/Standard-Contact-for-AWS-Marketplace-2022-07-14.pdf](https://s3.amazonaws.com/aws-mp-standard-contracts/Standard-Contact-for-AWS-Marketplace-2022-07-14.pdf "https://s3.amazonaws.com/aws-mp-standard-contracts/Standard-Contact-for-AWS-Marketplace-2022-07-14.pdf")
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdateLegalTerms`
+actions in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field                           | Validation rule                                                                                                                     | HTTP code |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Terms                                 | Required<br>Only `LegalTerm` is allowed in the list<br>List size must be 1                                                          | 422       |
+| Terms[].Type                          | RequiredCan only be `LegalTerm`                                                                                                     | 422       |
+| Terms[].LegalTerm.Documents           | Required                                                                                                                            | 422       |
+| Terms[].LegalTerm.Documents[].Type    | Required<br>Allowed values:<br>• `CustomEula`<br>• `StandardEula`                                                                   | 422       |
+| Terms[].LegalTerm.Documents[].Url     | Required and must be a valid URL when `Type` is<br>`CustomEula`                                                                     | 422       |
+| Terms[].LegalTerm.Documents[].Version | Required and must be a valid Version when `Type` is<br>`StandardEula`Valid `StandardEula`<br>versions: ["2019-04-24", "2022-07-14"] | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateLegalTerms` actions in the
+AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet`
+after a change set is processing. For more information about using
+`DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                         | Error message                                                                                             |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE_TERMS                 | **`The requested change can't be performed after the<br>offer is released.`**                             |
+| INCOMPATIBLE_TERMS                 | **`The requested change can't be performed after the<br>offer is expired.`**                              |
+| INVALID_LEGAL_DOCUMENTS            | **`Provide URLs for legal documents stored in accessible<br>S3 buckets.`**                                |
+| INVALID_LEGAL_DOCUMENTS            | **`Only the most recent version of StandardEula is<br>supported for new offers.`**                        |
+| INVALID_LEGAL_DOCUMENTS            | **`Provide legal documents in the supported file<br>formats.`**                                           |
+| INVALID_LEGAL_DOCUMENTS            | **`Provide legal documents using the supported document<br>types.`**                                      |
+| LIMIT_EXCEEDED_LEGAL_DOCUMENT_SIZE | **`Provide legal documents within the allowed size<br>limits.`**                                          |
+| INVALID_LEGAL_DOCUMENTS            | **`LegalTerm contains password-protected document(s).<br>Provide accessible documents in<br>LegalTerm.`** |
+| INVALID_LEGAL_DOCUMENTS            | **`LegalTerm contains invalid PDF document(s). Provide<br>accessible documents in LegalTerm.`**           |
+
+## Update pricing
+
+You can use the Catalog API to replace the existing pricing terms completely. The
+pricing terms that aren't included in the latest request will be removed from the
+offer.
+
+To update pricing terms for your offer, call the `StartChangeSet` API
+operation with the `UpdatePricingTerms` change type, as shown in the
+following example.
+
+###### Note
+
+The following request syntax combines multiple examples. This combination
+doesn't work as a valid payload. For example, a `Terms` array can't
+include both the term type `FixedUpfrontPricingTerm` and the term
+type `ConfigurableUpfrontPricingTerm`. For examples of how different
+term types are combined for different pricing use cases, see [Manage offers with API](https://catalog.workshops.aws/mpseller/en-US/manage-offers-with-api "https://catalog.workshops.aws/mpseller/en-US/manage-offers-with-api") in the _AWS Marketplace seller
+workshop_.
+
+###### Note
+
+For SaaS products with Free pricing model, you must include either `UsageBasedPricingTerm` or `ConfigurableUpfrontPricingTerm` with at least one RateCard (dimension) where all prices are set to $0.00. This requirement is unique to SaaS products.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdatePricingTerms",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "PricingModel": "Usage",
+        "Terms": [
+          {
+            "Type": "UsageBasedPricingTerm",
+            "CurrencyCode": "USD",
+            "RateCards": [
+              {
+                "RateCard": [
+                  {
+                    "DimensionKey": "m3.large",
+                    "Price": "0.10"
+                  },
+                  {
+                    "DimensionKey": "m4.xlarge",
+                    "Price": "0.20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Type": "ConfigurableUpfrontPricingTerm",
+            "CurrencyCode": "USD",
+            "RateCards": [
+              {
+                "Selector": {
+                  "Type": "Duration",
+                  "Value": "P365D"
+                },
+                "RateCard": [
+                  {
+                    "DimensionKey": "m3.large",
+                    "Price": "300"
+                  },
+                  {
+                    "DimensionKey": "m4.xlarge",
+                    "Price": "400"
+                  }
+                ],
+                "Constraints": {
+                  "MultipleDimensionSelection": "Allowed",
+                  "QuantityConfiguration": "Allowed"
+                }
+              }
+            ]
+          },
+          {
+            "Type": "ByolPricingTerm"
+          },
+          {
+            "Type": "RecurringPaymentTerm",
+            "CurrencyCode": "USD",
+            "BillingPeriod": "Monthly",
+            "Price": "100.0"
+          },
+          {
+            "Type": "FixedUpfrontPricingTerm",
+            "CurrencyCode": "USD",
+            "Price": "200.00",
+            "Grants": [
+              {
+                "DimensionKey": "Users",
+                "MaxQuantity": 10
+              }
+            ]
+          },
+          {
+            "Type": "FreeTrialPricingTerm",
+            "Duration": "P30D",
+            "Grants": [
+              {
+                "DimensionKey": "m3.xlarge",
+                "MaxQuantity": 10
+              },
+              {
+                "DimensionKey": "m4.xlarge",
+                "MaxQuantity": 10
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `UpdatePricingTerms`
+change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **PricingModel** (string) (required)
+    – Pricing model for your offer. Possible values for pricing
+    model are:
+
+    - **Usage** –
+      Usage-based pricing model where buyers will be billed for
+      their usage of your product.
+    - **Contract** –
+      Contract-based pricing model where buyers are either billed
+      in advance for the use of your product, or offered a
+      flexible payment schedule. Buyers can also pay for an
+      additional usage above their contract.
+    - **Free** – Free
+      pricing model where buyers will not be charged for usage of
+      product. When using this pricing model no pricing terms or
+      payment schedule term can have non-zero rates.
+    - **Byol** – Byol
+      pricing model where buyers will bring their own license for
+      usage of the product.
+
+  - **Terms** (array of structures)
+    (required) – List of pricing terms that you want to update.
+    Supported pricing terms are:
+
+    - **FreeTrialPricingTerm**
+      (object) – Defines a short-term free pricing model
+      where the buyers are not charged anything within a specified
+      limit.
+
+      - **Type** (string)
+        – Type of the term being updated. This is the
+        object value:
+        `"FreeTrialPricingTerm"`.
+      - **Duration** (string)
+        – Duration of the free trial period.
+      - **Grants** (array of
+        structures) – Entitlements that will be
+        granted to the acceptor of a free trial as part of
+        an agreement execution.
+
+        - **DimensionKey** (string) – Unique
+          dimension key defined in the product document.
+          Dimensions represent categories of capacity in a
+          product and are specified when the product is
+          listed in AWS Marketplace.
+        - **MaxQuantity**
+          (integer) (optional) – Maximum amount of
+          capacity that the buyer can be entitled to the
+          given dimension of the product. If
+          `MaxQuantity` is not provided, the
+          buyer will be able to use an unlimited amount of
+          the given dimension.
+
+    - **UsageBasedPricingTerm**
+      (object) – Defines a pay-as-you-go (PAYG) pricing
+      model where the customers are charged based on product
+      usage.
+
+      - **Type** (string)
+        (required) – Category of the term being
+        updated. This is the object value:
+        `UsageBasedPricingTerm`.
+      - **CurrencyCode**
+        (string) – Defines the currency for prices
+        mentioned in this term. Currently, only USD is
+        supported.
+      - **RateCards** (array
+        of structures) – List of rate cards.
+
+        - **RateCard**
+          (array of structures) – A rate card defines
+          the per-unit rates for the product
+          dimensions.
+
+          - **DimensionKey** (string)
+            –Dimension that the given entitlement
+            applies. Dimensions represent categories of
+            capacity in a product and are specified when the
+            product is listed in AWS Marketplace.
+          - **Price**
+            (string) – Per-unit price for the product
+            dimension that will be used for calculating the
+            amount to be charged to the buyer.
+
+    - **ConfigurableUpfrontPricingTerm** (object)
+      – Defines pre-paid payment model which allows buyers
+      to configure the entitlements that they want to purchase and
+      the duration of the entitlements. You can update the list of
+      rates for each contract duration and entitlements for each
+      dimension.
+
+      - **Type** (string)
+        (required) – Type of the term being updated.
+        This is the object value:
+        `ConfigurableUpfrontPricingTerm`.
+      - **CurrencyCode**
+        (string) (required) – Defines the currency
+        for the prices mentioned in this term. For public
+        offers, only USD is supported. For private offers,
+        USD, AUD, EUR, GBP, and JPY are supported.
+      - **RateCards** (array
+        of structures) (required) – List of rate
+        cards.
+
+        - **Selector**
+          (object) (required) – Selector is used to
+          differentiate between the mutually exclusive rate
+          cards in the same pricing term, to be selected by
+          the buyer.
+
+          - **Type**
+            (string) (required) – Category of Selector.
+            At this time, only `Duration` is
+            supported.
+          - **Value**
+            (string) (required) – Contract duration.
+            This field supports the ISO 8601 format.
+
+        - **RateCard**
+          (array of structures) (required) – A rate
+          card defines the per-unit rates for the product
+          dimensions.
+
+          - **DimensionKey** (string) (required)
+            – Unique dimension key defined in the
+            product document. Dimensions represent categories
+            of capacity in a product and are specified when
+            the product is listed in AWS Marketplace.
+          - **Price**
+            (string) (required) – Per-unit price for
+            the product dimension which will be used for
+            calculating the amount to be charged to the
+            buyer.
+
+        - **Constraints**
+          (object) (required) – Defines constraints
+          on how the term can be configured by
+          acceptors.
+
+        ###### Note
+
+        Currently, **MultipleDimensionSelection** and
+        **QuantityConfiguration** values need to
+        be same.
+
+            - **MultipleDimensionSelection** (string)
+             (required) – Determines if buyers are
+             allowed to select multiple dimensions in the rate
+             card. Possible values are `Allowed` and
+             `Disallowed`.
+            - **QuantityConfiguration** (string)
+             (required) – Determines if acceptors are
+             allowed to configure quantity for each dimension
+             in rate card. Possible values are
+             `Allowed` and
+             `Disallowed`.
+
+    - **ByolPricingTerm** (object)
+      – Enables you and your customers to move your
+      existing agreements to AWS Marketplace. The customer won't be charged
+      for product usage in AWS Marketplace because they already paid for the
+      product outside of AWS Marketplace.
+
+      - **Type** (string)
+        (required) – Type of the term being updated.
+        This is the object value:
+        `ByolPricingTerm`.
+
+    - **RecurringPaymentTerm**
+      (object) – Defines a pricing model where customers
+      are charged a fixed recurring price at the end of each
+      billing period.
+
+      - **Type** (string)
+        (required) – Type of the term being updated.
+        This is the object value:
+        `RecurringPaymentTerm`.
+      - **BillingPeriod**
+        (string) (required) – Defines the recurrence
+        at which buyers are charged. Only
+        `Monthly` is supported today.
+      - **Price** (string)
+        (required) – Amount charged to the buyer
+        every billing period.
+      - **CurrencyCode**
+        (string) (required) – Defines the currency
+        for the prices mentioned in this term. Currently,
+        only `USD` is supported.
+
+    - **FixedUpfrontPricingTerm**
+      (object) – Defines a pre-paid pricing model where the
+      customers are charged a fixed upfront amount.
+
+      - **Type** (string)
+        (required) – Type of the term being updated.
+        This is the object value:
+        `FixedUpfrontPricingTerm`.
+      - **CurrencyCode**
+        (string) (required) – Defines the currency
+        for the prices mentioned in this term. For public
+        offers, only USD is supported. For private offers,
+        USD, AUD, EUR, GBP, and JPY are supported.
+      - **Price** (string)
+        (required) – Fixed amount to be charged to
+        the customer when this term is accepted.
+      - **Grants** (array of
+        structures) (required) – Entitlements that
+        will be granted to the acceptor of fixed upfront as
+        part of agreement execution.
+
+        - **DimensionKey** (string) (required)
+          – Unique dimension key defined in the
+          product document. Dimensions represent categories
+          of capacity in a product and are specified when
+          the product is listed in AWS Marketplace.
+        - **MaxQuantity**
+          (integer) (required) – Maximum amount of
+          capacity that the buyer can be entitled to the
+          given dimension of the product. If
+          `MaxQuantity` is not provided, the
+          buyer will be able to use an unlimited amount of
+          the given dimension.
+
+      - **Duration** (string)
+        (optional) – Defines the duration that the
+        term remains active. This ﬁeld supports the ISO 8601
+        format.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdatePricingTerms`
+actions in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field                                                                              | Validation rule                                                                                                                                                                           | HTTP |
+| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| PricingModel                                                                             | RequiredAllowed pricing models: ["Byol", "Free", "Usage",<br>"Contract"]                                                                                                                  | 422  |
+| Terms                                                                                    | RequiredAllowed Terms: ["ConfigurableUpfrontPricingTerm",<br>"ByolPricingTerm", "FreeTrialPricingTerm",<br>"UsageBasedPricingTerm", "RecurringPaymentTerm",<br>"FixedUpfrontPricingTerm"] | 422  |
+| Terms[].ByolPricingTerm                                                                  | Required                                                                                                                                                                                  | 422  |
+| Terms[].ByolPricingTerm.Type                                                             | RequiredCan only be "ByolPricingTerm"                                                                                                                                                     | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm                                                   | Required                                                                                                                                                                                  | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.Type                                              | RequiredCan only be<br>"ConfigurableUpfrontPricingTerm"                                                                                                                                   | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.CurrencyCode                                      | RequiredSupported currencies: ["USD", "AUD", "EUR", "GBP",<br>"JPN"]                                                                                                                      | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards                                         | RequiredList size must be between 1 and 5                                                                                                                                                 | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Constraints                           | Required                                                                                                                                                                                  | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Contraints.MultipleDimensionSelection | RequiredAllowed values: ["Allowed",<br>"Disallowed"]                                                                                                                                      | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Contraints.QuantityConfiguration      | RequiredAllowed values: ["Allowed",<br>"Disallowed"]                                                                                                                                      | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].RateCard                              | RequiredList size must be between 1 and 800                                                                                                                                               | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].RateCard[].DimensionKey               | RequiredLength must be between 1 and 100                                                                                                                                                  | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].RateCard[].Price                      | RequiredData type is "String"Non-negative<br>decimals with up to 3 decimal places supported                                                                                               | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Selector                              | Required                                                                                                                                                                                  | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Selector.Type                         | RequiredAllowed values: ["Duration"]                                                                                                                                                      | 422  |
+| Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Selector.Value                        | RequiredExpected format per Selector type: ISO 8601<br>duration                                                                                                                           | 422  |
+| Terms[].FixedUpfrontPricingTerm                                                          | Required                                                                                                                                                                                  | 422  |
+| Terms[].FixedUpfrontPricingTerm.Type                                                     | RequiredCan only be<br>"FixedUpfrontPricingTerm"                                                                                                                                          | 422  |
+| Terms[].FixedUpfrontPricingTerm.CurrencyCode                                             | RequiredSupported currencies: ["USD", "AUD", "EUR", "GBP",<br>"JPN"]                                                                                                                      | 422  |
+| Terms[].FixedUpfrontPricingTerm.Duration                                                 | RequiredExpected format per Selector type: ISO 8601<br>duration                                                                                                                           | 422  |
+| Terms[].FixedUpfrontPricingTerm.Grants                                                   | RequiredList size must be between 1 and 200                                                                                                                                               | 422  |
+| Terms[].FixedUpfrontPricingTerm.Grants[].DimensionKey                                    | RequiredLength must be between 1 and 100                                                                                                                                                  | 422  |
+| Terms[].FixedUpfrontPricingTerm.Grants[].MaxQuantity                                     | RequiredValue must be greater than 0                                                                                                                                                      | 422  |
+| Terms[].FixedUpfrontPricingTerm.Price                                                    | RequiredData type is "String"Non-negative<br>decimals with up to 3 decimal places supported                                                                                               | 422  |
+| Terms[].FreeTrialPricingTerm                                                             | Required                                                                                                                                                                                  | 422  |
+| Terms[].FreeTrialPricingTerm.Type                                                        | RequiredCan only be "FreeTrialPricingTerm"                                                                                                                                                | 422  |
+| Terms[].FreeTrialPricingTerm.Duration                                                    | RequiredExpected format: ISO 8601 duration                                                                                                                                                | 422  |
+| Terms[].FreeTrialPricingTerm.Grants                                                      | RequiredList size must be between 1 and 800                                                                                                                                               | 422  |
+| Terms[].FreeTrialPricingTerm.Grants[].DimensionKey                                       | RequiredLength must be between 1 and 100                                                                                                                                                  | 422  |
+| Terms[].FreeTrialPricingTerm.Grants[].MaxQuantity                                        | OptionalValue must be greater than 0                                                                                                                                                      | 422  |
+| Terms[].RecurringPaymentTerm                                                             | Required                                                                                                                                                                                  | 422  |
+| Terms[].RecurringPaymentTerm.Type                                                        | RequiredCan only be "RecurringPaymentTerm"                                                                                                                                                | 422  |
+| Terms[].RecurringPaymentTerm.BillingPeriod                                               | RequiredAllowed values: ["Monthly"]                                                                                                                                                       | 422  |
+| Terms[].RecurringPaymentTerm.CurrencyCode                                                | RequiredSupported currencies: ["USD"]                                                                                                                                                     | 422  |
+| Terms[].RecurringPaymentTerm.Price                                                       | RequiredData type is "String"Non-negative<br>decimals with up to 3 decimal places supported                                                                                               | 422  |
+| Terms[].UsageBasedPricingTerm                                                            | Required                                                                                                                                                                                  | 422  |
+| Terms[].UsageBasedPricingTerm.Type                                                       | RequiredCan only be "UsagedBasedPricingTerm"                                                                                                                                              | 422  |
+| Terms[].UsageBasedPricingTerm.CurrencyCode                                               | RequiredSupported currencies: ["USD"]                                                                                                                                                     | 422  |
+| Terms[].UsageBasedPricingTerm.RateCards                                                  | RequiredMust be size of 1                                                                                                                                                                 | 422  |
+| Terms[].UsageBasedPricingTerm.RateCards[].RateCard                                       | RequiredList size must be between 1 and 800                                                                                                                                               | 422  |
+| Terms[].UsageBasedPricingTerm.RateCards[].RateCard[].DimensionKey                        | RequiredLength must be between 1 and 100                                                                                                                                                  | 422  |
+| Terms[].UsageBasedPricingTerm.RateCards[].RateCard[].Price                               | RequiredData type is "String"Non-negative<br>decimals with up to 8 decimal places supported                                                                                               | 422  |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdatePricingTerms` actions in
+the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+information about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                         | Error message                                                                                                                                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DUPLICATE_DIMENSION_KEYS           | **`Provide Grants with a unique list of dimension keys in<br>[x].`**                                                                                                                                                                                 |
+| DUPLICATE_DIMENSION_KEYS           | **`Provide RateCard with a unique list of dimension keys<br>in [x].`**                                                                                                                                                                               |
+| DUPLICATE_SELECTORS                | **`Provide a unique list of Selectors in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                                       |
+| DUPLICATE_TERM_TYPES               | **`Provide a unique list of term<br>types.`**                                                                                                                                                                                                        |
+| INCOMPATIBLE_AGREEMENT             | **`The following terms can't be removed from the<br>replacement offer: [x, y, z].`**                                                                                                                                                                 |
+| INCOMPATIBLE_AGREEMENT             | **`The following terms can't be added to the replacement<br>offer: [x, y, z].`**                                                                                                                                                                     |
+| INCOMPATIBLE_CURRENCY_CODE         | **`CurrencyCode can't be changed after the offer is<br>released.`**                                                                                                                                                                                  |
+| INCOMPATIBLE_PAYMENT_SETTINGS      | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                                                                                                                                                        |
+| INCOMPATIBLE_PRODUCT               | **`Usage pricing model isn't supported for the<br>product.`**                                                                                                                                                                                        |
+| INCOMPATIBLE_PRODUCT               | **`Contract pricing model isn't supported for the<br>product.`**                                                                                                                                                                                     |
+| INCOMPATIBLE_PRODUCT               | **`Byol pricing model isn't supported for the<br>product.`**                                                                                                                                                                                         |
+| INCOMPATIBLE_PRODUCT               | **`Free pricing model isn't supported for the<br>product.`**                                                                                                                                                                                         |
+| INCOMPATIBLE_PRODUCT               | **`[x] isn't supported in an offer for the<br>product.`**                                                                                                                                                                                            |
+| INCOMPATIBLE_PRODUCT               | **`Provided payment and pricing terms are<br>incompatible.`**                                                                                                                                                                                        |
+| INCOMPATIBLE_PRODUCT               | **`Use existing, available dimensions in the product in<br>[x].`**                                                                                                                                                                                   |
+| INCOMPATIBLE_PRODUCT               | **`FreeTrialPricingTerm as the offer's only pricing term<br>isn't supported for the product.`**                                                                                                                                                      |
+| INCOMPATIBLE_PRODUCT               | **`The following terms aren't supported for the product:<br>[x,y,z].`**                                                                                                                                                                              |
+| INCOMPATIBLE_PRODUCT               | **`Replacement offers are only supported for contract<br>pricing model.`**                                                                                                                                                                           |
+| INCOMPATIBLE_PRODUCT               | **`Provide pricing term(s) that are compatible with the<br>product dimensions. Incompatible pricing terms:<br>[x,y,z].`**                                                                                                                            |
+| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Set MultipleDimensionSelection and<br>QuantityConfiguration to Allowed in<br>ConfigurableUpfrontPricingTerm for usage pricing<br>model.`**                                                                                                        |
+| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Set MultipleDimensionSelection and<br>QuantityConfiguration to Disallowed in<br>ConfigurableUpfrontPricingTerm for usage pricing<br>model.`**                                                                                                     |
+| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`QuantityConfiguration in<br>ConfigurableUpfrontPricingTerm can't be changed after the offer<br>is released.`**                                                                                                                                    |
+| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`MultipleDimensionSelection in<br>ConfigurableUpfrontPricingTerm can't be changed after the offer<br>is released.`**                                                                                                                               |
+| INCOMPATIBLE_RATES                 | **`Set all charge amounts and prices to zero (0) when<br>using Free pricing model.`**                                                                                                                                                                |
+| INCOMPATIBLE_RATES                 | **`Only zero (0) prices are allowed in<br>UsageBasedPricingTerm for a free trial offer for the<br>product.`**                                                                                                                                        |
+| INCOMPATIBLE_RESALE_AUTHORIZATION  | **`Provide the same CurrencyCode that is specified in the<br>ResaleAuthorization.`**                                                                                                                                                                 |
+| INCOMPATIBLE_RESALE_AUTHORIZATION  | **`Ensure Duration in FixedUpfrontPricingTerm matches<br>duration specified in the<br>ResaleAuthorization.`**                                                                                                                                        |
+| INCOMPATIBLE_RESALE_AUTHORIZATION  | **`Provide term(s) that are compatible with the<br>ResaleAuthorization. Incompatible terms: [x, y,<br>z].`**                                                                                                                                         |
+| INCOMPATIBLE_SELECTOR_DURATION     | **`Durations aren't allowed to be removed from rate cards<br>in ConfigurableUpfrontPricingTerm after the offer<br>released.`**                                                                                                                       |
+| INCOMPATIBLE_SELLER_VERIFICATION   | **`Complete all required seller verification<br>processes.`**                                                                                                                                                                                        |
+| INCOMPATIBLE_TERMS                 | **`[x] isn't supported together with the following terms:<br>[y,z].`**                                                                                                                                                                               |
+| INCOMPATIBLE_TERMS                 | **`The following terms can't be added after the offer is<br>released: [x,y,z].`**                                                                                                                                                                    |
+| INCOMPATIBLE_TERMS                 | **`The following terms can't be removed after the offer<br>is released: [x,y,z].`**                                                                                                                                                                  |
+| INCOMPATIBLE_TERMS                 | **`[x] isn't supported for private<br>offers.`**                                                                                                                                                                                                     |
+| INCOMPATIBLE_TERMS                 | **`The following terms aren't supported with<br>FreeTrialPricingTerm that grants unlimited usage:<br>[x,y,z].`**                                                                                                                                     |
+| INCOMPATIBLE_TERMS                 | **`The following terms aren't supported with<br>FreeTrialPricingTerm for the product:<br>[x,y,z].`**                                                                                                                                                 |
+| INCOMPATIBLE_TERMS                 | **`Provide zero (0) price for FixedUpfrontPricingTerm<br>when the offer contains a<br>PaymentScheduleTerm.`**                                                                                                                                        |
+| INCOMPATIBLE_TERMS                 | **`The following terms aren't compatible with the<br>PricingModel: [x,y,z].`**                                                                                                                                                                       |
+| INCOMPATIBLE_TERMS                 | **`FixedUpfrontPricingTerm isn't supported when<br>MarkupPercentage is greater than zero (0).`**                                                                                                                                                     |
+| INCOMPATIBLE_TERMS                 | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                                                        |
+| INCOMPATIBLE_TERMS                 | **`The requested change can't be performed after the<br>offer is expired.`**                                                                                                                                                                         |
+| INVALID_AGREEMENT_DURATION         | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
+| INVALID_AGREEMENT_DURATION         | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
+| INVALID_CURRENCY_CODE              | **`Provide a supported CurrencyCode.`**                                                                                                                                                                                                              |
+| INVALID_CURRENCY_CODE              | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                                                                                                         |
+| INVALID_CURRENCY_CODE              | **`Provide a supported CurrencyCode.`**                                                                                                                                                                                                              |
+| INVALID_CURRENCY_CODE              | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                                                                                                                                                         |
+| INVALID_DURATION                   | **`Ensure Duration in FreeTrialPricingTerm is within the<br>allowed range.`**                                                                                                                                                                        |
+| INVALID_DURATION                   | **`Provide Duration in FixedUpfrontPricingTerm that<br>matches the duration between AgreementStartDate and<br>AgreementEndDate.`**                                                                                                                   |
+| INVALID_DURATION                   | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
+| INVALID_DURATION                   | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
+| INVALID_GRANTS                     | **`Provide the same MaxQuantity for all Grants in<br>FreeTrialPricingTerm.`**                                                                                                                                                                        |
+| INVALID_GRANTS                     | **`Provide Grants for all available metered dimensions in<br>FreeTrialPricingTerm.`**                                                                                                                                                                |
+| INVALID_GRANTS                     | `The combination of Dimensions in grants is invalid in<br>FixedUpfrontPricingTerm for the product.`                                                                                                                                                  |
+| INVALID_GRANTS                     | `The combination of Dimensions in grants is invalid in<br>FreeTrialPricingTerm for the product.`                                                                                                                                                     |
+| INVALID_GRANTS                     | `FixedUpfrontPricingTerm with MaxQuantity is not supported<br>for this product.`                                                                                                                                                                     |
+| INVALID_PRICE_CHANGE               | **`[x] can't be updated until [y] because you have<br>requested a price increase in the past 120 days. To cancel your<br>previous price increase request or for more information, contact<br>the AWS Marketplace Managed Catalog Operations Team.`** |
+| INVALID_PRICE_CHANGE               | **`Price increase and dimension addition in [x] isn't<br>supported in the same request. Add dimensions<br>first.`**                                                                                                                                  |
+| INVALID_PRICE_CHANGE               | **`Price increase and decrease in UsageBasedPricingTerm<br>isn't supported in the same request. Decrease prices<br>first.`**                                                                                                                         |
+| INVALID_PRICE_CHANGE               | **`Price increase in RecurringPaymentTerm and price<br>decrease in UsageBasedPricingTerm isn't supported in the same<br>request. Decrease prices first.`**                                                                                           |
+| INVALID_PRICE_CHANGE               | **`Price decrease in RecurringPaymentTerm and price<br>increase in UsageBasedPricingTerm isn't supported in the same<br>request. Decrease prices first.`**                                                                                           |
+| INVALID_RATE_CARD                  | **`ConfigurableUpfrontPricingTerm is missing one or<br>more-dimension keys for duration [x]. Provide prices for the<br>same set of dimension keys for all<br>durations.`**                                                                           |
+| INVALID_RATE_CARD                  | **`Provide a rate card for only metered dimensions in<br>UsageBasedPricingTerm.`**                                                                                                                                                                   |
+| INVALID_RATE_CARD                  | **`Rates can't be removed from [x]. Provide prices for<br>all dimensions in the existing rate card.`**                                                                                                                                               |
+| INVALID_RATE_CARD                  | **`Provide dimensions that have the same unit in<br>[x].`**                                                                                                                                                                                          |
+| INVALID_RATE_CARD                  | **`Provide either all metered or all entitled dimensions<br>in [x].`**                                                                                                                                                                               |
+| INVALID_RATE_CARD                  | **`Provide only entitled dimensions in<br>[x].`**                                                                                                                                                                                                    |
+| INVALID_RATE_CARD                  | **`Provide usage based rates for all available metered<br>dimensions in UsageBasedPricingTerm.`**                                                                                                                                                    |
+| INVALID_RATE_CARD                  | **`Provide usage based rates for all free trial<br>dimensions.`**                                                                                                                                                                                    |
+| INVALID_RATE_CARD                  | **`Provide prices with up to 8 decimal places in<br>UsageBasedPricingTerm.`**                                                                                                                                                                        |
+| INVALID_RATE_CARD                  | `The combination of Dimensions in rate card is invalid in<br>UsageBasedPricingTerm for the product.`                                                                                                                                                 |
+| INVALID_SELECTOR_DURATION_VALUE    | **`Provide duration between [x] and [y]<br>months.`**                                                                                                                                                                                                |
+| INVALID_SELECTOR_DURATION_VALUE    | **`Ensure duration granularity is at the day level for<br>metered dimensions.`**                                                                                                                                                                     |
+| INVALID_SELECTOR_DURATION_VALUE    | **`Ensure Duration in ConfigurableUpfrontPricingTerm is<br>within the allowed range.`**                                                                                                                                                              |
+| INVALID_SELECTOR_DURATION_VALUE    | **`Provide one or more supported contract<br>durations.`**                                                                                                                                                                                           |
+| INVALID_SELECTOR_DURATION_VALUE    | **`Provide one or more supported contract durations or a<br>single custom duration.`**                                                                                                                                                               |
+| INVALID_SELECTOR_DURATION_VALUE    | **`Provide Duration in ConfigurableUpfrontPricingTerm<br>that matches the duration between AgreementStartDate and<br>AgreementEndDate.`**                                                                                                            |
+| MISSING_DURATION                   | **`Provide Duration in<br>FixedUpfrontPricingTerm.`**                                                                                                                                                                                                |
+| MISSING_MANDATORY_TERMS            | **`FixedUpfrontPricingTerm is only supported when paired<br>with ByolPricingTerm or PaymentScheduleTerm.`**                                                                                                                                          |
+| MISSING_MANDATORY_TERMS            | **`Provide at least one of [x,y,z].`**                                                                                                                                                                                                               |
+| MISSING_MANDATORY_TERMS            | **`Provide a ByolPricingTerm when using Byol pricing<br>model.`**                                                                                                                                                                                    |
+| TOO_MANY_GRANTS                    | **`Provide up to [x] grants in [y].`**                                                                                                                                                                                                               |
+| TOO_MANY_RATE_CARDS                | **`Only one rate card in ConfigurableUpfrontPricingTerm<br>is allowed for the product.`**                                                                                                                                                            |
+| TOO_MANY_RATE_CARDS                | **`Up to [x] rate cards are allowed in<br>ConfigurableUpfrontPricingTerm for the<br>product.`**                                                                                                                                                      |
+| TOO_MANY_RATES                     | **`Provide RateCards within the allowed limits in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                              |
+| TOO_MANY_RATES                     | **`Provide RateCards within the allowed limits in<br>UsageBasedPricingTerm.`**                                                                                                                                                                       |
+| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Set both MultipleDimensionSelection and<br>QuantityConfiguration to the same value (Allowed or Disallowed)<br>in ConfigurableUpfrontPricingTerm.`**                                                                                               |
+| INCOMPATIBLE_RATE_CARD_CONSTRAINTS | **`Provide the same constraints for all rate cards in<br>ConfigurableUpfrontPricingTerm.`**                                                                                                                                                          |
+| INVALID_UPDATE_REQUEST             | **`[x] can't be updated. To request pricing change or for<br>more information, contact the AWS Marketplace Managed Catalog Operations<br>Team.`**                                                                                                    |
+| INCOMPATIBLE_PRICING_MODEL         | **`PricingModel can't change from [x] to<br>[y].`**                                                                                                                                                                                                  |
+| INVALID_GRANTS                     | **`MaxQuantity for the FreeTrialPricingTerm is limited for<br>the product. Provide a MaxQuantity less than or equal to [x].<br>For more information, contact the AWS Marketplace Managed Catalog<br>Operations Team.`**                              |
+| INVALID_GRANTS                     | **`Provide MaxQuantity for all Grants in<br>FixedUpfrontPricingTerm.`**                                                                                                                                                                              |
+| INVALID_GRANTS                     | **`MaxQuantity isn't supported in<br>FixedUpfrontPricingTerm for the product.`**                                                                                                                                                                     |
+| INCOMPATIBLE_RESALE_AUTHORIZATION  | **`Ensure Grants in FixedUpfrontPricingTerm matches<br>RateCards specified in the<br>ResaleAuthorization.`**                                                                                                                                         |
+
+## Update the discoverability of the offer
+
+You can use the Catalog API to control the discoverability of your offer in AWS Marketplace.
+
+You can either choose to set a specific date in the future to restrict the
+discoverability of your offer or in the past to expire your offer.
+The
+`UpdateAvailability` change type doesn’t affect existing
+agreements.
+
+###### Note
+
+- You
+  can use the `UpdateAvailability` change type on a private
+  offer that has already been [published](../../../marketplace-catalog/latest/api-reference/offers.md#release-offer "../../../marketplace-catalog/latest/api-reference/offers.md#release-offer") (also known as _released_). If
+  buyers have already accepted the private offer, those existing
+  agreements aren't affected.
+- When
+  modifying the `AvailabilityEndDate` of an existing private
+  offer, the [constraints of the agreement duration](../../../marketplace-catalog/latest/api-reference/offers.md#update-validity-terms "../../../marketplace-catalog/latest/api-reference/offers.md#update-validity-terms") must be adhered to.
+  If it's not, include an additional `UpdateValidityTerms`
+  change type in this change set to modify the agreement duration to
+  adhere to the new expiration. The `UpdateValidityTerms`
+  change type can be used on a private offer that is either released or
+  not yet released.
+- When
+  modifying the `AvailabilityEndDate` of an existing private
+  offer, the [constraints of the payment schedule](../../../marketplace-catalog/latest/api-reference/offers.md#update-payment-schedule-terms "../../../marketplace-catalog/latest/api-reference/offers.md#update-payment-schedule-terms") must be adhered to. If
+  it's not and the private offer is _not yet released_,
+  include an additional `UpdatePaymentScheduleTerms` change
+  type in this change set to modify the payment schedule to adhere to the
+  new expiration. If the private offer is _already
+  released_, you can only make changes to the
+  `AvailabilityEndDate` as long as the new date adheres to
+  the constraints of the payment schedule.
+
+To control the discoverability of your offer, call the `StartChangeSet`
+API operation with the `UpdateAvailability` change type, as shown in the
+following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateAvailability",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "AvailabilityEndDate": "2024-05-31"
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `UpdateAvailability`
+change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **AvailabilityEndDate** (string)
+    (required) – This is the date until when the offer is
+    discoverable and purchasable in AWS Marketplace. You can choose to set a
+    specific date in the future to restrict the availability or in the
+    past to expire the offer. Dates are represented in
+    `YYYY-MM-DD` format.
+
+A change set is created for your request. The response to this request gives you
+the ID and ARN for the change set and looks like the following.
+
+**Response Syntax**
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+   "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. It includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes. You can check the status of the request through the AWS Marketplace Management Portal,
+or in the Catalog API with the `DescribeChangeSet` action.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdateAvailability`
+actions in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field         | Validation rule                  | HTTP code |
+| ------------------- | -------------------------------- | --------- |
+| AvailabilityEndDate | Required<br>Format: "YYYY-MM-DD" | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateAvailability` actions in
+the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+details about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                    | Error message                                                                    |
+| ----------------------------- | -------------------------------------------------------------------------------- |
+| INVALID_AVAILABILITY_END_DATE | **`AvailabilityEndDate isn't supported for public<br>offers.`**                  |
+| INVALID_AVAILABILITY_END_DATE | **`Provide a future<br>AvailabilityEndDate.`**                                   |
+| INVALID_AVAILABILITY_END_DATE | **`Provide an AvailabilityEndDate that is before<br>AgreementEndDate.`**         |
+| MISSING_AVAILABILITY_END_DATE | **`Provide an AvailabilityEndDate that is before the<br>agreement's end date.`** |
+
+## Define the expiration date of agreements created using the offer
+
+You can use the Catalog API to define the expiration date details of agreements
+created using the offer in AWS Marketplace.
+
+This change type doesn’t affect existing agreements.
+
+###### Note
+
+You can
+use the `UpdateValidityTerms` change type on a private offer that has
+already been [published](../../../marketplace-catalog/latest/api-reference/offers.md#release-offer "../../../marketplace-catalog/latest/api-reference/offers.md#release-offer") (also known as _released_). If buyers
+have already accepted the private offer, those existing agreements aren't
+affected.
+
+For
+**AMI-based** and **container-based** products, if your private offer [pricing terms](../../../marketplace-catalog/latest/api-reference/offers.md#update-pricing-terms "../../../marketplace-catalog/latest/api-reference/offers.md#update-pricing-terms") include a term type that has a `Duration`
+(for example, the term types `FixedUpfrontPricingTerm` or
+`ConfigurableUpfrontPricingTerm`), your
+`AgreementDuration` set in this change type must be greater than
+the following: the number of days from today to the [expiration of the private offer](../../../marketplace-catalog/latest/api-reference/offers.md#update-availability "../../../marketplace-catalog/latest/api-reference/offers.md#update-availability") plus the number of days set in the
+`Duration` of those term types. This is because after a buyer
+accepts the private offer and the agreement is created, they can optionally
+purchase additional entitlements specified in those term types until the private
+offer expires. Furthermore, all additional entitlements must end before the
+agreement does. For example, if the buyer accepts the private offer on the first
+available day and then purchases entitlements on the last available day, those
+entitlements must not end after the agreement end date.
+
+To define the expiration date details of agreements created using the offer, call
+the `StartChangeSet` API operation with the
+`UpdateValidityTerms` change type, as shown in the following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateValidityTerms",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "Terms": [
+          {
+            "Type": "ValidityTerm",
+            "AgreementDuration": "P12M",
+            "AgreementStartDate": "2021-08-01",
+            "AgreementEndDate": "2022-08-01"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+Provide information for the fields to add the `UpdateValidityTerms`
+change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **Terms** (array of structures)
+    – List of validity terms that you want to update. Supported
+    validity terms are:
+
+    - **ValidityTerm** (object)
+      – Defines the conditions that will keep an agreement,
+      created from this offer, valid.
+
+      - **Type** (string)
+        – Category of the term being updated.
+        `ValidityTerm`
+      - **AgreementDuration**
+        (string) – Defines the duration that the
+        agreement remains active. If
+        `AgreementStartDate` isn’t provided,
+        agreement duration is relative to the agreement
+        signature time. The duration is represented in the
+        ISO_8601 format.
+      - **AgreementStartDate** (string) –
+        Defines the date when agreement starts.
+        `AgreementStartDate` is represented in
+        `YYYY-MM-DD` format. The agreement
+        starts at 00:00:00.000 UTC on the date provided. If
+        `AgreementStartDate` isn’t provided,
+        agreement start date is determined based on
+        agreement signature time.
+      - **AgreementEndDate**
+        (string) – Defines the date when the
+        agreement ends. The `AgreementEndDate` is
+        represented in `YYYY-MM-DD` format. The
+        agreement ends at 23:59:59.999 UTC on the date
+        provided. If `AgreementEndDate` isn’t
+        provided, the agreement end date is determined by
+        the validity of individual terms.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdateValidityTerms`
+actions in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field                | Validation rule                                                                                                                 | HTTP code |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Terms                      | Required                                                                                                                        | 422       |
+| Terms[].Type               | Required<br>Can only be `"ValidityTerm"`                                                                                        | 422       |
+| Terms[].AgreementDuration  | Optional<br>Expected format per Selector type: ISO 8601 duration<br>Can be stand alone or paired with<br>`AgreementStartDate`   | 422       |
+| Terms[].AgreementEndDate   | Optional<br>Date must be formatted like `"YYYY-MM-DD"`                                                                          | 422       |
+| Terms[].AgreementStartDate | Optional<br>Date must be formatted like `"YYYY-MM-DD"`<br>Can only be paired with `AgreementEndDate` and<br>`AgreementDuration` | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateValidityTerms` actions in
+the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+information about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                        | Error message                                                                                                                            |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE_AGREEMENT            | **`AgreementStartDate can't be in the future when the<br>current agreement to be replaced isn't future<br>dated.`**                      |
+| INCOMPATIBLE_AGREEMENT_END_DATE   | **`AgreementEndDate can't be updated after the offer is<br>released.`**                                                                  |
+| INCOMPATIBLE_AGREEMENT_START_DATE | **`AgreementStartDate can't be updated after the offer is<br>released.`**                                                                |
+| INCOMPATIBLE_PRODUCT              | **`AgreementStartDate in the future isn't<br>supported.`**                                                                               |
+| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure the duration between AgreementStartDate and<br>AgreementEndDate is compatible with the<br>ResaleAuthorization.`**              |
+| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure AgreementStartDate is compatible with the<br>ResaleAuthorization.`**                                                           |
+| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure AgreementEndDate is compatible with the<br>ResaleAuthorization.`**                                                             |
+| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure the duration between AgreementStartDate and<br>AgreementEndDate is compatible with the<br>ResaleAuthorization.`**              |
+| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure AgreementDuration matches duration specified in<br>the ResaleAuthorization.`**                                                 |
+| INCOMPATIBLE_TERMS                | **`ValidityTerm isn't supported for public<br>offers.`**                                                                                 |
+| INCOMPATIBLE_TERMS                | **`The requested change can't be performed after the<br>offer is expired.`**                                                             |
+| INVALID_AGREEMENT_DURATION        | **`Provide AgreementDuration that is greater than or<br>equal to [x] days.`**                                                            |
+| INVALID_AGREEMENT_END_DATE        | **`Provide a future AgreementEndDate.`**                                                                                                 |
+| INVALID_AGREEMENT_END_DATE        | **`Provide AgreementEndDate that is after or equal to<br>[x].`**                                                                         |
+| INVALID_AGREEMENT_START_DATE      | **`Provide an AgreementStartDate that is after<br>AvailabilityEndDate.`**                                                                |
+| INVALID_AGREEMENT_START_DATE      | **`Provide an AgreementStartDate that is before the<br>AgreementEndDate.`**                                                              |
+| INVALID_AGREEMENT_START_DATE      | **`Provide an AgreementStartDate that is within [x] years<br>from today.`**                                                              |
+| INVALID_AGREEMENT_TIME_INTERVAL   | **`ValidityTerm with both AgreementDuration and<br>AgreementEndDate isn't supported.`**                                                  |
+| INVALID_AGREEMENT_TIME_INTERVAL   | **`ValidityTerm with both AgreementStartDate and<br>AgreementDuration isn't supported in an offer for the<br>product.`**                 |
+| INVALID_AGREEMENT_TIME_INTERVAL   | **`ValidityTerm with AgreementStartDate isn't supported<br>in an offer for the product.`**                                               |
+| INVALID_AGREEMENT_TIME_INTERVAL   | **`ValidityTerm with only AgreementStartDate isn't<br>supported.`**                                                                      |
+| INVALID_AGREEMENT_TIME_INTERVAL   | **`AgreementEndDate isn't supported unless it's used in<br>combination with a future AgreementStartDate or for replacement<br>offers.`** |
+| INVALID_AGREEMENT_TIME_INTERVAL   | **`Provide AgreementStartDate and AgreementEndDate where<br>the difference is less than or equal to [x]<br>years.`**                     |
+| MISSING_AGREEMENT_START_DATE      | **`Ensure AgreementStartDate is present in ValidityTerm<br>when used along with<br>ConfigurableUpfrontPricingTerm.`**                    |
+| INVALID_AGREEMENT_END_DATE        | **`Provide an AgreementEndDate that is within [x] years<br>from today.`**                                                                |
+| INCOMPATIBLE_AGREEMENT_START_DATE | **`Provide the same AgreementStartDate as defined in the<br>agreement when the agreement has a future start<br>date.`**                  |
+| INCOMPATIBLE_AGREEMENT            | **`AgreementStartDate can't be future dated when the<br>agreement isn't future dated.`**                                                 |
+
+## Update payment schedule details
+
+You can use the Catalog API to update payment schedule details for your offer,
+such as flexible payment schedule, in AWS Marketplace.
+
+###### Note
+
+You
+cannot use the `UpdatePaymentScheduleTerms` change type on an offer
+that has already been [published](../../../marketplace-catalog/latest/api-reference/offers.md#release-offer "../../../marketplace-catalog/latest/api-reference/offers.md#release-offer") (also known as
+_released_).
+
+The
+private offer can be accepted any day between the creation of the private offer
+and its [expiration](../../../marketplace-catalog/latest/api-reference/offers.md#update-availability "../../../marketplace-catalog/latest/api-reference/offers.md#update-availability") (set in the `AvailabilityEndDate`). Only one
+`ChargeDate` value of the payment schedule can be a date on or
+before the last day the buyer can accept the private offer (the private offer
+expiration date). The remaining values of `ChargeDate` must be after
+the private offer expiration, but no later than the end of the agreement if the
+private offer was accepted immediately. The end of the agreement is based on
+when the private offer is accepted (creating the agreement) plus the [duration of the agreement](../../../marketplace-catalog/latest/api-reference/offers.md#update-validity-terms "../../../marketplace-catalog/latest/api-reference/offers.md#update-validity-terms").
+
+To update payment schedule details for your offer, call the
+`StartChangeSet` API operation with the
+`UpdatePaymentScheduleTerms` change type, as shown in the following
+example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdatePaymentScheduleTerms",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "Terms": [
+          {
+            "Type": "PaymentScheduleTerm",
+            "Schedule": [
+              {
+                "ChargeDate": "2021-12-01",
+                "ChargeAmount": "200.00"
+              },
+              {
+                "ChargeDate": "2022-03-01",
+                "ChargeAmount": "250.00"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the
+`UpdatePaymentScheduleTerms` change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **Terms** (array of structures)
+    – List of payment terms that you want to update. Supported
+    payment terms are:
+
+    - **PaymentScheduleTerm**
+      (object) – Defines an installment-based pricing model
+      where customers are charged a fixed price on different dates
+      during the agreement validity period.
+
+      - **Type** (string)
+        – Type of the term being updated. This is the
+        object value:
+        `"PaymentScheduleTerm"`.
+      - **Schedule** (array
+        of structures) – List of the payment schedule
+        where each element defines one installment of
+        payment. It contains the information necessary for
+        calculating the price to be paid and the date on
+        which the customer would be charged.
+
+        - **ChargeDate**
+          (string) – The date on which the customer
+          would pay the price defined in this payment
+          schedule term. `ChargeDate` is
+          represented in YYYY-MM-DD format. Invoices are
+          generated on the date provided.
+        - **ChargeAmount** (string) – The price that the
+          customer would pay on scheduled date
+          (`ChargeDate`).
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to
+`UpdatePaymentScheduleTerms` actions in the AWS Marketplace Catalog API. These
+validations are performed when you call `StartChangeSet`. If the request
+doesn’t meet the following requirements, it will fail with an HTTP response.
+
+| Input Field                                         | Validation Rule                                                                             | HTTP |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---- |
+| Terms                                               | Required<br>Only `PaymentScheduleTerm` is allowed<br>List size must be less than 2          | 422  |
+| Terms[].Type                                        | Required<br>Can only be `PaymentScheduleTerm`                                               | 422  |
+| Terms[].PaymentScheduleTerm.CurrencyCode            | Required<br>Supported currencies: ["USD", "AUD", "EUR", "GBP",<br>"JPY"]                    | 422  |
+| Terms[].PaymentScheduleTerm.Schedule[]              | Required                                                                                    | 422  |
+| Terms[].PaymentScheduleTerm.Schedule[].ChargeAmount | RequiredDate type is "String"Non-negative<br>decimals with up to 2 decimal places supported | 422  |
+| Terms[].PaymentScheduleTerm.Schedule[].ChargeDate   | Required<br>Date must be formatted like "YYYY-MM-DD"                                        | 422  |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdatePaymentScheduleTerms`
+actions in the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+information about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                        | Error message                                                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| DUPLICATE_CHARGE_DATES            | **`Provide unique charge dates in<br>PaymentScheduleTerm.`**                                                             |
+| INCOMPATIBLE_CURRENCY_CODE        | **`CurrencyCode can't be changed after the offer is<br>released.`**                                                      |
+| INCOMPATIBLE_MARKUP_PERCENTAGE    | **`PaymentScheduleTerm isn't supported when<br>MarkupPercentage is greater than zero (0).`**                             |
+| INCOMPATIBLE_PAYMENT_SETTINGS     | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                            |
+| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Provide term(s) that are compatible with the<br>ResaleAuthorization. Incompatible terms:<br>[PaymentScheduleTerm].`** |
+| INCOMPATIBLE_RESALE_AUTHORIZATION | **`Ensure the total ChargeAmounts in PaymentScheduleTerm<br>is compatible with the ResaleAuthorization.`**               |
+| INCOMPATIBLE_SELLER_VERIFICATION  | **`Complete all required seller verification<br>processes.`**                                                            |
+| INCOMPATIBLE_TERMS                | **`The requested change can't be performed after the<br>offer is released.`**                                            |
+| INCOMPATIBLE_TERMS                | **`The requested change can't be performed after the<br>offer is expired.`**                                             |
+| INVALID_CHARGE_DATES              | **`Provide charge dates before<br>AgreementEndDate.`**                                                                   |
+| INVALID_CURRENCY_CODE             | **`Provide a supported CurrencyCode.`**                                                                                  |
+| INVALID_CURRENCY_CODE             | **`Provide the same CurrencyCode across all pricing and<br>payment terms.`**                                             |
+| TOO_MANY_BACKDATED_CHARGES        | **`Provide up to 1 scheduled payment before<br>AvailabilityEndDate.`**                                                   |
+| INVALID_CHARGE_DATES              | **`Provide a last charge date that is before<br>AgreementEndDate.`**                                                     |
+| INVALID_CHARGE_DATES              | **`Provide a first charge date that isn't in the<br>past.`**                                                             |
+| TOO_MANY_CHARGES                  | **`Provide up to [x] scheduled payments in<br>PaymentScheduleTerm.`**                                                    |
+
+## Modify renewal options
+
+You can use the Catalog API to control renewal options of the agreements that are
+created using this offer in AWS Marketplace.
+
+For offers created through Catalog API, auto-renewal remains disabled by default
+until you call the `UpdateRenewalTerms` change type to allow
+auto-renewal. This change does not affect existing agreements.
+
+To control renewal options of the agreements that are created using this offer,
+call the `StartChangeSet` API operation with the
+`UpdateRenewalTerms` change type, as shown in the following
+example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "UpdateRenewalTerms",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {
+        "Terms": [
+          {
+            "Type": "RenewalTerm"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `UpdateRenewalTerms`
+change type:
+
+- **Entity** (object) (required) – Your
+  offer.
+
+  - **Type** (string) (required) –
+    The `Type` is always `Offer@1.0`.
+  - **Identifier** (string) (required)
+    – Your offer ID. For more information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+
+- **DetailsDocument** (object) (required)
+  – The JSON value of specifics of the request.
+
+  - **Terms** (array of structures)
+    – List of renewal terms that you want to update. Supported
+    renewal terms are:
+
+    - **RenewalTerm** (object)
+      – Defines that on graceful termination (expiration of
+      the `ValidityTerm`, not buyer or AWS Marketplace
+      cancellation) of the agreement, a new agreement will be
+      created using the accepted terms on the existing agreement.
+      In other words, the agreement will be renewed. Presence of
+      `RenewalTerm` in the offer means that
+      auto-renewal is allowed. Buyers will have the option to
+      accept or decline auto-renewal at the offer
+      acceptance/agreement creation.
+
+      - **Type** (string)
+        – Type of the term being updated.
+        `RenewalTerm`
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdateRenewalTerms`
+actions in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field  | Validation rule                   | HTTP code |
+| ------------ | --------------------------------- | --------- |
+| Terms        | Required                          | 422       |
+| Terms[].Type | RequiredCan only be "RenewalTerm" | 422       |
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateRenewalTerms` actions in
+the AWS Marketplace Catalog API. These errors are returned when you call
+`DescribeChangeSet` after a change set is processing. For more
+details about using `DescribeChangeSet` to get the status of a change
+request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code           | Error message                                                                 |
+| -------------------- | ----------------------------------------------------------------------------- |
+| INCOMPATIBLE_PRODUCT | **`RenewalTerm isn't supported in private offers for the<br>product.`**       |
+| INCOMPATIBLE_TERMS   | **`RenewalTerm isn't supported together with<br>PaymentScheduleTerm.`**       |
+| INCOMPATIBLE_TERMS   | **`RenewalTerm isn't supported with the<br>PricingModel.`**                   |
+| INCOMPATIBLE_TERMS   | **`The requested change can't be performed after the<br>offer is released.`** |
+| INCOMPATIBLE_TERMS   | **`The requested change can't be performed after the<br>offer is expired.`**  |
+
+## Publish an offer
+
+You can use the Catalog API to merge the information collected from all update
+change types, and then publish the offer.
+
+Offers remain in a `Draft` state, until `ReleaseOffer` is
+called. After the offer is released, it’s discoverable in AWS Marketplace.
+
+To publish your offer, call the `StartChangeSet` API operation with the
+`ReleaseOffer` change type, as shown in the following example.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet": [
+    {
+      "ChangeType": "ReleaseOffer",
+      "Entity": {
+        "Type": "Offer@1.0",
+        "Identifier": "offer-123456789"
+      },
+      "DetailsDocument": {}
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `ReleaseOffer` change
+type:
+
+- **Entity** (object) – The named type
+  of entity being created. The `Identifier` is your offer ID, and
+  the `Type` is always `Offer@1.0`. For more
+  information, see [Identifier](catalog-apis.md#identifier "catalog-apis.md#identifier").
+- **DetailsDocument** (object) – The
+  JSON value of specifics of the request. It must be empty for
+  `ReleaseOffer`.
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you
+the `ChangeSetId` and `ChangeSetArn` for the change set and
+looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating
+information to ensure that it meets the AWS Marketplace guidelines. The validation process can
+take a few minutes.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through
+Catalog API using the `DescribeChangeSet` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `ReleaseOffer` actions
+in the AWS Marketplace Catalog API. These validations are performed when you call
+`StartChangeSet`. If the request doesn’t meet the following
+requirements, it will fail with an HTTP response.
+
+| Input field     | Validation rule      |
+| --------------- | -------------------- |
+| DetailsDocument | Must be empty `({})` |
+
+**Asynchronous Errors**
+
+The following errors are specific to `ReleaseOffer` actions in the
+AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet`
+after a change set is processing. For more information about using
+`DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets "catalog-apis.md#working-with-change-sets").
+
+| Error code                       | Error message                                                                                                                                                                                                                                                                                                           |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| INCOMPATIBLE_PAYMENT_SETTINGS    | **`Update your payment settings to be compatible with the<br>CurrencyCode.`**                                                                                                                                                                                                                                           |
+| INCOMPATIBLE_PRODUCT             | **`First create a public offer for the<br>product.`**                                                                                                                                                                                                                                                                   |
+| INCOMPATIBLE_SELLER_VERIFICATION | **`Complete all required seller verification<br>processes.`**                                                                                                                                                                                                                                                           |
+| INCOMPATIBLE_TARGETING           | **`PreExistingAgreement is only supported for buyer<br>targeted offers.`**                                                                                                                                                                                                                                              |
+| INCOMPATIBLE_TARGETING           | **`OfferSetId is only supported for buyer targeted offers.`**                                                                                                                                                                                                                                                           |
+| INVALID_TAX_INFORMATION          | **`Your tax information is<br>incomplete. To sell professional services on AWS Marketplace, you must<br>complete the DAC7 tax questionnaire. Navigate to the<br>**Payment Information*<br>• section, and select<br>the \*\*DAC7*<br>• tax form. It can take up to two<br>hours for your tax information to update.`\*\* |
+| INVALID_UPDATE_REQUEST           | **`The requested change can't be performed after the<br>offer is released.`**                                                                                                                                                                                                                                           |
+| MISSING_AGREEMENT_END_DATE       | **`Provide an AgreementEndDate for replacement<br>offers.`**                                                                                                                                                                                                                                                            |
+| MISSING_AVAILABILITY_END_DATE    | **`Provide an AvailabilityEndDate for private<br>offer.`**                                                                                                                                                                                                                                                              |
+| MISSING_BUYER_ACCOUNTS           | **`Provide PositiveTargeting with BuyersAccounts for<br>offers created using ResaleAuthorization.`**                                                                                                                                                                                                                    |
+| MISSING_BUYER_ACCOUNTS           | **`All offers for the product must be private. Provide<br>PositiveTargeting with BuyersAccounts.`**                                                                                                                                                                                                                     |
+| MISSING_DESCRIPTION              | **`Set Description before releasing the<br>offer.`**                                                                                                                                                                                                                                                                    |
+| MISSING_MANDATORY_TERMS          | **`Add [x] to the offer.`**                                                                                                                                                                                                                                                                                             |
+| MISSING_MANDATORY_TERMS          | **`Provide a FixedUpfrontPricingTerm when the offer<br>contains a PaymentScheduleTerm.`**                                                                                                                                                                                                                               |
+| MISSING_NAME                     | **`Set Name before releasing the<br>offer.`**                                                                                                                                                                                                                                                                           |
+| TOO_MANY_OFFERS                  | **`Only one public free trial offer can be created per<br>product.`**                                                                                                                                                                                                                                                   |
+| TOO_MANY_OFFERS                  | **`Only one public offer can be created per<br>product.`**                                                                                                                                                                                                                                                              |
+| MISSING_MANDATORY_TERMS          | **`Provide a RenewalTerm for public offers with contract<br>pricing for the product.`**                                                                                                                                                                                                                                 |
+| MISSING_AGREEMENT_END_DATE       | **`Provide an AgreementEndDate for replacement<br>offers.`**                                                                                                                                                                                                                                                            |
+
+## Describe existing offer details
+
+You can use the Catalog API to describe existing offer details in AWS Marketplace.
+
+To describe existing offer details, call the `DescribeEntity` API
+operation with the `Offer@1.0` entity type, as shown in the following
+example.
+
+**Request Syntax**
+
+```
+GET /DescribeEntity?catalog=<Catalog>&entityId=<EntityId> HTTP/1.1
+```
+
+Provide information for the fields to add the `DescribeEntity` change
+type:
+
+- **catalog** (string) – The catalog
+  related to the request. Fixed value: `AWSMarketplace`.
+- **entityId** (string) – The unique ID
+  of the offer to describe.
+
+**Response Syntax**
+
+The response to this request gives you the offer details and looks like the
+following.
+
+```
+{
+  "EntityType": "Offer@1.0",
+  "EntityIdentifier": "offer-ad8EXAMPLE51@1",
+  "EntityArn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/Offer/offer-ad8EXAMPLE51",
+  "LastModifiedDate": "2021-03-10T21:57:16Z",
+  "DetailsDocument": {
+    "Id": "offer-3rEXAMPLErn",
+    "State": "Released",
+    "Name": "Test Offer",
+    "Description": "Worldwide offer for Test Product",
+    "PreExistingAgreement": {
+      "AcquisitionChannel": "External",
+      "PricingModel": "Contract"
+    },
+    "ProductId": "prod-ad8EXAMPLE51",
+    "OfferSetId": "offerset-b3f9EXAMPLE27",
+    "Terms": [
+      {
+        "Type": "SupportTerm",
+        "RefundPolicy": "If you need to request a refund for software sold by Amazon Web Services, LLC, please contact AWS Customer Service."
+      },
+      {
+        "Type": "LegalTerm",
+        "Documents": [
+          {
+            "Type": "CustomEula",
+            "Url": "https://s3.amazonaws.com/EULA/custom-eula-1234.txt"
+          }
+        ]
+      },
+      {
+        "Type": "FreeTrialPricingTerm",
+        "Duration": "P30D",
+        "Grants": [
+          {
+            "DimensionKey": "m3.xlarge",
+            "MaxQuantity": 10
+          },
+          {
+            "DimensionKey": "m4.xlarge",
+            "MaxQuantity": 10
+          }
+        ]
+      },
+      {
+        "Type": "ConfigurableUpfrontPricingTerm",
+        "CurrencyCode": "USD",
+        "RateCards": [
+          {
+            "Selector": {
+              "Type": "Duration",
+              "Value": "P365D"
+            },
+            "RateCard": [
+              {
+                "DimensionKey": "m3.large",
+                "Price": "300.00"
+              },
+              {
+                "DimensionKey": "m4.xlarge",
+                "Price": "400.00"
+              }
+            ],
+            "Constraints": {
+              "MultipleDimensionSelection": "Allowed",
+              "QuantityConfiguration": "Allowed"
+            }
+          }
+        ]
+      },
+      {
+        "Type": "UsageBasedPricingTerm",
+        "CurrencyCode": "USD",
+        "RateCards": [
+          {
+            "RateCard": [
+              {
+                "DimensionKey": "m3.large",
+                "Price": "0.10"
+              },
+              {
+                "DimensionKey": "m4.xlarge",
+                "Price": "0.20"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Type": "FixedUpfrontPricingTerm",
+        "CurrencyCode": "USD",
+        "Price": "200.00",
+        "Grants": [
+          {
+            "DimensionKey": "Users",
+            "MaxQuantity": 10
+          }
+        ]
+      },
+      {
+        "Type": "RecurringPaymentTerm",
+        "CurrencyCode": "USD",
+        "BillingPeriod": "Monthly",
+        "Price": "100.0"
+      },
+      {
+        "Type": "PaymentScheduleTerm",
+        "CurrencyCode": "USD",
+        "Schedule": [
+          {
+            "ChargeDate": "2020-12-01T00:00:00.000Z",
+            "ChargeAmount": "1000.00"
+          },
+          {
+            "ChargeDate": "2021-06-15T00:00:00.000Z",
+            "ChargeAmount": "1250.00"
+          }
+        ]
+      },
+      {
+        "Type": "ByolPricingTerm"
+      },
+      {
+        "Type": "RenewalTerm"
+      }
+    ],
+    "Rules": [
+      {
+        "Type": "TargetingRule",
+        "PositiveTargeting": {
+          "CountryCodes": [
+            "US",
+            "CA"
+          ],
+          "BuyerAccounts": [
+            "444455556666"
+          ]
+        },
+        "NegativeTargeting": {
+          "CountryCodes": [
+            "XX"
+          ]
+        }
+      },
+      {
+        "Type": "AvailabilityRule",
+        "AvailabilityEndDate": "2024-08-30T01:56:03.000Z"
+      }
+    ]
+  }
+}
+```
+
+The following is information about the fields you see in the
+`DescribeEntity` response.
+
+- **EntityType** (string) – The named
+  type of the entity, which is `Offer@1.0`.
+- **EntityIdentifier** (string) – The
+  identifier of the entity, in the format of
+  `EntityId@RevisionId`.
+- **EntityArn** (string) – The ARN
+  associated to the unique identifier for the change set referenced in this
+  request.
+- **LastModifiedDate** (string) –The
+  last modified date of the entity, in ISO 8601 format (for example:
+  `2018-02-27T13:45:22Z`).
+- **Details** (string) – This
+  stringified JSON object includes the following details of the entity:
+
+  - **Id** (string) – Unique
+    identifier for an offer entity in AWS Marketplace and is generated during the
+    creation of an offer.
+  - **State** (string) – The
+    status of the offer.
+  - **Name** (string) – The name
+    associated with the offer for better readability to you and your
+    customers. It will be displayed as part of Agreement information as
+    well.
+  - **Description** (string) –
+    Description is a free-form text which is meant to be used only by
+    you and will never be exposed to buyers.
+  - **PreExistingAgreement** (string)
+    – Determines if this offer is a renewal for an existing
+    agreement with an existing customer for the same underlying product.
+    The existing agreement can be within or outside AWS Marketplace. AWS may
+    audit and verify your offer is a renewal. If AWS is unable to
+    verify your offer, then AWS may revoke the offer and entitlements
+    from your customer.
+
+    - **AcquisitionChannel**
+      (string) – Indicates if the existing agreement was
+      signed outside AWS Marketplace or within AWS Marketplace. Possible values:
+      `External`,
+      `AwsMarketplace`.
+    - **PricingModel** (string)
+      – Indicates which pricing model the existing
+      agreement uses. Possible values: `Contract`,
+      `Usage`, `Byol`,
+      `Free`.
+
+  - **ProductId** (string) – The
+    unique identifier of the product being offered.
+  - **OfferSetId** (string) – The
+    unique identifier of the offer set to associate this offer with.
+  - **Terms** (array of structures)
+    – List of terms.
+  - **Rules** (array of structures)
+    – List of rules.
