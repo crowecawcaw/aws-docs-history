@@ -197,6 +197,7 @@ Nitro Enclaves has the following requirements:
   | G6f             | All instance types, **except**: `g6f.large`  |
   | Gr6             | All instance types.                          |
   | Gr6f            | All instance types.                          |
+  | G7              | All instance types.                          |
   | G7e             | All instance types.                          |
   | Inf1            | All instance types.                          |
   | Inf2            | All instance types.                          |
