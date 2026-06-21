@@ -406,7 +406,6 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
- "Sid": "Allow CloudTrail access",
  "Effect": "Allow",
  "Principal": {
  "AWS": "arn:aws:iam::`222222222222`:root"
