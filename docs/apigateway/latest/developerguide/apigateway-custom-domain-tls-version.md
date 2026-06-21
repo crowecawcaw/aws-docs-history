@@ -21,7 +21,7 @@ The following are considerations for security policies for custom domain names f
 - If you enable multi-level base path mapping to a REST API that uses an enhanced security policy, you
   can’t create a base path mapping to an HTTP API for the same domain name.
 - Your API can be mapped to a custom domain name with a different security policy than your API. When you
-  invoke that custom domain name, API Gateway uses the security policy of the API to negotiate the TLS handshake. If
+  invoke that custom domain name, API Gateway uses the security policy of the custom domain to negotiate the TLS handshake. If
   you disable your default API endpoint, this might affect how callers can invoke your API.
 - API Gateway supports security policies on all APIs. However, you can only choose a security policy for REST
   APIs. API Gateway only supports the `TLS_1_2` security policy for HTTP or WebSocket APIs.

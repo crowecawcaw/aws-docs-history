@@ -84,7 +84,7 @@ The following are considerations for security policies for REST APIs in API Gate
 
 - You can import the security policy in an OpenAPI definition file. For more information, see [x-amazon-apigateway-endpoint-access-mode](openapi-extensions-security-policy.md "openapi-extensions-security-policy.md").
 - Your API can be mapped to a custom domain name with a different security policy than your API. When you
-  invoke that custom domain name, API Gateway uses the security policy of the API to negotiate the TLS handshake. If
+  invoke that custom domain name, API Gateway uses the security policy of the custom domain to negotiate the TLS handshake. If
   you disable your default API endpoint, this might affect how callers can invoke your API.
 - If you change your security policy, it takes about 15 minutes for the update to complete. You can monitor
   the `apiStatus` of your API. As your API updates, the `apiStatus` is

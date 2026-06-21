@@ -2,7 +2,7 @@
 
 You can change the security policy for your API. If you are sending traffic to your APIs through your custom
 domain name, the API and the custom domain name don't need to have the same security policy. When you invoke that
-custom domain name, API Gateway uses the security policy of the API to negotiate the TLS handshake. However, for
+custom domain name, API Gateway uses the security policy of the custom domain to negotiate the TLS handshake. However, for
 consistency, we recommend that you use the same security policy for your custom domain name and API.
 
 If you change your security policy, it takes about 15 minutes for the update to complete. You can monitor the
