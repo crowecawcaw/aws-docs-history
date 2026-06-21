@@ -14,14 +14,13 @@ Capacity Reservation for immediate use or you can request a Capacity Reservation
   modify the Capacity Reservation at any time, and you can cancel it at any time to release the
   reserved capacity and to stop incurring charges.
 - If you request a **future-dated Capacity Reservation**, you specify
-  the future date at which you need the Capacity Reservation to become available for use. You must
-  also specify a commitment duration for which you commit to keeping the requested
-  capacity in your account after the specified date. At the requested date and time,
-  the Capacity Reservation becomes available for use and the commitment duration starts. During the
+  when you need the capacity and how long you commit to keeping it. At the specified
+  future date, the Capacity Reservation becomes available for use and billing starts. During the
   commitment duration, you can't decrease the instance count or commitment duration
-  below your initial commitment, or cancel the Capacity Reservation. After the commitment duration
-  elapses, you can modify the Capacity Reservation in any way or cancel it if you no longer need
-  it.
+  below your initial commitment. You can cancel the Capacity Reservation, but a cancellation charge
+  might apply depending on when you cancel. After the commitment duration
+  elapses, you can modify the Capacity Reservation in any way or cancel it without
+  charge.
   Capacity Reservations can only be used by instances that match their attributes. By default, Capacity Reservations
   automatically match new instances and running instances that have matching attributes
   (instance type, platform, Availability Zone, and tenancy). This means that any instance with
@@ -85,12 +84,12 @@ Capacity Reservations that you create and manage.
 
 The following table highlights key differences between Capacity Reservations, Reserved Instances, and Savings Plans:
 
-|                      | Capacity Reservations                                                                                                                                                                                                                                                                                                                                                      | Zonal Reserved Instances                                                  | Regional Reserved Instances                                 | Savings Plans |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------- |
-| **Term**             | No commitment required for immediate-use Capacity Reservations. They can be<br>created, modified, and canceled as needed.<br>With future-dated Capacity Reservations, you specify a commitment duration for<br>which you commit to keeping the capacity in your account. After the<br>commitment duration elapses, you can cancel the Capacity Reservation at any<br>time. | Requires a fixed one-year or three-year<br>commitment                     |
-| **Capacity benefit** | Capacity reserved in a specific Availability<br>Zone.                                                                                                                                                                                                                                                                                                                      | No capacity reserved.                                                     |
-| **Billing discount** | No billing discount. †                                                                                                                                                                                                                                                                                                                                                     | Provides a billing discount.                                              |
-| **Instance Limits**  | Your On-Demand Instance limits per Region apply.                                                                                                                                                                                                                                                                                                                           | Default is 20 per Availability Zone. You can request a limit<br>increase. | Default is 20 per Region. You can request a limit increase. | No limit.     |
+|                      | Capacity Reservations                                                                                                                                                                                                                                                                                                                                                        | Zonal Reserved Instances                                                  | Regional Reserved Instances                                 | Savings Plans |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------- |
+| **Term**             | No commitment required for immediate-use Capacity Reservations. They can be<br>created, modified, and canceled as needed.<br>With future-dated Capacity Reservations, you specify a commitment duration for<br>which you commit to keeping the capacity in your account. You can<br>cancel at any time; a cancellation charge might apply during the<br>commitment duration. | Requires a fixed one-year or three-year<br>commitment                     |
+| **Capacity benefit** | Capacity reserved in a specific Availability<br>Zone.                                                                                                                                                                                                                                                                                                                        | No capacity reserved.                                                     |
+| **Billing discount** | No billing discount. †                                                                                                                                                                                                                                                                                                                                                       | Provides a billing discount.                                              |
+| **Instance Limits**  | Your On-Demand Instance limits per Region apply.                                                                                                                                                                                                                                                                                                                             | Default is 20 per Availability Zone. You can request a limit<br>increase. | Default is 20 per Region. You can request a limit increase. | No limit.     |
 
 † You can combine Capacity Reservations with Savings Plans or Regional Reserved Instances to receive a
 discount.
@@ -218,5 +217,5 @@ restrictions.
   example, if you request a future-dated Capacity Reservation for `m5.xlarge`
   instances, you must request at least 8 instances (_8 \* m5.xlarge = 32
   vCPUs_).
-- You can request future-dated Capacity Reservations for instance types in the following series only:
-  C, G, I, M, R, and T.
+- You can request future-dated Capacity Reservations for instance types in the following families:
+  C, G, I, M, R, T, U, and X.

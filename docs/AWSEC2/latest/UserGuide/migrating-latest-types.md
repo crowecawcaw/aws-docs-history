@@ -141,7 +141,7 @@ migrate the instance to a Nitro-based instance.
 
 1. [Download](https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip "https://s3.amazonaws.com/ec2-windows-drivers-downloads/NVMe/Latest/AWSNVMe.zip") the latest driver package to the instance.
 
-If you need a previous version of the driver, see [NVMe Windows driver
+If you need a previous version of the driver, see [AWS NVMe Windows driver
 releases](nvme-driver-version-history.md "nvme-driver-version-history.md") for supported versions. 2. Extract the zip archive. 3. Install the driver as described in `Readme.txt`. 4. Open a **PowerShell** session and run the following command:
 
 ```

@@ -46,4 +46,10 @@ To install or update storage drivers, see the following topics:
 - For Linux instances, see [Install
   or upgrade the NVMe driver](../../../ebs/latest/userguide/nvme-ebs-volumes.md#install-nvme-driver "../../../ebs/latest/userguide/nvme-ebs-volumes.md#install-nvme-driver") in the
   _Amazon EBS User Guide_.
-- For Windows instances, see [AWS NVMe drivers](aws-nvme-drivers.md "aws-nvme-drivers.md").
+- For Windows instances, see [NVMe drivers](aws-nvme-drivers.md "aws-nvme-drivers.md").
+
+## Other Windows device drivers
+
+To install or update other Windows device drivers, see the following topics:
+
+- [Other Windows device drivers](other-windows-device-drivers.md "other-windows-device-drivers.md")

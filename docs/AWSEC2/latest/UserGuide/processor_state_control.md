@@ -189,7 +189,9 @@ The following instance types provide the ability for an operating system to cont
   `g5.24xlarge` | `g5.48xlarge` | `g6.24xlarge` | `g6.48xlarge` |
   `g6e.12xlarge` | `g6e.24xlarge` | `g6e.48xlarge` | `g7e.2xlarge` |
   `g7e.4xlarge` | `g7e.8xlarge` | `g7e.12xlarge` | `g7e.24xlarge` |
-  `g7e.48xlarge` | `inf1.24xlarge` | `p3dn.24xlarge` |
+  `g7e.48xlarge` | `g7.2xlarge` | `g7.4xlarge` |
+  `g7.8xlarge` | `g7.12xlarge` | `g7.24xlarge` |
+  `g7.48xlarge` | `inf1.24xlarge` | `p3dn.24xlarge` |
   `p4d.24xlarge` | `p4de.24xlarge` | `p5.48xlarge` | `p5e.48xlarge` |
   `p5en.48xlarge` | `p6-b200.48xlarge` | `p6-b300.48xlarge` | `trn1.32xlarge` |
   `trn2.3xlarge` | `trn2.48xlarge` | `trn2a.3xlarge` | `trn2a.48xlarge` |

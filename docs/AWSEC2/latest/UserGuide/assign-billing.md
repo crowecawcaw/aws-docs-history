@@ -114,3 +114,6 @@ Keep the following in mind when assigning billing of a shared Capacity Reservati
 - Only the Capacity Reservation owner can cancel a pending billing assignment request
   and revoke billing from an assigned account after the request has been
   accepted.
+- If the owner cancels a future-dated Capacity Reservation that has billing assigned to
+  another account, the assigned billing owner pays the cancellation
+  charges.

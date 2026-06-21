@@ -7,15 +7,12 @@ lifecycle:
 - If you create a new AMI from a running instance that was launched from a
   watermarked AMI, the new AMI inherits the watermark.
 - If you copy a watermarked AMI, the copy carries the watermark.
-- If you store a watermarked AMI to S3 and restore it, the restored AMI retains
-  the watermark.
 - If you share a watermarked AMI with another account, the watermark remains
   visible to the recipient.
-  Using AMI watermarks helps you:
 
 ###### Key benefits
 
-- Track provenance across accounts and Regions — identify which AMIs derive
+- Track provenance across accounts and Regions—identify which AMIs derive
   from your approved base images.
 - Filter and find related AMIs across your accounts.
 - Help AMI consumers discover and identify trusted AMIs associated with a project or
@@ -35,37 +32,35 @@ lifecycle:
 AMI watermarks are structured identifiers that you attach to your AMIs. The
 following describes the key characteristics of watermarks:
 
-- **Persists** — When you attach a watermark
+- **Persists** – When you attach a watermark
   to an AMI, it carries forward to all derivative AMIs.
-- **Owner-only** — Only the AMI owner can
-  attach watermarks to an AMI.
-- **Visible to everyone** — Anyone with
-  access to the AMI can view its watermarks.
-- **Limit of 5** — An AMI can have up to a
-  total of 5 watermarks.
-- **Not available on public AMIs** — You
-  can't attach watermarks to public AMIs or make AMIs public if they have a
-  watermark.
-- **Filterable** — You can filter AMIs by
-  watermark when using `describe-images`.
+- **Owner-only** – Only the AMI owner can attach
+  watermarks to an AMI.
+- **Visible to everyone** – Anyone with access to the AMI
+  can view its watermarks.
+- **Limit of 5** – An AMI can have up to a total of 5
+  watermarks.
+- **Not available on public AMIs** – You can't attach
+  watermarks to public AMIs or make AMIs public if they have a watermark.
+- **Filterable** – You can filter AMIs by watermark when
+  using `describe-images`.
 
 ### Watermark format
 
 A watermark is a structured object with the following fields:
 
-- `WatermarkKey` — The unique identifier for the
-  watermark, composed of
+- `WatermarkKey` – The unique identifier for the watermark, composed of
   ``account-id`:`watermark-name``.
   The account ID portion is the 12-digit AWS account ID of the AMI owner.
   The watermark name portion is a customer-specified name.
-- `SourceImageRegion` — The Region of the AMI to which
-  you originally attached the watermark.
-- `SourceImageId` — The AMI to which you originally
+- `SourceImageRegion` – The Region of the AMI to which you originally
   attached the watermark.
-- `SourceImageCreationDate` — The creation date of the
-  AMI to which you originally attached the watermark.
-- `WatermarkCreationTime` — The timestamp of when you
-  applied the watermark.
+- `SourceImageId` – The AMI to which you originally attached the
+  watermark.
+- `SourceImageCreationDate` – The creation date of the AMI to which you
+  originally attached the watermark.
+- `WatermarkCreationTime` – The timestamp of when you applied the
+  watermark.
 
 The watermark name must be 3–128 characters and can contain alphanumeric
 characters, parentheses (()), square brackets ([]), spaces, periods (.), slashes (/),
@@ -75,11 +70,9 @@ dashes (-), single quotes ('), at-signs (@), or underscores (\_).
 
 To work with AMI watermarks, you need the following IAM permissions:
 
-- `ec2:AttachImageWatermark` — To attach a watermark to an
-  AMI.
-- `ec2:DetachImageWatermark` — To detach a watermark from an
-  AMI.
-- `ec2:DescribeImages` — To view watermarks on AMIs.
+- `ec2:AttachImageWatermark` – To attach a watermark to an AMI.
+- `ec2:DetachImageWatermark` – To detach a watermark from an AMI.
+- `ec2:DescribeImages` – To view watermarks on AMIs.
 
 ## Attach a watermark to an AMI
 

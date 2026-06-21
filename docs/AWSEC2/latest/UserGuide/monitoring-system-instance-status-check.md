@@ -136,9 +136,9 @@ Amazon CloudWatch alarms that are triggered based on the result of the status ch
 example, you could fail over to a secondary instance or Availability Zone when
 you detect a prolonged impact. Alternatively, you can monitor the I/O
 performance of each attached volume using EBS CloudWatch metrics to detect and
-replace the impaired volume. If your workload is not driving I/O to any EBS
-volumes attached to your instance, and the EBS status check indicates an
-impairment, you can stop and start the instance to move it to a new host. This
+replace the impaired volume. If the EBS status check indicates an impairment
+and your workload isn't driving I/O to attached EBS volumes, stop and start the
+instance to move it to a new host. This
 can resolve underlying host issues that are impacting the reachability of the
 EBS volumes. For more information, see [Amazon CloudWatch metrics for
 Amazon EBS](../../../ebs/latest/userguide/using_cloudwatch_ebs.md "../../../ebs/latest/userguide/using_cloudwatch_ebs.md").

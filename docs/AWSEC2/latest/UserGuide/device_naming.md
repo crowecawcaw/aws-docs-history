@@ -43,7 +43,7 @@ AWS Windows AMIs use one of the following sets of drivers to permit access to
 virtualized hardware:
 
 - AWS PV: [Paravirtual drivers for Windows instances](xen-drivers-overview.md "xen-drivers-overview.md")
-- AWS NVMe: [AWS NVMe drivers](aws-nvme-drivers.md "aws-nvme-drivers.md")
+- AWS NVMe: [NVMe drivers](aws-nvme-drivers.md "aws-nvme-drivers.md")
 
 ###### Device names for Nitro based instances
 

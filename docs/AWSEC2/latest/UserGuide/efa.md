@@ -240,6 +240,10 @@ Nitro v6 (EFA v4)
 | i8ge.48xlarge              | Yes               | Yes                |
 | i8ge.metal-48xl            | Yes               | Yes                |
 | Accelerated Computing      |
+| g7.8xlarge                 | Yes               | Yes                |
+| g7.12xlarge                | Yes               | Yes                |
+| g7.24xlarge                | Yes               | Yes                |
+| g7.48xlarge                | Yes               | Yes                |
 | g7e.8xlarge                | Yes               | Yes                |
 | g7e.12xlarge               | Yes               | Yes                |
 | g7e.24xlarge               | Yes               | Yes                |

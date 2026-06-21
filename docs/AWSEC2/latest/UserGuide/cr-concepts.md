@@ -23,17 +23,16 @@ can start **immediately**, or it can start at a
   term commitments. You can modify the Capacity Reservation as needed at any time to meet your
   needs, and you can cancel it at any time to release the capacity and to stop
   incurring charges.
-- If you choose to start a Capacity Reservation at a future date, you specify a
-  _future date and time_ at which you will need the
-  reserved capacity, and a _commitment duration_, which is
-  the minimum duration for which you commit to keeping the requested Capacity Reservation in
-  your account after it has been provisioned. At the specified future date,
-  the Capacity Reservation becomes available for use and billing starts at that time, once the
-  Capacity Reservation enters the active state. The commit duration starts as soon as the Capacity Reservation
+- If you choose to start a Capacity Reservation at a future date, you specify when you
+  need the capacity and how long you commit to keeping it. At the specified
+  future date, the Capacity Reservation becomes available for use and billing starts after the
+  Capacity Reservation enters the active state. The commitment duration starts as soon as the Capacity Reservation
   is provisioned in your account. During this time, you can't decrease the
-  instance count below the committed instance count, choose an end date that
-  is before the commitment duration, or cancel the Capacity Reservation. However, after the
-  commitment duration lapses, you are free to modify the Capacity Reservation in any way, or
+  instance count below the committed instance count, or choose an end date that
+  is before the commitment duration. You can cancel the Capacity Reservation, but a
+  cancellation charge might apply depending on when you cancel. For more
+  information, see [Cancel a Capacity Reservation](capacity-reservations-release.md "capacity-reservations-release.md"). After the
+  commitment duration lapses, you can modify the Capacity Reservation in any way, or
   cancel it to release the reserved capacity and to stop incurring
   charges.
 
@@ -65,19 +64,21 @@ future-dated Capacity Reservation in the active state in your account after it h
 You can keep a future-dated Capacity Reservation for longer than the commitment duration, but not
 shorter. The following apply during the commitment duration:
 
-- You can't cancel a Capacity Reservation during the commitment duration.
+- You can cancel the Capacity Reservation during the commitment duration, but a
+  cancellation charge might apply. For more information, see [Cancellation charges](capacity-reservations-release.md#cr-cancellation-charges "capacity-reservations-release.md#cr-cancellation-charges").
 - You can't decrease the instance count below the committed instance count,
   but you can increase it.
 - You can't configure a Capacity Reservation to automatically end at a date or time that is
   within the commitment duration. You can extend the end date and time during
-  the commitment period.
+  the commitment duration.
 
 Amazon EC2 uses the commitment duration that you specify to assess whether the request
-can be supported. The minimum commitment duration is 14 days. While assessing a
-request, Amazon EC2 might determine that it can support a shorter commitment duration. In
-that case, Amazon EC2 will schedule the future-dated Capacity Reservation with the shorter commitment
-duration. This means that you are committed to keeping the Capacity Reservation in your account for
-a shorter period than you initially requested.
+can be supported. The minimum commitment duration is 14 days for most instance
+types, or 12 weeks for U and X instances. While
+assessing a request, Amazon EC2 might determine that it can support a shorter commitment
+duration. In that case, Amazon EC2 schedules the future-dated Capacity Reservation with the shorter
+commitment duration. This means that you are committed to keeping the Capacity Reservation in your
+account for a shorter period than you initially requested.
 
 ## Future-dated Capacity Reservation assessment
 
@@ -94,24 +95,26 @@ considers multiple factors when evaluating a request, including:
 You can request a future-dated Capacity Reservation between 5 and 120 days in
 advance. We recommend that you make the request at least 56 days (8 weeks) in
 advance to improve our ability to support your request. The minimum commitment
-duration is 14 days and the minimum instance count is 32 vCPUs.
+duration is 14 days for most instance types, or 12 weeks for U and X instances,
+and the minimum instance count is 32 vCPUs.
 
 The Capacity Reservation remains in the `assessing` state while the request is being
 assessed.
 
 If the request can be supported, the Capacity Reservation enters the `scheduled` state
 and it is scheduled for delivery on the requested date and time. The total instance
-count remains 0 during while the Capacity Reservation is in the `scheduled` state. A
+count remains 0 while the Capacity Reservation is in the `scheduled` state. A
 scheduled Capacity Reservation will become `active` and available for use at the
 requested date.
 
 If a request can't be supported, the Capacity Reservation enters the `unsupported`
 state. Unsupported Capacity Reservations are not delivered.
 
-You can cancel a future-dated Capacity Reservation while it is in the `assessing`
-state.
+You can cancel a future-dated Capacity Reservation in the `assessing`,
+`scheduled`, or `active` state. A cancellation charge
+might apply. For more information, see [Cancel a Capacity Reservation](capacity-reservations-release.md "capacity-reservations-release.md").
 
-For more information, see [Create a future-dated Capacity Reservation](capacity-reservations-create.md#create-future-cr "capacity-reservations-create.md#create-future-cr").
+To create a future-dated Capacity Reservation, see [Create a future-dated Capacity Reservation](capacity-reservations-create.md#create-future-cr "capacity-reservations-create.md#create-future-cr").
 
 ## Capacity Reservation attributes
 

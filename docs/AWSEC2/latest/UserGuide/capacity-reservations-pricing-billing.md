@@ -8,6 +8,7 @@ Capacity Reservations.
 - [Pricing](#capacity-reservations-pricing "#capacity-reservations-pricing")
 - [Billing](#capacity-reservations-billing "#capacity-reservations-billing")
 - [Billing discounts](#capacity-reservations-discounts "#capacity-reservations-discounts")
+- [Cancellation charges in Cost and Usage Report 2.0](#capacity-reservations-cancellation-billing-cur "#capacity-reservations-cancellation-billing-cur")
 - [Viewing your bill](#capacity-reservations-viewing-bill "#capacity-reservations-viewing-bill")
 
 ## Pricing
@@ -73,6 +74,24 @@ For more information, see the following:
   User Guide](../../../savingsplans/latest/userguide.md "../../../savingsplans/latest/userguide.md")
 - [Billing and
   purchase options](https://aws.amazon.com/ec2/faqs/#capacityreservations "https://aws.amazon.com/ec2/faqs/#capacityreservations")
+
+## Cancellation charges in Cost and Usage Report 2.0
+
+If you cancel a future-dated Capacity Reservation and a cancellation charge applies, the charge
+appears in your AWS Cost and Usage Report (CUR) 2.0. For more information
+about capacity reservation columns in CUR 2.0, see [Capacity reservation columns](../../../cur/latest/userguide/table-dictionary-cur2-capacity-reservation.md "../../../cur/latest/userguide/table-dictionary-cur2-capacity-reservation.md"). The following tables show
+how Capacity Reservation line items appear before and after cancellation.
+
+| CUR 2.0 values for an active reservation | capacity_reservation_capacity_reservation_status | line_item_usage_type    | What it represents |
+| ---------------------------------------- | ------------------------------------------------ | ----------------------- | ------------------ |
+| `Reserved`                               | Reservation                                      | Total reserved capacity |
+| `Used`                                   | BoxUsage                                         | Launched instances      |
+| `Unused`                                 | UnusedBox                                        | Idle capacity           |
+
+| CUR 2.0 values after cancellation | capacity_reservation_capacity_reservation_status | line_item_usage_type | What it represents |
+| --------------------------------- | ------------------------------------------------ | -------------------- | ------------------ |
+| `Cancelling`                      | Reservation                                      | Canceled capacity    |
+| `Cancelling`                      | UnusedBox                                        | Cancellation charges |
 
 ## Viewing your bill
 

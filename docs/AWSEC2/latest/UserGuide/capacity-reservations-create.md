@@ -138,16 +138,18 @@ determine whether it can be supported. For more information, see [Future-dated C
 
 ###### Considerations
 
-- You can request future-dated Capacity Reservations for instance types in the following series:
-  C, G, I, M, R, and T.
+- You can request future-dated Capacity Reservations for instance types in the following families:
+  C, G, I, M, R, T, U, and X.
 - You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For
   example, if you request a future-dated Capacity Reservation for `m5.xlarge`
   instances, you must request capacity for at least 8 instances (_8 \*
   m5.xlarge = 32 vCPUs_).
 - You can request a future-dated Capacity Reservation between 5 and 120 days in advance.
-  However, we recommend that you request it at least 56 days (8 weeks) in
-  advance to improve supportability.
-- The minimum commitment duration is 14 days.
+  We recommend that you request it at least 56 days (8 weeks) in advance to
+  improve supportability.
+- The minimum commitment duration is 14 days for C, G, I, M, R, and T
+  instances. For U and X instances, the minimum commitment duration is 12
+  weeks.
 
 Console
 

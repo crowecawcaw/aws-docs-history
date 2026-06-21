@@ -186,6 +186,6 @@ If the instance has not passed all status checks after several hours, see [Troub
 3. If you upgraded to Windows Server 2012 R2, we recommend that you upgrade
    the PV drivers to AWS PV drivers. If you upgraded on a Nitro-based
    instance, we recommend that you install or upgrade the NVME and ENA drivers.
-   For more information, see [AWS NVMe drivers](aws-nvme-drivers.md "aws-nvme-drivers.md") or
+   For more information, see [NVMe drivers](aws-nvme-drivers.md "aws-nvme-drivers.md") or
    [Enable enhanced networking on Windows](enabling_enhanced_networking.md#enable-enhanced-networking-ena-windows "enabling_enhanced_networking.md#enable-enhanced-networking-ena-windows").
 4. Re-enable antivirus and anti-spyware software and firewalls.

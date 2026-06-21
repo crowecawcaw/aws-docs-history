@@ -1,4 +1,4 @@
-# AWS NVMe drivers
+# NVMe drivers
 
 Amazon EBS volumes and instance store volumes are exposed as NVMe block devices on
 [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type"). To fully utilize the performance and capabilities of Amazon EBS features

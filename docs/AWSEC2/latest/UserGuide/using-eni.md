@@ -178,6 +178,7 @@ the number of network interfaces that an instance type supports, see
 | `dl1.24xlarge`         | 4                       |
 | `g6e.24xlarge`         | 2                       |
 | `g6e.48xlarge`         | 4                       |
+| `g7.48xlarge`          | 2                       |
 | `g7e.24xlarge`         | 2                       |
 | `g7e.48xlarge`         | 4                       |
 | `hpc6id.32xlarge`      | 2                       |

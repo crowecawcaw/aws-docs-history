@@ -96,7 +96,7 @@ the following ICMP message: `ICMPv6 Packet Too Big (PTB)` (Type 2). This
 instructs the transmitting host to split the payload into multiple smaller packets, and
 then retransmit them.
 
-Connections made through some components, like NAT gateways and load balancers, are [automatically tracked](security-group-connection-tracking.md#automatic-tracking "security-group-connection-tracking.md#automatic-tracking"). This means that [security group tracking](security-group-connection-tracking.md "security-group-connection-tracking.md") is automatically enabled for your outbound connection attempts. If connections are automatically tracked or if your security group rules allow inbound ICMP traffic, you can receive PMTUD responses.
+Connections made through some components, like NAT gateways and load balancers, are [automatically tracked](security-group-connection-tracking.md#automatic-tracking "security-group-connection-tracking.md#automatic-tracking"). This means that [security group tracking](security-group-connection-tracking.md "security-group-connection-tracking.md") is automatically enabled for your outbound connection attempts. If connections are automatically tracked, are [untracked](security-group-connection-tracking.md#untracked-connections "security-group-connection-tracking.md#untracked-connections"), or if your security group rules allow inbound ICMP traffic, you can receive PMTUD responses.
 
 Note that ICMP traffic can be blocked even if the traffic is allowed at the security group level, such as if you have a network access control list entry that denies ICMP traffic to the subnet.
 

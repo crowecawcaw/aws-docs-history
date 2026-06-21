@@ -29,6 +29,7 @@ Supported AWS Regions:
 - Middle East (Bahrain), Middle East (UAE)
 - South America (São Paulo)
 - AWS GovCloud (US-West)
+- AWS European Sovereign Cloud (Germany)
 
 The DescribeCapacityReservationTopology API is not supported in
 Israel (Tel Aviv) and AWS GovCloud (US-West).

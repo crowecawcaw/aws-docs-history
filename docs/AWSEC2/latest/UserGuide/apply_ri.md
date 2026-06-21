@@ -105,6 +105,7 @@ discounted rate of Reserved Instances to the normalized usage of the instance fa
 | 32xlarge      | 256                  |
 | 48xlarge      | 384                  |
 | 56xlarge      | 448                  |
+| 96xlarge      | 768                  |
 | 112xlarge     | 896                  |
 
 For example, a `t2.medium` instance has a normalization factor of 2. If you purchase a `t2.medium` default tenancy Amazon Linux/Unix

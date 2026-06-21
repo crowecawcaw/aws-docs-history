@@ -162,6 +162,7 @@ four `t2.medium` instances has a footprint of 8 units.
 | 32xlarge      | 256                  |
 | 48xlarge      | 384                  |
 | 56xlarge      | 448                  |
+| 96xlarge      | 768                  |
 | 112xlarge     | 896                  |
 
 You can allocate your reservations into different instance sizes across the

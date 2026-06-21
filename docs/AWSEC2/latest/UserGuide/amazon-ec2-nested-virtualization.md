@@ -31,7 +31,7 @@ and one or more virtual machines created within that instance (L2).
 Before you begin using nested virtualization, consider the following:
 
 - **Supported instance types** – Nested
-  virtualization is currently supported on C8i, M8i, and R8i instances.
+  virtualization is currently supported on C8i, M8i, R8i, C8id, R8id, M8id, C8i-flex, R8i-flex, M8i-flex, X8i, C7i, R7i, M7i, C7i-flex, M7i-flex, and I7i instances.
 - **Supported hypervisors** – Currently, KVM
   and Hyper-V are the supported L1 hypervisors.
 - **Windows instances** – When nested
