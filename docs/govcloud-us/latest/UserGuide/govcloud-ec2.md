@@ -20,6 +20,7 @@ The following differences apply to Amazon Elastic Compute Cloud:
 - When you use the launch instance wizard in the console to launch an instance using an AWS Marketplace AMI, we don’t automatically subscribe you to the AMI as we do in other AWS Regions. Instead, when you choose the AMI, choose **Subscribe with Marketplace** to open the AWS Marketplace to subscribe.
 - The AWS Certificate Manager (ACM) for Nitro Enclaves AMI is not available from the AWS Marketplace. ACM for Nitro Enclaves must be installed from the Amazon Linux Extras repository.
 - The Nitro Enclaves Developer AMI is not available from the AWS Marketplace.
+- Capacity reservation status columns are available only in AWS Cost and Usage Report (CUR) 2.0. In legacy AWS Cost and Usage Reports, cancellation charges for future-dated Capacity Reservations are included in `UnusedBox` charges.
 
 ###### Image differences
 
