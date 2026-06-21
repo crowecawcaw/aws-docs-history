@@ -4,15 +4,22 @@ OpenSearch Service lets you temporarily pause automated snapshots on your domain
 useful when you need to perform data migrations, run maintenance operations, or
 avoid snapshot overhead during peak traffic periods.
 
-When you pause automated snapshots, OpenSearch Service stops taking hourly automated snapshots
-for the duration you specify. You configure the pause by setting a start time and
-end time in the `SnapshotOptions` of your domain configuration. The
-pause operates on Unix epoch time with hourly granularity, and the maximum duration
-cannot exceed 72 hours.
+You configure the pause using `AutomatedSnapshotPauseOptions` in your
+domain configuration. The options include an `enabled` flag, a
+`StartTime`, and an `EndTime`. Times are Unix epoch timestamps
+in seconds, and the maximum duration of a single pause cannot exceed 72 hours. The
+`EndTime` cannot be set more than 90 days in the future.
 
-If you omit the start time, OpenSearch Service begins the pause immediately. To resume
-snapshots before the scheduled end time, remove the pause parameters from your
-domain configuration or set them to null.
+If you omit `StartTime`, OpenSearch Service begins the pause immediately. If a
+pause is currently active and you omit `StartTime`, the existing start
+time is preserved.
+
+A pause window has the following states:
+
+- `DISABLED` — No pause is configured.
+- `SCHEDULED` — A pause is configured with a start time in the future.
+- `ACTIVE` — A pause is currently in effect.
+- `COMPLETED` — The pause window has elapsed.
 
 ###### Important
 
@@ -26,26 +33,30 @@ your domain configuration:
 ```
 POST https://es.`us-east-1`.amazonaws.com/2021-01-01/opensearch/domain/`my-domain`/config
 {
-  "SnapshotOptions": {
-    "AutomatedSnapshotStartHour": 0,
-    "PauseAutomatedSnapshotStartTime": 1737100800,
-    "PauseAutomatedSnapshotEndTime": 1737360000
+  "AutomatedSnapshotPauseOptions": {
+    "Enabled": true,
+    "StartTime": 1737100800,
+    "EndTime": 1737360000
   }
 }
 ```
 
-`PauseAutomatedSnapshotStartTime` is optional. If you don't provide
-it, the pause takes effect at the current time.
-`PauseAutomatedSnapshotEndTime` specifies when OpenSearch Service resumes taking
-automated snapshots.
+`StartTime` is optional. If you omit it, the pause begins immediately.
+`EndTime` is required when `Enabled` is `true`
+and specifies when OpenSearch Service resumes taking automated snapshots.
 
-After a pause expires, you must wait at least one hour before configuring a new
-pause. This ensures that OpenSearch Service takes at least one snapshot between consecutive pause
-windows, maintaining a minimum level of data protection.
+To cancel a pause before it ends, set `Enabled` to `false`
+with no `StartTime` or `EndTime`. Providing start or end
+times when disabling is not allowed and results in a validation error.
 
-You can extend an active pause as long as the total duration does not exceed 72
-hours. If you attempt to set a pause longer than 72 hours, the request fails with
-a validation error.
+After a pause completes, the new pause's `StartTime` must be at least
+1 hour after the previous pause's `EndTime`. This ensures that OpenSearch Service
+takes at least one snapshot between consecutive pause windows.
+
+While a pause is `ACTIVE`, you can update only the
+`EndTime` to shorten or extend the window. The `StartTime`
+cannot be modified once a pause is in progress. The total duration of the updated
+window must still not exceed 72 hours.
 
 When snapshots are paused, the OpenSearch Service console displays a warning banner on the
 domain details page indicating the pause end time and reduced data protection

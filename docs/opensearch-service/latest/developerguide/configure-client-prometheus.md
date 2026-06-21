@@ -38,12 +38,6 @@ Before you configure the Prometheus sink, ensure you have the following:
   with permissions to write to Amazon Managed Service for Prometheus. For more
   information, see [Step 1: Configure the pipeline role](#prometheus-pipeline-role "#prometheus-pipeline-role").
 
-###### Note
-
-Amazon Managed Service for Prometheus workspaces must use AWS service-managed
-AWS KMS keys. Customer-managed AWS KMS keys are not currently supported for Amazon
-Managed Service for Prometheus sinks in OpenSearch Ingestion pipelines.
-
 ## Step 1: Configure the pipeline role
 
 The Prometheus sink automatically inherits the [pipeline role's](pipeline-security-overview.md#pipeline-security-sink "pipeline-security-overview.md#pipeline-security-sink") IAM permissions for

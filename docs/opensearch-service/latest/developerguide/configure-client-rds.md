@@ -29,3 +29,4 @@ for MySQL binary logging](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MyS
 
 - [RDS for MySQL](rds-mysql.md "rds-mysql.md")
 - [RDS for PostgreSQL](rds-PostgreSQL.md "rds-PostgreSQL.md")
+- [Joining data from multiple tables](rds-joins-reference.md "rds-joins-reference.md")

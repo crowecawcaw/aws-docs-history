@@ -30,3 +30,4 @@ binary logging for Aurora MySQL](../../../AmazonRDS/latest/AuroraUserGuide/USER_
 
 - [Aurora MySQL](aurora-mysql.md "aurora-mysql.md")
 - [Aurora PostgreSQL](aurora-PostgreSQL.md "aurora-PostgreSQL.md")
+- [Joining data from multiple tables to ingest into one document](aurora-denormalized-joins.md "aurora-denormalized-joins.md")

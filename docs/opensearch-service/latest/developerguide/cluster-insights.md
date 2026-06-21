@@ -59,7 +59,7 @@ Accessing Cluster Insights requires an administrative role in the OpenSearch UI 
    1. [Create an OpenSearch Service application](application-getting-started.md "application-getting-started.md")
    2. [Associate data sources](application-data-sources-and-vpc.md#application-data-source-association "application-data-sources-and-vpc.md#application-data-source-association")
 
-4. After you complete the above two steps, you can view Cluster Insights in OpenSearch UI dashboard under the Settings > Data administrator > Cluster Insights section. The Settings icon is located at the bottom left of the OpenSearch UI screen.
+4. After you complete these two steps, you can view Cluster Insights in OpenSearch UI dashboard. Choose the Settings icon, then choose Data administrator > Cluster Insights.
 
 Screen-2: Access Data Administrator from OpenSearch UI
 
