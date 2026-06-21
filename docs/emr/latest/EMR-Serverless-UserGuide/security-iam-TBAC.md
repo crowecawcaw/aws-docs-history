@@ -79,6 +79,7 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowEMRSERVERLESSCreateApplicationWithTag",
  "Effect": "Allow",
  "Action": [
  "emr-serverless:CreateApplication"
@@ -88,10 +89,9 @@ JSON
  ],
  "Condition": {
  "StringEquals": {
- "aws:RequestedRegion": "us-east-1"
+ "aws:RequestTag/department": "dev"
  }
- },
- "Sid": "AllowEMRSERVERLESSCreateapplication"
+ }
  }
  ]
 }`
@@ -108,6 +108,7 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowEMRSERVERLESSCreateApplicationRequireTag",
  "Effect": "Allow",
  "Action": [
  "emr-serverless:CreateApplication"
@@ -116,11 +117,10 @@ JSON
  "*"
  ],
  "Condition": {
- "StringEquals": {
- "aws:RequestedRegion": ["us-east-1", "us-west-2"]
+ "Null": {
+ "aws:RequestTag/department": "false"
  }
- },
- "Sid": "AllowEMRSERVERLESSCreateapplication"
+ }
  }
  ]
 }`
@@ -149,7 +149,7 @@ JSON
  ],
  "Condition": {
  "StringNotEquals": {
- "aws:PrincipalTag/department": "dev"
+ "aws:ResourceTag/department": "dev"
  }
  },
  "Sid": "AllowEMRSERVERLESSTagresource"
