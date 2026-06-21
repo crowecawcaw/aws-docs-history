@@ -496,7 +496,7 @@ system.
    escalate to the AWS SAM team by [creating an issue](https://github.com/aws/aws-sam-cli/issues/new?assignees=&labels=stage%2Fneeds-triage&projects=&template=Bug_report.md&title=Bug%3A+TITLE "https://github.com/aws/aws-sam-cli/issues/new?assignees=&labels=stage%2Fneeds-triage&projects=&template=Bug_report.md&title=Bug%3A+TITLE") in the _aws-sam-cli GitHub repository_.
 
 ```
-cd62479397f09d72a04c7399a254b0a91da53d6c
+6c 4e f0 59 67 db 0a 2c 69 87 17 31 ec 9e 51 5d 7c d6 e9 52
 ```
 
 ## Verify the hash value
