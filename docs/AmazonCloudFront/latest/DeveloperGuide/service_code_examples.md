@@ -34,8 +34,8 @@ This topic also includes information about getting started and details about pre
 
   - [Create a multi-tenant distribution and distribution tenant](example_cloudfront_CreateSaasResources_section.md "example_cloudfront_CreateSaasResources_section.md")
   - [Delete signing resources](example_cloudfront_DeleteSigningResources_section.md "example_cloudfront_DeleteSigningResources_section.md")
-  - [Get started with a basic CloudFront distribution](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
-  - [Getting started with WAF](example_wafv2_GettingStarted_052_section.md "example_wafv2_GettingStarted_052_section.md")
+  - [Get started with a basic content distribution network](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
+  - [Getting started with web application firewalls](example_wafv2_GettingStarted_052_section.md "example_wafv2_GettingStarted_052_section.md")
   - [Sign URLs and cookies](example_cloudfront_CloudFrontUtilities_section.md "example_cloudfront_CloudFrontUtilities_section.md")
 
 - [CloudFront Functions examples](service_code_examples_cloudfront_functions_examples.md "service_code_examples_cloudfront_functions_examples.md")

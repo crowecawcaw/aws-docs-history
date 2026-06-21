@@ -1,4 +1,4 @@
-# Get started with a basic CloudFront distribution
+# Get started with a basic content distribution network
 
 The following code example shows how to:
 
