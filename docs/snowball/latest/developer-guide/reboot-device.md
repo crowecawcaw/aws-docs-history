@@ -25,4 +25,4 @@ writing to Amazon S3 buckets on the device.
 
 While the device shuts down, the LCD screen displays a message indicating the device is shutting down.
 
-![Shutdown message on LCD screen.](/images/snowball/latest/developer-guide/images/shutdown-screen.png)
+![Shutdown message on LCD screen.](images/shutdown-screen.png)
