@@ -1,5 +1,3 @@
-AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
-
 # Delivering a migration program
 
 AWS recommends performing the migration process in three phases: Assess, Mobilize, and
@@ -41,7 +39,7 @@ Explore the 3 phases of migration defined in the AWS migration process:
 
 [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/") for migrations
 accelerates enterprise cloud migrations with purpose-built AI agents that automate the entire
-lifecycle—from discovery and wave planning through network conversion and cutover. By
+lifecycle - from discovery and wave planning through network conversion and cutover. By
 unifying teams, tools, and workflows in a single collaborative workbench, migrations that
 once took years now complete in months. It offers purpose-built transformations for mainframe,
 VMware, and Windows workloads, and automates code modernization at scale, from version and

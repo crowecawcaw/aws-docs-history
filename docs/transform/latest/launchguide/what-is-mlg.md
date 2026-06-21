@@ -1,5 +1,3 @@
-AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
-
 # Migration Launch Guide
 
 This guide offers guidance on the resources that customers commonly use when [migrating to
@@ -13,6 +11,11 @@ The Migration Launch Guide acknowledges that no two cloud journeys are the same.
 provides guidance on both technical and non-technical topics and considers the various degrees
 of cloud maturity an organization may have. If you are participating in the [Migration Acceleration Program (MAP)](map.md "map.md"), you will find useful information regarding both the program and its
 onboarding requirements, to help you to fully leverage its advantages.
+
+The section on [AWS Transform](aws-transform.md "aws-transform.md") introduces the agentic AI services and
+specialized agents available to accelerate your migration and modernization journey - from
+assessments and VMware migrations to Windows, mainframe, and custom code
+transformations.
 
 The section on [Delivering a migration program](delivering-mig-program.md "delivering-mig-program.md") describes the phases of a migration
 journey. It gives guidance on how to plan your migration, considerations for staffing and allows

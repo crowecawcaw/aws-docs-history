@@ -1,5 +1,3 @@
-AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
-
 # Resources
 
 This page aggregates links referenced throughout the Migration Launch Guide for quicker
@@ -183,7 +181,7 @@ access.
 
 ## Education and enablement
 
-- [AWS Learning Needs Analysis](https://aws.amazon.com/training/teams/learning-needs-analysis/ "https://aws.amazon.com/training/teams/learning-needs-analysis/")
+- [AWS Learning Needs Analysis](https://pages.awscloud.com/global-traincert-AWS-learning-needs-analysis-request-assessment.html "https://pages.awscloud.com/global-traincert-AWS-learning-needs-analysis-request-assessment.html")
 - [AWS Training and
   Certification](https://aws.amazon.com/training/ "https://aws.amazon.com/training/")
 - [Video

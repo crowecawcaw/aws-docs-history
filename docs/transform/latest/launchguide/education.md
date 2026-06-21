@@ -1,5 +1,3 @@
-AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
-
 # Education and enablement
 
 Education and enablement play a fundamental role in cloud transformation by ensuring that
@@ -13,7 +11,7 @@ leverage AWS tools and services.
 ## Learning-needs analysis
 
 You can identify your organization's cloud skills gaps with our free self-assessment tool,
-the [AWS Learning Needs Analysis](https://aws.amazon.com/training/teams/learning-needs-analysis/ "https://aws.amazon.com/training/teams/learning-needs-analysis/") .
+the [AWS Learning Needs Analysis](https://pages.awscloud.com/global-traincert-AWS-learning-needs-analysis-request-assessment.html "https://pages.awscloud.com/global-traincert-AWS-learning-needs-analysis-request-assessment.html").
 
 ## AWS training and certification
 
