@@ -7,6 +7,6 @@ back to the system default schedule set by your administrator.
 2. Choose **Actions** >
    **Schedule**.
 
-![Actions menu with Schedule option](images/virtual-desktop-options.png) 3. Click **Reset**.
+![Actions menu with Schedule option](images/virtual-desktop-options.png) 3. Choose **Reset**.
 
 ![Schedule dialog with Reset option](images/reset-schedules.png) 4. Choose **Save**.

@@ -7,6 +7,8 @@
 
 ###### Important
 
+    * The S3 bucket must be in the same AWS Region as the RES
+     environment. Cross-region S3 bucket mounting is not supported.
     * The bucket ARN, mount point, and mode provided cannot be changed
      after creation.
     * The bucket ARN can contain a prefix which will isolate the onboarded

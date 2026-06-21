@@ -11,5 +11,4 @@ to further customize and integrate with the Research and Engineering Studio on A
 - [Amazon CloudWatch Logs](log-groups.md "log-groups.md")
 - [Setting custom permission boundaries](permission-boundaries.md "permission-boundaries.md")
 - [Configure RES-ready AMIs](res-ready-ami.md "res-ready-ami.md")
-- [Configurable DCV session validation thresholds](dcv-session-validation-thresholds.md "dcv-session-validation-thresholds.md")
 - [Set up custom domains after RES installation](setup-custom-domain-after-install.md "setup-custom-domain-after-install.md")

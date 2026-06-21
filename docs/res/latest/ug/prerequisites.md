@@ -367,7 +367,7 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
                         http_proxy=http://`<ip>`:`<port>`
                         https_proxy=http://`<ip>`:`<port>`
                         no_proxy=127.0.0.1,169.254.169.254,169.254.170.2,localhost,{{ AWSRegion }}.res,{{ AWSRegion }}.vpce.amazonaws.com,{{ AWSRegion }}.elb.amazonaws.com,s3.{{ AWSRegion }}.amazonaws.com,s3.dualstack.{{ AWSRegion }}.amazonaws.com,ec2.{{ AWSRegion }}.amazonaws.com,ec2.{{ AWSRegion }}.api.aws,ec2messages.{{ AWSRegion }}.amazonaws.com,ssm.{{ AWSRegion }}.amazonaws.com,ssmmessages.{{ AWSRegion }}.amazonaws.com,kms.{{ AWSRegion }}.amazonaws.com,secretsmanager.{{ AWSRegion }}.amazonaws.com,sqs.{{ AWSRegion }}.amazonaws.com,elasticloadbalancing.{{ AWSRegion }}.amazonaws.com,sns.{{ AWSRegion }}.amazonaws.com,logs.{{ AWSRegion }}.amazonaws.com,logs.{{ AWSRegion }}.api.aws,elasticfilesystem.{{ AWSRegion }}.amazonaws.com,fsx.{{ AWSRegion }}.amazonaws.com,dynamodb.{{ AWSRegion }}.amazonaws.com,api.ecr.{{ AWSRegion }}.amazonaws.com,.dkr.ecr.{{ AWSRegion }}.amazonaws.com,kinesis.{{ AWSRegion }}.amazonaws.com,.data-kinesis.{{ AWSRegion }}.amazonaws.com,.control-kinesis.{{ AWSRegion }}.amazonaws.com,events.{{ AWSRegion }}.amazonaws.com,cloudformation.{{ AWSRegion }}.amazonaws.com,sts.{{ AWSRegion }}.amazonaws.com,application-autoscaling.{{ AWSRegion }}.amazonaws.com,monitoring.{{ AWSRegion }}.amazonaws.com,ecs.{{ AWSRegion }}.amazonaws.com,.execute-api.{{ AWSRegion }}.amazonaws.com
-                         " >> /etc/environment launch template
+                         " >> /etc/environment
       ```
 
    5. Choose **Create component**.

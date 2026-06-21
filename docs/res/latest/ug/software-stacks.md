@@ -3,7 +3,7 @@
 From the Software Stacks page, you can configure Amazon Machine Images (AMIs) or manage
 existing ones.
 
-![Software stacks admin console page with numbered annotations](images/res-softwarestackspage-2026.03.png)
+![Software stacks admin console page with numbered annotations](images/res-softwarestackspage-2026.06.png)
 
 1. To search for an existing software stack, use the operating system drop-down to
    filter by OS.

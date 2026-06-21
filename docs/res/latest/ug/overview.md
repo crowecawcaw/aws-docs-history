@@ -2,7 +2,7 @@
 
 ###### Important
 
-This User Guide covers the current release (2026.03) of Research and Engineering Studio on AWS. For previous
+This User Guide covers the current release (2026.06) of Research and Engineering Studio on AWS. For previous
 versions, see the [Archive of Previous Versions](previous-versions.md "previous-versions.md").
 
 Research and Engineering Studio (RES) is an AWS supported, open source product that enables IT administrators

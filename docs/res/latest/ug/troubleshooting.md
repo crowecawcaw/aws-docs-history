@@ -72,7 +72,6 @@ troubleshoot specific issues.
 
   - [Launching Virtual Desktops](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops")
 
-    - [I need to launch / resume a large number of VDIs in the RES web portal](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-resume-vdis "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-resume-vdis")
     - [Login account for Windows Virtual Desktop is set to Administrator](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-windows-admin "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-windows-admin")
     - [Certificate expires when using external resource CertificateRenewalNode](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-certificate-expires "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-certificate-expires")
     - [A virtual desktop that was previously working is no longer able to connect successfully](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-was-working "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-was-working")

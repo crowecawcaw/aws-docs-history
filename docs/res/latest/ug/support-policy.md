@@ -35,6 +35,8 @@ If you have any questions or need assistance with upgrading, please contact AWS 
 | 2025.03.x                               | 3/30/2026                  |
 | 2025.06.x                               | 6/30/2026                  |
 | 2025.09.x                               | 9/30/2026                  |
+| 2025.12.x                               | 12/31/2026                 |
+| 2026.03.x                               | 3/30/2027                  |
 
 ###### Important
 

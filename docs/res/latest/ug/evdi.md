@@ -9,5 +9,4 @@ within their project environments.
 - [Dashboard](dashboard.md "dashboard.md")
 - [Sessions](sessions.md "sessions.md")
 - [Software Stacks (AMIs)](software-stacks.md "software-stacks.md")
-- [Debugging](debug.md "debug.md")
 - [Desktop settings](desktop-settings.md "desktop-settings.md")

@@ -60,7 +60,6 @@ On a Linux virtual desktop, the following contain useful log files
 On Windows virtual desktop instances logs can be found at
 
 - PS C:\ProgramData\nice\dcv\log
-- PS C:\ProgramData\nice\DCVSessionManagerAgent\log
 - PS C:\IDEA\Logs\RESIdleCheckVDI\
 - C:\Program Files\RES\app\
 
@@ -81,13 +80,16 @@ potential issues or for general information.
 Those groups are named as follows:
 
 - `/aws/lambda/`<envname>`-/ - lambda related`
+
+  - `/aws/lambda/`<envname>`-backend-lambda - VDC API logs`
+  - `/aws/lambda/`<envname>`-dcv-session-management-lambda - DCV session management logs`
+
 - `/`<envname>`/`
 
   - `cluster-manager/ - main infrastructure host`
   - `virtual-desktop-app/ - virtual desktop bootstrap and DCV related`
   - `vdc/ - virtual desktop related`
 
-    - `dcv-broker/ - desktop related`
     - `dcv-connection-gateway/ - desktop related`
     - `controller/ - main desktop controller host`
     - `dcv-session/ - desktop session related`
@@ -123,7 +125,6 @@ concatenate the query lines and replace the `<envname>` and
             "properties": {
                 "query": "SOURCE '/`<envname>`/vdc/controller' |
                     SOURCE '/`<envname>`/cluster-manager' |
-                    SOURCE '/`<envname>`/vdc/dcv-broker' |
                    SOURCE '/`<envname>`/vdc/dcv-connection-gateway' |
                     fields @timestamp, @message, @logStream, @log\n|
                     filter @message like /(?i)(error|ERROR)/\n|

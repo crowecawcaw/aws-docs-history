@@ -49,11 +49,6 @@ the Image Builder console](../../../imagebuilder/latest/userguide/create-compone
 3. For **Component name**, enter a meaningful name such as
    `research-and-engineering-studio-vdi-<operating-system>`.
 4. Enter your component's version number and optionally add a description.
-
-```
-key : value
-```
-
 5. For the **Definition document**, enter the following definition
    file. If you encounter any errors, the YAML file is space sensitive and is the most
    likely cause.
@@ -232,12 +227,33 @@ For information on how to install an SSM agent, see:
     * [Manually installing and uninstalling SSM Agent on EC2 instances
      for Windows Server](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").
 
-7. For Linux based recipes, add the Amazon-managed `aws-cli-version-2-linux`
+7. For Ubuntu 24.04 based recipes, add a custom component to install
+   `unzip` before adding the AWS CLI component. Create a component
+   with the following content:
+
+```
+name: unzip-ubuntu
+description: An RES EC2 Image Builder component to install unzip
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: InstallPackage
+        action: ExecuteBash
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          commands:
+            - "apt-get update && apt-get install -y unzip"
+```
+
+8. For Linux based recipes, add the Amazon-managed `aws-cli-version-2-linux`
    build component to the recipe. For Windows based recipes, add the Amazon-managed
    `aws-cli-version-2-windows` build component to the recipe.
    RES installation scripts use the AWS CLI to provide VDI access to
    configuration values for the DynamoDB cluster-settings.
-8. Add the EC2 Image Builder component created for your Linux or Windows environment.
+9. Add the EC2 Image Builder component created for your Linux or Windows environment.
 
 ###### Important
 
@@ -245,22 +261,43 @@ You must add these components in order with the
 `aws-cli-version-2-linux` (for Linux) or
 `aws-cli-version-2-windows` (for Windows) build component added first.
 
-![Components page showing build components added](images/res-ami-build-components.png) 9. (Recommended) Add the Amazon-managed
+![Components page showing build components added](images/res-ami-build-components.png) 10. (Recommended) Add the Amazon-managed
 `simple-boot-test-<linux-or-windows>` test component to
 verify that the AMI can be launched. This is a minimum recommendation. You
-may select other test components that meet your requirements. 10. Complete any optional sections if needed, add any other desired components,
+may select other test components that meet your requirements. 11. Complete any optional sections if needed, add any other desired components,
 and choose **Create recipe**.
 
 Modify a recipe
 If you have an existing EC2 Image Builder recipe, you can use it by adding the following
 components:
 
-1. For Linux based recipes, add the Amazon-managed `aws-cli-version-2-linux`
+1. For Ubuntu 24.04 based recipes, add a custom component to install
+   `unzip` before adding the AWS CLI component. Create a component
+   with the following content:
+
+```
+name: unzip-ubuntu
+description: An RES EC2 Image Builder component to install unzip
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: InstallPackage
+        action: ExecuteBash
+        onFailure: Abort
+        maxAttempts: 3
+        inputs:
+          commands:
+            - "apt-get update && apt-get install -y unzip"
+```
+
+2. For Linux based recipes, add the Amazon-managed `aws-cli-version-2-linux`
    build component to the recipe. For Windows based recipes, add the Amazon-managed
    `aws-cli-version-2-windows` build component to the recipe.
    RES installation scripts use the AWS CLI to provide VDI access to
    configuration values for the DynamoDB cluster-settings.
-2. Add the EC2 Image Builder component created for your Linux or Windows environment.
+3. Add the EC2 Image Builder component created for your Linux or Windows environment.
 
 ###### Important
 
@@ -268,7 +305,7 @@ You must add these components in order with the
 `aws-cli-version-2-linux` (for Linux) or
 `aws-cli-version-2-windows` (for Windows) build component added first.
 
-![Components page showing build components added](images/res-ami-build-components.png) 3. Complete any optional sections if needed, add any other desired components,
+![Components page showing build components added](images/res-ami-build-components.png) 4. Complete any optional sections if needed, add any other desired components,
 and choose **Create recipe**.
 
 ## Configure EC2 Image Builder infrastructure
