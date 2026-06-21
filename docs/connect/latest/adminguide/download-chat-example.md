@@ -1,7 +1,7 @@
 # Customize chat with the Connect Customer open source example
 
 You can further customize the chat experience customers use to interact with agents.
-Use the [Connect Customer open source library](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/cloudformationTemplates/asyncCustomerChatUX "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/tree/master/cloudformationTemplates/asyncCustomerChatUX") on GitHub. It's a platform to help you get
+Use the [Connect Customer open source library](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/blob/master/cloudformationTemplates/startChatContactAPI/README.md "https://github.com/amazon-connect/amazon-connect-chat-ui-examples/blob/master/cloudformationTemplates/startChatContactAPI/README.md") on GitHub. It's a platform to help you get
 started quickly. Here's how it works:
 
 - The GitHub repository links to a CloudFormation template, which starts the

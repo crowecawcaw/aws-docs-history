@@ -204,12 +204,11 @@ as shown in the following image.
 
 ![Contacts handled and average handle time trend chart.](images/queue-performance-dashboards-contacts-handled-average-handle-time.png)
 
-The available intervals depend on the page-level time range filter, which is set
-at the top of the page. For example:
+The available intervals depend on the page-level time range filter. For example:
 
-- If you have a "Today" time range filter at the top of your dashboard, you
+- If you have a "Today" time range filter on your dashboard, you
   can only see an interval of 15min for the last 24 hours.
-- If you have a "Day" time range filter at the top of your dashboard, you
+- If you have a "Day" time range filter on your dashboard, you
   can see a trailing 8 day interval trend, or a 15min interval trend for the
   trailing 24 hours.
 

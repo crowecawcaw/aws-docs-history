@@ -96,7 +96,7 @@ needed.
 1. On the navigation menu, choose **Routing**,
    **Quick connects**, **Add quick
    connect**.
-2. On the **Add quick connect** page, enter a name for the
+2. In the **Add quick connect** dialog, enter a name for the
    quick connect, for example, **John Doe's cell
    phone**.
 3. For **Type**, select **Phone
@@ -105,7 +105,7 @@ needed.
    starting with the country code. In the US, the country code is 1, as shown
    in the following image.
 
-![The phone number on the Add quick connect page.](images/quick-connect-johndoe.png) 5. Choose **Save**.
+![The phone number on the Add quick connect dialog.](images/QuickConnect_cloudscape_addQuickConnect.png) 5. Choose **Save**.
 
 ###### Add the quick connect to a queue. Agents working this queue will see the quick connect in their CCP.
 
@@ -122,7 +122,7 @@ needed.
    **Outbound caller ID number**, and **John Doe's
    cell phone** has been selected as the quick connect.
 
-![The Edit queue page, the quick connect for the John Doe cell phone number.](images/quick-connect-johndoe-queue.png) 5. Choose **Save**.
+![The Edit queue page, the quick connect for the John Doe cell phone number.](images/QuickConnect_cloudscape_queue.png) 5. Choose **Save**.
 
 ###### Test the quick connect
 

@@ -46,13 +46,13 @@ contacts. For more information, see [Manage who can search for contacts and acce
    menu, and then choose the **Setup calibration session**
    button.
 
-![The calibrations session setup.](images/calibrations-setup1.png) 6. Enter a title for the calibration session, select the participants, and
+![A diagram of the calibrations session setup.](images/calibrations-setup1.png) 6. Enter a title for the calibration session, select the participants, and
 optionally designate an expert participant and set a due date.
 
-![The calibrations session setup with participants and due date.](images/calibration-setup2.png) 7. After creation, the calibration session will appear in the side panel. An
+![A diagram of the calibrations session setup with participants and due date.](images/calibration-setup2.png) 7. After creation, the calibration session will appear in the side panel. An
 evaluation will be automatically generated for each participant.
 
-![The created calibrations session for each participant.](images/calibration-setup3.png)
+![A diagram of the created calibrations session for each participant.](images/calibration-setup3.png)
 
 ## Edit a calibration session
 
@@ -61,7 +61,7 @@ evaluation will be automatically generated for each participant.
 1. On the side panel locate the calibration sessions and choose
    **Edit**.
 
-![Choosing to edit a calibrations session.](images/calibrations-edit1.png) 2. In the form that opens in the side panel you can modify the calibration
+![A diagram of choosing to edit a calibrations session.](images/calibrations-edit1.png) 2. In the form that opens in the side panel you can modify the calibration
 session title, add or remove participants, optionally designate an expert
 participant, and set or adjust the due date. 3. Choose **Save** to update the calibration session. The
 changes will be reflected in the side panel. New participants will
@@ -78,12 +78,12 @@ session:
 1. On the side panel locate the **Calibration evaluations assigned to
    you** section to view your calibration evaluations.
 
-![Calibration evaluations assigned to you.](images/calibration-evaluations1.png) 2. Choose an evaluation to open it. You can respond to these evaluations in
+![A diagram of calibration evaluations assigned to you.](images/calibration-evaluations1.png) 2. Choose an evaluation to open it. You can respond to these evaluations in
 the same manner as standard evaluations, with options to save your progress
 or submit the completed evaluation. Note that automation is disabled on
 calibration sessions.
 
-![Responding to calibration evaluations.](images/calibration-evaluations2.png) 3. Calibration managers can access a list of all evaluations associated with
+![A diagram of responding to calibration evaluations.](images/calibration-evaluations2.png) 3. Calibration managers can access a list of all evaluations associated with
 a specific calibration session by viewing the calibration session details in
 the side panel. Calibration managers will also be able to view evaluations
 submitted by participants.
@@ -95,7 +95,7 @@ submitted by participants.
 1. Access the calibration session details view and choose
    **Finalize**.
 
-![The finalize button for calibrations.](images/calibrations-finalize.png) 2. Confirm the finalization when prompted. Note that once finalized, neither
+![A diagram showing the finalize button for calibrations.](images/calibrations-finalize.png) 2. Confirm the finalization when prompted. Note that once finalized, neither
 the session nor its evaluations can be edited. 3. Within a few seconds, a calibration report will be available for download
 in .csv format. This report contains the answers of participants that have
 submitted evaluations, along with the weighted scores for each question,

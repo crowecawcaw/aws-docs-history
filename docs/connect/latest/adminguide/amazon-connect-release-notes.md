@@ -5,6 +5,20 @@ Inbox. Choose the **RSS** link (under the topic title **Release
 notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into
 your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## June 2026 Updates
+
+### New flow block: Interrupt agent
+
+Connect Customer now supports the ability to interrupt an agent with a contact, overriding their usual
+routing configuration to offer them a contact even if they are at maximum concurrency or in a
+custom status. For example, an agent may be waiting for a time-sensitive callback on their
+personal extension while taking customer service calls in the meantime. When that urgent call
+comes in, it can now ring the agent even if the agent is currently already on another call, so
+the agent can decide whether to put the first caller on hold to pick up the callback as
+well.
+
+For more information, see [Interrupt agent](interrupt-agent.md "interrupt-agent.md").
+
 ## May 2026 Updates
 
 ### Default Step-by-Step Guides now available for After Contact Work

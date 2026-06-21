@@ -22,7 +22,7 @@ contacts, there are a few things you need to do:
   security profile can access the CCP and make outbound calls. But you can create
   a custom security profile and add additional permissions. For more information,
   see [Security profiles for Connect Customer and Contact Control Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
-- Give agents the URL the CCP.
+- Give agents the URL to the CCP.
 - Provide agents with their user name and password so that they can log in to
   the CCP.
   We recommend telling agents to bookmark the URL to the CCP for more convenient

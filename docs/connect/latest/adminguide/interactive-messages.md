@@ -1129,7 +1129,7 @@ The following example shows a list of options for a banking service.
 The following image shows a typical screen before and after a customer opens a
 list.
 
-![Image showing a list of options.](images/whatsapp-options-results.png)
+![Image showing a list of options.](/images/connect/latest/adminguide/images/whatsapp-options-results.png)
 
 ### WhatsApp options limits
 

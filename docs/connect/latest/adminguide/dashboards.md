@@ -44,7 +44,7 @@ contact center performance.
   dashboard](performance-dashboard-aw.md "performance-dashboard-aw.md")
 - [Integrate a published
   dashboard into the agent workspace](integrate-published-dashboard.md "integrate-published-dashboard.md")
-- [[New] Custom Metrics](custom-metrics-topic.md "custom-metrics-topic.md")
+- [Custom metrics](custom-metrics-topic.md "custom-metrics-topic.md")
 
 ## Get started
 
@@ -142,7 +142,7 @@ Use the following actions on your dashboards to save, download, and share them.
 3. **Download CSV**: You can download the entire dashboard data
    set to CSV by choosing **Actions** > **Download
    CSV**. You can also download each widget's data set individually by
-   choosing the download arrow button in the top right of each widget.
+   choosing the download arrow button on each widget.
 4. **Download PDF**: You can download the entire dashboard as a
    PDF by choosing **Actions** > **Download
    PDF**.

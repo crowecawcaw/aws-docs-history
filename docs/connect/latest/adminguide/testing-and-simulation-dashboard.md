@@ -32,7 +32,7 @@ coloring indicates negative performance compared to your benchmark.
 
 The following image shows an example of this chart.
 
-![](images/test-simulate-dashboard-summary.png)
+![The Test Execution Summary Chart.](images/test-simulate-dashboard-summary.png)
 
 The following metrics are displayed on this chart
 
@@ -46,7 +46,7 @@ The following metrics are displayed on this chart
 The **Top Failing Tests** chart displays the test cases with the
 highest failure rates.
 
-![](images/test-simulate-dashboard-failure-testcase.png)
+![The Top Failing Tests chart.](images/test-simulate-dashboard-failure-testcase.png)
 
 The following metrics are displayed on this chart
 
@@ -60,7 +60,7 @@ observe event, send instruction, assert data, and override system behavior. Each
 step type represents the detailed configuration for interactions you are simulating
 within your test cases.
 
-![](images/test-simulate-dashboard-failure-steptype.png)
+![The Top Failing Step Type chart.](images/test-simulate-dashboard-failure-steptype.png)
 
 The following metrics are displayed on this chart
 
@@ -90,7 +90,7 @@ For example:
 - With a "Weekly" time range filter at the widget level, you can view an
   13-week trailing interval trend.
 
-![](images/test-simulate-dashboard-duration.png)
+![The Average Execution Duration chart.](images/test-simulate-dashboard-duration.png)
 
 The following metrics are displayed on this chart
 
@@ -103,7 +103,7 @@ The following metrics are displayed on this chart
 The **Flows with Most Failures** chart displays the flows with
 the highest failure rates from test cases testing those specific flows.
 
-![](images/test-simulate-dashboard-failures-flow.png)
+![The Flows with Most Failures chart.](images/test-simulate-dashboard-failures-flow.png)
 
 The following metrics are displayed on this chart
 

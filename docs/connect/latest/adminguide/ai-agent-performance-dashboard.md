@@ -26,15 +26,15 @@ Agents metrics such as invocation count, latency, and success rate.
 
 Ensure users are assigned the appropriate security profile permissions:
 
-**Access metrics - Access** permission or the **Dashboard -
-Access** permission. For information about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
+**Access metrics - Access** permission or the **Dashboard - Access** permission. For information about the difference in
+behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
 
 At least one of the following security profile permissions is needed to access the AI Agent Performance dashboard:
 
-- **AI agent designer- AI agent** view permission
-- **AI agent designer- AI prompt** view permission
-- **AI agent designer- AI guardrails** view permission
-- **Agent applications - Connect assistant** view permission
+- **AI agent designer – AI agent** view permission
+- **AI agent designer – AI prompt** view permission
+- **AI agent designer – AI guardrails** view permission
+- **Agent applications – Connect assistant** view permission
 
 The dashboard is available at: **Analytics and optimization > Analytics dashboards > AI Agent
 Performance**.
@@ -200,10 +200,10 @@ The AI agent performance trend is a time-series chart that displays the AI agent
 
 For example:
 
-- If you have a "Today" time range filter at the top of your dashboard, you can only see an interval of 15min for the last 24 hours.
-- If you have a "Day" time range filter at the top of your dashboard, you can see a trailing 8 day interval trend, or a 15min interval trend for the trailing 24 hours.
-- If you have a "Week" time range filter at the top of your dashboard, you can see daily or weekly interval trends.
-- If you have a "Month" time range filter at the top of your dashboard, you can see daily or monthly interval trends.
+- If you select the "Today" time range filter on your dashboard, you can only see an interval of 15min for the last 24 hours.
+- If you select the "Day" time range filter on your dashboard, you can see a trailing 8 day interval trend, or a 15min interval trend for the trailing 24 hours.
+- If you select the "Week" time range filter on your dashboard, you can see daily or weekly interval trends.
+- If you select the "Month" time range filter on your dashboard, you can see daily or monthly interval trends.
 
 The following image shows an example **AI agent performance trend** chart.
 
@@ -211,7 +211,7 @@ The following image shows an example **AI agent performance trend** chart.
 
 ## AI tools usage
 
-This table compares tool implementations (e.g., MCP - Model Context Protocol, Return-to-Control) on invocations, average latency and invocation success rate, and tool use accuracy.
+This table compares tool implementations (for example, MCP - Model Context Protocol, Return-to-Control) on invocations, average latency and invocation success rate, and tool use accuracy.
 
 For example, you can select an AI agent type (such as Orchestration or Answer Recommendation) and view how different tools and their versions are performing within that agent type. You can identify which tool versions need optimization by sorting columns using **AI tool invocation count**, **AI tool invocation success rate**, or **Avg. AI tool invocation latency**.
 

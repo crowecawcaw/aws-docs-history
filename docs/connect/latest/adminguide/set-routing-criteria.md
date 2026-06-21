@@ -7,7 +7,7 @@ appropriate queue.
 
 Sets routing criteria on a contact.
 
-- Routing criteria can be set on contacts of any channel, such as vice,
+- Routing criteria can be set on contacts of any channel, such as voice,
   chat, task, and email, to define how the contact should be routed within its
   queue. A routing criteria is a sequence of one or more routing steps.
 - A routing step is a combination of one or more requirements that must be

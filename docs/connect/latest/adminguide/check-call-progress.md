@@ -33,8 +33,20 @@ answering machine, and providing the appropriate branches to route the contact.
     encounters a system error while placing the outbound call, the flow
     is not run.
 
-- This block is key in [customer first
-  callback use cases](customer-first-cb.md "customer-first-cb.md").
+- This block functions only for certain call types. For more information,
+  see [Supported call types](#check-call-progress-call-types "#check-call-progress-call-types").
+
+## Supported call types
+
+This block is supported for the following call types:
+
+- **Outbound campaigns** — Calls placed
+  through Connect Customer outbound campaigns.
+- **Customer-first callbacks** — Callbacks
+  where the customer is connected first before the agent.
+
+For other call types, the contact routes to the **Error**
+branch.
 
 ## Supported channels
 
@@ -54,6 +66,11 @@ You can use this block in the following [flow
 types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact-flow-types"):
 
 - All flow types
+
+###### Note
+
+Although you can place this block in any flow type, it functions only for
+the call types listed in [Supported call types](#check-call-progress-call-types "#check-call-progress-call-types").
 
 ## Properties
 

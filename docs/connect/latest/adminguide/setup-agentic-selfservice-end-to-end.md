@@ -218,7 +218,7 @@ npx http-server -p 8001
 
 After starting the server, open your browser and navigate to: `http://localhost:8001`
 
-You should see the demo page with an orange chat button in the bottom-right corner.
+You should see the demo page with an orange **Chat** button.
 
 ## Test the Streaming Experience
 

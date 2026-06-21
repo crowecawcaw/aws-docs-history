@@ -12,7 +12,7 @@ Connect Customer provides managers with a random sample of their agents’ conta
 
 2. Select the timeframe of contacts for evaluation, such as trailing week. Note that you can sample contacts from a maximum period of 5 weeks.
 
-![Timeframe.](images/evaluationforms-randomsampling-time-range.png) 3. Select the agent or agent hierarchy that you need to evaluate.
+![Select timeframe.](images/evaluationforms-randomsampling-time-range.png) 3. Select the agent or agent hierarchy that you need to evaluate.
 
 ![Filter search - Agent.](images/evaluationforms-randomsampling-agent-filter.png)
 
@@ -36,7 +36,7 @@ Connect Customer provides managers with a random sample of their agents’ conta
 
 ![Create draft evaluations.](images/evaluationforms-randomsampling-create-draft-eval-empty.png)
 
-![Evaluation form.](images/evaluationforms-randomsampling-create-draft-eval-form-select.png)
+![Select evaluation form.](images/evaluationforms-randomsampling-create-draft-eval-form-select.png)
 
 This associates the draft evaluations with the sample name.
 

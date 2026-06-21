@@ -148,7 +148,7 @@ period metric and the "Compare to" period metric for the top ten flows sorted (f
 highest to lowest) by the current period metric. These charts allow you to identify
 the flows contributing most to overall dropped or transferred contacts.
 
-To see all data, choose the More icon in the top right of the chart, and then
+To see all data, choose the More icon on the chart, and then
 choose **Expand**. The following image shows the **Top
 flows by dropped in flow rate**. An arrow points to the location of the
 More icon.
@@ -264,9 +264,9 @@ You can configure different time range intervals by using the "Interval" button
 directly in the widget. The intervals that you can select depend on the page-level
 time range filter. For example:
 
-- If you have a "Today" time range filter at the top of your dashboard, you
+- If you have a "Today" time range filter on your dashboard, you
   can only see an interval of 15min for the last 24 hours.
-- If you have a "Day" time range filter at the top of your dashboard, you
+- If you have a "Day" time range filter on your dashboard, you
   can see a trailing 8 day interval trend, or a 15min interval trend for the
   trailing 24 hours.
 
@@ -285,9 +285,9 @@ range filter.
 
 For example:
 
-- If you have a "Today" time range filter at the top of your dashboard, you
+- If you have a "Today" time range filter on your dashboard, you
   can only see an interval of 15min for the last 24 hours.
-- If you have a "Day" time range filter at the top of your dashboard, you
+- If you have a "Day" time range filter on your dashboard, you
   can see a trailing 8 day interval trend, or a 15min interval trend for the
   trailing 24 hours.
 

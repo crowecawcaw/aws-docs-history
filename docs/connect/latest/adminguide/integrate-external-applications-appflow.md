@@ -213,5 +213,5 @@ For more information on security profile permissions, see [Security
 profiles](connect-security-profiles.md "connect-security-profiles.md").
 
 Advanced users who want to build their own custom agent application and
-embedded customer profiles can use [StreamsJS](https://github.com/amazon-connect/amazon-connect-customer-profiles "https://github.com/amazon-connect/amazon-connect-customer-profiles") which provides more customization over the agent
+embedded customer profiles can use [StreamsJS](https://github.com/amazon-connect/amazon-connect-streams "https://github.com/amazon-connect/amazon-connect-streams") which provides more customization over the agent
 application.

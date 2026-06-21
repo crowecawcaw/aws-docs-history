@@ -73,7 +73,7 @@ by **Name**, **Description**, and
 with just one choose, choose the **Copy** icon. When you [set up dynamic prompts in a flow](dynamically-select-prompts.md "dynamically-select-prompts.md"), you'll
 need to enter the full ARN of the prompt.
 
-![The prompts page, the filter options, the copy ARN option.](images/prompts-filter.png)
+![The prompts page, the filter options, the copy ARN option.](images/Prompt_cloudscape_Landing_page.png)
 
 ## Supported file types
 

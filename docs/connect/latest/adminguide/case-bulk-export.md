@@ -3,7 +3,8 @@
 ###### Note
 
 Cases export is currently available in the Canada (Central) Region
-(`ca-central-1`). Support for additional Connect Customer Cases Regions is
+(`ca-central-1`) and the Asia Pacific (Sydney) Region
+(`ap-southeast-2`). Support for additional Connect Customer Cases Regions is
 coming soon.
 
 When you search for cases in the agent workspace, you can select one or more cases

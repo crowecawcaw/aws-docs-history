@@ -188,6 +188,48 @@ Your Lambda function must return a JSON response with the following structure:
 5. Choose **Add Lambda Function**. Confirm that the ARN of the function is
    added under **Lambda Functions**.
 
+###### Important
+
+The preceding console procedure automatically adds the required resource-based policy to
+the Lambda function. If you use the AWS CLI or SDK, you can call the [PutConnectInstanceIntegration](../APIReference/API_connect-outbound-campaigns-v2_PutConnectInstanceIntegration.md "../APIReference/API_connect-outbound-campaigns-v2_PutConnectInstanceIntegration.md") API with the `lambda` integration
+configuration. This API automatically adds the required resource-based policy to your Lambda
+function, just as the console does.
+
+If you need to add the resource-based policy manually (for example, for cross-account
+invocations), add a policy statement that grants the
+`connect-campaigns.amazonaws.com` service principal permission to invoke your
+function. You can optionally add a `Condition` element with
+`AWS:SourceAccount` and `AWS:SourceArn` to restrict access to your
+account and Connect Customer instance. We recommend including both conditions. The following example
+shows the required policy statement.
+
+```
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "connect-campaigns.amazonaws.com"
+      },
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:`region`:`account-id`:function:`function-name`",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceAccount": "`account-id`"
+        },
+        "ArnLike": {
+          "AWS:SourceArn": "arn:aws:connect:`region`:`account-id`:instance/`instance-id`"
+        }
+      }
+    }
+  ]
+}
+```
+
+For more information about resource-based policies, see [Using
+resource-based policies for Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md") in the _Lambda Developer
+Guide_.
+
 ## Step 3: Invoke a Lambda from a Campaign
 
 1. Open or create a **Journey** flow.

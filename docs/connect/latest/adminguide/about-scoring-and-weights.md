@@ -59,7 +59,7 @@ When a question is optional or applicable only in certain scenarios, choose
 question. The following image shows this setting on the **Answers**
 tab.
 
-![The Answers tab, the Enable Not Applicable option.](images/evaluationforms-weightsoptional.png)
+![The Answers tab, the Enable "Not Applicable" option.](images/evaluationforms-weightsoptional.png)
 
 After an evaluation is completed, Connect Customer calculates the evaluation score:
 

@@ -107,7 +107,7 @@ options to appear on the form:
 The following image shows example answers for a **Single
 selection** question.
 
-![The Answers tab, the Add option command.](images/evaluationforms-greetingquestion1-answer.png)
+![The Answers tab, the "Add option" command.](images/evaluationforms-greetingquestion1-answer.png)
 
 The following image shows an answer range for a
 **Number** question.
@@ -116,7 +116,7 @@ The following image shows an answer range for a
 the question (or mark it as **Not applicable**) while
 performing an evaluation.
 
-![The option to mark a question not applicable.](images/evaluationforms-questionscoring-not-applicable.png)
+![The option to mark a question "not applicable".](images/evaluationforms-questionscoring-not-applicable.png)
 
 ## Step 4: Conditionally enable questions
 
@@ -190,39 +190,163 @@ be answered automatically on a contact using generative AI**, see
 ![The evaluation forms page, the scoring tab, the Enable scoring checkbox.](images/evaluationforms-enablescoring.png)
 
 This enables scoring for the entire form. It also enables you to add
-ranges for answers to **Number** question types. 2. Return to the **Sections and questions** tab. Now you
-have the option to assign scores to **Single selection**,
-and add ranges for **Number** question types.
+ranges for answers to **Number** question types. 2. For **Scoring mode**, choose one of the following
+options:
 
-![The Sections and questions tab, the scoring tab specific to the question.](images/evaluationforms-scoring-feature.png) 3. When you create a **Number** type question, on the
-**Scoring** tab, choose **Add range**
-to enter a range of values. Indicate the worst to best score for the answer.
+    * **Percentage** – Calculate
+     scores as percentages using weighted sections or questions.
+    * **Point-based** – Calculate
+     scores using points assigned to answer options.
+
+###### Important
+
+We recommend creating a new evaluation form rather than switching the
+scoring mode on an existing form. Changing the scoring mode resets all
+previously configured scoring values, and historical evaluations
+completed with the previous scoring mode cannot be directly compared
+with evaluations using the new mode.
+
+![The scoring method section showing Percentage and Point-based options.](images/evaluationforms-pointbased-scoring-mode.png)
+
+### Step 5.1: Percentage-based scoring
+
+If you selected **Percentage** scoring mode,
+follow these steps to configure scoring for your evaluation form.
+
+1. Return to the **Sections and questions** tab. You
+   can assign scores to **Single
+   selection**, **Multiple selection**, and
+   add ranges for **Number** question types.
+
+![The Sections and questions tab, the scoring tab specific to the question.](images/evaluationforms-scoring-feature.png) 2. When you create a **Number** type question, on the
+**Scoring** tab, choose **Add
+range** to enter a range of values. Indicate the worst to
+best score for the answer.
 
 The following image shows an example of ranges and scoring for a
 **Number** question type.
 
 ![The Scoring tab specific to the question, the answer ranges.](images/evaluationforms-questionscoring5.png)
 
-    * If the agent interrupted the customer 0 times, they get a score of
-     10 (best).
-    * If the agent interrupted the customer 1-4 times, they get a score
-     of 5.
-    * If the agent interrupted the customer 5-10 times, they get a score
-     of 1 (worst).
+    * If the agent interrupted the customer 0 times, they get a
+     score of 10 (best).
+    * If the agent interrupted the customer 1-4 times, they get a
+     score of 5.
+    * If the agent interrupted the customer 5-10 times, they get a
+     score of 1 (worst).
 
-###### Note
+3. For **Multiple selection** questions, assign a score
+   value (0-10) to each option. When multiple options are selected, the
+   total score is the sum of selected options' scores, capped at 10.
+4. (Optional) Configure **Automatic fail** for an
+   answer option. You can choose to apply automatic fail to the section,
+   the subsection, or the entire form. When the evaluator selects this
+   answer during an evaluation, the score for the affected scope is set to
+   zero.
 
-You can configure a score of **0 (Automatic fail)**
-for an answer option. You can choose to apply **Automatic
-fail** to the section, the subsection, or the entire form.
-This means that selecting the answer on an evaluation will assign a
-score of zero to the corresponding section, the subsection, or the
-entire form. The **Automatic fail** option is shown in
-the following image.
+![The Automatic fail option.](images/evaluationforms-automaticfail.png) 5. (Optional) Exclude individual questions or entire sections from
+scoring. When a question or section is excluded, it is automatically
+assigned a weight of 0%, similar to a non-scorable question. The
+remaining weight is redistributed among the other scored items.
 
-![The Automatic fail option.](images/evaluationforms-automaticfail.png) 4. After you assign scores to all the answers, choose
-**Save**. 5. When you're finished assigning scores, continue to the next step to
-automate the question of certain questions, or continue to [preview the evaluation form](#step-preview "#step-preview").
+![Percentage scoring mode showing excluded questions with 0% weight.](images/evaluationforms-percentage-exclude-scoring.png) 6. After you assign scores to all the answers, choose
+**Save**.
+
+###### Updating existing forms with multiple selection questions
+
+If you have existing evaluation forms that were created with multiple
+selection questions before scoring support was added, you will receive a
+validation error when creating a new version or activating the form. To
+resolve this, follow these steps:
+
+1. Open the evaluation form and navigate to the multiple selection
+   question.
+2. Choose the **Scoring** tab for the
+   question.
+3. Do one of the following:
+
+   - Assign score values to each answer option (0-10), or
+   - Select the **Exclude from scoring**
+     checkbox to remove the question from the scoring
+     calculation.
+
+4. Choose **Save** and then activate the
+   form.
+
+### Step 5.2: Point-based scoring
+
+If you selected **Point-based** scoring mode,
+follow these steps to configure scoring for your evaluation form.
+
+1. Return to the **Sections and questions** tab. For
+   each question, choose the **Scoring** tab and assign
+   point values to each answer option. Point values can range from
+   **0 to 100**.
+
+The following image shows an example of point values assigned to a
+**Single selection** question.
+
+![The Scoring tab for a single selection question with point values (0 to 100).](images/evaluationforms-pointbased-single-select.png) 2. For **Number** type questions, choose
+**Add range** to define answer ranges and assign a
+point value to each range.
+
+![The Scoring tab for a numeric question with point values assigned to ranges.](images/evaluationforms-pointbased-numeric-ranges.png) 3. For **Multiple selection** questions, assign point
+values to each option. When multiple options are selected, their point
+values are summed. Optionally, select **Set cap** to
+configure a maximum point value cap for the question.
+
+![The Scoring tab for a multiple selection question with point values and Set cap option.](images/evaluationforms-pointbased-multi-select.png) 4. (Optional) Configure bonus options or bonus questions. Bonus points
+allow you to award extra credit without increasing the maximum possible
+score.
+
+    * **Bonus options** – An
+     individual answer option that awards extra points on top of the
+     question's maximum base score. When a bonus option is selected,
+     the earned points can exceed the question's normal maximum.
+     Bonus options are only supported on single selection and numeric
+     questions.
+    * **Bonus questions** – An
+     entire question that does not contribute to the maximum possible
+     score. The earned points from a bonus question are added to the
+     total, but the question's maximum points are not counted in the
+     base total. Bonus questions cannot have automatic fail
+     options.
+
+![The Scoring tab showing the Bonus checkbox for an answer option.](images/evaluationforms-pointbased-bonus-option.png)
+
+![The Scoring tab showing the Bonus question checkbox.](images/evaluationforms-pointbased-bonus-question.png) 5. (Optional) Configure automatic fail. When an automatic fail option
+is selected during an evaluation, the score for the affected scope is
+set to zero. You can choose to apply automatic fail to the
+**Section** or **Entire form**.
+Automatic fail is supported on single selection, numeric, and multiple
+selection questions. Bonus questions and bonus options cannot have
+automatic fail.
+
+![The Automatic fail option with scope selection.](images/evaluationforms-pointbased-automatic-fail.png) 6. (Optional) Exclude individual questions or entire sections from
+scoring. Excluded items do not contribute to the total score or the
+maximum possible score.
+
+![The Exclude from scoring checkbox on a question.](images/evaluationforms-pointbased-exclude-scoring.png) 7. After you assign scores to all the answers, choose
+**Save**. 8. When you're finished assigning scores, continue to the next step to
+automate the answer of certain questions, or continue to [preview the evaluation form](#step-preview "#step-preview").
+
+### Step 5.3: Assign performance thresholds
+
+Performance thresholds allow you to classify evaluation results into
+categories such as "Needs Improvement" or "Exceeds Expectations" based on
+score thresholds. This feature is supported in both percentage-based and
+point-based scoring modes.
+
+You can configure performance thresholds at the form level, section level,
+or question level.
+
+Performance thresholds are not inherited. If you set thresholds at the
+form level, those thresholds apply only to the overall form score. Sections
+and questions do not automatically inherit the form-level thresholds. You
+must explicitly configure thresholds at each level where you want them to
+apply.
+
+![The Performance categories section with threshold settings.](images/evaluationforms-pointbased-performance-categories.png)
 
 ## Step 6: Enable automated evaluations
 
@@ -388,10 +512,13 @@ preview, as shown in the following image.
 
 ## Step 8: Assign weights for final score
 
-When scoring is enabled for the evaluation form, you can assign
-_weights_ to sections or questions. The weight raises or
-lowers the impact of a section or question on the final score of the
-evaluation.
+When percentage-based scoring is enabled for the evaluation form, you can
+assign _weights_ to sections or questions. The weight raises or
+lowers the impact of a section or question on the final score of the evaluation.
+This step applies only to the **Percentage** scoring
+mode. If you selected **Point-based** scoring, weights
+are not used; instead, the score is calculated from earned points versus maximum
+possible points.
 
 ![The evaluation form page, the scoring tab, the score weights section, the question option.](images/evaluationforms-scoring.png)
 

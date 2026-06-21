@@ -5403,7 +5403,7 @@ The count of contacts transferred into the queue from another queue during a
 **How to access using the Connect Customer API**:
 
 - [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") API metric identifier:
-  `CONTACTS_TRANSFERRED_IN_FROM_Q`
+  `CONTACTS_TRANSFERRED_IN_FROM_QUEUE`
 - [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `CONTACTS_CREATED`
 
@@ -5783,7 +5783,7 @@ status. This metric can't be grouped or filtered by queue.
 
 **How to access using the Connect Customer API**:
 
-- [GetMetricDataV2](../APIReference/API_GetMetricDrror status timeataV2.md "../APIReference/API_GetMetricDrror status timeataV2.md") API metric identifier:
+- [GetMetricDataV2](../APIReference/API_GetMetricDataV2.md "../APIReference/API_GetMetricDataV2.md") API metric identifier:
   `SUM_ERROR_STATUS_TIME_AGENT`
 
 **How to access using the Connect Customer admin website**:

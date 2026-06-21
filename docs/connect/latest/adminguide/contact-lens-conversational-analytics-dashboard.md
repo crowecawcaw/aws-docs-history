@@ -16,8 +16,7 @@ understand:
   You can view key metrics for categories such as contacts handled and average handle
   time compared to a custom-defined benchmark time-range with color indicators (for
   example, green = good, red = bad) for quick insights within seconds (for example, "Am I
-  performing better or worse than last week and by how much?") using the summary widgets
-  at the top.
+  performing better or worse than last week and by how much?") using the summary widgets.
 
 Data visualizations such as **Movers and shakers** display the
 largest changes compared to a custom-defined benchmark time period in the past (that is,
@@ -77,8 +76,8 @@ This chart shows the following information:
 ## Contact categories
 
 The contact categories chart shows you Contact Category information. To see all
-data, choose on the pop-out icon in the top right of the chart. To deep dive further
-into the contacts, choose on the Contact Category and it will take you to Contact
+data, choose the pop-out icon on the chart. To deep dive further
+into the contacts, choose the Contact Category and it will take you to Contact
 Search pre-filtered for that category along with the dashboard filters.
 
 1. Contacts %: the count of contacts analyzed by Contact Lens
@@ -113,7 +112,7 @@ For example:
   your Prior contacts % for Category A was 10%.
 - The % Change would be (20% - 10%)/(10%) = 100%.
 
-To see all data, choose the pop-out icon in the top right of the chart. To deep
+To see all data, choose the pop-out icon on the chart. To deep
 dive further into the contacts, choose the Contact Category and it will take you to
 Contact Search pre-filtered for that category along with the dashboard
 filters.
@@ -143,7 +142,7 @@ filters.
 The top contact categories average handle time displays the prior AHT (using the
 "compare to" benchmark time range) to the current time range AHT for each of your
 top 10 categories (sorted by count of contacts with a category from left to right).
-To see all data, choose on the pop-out icon in the top right of the chart.
+To see all data, choose the pop-out icon on the chart.
 
 ![The Top contact categories average handle time chart.](images/conversational-analytics-dashboards-top-contact-categories.png)
 
@@ -157,7 +156,7 @@ conversational analytics is not enabled on any contacts.
 The contact count by queue chart displays the count of contacts for each queue,
 sorted by the highest number of contacts from left to right. You can configure this
 widget further by filtering for contact categories directly from this chart. This
-filter overrides the page-level contact category filter at the top of the
+filter overrides the page-level contact category filter on the
 dashboard.
 
 ![The Contact count by queue chart.](images/conversational-analytics-dashboards-contact-count.png)
@@ -178,9 +177,9 @@ page-level time range filter.
 
 For example:
 
-- If you have a "Today" time range filter at the top of your dashboard, you
+- If you have a "Today" time range filter on your dashboard, you
   can only see an interval of 15min for the last 24 hours.
-- If you have a "Day" time range filter at the top of your dashboard, you
+- If you have a "Day" time range filter on your dashboard, you
   can see a trailing 8 day interval trend, or a 15min interval trend for the
   trailing 24 hours.
 

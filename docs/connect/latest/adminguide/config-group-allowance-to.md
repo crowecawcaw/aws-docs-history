@@ -4,7 +4,7 @@ Managers can set the maximum time off hours that agents combined can take within
 the Forecast Group: by hour, for each calendar day, for specific time off
 activities.
 
-You use a .cvs file to quickly specify time off allowances at a hourly level, for
+You use a .csv file to quickly specify time off allowances at a hourly level, for
 up to 27 months. For example, you might specify Vacation, Personal time off, Casual,
 and other time off types that you specified when you [created shift activities](scheduling-create-shift-activities.md "scheduling-create-shift-activities.md").
 

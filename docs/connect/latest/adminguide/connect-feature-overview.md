@@ -293,7 +293,7 @@ for a voice contact.
 
 You use [Connect Customer Customer Profiles](customer-profiles.md "customer-profiles.md") to combine
 information from external applications with the contact history from Connect Customer. For
-example, you can combined contacts with information from Salesforce, Zendesk,
+example, you can combine contacts with information from Salesforce, Zendesk,
 ServiceNow, or other customer relationship management (CRM) products (including
 your own, internal data sources) to create customer profiles that have all the
 information that agents need in a single place.

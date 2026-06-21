@@ -8,7 +8,7 @@ wait time and customer abandonment rates.
 
 You can delete or add new metrics, define widget level filters and groupings, re-order
 and re-size columns, and more. Additionally, you can add new custom metrics to specific
-widgets in your dashboards. For more information, see. [[New] Custom Metrics](custom-metrics-topic.md "custom-metrics-topic.md").
+widgets in your dashboards. For more information, see. [Custom metrics](custom-metrics-topic.md "custom-metrics-topic.md").
 
 ###### Contents
 
@@ -194,9 +194,9 @@ To remove a widget from your dashboard, choose the Actions icon and then choose
 
 ## Move and resize widgets
 
-You can move charts around by choosing and holding the top left corner icon with
+You can move charts around by choosing and holding the move icon with
 your mouse and then moving the widget. You can re-size widgets by choosing and
-dragging the bottom right icon with your mouse. These two controls are shown in the
+dragging the resize icon with your mouse. These two controls are shown in the
 following image.
 
 ![The controls to move the widget around the page or resize it.](images/conversational-analytics-dashboards-contact-categories-actions-view2.png)
