@@ -7,6 +7,23 @@ Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wick
 AWS Wickr bots and integrations are regularly updated with new features, improvements, and
 bug fixes. This chapter provides information about the changes in each release.
 
+## Version 6.66.02.01 - Release Date: 06/18/2026
+
+The 6.66.02.01 release is a maintenance release focused on runtime modernization and
+security remediation.
+
+### Critical Changes
+
+**Runtime Modernization**
+
+- Upgrade to Node 24: The bot-cloud Docker image has been upgraded from Node 20 to Node 24.
+  This is a runtime-only change no integration code changes are required. Existing bots will
+  continue to function after upgrading to this image.
+
+**Security Remediation**
+
+- Fixed known CVEs (Common Vulnerabilities and Exposures)
+
 ## Version 6.60.05.78 - Release Date: 01/20/2026
 
 The 6.60.05.78 release is a bug fix release and focused on the following major
