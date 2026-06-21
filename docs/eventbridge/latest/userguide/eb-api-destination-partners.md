@@ -718,44 +718,6 @@ https://endpoint4.collection.us2.sumologic.com/receiver/v1/http/`UNIQUE_ID_PER_C
 
 None
 
-## TriggerMesh
-
-**API destination invocation endpoint
-URL**
-
-Use the information in the [Event Source for
-HTTP](https://docs.triggermesh.io/concepts/sources "https://docs.triggermesh.io/concepts/sources") topic to formulate the endpoint URL. An endpoint URL
-includes the event source name and user namespace in the following
-format:
-
-https://`source-name`.`user-namespace`.cloud.triggermesh.io
-
-Include the Basic authorization parameters in the request to the
-endpoint.
-
-**Supported authorization types**
-
-Basic
-
-**Additional authorization parameters
-required**
-
-None
-
-**TriggerMesh
-documentation**
-
-[Event Source
-for HTTP](https://docs.triggermesh.io/concepts/sources "https://docs.triggermesh.io/concepts/sources")
-
-**Commonly used API operations**
-
-Not applicable
-
-**Additional information**
-
-None
-
 ## Zendesk
 
 **API destination invocation endpoint

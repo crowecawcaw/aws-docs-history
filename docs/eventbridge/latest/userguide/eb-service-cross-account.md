@@ -124,9 +124,9 @@ JSON
  "SQS:SendMessage"
  ],
  "Effect": "Allow",
- "Resource": "arn:aws:sqs:`us-east-1`:`123456789012`:`queue-name`",
+ "Resource": "arn:aws:sqs:`us-east-1`:`444455556666`:`queue-name`",
  "Principal": {
- "AWS": "`123456789012`"
+ "AWS": "`111122223333`"
  }
  }
  ]
