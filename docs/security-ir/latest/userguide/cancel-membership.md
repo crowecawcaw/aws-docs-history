@@ -29,3 +29,14 @@ team is notified by email.
 If you created a membership using a delegated administrator account and you use the
 AWS Organizations API to remove the delegated administrator designation from the account,
 the membership is terminated immediately.
+
+###### Important
+
+After you cancel your membership, the service-linked roles
+`AWSServiceRoleForSecurityIncidentResponse` and
+`AWSServiceRoleForSecurityIncidentResponse_Triage`
+are not automatically deleted. You must manually delete these roles
+from all accounts that were within the scope of the AWS Security Incident Response service.
+For instructions, see
+[Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role")
+in the _IAM User Guide_.

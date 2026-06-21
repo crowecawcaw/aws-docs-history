@@ -2,6 +2,12 @@
 
 The only required prerequisite is enabling [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md") with **All Features** enabled. Consolidated billing alone is not sufficient.
 
+###### Note
+
+The AWS Identity and Access Management (IAM) principal used to sign in to the delegated administrator account during enablement
+must have `AdministratorAccess` permissions. Without these permissions, the
+enablement process fails.
+
 While not required, we strongly recommend enabling [Amazon GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md") and [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md") across all accounts and active AWS Regions to get the most value from AWS Security Incident Response.
 
 - [GuardDuty and AWS Security Incident Response](guardduty.md "guardduty.md")

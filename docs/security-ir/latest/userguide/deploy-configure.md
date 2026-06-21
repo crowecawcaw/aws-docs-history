@@ -11,8 +11,15 @@ The instructions in this section outline how to enable Security Incident Respons
 1. Sign in to the AWS Management Console using your management account.
 2. Open the AWS Security Incident Response console and choose **Sign up**.
 
-![AWS Security Incident Response sign-up page with the Sign up button.](images/AWS_Security_incident_Response.png) 3. Setup your central membership account. For guidance, see [Security Reference Architecture](../../../prescriptive-guidance/latest/security-reference-architecture/welcome.md "../../../prescriptive-guidance/latest/security-reference-architecture/welcome.md") in _AWS Prescriptive Guidance_ and [Considerations and
+![AWS Security Incident Response sign-up page with the Sign up button.](images/AWS_Security_incident_Response.png) 3. Set up your central membership account. For guidance, see [Security Reference Architecture](../../../prescriptive-guidance/latest/security-reference-architecture/welcome.md "../../../prescriptive-guidance/latest/security-reference-architecture/welcome.md") in _AWS Prescriptive Guidance_ and [Considerations and
 recommendations](considerations_important.md "considerations_important.md") on how a delegated Security Incident Response administrator account operates.
+
+###### Note
+
+The IAM principal on the delegated administrator account must have
+`AdministratorAccess` permissions. If the principal has insufficient
+permissions (for example, `PowerUserAccess` only), this step fails. The
+error message might not indicate a permissions issue.
 
 ![Set up central membership account page for selecting a delegated administrator account.](images/Set_Up_Central_Membership_Account.png) 4. Sign in to the delegated administrator account. 5. Enter your membership details and associate the relevant accounts. 6. For **Account scope**, choose to enable AWS Security Incident Response for your entire AWS organization or for specific OUs. You can select coverage at the OU level, but not at the individual account level. 7. **Proactive response** is on by default and creates a service-linked role that allows Security Incident Response Engineering to ingest GuardDuty findings and open proactive investigation cases when threats are detected. For more information, see [Proactive response](proactive-response.md "proactive-response.md").
 

@@ -1,6 +1,6 @@
 # Prepare for onboarding
 
-We recommend using a proof-of-concept (POC) approach when implementing AWS Security Incident Response. Before deployment, complete the following preparation steps with your internal teams and AWS account team.
+AWS Security Incident Response recommends using a proof-of-concept (POC) approach when implementing AWS Security Incident Response. Before deployment, complete the following preparation steps with your internal teams and AWS account team.
 
 - **Identify key stakeholders**: Map out the incident response decision-makers in your organization. Their involvement in policy updates and process changes is essential for a successful rollout.
 - **Validate finding sources**: Confirm that all security finding sources are properly configured and deployed. GuardDuty and Security Hub CSPM are critical inputs for the service's auto-triage technology.
