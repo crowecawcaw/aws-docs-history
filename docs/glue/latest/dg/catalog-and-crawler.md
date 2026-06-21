@@ -93,6 +93,15 @@ AWS Glue integrates with AWS Lake Formation to support fine-grained access contr
 you to manage permissions and secure access to your data assets based on your
 organization's policies and requirements. AWS Glue integrates with AWS Key Management Service (AWS KMS) to encrypt metadata that's stored in the Data Catalog.
 
+Business context and semantic search (Preview)
+
+Enrich Data Catalog assets with glossary terms, custom metadata fields, and skill assets
+to make data more discoverable. Use the AWS Glue Search API to find assets by semantic
+meaning in addition to exact keyword matching. AI agents can use skill assets to retrieve
+domain context such as query patterns, usage rules, and data definitions.
+
+For more information, see [Adding business context](catalog-business-context.md "catalog-business-context.md").
+
 Materialized views
 
 The Data Catalog supports Apache Iceberg materialized views, which are managed tables that store precomputed results of SQL queries and automatically refresh as underlying source data changes. Materialized views simplify data transformation pipelines and accelerate query performance by eliminating redundant computation.
@@ -108,6 +117,7 @@ For more information, see Using materialized views with AWS Glue and Using mater
 - [Populating the AWS Glue Data Catalog](populate-catalog-methods.md "populate-catalog-methods.md")
 - [Populating and managing transactional tables](populate-otf.md "populate-otf.md")
 - [Managing the Data Catalog](manage-catalog.md "manage-catalog.md")
+- [Adding business context](catalog-business-context.md "catalog-business-context.md")
 - [Accessing the Data Catalog](access_catalog.md "access_catalog.md")
 - [AWS Glue Data Catalog best practices](best-practice-catalog.md "best-practice-catalog.md")
 - [Monitoring Data Catalog usage metrics in Amazon CloudWatch](data-catalog-cloudwatch-metrics.md "data-catalog-cloudwatch-metrics.md")

@@ -28,13 +28,22 @@ You can create a VPC endpoint for the AWS Glue service using either
 the Amazon VPC console or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
 interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint") in the _Amazon VPC User Guide_.
 
-Create a VPC endpoint for AWS Glue using the following service name:
+Create a VPC endpoint for AWS Glue using the following service names:
 
-- com.amazonaws.`region`.glue
+- `com.amazonaws.`region`.glue` –
+  Use this endpoint for AWS Glue API operations such as
+  `CreateSession`, `GetSession`, and
+  `GetSessionEndpoint`.
+- `com.amazonaws.`region`.glue.sessions` –
+  Use this endpoint for Spark Connect gRPC traffic to interactive session
+  workers. This endpoint is required when using Spark Connect sessions from
+  within a VPC without internet access.
 
-If you enable private DNS for the endpoint, you can make API requests to
+If you enable private DNS for the `glue` endpoint, you can make API requests to
 AWS Glue using its default DNS name for the Region,
-for example, `glue.us-east-1.amazonaws.com`.
+for example, `glue.us-east-1.amazonaws.com`. If you enable private DNS
+for the `glue.sessions` endpoint, Spark Connect session traffic
+automatically routes through the VPC endpoint.
 
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.

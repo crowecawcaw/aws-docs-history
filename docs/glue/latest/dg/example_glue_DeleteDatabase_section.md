@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_glue_Scenario_GetStartedCrawlersJobs_section.md "example_glue_Scenario_GetStartedCrawlersJobs_section.md")
-- [Getting started with the Glue Data Catalog](example_glue_GettingStarted_024_section.md "example_glue_GettingStarted_024_section.md")
+- [Getting started with the data catalog](example_glue_GettingStarted_024_section.md "example_glue_GettingStarted_024_section.md")
 
 .NET
 

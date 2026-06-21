@@ -1,4 +1,4 @@
-# Getting started with AWS Glue interactive sessions
+# Getting started with AWS Glue interactive sessions using Livy
 
 These sections describe how to run AWS Glue interactive sessions locally.
 

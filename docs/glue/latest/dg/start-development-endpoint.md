@@ -4,7 +4,7 @@ To run your extract, transform, and load (ETL) scripts with AWS Glue, you can de
 your scripts using a _development endpoint_. Development
 endpoints are not supported for use with AWS Glue version 2.0 jobs. For versions 2.0 and later,
 the preferred development method is using Jupyter Notebook with one of the AWS Glue kernels.
-For more information, see [Getting started with AWS Glue interactive sessions](interactive-sessions.md "interactive-sessions.md").
+For more information, see [Getting started with AWS Glue interactive sessions using Livy](interactive-sessions.md "interactive-sessions.md").
 
 ## Setting up your network for a development endpoint
 

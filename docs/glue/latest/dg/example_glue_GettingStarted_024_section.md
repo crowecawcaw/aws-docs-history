@@ -1,4 +1,4 @@
-# Getting started with the Glue Data Catalog
+# Getting started with the data catalog
 
 The following code example shows how to:
 

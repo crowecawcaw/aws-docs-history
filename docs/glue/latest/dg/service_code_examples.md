@@ -39,4 +39,4 @@ This topic also includes information about getting started and details about pre
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
 
-  - [Getting started with the Glue Data Catalog](example_glue_GettingStarted_024_section.md "example_glue_GettingStarted_024_section.md")
+  - [Getting started with the data catalog](example_glue_GettingStarted_024_section.md "example_glue_GettingStarted_024_section.md")

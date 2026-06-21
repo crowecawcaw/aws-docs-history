@@ -9,4 +9,4 @@ Scenarios target an intermediate level of experience to help you understand serv
 
 ###### Examples
 
-- [Getting started with the Glue Data Catalog](example_glue_GettingStarted_024_section.md "example_glue_GettingStarted_024_section.md")
+- [Getting started with the data catalog](example_glue_GettingStarted_024_section.md "example_glue_GettingStarted_024_section.md")

@@ -123,4 +123,4 @@ In this tutorial, we demonstrated how to do the following using the AWS Glue Stu
 - Review the end-to-end working code, remove any debugging, and print statements or cells from the notebook
 - Publish the code as an AWS Glue job
 
-The goal of this tutorial is to give you hands-on experience working with AWS Glue Streaming and interactive sessions. We encourage you to use this as a reference for your individual AWS Glue Streaming use cases. For more information, see [Getting started with AWS Glue interactive sessions](interactive-sessions.md "interactive-sessions.md").
+The goal of this tutorial is to give you hands-on experience working with AWS Glue Streaming and interactive sessions. We encourage you to use this as a reference for your individual AWS Glue Streaming use cases. For more information, see [Getting started with AWS Glue interactive sessions using Livy](interactive-sessions.md "interactive-sessions.md").

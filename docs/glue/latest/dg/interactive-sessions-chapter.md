@@ -3,17 +3,6 @@
 Data engineers can author AWS Glue jobs faster
 and more easily than before using interactive sessions in AWS Glue.
 
-###### Topics
-
-- [Overview of AWS Glue interactive sessions](#interactive-sessions-overview "#interactive-sessions-overview")
-- [Getting started with AWS Glue interactive sessions](interactive-sessions.md "interactive-sessions.md")
-- [Configuring AWS Glue interactive sessions for Jupyter and AWS Glue Studio notebooks](interactive-sessions-magics.md "interactive-sessions-magics.md")
-- [Converting a script or notebook into an AWS Glue job](interactive-sessions-convert.md "interactive-sessions-convert.md")
-- [Working with streaming operations in AWS Glue interactive sessions](interactive-sessions-streaming.md "interactive-sessions-streaming.md")
-- [AWS Glue interactive session pricing](interactive-sessions-session-pricing.md "interactive-sessions-session-pricing.md")
-- [Developing and testing AWS Glue job scripts locally](aws-glue-programming-etl-libraries.md "aws-glue-programming-etl-libraries.md")
-- [Development endpoints](development.md "development.md")
-
 ## Overview of AWS Glue interactive sessions
 
 With AWS Glue interactive sessions, you can rapidly build, test, and run data preparation and analytics applications.
@@ -29,6 +18,11 @@ sessions backend.
 
 Using the interactive sessions API, customers can programmatically run applications that use Apache Spark analytics without having to manage
 Spark infrastructure. You can run one or more Spark statements within a single interactive session.
+
+Interactive sessions support two session types: Livy and Spark Connect. Livy sessions use
+REST-based Statement APIs, while Spark Connect sessions provide a direct gRPC connection
+to the Spark cluster using the PySpark `remote()` API. Spark Connect is available
+in AWS Glue version 5.1 and later.
 
 Interactive sessions therefore provide a faster, cheaper, more-flexible way to build and run data preparation and analytics applications.
 To learn how to use interactive sessions, see the documentation in this section.
