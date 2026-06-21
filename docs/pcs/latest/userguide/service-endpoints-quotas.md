@@ -26,9 +26,11 @@ in the _AWS General Reference_.
 | US East (Ohio)            | us-east-2      | pcs.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.api.aws<br>pcs.us-east-2.api.aws                 | HTTPS    |
 | US East (N. Virginia)     | us-east-1      | pcs.us-east-1.amazonaws.com<br>pcs-fips.us-east-1.amazonaws.com<br>pcs-fips.us-east-1.api.aws<br>pcs.us-east-1.api.aws                 | HTTPS    |
 | US West (Oregon)          | us-west-2      | pcs.us-west-2.amazonaws.com<br>pcs-fips.us-west-2.amazonaws.com<br>pcs-fips.us-west-2.api.aws<br>pcs.us-west-2.api.aws                 | HTTPS    |
+| Africa (Cape Town)        | af-south-1     | pcs.af-south-1.amazonaws.com<br>pcs.af-south-1.api.aws                                                                                 | HTTPS    |
 | Asia Pacific (Mumbai)     | ap-south-1     | pcs.ap-south-1.amazonaws.com<br>pcs.ap-south-1.api.aws                                                                                 | HTTPS    |
 | Asia Pacific (Singapore)  | ap-southeast-1 | pcs.ap-southeast-1.amazonaws.com<br>pcs.ap-southeast-1.api.aws                                                                         | HTTPS    |
 | Asia Pacific (Sydney)     | ap-southeast-2 | pcs.ap-southeast-2.amazonaws.com<br>pcs.ap-southeast-2.api.aws                                                                         | HTTPS    |
+| Asia Pacific (Jakarta)    | ap-southeast-3 | pcs.ap-southeast-3.amazonaws.com<br>pcs.ap-southeast-3.api.aws                                                                         | HTTPS    |
 | Asia Pacific (Tokyo)      | ap-northeast-1 | pcs.ap-northeast-1.amazonaws.com<br>pcs.ap-northeast-1.api.aws                                                                         | HTTPS    |
 | Asia Pacific (Osaka)      | ap-northeast-3 | pcs.ap-northeast-3.amazonaws.com<br>pcs.ap-northeast-3.api.aws                                                                         | HTTPS    |
 | Europe (Frankfurt)        | eu-central-1   | pcs.eu-central-1.amazonaws.com<br>pcs.eu-central-1.api.aws                                                                             | HTTPS    |

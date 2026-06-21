@@ -48,6 +48,12 @@ https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/crea
 https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
 ```
 
+- **Africa (Cape Town) (af-south-1)**
+
+```
+https://console.aws.amazon.com/cloudformation/home?region=af-south-1#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
+```
+
 - **Asia Pacific (Mumbai) (ap-south-1)**
 
 ```
@@ -64,6 +70,12 @@ https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks
 
 ```
 https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
+```
+
+- **Asia Pacific (Jakarta) (ap-southeast-3)**
+
+```
+https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-3#/stacks/create/review?stackName=hpc-networking&templateURL=https://aws-hpc-recipes.s3.us-east-1.amazonaws.com/main/recipes/net/hpc_large_scale/assets/main.yaml
 ```
 
 - **Asia Pacific (Tokyo) (ap-northeast-1)**
