@@ -81,8 +81,8 @@ The app settings panel provides two views:
 
 - **Overview** — Shows the app name
   (editable), a unique app ID, creation date, last published date, the published
-  URL, and an editable description. You can also delete the app from this
-  view.
+  URL, the public URL (if published publicly), and an editable description. You
+  can also delete the app from this view.
 - **Assets** — Lists all integrations and
   services registered on the app. Each asset shows its name, type (Action or AI),
   and permission level (Read or Write).
@@ -113,5 +113,47 @@ Each shared user has a role that you can change at any time:
 - **Viewer** — Can view and interact with
   the published app.
 
+Apps in Quick supports three access levels:
+
+| Access level | Description                                                                                                |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| Limited      | Only users you explicitly share the app with can access it.                                                |
+| Account      | Everyone in your Amazon Quick account can access the app.                                                  |
+| Public       | Anyone on the internet can access the app without signing in.<br>Available on Free and Plus accounts only. |
+
 You can also toggle **Share with all** to make the app
 accessible to everyone in your Amazon Quick account, or choose **Copy link** to copy the published URL.
+
+### Publish an app to the public internet
+
+To publish an app publicly (Free and Plus accounts):
+
+1. Choose **Share** to open the sharing
+   controls.
+2. Set the access level to **Public**.
+3. Choose **Publish**.
+
+After publishing, the app receives a public URL that you can share with anyone.
+Anonymous viewers can use the app without creating an account.
+
+###### Important
+
+Public apps cannot use action connectors, embedded visuals, embedded chat
+experiences, or Amazon Quick spaces. If your app uses any of these
+integrations, remove them before publishing publicly.
+
+## Manage public app usage
+
+When your app is published publicly, AI inference usage counts against your
+subscription quota. Monitor your usage in the Amazon Quick account settings.
+
+To manage or revoke public access:
+
+1. Choose **Share** to open the sharing
+   controls.
+2. Change the access level from **Public** to
+   **Limited** or
+   **Account**.
+
+Revoking public access takes effect immediately. The public URL stops working and
+anonymous viewers can no longer access the app.

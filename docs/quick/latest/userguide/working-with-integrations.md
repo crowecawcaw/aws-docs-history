@@ -42,3 +42,4 @@ Not all applications support all integration types. Available options depend on 
 - [Action connectors](action-integrations.md "action-integrations.md")
 - [Integration-specific guides](integration-guides.md "integration-guides.md")
 - [Bring Your Own Amazon Q Business Index (BYOI)](quick-byoa.md "quick-byoa.md")
+- [Bring your own Amazon Bedrock managed knowledge base](quick-byo-bedrock-kb.md "quick-byo-bedrock-kb.md")

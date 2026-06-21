@@ -16,22 +16,23 @@ history in the middle, and settings at the bottom.
 The following table describes each item in the primary navigation section of the
 sidebar.
 
-| Sidebar item      | Icon           | Description                                                                                                                                                                           |
-| ----------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **New chat**      | Pencil         | Starts a new chat conversation with a clean context.                                                                                                                                  |
-| **Activity feed** | Lightning bolt | Opens the activity feed, which displays a unified, prioritized<br>stream of items from your connected services.                                                                       |
-| **My stuff**      | Bar chart      | Opens your artifact library, where you can browse, search, and<br>reuse documents, images, code snippets, and other outputs that<br>Amazon Quick generates during your conversations. |
-| **More**          | People/group   | Expands a menu with additional features. For more information,<br>see the following section.                                                                                          |
+| Sidebar item        | Icon                      | Description                                                                                                                                                                           |
+| ------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **New chat**        | Pencil                    | Starts a new chat conversation with a clean context.                                                                                                                                  |
+| **Activity feed**   | Lightning bolt            | Opens the activity feed, which displays a unified, prioritized<br>stream of items from your connected services.                                                                       |
+| **My stuff**        | Bar chart                 | Opens your artifact library, where you can browse, search, and<br>reuse documents, images, code snippets, and other outputs that<br>Amazon Quick generates during your conversations. |
+| **Agents & skills** | Lightning bolt with arrow | Manage your agents and skills. Create, browse, and configure<br>agents and skills from here.                                                                                          |
+| **More**            | People/group              | Expands a menu with additional features. For more information,<br>see the following section.                                                                                          |
 
 ### More menu
 
 When you choose **More** in the sidebar, a popup
-menu appears with the following items. The items open Amazon Quick in the web
-browser for features available in the web experience.
+menu appears with the following items. These items open in the web
+app.
 
 | Menu item       | Description                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
-| **Automations** | Opens the automations interface for creating and managing<br>automated workflows.                               |
+| **Apps**        | Opens the Apps interface for discovering and managing<br>applications.                                          |
 | **Chat agents** | Opens the list of available chat agents for specialized<br>conversational tasks.                                |
 | **Research**    | Opens the Research interface for deep analysis and structured<br>investigation across multiple research tracks. |
 | **Flows**       | Opens the Flows interface for creating multi-step automated<br>workflows.                                       |
@@ -60,7 +61,7 @@ sub-pages.
 
 | Settings sub-page | Description                                                                              |
 | ----------------- | ---------------------------------------------------------------------------------------- |
-| **Capabilities**  | Manage connections, skills, scheduled tasks, MCP servers,<br>and system tools.           |
+| **Capabilities**  | Manage connectors, schedules, and tools.                                                 |
 | **My computer**   | Configure local file access, folder permissions, and search<br>indexing.                 |
 | **My context**    | View and manage your knowledge graph and memory<br>settings.                             |
 | **Customization** | Adjust appearance, notifications, browser, voice, performance,<br>and other preferences. |
@@ -79,8 +80,7 @@ The following table describes each panel toggle.
 | Panel toggle          | Description                                                                                                                                                                                                                                                                                               |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Feed**              | Opens the activity feed panel on the right side of the application.<br>The feed panel displays prioritized items from your connected services<br>with AI-generated summaries and suggested action buttons. For more<br>information, see [Activity feed](#desktop-activity-feed "#desktop-activity-feed"). |
-| **Agents**            | Opens the scheduled agents panel, where you can view your scheduled<br>agents and quickly toggle them on or off without navigating to<br>Settings.                                                                                                                                                        |
-| **Tasks**             | Opens Mission Control, where you can view and manage background<br>tasks, track progress on multi-step operations, and monitor parallel<br>work.                                                                                                                                                          |
+| **Mission Control**   | Opens Mission Control, where you can view and manage background<br>tasks, track progress on multi-step operations, and monitor agent<br>activity.                                                                                                                                                         |
 | **All data and apps** | Opens a view of your connected data sources and applications,<br>showing the status of each connection.                                                                                                                                                                                                   |
 
 ### Developer menu
@@ -120,7 +120,7 @@ Amazon Quick. The chat input includes the following elements.
 | **Persona selector**      | A dropdown at the top-left of the input area that displays the<br>active persona (default: "Quick"). Choose to switch<br>between different assistant personas. |
 | **Text input field**      | The main text area where you type your messages. Placeholder<br>text reads "Ask a question..."                                                                 |
 | **Attachment button (+)** | Opens options to attach files, folders, or other content to<br>your message.                                                                                   |
-| **Model selector**        | Displays the current AI model mode (Fast, Balanced, Smart, or<br>Auto). Choose to switch modes or adjust thinking effort.                                      |
+| **Model selector**        | Displays the current response mode (Fast, Balanced, Smart, or<br>Auto). Choose to switch modes or adjust thinking effort.                                      |
 | **Equalizer**             | Opens audio and voice-related controls.                                                                                                                        |
 | **Voice input**           | A microphone button for dictation. When Talkback mode is<br>enabled, the icon changes to a waveform.                                                           |
 

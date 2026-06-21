@@ -111,6 +111,7 @@ Set** page, which you reach by choosing **Create** then
 
 - [Supported data sources](supported-data-sources.md "supported-data-sources.md")
 - [Connect to your data with integrations and datasets](connecting-to-data-examples.md "connecting-to-data-examples.md")
+- [Connecting to data catalogs in Amazon Quick](catalog-integration.md "catalog-integration.md")
 - [Data source quotas](data-source-limits.md "data-source-limits.md")
 - [Supported data types and values](supported-data-types-and-values.md "supported-data-types-and-values.md")
 - [Working with datasets](working-with-datasets.md "working-with-datasets.md")

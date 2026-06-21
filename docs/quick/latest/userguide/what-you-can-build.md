@@ -70,6 +70,28 @@ You cannot currently embed a standalone chat agent that was created separately i
 Amazon Quick. The app's embedded agent is a new instance backed by the space you
 connect.
 
+## Public-facing applications
+
+You can publish apps to the public internet so that anyone with the link can use
+them—no Amazon Quick account required. Public apps are available on Free and
+Plus accounts.
+
+Public apps support the following capabilities:
+
+- **Shared storage** — Anonymous viewers
+  can read from and write to shared app storage. Private storage is not available
+  to anonymous viewers.
+- **AI inference** — You can enable AI
+  inference for public apps. Usage counts against the app owner's
+  subscription quota.
+- **Custom domains** — Public apps are
+  served from a unique URL on the Quick domain. Custom domains are
+  not supported.
+
+Public apps do not support action connectors, embedded visuals, embedded chat
+experiences, or Amazon Quick spaces. For the full security model, see
+[Public app security](security-sandbox-apps.md#apps-public-app-security "security-sandbox-apps.md#apps-public-app-security").
+
 ## File handling
 
 With apps in Quick, you can generate files for download through the secure bridge API. Supported

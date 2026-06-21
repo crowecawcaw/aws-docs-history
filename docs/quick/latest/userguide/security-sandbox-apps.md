@@ -15,12 +15,13 @@ every app runs inside a secure sandboxed iframe.
 
 ## Authorization layers
 
-| Layer                | What it controls                                                                                    |
-| -------------------- | --------------------------------------------------------------------------------------------------- |
-| App access           | Who can view or edit the app (set by the app owner when<br>sharing)                                 |
-| Integration approval | Which connectors, spaces, and dashboards the app can access (set by<br>the author during authoring) |
-| Runtime permissions  | What data and actions are available to the viewer based on their own<br>Quick permissions           |
-| Connector auth       | How the connector authenticates with the external API (configured by<br>admin)                      |
+| Layer                | What it controls                                                                                                                    |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| App access           | Who can view or edit the app (set by the app owner when<br>sharing)                                                                 |
+| Integration approval | Which connectors, spaces, and dashboards the app can access (set by<br>the author during authoring)                                 |
+| Runtime permissions  | What data and actions are available to the viewer based on their own<br>Quick permissions                                           |
+| Connector auth       | How the connector authenticates with the external API (configured by<br>admin)                                                      |
+| Public access        | Whether anonymous viewers can access the app without signing in<br>(set by the app owner when sharing; Free and Plus accounts only) |
 
 ###### Important
 
@@ -60,3 +61,27 @@ popups, direct network access) are restricted.
 - **File downloads** — File downloads must
   use the `downloadFile` function from the apps in Quick runtime
   library.
+- **Public app isolation** — Public apps
+  run in the same sandbox as private apps but cannot access action connectors,
+  embedded visuals, embedded chat experiences, or Amazon Quick spaces. Only
+  shared storage and AI inference are available to anonymous viewers.
+
+## Public app security
+
+Public apps allow anonymous access without authentication. The following security
+measures apply:
+
+- **No identity** — Anonymous viewers have
+  no user identity. The user identity API returns null values for public
+  viewers.
+- **No private storage** — Anonymous viewers
+  cannot access private storage. Only shared storage is available.
+- **No integrations** — Public apps cannot
+  use action connectors, embedded visuals, embedded chat experiences, or
+  Amazon Quick spaces.
+- **Rate limiting** — AI inference requests
+  from public apps are rate-limited to prevent abuse. Usage counts against the
+  app owner's subscription quota.
+- **Same sandbox** — Public apps run in
+  the same sandboxed iframe with the same Content Security Policy as private
+  apps.

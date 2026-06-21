@@ -1,9 +1,8 @@
 # Skills and agents
 
-The Amazon Quick desktop application supports skills and scheduled agents that extend
+The Amazon Quick desktop application supports skills and scheduled tasks that extend
 what Quick can do on your behalf. Skills are modular instruction sets that
-equip Quick with specialized capabilities, and scheduled agents run tasks
-automatically on a recurring basis.
+equip Quick with specialized capabilities, and scheduled tasks execute automatically on a recurring basis.
 
 ## Skills
 
@@ -24,44 +23,21 @@ following components.
   tools that the skill makes available to Quick. For example,
   the Coding Agents (ACP) skill includes a `Send Message To Acp
 Agent` tool, and the Agent Management skill includes 17 tools for
-  creating, updating, and managing scheduled agents.
+  creating, updating, and managing scheduled tasks.
 - **Reference files** – Supporting
   documents, templates, or configuration files that the skill can access
   during execution.
 
 ### Built-in skills
 
-Amazon Quick on desktop comes with built-in skills that are
-pre-installed and ready to use. You can toggle built-in skills on or off as
-a group. The following table lists examples of built-in skills.
+Amazon Quick on desktop comes with built-in skills that are pre-installed
+and ready to use. Built-in skills cover capabilities such as document
+creation, web browsing, image generation, code execution, knowledge graph
+management, agent orchestration, and transcription. You can toggle built-in
+skills on or off as a group.
 
-| Skill                   | Tools | Description                                                                             |
-| ----------------------- | ----- | --------------------------------------------------------------------------------------- |
-| Coding Agents (ACP)     | 1     | Delegate tasks to local coding agents through Agent<br>Client Protocol.                 |
-| Agent Management        | 17    | Create and manage scheduled agents for recurring<br>monitoring and automated workflows. |
-| Amazon Quick Guide      | 0     | Self-awareness guide for Amazon Quick features,<br>settings, and capabilities.          |
-| Web Browser             | 23    | Browse the web and interact with pages using numbered<br>element IDs.                   |
-| Word Documents          | 0     | Create and modify Microsoft Word documents.                                             |
-| Markdown Documents      | 0     | Create and edit Markdown documents in the session tab<br>viewer.                        |
-| PDF Documents           | 0     | Create PDF documents using ReportLab.                                                   |
-| Presentations           | 0     | Create and edit professional PowerPoint<br>presentations.                               |
-| Spreadsheets            | 0     | Generate and edit Excel and CSV files.                                                  |
-| Image Generation        | 5     | Generate and edit images using Amazon Nova<br>Canvas.                                   |
-| Deep Analysis           | 1     | Conduct thorough, multi-track analysis with structured<br>information gathering.        |
-| Transcription           | 1     | Transcribe audio and video files to text.                                               |
-| Knowledge Graph         | 12    | Search, build, and manage the organizational knowledge<br>graph.                        |
-| Engram Builder          | 4     | Build a personality engram from user messages for<br>writing style cloning.             |
-| Parallel Orchestration  | —     | Parallel task orchestration with tracked task<br>groups.                                |
-| Memory Management       | 4     | Browse, search, edit, and delete learned<br>memories.                                   |
-| Conversation Management | 10    | Manage conversations with folders, pinning, search,<br>and retrieval.                   |
-| Plan Mode               | 5     | Progress tracking on long-running, multi-step tasks<br>with a living plan document.     |
-| Skill Authoring         | 3     | Author a reusable skill from a completed<br>workflow.                                   |
-
-###### Note
-
-The number of built-in skills and their capabilities might change as
-Amazon Quick is updated. The skills listed in the preceding table
-reflect the current preview release.
+To view the full list of built-in skills, choose **Agents & skills** in the left navigation, choose the
+**Skills** tab, and scroll to **BUILT-IN SKILLS**.
 
 ### Creating a skill
 
@@ -72,30 +48,26 @@ using one of the following methods.
 
 Use the following procedure.
 
-1. Open **Settings** in the
-   sidebar.
-2. Choose **Capabilities**, and then
-   choose the **Skills** tab.
-3. Under **MY SKILLS**, choose
-   **Create with AI**.
-4. Describe the skill you want to create. Quick
+1. Choose **Agents & skills** in
+   the left navigation, and then choose the **Skills** tab.
+2. Choose **+ Create**, and then
+   choose **Create with AI**.
+3. Describe the skill you want to create. Quick
    generates the skill instructions, selects appropriate tools, and
    creates the `SKILL.md` file.
-5. Review and edit the generated skill before saving.
+4. Review and edit the generated skill before saving.
 
 ###### To upload a skill file
 
 Use the following procedure.
 
-1. Open **Settings** in the
-   sidebar.
-2. Choose **Capabilities**, and then
-   choose the **Skills** tab.
-3. Under **MY SKILLS**, choose
-   **Upload**.
-4. Select a `SKILL.md` file from your local
+1. Choose **Agents & skills** in
+   the left navigation, and then choose the **Skills** tab.
+2. Choose **+ Create**, and then
+   choose **Import from file**.
+3. Select a `SKILL.md` file from your local
    machine.
-5. Review and edit the uploaded skill before saving.
+4. Review and edit the uploaded skill before saving.
 
 Skills that you create appear under the **MY
 SKILLS** section in the Skills tab.
@@ -130,9 +102,8 @@ view.
 
 ### Managing skills
 
-You can manage your skills from **Settings**
-
-> **Capabilities** > **Skills**.
+You can manage your skills from **Agents & skills**
+in the left navigation > **Skills** tab.
 
 - **Search** – Use the search
   bar to find skills by name or description.
@@ -163,16 +134,16 @@ steps.
    Edit instructions, add sub-files for edge cases, or attach skills
    to scheduled tasks so they run on autopilot.
 
-## Scheduled agents
+## Scheduled tasks
 
-Scheduled agents are automated tasks that run on a recurring schedule. You
+Scheduled tasks are automated tasks that run on a recurring schedule. You
 define what the agent does, when it runs, what capabilities it uses, and which
-AI model powers it. Quick runs the agent at the specified times and
+response mode powers it. Quick runs the agent at the specified times and
 delivers the results to your activity feed.
 
-### How scheduled agents work
+### How scheduled tasks work
 
-Each scheduled agent is configured with four components, accessible
+Each scheduled task is configured with four components, accessible
 through tabs in the agent detail view.
 
 | Tab              | Description                                                                                    |
@@ -184,22 +155,22 @@ through tabs in the agent detail view.
 
 The Overview tab displays the following information.
 
-| Field        | Description                                                |
-| ------------ | ---------------------------------------------------------- |
-| Type         | The agent's category (for example, Feed).                  |
-| Source       | Whether the agent is Built-in or custom.                   |
-| Schedule     | How often the agent runs (for example, Every 15<br>min).   |
-| Capabilities | The number of MCP servers attached to the<br>agent.        |
-| Model        | The AI model the agent uses (Fast, Balanced, or<br>Smart). |
+| Field         | Description                                                     |
+| ------------- | --------------------------------------------------------------- |
+| Type          | The agent's category (for example, Feed).                       |
+| Source        | Whether the agent is Built-in or custom.                        |
+| Schedule      | How often the agent runs (for example, Every 15<br>min).        |
+| Capabilities  | The number of MCP servers attached to the<br>agent.             |
+| Response mode | The response mode the agent uses (Fast, Balanced, or<br>Smart). |
 
 ### Built-in agents
 
 Amazon Quick on desktop includes pre-configured agents that are ready to
 use. The following table describes the built-in agents.
 
-| Agent      | Schedule         | Description                                                                                                                                                                     |
-| ---------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Feed Agent | Every 15 minutes | Processes items from your connected services<br>(messaging, email, calendar) and populates the activity<br>feed with prioritized, AI-summarized items and suggested<br>actions. |
+| Agent      | Schedule                                 | Description                                                                                                                                                                     |
+| ---------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Feed Agent | Every 15 minutes (default, configurable) | Processes items from your connected services<br>(messaging, email, calendar) and populates the activity<br>feed with prioritized, AI-summarized items and suggested<br>actions. |
 
 Built-in agents are pre-configured with sensible defaults, but you can
 customize their schedule, capabilities, prompt, and model
@@ -207,28 +178,25 @@ selection.
 
 ### Creating a scheduled agent
 
-You can create a scheduled agent using one of the following
+You can create a scheduled task using one of the following
 methods.
 
 ###### To create an agent from Settings
 
 Use the following procedure.
 
-1. Open **Settings** in the
-   sidebar.
-2. Choose **Capabilities**, and then
-   choose the **Scheduled tasks**
-   tab.
-3. Choose **Create agent** or follow
-   the on-screen prompts to define a new agent.
-4. Configure the agent's schedule, capabilities, prompt, and
+1. Open **Mission Control** from the
+   top bar.
+2. Choose **+ Create** to define a
+   new scheduled task.
+3. Configure the agent's schedule, capabilities, prompt, and
    model.
-5. Toggle the agent on when you're ready for it to start
+4. Toggle the agent on when you're ready for it to start
    running.
 
 ###### To create an agent from chat
 
-You can ask Quick to create a scheduled agent directly
+You can ask Quick to create a scheduled task directly
 in chat. For example:
 
 - "Create an agent that checks my Slack channels every morning at
@@ -241,7 +209,7 @@ Tasks.
 
 ### Agent controls
 
-Each scheduled agent provides the following controls.
+Each scheduled task provides the following controls.
 
 | Control | Icon   | Description                                                                           |
 | ------- | ------ | ------------------------------------------------------------------------------------- |
@@ -249,35 +217,28 @@ Each scheduled agent provides the following controls.
 | Run now | Play   | Run the agent immediately, regardless of its<br>schedule.                             |
 | Toggle  | Switch | Turn the agent on or off. When off, the agent does<br>not run at its scheduled times. |
 
-You can also select which AI model the agent uses. Choose from
+You can also select which response mode the agent uses. Choose from
 **Fast**, **Balanced**, or **Smart** based on
 the complexity of the agent's task and your preferences for speed versus
 quality.
 
-### Accessing scheduled agents
+### Accessing scheduled tasks
 
-You can access your scheduled agents from two locations.
-
-- **Agents panel** – Choose
-  **Agents** in the top bar to open a
-  quick-access overlay panel. This panel displays all your agents
-  with their schedule, status, and a toggle to turn them on or
-  off.
-- **Settings** – Open
-  **Settings** > **Capabilities** > **Scheduled Tasks** for full agent management, including
-  editing, creating, and configuring agent details.
+You can access and manage your scheduled tasks from **Mission Control**, accessible from the top bar. Mission
+Control shows all your scheduled tasks with their schedule, status, and
+controls for editing, running, and toggling them on or off.
 
 ###### Important
 
-Scheduled agents run locally on your computer. Your computer must be
+Scheduled tasks run locally on your computer. Your computer must be
 turned on and the Amazon Quick desktop application must be running for
-scheduled agents to execute at their configured times. If your computer
+scheduled tasks to execute at their configured times. If your computer
 is off or the application is closed when an agent is scheduled to run,
 the agent does not run until the next scheduled time.
 
-### Examples of scheduled agents
+### Examples of scheduled tasks
 
-The following are examples of scheduled agents you can create.
+The following are examples of scheduled tasks you can create.
 
 - **Morning brief** – Every
   morning at 8 AM, summarize unread Slack messages, new emails, and

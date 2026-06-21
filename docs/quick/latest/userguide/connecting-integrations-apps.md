@@ -81,3 +81,10 @@ Apps in Quick connects to several other capabilities within Amazon Quick:
   currently remove a registered integration from an app through the settings UI. As
   a workaround, ask the agent to remove references to the integration in the
   app code.
+
+###### Tip
+
+**Limited integrations in public apps** —
+Public apps do not support action connectors, embedded visuals, embedded chat
+experiences, or Amazon Quick spaces. If you plan to publish your app publicly,
+design it to use only shared storage and AI inference.

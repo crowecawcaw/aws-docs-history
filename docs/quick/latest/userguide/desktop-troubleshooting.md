@@ -39,7 +39,7 @@ Slack or Outlook connection fails
 
 If a connection to Slack or Microsoft Outlook fails, try the following steps.
 
-1. Disconnect the service in **Settings** > **Capabilities** > **Connections**.
+1. Disconnect the service in **Settings** > **Capabilities** > **Connectors**.
 2. Reconnect the service by choosing **Sign in** and completing the authentication flow.
 3. Verify that your account has the required permissions in the third-party service.
 4. Check that your internet connection is active and stable.
@@ -53,7 +53,7 @@ Connection shows "Not synced" status
 If a connection shows a "Not synced" status, try the following steps.
 
 1. Verify that you have an active internet connection.
-2. Disconnect and reconnect the service in **Settings** > **Capabilities** > **Connections**.
+2. Disconnect and reconnect the service in **Settings** > **Capabilities** > **Connectors**.
 3. If the issue persists, the third-party service might be experiencing an outage. Check the service's status page.
 
 Google Workspace connections fail
@@ -70,7 +70,7 @@ Slow responses
 
 If Quick responses are slow, try the following steps.
 
-1. Switch to the **Fast** AI model mode for quicker responses. Choose the model selector in the chat input area and select **Fast**.
+1. Switch to the **Fast** response mode for quicker responses. Choose the response preferences selector in the chat input area and select **Fast**.
 2. Reduce the **thinking effort** level. Lower thinking effort (Off or Low) produces faster responses.
 3. Close unused applications to free up system resources.
 4. Check your internet connection speed. AI model requests require a network connection to API Gateway.
@@ -114,19 +114,19 @@ Browser automation doesn't work
 
 If Quick can't browse web pages, try the following steps.
 
-1. Verify that **Browser Automation** is enabled in **Settings** > **Capabilities** > **System**.
+1. Verify that **Browser Automation** is enabled in **Settings** > **Capabilities** > **Tools**.
 2. If using "Use my Chrome" mode, verify the setup in **Settings** > **Customization** > **Browser**. Open Chrome and navigate to `chrome://inspect/#remote-debugging`. Choose **Enable remote debugging**. Return to Quick and choose **Test Connection** to verify the connection.
 3. If using the default mode, Quick launches a separate Chrome instance with a copy of your profile. Ensure Chrome is installed on your system.
 
-## Scheduled agent issues
+## Scheduled task issues
 
-A scheduled agent didn't run
+A scheduled task didn't run
 
-Scheduled agents run locally on your computer. If an agent didn't run at its scheduled time, verify the following.
+Scheduled tasks run locally on your computer. If an agent didn't run at its scheduled time, verify the following.
 
 1. Your computer was turned on and awake at the scheduled time.
 2. The Amazon Quick desktop application was running.
-3. The agent is enabled. Check the toggle in **Settings** > **Capabilities** > **Scheduled tasks**, or open the **Agents** panel from the top bar.
+3. The agent is enabled. Check the toggle in **Mission Control**, accessible from the top bar.
 4. Your internet connection was active. Agents that access connected services or AI models require a network connection.
 
 ###### Important
@@ -135,13 +135,37 @@ If your computer is off or the application is closed when an agent is scheduled 
 
 Agent produces unexpected results
 
-If a scheduled agent produces unexpected results, try the following steps.
+If a scheduled task produces unexpected results, try the following steps.
 
-1. Open **Settings** > **Capabilities** > **Scheduled tasks** and select the agent.
+1. Open **Mission Control** from the top bar and select the agent.
 2. Review the **Prompt** tab to verify the agent's instructions are correct.
 3. Check the **Capabilities** tab to verify the correct MCP servers are attached.
 4. Consider changing the **Model** in the **Overview** tab. Use **Balanced** or **Smart** for more complex agent tasks.
 5. Choose the **Run** button (play icon) to manually trigger the agent and observe the results.
+
+## Managing agent hours consumption
+
+All desktop activity consumes agent hours. If you are monitoring or reducing
+agent hours consumption, consider the following configurations.
+
+- **Local file indexing** – Consider
+  disabling semantic search and knowledge graph extraction for local
+  folders. For semantic search, Spaces in the web experience provides the
+  same capability through direct file upload or knowledge base integration
+  without consuming desktop agent hours.
+- **Activity feed frequency** –
+  Consider increasing the activity feed refresh interval beyond the
+  default. You can configure this in **Settings** > **Customization** > **Activity
+  Feed**.
+- **Scheduled tasks** – Consider
+  reducing the number of tasks that run in the background. Each scheduled
+  task execution consumes agent hours.
+- **Response mode and thinking level**
+  – Use the **Fast** response mode with
+  thinking level set to **Off** for simpler
+  tasks. **Balanced** and **Smart** modes with higher thinking levels (Low,
+  Medium, High) consume more agent hours per interaction. Match the
+  response mode and thinking level to the complexity of the task.
 
 ## MCP server issues
 

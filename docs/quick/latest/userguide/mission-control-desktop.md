@@ -1,16 +1,16 @@
-# Mission control
+# Mission Control
 
-Mission control is a centralized command center in the Amazon Quick desktop
+Mission Control is a centralized command center in the Amazon Quick desktop
 application that gives you full visibility and management capabilities over all your
 agents in one place. You can monitor agent activity, review outputs, manage schedules,
 and track performance metrics – eliminating the need to check on agents
 individually.
 
-## Why use mission control
+## Why use Mission Control
 
-As you scale your use of agents – running recurring checks, background
-tasks, and automated workflows – keeping track of everything becomes
-complex. Mission control provides the following benefits.
+As you scale your use of agents by running background tasks and automated
+workflows, keeping track of everything becomes complex. Mission Control provides
+the following benefits.
 
 - **Centralized visibility** – View
   all agent activity without switching between conversations or
@@ -22,11 +22,11 @@ complex. Mission control provides the following benefits.
   and run history give you confidence that your agents are working
   correctly.
 - **Efficiency at scale** – Whether
-  you have 2 agents or 20, mission control keeps you in control.
+  you have 2 agents or 20, Mission Control keeps you in control.
 
 ## Capabilities
 
-Mission control provides the following capabilities for managing your
+Mission Control provides the following capabilities for managing your
 agents.
 
 | Capability                 | Description                                                                |
@@ -38,22 +38,9 @@ agents.
 | Manage schedules           | View and edit schedules for all agents in one<br>place.                    |
 | Track KPIs                 | Understand error rates, active agents, completed tasks,<br>and total runs. |
 
-### Schedules
-
-Mission control lets you view and manage automated agents that run on a
-recurring schedule. Each schedule has four configuration tabs: Schedule,
-Capabilities, and Task objectives & model. For more information about
-scheduled agents, see [Skills and agents](skills-and-agents-desktop.md "skills-and-agents-desktop.md").
-
-###### Important
-
-Scheduled agents run locally on your computer. Your computer must be
-turned on and the Amazon Quick desktop application must be running for
-scheduled agents to execute at their configured times.
-
 ## Working with agent runs
 
-Mission control organizes agent activity into runs. Depending on the state of
+Mission Control organizes agent activity into runs. Depending on the state of
 a run, you can take different actions.
 
 ###### Completed runs
@@ -82,17 +69,21 @@ actions.
   applications
 - Chat with the agent to provide clarifications
 
-## Accessing mission control
+## Accessing Mission Control
 
-You can access mission control from anywhere in the Quick desktop
+You can access Mission Control from anywhere in the Quick desktop
 application.
 
-1. Choose the **mission control** icon in the
+###### To open Mission Control
+
+Use the following procedure.
+
+1. Choose the **Mission Control** icon in the
    top-right navigation bar.
 2. A quick-access popover appears showing agent runs, pending inputs, and
    schedule management.
-3. To view the full mission control landing page, click on the
-   mission control header in the popover menu.
+3. To view the full Mission Control landing page, click on the
+   Mission Control header in the popover menu.
 
 You can work from the lightweight popover for quick actions such as unblocking
 an agent, or open the full page for a comprehensive view of all agent
@@ -100,13 +91,13 @@ activity.
 
 ## KPIs and metrics
 
-Mission control displays key performance indicators to help you understand
+Mission Control displays key performance indicators to help you understand
 agent health and productivity at a glance. The following metrics are
 available.
 
-| Metric          | Description                                       |
-| --------------- | ------------------------------------------------- |
-| Errored runs    | Number of agent runs that ended with an error.    |
-| Active agents   | Count of agents that are currently running.       |
-| Tasks completed | Number of agent tasks completed in the past week. |
-| Total runs      | Total number of runs across all agents.           |
+| Metric          | Description                                    |
+| --------------- | ---------------------------------------------- |
+| Errored runs    | Number of agent runs that ended with an error. |
+| Active agents   | Count of agents that are currently running.    |
+| Tasks completed | Number of tasks completed in the past week.    |
+| Total runs      | Total number of runs across all agents.        |

@@ -36,3 +36,8 @@ These tips come from patterns observed in successful app-building sessions.
 - **Approve integrations deliberately** — Review
   each integration approval carefully. Only approve connectors and spaces your app
   actually needs.
+- **Design for anonymous viewers for public apps**
+  — If you plan to publish your app publicly, remember that anonymous viewers
+  have no user identity and cannot access private storage. Use shared storage for
+  all data that public viewers need, and avoid features that depend on user
+  identity.

@@ -7,7 +7,7 @@ configure granular permission controls that determine how much access
 Quick has for each operation.
 
 You manage system tools in **Settings** >
-**Capabilities** > **System**.
+**Capabilities** > **Tools**.
 
 ## Managing system tool permissions
 
@@ -37,7 +37,7 @@ For example, you might set the overall access level to **Full Access** but restr
 
 1. Open **Settings** and choose
    **Capabilities**.
-2. Choose the **System** tab.
+2. Choose the **Tools** tab.
 3. Find the tool you want to configure.
 4. Choose **Manage permissions** next
    to the tool.
@@ -257,20 +257,20 @@ provide more relevant and personalized responses.
 ### Agent Management
 
 Agent Management enables Quick to create, update, delete, and
-trigger scheduled agents programmatically during conversations. This is the
+trigger scheduled tasks programmatically during conversations. This is the
 tool that powers the ability to set up automated monitoring and recurring
 tasks when you ask for them in chat.
 
 | Operation     | Type  | Description                                                            |
 | ------------- | ----- | ---------------------------------------------------------------------- |
-| List agents   | Read  | List all scheduled agents and their<br>configurations.                 |
-| Create agent  | Write | Create a new scheduled agent with instructions and<br>schedule.        |
+| List agents   | Read  | List all scheduled tasks and their<br>configurations.                  |
+| Create agent  | Write | Create a new scheduled task with instructions and<br>schedule.         |
 | Update agent  | Write | Modify an existing agent's instructions, schedule, or<br>capabilities. |
-| Delete agent  | Write | Remove a scheduled agent.                                              |
-| Trigger agent | Write | Manually run a scheduled agent immediately.                            |
+| Delete agent  | Write | Remove a scheduled task.                                               |
+| Trigger agent | Write | Manually run a scheduled task immediately.                             |
 
 **When to use** – Enable this tool
-when you want Quick to create and manage scheduled agents on
+when you want Quick to create and manage scheduled tasks on
 your behalf through natural language requests in chat (for example,
 "Monitor my Slack channels every morning and summarize important
 messages").
@@ -355,7 +355,7 @@ state.
 | Code Execution       | Run Python code for calculations and automation        | Enabled       |
 | Engram Builder       | Build personality engrams for writing style<br>cloning | Enabled       |
 | Knowledge & Memory   | Query knowledge, build graphs, recall patterns         | Enabled       |
-| Agent Management     | Create and manage scheduled agents                     | Enabled       |
+| Agent Management     | Create and manage scheduled tasks                      | Enabled       |
 | Task Management      | Spawn sub-tasks and orchestrate parallel work          | Enabled       |
 | Chat & Notifications | Reactions, suggestions, notifications,<br>briefings    | Enabled       |
 

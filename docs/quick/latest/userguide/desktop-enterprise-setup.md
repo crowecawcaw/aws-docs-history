@@ -23,9 +23,9 @@ The setup involves the following steps, in order:
 1. Create an OIDC application in your IdP.
 2. Configure the extension access in the Amazon Quick management console.
 3. Distribute the desktop application to your users.
-   This guide provides IdP-specific instructions for Microsoft Entra ID, Okta, and
-   Ping Identity (PingFederate and PingOne). See instructions for your specific identity
-   provider below.
+   This guide provides IdP-specific instructions for Microsoft Entra ID, Google
+   Workspace, Okta, and Ping Identity (PingFederate and PingOne). See instructions for
+   your specific identity provider below.
 
 ## How enterprise sign-in works
 
@@ -44,9 +44,10 @@ in Amazon Quick.
 Before you begin, verify that you have the following:
 
 - An AWS account with an active Amazon Quick subscription. The
-  Amazon Quick account's home region (identity region) must be US East
-  (N. Virginia) (us-east-1). All identity types are supported, including
-  IAM Identity Center, IAM federation, and native Amazon Quick
+  Amazon Quick account's home region (identity region) must be in a
+  supported AWS Region. For a list of supported Regions, see
+  [Supported AWS Regions for Amazon Quick](regions.md#regions-qs "regions.md#regions-qs"). All identity
+  types are supported, including IAM Identity Center, IAM federation, and native Amazon Quick
   (username/password) users.
 - Administrator access to your Amazon Quick account.
 - Access to your IdP with permissions to create OIDC application
@@ -54,11 +55,9 @@ Before you begin, verify that you have the following:
 
 ###### Important
 
-The Amazon Quick account's home region (identity region) must be US East
-(N. Virginia) (us-east-1). All inference for the desktop application also
-uses this Region. While Amazon Quick on the web can be used in other Regions,
-the desktop application connects to us-east-1 for both authentication and
-inference.
+Amazon Quick on desktop is available in all supported Amazon Quick
+AWS Regions for Enterprise accounts. For a complete list of supported
+Regions, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs "regions.md#regions-qs").
 
 ## Step 1: Create an OIDC application in your identity provider
 
@@ -72,6 +71,10 @@ How refresh tokens are configured depends on your IdP:
 - **Microsoft Entra ID** – The
   `offline_access` scope must be granted. Without it, users must
   re-authenticate frequently.
+- **Google Workspace** – Include the
+  `access_type=offline` parameter in the authorization request.
+  Google issues a refresh token on the first authorization. No additional
+  scope or grant type configuration is required.
 - **Okta** – The Refresh Token grant
   type must be enabled on the application, and the
   `offline_access` scope must be granted.
@@ -141,6 +144,55 @@ Your OIDC endpoints use the following format. Replace
 | Authorization endpoint | `https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/authorize` |
 | Token endpoint         | `https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/token`     |
 | JWKS URI               | `https://login.microsoftonline.com/<TENANT_ID>/discovery/v2.0/keys`   |
+
+### Google Workspace
+
+For detailed instructions, see [OAuth 2.0 for Mobile & Desktop Apps](https://developers.google.com/identity/protocols/oauth2/native-app "https://developers.google.com/identity/protocols/oauth2/native-app") in the Google for
+Developers documentation.
+
+###### To create the Google OAuth client
+
+1. In the Google Cloud Console, navigate to **APIs & Services → Credentials → Create
+   Credentials → OAuth client ID**.
+2. Configure the following settings:
+
+| Setting          | Value                  |
+| ---------------- | ---------------------- |
+| Application type | Desktop app            |
+| Name             | `Amazon Quick Desktop` |
+
+3. Choose **Create**.
+4. Note the **Client ID** and
+   **Client secret**. You need these
+   values in later steps.
+
+###### To configure the OAuth consent screen
+
+1. In the Google Cloud Console, navigate to **Google Auth Platform → Branding**.
+2. Set the **User type** to **Internal**. This restricts sign-in to users
+   in your Google Workspace organization.
+3. Fill in the required app information and choose **Save**.
+
+###### To configure scopes
+
+1. In the Google Cloud Console, navigate to **Google Auth Platform → Data Access**.
+2. Add the following scopes: `openid`,
+   `email`, `profile`.
+3. Choose **Save**.
+
+Google supports PKCE for desktop applications. Refresh tokens are issued
+automatically when the `access_type=offline` parameter is
+included in the authorization request. No additional configuration is
+required.
+
+Your OIDC endpoints are as follows:
+
+| Field                  | Value                                          |
+| ---------------------- | ---------------------------------------------- |
+| Issuer URL             | `https://accounts.google.com`                  |
+| Authorization endpoint | `https://accounts.google.com/o/oauth2/v2/auth` |
+| Token endpoint         | `https://oauth2.googleapis.com/token`          |
+| JWKS URI               | `https://www.googleapis.com/oauth2/v3/certs`   |
 
 ### Okta
 
@@ -418,6 +470,8 @@ Session expires frequently
 
 Verify that your IdP is configured to issue refresh tokens. For
 Microsoft Entra ID, the `offline_access` scope is required.
+For Google Workspace, include `access_type=offline` in the
+authorization request (handled automatically by Quick).
 For Okta, the Refresh Token grant type must be enabled and the
 `offline_access` scope must be granted. For Ping Identity,
 the Refresh Token grant type must be enabled and the

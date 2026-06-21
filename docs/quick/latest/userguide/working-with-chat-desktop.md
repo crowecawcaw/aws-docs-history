@@ -5,25 +5,25 @@ get help with tasks, analyze files, create documents, generate visualizations, a
 with your connected services through natural language. The following sections describe the
 chat features available in the Amazon Quick desktop application.
 
-## AI models
+## Response preferences
 
-Amazon Quick on desktop provides multiple AI model modes that you can choose from
-based on your task. You can switch between modes by using the model selector in the
-chat input area.
+Amazon Quick on desktop provides multiple response modes that you can choose
+based on your task. You can switch between modes by using the response
+preferences selector in the chat input area.
 
-The following table describes the available AI model modes.
+The following table describes the available response modes.
 
-| Mode         | Description                                                                                     | Best for                                                                                        |
-| ------------ | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| **Fast**     | Cheapest and fastest model. Responses are generated quickly with<br>the lowest latency.         | Quick questions and simple tasks where speed matters more than<br>depth.                        |
-| **Balanced** | Balances performance and speed. Provides good quality responses<br>with moderate latency.       | Most tasks, including writing assistance, summarization, and<br>general day-to-day work.        |
-| **Smart**    | Highest quality responses. Uses the most capable model available<br>with longer response times. | Complex analysis, nuanced writing, detailed reasoning, and tasks<br>that require high accuracy. |
-| **Auto**     | Automatically selects the best model based on the complexity of<br>your request.                | When you don't want to choose a model and prefer<br>Quick to decide for each message.           |
+| Mode         | Description                                                                               | Best for                                                                                        |
+| ------------ | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Fast**     | Fastest response. Responses are generated quickly with<br>the lowest latency.             | Quick questions and simple tasks where speed matters more than<br>depth.                        |
+| **Balanced** | Balances performance and speed. Provides good quality responses<br>with moderate latency. | Most tasks, including writing assistance, summarization, and<br>general day-to-day work.        |
+| **Smart**    | Highest quality responses. Provides the most thorough<br>with longer response times.      | Complex analysis, nuanced writing, detailed reasoning, and tasks<br>that require high accuracy. |
+| **Auto**     | Automatically selects the best response mode based on the complexity of<br>your request.  | When you don't want to choose a mode and prefer<br>Quick to decide for each message.            |
 
 ### Thinking effort
 
-You can control the thinking effort independently from the model mode. Thinking
-effort determines how much reasoning the model applies before responding. Higher
+You can control the thinking effort independently from the response mode. Thinking
+effort determines how much reasoning Quick applies before responding. Higher
 thinking effort enables deeper reasoning for complex code, strategic planning,
 and analysis.
 
@@ -31,7 +31,7 @@ The following thinking effort levels are available.
 
 | Level    | Description                                               |
 | -------- | --------------------------------------------------------- |
-| **Off**  | No extended reasoning. The model responds directly.       |
+| **Off**  | No extended reasoning. Quick responds directly.           |
 | **Low**  | Minimal reasoning before responding.                      |
 | **Med**  | Moderate reasoning. Good balance for most tasks.          |
 | **High** | Extended reasoning for complex problems.                  |
@@ -40,7 +40,7 @@ The following thinking effort levels are available.
 You can set thinking effort on **Balanced** and
 **Smart** modes. The
 **Max** level is available only on Smart mode. To
-change the thinking effort, choose the model selector in the chat input area and
+change the thinking effort, choose the response preferences selector in the chat input area and
 adjust the thinking effort picker.
 
 ## Conversations

@@ -37,9 +37,10 @@ The following limitations apply to apps in Amazon Quick in its current release.
 - **Subscription requirement** — Only users
   with Author, Professional, Author Pro, Enterprise, or Admin Pro subscriptions can view
   apps.
-- **No external access** — Users must have a
-  Amazon Quick account to view an app. External access is not
-  supported.
+- **External access** — Users must have a
+  Amazon Quick account to view an app, unless the app is published publicly.
+  Public access is available on Free and Plus accounts only. Public apps cannot
+  use action connectors, embedded visuals, embedded chat, or spaces.
 
 ## Portability
 

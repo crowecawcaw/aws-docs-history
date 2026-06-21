@@ -1,15 +1,15 @@
 # Amazon Quick on desktop
 
-Amazon Quick is available as a native desktop application for macOS and Windows. The
-desktop application brings AI assistance directly to your machine with local file access,
-background agents, proactive notifications, and deep integration with your connected
-services. You can use the Amazon Quick desktop application to work with your local files,
-connect to your data sources, and interact with AI agents without switching to a
-browser.
+Amazon Quick on desktop is an agentic AI teammate that connects to your local files
+and the tools you use every day. It builds an understanding of your work that deepens
+over time, so it provides relevant, personalized assistance. Agents take on work you
+delegate, follow through independently, and bring you the results.
 
-###### Note
-
-The Amazon Quick desktop application is currently available as a preview.
+Amazon Quick on desktop is currently available as a preview and is available to
+Plus and Enterprise accounts. Free accounts can try Amazon Quick on
+desktop during the first 30 days. Amazon Quick on desktop is available in all
+supported Amazon Quick AWS Regions for Enterprise accounts. For
+a complete list of supported Regions, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs "regions.md#regions-qs").
 
 ###### Topics
 
@@ -17,12 +17,10 @@ The Amazon Quick desktop application is currently available as a preview.
 - [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md "desktop-enterprise-setup.md")
 - [Getting started](getting-started-desktop.md "getting-started-desktop.md")
 - [Understanding the desktop interface](desktop-interface.md "desktop-interface.md")
-- [Connecting your data sources](connecting-data-sources-desktop.md "connecting-data-sources-desktop.md")
 - [Working with chat](working-with-chat-desktop.md "working-with-chat-desktop.md")
+- [Capabilities](capabilities-desktop.md "capabilities-desktop.md")
 - [Skills and agents](skills-and-agents-desktop.md "skills-and-agents-desktop.md")
-- [Mission control](mission-control-desktop.md "mission-control-desktop.md")
-- [System tools](system-tools-desktop.md "system-tools-desktop.md")
-- [Configuring MCP servers](mcp-servers-desktop.md "mcp-servers-desktop.md")
+- [Mission Control](mission-control-desktop.md "mission-control-desktop.md")
 - [Knowledge graph](knowledge-graph-desktop.md "knowledge-graph-desktop.md")
 - [Settings](desktop-settings.md "desktop-settings.md")
 - [Security, privacy, and architecture](desktop-security.md "desktop-security.md")

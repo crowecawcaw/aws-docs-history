@@ -48,7 +48,11 @@ Then go to the next step to enter details. 5. For **Email**, enter an email addr
 
 ###### Note
 
-Currently, email addresses are case-sensitive. 6. For **Role**, choose the role to assign to each person
+Currently, email addresses are case-sensitive. Email
+distribution lists are not supported for inviting users. Instead,
+send individual invitations to each user. To share assets like
+dashboards, datasets, and agents with multiple users, create user
+groups in Quick. 6. For **Role**, choose the role to assign to each person
 you're inviting. A _role_ determines the
 permission level to grant to that account.
 

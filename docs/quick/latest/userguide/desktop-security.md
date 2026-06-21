@@ -1,65 +1,36 @@
 # Security, privacy, and architecture
 
-The Amazon Quick desktop application uses a local-first architecture designed to
-keep your data private while providing full access to AI capabilities. Your
-conversations, files, and personal context stay on your computer. The following
-sections describe how Amazon Quick on desktop handles security, privacy, and data
-storage.
+The Amazon Quick desktop application is designed to keep your data private while
+providing full access to AI capabilities. The following sections describe how
+Amazon Quick on desktop handles security, privacy, and data storage.
 
 ###### Important
 
 Your data is never used for AI model training. AWS does not use your
 conversations, files, or personal context to train or improve AI models.
 
-## Local-first architecture
+## How data is handled
 
-The Amazon Quick desktop application runs most of its functionality locally on
-your computer. The following components run entirely on your machine.
+The Amazon Quick desktop application processes your requests using AI models
+through API Gateway. The network calls Quick makes are to AI models and
+to your connected services (such as Slack, Outlook, or Gmail).
+Quick requires the following to be stored on your machine for the
+application to operate:
 
-- **AI agent backend** – The agent
-  runtime, including tool execution, skill loading, and task
-  orchestration, runs as a local process on your machine.
-- **Conversation history** – All
-  chat messages, threads, and conversation metadata are stored and
-  persisted locally.
-- **Knowledge graph** – The entity
-  graph that captures people, projects, customers, channels, events, and
-  their relationships is built and queried locally.
-- **Memory** – Learned facts,
-  procedures, and preferences that personalize your experience are stored
-  locally.
-- **File indexing** – Keyword
-  indexes, semantic search indexes, and knowledge graph extraction for
-  your local folders are built and maintained on your machine.
-- **Scheduled agents** – Background
-  agents that run on recurring schedules execute locally. Your computer
-  must be on and Quick must be running for agents to
-  operate.
-- **Artifacts and outputs** –
-  Documents, images, visualizations, and other outputs that
-  Quick generates are saved locally.
-
-All Amazon Quick desktop application data is stored locally in the
-`~/.quickwork/` directory on macOS or
-`%USERPROFILE%\.quickwork\` on Windows. The following
-table describes the data stored in this directory.
+- **Application configuration** –
+  Settings, preferences, and connection state needed to run the desktop
+  application.
+- **Cached content** – Temporary
+  data for performance, including file indexes for your granted local
+  folders.
+- **Credentials** – Authentication
+  tokens for your connected third-party services.
 
 ## Data storage
 
-All Amazon Quick desktop application data is stored locally in the
-`~/.quickwork/` directory on your computer. The following
-table describes the data stored in this directory.
-
-| Data type            | Description                                                                                        |
-| -------------------- | -------------------------------------------------------------------------------------------------- |
-| Conversations        | Chat messages, threads, and conversation metadata.                                                 |
-| Knowledge graph      | Entity graph database containing people, projects, customers, channels, events, and relationships. |
-| Memory               | Learned facts, procedures, tool strategies, and user preferences with confidence scores.           |
-| File indexes         | Keyword search indexes and semantic search embeddings for granted folders.                         |
-| Agent configurations | Scheduled agent definitions, schedules, prompts, and execution history.                            |
-| Credentials          | Saved authentication tokens for connected third-party services.                                    |
-| Artifacts            | Downloaded files, generated documents, images, and other outputs.                                  |
-| Application settings | User preferences, theme selection, and configuration state.                                        |
+Application data is stored in the `~/.quickwork/`
+directory on macOS or `%USERPROFILE%\.quickwork\` on
+Windows.
 
 ## Folder permissions
 
@@ -93,7 +64,7 @@ third-party service connections.
   stores your third-party passwords.
 - **Independent connections** – Each
   connected service is managed independently. You can disconnect and
-  reconnect any service at any time from **Settings** > **Capabilities** > **Connections** without affecting other connections.
+  reconnect any service at any time from **Settings** > **Capabilities** > **Connectors** without affecting other connections.
 - **Minimal permissions** –
   Quick requests only the permissions needed to provide its
   features for each connected service.

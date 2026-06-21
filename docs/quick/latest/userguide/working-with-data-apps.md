@@ -46,6 +46,12 @@ system that requires no external setup and scales to support large numbers of re
 Each app has completely separate storage. Data persists across user sessions
 and app reloads.
 
+###### Note
+
+In public apps, anonymous viewers can read from and write to shared storage
+but cannot access private storage. Design your data model accordingly if you
+plan to publish your app publicly.
+
 ## Exporting data
 
 You can ask the agent to add export functionality. Apps in Quick supports exporting

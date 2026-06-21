@@ -6,67 +6,25 @@ bottom of the sidebar. Settings are organized into four categories: **Capabiliti
 
 ## Capabilities
 
-The Capabilities settings control the tools, integrations, and extensions
-available to Quick. The Capabilities page is organized into four
-tabs: **Connections**, **Skills**, **MCP**, and **System**.
+The Capabilities settings are organized into three tabs: **Connectors**, **Schedules**,
+and **Tools**. For more information, see
+[Capabilities](capabilities-desktop.md "capabilities-desktop.md").
 
-To open Capabilities, choose **Settings** in the
-sidebar and then choose **Capabilities**.
+### Connectors tab
 
-### Connections tab
+The Connectors tab is where you manage web connectors, MCP servers, and
+coding agents. For more information, see
+[Connectors](connections-desktop.md "connections-desktop.md").
 
-The Connections tab is where you connect messaging, email, cloud storage,
-and other external services to Quick. When you connect a
-service, Quick can access the information in that service to
-provide more relevant and personalized responses.
+### Schedules tab
 
-#### Authentication
+The Schedules tab redirects to Mission Control, where you manage
+schedules for recurring agent runs. For more information, see
+[Mission Control](mission-control-desktop.md "mission-control-desktop.md").
 
-At the top of the Connections tab, the **Authentication** section displays your sign-in status.
-Quick uses Amazon Federate for Bedrock and
-Quick Web access. You must be signed in to use AI models
-and access Quick Web features.
+### Tools tab
 
-To sign out, choose **Sign out** in the
-Authentication section.
-
-#### Built-in connections
-
-Quick provides connections to popular services.
-Each connection has a **Sign
-in** button that opens a sign-in page for the service and
-returns you to Quick automatically.
-
-You can use the **Search connections**
-bar and **filter dropdown** to find
-specific connections.
-
-#### Browse more connections
-
-Below the built-in connections, the **Browse more
-connections** section provides a link to Quick on
-the web, where you can browse and add additional connections such as
-project management tools, CRMs, and developer platforms. Connections
-added on the web appear automatically in the desktop
-application.
-
-### Skills tab
-
-The Skills tab lets you view, create, and manage skills. You can create
-custom skills with AI or by uploading a `SKILL.md` file, and
-you can toggle built-in skills on or off. For more information about
-skills, see [Skills and agents](skills-and-agents-desktop.md "skills-and-agents-desktop.md").
-
-### MCP tab
-
-The MCP (Model Context Protocol) tab lets you connect custom MCP servers
-to extend Quick capabilities with additional tools. You can add
-local, imported, or remote MCP servers, and configure coding agents. For
-more information, see [Configuring MCP servers](mcp-servers-desktop.md "mcp-servers-desktop.md").
-
-### System tab
-
-The System tab displays the built-in system tools that provide core
+The Tools tab displays the built-in system tools that provide core
 capabilities to Quick. Each tool has an enable/disable toggle
 and a **Manage permissions** button for
 granular access control. For more information, see

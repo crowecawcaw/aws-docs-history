@@ -32,7 +32,7 @@ meets the following requirements.
 
 ###### Important
 
-If your organization uses a Professional or Enterprise account, complete
+If your organization uses an Enterprise account, complete
 the steps in [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md "desktop-enterprise-setup.md") before downloading or distributing the
 application. Enterprise sign-in is not available until an administrator configures
 the extension access.
@@ -82,12 +82,13 @@ anyway** to continue.
 
 ## Signing in
 
-The sign-in process depends on your account type. Amazon Quick supports both Free
-and Plus accounts and Professional and Enterprise accounts. When you open the
+The sign-in process depends on your account type. Amazon Quick on desktop is
+available for Plus and Enterprise accounts. Free accounts can
+try Amazon Quick on desktop during the first 30 days. When you open the
 application, you see the **Sign in to your Quick
 account** screen with two sign-in options.
 
-###### To sign in with a Free or Plus account
+###### To sign in with a Plus account or Free trial
 
 1. Open the Amazon Quick desktop application.
 2. On the sign-in screen, choose **Continue
@@ -105,7 +106,7 @@ Enterprise sign-in must be configured by your organization's administrator
 before you can use it. If your administrator has not yet completed the setup,
 see [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md "desktop-enterprise-setup.md").
 
-###### To sign in with a Professional or Enterprise account
+###### To sign in with an Enterprise account
 
 1. Open the Amazon Quick desktop application.
 2. On the sign-in screen, choose **Enterprise
@@ -115,7 +116,7 @@ see [Setting up Amazon Quick on desktop for enterprise deployments](desktop-ente
 4. After authentication succeeds, the application loads the Home
    screen.
 
-After you sign in, you can verify your authentication status in **Settings → Capabilities → Connections**. The **Authentication** section displays your signed-in account and
+After you sign in, you can verify your authentication status in **Settings → Capabilities → Connectors**. The **Authentication** section displays your signed-in account and
 a green checkmark with the text "Signed in as `your-email`
 (Social)" or your organization's identity type.
 
@@ -144,10 +145,10 @@ third-party service and grant Quick the required permissions.
 You can skip the onboarding flow entirely and connect your data sources later.
 To connect data sources at any time, open **Settings**
 in the sidebar, choose **Capabilities**, and select
-the **Connections** tab. Amazon Quick supports
+the **Connectors** tab. Amazon Quick supports
 connections including Slack, Microsoft Outlook, Microsoft Teams, Gmail,
 Google Calendar, Google Drive, and more. For a complete list of available
-connections, see [Connecting your data sources](connecting-data-sources-desktop.md "connecting-data-sources-desktop.md").
+connections, see [Connectors](connections-desktop.md "connections-desktop.md").
 
 ## After setup
 
@@ -167,4 +168,4 @@ displays:
 
 You're now ready to start using Amazon Quick on desktop. For an overview of the
 interface, see [Understanding the desktop interface](desktop-interface.md "desktop-interface.md"). To connect additional data
-sources, see [Connecting your data sources](connecting-data-sources-desktop.md "connecting-data-sources-desktop.md").
+sources, see [Connectors](connections-desktop.md "connections-desktop.md").
