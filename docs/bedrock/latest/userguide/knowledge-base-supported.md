@@ -48,6 +48,7 @@ Embedding models support the following vector types.
 | Cohere Embed (Multilingual)           | Floating-point, binary | 1024                           |
 | Amazon Titan Multimodal Embeddings G1 | Floating-point         | 1024                           |
 | Cohere Embed v3 (Multimodal)          | Floating-point, binary | 1024                           |
+| Amazon Nova Multimodal Embeddings     | Floating-point         | 1024                           |
 
 ## Supported models and Regions for parsing
 

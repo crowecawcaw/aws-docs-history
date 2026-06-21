@@ -1505,6 +1505,14 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `us-west-1` (N. California)                                                     |        |           |     |
 | `us-west-2` (Oregon)                                                            |        |           |     |
 
+## xAI
+
+| [Grok 4.3](model-card-xai-grok-4-3.md "model-card-xai-grok-4-3.md") | Region | In-Region | Geo | Global |
+| ------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-west-2` (Oregon)                                                |        |           |     |
+| `us-east-1` (N. Virginia)                                           |        |           |     |
+| `us-east-2` (Ohio)                                                  |        |           |     |
+
 ## Z.AI
 
 | [GLM 4.7 Flash](model-card-zai-glm-4-7-flash.md "model-card-zai-glm-4-7-flash.md") | Region | In-Region | Geo | Global |

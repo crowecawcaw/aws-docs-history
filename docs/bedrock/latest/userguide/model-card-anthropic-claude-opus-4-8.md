@@ -83,7 +83,13 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 **Regional availability at a glance**
 
-Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
+Bedrock offers three inference options:
+
+- **In-Region** keeps requests within a single Region for strict compliance.
+- **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency.
+- **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints.
+
+For more details, see the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page.
 
 | **Region**                     | **In-Region**                                                           | **Geo**                                                                 | **Global**                              |
 | ------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------- |
@@ -177,7 +183,7 @@ Geo Inference ID: `au.anthropic.claude-opus-4-8`
 
 ## Quotas and Limits
 
-Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
+Your AWS account has default quotas for Amazon Bedrock. These quotas might change depending on regional factors, payment history, or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, see [Quotas for Amazon Bedrock](quotas.md "quotas.md") and the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
 
 Default quotas for Claude Opus 4.8 are 20M input TPM and 4M output TPM on `bedrock-mantle` and 30M TPM on `bedrock-runtime` for each supported region. Claude Opus 4.8 does not have a requests-per-minute (RPM) quota; throttling is governed solely by the token-per-minute (TPM) quotas above.
 

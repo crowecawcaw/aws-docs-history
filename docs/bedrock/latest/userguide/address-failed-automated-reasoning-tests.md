@@ -319,7 +319,7 @@ aws bedrock start-automated-reasoning-policy-build-workflow \
           {
             \"addVariable\": {
               \"name\": \"tenureMonths\",
-              \"type\": \"int\",
+              \"type\": \"INT\",
               \"description\": \"The number of complete months the employee has been continuously employed. When users mention years of service, convert to months (for example, 2 years = 24 months).\"
             }
           },
@@ -343,7 +343,7 @@ source document requires 12+ months of tenure.
 
 | Before                                                                          | After annotation                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rule: `(=> isFullTime eligibleForParentalLeave)`<br>No `tenureMonths` variable. | New variable: `tenureMonths` (int) — "The number of complete<br>months the employee has been continuously employed."<br>Updated rule: `(=> (and isFullTime (> tenureMonths 12))<br>eligibleForParentalLeave)` |
+| Rule: `(=> isFullTime eligibleForParentalLeave)`<br>No `tenureMonths` variable. | New variable: `tenureMonths` (INT) — "The number of complete<br>months the employee has been continuously employed."<br>Updated rule: `(=> (and isFullTime (> tenureMonths 12))<br>eligibleForParentalLeave)` |
 
 **Example 2: Fix overlapping variables causing
 TRANSLATION_AMBIGUOUS**

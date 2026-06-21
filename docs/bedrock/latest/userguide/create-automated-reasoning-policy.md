@@ -313,7 +313,12 @@ The ARN of the policy resource created in step 1.
 
 `buildWorkflowType` (required)
 
-Set to `INGEST_CONTENT` to extract rules from a document.
+Set to `INGEST_CONTENT` to extract rules from a document. You can
+also use `INGEST_CONTENT` to merge the content extracted from a document
+into an existing policy: include the current policy definition in
+`sourceContent` alongside the new document, and the extracted rules,
+variables, and types are composed into the existing definition rather than replacing
+it. See [Iterative policy building](#iterative-policy-building "#iterative-policy-building").
 
 `sourceContent` (required)
 
@@ -349,6 +354,13 @@ aws bedrock start-automated-reasoning-policy-build-workflow \
     }
   }"
 ```
+
+###### Note
+
+In the `policyDefinition` object, the `version` field is
+required and must be set to `1.0`. It identifies the version of the policy
+definition schema, and is distinct from the policy resource version (`DRAFT`
+or a numbered version).
 
 Example response:
 

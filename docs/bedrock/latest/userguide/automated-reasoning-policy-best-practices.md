@@ -120,7 +120,7 @@ logical contradiction when both apply.
 
 | Good: Separate booleans                                                                                                          | Bad: Enum for non-exclusive states                                                                                                                                |
 | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `isVeteran` (bool): "Whether the customer is a military<br>veteran."<br>`isTeacher` (bool): "Whether the customer is a teacher." | `customerType` (enum: VETERAN, TEACHER, STUDENT): "The type of<br>customer."<br>Problem: A customer who is both a veteran and a teacher cannot be<br>represented. |
+| `isVeteran` (BOOL): "Whether the customer is a military<br>veteran."<br>`isTeacher` (BOOL): "Whether the customer is a teacher." | `customerType` (enum: VETERAN, TEACHER, STUDENT): "The type of<br>customer."<br>Problem: A customer who is both a veteran and a teacher cannot be<br>represented. |
 
 Reserve enums for truly mutually exclusive categories where only one value can apply
 at a time, such as `leaveType = {PARENTAL, MEDICAL, BEREAVEMENT}` (an employee
@@ -214,7 +214,7 @@ possible values and make rules clearer.
 
 | Good: Enum                                                                                                                                                   | Avoid: Multiple booleans for exclusive states                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type: `LeaveType = {PARENTAL, MEDICAL, BEREAVEMENT, PERSONAL}`<br>Variable: `leaveType` (LeaveType)<br>Rule: `(=> (= leaveType PARENTAL) (>= leaveDays 60))` | `isParentalLeave` (bool)<br>`isMedicalLeave` (bool)<br>`isBereavementLeave` (bool)<br>Problem: Nothing prevents multiple booleans from being true<br>simultaneously. |
+| Type: `LeaveType = {PARENTAL, MEDICAL, BEREAVEMENT, PERSONAL}`<br>Variable: `leaveType` (LeaveType)<br>Rule: `(=> (= leaveType PARENTAL) (>= leaveDays 60))` | `isParentalLeave` (BOOL)<br>`isMedicalLeave` (BOOL)<br>`isBereavementLeave` (BOOL)<br>Problem: Nothing prevents multiple booleans from being true<br>simultaneously. |
 
 ###### Tip
 

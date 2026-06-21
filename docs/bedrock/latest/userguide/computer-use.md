@@ -50,7 +50,7 @@ consider taking precautions such as:
 Computer use is supported on both the `bedrock-runtime` and
 `bedrock-mantle` endpoints. To find which models support computer use
 on each endpoint, see the _Capabilities and Features_ table in
-each . Submitting a
+each [Models at a glance](model-cards.md "model-cards.md"). Submitting a
 request to a model that doesn't support computer use, or pairing a tool type with
 an unsupported model, returns a `400 invalid_request_error`.
 
@@ -74,7 +74,7 @@ see [Computer use (Beta)](model-parameters-anthropic-claude-messages-tool-use.md
 
 The following Python example sends a Messages API request through the
 `bedrock-runtime` endpoint with the computer use tool. Replace the
-`modelId` with one that supports computer use (see ).
+`modelId` with one that supports computer use (see [Models at a glance](model-cards.md "model-cards.md")).
 
 ```
 import boto3

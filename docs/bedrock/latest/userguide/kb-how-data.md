@@ -11,11 +11,12 @@ The following sections describe the types of data that Amazon Bedrock Knowledge 
 Unstructured data refers to data that isn't forced into a predefined structure. Amazon Bedrock Knowledge Bases supports connecting to the following services to add unstructured data to your knowledge base:
 
 - Amazon S3
-- Confluence (preview)
-- Microsoft SharePoint (preview)
-- Salesforce (preview)
-- Web Crawler (preview)
-- Custom data source (allows direct ingestion of data into knowledge bases without needing to sync)
+- Confluence
+- Custom
+- Google Drive
+- Microsoft OneDrive
+- Microsoft SharePoint
+- Web Crawler
 
 A data source contains the raw form of your documents. To optimize the query process, a knowledge base converts your raw data into _vector embeddings_, a numerical representation of the data, to quantify similarity to queries that are also converted into vector embeddings. Amazon Bedrock Knowledge Bases uses the following resources in the process of converting your data source:
 

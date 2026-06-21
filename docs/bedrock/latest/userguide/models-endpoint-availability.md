@@ -198,6 +198,12 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | **[Palmyra X4](model-card-writer-palmyra-x4.md "model-card-writer-palmyra-x4.md")**                      |                   |                  |
 | **[Palmyra X5](model-card-writer-palmyra-x5.md "model-card-writer-palmyra-x5.md")**                      |                   |                  |
 
+## xAI
+
+| Model name                                                              | `bedrock-runtime` | `bedrock-mantle` |
+| ----------------------------------------------------------------------- | ----------------- | ---------------- |
+| **[Grok 4.3](model-card-xai-grok-4-3.md "model-card-xai-grok-4-3.md")** |                   |                  |
+
 ## Z.AI
 
 | Model name                                                                             | `bedrock-runtime` | `bedrock-mantle` |

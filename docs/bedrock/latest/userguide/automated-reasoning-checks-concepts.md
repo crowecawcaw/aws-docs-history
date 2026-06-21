@@ -147,10 +147,35 @@ Automated Reasoning checks support the following variable types:
 
 | Type               | Description                  | Example                                                            |
 | ------------------ | ---------------------------- | ------------------------------------------------------------------ |
-| `bool`             | True or false value          | `isFullTime` — Whether the employee works full-time                |
-| `int`              | Whole number                 | `tenureMonths` — Number of months the employee has worked          |
-| `real`             | Decimal number               | `interestRate` — Annual interest rate as a decimal (0.05 means 5%) |
+| `BOOL`             | True or false value          | `isFullTime` — Whether the employee works full-time                |
+| `INT`              | Whole number                 | `tenureMonths` — Number of months the employee has worked          |
+| `NUMBER`           | Decimal number               | `interestRate` — Annual interest rate as a decimal (0.05 means 5%) |
 | Custom type (enum) | One value from a defined set | `leaveType` — One of: PARENTAL, MEDICAL, BEREAVEMENT, PERSONAL     |
+
+###### Warning
+
+Model your domain using only the variable types in the preceding table. Avoid designing
+a policy that depends on unsupported data — such as raw strings or free-form text — or that
+requires the translation step to compute or interpret a value. Aim to minimize the
+complexity of the translation.
+
+Automated Reasoning checks are designed to interpret natural language, and are not
+applicable to all forms of verification. For instance, validating that a password meets a
+set of requirements is better handled by deterministic, rule-based code, since it depends on
+evaluating the raw value character by character rather than reasoning over natural
+language.
+
+###### Note
+
+Within a policy definition, variable names, custom type names, and the values
+defined within custom types all share a single namespace. Every one of these names must be
+unique across all three categories. You cannot use the same name for a variable and a type,
+and the same value cannot appear in more than one custom type. For example, if a
+`LeaveType` type defines an `OTHER` value, no other type (such as
+`Severity`) can also define `OTHER`, and no variable can be named
+`OTHER`. When you need a similar value in more than one type, prefix it with the
+type name to keep each name unique while preserving its meaning — for example,
+`LeaveType_OTHER` and `Severity_OTHER`.
 
 ### The critical role of variable descriptions
 
@@ -246,8 +271,8 @@ assigns the right variables with the right values.
 
 **Example: Translation in action**
 
-Given a policy with variables `isFullTime` (bool), `tenureMonths`
-(int), and `eligibleForParentalLeave` (bool), and the input:
+Given a policy with variables `isFullTime` (BOOL), `tenureMonths`
+(INT), and `eligibleForParentalLeave` (BOOL), and the input:
 
 - **Question:** "I'm a full-time employee and I've been
   here for 18 months. Can I take parental leave?"

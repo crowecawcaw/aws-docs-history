@@ -1,4 +1,4 @@
-# Build a knowledge base by connecting to a data source
+# Build a knowledge base with vector stores
 
 Amazon Bedrock Knowledge Bases supports a variety of file types stored in data sources. To interpret the data from a data source,
 Amazon Bedrock Knowledge Bases requires the conversion of the data into vector embeddings, a numerical representation of the data. These embeddings can be compared to
@@ -23,3 +23,4 @@ Multimodal data is only supported with Amazon S3 and custom data sources. For co
 - [View data source information for your Amazon Bedrock knowledge base](kb-ds-info.md "kb-ds-info.md")
 - [Modify a data source for your Amazon Bedrock knowledge base](kb-ds-update.md "kb-ds-update.md")
 - [Delete a data source from your Amazon Bedrock knowledge base](kb-ds-delete.md "kb-ds-delete.md")
+- [Build a knowledge base for multimodal content](kb-multimodal.md "kb-multimodal.md")

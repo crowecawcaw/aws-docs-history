@@ -1,10 +1,10 @@
 # Mid-conversation system messages
 
-You can append `{"role": "system", ...}` messages to the `messages` array to add or update system instructions partway through a conversation without invalidating the cached prefix that came before them.
+You can append `{"role": "system", ...}` messages to the `messages` array. This adds or updates system instructions partway through a conversation without invalidating the cached prefix.
 
 Previously, system instructions could only be supplied through the top-level `system` parameter. This makes it possible to update instructions without resetting prior context.
 
-This is useful in agentic workflows where the model needs to adapt as a task progresses, such as introducing a new constraint mid-task, refreshing authoritative context, or changing tool guidance for later turns.
+This is useful in agentic workflows where the model needs to adapt as a task progresses. Examples include introducing a new constraint mid-task, refreshing authoritative context, or changing tool guidance for later turns.
 
 ## Supported models
 

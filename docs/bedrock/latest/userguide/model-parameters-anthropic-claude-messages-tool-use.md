@@ -226,7 +226,7 @@ reached.
 Computer use is an Anthropic Claude tool family (in beta) for automating
 graphical user interface (GUI) tasks. For an overview, the Amazon Bedrock-specific request
 shape, and an end-to-end example, see [Use computer use tools to automate GUI tasks with Amazon Bedrock models](computer-use.md "computer-use.md"). To find which models support computer use on each
-endpoint, see the _Capabilities and Features_ table in each .
+endpoint, see the _Capabilities and Features_ table in each [Models at a glance](model-cards.md "model-cards.md").
 
 To enable computer use on a request, set `anthropic_beta` to a
 computer-use version and include a tool entry whose `type` matches that
@@ -256,7 +256,7 @@ interact with computers. When specifying an Anthropic-defined tool, the
 allowed. The model does not execute these tools automatically; you must run each
 requested action and return a `tool_result` to Claude. To find which
 of these tools each model accepts, see the _Capabilities and
-Features_ table in the model's ; submitting a tool type that a model does not
+Features_ table in the model's [Models at a glance](model-cards.md "model-cards.md"); submitting a tool type that a model does not
 support returns a `400 invalid_request_error`.
 
 | Tool                                                                                         | Notes                                                                                                                                              |

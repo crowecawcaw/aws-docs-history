@@ -487,7 +487,7 @@ ALL build workflows require the COMPLETE existing policy definition in the `poli
 {
   "addVariable": {
     "name": "requestAmount",
-    "type": "real",
+    "type": "NUMBER",
     "description": "The monetary amount of the approval request in USD"
   }
 }

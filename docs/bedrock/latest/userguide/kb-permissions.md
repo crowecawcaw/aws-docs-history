@@ -120,6 +120,9 @@ Select from the following data sources to attach the necessary permissions for t
 - [Permissions to access your Confluence data source](#kb-permissions-access-confluence "#kb-permissions-access-confluence")
 - [Permissions to access your Microsoft SharePoint data source](#kb-permissions-access-sharepoint "#kb-permissions-access-sharepoint")
 - [Permissions to access your Salesforce data source](#kb-permissions-access-salesforce "#kb-permissions-access-salesforce")
+- [Permissions to access your Web Crawler data source](#kb-permissions-access-webcrawler "#kb-permissions-access-webcrawler")
+- [Permissions to access your Microsoft OneDrive data source](#kb-permissions-access-onedrive "#kb-permissions-access-onedrive")
+- [Permissions to access your Google Drive data source](#kb-permissions-access-googledrive "#kb-permissions-access-googledrive")
 
 ### Permissions to access your Amazon S3 data source
 
@@ -276,6 +279,126 @@ JSON
 Salesforce data source connector is in preview release and is subject to change.
 
 Attach the following policy to provide permissions for the role to access Salesforce.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:`us-east-1`:`123456789012`:secret:`SecretId`"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:Decrypt"
+ ],
+ "Resource": [
+ "arn:aws:kms:`us-east-1`:`123456789012`:key/`KeyId`"
+ ],
+ "Condition": {
+ "StringLike": {
+ "kms:ViaService": [
+ "secretsmanager.`us-east-1`.amazonaws.com"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Permissions to access your Web Crawler data source
+
+Attach the following policy to provide permissions for the role to access websites through the Web Crawler. If your website requires authentication, include permissions to access the AWS Secrets Manager secret that stores your credentials.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:`us-east-1`:`123456789012`:secret:`SecretId`"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:Decrypt"
+ ],
+ "Resource": [
+ "arn:aws:kms:`us-east-1`:`123456789012`:key/`KeyId`"
+ ],
+ "Condition": {
+ "StringLike": {
+ "kms:ViaService": [
+ "secretsmanager.`us-east-1`.amazonaws.com"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Permissions to access your Microsoft OneDrive data source
+
+Attach the following policy to provide permissions for the role to access Microsoft OneDrive.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "secretsmanager:GetSecretValue"
+ ],
+ "Resource": [
+ "arn:aws:secretsmanager:`us-east-1`:`123456789012`:secret:`SecretId`"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "kms:Decrypt"
+ ],
+ "Resource": [
+ "arn:aws:kms:`us-east-1`:`123456789012`:key/`KeyId`"
+ ],
+ "Condition": {
+ "StringLike": {
+ "kms:ViaService": [
+ "secretsmanager.`us-east-1`.amazonaws.com"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Permissions to access your Google Drive data source
+
+Attach the following policy to provide permissions for the role to access Google Drive.
 
 JSON
 

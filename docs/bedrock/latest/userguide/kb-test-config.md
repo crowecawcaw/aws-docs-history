@@ -109,11 +109,25 @@ the relevancy of responses. Your data sources can include document metadata
 attributes/fields to filter on and can specify which fields to include in the
 embeddings.
 
-For example, "epoch_modification_time" represents the time in number of seconds since
-January 1, 1970 (UTC) when the document was last updated. You can filter
-on the most recent data, where "epoch_modification_time" is _greater
-than_ a certain number. These most recent documents can be used for
-the query.
+###### Managed knowledge base considerations
+
+When using metadata filtering with a managed knowledge base:
+
+- The `startsWith` and `stringContains` metadata
+  filters are not supported. Use `equals`,
+  `greaterThan`, `lessThan`, `in`, or
+  `notIn` operators instead.
+- For custom knowledge bases, metadata fields prefixed with
+  `x-amz-bedrock` are reserved by the service. For fully
+  managed knowledge bases, reserved metadata fields use an underscore
+  prefix (for example, `_source_uri`,
+  `_data_source_id`). You cannot override reserved metadata
+  fields in either knowledge base type.
+  For example, "epoch_modification_time" represents the time in number of seconds since
+  January 1, 1970 (UTC) when the document was last updated. You can filter
+  on the most recent data, where "epoch_modification_time" is _greater
+  than_ a certain number. These most recent documents can be used for
+  the query.
 
 To use filters when querying a knowledge base, check that your knowledge base
 fulfills the following requirements:

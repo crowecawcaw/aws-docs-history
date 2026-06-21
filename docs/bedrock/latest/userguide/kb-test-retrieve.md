@@ -9,6 +9,86 @@ After your knowledge base is set up, you can query it and retrieve chunks from y
 data that is relevant to the query by using the [Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") API operation. You can also [use a reranking model](rerank.md "rerank.md") instead of the default Amazon Bedrock Knowledge Bases ranker to rank
 source chunks for relevance during retrieval.
 
+###### Managed knowledge base considerations
+
+When querying a managed knowledge base, the following considerations apply:
+
+- Use `managedSearchConfiguration` in the
+  `retrievalConfiguration` instead of
+  `vectorSearchConfiguration`. The
+  `vectorSearchConfiguration` field is used for custom knowledge
+  bases only.
+- Retrieval always uses hybrid search, which combines keyword and semantic
+  search. Semantic-only search is not available for fully managed knowledge
+  bases.
+- Reranking is enabled by default using a service-managed reranking model.
+  You can control reranking behavior with the `rerankingModelType`
+  field in `managedSearchConfiguration`:
+
+  - `MANAGED` (default) – A service-managed
+    reranking model is used automatically. No configuration
+    required.
+  - `CUSTOM` – Use your own Bedrock reranking model.
+    You must provide a `rerankingConfiguration` with the model
+    ARN.
+  - `NONE` – Reranking is disabled.
+
+- Managed reranking is available only for knowledge bases that use managed
+  embedding. If your knowledge base uses a custom embedding model, you can use
+  custom reranking or disable reranking.
+- The `startsWith` and `stringContains` metadata filters
+  are not supported for managed knowledge bases. For details, see
+  [Manual metadata filtering](kb-test-config.md#kb-test-config-filters "kb-test-config.md#kb-test-config-filters").
+  The following example shows a minimal `Retrieve` request for a fully
+  managed knowledge base with managed reranking (default):
+
+```
+{
+    "retrievalQuery": {
+        "text": "`your query text`"
+    }
+}
+```
+
+To disable reranking:
+
+```
+{
+    "retrievalQuery": {
+        "text": "`your query text`"
+    },
+    "retrievalConfiguration": {
+        "managedSearchConfiguration": {
+            "rerankingModelType": "NONE"
+        }
+    }
+}
+```
+
+To use a custom Bedrock reranking model:
+
+```
+{
+    "retrievalQuery": {
+        "text": "`your query text`"
+    },
+    "retrievalConfiguration": {
+        "managedSearchConfiguration": {
+            "rerankingModelType": "CUSTOM",
+            "rerankingConfiguration": {
+                "type": "BEDROCK_RERANKING_MODEL",
+                "bedrockRerankingConfiguration": {
+                    "numberOfRerankedResults": 5,
+                    "modelConfiguration": {
+                        "modelArn": "`arn:aws:bedrock:us-west-2::foundation-model/cohere.rerank-v3-5:0`"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 To learn how to query your knowledge base, choose the tab for your preferred method, and then follow the steps:
 
 Console
@@ -55,7 +135,7 @@ source chunk. 8. To see details about the returned chunks, select **Show source 
 
     	+ The raw text from the source chunk. To copy this text, choose the copy icon (
 
-    	 ![Copy icon represented by two overlapping documents.](images/icons/copy.png)
+    	 ![Copy icon represented by two overlapping documents.](/images/bedrock/latest/userguide/images/icons/copy.png)
 
 
     	 ). If you used Amazon S3 to store your data, choose the external link icon (
