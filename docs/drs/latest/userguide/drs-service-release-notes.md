@@ -1,5 +1,11 @@
 # AWS Elastic Disaster Recovery Service Release Notes
 
+## June 2026
+
+- Added support for Debian 12 and Debian 13 as source server operating systems. Debian 13 requires AWS Elastic Disaster Recovery Agent version 6.42.21 or later. See [Supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md").
+- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
+  Updated policies AWSElasticDisasterRecoveryConsoleFullAccess_v2 and AWSElasticDisasterRecoveryLaunchActionsPolicy to add permissions for SSM documents with the `AWSDRS-` prefix.
+
 ## April 2025
 
 - AWS Elastic Disaster Recovery is now authorized for Department of Defense Cloud Computing

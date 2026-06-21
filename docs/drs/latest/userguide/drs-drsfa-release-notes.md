@@ -2,7 +2,7 @@
 
 The following table describes the released versions of the DRSFA Client. The latest version
 of the DRSFA Client can be downloaded by following
-[the DRSFA installation instructions](failback-failover-drsfa.md#failback-failover-drsfa-prereques "failback-failover-drsfa.md#failback-failover-drsfa-prereques").
+[the DRSFA installation instructions](failback-failover-drsfa-prereques.md "failback-failover-drsfa-prereques.md").
 
 [What's in a Release?](drs-client-release-notes.md#client-release-notes-definition "drs-client-release-notes.md#client-release-notes-definition")
 

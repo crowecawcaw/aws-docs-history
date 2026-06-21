@@ -47,7 +47,7 @@ required throughput.
 2. **Plan for aggregate bandwidth:**
    Calculate the total write throughput across all source servers (see
    [calculating required
-   bandwidth](Troubleshooting-Communication-Errors.md#Calculating-Bandwidth "Troubleshooting-Communication-Errors.md#Calculating-Bandwidth")). Ensure your network connection (Direct Connect,
+   bandwidth](comm-bandwidth-planning.md#Calculating-Bandwidth "comm-bandwidth-planning.md#Calculating-Bandwidth")). Ensure your network connection (Direct Connect,
    VPN, or internet) can sustain this aggregate throughput with
    headroom for spikes.
 3. **IP planning:** Plan your staging

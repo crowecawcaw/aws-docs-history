@@ -55,6 +55,14 @@ https://al2023-repos-<REGION>-de612dc2.s3.<REGION>.amazonaws.com/
 - Ensure the relevant VPC endpoint policy includes access to all the
   required Amazon S3 buckets.
 
+###### Important
+
+Ensure that your Amazon S3 VPC gateway endpoint policy allows access to the
+Amazon Linux 2023 package repository bucket
+(`al2023-repos-<REGION>-de612dc2`). Replication servers run
+Amazon Linux 2023 and require access to this repository for package
+installation and updates.
+
 When using an S3 VPC Endpoint, you must provide sufficient permissions for service
 functionality. See example policy for replicating to us-east-1:
 
@@ -76,7 +84,8 @@ JSON
  "arn:aws:s3:::aws-drs-internal-us-east-1/*",
  "arn:aws:s3:::aws-drs-internal-hashes-us-east-1/*",
  "arn:aws:s3:::aws-elastic-disaster-recovery-us-east-1/*",
- "arn:aws:s3:::aws-elastic-disaster-recovery-hashes-us-east-1/*"
+ "arn:aws:s3:::aws-elastic-disaster-recovery-hashes-us-east-1/*",
+ "arn:aws:s3:::al2023-repos-us-east-1-de612dc2/*"
  ]
  }
  ]
