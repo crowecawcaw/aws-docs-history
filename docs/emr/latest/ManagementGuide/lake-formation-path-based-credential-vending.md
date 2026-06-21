@@ -1,9 +1,10 @@
 # S3 path-based access using Lake Formation for Amazon EMR Spark
 
-With Amazon EMR releases 7.13.0 and higher, you can use the [AWS Lake Formation Access Grants Plugin](../../../lake-formation/latest/dg/accessing-s3-locations.md "../../../lake-formation/latest/dg/accessing-s3-locations.md") to
+With Amazon EMR releases 7.13.0 and higher, you can use the AWS Lake Formation Access Grants Plugin to
 obtain temporary credentials for S3 paths registered with Lake Formation. This enables Spark queries
 that directly reference S3 paths to use Lake Formation-vended credentials, in addition to the
-existing table-name based credential vending provided by Full Table Access (FTA).
+existing table-name based credential vending provided by Full Table Access (FTA). For more
+details, see [Accessing Amazon S3 locations](../../../lake-formation/latest/dg/accessing-s3-locations.md "../../../lake-formation/latest/dg/accessing-s3-locations.md").
 
 The Lake Formation Access Grants Plugin integrates with the S3A filesystem in Spark. When enabled,
 S3A uses the plugin to call the Lake Formation
@@ -33,7 +34,7 @@ queries.
 Before you use the Lake Formation Access Grants Plugin, complete the following steps:
 
 - Set up Full Table Access (FTA) for your Amazon EMR environment. For instructions,
-  see .
+  see [Configuring Lake Formation full table access](lake-formation-unfiltered-ec2-access.md "lake-formation-unfiltered-ec2-access.md").
 - In the Lake Formation console, register the S3 path with the owner account:
 
   1.  Navigate to **Data lake locations**.

@@ -129,7 +129,6 @@ JSON
  "iam:PassRole"
  ],
  "Resource": [
- "arn:aws:iam::*:role/EMR_DefaultRole",
  "arn:aws:iam::*:role/EMR_DefaultRole_V2"
  ],
  "Condition": {
