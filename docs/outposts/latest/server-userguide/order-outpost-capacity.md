@@ -1,7 +1,8 @@
 # Create an Outpost and order Outpost capacity
 
 To begin using AWS Outposts, log in with your AWS account. Create a
-site and an Outpost. Then, place an order for the Outposts servers that you require.
+site and an Outpost. Then, get a quote and place an order for the Outposts servers that you
+require.
 
 ###### Prerequisites
 
@@ -19,8 +20,9 @@ site and an Outpost. Then, place an order for the Outposts servers that you requ
 
 - [Step 1: Create a site](#create-site "#create-site")
 - [Step 2: Create an Outpost](#create-outpost "#create-outpost")
-- [Step 3: Place the order](#place-order "#place-order")
-- [Step 4: Modify instance capacity](#modify-instance-capacity "#modify-instance-capacity")
+- [Step 3: Create a quote](#create-quote-server "#create-quote-server")
+- [Step 4: Place the order](#place-order "#place-order")
+- [Step 5: Modify instance capacity](#modify-instance-capacity "#modify-instance-capacity")
 - [Next steps](#order-fulfillment "#order-fulfillment")
 
 ## Step 1: Create a site
@@ -51,7 +53,7 @@ ID to your site. You must specify this site when you create an Outpost.
 ## Step 2: Create an Outpost
 
 Create an Outpost for each server. An Outpost can only be associated with a single server.
-You'll specify this Outpost when you place the order.
+You will specify this Outpost when you create a quote and place your order.
 
 ###### Prerequisites
 
@@ -72,48 +74,134 @@ You'll specify this Outpost when you place the order.
 You won't be able to modify the AZ anchor or physical location of your Outpost after you
 complete the order.
 
-## Step 3: Place the order
+## Step 3: Create a quote
 
-Place an order for the Outposts servers that you need.
+A quote provides a cost estimate based on your Outpost configuration. Quotes are
+generated within seconds and are valid for 30 days.
+
+###### Prerequisites
+
+- A site with a complete operating address.
+- An Outpost associated with your site.
+
+###### To create a quote
+
+1. From the navigation pane, choose **Quotes**.
+2. Choose **Create quote**.
+3. For **General information**, provide the following:
+
+   - **Description** (optional) – Enter a description to help
+     differentiate between quotes. For example, include the purpose, configuration, or specific
+     requirements of the Outpost.
+
+4. **Country** – Select the country where your Outpost will be
+   installed. Not all Outpost configurations are available in all countries.
+5. For **Select capacities**, choose the compute capacity for your
+   Outpost. You can select capacity in two ways:
+
+   - **By capacity type** – Select the quantity of your desired
+     Amazon EC2 instance types and sizes.
+   - **By configuration** – Select from predefined configurations
+     designed for common use cases, or previously used configurations from your account
+     history.
+
+###### Note
+
+You can only select instance capacities supported by your chosen Outpost generation
+and form factor. 6. Choose **Get quote**.
+
+After your quote is generated, you can review the recommended Outpost configurations and
+pricing options. You can download your quote as a PDF for sharing or record-keeping.
+
+###### To edit a quote
+
+- Navigate to the quotes page, select the quote you want to modify, choose
+  **Actions**, and select **Edit quote**. This allows you
+  to update your requirements and receive a revised estimate.
+
+###### Note
+
+You can refresh an existing quote by using the **Refresh** button to
+update pricing without changing your configuration. Quotes expire after 30 days. You can
+recreate an expired quote by using the **Recreate quote** button, which
+will populate a new quote form with the same details from your expired quote.
+
+## Step 4: Place the order
+
+Once you have reviewed your quote, you can place your order. Each quote can only be used
+for a single order.
 
 ###### Important
 
-You can't edit an order after you submit it so review all details carefully before
+You can't edit an order after you submit it, so review all details carefully before
 submission. If you need to change an order, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
 ###### Prerequisites
 
+- An active Enterprise Support or Unified Operations plan.
+- An Outpost created with an associated site.
 - Determine how you will pay for the order. You can pay all upfront, partially upfront, or
   nothing upfront. If you choose the partial-upfront or no-upfront payment option, you'll pay
-  monthly charges over the term.
-
-The pricing includes delivery, infrastructure service maintenance, and software patches
-and upgrades.
-
+  monthly charges over the term. The pricing includes delivery, infrastructure service
+  maintenance, and software patches and upgrades.
 - Determine whether the shipping address is different from the operating address that you
   specified for the site.
 
 ###### To place an order
 
-1. In the navigation pane, choose **Orders**.
-2. Choose **Place order**.
-3. For **Supported hardware type**, choose
-   **Servers**.
-4. To add capacity, choose a configuration.
-5. Choose **Next**.
-6. Choose **Use an existing Outpost** and select your Outpost.
-7. Choose **Next**.
-8. Select a contract term and payment option.
-9. Specify the shipping address. You can specify a new address or select the site's operating
-   address. If you select the operating address, be aware that any future change to the site's
-   operating address will not propagate to existing orders. If you need to change the shipping
-   address on an existing order, contact your AWS Account Manager.
-10. Choose **Next**.
-11. On the **Review and order** page, verify that your information is correct
-    and edit as needed. You will not be able to edit the order after you submit it.
-12. Choose **Place order**.
+1. From the navigation pane, choose **Quotes**.
+2. Select the quote you want to order from and choose **Place
+   order**.
+3. If your quote was created with only a country selected, you will need to select an
+   Outpost before proceeding.
+4. For **Payment terms**, select your contract term and payment
+   option:
 
-## Step 4: Modify instance capacity
+**Term length** – Choose the length of your Outpost
+contract:
+
+    * **1-year contract** – Shorter commitment with higher overall
+     costs.
+    * **3-year contract** – Longer commitment with lower overall
+     costs.
+    * **5-year contract** – Longest commitment with the lowest
+     overall costs.
+
+**Payment options** – Select how you want to pay:
+
+    * **No upfront** – Pay nothing upfront and higher monthly
+     charges throughout the contract term.
+    * **Partial upfront** – Pay a portion upfront with reduced
+     monthly charges for the remainder of the contract.
+    * **All upfront** – Pay the entire contract amount upfront
+     with no monthly charges.
+
+###### Note
+
+If you are adding capacity to an existing Outpost, your order will be prorated to
+align with your existing Outpost's contract end date. 5. Specify the shipping address. You can specify a new address or select the site's operating
+address. If you select the operating address, be aware that any future change to the site's
+operating address will not propagate to existing orders. If you need to change the shipping
+address on an existing order, contact your AWS Account Manager. 6. Choose **Next**. 7. On the **Review and order** page, verify that your information is correct
+and edit as needed. 8. Choose **Place order**.
+
+After placing your order, you'll receive an order confirmation with next steps via
+email.
+
+###### After placing your order
+
+AWS will ship the Outposts server equipment, including rail mounts and required power
+and network cables, to the address that you provided. Your team or a third-party provider must
+install the equipment.
+
+###### Note
+
+At the end of your contract term, you must choose between the following options at least
+5 business days before your current subscription ends: renew your subscription, prepare your
+Outpost for return, or convert to month-to-month. If you take no action, your contract will
+automatically convert to a month-to-month subscription at the No Upfront rate.
+
+## Step 5: Modify instance capacity
 
 The capacity of each new Outpost order is configured with a default capacity configuration.
 You can convert the default configuration to create various instances to meet your business
@@ -130,7 +218,7 @@ capacity task to implement the changes.
 ###### To modify instance capacity
 
 1. From the [AWS Outposts
-   console's](https://console.aws.amazon.com/outposts/ "https://console.aws.amazon.com/outposts/")AWS Outposts left navigation pane, choose **Capacity tasks**.
+   console's](https://console.aws.amazon.com/outposts/ "https://console.aws.amazon.com/outposts/") left navigation pane, choose **Capacity tasks**.
 2. On the **Capacity tasks** page, choose **Create capacity
    task**.
 3. On the **Getting started** page, choose the order.
@@ -210,7 +298,7 @@ capacity task. After you stop these instances, AWS Outposts will run the task.
 ## Next steps
 
 You can view the status of your order using the AWS Outposts console. The initial status of
-your order is **Order received**. If you have any questions about your order, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+your order is **Created**. If you have any questions about your order, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
 To fulfill the order, AWS will schedule a delivery date.
 
