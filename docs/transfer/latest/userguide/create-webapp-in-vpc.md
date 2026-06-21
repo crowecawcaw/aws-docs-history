@@ -44,6 +44,11 @@ infrastructure.
     When configuring a VPC hosted endpoint, you'll need to specify:
 
         + **VPC**: Select an existing VPC or create a new one. A **Create a VPC** button is available.
+        + **IP address type**: Choose the IP
+         address type for your VPC endpoint. Select
+         **IPv4** for IPv4-only connectivity, or
+         **Dual-stack** for both IPv4 and IPv6
+         connectivity. The default is Dual-stack.
         + **Availability zones**: Choose the availability zones where your endpoint will be deployed.
         + **Subnets**: Select subnets within each chosen availability zone.
         + **Security groups**: Select or create

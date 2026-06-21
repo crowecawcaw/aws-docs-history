@@ -100,3 +100,9 @@ regardless of which endpoint your web apps use. For the full list of domains
 and URL endpoints to allowlist, see [Update firewalls and gateways to allow access to the AWS access
 portal](../../../singlesignon/latest/userguide/enable-identity-center-portal-access.md "../../../singlesignon/latest/userguide/enable-identity-center-portal-access.md") in the _IAM Identity Center User
 Guide_.
+
+For web apps hosted in a VPC, you can choose the IP address type for your VPC
+endpoint: IPv4 only or dual-stack (IPv4 and IPv6). The default is dual-stack for
+backward compatibility. Choose IPv4 if your VPC is IPv4-only or if you don't need
+IPv6 connectivity. You can change the IP address type after creation by updating
+the web app.
