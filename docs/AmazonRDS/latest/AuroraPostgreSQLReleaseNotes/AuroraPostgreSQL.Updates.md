@@ -62,6 +62,7 @@ the improvements in PostgreSQL 18.3, see [PostgreSQL release
 - Default and allowed cipher lists have been updated to improve security posture and FIPS compliance.
 - Note that `io_method`, `io_workers` and `io_max_concurrency` are community AIO GUCs and are not available in Aurora PostgreSQL. Aurora PostgreSQL uses its own async I/O implementation.
 - Added support for Eager aggregation, which pushes aggregation before joins to improve query performance. Controlled by GUCs `enable_eager_aggregate` (default: OFF) and `min_eager_agg_group_size` to set the minimum average group size required to consider applying Eager aggregation (default: 8).
+- The default value of `max_parallel_workers_per_gather` has been changed from 2 to 0, disabling parallel query execution by default. To re-enable parallel queries, modify this parameter in your custom parameter group. For guidance on the parallel query feature, see [Best Practices for Parallel Queries in Aurora PostgreSQL](../AuroraUserGuide/PostgreSQL.ParallelQueries.md#PostgreSQL.ParallelQueries.ConfigurationParameters "../AuroraUserGuide/PostgreSQL.ParallelQueries.md#PostgreSQL.ParallelQueries.ConfigurationParameters").
 
 **Critical stability enhancements**
 
@@ -240,12 +241,32 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 17.7.3, May 29th, 2026](#aurorapostgresql-versions-version177x-1773 "#aurorapostgresql-versions-version177x-1773")
+- [Aurora PostgreSQL 17.7.4, June 9, 2026](#aurorapostgresql-versions-version177x-1774 "#aurorapostgresql-versions-version177x-1774")
+- [Aurora PostgreSQL 17.7.3, May 29, 2026](#aurorapostgresql-versions-version177x-1773 "#aurorapostgresql-versions-version177x-1773")
 - [Aurora PostgreSQL 17.7.2, March 20, 2026](#aurorapostgresql-versions-version177x-1772 "#aurorapostgresql-versions-version177x-1772")
-- [Aurora PostgreSQL 17.7.1, January 16th, 2026](#aurorapostgresql-versions-version1771x-1771 "#aurorapostgresql-versions-version1771x-1771")
+- [Aurora PostgreSQL 17.7.1, January 16, 2026](#aurorapostgresql-versions-version1771x-1771 "#aurorapostgresql-versions-version1771x-1771")
 - [Aurora PostgreSQL 17.7, December, 18, 2025](#aurorapostgresql-versions-version177x-177 "#aurorapostgresql-versions-version177x-177")
 
-#### Aurora PostgreSQL 17.7.3, May 29th, 2026
+#### Aurora PostgreSQL 17.7.4, June 9, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
+
+#### Aurora PostgreSQL 17.7.3, May 29, 2026
 
 **Critical stability enhancements**
 
@@ -283,7 +304,7 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 - Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
 - Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
 
-#### Aurora PostgreSQL 17.7.1, January 16th, 2026
+#### Aurora PostgreSQL 17.7.1, January 16, 2026
 
 **Critical stability enhancements**
 
@@ -1078,12 +1099,32 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 16.11.3, May 29th, 2026](#aurorapostgresql-versions-version1611x-16113 "#aurorapostgresql-versions-version1611x-16113")
+- [Aurora PostgreSQL 16.11.4, June 9, 2026](#aurorapostgresql-versions-version1611x-16114 "#aurorapostgresql-versions-version1611x-16114")
+- [Aurora PostgreSQL 16.11.3, May 29, 2026](#aurorapostgresql-versions-version1611x-16113 "#aurorapostgresql-versions-version1611x-16113")
 - [Aurora PostgreSQL 16.11.2, March 20, 2026](#aurorapostgresql-versions-version1611x-16112 "#aurorapostgresql-versions-version1611x-16112")
-- [Aurora PostgreSQL 16.11.1, January 16th, 2026](#aurorapostgresql-versions-version16111x-16111 "#aurorapostgresql-versions-version16111x-16111")
+- [Aurora PostgreSQL 16.11.1, January 16, 2026](#aurorapostgresql-versions-version16111x-16111 "#aurorapostgresql-versions-version16111x-16111")
 - [Aurora PostgreSQL 16.11, December, 18, 2025](#aurorapostgresql-versions-version1611x-1611 "#aurorapostgresql-versions-version1611x-1611")
 
-#### Aurora PostgreSQL 16.11.3, May 29th, 2026
+#### Aurora PostgreSQL 16.11.4, June 9, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
+
+#### Aurora PostgreSQL 16.11.3, May 29, 2026
 
 **Critical stability enhancements**
 
@@ -1121,7 +1162,7 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 - Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
 - Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
 
-#### Aurora PostgreSQL 16.11.1, January 16th, 2026
+#### Aurora PostgreSQL 16.11.1, January 16, 2026
 
 **Critical stability enhancements**
 
@@ -2787,12 +2828,32 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 15.15.3, May 29th, 2026](#aurorapostgresql-versions-version1515x-15153 "#aurorapostgresql-versions-version1515x-15153")
+- [Aurora PostgreSQL 15.15.4, June 9, 2026](#aurorapostgresql-versions-version1515x-15154 "#aurorapostgresql-versions-version1515x-15154")
+- [Aurora PostgreSQL 15.15.3, May 29, 2026](#aurorapostgresql-versions-version1515x-15153 "#aurorapostgresql-versions-version1515x-15153")
 - [Aurora PostgreSQL 15.15.2, March 20, 2026](#aurorapostgresql-versions-version1515x-15152 "#aurorapostgresql-versions-version1515x-15152")
-- [Aurora PostgreSQL 15.15.1, January 16th, 2026](#aurorapostgresql-versions-version15151x-15151 "#aurorapostgresql-versions-version15151x-15151")
+- [Aurora PostgreSQL 15.15.1, January 16, 2026](#aurorapostgresql-versions-version15151x-15151 "#aurorapostgresql-versions-version15151x-15151")
 - [Aurora PostgreSQL 15.15, Decemeber, 18, 2025](#aurorapostgresql-versions-version1515x-1515 "#aurorapostgresql-versions-version1515x-1515")
 
-#### Aurora PostgreSQL 15.15.3, May 29th, 2026
+#### Aurora PostgreSQL 15.15.4, June 9, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
+
+#### Aurora PostgreSQL 15.15.3, May 29, 2026
 
 **Critical stability enhancements**
 
@@ -2830,7 +2891,7 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 - Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
 - Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
 
-#### Aurora PostgreSQL 15.15.1, January 16th, 2026
+#### Aurora PostgreSQL 15.15.1, January 16, 2026
 
 **Critical stability enhancements**
 
@@ -5118,12 +5179,32 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 14.20.3, May 29th, 2026](#aurorapostgresql-versions-version1420x-14203 "#aurorapostgresql-versions-version1420x-14203")
+- [Aurora PostgreSQL 14.20.4, June 9, 2026](#aurorapostgresql-versions-version1420x-14204 "#aurorapostgresql-versions-version1420x-14204")
+- [Aurora PostgreSQL 14.20.3, May 29, 2026](#aurorapostgresql-versions-version1420x-14203 "#aurorapostgresql-versions-version1420x-14203")
 - [Aurora PostgreSQL 14.20.2, March 20, 2026](#aurorapostgresql-versions-version1420x-14202 "#aurorapostgresql-versions-version1420x-14202")
-- [Aurora PostgreSQL 14.20.1, January 16th, 2026](#aurorapostgresql-versions-version14201x-14201 "#aurorapostgresql-versions-version14201x-14201")
+- [Aurora PostgreSQL 14.20.1, January 16, 2026](#aurorapostgresql-versions-version14201x-14201 "#aurorapostgresql-versions-version14201x-14201")
 - [Aurora PostgreSQL 14.20, December, 18, 2025](#aurorapostgresql-versions-version1420x-1420 "#aurorapostgresql-versions-version1420x-1420")
 
-#### Aurora PostgreSQL 14.20.3, May 29th, 2026
+#### Aurora PostgreSQL 14.20.4, June 9, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
+
+#### Aurora PostgreSQL 14.20.3, May 29, 2026
 
 **Critical stability enhancements**
 
@@ -5161,7 +5242,7 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 - Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
 - Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
 
-#### Aurora PostgreSQL 14.20.1, January 16th, 2026
+#### Aurora PostgreSQL 14.20.1, January 16, 2026
 
 **Critical stability enhancements**
 
@@ -8010,12 +8091,32 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 13.23.3, May 29th, 2026](#aurorapostgresql-versions-version1323x-13233 "#aurorapostgresql-versions-version1323x-13233")
+- [Aurora PostgreSQL 13.23.4, June 9, 2026](#aurorapostgresql-versions-version1323x-13234 "#aurorapostgresql-versions-version1323x-13234")
+- [Aurora PostgreSQL 13.23.3, May 29, 2026](#aurorapostgresql-versions-version1323x-13233 "#aurorapostgresql-versions-version1323x-13233")
 - [Aurora PostgreSQL 13.23.2, March 20, 2026](#aurorapostgresql-versions-version1323x-13232 "#aurorapostgresql-versions-version1323x-13232")
-- [Aurora PostgreSQL 13.23.1, January 16th, 2026](#aurorapostgresql-versions-version13231x-13231 "#aurorapostgresql-versions-version13231x-13231")
+- [Aurora PostgreSQL 13.23.1, January 16, 2026](#aurorapostgresql-versions-version13231x-13231 "#aurorapostgresql-versions-version13231x-13231")
 - [Aurora PostgreSQL 13.23, December, 18, 2025](#aurorapostgresql-versions-version1323x-1323 "#aurorapostgresql-versions-version1323x-1323")
 
-#### Aurora PostgreSQL 13.23.3, May 29th, 2026
+#### Aurora PostgreSQL 13.23.4, June 9, 2026
+
+**High priority enhancements**
+
+- Fixed an issue with suboptimal B-tree prefetch causing increased I/O wait times.
+- Back-ported fixes for the following PostgreSQL community security issues:
+
+  - [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472/ "https://www.postgresql.org/support/security/CVE-2026-6472/")
+  - [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473/ "https://www.postgresql.org/support/security/CVE-2026-6473/")
+  - [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474/ "https://www.postgresql.org/support/security/CVE-2026-6474/")
+  - [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475/ "https://www.postgresql.org/support/security/CVE-2026-6475/")
+  - [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476/ "https://www.postgresql.org/support/security/CVE-2026-6476/")
+  - [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477/ "https://www.postgresql.org/support/security/CVE-2026-6477/")
+  - [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478/ "https://www.postgresql.org/support/security/CVE-2026-6478/")
+  - [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479/ "https://www.postgresql.org/support/security/CVE-2026-6479/")
+  - [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575/ "https://www.postgresql.org/support/security/CVE-2026-6575/")
+  - [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637/ "https://www.postgresql.org/support/security/CVE-2026-6637/")
+  - [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638/ "https://www.postgresql.org/support/security/CVE-2026-6638/")
+
+#### Aurora PostgreSQL 13.23.3, May 29, 2026
 
 **Critical stability enhancements**
 
@@ -8053,7 +8154,7 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 - Fixed an issue where correlated any transform could return an error message 'failed to build any 3-way joins' during transformation.
 - Fixed an issue where optimization was not triggered due to incorrect tracking of transaction metadata.
 
-#### Aurora PostgreSQL 13.23.1, January 16th, 2026
+#### Aurora PostgreSQL 13.23.1, January 16, 2026
 
 **Critical stability enhancements**
 

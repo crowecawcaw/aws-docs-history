@@ -25,11 +25,11 @@ cadence. You can use these timelines to:
 
 The following table lists the version currency timelines for Aurora PostgreSQL.
 
-| Release type                                                                                                                                  | Timelines                                                                                        |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Major versions                                                                                                                                | Within 8 months of the community's first minor release for<br>the new major version<br><major>.1 |
-| Minor versions                                                                                                                                | Within 3 months of the community release                                                         |
-| [Aurora LTS](../AuroraUserGuide/AuroraMySQL.Update.SpecialVersions.md "../AuroraUserGuide/AuroraMySQL.Update.SpecialVersions.md") (per major) | Within 12 months of the Aurora major version release                                             |
+| Release type                                                                                                                      | Timelines                                                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Major versions                                                                                                                    | Within 8 months of the community's first minor release for<br>the new major version<br><major>.1 |
+| Minor versions                                                                                                                    | Within 3 months of the community release                                                         |
+| [Aurora LTS](../AuroraUserGuide/AuroraPostgreSQL.Updates.LTS.md "../AuroraUserGuide/AuroraPostgreSQL.Updates.LTS.md") (per major) | Within 12 months of the Aurora major version release                                             |
 
 ## Release calendar for Aurora PostgreSQL major versions
 
