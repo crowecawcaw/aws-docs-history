@@ -17,7 +17,7 @@ Multitrack video streaming allows broadcaster software tools (e.g., OBS Studio) 
 
 Streams that use multitrack video can exhibit higher visual quality by taking advantage of underutilized encoder silicon already in consumer GPUs. Because multitrack video is encoded only once at the edge, it delivers lower glass-to-glass latency and avoids generation loss (as opposed to being decoded, scaled, and lossily re-encoded in a data center).
 
-Also, creators and other end users no longer need to worry about encoder settings like resolution, framerate, bitrate, and profiles. Instead, broadcast software tools use the GetClientConfiguration API operation. GetClientConfiguration automatically configures multiple encoders to optimize for the best viewer experience at the highest visual quality, given the constraints of the content creator’s preferences and the capabilities of their CPU, GPU, OS, driver, and network.
+Also, creators and other end users no longer need to worry about encoder settings like resolution, framerate, bitrate, and profiles. Instead, broadcast software tools use the `GetClientConfiguration` API operation. `GetClientConfiguration` automatically configures multiple encoders to optimize for the best viewer experience at the highest visual quality, given the constraints of the content creator’s preferences and the capabilities of their CPU, GPU, OS, driver, and network.
 
 ## Resolutions for IVS
 

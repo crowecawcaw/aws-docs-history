@@ -1,7 +1,7 @@
 # Channel Types
 
-There are four channel types: `STANDARD`, `ADVANCED-SD`,
-`ADVANCED-HD`, and `BASIC`. When you create a channel, the default
+There are four channel types: `STANDARD`, `ADVANCED_SD`,
+`ADVANCED_HD`, and `BASIC`. When you create a channel, the default
 type is `STANDARD`.
 
 There are two types of video processing, _transcoding_ and _transmuxing_. This is determined by the channel type, whether the channel is configured for multitrack video input, and whether the broadcaster uses a multitrack-enabled client. (Multitrack video is configured with the `multitrackInputConfiguration` API property of the [Channel](../LowLatencyAPIReference/API_Channel.md "../LowLatencyAPIReference/API_Channel.md") data type.)
@@ -55,7 +55,7 @@ For all video renditions, audio is source passthrough.
 
 ## ADVANCED-HD Channels
 
-`ADVANCED-HD` channels are transcoded. The highest video resolution
+`ADVANCED_HD` channels are transcoded. The highest video resolution
 produced is HD, 720p.
 
 - **Transcode presets**: There are two, selectable
@@ -71,7 +71,7 @@ produced is HD, 720p.
 
 ## ADVANCED-SD Channels
 
-`ADVANCED-SD` channels are transcoded. Available renditions are capped at
+`ADVANCED_SD` channels are transcoded. Available renditions are capped at
 input quality, with no up-conversion.
 
 - **Transcode presets**: There are two, selectable

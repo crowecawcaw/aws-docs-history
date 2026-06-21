@@ -47,7 +47,7 @@ aws ivs create-channel --name test-channel
 ```
 
 3. **Important**: Note the
-   `ingestEndpoint`, `streamKey value`, and
+   `ingestEndpoint`, `streamKey`, and
    `playbackUrl`. You will use these to set up streaming and
    playback.
 
@@ -201,6 +201,6 @@ aws ivs update-channel --arn "arn:aws:ivs:us-west-2:123456789012:channel/abcdABC
 ```
 
 7. **Important**: Note the
-   `ingestEndpoint`, `streamKey value`, and
+   `ingestEndpoint`, `streamKey`, and
    `playbackUrl`. You will use these to set up streaming and
    playback.
