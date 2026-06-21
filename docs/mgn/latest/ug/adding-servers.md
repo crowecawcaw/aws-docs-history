@@ -17,7 +17,7 @@ Quick links:
 
 While the use of AWS Transform MGN is free for 90 days, you will incur charges for any AWS
 infrastructure that is provisioned during migration and after cutover, such as compute (Amazon EC2)
-and storage (Amazon EBS) resources. These are billed to your account separately, at your regular
+and storage (Amazon EBS or FSx for ONTAP) resources. These are billed to your account separately, at your regular
 rates.
 
 ###### Topics

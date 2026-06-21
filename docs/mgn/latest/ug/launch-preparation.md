@@ -2,8 +2,8 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Preparing for test and cutover instance launch
 
-Prior to launching your instances, you must ensure that your environment is set up properly
-to ensure successful launches. Check the following prior to continuing:
+Before launching your instances, you must ensure that your environment is set up properly
+to ensure successful launches. Check the following before continuing:
 
 - Prepare your subnets for launch - Plan which subnets you will use to launch your test and
   cutover instances. You use these subnets in your EC2 launch template when you configure

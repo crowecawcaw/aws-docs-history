@@ -7,4 +7,4 @@ are associated with the wave.
 
 You can perform batch operations on all the applications via the wave **Actions** menu at the top of the page. You can perform an operation on a
 single application from its own **Application details** page, by
-clicking the application's **Application name**.
+choosing the application's **Application name**.

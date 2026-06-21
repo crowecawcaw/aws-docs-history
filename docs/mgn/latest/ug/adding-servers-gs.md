@@ -9,7 +9,7 @@ Add source servers to AWS Transform MGN by installing the AWS Replication Agent 
 If you are using the agentless replication for vCenter feature, then you will need to add
 your source servers by installing the MGN vCenter Client. [Learn more about agentless replication.](agentless-mgn.md "agentless-mgn.md")
 
-Prior to adding your source servers, ensure that you meet all of the [network requirements](preparing-environments.md "preparing-environments.md").
+Before adding your source servers, ensure that you meet all of the [network requirements](preparing-environments.md "preparing-environments.md").
 
 The following is the MGN agent network architecture diagram:
 
@@ -24,7 +24,7 @@ The migration lifecycle shows the current state of each source server within the
 process. Lifecycle states include:
 
 - **Not ready** – The server is undergoing the initial sync
-  process and is not yet ready for testing. Data replication can only commence once all of the
+  process and is not yet ready for testing. Data replication can only start once all of the
   initial sync steps have been completed.
 - **Ready for testing** – The server has been successfully
   added to AWS Transform MGN and data replication has started. test or cutover instances can now be

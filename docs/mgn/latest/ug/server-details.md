@@ -34,7 +34,7 @@ The server details view is divided into several tabs, including:
 - [Review source server information](source-server-info.md "source-server-info.md")
 - [Add or remove tags assigned to source servers](source-server-tags.md "source-server-tags.md")
 - [Review disk settings for source servers](disk-settings.md "disk-settings.md")
-- [Change staging disk type](staging-disk.md "staging-disk.md")
+- [Change target storage type](staging-disk-ref.md "staging-disk-ref.md")
 - [Edit replication settings for a source server](replication-settings.md "replication-settings.md")
 - [Review launch settings for a source server](launch-settings-source.md "launch-settings-source.md")
 - [Review post-launch settings](source-post-launch-settings.md "source-post-launch-settings.md")

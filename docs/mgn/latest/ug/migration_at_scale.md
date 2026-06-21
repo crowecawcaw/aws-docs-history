@@ -15,7 +15,7 @@ When planning your migration with AWS Transform MGN (MGN), review which approach
 
 Before migrating, review the associated costs of using the service. For full pricing details, see the [MGN pricing page](https://aws.amazon.com/application-migration-service/pricing/ "https://aws.amazon.com/application-migration-service/pricing/").
 
-1. For each migrated server, MGN can be used free of MGN service charge, for 2,160 hours, which is 90 days when used continuously. Resources that are provisioned in the replication and migration processes, such as EC2 and EBS volumes, incur charges according to your account rates.
+1. For each migrated server, MGN can be used free of MGN service charge, for 2,160 hours, which is 90 days when used continuously. Resources that are provisioned in the replication and migration processes, such as EC2, Amazon EBS volumes, and FSx for ONTAP storage, incur charges according to your account rates.
 2. Servers with high-volume workloads may require higher-performance replication resources, potentially increasing costs. Conduct network and storage benchmarking to determine the necessary staging area resources and estimate associated expenses.
 3. Plan your software licensing strategy when migrating servers. Discuss licensing terms with your operating system (OS) and software vendors as needed.
 4. When servers fail to launch, the Support team may request permission to run diagnostics. This iterative process helps the service team address edge cases causing launch failures. Diagnostic launches will incur charges based on the source and conversion server settings. Begin testing at least two weeks before your migration deadline. This allows time to resolve unexpected issues before the final cutover.
@@ -23,7 +23,7 @@ Before migrating, review the associated costs of using the service. For full pri
 ## Import/Export
 
 When performing large-scale migrations, you can use the [Import/Export](import-export.md "import-export.md") feature in AWS Transform MGN to efficiently stage your servers with the correct configurations. This feature uses a CSV template file with predefined columns that map to attributes of Waves, Applications, and Source Servers in MGN. The template includes columns for Launch Template settings, enabling bulk edits of these configuration options. Additionally, you can specify Tags to assist with cost center association, ensuring your cost planning remains accurate.
-By utilizing the Import/Export feature, you can streamline your migration process and maintain better control over your server configurations and associated costs.
+By using the Import/Export feature, you can streamline your migration process and maintain better control over your server configurations and associated costs.
 
 ## MGN Connector
 
@@ -63,7 +63,7 @@ Planning for your cutover date is crucial for a successful migration. Work backw
 
 1. Conduct comprehensive [testing](best_practices_mgn.md#Testing "best_practices_mgn.md#Testing") at least two weeks before your planned migration date. This timeframe allows you to resolve or escalate specific problems with [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") . For legacy operating systems or unique server configurations, allocate more than two weeks for testing, as complex issues may require additional time to resolve.
 2. If you need expert support during migration, consider using [AWS Countdown](https://aws.amazon.com/premiumsupport/aws-countdown/ "https://aws.amazon.com/premiumsupport/aws-countdown/") . This service provides designated engineers from a team of AWS specialists who offer proactive guidance and troubleshooting assistance throughout your migration process.
-3. Train your team for AWS Cloud prior to migration to prepare for the change in the environment as upskilling your team is an important step in the migration journey.
+3. Train your team for AWS Cloud before migration to prepare for the change in the environment as upskilling your team is an important step in the migration journey.
 
 ## Clustered servers
 
@@ -85,10 +85,10 @@ We recommend maintaining a stable environment between the test launch and cutove
 
 ## API limits
 
-API limits can cause migration delays during large-scale migrations. It's crucial to review the limits of all services used in AWS migrations, including [MGN](MGN-service-limits.md "MGN-service-limits.md") , [EC2](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md") , [EBS](../../../ebs/latest/userguide/ebs-resource-quotas.md "../../../ebs/latest/userguide/ebs-resource-quotas.md") , and [VPC](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md") .
+API limits can cause migration delays during large-scale migrations. It's crucial to review the limits of all services used in AWS migrations, including [MGN](MGN-service-limits.md "MGN-service-limits.md") , [EC2](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md") , [EBS](../../../ebs/latest/userguide/ebs-resource-quotas.md "../../../ebs/latest/userguide/ebs-resource-quotas.md") , [FSx for ONTAP](../../../fsx/latest/ONTAPGuide/limits.md "../../../fsx/latest/ONTAPGuide/limits.md") , and [VPC](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md") .
 
 1. The default limit for MGN concurrent replicating servers ("Max Active Source Servers") is 150. Increasing this limit requires a detailed justification and migration plan. Contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/") if you need to request a limit increase.
-2. EC2 and EBS service quotas will be based on your AWS Environment. Some customers may already have workloads running in AWS, while others may have none. Plan for the number of servers and disks being migrated to estimate how many EC2 instances will run in your account at a given time. This includes MGN Replication Server EC2 instances and their associated EBS volumes. Additionally, account for the [EBS Snapshots](Replication-Related-FAQ.md#How-Many-Snapshots "Replication-Related-FAQ.md#How-Many-Snapshots") that MGN will create during the replication process.
+2. EC2 and EBS service quotas will be based on your AWS Environment. Some customers may already have workloads running in AWS, while others may have none. Plan for the number of servers and disks being migrated to estimate how many EC2 instances will run in your account at a given time. This includes MGN Replication Server EC2 instances and their associated storage volumes (Amazon EBS or FSx for ONTAP). Additionally, account for the [EBS Snapshots](Replication-Related-FAQ.md#How-Many-Snapshots "Replication-Related-FAQ.md#How-Many-Snapshots") that MGN will create during the replication process.
 3. If you plan to use a single IP address for network traffic from the [staging area](preparing-environments.md#TCP-443:~:text=tcp%20dpt%3A443-,Communication%20between%20the%20staging%20area%20subnet%20and%20AWS%20Application%20Migration%20Service%20over%20TCP%20port%20443,-Copy%20Plain%20Link "preparing-environments.md#TCP-443:~:text=tcp%20dpt%3A443-,Communication%20between%20the%20staging%20area%20subnet%20and%20AWS%20Application%20Migration%20Service%20over%20TCP%20port%20443,-Copy%20Plain%20Link") to the MGN endpoints (such as a security appliance or firewall), consult your AWS account team or AWS Support. Migrating in waves can help mitigate API limits or throttling issues.
 
 It can be challenging to anticipate all AWS service limitations when planning your migration. Testing with the same number of servers you intend to migrate will help identify potential limitations. Developing a comprehensive test and cutover plan will enable you to address these issues promptly, ensuring a smooth migration experience.

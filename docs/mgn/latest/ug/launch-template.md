@@ -10,7 +10,7 @@ To edit the launch template for your entire account, you need to edit your launc
 template. Choose **Launch template** from the left-hand
 navigation menu.
 
-This opens the account template view. Click **Edit** to
+This opens the account template view. Choose **Edit** to
 update your account-level launch template.
 
 ###### Note
@@ -53,8 +53,8 @@ define:
   your test or cutover instance. If selected, server tags are transferred. These
   tags are attached to all source servers, all launched test and cutover
   instances, and all of the ephemeral resources that are created on your AWS
-  account during the normal operation of AWS Transform MGN, such as snapshots, Amazon EBS
-  volumes, replication and conversion servers, and security groups.
+  account during the normal operation of AWS Transform MGN, such as snapshots, storage
+  volumes (Amazon EBS and FSx for ONTAP), replication and conversion servers, and security groups.
 - **Operating system licensing**: Select if
   you want to Bring Your Own Licenses (BYOL) from the source server into the test or
   cutover instance.
@@ -92,13 +92,24 @@ can define the following options:
 - **Target security groups** – Choose a number of
   security groups for the test and cutover machines. Upon the target launch, the
   selected security groups are attached to the Amazon EC2 instances.
+
+###### Note
+
+If you have selected FSx for ONTAP as the target storage in Replication
+settings, ensure you select a security group that allows your launched instances
+to connect to the FSx for ONTAP file system over iSCSI (TCP port 3260). See
+[Step 1: Configure security
+groups](fsx-ontap.md#fsx-ontap-step1-security-groups "fsx-ontap.md#fsx-ontap-step1-security-groups") in the [FSx for ONTAP configuration
+guide](fsx-ontap.md "fsx-ontap.md").
+
 - **Default instance type** – Choose a default
   instance type for the test and cutover machines. The instance type chosen in
   this template is propagated to source server’s launch template and is used to
   launch the target instance.
-- **EBS volume type** – Choose an Amazon EBS volume type
-  for the test and cutover machines. The Amazon EBS volume type options are io1, io2,
-  gp3, st1, and sc1.
+- **EBS volume type** – When using Amazon EBS as the
+  target storage type, choose an Amazon EBS volume type for the test and cutover
+  machines. The Amazon EBS volume type options are io1, io2, gp3, st1, and sc1.
+  This setting does not apply when using FSx for ONTAP.
 
 If this setting is not chosen, the default volume type selected in the
 launch template is gp3 with maximum IOPS (16000). If a volume type is selected

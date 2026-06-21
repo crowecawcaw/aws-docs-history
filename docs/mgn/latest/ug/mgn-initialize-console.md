@@ -77,5 +77,5 @@ You can find all of these policies in the [IAM Console](https://console.aws.amaz
 ###### Important
 
 You must attach the AWSApplicationMigrationFullAccess and the
-AWSApplicationMigrationEC2Access policies to your users and roles in order to be able to launch
+AWSApplicationMigrationEC2Access policies to your users and roles to be able to launch
 test and cutover instances and to complete a full migration cycle with AWS MGN.

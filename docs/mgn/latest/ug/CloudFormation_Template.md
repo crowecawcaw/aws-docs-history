@@ -145,11 +145,11 @@ Via AWS CloudFormation console
 
     1. **Stacks → Create stack → With new resources (standard)**
     2. Under **Specify template** select **Upload a template file**
-    3. Click **Choose file** and select the template file `aws-mgn-connector-iam-principals.json` in the dialog.
-    4. Click **Next**.
-    5. In the following screen, choose a name for your CloudFormation stack (for example: `aws-mgn-connector-iam-principals-stack`) and click **Next**.
-    6. Click **Next** again.
-    7. Acknowledge the required capabilities and click on **Submit**.
+    3. Choose **Choose file** and select the template file `aws-mgn-connector-iam-principals.json` in the dialog.
+    4. Choose **Next**.
+    5. In the following screen, choose a name for your CloudFormation stack (for example: `aws-mgn-connector-iam-principals-stack`) and choose **Next**.
+    6. Choose **Next** again.
+    7. Acknowledge the required capabilities and choose on **Submit**.
     8. Wait for the stack to finish creation.
 
 Via AWS CLI

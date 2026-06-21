@@ -23,7 +23,7 @@ cutover instances that were launched during the cutover.
 
 ## Ready for cutover indicators
 
-Prior to launching a cutover instance, ensure that your source servers are ready for
+Before launching a cutover instance, ensure that your source servers are ready for
 cutover by looking for the following indicators on the **Source
 Servers** page:
 
@@ -71,7 +71,7 @@ indicators on the **Source servers** page.
 ## Reverting or finalizing a cutover
 
 Once you have launched your cutover instances, open the Amazon EC2 Console and SSH or RDP
-into your cutover instances in order to ensure that they function correctly. Validate
+into your cutover instances to ensure that they function correctly. Validate
 connectivity and perform acceptance tests for your application.
 
 ###### Note
@@ -100,7 +100,7 @@ To revert a cutover:
    indicating that these servers have not undergone cutover.
 
 When the **Revert cutover for X servers** dialog appears,
-click **Revert**.
+choose **Revert**.
 
 ### Finalizing a cutover
 
@@ -128,7 +128,7 @@ The AWS Transform MGN console will indicate **Cutover finalized**
 when the cutover has completed successfully.
 
 The AWS Transform MGN console will automatically stop data replication for the source servers
-that were cutover in order to save resource costs. The selected source servers' **Migration lifecycle** column will show the **Cutover complete** status, the **Data replication**
+that were cutover to save resource costs. The selected source servers' **Migration lifecycle** column will show the **Cutover complete** status, the **Data replication**
 status column will show **Disconnected**, and the **Next step** column will show **Mark as
 archived**. The source servers have now been successfully migrated into
 AWS. 5. You can now archive your source servers that have launched cutover instances. Archiving
@@ -141,7 +141,7 @@ To archive your cutover source servers:
     1. Check the box to the left of the of each source server for which the **Migration lifecycle** column states **Cutover
      complete**.
     2. Open the **Actions** menu and choose **Mark as archived**.
-    3. When the **Archive X server** dialog appears, click
+    3. When the **Archive X server** dialog appears, choose
      **Archive**.
     4. To see your archived servers, choose **Archived source
      servers** from the drop-down menu in the source servers view.

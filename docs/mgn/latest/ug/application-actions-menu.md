@@ -29,7 +29,7 @@ Check the **Yes, terminate launched instances
 
 - **Revert to "ready for testing"** – Choose this
   option to revert a finalized test for this application if you want to run
-  further tests prior to initiating a cutover.
+  further tests before initiating a cutover.
 
 The **Revert testing** dialog will appear.
 Select whether you want to terminate the launched instances used for

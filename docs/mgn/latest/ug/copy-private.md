@@ -8,10 +8,10 @@ cutover instance matches the private IP used by the source server.
 AWS Transform MGN monitors the source server on an hourly basis to identify the
 private IP. MGN uses the private IP of the primary network interface.
 
-The **No** option is chosen by default. Click **No** if you do not want the private IP of the test or cutover instance
+The **No** option is chosen by default. Choose **No** if you do not want the private IP of the test or cutover instance
 to match that of the source machine.
 
-Click **Yes** if you want to use a private IP. The IP is shown in brackets next to the option.
+Choose **Yes** if you want to use a private IP. The IP is shown in brackets next to the option.
 
 ###### Note
 

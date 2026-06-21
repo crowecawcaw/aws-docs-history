@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Add application
 
-To add an application, click **Add application**.
+To add an application, choose **Add application**.
 When the **Add application** prompt opens, configure
 the application name, add a description (optional), associate source servers
 (optional), and add tags (optional).
@@ -18,4 +18,4 @@ the application name, add a description (optional), associate source servers
   with the application.
 - **Tags** – You can add up to 50 tags to an
   application.
-  When you are done configuring your application settings, click **Add application** to create the application.
+  When you are done configuring your application settings, choose **Add application** to create the application.

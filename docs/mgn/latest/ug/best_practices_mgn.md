@@ -6,9 +6,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 During the phases of your migration project, review these best practices to help you to a successful outcome.
 
-1. Plan your Migration project prior to installing the AWS Replication Agent on your source
+1. Plan your Migration project before installing the AWS Replication Agent on your source
    servers.
-2. Do not perform any reboots on the source servers prior to a cutover.
+2. Do not perform any reboots on the source servers before a cutover.
 3. Do not archive or disconnect the source server from AWS until your launched cutover
    instance in AWS is working as expected.
 
@@ -19,7 +19,7 @@ During the phases of your migration project, review these best practices to help
    cutover takes place. After performing the test launch, validate connectivity to your test
    instances (using SSH for Linux or RDP for Windows), and perform acceptance tests for your
    application.
-2. Ensure that you perform a Test prior to performing a cutover.
+2. Ensure that you perform a Test before performing a cutover.
 
 ## Successful implementation
 

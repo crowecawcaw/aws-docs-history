@@ -78,7 +78,7 @@ replicate them transparently, just like actual local disks.
 
 If the disks are mounted over the network, such as an NFS share, as most NAS
 implementations are, the AWS Replication Agent would need to be installed on the actual NFS
-server in order to replicate the disk.
+server to replicate the disk.
 
 ## Does AWS Transform MGN support Windows License migration?
 
@@ -110,7 +110,7 @@ Reference](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md"
 
 ## What are the Private APIs used by MGN to define actions in the IAM Policy?
 
-MGN utilizes the following Private API resources as actions in the IAM Policy. [Learn more about Actions, resources, and condition keys for MGN.](../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md "../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md")
+MGN uses the following Private API resources as actions in the IAM Policy. [Learn more about Actions, resources, and condition keys for MGN.](../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md "../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md")
 
 - BatchCreateVolumeSnapshotGroupForMgn – Grants permission to create volume snapshot
   group.

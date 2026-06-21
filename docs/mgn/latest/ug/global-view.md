@@ -6,7 +6,7 @@ The AWS Transform MGN global view feature enables you to manage large-scale migr
 across multiple accounts. Global view provides visibility, and the ability to perform actions on
 source servers, apps, and waves in different AWS accounts.
 
-Global view utilizes AWS Organizations to structure a management account that has access to
+Global view uses AWS Organizations to structure a management account that has access to
 source servers in multiple member accounts, and member accounts that only have access to their
 own source servers.
 

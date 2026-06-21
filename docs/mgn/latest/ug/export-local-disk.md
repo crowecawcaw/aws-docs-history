@@ -18,4 +18,4 @@ To export your inventory to a local disk, take the following steps:
     * It is highly recommended that you [apply S3 bucket security practices](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md") where your CSV files are
      stored.
 
-4. Click **Export**.
+4. Choose **Export**.

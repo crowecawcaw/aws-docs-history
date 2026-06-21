@@ -125,7 +125,7 @@ You can configure a custom action to execute any SSM document that is available
 in your account.
 
 To add a new customer action, go to the **Post-launch actions
-settings** and click **Create
+settings** and choose **Create
 action**.
 
 The page includes these parameters:
@@ -140,7 +140,7 @@ The page includes these parameters:
   script prevents the cutover.
 - **System Manager document name** – Select any
   SSM document that is available for the specific account.
-- **View in Systems Manager** – Click to open
+- **View in Systems Manager** – Choose to open
   **SSM** and view additional information
   about the document.
 - **Description** – Add a description or keep
@@ -178,7 +178,7 @@ execution on target instances. We recommend you consider security implications,
 when choosing to use parameters that contain scripts or sensitive information,
 such as API keys and database passwords.
 
-Edit each setting as required and then click **Add
+Edit each setting as required and then choose **Add
 action**.
 
 ## Edit custom post-launch actions
@@ -192,5 +192,5 @@ in your account.
 Use this page to edit the parameters detailed in the **Create
 action** section.
 
-Edit each setting as required and then click **Save
+Edit each setting as required and then choose **Save
 action**.

@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Reverting a cutover
 
 Once you have launched your cutover instances, open the Amazon EC2 console and SSH or RDP into
-your cutover instances in order to ensure that they function correctly. Validate connectivity
+your cutover instances to ensure that they function correctly. Validate connectivity
 and perform acceptance tests for your application.
 
 ###### Note
@@ -30,4 +30,4 @@ To revert a cutover take the following steps:
    indicating that these servers have not undergone cutover.
 
 When the **Revert cutover for X servers** dialog appears,
-click **Revert**.
+choose **Revert**.

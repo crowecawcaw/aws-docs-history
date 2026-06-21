@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Add wave
 
-To add a wave, click the **Add wave** button. You will then
+To add a wave, choose the **Add wave** button. You will then
 see the **Add wave** prompt that includes the following
 parameters:
 
@@ -16,4 +16,4 @@ parameters:
   it with the wave.
 - **Add tags (optional)** – You can up to 50 tags according to
   your preferences.
-  Click **Add wave** to create the wave.
+  Choose **Add wave** to create the wave.

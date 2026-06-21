@@ -13,7 +13,7 @@ To enable service access for your organization, take the following steps:
         1. Log in as management account.
         2. Select **Global view** from the left-hand navigation
          menu.
-        3. Activate service access by clicking the 'Enable AWS Organizations service access' button
+        3. Activate service access by choosing the 'Enable AWS Organizations service access' button
 
     [Learn more about activating trusted access.](../../../organizations/latest/userguide/orgs_integrate_services.md "../../../organizations/latest/userguide/orgs_integrate_services.md")
 

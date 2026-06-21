@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Add MGN connector
 
-To add an MGN connector, click **Add MGN connector**, to open the Add MGN connector page. Set up your MGN connector by providing the following:
+To add an MGN connector, choose **Add MGN connector**, to open the Add MGN connector page. Set up your MGN connector by providing the following:
 
 - Connector name: The MGN connector name is used to identify the connector. This field is mandatory, and limited to 256 characters. The name must be unique (case-insensitive) per account per Region.
 - Obtain the SSM hybrid activation parameters (installation key and ID), which is required in order install the SSM agent on the MGN connector. For more information on SSM activation parameters see [here](../../../systems-manager/latest/userguide/sysman-managed-instance-activation.md "../../../systems-manager/latest/userguide/sysman-managed-instance-activation.md").

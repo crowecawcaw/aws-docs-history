@@ -13,7 +13,7 @@ AWS Transform MGN. These resources include:
 - EC2 instances
 - Conversion groups
 - Security groups
-- EBS volumes
+- Storage volumes (Amazon EBS or FSx for ONTAP)
 - Snapshots
 
 ###### Note

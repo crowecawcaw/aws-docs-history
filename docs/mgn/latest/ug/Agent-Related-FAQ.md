@@ -10,14 +10,14 @@ This section contains answers to questions about the AWS Replication Agent.
 - [What kind of data is transferred between the agent and the AWS Transform MGN?](#What-Data-Transferred "#What-Data-Transferred")
 - [Can a proxy server be used between the source server and the AWS Transform MGN console?](#Can-Proxy-Used "#Can-Proxy-Used")
 - [What are the prerequisites needed to install the AWS Replication Agent?](#What-Pre-Requisites-Agent "#What-Pre-Requisites-Agent")
-- [What ports does the AWS Replication Agent utilize?](#What-Ports-Agent "#What-Ports-Agent")
+- [What ports does the AWS Replication Agent use?](#What-Ports-Agent "#What-Ports-Agent")
 - [What privileges does the AWS Replication Agent require?](#Agent-privileges "#Agent-privileges")
 - [Is it possible to install the agent on servers running operating systems that are not listed as supported?](#Agent-installation-on-unsupported-operating-system "#Agent-installation-on-unsupported-operating-system")
-- [What kind of resources does the AWS Replication Agent utilize?](#What-Resources-Agent "#What-Resources-Agent")
+- [What kind of resources does the AWS Replication Agent use?](#What-Resources-Agent "#What-Resources-Agent")
 - [Can AWS Transform MGN migrate containers?](#Can-Containers "#Can-Containers")
 - [Does the AWS Replication Agent cache any data to disk?](#Does-Agent-Cache-Data "#Does-Agent-Cache-Data")
 - [How is communication between the AWS Replication Agent and the AWS Transform MGN secured?](#How-Communication-Secured "#How-Communication-Secured")
-- [Is it possible to change the port the AWS Replication Agent utilizes from TCP Port 1500 to a different port?](#Can-Change-Port-TCP "#Can-Change-Port-TCP")
+- [Is it possible to change the port the AWS Replication Agent uses from TCP Port 1500 to a different port?](#Can-Change-Port-TCP "#Can-Change-Port-TCP")
 - [How do I manually uninstall the AWS Transform MGN agent from a server?](#How-Manually-Uninstall-Agent "#How-Manually-Uninstall-Agent")
 - [When do I need to reinstall the agent?](#When-Reinstall-Agent "#When-Reinstall-Agent")
 - [How much bandwidth does the AWS Replication Agent consume?](#How-Much-Bandwidth "#How-Much-Bandwidth")
@@ -57,7 +57,7 @@ machine:
 
 ## Can a proxy server be used between the source server and the AWS Transform MGN console?
 
-Yes. The proxy is configured using an environment variable prior to the install.
+Yes. The proxy is configured using an environment variable before the install.
 
 https_proxy=https://PROXY:PORT/
 
@@ -82,9 +82,9 @@ runs – either Linux or Windows.
 
 Prerequisites [can be found here](installation-requirements.md "installation-requirements.md").
 
-## What ports does the AWS Replication Agent utilize?
+## What ports does the AWS Replication Agent use?
 
-The Agent utilizes TCP Port 443 to communicate with the Service Manager of Application
+The Agent uses TCP Port 443 to communicate with the Service Manager of Application
 Migration Service and TCP Port 1500 for replication to AWS.
 
 ## What privileges does the AWS Replication Agent require?
@@ -99,9 +99,9 @@ The agent is designed and tested to work on the officially supported operating s
 Any installation or replication issues encountered when using unsupported operating systems will need to be handled through your own troubleshooting or support channels, as the AWS engineering team will be limited in their ability to assist.
 We advise using the agent only on supported OS versions to ensure the best experience. Please refer to [Supported operating systems](Supported-Operating-Systems.md "Supported-Operating-Systems.md").
 
-## What kind of resources does the AWS Replication Agent utilize?
+## What kind of resources does the AWS Replication Agent use?
 
-The AWS Replication Agent is lightweight and nondisruptive. The agent utilizes
+The AWS Replication Agent is lightweight and nondisruptive. The agent uses
 approximately 5% CPU and 250 MB of RAM.
 
 ## Can AWS Transform MGN migrate containers?
@@ -128,9 +128,9 @@ All communication is encrypted using SSL. In addition, each Agent is assigned a 
 installation which is used to encrypt all traffic. All keys are unique and are not shared
 across multiple agents.
 
-## Is it possible to change the port the AWS Replication Agent utilizes from TCP Port 1500 to a different port?
+## Is it possible to change the port the AWS Replication Agent uses from TCP Port 1500 to a different port?
 
-No. The AWS Transform MGN Agent can only utilize TCP Port 1500 for replication.
+No. The AWS Transform MGN Agent can only use TCP Port 1500 for replication.
 
 ## How do I manually uninstall the AWS Transform MGN agent from a server?
 
@@ -163,7 +163,7 @@ The AWS Replication Agent opens up to five connections and will attempt to maxim
 available bandwidth.
 
 Throttling can be activated via the AWS Transform MGN console by either
-selecting a specific server and clicking the **Replication
+selecting a specific server and choosing the **Replication
 settings** tab or by changing the **Replication
 template** (in this case the change will only affect newly added servers).
 
@@ -202,7 +202,7 @@ it.
 The temporary credential mechanism was developed specifically to provide an easy and
 secure way to install MGN Agents. The main flow of the temporary credentials' creation
 process relies on generating an x509 certificate per agent and then using this x509
-certificate to receive temporary IAM credentials. This process utilizes a similar mechanism
+certificate to receive temporary IAM credentials. This process uses a similar mechanism
 to the one used by [IAM
 Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md").
 
@@ -227,10 +227,11 @@ Supported OSs include:
 - 2016
 - 2019
 - 2022
+- 2025
 
 **Linux**
 
-- CentOS 6–8
+- CentOS 6–8, Stream 9, Stream 10
 - Oracle 6–8
 - RHEL 6–9.7, 10, 10.1
 - Rocky 8–9.7, 10, 10.1

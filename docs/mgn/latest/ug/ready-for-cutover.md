@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Ready for cutover indicators
 
-Prior to launching a cutover instance, ensure that your source servers are ready for
+Before launching a cutover instance, ensure that your source servers are ready for
 cutover by looking for the following indicators on the **Source
 servers** page:
 

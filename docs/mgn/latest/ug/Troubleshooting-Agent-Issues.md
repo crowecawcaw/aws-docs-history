@@ -26,9 +26,9 @@ version. To verify this, you can
 
 1.  Use the Windows key + I keyboard shortcut to open the Settings app.
 
-2.  Click System.
+2.  Choose System.
 
-3.  Click About.
+3.  Choose About.
 
 4.  Under System type, you will see two pieces of information: if it says 32-bit operating
     system, x64-based processor, then it means that your PC is running a 32-bit version of Windows
@@ -309,12 +309,12 @@ Variable**.
 
     1. Navigate to **Control Panel >System and Security >System >Advanced
      system settings.**
-    2. On the **System Properties** dialog box **Advanced** tab, click the **Environment Variables** button.
-    3. On the **System Variables** section of the **Environment Variables** pane, select the **Path** variable. Then, click the **Edit** button to
+    2. On the **System Properties** dialog box **Advanced** tab, choose the **Environment Variables** button.
+    3. On the **System Variables** section of the **Environment Variables** pane, select the **Path** variable. Then, choose the **Edit** button to
      view its contents.
     4. On the **Edit System Variable** pane, review the defined
      paths in the **Variable value** field. If the path of the
-     net.exe and/or sc.exe files does not appear there, manually add it to the **Variable value** field, and click **OK**.
+     net.exe and/or sc.exe files does not appear there, manually add it to the **Variable value** field, and choose **OK**.
 
 ### Windows - Installation Failed - Request Signature
 

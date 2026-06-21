@@ -4,7 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 After you have added all of your source servers and configured their launch settings, you
 are ready to launch a test instance. It is crucial to test the migration of your source servers
-to AWS prior to initiating a cutover in order to verify that your source servers function
+to AWS before initiating a cutover to verify that your source servers function
 properly within the AWS environment.
 
 ###### Important
@@ -31,11 +31,11 @@ staging area subnet and not to the test instances that were launched during the 
 - Take into consideration that once a test instance is launched, actual resources will be
   used in your AWS account and you will be billed for these resources. You can terminate the
   operation of launched Test instances once you verify that they are working properly without
-  impact in order to data replication.
+  impact to data replication.
 
 ## Ready for testing indicators
 
-Prior to launching a Test instance, ensure that your source servers are ready for testing
+Before launching a Test instance, ensure that your source servers are ready for testing
 by looking for the following indicators on the **Source servers**
 page:
 
@@ -79,13 +79,13 @@ indicators on the **Source Servers** page.
 ## Reverting or finalizing a test
 
 After you have launched your test instances, open the Amazon EC2 Console and SSH or RDP
-into your test instances in order to ensure that they function correctly. Validate connectivity
+into your test instances to ensure that they function correctly. Validate connectivity
 and perform acceptance tests for your application.
 
 ### Reverting a test
 
 If you encounter any issues and want to launch new test instances, or if you are
-performing a scheduled test and plan to perform additional tests prior to cutover, you can
+performing a scheduled test and plan to perform additional tests before cutover, you can
 revert the test. This will revert your source servers' **Migration
 lifecycle** status to **Ready for testing**, indicating
 that these servers still require additional testing before they are ready for cutover. During
@@ -143,4 +143,4 @@ Console). You can quickly access the Test instance by navigating to the specific
 status** and choosing **View in EC2 Console.** 7. The Amazon EC2 Console will automatically search for and display the test instance.
 Select the instance, open the **Instance state** menu, and
 choose **Terminate instance**. When the confirmation dialogue
-appears, click **Terminate**.
+appears, choose **Terminate**.

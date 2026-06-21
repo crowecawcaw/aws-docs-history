@@ -19,7 +19,7 @@ To finalize a test:
    appears, select whether you want to terminate the launched instances used for testing. It is
    recommended to terminate these instances, as you will be charged for them even though you
    no longer need them. Check the **Yes, terminate launched instances
-   (recommended)** box and click **Continue**.
+   (recommended)** box and choose **Continue**.
 
 The AWS Transform MGN console confirms that the servers were marked as ready for
 cutover.
@@ -38,4 +38,4 @@ choosing **view in EC2 console**.
 The Amazon EC2 console automatically searches for and displays the Test instance. Select the
 instance, open the **Instance state** menu, and choose **Terminate instance**.
 
-Click **Terminate**.
+Choose **Terminate**.

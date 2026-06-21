@@ -7,7 +7,7 @@ these key considerations as well as the [full launch
 settings](detailed-considerations.md "detailed-considerations.md") before creating your launch template.
 
 1. **Instance Type** – Ensure that you select an instance type
-   that matches the hardware requirements of your source server. AWS Transform MGN always utilizes the
+   that matches the hardware requirements of your source server. AWS Transform MGN always uses the
    instance type that is set on the Amazon EC2 launch template unless the **Instance right-sizing** feature is activated.
 
 ###### Note
@@ -16,7 +16,7 @@ settings](detailed-considerations.md "detailed-considerations.md") before creati
      feature, then AWS Transform MGN uses the instance type determined by the **Instance right-sizing** feature and not the instance type you chose in the EC2
      launch template. MGN verifies the instance type once per hour, as a result, if you did not
      deactivate the instance right-sizing feature, the first time instance launch may still
-     utilize the instance type you set in the EC2 launch template, but any subsequent launches
+     use the instance type you set in the EC2 launch template, but any subsequent launches
      use the right-sizing instance.
     * The available capacity for each Amazon EC2 instance type varies by Availability Zone and Region,
      and may be subject to your specific AWS account limits. For mission-critical workloads
@@ -45,7 +45,7 @@ If you wish to use an Elastic IP, you must create an ENI to specify the IP and t
 the Network interfaces to use the ENI. Learn more about working with Amazon Elastic Inference
 in [this Developer Guide article.](../../../elastic-inference/latest/developerguide/working-with-ei.md "../../../elastic-inference/latest/developerguide/working-with-ei.md") 7. **Networking platform** – AWS Transform MGN only supports **Virtual Private Cloud (VPC)**. EC2-Classic is **not** supported. Do **not** add any security groups
 under the network platform. 8. **Custom device name** – Do not alter this field. AWS Transform MGN
-uses the device name as defined on the source server in order to map disks on the test or
+uses the device name as defined on the source server to map disks on the test or
 cutover instance. You can use this field to identify your disks. 9. **Disks** – You cannot add disks to the EC2 launch
 template. Any disks that are added that do not exist on the source machine are ignored by
 AWS Transform MGN. 10. **Launch template name** – Do not alter this field.
@@ -56,7 +56,14 @@ server. You can recognize which source server the launch template is matched wit
 template and launch configuration for machines that have been disconnected from AWS Transform MGN or
 machines for which the cutover has been finalized 90 minutes after disconnect or cutover
 finalization. This aids in ensuring that your account does not surpass the AWS 5000 EC2
-launch template limit. 13. **Volumes** – For each EBS volume, the service uses the
+launch template limit.
+
+###### Note
+
+When using FSx for ONTAP as the target storage type, the FSx for ONTAP split clone operation
+may take longer than 90 minutes. In this case, the EC2 instance and launch template are
+cleaned up within the standard 90-minute window, but the replica FSx for ONTAP volume may
+remain active until the split clone operation completes. 13. **Volumes** – For each storage volume, the service uses the
 user-selected values. If no matching volume exists in the launch template, the service uses
 the default value. If the launch template includes a volume that does not exist in the source
 server, the system disregards the specific volume.
@@ -68,4 +75,4 @@ values.
 
 You can set a per-volume KMS key directly in the EC2 launch template's storage
 section. If set, the launch template KMS key takes precedence over the replication
-snapshot's key. Alternatively, you can configure encryption through the [EBS Encryption](replication-server-settings.md#ebs-encryption "replication-server-settings.md#ebs-encryption") section of the replication settings.
+snapshot's key. Alternatively, you can configure encryption through the [EBS Encryption](ebs-storage.md#ebs-encryption "ebs-storage.md#ebs-encryption") section of the replication settings.

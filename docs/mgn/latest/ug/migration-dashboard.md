@@ -316,7 +316,7 @@ The status includes:
 
 You can review AWS Transform MGN events and metrics in AWS CloudTrail. Click on **View CloudTrail Event** History to openAWS CloudTrail in a new tab.
 
-Learn more about [monitoring MGN.](monitoring-overview.md "monitoring-overview.md")
+Learn more about [monitoring AWS MGN.](monitoring-overview.md "monitoring-overview.md")
 
 Learn more about AWS CloudTrail events in the [AWS
 CloudTrail user guide](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md").
@@ -374,7 +374,7 @@ To construct a custom installation command, take these steps:
      AWS Replication Agent installation](credentials.md "credentials.md"). The form does not send the secret, but does
      add it to the installation command.
     4. If you have not yet obtained the necessary credentials, [follow these instructions](credentials.md "credentials.md").
-    5. If you are adding a Windows source server to MGN, download the installer onto the
+    5. If you are adding a Windows source server to AWS MGN, download the installer onto the
      source server. The installer is downloaded from the AWS Region of your account. If
      you're adding a Linux source server, skip this step.
     6. Copy the generated custom installation command and either input it into the command

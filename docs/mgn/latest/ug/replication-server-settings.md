@@ -14,8 +14,7 @@ The replication server options, include:
 - The subnet within which the replication server is launched. The subnet can
   use both IPv4 and IPv6 CIDRs.
 - Replication Server instance type
-- Amazon EBS volume types
-- Amazon EBS encryption
+- Target storage type (Amazon EBS or FSx for ONTAP)
 - Security groups
 - IP Version - you can choose IPv4 or IPv6.
 
@@ -113,228 +112,20 @@ server** option.
 Using a dedicated replication server may increase the Amazon EC2 cost you incur
 during replication.
 
-## Amazon EBS volume type
+## Target storage type
 
-Choose the default Amazon **Amazon EBS volume type**
-to be used by the replication servers for large disks.
+AWS Transform MGN supports two target storage types for replication. You can select
+the storage type that best suits your workload requirements:
 
-Each disk has minimum and maximum sizes and varying performance metrics and
-pricing. Learn more about Amazon EBS volume types in [this Amazon EBS article.](../../../AWSEC2/latest/UserGuide/EBSVolumeTypes.md "../../../AWSEC2/latest/UserGuide/EBSVolumeTypes.md")
-
-The best practice is to not change the default Amazon EBS volume type, unless there
-is a business need for doing so.
-
-###### Note
-
-This option only affects disks over 500 GiB (by default, smaller disks
-always use Magnetic HDD volumes).
-
-The default **Lower cost, Throughput Optimized HDD
-(st1)** option utilizes slower, less expensive disks.
-
-You may want to use this option if:
-
-- You want to keep costs low
-- Your large disks do not change frequently
-- You are not concerned with how long the initial sync process will
-  take
-
-The **Faster, General Purpose SSD (gp3)** option
-utilizes faster, but more expensive disks.
-
-You may want to use this option if:
-
-- Your source server has disks with a high write rate or if you want
-  faster performance in general
-- You want to speed up the initial sync process
-- You are willing to pay more for speed
-
-###### Note
-
-You can customize the Amazon EBS volume type used by each disk within each
-source server in that source server's settings. [Learn more about changing individual source server volume types.](staging-disk.md "staging-disk.md")
-
-###### Note
-
-For information about Amazon EBS volume limits, see
-[What are the Amazon EBS volume limits for
-AWS Transform MGN?](AWS-Related-FAQ.md#ebs-limits-faq "AWS-Related-FAQ.md#ebs-limits-faq")
-
-## Amazon EBS encryption
-
-Choose whether to use the default or custom Amazon **EBS
-encryption**. This option will encrypt your replicated data at rest
-on the Staging Area Subnet disks and the replicated disks.
-
-- Default – The default Amazon EBS encryption Volume Encryption Key will be
-  used (which can be an Amazon EBS-managed key or a CMK).
-- Custom – You will need to enter a custom customer-managed key (CMK) in
-  the regular key ID format.
-
-If you select the **Custom** option, the
-**EBS encryption key** box appears. Enter
-the ARN or key ID of a customer-managed CMK from your account or another
-AWS account. Enter the encryption key (such as a cross-account KMS key) in the
-regular key ID format (KMS key example: 123abcd-12ab-34cd-56ef-1234567890ab).
-
-To create a new AWS Key Management Service key, click **Create an AWS KMS
-key**. You will be redirected to the Key Management Service (KMS)
-Console where you can create a new key to use.
-
-Learn more about Amazon EBS Volume Encryption in [this Amazon EBS article](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md").
-
-###### Important
-
-Reversing the encryption option after data replication has started will
-cause data replication to start from the beginning.
-
-### Using an AWS KMS Customer Managed Key (CMK) for encryption
-
-If you decide to use a Customer Managed Key (CMK), or if your default
-Amazon EBS encryption key is a CMK, you will need to add additional permissions
-to the key to allow AWS Transform MGN to use it.
-
-To modify the existing key policy using the AWS Management Console
-_policy view_.
-
-1. Navigate to the AWS KMS Console and select the AWS KMS key you plan to
-   use with MGN.
-2. Scroll to **Key policy** and click
-   **Switch to policy view**.
-3. Click **Edit** and add the following
-   JSON statements to the **Statement**
-   field.
-
-```
-
-    {
-      "Sid": "Allow AWS Services permission to describe a customer managed key for encryption purposes",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::$ACCOUNT_ID:root"
-      },
-      "Action": [
-        "kms:DescribeKey"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "kms:CallerAccount": [
-            "$ACCOUNT_ID"
-          ]
-        },
-        "Bool": {
-          "aws:ViaAWSService": "true"
-        }
-      }
-    },
-    {
-      "Sid": "Allow MGN permissions to use a customer managed key for EBS encryption",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::$ACCOUNT_ID:root"
-      },
-      "Action": [
-        "kms:CreateGrant"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "kms:CallerAccount": [
-            "$ACCOUNT_ID"
-          ],
-          "kms:GranteePrincipal": [
-            "arn:aws:iam::$ACCOUNT_ID:role/aws-service-role/mgn.amazonaws.com/AWSServiceRoleForApplicationMigrationService"
-          ]
-        },
-        "ForAllValues:StringEquals": {
-          "kms:GrantOperations": [
-            "CreateGrant",
-            "DescribeKey",
-            "Encrypt",
-            "Decrypt",
-            "GenerateDataKey",
-            "GenerateDataKeyWithoutPlaintext"
-          ]
-        },
-        "Bool": {
-          "aws:ViaAWSService": "true"
-        }
-      }
-    },
-    {
-      "Sid": "Allow EC2 to use this key on behalf of the current MGN user, during target launches",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": [
-          "arn:aws:iam::$ACCOUNT_ID:root",
-          "arn:aws:iam::$ACCOUNT_ID:role/aws-service-role/mgn.amazonaws.com/AWSServiceRoleForApplicationMigrationService"
-        ]
-      },
-      "Action": [
-        "kms:ReEncrypt*",
-        "kms:GenerateDataKey*"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "kms:CallerAccount": [
-            "$ACCOUNT_ID"
-          ],
-          "kms:ViaService": "ec2.$REGION.amazonaws.com"
-        }
-      }
-    }
-
-
-```
-
-###### Important
-
-    * Replace `$ACCOUNT_ID"` with the
-     AWS account ID you are migrating into.
-    * Replace `$REGION` with the AWS Region you
-     are migrating into.
-    * The last statement can be made stricter by ensuring
-     the principal refers to users who are going to perform
-     [StartTest](../APIReference/API_StartTest.md "../APIReference/API_StartTest.md") or [StartCutover](../APIReference/API_StartCutover.md "../APIReference/API_StartCutover.md") API calls
-
-4. Click **Save changes**.
-
-###### Note
-
-If you are using a Customer Managed Key (CMK) from another account,
-you need to take an additional step from within that account to allow
-the service to leverage the CMK.
-
-From the account in which you want to stage MGN replication servers,
-create a grant that delegates the relevant permissions to the
-appropriate service-linked role. The Grantee Principal element of the
-grant is the ARN of the appropriate service-linked role. The key-id is
-the ARN of the key.
-
-The following is an example [create-grant](../../../cli/latest/reference/kms/create-grant.md "../../../cli/latest/reference/kms/create-grant.md") CLI command that gives the service-linked role
-named **AWSServiceRoleForApplicationMigrationService** in account
-111122223333 permissions to use the customer-managed key in account 444455556666.
-
-aws kms create-grant \
-
---region us-west-2 \
-
---key-id
-arn:aws:kms:us-west-2:444455556666:key/1a2b3c4d-5e6f-1a2b-3c4d-5e6f1a2b3c4d
-\
-
---grantee-principal
-arn:aws:iam::111122223333:role/aws-service-role/mgn.amazonaws.com/AWSServiceRoleForApplicationMigrationService
-\
-
---operations "Encrypt" "Decrypt" "ReEncryptFrom" "ReEncryptTo"
-"GenerateDataKey" "GenerateDataKeyWithoutPlaintext" "DescribeKey"
-"CreateGrant"
-
-For this command to succeed, the user making the request must have
-permissions for the CreateGrant action.
+- **Amazon Elastic Block Store (Amazon EBS)** – The default
+  storage type. Amazon EBS volumes are used by the replication servers. For
+  configuration details, see
+  [Amazon EBS configuration](ebs-storage.md "ebs-storage.md").
+- **Amazon FSx for NetApp ONTAP (FSx for ONTAP)** – Enterprise file
+  storage with NetApp ONTAP capabilities. When selecting FSx for ONTAP, you
+  must provide an FSx Storage Secret ARN and a security group configured for
+  iSCSI access. For setup instructions, see
+  [FSx for ONTAP configuration](fsx-ontap.md "fsx-ontap.md").
 
 ## Store snapshots in AWS Local Zone
 
@@ -351,23 +142,23 @@ Local Zone.
 
 For more information about local snapshots in Local Zones, see [Local snapshots in Local Zones](../../../ebs/latest/userguide/snapshots-localzones.md "../../../ebs/latest/userguide/snapshots-localzones.md") in the Amazon EBS User Guide.
 
-## Always use AWS Transform MGN security group
+## Always use Application Migration Service security group
 
 Choose whether you would like to **Always use the
-AWS Transform MGN security group**.
+Application Migration Service security group**.
 
 A security group acts as a virtual firewall, which controls the inbound and
 outbound traffic of the staging area subnet.
 
 The best practice is to have AWS Transform MGN automatically attach and monitor the
-default AWS Transform MGN Security Group. This group opens inbound
+default Application Migration Service Security Group. This group opens inbound
 TCP Port 1500 for receiving the transferred replicated data. When the default
-AWS Transform MGN Security Group is activated, MGN will constantly
+Application Migration Service Security Group is activated, MGN will constantly
 monitor whether the rules within this security group are enforced, in order to
 maintain uninterrupted data replication. If these rules are altered, MGN will
 automatically fix the issue.
 
-Select the **Always use AWS Transform MGN
+Select the **Always use Application Migration Service
 security group** option to allow data to flow from your source
 servers to the replication servers, and that the replication servers can
 communicate their state to the AWS Transform MGN servers.
@@ -386,9 +177,9 @@ You can add security groups via the AWS Management Console, and they will appear
 security group drop-down list in the AWS Transform MGN Console. Learn more about AWS
 security groups in [this VPC article](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md").
 
-You can use the default AWS Transform MGN security group, or you
+You can use the default Application Migration Service security group, or you
 can select another security group. However, take into consideration that any
-selected security group that is not the AWS Transform MGN default,
+selected security group that is not the Application Migration Service default,
 will be added to the default group, since the default security group is
 essential for the operation of MGN.
 

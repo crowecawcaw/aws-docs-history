@@ -14,7 +14,7 @@ If you are using the
 [Global view](global-view.md "global-view.md")
 feature, which provides cross-account view and operations, you will have at least one staging VPC per member account.
 
-You will also need to designate a VPC in the management account in order to allow the MGN connector to communicate
+You will also need to designate a VPC in the management account to allow the MGN connector to communicate
 with AWS services via PrivateLink. If you are migrating some of your source servers into the management account,
 you can use the same VPC as a staging VPC.
 
@@ -102,7 +102,7 @@ in the _Amazon Route 53 User Guide_.
 
 ## Modify replication settings
 
-In order to allow the AWS Replication Agent to communicate with the replication server without using the public internet,
+To allow the AWS Replication Agent to communicate with the replication server without using the public internet,
 you must use Private IP for data replication. The replication server requires access to the EC2 service. Therefore:
 
 - If your staging area VPC has a VPC endpoint for

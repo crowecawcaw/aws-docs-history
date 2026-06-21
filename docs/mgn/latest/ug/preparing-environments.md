@@ -95,6 +95,7 @@ endpoint.
 - [Communication between source servers and the staging area subnet over TCP port 1500](#Communication-TCP-1500 "#Communication-TCP-1500")
 - [Communication between the staging area subnet and AWS Transform MGN over TCP port 443](#Communication-TCP-443-Staging "#Communication-TCP-443-Staging")
 - [Communication between the staging area subnet and Amazon S3](#Communication-Staging-S3 "#Communication-Staging-S3")
+- [Network requirements for FSx for ONTAP](#fsx-ontap-network-requirements "#fsx-ontap-network-requirements")
 
 ### Endpoints and firewall allowlist
 
@@ -277,6 +278,28 @@ Without access to the AL2023 package repository, replication servers may fail
 to launch or function correctly, and conversion servers may fail during the boot conversion
 process.
 
+### Network requirements for FSx for ONTAP
+
+When using FSx for ONTAP as the target storage type, the following additional network
+connectivity is required between the target instances and the FSx for ONTAP file system.
+
+| Port | Protocol | Direction                       | Purpose                                                                  |
+| ---- | -------- | ------------------------------- | ------------------------------------------------------------------------ |
+| 3260 | TCP      | Target instance → FSx for ONTAP | iSCSI data transfer for block storage replication                        |
+| 443  | TCP      | Target instance → FSx for ONTAP | ONTAP REST API for storage management (certificate-based authentication) |
+
+These ports must be allowed in the security groups attached to both the target instances
+and the FSx for ONTAP file system. For detailed security group configuration, see
+[Step 1: Configure security groups](fsx-ontap.md#fsx-ontap-step1-security-groups "fsx-ontap.md#fsx-ontap-step1-security-groups") in the
+[FSx for ONTAP configuration](fsx-ontap.md "fsx-ontap.md").
+
+###### Note
+
+The target instance also requires outbound internet access or access to OS package
+repositories to install iSCSI initiator and multipath tools. For details, see
+[Step 6: Configure launch template and launch
+settings](fsx-ontap.md#fsx-ontap-step6-launch-settings "fsx-ontap.md#fsx-ontap-step6-launch-settings").
+
 ## Troubleshooting connectivity issues
 
 If there is no connection between your source servers and MGN, make sure that your
@@ -312,7 +335,7 @@ you use.
 ![Windows Defender Firewall with Advanced Security console with Outbound Rules option highlighted in the tree.](images/network-requirements-1-re.png) 3. On the **Outbound Rules** table, select the rule that
 relates to the connectivity to Remote Port - 443. Check if the **Enabled** status is **Yes**.
 
-![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted showing Enabled status and Remote Port 443.](images/network-requirements-2-re.png) 4. If the Enabled status of the rule is **No**, right-click
+![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted showing Enabled status and Remote Port 443.](images/network-requirements-2-re.png) 4. If the Enabled status of the rule is **No**, open the context menu for
 it and select **Enable Rule** from the pop-up menu.
 
 ![Context menu showing Enable Rule option highlighted for a disabled outbound rule.](images/network-requirements-3-re.png)

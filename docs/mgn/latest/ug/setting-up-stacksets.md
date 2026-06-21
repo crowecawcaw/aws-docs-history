@@ -21,7 +21,7 @@ To set up your StackSet:
 
 1. Go to the CloudFormation console.
 2. Select **StackSets.**
-3. Click the **Activate trusted access** button.
+3. Choose the **Activate trusted access** button.
 4. Create StackSet.
 5. On the **Choose a template** page, under **Prerequisites – prepare template**, choose **Use a sample template**.
 6. Under **Select a sample template**, select **Create roles to access multiple accounts via AWS Transform MGN**, and

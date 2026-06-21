@@ -118,6 +118,12 @@ to ensure that Amazon EBS volumes on the launched instance are:
 - Properly mounted on the Amazon EC2 instance
 - Accessible
 
+For FSx for ONTAP migrations using iSCSI, this action additionally validates
+that:
+
+- iSCSI sessions are established to the ONTAP SVM
+- Multipath paths are active (when MPIO is configured)
+
 This feature allows you to conduct the required validations automatically and
 saves the time of manual validations.
 

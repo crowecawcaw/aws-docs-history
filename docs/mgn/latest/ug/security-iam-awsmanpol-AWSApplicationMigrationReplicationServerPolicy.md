@@ -11,7 +11,7 @@ communicate with the AWS MGN service, and to create EBS snapshots in your AWS
 account. An IAM role with this policy is attached (as an EC2 Instance Profile)
 by AWS Transform MGN to the MGN replication servers which are
 automatically launched and terminated by MGN, as needed. MGN Replication Servers
-are used to facilitate data replication from your external servers to AWS, as
+are used to help data replication from your external servers to AWS, as
 part of the migration process managed using MGN. We do not recommend that you
 attach this policy to your users or roles.
 

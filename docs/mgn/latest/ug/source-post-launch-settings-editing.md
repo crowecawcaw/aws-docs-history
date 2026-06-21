@@ -15,7 +15,7 @@ have edited all your settings, click **Save template**.
 
 ## Types of post-launch actions
 
-MGN supports post-launch modernization actions, giving you the opportunity to move
+AWS MGN supports post-launch modernization actions, giving you the opportunity to move
 and improve. All post-launch actions are based on SSM documents (either public or ones you
 created) that can executed on your EC2 launch instances.
 
@@ -31,8 +31,8 @@ There are 2 types of post-launch actions:
 To add a custom post-launch action, see [Create a custom post-launch action](post-launch-settings.md#post-launch-settings-custom-actions-add "post-launch-settings.md#post-launch-settings-custom-actions-add").
 To edit a custom post-launch action, see [Edit custom post-launch actions](post-launch-settings.md#post-launch-settings-custom-actions-edit "post-launch-settings.md#post-launch-settings-custom-actions-edit").
 
-Use the **Filter by** options to
+Use the **Filter by** options on the left-hand side to
 filter the available actions according to your preferences.
 
-Choose the settings icon to alternate between card
+Click the settings icon in the right-hand corner of the screen to alternate between card
 and list view, according to your preferences.

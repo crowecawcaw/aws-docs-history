@@ -22,7 +22,7 @@ AWS Transform MGN can be re-initialized in case of any issues with IAM service r
 To re-initialize the MGN service, please follow these steps:
 
 - Open the AWS Transform MGN Console and navigate to the correct region you are migrating to.
-- In the left navigation pane, select "Settings". Under "Replication template," click "Reinitialize service permissions" and then click "Confirm."
+- In the left navigation pane, select "Settings". Under "Replication template," choose "Reinitialize service permissions" and then choose "Confirm."
 
 ## Windows license activation – AWS
 

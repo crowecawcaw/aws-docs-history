@@ -4,9 +4,27 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## June 2026
 
-- Added support for Windows 11.
-- Added support for Oracle Linux 9.7.
-- Added support for CentOS Stream 10.
+- AWS Application Migration Service has been rebranded to AWS Transform MGN.
+  All MGN capabilities remain unchanged. Same APIs, same replication engine,
+  same compliance certifications (FedRAMP High, HIPAA, PCI DSS, ISO,
+  SOC 1/2/3).
+- MGN now supports Amazon FSx for NetApp ONTAP as a target storage type (Public
+  Preview). You can choose between Amazon EBS and FSx for ONTAP based on your workload
+  requirements. For more information, see
+  [FSx for ONTAP configuration](fsx-ontap.md "fsx-ontap.md").
+- Added support for the following operating systems:
+
+  - Windows 11
+  - Oracle Linux 10.1
+  - Oracle Linux 9.7
+  - CentOS Stream 10
+
+- Added no-rescan upon reboot support for Windows Server 2025, CentOS Stream 9,
+  and CentOS Stream 10. [Learn more](Agent-Related-FAQ.md#agent-no-rescan "Agent-Related-FAQ.md#agent-no-rescan").
+- You can now update the user-provided ID for a source server. For more
+  information, see [Edit server](add-server-server-page.md#server-edit-main "add-server-server-page.md#server-edit-main").
+- You can now delete a source server from the service. For more
+  information, see [Actions menu](add-server-server-page.md#server-actions-main "add-server-server-page.md#server-actions-main").
 
 ## May 2026
 
@@ -16,7 +34,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
   subnets without internet access (Amazon S3 VPC gateway endpoint policy). For more
   information, see [Communication between
   the staging area subnet and S3](preparing-environments.md#Communication-Staging-S3 "preparing-environments.md#Communication-Staging-S3").
-- Added support for CentOS Stream 9.
+- Added support for CentOS Stream 9 operating system.
 - Added support for additional EC2 launch template storage parameters:
   **Delete on termination**,
   **Volume initialization rate**,
@@ -34,29 +52,33 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## March 2026
 
-- AWS Transform MGN now supports storing EBS snapshots locally within AWS Local Zones
+- MGN now supports storing EBS snapshots locally within AWS Local Zones
   that support this feature. For more information, see
   [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots "replication-server-settings.md#local-zone-snapshots").
-- Added support for RHEL versions 9.7 and 10.1.
-- Added support for Rocky Linux versions 9.7, 10, and 10.1.
-- Added support for AlmaLinux versions 9.6, 9.7, 10, and 10.1.
-- Added support for SUSE Linux Enterprise Server (SLES) 15 service packs 6 and 7.
+- Added support for the following operating systems:
+
+  - RHEL 9.7 and 10.1
+  - Rocky Linux 9.7, 10, and 10.1
+  - AlmaLinux 9.6, 9.7, 10, and 10.1
+  - SUSE Linux Enterprise Server (SLES) 15 service packs 6 and 7
 
 ## December 2025
 
 - You can now use MGN over Internet Protocol version 6 (IPv6) for both service
   communication and application migrations.
-- Added support for Rocky OS versions 9-9.6.
-- Added support for RHEL OS version 10.
+- Added support for the following operating systems:
+
+  - Rocky OS 9–9.6
+  - RHEL 10
 
 ## October 2025
 
-- Added support for RHEL 9.6.
+- Added support for RHEL 9.6 operating system.
 
 ## September 2025
 
 - Specify your operating system licensing approach (BYOL / LI) and tenancy when importing inventory. Learn more in [Import parameters](import-main.md#import-parameters "import-main.md#import-parameters").
-- Added support for Windows Server 2025.
+- Added support for Windows Server 2025 operating system.
 
 ## August 2025
 
@@ -71,9 +93,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## April 2025
 
-- AWS Transform MGN is now authorized for Department of
+- MGN is now authorized for Department of
   Defense Cloud Computing Security Requirements Guide Impact Levels 4 and 5 (DoD CC SRG IL4 and IL5) in the
-  AWS GovCloud (US-East and US-West) Regions. Learn more in [AWS Transform MGN authorized for DoD Impact Level 4 and 5](https://aws.amazon.com/about-aws/whats-new/2025/04/aws-application-migration-service-dod-impact-level-4-5/ "https://aws.amazon.com/about-aws/whats-new/2025/04/aws-application-migration-service-dod-impact-level-4-5/")
+  AWS GovCloud (US-East and US-West) Regions.
 
 ## February 2025
 
@@ -83,7 +105,7 @@ Updated the AWSApplicationMigrationFullAccess policy to support tagging network 
 If you’re managing your own policy, you must include a statement allowing `ec2:CreateTags` on `arn:aws:ec2:*:*:network-interface/*`  
  with a condition of `“ec2:CreateAction”: [“RunInstances”]`.
 
-- Added support for RHEL 9.5.
+- Added support for RHEL 9.5 operating system.
 
 ## January 2025
 
@@ -94,7 +116,7 @@ If you’re managing your own policy, you must include a statement allowing `ec2
 
 ## October 2024
 
-- Added support for Oracle 9.0-9.4.
+- Added support for Oracle 9.0-9.4 operating system.
 
 ## September 2024
 
@@ -110,8 +132,8 @@ If you’re managing your own policy, you must include a statement allowing `ec2
 
 - Introduced a new predefined post-launch action: New Relic. [Learn more about the New Relic
   action](predefined-post-launch-actions.md#predefined-new-relic "predefined-post-launch-actions.md#predefined-new-relic").
-- You can use AWS Transform MGN with workloads that require
-  FedRAMP High categorization level in the AWS GovCloud (US-East and US-West) Regions. Learn more in [AWS Transform MGN achieves FedRAMP High authorization](https://aws.amazon.com/about-aws/whats-new/2024/07/aws-application-migration-fedramp-high-authorization/ "https://aws.amazon.com/about-aws/whats-new/2024/07/aws-application-migration-fedramp-high-authorization/")
+- You can use MGN with workloads that require
+  FedRAMP High categorization level in the AWS GovCloud (US-East and US-West) Regions.
 
 ## June 2024
 
@@ -125,7 +147,7 @@ If you’re managing your own policy, you must include a statement allowing `ec2
   in SSM Parameters Store for post-migration framework actions.
 
 - Added support for migrating servers with Kernel versions up to 6.8.
-- Added support for Ubuntu LTS 24.04.
+- Added support for Ubuntu LTS 24.04 operating system.
 - Introduced a new predefined post-launch action: Dynatrace. [Learn more about Dynatrace
   action](predefined-post-launch-actions.md#predefined-dynatrace "predefined-post-launch-actions.md#predefined-dynatrace").
 
@@ -137,7 +159,11 @@ If you’re managing your own policy, you must include a statement allowing `ec2
 ## March 2024
 
 - Added support for migration of Linux servers retaining boot mode UEFI.
-- Added support for migrating servers running Rocky Linux 9.0 and SUSE Linux Enterprise Server 15 service packs 4 and 5.
+- Added support for the following operating systems:
+
+  - Rocky Linux 9.0
+  - SUSE Linux Enterprise Server 15 service packs 4 and 5
+
 - Added support for migrating servers with Kernel versions up to 6.5.
 
 ## January 2024
@@ -167,7 +193,7 @@ If you’re managing your own policy, you must include a statement allowing `ec2
   servers.
   [Learn more here.](mgn-connector.md "mgn-connector.md")
 - Display tags as columns in the source servers, applications and waves table in the console.
-- Added support for Amazon Linux 2023.
+- Added support for Amazon Linux 2023 operating system.
 - Added support for kernel versions up to 6.1.
 - Added support for using agentless replication with a proxy server. For more information see
   [agentless replication installation instructions](agentless-mgn.md#installing-vcenter-appliance-mgn "agentless-mgn.md#installing-vcenter-appliance-mgn").
@@ -187,7 +213,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 
 ## July 2023
 
-- You can use AWS Transform MGN with workloads that require FedRAMP Moderate categorization level in the AWS US East/West regions.
+- You can use MGN with workloads that require FedRAMP Moderate categorization level in the AWS US East/West regions.
 
 ## June 2023
 
@@ -233,7 +259,11 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 - Introduced **Import and export**, a new feature that allows
   you to import and export your source servers, applications, and waves from and to a CSV file.
   [Learn more about the import and export feature.](import-export.md "import-export.md")
-- Added support for CentOS 5.5–5.11 and RHEL 5.5–5.11.
+- Added support for the following operating systems:
+
+  - CentOS 5.5–5.11
+  - RHEL 5.5–5.11
+
 - Added support for migration of servers using the Oracle ASM Filter Driver.
 - Introduced 8 new predefined post-launch actions:
 
@@ -286,7 +316,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
   more](settings.md "settings.md").
 - Added support for SUSE 11 operating system.
 - [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") – added
-  one new policy and updated two existing policies. For details see [MGN updates for AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates") .
+  one new policy and updated two existing policies. For details see [AWS MGN updates for AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates") .
 
 ## August 2022
 
@@ -310,12 +340,17 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 
 - Added support for post-launch settings. Post-launch settings allow you to control and
   automate actions performed after the server has been launched in AWS. [Learn more about post-launch settings](post-launch-settings.md "post-launch-settings.md").
-- Added support for Linux SUSE SLES 12 service packs 1 and 2.
+- Added support for Linux SUSE SLES 12 service packs 1 and 2 operating system.
 
 ## February 2022
 
-- Added support for Microsoft Windows Server 2003, Microsoft Windows Server 2008, Microsoft
-  Windows Server 2022, and Microsoft Windows 10.
+- Added support for the following operating systems:
+
+  - Microsoft Windows Server 2003
+  - Microsoft Windows Server 2008
+  - Microsoft Windows Server 2022
+  - Microsoft Windows 10
+
 - Added support for gp3 and io2 EBS volume types for replication servers.
 - Added support for UEFI boot for Windows.
 
@@ -331,7 +366,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 
 - Service launch in the following regions: Europe (Paris), Europe (Milan), Middle East (Bahrain),
   and Africa (Cape Town).
-- AWS Transform MGN now supports an additional replication method that does not
+- Application Migration Service now supports an additional replication method that does not
   require agent installation on each source server. This option is available for source servers
   running on VMware vCenter versions 6.7 and 7.0. [Learn more about
   agentless replication](agentless-mgn.md "agentless-mgn.md").

@@ -41,8 +41,9 @@ Default values are chosen to give maximum performance on first launch.
 
 Each disk is composed of the following fields:
 
-    + **Storage type** – Shows the default volume type (EBS).
-     This cannot be changed.
+    + **Storage type** – Shows the target storage type
+     (Amazon EBS or FSx for ONTAP) configured in the
+     [replication settings](replication-server-settings.md#ebs-volume "replication-server-settings.md#ebs-volume").
     + **Device name** – **Do not**
      change or edit this field. The device name shown here corresponds to the disk name on the
      source server. This field allows you to identify which disk is which.
@@ -52,7 +53,7 @@ Each disk is composed of the following fields:
      or edit this field.
     + **Volume type** – You can select any volume type you want
      to use. AWS Transform MGN automatically sets **General Purpose SSD
-     (gp3)** as the default. You may want to change the volume type in order to reduce
+     (gp3)** as the default. You may want to change the volume type to reduce
      costs. Ensure that you read the caveats in the [EBS
      documentation](../../../AWSEC2/latest/UserGuide/EBSPerformance.md#initialize "../../../AWSEC2/latest/UserGuide/EBSPerformance.md#initialize").
     + **IOPS** – Set the number of I/O operations per second that
@@ -107,7 +108,7 @@ Each disk is composed of the following fields:
      only after cutover is finalized and the instance is under your ownership. If not explicitly
      configured, the default behavior is **Yes** for root volumes and **No** for additional volumes.
     + **Encrypted** – Set this to **Yes** if you are specifying a KMS key for the volume. If you are not using a
-     per-volume KMS key, encryption is controlled through the [EBS Encryption](replication-server-settings.md#ebs-encryption "replication-server-settings.md#ebs-encryption") section of the replication settings.
+     per-volume KMS key, encryption is controlled through the [EBS Encryption](ebs-storage.md#ebs-encryption "ebs-storage.md#ebs-encryption") section of the replication settings.
     + **KMS key** – You can specify a customer-managed KMS key
      to use for encrypting target volumes. If set, this key takes precedence over the key used
      during replication. If not set, the replication snapshot's KMS key is used. Ensure that
@@ -141,7 +142,7 @@ Each disk is composed of the following fields:
     AWS Transform MGN selects the default VPC subnet by default (if one exists).
   - **Auto-assign public IP** - Choose whether you want the
     public IP to be auto-assigned.
-  - **Primary IP** – Use this field if you wish to utilize a
+  - **Primary IP** – Use this field if you wish to use a
     private IP. The private IP you set in the **Copy private IP**
     field in the MGN launch settings is copied to this field.
   - **Secondary IP** - Define a secondary IP, if
@@ -150,6 +151,14 @@ Each disk is composed of the following fields:
   - **Security groups** – Choose a security group. If no
     security group is chosen, then the default VPC security group is used by
     default.
+
+  ###### Note
+
+  If you have selected FSx for ONTAP as the target storage in Replication settings,
+  ensure you select a security group that allows your launched instances to connect to the
+  FSx for ONTAP file system over iSCSI (TCP port 3260). See
+  [Step 1: Configure security groups](fsx-ontap.md#fsx-ontap-step1-security-groups "fsx-ontap.md#fsx-ontap-step1-security-groups")
+  in the [FSx for ONTAP configuration](fsx-ontap.md "fsx-ontap.md").
   - **Delete on termination** – We suggest choosing
     "**Yes**". Choosing "**No**"
     makes this network interface a permanent ENI.
@@ -163,7 +172,7 @@ Each disk is composed of the following fields:
     launched. This can be done through a post-launch action.
 
 - **Advanced details** – In this section, we focus on
-  the fields you should **not** change or edit in order to allow
+  the fields you should **not** change or edit to allow
   AWS Transform MGN to function properly. **Do not** change or edit any of
   the following fields:
 

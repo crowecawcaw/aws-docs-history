@@ -62,5 +62,5 @@ settings**, allow you to interact with multiple source servers at once. When mul
 source servers are selected by checking the box to the left of the server name and the **Replication > Edit replication settings** option is chosen, AWS Transform MGN will
 indicate which servers are being edited.
 
-For your changes to take effect, click **Save** at the bottom
+For your changes to take effect, choose **Save** at the bottom
 of each settings page.

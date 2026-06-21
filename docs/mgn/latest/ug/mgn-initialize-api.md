@@ -40,6 +40,8 @@ parameters:
 | **AWSApplicationMigrationMGHRole**                   | "mgn.amazonaws.com" | "sts:AssumeRole"                            | -                                                                                            |
 | **AWSApplicationMigrationLaunchInstanceWithDrsRole** | "ec2.amazonaws.com" | "sts:AssumeRole"                            | -                                                                                            |
 | **AWSApplicationMigrationLaunchInstanceWithSsmRole** | "ec2.amazonaws.com" | "sts:AssumeRole"                            | -                                                                                            |
+| **AWSApplicationMigrationFsxProxyRole**              | "mgn.amazonaws.com" | "sts:AssumeRole"                            | -                                                                                            |
+| **AWSApplicationMigrationFsxProxyLinkRole**          | "mgn.amazonaws.com" | "sts:AssumeRole"                            | -                                                                                            |
 | **AWSApplicationMigrationAgentRole**                 | "mgn.amazonaws.com" | ["sts:AssumeRole", "sts:SetSourceIdentity"] | {"StringLike": {"sts:SourceIdentity": "s-\*", "aws:SourceAccount":<br>"<SOURCE-ACCOUNT-ID>"} |
 
 1. Attach Managed Policy**AWSApplicationMigrationReplicationServerPolicy** to Role **AWSApplicationMigrationReplicationServerRole**
@@ -51,7 +53,9 @@ parameters:
    **AWSApplicationMigrationLaunchInstanceWithDrsRole**
 5. Attach Managed Policy **AmazonSSMManagedInstanceCore** to
    Role **AWSApplicationMigrationLaunchInstanceWithSsmRole**
-6. Attach Managed Policy**AWSApplicationMigrationAgentPolicy_v2** to Role **AWSApplicationMigrationAgentRole**
+6. Attach Managed Policy**AWSApplicationMigrationFSxProxyPolicy** to Role **AWSApplicationMigrationFsxProxyRole**
+7. Attach Managed Policy**AWSApplicationMigrationFSxProxyVPCPolicy** to Role **AWSApplicationMigrationFsxProxyLinkRole**
+8. Attach Managed Policy**AWSApplicationMigrationAgentPolicy_v2** to Role **AWSApplicationMigrationAgentRole**
 
 Once the policies are attached to the roles, run the `aws mgn
  initialize-service` command. This will automatically create the service-linked role,

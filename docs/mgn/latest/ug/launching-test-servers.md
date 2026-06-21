@@ -4,7 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 After you have added all of your source servers and configured their launch settings, you
 are ready to launch a test instance. It is crucial to test the migration of your source servers
-to AWS prior to initiating a cutover in order to verify that your source servers function
+to AWS before initiating a cutover to verify that your source servers function
 properly within the AWS environment.
 
 ###### Important
@@ -31,7 +31,7 @@ properly within the AWS environment.
 - Take into consideration that once a test instance is launched resources are
   used in your AWS account and you will be billed for these resources. You can terminate the
   operation of launched Test instances once you verify that they are working properly without
-  impact in order to data replication.
+  impact to data replication.
 
 ###### Topics
 

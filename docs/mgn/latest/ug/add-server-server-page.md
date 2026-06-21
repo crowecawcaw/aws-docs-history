@@ -32,7 +32,7 @@ a custom installation command by taking these steps:
   choose which specific disks you want to replicate. You are prompted to select which
   disks to replicate during agent installation. 3. Enter the credentials [you previously generated for AWS
   Replication Agent installation](credentials.md "credentials.md"). The form does not send the secret, but does add it
-  to the installation command. 4. If you are adding a Windows source server to MGN, download the installer onto the
+  to the installation command. 4. If you are adding a Windows source server to AWS MGN, download the installer onto the
   source server. The installer is downloaded from the AWS Region of your account. If
   you're adding a Linux source server, skip this step. 5. Copy the generated custom installation command and either input it into the command
   line on your source server. Proceed with [AWS Replication
@@ -41,6 +41,19 @@ a custom installation command by taking these steps:
 To run a variety of commands on your source servers, select one or more servers and choose
 the **Actions**, **Replication**, or
 **Test and cutover** menu.
+
+## Edit server
+
+To edit a source server, select the server and choose **Edit**.
+You can edit the following fields:
+
+- **User-provided ID** – Edit the user-provided identifier
+  for the source server. This value is case sensitive.
+- **FQDN** – Edit the fully qualified domain name for the
+  source server.
+- **Platform** – Edit the platform of the source server.
+  This field is editable only for imported servers. Once a server begins replicating, the
+  platform is automatically detected and cannot be modified.
 
 ## Actions menu
 
@@ -81,3 +94,7 @@ Select the **Show only archived servers** option and click
 
 You are now able to see all of your archived servers. Unselect this option to see
 your non-archived servers.
+
+- **Delete from service** – Choose this option to remove
+  the source server from the database. This option supports single or multiple server
+  selection. Only servers that are not actively replicating can be deleted.

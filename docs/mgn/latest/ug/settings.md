@@ -8,8 +8,7 @@ template and how to set individual server replication settings.
 
 You must configure the replication template upon first use of AWS Transform MGN. The replication
 template determines how your servers are replicated to AWS through
-settings such as Replication Server instance type, Amazon Elastic Block Store volume type, Amazon EBS
-encryption, security groups, data routing, and tags. The settings configured in the
+settings such as Replication Server instance type, target storage type, security groups, data routing, and tags. The settings configured in the
 replication template are automatically used for every server you add to AWS Transform MGN.
 
 Once you have configured your Replication template, you can make changes to individual

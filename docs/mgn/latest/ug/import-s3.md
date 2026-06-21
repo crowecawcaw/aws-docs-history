@@ -9,9 +9,9 @@ following steps:
    (under **Import and export**) and you’ll be navigated to
    the **Import inventory** tab.
 2. Select **Import from S3**.
-3. Click **Browse** to choose the Amazon S3 storage source from
+3. Choose **Browse** to choose the Amazon S3 storage source from
    which you want to import the data.
-4. Click **Import**.
+4. Choose **Import**.
 
 ###### Note
 

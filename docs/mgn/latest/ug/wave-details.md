@@ -5,13 +5,13 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 There are several ways you can access the **Wave details**
 view.
 
-Click the **Wave name** of any wave on the **Waves** page.
+Choose the **Wave name** of any wave on the **Waves** page.
 
 ![Waves table with wave 1 selected, showing migration status, health alerts, and applications.](images/wave-1.png)
-Click the **Wave** of any application on the **Applications** page.
+Choose the **Wave** of any application on the **Applications** page.
 
 ![Applications table with Wave 2 highlighted in the Wave name column for App 1.](images/wave-2.png)
-Click the **Wave name** in the **Overview** dashboard inside **Application details** of an
+Choose the **Wave name** in the **Overview** dashboard inside **Application details** of an
 application.
 
 ![Overview dashboard showing Wave name field with value wave 1.](images/wave-3.png)

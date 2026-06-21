@@ -201,7 +201,7 @@ Available parameters include:
 
     To start the replication post installation of replication agent using
      `--no-replication` attribute you can start replication by using the "Start
-     Replication" option from Replication menu for the source server in the MGN Dashboard or
+     Replication" option from Replication menu for the source server in the AWS MGN Dashboard or
      by using AWS CLI [start-replication](../APIReference/API_StartReplication.md "../APIReference/API_StartReplication.md")
     * --dualstack
 

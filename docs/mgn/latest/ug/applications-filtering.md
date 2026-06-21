@@ -6,7 +6,7 @@ You can customize the **Applications** page through
 filtering. Filtering allows you to easily filter your applications by one or
 multiple properties.
 
-Click within the **Filter applications** field and
+Choose within the **Filter applications** field and
 choose the filtering property from the **Properties**
 menu.
 
@@ -22,8 +22,8 @@ You can filter by a variety of properties, including:
 - Tags - Filter by tags. Relevant specific tag values will appear under the
   **Tags** category. Choose the value by
   which to filter.
-  You can filter by multiple properties at once in order to narrow down your
+  You can filter by multiple properties at once to narrow down your
   results.
 
-To clear the selected filtering properties, click **Clear
+To clear the selected filtering properties, choose **Clear
 filters**.

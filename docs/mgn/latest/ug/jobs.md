@@ -27,7 +27,7 @@ view allows you to easily identify all key Job parameters, including:
 - **Completed time** – The time the Job was completed (blank
   if the job was not completed).
 
-You can sort the launch history by any column by clicking the column header. (for example,
+You can sort the launch history by any column by choosing the column header. (for example,
 sorting by **Job ID**).
 
 You can search for specific Jobs by any of the available fields within the **Find launch history by property or value** search bar.

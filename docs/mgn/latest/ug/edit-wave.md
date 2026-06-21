@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Edit wave
 
-To edit a wave, click **Edit wave**. You will see the
+To edit a wave, choose **Edit wave**. You will see the
 **Edit wave** prompt, which allows you to edit the following
 parameters:
 
@@ -16,5 +16,5 @@ parameters:
   it with the wave.
 - **Add tags (optional)** – You can up to 50 tags according to
   your preferences.
-  After you edit the parameters as required, click the **Save
+  After you edit the parameters as required, choose the **Save
   changes** button to save your changes.

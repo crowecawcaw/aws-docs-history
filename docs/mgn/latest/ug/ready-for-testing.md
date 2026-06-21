@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Review ready for testing indicators
 
-Prior to launching a Test instance, ensure that your source servers are ready for testing
+Before launching a Test instance, ensure that your source servers are ready for testing
 by looking for the following indicators on the **Source servers**
 page:
 

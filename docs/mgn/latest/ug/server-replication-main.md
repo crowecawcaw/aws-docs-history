@@ -10,11 +10,11 @@ You can manage data replication for the source server through these actions on t
   replication you don't necessarily have to reinstall the agent.
 - **Stop data replication** – Stops data replication for a
   source server. Stopping the replication stops billing, deletes existing snapshots and
-  EBS volumes, and terminates replication servers. Configuration is retained, and if you
+  storage volumes (Amazon EBS volumes or FSx for ONTAP volumes), and terminates replication servers. Configuration is retained, and if you
   are using agent-based replication the agent is not uninstalled.
 - **Pause data replication** – Pauses data replication for a
   source server. Pausing the replication does not stop billing or delete existing
-  snapshots or EBS volumes. Replication servers are not terminated and if you are using
+  snapshots or storage volumes. Replication servers are not terminated and if you are using
   agent-based replication the agent is not uninstalled from the source server.
 - **Resume data replication** – Resume data replication for a
   paused source server. This syncs any changes since the last synchronization and

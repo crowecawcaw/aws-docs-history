@@ -2,11 +2,11 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Delete wave
 
-To delete a wave, click the **Delete wave** button and the
+To delete a wave, choose the **Delete wave** button and the
 **Delete wave** prompt will open. You will need to verify that you
 want to delete the selected wave.
 
 When you delete the wave, all associated applications will disassociate from the wave but
 will not be deleted.
 
-Click **Delete** to confirm the deletion.
+Choose **Delete** to confirm the deletion.

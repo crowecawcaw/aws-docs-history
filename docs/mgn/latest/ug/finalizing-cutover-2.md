@@ -26,7 +26,7 @@ The AWS Transform MGN console indicates **Cutover finalized**
 when the cutover has completed successfully.
 
 The AWS Transform MGN console automatically stops data replication for the source servers
-that were cutover in order to save resource costs. The selected source servers' **Migration lifecycle** column shows the **Cutover complete** status, the **Data replication**
+that were cutover to save resource costs. The selected source servers' **Migration lifecycle** column shows the **Cutover complete** status, the **Data replication**
 status column shows **Disconnected**, and the **Next step** column shows **Mark as
 archived**. The source servers have now been successfully migrated into
 AWS. 5. You can now archive your source servers that have launched cutover instances.
@@ -40,13 +40,13 @@ To archive your cutover source servers:
      complete**.
     2. Open the **Actions** menu and choose **Mark as archived**.
     3. When the **Archive X server** dialog appears,
-     click **Archive**.
+     choose **Archive**.
     4. To see your archived servers, open the **Preferences**
      menu by choosing the gear button.
 
 
     Toggle the **Show only archived servers** option and
-     click **Confirm**.
+     choose **Confirm**.
 
 
     You are now be able to see all of your archived servers. Untoggle the **Show only archived servers** option to show non-archived servers.

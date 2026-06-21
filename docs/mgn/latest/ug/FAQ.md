@@ -13,3 +13,4 @@ Use this section to find answers to many frequently asked questions.
 - [AWS related](AWS-Related-FAQ.md "AWS-Related-FAQ.md")
 - [Does MGN work with...?](does-mgn.md "does-mgn.md")
 - [Post-launch actions related](Post-Launch-Actions-FAQ.md "Post-Launch-Actions-FAQ.md")
+- [Storage related](Storage-Related-FAQ.md "Storage-Related-FAQ.md")

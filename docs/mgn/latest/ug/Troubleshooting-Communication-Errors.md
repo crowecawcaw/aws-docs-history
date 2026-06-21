@@ -28,7 +28,7 @@ are correct.
 
 To check and set the route rules on the staging area subnet:
 
-    1. Sign in to [AWS console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), click
+    1. Sign in to [AWS console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), choose
      **Services** and select **VPC**
      under **Networking & Content Delivery**.
     2. On the **VPC Dashboard** toolbar, select the **Route Tables** option.
@@ -43,9 +43,9 @@ To check and set the route rules on the staging area subnet:
      it to **0.0.0.0/0.**
 
 
-    Click the **Edit** button.
+    Choose the **Edit** button.
     7. Input **0.0.0.0/0** into the Destination field for the
-     correct **Target**. Click **Save**.
+     correct **Target**. Choose **Save**.
 
 
     **Note**: If you are using VPN, enter a specific IP
@@ -152,7 +152,7 @@ change it back.
 
 To check and activate the network ACL on the staging area subnet:
 
-1. Sign in to the AWS console, click **Services** and select
+1. Sign in to the AWS console, choose **Services** and select
    **VPC** under **Networking & Content
    Delivery.**
 2. On the **Resources** list, select the **Network ACL** option:
@@ -165,17 +165,17 @@ To check and activate the network ACL on the staging area subnet:
 
 **Note**: The target should allow traffic on TCP Port 1500
 from the address space of the source environment. The Network ACL does not necessarily need
-to be open to all port ranges, as in the screenshot below. 6. If the rule is set to **Deny**, click **Edit**. 7. Click the dropdown under **Allow/Deny** and select
-**Allow**. Click **Save**. 8. You will also need to check the **Ephemeral Ports** on the
-**Outbound Rules** tab. Within the same **Network ACL**, navigate to the **Outbound Rules** tab. 9. You will need to ensure that you are allowing the correct **Ephemeral Port range** for your particular client. [Ephemeral Port range varies based on each client's operating system.](../../../vpc/latest/userguide/vpc-network-acls.md#nacl-ephemeral-ports "../../../vpc/latest/userguide/vpc-network-acls.md#nacl-ephemeral-ports") Click the Edit
+to be open to all port ranges, as in the screenshot below. 6. If the rule is set to **Deny**, choose **Edit**. 7. Choose the dropdown under **Allow/Deny** and select
+**Allow**. Choose **Save**. 8. You will also need to check the **Ephemeral Ports** on the
+**Outbound Rules** tab. Within the same **Network ACL**, navigate to the **Outbound Rules** tab. 9. You will need to ensure that you are allowing the correct **Ephemeral Port range** for your particular client. [Ephemeral Port range varies based on each client's operating system.](../../../vpc/latest/userguide/vpc-network-acls.md#nacl-ephemeral-ports "../../../vpc/latest/userguide/vpc-network-acls.md#nacl-ephemeral-ports") Choose the Edit
 button to edit your **Ephemeral Port's Port Range**
-category. 10. Edit the **Port Range** and click **Save**. You may have to create a new Rule by clicking the **Add another rule** button.
+category. 10. Edit the **Port Range** and choose **Save**. You may have to create a new Rule by choosing the **Add another rule** button.
 
 ### Setting route rules on the staging area subnet
 
 To check and set the route rules on the staging area subnet in AWS:
 
-1. Sign in to AWS console, click **Services** and select
+1. Sign in to AWS console, choose **Services** and select
    **VPC** under **Networking & Content
    Delivery**.
 2. On the **VPC Dashboard** toolbar, select the **Route Tables** option.
@@ -192,8 +192,8 @@ the source servers. 6. If the address is not 0.0.0.0/0, you will need change it 
 **Note**: The Rule may be specific to the address space of
 the Source Servers.
 
-    1. Click the Edit button.
-    2. Input **0.0.0.0/0** into the **Destination** field for the correct target. Click **Save**.
+    1. Choose the Edit button.
+    2. Input **0.0.0.0/0** into the **Destination** field for the correct target. Choose **Save**.
 
 
     **Note**: If you are using VPN, enter a specific IP

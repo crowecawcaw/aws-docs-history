@@ -44,7 +44,7 @@ replication documentation](agentless-mgn.md "agentless-mgn.md").
 
 ## Does agentless replication require installing any component in the customer's source data center?
 
-Yes. In order to use agentless replication, customers must install the MGN vCenter
+Yes. To use agentless replication, customers must install the MGN vCenter
 Client in their source data center. The client discovers the source servers and replicates
 their data to AWS.
 
@@ -76,7 +76,7 @@ The MGN vCenter Client can be installed on the following 64 bit Linux versions:
 
 ## Do I need to generate special credentials to install the MGN vCenter Client?
 
-Yes. In order to use the MGN vCenter Client, you must first generate the correct IAM
+Yes. To use the MGN vCenter Client, you must first generate the correct IAM
 credentials. Learn more in the [agentless replication documentation](vcenter-credentials-mgn.md "vcenter-credentials-mgn.md").
 
 ## What are the agentless replication prerequisites?
@@ -91,7 +91,7 @@ documentation](installing-vcenter-appliance-mgn.md "installing-vcenter-appliance
 
 ## Can a proxy server be used between the source server and the AWS Transform MGN console?
 
-Yes. You can configure transparent proxy either by using an environment variable prior to the installation (Linux and Windows),
+Yes. You can configure transparent proxy either by using an environment variable before the installation (Linux and Windows),
 or by using the --proxy-address flag in the Linux installer:
 
 - Using the installer: ./aws-vcenter-client-installer-init.py --proxy-address http://PROXY:PORT/

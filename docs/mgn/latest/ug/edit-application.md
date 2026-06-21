@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Edit application
 
-To edit an application, click **Edit**. When the
+To edit an application, choose **Edit**. When the
 **Edit application** prompt opens, edit the
 application name, description, and tags, as well as associate or disassociate source
 servers.
@@ -19,5 +19,5 @@ servers.
   from the application.
 - **Tags** – You can add up to 50 tags to an
   application.
-  To finalize your changes, click **Save
+  To finalize your changes, choose **Save
   changes**.

@@ -25,7 +25,7 @@ no longer need them. Check the **Yes, terminate launched instances
 (recommended)** box and choose **Continue**.
 
 - **Revert to "ready for testing"** – Choose this option to revert
-  a finalized test for this wave if you want to run additional tests prior to initiating a
+  a finalized test for this wave if you want to run additional tests before initiating a
   cutover.
 
 The **Revert testing** dialog will appear. Select whether

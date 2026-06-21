@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 After you have added your source servers to the AWS Transform MGN console, you will need to
 configure the launch settings for each server. The launch settings are a set of instructions
 that determine how a test or cutover instance will be launched for each source server on AWS.
-You must configure the launch settings prior to launching test or cutover instances. You can use
+You must configure the launch settings before launching test or cutover instances. You can use
 the default settings or configure the settings to fit your requirements.
 
 ###### Note
@@ -13,14 +13,14 @@ the default settings or configure the settings to fit your requirements.
 You can change the launch settings after a test or cutover instance has been launched. You
 will need to launch a new test or cutover instance for the new settings to take effect.
 
-You can access the launch settings by clicking on the source server name of a source server
+You can access the launch settings by choosing on the source server name of a source server
 on the **Source servers** page.
 
 Within the individual server view, navigate to the **Launch
 settings** tab.
 
 Here you can see your **General launch settings** and
-**EC2 launch template**. Click the **Edit** button to edit your Launch settings or **Modify**
+**EC2 launch template**. Choose the **Edit** button to edit your Launch settings or **Modify**
 to change your EC2 launch template.
 
 Launch settings are composed of the following:

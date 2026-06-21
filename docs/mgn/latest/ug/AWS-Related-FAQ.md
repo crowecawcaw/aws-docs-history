@@ -128,7 +128,7 @@ Microsoft TechNet article](https://blogs.technet.microsoft.com/askcore/2011/06/0
 
 ## What impacts the conversion and boot time of test and cutover instances?
 
-Prior to launching the test or cutover instance, AWS Transform MGN goes through
+Before launching the test or cutover instance, AWS Transform MGN goes through
 a machine conversion server process on the boot volume. The conversion process is fairly
 quick.
 
@@ -144,8 +144,8 @@ cutover times are of importance.
   that dhclient (Dynamic Host Configuration Protocol Client) is installed and the system
   so it can pull an IP.
 - Scheduled Windows Updates – If the Windows server has pending patches, ensure those are
-  installed prior to launching the test or cutover instance. If pending patches remain,
-  the boot time in the cloud may be severely impacted as the patch process may commence
+  installed before launching the test or cutover instance. If pending patches remain,
+  the boot time in the cloud may be severely impacted as the patch process may start
   upon the initial boot.
 - Boot volume type – Depending on services/applications, boot time may be impacted by disk
   performance. It is recommended that boot volumes be tested with a higher performance SSD
@@ -160,6 +160,10 @@ The first boot of Windows machines on AWS may take up to 45 minutes due to Windo
 adjusting to the AWS virtual hardware.
 
 ## Why do I observe EBS volume performance issues while using test or cutover instances?
+
+###### Note
+
+This applies only when using Amazon EBS as the target storage type.
 
 The EBS volumes attached to the test or cutover instances are created from snapshots of convertered volumes. For any volume type that were created from snapshots, the storage blocks are pulled down from Amazon S3 and written to the volume before accessed by you. This process may take significant time and varies based on the EBS volume type. For additional details and EBS initialization options, refer to [Initialize Amazon EBS volumes](../../../ebs/latest/userguide/ebs-initialize.md "../../../ebs/latest/userguide/ebs-initialize.md")
 

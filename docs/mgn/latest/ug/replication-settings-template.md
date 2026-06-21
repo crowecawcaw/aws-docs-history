@@ -7,7 +7,7 @@ AWS. Configure the replication settings in the replication template before addin
 template at any time. Template settings are transferred to each newly added server.
 
 You can also edit the replication settings for a particular server or group of servers after you add them to AWS Transform MGN. You can also control other source server settings through the
-**Settings** section in the menu on the left of the console.
+**Settings** section in the menu.
 
 ###### Topics
 
@@ -33,7 +33,7 @@ initial replication template](first-time-setup-gs.md "first-time-setup-gs.md").
 To edit the replication settings template:
 
 - Choose **Replication template**, under
-  **Settings** on the left-hand console
+  **Settings** in the console
   menu.
 - This opens the **Replication template** view.
   Choose **Edit** to edit your account-wide

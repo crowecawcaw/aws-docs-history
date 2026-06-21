@@ -11,7 +11,7 @@ To launch a test instance for a single source server or multiple source servers:
 4. Under **Testing**, choose the **Launch
    test instances** option to launch a test instance for this server.
 5. When the **Launch test instances for X servers** dialog
-   appears, click **Launch** to begin the test.
+   appears, choose **Launch** to begin the test.
    The AWS Transform MGN console indicates **Launch job started**
    when the test has started.
 

@@ -21,12 +21,12 @@ server replication settings.](replication-settings-template.md#template-vs-serve
 
 ###### Important
 
-Prior to configuring your replication template, ensure that you meet the [Network requirements for running AWS Transform MGN](preparing-environments.md "preparing-environments.md").
+Before configuring your replication template, ensure that you meet the [Network requirements for running AWS Transform MGN](preparing-environments.md "preparing-environments.md").
 
 Once AWS Transform MGN is initialized you'll be redirected into the MGN console **Source servers** page.
 
-To edit your replication template, click **Replication
-template** on the left-hand navigation menu. You will be able to edit individual
+To edit your replication template, choose **Replication
+template**. You will be able to edit individual
 server replication settings after adding your source servers to AWS Transform MGN.
 
 The next step of the setup process is adding your source servers to AWS Transform MGN.

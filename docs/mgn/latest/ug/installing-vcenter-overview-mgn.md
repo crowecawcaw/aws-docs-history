@@ -32,7 +32,7 @@ customer’s target AWS account. The first snapshot shipping process performs an
 which sends the entire disk contents of the replicating VM into AWS. Following snapshot shipping
 processes leverage CBT only to sync disk changes to the customer’s target AWS
 account. Each successful snapshot shipping process completes the replication operation by
-creating a group of consistent Amazon EBS snapshots in the customer’s AWS account, which can then be
+creating a group of consistent snapshots in the customer’s AWS account, which can then be
 used by the customer to launch test and cutover instances through the regular MGN mechanisms.
 
 These are the main system components of agentless replication:

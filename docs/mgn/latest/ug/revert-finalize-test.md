@@ -3,11 +3,11 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Reverting a test
 
 After you have launched your test instances, open the Amazon EC2 console and SSH or RDP into your
-test instances in order to ensure that they function correctly. Validate connectivity and
+test instances to ensure that they function correctly. Validate connectivity and
 perform acceptance tests for your application.
 
 If you encounter any issues and want to launch new Test instances, or if you are
-performing a scheduled test and plan to perform additional tests prior to cutover, you can
+performing a scheduled test and plan to perform additional tests before cutover, you can
 revert the test. This reverts your source servers' **Migration
 lifecycle** status to **Ready for testing** , indicating
 that these servers still require additional testing before they are ready for cutover. During a

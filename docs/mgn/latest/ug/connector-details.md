@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Review details about your MGN connectors
 
-Click the **MGN connector name** of any MGN connector to open its details page.
+Choose the **MGN connector name** of any MGN connector to open its details page.
 
 The page includes the following details:
 

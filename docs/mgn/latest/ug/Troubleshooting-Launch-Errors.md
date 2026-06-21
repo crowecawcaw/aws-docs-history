@@ -16,7 +16,7 @@ Use the information in this section to troubleshoot launch errors.
 
 When you save a new template version, it is tagged as the latest version. However, for a
 multitude of reasons, AWS Transform MGN uses the version marked as the default for its
-purposes. So in order to actually have MGN recognize the changes you make, you need to go
+purposes. So to actually have MGN recognize the changes you make, you need to go
 into the template itself, and change the default version to the version you have just
 updated.
 
