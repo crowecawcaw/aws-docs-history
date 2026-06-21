@@ -24,7 +24,7 @@ threads functionality to also handle the presentation layer logic. By
 presentation layer, what we mean is that Enhanced I/O threads are now not only
 reading client input, but also parsing the input into Redis OSS binary command
 format, which is then forwarded to the main thread for execution, providing
-performance gain. Refer to the [blog post](https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/ "https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/") and the [supported versions](VersionManagement.md#supported-engine-versions "VersionManagement.md#supported-engine-versions")
+performance gain. Refer to the [blog post](https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/ "https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/") and the [supported versions](engine-versions.md "engine-versions.md")
 page for additional details.
 
 - Do you have workloads that access a small percentage of their data

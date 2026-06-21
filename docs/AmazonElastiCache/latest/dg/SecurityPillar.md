@@ -95,7 +95,7 @@ performing authorized commands.
     + [Applying RBAC to a Replication Group for ElastiCache](Clusters.RBAC.md#rbac-using "Clusters.RBAC.md#rbac-using")
     + [Specifying Permissions Using an Access String](Clusters.RBAC.md#Access-string "Clusters.RBAC.md#Access-string")
     + [ACL](https://valkey.io/topics/acl/ "https://valkey.io/topics/acl/")
-    + [Supported ElastiCache versions](VersionManagement.md#supported-engine-versions "VersionManagement.md#supported-engine-versions")
+    + [Supported ElastiCache versions](engine-versions.md "engine-versions.md")
 
 - **[Best]** For ElastiCache versions
   prior to 6.x for Redis OSS, in addition to setting strong token/password and maintaining a

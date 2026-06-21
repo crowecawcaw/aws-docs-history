@@ -54,6 +54,6 @@ cluster in a virtual private cloud (VPC) based on the Amazon VPC service, you ca
 outside AWS. For more information, see [Accessing ElastiCache resources from outside AWS](accessing-elasticache.md#access-from-outside-aws "accessing-elasticache.md#access-from-outside-aws").
 
 For a list of supported versions, see
-[Supported engines and versions](VersionManagement.md#supported-engine-versions "VersionManagement.md#supported-engine-versions"),
+[Engine versions and upgrading in ElastiCache](engine-versions.md "engine-versions.md"),
 [Supported Redis OSS engine versions](engine-versions.md#supported-engine-versions.redis "engine-versions.md#supported-engine-versions.redis"), and
 [Supported ElastiCache for Memcached versions](engine-versions.md#supported-engine-versions-mc "engine-versions.md#supported-engine-versions-mc").

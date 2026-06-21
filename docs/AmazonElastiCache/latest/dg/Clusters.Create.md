@@ -27,7 +27,7 @@ To stop incurring charges for this cluster, you must delete it. See [Deleting a 
 If you are running Redis OSS 3.2.4 or later, you can create a Valkey or Redis OSS (cluster mode enabled) cluster.
 Valkey or Redis OSS (cluster mode enabled) clusters support partitioning your data across 1 to 500
 shards (API/CLI: node groups) but with some limitations. For a comparison of
-Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled), see [Supported engines and versions](VersionManagement.md#supported-engine-versions "VersionManagement.md#supported-engine-versions").
+Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled), see [Engine versions and upgrading in ElastiCache](engine-versions.md "engine-versions.md").
 
 ###### To create a Valkey or Redis OSS (cluster mode enabled) cluster using the ElastiCache console
 

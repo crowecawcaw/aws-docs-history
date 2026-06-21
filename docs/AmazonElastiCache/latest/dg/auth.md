@@ -2,7 +2,7 @@
 
 ###### Note
 
-The **AUTH** has been superseded by [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md"). All serverless caches must use RBAC for authentication.
+The **AUTH** has been superseded by [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md"). All serverless caches must use RBAC for authentication. With RBAC, you can also use Secrets Manager for automatic password rotation. For more information, see [Automatically rotating passwords for users](User-Secrets-Manager.md "User-Secrets-Manager.md").
 
 Valkey and Redis OSS authentication tokens or passwords enable Valkey and Redis OSS to require a password before allowing clients to run commands, thereby improving data security.
 The **AUTH** is available for node-based clusters only.
