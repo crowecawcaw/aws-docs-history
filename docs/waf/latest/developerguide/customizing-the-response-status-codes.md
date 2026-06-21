@@ -48,6 +48,7 @@ The following are the HTTP status codes that AWS WAF supports for custom respons
   - `421` – `Misdirected Request`
   - `429` – `Too Many Requests`
 
+- **402 (Payment Required)** – Used by the Monetize action to return a price manifest to AI agents. The response body contains machine-readable pricing, accepted payment methods, and license terms in JSON format.
 - `5xx Server Error`
 
   - `500` – `Internal Server Error`

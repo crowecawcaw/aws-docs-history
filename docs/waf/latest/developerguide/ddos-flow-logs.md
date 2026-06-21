@@ -11,10 +11,9 @@ Amazon Data Firehose, where you can retrieve and view your data after you've ena
 
 ###### Note
 
-You must view CloudWatch metrics and logs for resources protected in Shield Advanced in the
-US East (N. Virginia) Region, in the console and when using the AWS CLI. When you
-use the AWS CLI, specify the US East (N. Virginia) Region for your command by including
-the following parameter: `--region us-east-1`
+You must view CloudWatch metrics and logs for Shield Advanced protected resources in the
+US East (N. Virginia) Region. This applies to both the console and the AWS CLI. When you
+use the AWS CLI, include the following parameter: `--region us-east-1`
 
 ###### Note
 
@@ -162,9 +161,9 @@ intervals during an attack. Log files are written every five minutes, and each l
 contains flow log records for the IP address traffic recorded in the previous five
 minutes.
 
-The maximum file size for a log file is 75 MB. If the log file reaches the file size
-limit within the 5-minute period, the flow log stops adding flow log records to it,
-publishes it to the Amazon S3 bucket, and then creates a new log file.
+The maximum file size for a log file is 75 MB. If the log file reaches this
+limit within the 5-minute period, the flow log stops adding records to it. The flow log then
+publishes the file to the Amazon S3 bucket and creates a new log file.
 
 Log files are compressed. If you open the files using the Amazon S3 console, Amazon S3
 decompresses the log records and displays them. If you download the log files, you must

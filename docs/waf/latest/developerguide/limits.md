@@ -92,3 +92,17 @@ AWS CloudFormation, the REST API, and the SDKs. These quotas can't be changed.
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
 | Maximum number of calls by all accounts in an organization to `ListResourcesForWebACL`,<br>in any single Region for the Regions US East (N. Virginia) (us-east-1), US West (Oregon) (us-west-2), or Europe (Ireland) (eu-west-1). | 12 requests per second                    |
 | Maximum number of calls by all accounts in an organization to `ListResourcesForWebACL`,<br>in any single Region that doesn't have a different quota listed in this table.                                                         | 6 requests per second                     |
+
+AWS WAF has the following quotas for AI traffic monetization features. Quotas marked as adjustable can be increased through a
+[quota increase request](https://console.aws.amazon.com/servicequotas/home/services/wafv2/quotas "https://console.aws.amazon.com/servicequotas/home/services/wafv2/quotas").
+
+| Resource                                       | Default quota        | Adjustable |
+| ---------------------------------------------- | -------------------- | ---------- |
+| Protection packs per account                   | 25                   | Yes        |
+| Protection packs per protection pack (web ACL) | 10                   | Yes        |
+| Pricing tiers per protection pack              | 20                   | No         |
+| Content zones per protection pack              | 50                   | Yes        |
+| Payment providers per protection pack          | 3                    | No         |
+| Minimum price per request                      | $0.00001 (10^-5 USD) | No         |
+| Maximum price per request                      | $100                 | No         |
+| Access token TTL range                         | 60-86400 seconds     | No         |

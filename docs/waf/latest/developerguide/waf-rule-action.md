@@ -72,3 +72,66 @@ For information about customizing requests and responses, see [Customized web re
 For information about adding labels to matching requests, see [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
 
 For information about how protection pack (web ACL) and rule settings interact, see [Using protection packs (web ACLs) with rules and rule groups in AWS WAF](web-acl-processing.md "web-acl-processing.md").
+
+## Monetize action
+
+The Monetize action returns an HTTP 402 Payment Required response to the requesting client. The response contains machine-readable x402 payment instructions that the client uses to complete payment and gain access to the resource. Use the Monetize action to charge AI bots and agents for content access. This action is available only for web ACLs associated with Amazon CloudFront distributions and requires a MonetizationConfig on the web ACL.
+
+### How the Monetize action works
+
+When a rule with the Monetize action matches a request:
+
+1. If the request does not include a valid `payment-signature` header, AWS WAF issues a Payment Required Challenge (HTTP 402 response with payment instructions).
+2. The client signs a payment authorization and resubmits the request with the `payment-signature` header.
+3. AWS WAF verifies the payment authorization.
+4. On successful verification, the request proceeds to origin.
+5. After origin returns a 2xx response, the payment is settled on-chain via third-party facilitation services.
+6. Content is served to the client with settlement confirmation.
+
+###### Important
+
+To implement your AI traffic monetization policies, we use multiple detection techniques such as behavioral signals and risk-based systems to inspect and categorize inbound traffic. While these methods are designed to provide high-confidence classification, they are probabilistic and might not correctly identify or categorize all bot traffic in all cases. We continuously test and update our analysis methods to increase accuracy. We recommend using Test mode to validate that your policies produce the expected results before enabling live monetization.
+
+### Monetize action parameters
+
+| Parameter         | Required | Description                                                                                                                                                                                                               |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PriceMultiplier` | No       | An integer multiplier (1–100) applied to the base price defined in the web ACL's MonetizationConfig. The effective price for the request is the base price multiplied by this value. Specify as a string. Default: `"1"`. |
+
+### Monetize action behavior
+
+- **Terminates evaluation** – Like Block, the Monetize action terminates rule evaluation for the matching request.
+- **CloudFront only** – Supported only for web ACLs protecting Amazon CloudFront distributions.
+- **Metrics** – Emits a `MonetizeRequests` metric in CloudWatch, separate from `BlockedRequests` and `AllowedRequests`.
+- **Logging** – AWS WAF logs include monetization-specific fields when triggered.
+
+### Example: Monetize rule in JSON
+
+```
+{
+  "Name": "MonetizeUnverifiedBots",
+  "Priority": 5,
+  "Statement": {
+    "LabelMatchStatement": {
+      "Scope": "LABEL",
+      "Key": "awswaf:managed:aws:bot-control:bot:unverified"
+    }
+  },
+  "Action": {
+    "Monetize": {
+      "PriceMultiplier": "2"
+    }
+  },
+  "VisibilityConfig": {
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "MonetizeUnknownBotsMetric",
+    "SampledRequestsEnabled": true
+  }
+}
+```
+
+### Limitations
+
+- Available only with Amazon CloudFront (global scope).
+- Requires a MonetizationConfig on the web ACL.
+- Rate-based rules cannot use Monetize as their action.

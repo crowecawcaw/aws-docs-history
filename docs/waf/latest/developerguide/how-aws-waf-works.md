@@ -70,6 +70,7 @@ A rule group is an AWS WAF resource.
   WCUs to calculate and control the operating resources that are required to run your rules, rule groups, protection packs (web ACLs), or web ACLs.
 
 A WCU is not an AWS WAF resource. It only exists in the context of a protection pack (web ACL), rule, or rule group.
+**AI traffic monetization** – AWS WAF enables content and API providers to charge AI bots and agents for access to protected resources. By configuring monetization on your web ACL, you define pricing per request. Payments are verified and settled at the edge using an open payment protocol, with funds delivered directly to your configured wallet. For more information, see [AI traffic monetization](waf-ai-traffic-monetization.md "waf-ai-traffic-monetization.md").
 
 ## Understanding the new dashboards
 

@@ -186,7 +186,8 @@ rule actions, configurations, and logging destination:
     3. For **Logging destination**, configure the logging destination type
      and the place to store logs. For more information, see [AWS WAF logging destinations](logging-destinations.md "logging-destinations.md").
 
-12. Review your settings and choose **Add protection pack (web ACL)**.
+12. (Optional) If you want to monetize AI bot traffic, expand **Monetization configuration** and configure your payment networks, wallet addresses, and base price. You can skip this step and add a MonetizationConfig later.
+13. Review your settings and choose **Add protection pack (web ACL)**.
 
 Using the standard console
 This section provides procedures for creating web ACLs through
@@ -249,7 +250,7 @@ resources** page.
 ###### Note
 
 When you choose to associate an Application Load Balancer with your web ACL, **Resource-level DDoS protection** is enabled.
-For more information, see [AWS WAF Distributed Denial of Service (DDoS) prevention](waf-anti-ddos.md "waf-anti-ddos.md"). 10. Choose **Next**. 11. (Optional) If you want to add managed rule groups, on the **Add
+For more information, see [AWS WAF Distributed Denial of Service (DDoS) prevention](waf-anti-ddos.md "waf-anti-ddos.md"). 10. (Optional) If you want to monetize AI bot traffic, expand **Monetization configuration** and configure your payment networks, wallet addresses, and base price. You can skip this step and add a MonetizationConfig later. 11. Choose **Next**. 12. (Optional) If you want to add managed rule groups, on the **Add
 rules and rule groups** page, choose **Add
 rules**, and then choose **Add managed rule
 groups**. Do the following for each managed rule group that you
@@ -287,7 +288,7 @@ return to the **Add rules and rule groups** page.
 ###### Note
 
 If you add more than one rule to a web ACL, AWS WAF evaluates the rules in the order that
-they're listed for the web ACL. For more information, see [Using protection packs (web ACLs) with rules and rule groups in AWS WAF](web-acl-processing.md "web-acl-processing.md"). 12. (Optional) If you want to add your own rule group, on the **Add
+they're listed for the web ACL. For more information, see [Using protection packs (web ACLs) with rules and rule groups in AWS WAF](web-acl-processing.md "web-acl-processing.md"). 13. (Optional) If you want to add your own rule group, on the **Add
 rules and rule groups** page, choose **Add
 rules**, and then choose **Add my own rules and rule
 groups**. Do the following for each rule group that you want to
@@ -313,7 +314,7 @@ add:
      setting, the same as you can do for managed rule groups.
     4. Choose **Add rule**.
 
-13. (Optional) If you want to add your own rule, on the **Add rules
+14. (Optional) If you want to add your own rule, on the **Add rules
     and rule groups** page, choose **Add rules**,
     **Add my own rules and rule groups**, **Rule
     builder**, then **Rule visual editor**.
@@ -366,13 +367,13 @@ This procedure covers the **Rule visual editor**.
      information, see [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
     4. Choose **Add rule**.
 
-14. Choose the default action for the web ACL, either Block or Allow. This is
+15. Choose the default action for the web ACL, either Block or Allow. This is
     the action that AWS WAF takes on a request when the rules in the web ACL don't
     explicitly allow or block it. For more information, see [Setting the protection pack (web ACL) default action in AWS WAF](web-acl-default-action.md "web-acl-default-action.md").
 
 If you want to customize the default action, choose the options for that
 and fill in the details of your customization. For more information, see
-[Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md"). 15. You can define a **Token domain list** to enable token sharing between
+[Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md"). 16. You can define a **Token domain list** to enable token sharing between
 protected applications. Tokens are used by the CAPTCHA and
 Challenge actions and by the application integration SDKs that you
 implement when you use the AWS Managed Rules rule groups for AWS WAF Fraud Control account creation fraud prevention (ACFP), AWS WAF Fraud Control account takeover prevention (ATP), and AWS WAF Bot Control.
@@ -382,16 +383,16 @@ Public suffixes aren't allowed. For example, you can't use `gov.au` or `co.uk` a
 By default, AWS WAF accepts tokens only for the domain of the protected resource. If you
 add token domains in this list, AWS WAF accepts tokens for all domains in the
 list and for the domain of the associated resource. For more information,
-see [AWS WAF protection pack (web ACL) token domain list configuration](waf-tokens-domains.md#waf-tokens-domain-lists "waf-tokens-domains.md#waf-tokens-domain-lists"). 16. Choose **Next**. 17. In the **Set rule priority** page, select and move your
+see [AWS WAF protection pack (web ACL) token domain list configuration](waf-tokens-domains.md#waf-tokens-domain-lists "waf-tokens-domains.md#waf-tokens-domain-lists"). 17. Choose **Next**. 18. In the **Set rule priority** page, select and move your
 rules and rule groups to the order that you want AWS WAF to process them.
 AWS WAF processes rules starting from the top of the list. When you save the web ACL
 AWS WAF assigns numeric priority settings to the rules, in the order that you have them listed.
-For more information, see [Setting rule priority](web-acl-processing-order.md "web-acl-processing-order.md"). 18. Choose **Next**. 19. In the **Configure metrics** page, review the options and apply any
+For more information, see [Setting rule priority](web-acl-processing-order.md "web-acl-processing-order.md"). 19. Choose **Next**. 20. In the **Configure metrics** page, review the options and apply any
 updates that you need. You can combine metrics from multiple sources by
-providing the same **CloudWatch metric name** for them. 20. Choose **Next**. 21. In the **Review and create web ACL** page, check over
+providing the same **CloudWatch metric name** for them. 21. Choose **Next**. 22. In the **Review and create web ACL** page, check over
 your definitions. If you want to change any area, choose
 **Edit** for the area. This returns you to the page in
 the web ACL wizard. Make any changes, then choose **Next**
 through the pages until you come back to the **Review and create web
-ACL** page. 22. Choose **Create web ACL**. Your new web ACL is listed in the
+ACL** page. 23. Choose **Create web ACL**. Your new web ACL is listed in the
 **web ACLs** page.

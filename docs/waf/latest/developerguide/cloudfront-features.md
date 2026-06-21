@@ -17,7 +17,9 @@ the rules you define in your protection packs (web ACLs), with different impleme
 
 - [How AWS WAF works with different distribution types](#cloudfront-features-distribution-types "#cloudfront-features-distribution-types")
 - [Using AWS WAF with CloudFront Flat-Rate Pricing Plans](#waf-cf-pricing-plans "#waf-cf-pricing-plans")
+- [AI traffic monetization with CloudFront](#cloudfront-features-ai-traffic-monetization "#cloudfront-features-ai-traffic-monetization")
 - [Common use cases for protecting CloudFront distributions with AWS WAF](cloudfront-waf-use-cases.md "cloudfront-waf-use-cases.md")
+- [AI traffic monetization with CloudFront](#cloudfront-ai-monetization "#cloudfront-ai-monetization")
 
 ## How AWS WAF works with different distribution types
 
@@ -100,3 +102,78 @@ any pricing plan. You cannot remove the protection pack (web ACL) association un
 pricing.
 
 While a AWS WAF web ACL must remain associated with your distribution, you maintain full control over your security configuration. You can customize your protection by adjusting which rules are enabled or disabled in your web ACL, and modify rule settings to match your security requirements. For information about managing web ACL rules, see [AWS WAF Rules](waf-rules.md "waf-rules.md").
+
+## AI traffic monetization with CloudFront
+
+AI traffic monetization is available exclusively for AWS WAF web ACL resources associated with Amazon CloudFront distributions. Payment verification and settlement occur at CloudFront edge locations, minimizing latency for agents worldwide.
+
+### Considerations when using AI Traffic Monetization with CloudFront Functions and Lambda@Edge
+
+When you use CloudFront Functions or Lambda@Edge with distributions that have Monetize rules in AWS WAF, note the following behavior for AWS WAF-generated responses.
+
+###### AWS WAF-generated responses (402 Payment Required Challenge)
+
+Viewer-response function (CloudFront Functions and Lambda@Edge) does not run on AWS WAF-generated 402 response. You cannot use these functions to customize the Payment Required Challenge. You also cannot add headers to it or modify it. If you need to add custom headers to 402 responses (for example, CORS or analytics headers), use a Response Headers Policy instead. Response Headers Policies apply to AWS WAF-generated responses.
+
+For more information about CloudFront Functions and response header policies, see the following:
+
+- Viewer-response functions don't run on HTTP status codes 400 and higher. For more information about edge function restrictions, see [HTTP status codes](../../../AmazonCloudFront/latest/DeveloperGuide/edge-function-restrictions-all.md#function-restrictions-status-codes "../../../AmazonCloudFront/latest/DeveloperGuide/edge-function-restrictions-all.md#function-restrictions-status-codes").
+- For more information about response header policies, see [Understanding response headers policies](../../../AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.md "../../../AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.md").
+
+###### Paid responses (200 after settlement)
+
+After a successful payment settlement, the origin response passes through the normal CloudFront response pipeline, including viewer-response function. A viewer-response function can modify the response that the agent receives after paying. For example, it can change the status code or remove headers.
+
+## AI traffic monetization with CloudFront
+
+AI traffic monetization is available exclusively for web ACLs associated with Amazon CloudFront distributions. Payment verification and access token issuance occur at CloudFront edge locations, minimizing latency for agents worldwide.
+
+### Why CloudFront only
+
+Monetization requires:
+
+- **Edge-native payment verification** – Payment proofs are verified at the edge without round trips to origin.
+- **Global token issuance** – Scoped access tokens are issued at the edge and honored by all edge locations serving the same distribution.
+- **Price manifest generation** – The 402 response with pricing details is generated at the edge, keeping the flow below the latency target for machine-to-machine payment protocols.
+
+Regional web ACLs (Application Load Balancer, , , Cognito, App Runner, Verified Access) do not support the Monetize action. If a Monetize rule is configured on a regional web ACL, the rule is skipped and the request continues to the next rule.
+
+### Cache behavior with monetized content
+
+Monetized resources require special cache configuration to prevent one agent's paid access from serving cached content to another agent.
+
+**Recommended cache settings for monetized paths:**
+
+| Setting               | Value                                             | Reason                                             |
+| --------------------- | ------------------------------------------------- | -------------------------------------------------- |
+| Cache policy          | CachingDisabled or custom                         | Prevents cross-agent cache sharing                 |
+| Origin request policy | Include `X-Agent-Id` and `X-Access-Token` headers | Allows origin to validate agent-specific tokens    |
+| TTL                   | 0 (or short, per content freshness needs)         | Ensures each agent request is evaluated by AWS WAF |
+
+If you require caching for performance, configure a per-agent cache key:
+
+- Add `X-Agent-Id` to the cache key using a custom cache policy.
+- This ensures each agent receives its own cached copy after payment, without serving paid content to other agents.
+
+###### Important
+
+If you enable caching without per-agent cache keys, a paid response might be served from cache to subsequent agents without payment verification. Always include agent identity in the cache key for monetized paths.
+
+### Latency characteristics
+
+| Phase                           | Typical latency             | Notes                                               |
+| ------------------------------- | --------------------------- | --------------------------------------------------- |
+| Classification + 402 generation | <10 ms                      | Runs inline at edge                                 |
+| Payment verification            | <30 ms                      | Proof validation is cryptographic, no external call |
+| Token issuance + origin fetch   | Standard CloudFront latency | Same as a normal request                            |
+| **Total additional overhead**   | **<50 ms**                  | Above standard request latency                      |
+
+### CloudFront distribution configuration
+
+No changes to your CloudFront distribution settings are required to enable monetization. The feature is controlled entirely through the AWS WAF web ACL and protection pack configuration.
+
+Ensure the following:
+
+- **Web ACL association** – Your distribution must have an associated AWS WAF web ACL with Bot Control and a Monetize rule.
+- **Origin response headers** – If your origin sets `Cache-Control` headers, verify they do not conflict with the per-agent caching strategy for monetized paths.
+- **Custom error pages** – CloudFront custom error pages for 4xx responses do not apply to AWS WAF-generated 402 responses. The price manifest is served directly by AWS WAF.

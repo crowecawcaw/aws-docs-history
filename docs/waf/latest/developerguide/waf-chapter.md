@@ -45,6 +45,7 @@ _Amazon Elastic Container Service Developer Guide_.
 - [Customized web requests and responses in AWS WAF](waf-custom-request-response.md "waf-custom-request-response.md")
 - [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md")
 - [Intelligent threat mitigation in AWS WAF](waf-managed-protections.md "waf-managed-protections.md")
+- [AI traffic monetization](waf-ai-traffic-monetization.md "waf-ai-traffic-monetization.md")
 - [Data protection and logging for AWS WAF protection pack (web ACL) traffic](waf-data-protection-and-logging.md "waf-data-protection-and-logging.md")
 - [Testing and tuning your AWS WAF protections](web-acl-testing.md "web-acl-testing.md")
 - [Using AWS WAF with Amazon CloudFront](cloudfront-features.md "cloudfront-features.md")

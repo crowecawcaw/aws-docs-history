@@ -357,3 +357,47 @@ The part of a URL that follows the "#" symbol, providing additional information 
 **webaclId**
 
 The GUID of the protection pack (web ACL).
+
+**monetizeVerifyResponse**
+
+Present when a Monetize action triggers payment verification. Contains the verification result and payment details.
+
+monetizeVerifyResponse.verificationStatus
+
+The result of the payment verification. Possible values: `VERIFIED`, `INSUFFICIENT_FUNDS`, `INVALID_PAYLOAD`, `INVALID_PAYMENT_REQUIREMENTS`, `SERVICE_ERROR`.
+
+monetizeVerifyResponse.failureReason
+
+When verification fails, the reason for the failure.
+
+monetizeVerifyResponse.chainName
+
+The blockchain chain used for payment. Possible values: `BASE`, `SOLANA`, `BASE_SEPOLIA`, `SOLANA_DEVNET`.
+
+monetizeVerifyResponse.network
+
+The blockchain network identifier (for example, `eip155:84532` for Base Sepolia).
+
+monetizeVerifyResponse.amount
+
+The payment amount as a decimal string.
+
+monetizeVerifyResponse.currency
+
+The cryptocurrency used for payment. Currently `USDC`.
+
+monetizeVerifyResponse.asset
+
+The token contract address on the blockchain (for example, the USDC contract address on the specified chain).
+
+monetizeVerifyResponse.payerAddress
+
+The wallet address of the paying AI agent.
+
+monetizeVerifyResponse.idempotencyKey
+
+A unique key for the payment transaction, used to prevent duplicate processing.
+
+monetizeVerifyResponse.currencyMode
+
+Whether real or test currency was used. Possible values: `REAL`, `TEST`.
