@@ -75,6 +75,12 @@ receive the most recent information.
       A disassociated Amazon S3 continuous recovery point (backup) will remain in
       its backup vault, but its state will transition to `STOPPED`.
 
+      ###### Note
+
+      Calling `DisassociateRecoveryPoint` on an Amazon S3 continuous recovery
+      point that is already in `EXPIRED` status has no effect. The recovery point
+      state and configuration remain unchanged.
+
    2. To delete all the recovery points selected, type delete, and then choose
       **Delete recovery points**.
    3. AWS Backup begins to submit your recovery points for deletion and displays a progress

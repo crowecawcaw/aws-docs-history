@@ -46,6 +46,12 @@ another, be aware of the following behavior:
   point transitions to a `STOPPED` state and remains in its backup vault.
   For more information, see [Backup deletion](deleting-backups.md "deleting-backups.md").
 
+###### Note
+
+Calling `DisassociateRecoveryPoint` on an Amazon S3 continuous recovery
+point that is already in `EXPIRED` status has no effect. The recovery point
+state and configuration remain unchanged.
+
 In all cases, when you remove a continuous backup rule from a backup plan, AWS Backup
 remembers the retention period from the deleted rule and automatically deletes the
 continuous backup recovery point when the retention period elapses. For more information,

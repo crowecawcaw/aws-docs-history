@@ -62,8 +62,9 @@ The following points should be considered when you backup S3 resources:
 
 - Focused object metadata support – AWS Backup supports the following
   metadata: tags, access control lists (ACLs), user-defined metadata, original creation
-  date, and version ID. You may also restore all backed-up data and metadata except
-  original creation date, version ID, storage class, and e-tags.
+  date, and version ID. Object annotations are not supported. You may also restore all
+  backed-up data and metadata except original creation date, version ID, storage class,
+  and e-tags.
 - When you restore an S3 object, AWS Backup applies a checksum value, even if the original
   object did not use the checksum feature.
 - An S3 object key name can be made up of most UTF-8 encodable strings. The
@@ -84,6 +85,9 @@ backups.
   bucket configurations, including bucket policies, settings, names, or access
   points.
 - AWS Backup does not support backups of S3 on AWS Outposts.
+- Object annotations – AWS Backup does not support
+  backup or restore of S3 [object
+  annotations](../../../AmazonS3/latest/userguide/annotations-overview.md "../../../AmazonS3/latest/userguide/annotations-overview.md").
 - CloudTrail logging – If you log data read events,
   you must have CloudTrail logs delivered to a different target bucket. If you save CloudTrail logs in the
   bucket that they log, there is an infinite loop, which can cause unexpected charges.

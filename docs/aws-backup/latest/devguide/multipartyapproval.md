@@ -21,6 +21,63 @@ access to a logically air-gapped vault from a separately-created recovery accoun
 case of suspected malicious activity that may compromise use of the primary
 account.
 
+## Prerequisites and best practices for using Multi-party approval with a logically air-gapped vault
+
+Before you can effectively and securely use Multi-party approval with your logically
+air-gapped vaults, there are prerequisites and recommended best practices.
+
+**Best practices:**
+
+- Two (or more) AWS organizations through Organizations. One should be your primary
+  organization where you have one or more accounts that have at least one logically
+  air-gapped vault. The secondary organization should be your recovery organization. It
+  is in this org where your multi-party approval team will be managed.
+
+**Prerequisites**
+
+1. You have [Set up Multi-party approval](../../../mpa/latest/userguide/setting-up.md "../../../mpa/latest/userguide/setting-up.md") and have at least one approval team.
+2. At least one account in your primary organization must have a logically air-gapped
+   vault (and the original backup vault).
+3. The management account in the primary organization is opted-in to Multi-party
+   approval.
+
+###### Tip
+
+AWS Backup recommends you apply a Service Control Policy (SCP) to your primary
+organization and configure it with the appropriate permissions to the organization
+and to each approval team. See [Multi-party approval terms](#multipartyapproval-terms "#multipartyapproval-terms")
+section for a sample policy. 4. Your Multi-party approval team from the secondary (recovery) organization is [shared through AWS RAM](multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram "multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram") with
+both your accounts that own the logically air-gapped vault(s) and your recovery accounts.
+
+## Required access policies
+
+Before setting up Multi-party approval, configure the following access policies:
+
+- **Service Control Policy (SCP):** Apply an SCP to your primary
+  organization to control which actions are allowed across accounts. The SCP should
+  grant appropriate permissions to the organization and to each approval team. For more
+  information about SCPs, see [Service control
+  policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the _Organizations User Guide_.
+- **Multi-party approval team policy:** When you [create an approval team](../../../mpa/latest/userguide/create-team.md#create-team-steps "../../../mpa/latest/userguide/create-team.md#create-team-steps"), attach the appropriate resource policy. For
+  AWS Backup logically air-gapped vaults, use the policy
+  `arn:aws:mpa::aws:policy/backup.amazonaws.com/CreateRestoreAccessVault`.
+  To list available policies, run `aws mpa list-policies --region
+us-east-1`. Multi-party approval team resources can only be created and
+  stored in US East (N. Virginia), so MPA commands must target this Region.
+- **AWS RAM sharing permissions:** When sharing your approval team
+  across accounts, use the RAM permission
+  `arn:aws:ram::aws:permission/AWSRAMMPAApprovalTeamAccess`. For more
+  information, see [Share an
+  approval team using AWS RAM](multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram "multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram").
+- **IAM permissions:** Users who interact with Multi-party approval
+  need the appropriate IAM permissions, including `mpa:GetApprovalTeam`,
+  `mpa:ListApprovalTeams`, `mpa:StartSession`,
+  `mpa:CancelSession`, `mpa:GetSession`, and
+  `mpa:ListSessions`. These permissions are included in the [AWSBackupFullAccess](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+  managed policy.
+
+## Set up Multi-party approval
+
 The following steps outline the recommended flow for setting up a recovery AWS
 organization, setting up Multi-party approval, and then using Multi-party approval with
 your logically air-gapped vaults:
@@ -50,34 +107,6 @@ your logically air-gapped vaults:
 8. An administrator can [update approval team membership](../../../mpa/latest/userguide/update-team.md "../../../mpa/latest/userguide/update-team.md")
    as necessary in accordance with their security practices or when people join or leave
    your organization.
-
-## Prerequisites and best practices for using Multi-party approval with a logically air-gapped vault
-
-Before you can effectively and securely use Multi-party approval with your logically
-air-gapped vaults, there are prerequisites and recommended best practices.
-
-**Best practices:**
-
-- Two (or more) AWS organizations through Organizations. One should be your primary
-  organization where you have one or more accounts that have at least one logically
-  air-gapped vault. The secondary organization should be your recovery organization. It
-  is in this org where your multi-party approval team will be managed.
-
-**Prerequisites**
-
-1. You have [Set up Multi-party approval](../../../mpa/latest/userguide/setting-up.md "../../../mpa/latest/userguide/setting-up.md") and have at least one approval team.
-2. At least one account in your primary organization must have a logically air-gapped
-   vault (and the original backup vault).
-3. The management account in the primary organization is opted-in to Multi-party
-   approval.
-
-###### Tip
-
-AWS Backup recommends you apply a Service Control Policy (SCP) to your primary
-organization and configure it with the appropriate permissions to the organization
-and to each approval team. See [Multi-party approval terms](#multipartyapproval-terms "#multipartyapproval-terms")
-section for a sample policy. 4. Your Multi-party approval team from the secondary (recovery) organization is [shared through AWS RAM](multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram "multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram") with
-both your accounts that own the logically air-gapped vault(s) and your recovery accounts.
 
 ## Cross-Region considerations and dependencies when using Multi-party approval
 
