@@ -19,6 +19,7 @@ For more information about query syntax, see [CloudWatch Logs Insights language 
 - [Queries for NAT gateway](#CWL_QuerySyntax-examples-NATGateway "#CWL_QuerySyntax-examples-NATGateway")
 - [Queries for Apache server logs](#CWL_QuerySyntax-examples-Apache "#CWL_QuerySyntax-examples-Apache")
 - [Queries for Amazon EventBridge](#CWL_QuerySyntax-examples-EventBridge "#CWL_QuerySyntax-examples-EventBridge")
+- [Queries for resource tags](#CWL_QuerySyntax-examples-ResourceTags "#CWL_QuerySyntax-examples-ResourceTags")
 - [Examples of the parse command](#CWL_QuerySyntax-examples-parse "#CWL_QuerySyntax-examples-parse")
 
 ## General queries
@@ -379,6 +380,28 @@ Get the number of EventBridge events grouped by event detail type
 fields @timestamp, @message
 | stats count(*) as numberOfEvents by `detail-type`
 | sort numberOfEvents desc
+```
+
+## Queries for resource tags
+
+**Filter logs by a resource tag value.**
+
+```
+filter @aws.tag.env = "production"
+```
+
+**Filter by a tag key that contains special
+characters.**
+
+```
+filter @`aws.tag.aws:cloudformation:stack-name` = "my-stack"
+```
+
+**Get a count of log events grouped by a tag
+value.**
+
+```
+stats count(*) by @aws.tag.team
 ```
 
 ## Examples of the parse command

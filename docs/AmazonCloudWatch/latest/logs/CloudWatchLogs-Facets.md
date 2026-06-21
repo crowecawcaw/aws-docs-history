@@ -23,6 +23,11 @@ available for logs that are ingested in the account. If you have set up cross ac
 observability, the monitoring account cannot view facets based on logs from source
 accounts.
 
+If you have [resource tags for telemetry](../monitoring/resource-tags-for-telemetry.md "../monitoring/resource-tags-for-telemetry.md") enabled, resource tag fields
+(`@aws.tag.*`) are automatically added as default facets. These facets
+enable you to filter and group log events by the tags of the resources that produced
+them.
+
 To create additional facets, select the fields in your logs that are relevant to your
 troubleshooting and configure them using the index policies. For custom facets, we
 recommend creating them on low-cardinality fields (fields having less than 100 unique
