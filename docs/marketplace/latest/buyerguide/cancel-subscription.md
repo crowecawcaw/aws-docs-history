@@ -38,7 +38,7 @@ console to terminate all running instances of the subscription.
 ###### Warning
 
 You must terminate all
-instances in order to stop billing for the subscription.
+instances to stop billing for the subscription.
 
 After you cancel your subscription, you lose access to the software.
 
@@ -66,7 +66,7 @@ you may be billed.
 
 ###### Important
 
-You must terminate all instances in order to stop billing for the
+You must terminate all instances to stop billing for the
 subscription. 4. Open the **Instance state** list and choose **Terminate
 (delete) instance**. 5. On the **Terminate (delete) instance** dialog box, choose
 **Terminate (delete)**.

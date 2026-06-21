@@ -3,7 +3,7 @@
 Buy with AWS allows buyers to shop AWS Marketplace listings from any of their choice, such as a
 seller's website or marketplace or using a simple embedded call-to-action (CTA) buttons.
 Customers can explore products "available in AWS Marketplace" on Partner websites, request demos,
-access free trials, and ask for custom pricing. To make a purchase, customers simply click
+access free trials, and ask for custom pricing. To make a purchase, customers simply choose
 the **Buy with AWS** button and log in to their AWS
 account. All Buy with AWS transactions are processed and managed within AWS Marketplace. This
 provides customers with benefits like: consolidated AWS billing, centralized subscriptions
@@ -28,7 +28,7 @@ The CTA buttons that appear on a seller's website include:
   purchase through AWS as you explore solutions on the web beyond AWS.
 - **Convenient and secure purchasing with your AWS
   account**: Look for the Buy with AWS button, log in with your AWS
-  account, and utilize your AWS payment preferences for fast purchases.
+  account, and use your AWS payment preferences for fast purchases.
 - **Centralized billing and benefits through AWS Marketplace**: Unlock consolidated billing on AWS and access
   centralized tools to help you manage subscriptions and optimize costs in
   AWS Marketplace.

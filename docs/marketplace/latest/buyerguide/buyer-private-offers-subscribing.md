@@ -24,7 +24,7 @@ Seller-provided link
 Following this link before logging into the correct account will result in a
 **Page not found** (404) error.
 
-For more information, see [I get a Page not found (404) error when I click the offer ID to view the private offer](troubleshooting-private-offers-page.md#troubleshooting-page-not-found "troubleshooting-private-offers-page.md#troubleshooting-page-not-found").
+For more information, see [I get a Page not found (404) error when I choose the offer ID to view the private offer](troubleshooting-private-offers-page.md#troubleshooting-page-not-found "troubleshooting-private-offers-page.md#troubleshooting-page-not-found").
 
 Product page
 

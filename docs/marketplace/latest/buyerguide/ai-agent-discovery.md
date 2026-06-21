@@ -54,7 +54,7 @@ Discover and purchase AI agents and tools directly from partner websites using B
 
 - Browse partner catalogs while maintaining AWS billing.
 - Access specialized agents not available in the main marketplace.
-- Leverage existing AWS relationships and pricing agreements.
+- Use existing AWS relationships and pricing agreements.
 - Maintain consistent procurement processes.
 
 For more information about Buy with AWS, see [Using Buy with AWS as a buyer](buy-with-aws.md "buy-with-aws.md").

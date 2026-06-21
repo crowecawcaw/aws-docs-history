@@ -60,7 +60,7 @@ Following the instructions and configuration settings from the AWS Marketplace t
 integration in your SAP Ariba test environment, with AWS Marketplace running in _test
 mode_. In the test environment, subscription requests go to the Ariba backend so
 you can see the full flow including approvals, without creating a subscription in AWS Marketplace, and
-no invoice is generated. This approach enables testing the configuration prior to enabling the
+no invoice is generated. This approach enables testing the configuration before enabling the
 punchout in production. After your testing is complete and you are ready to move to
 production, [contact us](https://aws.amazon.com/marketplace/help/contact-us "https://aws.amazon.com/marketplace/help/contact-us")
 to set up the account in the production environment.

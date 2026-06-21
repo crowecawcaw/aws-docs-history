@@ -36,7 +36,7 @@ If you'd like to notify your procurement team when agreements are expiring, you 
 
 1. Navigate to the AWS User Notifications Console
 2. Find the **Notification Configurations** section
-3. Click on **Create notification configuration**
+3. Choose **Create notification configuration**
 4. Add a name and description
 5. **Create an Event Rule:**
 

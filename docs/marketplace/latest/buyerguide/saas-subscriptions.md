@@ -12,14 +12,14 @@ Billing for your usage of a SaaS product is managed through your AWS bill.
 
 ###### Note
 
-To request a private offer from the seller, click **Request a
+To request a private offer from the seller, choose **Request a
 private offer** on the product details page. You can also view available
 private offers for this product on the purchase page or navigate to the private link the
 seller provides you. 3. If the product has multiple available offers, you can choose an offer from the
 **Available offers** dropdown list. 4. Review the **Pricing dimensions** that you will be billed
 for and the price for each dimension. You can search for a specific dimension by typing
 its name in the search bar above the pricing. Price dimensions are displayed in your
-[preferred currency](buyer-paying-for-products.md "buyer-paying-for-products.md"). 5. Click **Download EULA** to review the terms and
+[preferred currency](buyer-paying-for-products.md "buyer-paying-for-products.md"). 5. Choose **Download EULA** to review the terms and
 conditions for this offer. 6. Review the subscription, and choose **Accept** on the subscription
 page to create an active subscription.
 

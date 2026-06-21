@@ -18,11 +18,23 @@ Your AWS account ID (account number) appears below the top navigation bar.
 
 Following are the support options available to buyers:
 
-| **Private Offers Success Team (POST)**                                                                                                                                                                                           | **Vendor Finance Success Team (VFS)**                                                                                                                                                                                                                        | **Managed Catalog Operations (MCO)**                                                                                                                                                                                             | **AWS Customer Service (AWS CS)**                                                                                                                                                              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The POST team supports sellers, channel partners, and buyers with private offer<br>operational enablement and support.                                                                                                           | The VFS team improves processes that impact vendor finance cash application,<br>reconciliation, and related reporting. The team also supports onboarding ISVs/CPs<br>with finance specific questions regarding MPPOs and CPPOs (excluding public<br>offers). | The MCO team is responsible for on-boarding third-party sellers of software onto<br>the AWS Marketplace platform, They also support reviewing and processing software products for<br>policy and compliance.                     | The AWS CS team is a specialized group of Technical Customer Support<br>Associates and Specialists (TCSA/TCSS) who handle account and billing contacts<br>related to AWS Marketplace services. |
-| **How to contact**<br>Use the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/?# "https://aws.amazon.com/marketplace/management/contact-us/?#") available through the AWS Marketplace Management Portal. | **How to contact**<br>Use the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/?# "https://aws.amazon.com/marketplace/management/contact-us/?#") available through the AWS Marketplace Management Portal.                             | **How to contact**<br>Use the [Support Form](https://aws.amazon.com/marketplace/management/contact-us/?# "https://aws.amazon.com/marketplace/management/contact-us/?#") available through the AWS Marketplace Management Portal. | **How to contact**<br>Use the [AWS Support Console](https://support.console.aws.amazon.com/support/home? "https://support.console.aws.amazon.com/support/home?").                              |
-| **Reasons to contact**<br>• Private offer acceptance                                                                                                                                                                             |                                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                  | **Reasons to contact**<br>• Account and billing support<br>• Switch to invoicing requests<br>• Refund requests<br>• Contact cancellations (public and private)                                 |
+**AWS Customer Service (AWS CS)**
+
+The AWS CS team is a specialized group of Technical Customer Support Associates and
+Specialists (TCSA/TCSS) who handle account and billing contacts related to AWS Marketplace
+services.
+
+**How to contact**
+
+Use the [AWS Support
+Console](https://support.console.aws.amazon.com/support/home? "https://support.console.aws.amazon.com/support/home?").
+
+**Reasons to contact**
+
+- Account and billing support
+- Switch to invoicing requests
+- Refund requests
+- Contact cancellations (public and private)
 
 ###### Note
 

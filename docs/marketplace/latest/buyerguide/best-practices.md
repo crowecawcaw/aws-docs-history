@@ -16,7 +16,7 @@ account administrator by allowing the delegated administrator account to create 
 Private Marketplace experiences in your organization. It also minimizes the need to use the management
 account for security reasons.
 
-## Leverage organizational units
+## Use organizational units
 
 When you build your organization hierarchy, structure your OUs to align with your
 procurement needs. With this, you can apply specific procurement controls by creating and

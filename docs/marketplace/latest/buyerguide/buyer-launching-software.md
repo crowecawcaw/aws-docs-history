@@ -1,11 +1,11 @@
 # Launching software in AWS Marketplace
 
 After buying software, you can launch Amazon Machine Images (AMIs) that contain it by using
-the 1-Click Launch view in AWS Marketplace. You can also launch it using other Amazon Web Services
+the 1-Choose Launch view in AWS Marketplace. You can also launch it using other Amazon Web Services
 (AWS) management tools, including the AWS Management Console, the Amazon Elastic Compute Cloud (Amazon EC2) console, Amazon EC2 APIs, or
 the AWS CloudFormation console.
 
-With the 1-Click Launch view, you can quickly review, modify, and then
+With the 1-Choose Launch view, you can quickly review, modify, and then
 launch a single instance of the software with settings recommended by the software seller. The
 **Launch with EC2 Console** view provides an easy way to find the AMI
 identification number and other pertinent information that is required to launch the AMI using
