@@ -44,6 +44,41 @@ If AWS DevOps Agent incorrectly links an incident, you can manually unlink it th
 
 If AWS DevOps Agent incorrectly skips an incident, you can manually unskip it through the AWS DevOps Agent Space web app. This reschedules the incident for investigation. To adjust which incidents are skipped, modify or deactivate the skill that defines the skip criteria.
 
+## Provide feedback on investigations
+
+After an investigation completes, you can provide feedback on the root cause analysis. This feedback improves future investigation accuracy and enables reporting across your Agent Space.
+
+### How to provide feedback
+
+You can provide feedback through two methods:
+
+- **Web app** – In a completed investigation, choose **Add feedback** from the investigation details. A feedback modal opens. You can rate the root cause as correct or incorrect. If incorrect, you can provide the actual root cause. You can also indicate whether steering was needed, assess mitigation correctness, and add additional notes.
+- **Chat** – Tell the agent that the investigation root cause was correct or incorrect during conversation. The agent collects structured feedback conversationally, asking follow-up questions one at a time.
+
+### Feedback fields
+
+When providing feedback, you can specify the following:
+
+- **Verdict** (required) – Whether the root cause was correct or incorrect.
+- **Actual root cause** – The real root cause if the agent's analysis was wrong.
+- **Steering needed** – Whether the agent needed human guidance during the investigation.
+- **Mitigation correctness** – Whether the suggested mitigation was correct. If incorrect, you can describe what the correct mitigation was.
+- **Additional notes** – Free-form notes about the investigation quality.
+
+### Updating feedback
+
+You can update previously submitted feedback at any time. The most recent submission replaces all prior feedback for that investigation.
+
+### Viewing accuracy metrics
+
+You can ask the agent in chat to summarize your feedback history. The agent reports total feedback count, accuracy percentage, and breakdown by verdict.
+
+### Reporting to AWS
+
+When providing feedback, you can opt in to share your feedback with AWS for troubleshooting purposes. Before submitting with this option enabled, the system shows the following disclaimer:
+
+You must explicitly confirm before feedback is shared with AWS.
+
 ## Ask for human support
 
 AWS DevOps Agent can connect directly with AWS Support to streamline your incident response process. When you need additional help from AWS Support, from your DevOps Agent Space web app you can create support cases that automatically share investigation context with AWS Support engineers, reducing the time needed to explain your issue.

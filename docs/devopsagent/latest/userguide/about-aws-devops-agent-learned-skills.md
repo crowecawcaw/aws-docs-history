@@ -2,7 +2,7 @@
 
 ## What Are Learned Skills?
 
-Learned skills are structured knowledge files that the DevOps Agent generates from your Agent Space data. Each learned skill encodes a specific type of knowledge that the AWS DevOps Agent uses as it performs tasks. At launch, two learned skills are available: Agent Space Understanding and Tool Use Best Practices.
+Learned skills are structured knowledge files that the DevOps Agent generates from your Agent Space data. Each learned skill encodes a specific type of knowledge that the AWS DevOps Agent uses as it performs tasks. At launch, four learned skills are available: Agent Space Understanding, Understanding Code Dependencies, Understanding Pipeline Topology, and Tool Use Best Practices.
 
 ### Agent Space Understanding
 
@@ -13,6 +13,14 @@ The skill produces a main `SKILL.md` file and a set of reference files. The main
 Each logical container receives a dedicated reference file describing its internal components (compute, data, messaging, network, and others) with resource types and physical identifiers such as ARNs, table names, and queue URLs. The reference file also captures observability coverage, including the alarms, dashboards, and monitors linked to each component. It also maps each component to its associated code repositories, packages, and infrastructure-as-code definitions, providing a complete traceability chain from source code to deployed resources.
 
 Each critical request path receives a dedicated reference file describing the full end-to-end request flow at component granularity, from the entry point through each intermediate service, data store, and external dependency. The file includes a sequenced flow diagram showing the order of operations and interaction mechanisms between components, along with the responsibility of each participant. It also catalogs the observability signals relevant to the path: log group patterns for each hop, key metrics (latency, error rates, throttling, token quotas) with their alarm names and dimensions, and distributed trace spans that can be correlated across services and accounts.
+
+### Understanding Code Dependencies
+
+The Understanding Code Dependencies skill (`understanding-code-dependencies`) produces a complete service-to-service and package dependency map. Use this skill to understand how repositories connect: which services call which, what events flow between them, which packages are shared, and where infrastructure boundaries lie. This skill is essential for assessing blast radius of changes, identifying upstream/downstream impacts, and understanding deployment ordering.
+
+### Understanding Pipeline Topology
+
+The Understanding Pipeline Topology skill (`understanding-pipeline-topology`) maps project pipelines from start to finish, including steps, environment promotions, and deployments along the way to release. This helps the agent distinguish between production and pre-production environments and understand the status of a change in the release process.
 
 ### Tool Use Best Practices
 
@@ -28,7 +36,7 @@ When live infrastructure access is available, the skill validates patterns again
 
 ## Managing Learned Skills
 
-**Updates** — The DevOps Agent automatically generates and updates learned skills based on activity in your Agent Space. The following describes when each skill is updated.
+The DevOps Agent automatically generates and updates learned skills based on activity in your Agent Space. The following describes when each skill is updated.
 
 The DevOps Agent generates an updated **Tool Use Best Practices** skill every 30 investigations.
 

@@ -408,6 +408,7 @@ aws cloudformation delete-stack \
 
 After you have deployed your AWS DevOps Agent by using AWS CloudFormation:
 
-- To connect additional integrations, see [Configuring capabilities for AWS DevOps Agent](configuring-capabilities-for-aws-devops-agent.md "configuring-capabilities-for-aws-devops-agent.md").
+- To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md "configuring-integrations-and-knowledge.md").
 - To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md").
 - To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md "about-aws-devops-agent-what-is-a-devops-agent-web-app.md").
+- For detailed property references for the CloudFormation resource types used in this guide, see [AWS DevOps Agent resource type reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_DevOpsAgent.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_DevOpsAgent.md") in the _AWS CloudFormation Template Reference_.

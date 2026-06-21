@@ -44,6 +44,10 @@ AWS DevOps Agent is available in the following AWS Regions.
 
 ## Considerations
 
+- **Release management preview availability** — Release management capabilities
+
+(release readiness review and autonomous release testing) are available only in US East (N. Virginia) `us-east-1` during preview. Support for all Regions listed above will be added at general availability.
+
 - **Agent Space Region selection** — An Agent Space and its data (investigations,
 
 topology, recommendations) are stored in the Region where you create it. Choose a Region that meets your data residency requirements.

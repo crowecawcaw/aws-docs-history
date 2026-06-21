@@ -28,7 +28,7 @@ For the list of available Regions, see [Supported Regions](about-aws-devops-agen
 Two authentication methods are available for both MCP and A2A endpoints:
 
 - **Access token (Bearer)** – A single token scoped to one Agent Space. Simplest setup for individual use.
-- **AWS SigV4** – AWS credential-based authentication. Supports multiple Agent Spaces and integrates with existing AWS identity governance. Handled automatically by [mcp-proxy-for-aws](https://github.com/awslabs/mcp-proxy-for-aws "https://github.com/awslabs/mcp-proxy-for-aws"), a local proxy that signs requests using your AWS credentials.
+- **AWS SigV4** – AWS credential-based authentication. Supports multiple Agent Spaces and integrates with existing AWS identity governance. Handled automatically by [mcp-proxy-for-aws](https://github.com/aws/mcp-proxy-for-aws "https://github.com/aws/mcp-proxy-for-aws"), a local proxy that signs requests using your AWS credentials.
 
 ## Create an access token
 
@@ -48,38 +48,56 @@ Two authentication methods are available for both MCP and A2A endpoints:
 ### Create a token
 
 1. Open the DevOps Agent web app for your Agent Space, then from the navigation menu, choose **Settings**, then choose **Access Tokens**.
-2. Choose **Create access token**.
+2. Choose **Generate token**.
 3. Enter a name for the token.
 4. Choose a scope:
 
    - `read` – View investigations, recommendations, chats, and Agent Space resources.
    - `operate` – Full access. Includes everything in `read`, plus send messages, create chats, and manage backlog tasks and recommendations.
 
-5. Set an expiration (1 to 60 days).
-6. Copy the token value and store it in a safe, secure location. You cannot retrieve it again.
+5. Choose a client type:
+
+   - `human` – For IDE and CLI usage (Kiro, Claude Code, Cursor, and other interactive tools).
+   - `agent` – For autonomous A2A integrations and programmatic agents.
+
+6. Set an expiration (1 to 60 days).
+7. Copy the token value and store it in a safe, secure location, such as [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md"). You cannot retrieve it again.
 
 After creating a token, the web app displays a configuration example that you can copy directly into your client.
 
 ## Connect with Kiro
 
-1. Install the **aws-devops-agent** power from the Powers marketplace.
-2. Set the following environment variables to configure the connection:
+For [Kiro](https://kiro.dev/ "https://kiro.dev/") users, a dedicated **AWS DevOps Agent** power is available from the IDE or from the [Kiro Powers marketplace](https://kiro.dev/powers/#aws-devops-agent "https://kiro.dev/powers/#aws-devops-agent").
 
-`DEVOPS_AGENT_TOKEN=<your-token> DEVOPS_AGENT_REGION=<your-agent-space-region>`
+**Step 1: Install the power**
 
-1. Approve the environment variable prompt when it appears.
-2. Restart the IDE when necessary.
+Install the **aws-devops-agent** power from the Powers marketplace.
+
+**Step 2: Set environment variables**
+
+Set the following environment variables to configure the connection:
+
+```
+DEVOPS_AGENT_TOKEN=<your-access-token>
+DEVOPS_AGENT_REGION=<your-agent-space-region>
+```
+
+**Step 3: Approve the variables in Kiro**
+
+Go to **Settings** > **MCP Approved Env Vars** and approve `DEVOPS_AGENT_TOKEN` and `DEVOPS_AGENT_REGION`. Kiro does not pass environment variables to MCP servers until they are approved.
+
+**Step 4: Restart Kiro**
+
+Restart Kiro to apply the changes.
 
 The Kiro power includes `aws-mcp` as a fallback, which provides direct AWS API access when the remote server endpoint is unavailable.
 
 ## Connect with Claude Code
 
-1. Install the **aws-devops-agent** plugin.
-2. Set the following environment variables to configure the connection:
+For [Claude Code](https://code.claude.com/docs/en/overview "https://code.claude.com/docs/en/overview") users, AWS DevOps Agent is available from the **aws-agents-for-devsecops** Claude plugin, which brings both AWS DevOps Agent and AWS Security Agent capabilities into Claude. Install it from [Claude plugins](https://claude.com/plugins/aws-agents-for-devsecops "https://claude.com/plugins/aws-agents-for-devsecops") or the [source repository](https://github.com/aws/agent-toolkit-for-aws/tree/main/plugins/aws-agents-for-devsecops "https://github.com/aws/agent-toolkit-for-aws/tree/main/plugins/aws-agents-for-devsecops").
 
-`DEVOPS_AGENT_TOKEN=<your-token> DEVOPS_AGENT_REGION=<your-agent-space-region>`
-
-The Claude Code plugin includes `aws-mcp` as a fallback, which provides direct AWS API access when the remote server endpoint is unavailable.
+1. Install the **aws-agents-for-devsecops** plugin.
+2. Run the `/aws-agents-for-devsecops:setup-devops-agent` command to configure your connection.
 
 ## Connect with other MCP clients
 
@@ -88,6 +106,25 @@ For any MCP-compatible client, configure the server with:
 - **URL** – `https://connect.aidevops.{region}.api.aws/mcp`
 - **Authorization header** – `Bearer <your-token>`
 - **Timeout** – 120 seconds minimum (initial responses can take 5–30 seconds; ongoing chat sessions may take longer)
+
+This configuration also works with Kiro and Claude Code if you prefer to configure the connection manually instead of using the dedicated power or plugin.
+
+Example MCP configuration:
+
+```
+{
+  "mcpServers": {
+    "aws-devops-agent": {
+      "url": "https://connect.aidevops.{region}.api.aws/mcp",
+      "headers": {
+        "Authorization": "Bearer <your-access-token>"
+      }
+    }
+  }
+}
+```
+
+Replace `{region}` with your Agent Space's Region (for example, `us-east-1`) and `<your-access-token>` with the token value.
 
 ## Use SigV4 authentication
 
@@ -104,6 +141,29 @@ SigV4 authentication uses your AWS credentials instead of an access token. The K
 - AWS credentials available in the environment (through SSO, environment variables, or credential file).
 - Your credentials must have permission to invoke AWS DevOps Agent actions. For the required permissions, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md "aws-devops-agent-security-devops-agent-iam-permissions.md").
 - `uvx` installed (the proxy runs through `uvx mcp-proxy-for-aws@latest`).
+
+### Example configuration
+
+To configure an MCP client to use SigV4 instead of an access token, run the server through `mcp-proxy-for-aws`. Replace `{region}` with your Agent Space's Region (for example, `us-east-1`):
+
+```
+{
+  "mcpServers": {
+    "aws-devops-agent": {
+      "command": "uvx",
+      "timeout": 120000,
+      "args": [
+        "mcp-proxy-for-aws@latest",
+        "https://connect.aidevops.{region}.api.aws/mcp",
+        "--service", "aidevops",
+        "--region", "{region}"
+      ]
+    }
+  }
+}
+```
+
+The proxy signs each request with your local AWS credentials, so no access token is required.
 
 ### Multi-Agent-Space routing
 

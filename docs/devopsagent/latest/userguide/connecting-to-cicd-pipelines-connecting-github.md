@@ -20,7 +20,7 @@ For GitHub Enterprise Server, you also need:
 
 ## Registering GitHub (account-level)
 
-GitHub is registered at the AWS account level and shared among all Agent Spaces in that account. You only need to register GitHub once per AWS account.
+GitHub is registered at the AWS account level and shared among all Agent Spaces in that account. Each registration corresponds to one GitHub user, one organization, or one GitHub Enterprise Server instance.
 
 ### Step 1: Navigate to pipeline providers
 
@@ -41,7 +41,7 @@ On the "Register GitHub Account / Organization" screen, select whether you're co
 
 If you are connecting to a GitHub Enterprise Server instance, check the **Use GitHub Enterprise Server** checkbox and enter the HTTPS URL of your instance (for example, `https://github.example.com`).
 
-If your GitHub Enterprise Server instance is not publicly accessible, you can optionally configure a private connection to allow AWS DevOps Agent to securely reach your instance. For more information, see [Connecting to privately hosted tools](configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md "configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md").
+If your GitHub Enterprise Server instance is not publicly accessible, you can optionally configure a private connection to allow AWS DevOps Agent to securely reach your instance. For more information, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
 
 ###### Note
 
@@ -84,10 +84,35 @@ After registering GitHub at the account level, you can connect specific reposito
 2. Go to the **Capabilities** tab
 3. In the **Pipeline** section, choose **Add**
 4. Select **GitHub** from the list of available providers
-5. Select the subset of repositories relevant to this Agent Space
-6. Choose **Add** to complete the connection
+5. Select the GitHub registration that contains the repositories you want to use
+6. Select the subset of repositories relevant to this Agent Space
+7. Choose **Add** to complete the connection
 
-You can connect different sets of repositories to different Agent Spaces based on your organizational needs.
+You can connect different sets of repositories to different Agent Spaces based on your organizational needs. A single Agent Space can use repositories from multiple registrations. To add repositories from another registration, repeat these steps.
+
+## Configuring Code Review and Automated Testing
+
+When you select repositories in the GitHub connection step, they are automatically added to the **Code Review and Automated Testing** section. This section configures which repositories automatically trigger a [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md") and automated testing capabilities.
+
+The Code Review and Automated Testing configuration includes:
+
+- **Capabilities** — Choose code review and automated testing capabilities for each repository. The section provides two per-repository settings:
+
+  - **Auto trigger change review** — When enabled for a repository, DevOps Agent automatically runs a [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md") each time a pull request is opened or updated. Review findings appear as inline comments on the pull request. This is enabled by default for all connected repositories.
+  - **Automated verification testing** — When enabled for a repository, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automated verification testing](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md"). This is enabled by default for all connected repositories.
+
+- **Repository list** — Shows all repositories you selected during the connection step. Use the search field to filter repositories by name. Each repository has independent checkboxes for both capabilities.
+- **Runtime role** (optional) — Choose the IAM role that DevOps Agent assumes to run automated capabilities on your selected repositories. This role is used when accessing internal services needed during builds, such as private package registries and artifact storage systems. We recommend using a different role from your primary agent role.
+
+To configure automated reviews:
+
+1. After connecting your repositories, navigate to the **Code Review and Automated Testing** section in your GitHub integration settings.
+2. For each repository, enable or disable the **Auto trigger change review** capability depending on whether you want automatic pull request reviews.
+3. For each repository, enable or disable the **Automated verification testing** capability depending on whether you want [automated verification testing](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md") in a managed verification environment.
+4. Optionally, select an IAM role from the **Runtime role** dropdown that DevOps Agent will assume when running automated capabilities on your selected repositories.
+5. Choose **Save** to apply your configuration.
+
+Once configured, any new pull request in a repository with **Auto trigger change review** enabled will automatically trigger a release readiness code review. If **Automated verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md").
 
 ## Understanding the GitHub app
 
@@ -106,13 +131,25 @@ AWS DevOps Agent may request permission updates after you install the GitHub App
 
 1. You will receive a notification from GitHub regarding the permission update request.
 2. Review the update details to understand what new permissions are being requested.
-3. Accept the request to grant the updated permissions.
+3. Choose **Accept new permissions** to grant the updated permissions.
 
-No changes are required in your service or application. Once you accept the updated permissions, the next installation access token that AWS DevOps Agent requests from GitHub will automatically include the new permissions.
+No changes are required in your service or application. After you accept the updated permissions, the next installation access token that AWS DevOps Agent requests from GitHub will automatically include the new permissions.
 
 ###### Note
 
-Until you accept a permission update, AWS DevOps Agent continues to operate with the previously granted permissions. New capabilities that depend on the updated permissions will not be available until you approve the request.
+Until you accept a permission update, AWS DevOps Agent continues to operate with the previously granted permissions. New capabilities that depend on the updated permissions will not be available until you approve the request. The app will retain its current permissions if you choose not to accept the new permissions.
+
+### Requested permissions
+
+The following table describes each permission the AWS DevOps Agent GitHub App requests and why it is needed.
+
+| Permission    | Access level   | Purpose                                                                                                                                               |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Checks        | Read and write | Post release readiness code review results as check runs on pull requests, allowing review status to appear directly in the GitHub UI.                |
+| Workflows     | Read and write | Read workflow definitions and trigger GitHub Actions workflows for release testing in your CI/CD pipelines.                                           |
+| Actions       | Read and write | Monitor GitHub Actions workflow runs and access run logs during incident investigations and release testing.                                          |
+| Contents      | Read and write | Read repository source code for code review analysis and dependency mapping. Write access enables the agent to propose fixes for identified issues.   |
+| Pull requests | Read and write | Read pull request details to trigger automated code reviews. Write access enables posting inline review comments with findings and recommended fixes. |
 
 ## Managing GitHub connections
 

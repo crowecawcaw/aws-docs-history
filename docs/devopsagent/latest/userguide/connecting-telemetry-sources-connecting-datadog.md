@@ -67,7 +67,7 @@ Activate DataDog in a specific Agent space and configure appropriate scoping
 
 Using the Webhook URL and API Key you can configure Datadog to send events to trigger an investigation, for example from an alarm.
 
-Datadog webhooks use bearer token authentication. For the complete webhook request format, payload schema, and example code, see [Invoking DevOps Agent through Webhook](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md"). Use the Version 2 (Bearer token authentication) examples, setting the `Authorization: Bearer <Token>` header with the API Key from Step 2.
+Datadog webhooks use bearer token authentication. For the complete webhook request format, payload schema, and example code, see [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md"). Use the Version 2 (Bearer token authentication) examples, setting the `Authorization: Bearer <Token>` header with the API Key from Step 2.
 
 Send webhooks with Datadog [https://docs.datadoghq.com/integrations/webhooks/](https://docs.datadoghq.com/integrations/webhooks/ "https://docs.datadoghq.com/integrations/webhooks/") (note select no authorization and instead use the custom header option).
 

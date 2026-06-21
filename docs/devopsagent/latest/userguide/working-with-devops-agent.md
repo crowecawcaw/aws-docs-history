@@ -1,24 +1,24 @@
 # Working with DevOps Agent
 
-## Working with DevOps Agent
+AWS DevOps Agent works alongside your team across the full software delivery lifecycle — from validating code changes through to operating services in production.
 
-AWS DevOps Agent works alongside your operations team across the full incident lifecycle — from detection through investigation, recovery, and prevention. The following topics describe how to use DevOps Agent to manage each phase of this lifecycle.
+## Release management (preview)
 
-## Autonomous incident response
+Release management capabilities help you validate that code changes are ready for production before they get there. DevOps Agent performs automated code reviews that evaluate potential risks to dependencies, adherence to standards and best practices, as well as builds, runs, and tests your changes in a verification environment. It can also generate and run QA tests to verify behavior in a full integration environment to protect from user flow regressions.
 
-When an incident is detected — whether through a built-in integration with your ticketing system, a webhook from your monitoring tools, or a manual trigger — DevOps Agent automatically begins an investigation. The agent analyzes metrics, logs, traces, code changes, and deployment history to determine a root cause and propose a mitigation plan. If you need additional help, you can escalate directly to AWS Support from the DevOps Agent Space web app, which automatically shares the investigation context with support engineers so you don't have to repeat what the agent already found. For more information, see [Autonomous incident response](working-with-devops-agent-autonomous-incident-response.md "working-with-devops-agent-autonomous-incident-response.md").
+Release management is available in your IDE during code generation, in pull requests and merge requests, in CI/CD pipelines, and on-demand through DevOps Agent chat. For more information, see [Release management](working-with-devops-agent-release-management-index.md "working-with-devops-agent-release-management-index.md").
 
-## On-demand DevOps tasks
+## Production operations
 
-At any point during the incident lifecycle, you can interact with DevOps Agent through a conversational chat interface. Ask questions about your AWS resources, system health, alarm status, and deployment history using natural language. Chat is context-aware — when you're viewing a specific investigation, you can steer the agent to explore particular hypotheses, focus on specific logs, or update its root cause analysis. You can also query resource configurations, error trends, and investigation insights across your environment without navigating between consoles. For more information, see [On Demand DevOps Tasks](working-with-devops-agent-on-demand-devops-tasks.md "working-with-devops-agent-on-demand-devops-tasks.md").
+Production operations capabilities help you detect, respond to, and prevent incidents once your code is running in production. DevOps Agent autonomously investigates issues the moment they occur, analyzes patterns across your incident history to prevent future problems, and provides a conversational interface for querying your infrastructure and guiding investigations. For more information, see [Production operations](working-with-devops-agent-production-operations-index.md "working-with-devops-agent-production-operations-index.md").
 
-## Proactive incident prevention
+## Custom Agents
 
-After resolving incidents, DevOps Agent analyzes patterns across your investigation history to generate recommendations that prevent future incidents and reduce mean time to detection. Recommendations span four areas: observability posture, testing gaps, code changes, and infrastructure architecture. The agent runs evaluations weekly and updates recommendations as new incidents occur. You can accept, reject, or track recommendations, and the agent learns from your feedback to refine future suggestions. For more information, see [Proactive incident prevention](working-with-devops-agent-proactive-incident-prevention.md "working-with-devops-agent-proactive-incident-prevention.md").
+Custom agents let you define your own AI agents tailored to your infrastructure and workflows. You configure a system prompt, select which MCP tools the agent can use, and assign skills that provide domain knowledge. Custom agents run on demand or on a schedule to automate recurring operational work such as generating reports, auditing configurations, and analyzing trends. For more information, see [Custom Agents](working-with-devops-agent-custom-agents-index.md "working-with-devops-agent-custom-agents-index.md").
 
-## Interfacing with the DevOps Agent
+## Accessing DevOps Agent
 
-AWS DevOps Agent supports multiple access methods including the web app console, MCP integration for IDEs, Agent Client Protocol (ACP), webhooks for event-driven automation, and direct API access. For more information, see [Interfacing with the DevOps Agent](working-with-devops-agent-interfacing-with-the-devops-agent-index.md "working-with-devops-agent-interfacing-with-the-devops-agent-index.md").
+AWS DevOps Agent supports multiple access methods including the web app console, MCP integration for IDEs, Agent Client Protocol (ACP), webhooks for event-driven automation, and direct API access. For more information, see [Accessing DevOps Agent](working-with-devops-agent-accessing-devops-agent-index.md "working-with-devops-agent-accessing-devops-agent-index.md").
 
 ## Custom Agents
 

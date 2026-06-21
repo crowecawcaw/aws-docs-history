@@ -4,7 +4,7 @@ GitLab integration enables AWS DevOps Agent to monitor deployments from GitLab P
 
 ## Registering GitLab (account-level)
 
-GitLab is registered at the AWS account level and shared among all Agent Spaces in that account. Individual Agent Spaces can then choose which specific projects apply to their Agent Space.
+GitLab is registered at the AWS account level and shared among all Agent Spaces in that account. Each registration links to one GitLab user or one GitLab group.
 
 ### Step 1: Navigate to pipeline providers
 
@@ -62,10 +62,35 @@ After registering GitLab at the account level, you can connect specific projects
 2. Go to the **Capabilities** tab
 3. In the **Pipeline** section, choose **Add**
 4. Select **GitLab** from the list of available providers
-5. Select the GitLab projects relevant to your Agent Space
-6. Choose **Save**
+5. Select the GitLab registration that contains the projects you want to use
+6. Select the GitLab projects relevant to your Agent Space
+7. Choose **Save**
 
-AWS DevOps Agent will monitor these projects for deployments from GitLab Pipelines to inform causal investigations.
+AWS DevOps Agent monitors these projects for deployments from GitLab Pipelines to inform causal investigations. A single Agent Space can use projects from multiple registrations. To add projects from another registration, repeat these steps.
+
+## Configuring Code Review and Automated Testing
+
+When you select projects in the GitLab connection step, they are automatically added to the **Code Review and Automated Testing** section. This section configures which projects automatically trigger a [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md") and automated testing capabilities.
+
+The Code Review and Automated Testing configuration includes:
+
+- **Capabilities** — Choose code review and automated testing capabilities for each project. The section provides two per-project settings:
+
+  - **Auto trigger change review** — When enabled for a project, DevOps Agent automatically runs a [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md") each time a merge request is opened or updated. Review findings appear as inline comments on the merge request. This is enabled by default for all connected projects.
+  - **Automated verification testing** — When enabled for a project, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automated verification testing](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md"). This is enabled by default for all connected projects.
+
+- **Project list** — Shows all projects you selected during the connection step. Use the search field to filter projects by name. Each project has independent checkboxes for both capabilities.
+- **Runtime role** (optional) — Choose the IAM role that DevOps Agent assumes to run automated capabilities on your selected projects. This role is used when accessing internal services needed during builds, such as private package registries and artifact storage systems. We recommend using a different role from your primary agent role.
+
+To configure automated reviews:
+
+1. After connecting your projects, navigate to the **Code Review and Automated Testing** section in your GitLab integration settings.
+2. For each project, enable or disable the **Auto trigger change review** capability depending on whether you want automatic merge request reviews.
+3. For each project, enable or disable the **Automated verification testing** capability depending on whether you want [automated verification testing](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md") in a managed verification environment.
+4. Optionally, select an IAM role from the **Runtime role** dropdown that DevOps Agent will assume when running automated capabilities on your selected projects.
+5. Choose **Save** to apply your configuration.
+
+Once configured, any new merge request in a project with **Auto trigger change review** enabled will automatically trigger a release readiness code review. If **Automated verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md").
 
 ## Managing GitLab connections
 

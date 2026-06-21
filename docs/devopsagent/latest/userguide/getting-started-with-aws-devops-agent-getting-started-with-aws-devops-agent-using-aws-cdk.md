@@ -257,3 +257,4 @@ After you have deployed your AWS DevOps Agent by using the AWS CDK:
 - [AWS DevOps Agent User Guide](../userguide.md "../userguide.md")
 - [Sample CDK repository](https://github.com/aws-samples/sample-aws-devops-agent-cdk "https://github.com/aws-samples/sample-aws-devops-agent-cdk") on the GitHub website
 - [CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md")
+- [AWS CDK DevOps Agent construct library reference](../../../cdk/api/v2/docs/aws-cdk-lib.aws_devopsagent-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_devopsagent-readme.md") in the _AWS CDK API Reference_

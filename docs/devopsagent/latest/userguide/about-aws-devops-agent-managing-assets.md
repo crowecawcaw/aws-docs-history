@@ -18,21 +18,21 @@ Every operation in the Asset API is exposed through the AWS CLI as `aws devops-a
 
 The Asset API exposes the following operations. Each row lists the IAM action you must grant to call the operation and the resource the action applies to. Every action lives in the `aidevops:` namespace and, except for `ListAssetTypes`, applies to an Agent Space resource of the form `arn:aws:aidevops:<region>:<account-id>:agentspace/<agentSpaceId>`. For broader background on `aidevops:` permissions, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md "aws-devops-agent-security-devops-agent-iam-permissions.md").
 
-| Operation           | Description                                                             | IAM action                   | Resource    |
-| ------------------- | ----------------------------------------------------------------------- | ---------------------------- | ----------- |
-| `ListAssetTypes`    | List the asset types supported by AWS DevOps Agent.                     | `aidevops:ListAssetTypes`    | `*`         |
-| `CreateAsset`       | Create a new asset in an Agent Space (skill, AGENTS.md, or attachment). | `aidevops:CreateAsset`       | Agent Space |
-| `GetAsset`          | Retrieve an asset's metadata and version information.                   | `aidevops:GetAsset`          | Agent Space |
-| `UpdateAsset`       | Update the metadata or content of an existing asset.                    | `aidevops:UpdateAsset`       | Agent Space |
-| `DeleteAsset`       | Delete an asset and all of its files from an Agent Space.               | `aidevops:DeleteAsset`       | Agent Space |
-| `ListAssets`        | List assets in an Agent Space, with optional filtering by asset type.   | `aidevops:ListAssets`        | Agent Space |
-| `ListAssetVersions` | List the historical versions of an asset.                               | `aidevops:ListAssetVersions` | Agent Space |
-| `GetAssetContent`   | Download an asset's full content as a zip bundle.                       | `aidevops:GetAssetContent`   | Agent Space |
-| `CreateAssetFile`   | Add a new file to an existing asset.                                    | `aidevops:CreateAssetFile`   | Agent Space |
-| `GetAssetFile`      | Retrieve a single file from an asset by its path.                       | `aidevops:GetAssetFile`      | Agent Space |
-| `UpdateAssetFile`   | Replace the content or metadata of an existing file in an asset.        | `aidevops:UpdateAssetFile`   | Agent Space |
-| `DeleteAssetFile`   | Remove a single file from an asset.                                     | `aidevops:DeleteAssetFile`   | Agent Space |
-| `ListAssetFiles`    | List the files within an asset.                                         | `aidevops:ListAssetFiles`    | Agent Space |
+| Operation           | Description                                                                                                   | IAM action                   | Resource    |
+| ------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
+| `ListAssetTypes`    | List the asset types supported by AWS DevOps Agent.                                                           | `aidevops:ListAssetTypes`    | `*`         |
+| `CreateAsset`       | Create a new asset in an Agent Space (skill, AGENTS.md, attachment, custom agent, test profile, or feedback). | `aidevops:CreateAsset`       | Agent Space |
+| `GetAsset`          | Retrieve an asset's metadata and version information.                                                         | `aidevops:GetAsset`          | Agent Space |
+| `UpdateAsset`       | Update the metadata or content of an existing asset.                                                          | `aidevops:UpdateAsset`       | Agent Space |
+| `DeleteAsset`       | Delete an asset and all of its files from an Agent Space.                                                     | `aidevops:DeleteAsset`       | Agent Space |
+| `ListAssets`        | List assets in an Agent Space, with optional filtering by asset type.                                         | `aidevops:ListAssets`        | Agent Space |
+| `ListAssetVersions` | List the historical versions of an asset.                                                                     | `aidevops:ListAssetVersions` | Agent Space |
+| `GetAssetContent`   | Download an asset's full content as a zip bundle.                                                             | `aidevops:GetAssetContent`   | Agent Space |
+| `CreateAssetFile`   | Add a new file to an existing asset.                                                                          | `aidevops:CreateAssetFile`   | Agent Space |
+| `GetAssetFile`      | Retrieve a single file from an asset by its path.                                                             | `aidevops:GetAssetFile`      | Agent Space |
+| `UpdateAssetFile`   | Replace the content or metadata of an existing file in an asset.                                              | `aidevops:UpdateAssetFile`   | Agent Space |
+| `DeleteAssetFile`   | Remove a single file from an asset.                                                                           | `aidevops:DeleteAssetFile`   | Agent Space |
+| `ListAssetFiles`    | List the files within an asset.                                                                               | `aidevops:ListAssetFiles`    | Agent Space |
 
 ### Example IAM policies
 
@@ -98,7 +98,7 @@ The following policy grants read-only access to assets in a single Agent Space:
 
 ## Asset types
 
-Every asset has an `assetType` string that identifies what kind of resource it is. Three asset types can be created through the Asset API: `skill`, `agents_md`, and `attachment`. The sections that follow describe each type. You can also call `ListAssetTypes` to retrieve the type identifiers at runtime.
+Every asset has an `assetType` string that identifies what kind of resource it is. Six asset types can be created through the Asset API: `skill`, `agents_md`, `attachment`, `custom_agent`, `test_profile`, and `feedback`. The sections that follow describe each type. You can also call `ListAssetTypes` to retrieve the type identifiers at runtime.
 
 Each asset carries a free-form `metadata` JSON object that describes the resource. The keys inside `metadata` use snake_case (for example, `agent_types`, `skill_type`). The keys outside `metadata`, at the top level of the request body, use camelCase (for example, `agentSpaceId`, `assetType`, `clientToken`). The required and optional `metadata` keys depend on the asset type, as described in the sections that follow.
 
@@ -112,7 +112,7 @@ A `skill` asset packages instructions and reference material that the agent load
 
 - **name** (string) – A unique identifier for the skill. Lowercase letters, numbers, and hyphens only, 1–64 characters. Must not start or end with a hyphen. Required for simple skills only. For zip uploads the service reads `name` from the `SKILL.md` frontmatter and any value supplied here is ignored.
 - **description** (string) – A 1–1024 character explanation of when the agent should use the skill. Required for simple skills only. For zip uploads the service reads `description` from the `SKILL.md` frontmatter and any value supplied here is ignored.
-- **agent_types** (array of strings) – One or more agent types this skill applies to. Use `["GENERIC"]` to make the skill available to all agent types. Other values include `CHAT`, `INCIDENT_TRIAGE`, `INCIDENT_RCA`, `INCIDENT_MITIGATION`, and `PREVENTION`. The `GENERIC` value cannot be combined with other values.
+- **agent_types** (array of strings) – One or more agent types this skill applies to. Use `["GENERIC"]` to make the skill available to all agent types. Other values include `CHAT`, `INCIDENT_TRIAGE`, `INCIDENT_RCA`, `INCIDENT_MITIGATION`, `PREVENTION`, `CHANGE_REVIEW`, `CHANGE_RELEASE`, `QUALITY_ASSURANCE_TESTING`, `RELEASE_SHEPHERD`, `RELEASE_READINESS_REVIEW`, and `RELEASE_TESTING`. The `GENERIC` value cannot be combined with other values.
 
 **Optional `metadata` properties:**
 
@@ -138,7 +138,7 @@ An `agents_md` asset is a markdown file containing standing agent instructions f
 
 **Required `metadata` properties:**
 
-- **agent_type** (string) – The agent type the AGENTS.md file applies to (for example, `GENERIC`, `INCIDENT_TRIAGE`, `INCIDENT_RCA`, `INCIDENT_MITIGATION`, `PREVENTION`, or `CHAT`).
+- **agent_type** (string) – The agent type the AGENTS.md file applies to. Valid values are `GENERIC`, `CHAT`, `INCIDENT_TRIAGE`, `INCIDENT_RCA`, `INCIDENT_MITIGATION`, `PREVENTION`, `CHANGE_REVIEW`, `CHANGE_RELEASE`, `QUALITY_ASSURANCE_TESTING`, `RELEASE_SHEPHERD`, `RELEASE_READINESS_REVIEW`, and `RELEASE_TESTING`.
 
 **Example `metadata`:**
 
@@ -171,6 +171,81 @@ An `attachment` asset stores a binary or text file that the agent can reference 
 ```
 
 **Limits:** The total size of all attachments in an Agent Space cannot exceed 10 GB.
+
+### custom_agent
+
+A `custom_agent` asset defines a specialized agent configuration with a curated set of tools and skills. Use a custom agent to scope the agent to a specific workflow or set of capabilities.
+
+**Required `metadata` properties:**
+
+- **name** (string) – A unique identifier for the custom agent. Lowercase letters, numbers, and hyphens only, 1–64 characters. Must not start or end with a hyphen.
+
+**Optional `metadata` properties:**
+
+- **tools** (array of strings) – The tool identifiers the custom agent is allowed to use. Defaults to an empty list when omitted.
+- **skills** (array of strings) – The skill identifiers the custom agent loads. Defaults to an empty list when omitted.
+
+**Example `metadata`:**
+
+```
+{
+  "name": "rds-firefighter",
+  "tools": ["cloudwatch:GetMetricData", "rds:DescribeDBInstances"],
+  "skills": ["rds-performance-investigation"]
+}
+```
+
+### test_profile
+
+A `test_profile` asset stores a reusable configuration for a release-testing run, including the kind of testing to perform and the target endpoint.
+
+**Required `metadata` properties:**
+
+- **test_agent_type** (string) – The type of testing this profile performs. Valid values are `releaseUiTesting` and `releaseApiTesting`.
+- **target_url** (string) – The URL the test run targets.
+
+**Optional `metadata` properties:**
+
+- **name** (string) – A human-readable identifier for the test profile. Lowercase letters, numbers, and hyphens only, 1–128 characters. Must not start or end with a hyphen.
+- **description** (string) – A 1–1024 character description of what the test profile covers.
+- **test_personas** (array of strings) – The personas to exercise during the test run. Valid values are `guest` and `authenticated`.
+- **api_spec** (string) – An API specification for the test run. Relevant for `releaseApiTesting`.
+- **credentials_secret_arn** (string) – The ARN of an AWS Secrets Manager secret holding credentials for the test run.
+
+**Example `metadata`:**
+
+```
+{
+  "name": "checkout-api-tests",
+  "description": "Release API tests for the checkout service.",
+  "test_agent_type": "releaseApiTesting",
+  "target_url": "https://api.example.com",
+  "test_personas": ["guest", "authenticated"],
+  "api_spec": "openapi: 3.0.0",
+  "credentials_secret_arn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:checkout-creds"
+}
+```
+
+### feedback
+
+A `feedback` asset records customer-provided feedback on a single agent execution. Use feedback assets to capture verdicts and notes that downstream evaluation pipelines can aggregate.
+
+**Required `metadata` properties:**
+
+- **agent_types** (array of strings) – The agent types that produced the execution. Must contain at least one value (for example, `INCIDENT_TRIAGE`).
+
+**Optional `metadata` properties:**
+
+- **execution_id** (string) – The execution this feedback is associated with. Set this on `CreateAsset`; it cannot be changed by `UpdateAsset`.
+
+**Example `metadata`:**
+
+```
+{
+  "execution_id": "b2c3d4e5-6789-01ab-cdef-example22222",
+  "agent_types": ["INCIDENT_TRIAGE"]
+}
+```
 
 ## Asset content: file or zip
 
@@ -529,6 +604,63 @@ cat > create-attachment.json <<EOF
 }
 EOF
 aws devops-agent create-asset --cli-input-json file://create-attachment.json
+```
+
+**Create a custom agent:**
+
+```
+aws devops-agent create-asset \
+  --agent-space-id 8f6187a7-0388-4926-8217-3a0fe32f757c \
+  --asset-type custom_agent \
+  --metadata '{
+    "name": "rds-firefighter",
+    "tools": ["cloudwatch:GetMetricData", "rds:DescribeDBInstances"],
+    "skills": ["rds-performance-investigation"]
+  }' \
+  --content '{
+    "file": {
+      "path": "AGENT.md",
+      "body": { "text": "# RDS Firefighter\n\nCustom agent for RDS incidents." }
+    }
+  }'
+```
+
+**Create a test profile:**
+
+```
+aws devops-agent create-asset \
+  --agent-space-id 8f6187a7-0388-4926-8217-3a0fe32f757c \
+  --asset-type test_profile \
+  --metadata '{
+    "name": "checkout-api-tests",
+    "test_agent_type": "releaseApiTesting",
+    "target_url": "https://api.example.com",
+    "test_personas": ["guest", "authenticated"]
+  }' \
+  --content '{
+    "file": {
+      "path": "PROFILE.md",
+      "body": { "text": "# Checkout API test profile" }
+    }
+  }'
+```
+
+**Create a feedback asset:**
+
+```
+aws devops-agent create-asset \
+  --agent-space-id 8f6187a7-0388-4926-8217-3a0fe32f757c \
+  --asset-type feedback \
+  --metadata '{
+    "execution_id": "b2c3d4e5-6789-01ab-cdef-example22222",
+    "agent_types": ["INCIDENT_TRIAGE"]
+  }' \
+  --content '{
+    "file": {
+      "path": "FEEDBACK.md",
+      "body": { "text": "{\"verdict\":\"correct\"}" }
+    }
+  }'
 ```
 
 **List supported asset types:**

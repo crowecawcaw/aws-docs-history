@@ -336,7 +336,7 @@ aws devops-agent associate-service \
 
 ### 5. (Optional) Associate GitHub
 
-For instructions on registering GitHub through the console, see [Connecting to CI/CD pipelines](configuring-capabilities-for-aws-devops-agent-connecting-to-cicd-pipelines-index.md "configuring-capabilities-for-aws-devops-agent-connecting-to-cicd-pipelines-index.md").
+For instructions on registering GitHub through the console, see [Connecting to CI/CD pipelines](configuring-integrations-and-knowledge-connecting-to-cicd-pipelines-index.md "configuring-integrations-and-knowledge-connecting-to-cicd-pipelines-index.md").
 
 List the registered services:
 
@@ -596,7 +596,7 @@ aws devops-agent list-associations \
 
 ## Next steps
 
-- To connect additional integrations, see [Configuring capabilities for AWS DevOps Agent](configuring-capabilities-for-aws-devops-agent.md "configuring-capabilities-for-aws-devops-agent.md").
+- To connect additional integrations, see [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md "configuring-integrations-and-knowledge.md").
 - To learn about agent skills and capabilities, see [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md").
 - To understand the operator web app, see [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md "about-aws-devops-agent-what-is-a-devops-agent-web-app.md").
 

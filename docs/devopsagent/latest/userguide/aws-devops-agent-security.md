@@ -108,7 +108,7 @@ Prompt injection safeguards:
 
 - **Limited write capabilities** – The tools available to the agent are not able to mutate resources, with the exception of opening tickets and support cases. This prevents malicious instructions from modifying your infrastructure or applications.
 - **Account boundary enforcement** – AWS DevOps Agent only operates within the boundary permitted by the roles assigned to the agent in the primary and connected secondary AWS accounts. The agent cannot access or modify resources outside of its configured scope.
-- **AI safety protections** – AWS DevOps Agent uses models with AI Safety Level 3 (ASL-3) protections. These protections include classifiers that detect and prevent prompt injection attacks before they can affect agent behavior.
+- **AI safety protections** – AWS DevOps Agent uses models with AI Safety Level 3 (ASL-3) protections, which include built-in classifiers that detect and resist prompt injection attempts. The agent also leverages the [Amazon Bedrock Guardrails](../../../bedrock/latest/userguide/guardrails-prompt-attack.md "../../../bedrock/latest/userguide/guardrails-prompt-attack.md") prompt attack filter to detect and block prompt injection and jailbreak attempts before they can affect agent behavior.
 - **Immutable audit trail** – The agent journal logs every reasoning step and action taken. Journal entries cannot be modified by the agent once recorded, preventing prompt injection attacks from hiding malicious actions.
 
 While AWS DevOps Agent provides multiple layers of protection against prompt injection attacks, certain configurations can increase risk:
@@ -160,7 +160,7 @@ AWS DevOps Agent connects to your third-party systems and remote MCP servers to 
 
 AWS DevOps Agent initiates outbound connections to your third-party systems and remote MCP servers, which arrive as inbound traffic to your infrastructure. How you secure this traffic depends on how your tools are hosted:
 
-- **Privately hosted tools** – If your tools are reachable from within an AWS VPC, you can use AWS DevOps Agent _private connections_ to keep traffic isolated to AWS networks, and off of the public internet. For more information, see [Connecting to privately hosted tools](configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md "configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md").
+- **Privately hosted tools** – If your tools are reachable from within an AWS VPC, you can use AWS DevOps Agent _private connections_ to keep traffic isolated to AWS networks, and off of the public internet. For more information, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
 - **Publicly hosted tools** – If your tools are reachable over the public internet and use IP allowlisting or firewall rules, you must allow inbound traffic from the following AWS DevOps Agent source IP addresses:
 
   - Asia Pacific (Sydney) (ap-southeast-2)
@@ -219,7 +219,7 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
 
 ### Outbound traffic from your VPC to AWS DevOps Agent
 
-For outbound traffic from your AWS VPC to AWS DevOps Agent (for example, using [Invoking DevOps Agent through Webhook](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md")), you can use VPC Endpoints to keep this network traffic isolated to AWS networks. For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md "aws-devops-agent-security-vpc-endpoints-aws-privatelink.md").
+For outbound traffic from your AWS VPC to AWS DevOps Agent (for example, using [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md")), you can use VPC Endpoints to keep this network traffic isolated to AWS networks. For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md "aws-devops-agent-security-vpc-endpoints-aws-privatelink.md").
 
 ## Shared responsibility model
 

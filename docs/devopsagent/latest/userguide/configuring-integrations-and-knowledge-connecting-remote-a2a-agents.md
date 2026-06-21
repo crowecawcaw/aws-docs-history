@@ -104,6 +104,6 @@ AWS DevOps Agent will now be able to delegate investigation subtasks to your rem
 
 ## Related topics
 
-- [Connecting MCP Servers](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md")
+- [Connecting MCP Servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md "configuring-integrations-and-knowledge-connecting-mcp-servers.md")
 - [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md")
 - [Creating an Agent Space](getting-started-with-aws-devops-agent-creating-an-agent-space.md "getting-started-with-aws-devops-agent-creating-an-agent-space.md")

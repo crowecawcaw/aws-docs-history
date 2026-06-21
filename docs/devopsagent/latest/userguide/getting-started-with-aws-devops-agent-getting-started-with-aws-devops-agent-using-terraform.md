@@ -265,3 +265,6 @@ After you have deployed your AWS DevOps Agent using Terraform:
 - [AWS DevOps Agent User Guide](../userguide.md "../userguide.md")
 - [Sample Terraform repository](https://github.com/aws-samples/sample-aws-devops-agent-terraform "https://github.com/aws-samples/sample-aws-devops-agent-terraform")
 - [CLI onboarding guide](getting-started-with-aws-devops-agent-cli-onboarding-guide.md "getting-started-with-aws-devops-agent-cli-onboarding-guide.md")
+- [awscc_devopsagent_agent_space](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_agent_space "https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_agent_space") resource in the _Terraform Registry_
+- [awscc_devopsagent_association](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_association "https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_association") resource in the _Terraform Registry_
+- [awscc_devopsagent_private_connection](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_private_connection "https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_private_connection") resource in the _Terraform Registry_

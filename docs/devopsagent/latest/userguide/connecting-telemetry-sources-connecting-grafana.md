@@ -9,7 +9,7 @@ To improve security, the Grafana integration only enables read-only tools. Write
 Before connecting Grafana, ensure you have:
 
 - Grafana version 9.0 or later. Some features, particularly datasource-related operations, may not work correctly with earlier versions due to missing API endpoints.
-- A Grafana instance accessible over HTTPS. Both public and private network endpoints are supported. With private network connectivity, your Grafana instance can be hosted inside a VPC with no public internet access. For details, see [Connecting to privately hosted tools](configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md "configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md").
+- A Grafana instance accessible over HTTPS. Both public and private network endpoints are supported. With private network connectivity, your Grafana instance can be hosted inside a VPC with no public internet access. For details, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
 - A Grafana service account with an access token that has appropriate read permissions
 
 ## Registering Grafana (account-level)
@@ -50,7 +50,7 @@ After registering Grafana at the account level, you can connect it to individual
 
 ## Configuring Grafana alert webhooks
 
-You can configure Grafana to automatically trigger AWS DevOps Agent investigations when alerts fire by sending webhooks through Grafana contact points. For details on webhook authentication methods and credential management, see [Invoking DevOps Agent through Webhook](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md").
+You can configure Grafana to automatically trigger AWS DevOps Agent investigations when alerts fire by sending webhooks through Grafana contact points. For details on webhook authentication methods and credential management, see [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md").
 
 ### Step 1: Create a custom notification template
 
@@ -86,7 +86,7 @@ This template formats Grafana alerts into the webhook payload structure expected
 1. In Grafana, navigate to **Alerting > Contact points** and choose **Add contact point**
 2. Select **Webhook** as the integration type
 3. Set the **URL** to your AWS DevOps Agent webhook endpoint
-4. Under **Optional Webhook settings**, configure the authentication headers based on your webhook type. See [Webhook authentication methods](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md") for details.
+4. Under **Optional Webhook settings**, configure the authentication headers based on your webhook type. See [Webhook authentication methods](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md") for details.
 5. Set the **Custom Payload** field to use your custom template: `{{ template "devops-agent-payload" . }}`
 6. Choose **Save contact point**
 
@@ -102,7 +102,7 @@ When a matching alert fires, Grafana will send the formatted payload to AWS DevO
 ## Limitations
 
 - **ClickHouse data source tools** – ClickHouse data source tools are not currently supported.
-- **Proactive incident prevention** – [Proactive incident prevention](working-with-devops-agent-proactive-incident-prevention.md "working-with-devops-agent-proactive-incident-prevention.md") does not currently use Grafana tools. Support is planned for a future release.
+- **Proactive incident prevention** – [Proactive incident prevention](production-operations-proactive-incident-prevention.md "production-operations-proactive-incident-prevention.md") does not currently use Grafana tools. Support is planned for a future release.
 
 ### Amazon Managed Grafana considerations
 

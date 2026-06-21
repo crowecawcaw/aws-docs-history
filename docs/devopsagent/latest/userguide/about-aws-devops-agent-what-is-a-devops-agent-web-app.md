@@ -13,11 +13,13 @@ AWS DevOps Agent provides two distinct interfaces:
 
 The DevOps Agent web app provides the following primary capabilities:
 
-- **Incident Response –** The page is where you create and track incident investigations as well as generate mitigation plans to resolve incidents.
-- **Incident Prevention –** Found in the Prevention page, this is where you will find recommendations to improve your observability posture, delivery processes, and infrastructure architecture to prevent future incidents.
-- **Topology –** The Topology page provides an interactive visual representation of the account resources and their relationships across all of the resources in the connected accounts. You can view the topology with different levels of detail using the "Show" dropdown to switch between System, Container, and Resource views.
-- **Skills** – Modular instruction sets that extend AWS DevOps Agent with specialized capabilities. Skills contain domain knowledge, investigation methodologies, and tool configurations tailored to your infrastructure. Each skill enables specific tools and provides progressive disclosure of instructions only when relevant to the investigation.
 - **Natural language Chat interface** – Available throughout the web app, Chat is an AI-powered conversational assistant that enables you to query your infrastructure, analyze system health, and work with investigations using natural language. Chat provides context-aware responses based on the page you're viewing.
+- **Incidents** – The Incidents page is where you create and track incident investigations and generate mitigation plans to resolve incidents. After an investigation completes, you can provide accuracy feedback on the root cause analysis.
+- **Improvements** – The Improvements page provides recommendations to improve your observability posture, delivery processes, and infrastructure architecture to prevent future incidents.
+- **Topology** – The Topology page provides an interactive visual representation of the account resources and their relationships across all of the resources in the connected accounts. You can view the topology with different levels of detail using the "Show" dropdown to switch between System, Container, and Resource views.
+- **Agents** – Create and manage custom agents that you can schedule, for example to generate weekly operations reports.
+- **Knowledge** – Three tabs, Instructions, Skills, and Memories, hold different kinds of knowledge that extend AWS DevOps Agent. Instructions are similar to local AGENTS.md general instructions, applied every time to all agents or to specific agents. Skills are modular instruction sets that extend AWS DevOps Agent with specialized capabilities. Skills contain domain knowledge, investigation methodologies, and tool configurations tailored to your infrastructure, and each skill enables specific tools and provides progressive disclosure of instructions only when relevant to the investigation. Memories are learned knowledge. The agent learns them through directives in chat or through a managed skill that performs learning from past experience and creates memories.
+- **Settings** – General settings, including the agent space ARN, usage information, light/dark theme configuration, access tokens, and a link to the What's new documentation for recent changes.
 
 ## Authentication
 

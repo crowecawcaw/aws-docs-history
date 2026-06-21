@@ -2,13 +2,13 @@
 
 ## Private connections overview
 
-AWS DevOps Agent can be extended with custom Model Context Protocol (MCP) tools and other integrations that give the agent access to internal systems such as private package registries, self-hosted observability platforms, internal documentation APIs, and source control instances (see: [Configuring capabilities for AWS DevOps Agent](configuring-capabilities-for-aws-devops-agent.md "configuring-capabilities-for-aws-devops-agent.md")). These services often run inside an [Amazon Virtual Private Cloud (Amazon VPC)](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") with restricted or no public internet access, which means AWS DevOps Agent can't reach them by default.
+AWS DevOps Agent can be extended with custom Model Context Protocol (MCP) tools and other integrations that give the agent access to internal systems such as private package registries, self-hosted observability platforms, internal documentation APIs, and source control instances (see: [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md "configuring-integrations-and-knowledge.md")). These services often run inside an [Amazon Virtual Private Cloud (Amazon VPC)](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") with restricted or no public internet access, which means AWS DevOps Agent can't reach them by default.
 
 Private connections for AWS DevOps Agent let you securely connect your Agent Space to services running in your VPC without exposing them to the public internet. Private connections work with any integration that needs to reach a private endpoint, including MCP servers, self-hosted Grafana or Splunk instances, and source control systems like GitHub Enterprise Server and GitLab Self-Managed.
 
 ###### Note
 
-If your privately hosted tools make outbound requests to the AWS DevOps Agent from within your VPC, this traffic can also be secured by using a VPC Endpoint so it stays within the AWS network. For example, this can be used with tools that trigger the DevOps Agent via webhook events (see: [Invoking DevOps Agent through Webhook](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md")). For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md "aws-devops-agent-security-vpc-endpoints-aws-privatelink.md").
+If your privately hosted tools make outbound requests to the AWS DevOps Agent from within your VPC, this traffic can also be secured by using a VPC Endpoint so it stays within the AWS network. For example, this can be used with tools that trigger the DevOps Agent via webhook events (see: [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md")). For more information, see [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md "aws-devops-agent-security-vpc-endpoints-aws-privatelink.md").
 
 ### How private connections work
 
@@ -253,10 +253,34 @@ aws devops-agent create-private-connection \
 
 For more details on setting up VPC Lattice resource gateways and resource configurations, see the [Amazon VPC Lattice User Guide](../../../vpc-lattice/latest/ug.md "../../../vpc-lattice/latest/ug.md").
 
+### Cross-region connectivity
+
+Private connections must be created in the same AWS Region as your Agent Space. If your target service runs in a different Region, use self-managed mode with inter-region VPC peering or Transit Gateway peering to bridge the gap.
+
+The pattern is:
+
+1. Establish inter-region connectivity (VPC peering or Transit Gateway peering) between a VPC in the Agent Space's Region and the service's VPC. VPC CIDRs must not overlap.
+2. Create a resource gateway in the Agent Space's Region, in a VPC with the peering connection.
+3. Create a resource configuration in the Agent Space's Region pointing to the service's IP address (routable via the peering connection).
+4. Create a self-managed private connection using that resource configuration ARN.
+
+For example, if your agent space is in `us-east-1` and your MCP server is in `ap-southeast-2`:
+
+```
+aws devops-agent create-private-connection \
+    --name cross-region-connection \
+    --mode '{
+        "selfManaged": {
+            "resourceConfigurationId": "arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-0123456789abcdef0"
+        }
+    }' \
+    --region us-east-1
+```
+
 ## Related topics
 
 - [VPC Endpoints (AWS PrivateLink)](aws-devops-agent-security-vpc-endpoints-aws-privatelink.md "aws-devops-agent-security-vpc-endpoints-aws-privatelink.md")
-- [Connecting MCP Servers](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md")
-- [Configuring capabilities for AWS DevOps Agent](configuring-capabilities-for-aws-devops-agent.md "configuring-capabilities-for-aws-devops-agent.md")
+- [Connecting MCP Servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md "configuring-integrations-and-knowledge-connecting-mcp-servers.md")
+- [Configuring integrations and knowledge](configuring-integrations-and-knowledge.md "configuring-integrations-and-knowledge.md")
 - [AWS DevOps Agent Security](aws-devops-agent-security.md "aws-devops-agent-security.md")
 - [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.md "aws-devops-agent-security-devops-agent-iam-permissions.md")

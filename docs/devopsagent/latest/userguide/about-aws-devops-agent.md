@@ -1,8 +1,8 @@
 # About AWS DevOps Agent
 
-AWS DevOps Agent is a frontier agent that resolves and proactively prevents incidents, continuously improving reliability and performance.
+AWS DevOps Agent is an AI-powered, always-available agent that spans release management and production operations, from reviewing release readiness and release testing to investigating and preventing operational issues across AWS, multicloud, and on-premises environments.
 
-AWS DevOps Agent investigates incidents and identifies operational improvements as an experienced DevOps engineer.
+AWS DevOps Agent helps review software changes for production risks while investigating incidents and identify operational improvements as an experienced DevOps engineer.
 
 The agent works by:
 
@@ -13,37 +13,40 @@ The agent works by:
 
 ## Key features
 
-AWS DevOps Agent provides comprehensive incident response and prevention capabilities through the following features:
+AWS DevOps Agent provides capabilities across two core areas: production operations and release management.
 
-### Always-on, autonomous incident response
+### Production operations
 
 AWS DevOps Agent autonomously investigates issues the moment they occur:
 
-- **Automated incident investigation** – Begins investigating immediately when an alert or support ticket comes in
-- **AWS DevOps Agent Chat** - Query your infrastructure, analyze system health, and guide investigations using natural language throughout the DevOps Agent Space web app. Chat provides context-aware responses based on the page you're viewing, whether asking about resources in Topology, steering an investigation, or filtering recommendations in Prevention.
-- **Detailed mitigation plans** – Provides specific actions to resolve incidents, validate success, and revert changes if needed
-- **Automated incident coordination** – Routes observations, findings, and mitigation steps through your preferred communication channels like Slack and ServiceNow
-- **AWS Support integration** – Create AWS Support cases directly from an investigation with immediate context provided to AWS Support experts
+- **Automated incident investigation** – Begins investigating immediately when an alert or support ticket comes in, correlating telemetry, code, and deployment data to identify root cause.
+- **Actionable mitigation plans** – Provides specific actions to resolve incidents, validate success, and revert changes if needed. Also provides agent-ready instructions that can be implemented by another frontier agent, such as code improvements that can be implemented by Kiro.
+- **Proactive incident prevention** – Analyzes patterns across historical incidents to deliver targeted improvements across observability, infrastructure optimization, deployment pipelines, and application resilience, so the same problems don't recur.
+- **Automated incident coordination** – Routes observations, findings, and mitigation steps through your preferred communication channels like Slack, ServiceNow, and PagerDuty.
+- **On-demand SRE task handling** – Handles SRE tasks through natural language, leveraging its deep knowledge of your application topology and service dependencies. Query resource health, investigate incident patterns, track deployments, and explore recommendations without navigating between consoles.
+- **AWS Support integration** – Create AWS Support cases directly from an investigation with full context to speed resolution.
 
-### Prevent future incidents
+### Release management (preview)
 
-AWS DevOps Agent analyzes patterns across historical incidents to help you move from reactive firefighting to proactive operational improvement:
+AWS DevOps Agent includes a set of preview capabilities to help verify that code changes are ready for production before they get there:
 
-- **Targeted recommendations** – Delivers specific, actionable improvements that strengthen four key areas: observability (monitoring, alerting, logging), infrastructure optimization (autoscaling, capacity tuning), and deployment pipeline enhancement (testing, validation).
-- **Continuous learning** – Refines recommendations based on your team's feedback
+- **Release readiness review** – Reviews code changes during code generation, checking policy compliance, dependency impacts, and access controls. Maps cross-repository dependencies to surface breaking changes before merge and uses deterministic proofs to assess that infrastructure changes do not expand permissions beyond what the application requires. By understanding your full service topology, it reasons about blast radius and reviews changes in context of the broader system.
+- **Autonomous release testing** – Generates and runs change-specific test plans for web and API-based applications in customer-provisioned environments, catching regressions, UX issues, and integration failures before they reach production. Tests target risk areas surfaced during the release readiness review rather than a static regression suite.
+- **Built into the developer workflow** – Delivers results through pull requests, coding agent IDEs, and CI/CD pipelines so developers stay in flow from code generation through deployment.
 
-### Get more from your DevOps tools
+## Environment intelligence
 
-AWS DevOps Agent integrates with your existing tools without changing your workflows:
+AWS DevOps Agent continuously learns your environment, building deep understanding of your services, dependencies, and operational patterns:
 
-- **Application resource mapping** – Builds a topology graph of your application resources and their relationships
-- **Built-in integrations** – Works with popular observability tools (Amazon CloudWatch, Dynatrace, Datadog, New Relic, and Splunk), code repositories, and CI/CD pipelines (GitHub Actions and repositories, GitLab workflows and repositories)
-- **Custom tool integration** – Extend capabilities by connecting to your own Model Context Protocol (MCP) servers for additional tools
-- **Conversational infrastructure queries** – Use natural language to query AWS resources, system metrics and alarm status without navigating multiple consoles. Chat understands context and maintains conversation history for follow-up questions.
+- **Application resource mapping** – Automatically discovers applications, their component services, and the resources that compose them. Maps these relationships into a dynamic, continuously updated topology.
+- **Continuous learning** – Release reviews get more relevant, investigations get faster, and recommendations more precise as the agent learns your environment over time.
+- **Extend capabilities with agent skills** – Add reusable, modular skills that encode your runbooks, architectural standards, and operational practices so the agent executes tasks consistently and reliably.
+- **Built-in and custom integrations** – Works with Amazon CloudWatch, Datadog, Dynatrace, New Relic, Splunk, Grafana, GitHub, GitLab, Azure DevOps, ServiceNow, PagerDuty, Slack, and Microsoft Teams. Connect to private or remote MCP servers to extend further into proprietary systems.
+- **Access from anywhere** – Operates as a remote server so other applications or agents can invoke release readiness checks, trigger investigations, or query operational health. Supports MCP, ACP, and A2A protocols.
 
 ## How AWS DevOps Agent works
 
-AWS DevOps Agent operates through a dual-console architecture. Administrators use the AWS Management Console to create and manage Agent Spaces, configure integrations, and set up access controls. Operations teams use the AWS DevOps Agent web app for day-to-day incident response and investigation activities. The web app is where operators can interact with agent investigations, browse cross-account application topology, and learn about preventative improvements to observability, code, pipelines, and infrastructure architectures. To learn more, see [Proactive incident prevention](working-with-devops-agent-proactive-incident-prevention.md "working-with-devops-agent-proactive-incident-prevention.md").
+AWS DevOps Agent operates through a dual-console architecture. Administrators use the AWS Management Console to create and manage Agent Spaces, configure integrations, and set up access controls. Operations teams use the AWS DevOps Agent web app for day-to-day incident response and investigation activities. The web app is where operators can interact with agent investigations, browse cross-account application topology, and learn about preventative improvements to observability, code, pipelines, and infrastructure architectures. To learn more, see [Proactive incident prevention](production-operations-proactive-incident-prevention.md "production-operations-proactive-incident-prevention.md").
 
 The service is organized around Agent Spaces, which are logical containers that define what AWS DevOps Agent can access and investigate. Each Agent Space contains your AWS account configurations, third-party tool integrations, and access permissions. To learn more, see [What are DevOps Agent Spaces?](about-aws-devops-agent-what-are-devops-agent-spaces.md "about-aws-devops-agent-what-are-devops-agent-spaces.md").
 
@@ -51,7 +54,8 @@ AWS DevOps Agent automatically builds an application topology that maps your res
 
 ## Benefits
 
-- **Reduce mean time to resolution (MTTR)** – Autonomous investigation starts immediately, accelerating incident resolution from hours to minutes
-- **Prevent recurring incidents** – Targeted recommendations address root causes and strengthen system resilience
-- **Improve operational efficiency** – Free your team from repetitive investigation tasks to focus on innovation
-- **Work within existing workflows** – Integrates with your existing tools and processes without disruption
+- **Ship faster with confidence** – Release readiness reviews and autonomous testing validate changes before they reach production, so developers don't wait on other teams for policy checks, dependency validation, and test results.
+- **Reduce mean time to resolution (MTTR)** – Autonomous investigation starts immediately, accelerating incident resolution from hours to minutes.
+- **Prevent recurring incidents** – Targeted recommendations address root causes and strengthen system resilience across observability, infrastructure, deployments, and application code.
+- **Improve operational efficiency** – Free your team from repetitive investigation and review tasks to focus on higher-value work.
+- **Work within existing workflows** – Integrates with your existing tools and processes without disruption, delivering results where your team already works.
