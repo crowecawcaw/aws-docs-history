@@ -97,7 +97,7 @@ formats](discovery-supported-storage.md "discovery-supported-storage.md"). 6. To
     ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](images/icon-magnifying-glass-plus-sign.png)
      in the field. To show buckets that have other values for a field,
      choose
-    ![The zoom out icon, which is a magnifying glass that has a minus sign in it.](/images/macie/latest/user/images/icon-magnifying-glass-minus-sign.png)
+    ![The zoom out icon, which is a magnifying glass that has a minus sign in it.](images/icon-magnifying-glass-minus-sign.png)
      in the field.
 
 7. To export data from the table to a CSV file, select the checkbox for each row to export,
