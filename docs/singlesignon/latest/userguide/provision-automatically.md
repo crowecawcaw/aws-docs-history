@@ -11,6 +11,7 @@ in IAM Identity Center.
 ###### Topics
 
 - [Considerations for using automatic provisioning](#auto-provisioning-considerations "#auto-provisioning-considerations")
+- [IdentityStore API access with SCIM provisioning](#scim-identitystore-api-considerations "#scim-identitystore-api-considerations")
 - [How to monitor access token expiry](#access-token-expiry "#access-token-expiry")
 - [Generate an access token](generate-token.md "generate-token.md")
 - [Enable automatic provisioning](how-to-with-scim.md "how-to-with-scim.md")
@@ -74,6 +75,57 @@ to your IdP.
   do so from your external IdP or identity source.
 
 For more information about IAM Identity Center’s SCIM implementation, see the [IAM Identity Center SCIM Implementation Developer Guide](../developerguide/what-is-scim.md "../developerguide/what-is-scim.md").
+
+## IdentityStore API access with SCIM provisioning
+
+When you configure SCIM provisioning from an external IdP, the Identity Store APIs that
+allow for mutating users and group membership remain accessible. Principals in the
+management account and the delegated administrator account can call them.
+
+There are valid reasons to use these APIs alongside SCIM. For example, some IdPs
+such as Google Workspace do not support SCIM group provisioning, and require you to
+[create
+and manage groups manually](gs-gwp.md "gs-gwp.md") through the Identity Store APIs. Other use cases include
+rapid user disablement and pre-provisioning groups before IdP synchronization.
+
+###### Important
+
+If your organization does not require direct API access, be aware that using
+mutating Identity Store APIs on a SCIM-provisioned directory can cause the directory in
+IAM Identity Center to drift from your external IdP. SCIM synchronization operates on deltas from
+the source IdP. This means changes made through the API may not be corrected by
+subsequent SCIM syncs. This can result in:
+
+- Users or group memberships in IAM Identity Center that do not match your external IdP,
+  breaking the expectation that the IdP is the single source of truth.
+- Unintended privilege escalation if a principal adds themselves or others to
+  groups that grant access to AWS accounts or applications.
+- Audit and compliance gaps, because entitlement reviews conducted against the
+  external IdP may not reflect the actual state of access in AWS.
+
+If you want to prevent API-based mutations, attach a service control policy (SCP)
+to the delegated administrator account. Note that SCPs do not apply to the management
+account itself.
+
+The following example SCP denies all mutating Identity Store actions:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyIdentityStoreMutations",
+      "Effect": "Deny",
+      "Action": [
+        "identitystore:Create*",
+        "identitystore:Update*",
+        "identitystore:Delete*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
 
 ## How to monitor access token expiry
 

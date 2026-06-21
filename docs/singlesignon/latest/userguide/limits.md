@@ -88,14 +88,14 @@ operations are available in additional Regions, see the corresponding [table](ap
 
 | Resource                                                                                              | Default quota | Can be increased |
 | ----------------------------------------------------------------------------------------------------- | ------------- | ---------------- |
-| Total number of AWS accounts or applications that can be<br>configured \<br>• \*\*                    | 3000          | Yes              |
+| Total number of AWS accounts or applications that can be<br>configured \<br>• \*\*                    | 7000          | Yes              |
 | Total number of instances of IAM Identity Center per account                                          | 1             | No               |
 | Total number of trusted token issuers                                                                 | 10            | No               |
 | Total number of groups that can be assigned to a permission set per AWS account, or to an application | 100           | No               |
 | Total number of AWS Regions enabled for a single IAM Identity Center instance                         | 3             | Yes              |
 
-\* For example, you might configure 2750 accounts and 250 applications, resulting in a
-total of 3000 accounts and applications.
+\* This quota applies separately to AWS accounts and to applications. You can
+configure up to 7000 accounts and up to 7000 applications.
 
 \*\* The[`ProvisionPermissionSet`](../APIReference/API_ProvisionPermissionSet.md "../APIReference/API_ProvisionPermissionSet.md") API operation can provision a
 permission set using the option `ALL_PROVISIONED_ACCOUNTS` to, at most, 3500
