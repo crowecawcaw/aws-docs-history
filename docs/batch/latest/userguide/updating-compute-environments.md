@@ -99,7 +99,9 @@ Choose the infrastructure update strategy when you need to modify instance types
 settings, service role, environment state, or networking configuration. Your environment
 must use the _AWSServiceRoleForBatch_ service-linked role and an
 allocation strategy of `BEST_FIT_PROGRESSIVE`,
-`SPOT_CAPACITY_OPTIMIZED`, or `SPOT_PRICE_CAPACITY_OPTIMIZED`.
+`BEST_FIT_PROGRESSIVE_ORDERED`,
+`SPOT_CAPACITY_OPTIMIZED`, `SPOT_PRICE_CAPACITY_OPTIMIZED`, or
+`SPOT_CAPACITY_OPTIMIZED_PRIORITIZED`.
 Infrastructure updates work well when some job interruption is acceptable during the update
 and you want automatic updates to the latest Amazon ECS-optimized AMI.
 
@@ -133,8 +135,10 @@ After the infrastructure update has completed `updateToLatestImageVersion` is se
 - The compute environment uses the _AWSServiceRoleForBatch_
   service-linked role.
 - The allocation strategy is set to `BEST_FIT_PROGRESSIVE`,
-  `SPOT_CAPACITY_OPTIMIZED`, or
-  `SPOT_PRICE_CAPACITY_OPTIMIZED`.
+  `BEST_FIT_PROGRESSIVE_ORDERED`,
+  `SPOT_CAPACITY_OPTIMIZED`,
+  `SPOT_PRICE_CAPACITY_OPTIMIZED`, or
+  `SPOT_CAPACITY_OPTIMIZED_PRIORITIZED`.
 - No AMI ID is explicitly specified in `imageId`,
   `imageIdOverride`, or launch template.
 - The `updateToLatestImageVersion` is set to `true`.

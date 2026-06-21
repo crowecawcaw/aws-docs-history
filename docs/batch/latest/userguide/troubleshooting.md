@@ -27,6 +27,14 @@ following:
     - [Repair an INVALID compute environment](invalid_compute_environment.md#repairing_invalid_compute_environment "invalid_compute_environment.md#repairing_invalid_compute_environment")
 
   - [Jobs stuck in a RUNNABLE status](job_stuck_in_runnable.md "job_stuck_in_runnable.md")
+
+    - [Jobs stuck in RUNNABLE due to capacity](job_stuck_in_runnable_capacity.md "job_stuck_in_runnable_capacity.md")
+    - [Jobs stuck in RUNNABLE due to misconfiguration](job_stuck_in_runnable_misconfiguration.md "job_stuck_in_runnable_misconfiguration.md")
+    - [Jobs stuck in RUNNABLE due to invalid compute environments](job_stuck_in_runnable_invalid_ce.md "job_stuck_in_runnable_invalid_ce.md")
+    - [Jobs stuck in RUNNABLE with undetermined root cause](job_stuck_in_runnable_undetermined.md "job_stuck_in_runnable_undetermined.md")
+    - [Automatic remediation with jobStateTimeLimitActions](job_stuck_in_runnable_time_limit_actions.md "job_stuck_in_runnable_time_limit_actions.md")
+    - [Common causes of jobs stuck in RUNNABLE without a statusReason](job_stuck_in_runnable_common_causes.md "job_stuck_in_runnable_common_causes.md")
+
   - [Spot Instances not tagged on creation](spot-instance-no-tag.md "spot-instance-no-tag.md")
   - [Spot Instances not scaling down](spot-fleet-not-authorized.md "spot-fleet-not-authorized.md")
 

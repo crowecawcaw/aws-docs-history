@@ -10,7 +10,9 @@ availability.
 
 Infrastructure updates require the _AWSServiceRoleForBatch_
 service-linked role and an allocation strategy of `BEST_FIT_PROGRESSIVE`,
-`SPOT_CAPACITY_OPTIMIZED`, or `SPOT_PRICE_CAPACITY_OPTIMIZED`. If your
+`BEST_FIT_PROGRESSIVE_ORDERED`,
+`SPOT_CAPACITY_OPTIMIZED`, `SPOT_PRICE_CAPACITY_OPTIMIZED`, or
+`SPOT_CAPACITY_OPTIMIZED_PRIORITIZED`. If your
 environment doesn't meet these requirements, use blue/green updates instead.
 
 ## Changes that trigger infrastructure updates

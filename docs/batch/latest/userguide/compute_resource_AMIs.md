@@ -31,7 +31,9 @@ To use a new AMI for your AWS Batch jobs, do the following:
 
 - Either don't set the service role ([`serviceRole`](../APIReference/API_CreateComputeEnvironment.md#Batch-CreateComputeEnvironment-request-serviceRole "../APIReference/API_CreateComputeEnvironment.md#Batch-CreateComputeEnvironment-request-serviceRole")) parameter or set it to the **AWSServiceRoleForBatch** service-linked role.
 - Set the allocation strategy ([`allocationStrategy`](../APIReference/API_ComputeResource.md#Batch-Type-ComputeResource-allocationStrategy "../APIReference/API_ComputeResource.md#Batch-Type-ComputeResource-allocationStrategy")) parameter to `BEST_FIT_PROGRESSIVE`,
-  `SPOT_CAPACITY_OPTIMIZED`, or `SPOT_PRICE_CAPACITY_OPTIMIZED`.
+  `BEST_FIT_PROGRESSIVE_ORDERED`,
+  `SPOT_CAPACITY_OPTIMIZED`, `SPOT_PRICE_CAPACITY_OPTIMIZED`, or
+  `SPOT_CAPACITY_OPTIMIZED_PRIORITIZED`.
 - Set the update to latest image version ([`updateToLatestImageVersion`](../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-updateToLatestImageVersion "../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-updateToLatestImageVersion")) parameter to `true`.
 - Don't specify an AMI ID in [`imageId`](../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-imageId "../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-imageId"), [`imageIdOverride`](../APIReference/API_Ec2Configuration.md#Batch-Type-Ec2Configuration-imageIdOverride "../APIReference/API_Ec2Configuration.md#Batch-Type-Ec2Configuration-imageIdOverride") (in [`ec2Configuration`](../APIReference/API_Ec2Configuration.md "../APIReference/API_Ec2Configuration.md")), or in the launch template ([`launchTemplate`](../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-launchTemplate "../APIReference/API_ComputeResourceUpdate.md#Batch-Type-ComputeResourceUpdate-launchTemplate")). When you don't specify an AMI ID, AWS Batch selects
   the latest Amazon ECS optimized AMI that AWS Batch supports at the time the infrastructure update is
