@@ -87,7 +87,7 @@ Your S3 bucket might be missing historical data for any of the following reasons
 Existing exports continue with their original configuration and monthly updates until
 updated. To add new columns to an existing export, you must update your export configuration for
 future monthly exports (previously exported data remains unchanged). To backfill data with the
-new columns, you need to create a new export. This provides up to 38 months of historical data
+new columns, you need to create a new export. This provides historical data back to January 2022
 plus monthly updates.
 
 ## Why is my data not provided using older methodology versions?
