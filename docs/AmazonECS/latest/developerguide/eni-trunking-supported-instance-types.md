@@ -1165,6 +1165,12 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | gr6.4xlarge        | 7                               | 60                           |
 | gr6.8xlarge        | 7                               | 90                           |
 | gr6f.4xlarge       | 7                               | 60                           |
+| g7.2xlarge         | 3                               | 40                           |
+| g7.4xlarge         | 7                               | 60                           |
+| g7.8xlarge         | 9                               | 90                           |
+| g7.12xlarge        | 11                              | 120                          |
+| g7.24xlarge        | 23                              | 120                          |
+| g7.48xlarge        | 23                              | 120                          |
 | g7e.2xlarge        | 3                               | 242                          |
 | g7e.4xlarge        | 7                               | 242                          |
 | g7e.8xlarge        | 7                               | 242                          |

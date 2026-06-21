@@ -9,6 +9,10 @@ Before you begin, ensure you have:
 - An AWS account with appropriate permissions
 - The AWS AWS CLI installed and configured
 - A container image stored in Amazon ECR or a private registry
+- A default VPC with public subnets in the AWS Region where you create the service. By default, Express Mode service creates an internet-facing load
+  balancer in your account's default VPC and public subnets. If your account does not have a default VPC, create one before you begin, or specify your own
+  subnets when you create the service. For more information, see [Default VPCs](../../../vpc/latest/userguide/default-vpc.md "../../../vpc/latest/userguide/default-vpc.md")
+  in the _Amazon VPC User Guide_.
 
 ## Step 1: Create IAM Roles
 
@@ -26,7 +30,7 @@ aws iam create-role --role-name ecsTaskExecutionRole \
                 "Principal": {
                     "Service": "ecs-tasks.amazonaws.com"
                 },
-                "Action": "sts:AssumeRole",
+                "Action": "sts:AssumeRole"
             }
         ]
     }'
@@ -56,6 +60,13 @@ aws iam attach-role-policy --role-name ecsInfrastructureRoleForExpressServices \
 ```
 
 For more information, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md").
+
+###### Note
+
+IAM roles are eventually consistent, so a newly created role might not be usable immediately. If your first
+`create-express-gateway-service` call fails with `Unable to assume the service linked role` (or a similar
+assume-role error) right after you create these roles, wait a short time (about a minute) for the roles to propagate, and then
+retry the command.
 
 ## Step 2: Create your first Express Mode service application
 

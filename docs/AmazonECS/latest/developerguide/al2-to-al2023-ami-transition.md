@@ -60,21 +60,82 @@ A Control Group (cgroup) is a Linux kernel feature to hierarchically organize
 processes and distribute system resources between them. Control Groups are used
 extensively to implement a container runtime, and by `systemd`.
 
-The Amazon ECS agent, Docker, and containerd all support both cgroupv1 and cgroupv2.
-cgroupv2 changes how container memory usage is calculated. In cgroupv1 (Amazon Linux 2),
-container memory utilization as reported by the container runtime typically
-excludes page cache. In cgroupv2 (Amazon Linux 2023), page cache is included in the
-reported memory usage. The same workload may report higher memory utilization
-on Amazon Linux 2023 compared to Amazon Linux 2, even when actual application memory consumption
-has not changed.
+Amazon Linux 2023 uses cgroupv2 by default, while Amazon Linux 2 used cgroupv1. The Amazon ECS
+agent, Docker, and containerd all support both cgroupv1 and cgroupv2.
+For further details on cgroupv2, see [Control groups v2 in
+Amazon Linux 2023](../../../linux/al2023/ug/cgroupv2.md "../../../linux/al2023/ug/cgroupv2.md") in the _Amazon Linux 2023 User
+Guide_.
 
-We recommend benchmarking memory usage on Amazon Linux 2023 instances before migrating
-production workloads, and adjusting task and container memory limits if needed.
-You can use [Container Insights](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md") to compare memory utilization between Amazon Linux 2
-and Amazon Linux 2023.
+#### Memory usage reporting
 
-For further details on cgroupv2, see [Control groups v2 in Amazon Linux 2023](../../../linux/al2023/ug/cgroupv2.md "../../../linux/al2023/ug/cgroupv2.md") in
-the _Amazon Linux 2023 User Guide_.
+cgroupv2 changes how container memory usage is calculated. In cgroupv1
+(Amazon Linux 2), container memory utilization as reported by the container runtime
+typically excludes page cache. In cgroupv2 (Amazon Linux 2023), page cache is
+included in the reported memory usage. The same workload may report higher
+memory utilization on Amazon Linux 2023 compared to Amazon Linux 2, even when actual
+application memory consumption has not changed.
+
+We recommend benchmarking memory usage on Amazon Linux 2023 instances before
+migrating production workloads, and adjusting task and container memory
+limits if needed. You can use [Container Insights](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.md") to compare memory utilization between
+Amazon Linux 2 and Amazon Linux 2023.
+
+#### Task memory limit visibility
+
+When you set memory at the task level without setting a container-level
+memory limit, Amazon ECS applies the limit to the task's cgroup. This acts as
+the effective memory limit for all the containers belonging to the task.
+On cgroupv1 (Amazon Linux 2), child cgroups could read the effective memory limit
+at their own level. They did not need to traverse the cgroup hierarchy.
+On cgroupv2 (Amazon Linux 2023), the effective limit is not visible to the container.
+Additionally, Docker runs containers in a private cgroup namespace by
+default, which prevents them from traversing up the cgroup hierarchy to
+discover the parent's limit.
+
+Any process inside the container that reads cgroup memory limits to
+determine available memory will see the full host memory rather than the
+task-level limit. For example, the Java Virtual Machine (JVM) is known
+to be affected by this issue. It uses cgroup limits to automatically
+size the heap. When it cannot detect the true limit, it over-allocates
+memory, which increases the risk of out-of-memory (OOM) kills. Other
+runtimes or frameworks that read cgroup limits for resource decisions
+may be similarly affected.
+
+This occurs when task-level memory is set but container-level
+`memory` is not set in the task definition.
+
+To resolve this issue, choose one of the following
+workarounds:
+
+**Set container-level memory limits
+(recommended)**
+
+Explicitly set the `memory` parameter at the container
+level in your task definition, equal to the task-level memory value.
+This approach is safe, reliable, and requires no infrastructure
+changes.
+
+**Enable agent-level task memory limit
+propagation**
+
+Set the `ECS_PROPAGATE_TASK_MEMORY_LIMIT_CGROUPV2`
+environment variable to `true` on the Amazon ECS agent. When
+enabled and on cgroupv2, the agent automatically sets each container's
+memory limit to the task-level value if the container does not already
+have an explicit container-level memory limit. This makes the task
+memory limit visible inside the container without requiring task
+definition changes.
+
+You can set this in the Amazon ECS agent configuration file
+(`/etc/ecs/ecs.config`) on your Amazon EC2 instances:
+
+```
+ECS_PROPAGATE_TASK_MEMORY_LIMIT_CGROUPV2=true
+```
+
+This option requires Amazon ECS agent version 1.104.0 or later. It
+only applies on Linux instances using cgroupv2. It is not supported
+on Windows.
 
 ### Instance Metadata Service (IMDS) changes
 

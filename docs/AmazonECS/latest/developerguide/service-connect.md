@@ -23,7 +23,7 @@ The second proxy connects to the local MySQL server in the same task. Both proxi
 connection performance that is visible in graphs in the Amazon ECS and Amazon CloudWatch consoles so that
 you can get performance metrics from all kinds of applications in the same way.
 
-![Example Service Connect network showing minimal HA services](images/serviceconnect.png)
+![Example Service Connect network showing minimal HA services](/images/AmazonECS/latest/developerguide/images/serviceconnect.png)
 The following terms are used with Service Connect.
 
 **port name**
