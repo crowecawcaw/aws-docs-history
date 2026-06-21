@@ -23,6 +23,15 @@ Use the following resources to learn more about the Customer Carbon Footprint To
 
 This section documents the updates made to Customer Carbon Footprint Tool. This page lists announcements about new or updated features, bug fixes, improvements, and deprecated functionality for the year 2026.
 
+#### June 17, 2026
+
+##### Updates to emissions in two AWS Regions
+
+Customers with usage in Asia Pacific (Mumbai) and Canada West (Calgary) will see an increase in their location-based (LBM) and market-based (MBM) emissions starting in their May 2026 data.
+These updates reflect improvements to how we estimate electricity consumption for these two Regions, providing a more accurate attribution of carbon emissions based on actual load.
+Scope 2 emissions for Asia Pacific (Mumbai) and Canada West (Calgary) were under-estimated from January 2026 onward.
+AWS will republish 2026 data with the corrected values for these two Regions by the end of the year.
+
 #### April 22, 2026
 
 ##### Carbon emissions methodology updated to version 3.0.1
