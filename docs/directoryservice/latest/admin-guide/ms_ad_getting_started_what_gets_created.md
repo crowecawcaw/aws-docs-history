@@ -34,8 +34,9 @@ controllers.
   Security group](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md")
   `sg-1234567890abcdef0` that establishes network rules for traffic
   in and out of your domain controllers. The default outbound rule permits all traffic to all
-  IPv4 addresses. The default inbound rules allows only traffic through ports that are
-  required by Active Directory from the primary IPv4 CIDR block associated with the VPC hosting for your
+  IPv4 and/or IPv6 addresses. The default inbound rules allows only traffic through
+  ports that are required by Active Directory from the primary IPv4 CIDR block, or IPv6 CIDR block
+  associated with the VPC hosting for your
   AWS Managed Microsoft AD. For additional security, the ENIs that are created do not have Elastic IPs
   attached to them and you do not have permission to attach an Elastic IP to those ENIs.
   Therefore by default, the only inbound traffic that can communicate with your AWS Managed Microsoft AD
@@ -68,25 +69,25 @@ The following AWS Security group rules are created by default:
 
 | Protocol  | Port range      | Source                                                                        | Type of traffic                | Active Directory usage                                                            |
 | --------- | --------------- | ----------------------------------------------------------------------------- | ------------------------------ | --------------------------------------------------------------------------------- |
-| ICMP      | N/A             | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | Ping                           | LDAP Keep Alive, DFS                                                              |
-| TCP & UDP | 53              | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | DNS                            | User and computer authentication, name resolution, trusts                         |
-| TCP & UDP | 88              | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | Kerberos                       | User and computer authentication, forest level trusts                             |
-| TCP & UDP | 389             | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | LDAP                           | Directory, replication, user and computer authentication group policy,<br>trusts  |
-| TCP & UDP | 445             | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | SMB / CIFS                     | Replication, user and computer authentication, group policy, trusts               |
-| TCP & UDP | 464             | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | Kerberos change / set password | Replication, user and computer authentication, trusts                             |
-| TCP       | 135             | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | Replication                    | RPC, EPM                                                                          |
-| TCP       | 636             | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | LDAP SSL                       | Directory, replication, user and computer authentication, group policy,<br>trusts |
-| TCP       | 1024<br>• 65535 | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | RPC                            | Replication, user and computer authentication, group policy, trusts               |
-| TCP       | 3268<br>• 3269  | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | LDAP GC & LDAP GC SSL          | Directory, replication, user and computer authentication, group policy,<br>trusts |
-| UDP       | 123             | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | Windows Time                   | Windows Time, trusts                                                              |
-| UDP       | 138             | AWS Managed Microsoft AD VPC IPv4 CIDR                                        | DFSN & NetLogon                | DFS, group policy                                                                 |
+| ICMP      | N/A             | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | Ping                           | LDAP Keep Alive, DFS                                                              |
+| TCP & UDP | 53              | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | DNS                            | User and computer authentication, name resolution, trusts                         |
+| TCP & UDP | 88              | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | Kerberos                       | User and computer authentication, forest level trusts                             |
+| TCP & UDP | 389             | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | LDAP                           | Directory, replication, user and computer authentication group policy,<br>trusts  |
+| TCP & UDP | 445             | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | SMB / CIFS                     | Replication, user and computer authentication, group policy, trusts               |
+| TCP & UDP | 464             | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | Kerberos change / set password | Replication, user and computer authentication, trusts                             |
+| TCP       | 135             | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | Replication                    | RPC, EPM                                                                          |
+| TCP       | 636             | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | LDAP SSL                       | Directory, replication, user and computer authentication, group policy,<br>trusts |
+| TCP       | 1024<br>• 65535 | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | RPC                            | Replication, user and computer authentication, group policy, trusts               |
+| TCP       | 3268<br>• 3269  | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | LDAP GC & LDAP GC SSL          | Directory, replication, user and computer authentication, group policy,<br>trusts |
+| UDP       | 123             | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | Windows Time                   | Windows Time, trusts                                                              |
+| UDP       | 138             | AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR                          | DFSN & NetLogon                | DFS, group policy                                                                 |
 | All       | All             | AWS created security group for domain controllers<br>(`sg-1234567890abcdef0`) | All Traffic                    |                                                                                   |
 
 **Outbound Rules**
 
-| Protocol | Port range | Destination | Type of traffic | Active Directory usage |
-| -------- | ---------- | ----------- | --------------- | ---------------------- |
-| All      | All        | 0.0.0.0/0   | All Traffic     |                        |
+| Protocol | Port range | Destination       | Type of traffic | Active Directory usage |
+| -------- | ---------- | ----------------- | --------------- | ---------------------- |
+| All      | All        | 0.0.0.0/0 or ::/0 | All Traffic     |                        |
 
 - For more information about the ports and protocols used by Active Directory, see [Service overview and network port requirements for Windows](https://learn.microsoft.com/en-US/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements#system-services-ports "https://learn.microsoft.com/en-US/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements#system-services-ports") in Microsoft
   documentation.

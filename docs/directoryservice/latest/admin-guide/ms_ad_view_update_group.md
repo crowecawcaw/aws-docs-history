@@ -1,25 +1,22 @@
 # Viewing and updating an AWS Managed Microsoft AD group's details
 
 Use the following procedure to view or update an AWS Managed Microsoft AD group's details with
-user and group management or AWS Directory Service Data in either the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
+AWS Directory Service Data in the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
 ## Viewing an AWS Managed Microsoft AD group's detail
 
 You can view or update a group's details in the AWS Management Console, AWS CLI, or
 AWS Tools for PowerShell.
 
-###### Before you begin either procedure, you need to complete the following:
+###### Before you begin, complete the following:
 
 - [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory").
-- To use user and group management or AWS Directory Service Data CLI, it must be enabled. For more information, see
-  [Enable user and group management or
-  Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md").
-- You can only enable this feature from the Primary AWS Region for your directory. For
+- Enable [user and group management
+  for Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md"). You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
-- You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
-  information, see [Security
+- You'll need the necessary IAM permissions to use AWS Directory Service Data. To get started,
+  you can use the [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md") and [Security
   best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 - [Creating an AWS Managed Microsoft AD group](ms_ad_create_group.md "ms_ad_create_group.md").
 
@@ -52,80 +49,49 @@ You can view an AWS Managed Microsoft AD group's details in the AWS Management C
 AWS CLI
 You can view an AWS Managed Microsoft AD group's details with the AWS Directory Service Data CLI.
 
-###### To view an AWS Managed Microsoft AD group's details with the AWS CLI
-
-The following describes how to view an AWS Managed Microsoft AD group's details with the
-AWS CLI.
-
-- To view a group's details, open the AWS CLI, and run the following command,
-  replacing the Directory ID and group name with your AWS Managed Microsoft AD Directory ID and
-  group name:
+- To view a group's details, open the AWS CLI, and run the following command
+  with your Directory ID and group name:
 
 ```
 aws ds-data describe-group --directory-id `d-1234567890` --sam-account-name "`your-group-name`"
 ```
 
-###### To view an AWS Managed Microsoft AD group's group members with the AWS CLI
+For more information, see [`describe-group`](../../../cli/latest/reference/ds-data/describe-group.md "../../../cli/latest/reference/ds-data/describe-group.md").
 
-The following describes how to view an AWS Managed Microsoft AD group's members with the
-AWS CLI.
-
-- To view a group's details, open the AWS CLI, and run the following command,
-  replacing the Directory ID and group name with your AWS Managed Microsoft AD Directory ID and
-  group name:
+- To view a group's members, open the AWS CLI, and run the following command
+  with your Directory ID and group name:
 
 ```
 aws ds-data list-group-members --directory-id `d-1234567890` --sam-account-name "`your-group-name`"
 ```
 
-AWS Tools for PowerShell
+For more information, see [`list-group-members`](../../../cli/latest/reference/ds-data/list-group-members.md "../../../cli/latest/reference/ds-data/list-group-members.md").
+
+PowerShell
 You can view an AWS Managed Microsoft AD group's details with AWS Tools for PowerShell.
 
-###### To view an AWS Managed Microsoft AD group's details with AWS Tools for PowerShell
-
-The following describes how to view an AWS Managed Microsoft AD group's details with the
-Tools for PowerShell.
-
-- To view a group's details, open the PowerShell, and run the
-  following command, replacing the Directory ID and group name with your
-  AWS Managed Microsoft AD Directory ID and group name:
+- To view a group's details, open PowerShell, and run the
+  following command with your Directory ID and group name:
 
 ```
 Get-DSDGroup -DirectoryId `d-1234567890` -SAMAccountName "`your-group-name`"
 ```
 
-###### To view an AWS Managed Microsoft AD group's group members with AWS Tools for PowerShell
+For more information, see [`Get-DSDGroup`](../../../powershell/latest/reference/items/Get-DSDGroup.md "../../../powershell/latest/reference/items/Get-DSDGroup.md").
 
-The following describes how to view an AWS Managed Microsoft AD group's members with the
-Tools for PowerShell.
-
-- To view a group's details, open the PowerShell, and run the
-  following command, replacing the Directory ID and group name with your
-  AWS Managed Microsoft AD Directory ID and group name:
+- To view a group's members, open PowerShell, and run the
+  following command with your Directory ID and group name:
 
 ```
 (Get-DSDGroupMemberList -DirectoryId `d-1234567890` -SAMAccountName "`your-group-name`").Members
 ```
 
+For more information, see [`Get-DSDGroupMemberList`](../../../powershell/latest/reference/items/Get-DSDGroupMemberList.md "../../../powershell/latest/reference/items/Get-DSDGroupMemberList.md").
+
 ## Updating an AWS Managed Microsoft AD group's details
 
 Use the following procedure to update an AWS Managed Microsoft AD group's details with
-user and group management or AWS Directory Service Data in either the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
-
-###### Before you begin either procedure, you need to complete the following:
-
-- [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory").
-- To use user and group management or AWS Directory Service Data CLI, it must be enabled. For more information, see
-  [Enable user and group management or
-  Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md").
-- You can only enable this feature from the Primary AWS Region for your directory. For
-  more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
-- You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
-  information, see [Security
-  best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
-- [Creating an AWS Managed Microsoft AD group](ms_ad_create_group.md "ms_ad_create_group.md").
+AWS Directory Service Data in the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
 AWS Management Console
 You can update a group's details with the AWS Management Console. For more information,
@@ -169,15 +135,20 @@ For more information, see [AWS Directory Service Data attributes](ad_data_attrib
 
 - ###### To update an AWS Managed Microsoft AD group's details with the AWS CLI
 
-To update a group's details, open the AWS CLI, and run the following command,
-replacing the Directory ID, group name, update type, and attribute with your
-AWS Managed Microsoft AD Directory ID, group name, and desired update type and attribute:
+To update a group's details, open the AWS CLI, and run the following command
+with your Directory ID, group name, update type, and attribute:
 
 ```
-aws ds-data update-group --directory-id `d-1234567890` --sam-account-name "`your-group-name`" --update-type "`REPLACE`" --group-scope `"global"`
+aws ds-data update-group \
+  --directory-id `d-1234567890` \
+  --sam-account-name "`your-group-name`" \
+  --update-type "`REPLACE`" \
+  --group-scope `"global"`
 ```
 
-AWS Tools for PowerShell
+For more information, see [`update-group`](../../../cli/latest/reference/ds-data/update-group.md "../../../cli/latest/reference/ds-data/update-group.md").
+
+PowerShell
 The following describes how to format a request that updates an AWS Managed Microsoft AD
 group's details with AWS Tools for PowerShell.
 
@@ -188,11 +159,16 @@ For more information, see [AWS Directory Service Data attributes](ad_data_attrib
 
 - ###### To update an AWS Managed Microsoft AD group's details with AWS Tools for PowerShell
 
-To update a group's details, open the PowerShell, and run the
-following command, replacing the Directory ID, group name, update type, and
-attribute with your AWS Managed Microsoft AD Directory ID, group name, and desired update type
-and attribute:
+To update a group's details, open PowerShell, and run the
+following command with your Directory ID, group name, update type, and
+attribute:
 
 ```
-Update-DSDGroup -DirectoryId `d-1234567890` -SAMAccountName "`your-group-name`" -UpdateType "`REPLACE`" -GroupScope "`global`"
+Update-DSDGroup `
+    -DirectoryId `d-1234567890` `
+    -SAMAccountName "`your-group-name`" `
+    -UpdateType "`REPLACE`" `
+    -GroupScope "`global`"
 ```
+
+For more information, see [`Update-DSDGroup`](../../../powershell/latest/reference/items/Update-DSDGroup.md "../../../powershell/latest/reference/items/Update-DSDGroup.md").

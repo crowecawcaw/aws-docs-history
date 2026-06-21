@@ -78,9 +78,10 @@ rule**. For the new rule, enter the following values:
     * **Destination** determines the traffic that can
      leave your domain controllers and where it can go in your
      self-managed network. Specify a single IP address or an IP address
-     range in CIDR notation (for example, 203.0.113.5/32). You can also
-     specify the name or ID of another security group in the same Region.
-     For more information, see [Understand your directory's AWS security group configuration and use](ms_ad_best_practices.md#understandsecuritygroup "ms_ad_best_practices.md#understandsecuritygroup").
+     range in CIDR notation (for example, 203.0.113.5/32 for IPv4 or
+     2001:db8::/32 for IPv6). You can also specify the name or ID of
+     another security group in the same Region. For more information, see
+     [Understand your directory's AWS security group configuration and use](ms_ad_best_practices.md#understandsecuritygroup "ms_ad_best_practices.md#understandsecuritygroup").
 
 6. Select **Save**.
 
@@ -184,19 +185,21 @@ automatically. For more information, see [Global vs Regional features](multi-reg
    authentication** check box. For general information about selective
    authentication, see [Security Considerations for Trusts](<https://technet.microsoft.com/pt-pt/library/cc755321(v=ws.10).aspx> "https://technet.microsoft.com/pt-pt/library/cc755321(v=ws.10).aspx") on Microsoft TechNet.
 7. For **Conditional forwarder**, type the IP address of your
-   self-managed DNS server. If you have previously created conditional forwarders,
-   you can type the FQDN of your self-managed domain instead of a DNS IP address.
+   self-managed DNS server (for example, 172.16.10.153 for IPv4 or 2001:db8::1 for IPv6).
+   If you have previously created conditional forwarders, you can type the FQDN of
+   your self-managed domain instead of a DNS IP address.
 8. (Optional) Choose **Add another IP address** and type the IP
    address of an additional self-managed DNS server. You can repeat this step for
-   each applicable DNS server address for a total of four addresses.
+   each applicable DNS server address for a total of four addresses. Both IPv4 and
+   IPv6 addresses are supported.
 9. Choose **Add**.
 10. If the DNS server or the network for your self-managed domain uses a public
     (non-RFC 1918) IP address space, go to the **IP routing**
     section, choose **Actions**, and then choose **Add
     route**. Type the IP address block of your DNS server or
-    self-managed network using CIDR format, for example 203.0.113.0/24. This step is
-    not necessary if both your DNS server and your self-managed network are using
-    RFC 1918 IP address spaces.
+    self-managed network using CIDR format, for example 203.0.113.0/24 for IPv4 or
+    2001:db8::/32 for IPv6. This step is not necessary if both your DNS server and
+    your self-managed network are using RFC 1918 IP address spaces.
 
 ###### Note
 

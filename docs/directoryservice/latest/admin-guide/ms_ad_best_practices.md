@@ -63,7 +63,7 @@ interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/lates
 controller and allows traffic that is necessary for Active Directory communications. AWS configures
 the security group to open only the ports that are required for Active Directory communications. In
 the default configuration, the security group accepts traffic to these ports from
-AWS Managed Microsoft AD VPC IPv4 CIDR address. AWS attaches the security group to your domain
+AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR address. AWS attaches the security group to your domain
 controller interfaces that are accessible from within your peered or resized [VPCs](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/"). These interfaces are inaccessible from the
 internet even if you modify routing tables, change the network connections to your VPC,
 and configure the [NAT Gateway
@@ -76,7 +76,7 @@ into the VPC that permit traffic only from trusted instances and computers.
 
 If you want to increase the security of your directory security groups, you can
 modify them to accept traffic from a more restrictive list of IP addresses. For example,
-you could change the accepted addresses from your VPC IPv4 CIDR range to a CIDR range
+you could change the accepted addresses from your VPC IPv4 CIDR or IPv6 CIDR range to a CIDR range
 that is specific to a single subnet or computer. Similarly, you might choose to restrict
 the destination addresses to which your domain controllers can communicate. Make such
 changes only if you fully understand how security group filtering works. For more
@@ -97,7 +97,7 @@ notice to address functional or security needs of the managed directory. Such ch
 affect any instances with which you associate the directory security group.
 Furthermore, associating the directory security group with your EC2 instances creates
 a potential security risk for your EC2 instances. The directory security group accepts
-traffic on required Active Directory ports from AWS Managed Microsoft AD VPC IPv4 CIDR address. If you
+traffic on required Active Directory ports from AWS Managed Microsoft AD VPC IPv4 CIDR, or IPv6 CIDR address. If you
 associate this Security Group with an EC2 instance that has a public IP address
 attached to the internet, then any computer on the internet can communicate with your
 EC2 instance on the opened ports.

@@ -14,8 +14,8 @@ users and groups from the AWS Management Console, AWS CLI, or AWS Tools for Powe
 
 ## Enabling AWS Directory Service Data
 
-Use the following procedure to enable user and group management or AWS Directory Service Data for an existing
-AWS Managed Microsoft AD with either the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
+Use the following procedure to enable AWS Directory Service Data for an existing
+AWS Managed Microsoft AD with the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
 AWS Management Console
 You can enable user and group management with the AWS Management Console.
@@ -34,32 +34,39 @@ must include your Directory ID number in your request.
 
 ###### Note
 
-The enable AWS Directory Service Data CLI commands use `aws ds`.
+This command uses the [`aws ds`](../../../cli/latest/reference/ds.md "../../../cli/latest/reference/ds.md") namespace.
 
 ###### To enable AWS Directory Service Data CLI
 
-- Open the AWS CLI, and run the following command, replacing the Directory ID
-  with your AWS Managed Microsoft AD Directory ID:
+- Open the AWS CLI, and run the following command with your Directory ID:
 
 ```
 aws ds enable-directory-data-access --directory-id `d-1234567890`
 ```
 
-AWS Tools for PowerShell
+For more information, see [`enable-directory-data-access`](../../../cli/latest/reference/ds/enable-directory-data-access.md "../../../cli/latest/reference/ds/enable-directory-data-access.md").
+
+PowerShell
+
+###### Note
+
+This command uses the [`AWS.Tools.DirectoryService`](../../../powershell/latest/reference/items/DirectoryService_cmdlets.md "../../../powershell/latest/reference/items/DirectoryService_cmdlets.md") module.
 
 ###### To enable Directory Service Data with Tools for PowerShell
 
-- Open PowerShell, and run the following command, replacing the
-  Directory ID with your AWS Managed Microsoft AD Directory ID:
+- Open PowerShell, and run the following command with your
+  Directory ID:
 
 ```
 Enable-DSDirectoryDataAccess -DirectoryId `d-1234567890`
 ```
 
+For more information, see [`Enable-DSDirectoryDataAccess`](../../../powershell/latest/reference/items/Enable-DSDirectoryDataAccess.md "../../../powershell/latest/reference/items/Enable-DSDirectoryDataAccess.md").
+
 ## Disabling AWS Directory Service Data
 
-Use the following procedure to disable user and group management or AWS Directory Service Data for an existing
-AWS Managed Microsoft AD with either the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
+Use the following procedure to disable AWS Directory Service Data for an existing
+AWS Managed Microsoft AD with the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
 AWS Management Console
 You can disable user and group management with the AWS Management Console.
@@ -78,24 +85,31 @@ must include your Directory ID number in your request.
 
 ###### Note
 
-The disable AWS Directory Service Data CLI commands use `aws ds`.
+This command uses the [`aws ds`](../../../cli/latest/reference/ds.md "../../../cli/latest/reference/ds.md") namespace.
 
 ###### To disable AWS Directory Service Data CLI
 
-- Open the AWS CLI, and run the following command, replacing the Directory ID
-  with your AWS Managed Microsoft AD Directory ID:
+- Open the AWS CLI, and run the following command with your Directory ID:
 
 ```
 aws ds disable-directory-data-access --directory-id `d-1234567890`
 ```
 
-AWS Tools for PowerShell
+For more information, see [`disable-directory-data-access`](../../../cli/latest/reference/ds/disable-directory-data-access.md "../../../cli/latest/reference/ds/disable-directory-data-access.md").
+
+PowerShell
+
+###### Note
+
+This command uses the [`AWS.Tools.DirectoryService`](../../../powershell/latest/reference/items/DirectoryService_cmdlets.md "../../../powershell/latest/reference/items/DirectoryService_cmdlets.md") module.
 
 ###### To disable Directory Service Data with Tools for PowerShell
 
-- Open PowerShell, and run the following command, replacing the
-  Directory ID with your AWS Managed Microsoft AD Directory ID:
+- Open PowerShell, and run the following command with your
+  Directory ID:
 
 ```
 Disable-DSDirectoryDataAccess -DirectoryId `d-123456789`
 ```
+
+For more information, see [`Disable-DSDirectoryDataAccess`](../../../powershell/latest/reference/items/Disable-DSDirectoryDataAccess.md "../../../powershell/latest/reference/items/Disable-DSDirectoryDataAccess.md").

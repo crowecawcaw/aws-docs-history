@@ -61,8 +61,9 @@ For the new rule, enter the following values:
     * **Destination** determines the traffic that
      can leave your domain controllers and where it can go. Specify a single
      IP address or an IP address range in CIDR notation (for example,
-     203.0.113.5/32). You can also specify the name or ID of another security
-     group in the same Region. For more information, see [Understand your directory's AWS security group configuration and use](ms_ad_best_practices.md#understandsecuritygroup "ms_ad_best_practices.md#understandsecuritygroup").
+     203.0.113.5/32 for IPv4 or 2001:db8::/32 for IPv6). You can also specify the
+     name or ID of another security group in the same Region. For more
+     information, see [Understand your directory's AWS security group configuration and use](ms_ad_best_practices.md#understandsecuritygroup "ms_ad_best_practices.md#understandsecuritygroup").
 
 6. Select **Save Rule**.
 

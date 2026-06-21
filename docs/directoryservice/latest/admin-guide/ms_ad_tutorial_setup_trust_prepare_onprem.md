@@ -75,7 +75,8 @@ self-managed domain, you will first get some information about your AWS Managed 
     is MyManagedAD.example.com.
 11. Choose **IP addresses of the primary servers** and type the
     DNS addresses of your AWS Managed Microsoft AD directory, which you noted earlier. In this
-    example those are: 10.0.10.246, 10.0.20.121
+    example those are: 10.0.10.246, 10.0.20.121 (or 2001:db8::1, 2001:db8::2 for
+    IPv6)
 
 After entering the DNS addresses, you might get a "timeout" or "unable to
 resolve" error. You can generally ignore these errors.

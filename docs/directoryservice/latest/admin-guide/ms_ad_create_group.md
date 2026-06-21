@@ -1,20 +1,17 @@
 # Creating an AWS Managed Microsoft AD group
 
-Use the following procedure to create an AWS Managed Microsoft AD group with user and group management or
-AWS Directory Service Data in either the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
+Use the following procedure to create an AWS Managed Microsoft AD group with AWS Directory Service Data in the AWS Management Console, AWS CLI,
+or AWS Tools for PowerShell.
 
-###### Before you begin either procedure, you need to complete the following:
+###### Before you begin, complete the following:
 
 - [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory").
-- To use user and group management or AWS Directory Service Data CLI, it must be enabled. For more information, see
-  [Enable user and group management or
-  Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md").
-- You can only enable this feature from the Primary AWS Region for your directory. For
+- Enable [user and group management
+  for Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md"). You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
-- You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
-  information, see [Security
+- You'll need the necessary IAM permissions to use AWS Directory Service Data. To get started,
+  you can use the [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md") and [Security
   best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 
 AWS Management Console
@@ -100,21 +97,22 @@ with the `DisplayName` attribute. For more information, see [AWS Directory Servi
 
 ###### To create an AWS Managed Microsoft AD group with the AWS CLI
 
-- Open the AWS CLI, and run the following command, replacing the Directory ID,
-  username and group display name with your AWS Managed Microsoft AD Directory ID, username, and
-  desired group display name:
+- Open the AWS CLI, and run the following command with your Directory ID,
+  group name, and display name:
 
 ```
 aws ds-data create-group \
     --directory-id `d-1234567890` \
     --sam-account-name "`your-group-name`" \
     --other-attributes '{
-        "DisplayName": { "S": "`myGroupDisplayName`"}
+        "DisplayName": { "S": "`myGroupDisplayName`"},
         "Description":{ "S": "`myGroupDescription`"}
     }'
 ```
 
-AWS Tools for PowerShell
+For more information, see [`create-group`](../../../cli/latest/reference/ds-data/create-group.md "../../../cli/latest/reference/ds-data/create-group.md").
+
+PowerShell
 The following describes how to format a request that creates an AWS Managed Microsoft AD group
 with AWS Tools for PowerShell. When you create a new group, you must include your Directory ID
 number and a group name. You can also add other attributes, such as a group display name
@@ -122,9 +120,8 @@ with the `DisplayName` attribute. For more information, see [AWS Directory Servi
 
 ###### To create an AWS Managed Microsoft AD group with AWS Tools for PowerShell
 
-- Open PowerShell, and run the following command, replacing the
-  Directory ID, username and group display name with your AWS Managed Microsoft AD Directory ID,
-  username, and desired group display name:
+- Open PowerShell, and run the following command with your
+  Directory ID, group name, and display name:
 
 ```
 New-DSDGroup `
@@ -135,3 +132,5 @@ New-DSDGroup `
         Description = [Amazon.DirectoryServiceData.Model.AttributeValue]@{S = '`myGroupDescription`' }
     }
 ```
+
+For more information, see [`New-DSDGroup`](../../../powershell/latest/reference/items/New-DSDGroup.md "../../../powershell/latest/reference/items/New-DSDGroup.md").

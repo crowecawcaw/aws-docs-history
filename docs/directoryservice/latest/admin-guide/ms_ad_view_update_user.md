@@ -1,25 +1,22 @@
 # Viewing and updating an AWS Managed Microsoft AD user
 
 Use the following procedure to view or update an AWS Managed Microsoft AD user's details with
-user and group management or AWS Directory Service Data in either the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
+AWS Directory Service Data in the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
 
 ## Viewing an AWS Managed Microsoft AD user's details
 
 You can view a user's details in the AWS Management Console or AWS CLI. The user's details
-includes profile and account information and group membership.
+include profile and account information and group membership.
 
-###### Before you begin either procedure, you need to complete the following:
+###### Before you begin, complete the following:
 
 - [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory").
-- To use user and group management or AWS Directory Service Data CLI, it must be enabled. For more information, see
-  [Enable user and group management or
-  Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md").
-- You can only enable this feature from the Primary AWS Region for your directory. For
+- Enable [user and group management
+  for Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md"). You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
-- You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
-  information, see [Security
+- You'll need the necessary IAM permissions to use AWS Directory Service Data. To get started,
+  you can use the [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md") and [Security
   best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 - [Creating an AWS Managed Microsoft AD user](ms_ad_create_user.md "ms_ad_create_user.md").
 
@@ -60,13 +57,14 @@ information and group memberships.
 The following describes how to view an AWS Managed Microsoft AD user's details with the
 AWS Directory Service Data CLI.
 
-- To view a user's details, open the AWS CLI, and run the following command,
-  replacing the Directory ID and username with your AWS Managed Microsoft AD Directory ID and
-  username:
+- To view a user's details, open the AWS CLI, and run the following command
+  with your Directory ID and username:
 
 ```
 aws ds-data describe-user --directory-id `d-1234567890` --sam-account-name "`jane.doe`"
 ```
+
+For more information, see [`describe-user`](../../../cli/latest/reference/ds-data/describe-user.md "../../../cli/latest/reference/ds-data/describe-user.md").
 
 ###### To view a user's group memberships
 
@@ -74,17 +72,18 @@ The following describes how to view an AWS Managed Microsoft AD user's group mem
 with the AWS Directory Service Data CLI.
 
 - To view a user's group memberships, open the AWS CLI, and run the following
-  command, replacing the Directory ID and username with your AWS Managed Microsoft AD Directory
-  ID and username:
+  command with your Directory ID and username:
 
 ```
 aws ds-data list-groups-for-member --directory-id `d-1234567890` --sam-account-name "`jane.doe`"
 ```
 
+For more information, see [`list-groups-for-member`](../../../cli/latest/reference/ds-data/list-groups-for-member.md "../../../cli/latest/reference/ds-data/list-groups-for-member.md").
+
 For more information on user attributes, see [AWS Directory Service Data attributes](ad_data_attributes.md "ad_data_attributes.md")
 and [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes "https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes").
 
-AWS Tools for PowerShell
+PowerShell
 With Tools for PowerShell, you can view a user's details, which includes profile and account
 information and group memberships.
 
@@ -93,53 +92,40 @@ information and group memberships.
 The following describes how to view an AWS Managed Microsoft AD user's details with the
 Tools for PowerShell.
 
-- To view a user's details, open the PowerShell, and run the following
-  command, replacing the Directory ID and username with your AWS Managed Microsoft AD Directory
-  ID and username:
+- To view a user's details, open PowerShell, and run the following
+  command with your Directory ID and username:
 
 ```
 Get-DSDUser -DirectoryId `d-1234567890` -SAMAccountName "`jane.doe`"
 ```
+
+For more information, see [`Get-DSDUser`](../../../powershell/latest/reference/items/Get-DSDUser.md "../../../powershell/latest/reference/items/Get-DSDUser.md").
 
 ###### To view a user's group memberships
 
 The following describes how to view an AWS Managed Microsoft AD user's group membership
 with the Tools for PowerShell.
 
-- To view a user's group memberships, open the PowerShell, and run the
-  following command, replacing the Directory ID and username with your AWS Managed Microsoft AD
-  Directory ID and username:
+- To view a user's group memberships, open PowerShell, and run the
+  following command with your Directory ID and username:
 
 ```
 (Get-DSDGroupsForMemberList -DirectoryId `d-1234567890` -SAMAccountName "`jane.doe`").Groups
 ```
+
+For more information, see [`Get-DSDGroupsForMemberList`](../../../powershell/latest/reference/items/Get-DSDGroupsForMemberList.md "../../../powershell/latest/reference/items/Get-DSDGroupsForMemberList.md").
 
 For more information on user attributes, see [AWS Directory Service Data attributes](ad_data_attributes.md "ad_data_attributes.md")
 and [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes "https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes").
 
 ## Updating an AWS Managed Microsoft AD user's details
 
-Use the following procedure to update an AWS Managed Microsoft AD user with user and group management or
-AWS Directory Service Data in either the AWS Management Console, AWS CLI, AWS Tools for PowerShell.
+Use the following procedure to update an AWS Managed Microsoft AD user with AWS Directory Service Data in the AWS Management Console, AWS CLI,
+or AWS Tools for PowerShell.
 
 ###### Note
 
 The minimum attribute length is 1.
-
-###### Before you begin either procedure, you need to complete the following:
-
-- [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory").
-- To use user and group management or AWS Directory Service Data CLI, it must be enabled. For more information, see
-  [Enable user and group management or
-  Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md").
-- You can only enable this feature from the Primary AWS Region for your directory. For
-  more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
-- You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
-  information, see [Security
-  best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
-- [Creating an AWS Managed Microsoft AD user](ms_ad_create_user.md "ms_ad_create_user.md").
 
 AWS Management Console
 You can update an AWS Managed Microsoft AD user's details in the AWS Management Console.
@@ -187,13 +173,18 @@ update in your request, such as a user last name with the `Surname`
 parameter. For more information, see [AWS Directory Service Data
 attributes](ad_data_attributes.md "ad_data_attributes.md").
 
-- To update a user's details, open the AWS CLI, and run the following command,
-  replacing the Directory ID, username, user type, and attribute value with your
-  AWS Managed Microsoft AD Directory ID, username, and desired user type and attribute value:
+- To update a user's details, open the AWS CLI, and run the following command
+  with your Directory ID, username, update type, and attribute value:
 
 ```
-aws ds-data update-user --directory-id `d-1234567890` --sam-account-name "`jane.doe`" --update-type "`REPLACE`" --surname "`Doe`"
+aws ds-data update-user \
+  --directory-id `d-1234567890` \
+  --sam-account-name "`jane.doe`" \
+  --update-type "`REPLACE`" \
+  --surname "`Doe`"
 ```
+
+For more information, see [`update-user`](../../../cli/latest/reference/ds-data/update-user.md "../../../cli/latest/reference/ds-data/update-user.md").
 
 ###### Note
 
@@ -203,7 +194,7 @@ value to be removed. To determine user attributes, use [describe-user](https://a
 For more information on user attributes, see [AWS Directory Service Data attributes](ad_data_attributes.md "ad_data_attributes.md")
 and [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes "https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes").
 
-AWS Tools for PowerShell
+PowerShell
 The following describes how to format a request that updates an AWS Managed Microsoft AD
 user's details with AWS Tools for PowerShell.
 
@@ -213,14 +204,19 @@ update in your request, such as a user last name with the `Surname`
 parameter. For more information, see [AWS Directory Service Data
 attributes](ad_data_attributes.md "ad_data_attributes.md").
 
-- To update a user's details, open the PowerShell, and run the
-  following command, replacing the Directory ID, username, user type, and attribute
-  value with your AWS Managed Microsoft AD Directory ID, username, and desired user type and
-  attribute value:
+- To update a user's details, open PowerShell, and run the
+  following command with your Directory ID, username, update type, and attribute
+  value:
 
 ```
-Update-DSDUser -DirectoryId `d-1234567890` -SAMAccountName "`jane.doe`" -UpdateType "`REPLACE`" -Surname "`Doe`"
+Update-DSDUser `
+    -DirectoryId `d-1234567890` `
+    -SAMAccountName "`jane.doe`" `
+    -UpdateType "`REPLACE`" `
+    -Surname "`Doe`"
 ```
+
+For more information, see [`Update-DSDUser`](../../../powershell/latest/reference/items/Update-DSDUser.md "../../../powershell/latest/reference/items/Update-DSDUser.md").
 
 For more information on user attributes, see [AWS Directory Service Data attributes](ad_data_attributes.md "ad_data_attributes.md")
 and [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes "https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes").

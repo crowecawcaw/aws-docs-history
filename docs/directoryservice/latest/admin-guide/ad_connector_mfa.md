@@ -27,7 +27,15 @@ Provide a label name.
 The IP addresses of your RADIUS server endpoints, or the IP address of
 your RADIUS server load balancer. You can enter multiple IP addresses by
 separating them with a comma (e.g.,
-`192.0.0.0,192.0.0.12`).
+`192.0.0.0,192.0.0.12` or
+`2001:db8::1,2001:db8::2`).
+
+###### Important
+
+Directories created after October 7, 2025, require that RADIUS servers used for multi-factor authentication be routable through your VPC's network configuration. If your RADIUS server is not accessible via your VPC's routing tables, security groups, and network ACLs, multi-factor authentication will fail during multi-factor authentication checks. To resolve this issue, ensure that:
+
+    * **Network Routing:** Your VPC route tables allow traffic to reach your RADIUS server from the subnets where your AD Connector directory instances are deployed.
+    * **Network ACLs:** Your subnet network ACLs allow bidirectional traffic to/from your RADIUS server.
 
 ###### Note
 

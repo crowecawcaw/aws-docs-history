@@ -68,8 +68,8 @@ automatically. For more information, see [Global vs Regional features](multi-reg
    you used when creating the trust on your self-managed domain. Specify
    the direction. In this case, we choose **Two-way**.
 6. In the **Conditional forwarder** field, enter the IP address of your
-   self-managed DNS server. In this example, enter 172.16.10.153.
-7. (Optional) Choose **Add another IP address** and enter a second IP address for your self-managed DNS server. You can specify up to a total of four DNS servers.
+   self-managed DNS server. In this example, enter 172.16.10.153 for IPv4 or 2001:db8::1 for IPv6.
+7. (Optional) Choose **Add another IP address** and enter a second IP address for your self-managed DNS server. You can specify up to a total of four DNS servers. Both IPv4 and IPv6 addresses are supported.
 8. Choose **Add**.
 
 Congratulations. You now have a trust relationship between your self-managed domain

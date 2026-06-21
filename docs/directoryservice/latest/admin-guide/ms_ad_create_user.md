@@ -1,19 +1,16 @@
 # Creating an AWS Managed Microsoft AD user
 
-Use the following procedure to create a new AWS Managed Microsoft AD user with user and group management or
-AWS Directory Service Data in either the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
+Use the following procedure to create a new AWS Managed Microsoft AD user with AWS Directory Service Data in the AWS Management Console, AWS CLI,
+or AWS Tools for PowerShell.
 
-###### Before you begin either procedure, you need to complete the following:
+###### Before you begin, complete the following:
 
-- To use user and group management or AWS Directory Service Data CLI, it must be enabled. For more information, see
-  [Enable user and group management or
-  Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md").
-- You can only enable this feature from the Primary AWS Region for your directory. For
+- Enable [user and group management
+  for Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md"). You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
-- You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
-  information, see [Security
+- You'll need the necessary IAM permissions to use AWS Directory Service Data. To get started,
+  you can use the [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md") and [Security
   best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 
 AWS Management Console
@@ -96,7 +93,7 @@ The user logon name cannot be changed after the user is created.
     account.
 12. On the **Review and create user** page, review all the choices
     you made. Choose **Create user**.
-13. After the user is configured, you've taken to the new user's details page. A
+13. After the user is configured, you're taken to the new user's details page. A
     banner appears stating the user was successfully created.
 
 ###### Important
@@ -114,9 +111,8 @@ display name with the `DisplayName` attribute. For more information, see
 
 ###### To create an AWS Managed Microsoft AD user with AWS CLI
 
-- Open the AWS CLI, and run the following command, replacing the Directory ID,
-  username, and display name with your AWS Managed Microsoft AD Directory ID and desired
-  credentials:
+- Open the AWS CLI, and run the following command with your Directory ID,
+  username, and display name:
 
 ```
 aws ds-data create-user \
@@ -128,7 +124,9 @@ aws ds-data create-user \
     }‘
 ```
 
-AWS Tools for PowerShell
+For more information, see [`create-user`](../../../cli/latest/reference/ds-data/create-user.md "../../../cli/latest/reference/ds-data/create-user.md").
+
+PowerShell
 The following describes how to format a request that creates a new AWS Managed Microsoft AD
 user account with AWS Tools for PowerShell. You must include your directory ID number and a user
 logon name in your request. You can also include other attributes, such as a user
@@ -137,9 +135,8 @@ display name with the `DisplayName` attribute. For more information, see
 
 ###### To create an AWS Managed Microsoft AD user with Tools for PowerShell
 
-- Open PowerShell, and run the following command, replacing the
-  Directory ID, username, and display name with your AWS Managed Microsoft AD Directory ID and
-  desired credentials:
+- Open PowerShell, and run the following command with your
+  Directory ID, username, and display name:
 
 ```
 New-DSDUser `
@@ -147,6 +144,8 @@ New-DSDUser `
     -SAMAccountName "`jane.doe`" `
     -OtherAttribute @{
         DisplayName = [Amazon.DirectoryServiceData.Model.AttributeValue]@{S = '`jane.doe`' }
-        Department = [Amazon.DirectoryServiceData.Model.AttributeValue]@{S = 'Legal' }
+        Department = [Amazon.DirectoryServiceData.Model.AttributeValue]@{S = '`Legal`' }
     }
 ```
+
+For more information, see [`New-DSDUser`](../../../powershell/latest/reference/items/New-DSDUser.md "../../../powershell/latest/reference/items/New-DSDUser.md").

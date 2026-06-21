@@ -10,9 +10,9 @@ AWS.
 
 1. Log into **example.local**.
 2. Open **Server Manager** and in the console tree choose
-   **DNS**. Take note of the IPv4 address listed for the
-   server. You will need this in the next procedure when you create a conditional
-   forwarder from **corp.example.com** to the
+   **DNS**. Take note of the IPv4 address (or IPv6 address)
+   listed for the server. You will need this in the next procedure when you create
+   a conditional forwarder from **corp.example.com** to the
    **example.local** directory.
 3. In the **Tools** menu, choose **Active Directory
    Domains and Trusts**.
