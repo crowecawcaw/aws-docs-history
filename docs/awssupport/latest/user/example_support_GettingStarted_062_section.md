@@ -1,4 +1,4 @@
-# Getting started with Support
+# Getting started with technical support
 
 The following code example shows how to:
 

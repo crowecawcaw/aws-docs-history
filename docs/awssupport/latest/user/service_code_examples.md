@@ -37,4 +37,4 @@ This topic also includes information about getting started and details about pre
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
 
-  - [Getting started with Support](example_support_GettingStarted_062_section.md "example_support_GettingStarted_062_section.md")
+  - [Getting started with technical support](example_support_GettingStarted_062_section.md "example_support_GettingStarted_062_section.md")

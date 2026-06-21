@@ -23,7 +23,7 @@ US East (N. Virginia) (`us-east-1`) Region.
   message link, or anytime from the AWS Management Console.
 
 For a detailed explanation of what the agent does in your account, what data it
-stores, and the IAM access it has, see [What enabling AWS DevOps Agent does in your AWS account](../../../devopsagent/latest/userguide/removing-aws-devops-agent-resources.md#what-enabling-aws-devops-agent-does-in-your-aws-account "../../../devopsagent/latest/userguide/removing-aws-devops-agent-resources.md#what-enabling-aws-devops-agent-does-in-your-aws-account") in the
+stores, and the IAM access it has, see [About AWS DevOps Agent](../../../devopsagent/latest/userguide/about-aws-devops-agent.md "../../../devopsagent/latest/userguide/about-aws-devops-agent.md") in the
 _AWS DevOps Agent User Guide_. For an overview of the agent's
 security posture, see [AWS DevOps Agent
 Security](../../../devopsagent/latest/userguide/aws-devops-agent-security.md "../../../devopsagent/latest/userguide/aws-devops-agent-security.md") in the
