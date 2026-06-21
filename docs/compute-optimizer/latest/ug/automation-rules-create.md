@@ -20,7 +20,12 @@ When you create an organization rule in the management account and apply it to m
 3. Choose **Create Automation rule**.
 4. If you are creating a rule in the management account or delegated administrator, you can choose the **rule type**, the **member accounts** you want to apply the rule, and whether to apply the rule **before** or **after member account rules**. You can only select member accounts with Automation enabled and organization rules allowed can be selected for the rule to apply.
 5. Choose the **action types** you want this rule to implement.
-6. (Optional) You can specify **rule criteria** to refine which recommended actions will be automatically implemented. For each criteria, use the `Attribute`, `Operator`, and `Value` drop down menus and input fields to specify your rule criteria
+6. (Optional) You can specify **rule criteria** to refine which recommended actions will be automatically implemented. For each criteria, use the `Attribute`, `Operator`, and `Value` drop down menus and input fields to specify your rule criteria.
+
+You can also configure the following optional checkboxes for each criteria:
+
+    * **If exists** – Select this to also match recommended actions where the attribute field is absent. For more information, see [Rule criteria](automation-rules.md#automation-rules-criteria "automation-rules.md#automation-rules-criteria").
+    * **Ignore case** – Select this for case-insensitive matching. Available only when the operator is `Equals` or `Does not equal` and the attribute uses free-form input (Resource ARN, Resource tags).
 
 ###### Important
 
