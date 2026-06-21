@@ -326,7 +326,7 @@ spec:
 EOF
 ```
 
-This NodePool provisions G-family GPU instances with generation greater than 4 ([G5](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/"), [G6e](https://aws.amazon.com/ec2/instance-types/g6e/ "https://aws.amazon.com/ec2/instance-types/g6e/"), [G7e](https://aws.amazon.com/ec2/instance-types/g7e/ "https://aws.amazon.com/ec2/instance-types/g7e/"), etc.). The `nvidia.com/gpu:NoSchedule` taint ensures only GPU-eligible Pods are scheduled on these nodes.
+This NodePool provisions G-family GPU instances with generation greater than 4 ([G5](https://aws.amazon.com/ec2/instance-types/g5/ "https://aws.amazon.com/ec2/instance-types/g5/"), [G6e](https://aws.amazon.com/ec2/instance-types/g6e/ "https://aws.amazon.com/ec2/instance-types/g6e/"), [G7e](https://aws.amazon.com/ec2/instance-types/g7e/ "https://aws.amazon.com/ec2/instance-types/g7e/"), etc.).
 
 Self-managed Karpenter
 Self-managed Karpenter does not include a default NodeClass. You first create an `EC2NodeClass` that pins the EKS-optimized NVIDIA AL2023 AMI alias, enables SOCI via the `FastImagePull` feature gate, and configures `instanceStorePolicy: RAID0` to move the containerd image cache to local NVMe. Then you create the NodePool that references it.
@@ -428,6 +428,9 @@ spec:
         - key: karpenter.k8s.aws/instance-category
           operator: In
           values: ["g"]
+        - key: karpenter.k8s.aws/instance-family
+          operator: NotIn
+          values: ["g7"]
         - key: karpenter.k8s.aws/instance-generation
           operator: Gt
           values: ["4"]
@@ -440,7 +443,7 @@ spec:
 EOF
 ```
 
-The `amiFamily: al2023` label on the node template is what the NVIDIA device plugin DaemonSet uses to select these nodes.
+The `amiFamily: al2023` label on the node template is what the NVIDIA device plugin DaemonSet uses to select these nodes. The `g7` instance family is excluded because it requires you to build a custom EKS AMI with NVIDIA driver version 595. The `nvidia.com/gpu:NoSchedule` taint ensures only GPU-eligible Pods are scheduled on these nodes.
 
 Validate the NodePool was created:
 

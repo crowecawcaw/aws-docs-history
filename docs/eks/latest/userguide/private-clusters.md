@@ -6,6 +6,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 This topic describes how to deploy an Amazon EKS cluster that is deployed on the AWS Cloud, but doesn’t have outbound internet access. If you have a local cluster on AWS Outposts, see [Create Amazon Linux nodes on AWS Outposts](eks-outposts-self-managed-nodes.md "eks-outposts-self-managed-nodes.md"), instead of this topic.
 
+###### Note
+
+This topic covers data plane egress (nodes and workloads without outbound internet access). To control how egress traffic from the cluster _control plane_ reaches your VPC, see [Configuring control plane egress routing](control-plane-egress.md "control-plane-egress.md").
+
 If you’re not familiar with Amazon EKS networking, see [De-mystifying cluster networking for Amazon EKS worker nodes](https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes "https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes"). If your cluster doesn’t have outbound internet access, then it must meet the following requirements:
 
 ## Cluster architecture requirements

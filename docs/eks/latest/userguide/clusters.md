@@ -18,6 +18,7 @@ This section provides in-depth guidance on the full lifecycle management of Kube
 - [Deploy Windows nodes on EKS clusters](windows-support.md "windows-support.md")
 - [Disable Windows support](disable-windows-support.md "disable-windows-support.md")
 - [Deploy private clusters with limited internet access](private-clusters.md "private-clusters.md")
+- [Configuring control plane egress routing](control-plane-egress.md "control-plane-egress.md")
 - [Scale cluster compute with Karpenter and Cluster Autoscaler](autoscaling.md "autoscaling.md")
 - [Learn about Amazon Application Recovery Controller (ARC) zonal shift in Amazon EKS](zone-shift.md "zone-shift.md")
 - [Enable EKS zonal shift to avoid impaired Availability Zones](zone-shift-enable.md "zone-shift-enable.md")

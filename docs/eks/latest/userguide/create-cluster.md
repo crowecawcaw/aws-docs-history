@@ -188,6 +188,7 @@ Kubernetes assigns `IPv4` addresses to Pods and services, by default. Before dec
     You can only specify this option when using the `IPv4` address family and only at cluster creation. If you don’t specify this, then Kubernetes assigns service IP addresses from either the `10.100.0.0/16` or `172.20.0.0/16` CIDR blocks.
 
         * For **Cluster endpoint access**, select an option. After your cluster is created, you can change this option. Before selecting a non-default option, make sure to familiarize yourself with the options and their implications. For more information, see [Cluster API server endpoint](cluster-endpoint.md "cluster-endpoint.md").
+        * (Optional) For **Control plane egress**, choose how egress traffic from the control plane to your VPC is routed. The default is Amazon EKS managed. If you select customer routed, you become responsible for the network path from the control plane to your VPC resources. For more information, see [Configuring control plane egress routing](control-plane-egress.md "control-plane-egress.md").
 
 
         When you’re done with this page, choose **Next**.
@@ -231,6 +232,7 @@ Cluster provisioning takes several minutes. 12. Continue with [Step 3: Update ku
 
 
         Whether you choose any security groups or not, Amazon EKS creates a security group that enables communication between your cluster and your VPC. Amazon EKS associates this security group, and any that you choose, to the network interfaces that it creates. For more information about the cluster security group that Amazon EKS creates, see [View Amazon EKS security group requirements for clusters](sec-group-reqs.md "sec-group-reqs.md"). You can modify the rules in the cluster security group that Amazon EKS creates.
+        * (Optional) To manage the egress path from the control plane to your VPC yourself, add `controlPlaneEgressMode=CUSTOMER_ROUTED` to `--resources-vpc-config`. The default is `AWS_MANAGED`. You can also change this setting after cluster creation. For more information, see [Configuring control plane egress routing](control-plane-egress.md "control-plane-egress.md").
 
 
 

@@ -66,6 +66,10 @@ When you enable endpoint private access for your cluster, Amazon EKS creates a R
 
 You can define your API server endpoint access requirements when you create a new cluster, and you can update the API server endpoint access for a cluster at any time.
 
+###### Note
+
+The endpoint access controls who can reach the Kubernetes API server. If you also want to manage how egress traffic from the control plane reaches resources in your VPC (such as webhook servers and OIDC providers), see [Configuring control plane egress routing](control-plane-egress.md "control-plane-egress.md").
+
 ## Modifying cluster endpoint access
 
 Use the procedures in this section to modify the endpoint access for an existing cluster. The following table shows the supported API server endpoint access combinations and their associated behavior.

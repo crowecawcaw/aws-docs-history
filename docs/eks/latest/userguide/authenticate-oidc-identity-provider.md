@@ -15,6 +15,10 @@ Amazon EKS supports using OpenID Connect (OIDC) identity providers as a method t
 - OIDC identity provider-authenticated users are listed in the cluster’s audit log if CloudWatch logs are turned on for the control plane. For more information, see [Enable or disable control plane logs](control-plane-logs.md#enabling-control-plane-log-export "control-plane-logs.md#enabling-control-plane-log-export").
 - You can’t sign in to the AWS Management Console with an account from an OIDC provider. You can only [View Kubernetes resources in the AWS Management Console](view-kubernetes-resources.md "view-kubernetes-resources.md") by signing into the AWS Management Console with an AWS Identity and Access Management account.
 
+###### Note
+
+The control plane fetches the provider’s signing keys from the issuer URL, so the issuer must be reachable from the control plane. If your cluster uses customer-routed control plane egress (`controlPlaneEgressMode=CUSTOMER_ROUTED`), make sure the issuer endpoint is reachable through the egress path you configure in your VPC. For more information, see [Configuring control plane egress routing](control-plane-egress.md "control-plane-egress.md").
+
 ## Associate an OIDC identity provider
 
 Before you can associate an OIDC identity provider with your cluster, you need the following information from your provider:

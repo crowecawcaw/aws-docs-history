@@ -4,6 +4,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Amazon EKS cluster configuration for AI/ML workloads
 
+###### Tip
+
+[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
+
 This section is designed to help you configure Amazon EKS clusters optimized for AI/ML workloads. You’ll find guidance on running GPU-accelerated containers using Linux and Windows optimized AMIs, setting up training clusters with Elastic Fabric Adapter (EFA) for high-performance networking, and creating inference clusters with AWS Inferentia instances, including prerequisites, step-by-step procedures, and deployment considerations.
 
 ###### Topics

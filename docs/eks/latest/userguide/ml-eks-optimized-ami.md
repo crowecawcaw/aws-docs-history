@@ -17,6 +17,12 @@ The table below shows the supported GPU instance types for each EKS-optimized ac
 | Bottlerocket aarch64/arm64 aws-k8s-nvidia | g5g                                                                                          |
 | Bottlerocket x86_64 aws-k8s               | inf1, inf2, trn1, trn2                                                                       |
 
+###### Important
+
+The G7 EC2 instance type requires NVIDIA driver version 595 or later. The EKS-optimized accelerated AMIs currently include NVIDIA driver version 580, which does not support G7 instances. To use G7 instances with Amazon EKS, you must build a custom AMI with NVIDIA driver version 595 using the [EKS AMI build scripts](eks-ami-build-scripts.md "eks-ami-build-scripts.md").
+
+If you are using Karpenter for node provisioning and auto-scaling with EKS, it is recommended to exclude the `g7` instance family from your NodePools that use automatic AMI selection. See [`amiSelectorTerms`](https://karpenter.sh/docs/concepts/nodeclasses/#specamiselectorterms "https://karpenter.sh/docs/concepts/nodeclasses/#specamiselectorterms") in the Karpenter documentation for how to configure your Karpenter NodeClass to use your custom AMI for `g7` instances.
+
 ## EKS-optimized NVIDIA AMIs
 
 By using the EKS-optimized NVIDIA AMIs, you agree to [NVIDIA’s Cloud End User License Agreement (EULA)](https://s3.amazonaws.com/EULA/NVidiaEULAforAWS.pdf "https://s3.amazonaws.com/EULA/NVidiaEULAforAWS.pdf").

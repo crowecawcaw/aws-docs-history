@@ -194,7 +194,6 @@ An example output is as follows.
     "Version":"2012-10-17",
     "Statement": [
         {
-            "Sid": "Allow EKS Auth service to assume this role for Pod Identities",
             "Effect": "Allow",
             "Principal": {
                 "Service": "pods.eks.amazonaws.com"

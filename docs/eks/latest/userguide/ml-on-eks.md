@@ -61,5 +61,5 @@ To begin planning for and using AI/ML platforms and workloads on Amazon EKS, fol
 - [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md "ml-cluster-setup.md"): Create the Amazon EKS cluster, monitoring, and Amazon S3 bucket infrastructure to use throughout this section.
 - [Run AI/ML inference workloads on Amazon EKS](ml-inference.md "ml-inference.md"): Use Amazon EKS to deploy, configure, and start using an inference application with a large language model (LLM).
 - [Amazon EKS cluster configuration for AI/ML workloads](ml-cluster-configuration.md "ml-cluster-configuration.md"): Configure Amazon EKS clusters optimized for AI/ML workloads.
-- [Manage compute resources for AI/ML workloads on Amazon EKS](ml-compute-management.md "ml-compute-management.md"): Manage and optimize compute resources for machine learning workloads on Amazon EKS.
+- [Manage accelerated compute for AI/ML workloads on Amazon EKS](ml-compute-management.md "ml-compute-management.md"): Manage and optimize compute resources for machine learning workloads on Amazon EKS.
 - [Manage hardware devices on Amazon EKS](device-management.md "device-management.md"): Manage specialized hardware devices using Dynamic Resource Allocation (DRA) and device plugins.
