@@ -16,7 +16,6 @@ Center](http://aws.amazon.com/support "http://aws.amazon.com/support"). The data
 ###### Notes
 
 - Billing Conductor managed accounts (billing group members) can see pro forma costs in Cost Explorer.
-- Hourly granularity data is not supported pro forma costs in Cost Explorer.
 - To learn more about core workflows that Cost Explorer supports, see [Exploring your
   data using Cost Explorer](../../../cost-management/latest/userguide/ce-exploring-data.md "../../../cost-management/latest/userguide/ce-exploring-data.md") in the _AWS Cost Management User Guide_.
 
