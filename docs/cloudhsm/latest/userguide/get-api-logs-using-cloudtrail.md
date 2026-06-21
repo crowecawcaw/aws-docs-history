@@ -111,3 +111,37 @@ The following example shows a CloudTrail log entry that demonstrates the AWS Clo
     "recipientAccountId": "111122223333"
 }
 ```
+
+## AWS CloudHSM management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+AWS CloudHSM logs all control plane operations as management events. For a list of the AWS CloudHSM
+control plane operations that AWS CloudHSM logs to CloudTrail, see [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") in the _AWS CloudHSM API Reference_.
+
+## AWS CloudHSM service events in CloudTrail
+
+AWS CloudHSM logs service events to CloudTrail when the service performs actions on your resources
+automatically. These events may not be triggered directly by a call to a public AWS CloudHSM API. For
+these events, the `eventType` field is `AwsServiceEvent`.
+
+The following are the service events that AWS CloudHSM logs to CloudTrail.
+
+- `DeleteBackup` – Logged when AWS CloudHSM automatically deletes a backup based on
+  your backup retention policy.
+- `BackupDeletedPermanently` – Logged when a PENDING_DELETION backup is
+  permanently purged and can no longer be restored.
+- `MigrationStart` – Logged when an HSM type migration begins for a
+  cluster.
+- `MigrationEnd` – Logged when an HSM type migration completes for a
+  cluster.
+- `RollbackStart` – Logged when an HSM type migration rollback begins for a
+  cluster.
+- `RollbackEnd` – Logged when an HSM type migration rollback completes for a
+  cluster.
+
+You can identify AWS CloudHSM service events in CloudTrail logs by the following attribute
+values:
+
+- `eventSource`: `cloudhsm.amazonaws.com`
+- `eventType`: `AwsServiceEvent`
