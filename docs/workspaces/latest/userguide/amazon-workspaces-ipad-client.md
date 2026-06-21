@@ -180,7 +180,7 @@ button icon.
 
 Simulate a right mouse button click by tapping the right mouse button icon.
 
-![Right mouse button icon](/images/workspaces/latest/userguide/images/mouse-icon-right.png)
+![Right mouse button icon](images/mouse-icon-right.png)
 
 ## Swiftpoint GT, ProPoint, or PadPoint mouse
 
