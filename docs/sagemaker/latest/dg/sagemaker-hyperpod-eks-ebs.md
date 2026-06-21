@@ -9,6 +9,7 @@ orchestration.
 ###### In this topic:
 
 - [Key storage capabilities](#sagemaker-hyperpod-eks-ebs-features "#sagemaker-hyperpod-eks-ebs-features")
+- [Considerations](#sagemaker-hyperpod-eks-ebs-considerations "#sagemaker-hyperpod-eks-ebs-considerations")
 - [Use cases](#sagemaker-hyperpod-eks-ebs-use "#sagemaker-hyperpod-eks-ebs-use")
 - [Setting up the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters](#sagemaker-hyperpod-eks-ebs-setup "#sagemaker-hyperpod-eks-ebs-setup")
 - [Using the APIs](#sagemaker-hyperpod-eks-ebs-setup-apis "#sagemaker-hyperpod-eks-ebs-setup-apis")
@@ -39,6 +40,49 @@ Amazon EBS](../../../eks/latest/userguide/ebs-csi.md "../../../eks/latest/usergu
 
 For more information about storage to pods in your cluster, see [Storage](https://kubernetes.io/docs/concepts/storage/ "https://kubernetes.io/docs/concepts/storage/") from the
 _Kubernetes Documentation_.
+
+## Considerations
+
+The SageMaker HyperPod AMI already manages local NVMe instance storage on every node. At
+boot, it combines all of the node's NVMe drives into a single LVM volume group
+(`vg.01`) and mounts the result at `/opt/sagemaker`. You do not
+need to install anything else to use local NVMe storage—it is ready to use as
+soon as the node is up.
+
+###### Important
+
+Do not install a second CSI driver that targets NVMe instance storage (sometimes
+called a Local Instance Storage CSI driver). A second storage manager conflicts
+with `vg.01` and causes NVMe I/O failures, mount failures, and
+corrupted device state that persists across node reboots and
+replacements.
+
+This restriction applies only to drivers that manage local NVMe instance storage.
+Network-backed CSI drivers (Amazon EBS, Amazon FSx, Amazon EFS, and Mountpoint for Amazon S3) are not
+affected because they do not access the local NVMe disks.
+
+The Amazon EBS CSI driver described on this page manages Amazon EBS volumes only and is not
+affected by this conflict. The conflict applies only to CSI drivers that manage local
+NVMe instance storage on the node.
+
+If you have already installed a CSI driver that targets NVMe instance storage and are
+seeing NVMe I/O errors, follow these steps:
+
+1. Uninstall the local-instance-storage CSI driver add-on.
+2. Replace the affected nodes (replacing approximately three at a
+   time is recommended).
+3. Verify that NVMe instance storage is restored. The restored state persists
+   through subsequent reboots and replacements.
+
+###### Important
+
+Do not replace nodes before uninstalling the add-on. The conflict will recur on
+the new nodes, and the I/O errors will continue.
+
+To use NVMe instance storage on HyperPod, rely on the AMI's built-in LVM
+configuration through the standard mount path (`/opt/sagemaker`). For
+dynamically provisioned, pod-level block storage, use the Amazon EBS CSI driver as described
+in the rest of this page.
 
 ## Use cases
 

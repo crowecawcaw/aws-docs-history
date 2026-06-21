@@ -111,7 +111,7 @@ the policy to your bucket, you must use the JSON format.
 The following GIF demonstrates the instructions found in the Amazon S3
 documentation to add a CORS header policy using the Amazon S3 console.
 
-![Gif on how to add a CORS header policy using the Amazon S3 console.](images/sms/gifs/cors-config.gif)
+![Gif on how to add a CORS header policy using the Amazon S3 console.](/images/sagemaker/latest/dg/images/sms/gifs/cors-config.gif)
 
 ## Customize access management for Pipelines jobs
 

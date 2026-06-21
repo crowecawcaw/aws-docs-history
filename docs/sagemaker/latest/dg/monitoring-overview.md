@@ -27,6 +27,7 @@ appropriate:
 
 - [Amazon SageMaker AI metrics in Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [Amazon SageMaker AI enhanced metrics for inference endpoints](monitoring-cloudwatch-enhanced-metrics.md "monitoring-cloudwatch-enhanced-metrics.md")
+- [Amazon SageMaker AI detailed observability for inference endpoints](monitoring-cloudwatch-detailed-observability.md "monitoring-cloudwatch-detailed-observability.md")
 - [CloudWatch Logs for Amazon SageMaker AI](logging-cloudwatch.md "logging-cloudwatch.md")
 - [Logging Amazon SageMaker AI API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Monitoring user resource access from SageMaker AI Studio Classic with sourceIdentity](monitor-user-access.md "monitor-user-access.md")

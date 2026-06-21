@@ -80,6 +80,10 @@ speculative decoding.
 Specify the inference framework. Valid values:
 `LMI`, `VLLM`.
 
+To track the recommendation results with fully managed MLflow on SageMaker AI, add an
+`MlflowConfig` object to `OutputConfig`. For more information, see
+[Track inference recommendation and benchmark results with MLflow](generative-ai-inference-recommendations-mlflow.md "generative-ai-inference-recommendations-mlflow.md").
+
 ## Step 2: Monitor job status
 
 Poll the job status until it reaches a terminal state.

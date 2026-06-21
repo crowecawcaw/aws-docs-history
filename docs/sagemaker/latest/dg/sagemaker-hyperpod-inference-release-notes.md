@@ -8,6 +8,95 @@ Amazon SageMaker HyperPod platform releases, updates, and improvements, see [Ama
 For information about SageMaker HyperPod Inference capabilities and deployment options, see
 [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md "sagemaker-hyperpod-model-deployment.md").
 
+## SageMaker HyperPod Inference release notes: v3.2
+
+**Release Date:** June 12, 2026
+
+**Summary**
+
+Inference Operator v3.2 enables customers to deploy long-context LLMs (such as Llama 3.3
+70B) with predictable per-token latency under concurrent load. The release introduces
+Disaggregated Prefill and Decode (DPD), which separates the compute-bound prefill phase and
+the memory-bandwidth-bound decode phase onto distinct GPU pools and transfers KV cache between
+them over EFA with GPU-Direct RDMA. DPD reduces tail per-token latency, increases throughput,
+and lets you scale prefill and decode capacity independently. Besides DPD we include other bug
+fixes in this release.
+
+**Key Features**
+
+**Disaggregated Prefill and Decode (DPD)**
+
+- Added a new `pdSpec` field to the `InferenceEndpointConfig`
+  CRD that enables disaggregated inference. When `pdSpec` is set, the operator
+  provisions separate prefiller and decoder pods, wires them together via the DPD router,
+  and transfers KV cache between them using LMCache over NIXL and EFA with GPU-Direct
+  RDMA. Example configurable fields include (more config can check user guide):
+
+  - `routingThreshold` – Token-length threshold above which
+    requests use the disaggregated path. Below the threshold, requests bypass the
+    prefiller and go directly to the decoder.
+  - `prefillSpec.args` and `decodingSpec.args` –
+    Per-role vLLM flags merged into `worker.args` at startup.
+  - `prefillSpec.replicas` and `decodingSpec.replicas`
+    – Scale prefill and decode capacity independently to match your
+    workload's input and output length distribution.
+
+- **Prerequisite**
+
+  - To deploy DPD endpoints, your cluster nodes must support EFA with RDMA read
+    and write, and be located within the same Availability Zone for high-bandwidth
+    node-to-node communication.
+  - Recommended instance families: `ml.p5.48xlarge`,
+    `ml.p5e.48xlarge`, `ml.p5en.48xlarge`,
+    `ml.p6-b200.48xlarge`, `ml.p6-b300.48xlarge`.
+
+**Bug Fixes**
+
+- **Operator scheduling on x86 nodes** – The
+  operator deployment now uses `nodeAffinity` to schedule onto amd64 Linux
+  nodes only.
+- We include other minor and security fixes.
+
+### Upgrade to v3.2
+
+**Helm upgrade:**
+
+If you already have the Inference Operator installed via Helm, use the following
+commands to upgrade:
+
+```
+helm get values -n kube-system hyperpod-inference-operator \
+> current-values.yaml
+
+cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
+charts/inference-operator
+
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.2
+
+# Verification
+kubectl get deployment hyperpod-inference-operator-controller-manager \
+  -n hyperpod-inference-system \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
+**EKS Add-on upgrade:**
+
+If you installed the Inference Operator as an EKS Add-on, upgrade to the latest
+version:
+
+```
+CLUSTER=EKS_CLUSTER_NAME
+REGION=REGION
+
+aws eks update-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --addon-version v1.3.0-eksbuild.1 \
+  --resolve-conflicts OVERWRITE \
+  --region $REGION
+```
+
 ## SageMaker HyperPod Inference release notes: v3.1.2
 
 **Release Date:** May 6, 2026

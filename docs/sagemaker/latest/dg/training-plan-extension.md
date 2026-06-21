@@ -32,7 +32,7 @@ Before extending a training plan, ensure the following:
 - The training plan must have a status of `Active` or
   `Scheduled`.
 - The plan must not have any extensions in `Payment Pending` status.
-- Extensions can be requested up to a minimum of 1 hour or a maximum of 56 days
+- Extensions can be requested up to a minimum of 1 hour or a maximum of 57 days
   before the plan expires.
 
 ###### Topics

@@ -32,7 +32,116 @@ eval-specific.
 
 ## Launching an evaluation job
 
-### Create an evaluation job (Bedrock AgentCore)
+After training completes, evaluate your model using one of the following methods.
+
+### SageMaker AI Studio
+
+- Navigate to your custom model's details page (**Models** >
+  **My Models** > select your MTRL model).
+- Choose **Evaluate** to open the evaluation
+  configuration page.
+- Select **Multi-Turn RL** as the evaluation type.
+- Configure your agent environment — select your Bedrock AgentCore runtime or
+  provide your Lambda forwarder ARN.
+- Provide your evaluation dataset (S3 URI or registered dataset containing
+  held-out evaluation prompts).
+- Choose **Submit** to start the evaluation job.
+
+### SageMaker AI Python SDK
+
+The `MultiTurnRLEvaluator` provides a high-level interface for launching
+evaluation jobs. When you pass a completed trainer, the evaluator automatically resolves
+the model package ARN, agent configuration, and agent qualifier.
+
+**Evaluate a fine-tuned model**
+
+```
+from sagemaker.train.evaluate import MultiTurnRLEvaluator
+from sagemaker.train.multi_turn_rl_trainer import MultiTurnRLTrainer
+
+# Attach to a completed training job
+trainer = MultiTurnRLTrainer.attach(job_name="my-mtrl-job-20260512082005")
+
+# Minimal evaluator — everything else inferred from trainer
+evaluator = MultiTurnRLEvaluator(
+    model=trainer,
+    dataset="s3://my-bucket/eval-prompts.parquet",
+    s3_output_path="s3://my-bucket/eval-output/",
+)
+
+execution = evaluator.evaluate()
+print(f"Evaluation started: {execution.arn}")
+
+# Wait for completion
+execution.wait()
+print(f"Status: {execution.status.overall_status}")
+print(f"S3 Output: {execution.s3_output_path}")
+print(f"MLflow: {execution.mlflow_url}")
+```
+
+**Evaluate a base model (no training)**
+
+When evaluating a base model directly, `agent_config` is required since
+there is no trainer to inherit from:
+
+```
+from sagemaker.train.evaluate import MultiTurnRLEvaluator
+
+# With Bedrock AgentCore
+evaluator_base = MultiTurnRLEvaluator(
+    model="openai-reasoning-gpt-oss-20b",
+    dataset="s3://my-bucket/eval-prompts.parquet",
+    agent_config="arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my-agent",
+    s3_output_path="s3://my-bucket/eval-output/base/",
+    mlflow_resource_arn="arn:aws:sagemaker:us-west-2:123456789012:mlflow-tracking-server/my-mlflow",
+    role="arn:aws:iam::123456789012:role/SageMakerRole",
+    accept_eula=True,
+)
+
+execution = evaluator_base.evaluate()
+execution.wait()
+```
+
+**Side-by-side comparison (base vs fine-tuned)**
+
+A single `evaluate()` call that evaluates both the base model and the
+fine-tuned model in one pipeline:
+
+```
+comparison_evaluator = MultiTurnRLEvaluator(
+    model=trainer,
+    dataset="s3://my-bucket/eval-prompts.parquet",
+    s3_output_path="s3://my-bucket/eval-output/comparison/",
+    evaluate_base_model=True,
+)
+
+execution = comparison_evaluator.evaluate()
+execution.wait()
+print(f"Status: {execution.status.overall_status}")
+```
+
+**Monitor and retrieve results**
+
+```
+# Refresh status
+execution.refresh()
+print(f"Status: {execution.status.overall_status}")
+
+# Step-level detail
+for step in execution.status.step_details:
+    print(f"  {step.name}: {step.status}")
+    if step.job_arn:
+        print(f"    Job ARN: {step.job_arn}")
+
+# MLflow URL
+print(f"MLflow: {execution.mlflow_url}")
+```
+
+### AWS CLI and boto3
+
+You can also create evaluation jobs directly using the `CreateJob` API.
+
+**Create an evaluation job (Bedrock AgentCore)**
 
 To create an evaluation job, call the `CreateJob` API with
 `JobCategory` set to `AgentRFTEvaluation`. Agent setup and
@@ -125,7 +234,7 @@ print(f"Eval Job ARN: {response['JobArn']}")
 
 ```
 
-### Evaluating a fine-tuned model
+**Evaluating a fine-tuned model**
 
 To evaluate a model produced by a training job, include
 `ModelPackageConfig` with the `InputModelPackageArn`:
@@ -157,7 +266,7 @@ print(f"Eval Job ARN: {response['JobArn']}")
 
 ```
 
-### Create an evaluation job (Custom Agent with Lambda Forwarder)
+**Create an evaluation job (Custom Agent with Lambda Forwarder)**
 
 Use the same approach as Bedrock AgentCore evaluation but specify
 `CustomAgentLambdaConfig` in the `AgentConfig`:

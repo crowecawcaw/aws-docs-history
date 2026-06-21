@@ -62,6 +62,10 @@ If your endpoint is in a VPC, pass the `NetworkConfig` parameter with
 your `VpcConfig` settings, including security group IDs and
 subnets.
 
+To track the benchmark results with fully managed MLflow on SageMaker AI, add an
+`MlflowConfig` object to `OutputConfig`. For more information, see
+[Track inference recommendation and benchmark results with MLflow](generative-ai-inference-recommendations-mlflow.md "generative-ai-inference-recommendations-mlflow.md").
+
 ## Benchmark inference components
 
 If your endpoint uses _inference components_ instead of

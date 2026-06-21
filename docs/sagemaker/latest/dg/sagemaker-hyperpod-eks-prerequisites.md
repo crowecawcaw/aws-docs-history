@@ -64,6 +64,20 @@ configured with VPC and installed using Helm.
          for Amazon S3 CSI driver, the AWS Distro for OpenTelemetry, and the CloudWatch
          Observability agent.
 
+
+        ###### Important
+
+        Do not install a CSI driver that manages NVMe instance storage
+         (sometimes called a Local Instance Storage CSI driver) on
+         HyperPod nodes that use the SageMaker HyperPod AMI. The AMI
+         configures an LVM volume group (`vg.01`) on the NVMe
+         instance store at boot, before the CSI driver starts, and a CSI driver
+         that targets the same NVMe devices will conflict with this
+         configuration and cause I/O failures. The Amazon EBS CSI driver, the Amazon FSx
+         CSI driver, the Amazon EFS CSI driver, and the Mountpoint for Amazon S3 CSI driver are not affected
+         because they do not manage local NVMe instance storage. For details and
+         remediation steps, see the Considerations section in [Using the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters](sagemaker-hyperpod-eks-ebs.md "sagemaker-hyperpod-eks-ebs.md").
+
     **Considerations for configuring SageMaker HyperPod clusters with
     Amazon EKS**
 
@@ -78,8 +92,12 @@ configured with VPC and installed using Helm.
   dynamic pod-level volume management. With [InstanceStorageConfigs](../APIReference/API_ClusterInstanceGroupSpecification.md#sagemaker-Type-ClusterInstanceGroupSpecification-InstanceStorageConfigs "../APIReference/API_ClusterInstanceGroupSpecification.md#sagemaker-Type-ClusterInstanceGroupSpecification-InstanceStorageConfigs"), set
   the [local
   path](https://kubernetes.io/docs/concepts/storage/volumes/#local "https://kubernetes.io/docs/concepts/storage/volumes/#local") to `/opt/sagemaker` to properly mount the volumes to
-  your Amazon EKS pods. For information about how to deploy the [Amazon EBS CSI](../../../eks/latest/userguide/ebs-csi.md "../../../eks/latest/userguide/ebs-csi.md") controller on HyperPod nodes, see [Using the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters](sagemaker-hyperpod-eks-ebs.md "sagemaker-hyperpod-eks-ebs.md").
-- If you use instance-type labels for defining scheduling constraints, ensure that
+  your Amazon EKS pods. For information about how to deploy the [Amazon EBS CSI](../../../eks/latest/userguide/ebs-csi.md "../../../eks/latest/userguide/ebs-csi.md") controller on
+  HyperPod nodes, see [Using the Amazon EBS CSI driver on SageMaker HyperPod EKS clusters](sagemaker-hyperpod-eks-ebs.md "sagemaker-hyperpod-eks-ebs.md"). To use
+  NVMe instance storage on HyperPod, rely on the AMI's built-in LVM configuration
+  through `/opt/sagemaker` rather than installing a separate
+  NVMe-targeting CSI driver.
+- If you use instance-type labels to define scheduling constraints, ensure that
   you use the SageMaker AI ML instance types prefixed with `ml.`. For example, for
   P5 instances, use `ml.p5.48xlarge` instead of
   `p5.48xlarge`.
