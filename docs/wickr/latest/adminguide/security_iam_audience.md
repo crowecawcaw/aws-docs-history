@@ -7,7 +7,7 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see )
+  administrator if you cannot access features (see [Troubleshooting AWS Wickr identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
   submit permission requests (see [How AWS Wickr works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
