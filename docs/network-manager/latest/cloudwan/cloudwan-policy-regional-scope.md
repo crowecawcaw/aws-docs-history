@@ -3,7 +3,7 @@
 When making changes to your core network, some policy changes require making edits to multiple
 regions during the change set execution workflow. When making changes to things like routing policies or
 service insertion it may not always be immediately obvious that those changes can impact all of the core networks edge locations.
-The following sections list the various sections of a core network policy
+Below we have listed the various sections of a core network policy
 and the regions that would require updates if the change is made. This can help determine whether making changes to
 your core network policy could require doing work in any particular region which could be dangerous if that region is
 experiencing issues.

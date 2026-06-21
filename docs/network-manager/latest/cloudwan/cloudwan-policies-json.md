@@ -488,7 +488,7 @@ The following are the required and optional parameters:
 
     		* `edge-sets` — The list of edges
     		 associated with the network function group.
-    		* `use-edge` — The preferred edge to
+    		* `use-edge-location` — The preferred edge to
     		 use.
 
 The following example shows an example of the `send-via`
@@ -501,7 +501,7 @@ action:
      `inspection-vpc` and has two defined
      `edge-sets`, `corenetwork1`and
      `corenetwork2`. `corenetwork2` is set as
-     the preferred core network edge (`use-edge`).
+     the preferred core network edge (`use-edge-location`).
 
 ```
 {
@@ -522,7 +522,7 @@ action:
                     "edge-sets ": [
                         ["corenetwork1", "corenetwork2"]
                     ],
-                    "use-edge": "corenetwork2"
+                    "use-edge-location": "corenetwork2"
                 }
             ]
         }
@@ -539,7 +539,7 @@ network function group named `inspection-vpc`.
       "segment": "development",
       "via": {
         "network-function-groups": [
-          "inspetion-vpc"
+          "inspection-vpc"
         ]
       }
     }
