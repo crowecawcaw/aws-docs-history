@@ -12,6 +12,7 @@ Secrets Manager generates a CloudTrail log entry when you retrieve a secret. For
 - [Amazon EKS](integrate_eks.md "integrate_eks.md")
 - [AWS Lambda](retrieving-secrets_lambda.md "retrieving-secrets_lambda.md")
 - [AWS Workload Credentials Provider](workload-credentials-provider.md "workload-credentials-provider.md")
+- [AI Coding Agents](retrieving-secrets-ai-agents.md "retrieving-secrets-ai-agents.md")
 - [C++](retrieving-secrets-cpp.md "retrieving-secrets-cpp.md")
 - [JavaScript](retrieving-secrets-javascript.md "retrieving-secrets-javascript.md")
 - [Kotlin](retrieving-secrets-kotlin.md "retrieving-secrets-kotlin.md")

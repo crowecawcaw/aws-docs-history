@@ -16,9 +16,15 @@ manage the secret lifecycle. These permissions can be scoped to individual secre
 follow the principle of least privilege. The rotation role you provide is validated
 during setup and used exclusively for rotation operations.
 
-You can restrict the IP ingress to your external resource by only allowing the
-[AWS IP ranges](../../../vpc/latest/userguide/aws-ip-ranges.md "../../../vpc/latest/userguide/aws-ip-ranges.md")
-for EC2 in the region where your secret exists. This list of IP ranges can change so you should refresh your ingress rules periodically.
+You can restrict the IP ingress to your external resource by only allowing the Secrets Manager managed external secrets
+[AWS-managed prefix list](../../../vpc/latest/userguide/working-with-aws-managed-prefix-lists.md "../../../vpc/latest/userguide/working-with-aws-managed-prefix-lists.md")
+in the region where your secret exists. The prefix list is named `com.amazonaws.`region`.secretsmanager-managed-external-secrets`,
+where `region` is the AWS Region of your secret. Using the managed prefix list ensures your ingress rules
+automatically stay current as the underlying IP ranges change.
+
+If you prefer to reference the prefix list programmatically, you can use the
+[GetManagedPrefixListEntries](../../../AWSEC2/latest/APIReference/API_GetManagedPrefixListEntries.md "../../../AWSEC2/latest/APIReference/API_GetManagedPrefixListEntries.md")
+API to list the IPs that need to be allowlisted. You should periodically refresh your ingress rules with this prefix list to keep them current.
 
 AWS Secrets Manager also offers single touch solutions to create the IAM policy with the permissions necessary to manage the secret when creating the secret through the Secrets Manager console.
 The permissions for this role are scoped down for each integration partner in each region.
