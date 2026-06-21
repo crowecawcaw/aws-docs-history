@@ -5,7 +5,7 @@ opportunity records.
 
 ###### Note
 
-For information about upgrading an Amazon S3 integration, refer to [Upgrading from a CRM with Amazon S3 integration to the Partner Central API](upgrade-crm-api.md "upgrade-crm-api.md") later in this guide.
+For information about upgrading an Amazon S3 integration, refer to [Upgrading from Amazon S3 to API-based integration](upgrade-crm-api.md "upgrade-crm-api.md") later in this guide.
 
 ###### Topics
 

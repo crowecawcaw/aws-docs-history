@@ -1,4 +1,4 @@
-# Upgrading from a CRM with Amazon S3 integration to the Partner Central API
+# Upgrading from Amazon S3 to API-based integration
 
 ###### Note
 
@@ -6,13 +6,25 @@ The topics in this section assume you've completed the prerequisites for an AWS 
 For more information, refer to [Integration prerequisites](crm-integration-setting-up.md "crm-integration-setting-up.md")
 and [Getting started](crm-integration-getting-started.md "crm-integration-getting-started.md") earlier in this guide.
 
-The steps in the following sections explain how to upgrade from an earlier CRM with Amazon S3 integration to the AWS Partner Central API. Upgrading removes the need for several ACE requirements, such
-as the need for an integration user, and the need to set up synchronization schedules.
+This section walks you through upgrading your AWS Partner CRM Connector from
+Amazon S3-based to API-based integration. The migration involves three main phases:
+
+1. **Complete prerequisites** – The Alliance Lead
+   performs actions within Partner Central.
+2. **Set up AWS infrastructure** – The IT Cloud
+   Admin and the Salesforce Administrator perform activities in the AWS Management Console and
+   in Salesforce to enable the API-based integration.
+3. **Finalize setup and configuration within Salesforce**
+   – The Salesforce Administrator finishes the configuration and setup within
+   Salesforce.
+
+###### Note
+
+We recommend that you complete these activities in a Sandbox environment first, test
+thoroughly, and then deploy to Production.
 
 ###### Topics
 
-- [Upgrade features](api-upgrade-features.md "api-upgrade-features.md")
-- [Set up named credentials](set-up-api-credentials.md "set-up-api-credentials.md")
-- [Add the Approval Status button to the Opportunity Lightning Record page](add-approval-status-button.md "add-approval-status-button.md")
-- [Add the remaining buttons](add-remaining-buttons.md "add-remaining-buttons.md")
-- [Refresh the Solution Offerings tab](refresh-the-solutions-from-the-solution-offerings-tab.md "refresh-the-solutions-from-the-solution-offerings-tab.md")
+- [Complete prerequisites](upgrade-phase1-prerequisites.md "upgrade-phase1-prerequisites.md")
+- [Set up AWS infrastructure](upgrade-phase2-aws-infrastructure.md "upgrade-phase2-aws-infrastructure.md")
+- [Finalize setup and configuration within Salesforce](upgrade-phase3-salesforce-config.md "upgrade-phase3-salesforce-config.md")
