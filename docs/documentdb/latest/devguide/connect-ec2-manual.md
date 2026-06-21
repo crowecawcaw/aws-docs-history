@@ -112,7 +112,7 @@ Leave the **Engine version** at it's default value of **5.0.0**. 5. For **Cluste
     * For **number of instances**, choose a number that best reflects your needs.
      Remember, the lower the number, the lower the cost, and the lower the read/write volume that can be managed by the cluster.
 
-![Configuration interface with default values for cluster identifier, engine version, and instance class, with number of instances set to one.](images/create-cluster/instance-config.png) 7. For **Connectivity**, leave the default setting of **Don't connect to an EC2 compute resource**.
+![Configuration interface with default values for cluster identifier, engine version, and instance class, with number of instances set to one.](/images/documentdb/latest/devguide/images/create-cluster/instance-config.png) 7. For **Connectivity**, leave the default setting of **Don't connect to an EC2 compute resource**.
 
 ###### Note
 
@@ -136,7 +136,7 @@ Complete the following steps:
 ![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
 You must choose one and follow its instructions. When complete, choose **Connect**.
 
-![Interface showing configuration options for the EC2 Instance Connect connection method.](images/ec2/connect-options.png)
+![Interface showing configuration options for the EC2 Instance Connect connection method.](/images/documentdb/latest/devguide/images/ec2/connect-options.png)
 
 ###### Note
 
