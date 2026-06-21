@@ -104,9 +104,8 @@ registrar. The primary purpose of these requirements is to prevent the owners of
 fraudulent domains from repeatedly transferring the domains to different registrars.
 Requirements vary, but the following requirements are typical:
 
-- You must have either registered the domain with the current registrar or
-  transferred registration for the domain to the current registrar at least 60
-  days ago.
+- You must have registered or transferred the domain to the current
+  registrar at least 60 days ago.
 - If the registration for a domain name expired and had to be restored, it
   must have been restored at least 60 days ago.
 - The domain cannot have any of the following domain name status

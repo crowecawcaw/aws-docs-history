@@ -30,5 +30,13 @@ This section provides best practices for optimizing Amazon Route 53 VPC Resolver
         * If your endpoints experience throttling due to suspected zone walking, contact AWS Support for assistance.
 
     For more information, see [DNS zone walking](best-practices-resolver-zone-walking.md "best-practices-resolver-zone-walking.md")
+
+5.  **Subnet compatibility for Resolver endpoints:**
+
+        * We recommend using non-Outposts subnets for Resolver endpoints.
+        * Outposts subnets with Local Network Interface (LNI) enabled are not compatible with Route 53 Resolver endpoints.
+        * If you enable LNI on a subnet that contains Route 53 Resolver endpoint ENIs, those ENIs will stop functioning.
+
+    For more information, see [Subnet compatibility for Resolver endpoints](best-practices-resolver-subnet-compatibility.md "best-practices-resolver-subnet-compatibility.md")
     By following these best practices, you can optimize the performance, scalability, and security of your VPC Resolver deployments, ensuring reliable
     and efficient DNS resolution for your applications and resources.

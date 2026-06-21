@@ -74,6 +74,14 @@ to your network. The subnet must have an available IP address.
 
 The subnet IP address must match the **Endpoint type**.
 
+We recommend using [VPC Resolver on AWS Outposts](outpost-resolver-getting-started.md "outpost-resolver-getting-started.md") to create endpoints on AWS Outposts Racks.
+
+###### Important
+
+Outposts subnets with [Local Network Interface (LNI)](../../../outposts/latest/server-userguide/local-network-interface.md "../../../outposts/latest/server-userguide/local-network-interface.md") enabled are not compatible with
+VPC Resolver endpoints. If you enable LNI on a subnet that contains VPC Resolver endpoint elastic network interfaces (ENIs), those ENIs will stop functioning. For more information, see
+[Subnet compatibility for Resolver endpoints](best-practices-resolver-subnet-compatibility.md "best-practices-resolver-subnet-compatibility.md").
+
 **IP address**
 The IP address that you want DNS queries to originate from on the way to your network.
 
