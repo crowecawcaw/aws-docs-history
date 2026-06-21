@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
-- [Getting started with IoT Core](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
+- [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
 
 .NET
 
@@ -322,6 +322,40 @@ async fn show_address(client: &Client, endpoint_type: &str) -> Result<(), Error>
 - For API details, see
   [DescribeEndpoint](https://docs.rs/aws-sdk-iot/latest/aws_sdk_iot/client/struct.Client.html#method.describe_endpoint "https://docs.rs/aws-sdk-iot/latest/aws_sdk_iot/client/struct.Client.html#method.describe_endpoint")
   in _AWS SDK for Rust API reference_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+
+```
+    CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
+    DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
+    DATA(lo_iot) = /aws1/cl_iot_factory=>create( lo_session ).
+    " iv_endpoint_type = 'iot:Data-ATS' - Endpoint type for data operations
+    TRY.
+        DATA(lo_result) = lo_iot->describeendpoint( iv_endpointtype = iv_endpoint_type ).
+        ov_endpoint_address = lo_result->get_endpointaddress( ).
+        MESSAGE |Endpoint address: { ov_endpoint_address }| TYPE 'I'.
+      CATCH /aws1/cx_iotthrottlingex INTO DATA(lo_throttle_ex).
+        MESSAGE 'Request throttled. Please try again later.' TYPE 'I'.
+        RAISE EXCEPTION lo_throttle_ex.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_ex).
+        MESSAGE lo_ex->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION lo_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DescribeEndpoint](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

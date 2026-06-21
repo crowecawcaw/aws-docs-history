@@ -9,5 +9,5 @@ Scenarios target an intermediate level of experience to help you understand serv
 
 ###### Examples
 
-- [Getting Started with IoT Device Defender](example_iot_GettingStarted_079_section.md "example_iot_GettingStarted_079_section.md")
-- [Getting started with IoT Core](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
+- [Getting started with internet of things device protection](example_iot_GettingStarted_079_section.md "example_iot_GettingStarted_079_section.md")
+- [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")

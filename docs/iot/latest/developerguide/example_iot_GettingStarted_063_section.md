@@ -1,4 +1,4 @@
-# Getting started with IoT Core
+# Getting started with internet of things messaging
 
 The following code example shows how to:
 

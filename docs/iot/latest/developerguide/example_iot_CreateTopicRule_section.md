@@ -367,6 +367,61 @@ class IoTWrapper:
   [CreateTopicRule](../../../goto/boto3/iot-2015-05-28/CreateTopicRule.md "../../../goto/boto3/iot-2015-05-28/CreateTopicRule.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+
+```
+    CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
+    DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
+    DATA(lo_iot) = /aws1/cl_iot_factory=>create( lo_session ).
+    TRY.
+        " Build the SNS action that will receive messages matching the rule.
+        DATA lo_sns_action TYPE REF TO /aws1/cl_iotsnsaction.
+        CREATE OBJECT lo_sns_action
+          EXPORTING
+            iv_targetarn = iv_sns_action_arn
+            iv_rolearn   = iv_role_arn.
+
+        DATA lo_action TYPE REF TO /aws1/cl_iotaction.
+        CREATE OBJECT lo_action
+          EXPORTING
+            io_sns = lo_sns_action.
+
+        DATA lt_actions TYPE /aws1/cl_iotaction=>tt_actionlist.
+        APPEND lo_action TO lt_actions.
+
+        " iv_topic = 'my/iot/topic' - The MQTT topic pattern to match
+        DATA lo_payload TYPE REF TO /aws1/cl_iottopicrulepayload.
+        CREATE OBJECT lo_payload
+          EXPORTING
+            iv_sql     = |SELECT * FROM '{ iv_topic }'|
+            it_actions = lt_actions.
+
+        lo_iot->createtopicrule(
+          iv_rulename         = iv_rule_name
+          io_topicrulepayload = lo_payload ).
+        MESSAGE |IoT topic rule created: { iv_rule_name }| TYPE 'I'.
+      CATCH /aws1/cx_iotresrcalrdyexistsex.
+        MESSAGE |Topic rule '{ iv_rule_name }' already exists.| TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_ex).
+        MESSAGE lo_ex->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION lo_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateTopicRule](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

@@ -38,5 +38,5 @@ This topic also includes information about getting started and details about pre
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
 
-  - [Getting Started with IoT Device Defender](example_iot_GettingStarted_079_section.md "example_iot_GettingStarted_079_section.md")
-  - [Getting started with IoT Core](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
+  - [Getting started with internet of things device protection](example_iot_GettingStarted_079_section.md "example_iot_GettingStarted_079_section.md")
+  - [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")

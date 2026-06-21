@@ -125,6 +125,35 @@ class IoTWrapper:
   [DeleteTopicRule](../../../goto/boto3/iot-2015-05-28/DeleteTopicRule.md "../../../goto/boto3/iot-2015-05-28/DeleteTopicRule.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+
+```
+    CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
+    DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
+    DATA(lo_iot) = /aws1/cl_iot_factory=>create( lo_session ).
+    TRY.
+        lo_iot->deletetopicrule( iv_rulename = iv_rule_name ).
+        MESSAGE |IoT topic rule deleted: { iv_rule_name }| TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_ex).
+        MESSAGE lo_ex->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION lo_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [DeleteTopicRule](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

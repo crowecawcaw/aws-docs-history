@@ -1,14 +1,16 @@
 # Direct Messaging
 
-AWS IoT Core now supports Direct Messaging, which enables you to send a
+AWS IoT Core now supports Direct Messaging. You can send a
 message to a single connected device by its MQTT client ID, without requiring
-the device to subscribe to a topic. Previously, sending a message to a
+the device to subscribe to a topic.
+
+Previously, sending a message to a
 specific device required publishing to a topic the device subscribed to, with
 no built-in way to confirm the delivery. The sender calls the
 SendDirectMessage HTTP API, specifying the receiver's client ID and a target
 topic. When `confirmation=true`, AWS IoT Core delivers at QoS 1 and
-waits for the receiver's PUBACK before returning a successful response,
-giving you end-to-end delivery acknowledgment. API response and Amazon CloudWatch Logs
+waits for the receiver's PUBACK before returning a successful response.
+This gives you end-to-end delivery acknowledgment. API response and Amazon CloudWatch Logs
 provide full visibility into delivery status and failure reasons.
 
 Direct messages are not processed by AWS IoT Rules for rule execution, are

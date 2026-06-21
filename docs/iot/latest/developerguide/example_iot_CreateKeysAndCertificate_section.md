@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
-- [Getting started with IoT Core](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
+- [Getting started with internet of things messaging](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")
 
 .NET
 
@@ -343,6 +343,35 @@ class IoTWrapper:
 - For API details, see
   [CreateKeysAndCertificate](../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md")
   in _AWS SDK for Python (Boto3) API Reference_.
+
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/iot#code-examples").
+
+```
+    CONSTANTS cv_pfl TYPE /aws1/rt_profile_id VALUE 'ZCODE_DEMO'.
+    DATA(lo_session) = /aws1/cl_rt_session_aws=>create( cv_pfl ).
+    DATA(lo_iot) = /aws1/cl_iot_factory=>create( lo_session ).
+    TRY.
+        oo_result = lo_iot->createkeysandcertificate( iv_setasactive = abap_true ).
+        MESSAGE |Certificate created: { oo_result->get_certificateid( ) }| TYPE 'I'.
+      CATCH /aws1/cx_rt_service_generic INTO DATA(lo_ex).
+        MESSAGE lo_ex->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION lo_ex.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateKeysAndCertificate](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Using AWS IoT with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

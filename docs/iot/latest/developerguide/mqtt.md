@@ -359,10 +359,9 @@ retained message with a 0-byte message payload to the retained message
 topic. Clients that have subscribed to the retained message topic will also
 receive the 0-byte message.
 
-Subscribing to a wild card topic filter that includes a retained message
-topic lets the client receive subsequent messages published to the retained
-message's topic, but it doesn't deliver the retained message upon
-subscription.
+Subscribing to a wildcard topic filter that includes a retained message
+topic lets the client receive subsequent messages on that topic. However,
+the retained message isn't delivered at subscription time.
 
 ###### Note
 
