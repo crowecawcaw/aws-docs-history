@@ -56,8 +56,8 @@ Some AWS Management Console features use dual-stack domains that support both IP
 You can also onboard to the AWS Management Console Private Access feature to access the AWS Management Console through a VPC endpoint and use `aws:SourceVpc` conditions in your policies. For more information, see the following:
 
 - [AWS Management Console Private Access](console-private-access.md "console-private-access.md")
-- [How AWS Management Console Private Access works with aws:SourceVpc](identity-other-policy-types.md#location-identity "identity-other-policy-types.md#location-identity")
-- [Supported AWS global condition context keys](identity-other-policy-types.md#supported-global-condition-keys "identity-other-policy-types.md#supported-global-condition-keys")
+- [How AWS Management Console Private Access works with aws:SourceVpce](expected-networks.md#location-identity "expected-networks.md#location-identity")
+- [Restrict service access using aws:SourceVpc](expected-networks.md#supported-global-condition-keys "expected-networks.md#supported-global-condition-keys")
 
 ## My browser displays timeout errors when connecting to the AWS Management Console
 

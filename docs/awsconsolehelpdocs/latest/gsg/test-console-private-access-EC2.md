@@ -1,15 +1,9 @@
 # Test setup with Amazon EC2
 
-[Amazon Elastic Compute Cloud](../../../ec2.md "../../../ec2.md")
-(Amazon EC2), provides scalable computing capacity in the Amazon Web Services cloud. You can use Amazon EC2 to
-launch as many or as few virtual servers as you need, configure security and networking, and
-manage storage. In this setup, we use [Fleet Manager](../../../systems-manager/latest/userguide/fleet.md "../../../systems-manager/latest/userguide/fleet.md"), a capability of
-AWS Systems Manager, to connect to an Amazon EC2 Windows instance using the Remote Desktop Protocol
-(RDP).
-
-This guide demonstrates a test environment to set up and experience an AWS Management Console Private
-Access connection to Amazon Simple Storage Service from an Amazon EC2 instance. This tutorial uses CloudFormation to create and
-configure the network setup to be used by Amazon EC2 to visualize this feature.
+This setup demonstrates a AWS Management Console Private Access connection to Amazon Simple Storage Service from an
+Amazon EC2 instance. The example uses CloudFormation to create the network configuration, and connects
+to the Amazon EC2 Windows instance through Fleet Manager (a capability of AWS Systems Manager) using the
+Remote Desktop Protocol (RDP).
 
 The following diagram describes the workflow for using Amazon EC2 to access an AWS Management Console
 Private Access setup. It shows how a user is connected to Amazon S3 using a private
@@ -19,11 +13,6 @@ endpoint.
 Copy the following CloudFormation template and save it to a file that you will use in step three
 of the _To set up a network_ procedure.
 
-###### Note
-
-This CloudFormation template uses configurations that are currently not supported in the
-Israel (Tel Aviv) Region.
-
 ```
 Description: |
   AWS Management Console Private Access.
@@ -32,99 +21,39 @@ Parameters:
     Type: String
     Default: 172.16.0.0/16
     Description: CIDR range for VPC
-
+  PrivateSubnet1CIDR:
+    Type: String
+    Default: 172.16.1.0/24
+    Description: CIDR range for Private Subnet 1
+  PrivateSubnet2CIDR:
+    Type: String
+    Default: 172.16.2.0/24
+    Description: CIDR range for Private Subnet 2
   Ec2KeyPair:
     Type: AWS::EC2::KeyPair::KeyName
     Description: The EC2 KeyPair to use to connect to the Windows instance
-
-  PublicSubnet1CIDR:
-    Type: String
-    Default: 172.16.1.0/24
-    Description: CIDR range for Public Subnet A
-
-  PublicSubnet2CIDR:
-    Type: String
-    Default: 172.16.0.0/24
-    Description: CIDR range for Public Subnet B
-
-  PublicSubnet3CIDR:
-    Type: String
-    Default: 172.16.2.0/24
-    Description: CIDR range for Public Subnet C
-
-  PrivateSubnet1CIDR:
-    Type: String
-    Default: 172.16.4.0/24
-    Description: CIDR range for Private Subnet A
-
-  PrivateSubnet2CIDR:
-    Type: String
-    Default: 172.16.5.0/24
-    Description: CIDR range for Private Subnet B
-
-  PrivateSubnet3CIDR:
-    Type: String
-    Default: 172.16.3.0/24
-    Description: CIDR range for Private Subnet C
-
   LatestWindowsAmiId:
-    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    Default: '/aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base'
-
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/ami-windows-latest/Windows_Server-2022-English-Full-Base
   InstanceTypeParameter:
     Type: String
-    Default: 't3.medium'
-
-
+    Default: m5.large
 Resources:
 
-#########################
-# VPC AND SUBNETS
-#########################
+  #########################
+  # VPC AND SUBNETS
+  #########################
 
   AppVPC:
-    Type: 'AWS::EC2::VPC'
+    Type: AWS::EC2::VPC
     Properties:
       CidrBlock: !Ref VpcCIDR
       InstanceTenancy: default
       EnableDnsSupport: true
       EnableDnsHostnames: true
 
-  PublicSubnetA:
-    Type: 'AWS::EC2::Subnet'
-    Properties:
-      VpcId: !Ref AppVPC
-      CidrBlock: !Ref PublicSubnet1CIDR
-      MapPublicIpOnLaunch: true
-      AvailabilityZone:
-        Fn::Select:
-          - 0
-          - Fn::GetAZs: ""
-
-  PublicSubnetB:
-    Type: 'AWS::EC2::Subnet'
-    Properties:
-      VpcId: !Ref AppVPC
-      CidrBlock: !Ref PublicSubnet2CIDR
-      MapPublicIpOnLaunch: true
-      AvailabilityZone:
-        Fn::Select:
-          - 1
-          - Fn::GetAZs: ""
-
-  PublicSubnetC:
-    Type: 'AWS::EC2::Subnet'
-    Properties:
-      VpcId: !Ref AppVPC
-      CidrBlock: !Ref PublicSubnet3CIDR
-      MapPublicIpOnLaunch: true
-      AvailabilityZone:
-        Fn::Select:
-          - 2
-          - Fn::GetAZs: ""
-
-  PrivateSubnetA:
-    Type: 'AWS::EC2::Subnet'
+  PrivateSubnet1:
+    Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref AppVPC
       CidrBlock: !Ref PrivateSubnet1CIDR
@@ -133,8 +62,8 @@ Resources:
           - 0
           - Fn::GetAZs: ""
 
-  PrivateSubnetB:
-    Type: 'AWS::EC2::Subnet'
+  PrivateSubnet2:
+    Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref AppVPC
       CidrBlock: !Ref PrivateSubnet2CIDR
@@ -143,107 +72,33 @@ Resources:
           - 1
           - Fn::GetAZs: ""
 
-  PrivateSubnetC:
-    Type: 'AWS::EC2::Subnet'
-    Properties:
-      VpcId: !Ref AppVPC
-      CidrBlock: !Ref PrivateSubnet3CIDR
-      AvailabilityZone:
-        Fn::Select:
-          - 2
-          - Fn::GetAZs: ""
-
-  InternetGateway:
-    Type: AWS::EC2::InternetGateway
-
-  InternetGatewayAttachment:
-    Type: AWS::EC2::VPCGatewayAttachment
-    Properties:
-      InternetGatewayId: !Ref InternetGateway
-      VpcId: !Ref AppVPC
-
-  NatGatewayEIP:
-    Type: AWS::EC2::EIP
-    DependsOn: InternetGatewayAttachment
-
-  NatGateway:
-    Type: AWS::EC2::NatGateway
-    Properties:
-      AllocationId: !GetAtt NatGatewayEIP.AllocationId
-      SubnetId: !Ref PublicSubnetA
-
-#########################
-# Route Tables
-#########################
+  #########################
+  # Route Tables
+  #########################
 
   PrivateRouteTable:
-    Type: 'AWS::EC2::RouteTable'
-    Properties:
-      VpcId: !Ref AppVPC
-
-  DefaultPrivateRoute:
-    Type: AWS::EC2::Route
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable
-      DestinationCidrBlock: 0.0.0.0/0
-      NatGatewayId: !Ref NatGateway
-
-  PrivateSubnetRouteTableAssociation1:
-    Type: 'AWS::EC2::SubnetRouteTableAssociation'
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable
-      SubnetId: !Ref PrivateSubnetA
-
-  PrivateSubnetRouteTableAssociation2:
-    Type: 'AWS::EC2::SubnetRouteTableAssociation'
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable
-      SubnetId: !Ref PrivateSubnetB
-
-  PrivateSubnetRouteTableAssociation3:
-    Type: 'AWS::EC2::SubnetRouteTableAssociation'
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable
-      SubnetId: !Ref PrivateSubnetC
-
-  PublicRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId: !Ref AppVPC
 
-  DefaultPublicRoute:
-    Type: AWS::EC2::Route
-    DependsOn: InternetGatewayAttachment
-    Properties:
-      RouteTableId: !Ref PublicRouteTable
-      DestinationCidrBlock: 0.0.0.0/0
-      GatewayId: !Ref InternetGateway
-
-  PublicSubnetARouteTableAssociation1:
+  PrivateSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: !Ref PublicRouteTable
-      SubnetId: !Ref PublicSubnetA
+      RouteTableId: !Ref PrivateRouteTable
+      SubnetId: !Ref PrivateSubnet1
 
-  PublicSubnetBRouteTableAssociation2:
+  PrivateSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: !Ref PublicRouteTable
-      SubnetId: !Ref PublicSubnetB
+      RouteTableId: !Ref PrivateRouteTable
+      SubnetId: !Ref PrivateSubnet2
 
-  PublicSubnetBRouteTableAssociation3:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      RouteTableId: !Ref PublicRouteTable
-      SubnetId: !Ref PublicSubnetC
-
-
-#########################
-# SECURITY GROUPS
-#########################
+  #########################
+  # SECURITY GROUPS
+  #########################
 
   VPCEndpointSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Allow TLS for VPC Endpoint
       VpcId: !Ref AppVPC
@@ -254,222 +109,205 @@ Resources:
           CidrIp: !GetAtt AppVPC.CidrBlock
 
   EC2SecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Default EC2 Instance SG
       VpcId: !Ref AppVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3389
+          ToPort: 3389
+          CidrIp: !Ref VpcCIDR
 
-#########################
-# VPC ENDPOINTS
-#########################
+  #########################
+  # VPC ENDPOINTS
+  #########################
 
-  VPCEndpointGatewayS3:
-    Type: 'AWS::EC2::VPCEndpoint'
-    Properties:
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.s3'
-      VpcEndpointType: Gateway
-      VpcId: !Ref AppVPC
-      RouteTableIds:
-        - !Ref PrivateRouteTable
-
-  VPCEndpointInterfaceSSM:
-    Type: 'AWS::EC2::VPCEndpoint'
+  VPCEndpointInterfaceSsm:
+    Type: AWS::EC2::VPCEndpoint
     Properties:
       VpcEndpointType: Interface
-      PrivateDnsEnabled: false
+      PrivateDnsEnabled: true
       SubnetIds:
-        - !Ref PrivateSubnetA
-        - !Ref PrivateSubnetB
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.ssm'
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.ssm
       VpcId: !Ref AppVPC
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
+          - Effect: Deny
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringNotEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
 
-  VPCEndpointInterfaceEc2messages:
-    Type: 'AWS::EC2::VPCEndpoint'
+  VPCEndpointInterfaceEc2Messages:
+    Type: AWS::EC2::VPCEndpoint
     Properties:
       VpcEndpointType: Interface
-      PrivateDnsEnabled: false
+      PrivateDnsEnabled: true
       SubnetIds:
-        - !Ref PrivateSubnetA
-        - !Ref PrivateSubnetB
-        - !Ref PrivateSubnetC
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.ec2messages'
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.ec2messages
       VpcId: !Ref AppVPC
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
+          - Effect: Deny
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringNotEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
 
-  VPCEndpointInterfaceSsmmessages:
-    Type: 'AWS::EC2::VPCEndpoint'
+  VPCEndpointInterfaceSsmMessages:
+    Type: AWS::EC2::VPCEndpoint
     Properties:
       VpcEndpointType: Interface
-      PrivateDnsEnabled: false
+      PrivateDnsEnabled: true
       SubnetIds:
-        - !Ref PrivateSubnetA
-        - !Ref PrivateSubnetB
-        - !Ref PrivateSubnetC
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.ssmmessages'
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.ssmmessages
       VpcId: !Ref AppVPC
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
+          - Effect: Deny
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringNotEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
 
   VPCEndpointInterfaceSignin:
-    Type: 'AWS::EC2::VPCEndpoint'
+    Type: AWS::EC2::VPCEndpoint
     Properties:
       VpcEndpointType: Interface
-      PrivateDnsEnabled: false
+      PrivateDnsEnabled: true
       SubnetIds:
-        - !Ref PrivateSubnetA
-        - !Ref PrivateSubnetB
-        - !Ref PrivateSubnetC
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.signin'
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.signin
       VpcId: !Ref AppVPC
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: signin:Authenticate
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:ResourceAccount: !Ref AWS::AccountId
+          - Effect: Allow
+            Principal: '*'
+            Action:
+              - signin:AuthorizeOAuth2Access
+              - signin:CreateOAuth2Token
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
 
   VPCEndpointInterfaceConsole:
-    Type: 'AWS::EC2::VPCEndpoint'
+    Type: AWS::EC2::VPCEndpoint
     Properties:
       VpcEndpointType: Interface
-      PrivateDnsEnabled: false
+      PrivateDnsEnabled: true
       SubnetIds:
-        - !Ref PrivateSubnetA
-        - !Ref PrivateSubnetB
-        - !Ref PrivateSubnetC
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.console'
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.console
+      VpcId: !Ref AppVPC
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
+          - Effect: Deny
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringNotEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
+
+  VPCEndpointInterfaceConsoleStatic:
+  # console-static only supports the full access endpoint policy
+    Type: AWS::EC2::VPCEndpoint
+    Properties:
+      VpcEndpointType: Interface
+      PrivateDnsEnabled: true
+      SubnetIds:
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
+      SecurityGroupIds:
+        - !Ref VPCEndpointSecurityGroup
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.console-static
       VpcId: !Ref AppVPC
 
-#########################
-# ROUTE53 RESOURCES
-#########################
-
-  ConsoleHostedZone:
-    Type: "AWS::Route53::HostedZone"
-    Properties:
-      HostedZoneConfig:
-        Comment: 'Console VPC Endpoint Hosted Zone'
-      Name: 'console.aws.amazon.com'
-      VPCs:
-        -
-          VPCId: !Ref AppVPC
-          VPCRegion: !Ref "AWS::Region"
-
-  ConsoleRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: 'console.aws.amazon.com'
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  GlobalConsoleRecord:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: 'global.console.aws.amazon.com'
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  ConsoleS3ProxyRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: 's3.console.aws.amazon.com'
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  ConsoleSupportProxyRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: "support.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  ExplorerProxyRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: "resource-explorer.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  WidgetProxyRecord:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: "*.widget.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ["1", !Split [":", !Select ["0", !GetAtt VPCEndpointInterfaceConsole.DnsEntries],],]
-        HostedZoneId: !Select ["0", !Split [":", !Select ["0", !GetAtt VPCEndpointInterfaceConsole.DnsEntries],],]
-      Type: A
-
-  ConsoleRecordRegional:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: !Sub "${AWS::Region}.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  ConsoleRecordRegionalMultiSession:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: !Sub "*.${AWS::Region}.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  SigninHostedZone:
-    Type: "AWS::Route53::HostedZone"
-    Properties:
-      HostedZoneConfig:
-        Comment: 'Signin VPC Endpoint Hosted Zone'
-      Name: 'signin.aws.amazon.com'
-      VPCs:
-        -
-          VPCId: !Ref AppVPC
-          VPCRegion: !Ref "AWS::Region"
-
-  SigninRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'SigninHostedZone'
-      Name: 'signin.aws.amazon.com'
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceSignin.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceSignin.DnsEntries]]]
-      Type: A
-
-  SigninRecordRegional:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'SigninHostedZone'
-      Name: !Sub "${AWS::Region}.signin.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceSignin.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceSignin.DnsEntries]]]
-      Type: A
-
-#########################
-# EC2 INSTANCE
-#########################
+  #########################
+  # EC2 INSTANCE
+  #########################
 
   Ec2InstanceRole:
     Type: AWS::IAM::Role
@@ -477,8 +315,7 @@ Resources:
       AssumeRolePolicyDocument:
         Version: 2012-10-17
         Statement:
-          -
-            Effect: Allow
+          - Effect: Allow
             Principal:
               Service:
                 - ec2.amazonaws.com
@@ -493,27 +330,35 @@ Resources:
     Properties:
       Path: /
       Roles:
-       - !Ref Ec2InstanceRole
+        - !Ref Ec2InstanceRole
+
+  Ec2LaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateData:
+        MetadataOptions:
+          HttpTokens: required
 
   EC2WinInstance:
-    Type: 'AWS::EC2::Instance'
+    Type: AWS::EC2::Instance
     Properties:
       ImageId: !Ref LatestWindowsAmiId
       IamInstanceProfile: !Ref Ec2InstanceProfile
       KeyName: !Ref Ec2KeyPair
-      InstanceType:
-        Ref: InstanceTypeParameter
-      SubnetId: !Ref PrivateSubnetA
+      InstanceType: !Ref InstanceTypeParameter
+      SubnetId: !Ref PrivateSubnet1
       SecurityGroupIds:
-        - Ref: EC2SecurityGroup
+        - !Ref EC2SecurityGroup
       BlockDeviceMappings:
         - DeviceName: /dev/sda1
           Ebs:
             VolumeSize: 50
+      LaunchTemplate:
+        LaunchTemplateId: !Ref Ec2LaunchTemplate
+        Version: !GetAtt Ec2LaunchTemplate.LatestVersionNumber
       Tags:
-      - Key: "Name"
-        Value: "Console VPCE test instance"
-
+        - Key: Name
+          Value: Console VPCE test instance
 
 ```
 

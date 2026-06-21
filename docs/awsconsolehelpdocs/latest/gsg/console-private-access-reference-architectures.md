@@ -19,7 +19,6 @@ on-premises DNS servers, to allow querying of records in a Private Hosted Zone.
 When on-premises clients connect to the AWS Management Console, they are routed to the AWS Management Console Private
 Access endpoints’ private IPs.
 
-Before setting up the connection to the AWS Management Console Private Access endpoint, complete the
-prerequisites steps of setting up the AWS Management Console Private Access endpoints in all the Regions
-where you want to access the AWS Management Console, as well as in US East (N. Virginia) Region, and configuring the
-Private Hosted Zone.
+Before setting up the connection to the AWS Management Console Private Access endpoint, configure VPC
+endpoints in each Region where you want to access the AWS Management Console (including
+US East (N. Virginia) Region), and configure the Private Hosted Zone. For more information, see [Configuring VPC endpoints for accessing AWS Management Console](required-endpoints-dns-configuration.md "required-endpoints-dns-configuration.md") and [Configuring DNS for accessing AWS Management Console](dns-configuration-console-signin.md "dns-configuration-console-signin.md").

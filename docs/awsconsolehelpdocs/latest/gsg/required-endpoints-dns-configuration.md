@@ -1,23 +1,36 @@
-# Required VPC endpoints and DNS configuration
+# Configuring VPC endpoints for accessing AWS Management Console
 
-AWS Management Console Private Access requires the following two VPC endpoints per Region. Replace
+AWS Management Console Private Access supports operating in networks without access to the public
+internet. When you configure VPC endpoints for AWS Sign-In, AWS Management Console, and console static content,
+all browser traffic is routed through AWS PrivateLink. Internet connectivity is not required
+for the AWS Management Console itself.
+
+AWS Management Console Private Access requires the following VPC endpoints per Region. Replace
 `region` with your own Region information.
 
-1. com.amazonaws.`region`.console for AWS Management Console
-2. com.amazonaws.`region`.signin for AWS Sign-In
+1. com.amazonaws.`region`.console – for AWS Management Console
+2. com.amazonaws.`region`.signin – for AWS Sign-In
+3. com.amazonaws.`region`.console-static – for static
+   content and other console-specific APIs (required for network-isolated environments)
+   AWS Management Console calls AWS services through a combination of direct browser
+   requests and requests that are proxied by web servers. You should also configure
+   AWS PrivateLink VPC endpoints for all AWS services that you intend to use in your
+   environment. If you access a service console
+   that does not have a configured VPC endpoint, you might see errors for that functionality.
+   This is expected behavior in a network-isolated environment.
 
 ###### Note
 
-Always provision infrastructure and networking connectivity to the US East (N. Virginia)
-(us-east-1) Region, regardless of other Regions you use with the AWS Management Console. You can use
-AWS Transit Gateway to set up connectivity between the US East (N. Virginia) and every other Region.
-For more information, see [Getting started with transit
-gateways](../../../vpc/latest/tgw/tgw-getting-started.md "../../../vpc/latest/tgw/tgw-getting-started.md") in the _Amazon VPC Transit Gateways guide_. You can also use Amazon VPC
-peering. For more information, see [What is VPC peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") in the
-_Amazon VPC Peering Guide_. To compare these options, see [Amazon VPC-to-Amazon VPC connectivity options](../../../whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.md") in the _Amazon Virtual
-Private Cloud Connectivity Options whitepaper_.
+Currently, AWS Management Console Private Access doesn't support endpoints such as
+`status.aws.amazon.com`, `health.aws.amazon.com`, and
+`docs.aws.amazon.com`. You will need to route these domains to the public
+internet, or accept that these features will be unavailable in a fully isolated
+environment.
 
-###### Topics
+###### Note
 
-- [DNS configuration for AWS Management Console and AWS Sign-In](dns-configuration-console-signin.md "dns-configuration-console-signin.md")
-- [VPC endpoints and DNS configuration for AWS services in the AWS Management Console](vpc-dns-configuration-aws-services.md "vpc-dns-configuration-aws-services.md")
+The console-static VPC endpoint is required when you want to use the AWS Management Console in a
+network without access to the public internet. This endpoint handles static content
+(JavaScript, CSS, images) and console-specific APIs that were previously served over the
+public internet. If your network has internet connectivity, this endpoint is optional but
+recommended for full traffic control.

@@ -28,272 +28,83 @@ the procedure to set up a network.
 Description: |
   AWS Management Console Private Access.
 Parameters:
-
   VpcCIDR:
     Type: String
     Default: 172.16.0.0/16
     Description: CIDR range for VPC
-
-  PublicSubnet1CIDR:
-    Type: String
-    Default: 172.16.1.0/24
-    Description: CIDR range for Public Subnet A
-
-  PublicSubnet2CIDR:
-    Type: String
-    Default: 172.16.0.0/24
-    Description: CIDR range for Public Subnet B
-
   PrivateSubnet1CIDR:
     Type: String
-    Default: 172.16.4.0/24
-    Description: CIDR range for Private Subnet A
-
+    Default: 172.16.1.0/24
+    Description: CIDR range for Private Subnet 1
   PrivateSubnet2CIDR:
     Type: String
-    Default: 172.16.5.0/24
-    Description: CIDR range for Private Subnet B
-
+    Default: 172.16.2.0/24
+    Description: CIDR range for Private Subnet 2
   DSAdminPasswordResourceName:
     Type: String
     Default: ADAdminSecret
     Description: Password for directory services admin
-
-# Amazon WorkSpaces is available in a subset of the Availability Zones for each supported Region.
-# https://docs.aws.amazon.com/workspaces/latest/adminguide/azs-workspaces.html
-Mappings:
-  RegionMap:
-    us-east-1:
-      az1: use1-az2
-      az2: use1-az4
-      az3: use1-az6
-    us-west-2:
-      az1: usw2-az1
-      az2: usw2-az2
-      az3: usw2-az3
-    ap-south-1:
-      az1: aps1-az1
-      az2: aps1-az2
-      az3: aps1-az3
-    ap-northeast-2:
-      az1: apne2-az1
-      az2: apne2-az3
-    ap-southeast-1:
-      az1: apse1-az1
-      az2: apse1-az2
-    ap-southeast-2:
-      az1: apse2-az1
-      az2: apse2-az3
-    ap-northeast-1:
-      az1: apne1-az1
-      az2: apne1-az4
-    ca-central-1:
-      az1: cac1-az1
-      az2: cac1-az2
-    eu-central-1:
-      az1: euc1-az2
-      az2: euc1-az3
-    eu-west-1:
-      az1: euw1-az1
-      az2: euw1-az2
-    eu-west-2:
-      az1: euw2-az2
-      az2: euw2-az3
-    sa-east-1:
-      az1: sae1-az1
-      az2: sae1-az3
-
 Resources:
 
-  iamLambdaExecutionRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service:
-              - lambda.amazonaws.com
-            Action:
-              - 'sts:AssumeRole'
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-      Policies:
-        - PolicyName: describe-ec2-az
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action:
-                  - 'ec2:DescribeAvailabilityZones'
-                Resource: '*'
-      MaxSessionDuration: 3600
-      Path: /service-role/
-
-  fnZoneIdtoZoneName:
-    Type: AWS::Lambda::Function
-    Properties:
-      Runtime: python3.8
-      Handler: index.lambda_handler
-      Code:
-        ZipFile: |
-          import boto3
-          import cfnresponse
-
-          def zoneId_to_zoneName(event, context):
-              responseData = {}
-              ec2 = boto3.client('ec2')
-              describe_az = ec2.describe_availability_zones()
-              for az in describe_az['AvailabilityZones']:
-                  if event['ResourceProperties']['ZoneId'] == az['ZoneId']:
-                      responseData['ZoneName'] = az['ZoneName']
-                      cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData, str(az['ZoneId']))
-
-          def no_op(event, context):
-              print(event)
-              responseData = {}
-              cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData, str(event['RequestId']))
-
-          def lambda_handler(event, context):
-              if event['RequestType'] == ('Create' or 'Update'):
-                  zoneId_to_zoneName(event, context)
-              else:
-                  no_op(event,context)
-      Role: !GetAtt iamLambdaExecutionRole.Arn
-
-  getAZ1:
-    Type: "Custom::zone-id-zone-name"
-    Properties:
-      ServiceToken: !GetAtt fnZoneIdtoZoneName.Arn
-      ZoneId: !FindInMap [ RegionMap, !Ref 'AWS::Region', az1 ]
-  getAZ2:
-    Type: "Custom::zone-id-zone-name"
-    Properties:
-      ServiceToken: !GetAtt fnZoneIdtoZoneName.Arn
-      ZoneId: !FindInMap [ RegionMap, !Ref 'AWS::Region', az2 ]
-
-#########################
-# VPC AND SUBNETS
-#########################
+  #########################
+  # VPC AND SUBNETS
+  #########################
 
   AppVPC:
-    Type: 'AWS::EC2::VPC'
+    Type: AWS::EC2::VPC
     Properties:
       CidrBlock: !Ref VpcCIDR
       InstanceTenancy: default
       EnableDnsSupport: true
       EnableDnsHostnames: true
 
-  PublicSubnetA:
-    Type: 'AWS::EC2::Subnet'
-    Properties:
-      VpcId: !Ref AppVPC
-      CidrBlock: !Ref PublicSubnet1CIDR
-      MapPublicIpOnLaunch: true
-      AvailabilityZone: !GetAtt getAZ1.ZoneName
-
-  PublicSubnetB:
-    Type: 'AWS::EC2::Subnet'
-    Properties:
-      VpcId: !Ref AppVPC
-      CidrBlock: !Ref PublicSubnet2CIDR
-      MapPublicIpOnLaunch: true
-      AvailabilityZone: !GetAtt getAZ2.ZoneName
-
-  PrivateSubnetA:
-    Type: 'AWS::EC2::Subnet'
+  PrivateSubnet1:
+    Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref AppVPC
       CidrBlock: !Ref PrivateSubnet1CIDR
-      AvailabilityZone: !GetAtt getAZ1.ZoneName
+      AvailabilityZone:
+        Fn::Select:
+          - 0
+          - Fn::GetAZs: ""
 
-  PrivateSubnetB:
-    Type: 'AWS::EC2::Subnet'
+  PrivateSubnet2:
+    Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref AppVPC
       CidrBlock: !Ref PrivateSubnet2CIDR
-      AvailabilityZone: !GetAtt getAZ2.ZoneName
+      AvailabilityZone:
+        Fn::Select:
+          - 1
+          - Fn::GetAZs: ""
 
-  InternetGateway:
-    Type: AWS::EC2::InternetGateway
-
-  InternetGatewayAttachment:
-    Type: AWS::EC2::VPCGatewayAttachment
-    Properties:
-      InternetGatewayId: !Ref InternetGateway
-      VpcId: !Ref AppVPC
-
-  NatGatewayEIP:
-    Type: AWS::EC2::EIP
-    DependsOn: InternetGatewayAttachment
-
-  NatGateway:
-    Type: AWS::EC2::NatGateway
-    Properties:
-      AllocationId: !GetAtt NatGatewayEIP.AllocationId
-      SubnetId: !Ref PublicSubnetA
-
-#########################
-# Route Tables
-#########################
+  #########################
+  # Route Tables
+  #########################
 
   PrivateRouteTable:
-    Type: 'AWS::EC2::RouteTable'
-    Properties:
-      VpcId: !Ref AppVPC
-
-  DefaultPrivateRoute:
-    Type: AWS::EC2::Route
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable
-      DestinationCidrBlock: 0.0.0.0/0
-      NatGatewayId: !Ref NatGateway
-
-  PrivateSubnetRouteTableAssociation1:
-    Type: 'AWS::EC2::SubnetRouteTableAssociation'
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable
-      SubnetId: !Ref PrivateSubnetA
-
-  PrivateSubnetRouteTableAssociation2:
-    Type: 'AWS::EC2::SubnetRouteTableAssociation'
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable
-      SubnetId: !Ref PrivateSubnetB
-
-  PublicRouteTable:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId: !Ref AppVPC
 
-  DefaultPublicRoute:
-    Type: AWS::EC2::Route
-    DependsOn: InternetGatewayAttachment
-    Properties:
-      RouteTableId: !Ref PublicRouteTable
-      DestinationCidrBlock: 0.0.0.0/0
-      GatewayId: !Ref InternetGateway
-
-  PublicSubnetARouteTableAssociation1:
+  PrivateSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: !Ref PublicRouteTable
-      SubnetId: !Ref PublicSubnetA
+      RouteTableId: !Ref PrivateRouteTable
+      SubnetId: !Ref PrivateSubnet1
 
-  PublicSubnetBRouteTableAssociation2:
+  PrivateSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: !Ref PublicRouteTable
-      SubnetId: !Ref PublicSubnetB
+      RouteTableId: !Ref PrivateRouteTable
+      SubnetId: !Ref PrivateSubnet2
 
-
-#########################
-# SECURITY GROUPS
-#########################
+  #########################
+  # SECURITY GROUPS
+  #########################
 
   VPCEndpointSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Allow TLS for VPC Endpoint
       VpcId: !Ref AppVPC
@@ -303,179 +114,99 @@ Resources:
           ToPort: 443
           CidrIp: !GetAtt AppVPC.CidrBlock
 
-#########################
-# VPC ENDPOINTS
-#########################
-
-  VPCEndpointGatewayS3:
-    Type: 'AWS::EC2::VPCEndpoint'
-    Properties:
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.s3'
-      VpcEndpointType: Gateway
-      VpcId: !Ref AppVPC
-      RouteTableIds:
-        - !Ref PrivateRouteTable
+  #########################
+  # VPC ENDPOINTS
+  #########################
 
   VPCEndpointInterfaceSignin:
-    Type: 'AWS::EC2::VPCEndpoint'
+    Type: AWS::EC2::VPCEndpoint
     Properties:
       VpcEndpointType: Interface
-      PrivateDnsEnabled: false
+      PrivateDnsEnabled: true
       SubnetIds:
-        - !Ref PrivateSubnetA
-        - !Ref PrivateSubnetB
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.signin'
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.signin
       VpcId: !Ref AppVPC
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: signin:Authenticate
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:ResourceAccount: !Ref AWS::AccountId
+          - Effect: Allow
+            Principal: '*'
+            Action:
+              - signin:AuthorizeOAuth2Access
+              - signin:CreateOAuth2Token
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
 
   VPCEndpointInterfaceConsole:
-    Type: 'AWS::EC2::VPCEndpoint'
+    Type: AWS::EC2::VPCEndpoint
     Properties:
       VpcEndpointType: Interface
-      PrivateDnsEnabled: false
+      PrivateDnsEnabled: true
       SubnetIds:
-        - !Ref PrivateSubnetA
-        - !Ref PrivateSubnetB
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
       SecurityGroupIds:
         - !Ref VPCEndpointSecurityGroup
-      ServiceName: !Sub 'com.amazonaws.${AWS::Region}.console'
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.console
+      VpcId: !Ref AppVPC
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
+          - Effect: Deny
+            Principal: '*'
+            Action: '*'
+            Resource: '*'
+            Condition:
+              StringNotEquals:
+                aws:PrincipalAccount: !Ref AWS::AccountId
+                aws:ResourceAccount: !Ref AWS::AccountId
+                aws:SourceVpc: !Ref AppVPC
+
+  VPCEndpointInterfaceConsoleStatic:
+  # console-static only supports the full access endpoint policy
+    Type: AWS::EC2::VPCEndpoint
+    Properties:
+      VpcEndpointType: Interface
+      PrivateDnsEnabled: true
+      SubnetIds:
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
+      SecurityGroupIds:
+        - !Ref VPCEndpointSecurityGroup
+      ServiceName: !Sub com.amazonaws.${AWS::Region}.console-static
       VpcId: !Ref AppVPC
 
-#########################
-# ROUTE53 RESOURCES
-#########################
+  #########################
+  # WORKSPACE RESOURCES
+  #########################
 
-  ConsoleHostedZone:
-    Type: "AWS::Route53::HostedZone"
-    Properties:
-      HostedZoneConfig:
-        Comment: 'Console VPC Endpoint Hosted Zone'
-      Name: 'console.aws.amazon.com'
-      VPCs:
-        -
-          VPCId: !Ref AppVPC
-          VPCRegion: !Ref "AWS::Region"
-
-  ConsoleRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: 'console.aws.amazon.com'
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  GlobalConsoleRecord:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: 'global.console.aws.amazon.com'
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  ConsoleS3ProxyRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: 's3.console.aws.amazon.com'
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  ConsoleSupportProxyRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: "support.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  ExplorerProxyRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: "resource-explorer.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  WidgetProxyRecord:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref "ConsoleHostedZone"
-      Name: "*.widget.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ["1", !Split [":", !Select ["0", !GetAtt VPCEndpointInterfaceConsole.DnsEntries],],]
-        HostedZoneId: !Select ["0", !Split [":", !Select ["0", !GetAtt VPCEndpointInterfaceConsole.DnsEntries],],]
-      Type: A
-
-  ConsoleRecordRegional:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: !Sub "${AWS::Region}.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  ConsoleRecordRegionalMultiSession:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'ConsoleHostedZone'
-      Name: !Sub "*.${AWS::Region}.console.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceConsole.DnsEntries]]]
-      Type: A
-
-  SigninHostedZone:
-    Type: "AWS::Route53::HostedZone"
-    Properties:
-      HostedZoneConfig:
-        Comment: 'Signin VPC Endpoint Hosted Zone'
-      Name: 'signin.aws.amazon.com'
-      VPCs:
-        -
-          VPCId: !Ref AppVPC
-          VPCRegion: !Ref "AWS::Region"
-
-  SigninRecordGlobal:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'SigninHostedZone'
-      Name: 'signin.aws.amazon.com'
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceSignin.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceSignin.DnsEntries]]]
-      Type: A
-
-  SigninRecordRegional:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref 'SigninHostedZone'
-      Name: !Sub "${AWS::Region}.signin.aws.amazon.com"
-      AliasTarget:
-        DNSName: !Select ['1', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceSignin.DnsEntries]]]
-        HostedZoneId: !Select ['0', !Split [':', !Select ['0', !GetAtt VPCEndpointInterfaceSignin.DnsEntries]]]
-      Type: A
-
-#########################
-# WORKSPACE RESOURCES
-#########################
   ADAdminSecret:
     Type: AWS::SecretsManager::Secret
     Properties:
       Name: !Ref DSAdminPasswordResourceName
-      Description: "Password for directory services admin"
+      Description: Password for directory services admin
       GenerateSecretString:
         SecretStringTemplate: '{"username": "Admin"}'
         GenerateStringKey: password
@@ -484,35 +215,28 @@ Resources:
 
   WorkspaceSimpleDirectory:
     Type: AWS::DirectoryService::SimpleAD
-    DependsOn: AppVPC
     Properties:
-      Name: "corp.awsconsole.com"
-      Password: '{{resolve:secretsmanager:ADAdminSecret:SecretString:password}}'
-      Size: "Small"
+      Name: corp.awsconsole.com
+      Password:
+        Fn::Sub: "{{resolve:secretsmanager:${DSAdminPasswordResourceName}:SecretString:password}}"
+      Size: Small
       VpcSettings:
         SubnetIds:
-          - Ref: PrivateSubnetA
-          - Ref: PrivateSubnetB
-
-        VpcId:
-          Ref: AppVPC
-
-
+          - !Ref PrivateSubnet1
+          - !Ref PrivateSubnet2
+        VpcId: !Ref AppVPC
 Outputs:
-  PrivateSubnetA:
-    Description: Private Subnet A
-    Value: !Ref PrivateSubnetA
-
-  PrivateSubnetB:
-    Description: Private Subnet B
-    Value: !Ref PrivateSubnetB
-
+  PrivateSubnet1:
+    Description: Private Subnet 1
+    Value: !Ref PrivateSubnet1
+  PrivateSubnet2:
+    Description: Private Subnet 2
+    Value: !Ref PrivateSubnet2
   WorkspaceSimpleDirectory:
     Description: Directory to be used for Workspaces
     Value: !Ref WorkspaceSimpleDirectory
-
   WorkspacesAdminPassword:
-    Description : "The ARN of the Workspaces admin's password.  Navigate to the Secrets Manager in the AWS Console to view the value."
+    Description: The ARN of the Workspaces admin's password. Navigate to the Secrets Manager in the AWS Console to view the value.
     Value: !Ref ADAdminSecret
 
 ```
