@@ -213,13 +213,6 @@ All of the nodes in the cluster are of type `dax.r4.large`
 (`--replication-factor`)—one primary node and two
 replicas.
 
-###### Note
-
-Since `sudo` and `grep` are reserved keywords, you
-cannot create a DAX cluster with these words in the cluster name. For
-example, `sudo` and `sudocluster` are invalid cluster
-names.
-
 To view the cluster status, enter the following command.
 
 ```

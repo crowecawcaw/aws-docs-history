@@ -1,4 +1,4 @@
-# Getting started with DynamoDB
+# Getting started with NoSQL databases
 
 The following code example shows how to:
 

@@ -9,7 +9,7 @@ context in the following code examples:
 - [Conditionally update an item's TTL](example_dynamodb_UpdateItemConditionalTTL_section.md "example_dynamodb_UpdateItemConditionalTTL_section.md")
 - [Count expression operators](example_dynamodb_Scenario_ExpressionOperatorCounting_section.md "example_dynamodb_Scenario_ExpressionOperatorCounting_section.md")
 - [Create and manage MRSC global tables](example_dynamodb_Scenario_MRSCGlobalTables_section.md "example_dynamodb_Scenario_MRSCGlobalTables_section.md")
-- [Getting started with DynamoDB](example_dynamodb_GettingStarted_070_section.md "example_dynamodb_GettingStarted_070_section.md")
+- [Getting started with NoSQL databases](example_dynamodb_GettingStarted_070_section.md "example_dynamodb_GettingStarted_070_section.md")
 - [Perform list operations](example_dynamodb_Scenario_ListOperations_section.md "example_dynamodb_Scenario_ListOperations_section.md")
 - [Perform map operations](example_dynamodb_Scenario_MapOperations_section.md "example_dynamodb_Scenario_MapOperations_section.md")
 - [Perform set operations](example_dynamodb_Scenario_SetOperations_section.md "example_dynamodb_Scenario_SetOperations_section.md")

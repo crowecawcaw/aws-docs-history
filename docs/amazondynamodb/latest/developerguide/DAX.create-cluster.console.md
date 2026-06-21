@@ -84,17 +84,13 @@ Amazon VPC.
 
     1. **Cluster name**—Enter a short name for your
        DAX cluster.
-
-    ###### Note
-
-    Since `sudo` and `grep` are reserved
-    keywords, you cannot create a DAX cluster with these words in the
-    cluster name. For example, `sudo` and
-    `sudocluster` are invalid cluster names. 2. **Cluster description**—Enter a description for
-    the cluster. 3. **Node types**—Choose the node type for all of
-    the nodes in the cluster. 4. **Cluster size**—Choose the number of nodes in
-    the cluster. A cluster consists of one primary node and up to nine read
-    replicas.
+    2. **Cluster description**—Enter a description for
+       the cluster.
+    3. **Node types**—Choose the node type for all of
+       the nodes in the cluster.
+    4. **Cluster size**—Choose the number of nodes in
+       the cluster. A cluster consists of one primary node and up to nine read
+       replicas.
 
     ###### Note
 
