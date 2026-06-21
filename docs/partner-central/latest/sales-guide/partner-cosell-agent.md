@@ -135,11 +135,11 @@ For more information, see [Using agents for funding recommendations and fund req
 
 ## Important considerations
 
-| Consideration     | Details                                                                                                                                              |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data scope        | The agent considers only opportunities you have submitted to ACE from your partner account. It does not access data from other partners or accounts. |
-| Customer profiles | Generated from publicly available data via a third-party API. Not sourced from AWS or partner systems.                                               |
-| Permissions       | Features are gated by IAM permissions. Users without required permissions receive an access denied message.                                          |
+| Consideration     | Details                                                                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Data scope        | The agent considers only opportunities you have submitted to AWS Partner Central from your partner account. It does not access data from other partners or accounts. |
+| Customer profiles | Generated from publicly available data via a third-party API. Not sourced from AWS or partner systems.                                                               |
+| Permissions       | Features are gated by IAM permissions. Users without required permissions receive an access denied message.                                                          |
 
 ## Related resources
 

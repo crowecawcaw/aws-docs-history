@@ -1,6 +1,8 @@
 # Opportunity contacts
 
-You can view the AWS contacts for any validated opportunity in the ACE Opportunity Page.
+You can view the AWS contacts for any validated opportunity in the AWS Partner Central Opportunity page.
+
+Adding a customer contact strengthens the opportunity and helps improve your Opportunity Quality score.
 
 ###### To view opportunity contacts
 

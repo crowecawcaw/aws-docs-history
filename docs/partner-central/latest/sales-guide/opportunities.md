@@ -2,6 +2,8 @@
 
 Partners can create and share opportunities with AWS, or receive opportunities shared by AWS for co-selling. The topics below describe how to manage opportunities jointly with AWS through the sales lifecycle.
 
+Every opportunity is assigned a co-sell motion and an Opportunity Quality score that together determine how AWS engages on the deal. For details, see [Co-sell engagement](co-sell-engagement.md "co-sell-engagement.md").
+
 ## AWS sales stages
 
 Partners can share and receive opportunities to collaborate on with AWS. These opportunities progress through various stages of the sales cycle, which represents a specific phase in the sales process and indicates how close a deal is to closing. Opportunities move through the following stages:

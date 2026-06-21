@@ -18,5 +18,5 @@ Before you accept an opportunity, you only have access to the following fields:
 
 1. From the **Opportunity Invitations** Tab to view opportunities pending acceptance.
 2. Click on the **Opportunity ID** to view all opportunity details visible prior to acceptance.
-3. To accept the opportunity from the ACE Opportunity Page select the opportunity you want to accept and then click on **Accept Invitation**. You will be able to accept multiple opportunities.
+3. To accept the opportunity from the AWS Partner Central Opportunity page select the opportunity you want to accept and then click on **Accept Invitation**. You will be able to accept multiple opportunities.
 4. Once an opportunity has been **Accepted**, a confirmation will display.

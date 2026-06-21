@@ -9,6 +9,7 @@ We recommend that AWS Partners update opportunities with AWS Sales visibility wi
 3. On the opportunity details page, under **Next Steps**, choose **Add next step**.
 4. On the **Next Steps** page, enter a comment of up to 255 characters.
 5. Choose **Save**.
+   Include a specific action with a deliverable, a named owner, and a concrete date, and refresh it each time the deal moves. The next step is used to calculate your Opportunity Quality score.
 
 ###### To update opportunity stage
 

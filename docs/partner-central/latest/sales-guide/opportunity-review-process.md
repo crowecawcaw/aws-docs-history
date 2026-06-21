@@ -9,7 +9,7 @@ AWS conducts an initial review of submitted opportunities, and may require addit
 5. Choose **Apply**.
 6. Choose the row of the `Action required` opportunity that you want to update.
 7. Choose the **Opportunity ID**.
-8. On the opportunity details page, review the remarks from the ACE Validation team in the **APN Review Reason** notification.
+8. On the opportunity details page, review the Opportunity Quality score, recommendation, and AWS recommended actions, and use the agent to fast-track the improvements. For details, see [Agents for opportunity management](partner-cosell-agent.md "partner-cosell-agent.md").
 9. Choose **Edit**.
 10. Make the required changes and choose **Save**.
 11. Choose **Submit**.

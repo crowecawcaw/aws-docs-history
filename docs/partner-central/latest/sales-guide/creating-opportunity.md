@@ -1,6 +1,6 @@
 # Creating an opportunity
 
-Opportunities can be added individually, by [bulk import](bulk-actions.md "bulk-actions.md") or managed through a [CRM integration](../crm/aws-partner-crm-integration.md "../crm/aws-partner-crm-integration.md"). We encourage AWS Partners to submit opportunities early in the sales cycle after the discovery phase is complete, once the opportunity is at a stage of `Qualified` or higher.
+Opportunities can be added individually, by [bulk import](bulk-actions.md "bulk-actions.md") or managed through a [CRM integration](../crm/aws-partner-crm-integration.md "../crm/aws-partner-crm-integration.md"). We encourage AWS Partners to submit opportunities early in the sales cycle and let the agent help qualify and strengthen the opportunity as the deal progresses.
 
 Opportunities can be classified as requiring AWS support or partners can choose to manage their opportunities independently. Opportunities progress through defined stages from Prospect to Launched/Closed and include data attributes such as revenue estimates, customer details and customer use case.
 
@@ -25,6 +25,8 @@ Partners can now use deal sizing when creating opportunities to receive AI-power
 
 4. Enter project details and choose **Next**.
 
+   - For **Customer business problem**, describe this customer's specific pain, what is forcing them to act now, and the outcome they expect. Avoid generic descriptions that could apply to any customer.
+   - Select the most accurate **Use Case** and **Industry Vertical** rather than leaving them as **Other**, so AWS can route the opportunity correctly.
    - Select **Co-Sell with AWS** if you want AWS Sales support. If you select **Co-Sell with AWS**, make sure you choose one or more **Partner specific needs from AWS for Co-Sell** options.
    - For **Opportunity Type**, if there are existing contracts between the end customer and partner with the potential for incremental revenue, choose **Expansion**. Choose **Flat Renewal** if no potential for incremental revenue exists. If you select **Expansion** or **Flat Renewal**, you can enter an optional parent opportunity ID.
    - AWS Training Partners (ATPs) should enter **Training** for **Use Case**, and enter AWS revenue from AWS training kits for **Estimated AWS Monthly Recurring Revenue** on the next step as part of deal sizing.
@@ -154,6 +156,8 @@ Partners can add up to two (2) partner contacts on a given opportunity. These de
 Once the opportunity is accepted by AWS, partners can collaborate with assigned AWS sellers, access deal support resources, and receive guidance on technical validation and pricing assistance. See more details in the [Accepting opportunities](accepting-opportunities.md "accepting-opportunities.md") section.
 
 Partners can utilize the natural-language search and filter capabilities to easily sort and find specific opportunities in both the **Opportunities** and **Opportunity invitations** tabs.
+
+Once the opportunity is submitted, an Opportunity Quality score and a co-sell motion are automatically assigned. For details, see [Co-sell engagement](co-sell-engagement.md "co-sell-engagement.md").
 
 ###### Note
 

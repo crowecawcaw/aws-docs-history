@@ -13,7 +13,7 @@
 3. Choose **Next**.
 4. When your Excel template is ready, choose **Select File**, select your saved .csv file, and then choose **Upload**. If you receive an error message while resolving any missing fields, refer to the accompanying tables in this section.
 5. Choose **Import** to continue, and then wait for the confirmation message. If you receive an error message, review the section Errors in the bulk upload.
-6. Choose **Done**, and close bulk import to return to the ACE Opportunity page.
+6. Choose **Done**, and close bulk import to return to the AWS Partner Central Opportunity page.
 
 ### Opportunity fields
 
@@ -93,7 +93,7 @@ The bulk-update function can export validated opportunities in bulk. This featur
 6. Choose **Upload File**, choose your saved .csv file, and then choose **Update**. A popup window confirms the process status.
 7. Confirm that you have prepared the .csv and are ready to upload it, and then choose **Next**.
 8. Choose the file you prepared, and then choose **Upload CSV File**.
-9. You will be redirected to the ACE Opportunity Page.
+9. You will be redirected to the AWS Partner Central Opportunity page.
 10. When the bulk update completes, you will receive a notification.
 
 ###### Note

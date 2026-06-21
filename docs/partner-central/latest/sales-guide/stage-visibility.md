@@ -5,7 +5,9 @@ When an opportunity has reached its terminal stage (status `Launched` or `Closed
 1. Update the opportunity close date.
 2. Enter an AWS account ID if applicable.
 3. Update the opportunity stage.
-   If the AWS seller updates an opportunity to a terminal stage in their CRM (customer relationship management) system, three new fields will populate for the opportunity:
+   Opportunities in a terminal stage (`Launched` or `Closed/Lost`) do not show an Opportunity Quality score or a co-sell motion. This is why some open opportunities are scored and others are not.
+
+If the AWS seller updates an opportunity to a terminal stage in their CRM (customer relationship management) system, three new fields will populate for the opportunity:
 
 - **AWS Stage**
 - **AWS Close Date**
