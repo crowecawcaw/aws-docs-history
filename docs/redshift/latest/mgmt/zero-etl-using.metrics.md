@@ -16,12 +16,12 @@ details page for an integration. Possible metrics include the following types:
 - From the **Integration metrics** tab, graphs of the following are
   available:
 
-| Metric                                  | Metric name in Amazon Redshift console | Description                                                                                                                                                                       |
-| --------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `IntegrationLag`                        | `Lag`                                  | The lag from the time data is committed to your source to the time when the<br>data is available for queries in Amazon Redshift.<br>Units: Seconds<br>Dimensions: `IntegrationId` |
-| `IntegrationNumTablesReplicated`        | `Tables replicated`                    | The number of tables that have been replicated from your source database to<br>Amazon Redshift.<br>Units: Count<br>Dimensions: `IntegrationId`                                    |
-| `IntegrationNumTablesFailedReplication` | `Tables failed`                        | The number of tables that failed replication.<br>Units: Count<br>Dimensions: `IntegrationId`                                                                                      |
-| `IntegrationDataTransferred`            | `Data transferred`                     | The amount of data transferred in logical bytes.<br>Units: Bytes<br>Dimensions: `IntegrationId`                                                                                   |
+| Metric                                  | Metric name in Amazon Redshift console | Description                                                                                                                                                                                                       |
+| --------------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `IntegrationLag`                        | `Lag`                                  | The lag from the time data is committed to your source to the time when the<br>data is available for queries in Amazon Redshift.<br>Units: Seconds<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds |
+| `IntegrationNumTablesReplicated`        | `Tables replicated`                    | The number of tables that have been replicated from your source database to<br>Amazon Redshift.<br>Units: Count<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                                    |
+| `IntegrationNumTablesFailedReplication` | `Tables failed`                        | The number of tables that failed replication.<br>Units: Count<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                                                                                      |
+| `IntegrationDataTransferred`            | `Data transferred`                     | The amount of data transferred in logical bytes.<br>Units: Bytes<br>Dimensions: `IntegrationId`<br>Update Frequency: 60 seconds                                                                                   |
 
 - From the **Table statistics** tab, you can view the list of tables
   that are currently active or have errors. The statistics on this tab are as follows

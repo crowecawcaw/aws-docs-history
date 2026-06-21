@@ -9,7 +9,7 @@ The following code examples show how to use `DeleteCluster`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code example:
 
-- [Getting started with Amazon Redshift provisioned clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
+- [Getting started with provisioned data warehouse clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
 
 .NET
 

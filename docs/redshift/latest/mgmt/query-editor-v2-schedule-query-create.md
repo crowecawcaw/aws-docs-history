@@ -15,7 +15,7 @@ uses the Amazon Redshift Data API.
 
 ![Editor](images/qev2-align-left.png)
 view, choose
-![Schedule](images/qev2-calendar.png)
+![Schedule](/images/redshift/latest/mgmt/images/qev2-calendar.png)
 
 **Schedule** to create a schedule to run a SQL
 statement. 2. When you define the schedule, you provide the following information.
@@ -50,7 +50,7 @@ statement. 2. When you define the schedule, you provide the following informatio
    queries** view.
    The **Scheduled queries**
 
-![Scheduled queries](images/qev2-calendar.png)
+![Scheduled queries](/images/redshift/latest/mgmt/images/qev2-calendar.png)
 view lists all the scheduled queries for your clusters and
 workgroups. With this view, you can display schedule query details, activate or
 deactivate the schedule, edit the schedule, and delete the scheduled query. When you

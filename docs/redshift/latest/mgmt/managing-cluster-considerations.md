@@ -260,6 +260,7 @@ The RG node types are available only in the following AWS Regions:
 - US East (Ohio) Region (us-east-2)
 - US West (N. California) Region (us-west-1)
 - US West (Oregon) Region (us-west-2)
+- Africa (Cape Town) Region (af-south-1)
 - Asia Pacific (Hong Kong) Region (ap-east-1)
 - Asia Pacific (Taipei) Region (ap-east-2)
 - Asia Pacific (Tokyo) Region (ap-northeast-1)
@@ -272,6 +273,7 @@ The RG node types are available only in the following AWS Regions:
 - Asia Pacific (Jakarta) Region (ap-southeast-3)
 - Asia Pacific (Melbourne) Region (ap-southeast-4)
 - Asia Pacific (Malaysia) Region (ap-southeast-5)
+- Asia Pacific (Thailand) Region (ap-southeast-7)
 - Canada (Central) Region (ca-central-1)
 - Europe (Frankfurt) Region (eu-central-1)
 - Europe (Stockholm) Region (eu-north-1)
@@ -280,6 +282,7 @@ The RG node types are available only in the following AWS Regions:
 - Europe (Ireland) Region (eu-west-1)
 - Europe (London) Region (eu-west-2)
 - Europe (Paris) Region (eu-west-3)
+- Mexico (Central) Region (mx-central-1)
 - South America (São Paulo) Region (sa-east-1)
 
 ### RA3 node type availability in AWS Regions

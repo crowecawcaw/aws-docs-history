@@ -27,3 +27,4 @@ log](https://github.com/aws/amazon-redshift-odbc-driver/blob/master/CHANGELOG.md
 - [Data types conversions](odbc20-converting-data-types.md "odbc20-converting-data-types.md")
 - [ODBC driver options](odbc20-configuration-options.md "odbc20-configuration-options.md")
 - [Previous ODBC driver versions](odbc20-previous-versions.md "odbc20-previous-versions.md")
+- [Differences between the 2.x and 1.x versions of the ODBC driver](odbc20-odbc10-driver-differences.md "odbc20-odbc10-driver-differences.md")

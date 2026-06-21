@@ -14,7 +14,8 @@ minimum requirements:
   - Amazon Linux 2
   - Amazon Linux 2023
   - Red Hat® Enterprise Linux® (RHEL) 8 or later
-  - CentOS 8 or later.
+  - CentOS 8 or later
+  - Debian 11 or later
 
 - 150 MB of available disk space.
 - unixODBC 2.2.14 or later.

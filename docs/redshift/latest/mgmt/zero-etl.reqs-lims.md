@@ -50,9 +50,7 @@ zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/databas
   transactional data stores to Amazon Redshift. Data is replicated as-is from the source data base.
   However, you can apply transformations on the replicated data in Amazon Redshift.
 - Zero-ETL integration runs in Amazon Redshift using parallel connections. It runs using the credentials of
-  the user who created the database from the integration. When the query runs, concurrency
-  scaling does not kick in for these connections during the sync (writes). Concurrency
-  scaling reads (from Amazon Redshift clients) works for synced objects.
+  the user who created the database from the integration.
 - You can set the `REFRESH_INTERVAL` for a zero-ETL integration to control the
   frequency of data replication into Amazon Redshift. For more information, see [CREATE
   DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the

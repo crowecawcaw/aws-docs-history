@@ -10,7 +10,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_redshift_Scenario_section.md "example_redshift_Scenario_section.md")
-- [Getting started with Amazon Redshift provisioned clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
+- [Getting started with provisioned data warehouse clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
 
 .NET
 

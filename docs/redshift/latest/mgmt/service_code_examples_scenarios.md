@@ -14,5 +14,5 @@ Scenarios target an intermediate level of experience to help you understand serv
 ###### Examples
 
 - [Create a web application to track Amazon Redshift data](example_cross_RedshiftDataTracker_section.md "example_cross_RedshiftDataTracker_section.md")
-- [Get started with Redshift Serverless](example_redshift_GettingStarted_038_section.md "example_redshift_GettingStarted_038_section.md")
-- [Getting started with Amazon Redshift provisioned clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
+- [Get started with serverless data warehouses](example_redshift_GettingStarted_038_section.md "example_redshift_GettingStarted_038_section.md")
+- [Getting started with provisioned data warehouse clusters](example_redshift_GettingStarted_039_section.md "example_redshift_GettingStarted_039_section.md")
