@@ -250,7 +250,7 @@ Hello Zhang Wei, I am John. Your AnyCompany Financial Services, LLC credit card 
 The **Analyzed text** panel shows the following output for this example. Hover your mouse
 over the text `Zhang Wei` to view the popup panel for this entity.
 
-![Targeted sentiment analyzed text.](/images/comprehend/latest/dg/images/gs-console-targeted-sentiment2.png)
+![Targeted sentiment analyzed text.](images/gs-console-targeted-sentiment2.png)
 
 The **Results** table provides additional detail about each entity, including the entity
 score, the primary sentiment, and the score for each sentiment.
