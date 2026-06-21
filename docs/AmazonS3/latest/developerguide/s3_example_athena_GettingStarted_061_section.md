@@ -1,4 +1,4 @@
-# Getting started with Amazon Athena
+# Getting started with query analytics
 
 The following code example shows how to:
 

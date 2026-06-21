@@ -7,7 +7,7 @@ context in the following code examples:
 
 - [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md "s3_example_s3_Scenario_GettingStarted_section.md")
 - [Get started with encryption](s3_example_s3_Encryption_section.md "s3_example_s3_Encryption_section.md")
-- [Getting started with Amazon S3](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
 - [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md "s3_example_s3_Scenario_ConditionalRequests_section.md")
 
 .NET

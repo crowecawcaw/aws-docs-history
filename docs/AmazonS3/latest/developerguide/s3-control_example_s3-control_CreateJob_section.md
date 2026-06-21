@@ -501,6 +501,80 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
   [CreateJob](../../../goto/boto3/s3control-2018-08-20/CreateJob.md "../../../goto/boto3/s3control-2018-08-20/CreateJob.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples").
+
+```
+    TRY.
+        " iv_manifest_arn  = 'arn:aws:s3:::my-bucket/job-manifest.csv'
+        " iv_manifest_etag = 'abc123def456'
+        " iv_report_bucket = 'arn:aws:s3:::my-report-bucket'
+        DATA(lo_result) = lo_s3c->createjob(
+          iv_accountid            = iv_account_id
+          iv_rolearn              = iv_role_arn
+          iv_confirmationrequired = abap_true
+          iv_priority             = 10
+          iv_description          = 'Batch job for tagging objects'
+          io_operation            = NEW /aws1/cl_s3cjoboperation(
+            io_s3putobjecttagging = NEW /aws1/cl_s3cs3setobjecttagop(
+              it_tagset = VALUE /aws1/cl_s3cs3tag=>tt_s3tagset(
+                ( NEW /aws1/cl_s3cs3tag(
+                    iv_key   = 'BatchTag'
+                    iv_value = 'BatchValue' ) )
+              )
+            )
+          )
+          io_manifest             = NEW /aws1/cl_s3cjobmanifest(
+            io_spec     = NEW /aws1/cl_s3cjobmanifestspec(
+              iv_format = 'S3BatchOperations_CSV_20180820'
+              it_fields = VALUE /aws1/cl_s3cjobmanifestfield00=>tt_jobmanifestfieldlist(
+                ( NEW /aws1/cl_s3cjobmanifestfield00( 'Bucket' ) )
+                ( NEW /aws1/cl_s3cjobmanifestfield00( 'Key' ) )
+              )
+            )
+            io_location = NEW /aws1/cl_s3cjobmanifestloc(
+              iv_objectarn = iv_manifest_arn
+              iv_etag      = iv_manifest_etag
+            )
+          )
+          io_report               = NEW /aws1/cl_s3cjobreport(
+            iv_bucket      = iv_report_bucket
+            iv_format      = 'Report_CSV_20180820'
+            iv_enabled     = abap_true
+            iv_prefix      = 'batch-op-reports'
+            iv_reportscope = 'AllTasks'
+          )
+        ).
+        ov_job_id = lo_result->get_jobid( ).
+        MESSAGE |S3 Batch Operations job created: { ov_job_id }| TYPE 'I'.
+      CATCH /aws1/cx_s3cbadrequestex INTO DATA(lo_ex_bad).
+        MESSAGE lo_ex_bad->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION TYPE /aws1/cx_rt_generic
+          EXPORTING previous = lo_ex_bad.
+      CATCH /aws1/cx_s3cclientexc INTO DATA(lo_ex_cli).
+        MESSAGE lo_ex_cli->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION TYPE /aws1/cx_rt_generic
+          EXPORTING previous = lo_ex_cli.
+      CATCH /aws1/cx_s3cserverexc INTO DATA(lo_ex_srv).
+        MESSAGE lo_ex_srv->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION TYPE /aws1/cx_rt_generic
+          EXPORTING previous = lo_ex_srv.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [CreateJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

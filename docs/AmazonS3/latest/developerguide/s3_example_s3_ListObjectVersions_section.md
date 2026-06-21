@@ -5,7 +5,7 @@ The following code examples show how to use `ListObjectVersions`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Getting started with Amazon S3](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
 - [Work with versioned objects](s3_example_s3_Scenario_ObjectVersioningUsage_section.md "s3_example_s3_Scenario_ObjectVersioningUsage_section.md")
 
 .NET

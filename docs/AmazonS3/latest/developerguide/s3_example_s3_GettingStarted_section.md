@@ -1,4 +1,4 @@
-# Getting started with Amazon S3
+# Getting started with object storage
 
 The following code example shows how to:
 

@@ -99,6 +99,45 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
   [GetJobTagging](../../../goto/boto3/s3control-2018-08-20/GetJobTagging.md "../../../goto/boto3/s3control-2018-08-20/GetJobTagging.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
+SAP ABAP
+
+**SDK for SAP ABAP**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/s3c#code-examples").
+
+```
+    TRY.
+        oo_result = lo_s3c->getjobtagging(       " oo_result is returned for testing purposes.
+          iv_accountid = iv_account_id
+          iv_jobid     = iv_job_id
+        ).
+        DATA(lt_tags) = oo_result->get_tags( ).
+        MESSAGE |Retrieved { lines( lt_tags ) } tag(s) for job { iv_job_id }| TYPE 'I'.
+      CATCH /aws1/cx_s3cnotfoundexception INTO DATA(lo_ex_nf).
+        MESSAGE lo_ex_nf->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION TYPE /aws1/cx_rt_generic
+          EXPORTING previous = lo_ex_nf.
+      CATCH /aws1/cx_s3cclientexc INTO DATA(lo_ex_cli).
+        MESSAGE lo_ex_cli->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION TYPE /aws1/cx_rt_generic
+          EXPORTING previous = lo_ex_cli.
+      CATCH /aws1/cx_s3cserverexc INTO DATA(lo_ex_srv).
+        MESSAGE lo_ex_srv->get_text( ) TYPE 'I'.
+        RAISE EXCEPTION TYPE /aws1/cx_rt_generic
+          EXPORTING previous = lo_ex_srv.
+    ENDTRY.
+
+
+```
+
+- For API details, see
+  [GetJobTagging](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+  in _AWS SDK for SAP ABAP API reference_.
+
 For a complete list of AWS SDK developer guides and code examples, see
 [Developing with Amazon S3 using the AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md").
 This topic also includes information about getting started and details about previous SDK versions.

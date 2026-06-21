@@ -1,4 +1,4 @@
-# Getting started with Amazon EMR
+# Getting started with big data processing clusters
 
 The following code example shows how to:
 

@@ -3,9 +3,10 @@
 The following code examples show how to use `HeadObject`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+context in the following code examples:
 
-- [Getting started with Amazon S3](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+- [Check if an object exists](s3_example_s3_Scenario_DoesObjectExist_section.md "s3_example_s3_Scenario_DoesObjectExist_section.md")
+- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
 
 CLI
 

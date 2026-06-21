@@ -1,4 +1,4 @@
-# Getting started with Amazon Textract
+# Getting started with document text extraction
 
 The following code example shows how to:
 

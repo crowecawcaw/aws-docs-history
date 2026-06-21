@@ -7,7 +7,7 @@ context in the following code examples:
 
 - [Learn the basics](s3_example_s3_Scenario_GettingStarted_section.md "s3_example_s3_Scenario_GettingStarted_section.md")
 - [Delete all objects in a bucket](s3_example_s3_Scenario_DeleteAllObjects_section.md "s3_example_s3_Scenario_DeleteAllObjects_section.md")
-- [Getting started with Amazon S3](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
 
 .NET
 

@@ -9,7 +9,7 @@ context in the following code examples:
 - [Get an object from a bucket if it has been modified](s3_example_s3_GetObject_IfModifiedSince_section.md "s3_example_s3_GetObject_IfModifiedSince_section.md")
 - [Get an object from a Multi-Region Access Point](s3_example_s3_GetObject_MRAP_section.md "s3_example_s3_GetObject_MRAP_section.md")
 - [Get started with encryption](s3_example_s3_Encryption_section.md "s3_example_s3_Encryption_section.md")
-- [Getting started with Amazon S3](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
+- [Getting started with object storage](s3_example_s3_GettingStarted_section.md "s3_example_s3_GettingStarted_section.md")
 - [Make conditional requests](s3_example_s3_Scenario_ConditionalRequests_section.md "s3_example_s3_Scenario_ConditionalRequests_section.md")
 - [Track uploads and downloads](s3_example_s3_Scenario_TrackUploadDownload_section.md "s3_example_s3_Scenario_TrackUploadDownload_section.md")
 
