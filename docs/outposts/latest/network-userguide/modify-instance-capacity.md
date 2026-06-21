@@ -14,6 +14,14 @@ Consider the following before modifying instance capacity:
   (owner). Consumers cannot run capacity tasks. For more information about owners and
   consumers, see [Share your AWS Outposts
   resources](sharing-outposts.md "sharing-outposts.md").
+- Instance capacity configurations are grouped into three categories: Virtualized
+  (multiple smaller instances), Single instance (one instance consuming the full asset,
+  such as .48xlarge), and Metal (bare metal instances). Changing capacity from one
+  category to another (for example, from Virtualized to Single instance, or from Single
+  instance to Metal) will trigger a rebuild. You will receive a warning message in the
+  console before confirming these changes. A rebuild takes 6-12 hours to complete and
+  the affected asset will be isolated during the rebuild. During isolation, you will be
+  unable to launch new instances on the affected asset.
 - Instances sizes and quantities can be defined at the Outpost level or at an
   individual asset level.
 - Capacity is configured automatically across an asset or all the assets in an Outpost
