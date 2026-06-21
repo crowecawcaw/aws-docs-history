@@ -17,11 +17,18 @@ instance types](../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types "../.
 
 ###### Topics
 
-- [Step 1: Install required drivers](#install-required-drivers "#install-required-drivers")
-- [Step 2: Configure EFA for the Lustre client](#install-efa-on-client "#install-efa-on-client")
-- [Step 3: EFA interfaces](#add-efa-interfaces "#add-efa-interfaces")
+- [Step 1: Configure an EFA-enabled security group](#configure-efa-security-group "#configure-efa-security-group")
+- [Step 2: Install required drivers](#install-required-drivers "#install-required-drivers")
+- [Step 3: Configure EFA for the Lustre client](#install-efa-on-client "#install-efa-on-client")
+- [Step 4: EFA interfaces](#add-efa-interfaces "#add-efa-interfaces")
 
-## Step 1: Install required drivers
+## Step 1: Configure an EFA-enabled security group
+
+Before you configure your EFA client, you must ensure that the security groups for both your
+file system and your Lustre clients allow EFA traffic. For instructions on configuring security
+groups for EFA, see [EFA-enabled security groups](limit-access-security-groups.md#efa-security-groups "limit-access-security-groups.md#efa-security-groups").
+
+## Step 2: Install required drivers
 
 ###### Note
 
@@ -82,7 +89,7 @@ sudo -E make
 sudo insmod nvidia-fs.ko`
 ```
 
-## Step 2: Configure EFA for the Lustre client
+## Step 3: Configure EFA for the Lustre client
 
 To access an FSx for Lustre file system using an EFA interface, you must install the Lustre EFA modules and
 configure EFA interfaces.
@@ -141,7 +148,7 @@ For more information, see the `README.md` file in the zip file.
 For information on automatically mounting your Amazon FSx for Lustre file system on boot,
 see [Mounting your Amazon FSx file system automatically](mount-fs-auto-mount-onreboot.md "mount-fs-auto-mount-onreboot.md").
 
-## Step 3: EFA interfaces
+## Step 4: EFA interfaces
 
 Each FSx for Lustre file system has a maximum limit of 1024 EFA connections across all client instances.
 

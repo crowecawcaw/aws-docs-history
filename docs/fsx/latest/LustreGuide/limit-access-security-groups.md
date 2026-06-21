@@ -24,11 +24,38 @@ network traffic for your Lustre clients.
 
 ### EFA-enabled security groups
 
-If you are going to create an EFA-enabled FSx for Lustre, you should first create an EFA-enabled
-security group and specify it as the security group for the file system. An EFA requires a security
-group that allows all inbound and outbound traffic to and from the security group itself and the
-security group of the clients if clients reside in a different security group. For more information,
-see [Step 1:
+For EFA-enabled FSx for Lustre file systems, the file system and client security
+groups must allow all traffic to and from each other, and the file system security
+group must also allow all traffic to and from itself.
+
+###### Important
+
+CIDR-based rules, including `0.0.0.0/0`, do not satisfy EFA
+requirements even if they allow all traffic on all ports. You must explicitly specify a
+security group ID as the source or destination for all EFA traffic rules.
+
+The following table lists the required rules for the file system security group.
+
+| Required rules for the file system security group | Type | Protocol | Port range                                       | Source/Destination |
+| ------------------------------------------------- | ---- | -------- | ------------------------------------------------ | ------------------ |
+| Inbound<br>• All traffic                          | All  | All      | File system security group ID (self-referencing) |
+| Inbound<br>• All traffic                          | All  | All      | Lustre client security group ID                  |
+| Outbound<br>• All traffic                         | All  | All      | File system security group ID (self-referencing) |
+| Outbound<br>• All traffic                         | All  | All      | Lustre client security group ID                  |
+
+The following table lists the required rules for the Lustre client security group.
+
+| Required rules for the Lustre client security group | Type | Protocol | Port range                    | Source/Destination |
+| --------------------------------------------------- | ---- | -------- | ----------------------------- | ------------------ |
+| Inbound<br>• All traffic                            | All  | All      | File system security group ID |
+| Outbound<br>• All traffic                           | All  | All      | File system security group ID |
+
+###### Note
+
+If the file system and clients use the same security group, the
+self-referencing rules on that security group satisfy both requirements.
+
+For more information, see [Step 1:
 Prepare an EFA-enabled security group](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security") in the _Amazon EC2 User Guide_.
 
 ### Controlling Access Using Inbound and Outbound Rules

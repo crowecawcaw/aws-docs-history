@@ -28,6 +28,11 @@ with the Linux kernel versions of your client instances.
 |                  | 20         | 5.15.0-1015-aws        | 5.15.0\*               | 2.12                  | yes                        | yes      | yes      |
 |                  |            | 5.4.0-1011-aws         | 5.13.0-1031-aws        | 2.10                  | yes                        | yes      | no       |
 
+###### Note
+
+The FSx for Lustre client is compatible with kernels from the standard RHEL BaseOS repository. Kernels
+from RHEL Extended Update Support (EUS) repositories are not supported.
+
 | Operating system        | OS version | Architecture | Minimum kernel version | Maximum kernel version | Lustre client version | Lustre file system version |
 | ----------------------- | ---------- | ------------ | ---------------------- | ---------------------- | --------------------- | -------------------------- | -------- | -------- |
 |                         |            |              |                        |                        |                       | **2.10**                   | **2.12** | **2.15** |

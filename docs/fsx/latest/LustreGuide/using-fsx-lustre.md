@@ -169,49 +169,49 @@ read/write operation costs.
 
 Scratch 2, Persistent 1, and Persistent 2 deployment types are available in the following AWS Regions:
 
-| AWS Region                       | Persistent 2 | Persistent 1 | Scratch 2 |
-| -------------------------------- | ------------ | ------------ | --------- |
-| US East (Ohio)                   | ✓            | ✓            | ✓         |
-| US East (N. Virginia)            | ✓            | ✓            | ✓         |
-| US East (Atlanta) Local Zone     | ✓ \*         |              |           |
-| US East (Dallas) Local Zone      | ✓ \*         |              |           |
-| US East (South Bend) Local Zone  | ✓ \*         |              |           |
-| US West (N. California)          | ✓            | ✓            | ✓         |
-| US West (Los Angeles) Local Zone |              | ✓            | ✓         |
-| US West (Oregon)                 | ✓            | ✓            | ✓         |
-| US West (Phoenix) Local Zone     | ✓ \*         |              |           |
-| Africa (Cape Town)               |              | ✓            | ✓         |
-| Asia Pacific (New Zealand)       | ✓ \*         |              |           |
-| Asia Pacific (Hong Kong)         | ✓            | ✓            | ✓         |
-| Asia Pacific (Hyderabad)         | ✓            | ✓            | ✓         |
-| Asia Pacific (Jakarta)           | ✓            | ✓            | ✓         |
-| Asia Pacific (Malaysia)          | ✓ \*         |              |           |
-| Asia Pacific (Melbourne)         |              | ✓            | ✓         |
-| Asia Pacific (Mumbai)            | ✓            | ✓            | ✓         |
-| Asia Pacific (Osaka)             |              | ✓            | ✓         |
-| Asia Pacific (Seoul)             | ✓            | ✓            | ✓         |
-| Asia Pacific (Singapore)         | ✓            | ✓            | ✓         |
-| Asia Pacific (Sydney)            | ✓            | ✓            | ✓         |
-| Asia Pacific (Taipei)            | ✓ \*         |              |           |
-| Asia Pacific (Thailand)          | ✓ \*         |              |           |
-| Asia Pacific (Tokyo)             | ✓            | ✓            | ✓         |
-| Canada (Central)                 | ✓            | ✓            | ✓         |
-| Canada West (Calgary)            | ✓ \*         |              |           |
-| Europe (Frankfurt)               | ✓            | ✓            | ✓         |
-| Europe (Ireland)                 | ✓            | ✓            | ✓         |
-| Europe (London)                  | ✓            | ✓            | ✓         |
-| Europe (Milan)                   |              | ✓            | ✓         |
-| Europe (Paris)                   |              | ✓            | ✓         |
-| Europe (Spain)                   |              | ✓            | ✓         |
-| Europe (Stockholm)               | ✓            | ✓            | ✓         |
-| Europe (Zurich)                  | ✓            | ✓            | ✓         |
-| Israel (Tel Aviv)                | ✓ \*         |              | ✓         |
-| Mexico (Central)                 | ✓ \*         |              |           |
-| Middle East (Bahrain)            |              | ✓            | ✓         |
-| Middle East (UAE)                |              | ✓            | ✓         |
-| South America (São Paulo)        | ✓            | ✓            | ✓         |
-| AWS GovCloud (US-East)           |              | ✓            | ✓         |
-| AWS GovCloud (US-West)           |              | ✓            | ✓         |
+| AWS Region                       | Persistent 2 | Persistent 2 Intelligent-Tiering | Persistent 1 | Scratch 2 |
+| -------------------------------- | ------------ | -------------------------------- | ------------ | --------- |
+| US East (Ohio)                   | ✓            | ✓                                | ✓            | ✓         |
+| US East (N. Virginia)            | ✓            | ✓                                | ✓            | ✓         |
+| US East (Atlanta) Local Zone     | ✓ \*         |                                  |              |           |
+| US East (Dallas) Local Zone      | ✓ \*         |                                  |              |           |
+| US East (South Bend) Local Zone  | ✓ \*         |                                  |              |           |
+| US West (N. California)          | ✓            | ✓                                | ✓            | ✓         |
+| US West (Los Angeles) Local Zone |              |                                  | ✓            | ✓         |
+| US West (Oregon)                 | ✓            | ✓                                | ✓            | ✓         |
+| US West (Phoenix) Local Zone     | ✓ \*         |                                  |              |           |
+| Africa (Cape Town)               | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (New Zealand)       | ✓ \*         |                                  |              |           |
+| Asia Pacific (Hong Kong)         | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Hyderabad)         | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Jakarta)           | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Malaysia)          | ✓            | ✓                                |              |           |
+| Asia Pacific (Melbourne)         | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Mumbai)            | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Osaka)             | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Seoul)             | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Singapore)         | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Sydney)            | ✓            | ✓                                | ✓            | ✓         |
+| Asia Pacific (Taipei)            | ✓            | ✓                                |              |           |
+| Asia Pacific (Thailand)          | ✓            | ✓                                |              |           |
+| Asia Pacific (Tokyo)             | ✓            | ✓                                | ✓            | ✓         |
+| Canada (Central)                 | ✓            | ✓                                | ✓            | ✓         |
+| Canada West (Calgary)            | ✓            | ✓                                |              |           |
+| Europe (Frankfurt)               | ✓            | ✓                                | ✓            | ✓         |
+| Europe (Ireland)                 | ✓            | ✓                                | ✓            | ✓         |
+| Europe (London)                  | ✓            | ✓                                | ✓            | ✓         |
+| Europe (Milan)                   | ✓            | ✓                                | ✓            | ✓         |
+| Europe (Paris)                   | ✓            | ✓                                | ✓            | ✓         |
+| Europe (Spain)                   | ✓            | ✓                                | ✓            | ✓         |
+| Europe (Stockholm)               | ✓            | ✓                                | ✓            | ✓         |
+| Europe (Zurich)                  | ✓            | ✓                                | ✓            | ✓         |
+| Israel (Tel Aviv)                | ✓ \*         |                                  |              | ✓         |
+| Mexico (Central)                 | ✓ \*         |                                  |              |           |
+| Middle East (Bahrain)            |              |                                  | ✓            | ✓         |
+| Middle East (UAE)                |              |                                  | ✓            | ✓         |
+| South America (São Paulo)        | ✓            | ✓                                | ✓            | ✓         |
+| AWS GovCloud (US-East)           | ✓            |                                  | ✓            | ✓         |
+| AWS GovCloud (US-West)           | ✓            |                                  | ✓            | ✓         |
 
 ###### Note
 
