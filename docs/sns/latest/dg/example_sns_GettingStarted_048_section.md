@@ -1,4 +1,4 @@
-# Create an Amazon SNS topic and publish messages
+# Create a messaging topic and publish messages
 
 The following code example shows how to:
 

@@ -1,4 +1,4 @@
-# Getting Started with IoT Device Defender
+# Getting started with internet of things device protection
 
 The following code example shows how to:
 

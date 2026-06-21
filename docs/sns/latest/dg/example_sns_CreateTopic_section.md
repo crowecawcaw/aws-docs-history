@@ -5,10 +5,10 @@ The following code examples show how to use `CreateTopic`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Create an Amazon SNS topic and publish messages](example_sns_GettingStarted_048_section.md "example_sns_GettingStarted_048_section.md")
+- [Create a messaging topic and publish messages](example_sns_GettingStarted_048_section.md "example_sns_GettingStarted_048_section.md")
 - [Create and publish to a FIFO topic](example_sns_PublishFifoTopic_section.md "example_sns_PublishFifoTopic_section.md")
-- [Getting started with Config](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")
-- [Getting Started with IoT Device Defender](example_iot_GettingStarted_079_section.md "example_iot_GettingStarted_079_section.md")
+- [Getting started with configuration management](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")
+- [Getting started with internet of things device protection](example_iot_GettingStarted_079_section.md "example_iot_GettingStarted_079_section.md")
 - [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md "example_sqs_Scenario_TopicsAndQueues_section.md")
 
 .NET
