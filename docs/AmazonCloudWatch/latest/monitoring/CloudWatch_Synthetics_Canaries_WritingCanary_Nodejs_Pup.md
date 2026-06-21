@@ -167,7 +167,7 @@ Handler path in configuration must match your file location.
 
 **Handler name**
 
-Be sure to set your canary’s script entry point (handler) as `myCanaryFilename.functionName` to match the file name of your script’s entry
+Be sure to set your canary's script entry point (handler) as `myCanaryFilename.functionName` to match the file name of your script's entry
 point. If you are using a runtime earlier than `syn-nodejs-puppeteer-3.4`,
 then `functionName` must be `handler`. If you are using `syn-nodejs-puppeteer-3.4` or later, you can choose any function name as the
 handler. If you are using `syn-nodejs-puppeteer-3.4` or later, you can also

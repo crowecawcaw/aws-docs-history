@@ -295,7 +295,7 @@ HTTP headers.
 
 When active tracing is used, an extra header is added to all outgoing requests to trace
 the call. Modifying the request headers by adding a trace header or adding extra headers
-using Puppeteer’s `page.setExtraHTTPHeaders` causes a CORS check for
+using Puppeteer's `page.setExtraHTTPHeaders` causes a CORS check for
 XMLHttpRequest (XHR) requests.
 
 If you don't want to disable active tracing or remove the extra headers, you can update

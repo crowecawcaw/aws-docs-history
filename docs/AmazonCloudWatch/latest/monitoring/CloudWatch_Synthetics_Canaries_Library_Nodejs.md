@@ -994,7 +994,7 @@ Example:
 await synthetics.addUserAgent(page, "MyApp-1.0");
 ```
 
-Results in the page’s user-agent header being set to ``browsers-user-agent-header-value`MyApp-1.0`
+Results in the page's user-agent header being set to ``browsers-user-agent-header-value`MyApp-1.0`
 
 #### async executeStep(stepName, functionToExecute, [stepConfig]);
 

@@ -53,18 +53,21 @@ runtime code.
    the canary to test. This URL must include the protocol (such as https://).
 
 If you want the canary to test an endpoint on a VPC, you must also enter information
-about your VPC later in this procedure. 7. If you are using your own script for the canary, under **Lambda handler**,
+about your VPC later in this procedure. 7. To run this canary from multiple Regions, under **Locations**,
+select the additional Regions where the canary should also run. The current Region is
+automatically selected as the primary location. Regions are grouped by geographic area
+(Americas, Asia Pacific, EMEA) for convenience. For more information, see [Multilocation canaries](CloudWatch_Synthetics_Canaries_MultiLocation.md "CloudWatch_Synthetics_Canaries_MultiLocation.md"). 8. If you are using your own script for the canary, under **Lambda handler**,
 enter the entry point where you want the canary to start. For information on Lambda handler
 format, see [Synthetics
-runtime versions](CloudWatch_Synthetics_Canaries_Library.md "CloudWatch_Synthetics_Canaries_Library.md") . 8. Under **Script editor**, **Runtime version**, select
+runtime versions](CloudWatch_Synthetics_Canaries_Library.md "CloudWatch_Synthetics_Canaries_Library.md") . 9. Under **Script editor**, **Runtime version**, select
 a synthetics runtime version to execute the canary. For information on synthetics runtime
 versions, see [Synthetics
 runtime versions](CloudWatch_Synthetics_Canaries_Library.md "CloudWatch_Synthetics_Canaries_Library.md") .
 
 Under **Browser configuration**, you can enable the browser to test
-the canary. You must select at least one browser. 9. If you are using environment variables in your script, choose **Environment
+the canary. You must select at least one browser. 10. If you are using environment variables in your script, choose **Environment
 variables** and then specify a value for each environment variable defined in
-your script. For more information, see [Environment variables](CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup.md#CloudWatch_Synthetics_Environment_Variables "CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup.md#CloudWatch_Synthetics_Environment_Variables"). 10. Under **Schedule**, choose whether to run this canary just once, run
+your script. For more information, see [Environment variables](CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup.md#CloudWatch_Synthetics_Environment_Variables "CloudWatch_Synthetics_Canaries_WritingCanary_Nodejs_Pup.md#CloudWatch_Synthetics_Environment_Variables"). 11. Under **Schedule**, choose whether to run this canary just once, run
 it continuously using a rate expression, or schedule it using a cron expression.
 
     * When you use the CloudWatch console
@@ -74,11 +77,11 @@ it continuously using a rate expression, or schedule it using a cron expression.
 
     * For more information about writing a cron expression for canary scheduling, see [Scheduling canary runs using cron](CloudWatch_Synthetics_Canaries_cron.md "CloudWatch_Synthetics_Canaries_cron.md").
 
-11. (Optional) To set a timeout value for the canary, choose **Additional
+12. (Optional) To set a timeout value for the canary, choose **Additional
     configuration** and then specify the timeout value. Make it no shorter than 15
     seconds to allow for Lambda cold starts and the time it takes to boot up the canary
     instrumentation.
-12. Under **Data retention**, specify how long to retain information
+13. Under **Data retention**, specify how long to retain information
     about both failed and successful canary runs. The range is 1-455 days.
 
 This setting affects the range of information returned by [GetCanaryRuns](../../../AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.md "../../../AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.md")
@@ -92,13 +95,13 @@ Regardless of the canary's data retention period, the range of information displ
 in console has certain limits. In the Synthetics console home view,
 the relative and absolute time range are limited to seven days. In the Synthetics
 console view for a specific canary, the relative time range is limited to seven
-days and the absolute time range is limited to 30 days. 13. Under **Data Storage**, select the Amazon S3 bucket to use to store the
+days and the absolute time range is limited to 30 days. 14. Under **Data Storage**, select the Amazon S3 bucket to use to store the
 data from the canary runs. The bucket name can't contain a period (.). If you leave this
-blank, a default Amazon S3 bucket is used or created. 14. (Optional) By default, canaries store their artifacts on Amazon S3, and the artifacts are
+blank, a default Amazon S3 bucket is used or created. 15. (Optional) By default, canaries store their artifacts on Amazon S3, and the artifacts are
 encrypted at rest using an AWS-managed AWS KMS key. You can use a different encryption
 option by choosing **Additional configuration** in the **Data
 Storage** section. You can then choose the type of key to use for encryption. For
-more information, see [Encrypting canary artifacts](CloudWatch_Synthetics_artifact_encryption.md "CloudWatch_Synthetics_artifact_encryption.md"). 15. Under **Access permissions**, choose whether to create an IAM role
+more information, see [Encrypting canary artifacts](CloudWatch_Synthetics_artifact_encryption.md "CloudWatch_Synthetics_artifact_encryption.md"). 16. Under **Access permissions**, choose whether to create an IAM role
 to run the canary or use an existing one.
 
 If you have CloudWatch Synthetics create the role, it automatically includes all the
@@ -112,13 +115,13 @@ that works for multiple canaries, you can use that existing role.
 
 To use an existing role, you must have the `iam:PassRole` permission to
 pass that role to Synthetics and Lambda. You must also have the `iam:GetRole`
-permission. 16. (Optional) Under **Alarms**, choose whether you want default CloudWatch
+permission. 17. (Optional) Under **Alarms**, choose whether you want default CloudWatch
 alarms to be created for this canary. If you choose to create alarms, they are created
 with the following name convention:`Synthetics-Alarm-`canaryName`
  -`index``
 
 `index` is a number representing each different alarm created for this
-canary. The first alarm has an index of 1, the second alarm has an index of 2, and so on. 17. (Optional) To have this canary test an endpoint that is on a VPC, choose **VPC
+canary. The first alarm has an index of 1, the second alarm has an index of 2, and so on. 18. (Optional) To have this canary test an endpoint that is on a VPC, choose **VPC
 settings**, and then do the following:
 
     1. Select the VPC that hosts the endpoint.
@@ -133,9 +136,14 @@ settings**, and then do the following:
 
 
     You can monitor endpoints external to your VPC by giving the canary internet
-     access and configuring the VPC subnets appropriately. For more information, see [Running a canary on a VPC](CloudWatch_Synthetics_Canaries_VPC.md "CloudWatch_Synthetics_Canaries_VPC.md").If the endpoint is on a VPC, you must enable your canary to send information to CloudWatch
+     access and configuring the VPC subnets appropriately. For more information, see [Running a canary on a VPC](CloudWatch_Synthetics_Canaries_VPC.md "CloudWatch_Synthetics_Canaries_VPC.md").
+    5. If you selected replica Regions under **Locations**, you can
+     optionally configure VPC settings for each replica Region. Under
+     **Location VPC settings**, select a replica Region and choose a
+     VPC, subnets, and security groups for that Region. VPC settings are not inherited
+     from the primary canary.If the endpoint is on a VPC, you must enable your canary to send information to CloudWatch
 
-and Amazon S3. For more information, see [Running a canary on a VPC](CloudWatch_Synthetics_Canaries_VPC.md "CloudWatch_Synthetics_Canaries_VPC.md"). 18. (Optional) Under **Tags**, add one or more key-value pairs as tags
+and Amazon S3. For more information, see [Running a canary on a VPC](CloudWatch_Synthetics_Canaries_VPC.md "CloudWatch_Synthetics_Canaries_VPC.md"). 19. (Optional) Under **Tags**, add one or more key-value pairs as tags
 for this canary. Tags can help you identify and organize your AWS resources and track
 your AWS costs. For more information, see [Tagging your Amazon CloudWatch resources](CloudWatch-Tagging.md "CloudWatch-Tagging.md").
 
@@ -149,9 +157,11 @@ the canary and the Lambda function synchronized:
     * If you later update the canary's tags and keep this option selected, Synthetics
      modifies the tags on your Lambda function to remain in sync with the canary.
 
-19. (Optional) Under **Active tracing**, choose whether to enable active
-    X-Ray tracing for this canary. Active tracing is only available for Puppeteer and Java
-    runtimes. For more information, see [Canaries and X-Ray tracing](CloudWatch_Synthetics_Canaries_tracing.md "CloudWatch_Synthetics_Canaries_tracing.md").
+If you selected replica Regions under **Locations**, tags from the
+primary Region are not replicated to replica Regions. To add tags to a replica canary,
+navigate to the replica Region and add tags there. 20. (Optional) Under **Active tracing**, choose whether to enable active
+X-Ray tracing for this canary. Active tracing is only available for Puppeteer and Java
+runtimes. For more information, see [Canaries and X-Ray tracing](CloudWatch_Synthetics_Canaries_tracing.md "CloudWatch_Synthetics_Canaries_tracing.md").
 
 ## Resources that are created for canaries
 

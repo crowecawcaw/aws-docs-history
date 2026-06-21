@@ -1,6 +1,6 @@
 # Enable resource tags on telemetry
 
-To add tag information to your telemetry data, enable resource tags for telemetry from the CloudWatch console, AWS SDK or CLI. The feature remains active until you turn it off. For more information, see [Disable resource tags on telemetry](DisableResourceTagsOnTelemetry.md "DisableResourceTagsOnTelemetry.md").
+To add tag information to your telemetry data, enable resource tags for telemetry from the CloudWatch console, AWS SDK, CLI, or CloudFormation. The feature remains active until you turn it off. For more information, see [Disable resource tags on telemetry](DisableResourceTagsOnTelemetry.md "DisableResourceTagsOnTelemetry.md").
 
 Make sure you have permissions to enable resource tags for telemetry.
 
@@ -27,4 +27,8 @@ Use the `start-telemetry-enrichment` command to enable resource tags for telemet
 aws observabilityadmin start-telemetry-enrichment
 ```
 
-After you complete these steps, CloudWatch begins enriching telemetry with tags. CloudWatch can take up to 3 hours to discover all your resource tags for telemetry.
+After you complete these steps, CloudWatch begins enriching telemetry with tags.
+
+###### To enable resource tags for telemetry (AWS CloudFormation)
+
+You can enable resource tags for telemetry by adding an [AWS::ObservabilityAdmin::TelemetryEnrichment](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-observabilityadmin-telemetryenrichment.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-observabilityadmin-telemetryenrichment.md") resource to your CloudFormation template. Set the `Scope` property to `ACCOUNT` to enable the feature for your account.

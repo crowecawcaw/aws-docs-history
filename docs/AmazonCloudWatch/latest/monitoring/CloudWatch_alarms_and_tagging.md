@@ -10,7 +10,8 @@ The following list explains some details about how tagging works with CloudWatch
 - To be able to set or update tags for a CloudWatch resource, you must be signed on to an
   account that has the `cloudwatch:TagResource` permission. For example, to
   create an alarm and set tags for it, you must have the `cloudwatch:TagResource`
-  permission in addition to the `the cloudwatch:PutMetricAlarm` permission. We
+  permission in addition to the `cloudwatch:PutMetricAlarm` (or
+  `cloudwatch:PutLogAlarm` for log alarms) permission. We
   recommend that you make sure anyone in your organization who will create or update CloudWatch
   resources has the `cloudwatch:TagResource` permission.
 - Tags can be used for tag-based authorization control. For example, IAM user or role

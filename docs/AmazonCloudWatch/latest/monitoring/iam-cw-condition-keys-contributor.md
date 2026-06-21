@@ -73,7 +73,7 @@ JSON
  "Action": "cloudwatch:PutInsightRule",
  "Resource": "arn:aws:cloudwatch:*:*:insight-rule/*",
  "Condition": {
- "ForAllValues:StringEqualsIgnoreCase": {
+ "ForAllValues:StringLike": {
  "cloudwatch:requestInsightRuleLogGroups": [
  "AllowedLogGroup",
  "AllowedWildcard*"

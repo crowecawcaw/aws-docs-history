@@ -41,13 +41,15 @@ The screenshot appears, and you can do one of the following:
    runtime versions](CloudWatch_Synthetics_Canaries_Library.md "CloudWatch_Synthetics_Canaries_Library.md") .
 
 Under **Browser configuration**, you can enable the browser to test
-the canary. You must select at least one browser. 7. Make any other changes to the canary that you'd like, and choose **Save**
+the canary. You must select at least one browser. 7. (Optional) To add or remove replica locations from a multilocation canary, update
+the selections under **Locations**. You can only edit replica locations
+from the primary Region. For more information, see [Adding or removing replica locations](CloudWatch_Synthetics_MultiLocation_Managing.md#CloudWatch_Synthetics_MultiLocation_Update_Manage "CloudWatch_Synthetics_MultiLocation_Managing.md#CloudWatch_Synthetics_MultiLocation_Update_Manage"). 8. Make any other changes to the canary that you'd like, and choose **Save**
 .
 
 **Delete canary**
 
 When you delete a canary, you can choose whether to also delete other resources used and
-created by the canary. If the canary’s `ProvisionedResourceCleanup` field is set to `AUTOMATIC` or `DeleteLambda` is specified as `true` when you
+created by the canary. If the canary's `ProvisionedResourceCleanup` field is set to `AUTOMATIC` or `DeleteLambda` is specified as `true` when you
 delete the canary, CloudWatch Synthetics will automatically delete the Lambda functions and layers
 that are used by the canary.
 
@@ -76,11 +78,14 @@ When you delete a canary, you should also delete the following:
    canaries in the `STOPPED`, `READY(NOT_STARTED)`, or `ERROR`
    states can be deleted.
 
-To stop the canary, select the button next to the canary name, and choose **Actions**, **Stop**. 4. Select the button next to the canary name, and choose **Actions**, **Delete**. 5. Choose whether to also delete the other resources created for and used by the canary.
+To stop the canary, select the button next to the canary name, and choose **Actions**, **Stop**. 4. (Optional) If this is a multilocation canary, you must first remove all replicas.
+Choose **Actions**, **Edit**, and clear all replica
+Regions under **Locations**. Save your changes and wait for all
+replicas to be removed. For more information, see [Deleting a multilocation canary](CloudWatch_Synthetics_MultiLocation_Managing.md#CloudWatch_Synthetics_MultiLocation_Delete_Manage "CloudWatch_Synthetics_MultiLocation_Managing.md#CloudWatch_Synthetics_MultiLocation_Delete_Manage"). 5. Select the button next to the canary name, and choose **Actions**, **Delete**. 6. Choose whether to also delete the other resources created for and used by the canary.
 Lambda functions and layers will be deleted alongside the canary, but you can additionally
 choose to delete the canary's IAM role and IAM policy.
 
 Enter `Delete` into the box and choose **Delete**
-. 6. Delete the other resources used by and created for the canary, as listed earlier in
+. 7. Delete the other resources used by and created for the canary, as listed earlier in
 this
 section.

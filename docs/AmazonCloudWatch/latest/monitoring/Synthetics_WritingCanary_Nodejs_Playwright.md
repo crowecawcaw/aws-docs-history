@@ -51,7 +51,7 @@ choice. However, be sure that the folder path is specified in your handler name.
 
 **Handler name**
 
-Be sure to set your canary’s script entry point (handler) as `myCanaryFilename.functionName` to match the file name of your script’s entry
+Be sure to set your canary's script entry point (handler) as `myCanaryFilename.functionName` to match the file name of your script's entry
 point. You can optionally store the canary in a separate folder such as `myFolder/my_canary_filename.mjs`. If you store it in a separate folder,
 specify that path in your script entry point, such as `myFolder/my_canary_filename.functionName`.
 
@@ -239,7 +239,7 @@ The following are supported configuration values, and their defaults.
   capture a screenshot after a step has failed. The default is `true`.
 - `continueOnStepFailure` – Determines if a script should
   continue even after a step has failed. The default is `false`.
-- `stepSuccessMetric` – Determines if a step’s `SuccessPercent` metric is emitted. The `SuccessPercent` metric for
+- `stepSuccessMetric` – Determines if a step's `SuccessPercent` metric is emitted. The `SuccessPercent` metric for
   a step is `100` for the canary run if the step succeeds, and `0`
   if the step fails. The default is `true`.
 - `stepDurationMetric` – Determines if a step's `Duration`

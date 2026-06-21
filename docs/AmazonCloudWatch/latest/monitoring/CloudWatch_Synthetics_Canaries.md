@@ -73,6 +73,7 @@ and X-Ray are not supported.
 
 - [Required roles and permissions for CloudWatch canaries](CloudWatch_Synthetics_Canaries_Roles.md "CloudWatch_Synthetics_Canaries_Roles.md")
 - [Creating a canary](CloudWatch_Synthetics_Canaries_Create.md "CloudWatch_Synthetics_Canaries_Create.md")
+- [Multilocation canaries](CloudWatch_Synthetics_Canaries_MultiLocation.md "CloudWatch_Synthetics_Canaries_MultiLocation.md")
 - [Groups](CloudWatch_Synthetics_Groups.md "CloudWatch_Synthetics_Groups.md")
 - [Test a canary locally](CloudWatch_Synthetics_Debug_Locally.md "CloudWatch_Synthetics_Debug_Locally.md")
 - [Troubleshooting a failed canary](CloudWatch_Synthetics_Canaries_Troubleshoot.md "CloudWatch_Synthetics_Canaries_Troubleshoot.md")

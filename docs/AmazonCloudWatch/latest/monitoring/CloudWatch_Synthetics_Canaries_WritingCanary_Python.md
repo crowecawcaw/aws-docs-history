@@ -31,8 +31,8 @@ such as `python/myFolder/my_canary_filename.py`.
 This ZIP file should contain all necessary folders and files, but the other files do
 not need to be in the `python` folder.
 
-Be sure to set your canary’s script entry point as `my_canary_filename.functionName` to match the file name and function name of your
-script’s entry point. If you are using the `syn-python-selenium-1.0` runtime,
+Be sure to set your canary's script entry point as `my_canary_filename.functionName` to match the file name and function name of your
+script's entry point. If you are using the `syn-python-selenium-1.0` runtime,
 then `functionName` must be `handler`. If you are using `syn-python-selenium-1.1` or later, this handler name restriction doesn't apply,
 and you can also optionally store the canary in a separate folder such as `python/myFolder/my_canary_filename.py`. If you store it in a separate folder,
 specify that path in your script entry point, such as `myFolder/my_canary_filename.functionName`.
@@ -109,7 +109,7 @@ certificate signed by a trusted third-party certificate authority.
 
 Two possible solutions to this scenario are as follows:
 
-- To authenticate a client certificate, see [How to validate authentication using Amazon CloudWatch Synthetics – Part 2](https://aws.amazon.com/blogs/mt/how-to-validate-authentication-using-amazon-cloudwatch-synthetics-part-2/ "https://aws.amazon.com/blogs/mt/how-to-validate-authentication-using-amazon-cloudwatch-synthetics-part-2/").
+- To authenticate a client certificate, see [How to validate authentication using Amazon CloudWatch Synthetics - Part 2](https://aws.amazon.com/blogs/mt/how-to-validate-authentication-using-amazon-cloudwatch-synthetics-part-2/ "https://aws.amazon.com/blogs/mt/how-to-validate-authentication-using-amazon-cloudwatch-synthetics-part-2/").
 - To authenticate a self-signed certificate, see [How to validate authentication with self-signed certificates in Amazon CloudWatch
   Synthetics](https://aws.amazon.com/blogs/mt/how-to-validate-authentication-with-self-signed-certificates-in-amazon-cloudwatch-synthetics/ "https://aws.amazon.com/blogs/mt/how-to-validate-authentication-with-self-signed-certificates-in-amazon-cloudwatch-synthetics/")
 

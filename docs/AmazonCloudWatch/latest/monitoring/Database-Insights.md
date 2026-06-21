@@ -1,5 +1,13 @@
 # CloudWatch Database Insights
 
+###### Note
+
+AWS has announced the end-of-life date for Performance Insights: July 31, 2026. After this date,
+Performance Insights users will be migrated to Database Insights. Standard mode will support flexible retention of
+1-24 months with the same pricing as Performance Insights. Advanced mode will support flexible retention
+of 1-24 months, at no extra cost. For details, see the
+[Performance Insights overview](../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.md "../../../AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.md") in the _Amazon RDS User Guide_.
+
 Use CloudWatch Database Insights to monitor and troubleshoot Amazon Aurora MySQL, Amazon Aurora PostgreSQL, Amazon Aurora PostgreSQL Limitless, Amazon RDS for SQL Server, RDS for MySQL, RDS for PostgreSQL, RDS for Oracle, and RDS for MariaDB databases at scale.
 
 With Database Insights, you can monitor your database fleet with pre-built, opinionated dashboards. To help you analyze the performance of your fleet, the Database Insights dashboards display curated metrics and visualizations, and you

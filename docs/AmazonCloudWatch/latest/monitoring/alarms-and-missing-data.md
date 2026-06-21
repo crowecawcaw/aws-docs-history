@@ -60,6 +60,15 @@ period and whether it is based on a metric with standard resolution or high reso
 time frame of the data points that it attempts to retrieve is the _evaluation
 range_.
 
+###### Note
+
+This wider evaluation range applies only to alarms that use a sliding
+evaluation window, which is the default. Alarms that use a wall clock
+evaluation window retrieve exactly the data points in the aligned window
+(**Period** multiplied by **Evaluation
+Periods**) and do not query additional data points from farther
+back. For more information, see [Alarm evaluation window](alarm-evaluation-window.md "alarm-evaluation-window.md").
+
 Once CloudWatch retrieves these data points, the following happens:
 
 - If no data points in the evaluation range are missing, CloudWatch evaluates the alarm

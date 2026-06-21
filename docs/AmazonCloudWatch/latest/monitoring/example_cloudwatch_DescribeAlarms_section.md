@@ -7,7 +7,7 @@ context in the following code examples:
 
 - [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
 - [Get started with alarms](example_cloudwatch_Scenario_GettingStarted_section.md "example_cloudwatch_Scenario_GettingStarted_section.md")
-- [Run CPU stress tests on EC2 instances using FIS](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
+- [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
 
 .NET
 

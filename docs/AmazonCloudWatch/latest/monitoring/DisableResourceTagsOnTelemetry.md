@@ -28,4 +28,8 @@ Use the `stop-telemetry-enrichment` command to disable resource tags for telemet
 aws observabilityadmin stop-telemetry-enrichment
 ```
 
-After you complete these steps, CloudWatch stops enriching telemetry with tags. Telemetry previously enriched with resource tags can still be discovered for up to 14 days after disabling.
+After you complete these steps, CloudWatch stops enriching telemetry with tags. Metrics previously enriched with resource tags can still be discovered for up to 14 days. Logs previously enriched with resource tags can still be queried until the log group's retention period expires.
+
+###### To disable resource tags for telemetry (AWS CloudFormation)
+
+If you enabled resource tags for telemetry by using an [AWS::ObservabilityAdmin::TelemetryEnrichment](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-observabilityadmin-telemetryenrichment.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-observabilityadmin-telemetryenrichment.md") resource, disable the feature by removing that resource from your CloudFormation template and updating the stack.

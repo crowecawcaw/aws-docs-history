@@ -1,6 +1,6 @@
 # Runtime versions update
 
-You can update a canary’s runtime version by using the CloudWatch console, AWS CloudFormation, the
+You can update a canary's runtime version by using the CloudWatch console, AWS CloudFormation, the
 AWS CLI or the AWS SDK. When you use the CloudWatch console, you can update up to five canaries
 at once by selecting them in the canary list page and then choosing **Actions**
 , **Update Runtime**.

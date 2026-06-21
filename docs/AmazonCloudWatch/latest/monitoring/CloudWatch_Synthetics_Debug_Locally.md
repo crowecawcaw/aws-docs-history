@@ -93,7 +93,7 @@ pip3 install -r requirements.txt -t .
 The Visual Studio launch configuration file is located at `.vscode/launch.json`. It contains configurations to allow the template file to be
 discovered by Visual
 Studio code. It defines a Lambda payload with required parameters to invoke the
-canary successfully. Here’s the launch configuration for a Node.js canary:
+canary successfully. Here's the launch configuration for a Node.js canary:
 
 ```
 {

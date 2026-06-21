@@ -90,6 +90,7 @@ CloudWatch supports logging the following actions as events in CloudTrail log fi
 - [PutDashboard](../APIReference/API_PutDashboard.md "../APIReference/API_PutDashboard.md")
 - [PutInsightRule](../APIReference/API_PutInsightRule.md "../APIReference/API_PutInsightRule.md")
 - [PutManagedInsightRules](../APIReference/API_PutManagedInsightRules.md "../APIReference/API_PutManagedInsightRules.md")
+- [PutLogAlarm](../APIReference/API_PutLogAlarm.md "../APIReference/API_PutLogAlarm.md")
 - [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md")
 - [PutMetricStream](../APIReference/API_PutMetricStream.md "../APIReference/API_PutMetricStream.md")
 - [SetAlarmState](../APIReference/API_SetAlarmState.md "../APIReference/API_SetAlarmState.md")

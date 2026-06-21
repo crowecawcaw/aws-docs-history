@@ -23,6 +23,7 @@ The following processors can appear only once per pipeline:
 | OCSF                                           | Must be first processor | Must be first processor | Must be first processor |
 | parse_vpc                                      | Must be first processor | Not applicable          | Not applicable          |
 | parse_route53                                  | Must be first processor | Not applicable          | Not applicable          |
+| parse_rds                                      | Must be first processor | Not applicable          | Not applicable          |
 | parse_json                                     | Must be first processor | Must be first processor | Must be first processor |
 | grok                                           | Must be first processor | Must be first processor | Must be first processor |
 | csv                                            | Must be first processor | Not compatible          | Not compatible          |
@@ -56,6 +57,7 @@ Processor is not relevant for this source type
 | OCSF                                  | API-based Sources               | • Must use source-specific schema (e.g.,<br>microsoft_office365_management_activity for Office<br>365)<br>• Requires specific mapping version for each source<br>type<br>• Must be first processor in pipeline |
 | parse_vpc                             | CloudWatch Logs                 | • Only valid for VPC Flow Logs<br>• Must be first processor<br>• Input must contain raw VPC Flow Log<br>format                                                                                                 |
 | parse_route53                         | CloudWatch Logs                 | • Only valid for Route 53 Resolver Query Logs<br>• Must be first processor<br>• Input must contain Route 53 Resolver query log<br>format                                                                       |
+| parse_rds                             | CloudWatch Logs                 | • Only valid when `data_source_name` is<br>`amazon_rds`<br>• Must be first processor<br>• Takes no parameters; the log type is inferred from<br>the pipeline's `data_source_type`                              |
 | add_entries                           | All Sources                     | • Maximum one instance per pipeline<br>• Key names must be valid according to field naming<br>rules                                                                                                            |
 | copy_values                           | All Sources                     | • Maximum one instance per pipeline<br>• Source fields must exist in the event                                                                                                                                 |
 

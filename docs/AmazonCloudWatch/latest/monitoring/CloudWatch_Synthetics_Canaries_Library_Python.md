@@ -590,7 +590,7 @@ browser.get("https://example.com/)
 To launch a browser in incognito mode, use the following:
 
 ```
-add_argument('——incognito')
+add_argument('--incognito')
 ```
 
 To add proxy settings, use the following:
@@ -604,6 +604,6 @@ Example:
 ```
 from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
-chrome_options.add_argument("——incognito")
+chrome_options.add_argument("--incognito")
 browser = syn_webdriver.Chrome(chrome_options=chrome_options)
 ```

@@ -14,9 +14,9 @@ The naming convention for these runtime versions is `syn-`language`
 
 **Features**
 
-- _CloudWatch Logs integration_ – You can query and filter for logs
+- _CloudWatch Logs integration_ - You can query and filter for logs
   through the CloudWatch Synthetics console. Each log message contains unique `canaryRunId`, making it easy to search for logs for a particular canary run.
-- _Metrics_ – You can monitor canary run success percentage and
+- _Metrics_ - You can monitor canary run success percentage and
   duration through CloudWatch metrics. You can also configure alarms to alert you when
   canaries detect issues.
 - _Canary artifacts_ - Each canary run uploads a detailed

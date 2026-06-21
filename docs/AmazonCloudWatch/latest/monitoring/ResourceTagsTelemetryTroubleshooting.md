@@ -22,4 +22,7 @@ After you enable the feature, CloudWatch begins enriching telemetry with tags. C
 
 ## I turned off resource tags for telemetry, I can still see tags enriching my telemetry
 
-After you disable the feature, previously enriched telemetry data remains visible for up to 14 days.
+After you disable the feature:
+
+- Metrics previously enriched with resource tags can still be discovered for up to 14 days.
+- Logs previously enriched with resource tags can still be queried until the log group's retention period expires.

@@ -19,7 +19,7 @@ The following example shows how to enable session replay.
 
 ```
 import { AwsRum, AwsRumConfig } from 'aws-rum-web';
-import { RRWebPlugin } from 'aws-rum-web/plugins/rrweb';
+import { RRWebPlugin } from 'aws-rum-web';
 
 const config: AwsRumConfig = {
     identityPoolId: 'us-west-2:00000000-0000-0000-0000-000000000000',

@@ -43,10 +43,19 @@ aws cloudwatch start-otel-enrichment
 
 **CloudFormation**
 
+###### Note
+
+The `AWS::CloudWatch::OTelEnrichment` resource requires the
+`AWS::ObservabilityAdmin::TelemetryEnrichment` resource to be configured
+first. For more information, see [enable resource tags on telemetry](EnableResourceTagsOnTelemetry.md "EnableResourceTagsOnTelemetry.md").
+
 ```
 Resources:
-  OTelEnrichment:
+  TelemetryEnrichmentExample:
+    Type: AWS::ObservabilityAdmin::TelemetryEnrichment
+  OTelEnrichmentExample:
     Type: AWS::CloudWatch::OTelEnrichment
+    DependsOn: TelemetryEnrichmentExample
 ```
 
 **Terraform**

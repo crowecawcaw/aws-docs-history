@@ -56,6 +56,12 @@ If data points are missing soon after you create an alarm, and the metric was be
 reported to CloudWatch before you created the alarm, CloudWatch retrieves the most recent data points
 from before the alarm was created when evaluating the alarm.
 
+By default, CloudWatch uses a _sliding window_ for alarm
+evaluation. Each time the alarm is evaluated, the window advances by one minute,
+and the boundaries of the window are not aligned to the wall clock. You can
+instead align the evaluation window to wall clock boundaries and time zones. For
+more information, see [Alarm evaluation window](alarm-evaluation-window.md "alarm-evaluation-window.md").
+
 ## High-resolution alarms
 
 If you set an alarm on a high-resolution metric, you can specify a high-resolution alarm
@@ -67,7 +73,9 @@ more information about high-resolution metrics, see [Publish custom metrics (Put
 An alarm is a multi-day alarm if the number of evaluation periods multiplied by the
 length of each evaluation period exceeds one day. Multi-day alarms are evaluated once per
 hour. When multi-day alarms are evaluated, CloudWatch takes into account only the metrics up to
-the current hour at the :00 minute when evaluating.
+the current hour at the :00 minute when evaluating. This top-of-the-hour behavior, and
+the following example, apply to alarms that use a sliding evaluation window, which is the
+default.
 
 For example, consider an alarm that monitors a job that runs every 3 days at
 10:00.
@@ -80,3 +88,12 @@ For example, consider an alarm that monitors a job that runs every 3 days at
 4. At 11:43, you correct the error and the job now runs successfully.
 5. At 12:03, the alarm evaluates again, sees the successful job, and returns to
    `OK` state.
+
+If the alarm instead uses a wall clock evaluation window, CloudWatch aligns the
+evaluation window to the wall clock boundary that matches the period in the alarm's
+selected time zone, rather than clamping to the top of each hour. For example, a
+multi-day alarm with a one-day period evaluates complete calendar days that end at
+midnight in the selected time zone, and an alarm with a one-week period evaluates
+complete calendar weeks. The window advances by one full period when each boundary is
+reached, so the alarm considers a newly completed calendar period only after that period
+ends. For more information, see [Alarm evaluation window](alarm-evaluation-window.md "alarm-evaluation-window.md").

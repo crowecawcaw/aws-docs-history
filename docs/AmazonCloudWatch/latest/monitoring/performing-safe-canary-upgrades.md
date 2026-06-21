@@ -47,7 +47,7 @@ You can test the canary update using the following options:
 3. From the **Actions** drop down, choose **Edit**.
 
 Update the canary with the changes you want to test. For example, changing runtime
-version or editing the script’s code. 4. Under **Canary script**, choose **Start Dry Run**
+version or editing the script's code. 4. Under **Canary script**, choose **Start Dry Run**
 to test and view the results immediately or choose **Validate and save later**
 at the bottom of the page to start the test and view the results later in your **Canary
 Details** page. 5. After the dry run succeeds, choose **Submit** to commit your canary
@@ -90,7 +90,7 @@ The API will return the `DryRunId` inside the `DryRunConfigOutput`
 .
 
 Call `GetCanary` with the provided `DryRunId` to receive the
-canary’s dry run configurations and an additional field `DryRunConfig` which
+canary's dry run configurations and an additional field `DryRunConfig` which
 contains the status of the dry run listed as `LastDryRunExecutionStatus`.
 
 ```

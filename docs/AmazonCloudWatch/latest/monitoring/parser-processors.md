@@ -7,7 +7,7 @@ in the pipeline.
 ###### Conditional processing not supported
 
 Parser processors (except Grok) do not support conditional processing with
-the `when` parameter. This includes OCSF, CSV, JSON, KeyValue, VPC, Route53, WAF,
+the `when` parameter. This includes OCSF, CSV, JSON, KeyValue, VPC, Route53, RDS, WAF,
 Postgres, and CloudFront parsers. For more information, see
 [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
@@ -216,6 +216,22 @@ Configure the Route 53 processor with the following parameters:
 processor:
   - parse_route53: {}
 
+```
+
+## Amazon RDS processor
+
+Parses Amazon RDS Aurora log data into structured fields. The `parse_rds`
+processor is supported only when the pipeline's
+`data_source_name` is `amazon_rds`. It applies the parsing
+logic that matches the pipeline's `data_source_type`.
+
+###### Configuration
+
+Configure the Amazon RDS processor with the following parameters:
+
+```
+processor:
+  - parse_rds: {}
 ```
 
 ## Key-value processor

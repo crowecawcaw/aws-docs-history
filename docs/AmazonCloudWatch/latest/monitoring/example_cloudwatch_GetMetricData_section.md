@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md "example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md")
-- [Run CPU stress tests on EC2 instances using FIS](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
+- [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
 
 .NET
 

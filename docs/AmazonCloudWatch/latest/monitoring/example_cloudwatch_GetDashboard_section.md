@@ -5,8 +5,8 @@ The following code examples show how to use `GetDashboard`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in
 context in the following code examples:
 
-- [Creating a CloudWatch dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
-- [Using property variables in CloudWatch dashboards to monitor multiple Lambda functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
+- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
+- [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
 
 .NET
 

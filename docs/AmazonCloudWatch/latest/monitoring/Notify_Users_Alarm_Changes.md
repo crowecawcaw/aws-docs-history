@@ -342,3 +342,33 @@ change their state.
 }
 
 ```
+
+**Schema when a log alarm changes state**
+
+```
+{
+  "AlarmName": "string",
+  "AlarmDescription": "string",
+  "AWSAccountId": "string",
+  "AlarmConfigurationUpdatedTimestamp": "string",
+  "NewStateValue": "string",
+  "NewStateReason": "string",
+  "StateChangeTime": "string",
+  "Region": "string",
+  "AlarmArn": "string",
+  "OldStateValue": "string",
+  "OKActions": ["string"],
+  "AlarmActions": ["string"],
+  "InsufficientDataActions": ["string"],
+  "LogGroups": ["string"],
+  "QueryString": "string",
+  "AggregationExpression": "string",
+  "QueryExecutionId": "string",
+  "AlarmTags": [
+    {
+      "Key": "string",
+      "Value": "string"
+    }
+  ]
+}
+```

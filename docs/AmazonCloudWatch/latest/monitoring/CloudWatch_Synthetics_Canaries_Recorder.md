@@ -61,7 +61,7 @@ without immediately using them to create a canary.
 The CloudWatch Synthetics Recorder for Google Chrome currently has the following
 limitations.
 
-- HTML elements that don’t have IDs will use CSS selectors. This can break canaries
+- HTML elements that don't have IDs will use CSS selectors. This can break canaries
   if the
   webpage structure changes later. We plan to provide some configuration options (such
   as using data-id) around this in a future version of the recorder.
@@ -71,8 +71,8 @@ limitations.
 - To verify the presence of an element or text on the page, users must add
   assertions after the
   script is generated. The recorder doesn't support verifying an element without
-  performing any action on that element. This is similar to the “Verify text” or “Verify
-  element” options in the canary workflow builder. We plan to add some assertions
+  performing any action on that element. This is similar to the "Verify text" or "Verify
+  element" options in the canary workflow builder. We plan to add some assertions
   support in a future version of the recorder.
 - The recorder records all actions in the tab where the recording is initiated. It
   doesn't
