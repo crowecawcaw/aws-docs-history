@@ -116,7 +116,7 @@ The delete marker becomes the current version of the object. By default,
 `GET Object` request when the current version is a delete marker returns
 a `404 Not Found` error, as shown in the following figure.
 
-![A GetObject call for a delete marker returning a 404 (Not Found) error.](images/versioning_DELETE_NoObjectFound.png)
+![A GetObject call for a delete marker returning a 404 (Not Found) error.](/images/AmazonS3/latest/userguide/images/versioning_DELETE_NoObjectFound.png)
 
 However, you can `GET` a noncurrent version of an object by specifying its
 version ID. In the following figure, you `GET` a specific object version, 111111. Amazon S3 returns that object version even though it's not the current

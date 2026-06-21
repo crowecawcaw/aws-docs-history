@@ -7,6 +7,13 @@ in any order. If transmission of any part fails, you can retransmit that part wi
 affecting other parts. After all parts of your object are uploaded, Amazon S3 assembles
 these parts and creates the object. Anonymous users cannot initiate multipart uploads.
 
+###### Note
+
+Multipart upload copy operations do not copy annotations from the source object by
+default. To include annotations when copying objects using multipart upload (for example,
+with the AWS CLI `aws s3 cp` command for objects larger than approximately 8
+MB), specify `--copy-props all`.
+
 For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see
 [Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
 

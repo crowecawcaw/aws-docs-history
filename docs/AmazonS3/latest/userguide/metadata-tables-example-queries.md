@@ -34,6 +34,12 @@ Remember when using these examples:
   - [Reconciling the inventory table with the journal table](metadata-tables-example-queries.md#metadata-tables-example-query-generate-latest-inventory "metadata-tables-example-queries.md#metadata-tables-example-query-generate-latest-inventory")
   - [Finding the current versions of your objects](metadata-tables-example-queries.md#metadata-tables-example-query-latest-version "metadata-tables-example-queries.md#metadata-tables-example-query-latest-version")
 
+- [Annotation table example queries](metadata-tables-example-queries.md#metadata-tables-example-queries-annotation-tables "metadata-tables-example-queries.md#metadata-tables-example-queries-annotation-tables")
+
+  - [Listing all annotations for a specific object](metadata-tables-example-queries.md#metadata-tables-example-query-annotation-list "metadata-tables-example-queries.md#metadata-tables-example-query-annotation-list")
+  - [Finding all objects that have a specific annotation](metadata-tables-example-queries.md#metadata-tables-example-query-annotation-find "metadata-tables-example-queries.md#metadata-tables-example-query-annotation-find")
+  - [Joining the annotation table with the inventory table](metadata-tables-example-queries.md#metadata-tables-example-query-annotation-join "metadata-tables-example-queries.md#metadata-tables-example-query-annotation-join")
+
 - [Joining custom metadata with S3 metadata tables](metadata-tables-join-custom-metadata.md "metadata-tables-join-custom-metadata.md")
 - [Visualizing metadata table data with Amazon Quick](metadata-tables-quicksight-dashboards.md "metadata-tables-quicksight-dashboards.md")
 
@@ -423,3 +429,53 @@ FROM inventory_with_is_latest
 -- If you aren't outputting the results to a new table, remove the next line:
 );
 ```
+
+## Annotation table example queries
+
+If you have enabled an annotation table in your S3 Metadata configuration, you can
+query annotation data using Athena or other analytics services that support Apache
+Iceberg tables. The annotation table uses the naming convention
+`"s3tablescatalog/aws-s3"."b_`bucket-name`"."annotation"`.
+
+### Listing all annotations for a specific object
+
+The following query returns all annotations for a specific object:
+
+```
+SELECT name, size, last_modified_date, replication_status
+FROM "s3tablescatalog/aws-s3"."b_`amzn-s3-demo-bucket`"."annotation"
+WHERE object_key = '`documents/report.pdf`'
+ORDER BY name
+```
+
+### Finding all objects that have a specific annotation
+
+The following query returns all objects that have a specific annotation:
+
+```
+SELECT object_key, object_version_id, size, last_modified_date
+FROM "s3tablescatalog/aws-s3"."b_`amzn-s3-demo-bucket`"."annotation"
+WHERE name = '`classification`'
+ORDER BY last_modified_date DESC
+```
+
+### Joining the annotation table with the inventory table
+
+The following query joins the annotation table with the inventory table to combine
+annotation data with inventory metadata:
+
+```
+SELECT i.key, i.storage_class, a.name, a.size, a.text_value
+FROM "s3tablescatalog/aws-s3"."b_`amzn-s3-demo-bucket`"."inventory" i
+JOIN "s3tablescatalog/aws-s3"."b_`amzn-s3-demo-bucket`"."annotation" a
+  ON i.bucket = a.bucket
+  AND i.key = a.object_key
+  AND i.object_join_key = a.object_join_key
+WHERE a.name = '`classification`'
+LIMIT 10
+```
+
+Use the `object_join_key` column when joining annotation and inventory
+tables to ensure consistency. This column contains a unique identifier for the object,
+assigned with each new version, or when the null version is created or overwritten. It
+guarantees that the annotation row corresponds to the correct object version state.

@@ -12,8 +12,8 @@ When Amazon S3 sends an event to Amazon EventBridge, the following fields are pr
 - `region` – Identifies the AWS Region of the bucket.
 - `resources` – A JSON array that contains the Amazon Resource Name
   (ARN) of the bucket.
-- `detail` – A JSON object that contains information about the event.
-  For more information about what can be included in this field, see [Event message detail field](#ev-events-detail "#ev-events-detail").
+- `detail` – A JSON object that contains information about the
+  event. For more information about what can be included in this field, see [Event message detail field](#ev-events-detail "#ev-events-detail").
 
 ## Event message structure examples
 
@@ -36,6 +36,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
+    "event-version": "1.0",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -71,6 +72,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
+    "event-version": "1.0",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -106,6 +108,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
+    "event-version": "1.0",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -140,6 +143,7 @@ can be sent to Amazon EventBridge.
   ],
   "detail": {
     "version": "0",
+    "event-version": "1.0",
     "bucket": {
       "name": "amzn-s3-demo-bucket1"
     },
@@ -158,12 +162,108 @@ can be sent to Amazon EventBridge.
 
 ```
 
+### Object annotation created
+
+```
+{
+  "version": "0",
+  "id": "8c2bfa57-4a67-b2ea-c4e0-6d420ea3b3a6",
+  "detail-type": "Object Annotation Created",
+  "source": "aws.s3",
+  "account": "111122223333",
+  "time": "2025-03-15T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:s3:::amzn-s3-demo-bucket1"
+  ],
+  "detail": {
+    "version": "0",
+    "event-version": "2.4",
+    "bucket": {
+      "name": "amzn-s3-demo-bucket1"
+    },
+    "object": {
+      "key": "example-key",
+      "etag": "b1946ac92492d2347c6235b4d2611184",
+      "version-id": "IYV3p45BT0ac8hjHg1houSdS1a.Mro8e",
+      "sequencer": "617f08299329d189"
+    },
+    "request-id": "4B4NGD358NMKJ12R",
+    "requester": "123456789012",
+    "source-ip-address": "1.2.3.4",
+    "reason": "PutObjectAnnotation",
+    "object-annotation": {
+      "name": "my-annotation",
+      "size": 24,
+      "etag": "05df351ea190dffc26f55c74425b9d7a"
+    }
+  }
+}
+
+```
+
+### Object annotation removed
+
+```
+{
+  "version": "0",
+  "id": "a3d1bc94-5f82-c7e1-d290-7e531fb4c5b8",
+  "detail-type": "Object Annotation Removed",
+  "source": "aws.s3",
+  "account": "111122223333",
+  "time": "2025-03-15T00:00:00Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:s3:::amzn-s3-demo-bucket1"
+  ],
+  "detail": {
+    "version": "0",
+    "event-version": "2.4",
+    "bucket": {
+      "name": "amzn-s3-demo-bucket1"
+    },
+    "object": {
+      "key": "example-key",
+      "etag": "b1946ac92492d2347c6235b4d2611184",
+      "version-id": "IYV3p45BT0ac8hjHg1houSdS1a.Mro8e",
+      "sequencer": "617f08299329d190"
+    },
+    "request-id": "7C5NGD358NMKJ34S",
+    "requester": "123456789012",
+    "source-ip-address": "1.2.3.4",
+    "reason": "DeleteObjectAnnotation",
+    "object-annotation": {
+      "name": "my-annotation"
+    }
+  }
+}
+
+```
+
 ## Event message detail field
 
 The detail field contains a JSON object with information about the event. The
 following fields may be present in the detail field.
 
 - `version` – Currently 0 (zero) for all events.
+- `event-version` – The event schema version in the form
+  ``major`.`minor`` (for example,
+  `1.0`).
+
+The major version is incremented if Amazon S3 makes a change to the event structure
+that's not backward compatible. This includes removing a JSON field that's already present or
+changing how the contents of a field are represented (for example, a date format).
+
+The minor version is incremented if Amazon S3 makes a backward-compatible change to
+the event structure. This includes adding new fields to the event structure or introducing new
+event types. To stay compatible with new minor versions of the event structure, we recommend
+that your applications ignore new fields.
+
+To ensure that your applications can parse the event structure correctly, we
+recommend that you do an equal-to comparison on the major version number. To ensure that the
+fields that are expected by your application are present, we also recommend doing a
+greater-than-or-equal-to comparison on the minor version.
+
 - `bucket` – Information about the Amazon S3 bucket involved in the
   event.
 - `object` – Information about the Amazon S3 object involved in the
@@ -201,3 +301,11 @@ Some object attributes (such as `etag` and `size`) are present only when a delet
 - `destination-access-tier` – For **Object
   Access Tier Changed** events, the new access tier of the object. For more information,
   see [Managing storage costs with Amazon S3 Intelligent-Tiering](intelligent-tiering.md "intelligent-tiering.md").
+- `object-annotation` – For **Object Annotation
+  Created** and **Object Annotation Removed** events,
+  the `detail` field includes an `object-annotation` field containing
+  information about the annotation.
+- `has-object-annotation` – For **Object
+  Created** events with reason `CopyObject`, the `object`
+  block includes a `has-object-annotation` boolean field that indicates whether the
+  copied object has annotations.

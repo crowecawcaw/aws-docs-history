@@ -9,7 +9,7 @@ that adheres to the following rules:
 - You can associate up to 10 tags with an object. Tags that are associated with an object must have unique tag keys.
 - A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length. Amazon S3 object tags are internally represented in UTF-16. Note that in UTF-16, characters consume either 1 or 2 character positions.
 - The key and values are case sensitive.
-  For more information about object tags, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md"). For more information about tag restrictions, see
+  For more information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md"). For more information about tag restrictions, see
   [User-Defined
   Tag Restrictions](../../../awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.md "../../../awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.md") in the _AWS Billing and Cost Management User Guide_.
 
@@ -37,14 +37,14 @@ For more information, see also
 in this guide.
 
 Java
-To manage object tags using the AWS SDK for Java, you can set tags for a new object and retrieve or replace tags for an existing object. For more information about object tagging, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+To manage object tags using the AWS SDK for Java, you can set tags for a new object and retrieve or replace tags for an existing object. For more information about object tagging, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 Upload an object to a bucket and set tags using an S3Client. For examples, see [Upload an object to a bucket](../API/s3_example_s3_PutObject_section.md "../API/s3_example_s3_PutObject_section.md") in the _Amazon S3 API Reference_.
 
 .NET
 The following example shows how to use the AWS SDK for .NET to set the tags for a new
 object and retrieve or replace the tags for an existing object. For more information
-about object tagging, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+about object tagging, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 For
 information about setting up and running the code examples, see [Getting Started

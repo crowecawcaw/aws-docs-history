@@ -163,7 +163,7 @@ For more information, see [Using tags with S3 directory buckets](directory-bucke
 
 - **Objects**
 
-For more information, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+For more information, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 - **S3 Access Grants**
 
@@ -209,7 +209,7 @@ For more information on how to manage tags for Amazon S3 resources, see the foll
 - [Controlling access and labeling jobs using tags](batch-ops-job-tags.md "batch-ops-job-tags.md")
 - [Using tags with S3 directory buckets](directory-buckets-tagging.md "directory-buckets-tagging.md")
 - [Using cost allocation S3 bucket tags](CostAllocTagging.md "CostAllocTagging.md")
-- [Categorizing your objects using tags](object-tagging.md "object-tagging.md")
+- [Tagging your objects](object-tagging.md "object-tagging.md")
 - [Managing tags for S3 Access Grants](access-grants-tagging.md "access-grants-tagging.md")
 - [Managing AWS resource tags with Storage Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md")
 - [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").

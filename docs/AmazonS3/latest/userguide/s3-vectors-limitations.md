@@ -16,7 +16,8 @@ Amazon S3 Vectors has certain limitations and restrictions that you should be aw
 - Vectors per [PutVectors](../API/API_S3VectorBuckets_PutVectors.md "../API/API_S3VectorBuckets_PutVectors.md") API call: Up to 500
 - Vectors per [DeleteVectors](../API/API_S3VectorBuckets_DeleteVectors.md "../API/API_S3VectorBuckets_DeleteVectors.md") API call: Up to 500
 - Vectors per [GetVectors](../API/API_S3VectorBuckets_GetVectors.md "../API/API_S3VectorBuckets_GetVectors.md") API call: Up to 100
-- Top-K results per [QueryVectors](../API/API_S3VectorBuckets_QueryVectors.md "../API/API_S3VectorBuckets_QueryVectors.md") request: Up to 100
+- Top-K results per [QueryVectors](../API/API_S3VectorBuckets_QueryVectors.md "../API/API_S3VectorBuckets_QueryVectors.md") request: Up to 10,000
+- Results per page in a [QueryVectors](../API/API_S3VectorBuckets_QueryVectors.md "../API/API_S3VectorBuckets_QueryVectors.md") response: Up to 100
 - Vectors listed per page in a [ListVectors](../API/API_S3VectorBuckets_ListVectors.md "../API/API_S3VectorBuckets_ListVectors.md") response: Up to 1,000
 - Vector buckets listed per page in a [ListVectorBuckets](../API/API_S3VectorBuckets_ListVectorBuckets.md "../API/API_S3VectorBuckets_ListVectorBuckets.md") response: Up to 500.
 - Vector indexes listed per page in a [ListIndexes](../API/API_S3VectorBuckets_ListIndexes.md "../API/API_S3VectorBuckets_ListIndexes.md") response: Up to 500.

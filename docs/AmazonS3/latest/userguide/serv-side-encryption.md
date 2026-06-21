@@ -79,6 +79,13 @@ you access your objects. For more information, see [Using server-side encryption
 
 ###### Note
 
+Objects encrypted with SSE-C do not support annotations. Attempting to add an
+annotation to an SSE-C encrypted object returns an error. For all other encryption
+types, annotations inherit the encryption configuration of the parent object. S3
+Bucket Keys are supported for annotations on SSE-KMS encrypted objects.
+
+###### Note
+
 When using access points for Amazon FSx file systems using S3 access points you have one option for server-side encryption.
 
 ###### Server-side encryption with Amazon FSx (SSE-FSX)

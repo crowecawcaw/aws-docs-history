@@ -198,7 +198,7 @@ the tag.
 Object tagging gives you a way to categorize storage. Each tag is a key-value pair. Key
 and tag values are case sensitive. You can have up to 10 tags per object. A tag key can be
 up to 128 Unicode characters in length, and tag values can be up to 255 Unicode characters
-in length. For more information about object tags, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md"). 8. To add metadata, choose **Add metadata**.
+in length. For more information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md"). 8. To add metadata, choose **Add metadata**.
 
     1. Under **Type**, choose **System defined** or **User defined**.
 

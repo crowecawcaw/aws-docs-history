@@ -97,6 +97,11 @@ copy objects](batch-ops-examples-copy.md "batch-ops-examples-copy.md").
   `kms:decrypt` and `kms:encrypt` permissions for the bucket
   in the destination region. For more information, see [Replicating encrypted
   objects](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+- If objects in the source bucket have annotations, the annotations are
+  replicated independently alongside the object during Batch Replication. There
+  are no separate job tasks for individual annotations. The job task status depends
+  on both the parent object replication status and the annotation replication
+  status.
 
 ## Specifying a manifest for a Batch Replication job
 

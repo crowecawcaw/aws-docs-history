@@ -72,77 +72,75 @@ Then choose **Create policy** to attach the following policy to the
 role. To use this policy, replace the `user input
  placeholders` with your own information.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "`AllowBatchOperationsDestinationObjectCOPY`",
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:PutObjectVersionAcl",
- "s3:PutObjectAcl",
- "s3:PutObjectVersionTagging",
- "s3:PutObjectTagging",
- "s3:GetObject",
- "s3:GetObjectVersion",
- "s3:GetObjectAcl",
- "s3:GetObjectTagging",
- "s3:GetObjectVersionAcl",
- "s3:GetObjectVersionTagging"
- ],
- "Resource": [
- "arn:aws:s3:::amzn-s3-demo-destination-bucket/*",
- "arn:aws:s3:::amzn-s3-demo-source-bucket/*",
- "arn:aws:s3:::`amzn-s3-demo-manifest-bucket`/*"
- ]
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Sid": "`AllowBatchOperationsDestinationObjectCOPY`",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:PutObjectVersionAcl",
+        "s3:PutObjectAcl",
+        "s3:PutObjectVersionTagging",
+        "s3:PutObjectTagging",
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:GetObjectAcl",
+        "s3:GetObjectTagging",
+        "s3:GetObjectVersionAcl",
+        "s3:GetObjectVersionTagging",
+        "s3:GetObjectAnnotation",
+        "s3:GetObjectVersionAnnotation"
+      ],
+      "Resource": [
+        "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*",
+        "arn:aws:s3:::`amzn-s3-demo-source-bucket`/*",
+        "arn:aws:s3:::`amzn-s3-demo-manifest-bucket`/*"
+      ]
+    }
+  ]
+}
 ```
 
 The role uses the policy to grant `batchoperations.s3.amazonaws.com`
 permission to read the manifest in the destination bucket. It also grants permissions to
-`GET` objects, access control lists (ACLs), tags, and versions in the source
-object bucket. And it grants permissions to `PUT` objects, ACLs, tags, and
-versions into the destination object bucket. 8. In the source account, create a bucket policy for the source bucket that grants the
+`GET` objects, access control lists (ACLs), tags, annotations, and versions in
+the source object bucket. And it grants permissions to `PUT` objects, ACLs, tags,
+and versions into the destination object bucket. 8. In the source account, create a bucket policy for the source bucket that grants the
 role that you created in the previous step permissions to `GET` objects, ACLs,
-tags, and versions in the source bucket. This step allows S3 Batch Operations to get objects from
+tags, annotations, and versions in the source bucket. This step allows S3 Batch Operations to get objects from
 the source bucket through the trusted role.
 
 The following is an example of the bucket policy for the source account. To use this
 policy, replace the `user input placeholders` with
 your own information.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "`AllowBatchOperationsSourceObjectCOPY`",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:role/`BatchOperationsDestinationRoleCOPY`"
- },
- "Action": [
- "s3:GetObject",
- "s3:GetObjectVersion",
- "s3:GetObjectAcl",
- "s3:GetObjectTagging",
- "s3:GetObjectVersionAcl",
- "s3:GetObjectVersionTagging"
- ],
- "Resource": "arn:aws:s3:::amzn-s3-demo-source-bucket/*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Sid": "`AllowBatchOperationsSourceObjectCOPY`",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::`111122223333`:role/`BatchOperationsDestinationRoleCOPY`"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:GetObjectAcl",
+                "s3:GetObjectTagging",
+                "s3:GetObjectVersionAcl",
+                "s3:GetObjectVersionTagging",
+                "s3:GetObjectAnnotation",
+                "s3:GetObjectVersionAnnotation"
+            ],
+            "Resource": "arn:aws:s3:::`amzn-s3-demo-source-bucket`/*"
+        }
+    ]
+}
 ```
 
 9. After the inventory report is available, create an S3 Batch Operations

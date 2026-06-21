@@ -15,4 +15,3 @@ For more information about listing and organizing your data in Amazon S3, see th
 - [Listing object keys programmatically](ListingKeysUsingAPIs.md "ListingKeysUsingAPIs.md")
 - [Organizing objects in the Amazon S3 console by using folders](using-folders.md "using-folders.md")
 - [Viewing object properties in the Amazon S3 console](view-object-properties.md "view-object-properties.md")
-- [Categorizing your objects using tags](object-tagging.md "object-tagging.md")

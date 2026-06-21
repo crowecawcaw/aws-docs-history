@@ -1,6 +1,10 @@
-# Categorizing your objects using tags
+# Tagging your objects
 
 Use object tagging to categorize storage. Each tag is a key-value pair.
+
+If you need to store structured data larger than 256 characters per value, associate
+more than 10 metadata entries with an object, or attach rich content such as machine
+learning inference results or AI-generated labels, see [Annotating your objects](annotations-overview.md "annotations-overview.md").
 
 You can add tags to new objects when you upload them, or you can add them to existing
 objects.

@@ -23,7 +23,7 @@ metrics configuration based on one or more of the following filter types:
 - **Tag** – You can add tags, which are
   key-value name pairs, to objects. Tags help you find and organize objects
   easily. You can also use tags as filters for metrics configurations. For
-  more information about object tags, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+  more information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md").
 - **Access point** – S3 Access Points are
   named network endpoints that are attached to buckets and simplify managing
   data access at scale for shared datasets in S3. When you create an access point

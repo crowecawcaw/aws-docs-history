@@ -85,7 +85,7 @@ permission to replicate objects in the destination bucket. For more information,
         * To replicate all objects with one or more object tags, choose **Add
          tag** and enter the key-value pair in the boxes. Repeat the procedure to add
          another tag. You can combine a prefix and tags. For more information about object tags,
-         see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+         see [Tagging your objects](object-tagging.md "object-tagging.md").
 
     The new replication configuration XML schema supports prefix and tag filtering and the
     prioritization of rules. For more information about the new schema, see [Backward compatibility considerations](replication-add-config.md#replication-backward-compat-considerations "replication-add-config.md#replication-backward-compat-considerations"). For more information about
@@ -436,6 +436,10 @@ aws s3api put-bucket-versioning \
              `s3:GetObjectRetention` and `s3:GetObjectLegalHold`.
              If the role has an `s3:Get*` permission statement, that statement
              satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
+            * To replicate object annotations, you must also grant
+             `s3:GetObjectVersionAnnotationForReplication` on the source
+             S3 bucket in the IAM role permissions policy. For more information, see
+             [Replicating metadata changes with replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
         2. Run the following command to create a policy and attach it
            to the role. Replace the `user input
 placeholders` with your own

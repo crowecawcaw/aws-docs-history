@@ -17,7 +17,7 @@ manifest. If you don't include a version ID for any objects, S3 Batch Operations
 to the latest version of every object. For more information about Batch Operations manifests, see
 [Specifying a manifest](batch-ops-create-job.md#specify-batchjob-manifest "batch-ops-create-job.md#specify-batchjob-manifest").
 
-For more information about object tagging, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md") in this guide, and see [PutObjectTagging](../API/API_PutObjectTagging.md "../API/API_PutObjectTagging.md"),
+For more information about object tagging, see [Tagging your objects](object-tagging.md "object-tagging.md") in this guide, and see [PutObjectTagging](../API/API_PutObjectTagging.md "../API/API_PutObjectTagging.md"),
 [GetObjectTagging](../API/API_GetObjectTagging.md "../API/API_GetObjectTagging.md"), and [DeleteObjectTagging](../API/API_DeleteObjectTagging.md "../API/API_DeleteObjectTagging.md") in the _Amazon Simple Storage Service API Reference_.
 
 To use the console to create a **Replace all object tags** job, see [Creating an S3 Batch Operations job](batch-ops-create-job.md "batch-ops-create-job.md").

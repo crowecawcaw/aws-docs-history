@@ -14,7 +14,7 @@ of the `x-amz-storage-class` key from `STANDARD` to
 
 ###### Note
 
-Consider the following when you are replacing object metadata in Amazon S3:
+Consider the following when you are replacing system-defined or user-defined object metadata using the **Copy** action:
 
 - You must specify existing metadata you want to retain, metadata you want to add, and metadata you want to edit.
 - If your object is less than 5 GB, you can use the **Copy** action in the S3 console to replace object metadata. If your object is greater than 5 GB, you can replace the object metadata when you copy an object with multipart upload by using the [AWS CLI](mpu-upload-object.md#UsingCLImpUpload "mpu-upload-object.md#UsingCLImpUpload") or [AWS SDKs](CopyingObjectsMPUapi.md "CopyingObjectsMPUapi.md"). For more information, see [Copying an object using multipart upload](CopyingObjectsMPUapi.md "CopyingObjectsMPUapi.md").
@@ -49,6 +49,12 @@ edited.
 The following topics describe how to replace metadata for an object by using the **Copy** action in the Amazon S3
 console.
 
+###### Note
+
+To add, view, or delete annotations on an object, use the
+**Annotations** section on the object's
+**Properties** tab. For more information, see [Managing annotations](annotations-managing.md "annotations-managing.md").
+
 You can replace some system-defined metadata for an S3 object. For a list of
 system-defined metadata and values that you can modify, see [System-defined object metadata](UsingMetadata.md#SysMetadata "UsingMetadata.md#SysMetadata").
 
@@ -79,7 +85,7 @@ you add the custom name `alt-name`, the metadata key would be
 User-defined metadata can be as large as 2 KB total. To calculate the total size of
 user-defined metadata, sum the number of bytes in the UTF-8 encoding for each key and value.
 Both keys and their values must conform to US-ASCII standards. For more information, see
-[User-defined object metadata](UsingMetadata.md#UserMetadata "UsingMetadata.md#UserMetadata").
+[User-defined metadata](UsingMetadata.md#UserMetadata "UsingMetadata.md#UserMetadata").
 
 ###### To replace user-defined metadata of an object
 

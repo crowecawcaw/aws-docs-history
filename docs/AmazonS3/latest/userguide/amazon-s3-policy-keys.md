@@ -41,6 +41,9 @@ see [Access control list (ACL) overview](acl-overview.md "acl-overview.md").
 - [Example 6: Requiring a minimum TLS version](#example-object-tls-version "#example-object-tls-version")
 - [Example 7: Excluding certain principals from a Deny statement](#example-exclude-principal-from-deny-statement "#example-exclude-principal-from-deny-statement")
 - [Example 8: Enforcing clients to conditionally upload objects based on object key names or ETags](#example-conditional-writes-enforce "#example-conditional-writes-enforce")
+- [Example 9: Restricting annotation access by name prefix](#example-annotation-prefix-condition "#example-annotation-prefix-condition")
+- [Example 10: Requiring conditional writes for annotation operations](#example-annotation-conditional-writes "#example-annotation-conditional-writes")
+- [Example 11: Limiting pagination size for ListObjectAnnotations](#example-annotation-max-results "#example-annotation-max-results")
 
 ### Example 1: Granting `s3:PutObject` permission requiring that objects be stored using server-side encryption
 
@@ -396,6 +399,94 @@ object.
 For bucket policy examples that use conditions in a bucket policy to enforce
 conditional writes, see
 [Enforce conditional writes on Amazon S3 buckets](conditional-writes-enforce.md "conditional-writes-enforce.md").
+
+### Example 9: Restricting annotation access by name prefix
+
+The following bucket policy grants the `s3user` user permission to
+create, retrieve, and delete annotations that have names beginning with
+`ml-output.`. This allows you to restrict annotation access by
+annotation name prefix.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::123456789012:user/s3user"
+            },
+            "Action": [
+                "s3:PutObjectAnnotation",
+                "s3:GetObjectAnnotation",
+                "s3:DeleteObjectAnnotation"
+            ],
+            "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*",
+            "Condition": {
+                "StringLike": {
+                    "s3:annotation-prefix": "ml-output.*"
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example 10: Requiring conditional writes for annotation operations
+
+The following bucket policy denies `PutObjectAnnotation` and
+`DeleteObjectAnnotation` requests unless the caller includes the
+`x-amz-object-if-match` conditional header. This enforces optimistic
+concurrency control for all annotation writes on the bucket.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "RequireConditionalWritesForAnnotations",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                "s3:PutObjectAnnotation",
+                "s3:DeleteObjectAnnotation"
+            ],
+            "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*",
+            "Condition": {
+                "Null": {
+                    "s3:x-amz-object-if-match": "true"
+                }
+            }
+        }
+    ]
+}
+```
+
+### Example 11: Limiting pagination size for ListObjectAnnotations
+
+The following bucket policy limits the `max-annotation-results`
+parameter to 100 or fewer for all `ListObjectAnnotations` requests. This
+prevents callers from requesting excessively large result sets.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "LimitAnnotationListPageSize",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:ListObjectAnnotation",
+            "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/*",
+            "Condition": {
+                "NumericGreaterThan": {
+                    "s3:max-annotation-results": "100"
+                }
+            }
+        }
+    ]
+}
+```
 
 ## Examples: Amazon S3 condition keys for bucket operations
 

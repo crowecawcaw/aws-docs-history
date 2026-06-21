@@ -21,6 +21,7 @@ The following limitations apply to import jobs:
 - Imported objects use the Express One Zone storage class, which has a different pricing
   structure than the storage classes used by general purpose buckets. Consider this
   difference in cost when importing large numbers of objects.
+- Objects that have annotations are not supported.
   When you configure an import job, you specify the source bucket or prefix where the existing
   objects will be copied from. You also provide an AWS Identity and Access Management (IAM) role that has permissions to
   access the source objects. Amazon S3 then starts a Batch Operations job that copies the objects and

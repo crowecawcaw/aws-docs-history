@@ -62,7 +62,7 @@ information about sharing objects, see [Sharing objects with presigned URLs](Sha
 Tags
 
 You can use tags to categorize your stored objects, for access control, or cost allocation.
-For more information, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+For more information, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 ## Object subresources
 

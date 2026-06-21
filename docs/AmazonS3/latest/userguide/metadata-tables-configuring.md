@@ -29,6 +29,7 @@ see [Amazon S3 bucket-level actions that are tracked by CloudTrail logging](clou
 - [Controlling access to metadata tables](metadata-tables-access-control.md "metadata-tables-access-control.md")
 - [Expiring journal table records](metadata-tables-expire-journal-table-records.md "metadata-tables-expire-journal-table-records.md")
 - [Enabling or disabling live inventory tables](metadata-tables-enable-disable-inventory-tables.md "metadata-tables-enable-disable-inventory-tables.md")
+- [Enabling or disabling annotation tables](metadata-tables-enable-disable-annotation-tables.md "metadata-tables-enable-disable-annotation-tables.md")
 - [Viewing metadata table configurations](metadata-tables-view-configuration.md "metadata-tables-view-configuration.md")
 - [Deleting metadata table configurations](metadata-tables-delete-configuration.md "metadata-tables-delete-configuration.md")
 - [Deleting metadata tables](metadata-tables-delete-table.md "metadata-tables-delete-table.md")

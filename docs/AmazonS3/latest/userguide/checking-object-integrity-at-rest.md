@@ -32,21 +32,18 @@ maintain continuity with the algorithms that are used in your applications.
 
 For data at rest, you can calculate checksums, using any of the supported checksum algorithms:
 
-- CRC-64/NVME (`CRC64NVME`): Supports the full object checksum type
-  only.
-- CRC-32 (`CRC32`): Supports both full object and composite checksum
-  types.
-- CRC-32C (`CRC32C`): Supports both full object and composite
-  checksum types.
-- SHA-1 (`SHA1`): Supports both full object and composite checksum
-  types.
-- SHA-256 (`SHA256`): Supports both full object and composite
-  checksum types.
-- MD5 (`MD5`): Supports composite checksum type only (non-linearizable).
-- XXHash64 (`XXHASH64`): Supports composite checksum type only (non-linearizable).
-- XXHash3 (`XXHASH3`): Supports composite checksum type only (non-linearizable).
-- XXHash128 (`XXHASH128`): Supports composite checksum type only (non-linearizable).
-- SHA-512 (`SHA512`): Supports composite checksum type only (non-linearizable).
+All supported checksum algorithms support both the full object and composite checksum types, except CRC-64/NVME (`CRC64NVME`), which supports the full object checksum type only.
+
+- CRC-64/NVME (`CRC64NVME`)
+- CRC-32 (`CRC32`)
+- CRC-32C (`CRC32C`)
+- SHA-1 (`SHA1`)
+- SHA-256 (`SHA256`)
+- MD5 (`MD5`)
+- XXHash64 (`XXHASH64`)
+- XXHash3 (`XXHASH3`)
+- XXHash128 (`XXHASH128`)
+- SHA-512 (`SHA512`)
 
 ## Using **Compute checksum**
 

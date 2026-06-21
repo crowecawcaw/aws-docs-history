@@ -123,6 +123,20 @@ see [S3 Batch Operations basics](batch-ops.md#batch-ops-basics "batch-ops.md#bat
 For information about copying an object to a directory bucket, see [Copying objects from or to a directory bucket](directory-buckets-objects-copy.md "directory-buckets-objects-copy.md"). For information about using the
 Amazon S3 Express One Zone storage class with directory buckets, see [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone "directory-bucket-high-performance.md#s3-express-one-zone") and [Working with directory buckets](directory-buckets-overview.md "directory-buckets-overview.md").
 
+## Copying annotations
+
+When you copy an object using the `CopyObject` API, Amazon S3 copies the object's
+annotations to the destination by default. You can exclude annotations from the copy by
+specifying the `x-amz-annotation-directive: EXCLUDE` header in the copy
+request.
+
+When you copy objects using multipart upload (for example, with the AWS CLI
+`aws s3 cp` command for objects larger than approximately 8 MB), annotations are
+not copied by default. To include annotations when copying objects with multipart upload,
+specify `--copy-props all`.
+
+For more information about annotations, see [Annotating your objects](annotations-overview.md "annotations-overview.md").
+
 ## To copy an object
 
 To copy an object, use the following methods.
@@ -161,7 +175,7 @@ The restrictions and limitations when you copy an object with the console are as
 
 Alternatively, enter the destination path. 7. If you do _not_ have bucket versioning enabled, you will see a warning recommending you enable Bucket Versioning to help protect against unintentionally overwriting or deleting objects. If you want to keep all versions of
 objects in this bucket, select **Enable Bucket Versioning**. You
-can also view the default encryption and S3 Object Lock properties in **Destination details**. 8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums. 9. Choose **Copy** in the bottom-right corner. Amazon S3 copies your
+can also view the default encryption and S3 Object Lock properties in **Destination details**. 8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, annotations, metadata, server-side encryption, and additional checksums. 9. Choose **Copy** in the bottom-right corner. Amazon S3 copies your
 objects to the destination.
 The examples in this section show how to copy objects up to 5 GB in a single operation. To
 copy objects larger than 5 GB, you must use a multipart upload. For more information, see

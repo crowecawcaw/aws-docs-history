@@ -20,6 +20,10 @@ To create and manage your metadata table configuration, you must have these perm
   you to update your inventory table configuration to enable or disable the inventory table. To update
   an inventory table configuration, additional permissions, including S3 Tables permissions, are
   required. For a list of the required permissions, see [Bucket operations and permissions](using-with-s3-policy-actions.md#using-with-s3-policy-actions-related-to-buckets "using-with-s3-policy-actions.md#using-with-s3-policy-actions-related-to-buckets").
+- `s3:UpdateBucketMetadataAnnotationTableConfiguration` – This permission
+  allows you to update your annotation table configuration to enable or disable the annotation table.
+  To update an annotation table configuration, additional permissions, including S3 Tables permissions,
+  are required. For a list of the required permissions, see [Bucket operations and permissions](using-with-s3-policy-actions.md#using-with-s3-policy-actions-related-to-buckets "using-with-s3-policy-actions.md#using-with-s3-policy-actions-related-to-buckets").
 
 ###### Note
 
@@ -29,6 +33,20 @@ The `s3:CreateBucketMetadataTableConfiguration`,
 S3 Metadata configurations. For V2, the names of the corresponding API operations are
 `CreateBucketMetadataConfiguration`, `GetBucketMetadataConfiguration`, and
 `DeleteBucketMetadataConfiguration`.
+
+- `iam:PassRole` – To create an Amazon S3 Metadata configuration that
+  includes an annotation table, you need this permission to pass the annotation table IAM
+  role. Add the following statement to your caller's IAM policy:
+
+```
+{
+    "Effect": "Allow",
+    "Action": "iam:PassRole",
+    "Resource": "arn:aws:iam::`123456789012`:role/`annotation-table-role`",
+    "Condition": {"StringEquals": {"iam:PassedToService": "metadata.s3.amazonaws.com"}}
+}
+```
+
 To create and work with tables and table buckets, you must have certain
 `s3tables` permissions. At a minimum, to create a metadata table configuration,
 you must have the following `s3tables` permissions:
@@ -97,33 +115,32 @@ When you create your metadata table configuration, your metadata tables are stor
 managed table bucket. All metadata table configurations in your account and in the same Region are
 stored in a single AWS managed table bucket named `aws-s3`.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "PermissionsToWorkWithMetadataTables",
- "Effect": "Allow",
- "Action": [
- "s3:CreateBucketMetadataTableConfiguration",
- "s3:GetBucketMetadataTableConfiguration",
- "s3:DeleteBucketMetadataTableConfiguration",
- "s3:UpdateBucketMetadataJournalTableConfiguration",
- "s3:UpdateBucketMetadataInventoryTableConfiguration",
- "s3tables:*",
- "kms:DescribeKey"
- ],
- "Resource": [
- "arn:aws:s3:::`amzn-s3-demo-bucket`",
- "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3",
- "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3/table/*"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PermissionsToWorkWithMetadataTables",
+            "Effect": "Allow",
+            "Action": [
+                "s3:CreateBucketMetadataTableConfiguration",
+                "s3:GetBucketMetadataTableConfiguration",
+                "s3:DeleteBucketMetadataTableConfiguration",
+                "s3:UpdateBucketMetadataJournalTableConfiguration",
+                "s3:UpdateBucketMetadataInventoryTableConfiguration",
+                "s3:UpdateBucketMetadataAnnotationTableConfiguration",
+                "s3tables:*",
+                "kms:DescribeKey"
+            ],
+            "Resource": [
+                "arn:aws:s3:::`amzn-s3-demo-bucket`",
+                "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3",
+                "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3/table/*",
+                "arn:aws:kms:`Region`:`Account`:key/`KmsKeyId`"
+            ]
+        }
+    ]
+}
 ```
 
 To query metadata tables, you can use the following example policy. If your metadata tables have
@@ -131,27 +148,25 @@ been encrypted with SSE-KMS, you will need the `kms:Decrypt` permission as shown
 policy, replace the `user input placeholders` with your own
 information.
 
-JSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "PermissionsToQueryMetadataTables",
- "Effect": "Allow",
- "Action": [
- "s3tables:GetTable",
- "s3tables:GetTableData",
- "s3tables:GetTableMetadataLocation",
- "kms:Decrypt"
- ],
- "Resource": [
- "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3",
- "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3/table/*"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PermissionsToQueryMetadataTables",
+            "Effect": "Allow",
+            "Action": [
+                "s3tables:GetTable",
+                "s3tables:GetTableData",
+                "s3tables:GetTableMetadataLocation",
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3",
+                "arn:aws:s3tables:`us-east-1`:`111122223333`:bucket/aws-s3/table/*",
+                "arn:aws:kms:`Region`:`Account`:key/`KmsKeyId`"
+            ]
+        }
+    ]
+}
 ```

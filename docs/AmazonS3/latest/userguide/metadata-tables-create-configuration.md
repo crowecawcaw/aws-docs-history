@@ -6,7 +6,7 @@ continuously update the metadata tables to reflect the latest changes to your da
 configuration is active on the bucket. Additionally, Amazon S3 continuously optimizes your metadata tables to
 help reduce storage costs and improve analytics query performance.
 
-For each general purpose bucket, you can create a metadata table configuration that contains two
+For each general purpose bucket, you can create a metadata table configuration that contains up to three
 complementary metadata tables:
 
 - **Journal table** – By default, your metadata table
@@ -53,8 +53,14 @@ more than one billion objects, you're also charged a monthly fee for your live i
 more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 For more information about what data is stored in live inventory tables, see [S3 Metadata live inventory tables schema](metadata-tables-inventory-schema.md "metadata-tables-inventory-schema.md").
-Metadata tables have the following Amazon Resource Name (ARN) format, which includes the table ID of
-the metadata table:
+
+- **Annotation table** – Optionally, you can add an
+  _annotation table_ to your metadata table configuration.
+  The annotation table tracks the latest annotations on the objects in your bucket and makes
+  annotation content directly queryable. The annotation table is not enabled by default.
+  For more information, see [Enabling or disabling annotation tables](metadata-tables-enable-disable-annotation-tables.md "metadata-tables-enable-disable-annotation-tables.md").
+  Metadata tables have the following Amazon Resource Name (ARN) format, which includes the table ID of
+  the metadata table:
 
 `arn:aws:s3tables:`region-code`:`account-id`:bucket/aws-s3/table/`table-id``
 
@@ -63,8 +69,8 @@ following:
 
 `arn:aws:s3tables:us-east-1:111122223333:bucket/aws-s3/table/a12bc345-67d8-912e-3456-7f89123g4h56`
 
-Journal tables have the name `journal`, and live inventory tables have the name
-`inventory`.
+Journal tables have the name `journal`, live inventory tables have the name
+`inventory`, and annotation tables have the name `annotation`.
 
 When you create your metadata table configuration, your metadata tables are stored in an AWS
 managed table bucket. All metadata table configurations in your account and in the same Region are
@@ -112,12 +118,12 @@ You can create a metadata table configuration by using the Amazon S3 console, th
 ###### Note
 
 - If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete
-  and re-create your configuration so that you can expire journal table records and create an
-  inventory table. For more information, see [Enabling inventory tables on metadata configurations created before July 15, 2025](#metadata-tables-migration "#metadata-tables-migration").
+  and re-create your configuration so that you can expire journal table records, create an
+  inventory table, and create an annotation table. For more information, see [Enabling inventory and annotation tables on metadata configurations created before July 15, 2025](#metadata-tables-migration "#metadata-tables-migration").
 - If you've deleted your metadata table configuration and want to re-create a configuration for
-  the same general purpose bucket, you must first manually delete the old journal and inventory tables
-  from your AWS managed table bucket. Otherwise, creating the new metadata table configuration fails
-  because those tables already exist. To delete your metadata tables, see [Delete a metadata table](metadata-tables-delete-table.md#delete-metadata-table-procedure "metadata-tables-delete-table.md#delete-metadata-table-procedure").
+  the same general purpose bucket, you must first manually delete the old journal, inventory, and
+  annotation tables from your AWS managed table bucket. Otherwise, creating the new metadata table
+  configuration fails because those tables already exist. To delete your metadata tables, see [Delete a metadata table](metadata-tables-delete-table.md#delete-metadata-table-procedure "metadata-tables-delete-table.md#delete-metadata-table-procedure").
 
 Deleting a metadata table configuration deletes only the configuration. The AWS managed table
 bucket and your metadata tables still exist, even if you delete the metadata table configuration.
@@ -233,10 +239,56 @@ After an AWS managed table is created, you can't change its encryption setting.
      information, see  [Permissions for
      SSE-KMS](metadata-tables-permissions.md#metadata-kms-permissions "metadata-tables-permissions.md#metadata-kms-permissions").
 
-9. Choose **Create metadata table configuration**.
-   If your metadata table configuration was successful, the names and ARNs for your metadata
-   tables are displayed on the **Metadata** tab, along with the name of your AWS
-   managed table bucket and namespace.
+9. (Optional) If you want to add an annotation table to your metadata table configuration,
+   under **Annotation table**, choose **Enabled** for
+   **Configuration status**.
+
+Under **IAM role**, choose one of the following IAM role selection
+methods:
+
+    * **Create new IAM role** – Amazon S3 creates a new IAM
+     role with the required permissions for the annotation table.
+    * **Choose from existing IAM roles** – Select an
+     existing IAM role from the **IAM role** dropdown. The role
+     must have the required permissions to read annotations from your bucket.
+    * **Enter IAM role ARN** – Enter the ARN of an
+     existing IAM role that has the required permissions.
+
+For more information about the required permissions for the annotation table
+IAM role, see [Annotation table
+IAM role](metadata-tables-enable-disable-annotation-tables.md#annotation-table-iam-role-section "metadata-tables-enable-disable-annotation-tables.md#annotation-table-iam-role-section").
+
+You can choose whether to encrypt your annotation table with server-side encryption
+using AWS Key Management Service (AWS KMS) keys (SSE-KMS). By default, annotation tables are encrypted
+with server-side encryption using Amazon S3 managed keys (SSE-S3).
+
+If you choose to use SSE-KMS, you must provide a customer managed KMS key in the
+same Region as your general purpose bucket.
+
+###### Important
+
+You can set the encryption type for your metadata tables only during table creation.
+After an AWS managed table is created, you can't change its encryption setting.
+
+    * To encrypt your annotation table with SSE-S3 (the default), choose **Don't
+     specify encryption type**.
+    * To encrypt your annotation table with SSE-KMS, choose **Specify encryption
+     type**. Under **Encryption type**, choose
+     **Server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS)**.
+     Under **AWS KMS key**, either choose from your existing KMS keys, or
+     enter your KMS key ARN. If you don't already have a KMS key, choose **Enter
+     KMS key ARN**, and then choose **Create a
+     KMS key**.
+
+
+    Make sure that you've set up the necessary permissions for SSE-KMS. For more
+     information, see  [Permissions for
+     SSE-KMS](metadata-tables-permissions.md#metadata-kms-permissions "metadata-tables-permissions.md#metadata-kms-permissions").
+
+10. Choose **Create metadata table configuration**.
+    If your metadata table configuration was successful, the names and ARNs for your metadata
+    tables are displayed on the **Metadata** tab, along with the name of your AWS
+    managed table bucket and namespace.
 
 If you chose to enable an inventory table for your metadata table configuration, the table
 goes through a process known as _backfilling_, during which Amazon S3
@@ -278,9 +330,9 @@ journal table records will expire. To set the `Days` value, you can specify any
 whole number between `7` and `2147483647`. For example, to retain your
 journal table records for one year, set this value to `365`.
 
-You can optionally choose to configure an inventory table.
+You can optionally choose to configure an inventory table and an annotation table.
 
-For both journal tables and inventory tables, you can optionally specify an encryption
+For journal tables, inventory tables, and annotation tables, you can optionally specify an encryption
 configuration. By default, metadata tables are encrypted with server-side encryption using
 Amazon S3 managed keys (SSE-S3), which you can specify by setting `SseAlgorithm` to
 `AES256`.
@@ -306,6 +358,13 @@ your general purpose bucket is located.
     "EncryptionConfiguration": {
       "SseAlgorithm": "aws:kms",
       "KmsKeyArn": "arn:aws:kms:`us-east-2`:`account-id`:key/`key-id`"
+    }
+  },
+  "AnnotationTableConfiguration": {
+    "ConfigurationState": "ENABLED",
+    "Role": "arn:aws:iam::`account-id`:role/`annotation-table-role`",
+    "EncryptionConfiguration": {
+      "SseAlgorithm": "AES256"
     }
   }
 }
@@ -340,12 +399,13 @@ You can use the AWS SDKs to create a metadata table configuration in Amazon S3. 
 information, see the [list of supported SDKs](../API/API_CreateBucketMetadataConfiguration.md#API_CreateBucketMetadataConfiguration_SeeAlso "../API/API_CreateBucketMetadataConfiguration.md#API_CreateBucketMetadataConfiguration_SeeAlso") in the _Amazon S3 API
 Reference_.
 
-## Enabling inventory tables on metadata configurations created before July 15, 2025
+## Enabling inventory and annotation tables on metadata configurations created before July 15, 2025
 
 If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete
-and re-create your configuration so that you can expire journal table records and create an inventory
-table. Any changes to your general purpose bucket that occur between deleting the old configuration
-and creating the new one aren't recorded in either of your journal tables.
+and re-create your configuration so that you can expire journal table records, create an inventory
+table, and create an annotation table. Any changes to your general purpose bucket that occur between
+deleting the old configuration and creating the new one aren't recorded in either of your journal
+tables.
 
 To migrate from an old metadata configuration to a new configuration, do the following:
 

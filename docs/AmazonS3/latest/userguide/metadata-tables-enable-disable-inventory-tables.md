@@ -12,7 +12,7 @@ and their versions in your bucket so that you can determine the latest state of 
 
 If you created your S3 Metadata configuration before July 15, 2025, you can't enable an inventory
 table on that configuration. We recommend that you delete and re-create your configuration so that you
-can create an inventory table and expire journal table records. For more information, see [Enabling inventory tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
+can create an inventory table and expire journal table records. For more information, see [Enabling inventory and annotation tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
 
 The inventory table contains the latest metadata for all objects in your bucket. You can use this
 table to simplify and speed up business workflows and big data jobs by identifying objects that you want

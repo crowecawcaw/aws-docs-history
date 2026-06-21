@@ -98,7 +98,7 @@ your replication.
     	+ To replicate all objects that have one or more object tags,
     	 choose **Add tag** and enter the key-value pair
     	 in the boxes. To add another tag, repeat the procedure. For more
-    	 information about object tags, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+    	 information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 10. Scroll down to the **Additional replication options**
     section, and select the replication options that you want to apply.

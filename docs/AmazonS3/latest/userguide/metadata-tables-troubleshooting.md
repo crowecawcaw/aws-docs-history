@@ -36,9 +36,9 @@ Deleting a metadata table configuration deletes only the configuration. The AWS 
 bucket and your metadata tables still exist, even if you delete the metadata table configuration.
 
 If you delete your metadata table configuration and want to re-create a configuration for the same
-general purpose bucket, you must first manually delete the old journal and inventory tables from your
-AWS managed table bucket. Otherwise, creating the new metadata table configuration fails because those
-tables already exist.
+general purpose bucket, you must first manually delete the old journal, inventory, and annotation tables
+from your AWS managed table bucket. Otherwise, creating the new metadata table configuration fails
+because those tables already exist.
 
 To delete your metadata tables, see [Deleting metadata tables](metadata-tables-delete-table.md "metadata-tables-delete-table.md").
 
@@ -46,14 +46,21 @@ To delete your metadata tables, see [Deleting metadata tables](metadata-tables-d
 
 If you created your S3 Metadata configuration before July 15, 2025, you can't enable an inventory
 table on that configuration. We recommend that you delete and re-create your configuration so that you
-can create an inventory table and expire journal table records. For more information, see [Enabling inventory tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
+can create an inventory table and expire journal table records. For more information, see [Enabling inventory and annotation tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
+
+## I can't enable an annotation table on my configuration
+
+If you created your S3 Metadata configuration before July 15, 2025, you can't enable an annotation
+table on that configuration. We recommend that you delete and re-create your configuration so that you
+can create an annotation table, create an inventory table, and expire journal table records. For more
+information, see [Enabling inventory and annotation tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
 
 ## I can't enable journal table record expiration on my configuration
 
 If you created your S3 Metadata configuration before July 15, 2025, you can't enable journal table
 record expiration on that configuration. We recommend that you delete and re-create your configuration
 so that you can expire journal table records and create an inventory table. For more information, see
-[Enabling inventory tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
+[Enabling inventory and annotation tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
 
 ## I can't query my metadata tables
 
@@ -97,7 +104,7 @@ metadata table configuration.
 We recommend updating your processes to use the new V2 API operations
 (`CreateBucketMetadataConfiguration`, `GetBucketMetadataConfiguraion`, and
 `DeleteBucketMetadataConfiguration`) instead of the V1 API operations. For more information
-about migrating from V1 of S3 Metadata to V2, see [Enabling inventory tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
+about migrating from V1 of S3 Metadata to V2, see [Enabling inventory and annotation tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
 
 To determine whether your configuration is V1 or V2, you can look at the following attribute of your
 `GetBucketMetadataConfiguration` API response. An AWS managed bucket type

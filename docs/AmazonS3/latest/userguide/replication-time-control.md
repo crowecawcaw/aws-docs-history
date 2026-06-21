@@ -102,7 +102,7 @@ replication](https://aws.amazon.com/s3/faqs/#Replication "https://aws.amazon.com
 
 If you expect your S3 RTC data transfer rate to exceed the default 1 Gbps quota,
 contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") or use [Service
-Quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") to request an increase in your replication transfer rate quota.
+Quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") to request an increase in your replication transfer rate quota. When calculating your transfer rate, include annotation data because annotation bytes count toward the S3 RTC data transfer rate quota.
 
 ### AWS KMS encrypted object replication request rates
 

@@ -33,6 +33,10 @@ ownership applies only to objects created after you add a replication configurat
 the bucket.
 
 - Object tags, if there are any.
+- Object annotations, if there are any. Each annotation replicates independently as
+  changes occur during live replication. During S3 Batch Replication, annotations are
+  replicated independently alongside the object, but there are no separate job tasks for
+  individual annotations. If annotation replication fails, the job task fails, but the object's replication status does not reflect the annotation failure.
 - S3 Object Lock retention information, if there is any.
 
 When Amazon S3 replicates objects that have retention information applied, it applies
@@ -140,3 +144,18 @@ To replicate objects that have been tagged after the `PutObject`
 operation, you must use S3 Batch Replication. For more information about Batch
 Replication, see [Replicating existing
 objects](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
+
+- Annotation deletions on the source bucket are not replicated to the destination. If
+  you delete an annotation on the source, the annotation persists on the replica. You
+  cannot exclude annotations from replication using replication rule filters. When
+  replication is configured, all annotation creates and updates are replicated unless the replication
+  role policy explicitly denies `s3:ReplicateObjectAnnotation`.
+
+If annotations are repeatedly deleted and recreated on the source with different
+names, the destination replica accumulates annotations over time because deletions are
+not replicated. This accumulation can eventually cause the destination to exceed the
+1,000 annotation limit per object version.
+
+Annotation overwrites (updates to an existing annotation name) at the source are
+replicated to the destination. The destination annotation content stays current with the
+source.

@@ -27,6 +27,7 @@ Currently, Amazon S3 can publish notifications for the following events:
 - S3 Intelligent-Tiering automatic archival events
 - Object tagging events
 - Object ACL PUT events
+- Object Annotation events
 
 For full descriptions of all the supported event types, see [Supported event types for SQS, SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
 

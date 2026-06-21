@@ -39,3 +39,69 @@ S3 Replication](https://aws.amazon.com/getting-started/hands-on/replicate-data-u
   objects](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md")
 - [Replicating metadata changes](replication-for-metadata-changes.md "replication-for-metadata-changes.md")
 - [Replicating delete markers](delete-marker-replication.md "delete-marker-replication.md")
+- [Replicating annotations](#replication-annotations "#replication-annotations")
+
+## Replicating annotations
+
+When you configure replication on a bucket, Amazon S3 replicates annotations
+automatically as part of live replication. Each annotation replicates independently
+as changes occur. To replicate annotations, the replication IAM role must include
+the `s3:GetObjectVersionAnnotationForReplication` permission on the source
+bucket.
+
+The following example shows the source bucket statement in the IAM role
+permissions policy with the annotation replication permission included:
+
+```
+{
+   "Effect": "Allow",
+   "Action": [
+      "s3:GetObjectVersionForReplication",
+      "s3:GetObjectVersionAcl",
+      "s3:GetObjectVersionTagging",
+      "s3:GetObjectVersionAnnotationForReplication"
+   ],
+   "Resource": [
+      "arn:aws:s3:::`amzn-s3-demo-source-bucket`/*"
+   ]
+}
+```
+
+No additional destination bucket permissions are required for annotation replication.
+The `s3:ReplicateObject` permission on the destination bucket covers
+annotation replication.
+
+Note the following behaviors for annotation replication:
+
+- Annotation additions and updates on the source are replicated to the
+  destination. Each annotation replicates independently as changes occur.
+- Annotation deletions on the source are not replicated to the destination. If
+  you delete an annotation on the source, the annotation persists on the
+  destination.
+- If you repeatedly delete and recreate annotations on the source with different
+  names, annotations accumulate on the destination over time because deletions are
+  not replicated.
+
+If you don't want annotations to replicate to a destination bucket, the destination
+bucket owner can add a Deny statement for the
+`s3:ReplicateObjectAnnotation` action to the destination bucket policy.
+Object replication continues to succeed; only annotation replication is blocked. The
+following example shows the Deny statement:
+
+```
+...
+   "Statement":[
+      {
+         "Effect":"Deny",
+         "Principal":{
+            "AWS":"arn:aws:iam::`source-bucket-account-id`:`role/service-role/source-account-IAM-role`"
+         },
+         "Action":"s3:ReplicateObjectAnnotation",
+         "Resource":"arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
+      }
+   ]
+...
+```
+
+For more information about annotation replication behavior, see [What does Amazon S3 replicate?](replication-what-is-isnot-replicated.md "replication-what-is-isnot-replicated.md"). For permission setup
+instructions, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").

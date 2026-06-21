@@ -13,6 +13,10 @@ object.
 
 You can use the presigned URL multiple times, up to the expiration date and time.
 
+Annotation API operations (`PutObjectAnnotation`,
+`GetObjectAnnotation`, `ListObjectAnnotations`, and
+`DeleteObjectAnnotation`) support presigned URLs.
+
 When you create a presigned URL, you must provide your security credentials, and then specify
 the following:
 

@@ -1,7 +1,7 @@
 # Add a tag-set through an access point for a general purpose bucket
 
 This section explains how to add a tag-set through an access point for a general purpose bucket using the AWS Management Console,
-AWS Command Line Interface, or REST API. For more information, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+AWS Command Line Interface, or REST API. For more information, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 ###### To add a tag-set through an access point in your AWS account
 

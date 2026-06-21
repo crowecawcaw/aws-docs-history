@@ -56,6 +56,6 @@ properties for the object.
      pairs that represents its metadata. For information about adding metadata to an S3
      object, see [Editing object metadata in the Amazon S3 console](add-object-metadata.md "add-object-metadata.md").
     4. **Tags** – You categorize storage by adding tags to an S3
-     object in a general purpose bucket. For more information, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+     object in a general purpose bucket. For more information, see [Tagging your objects](object-tagging.md "object-tagging.md").
     5. **Object lock legal hold and retention** – You can prevent an
      object in a general purpose bucket from being deleted. For more information, see [Locking objects with Object Lock](object-lock.md "object-lock.md").

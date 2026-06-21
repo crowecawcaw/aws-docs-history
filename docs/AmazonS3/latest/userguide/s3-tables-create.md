@@ -135,7 +135,14 @@ aws s3tables create-table --cli-input-json file://`mytabledefinition.json`
 ```
 
 For the `mytabledefinition.json` file, use the following example table
-definition. To use this example, replace the `user input
+definition. To create a partitioned table, include a `partitionSpec` in the table
+metadata. Each partition field references a column in your schema by its `sourceId` and
+applies a transform (such as `identity`, `bucket`, `truncate`,
+`year`, `month`, `day`, or `hour`) to produce the
+partition value. Because partition fields reference schema columns by ID, you must assign an explicit
+`id` to each field in your schema. The following example assigns IDs to the schema fields
+and partitions the table by the `registration_date` column using the `day`
+transform. To use this example, replace the `user input
  placeholders` with your own information.
 
 ```
@@ -148,9 +155,15 @@ definition. To use this example, replace the `user input
         "iceberg": {
             "schema": {
                 "fields": [
-                     {"name": "`id`", "type": "`int`",`"required": true`},
-                     {"name": "`name`", "type": "`string`"},
-                     {"name": "`value`", "type": "`int`"}
+                     {"id": 1, "name": "`id`", "type": "`int`", "required": true},
+                     {"id": 2, "name": "`name`", "type": "`string`"},
+                     {"id": 3, "name": "`registration_date`", "type": "`timestamp`"}
+                ]
+            },
+            "partitionSpec": {
+                "specId": 0,
+                "fields": [
+                    {"sourceId": 3, "transform": "day", "name": "registration_day"}
                 ]
             }
         }
@@ -163,17 +176,24 @@ such as in an Apache Spark session on Amazon EMR.
 
 The following example shows how to create a table with Spark by using
 `CREATE` statements, and add table data by using `INSERT` statements or by
-reading data from an existing file. To use this example, replace the `user input
- placeholders` with your own information.
+reading data from an existing file. To create a partitioned table, add a `PARTITIONED BY`
+clause to the `CREATE` statement. You can partition by one or more columns directly
+(identity partitioning) or by applying a partition transform such as `bucket`,
+`truncate`, `years`, `months`, `days`, or
+`hours`. The following example partitions the table by the
+`registration_date` column using the `days` transform. To use this example,
+replace the `user input placeholders` with your own
+information.
 
 ```
 spark.sql(
 " CREATE TABLE IF NOT EXISTS s3tablesbucket.`example_namespace`.``example_table`` (
     id INT,
     name STRING,
-    value INT
+    registration_date TIMESTAMP
 )
-USING iceberg "
+USING iceberg
+PARTITIONED BY (days(registration_date)) "
 )
 ```
 

@@ -8,7 +8,17 @@ non-filterable metadata field, the request will return a `400 Bad
  Request` error. For more information about metadata filtering, see [Metadata filtering](s3-vectors-metadata-filtering.md "s3-vectors-metadata-filtering.md").
 
 In the response, the vector keys are returned by default. You can optionally include the
-distance and metadata in the response.
+distance and metadata in the response. When `topK` exceeds the page size, results
+are returned across multiple pages. The response includes a `nextToken` that you
+use to retrieve the next page. Continue making `QueryVectors` requests with the
+same `queryVector`, `topK`, and `filter` parameters,
+passing the `nextToken` from each response, until `nextToken` is no
+longer present. Alternatively, you can use the built-in paginators in the AWS SDKs to
+automatically iterate through all pages without manually handling
+`nextToken`. Pagination tokens remain valid for several minutes after the query is
+executed. If a pagination token expires, re-issue the original query to start a new session.
+Writes to the vector index between page retrievals will not be reflected in that query
+session. For specific limits on `topK` and page size, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
 
 When generating the query vector, you should use the same vector embedding model that was
 used to generate the initial vectors that are stored in the vector index. For example, if
@@ -27,7 +37,12 @@ query process by handling both the vector embedding generation with Amazon Bedro
 executing semantic search operations against your S3 vector indexes. For more information
 about using this tool for querying your vector data, see [Creating vector embeddings and performing semantic searches with s3vectors-embed-cli](s3-vectors-cli.md "s3-vectors-cli.md").
 
-S3 Vectors delivers sub-second response times for cold queries, leveraging Amazon S3 elastic throughput to efficiently search across millions of vectors. This makes it highly cost-effective for workloads with infrequent queries. For warm queries, S3 Vectors can deliver response times as low as 100ms, benefiting workloads with repeated or frequent query patterns.
+S3 Vectors delivers sub-second response times for cold queries, leveraging Amazon S3
+elastic throughput to efficiently search across billions of vectors. This makes it highly
+cost-effective for workloads with infrequent queries. For warm queries, S3 Vectors can
+deliver response times as low as 100ms, benefiting workloads with repeated or frequent query
+patterns. When query results are returned across multiple pages, subsequent pages can be
+accessed immediately.
 
 For performing similarity queries for your vector embeddings, several factors can
 affect average recall performance, including the vector embedding model, the size of the
@@ -85,5 +100,36 @@ response = s3vectors.query_vectors(
     returnMetadata=True
 )
 print(json.dumps(response["vectors"], indent=2))
+
+# Paginated query with manual nextToken handling.
+query_params = dict(
+    vectorBucketName="media-embeddings",
+    indexName="movies",
+    queryVector={"float32": embedding},
+    topK=500,
+    returnDistance=True,
+    returnMetadata=True,
+)
+response = s3vectors.query_vectors(**query_params)
+for vector in response["vectors"]:
+    print(vector)
+while response.get("nextToken") is not None:
+    response = s3vectors.query_vectors(**query_params, nextToken=response["nextToken"])
+    for vector in response["vectors"]:
+        print(vector)
+
+# Use the built-in paginator to automatically iterate through all pages.
+paginator = s3vectors.get_paginator("query_vectors")
+
+for page in paginator.paginate(
+    vectorBucketName="media-embeddings",
+    indexName="movies",
+    queryVector={"float32": embedding},
+    topK=500,
+    returnDistance=True,
+    returnMetadata=True,
+):
+    for vector in page["vectors"]:
+        print(vector)
 
 ```

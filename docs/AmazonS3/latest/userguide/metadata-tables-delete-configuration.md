@@ -9,9 +9,9 @@ will no longer be updated.
 ###### Note
 
 If you delete your metadata table configuration and want to re-create a configuration for the same
-general purpose bucket, you must first manually delete the old journal and inventory tables from your
-AWS managed table bucket. Otherwise, creating the new metadata table configuration fails because
-those tables already exist. To delete your metadata tables, see [Deleting metadata tables](metadata-tables-delete-table.md "metadata-tables-delete-table.md").
+general purpose bucket, you must first manually delete the old journal, inventory, and annotation
+tables from your AWS managed table bucket. Otherwise, creating the new metadata table configuration
+fails because those tables already exist. To delete your metadata tables, see [Deleting metadata tables](metadata-tables-delete-table.md "metadata-tables-delete-table.md").
 
 To delete your metadata tables, see [Delete a metadata table](metadata-tables-delete-table.md#delete-metadata-table-procedure "metadata-tables-delete-table.md#delete-metadata-table-procedure"). To delete
 your table bucket, see [Deleting table buckets](s3-tables-buckets-delete.md "s3-tables-buckets-delete.md") and

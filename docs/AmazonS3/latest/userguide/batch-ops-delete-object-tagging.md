@@ -11,7 +11,7 @@ object in the manifest. If you don't include a version ID for an object, S3 Batc
 removes the tag set from the latest version of every object. For more information about
 Batch Operations manifests, see [Specifying a manifest](batch-ops-create-job.md#specify-batchjob-manifest "batch-ops-create-job.md#specify-batchjob-manifest").
 
-For more details about object tagging, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md") in this guide, and [PutObjectTagging](../API/API_PutObjectTagging.md "../API/API_PutObjectTagging.md"), [GetObjectTagging](../API/API_GetObjectTagging.md "../API/API_GetObjectTagging.md"), and [DeleteObjectTagging](../API/API_DeleteObjectTagging.md "../API/API_DeleteObjectTagging.md") in the
+For more details about object tagging, see [Tagging your objects](object-tagging.md "object-tagging.md") in this guide, and [PutObjectTagging](../API/API_PutObjectTagging.md "../API/API_PutObjectTagging.md"), [GetObjectTagging](../API/API_GetObjectTagging.md "../API/API_GetObjectTagging.md"), and [DeleteObjectTagging](../API/API_DeleteObjectTagging.md "../API/API_DeleteObjectTagging.md") in the
 _Amazon Simple Storage Service API Reference_.
 
 ###### Warning

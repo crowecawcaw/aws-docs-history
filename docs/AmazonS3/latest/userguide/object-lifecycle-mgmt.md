@@ -33,6 +33,13 @@ prevent deletions or transitions by an S3 Lifecycle rule. For example, even if y
 bucket policy denies all actions for all principals, your S3 Lifecycle configuration
 still functions as normal.
 
+###### Note
+
+S3 Lifecycle does not independently manage annotations. Annotation storage is always
+billed at S3 Standard rates in Frequent Access storage, regardless of the parent object's
+storage class. When a Lifecycle rule expires an object, all annotations associated with
+that object version are deleted.
+
 ###### Existing and new objects
 
 When you add a Lifecycle configuration to a bucket, the configuration rules apply to

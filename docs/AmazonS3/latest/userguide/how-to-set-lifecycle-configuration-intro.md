@@ -143,7 +143,7 @@ The name must be unique within the bucket. 6. Choose the scope of the lifecycle 
     	+ To limit the scope by prefix, in **Prefix**, enter the prefix.
     	+ To limit the scope by tag, choose **Add tag**, and enter the
     	 tag key and value.
-    For more information about object name prefixes, see [Naming Amazon S3 objects](object-keys.md "object-keys.md"). For more information about object tags, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+    For more information about object name prefixes, see [Naming Amazon S3 objects](object-keys.md "object-keys.md"). For more information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md").
     * To apply this lifecycle rule to *all objects in the bucket*,
      choose **This rule applies to *all* objects in the
      bucket**, and then choose **I acknowledge that this rule applies to

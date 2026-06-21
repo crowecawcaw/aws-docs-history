@@ -1,9 +1,9 @@
 # Viewing metadata table configurations
 
 If you've created a metadata table configuration for a general purpose bucket, you can view
-information about the configuration, such as whether an inventory table has been enabled, or whether
-journal table record expiration has been enabled. You can also view the status of your journal and
-inventory tables.
+information about the configuration, such as whether an inventory table or annotation table has been
+enabled, or whether journal table record expiration has been enabled. You can also view the status of
+your journal, inventory, and annotation tables.
 
 You can view your metadata table configuration for a general purpose bucket by using the Amazon S3
 console, the AWS Command Line Interface (AWS CLI), the AWS SDKs, or the Amazon S3 REST API.
@@ -19,10 +19,11 @@ console, the AWS Command Line Interface (AWS CLI), the AWS SDKs, or the Amazon S
    want to view.
 4. On the bucket's details page, choose the **Metadata** tab.
 5. On the **Metadata** tab, scroll down to the **Metadata
-   configuration** section. In the **Journal table** and
-   **Inventory table** sections, you can view various information for these
-   configurations, such as their Amazon Resource Names (ARNs), the status of your tables, and
-   whether you've enabled journal table record expiration or an inventory table.
+   configuration** section. In the **Journal table**,
+   **Inventory table**, and **Annotation table** sections,
+   you can view various information for these configurations, such as their Amazon Resource
+   Names (ARNs), the status of your tables, and whether you've enabled journal table record
+   expiration, an inventory table, or an annotation table.
    To run the following commands, you must have the AWS CLI installed and configured. If you don’t
    have the AWS CLI installed, see [Install or update to the latest version
    of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the _AWS Command Line Interface User Guide_.
@@ -79,6 +80,16 @@ aws s3api get-bucket-metadata-configuration \
                 "EncryptionConfiguration": {
                     "SseAlgorithm": "AES256"
                 }
+            },
+            "AnnotationTableConfigurationResult": {
+                "ConfigurationState": "ENABLED",
+                "TableStatus": "ACTIVE",
+                "TableName": "annotation",
+                "TableArn": "arn:aws:s3tables:us-east-2:111122223333:bucket/aws-managed-s3-111122223333-us-east-2/table/f234567-a890-1b2c-d345-e678901f2345",
+                "EncryptionConfiguration": {
+                    "SseAlgorithm": "AES256"
+                },
+                "Role": "arn:aws:iam::111122223333:role/annotation-table-role"
             }
         }
     }

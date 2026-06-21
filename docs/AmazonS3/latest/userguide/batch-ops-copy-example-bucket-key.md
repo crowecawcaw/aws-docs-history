@@ -250,53 +250,52 @@ following:
      ``amzn-s3-demo-completion-report-bucket`` with
      the name of the bucket where you want to save your completion reports.
 
-JSON
-
 ```
- `{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "CopyObjectsToEncrypt",
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:PutObjectTagging",
- "s3:PutObjectAcl",
- "s3:PutObjectVersionTagging",
- "s3:PutObjectVersionAcl",
- "s3:GetObject",
- "s3:GetObjectAcl",
- "s3:GetObjectTagging",
- "s3:GetObjectVersion",
- "s3:GetObjectVersionAcl",
- "s3:GetObjectVersionTagging"
- ],
- "Resource": [
- "arn:aws:s3:::amzn-s3-demo-source-bucket/*",
- "arn:aws:s3:::amzn-s3-demo-destination-bucket/*"
- ]
- },
- {
- "Sid": "ReadManifest",
- "Effect": "Allow",
- "Action": [
- "s3:GetObject",
- "s3:GetObjectVersion"
- ],
- "Resource": "arn:aws:s3:::``amzn-s3-demo-manifest-bucket`/`manifest-key``"
- },
- {
- "Sid": "WriteReport",
- "Effect": "Allow",
- "Action": [
- "s3:PutObject"
- ],
- "Resource": "arn:aws:s3:::`amzn-s3-demo-completion-report-bucket`/*"
- }
- ]
- }`
-
+  {
+    "Version":"2012-10-17",
+    "Statement": [
+      {
+        "Sid": "CopyObjectsToEncrypt",
+        "Effect": "Allow",
+        "Action": [
+          "s3:PutObject",
+          "s3:PutObjectTagging",
+          "s3:PutObjectAcl",
+          "s3:PutObjectVersionTagging",
+          "s3:PutObjectVersionAcl",
+          "s3:GetObject",
+          "s3:GetObjectAcl",
+          "s3:GetObjectTagging",
+          "s3:GetObjectVersion",
+          "s3:GetObjectVersionAcl",
+          "s3:GetObjectVersionTagging",
+          "s3:GetObjectAnnotation",
+          "s3:GetObjectVersionAnnotation"
+        ],
+        "Resource": [
+          "arn:aws:s3:::`amzn-s3-demo-source-bucket`/*",
+          "arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
+        ]
+      },
+      {
+        "Sid": "ReadManifest",
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:GetObjectVersion"
+        ],
+        "Resource": "arn:aws:s3:::``amzn-s3-demo-manifest-bucket`/`manifest-key``"
+      },
+      {
+        "Sid": "WriteReport",
+        "Effect": "Allow",
+        "Action": [
+          "s3:PutObject"
+        ],
+        "Resource": "arn:aws:s3:::`amzn-s3-demo-completion-report-bucket`/*"
+      }
+    ]
+  }
 ```
 
 4. Choose **Next: Tags**.

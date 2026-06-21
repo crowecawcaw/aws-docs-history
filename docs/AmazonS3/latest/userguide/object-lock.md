@@ -38,6 +38,15 @@ If you put an object into a bucket that already contains an existing protected o
 the same object key name, Amazon S3 creates a new version of that object. The existing protected
 version of the object remains locked according to its retention configuration.
 
+###### Note
+
+Objects protected by Object Lock (both GOVERNANCE and COMPLIANCE modes) do not allow
+annotation modifications (create, update, or delete). The
+`BypassGovernanceRetention` permission does not apply to annotation
+operations. To add annotations to a locked object, create a new object version. The new
+version is not subject to the previous version's retention settings unless you explicitly
+apply retention to it.
+
 ## How S3 Object Lock works
 
 ###### Topics

@@ -39,7 +39,7 @@ access point:
   pairs that you can add to objects. Tags help you find and organize
   objects easily. You can also use tags as a filter for metrics
   configurations so that only objects with those tags are included in the
-  metrics configuration. For more information about object tags, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+  metrics configuration. For more information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 To align these metrics to specific business applications, workflows, or
 internal organizations, you can filter on a shared prefix, object tag, or access point.

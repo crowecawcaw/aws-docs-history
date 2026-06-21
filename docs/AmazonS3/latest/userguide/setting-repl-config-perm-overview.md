@@ -267,9 +267,13 @@ The permissions policy grants permissions for the following actions:
      grant permission for the `s3:ReplicateTags` action.
     + `s3:GetObjectVersionTagging` – Permissions for this action on
      objects in the ``amzn-s3-demo-source-bucket`` bucket allow Amazon S3 to read
-     object tags for replication. For more information about object tags, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md"). If Amazon S3 doesn't have
+     object tags for replication. For more information about object tags, see [Tagging your objects](object-tagging.md "object-tagging.md"). If Amazon S3 doesn't have
      the `s3:GetObjectVersionTagging` permission, it replicates the objects,
      but not the object tags.
+    + `s3:GetObjectVersionAnnotationForReplication` – Permissions
+     for this action on objects in the source bucket allow Amazon S3 to read annotations for
+     replication. If Amazon S3 doesn't have this permission, annotation replication fails. For
+     more information about annotations, see [Annotating your objects](annotations-overview.md "annotations-overview.md").
 
 For a list of Amazon S3 actions, see [Actions, resources, and condition keys for Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md#list_amazons3-actions-as-permissions "../../../service-authorization/latest/reference/list_amazons3.md#list_amazons3-actions-as-permissions") in the _Service Authorization Reference_.
 
@@ -380,6 +384,31 @@ If objects in the source bucket are tagged, note the following:
             "AWS":"arn:aws:iam::`source-bucket-account-id`:`role/service-role/source-account-IAM-role`"
          },
          "Action":"s3:ReplicateTags",
+         "Resource":"arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
+      }
+   ]
+...
+```
+
+- Similarly, if the source bucket owner grants Amazon S3 permission for the
+  `s3:GetObjectVersionAnnotationForReplication` action to replicate
+  annotations (through the IAM role), Amazon S3 replicates the annotations along with the
+  objects. For information about the IAM role, see [Step 2: Creating an IAM role for Amazon S3 to assume](#setting-repl-config-same-acctowner "#setting-repl-config-same-acctowner").
+
+If the owner of the destination bucket doesn't want to replicate the annotations,
+they can add the following statement to the destination bucket policy to explicitly deny
+permission for the `s3:ReplicateObjectAnnotation` action. In this policy,
+`amzn-s3-demo-destination-bucket` is the destination bucket.
+
+```
+...
+   "Statement":[
+      {
+         "Effect":"Deny",
+         "Principal":{
+            "AWS":"arn:aws:iam::`source-bucket-account-id`:`role/service-role/source-account-IAM-role`"
+         },
+         "Action":"s3:ReplicateObjectAnnotation",
          "Resource":"arn:aws:s3:::`amzn-s3-demo-destination-bucket`/*"
       }
    ]

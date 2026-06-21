@@ -10,7 +10,7 @@ By default, S3 Metadata provides three types of metadata:
 
 - [System-defined metadata](UsingMetadata.md#SysMetadata "UsingMetadata.md#SysMetadata"), such as an object's creation
   time and storage class
-- Custom metadata, such as tags and [user-defined
+- Custom object metadata, such as tags, annotations, and [user-defined
   metadata](UsingMetadata.md#UserMetadata "UsingMetadata.md#UserMetadata") that was included during object upload
 - Event metadata, such as when an object is updated or deleted, and the AWS account that
   made the request
@@ -18,8 +18,8 @@ By default, S3 Metadata provides three types of metadata:
   quickly prepare data for use in business analytics, content retrieval, artificial intelligence and machine
   learning (AI/ML) model training, and more.
 
-For each general purpose bucket, you can create a metadata table configuration that contains two
-complementary metadata tables:
+For each general purpose bucket, you can create a metadata table configuration that contains up to three
+metadata tables:
 
 - **Journal table** – By default, your metadata table
   configuration contains a _journal table_, which captures events that
@@ -64,6 +64,20 @@ one billion objects, you're also charged a monthly fee for your live inventory t
 information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 For more information about what data is stored in live inventory tables, see [S3 Metadata live inventory tables schema](metadata-tables-inventory-schema.md "metadata-tables-inventory-schema.md").
+
+- **Annotation table** – Optionally, you can add an
+  _annotation table_ to your metadata table configuration.
+  The annotation table tracks the latest annotations on the objects in your bucket and makes
+  annotation content directly queryable. Each row represents one annotation on a specific
+  object version.
+
+You can use the annotation table to discover and retrieve objects based on annotation
+values. For example, you can query the annotation table to find all objects with a specific
+annotation key, retrieve annotation content that matches a predicate based on object size or
+key prefix, or correlate annotations across objects.
+
+For more information about configuring the annotation table, see [Enabling or disabling annotation tables](metadata-tables-enable-disable-annotation-tables.md "metadata-tables-enable-disable-annotation-tables.md"). For more information about the
+annotation table schema, see [S3 Metadata annotation table schema](metadata-tables-annotation-schema.md "metadata-tables-annotation-schema.md").
 Your metadata tables are stored in an AWS managed S3 table bucket, which provides storage that's
 optimized for tabular data. To query your metadata, you can integrate your table bucket with Amazon SageMaker Lakehouse.
 This integration, which uses the AWS Glue Data Catalog and AWS Lake Formation, allows AWS analytics services to
@@ -182,6 +196,7 @@ maintenance happens automatically, requiring no opt-in or ongoing management by 
 - [Metadata table limitations and restrictions](metadata-tables-restrictions.md "metadata-tables-restrictions.md")
 - [S3 Metadata journal tables schema](metadata-tables-schema.md "metadata-tables-schema.md")
 - [S3 Metadata live inventory tables schema](metadata-tables-inventory-schema.md "metadata-tables-inventory-schema.md")
+- [S3 Metadata annotation table schema](metadata-tables-annotation-schema.md "metadata-tables-annotation-schema.md")
 - [Configuring metadata tables](metadata-tables-configuring.md "metadata-tables-configuring.md")
 - [Querying metadata tables](metadata-tables-querying.md "metadata-tables-querying.md")
 - [Troubleshooting S3 Metadata](metadata-tables-troubleshooting.md "metadata-tables-troubleshooting.md")

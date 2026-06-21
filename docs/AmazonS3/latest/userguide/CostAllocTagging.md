@@ -5,7 +5,7 @@ label your Amazon S3 buckets using cost allocation tags. A _cost allocation
 tag_ is a key-value pair that you associate with an S3 bucket. After you
 activate cost allocation tags, AWS uses the tags to organize your resource costs on your
 cost allocation report. Cost allocation tags can only be used to label buckets. For
-information about tags used for labeling objects, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
+information about tags used for labeling objects, see [Tagging your objects](object-tagging.md "object-tagging.md").
 
 The _cost allocation report_ lists the AWS usage for your account by
 product category and linked account user. The report contains the same line items as the

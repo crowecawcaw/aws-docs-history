@@ -5,18 +5,20 @@ format.
 
 For a general overview and instructions on configuring event notifications, see [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md").
 
-This example shows _version 2.1_ of the event notification JSON
-structure. Amazon S3 uses _versions 2.1_, _2.2_, and _2.3_ of this event structure. Amazon S3 uses
-version 2.2 for cross-Region replication event notifications. It uses version 2.3 for S3 Lifecycle,
-S3 Intelligent-Tiering, object ACL, object tagging, and object restoration delete events. These
-versions contain extra information specific to these operations. Versions 2.2 and 2.3 are otherwise
-compatible with version 2.1, which Amazon S3 currently uses for all other event notification types.
+This example shows _version 2.4_ of the event notification JSON
+structure. Starting with version 2.4, Amazon S3 uses a single unified version for all event types.
+Each event contains extra information specific to the operation. Previously, Amazon S3 used version
+2.1 for general events, version 2.2 for cross-Region replication events, and version 2.3 for
+S3 Lifecycle, S3 Intelligent-Tiering, object ACL, object tagging, and object restoration delete
+events.
+
+Prior to version 2.4, different event types used different versions of the event notification structure (2.1, 2.2, 2.3). Starting with version 2.4, all event types use a single, unified version. Going forward, the event version is incremented consistently across all event types whenever the schema evolves.
 
 ```
 {
    "Records":[
       {
-         "eventVersion":"2.1",
+         "eventVersion":"2.4",
          "eventSource":"aws:s3",
          "awsRegion":"us-west-2",
          "eventTime":"`The time, in ISO-8601 format (for example, 1970-01-01T00:00:00.000Z) when Amazon S3 finished processing the request`",
@@ -70,14 +72,7 @@ that's not backward compatible. This includes removing a JSON field that's
 already present or changing how the contents of a field are represented (for
 example, a date format).
 
-The minor version is incremented if Amazon S3 adds new fields to the event structure. This
-might occur if new information is provided for some or all existing events. This might also occur
-if new information is provided only for newly introduced event types. To stay compatible with new
-minor versions of the event structure, we recommend that your applications ignore new
-fields.
-
-If new event types are introduced, but the structure of the event is otherwise
-unmodified, the event version doesn't change.
+The minor version is incremented if Amazon S3 makes a backward-compatible change to the event structure. This includes adding new fields to the event structure or introducing new event types. To stay compatible with new minor versions of the event structure, we recommend that your applications ignore new fields.
 
 To ensure that your applications can parse the event structure correctly, we
 recommend that you do an equal-to comparison on the major version number. To
@@ -136,6 +131,13 @@ Note the following:
   S3 Intelligent-Tiering events.
 - The `lifecycleEventData` key value is only visible for S3 Lifecycle transition
   events.
+- The `objectAnnotation` key value is only visible for annotation
+  events (`ObjectAnnotation:Put` and `ObjectAnnotation:Delete`). It
+  contains an array with the annotation `name`, `size` (Put events
+  only), and `eTag` (Put events only).
+- For `ObjectCreated:Copy` events, the `object` block
+  includes a `hasObjectAnnotation` boolean field that indicates whether the
+  copied object has annotations.
 
 ## Example messages
 
@@ -174,7 +176,7 @@ The following is an example of a message that Amazon S3 sends to publish an
 {
    "Records":[
       {
-         "eventVersion":"2.1",
+         "eventVersion":"2.4",
          "eventSource":"aws:s3",
          "awsRegion":"us-west-2",
          "eventTime":"1970-01-01T00:00:00.000Z",
