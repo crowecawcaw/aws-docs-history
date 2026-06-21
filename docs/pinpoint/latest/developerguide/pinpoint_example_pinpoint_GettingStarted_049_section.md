@@ -6,7 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Getting started with End User Messaging Push
+# Getting started with push notifications
 
 The following code example shows how to:
 

@@ -17,4 +17,4 @@ Scenarios target an intermediate level of experience to help you understand serv
 
 ###### Examples
 
-- [Getting started with End User Messaging Push](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")
+- [Getting started with push notifications](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")

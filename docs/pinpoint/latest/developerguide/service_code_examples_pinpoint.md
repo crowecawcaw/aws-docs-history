@@ -40,4 +40,4 @@ This topic also includes information about getting started and details about pre
 
 - [Scenarios](service_code_examples_pinpoint_scenarios.md "service_code_examples_pinpoint_scenarios.md")
 
-  - [Getting started with End User Messaging Push](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")
+  - [Getting started with push notifications](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")
