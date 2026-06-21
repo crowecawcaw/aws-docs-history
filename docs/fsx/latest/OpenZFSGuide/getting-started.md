@@ -458,8 +458,19 @@ Windows
 
 ###### Note
 
-Mounting FSx for OpenZFS volumes to Windows clients leverages the NFS v3 protocol. The following instructions
-include the necessary steps to install the NFS client on your Windows-based EC2 instance.
+For Windows-based production workloads, we recommend the following:
+
+- [Amazon FSx for NetApp ONTAP](../ONTAPGuide/what-is-fsx-ontap.md "../ONTAPGuide/what-is-fsx-ontap.md"),
+  which provides multi-protocol (NFS and SMB) access and full Windows support.
+- [Amazon FSx for Windows File Server](../WindowsGuide/what-is.md "../WindowsGuide/what-is.md"),
+  which provides native SMB support and Active Directory integration.
+
+###### Note
+
+If you need to access FSx for OpenZFS from Windows, consider using a third-party NFS client.
+If you choose to use the native Windows NFS client, the following instructions include the necessary steps
+to install and configure it on your Windows-based EC2 instance. Mounting FSx for OpenZFS volumes to Windows
+clients leverages the NFS v3 protocol.
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
