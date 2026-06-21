@@ -16,7 +16,6 @@ Amazon Connect Health ambient documentation is available in the US East (N. Virg
 - [Consent and patient notification](#al-consent "#al-consent")
 - [Subscription management](#al-subscription-management "#al-subscription-management")
 - [Streaming audio](#al-streaming "#al-streaming")
-- [Using the AWS SDKs](#al-using-sdks "#al-using-sdks")
 - [Storage](#al-storage "#al-storage")
 - [Patient context](#al-patient-context "#al-patient-context")
 - [Clinical note templates](#al-templates "#al-templates")
@@ -24,10 +23,10 @@ Amazon Connect Health ambient documentation is available in the US East (N. Virg
 
 ## How ambient documentation works
 
-Ambient documentation uses HTTP/2 streaming for real-time audio processing. The workflow includes:
+Ambient documentation uses real-time audio streaming over HTTP/2 or WebSocket. The workflow includes:
 
 1. **Create a subscription** — Associate a provider with the ambient documentation agent. Subscriptions are automatically created in activated mode.
-2. **Stream audio** — Your application streams audio from the patient-clinician conversation to Amazon Connect Health using HTTP/2. The service transcribes the audio in real time and identifies speakers.
+2. **Stream audio** — Your application streams audio from the patient-clinician conversation to Amazon Connect Health over HTTP/2 or WebSocket. The service transcribes the audio in real time and identifies speakers.
 3. **Generate documentation** — After the conversation ends, the service generates structured clinical notes, evidence mappings, and an after-visit summary based on the configured template.
 4. **Retrieve outputs** — The service writes the transcript, clinical documentation, and after-visit summary to your configured Amazon S3 bucket.
 
@@ -99,15 +98,23 @@ Deactivated subscriptions can be reactivated by calling the `ActivateSubscriptio
 
 ## Streaming audio
 
-Ambient documentation uses HTTP/2 streaming to process audio in real time. Your application establishes an HTTP/2 connection, sends audio chunks as event-encoded messages, and receives transcription results as the conversation progresses.
+Ambient documentation processes audio in real time over a streaming connection. Your application opens a connection, sends audio chunks as event-encoded messages, and receives transcription results as the conversation progresses. Ambient documentation supports two streaming transports: HTTP/2 and WebSocket (`wss://`). Both transports deliver the same capability, with the same authentication and authorization requirements, quotas, and throttling. Session behavior — creation, streaming, and termination — is identical across both transports.
+
+###### Note
+
+A session is bound to the transport on which it was started. You cannot start a session on one transport and resume it on the other. If you pause and resume a session, the resumed session must use the same transport that started the session.
 
 If your audio has two channels, you can use channel identification to transcribe the speech from each channel separately. Ambient documentation currently supports audio with up to two channels. In your transcript, channels are assigned the labels `ch_0` and `ch_1`.
 
 In addition to the standard transcript sections (transcripts and items), requests with channel identification enabled include a channel_labels section. This section contains each utterance or punctuation mark, grouped by channel, and its associated channel label, timestamps, and confidence score. Note that if a person on one channel speaks at the same time as a person on a separate channel, timestamps for each channel overlap while the individuals are speaking over each other.
 
-For detailed information about HTTP/2 streaming setup, authentication, and event stream encoding, see the [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+### Streaming over HTTP/2
 
-## Using the AWS SDKs
+HTTP/2 is the streaming transport used by the AWS SDKs, and is suited to server-side and native applications. Your application establishes an HTTP/2 connection, sends audio chunks and control events as event-stream messages, and receives transcript events in real time over the same connection. When you use an AWS SDK, the SDK handles connection setup, request signing, and event-stream encoding for you.
+
+For detailed HTTP/2 streaming setup and event stream encoding, see the [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+
+#### Using the AWS SDKs
 
 The following code example shows how to set up an Amazon Connect Health ambient documentation streaming session using the AWS SDK for Java 2.x.
 
@@ -341,6 +348,77 @@ public class MedicalScribeStreamingApp {
     }
 }
 ```
+
+### Streaming over WebSocket
+
+WebSocket support lets you stream audio for ambient documentation from a web browser or other WebSocket client. All WebSocket connections use TLS (`wss://`).
+
+#### WebSocket endpoint
+
+Connect to the WebSocket endpoint for the Region where you use ambient documentation:
+
+| Region    | Endpoint                                                                         |
+| --------- | -------------------------------------------------------------------------------- |
+| US-EAST-1 | `wss://streaming.health-agent.us-east-1.api.aws/medical-scribe-stream-websocket` |
+| US-WEST-2 | `wss://streaming.health-agent.us-west-2.api.aws/medical-scribe-stream-websocket` |
+
+#### Authenticating a WebSocket connection
+
+You authenticate a WebSocket connection with a presigned URL. To create the presigned URL, sign a `GET` request to the WebSocket endpoint with AWS Signature Version 4 (SigV4) and embed the signing parameters (`X-Amz-Algorithm`, `X-Amz-Credential`, `X-Amz-Date`, `X-Amz-Expires`, `X-Amz-Signature`, and `X-Amz-SignedHeaders`) and the session parameters as query string parameters. The service validates the presigned URL when the connection is established. If the presigned URL is invalid, expired, or unauthorized, the service rejects the session by returning an error and closing the connection.
+
+The maximum value for `X-Amz-Expires` is 60 seconds (1 minute). After the connection is established, the signature from the presigned URL becomes the seed signature used to sign each subsequent event-stream frame, providing continuous authorization for the life of the connection.
+
+No new IAM action is required for WebSocket. The service authorizes WebSocket connections with the same `health-agent:StartMedicalScribeListeningSession` permission used for HTTP/2 streaming.
+
+The following example shows the format of a presigned WebSocket URL. Line breaks are added for readability.
+
+```
+wss://streaming.health-agent.us-west-2.api.aws/medical-scribe-stream-websocket
+    ?X-Amz-Algorithm=AWS4-HMAC-SHA256
+    &X-Amz-Credential=<access-key>/<date>/<region>/health-agent/aws4_request
+    &X-Amz-Date=<ISO8601-datetime>
+    &X-Amz-Expires=60
+    &X-Amz-Security-Token=<session-token>
+    &X-Amz-SignedHeaders=host
+    &X-Amz-Signature=<signature>
+```
+
+#### Signing event-stream frames
+
+Every event-stream frame you send after the upgrade — configuration, audio, and session control — must be individually signed. Each frame carries two event-stream headers: `:date` (the signing timestamp) and `:chunk-signature` (the frame signature). Frame signatures form a chain: each signature is computed from the previous frame’s signature, and the first frame chains from the `X-Amz-Signature` value in the presigned URL.
+
+To sign a frame, build a string to sign using the `AWS4-HMAC-SHA256-PAYLOAD` algorithm, then compute an HMAC-SHA256 over it with a SigV4 signing key derived for the request date, Region, and `health-agent` service. The string to sign has the following format:
+
+```
+AWS4-HMAC-SHA256-PAYLOAD
+<date>                       # signing time, ISO 8601 basic format (YYYYMMDDTHHMMSSZ)
+<date-stamp>/<region>/health-agent/aws4_request
+<prior-signature>            # hex; for the first frame, the X-Amz-Signature from the presigned URL
+<hashed-headers>             # SHA-256 hex digest of the encoded :date header
+<hashed-payload>             # SHA-256 hex digest of the frame payload
+```
+
+Compute the signature and attach it to the frame:
+
+1. `signature = HMAC-SHA256(signingKey, stringToSign)`, encoded as a hex string.
+2. Add the `:date` and `:chunk-signature` headers to the frame, then send it.
+3. Store this `signature` and use it as the `<prior-signature>` when signing the next frame.
+
+The signing key is derived the same way as for any SigV4 request: chain HMAC-SHA256 over the date stamp, Region, service name (`health-agent`), and `aws4_request`, starting from your secret access key prefixed with `AWS4`.
+
+#### Sending audio over WebSocket
+
+After the connection is established, send your session configuration, then stream audio as binary audio events. Each `binaryAudioEvent` carries a chunk of raw PCM or FLAC bytes. The service returns transcript events over the same connection in real time. To end the session, send an `END_OF_SESSION` session control event.
+
+#### WebSocket client recommendations
+
+The service signals the end of a session by sending a WebSocket close frame. Design your client to handle connection closure gracefully:
+
+- **Wait for the server close frame before closing the connection.** After you send `END_OF_SESSION`, the service sends any final transcript results and then a close frame. If a send fails or an error occurs, the service may send a structured error frame followed by a close frame. Closing the connection immediately can discard these final messages, so wait for the server to close the connection.
+- **Use the close status code to determine the outcome.** A close code of `1000` (Normal Closure) indicates the session completed successfully. Any other close code indicates an error, and the close reason provides additional detail.
+- **Apply a bounded timeout as a safeguard.** To avoid waiting indefinitely if the connection becomes unresponsive, close the connection after a reasonable grace period if no server close frame is received.
+
+The AWS SDKs do not support WebSocket streaming. To stream over WebSocket, connect to the endpoint directly as described in this section. The [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") documents the API operations and their request and response parameters, which apply to both transports.
 
 ## Storage
 
