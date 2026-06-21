@@ -1,6 +1,6 @@
 # Bring Your Own Windows Desktop Licenses for Amazon WorkSpaces Applications
 
-Amazon WorkSpaces Applications now supports Windows Desktop operating systems (such as Windows 11) through Bring Your Own License (BYOL). This capability enables you to use your existing Windows Desktop OS licenses and custom images with Amazon WorkSpaces Applications, allowing you to stream business-critical applications that require Microsoft Windows Desktop OS while leveraging your current licensing investments.
+Amazon WorkSpaces Applications now supports Windows Desktop operating systems (such as Windows 11) through Bring Your Own License (BYOL). You can use your existing Windows Desktop OS licenses and custom images with Amazon WorkSpaces Applications. This lets you stream business-critical applications that require Microsoft Windows Desktop OS while using your current licensing investments.
 
 ## Overview
 
@@ -123,7 +123,9 @@ The following instance types are available for BYOL Amazon WorkSpaces Applicatio
 Windows BYOL for Amazon WorkSpaces Applications is available in all regions where both Amazon WorkSpaces Applications and WorkSpaces Personal are offered:
 
 - US East (N. Virginia)
+- US East (Ohio)
 - US West (Oregon)
+- Asia Pacific (Malaysia)
 - Asia Pacific (Mumbai)
 - Asia Pacific (Seoul)
 - Asia Pacific (Singapore)
@@ -134,6 +136,7 @@ Windows BYOL for Amazon WorkSpaces Applications is available in all regions wher
 - Europe (Ireland)
 - Europe (London)
 - Europe (Paris)
+- Israel (Tel Aviv)
 - South America (São Paulo)
 - AWS GovCloud (US-West)
 - AWS GovCloud (US-East)

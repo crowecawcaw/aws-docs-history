@@ -16,6 +16,11 @@ The MCP server is hosted in the AWS cloud. You don't need to install or
 maintain any server components. The server uses Streamable HTTP as its
 transport protocol.
 
+Agent access supports both non-domain-joined and domain-joined fleets. The
+connection method differs by fleet type. Non-domain-joined fleets authenticate
+the session with a streaming URL, while domain-joined fleets authenticate
+through SAML federation. For the path that matches your fleet, see [Connecting to the MCP server](#agent-access-mcp-server-endpoint "#agent-access-mcp-server-endpoint").
+
 ## Connecting to the MCP server
 
 Agents connect to the MCP server at the following endpoint:
@@ -24,38 +29,206 @@ Agents connect to the MCP server at the following endpoint:
 https://agentaccess-mcp.`region`.api.aws/mcp
 ```
 
-Each request must include the following:
+The MCP server is hosted in the AWS cloud and uses Streamable HTTP as its
+transport protocol. You don't need to install or maintain any server
+components.
 
-- **SigV4 signing** — All requests
-  must be signed using IAM credentials with the service name
-  `agentaccess-mcp`.
-- **Streaming URL header** — The
-  streaming URL from the `CreateStreamingURL` API must be
-  passed as the
-  `X-Amzn-AgentAccess-Streaming-Session-Url`
-  header on every request.
-
-The following Python example shows how to connect using
-`mcp-proxy-for-aws`:
+Every request must be SigV4-signed using IAM credentials with the service
+name `agentaccess-mcp`. The following Python example shows the
+general connection pattern using `mcp-proxy-for-aws`:
 
 ```
-aws_iam_streamablehttp_client(
+from mcp_proxy_for_aws import aws_iam_streamablehttp_client
+
+async with aws_iam_streamablehttp_client(
+    endpoint="https://agentaccess-mcp.`region`.api.aws/mcp",
+    aws_service="agentaccess-mcp",
+    aws_region="`region`",
+    headers={
+        # Fleet-type-specific headers (see the following subsections)
+    },
+    metadata={
+        # Fleet-type-specific metadata (see the following subsections)
+    },
+) as (read, write, _):
+    # Use read/write streams with your MCP client
+    ...
+```
+
+For other languages, write your own SigV4 signing logic for outgoing MCP
+requests or use a library that supports SigV4 signing. For more information
+about `mcp-proxy-for-aws`, see
+[mcp-proxy-for-aws](https://github.com/aws/mcp-proxy-for-aws "https://github.com/aws/mcp-proxy-for-aws")
+on GitHub.
+
+How you authenticate the streaming session depends on your fleet type:
+
+- **Non-domain-joined fleets** —
+  Pass a streaming URL as a header. See [Connecting with non-domain-joined fleets](#agent-access-mcp-server-connect-ndj "#agent-access-mcp-server-connect-ndj").
+- **Domain-joined fleets** — Pass a
+  signed SAML assertion as metadata. See [Connecting with domain-joined fleets](#agent-access-mcp-server-connect-dj "#agent-access-mcp-server-connect-dj").
+
+### Connecting with non-domain-joined fleets
+
+For non-domain-joined fleets, generate a streaming URL using the
+`CreateStreamingURL` API and pass it as the
+`X-Amzn-AgentAccess-Streaming-Session-Url` header on every
+request. No agent-specific parameters are required. The agent behavior is
+determined by the stack's agent access configuration.
+
+```
+import boto3
+from mcp_proxy_for_aws import aws_iam_streamablehttp_client
+
+# Generate streaming URL
+appstream = boto3.client("appstream", region_name="`region`")
+response = appstream.create_streaming_url(
+    StackName="`stack-name`",
+    FleetName="`fleet-name`",
+    UserId="`user-id`",
+)
+streaming_url = response["StreamingURL"]
+
+# Connect to MCP server
+async with aws_iam_streamablehttp_client(
     endpoint="https://agentaccess-mcp.`region`.api.aws/mcp",
     aws_service="agentaccess-mcp",
     aws_region="`region`",
     headers={
         "X-Amzn-AgentAccess-Streaming-Session-Url": streaming_url,
     },
-)
+) as (read, write, _):
+    ...
 ```
 
-For other languages, you need to write your own signing logic for
-outgoing MCP requests or find an available library that supports SigV4
-signing.
+For more information about the `CreateStreamingURL` API, see
+[CreateStreamingURL](../APIReference/API_CreateStreamingURL.md "../APIReference/API_CreateStreamingURL.md")
+in the _Amazon WorkSpaces Applications 2.0 API Reference_.
 
-For more information about `mcp-proxy-for-aws`, see
-[mcp-proxy-for-aws](https://github.com/aws/mcp-proxy-for-aws "https://github.com/aws/mcp-proxy-for-aws")
-on GitHub.
+### Connecting with domain-joined fleets
+
+When agents access domain-joined streaming instances, the connection
+must be federated through a SAML provider. This requirement applies to
+both standard and agent sessions. Standard sessions allow users to enter
+their password manually or use certificate-based authentication for a
+seamless login experience. For agent sessions, certificate-based
+authentication is required.
+
+Because domain-joined streaming instances require access through SAML,
+your MCP client must provide a signed SAML assertion instead of a
+streaming URL. Encoded SAML assertions exceed HTTP header size limits. To
+avoid this, use the `metadata` field in
+`mcp-proxy-for-aws`:
+
+```
+from mcp_proxy_for_aws import aws_iam_streamablehttp_client
+
+# saml_response: your signed, base64-encoded SAML assertion
+# stack_arn: the ARN of the AppStream stack for the AD user
+
+async with aws_iam_streamablehttp_client(
+    endpoint="https://agentaccess-mcp.`region`.api.aws/mcp",
+    aws_service="agentaccess-mcp",
+    aws_region="`region`",
+    metadata={
+        "saml_response": saml_response,
+        "stack_arn": stack_arn,
+    },
+) as (read, write, _):
+    ...
+```
+
+###### Note
+
+The `metadata` parameter was added in
+`mcp-proxy-for-aws` version 1.6.1. Earlier versions cannot
+inject the `_meta` field without additional development. To
+upgrade, run `pip install -U mcp-proxy-for-aws`.
+
+For more information about setting up SAML federation with WorkSpaces Applications, see
+[Setting
+up SAML](active-directory-overview.md "active-directory-overview.md") in the _Amazon WorkSpaces Applications Administration
+Guide_. For more information and a complete working example, see
+the
+[sample-code-for-workspaces-agent-access](https://github.com/aws-samples/sample-code-for-workspaces-agent-access/tree/main "https://github.com/aws-samples/sample-code-for-workspaces-agent-access/tree/main")
+repository in AWS Samples on GitHub.
+
+## Connection modes
+
+You can control how your agent waits for the desktop session to become
+available by setting the `X-Amzn-AgentAccess-Connect-Mode` header
+on your MCP requests.
+
+###### Note
+
+Connection modes apply to both non-domain-joined and domain-joined
+fleets. Set the `X-Amzn-AgentAccess-Connect-Mode` header
+alongside whichever authentication mechanism your fleet type uses (the
+streaming-URL header for non-domain-joined fleets, or the SAML assertion
+metadata for domain-joined fleets).
+
+The following modes are available:
+
+- **BLOCKING** (default) — The
+  MCP server waits until the desktop connection is fully established
+  before responding. When `tools/list` returns, all tools
+  are immediately available.
+- **POLLING** — The MCP server
+  responds immediately without waiting for the desktop connection.
+  Initially, only the `connection_status` tool is available.
+  Your agent polls this tool until the connection is established, at
+  which point the full tool set becomes available.
+
+Use POLLING mode when you want your agent to perform other work while
+waiting for the desktop connection, or when you need more control over
+connection timeout behavior.
+
+The following example shows how to use POLLING mode:
+
+```
+# Pass the header when creating the MCP connection
+headers = {
+    "X-Amzn-AgentAccess-Streaming-Session-Url": streaming_url,  # non-domain-joined fleets
+    "X-Amzn-AgentAccess-Connect-Mode": "POLLING",
+}
+
+# After initialize, tools/list returns immediately with connection_status
+tools = await session.list_tools()
+# tools = [connection_status]
+
+# Poll connection_status until the desktop is ready
+while True:
+    result = await session.call_tool("connection_status", {})
+    status = json.loads(result.content[0].text)
+    if status["state"] == "CONNECTED":
+        break
+    time.sleep(2)
+
+# Now tools/list returns the full set (screenshot, left_click, type_text, etc.)
+tools = await session.list_tools()
+```
+
+## Session cleanup
+
+You can control whether the streaming session is expired when your agent
+ends its connection by setting the
+`X-Amzn-AgentAccess-Expire-Streaming-Session-On-Delete` header on
+your MCP requests. The following values are available:
+
+- **true** — When your agent sends
+  an explicit HTTP `DELETE` request, the MCP server expires
+  the WorkSpaces Applications streaming session as part of cleanup. Expiring the session
+  terminates the underlying streaming instance and triggers the fleet's
+  configured autoscaling policy. For more information, see [Fleet Auto Scaling for Amazon WorkSpaces Applications](autoscaling.md "autoscaling.md").
+- **false** (default) — The
+  streaming session continues running until the disconnect timeout is
+  reached. For more information about the disconnect timeout, see [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
+
+###### Note
+
+By default, an `mcp-proxy-for-aws` MCP client automatically
+handles the `DELETE` request when you properly end the client
+lifecycle.
 
 ## Available tools
 
@@ -178,6 +351,58 @@ dimensions define the coordinate space for all mouse tools.
 
 Parameters: `include_cursor` (optional —
 defaults to `false`).
+
+## MCP tool forwarding
+
+MCP tool forwarding allows agents to interact with applications and the
+desktop operating system through direct MCP calls rather than using computer
+use tools. When you enable tool forwarding, the MCP server forwards tools
+configured on the WorkSpaces application session to your agent.
+
+### Setting up tool forwarding
+
+To set up MCP tool forwarding:
+
+1. **Enable tool forwarding** —
+   Turn on the `FORWARD_MCP_TOOLS` agent action
+   through the API or console settings.
+2. **Configure the MCP server on the
+   WorkSpace** — The service looks for a
+   configuration file at the following path:
+
+```
+C:\ProgramData\NICE\dcv\mcp_server_redirection_config.json
+```
+
+3. **Verify tool availability** —
+   If the configuration file is present, the service connects to
+   the MCP servers configured in the file and forwards the tools.
+   The forwarded tools appear when the agent lists its available
+   tools.
+
+###### Note
+
+Both IAM access and the service setting must be enabled for tool
+forwarding to work. IAM permissions do not override the service
+setting.
+
+### IAM permissions for tool forwarding
+
+The IAM action for calling forwarded tools is
+`CallForwardedTool`. You can scope access to specific stacks
+using the `StackArn` condition key:
+
+```
+{
+  "Action": "agentaccess-mcp:*",
+  "Resource": "*",
+  "Condition": {
+    "ArnLike": {
+      "ponte-mcp:StackArn": "arn:aws:appstream:`region`:`account-id`:stack/`stack-name`"
+    }
+  }
+}
+```
 
 ## Compatible frameworks
 

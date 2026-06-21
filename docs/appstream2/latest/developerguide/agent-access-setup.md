@@ -20,17 +20,16 @@ To use agent access, you need the following:
   policy must grant the AppStream service principal access to list buckets.
   The agent that connects to the MCP service must have the
   `s3:PutObject` permission on the bucket.
-- If you plan to enable home folders, the same Amazon S3 access requirement
-  applies.
 - A fleet running the latest WorkSpaces Applications Agent. To read more
-  on updating your WorkSpaces Applications Agent, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md").
+  on updating your WorkSpaces Applications Agent, see [Keep Your Amazon WorkSpaces Applications Image Up-to-Date](keep-image-updated.md "keep-image-updated.md"). For information about
+  managing agent versions, see [Managing
+  agent versions](base-images-agent.md "base-images-agent.md").
 
 **Limitations**
 
 WorkSpaces agent access configurations have the following limitations:
 
 - Only Windows Server images are supported.
-- Domain-joined fleets are not supported.
 - VPC endpoints are not supported.
 - Multi-session fleets are not supported.
 - Elastic fleets are not supported.
@@ -38,7 +37,7 @@ WorkSpaces agent access configurations have the following limitations:
 ## How agent access works
 
 You enable agent access when you create a stack. When agent access is enabled,
-the stack is configured with agent-specific settings instead of the standard
+the stack is configured with agent-specific settings instead of the
 Amazon WorkSpaces Applications configuration for human users. You can enable agent access through
 the Amazon WorkSpaces Applications console, AWS CLI, or API.
 
@@ -78,7 +77,9 @@ environment:
 
 You can enable home folders so that agent files are saved to an Amazon S3 bucket
 in your AWS account. The Amazon WorkSpaces Applications fleet associated with the stack must
-allow access to Amazon S3 through the internet.
+allow access to Amazon S3 through the internet or an Amazon S3 VPC endpoint. For more
+information, see [Enable
+and administer home folders for your users](home-folders.md "home-folders.md").
 
 ## Application settings persistence
 
@@ -86,7 +87,38 @@ You can optionally enable application settings persistence. When enabled,
 your agent's application customizations and Windows settings are saved after
 each streaming session and applied during the next session. These settings are
 saved to an Amazon S3 bucket in your AWS account. The Amazon WorkSpaces Applications fleet associated
-with the stack must allow access to Amazon S3 through the internet.
+with the stack must allow access to Amazon S3 through the internet or an Amazon S3 VPC
+endpoint. For more information, see [Enable
+application settings persistence for your users](app-settings-persistence.md "app-settings-persistence.md").
+
+## MCP tool forwarding
+
+You can enable MCP tool forwarding to allow agents to interact with
+applications and the desktop operating system through direct MCP calls rather
+than using computer use tools. When enabled, MCP tools available on your
+WorkSpaces application session are forwarded to the agent. The forwarded tools
+appear when the agent lists its available tools.
+
+## User control mode
+
+You can enable user control mode to allow users to observe and interact with
+agent sessions in real time. When user control mode is enabled, observers connect
+to the session through their browser using a streaming URL. They see a real-time
+view of the desktop as the agent interacts with it.
+
+In `VIEW_STOP` mode, a stop button appears at the top of the
+observer's screen. The observer can use this button to stop the agent if needed.
+Once an agent is stopped, it must start a new session to resume work.
+
+Set the `UserControlMode` attribute in
+the `AgentAccessConfig` to one of the following values:
+
+- `VIEW_ONLY` — Users can view and observe agent
+  actions as they happen.
+- `VIEW_STOP` — Users can view agent actions and
+  stop the agent if needed.
+- `DISABLED` — Users cannot view or stop the
+  agent session.
 
 ## Streaming URLs
 
@@ -129,8 +161,8 @@ You can monitor agent activity through the following services:
   - `Latency`
   - `ClientErrors`
   - `ServerErrors`
-  - `SessionStart`
-  - `SessionEnd`
+  - `McpSessionStart`
+  - `McpSessionDuration`
 
 - **Amazon S3** — If you configure
   screenshot storage, screenshots captured during agent sessions are

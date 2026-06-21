@@ -32,7 +32,8 @@ Before you begin, make sure you have the following:
 - An active Amazon WorkSpaces Applications fleet. If you haven't set one up yet,
   see [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md "getting-started.md").
 - AWS credentials (environment variables, AWS profile, EC2 instance role,
-  or Lambda execution role) with the following IAM permissions:
+  or Lambda execution role) with the following IAM permissions. The agent
+  uses these credentials directly to sign requests to the MCP service:
 
 ```
 {
@@ -48,6 +49,27 @@ Before you begin, make sure you have the following:
     "Resource": "*"
 }
 ```
+
+The `agentaccess-mcp:*` wildcard includes the following
+actions:
+
+    + `agentaccess-mcp:InvokeMcp` — Initialize sessions and discover tools
+    + `agentaccess-mcp:GetScreenshot` — Capture screen state
+    + `agentaccess-mcp:LeftClick` — Perform left mouse click
+    + `agentaccess-mcp:DoubleClick` — Perform double click
+    + `agentaccess-mcp:TripleClick` — Perform triple click
+    + `agentaccess-mcp:RightClick` — Perform right mouse click
+    + `agentaccess-mcp:MiddleClick` — Perform middle mouse click
+    + `agentaccess-mcp:TypeText` — Type text string
+    + `agentaccess-mcp:KeyPress` — Press key or key combination
+    + `agentaccess-mcp:HoldKey` — Hold key for duration
+    + `agentaccess-mcp:Scroll` — Scroll at coordinates
+    + `agentaccess-mcp:MovePointer` — Move pointer to coordinates
+    + `agentaccess-mcp:LeftClickDrag` — Perform left click drag
+    + `agentaccess-mcp:LeftMouseDown` — Press and hold left mouse button
+    + `agentaccess-mcp:LeftMouseUp` — Release left mouse button
+    + `agentaccess-mcp:CheckConnectionStatus` — Check connection status of a streaming session
+    + `agentaccess-mcp:CallForwardedTool` — Invoke a forwarded tool on a remote instance
 
 - An MCP-compatible agent framework. The agent must be able to make
   SigV4-signed Streamable HTTP requests to the MCP endpoint. The
@@ -96,6 +118,16 @@ with desktop applications.
      Optionally enable this to save your agent's application customizations
      and Windows settings between sessions. Settings are saved to an Amazon S3
      bucket in your AWS account.
+   - **Enable MCP tool forwarding** — Allow agents
+     to interact with applications and the desktop operating system through
+     direct MCP calls rather than using computer use tools. When enabled,
+     MCP tools configured on the WorkSpaces application session are forwarded
+     to the agent.
+   - **Enable user control mode** — Allow users to
+     observe agent sessions in real time through their browser. Observers
+     see a live view of the desktop as the agent works. In VIEW_STOP mode,
+     observers can stop the agent using a button at the top of the screen.
+     Once stopped, the agent must start a new session to resume.
 
 ###### Note
 
@@ -114,7 +146,8 @@ aws appstream create-stack \
     --agent-access-config '{
         "Settings": [
             {"AgentAction": "COMPUTER_VISION", "Permission": "ENABLED"},
-            {"AgentAction": "COMPUTER_INPUT", "Permission": "ENABLED"}
+            {"AgentAction": "COMPUTER_INPUT", "Permission": "ENABLED"},
+            {"AgentAction": "FORWARD_MCP_TOOLS", "Permission": "ENABLED"}
         ],
         "ScreenResolution": "W_1280xH_720",
         "ScreenImageFormat": "PNG"
@@ -130,7 +163,8 @@ aws appstream create-stack \
     --agent-access-config '{
         "Settings": [
             {"AgentAction": "COMPUTER_VISION", "Permission": "ENABLED"},
-            {"AgentAction": "COMPUTER_INPUT", "Permission": "ENABLED"}
+            {"AgentAction": "COMPUTER_INPUT", "Permission": "ENABLED"},
+            {"AgentAction": "FORWARD_MCP_TOOLS", "Permission": "ENABLED"}
         ],
         "ScreenResolution": "W_1280xH_720",
         "ScreenImageFormat": "PNG",
@@ -196,8 +230,10 @@ endpoint:
 `https://agentaccess-mcp.`region`.api.aws/mcp`
 
 The connection uses SigV4 signing with the service name
-`agentaccess-mcp`. You pass the streaming URL from Step 2 as a header
-on every MCP request.
+`agentaccess-mcp`. Your agent signs each request using the AWS
+credentials configured in the prerequisites with the
+`agentaccess-mcp:*` permissions. You pass the streaming URL from
+Step 2 as a header on every MCP request.
 
 The following example shows how to establish the connection using
 mcp-proxy-for-aws:

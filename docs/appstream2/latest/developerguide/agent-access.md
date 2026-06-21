@@ -1,14 +1,10 @@
-# Provide agents access to WorkSpaces [Preview]
+# Provide agents access to WorkSpaces
 
 Amazon WorkSpaces Applications enables AI agents to connect to streaming sessions and interact
-with desktop applications using a managed Model Context Protocol (MCP) service. Use the
-topics in this section to set up, configure, and build agents that use Amazon WorkSpaces Applications.
-
-Agents accessing WorkSpaces applications is in public preview, view the available
-MCP endpoints [here](allowed-domains.md#allowed-domains-mcp-endpoints "allowed-domains.md#allowed-domains-mcp-endpoints").
-In public preview, there is no additional WorkSpaces charge. You pay only for the underlying WorkSpaces
-applications capabilities you use. For details, see the [WorkSpaces applications
-pricing page](https://aws.amazon.com/workspaces/applications/pricing/ "https://aws.amazon.com/workspaces/applications/pricing/").
+with desktop applications using a managed Model Context Protocol (MCP) service. You
+can also enable human observers to watch agent sessions in real time and stop agents
+if needed. Use the topics in this section to set up, configure, and build agents
+that use Amazon WorkSpaces Applications.
 
 ###### Topics
 
