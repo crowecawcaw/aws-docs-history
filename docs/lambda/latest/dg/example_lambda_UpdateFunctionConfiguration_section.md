@@ -253,15 +253,15 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/lambda#code-examples").
 
 ```
-const updateFunctionConfiguration = (funcName) => {
+const updateFunctionConfiguration = async (funcName) => {
   const client = new LambdaClient({});
   const config = readFileSync(`${dirname}../functions/config.json`).toString();
   const command = new UpdateFunctionConfigurationCommand({
     ...JSON.parse(config),
     FunctionName: funcName,
   });
-  const result = client.send(command);
-  waitForFunctionUpdated({ FunctionName: funcName });
+  const result = await client.send(command);
+  await waitForFunctionUpdated({ FunctionName: funcName });
   return result;
 };
 

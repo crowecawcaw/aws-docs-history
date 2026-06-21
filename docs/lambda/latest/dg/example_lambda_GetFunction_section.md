@@ -6,7 +6,7 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
-- [Creating your first Lambda function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
+- [Creating your first serverless function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
 
 .NET
 

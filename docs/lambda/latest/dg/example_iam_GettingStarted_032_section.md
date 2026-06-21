@@ -1,4 +1,4 @@
-# Using property variables in CloudWatch dashboards to monitor multiple Lambda functions
+# Using property variables in monitoring dashboards to monitor multiple serverless functions
 
 The following code example shows how to:
 

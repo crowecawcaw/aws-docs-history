@@ -1,4 +1,4 @@
-# Create a REST API with Lambda proxy integration
+# Create a rest API with function proxy integration
 
 The following code example shows how to:
 

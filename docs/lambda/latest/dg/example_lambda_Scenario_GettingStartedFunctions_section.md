@@ -2293,15 +2293,15 @@ const updateFunctionCode = async (funcName, newFunc) => {
   return client.send(command);
 };
 
-const updateFunctionConfiguration = (funcName) => {
+const updateFunctionConfiguration = async (funcName) => {
   const client = new LambdaClient({});
   const config = readFileSync(`${dirname}../functions/config.json`).toString();
   const command = new UpdateFunctionConfigurationCommand({
     ...JSON.parse(config),
     FunctionName: funcName,
   });
-  const result = client.send(command);
-  waitForFunctionUpdated({ FunctionName: funcName });
+  const result = await client.send(command);
+  await waitForFunctionUpdated({ FunctionName: funcName });
   return result;
 };
 

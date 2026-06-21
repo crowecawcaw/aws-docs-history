@@ -55,7 +55,7 @@ The Live Tail session automatically stops after 15 minutes of inactivity or when
 4. Choose **View CloudWatch logs** to open the CloudWatch console.
 5. Scroll down and choose the **Log stream** for the function invocations you want to look at.
 
-![List of log streams for a Lambda function.](/images/lambda/latest/dg/images/log-stream.png)
+![List of log streams for a Lambda function.](images/log-stream.png)
 
 Each instance of a Lambda function has a dedicated log stream. If a function scales up, each
 concurrent instance has its own log stream. Each time a new execution environment is created in

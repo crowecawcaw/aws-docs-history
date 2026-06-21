@@ -2,6 +2,8 @@
 
 This page describes the service quotas for AWS Lambda Managed Instances. These quotas are separate from AWS Lambda (default) quotas. Some quotas can be increased upon request.
 
+In addition to the quotas listed on this page, Lambda Managed Instances are subject to [Amazon EC2 service quotas](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md") applied to your account. Quotas that commonly affect Lambda Managed Instances customers include [EC2 instance type vCPU limits](../../../ec2/latest/instancetypes/ec2-instance-quotas.md "../../../ec2/latest/instancetypes/ec2-instance-quotas.md"), [Amazon EBS volume limits](../../../AWSEC2/latest/UserGuide/ebs-resource-quotas.md "../../../AWSEC2/latest/UserGuide/ebs-resource-quotas.md"), and [available IP addresses in your VPC subnets](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md").
+
 ## Lambda API request quotas
 
 These quotas control the rate at which you can make API calls to manage Lambda Managed Instances capacity providers. The read and write API rate limits apply to all capacity provider operations combined, including creating, updating, describing, and deleting capacity providers.
@@ -19,6 +21,7 @@ These quotas define the limits for core Lambda Managed Instances resources withi
 | --------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Capacity providers                      | 1,000. The maximum number of capacity providers created in an account.                   |
 | Function versions per capacity provider | 100. The maximum number of function versions per capacity provider. Cannot be increased. |
+| vCPUs per capacity provider             | 15,000. The maximum number of vCPUs per capacity provider.                               |
 
 ## Event source mapping quotas
 

@@ -6,10 +6,10 @@ Action examples are code excerpts from larger programs and must be run in contex
 context in the following code examples:
 
 - [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
-- [Create a REST API with Lambda proxy integration](example_api_gateway_GettingStarted_087_section.md "example_api_gateway_GettingStarted_087_section.md")
-- [Creating a CloudWatch dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
-- [Creating your first Lambda function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
-- [Using property variables in CloudWatch dashboards to monitor multiple Lambda functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
+- [Create a rest API with function proxy integration](example_api_gateway_GettingStarted_087_section.md "example_api_gateway_GettingStarted_087_section.md")
+- [Creating a monitoring dashboard with function name as a variable](example_cloudwatch_GettingStarted_031_section.md "example_cloudwatch_GettingStarted_031_section.md")
+- [Creating your first serverless function](example_lambda_GettingStarted_019_section.md "example_lambda_GettingStarted_019_section.md")
+- [Using property variables in monitoring dashboards to monitor multiple serverless functions](example_iam_GettingStarted_032_section.md "example_iam_GettingStarted_032_section.md")
 
 .NET
 
