@@ -27,6 +27,9 @@ Customer Service](https://www.amazon.com/gp/help/customer/contact-us/ "https://w
 - [I don't have access to the email for my AWS account](#troubleshoot-lost-email "#troubleshoot-lost-email")
 - [My MFA device is lost or stopped working](#troubleshoot-MFA-issues "#troubleshoot-MFA-issues")
 - [I can’t access the AWS Management Console sign-in page](#troubleshoot-firewalls "#troubleshoot-firewalls")
+- [I cannot sign in due to network conditions in Sign-in resource-based policies](#troubleshoot-rbp-network "#troubleshoot-rbp-network")
+- [I am locked out of my account after enabling console authorization](#troubleshoot-rbp-lockout "#troubleshoot-rbp-lockout")
+- [My policy changes are not taking effect](#troubleshoot-rbp-replication "#troubleshoot-rbp-replication")
 - [How can I find my AWS account ID or alias](#troubleshoot-find-aws-account-id-or-alias "#troubleshoot-find-aws-account-id-or-alias")
 - [I need my account verification code](#troubleshoot_general_cant-sign-in "#troubleshoot_general_cant-sign-in")
 - [I forgot my root user password for my AWS account](#troubleshoot-forgot-root-password "#troubleshoot-forgot-root-password")
@@ -170,6 +173,34 @@ you sign in.
 | Root user and IAM users                                       | \*.signin.aws.amazon.com                                  |
 | Amazon.com account sign-in                                    | www.amazon.com                                            |
 | IAM Identity Center users and first-party application sign-in | • \*.awsapps.com (http://awsapps.com/)<br>• \*.signin.aws |
+
+## I cannot sign in due to network conditions in Sign-in resource-based policies
+
+If you see one of the following error messages, a Sign-in resource-based policy or
+resource control policy (RCP) might be restricting access based on your network
+location:
+
+- "Your authentication information is incorrect. Please try again."
+- "Authentication failed Invalid request"
+- "Authentication failed: To access this account, sign in from a different network,
+  or contact your administrator for more information"
+
+Contact your administrator or see [I cannot sign in due to network conditions in Sign-in resource-based policies](console-access-control.md#console-access-control-ts-network "console-access-control.md#console-access-control-ts-network") for detailed troubleshooting
+steps.
+
+## I am locked out of my account after enabling console authorization
+
+If you configured console authorization and can no longer access your account, you might
+not have configured excluded principals or emergency recovery access before enforcing the
+policy. For resolution steps including AWS CLI self-service, the
+`OrganizationAccountAccessRole`, and AWS Support options, see [I am locked out of my account after enabling console authorization](console-access-control.md#console-access-control-ts-lockout "console-access-control.md#console-access-control-ts-lockout").
+
+## My policy changes are not taking effect
+
+Changes to console authorization configuration and resource permission statements
+replicate globally and may take a few minutes to take effect. If your changes are not
+visible after waiting, see [Changes that I make are not always immediately visible](console-access-control.md#console-access-control-ts-replication "console-access-control.md#console-access-control-ts-replication") for troubleshooting
+steps.
 
 ## How can I find my AWS account ID or alias
 

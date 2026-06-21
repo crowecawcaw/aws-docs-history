@@ -104,15 +104,83 @@ document, see
 [SignInLocalDevelopmentAccess](../../../aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.md "../../../aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.md")
 in the _AWS Managed Policy Reference Guide_.
 
+## AWS managed policy: AWSSignInResourcePolicyManagement
+
+The `AWSSignInResourcePolicyManagement` policy grants permissions to
+manage console authorization configuration and resource permission statements for
+AWS Sign-In.
+
+You can attach `AWSSignInResourcePolicyManagement` to your users, groups,
+and roles.
+
+**Permissions details**
+
+This policy includes the following permissions:
+
+- `signin:PutConsoleAuthorizationConfiguration` – Create or
+  update console authorization settings.
+- `signin:GetConsoleAuthorizationConfiguration` – Retrieve
+  the current console authorization configuration.
+- `signin:DeleteConsoleAuthorizationConfiguration` – Remove
+  the console authorization configuration.
+- `signin:PutResourcePermissionStatement` – Create or
+  update resource permission statements.
+- `signin:DeleteResourcePermissionStatement` – Remove
+  resource permission statements.
+- `signin:ListResourcePermissionStatements` – List resource
+  permission statements for the account.
+- `signin:GetResourcePolicy` – Retrieve the consolidated
+  resource-based policy.
+
+The following is the policy JSON:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "signin:PutConsoleAuthorizationConfiguration",
+                "signin:GetConsoleAuthorizationConfiguration",
+                "signin:DeleteConsoleAuthorizationConfiguration",
+                "signin:PutResourcePermissionStatement",
+                "signin:DeleteResourcePermissionStatement",
+                "signin:ListResourcePermissionStatements",
+                "signin:GetResourcePolicy"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+Attach this policy to IAM principals (users or roles) who manage
+resource-based policies for AWS Sign-In. This includes security administrators responsible
+for configuring network-based access controls, compliance officers who need to audit
+console access policies, and operations teams managing emergency recovery access
+configurations.
+
+###### Important
+
+This policy grants administrative access to console authorization controls. Apply
+the principle of least privilege when assigning this policy. Consider using IAM
+conditions to further restrict when and how these permissions can be used.
+
+To view more details about the policy, including the latest version of the JSON
+policy document, see [AWSSignInResourcePolicyManagement](../../../aws-managed-policy/latest/reference/AWSSignInResourcePolicyManagement.md "../../../aws-managed-policy/latest/reference/AWSSignInResourcePolicyManagement.md") in the _AWS Managed Policy
+Reference Guide_.
+
 ## AWS Sign-In updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Sign-In since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe
 to the RSS feed on the AWS Sign-In Document history page.
 
-| Change                                                                                                                                                                  | Description                                                                                                                                                                                                                                                | Date               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| [SignInLocalDevelopmentAccess](#security-iam-awsmanpol-SignInLocalDevelopmentAccess "#security-iam-awsmanpol-SignInLocalDevelopmentAccess") – New policy                | Added a new AWS managed policy that grants permissions for programmatic access to AWS using your existing console credentials.                                                                                                                             | November 19, 2025  |
-| [ApplicationProvisioningPolicy](#security-iam-awsmanpol-ApplicationProvisioningPolicy "#security-iam-awsmanpol-ApplicationProvisioningPolicy") – New policy             | Added a new AWS managed policy that grants comprehensive<br>permissions for application provisioning and identity management<br>operations, including IAM role and policy management, IAM Identity Center<br>configuration, and Identity Store operations. | September 30, 2025 |
-| [AmazonManagedSignUpServicePolicy](#security-iam-awsmanpol-AmazonManagedSignUpServicePolicy "#security-iam-awsmanpol-AmazonManagedSignUpServicePolicy") – New<br>policy | Added a new AWS managed policy that grants permissions required<br>for AWS account sign-up processes, including customer verification<br>and payment setup operations.                                                                                     | September 30, 2025 |
-| AWS Sign-In started tracking<br>changes                                                                                                                                 | AWS Sign-In started tracking changes for its AWS managed<br>policies.                                                                                                                                                                                      | September 30, 2025 |
+| Change                                                                                                                                                                     | Description                                                                                                                                                                                                                                                | Date               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSSignInResourcePolicyManagement](#security-iam-awsmanpol-AWSSignInResourcePolicyManagement "#security-iam-awsmanpol-AWSSignInResourcePolicyManagement") – New<br>policy | Added a new AWS managed policy that grants permissions to<br>manage console authorization configuration and resource permission<br>statements for AWS Sign-In.                                                                                             | June 10, 2026      |
+| [SignInLocalDevelopmentAccess](#security-iam-awsmanpol-SignInLocalDevelopmentAccess "#security-iam-awsmanpol-SignInLocalDevelopmentAccess") – New policy                   | Added a new AWS managed policy that grants permissions for programmatic access to AWS using your existing console credentials.                                                                                                                             | November 19, 2025  |
+| [ApplicationProvisioningPolicy](#security-iam-awsmanpol-ApplicationProvisioningPolicy "#security-iam-awsmanpol-ApplicationProvisioningPolicy") – New policy                | Added a new AWS managed policy that grants comprehensive<br>permissions for application provisioning and identity management<br>operations, including IAM role and policy management, IAM Identity Center<br>configuration, and Identity Store operations. | September 30, 2025 |
+| [AmazonManagedSignUpServicePolicy](#security-iam-awsmanpol-AmazonManagedSignUpServicePolicy "#security-iam-awsmanpol-AmazonManagedSignUpServicePolicy") – New<br>policy    | Added a new AWS managed policy that grants permissions required<br>for AWS account sign-up processes, including customer verification<br>and payment setup operations.                                                                                     | September 30, 2025 |
+| AWS Sign-In started tracking<br>changes                                                                                                                                    | AWS Sign-In started tracking changes for its AWS managed<br>policies.                                                                                                                                                                                      | September 30, 2025 |

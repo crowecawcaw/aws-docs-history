@@ -17,6 +17,19 @@ accessible on the network from which you are trying to access the AWS Management
 - `*.cloudfront.net`
 - `opfcaptcha-prod.s3.amazonaws.com`
 
+## AWS Sign-In administration domains to allowlist
+
+If you configure console access controls by using the AWS CLI, you must
+allowlist the AWS Sign-In control plane endpoint. This endpoint handles policy
+administration and is distinct from the console sign-in domains in the previous
+section.
+
+- `signin.`[Region]`.api.aws`
+
+Replace `[Region]` with the AWS Region you are
+calling. Available in all commercial Regions. Example:
+`signin.us-east-1.api.aws`.
+
 ## AWS access portal domains to allowlist
 
 If you filter access to specific AWS domains or URL endpoints by using a web content

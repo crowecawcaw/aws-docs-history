@@ -123,3 +123,9 @@ events.
 - To learn more about how CloudTrail logs different user identity information in IAM, see
   [Logging IAM and AWS STS API calls with AWS CloudTrail](../../../IAM/latest/UserGuide/cloudtrail-integration.md "../../../IAM/latest/UserGuide/cloudtrail-integration.md") in the _AWS Identity and Access Management User
   Guide_.
+
+AWS Sign-In supports resource-based policies and resource control policies that enable you
+to restrict console access based on network location and principal identity. For root users,
+network location is validated before the password prompt appears. For all principal types,
+policies are evaluated at pre-authentication and post-authentication. For more information,
+see [Controlling console access with resource-based policies and resource control policies](console-access-control.md "console-access-control.md").
