@@ -1,6 +1,7 @@
 # Create an order for an Outposts rack
 
-To begin using AWS Outposts, you must create an Outpost and order Outpost capacity.
+To begin using AWS Outposts, you must create a site, create an Outpost, get a quote, and place
+your order.
 
 ###### Prerequisites
 
@@ -18,8 +19,9 @@ To begin using AWS Outposts, you must create an Outpost and order Outpost capaci
 
 - [Step 1: Create a site](#create-site "#create-site")
 - [Step 2: Create an Outpost](#create-outpost "#create-outpost")
-- [Step 3: Place the order](#place-order "#place-order")
-- [Step 4: Modify instance capacity](#modify-instance-capacity "#modify-instance-capacity")
+- [Step 3: Create a quote](#create-quote "#create-quote")
+- [Step 4: Place the order](#place-order "#place-order")
+- [Step 5: Modify instance capacity](#modify-instance-capacity "#modify-instance-capacity")
 - [Next steps](#order-fulfillment "#order-fulfillment")
 
 ## Step 1: Create a site
@@ -46,9 +48,12 @@ location for your Outposts racks.
    site.
 
    - **Max weight** – The maximum rack weight that this site
-     can support, in lbs.
+     can support, in lbs. Check your floor's load rating with your facilities team or
+     structural engineer and multiply it by the rack footprint (approximately 6 square feet
+     for a 42U rack).
    - **Power draw** – The power draw available at the hardware
-     placement position for the rack, in kVA.
+     placement position for the rack, in kVA. Check the capacity of the circuit breakers or
+     power distribution units (PDUs) available for the rack.
    - **Power option** – The power option that you can provide
      for the hardware.
    - **Power connector** – The power connector that AWS
@@ -73,8 +78,8 @@ location for your Outposts racks.
 
 ## Step 2: Create an Outpost
 
-Create an Outpost for your racks. Then, specify this Outpost when you place your
-order.
+Create an Outpost for your racks. You will specify this Outpost when you create a quote
+and place your order.
 
 ###### Prerequisites
 
@@ -101,63 +106,163 @@ If you need to remove the private connectivity for your Outpost, you must contac
 You won't be able to modify the AZ anchor or physical location of your Outpost after
 you complete the order.
 
-## Step 3: Place the order
+## Step 3: Create a quote
 
-Place an order for the Outposts racks that you need.
+A quote provides a cost estimate based on your Outpost configuration. It includes rack
+configurations showing what your setup will look like if the order is placed. Quotes are
+generated within seconds and are valid for 30 days.
+
+###### To create a quote
+
+1. From the navigation pane, choose **Quotes**.
+2. Choose **Create quote**.
+3. For **General information**, provide the following:
+
+   - **Description** (optional) – Enter a description to help
+     differentiate between quotes. For example, include the purpose, configuration, or
+     specific requirements of the Outpost.
+   - **Outpost type** – Select **New
+     outpost** if you are creating a new Outpost, or **Existing
+     outpost** if you are expanding the capacity of an already deployed
+     Outpost.
+
+###### Note
+
+Outposts on a month-to-month subscription cannot be scaled. To scale, you must
+first renew your term. 4. **Country** (new Outpost) – Select the country where your
+Outpost will be installed. Not all Outpost configurations are available in all
+countries.
+
+**Outpost ID** (existing Outpost) – Select the Outpost ID for
+the Outpost you want to add capacity to. 5. For **Select capacities**, choose the compute capacity for your
+Outpost. You can select capacity in two ways:
+
+    * **By capacity type** – Select the quantity of your desired
+     Amazon EC2 instance types and sizes.
+    * **By configuration** – Select from predefined
+     configurations designed for common use cases, or previously used configurations from
+     your account history.
+
+###### Note
+
+You can only select instance capacities supported by your chosen Outpost generation
+and form factor. 6. For **Storage types**, select the storage capacity for your
+Outpost:
+
+    * **EBS storage (in TB)** – Select an Amazon EBS storage capacity
+     tier to provide persistent block storage for your Amazon EC2 instances.
+    * **S3 storage (in TB)** (optional) – Add Amazon S3 on Outposts
+     capacity for local object storage.
+
+###### Note
+
+Your input will be rounded up to the nearest supported storage tier. Amazon S3 on Outposts
+storage may not be available in all regions. 7. (Optional) For **Site details**, provide your site's power, space,
+and weight limits. While optional for quotes, providing site details helps ensure the
+recommended configuration is suitable for your facility and may affect your estimated
+quote.
+
+###### Note
+
+Complete site information including operating address, shipping address, and rack
+physical properties will be required to place your order. 8. Choose **Get quote**.
+
+After your quote is generated, you can review the recommended Outpost configurations and
+pricing options. You can download your quote as a PDF for sharing or record-keeping.
+
+###### To edit a quote
+
+- Navigate to the quotes page, select the quote you want to modify, choose
+  **Actions**, and select **Edit quote**. This allows you
+  to update your requirements and receive a revised estimate.
+
+###### Note
+
+You can refresh an existing quote by using the **Refresh** button to
+update pricing without changing your configuration. Quotes expire after 30 days. You can
+recreate an expired quote by using the **Recreate quote** button, which
+will populate a new quote form with the same details from your expired quote.
+
+## Step 4: Place the order
+
+Once you have reviewed your quote, you can place your order. Each quote can only be used
+for a single order.
 
 ###### Important
 
-You can't edit an order after you submit it so review all details carefully before
+You can't edit an order after you submit it, so review all details carefully before
 submission. If you need to change an order, contact your AWS Account Manager.
 
 ###### Prerequisites
 
+- An active Enterprise Support or Unified Operations plan.
+- An Outpost created with an associated site.
+- Complete site details including operating address, shipping address, and rack physical
+  properties.
 - Determine how you will pay for the order. You can pay all upfront, partially upfront,
-  or nothing upfront. If you do not choose to pay all upfront, you'll pay monthly charges
-  over the contract term.
-
-The pricing includes delivery, installation, infrastructure service maintenance, and
-software patches and upgrades.
-
-- Determine whether the delivery address is different than the operating address that
-  you specified for the site.
+  or nothing upfront. If you choose partial upfront or no upfront, you'll pay monthly
+  charges over the contract term.
 
 ###### To place an order
 
-1. From the navigation pane, choose **Orders**.
-2. Choose **Place order**.
-3. For **Supported hardware type**, choose
-   **Racks**.
-4. For **Configurations**, specify the quantity for each
-   resource that you need. If the available configurations do not meet your
-   capacity needs, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") to request a custom capacity
-   configuration.
-5. For **Storage**:
+1. From the navigation pane, choose **Quotes**.
+2. Select the quote you want to order from and choose **Place
+   order**.
+3. If your quote was created with only a country selected, you will need to select an
+   Outpost before proceeding.
+4. For **Payment terms**, select your contract term and payment
+   option:
 
-   - Choose an Amazon EBS storage tier.
-   - (Optional) Choose an Amazon S3 storage tier.
+**Term length** – Choose the length of your Outpost
+contract:
 
-6. Choose **Next**.
-7. Choose **Use an existing Outpost** and select your Outpost.
-8. Choose **Next**.
-9. Enter the name and number of the contact person at the operating site.
-10. Specify the shipping address. You can specify a new address or select the site's
-    operating address. If you select the operating address, be aware that any future change to
-    the site's operating address will not propagate to existing orders. If you need to change
-    the name and address of the shipping location on an existing order, contact your AWS
-    Account Manager.
-11. For **Site details**, specify your site information for each field.
-12. Review the **Facility requirements**.
-13. Select **I have read the facility requirements**.
-14. Choose **Next**.
-15. Select a contract term and payment option.
-16. Choose **Next**.
-17. On the **Review and order** page, verify that your information is
-    correct and edit as needed. You will not be able to edit the order after you submit
-    it.
-18. Choose **Place order**.
+    * **1-year contract** – Shorter commitment with higher
+     overall costs.
+    * **3-year contract** – Longer commitment with lower overall
+     costs.
+    * **5-year contract** – Longest commitment with the lowest
+     overall costs.
 
-## Step 4: Modify instance capacity
+**Payment options** – Select how you want to pay:
+
+    * **No upfront** – Pay nothing upfront and higher monthly
+     charges throughout the contract term.
+    * **Partial upfront** – Pay a portion upfront with reduced
+     monthly charges for the remainder of the contract.
+    * **All upfront** – Pay the entire contract amount upfront
+     with no monthly charges.
+
+###### Note
+
+If you are adding capacity to an existing Outpost, your order will be prorated to
+align with your existing Outpost's contract end date. 5. Choose **Next**. 6. On the **Review and order** page, verify that your information is
+correct and edit as needed. 7. Choose **Place order**.
+
+After placing your order, you'll receive an order confirmation with next steps via
+email.
+
+###### After placing your order
+
+An AWS team will work with you to:
+
+- Finalize site preparation requirements.
+- Schedule a site assessment to verify site readiness.
+- Coordinate installation scheduling.
+- Complete any additional compliance or regulatory requirements for your region.
+
+Once readiness is validated, your Outpost will be manufactured and delivered. An AWS
+technician will arrive on-site to begin installation, which involves powering up the rack,
+performing basic configuration, and validating that the Outpost networking devices can
+establish encrypted connectivity to the AWS Region.
+
+###### Note
+
+At the end of your contract term, you must choose between the following options at least
+5 business days before your current subscription ends: renew your subscription, prepare your
+Outpost for return, or convert to month-to-month. If you take no action, your contract will
+automatically convert to a month-to-month subscription at the No Upfront rate.
+
+## Step 5: Modify instance capacity
 
 An Outpost provides a pool of AWS compute and storage capacity at your
 site as a private extension of an Availability Zone in an AWS Region. Because the compute
@@ -269,7 +374,7 @@ Example JSON file:
 ## Next steps
 
 You can view the status of your order using the AWS Outposts console. The initial status of
-your order is **Order received**. If you have any questions about your order,
+your order is **Created**. If you have any questions about your order,
 contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
 To fulfill the order, AWS will schedule a date and time with you.
