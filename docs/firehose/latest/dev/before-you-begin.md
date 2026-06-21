@@ -9,23 +9,11 @@ Before you use Amazon Data Firehose for the first time, complete the following t
 
 ## Sign up for AWS
 
-When you sign up for Amazon Web Services (AWS), your AWS account is automatically
-signed up for all services in AWS, including Amazon Data Firehose. You are charged only for the services
-that you use.
+### Sign up for an AWS account
 
-If you have an AWS account already, skip to the next task. If you don't have an AWS
-account, use the following procedure to create one.
-
-###### To sign up for an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## (Optional) Download libraries and tools
 
@@ -35,7 +23,7 @@ command line:
 - The [Firehose API Operations](../APIReference/API_Operations.md "../APIReference/API_Operations.md") is the basic set of operations that Amazon Data Firehose supports.
 - The AWS SDKs for [Go](../../../sdk-for-go/api/service/firehose.md "../../../sdk-for-go/api/service/firehose.md"),
   [Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"),
-  [.NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/"), [Node.js](https://aws.amazon.com/sdk-for-javascript/ "https://aws.amazon.com/sdk-for-javascript/       "), [Python](https://aws.amazon.com/developers/getting-started/python/ "https://aws.amazon.com/developers/getting-started/python/"),
+  [.NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/"), [Node.js](https://aws.amazon.com/sdk-for-javascript/ "https://aws.amazon.com/sdk-for-javascript/"), [Python](https://aws.amazon.com/developers/getting-started/python/ "https://aws.amazon.com/developers/getting-started/python/"),
   and [Ruby](https://aws.amazon.com/developers/getting-started/ruby/ "https://aws.amazon.com/developers/getting-started/ruby/") include Amazon Data Firehose support and samples.
 
 If your version of the AWS SDK for Java does not include samples for Amazon Data Firehose, you can also download

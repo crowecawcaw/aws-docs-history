@@ -48,6 +48,16 @@ supported.
 | 400–750 MB/s      | 50                              |
 | 750 MB/s–1.5 GB/s | 1                               |
 
+###### Note
+
+Ingest throughput here refers to the volume of data Firehose processes and
+writes to your Iceberg tables, measured _after_ any Lambda
+transformation – not the volume of data sent to the stream at the
+source. If you use a Lambda function that expands your records, your processed
+throughput can be significantly higher than your source ingest volume, and the
+applicable max active partitions limit is based on the larger,
+post-transformation throughput.
+
 - **S3 Transaction Per Second (TPS)** – To
   optimize S3 performance, if you are using Kinesis Data Streams or Amazon MSK as a source, we
   recommend that you partition the source record using a proper partition key. In
