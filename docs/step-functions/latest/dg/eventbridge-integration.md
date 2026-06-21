@@ -183,9 +183,9 @@ some events, an Execution Status Change event can also contain an output propert
 definition.
 
 - If the combined escaped input and escaped output sent to EventBridge exceeds
-  248 KiB, then the input will be excluded. Similarly, if the
-  escaped output exceeds 248 KiB, then the output will be
-  excluded. This is a result of events quotas.
+  248 KiB, then the input is excluded. Similarly, if the
+  escaped output exceeds 248 KiB, then the output is
+  excluded. This is a result of EventBridge quotas.
 - You can determine whether a payload has been truncated with the
   `inputDetails` and `outputDetails` properties. For more
   information, see the [`CloudWatchEventsExecutionDataDetails` Data Type](../apireference/API_CloudWatchEventsExecutionDataDetails.md "../apireference/API_CloudWatchEventsExecutionDataDetails.md").

@@ -36,13 +36,13 @@ Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../
 
 ## CloudWatch Logs payloads
 
-Execution history events may contain either input or output properties in their
-definitions. If escaped
-input or escaped output sent to CloudWatch Logs exceeds 248 KiB, it will be truncated as a result of
-CloudWatch Logs quotas.
+Execution history events may contain properties such as `input`,
+`output`, and `assignedVariables`, which contain escaped data from your
+execution. If the combined size of these fields is too large, then the data is truncated to avoid
+exceeding CloudWatch Logs quotas.
 
-- You can determine whether a payload has been truncated by reviewing the
-  `inputDetails` and `outputDetails` properties. For more
+- You can determine whether a payload has been truncated by reviewing the `inputDetails`,
+  `outputDetails`, and `assignedVariablesDetails` properties. For more
   information, see the [`HistoryEventExecutionDataDetails` Data Type](../apireference/API_HistoryEventExecutionDataDetails.md "../apireference/API_HistoryEventExecutionDataDetails.md").
 - For Standard Workflows, you can see the full execution history by using [`GetExecutionHistory`](../apireference/API_GetExecutionHistory.md "../apireference/API_GetExecutionHistory.md").
 - `GetExecutionHistory` is not available for Express Workflows. If you want to
