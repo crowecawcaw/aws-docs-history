@@ -1,5 +1,9 @@
 # Steady state rebalancing for Amazon MSK clusters
 
+###### Note
+
+Effective June 18, 2026, Intelligent Rebalancing is available for all MSK Provisioned clusters with Express brokers. This includes Express clusters created prior to the launch of intelligent rebalancing feature in November 2025. For clusters created before November 20, 2025, Intelligent Rebalancing is available with **Rebalancing Status** set to **Paused**. To enable this feature for your existing clusters, set **Rebalancing Status** to **Active** using the Amazon MSK console, AWS CLI, or SDK. For instructions, see Steady state rebalancing.
+
 Steady state rebalancing is a part of the intelligent rebalancing feature, which is turned on by default for all new MSK Provisioned clusters with Express brokers. As you scale your clusters up or down, Amazon MSK automatically handles partition management by distributing partitions to new brokers and moving partitions from brokers due for removal. To ensure optimal distribution of workload across brokers, intelligent rebalancing uses Amazon MSK best practices to determine thresholds for automatically initiating rebalancing for your brokers.
 
 You can pause and resume steady state rebalancing when needed. Steady state rebalancing continuously monitors your cluster and does the following:
@@ -15,11 +19,11 @@ Pause and resume steady state rebalancing in AWS Management Console
 
 1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/home?region=us-east-1#/home/](https://console.aws.amazon.com/msk/home?region=us-east-1#/home/ "https://console.aws.amazon.com/msk/home?region=us-east-1#/home/").
 2. On the **Clusters** page, choose an Express-based cluster. For information about creating a provisioned Express-based cluster, see [Step 1: Create an MSK Provisioned cluster](create-cluster.md "create-cluster.md").
-3. On the Cluster detail page, verify that the **Intelligent rebalancing** status is **Active**. If Intelligent rebalancing isn’t available or the status is **Paused**, create a new Express-based cluster.
+3. On the Cluster detail page, verify the **Intelligent rebalancing** status. If the status is **Paused**, follow steps 4–5 to enable it.
 4. On the **Actions** dropdown list, choose **Edit intelligent rebalancing**.
 5. On the **Edit intelligent rebalancing** page, do the following:
 
-   1. Choose **Paused**.
+   1. Choose **Active**.
    2. Choose **Save changes**.
 
 Pause and resume steady state rebalancing using AWS CLI
