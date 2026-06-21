@@ -47,7 +47,7 @@ value of less than $1M, the listing fee would be 3.5%.
 
 **Professional services listing fees**
 
-All professional service offerings have a 2.5% listing fee for private offers.
+All professional service offerings have a 0.5% listing fee for private offers.
 
 ## Understanding fees for regional offer listings in AWS Marketplace
 

@@ -42,7 +42,7 @@ Private Offers to transact directly with AWS customers.
 Both DSOR models are designed for ISVs that want to:
 
 - Include DSOR partners in their AWS Marketplace transactions to scale their channel.
-- Leverage existing distribution operational workflows and processes.
+- Use existing distribution operational workflows and processes.
 
 ## How DSOR works
 

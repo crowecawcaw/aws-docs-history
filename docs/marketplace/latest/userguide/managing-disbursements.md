@@ -18,7 +18,7 @@ You can update your existing disbursement methods or add new ones at any time:
 
 AWS Marketplace supports disbursements in multiple currencies, but certain restrictions apply based on your bank account type:
 
-- **US-based ACH accounts and Hyperwallet accounts** – Can only receive payments in USD
+- **US-based ACH accounts** – Can only receive payments in USD
 - **SWIFT bank accounts** – Required for non-USD disbursements and optional for USD
 - **Multiple currencies** – Can be assigned to a single bank account where supported
 - **IFSC bank accounts** – Required for INR

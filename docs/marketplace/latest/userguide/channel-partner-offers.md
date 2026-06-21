@@ -11,8 +11,6 @@ following requirements:
 - Your tax interview location matches your business location.
 - USD is set as one of your disbursement methods. _This is required for public offers and Professional Services product creation._
 
-Non-US sellers without a bank account in [an eligible jurisdiction](seller-eligibility.md#eligible-jurisdictions "seller-eligibility.md#eligible-jurisdictions") can use [Hyperwallet](provide-bank-information.md#hyperwallet-option "provide-bank-information.md#hyperwallet-option").
-
 ###### Sellers in India
 
 Sellers in India have specific registration requirements and can only set INR for disbursement. For more information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md"). For step-by-step onboarding instructions, see the [AWS Marketplace India Seller Registration Guide](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/AWS+Marketplace+India+Registration+Guide.pdf "https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/AWS+Marketplace+India+Registration+Guide.pdf").
@@ -56,7 +54,7 @@ You determine the wholesale cost in one of the following ways:
 
 - **Recurring discount** – An ISV authorizes the AWS Marketplace
   Channel Partner to resell their product or products at an agreed to discount from their list
-  price with a recurring selling authorization. The AWS Marketplace Channel Partner can leverage this
+  price with a recurring selling authorization. The AWS Marketplace Channel Partner can use this
   discount to continue reselling the product without further price negotiation with the ISV.
   This discount can be set up to last until a specified date, or indefinitely, until ended by
   either the ISV or the Channel Partner.

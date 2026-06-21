@@ -42,7 +42,7 @@ perform actions on your behalf. For more information about using
 `AWSMarketplaceAmiIngestion`, see [Giving AWS Marketplace access to your AMI](single-ami-marketplace-ami-access.md "single-ami-marketplace-ami-access.md").
 
 This policy grants contributor permissions that allow AWS Marketplace to copy your Amazon
-Machine Images (AMIs) in order to list them on AWS Marketplace.
+Machine Images (AMIs) to list them on AWS Marketplace.
 
 To view the permissions for this policy, see [AWSMarketplaceAmiIngestion](../../../aws-managed-policy/latest/reference/AWSMarketplaceAmiIngestion.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceAmiIngestion.md")
 in the _AWS Managed Policy Reference_.

@@ -37,7 +37,7 @@ from AWS Marketplace with the following conditions:
 1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home"), and then sign
    in to your seller account.
 2. Choose the **Build** tab, and then choose
-   **Server**.
+   **Server products**.
 3. On your product page, under **Server products**, locate the
    product that you want to remove. From the **Request changes**
    dropdown list, choose **Update product visibility**.

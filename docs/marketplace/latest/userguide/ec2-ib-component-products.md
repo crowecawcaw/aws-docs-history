@@ -2,7 +2,7 @@
 
 As an AWS Marketplace seller, you can deliver your products to buyers with [Image Builder components](../../../glossary/latest/reference/glos-chap.md#image-builder "../../../glossary/latest/reference/glos-chap.md#image-builder"). An Image Builder component is a fundamental building block used in the Image Builder service to create and maintain customized EC2 Image Builder components. Components are reusable, modular pieces of configuration that define a specific set of tasks to be performed during the image creation process.
 
-A component defines the sequence of steps required to either customize an instance prior to image creation (a build component), or to test an instance that was launched from the created image (a test component). An Image builder component may consist of three items:
+A component defines the sequence of steps required to either customize an instance before image creation (a build component), or to test an instance that was launched from the created image (a test component). An Image builder component may consist of three items:
 
 - The component document, a declarative, YAML or JSON file that specifies the steps and actions to be run when the component is used to build an image.
 - Component attributes that provide the configuration options for a component. They help define the component's characteristics, behavior, and compatibility.

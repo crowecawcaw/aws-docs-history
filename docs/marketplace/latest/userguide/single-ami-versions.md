@@ -246,7 +246,7 @@ As an existing customer, your subscription to the product, any running instances
 are unaffected. However, <seller-name> does recommend you to update to the latest version, <product-title>/<version-title>
 by visiting <product-detail-page-of-new-listing>.
 
-For additional questions or upgrade information, please contact <seller-name> directly. Click here <link of seller page on MP>
+For additional questions or upgrade information, please contact <seller-name> directly. Visit <link of seller page on MP>
 to visit the seller’s profile page on AWS Marketplace.
 
 Release notes for <product-title>/<version-title>:
@@ -316,7 +316,7 @@ Thank you for subscribing to <product-title>.
 
 We are writing to inform you that, as of <Version-Restriction-Date>, <Seller Name> will no longer offer version(s) "<version-title>" to new subscribers. Your use and subscription is unaffected for this version(s), however it is recommended that users upgrade to the latest version on AWS Marketplace.
 
-For additional questions or upgrade information, please contact <seller-name> directly. Click here<link of seller page on MP> to visit the seller’s profile page on AWS Marketplace.
+For additional questions or upgrade information, please contact <seller-name> directly. Visit <link of seller page on MP> to visit the seller's profile page on AWS Marketplace.
 
 Thank you,
 The AWS Marketplace Team

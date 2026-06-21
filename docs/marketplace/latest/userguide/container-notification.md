@@ -1,5 +1,9 @@
 # Amazon SNS notifications for container products
 
+###### Important
+
+SNS notifications for AWS Marketplace container products are being replaced with Amazon EventBridge notifications. If you have existing container products integrated with SNS, they will continue to function. For more information, see [Managing container agreement events with Amazon EventBridge](container-eventbridge-integration.md "container-eventbridge-integration.md").
+
 To receive notifications, you can subscribe to the Amazon Simple Notification Service (Amazon SNS) topics for AWS Marketplace provided to
 you during product creation. The topics provide notifications about changes to customers’
 subscriptions for your products. For example, you can use these notifications to know when customers accept a

@@ -22,6 +22,14 @@ For information about guidelines and requirements for professional services prod
 
 ## Product descriptions
 
+###### Use AI-assisted product listing
+
+You can use AI-assisted product listing in AWS Partner Assistant to generate
+product information for this step from a website URL or uploaded documents. The tool
+scores listing quality against AWS Marketplace standards and provides field-level recommendations
+to improve discoverability and buyer engagement before you submit. For more information,
+see [AI-assisted product listing](ai-assisted-product-listing.md "ai-assisted-product-listing.md").
+
 The product descriptions section in the product details is the core of your product. It
 describes your product to your potential buyers so that they can make a purchasing decision. This
 section of the product details includes the following data:

@@ -28,6 +28,14 @@ The following is a typical interaction with AWS Partner Assistant:
    which includes additional resources.
 4. Provide feedback: The chatbot prompts you for feedback.
 
+###### Topics
+
+- [Benefits and features](#benefits-and-features "#benefits-and-features")
+- [Capabilities](#partner-assistant-capabilities "#partner-assistant-capabilities")
+- [How to use AWS Partner Assistant](#how-to-use-partner-assistant "#how-to-use-partner-assistant")
+- [Partner Assistant Frequently Asked Questions](#partner-assistant-faq "#partner-assistant-faq")
+- [AI-assisted product listing](ai-assisted-product-listing.md "ai-assisted-product-listing.md")
+
 ## Benefits and features
 
 AWS Partner Assistant provides a self-service option that improves access to
@@ -44,6 +52,19 @@ information.
 - Self-learning system: Continuously improves by learning from interactions, refining
   responses over time, and expanding its knowledge base.
 - Scalable support: Capable of handling large volumes of inquires simultaneously.
+
+## Capabilities
+
+In addition to general Q&A, AWS Partner Assistant provides specialized capabilities
+that help you with specific seller and partner workflows:
+
+- **AI-assisted product listing** – Generate
+  product listing content from your existing digital assets, score listing quality against
+  AWS Marketplace standards, and receive field-level recommendations to improve buyer
+  discoverability. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md "ai-assisted-product-listing.md").
+
+These capabilities are available in both AWS Partner Central and AWS Marketplace Management Portal (AMMP)
+through the same AWS Partner Assistant chat interface.
 
 ## How to use AWS Partner Assistant
 

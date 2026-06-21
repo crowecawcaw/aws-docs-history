@@ -67,7 +67,7 @@ If you prefer to retrieve your listing fee invoices programmatically instead of 
 
 ###### Important
 
-Data is available since 1 June 2025. Queries for periods prior to 1 June 2025 with `ReceiverRole` return a validation error.
+Data is available since 1 June 2025. Queries for periods before 1 June 2025 with `ReceiverRole` return a validation error.
 
 For more information, see the following API references:
 

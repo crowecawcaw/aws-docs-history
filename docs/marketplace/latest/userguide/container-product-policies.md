@@ -597,7 +597,7 @@ the schema properties so that customers do not accidentally mistake
 it for the actual key. For example: appSecretName,
 connectionSecretName etc.
 
-In summary, add-on providers can leverage the schema to allow
+In summary, add-on providers can use the schema to allow
 customers to pass in the name of the secret but not the keys which
 will actually hold the secret itself.
 

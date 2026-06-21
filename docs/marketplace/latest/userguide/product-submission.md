@@ -259,7 +259,7 @@ For more information about the standard contract, see [Using standardized contra
 
 ###### Note
 
-GovCloud Regions have extra requirements. For example, you must own a GovCloud account in order to use a GovCloud Region. For more information, see
+GovCloud Regions have extra requirements. For example, you must own a GovCloud account to use a GovCloud Region. For more information, see
 [Getting set up](../../../govcloud-us/latest/UserGuide/getting-set-up.md "../../../govcloud-us/latest/UserGuide/getting-set-up.md"), in the _AWS GovCloud User Guide_. 5. In the **Recommended Instance Type** column, accept the recommended instance type or choose another from the list.
 Ensure the instance type is available in the Regions that you want to use.
 
@@ -409,7 +409,7 @@ If you have any questions about your request, contact the [AWS Marketplace Selle
 ## Submitting AMIs to AWS Marketplace
 
 All AMIs built and submitted to AWS Marketplace must adhere to all product policies. We suggest a
-few final checks of your AMI prior to submission:
+few final checks of your AMI before submission:
 
 - Remove all user credentials from the system; for example, all default passwords,
   authorization keys, key pairs, security keys or other credentials.

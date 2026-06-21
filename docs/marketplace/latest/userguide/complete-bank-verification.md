@@ -23,7 +23,7 @@ Follow these steps to complete the bank account verification process:
 2. Select **Update banking information** in the **Payment Information** section.
 3. Select the appropriate disbursement account.
 
-The **Verification status** displays **Not Verified**. 4. Choose **Verify**. 5. You will be redirected to the **Bank Account Verification** registration portal where you can upload and submit your bank statement. If you use Hyperwallet, you can download the required statement from your Hyperwallet account. 6. In the portal, choose **Upload bank document** and then choose **Submit**.
+The **Verification status** displays **Not Verified**. 4. Choose **Verify**. 5. You will be redirected to the **Bank Account Verification** registration portal where you can upload and submit your bank statement. 6. In the portal, choose **Upload bank document** and then choose **Submit**.
 
 After submitting your bank verification document, the review process typically takes 1-5 business days to complete. You'll receive a notification when your bank account has been successfully verified.
 

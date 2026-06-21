@@ -90,7 +90,7 @@ Specifications:
 
 - Once promotional media is added to a product, the title, description, and cover (if available) can be adjusted as needed by
   editing the product.
-- Promotional media can be removed once added by clicking on **Delete** for that asset in AMMP prior to submission.
+- Promotional media can be removed once added by choosing on **Delete** for that asset in AMMP before submission.
 
 **Order media**
 

@@ -1168,7 +1168,7 @@ line_items_with_window_functions_enrich_offer_product_address as (
     products.manufacturer_account_id,
     --add subscriber and payer addressID, payer address preference order: tax address > billing address > mailing address,  subscriber address preference order: tax address >  mailing address
     coalesce (
-      --empty value in Athena shows as '', change all '' value to null in order to follow the preference order logic above
+      --empty value in Athena shows as '', change all '' value to null to follow the preference order logic above
       case when acc_subscriber.tax_address_id ='' then null else acc_subscriber.tax_address_id end,
       case when acc_subscriber.mailing_address_id = '' then null else acc_subscriber.mailing_address_id end) as subscriber_address_id,
     coalesce (
@@ -2864,7 +2864,7 @@ line_items_with_window_functions_enrich_offer_product_address as (
     products.manufacturer_account_id,
     --add subscriber and payer addressID, payer address preference order: tax address>billing address>mailing address,  subscriber address preference order: tax address> mailing address
     coalesce (
-      --empty value in Athena shows as '', change all '' value to null in order to follow the preference order logic above
+      --empty value in Athena shows as '', change all '' value to null to follow the preference order logic above
       case when acc_subscriber.tax_address_id ='' then null else acc_subscriber.tax_address_id end,
       case when acc_subscriber.mailing_address_id = '' then null else acc_subscriber.mailing_address_id end) as subscriber_address_id,
     coalesce (
@@ -4214,7 +4214,7 @@ For more information about the axes, see [Storage and structure of AWS Marketpla
       -- a given disbursement id should have the
       -- same disbursement_date
       max(disbursement_date) as disbursement_date,
-      -- Build a pivot table in order to provide all the
+      -- Build a pivot table to provide all the
       -- data related to a transaction in a single row.
       -- Note that the amounts are negated. This is because
       -- when an invoice is generated, we give you the
@@ -4552,7 +4552,7 @@ When running this query, we are assuming that the data ingested is using two tim
       --  A transaction will have the same currency for all
       -- of its line items
       max(currency) as currency,
-      -- We're building a pivot table in order to provide all the
+      -- We're building a pivot table to provide all the
       -- data related to a transaction in a single row
       sum(case when transaction_type = 'SELLER_REV_SHARE'
             then invoice_amount else 0 end) as seller_rev_share,

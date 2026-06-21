@@ -103,7 +103,7 @@ AWS Marketplace [Seller reports, data feeds, and dashboards in AWS Marketplace](
 no longer needed, the seller removes it from AWS Marketplace.
 
 In this example, the seller created three different versions of the AMI in the
-product, but only two were available to new buyers (prior to removing the
+product, but only two were available to new buyers (before removing the
 product).
 
 To make modifications to versions or the product information, you create [change requests](single-ami-create-change-request.md "single-ami-create-change-request.md") in the
@@ -260,4 +260,4 @@ on supported instance types.
 FPGA products are ideal for compute-intensive workloads requiring specialized hardware
 acceleration such as genomics research, financial analytics, real-time video processing,
 big data analytics, and machine learning inference. The dynamic loading of AFIs enables
-buyers to leverage FPGA acceleration without managing the underlying FPGA infrastructure.
+buyers to use FPGA acceleration without managing the underlying FPGA infrastructure.

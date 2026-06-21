@@ -125,7 +125,7 @@ Private offers work in one of several ways:
   with a fixed upfront fee for 365 days of unlimited use. You also set hourly rates for the
   private offer. When the buyer accepts this private offer, they pay that upfront fee. When the
   contract ends, any instances still running are billed at the provided hourly rates. If you’re
-  offering a free private trial by leveraging a contract, ensure you set the correct usage-based rates
+  offering a free private trial by using a contract, ensure you set the correct usage-based rates
   in the private offer for when the free trial period ends to avoid a free perpetual license.
 
 ###### Note

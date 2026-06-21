@@ -1,5 +1,9 @@
 # Receiving Amazon SNS notifications for AMI products on AWS Marketplace
 
+###### Important
+
+SNS notifications for AWS Marketplace AMI products are being replaced with Amazon EventBridge notifications. If you have existing AMI products integrated with SNS, they will continue to function. For more information, see [Managing AMI agreement events with Amazon EventBridge](ami-eventbridge-integration.md "ami-eventbridge-integration.md").
+
 To receive notifications about changes to customer subscriptions for your products, you can
 subscribe to the Amazon Simple Notification Service (Amazon SNS) topics for AWS Marketplace provided to you during product creation. For
 example, you can know when customers accept a private offer. [Amazon SNS topic: aws-mp-subscription-notification](#ami-sns-subscription-message-body "#ami-sns-subscription-message-body") is an Amazon SNS topic that is available for AMI products. This topic notifies you when a buyer

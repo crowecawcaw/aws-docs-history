@@ -44,7 +44,7 @@ After you are eligible, you can access SEO insights via Partner Central:
 
 ###### How to Access in new Partner Central
 
-1. [Click here](../../../partner-central/latest/getting-started/signing-in.md "../../../partner-central/latest/getting-started/signing-in.md") to
+1. [Sign in](../../../partner-central/latest/getting-started/signing-in.md "../../../partner-central/latest/getting-started/signing-in.md") to
    learn more about getting started with Partner Central.
 2. Log into your Partner Central account.
 3. Use the left-hand navigation to open **AWS Marketplace

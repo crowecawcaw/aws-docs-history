@@ -40,6 +40,7 @@ Docker-compatible runtime.
 - [Container products pricing for AWS Marketplace](pricing-container-products.md "pricing-container-products.md")
 - [Container product billing, metering, and licensing integrations](container-products-billing-integration.md "container-products-billing-integration.md")
 - [Amazon SNS notifications for container products](container-notification.md "container-notification.md")
+- [Managing container agreement events with Amazon EventBridge](container-eventbridge-integration.md "container-eventbridge-integration.md")
 
 ## Getting help
 

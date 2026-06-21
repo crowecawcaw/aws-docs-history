@@ -146,7 +146,7 @@ Add the below code:
 
 **Cline**
 Cline stores MCP server configurations in a JSON file that can be modified.
-In the "Installed" tab, click "Configure MCP Servers" to access the settings file.
+In the "Installed" tab, choose "Configure MCP Servers" to access the settings file.
 
 Add the following:
 ```

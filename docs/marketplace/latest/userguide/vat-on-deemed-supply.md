@@ -17,7 +17,7 @@ You can submit invoices for transactions of AWS Marketplace sales of Digital Ser
 ### Step 1: Log in to AWS Marketplace Management Portal (AMMP) or AWS Partner Central
 
 1. Go to the AWS Console and search for AWS Partner Central
-2. Click Launch AWS Partner Central
+2. Choose Launch AWS Partner Central
 3. In the bottom-left panel, select Marketplace Settings
 
 ![The AWS Partner Central console showing the Marketplace Settings option in the bottom-left panel.](images/vat-deemed-supply-screenshot-1.png)
@@ -25,7 +25,7 @@ You can submit invoices for transactions of AWS Marketplace sales of Digital Ser
 ### Step 2: Navigate to the VAT on deemed supply Section
 
 1. Go to Settings in AWS Partner Central
-2. Click on the Tax information tab
+2. Choose the Tax information tab
 3. Scroll down to the VAT on deemed supply section
 
 ![The Tax information tab in AWS Partner Central showing the VAT on deemed supply section.](images/vat-deemed-supply-screenshot-2.png)
@@ -48,9 +48,9 @@ Here you can expand two tables:
    - Paid items qualify for immediate disbursement
    - Unpaid items can be selected but will only be disbursed once the buyer invoice is collected
 
-3. Click Apply VAT Disbursement
+3. Choose Apply VAT Disbursement
 
-![Selecting line items and clicking Apply VAT Disbursement.](images/vat-deemed-supply-screenshot-5.png)
+![Selecting line items and choosing Apply VAT Disbursement.](images/vat-deemed-supply-screenshot-5.png)
 
 ###### Note
 
@@ -65,7 +65,7 @@ You can submit individual invoices for individual line items, or a single consol
    - Maximum file size: 10 MB
    - All selected line items must be included in a single uploaded file
 
-3. Click Submit VAT on deemed supply disbursement
+3. Choose Submit VAT on deemed supply disbursement
 
 ![The Apply VAT on deemed supply page showing selected line items, disbursement summary, and invoice upload.](images/vat-deemed-supply-screenshot-6.png)
 

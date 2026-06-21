@@ -49,7 +49,6 @@ If no products appear, you may not have listed a product publicly or you have a 
 
     - A US Automated Clearing House (ACH) account
     - A Society for Worldwide Interbank Financial Telecommunication (SWIFT) bank account from an eligible jurisdiction
-    - A [Hyperwallet](https://wssellers.hyperwallet.com/ "https://wssellers.hyperwallet.com/") account
 
 ## What is an installment plan or flexible payment schedule?
 
@@ -101,7 +100,7 @@ Here are common reasons for 404 errors and their resolutions:
    [AWS Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. If the offer isn't visible in **Available private offers** or **Accepted and expired offers** tabs:
 
-   - Verify the buyer is signed into the correct account. They can confirm their account ID in the top right corner of the AWS Console.
+   - Verify the buyer is signed into the correct account. They can confirm their account ID in the AWS Console.
    - If signed into the correct account, ensure the private offer is for an Amazon Machine Image (AMI) limited listing (see AMI limited listing section below).
 
 **Resolution:** The buyer needs to sign in to the correct account, or you need to issue the private offer to the correct AWS account ID.
@@ -254,9 +253,7 @@ After you submit the request, check the [AWS Support Console](https://support.co
   Alternatively, ISV and channel partners can select a disbursement schedule—daily or monthly. If an ISV or channel partner selects the monthly option, they can select the day of the
   month they want to receive their disbursements.
 - **Disbursements are deposited** to a US bank account on the ISV or channel partner's account minus the listing fees.
-  Funds can take 1-3 business days to land with general bank ACH SLAs. If you do not have a US bank account, you can use
-  [Hyperwallet](https://sellercentral-europe.amazon.com/help/hub/reference/external/G7S55VWDZ9SQCUEX?ref=efph_G7S55VWDZ9SQCUEX_cont_G521&locale=en-GB "https://sellercentral-europe.amazon.com/help/hub/reference/external/G7S55VWDZ9SQCUEX?ref=efph_G7S55VWDZ9SQCUEX_cont_G521&locale=en-GB")
-  to receive disbursements of your Amazon sales into a deposit account and transfer them directly to your local bank in your local currency.
+  Funds can take 1-3 business days to land with general bank ACH SLAs.
 
 ## How does AWS assess tax?
 

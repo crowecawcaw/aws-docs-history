@@ -6,6 +6,18 @@ product to meet their unique needs. For AWS Marketplace customers, searches happ
 locations: search engines (for example, Google or Bing) and the search function in AWS Marketplace.
 This topic provides information on how to optimize your listing for both locations.
 
+## Optimize your product detail page with AI assistance
+
+You can use AI-assisted product listing in AWS Partner Assistant to generate listing
+content optimized for both search engine optimization (SEO) and AWS Marketplace search. AWS Partner
+Assistant draws from multiple sources to produce listing content for the title, short
+description, long description, highlights, and keywords fields. These sources include SEO and
+generative engine optimization (GEO) guidance, AWS Marketplace search ranking signals, and AWS Marketplace
+listing standards. The agent provides field-level recommendations and a quality score so you
+know which fields to improve before you submit.
+
+For more information, see [AI-assisted product listing](ai-assisted-product-listing.md "ai-assisted-product-listing.md").
+
 ###### Topics
 
 - [Search engine optimization](#keywords "#keywords")
@@ -86,6 +98,9 @@ You can edit keywords after you create a product by editing the metadata for the
 product. For products that you created using the **Products** tab in
 AWS Marketplace Management Portal, you also use the **Products** tab to make changes. For more
 information, see [Product changes and updates](product-submission.md#product-changes-and-updates "product-submission.md#product-changes-and-updates").
+
+You can also ask AWS Partner Assistant to recommend keywords based on your product
+website and AWS Marketplace search ranking signals. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md "ai-assisted-product-listing.md").
 
 The AWS Marketplace Seller Operations team helps redirect queries with similar-sounding words
 or words with similar meanings. For example, when customers search for _automobile_ when you expect them to search for _car_.

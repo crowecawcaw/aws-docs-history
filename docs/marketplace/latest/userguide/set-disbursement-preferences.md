@@ -12,7 +12,7 @@ If you recently registered, you may need to wait two business days between creat
 
 Sellers in India can only receive disbursements in Indian rupee and have specific deduction requirements. For detailed information, see [Sellers in India FAQ](india-seller-faq.md "india-seller-faq.md").
 
-The requirement for setting USD as a disbursement preference is not needed for sellers in India. Sellers in India are required to associate INR to their bank account in order to create offers and receive disbursements. Sellers in India will be able to create public offers in USD and private offers in USD.
+The requirement for setting USD as a disbursement preference is not needed for sellers in India. Sellers in India are required to associate INR to their bank account to create offers and receive disbursements. Sellers in India will be able to create public offers in USD and private offers in USD.
 
 ## Steps to set disbursement preferences
 
@@ -25,7 +25,7 @@ Follow these steps to set your disbursement preferences in AWS Marketplace:
 
 ###### Note
 
-US-based ACH accounts and Hyperwallet accounts can only receive payments in USD. For non-USD disbursements, you must provide a SWIFT bank account. Multiple currencies can be assigned to a bank account.
+US-based ACH accounts can only receive payments in USD. For non-USD disbursements, you must provide a SWIFT bank account. Multiple currencies can be assigned to a bank account.
 
 India-based sellers must have an India domiciled IFSC bank account to receive
 disbursements. They can also receive payments in INR only. 5. Select your disbursement frequency. Choose **Daily** for disbursements when they become available, or select **Monthly** and choose a number between 1-28 for the day of the month you want your disbursement to process. 6. Choose **Add disbursement method**.

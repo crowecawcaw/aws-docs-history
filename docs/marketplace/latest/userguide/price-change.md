@@ -12,4 +12,4 @@ type.
 
 Price changes will be effective for auto-renewals only if the price was changed at
 least 90 days before the auto-renewal date. The customer will receive an email message
-prior to auto-renewal that includes the new price.
+before auto-renewal that includes the new price.

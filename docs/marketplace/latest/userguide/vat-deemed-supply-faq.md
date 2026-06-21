@@ -204,9 +204,9 @@ If you sell to Buyers with AWS accounts in multiple countries from multiple Sell
 You can submit a VAT invoice through the AMMP Portal. Navigate to the Tax Information tab in AWS Partner Central. Then:
 
 1. Select Deemed Supply-eligible line items to upload a VAT invoice.
-2. Click Apply VAT disbursement once line items are selected.
-3. Review the submission page details and upload the VAT invoice by clicking the Upload file button.
-4. Once you have reviewed the submission details, click the Submit disbursement button and confirm.
+2. Choose Apply VAT disbursement once line items are selected.
+3. Review the submission page details and upload the VAT invoice by choosing the Upload file button.
+4. Once you have reviewed the submission details, choose the Submit disbursement button and confirm.
 
 ## Can I submit a VAT invoice for a Deemed Supply before the Buyer has paid AWS?
 

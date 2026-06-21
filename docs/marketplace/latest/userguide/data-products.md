@@ -7,6 +7,14 @@ transparent, and reliable channel to reach AWS customers and grant existing cust
 subscriptions more efficiently. The process for becoming an AWS Data Exchange provider requires a few steps
 to determine eligibility.
 
+###### Use AI-assisted product listing
+
+You can use AI-assisted product listing in AWS Partner Assistant to generate
+product information for this step from a website URL or uploaded documents. The tool
+scores listing quality against AWS Marketplace standards and provides field-level recommendations
+to improve discoverability and buyer engagement before you submit. For more information,
+see [AI-assisted product listing](ai-assisted-product-listing.md "ai-assisted-product-listing.md").
+
 A data product has the following parts:
 
 - **Product details** – This information helps

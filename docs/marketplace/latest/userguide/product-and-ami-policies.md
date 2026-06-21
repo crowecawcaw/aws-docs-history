@@ -107,6 +107,9 @@ All AMIs must adhere to the following architecture policies:
 - AMIs must not use encrypted file systems.
 - AMIs must be built so that they can run in all AWS Regions and are Region-agnostic.
   AMIs built differently for different Regions aren't allowed.
+- The maximum AMI size is 5 TB. Size is calculated as the sum of
+  `VolumeSize` across every block device mapping whose
+  `Ebs.SnapshotId` is set.
 
 ## AMI product usage instructions
 

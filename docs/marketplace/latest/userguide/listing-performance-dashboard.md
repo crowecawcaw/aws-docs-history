@@ -107,7 +107,7 @@ to March 15, 2024, the table will still include the complete monthly data for Ja
 through March 31, 2024.
 
 The data in the table is sorted by **Month**, with the most recent month
-displayed first. You can choose to sort the table by any of the available columns by clicking
+displayed first. You can choose to sort the table by any of the available columns by choosing
 on the corresponding column header with the option to sort the data in either ascending or
 descending order.
 

@@ -20,7 +20,7 @@ _in_ the cloud:
   laws and regulations.
   This documentation helps you understand how to apply the shared responsibility model when
   using AWS Marketplace. The following topics show you how to configure AWS Identity and Access Management to manage access to
-  AWS Marketplace in order to meet your security and compliance objectives. You can also learn how to
+  AWS Marketplace to meet your security and compliance objectives. You can also learn how to
   use other AWS services that can help you to monitor and secure your AWS Marketplace
   resources.
 

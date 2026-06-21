@@ -188,9 +188,9 @@ Buy with AWS can provide the following benefits:
   AWS button on your website gives customers the ability to quickly subscribe to free
   trials or make purchases using their AWS accounts. Buy with AWS delivers a
   streamlined, co-branded purchasing experience to customers through AWS Marketplace.
-- **Leverage existing operations in AWS Marketplace**: Extend the
+- **Use existing operations in AWS Marketplace**: Extend the
   discovery and procurement benefits of AWS Marketplace to customers through your website, while
-  leveraging the existing processes in AWS Marketplace to manage your listings, disbursements,
+  using the existing processes in AWS Marketplace to manage your listings, disbursements,
   support, and insights, without additional effort.
 
 ### Buy with AWS prerequisites
@@ -219,7 +219,7 @@ Currently, Buy with AWS supports only SaaS products.
 
 ### Review branding changes
 
-Complete the following steps to submit a brand review request prior to launching with
+Complete the following steps to submit a brand review request before launching with
 the Buy with AWS experience:
 
 1. Navigate to AWS Partner Central and [submit support ticket](https://aws.amazon.com/marketplace/management/contact-us/? "https://aws.amazon.com/marketplace/management/contact-us/?") for **Commercial
@@ -254,8 +254,8 @@ To view the Buy with AWS metrics dashboard:
 
 1. Log into the [AWS Partner Central](https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer "https://aws.amazon.com/marketplace/management/homepage?pageType=awsmpmp%3Acustomer").
 2. Navigate to **Insights**.
-3. Click **Marketing**.
-4. Click **Buy with AWS**
+3. Choose **Marketing**.
+4. Choose **Buy with AWS**
 
 Alternatively, sellers that have linked their accounts can access metrics through AWS
 Partner Central. To view these metrics, log in to [**AWS Partner Central**](https://partnercentral.awspartner.com/partnercentral2/s/login?startURL=%2Fhome "https://partnercentral.awspartner.com/partnercentral2/s/login?startURL=%2Fhome") and navigate to the

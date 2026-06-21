@@ -56,8 +56,7 @@ must also meet the following requirements and provide this additional informatio
   private offers.
 - Non-US sellers are required to provide a (i) W-8 form, value-added tax (VAT) or goods
   and services tax (GST) registration number, and (ii) bank account with a SWIFT code in an
-  eligible jurisdiction. If necessary, you can register for a virtual US bank account from
-  [Hyperwallet](https://wssellers.hyperwallet.com/ "https://wssellers.hyperwallet.com/").
+  eligible jurisdiction.
 
 ###### Note
 

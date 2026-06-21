@@ -2,7 +2,7 @@
 
 ## What are AI agent products?
 
-AI agents are software systems that leverage artificial intelligence to reason, plan, and complete tasks on behalf of humans or systems. Unlike traditional software that follows fixed rules, AI agents operate independently, adapting through multi-step processes to achieve specific goals.
+AI agents are software systems that use artificial intelligence to reason, plan, and complete tasks on behalf of humans or systems. Unlike traditional software that follows fixed rules, AI agents operate independently, adapting through multi-step processes to achieve specific goals.
 
 AI agents combine foundation models for reasoning and planning with discrete agentic tools (like guardrails, knowledge bases, and business logic) to process requests, retrieve information, and execute tasks. They can search knowledge bases, call APIs, update systems, and make decisions based on user needs and environmental context.
 

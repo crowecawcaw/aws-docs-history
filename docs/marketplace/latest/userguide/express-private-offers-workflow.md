@@ -12,7 +12,7 @@ For more information, see [Creating custom dimensions for private offers](expres
 
 ## 2. Buyer request process
 
-When buyers engage with the express private offer system, they begin by selecting the **Get Express Private Offer** button on the AWS Marketplace product listing. The system then guides buyers through a structured qualification process, leveraging an AI agent that uses the seller's predefined criteria to match against the buyer's needs. The agent operates within strict parameters set by the seller's configuration. For sellers using buyer-profile based qualifications, the system presents relevant questions to buyers, collecting self-reported information that determines discount eligibility and offer access.
+When buyers engage with the express private offer system, they begin by selecting the **Get Express Private Offer** button on the AWS Marketplace product listing. The system then guides buyers through a structured qualification process, using an AI agent that uses the seller's predefined criteria to match against the buyer's needs. The agent operates within strict parameters set by the seller's configuration. For sellers using buyer-profile based qualifications, the system presents relevant questions to buyers, collecting self-reported information that determines discount eligibility and offer access.
 
 ## 3. Private offer generation
 

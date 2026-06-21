@@ -25,6 +25,9 @@ AWS Marketplace provides the following additional seller tools:
 - **Seller reports, data feeds, and dashboards** –
   AWS Marketplace provides tools for collecting and analyzing information about your product sales. For
   more information, see [Seller reports, data feeds, and dashboards in AWS Marketplace](reports-and-data-feed.md "reports-and-data-feed.md").
+- **AI-assisted product listing** – You can use
+  AI-assisted product listing in AWS Partner Assistant to generate high-quality AWS Marketplace
+  product listings from your existing digital assets. For more information, see [AI-assisted product listing](ai-assisted-product-listing.md "ai-assisted-product-listing.md").
   For more information, see the following topics.
 
 ###### Topics

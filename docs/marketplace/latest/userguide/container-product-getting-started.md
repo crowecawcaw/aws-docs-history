@@ -2,7 +2,7 @@
 
 As an AWS Marketplace seller, you can create container-based software products. Container products
 consist of delivery options that are a set of container images and deployment templates that go
-together.The following topic shows you how to get started with container products.
+together. The following topic shows you how to get started with container products.
 
 - [Product lifecycle](#container-product-lifecycle "#container-product-lifecycle")
 - [Prerequisites](#container-prereq "#container-prereq")
