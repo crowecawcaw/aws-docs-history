@@ -308,7 +308,10 @@ JSON
  "deadline:PutMeteredProduct",
  "deadline:DeleteMeteredProduct",
  "deadline:GetMonitorSettings",
- "deadline:UpdateMonitorSettings"
+ "deadline:UpdateMonitorSettings",
+ "deadline:GetVolume",
+ "deadline:ListVolumes",
+ "deadline:DeleteVolume"
  ],
  "Resource": ["*"]
  }]

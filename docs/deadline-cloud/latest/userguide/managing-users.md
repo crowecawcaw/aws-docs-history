@@ -16,4 +16,5 @@ defines where IAM Identity Center gets user information.
 - [Understanding your identity source](understanding-identity-source.md "understanding-identity-source.md")
 - [Create and manage users with IAM Identity Center directory](manage-monitor-users_users.md "manage-monitor-users_users.md")
 - [Manage users with an external identity provider](manage-users-external-idp.md "manage-users-external-idp.md")
+- [Restricting which users can access the monitor](restrict-user-management-visibility.md "restrict-user-management-visibility.md")
 - [Understanding access levels](manage-users-by-farm.md "manage-users-by-farm.md")

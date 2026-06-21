@@ -206,6 +206,10 @@ with that key. Otherwise, persistent volumes are encrypted with a service-owned 
 
 Keep the following considerations in mind when using persistent storage:
 
+- Persistent volumes are a caching optimization, not durable primary storage. Use
+  persistent volumes only for data that you can recreate, such as package installations,
+  compiled shaders, and asset caches. Deadline Cloud can replace a volume at any time, and you
+  can't access persistent volumes directly.
 - Deadline Cloud configures the worker's home directory to use the persistent volume.
   Software that stores data in the home directory (such as conda packages and
   application caches) automatically benefits from persistence. If your software writes
