@@ -113,7 +113,7 @@ VALUES ('Hello, World!!');
 SELECT * FROM test.hello_world;
 ```
 
-5. Optionally clean up
+5. Optionally clean up.
 
 ```
 DROP TABLE test.hello_world;
@@ -154,8 +154,7 @@ endpoints.
 6. In **Multi-Region settings**, choose the following options for your
    initial cluster:
 
-   - In **Witness Region**, choose a Region. Currently, only US-based
-     Regions are supported for witness Regions in multi-Region clusters.
+   - In **Witness Region**, choose a Region.
    - (Optional) In **Remote Region cluster ARN**, enter an ARN for an
      existing cluster in another Region. If no cluster exists to serve as the second cluster in
      your multi-Region cluster, complete setup after you create the initial cluster.
@@ -196,7 +195,7 @@ endpoints.
     [Key policy for a customer managed key](data-encryption.md#key-policy-customer-managed-key "data-encryption.md#key-policy-customer-managed-key").
 13. Choose **Create cluster** to create your second cluster.
 14. Choose **Peer in `initial-cluster-region`**,
-    where is `initial-cluster-region` is the Region that hosts the first
+    where `initial-cluster-region` is the Region that hosts the first
     cluster that you created.
 15. When prompted, choose **Confirm**. This step completes the creation of
     your multi-Region cluster.

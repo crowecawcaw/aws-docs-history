@@ -12,6 +12,8 @@ An AWS Labs Model Context Protocol (MCP) server for Aurora DSQL
 - Connection reuse between requests for improved performance
 - Built-in access to Aurora DSQL documentation, search, and best
   practice recommendations
+- SQL validation for Aurora DSQL compatibility with optional
+  auto-fix
 
 ## Available Tools
 
@@ -45,6 +47,14 @@ An AWS Labs Model Context Protocol (MCP) server for Aurora DSQL
   recommendations for DSQL best practices
 
   - Parameters: `url` (required)
+
+### SQL Validation
+
+- **dsql_lint** - Validate SQL
+  for Aurora DSQL compatibility and optionally auto-fix issues
+
+  - Parameters: `sql` (required),
+    `fix` (optional)
 
 ## Prerequisites
 

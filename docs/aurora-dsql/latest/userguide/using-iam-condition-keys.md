@@ -75,27 +75,27 @@ JSON
  "Version":"2012-10-17",
  "Statement": [
  {
+ "Sid": "AllowCreateWithSpecificWitness",
  "Effect": "Allow",
  "Action": [
  "dsql:CreateCluster",
- "dsql:PutMultiRegionProperties",
- "dsql:AddPeerCluster"
- ],
- "Resource": "arn:aws:dsql:*:123456789012:cluster/*"
- },
- {
- "Effect": "Allow",
- "Action": [
  "dsql:PutWitnessRegion"
  ],
  "Resource": "arn:aws:dsql:*:123456789012:cluster/*",
  "Condition": {
  "StringEquals": {
- "dsql:WitnessRegion": [
- "us-west-2"
- ]
+ "dsql:WitnessRegion": "us-west-2"
  }
  }
+ },
+ {
+ "Sid": "AllowMultiRegionSetup",
+ "Effect": "Allow",
+ "Action": [
+ "dsql:PutMultiRegionProperties",
+ "dsql:AddPeerCluster"
+ ],
+ "Resource": "arn:aws:dsql:*:123456789012:cluster/*"
  }
  ]
 }`
