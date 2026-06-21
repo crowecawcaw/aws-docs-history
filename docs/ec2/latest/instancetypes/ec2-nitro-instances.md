@@ -109,7 +109,7 @@ Nitro v6
 - **Compute Optimized**: C8a | C8gb | C8gn | C8i | C8id | C8i-flex | C8in | C8ine | C8ib
 - **Memory Optimized**: R8a | R8gb | R8gn | R8i | R8id | R8i-flex | R8in | R8idn | R8ib | R8idb | X8aedz | X8i
 - **Storage Optimized**: I8ge
-- **Accelerated Computing**: G7e | P6-B200 | P6-B300
+- **Accelerated Computing**: G7 | G7e | P6-B200 | P6-B300
 - **High Performance Computing**: Hpc8a
 
 Nitro v5
