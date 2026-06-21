@@ -101,6 +101,53 @@ Remediation pull requests submitted to private repositories are visible to every
 
 When disabled, you can still manually trigger code remediation for individual GitHub-sourced findings after the review completes.
 
+### Configure simulated validation
+
+Enable simulated validation to dynamically confirm whether discovered vulnerabilities are exploitable in a running application.
+
+1. In the **Simulated validation** section, select the **Enable simulated validation** checkbox.
+
+When enabled, AWS Security Agent provisions a simulated environment after static analysis completes. It onboards your source code, starts services inside the environment, and attempts to exploit vulnerabilities found during the scan. Findings are then updated with a validation status indicating whether the vulnerability was successfully exploited.
+
+###### Note
+
+Simulated validation is currently available for self-contained dockerizable applications only. When multiple repositories are selected as sources, simulated validation is not available.
+
+###### Important
+
+Simulated validation adds processing time to your code review run. The validation step provisions an environment and runs exploitation attempts. This typically takes 1–3 hours depending on the number of findings and application complexity.
+
+#### Allowed network destinations
+
+The simulated environment has outbound network access restricted to a predefined allowlist. Your application can reach the following domains during validation:
+
+The following table lists the allowed domains and their purposes.
+
+| Domain                                                                                | Purpose                         |
+| ------------------------------------------------------------------------------------- | ------------------------------- |
+| `.amazonaws.com`, `.aws.amazon.com`                                                   | AWS services                    |
+| `.public.ecr.aws`                                                                     | Amazon ECR Public               |
+| `.docker.com`, `.docker.io`                                                           | Docker Hub                      |
+| `.github.com`, `.githubusercontent.com`                                               | GitHub                          |
+| `.gitlab.com`                                                                         | GitLab                          |
+| `.npmjs.com`, `.npmjs.org`                                                            | npm registry                    |
+| `.pypi.org`, `.pypi.python.org`, `.pythonhosted.org`                                  | Python Package Index            |
+| `.crates.io`, `.rustup.rs`                                                            | Rust packages                   |
+| `.maven.org`, `.gradle.org`                                                           | Java/Gradle packages            |
+| `.nuget.org`                                                                          | .NET packages                   |
+| `.rubygems.org`, `.ruby-lang.org`                                                     | Ruby packages                   |
+| `.golang.org`, `.pkg.go.dev`, `.goproxy.io`                                           | Go packages                     |
+| `.nodejs.org`, `.yarnpkg.com`                                                         | Node.js                         |
+| `.alpinelinux.org`, `.debian.org`, `.ubuntu.com`, `.centos.org`, `.fedoraproject.org` | Linux distribution repositories |
+| `.cloudfront.net`                                                                     | CloudFront distributions        |
+| `.google.com`, `.googleapis.com`                                                      | Google APIs                     |
+| `.microsoft.com`, `.visualstudio.com`                                                 | Microsoft services              |
+| `.sourceforge.net`, `.bitbucket.org`                                                  | Source hosting                  |
+
+###### Note
+
+If your application requires network access to domains not on this list, the connection will be blocked by the network firewall. Applications that depend on external APIs or services not listed above may not start correctly in the simulated environment.
+
 ### Create the code review
 
 1. Review your configuration to ensure accuracy.
@@ -123,7 +170,7 @@ Track the progress of your code review as it executes.
 
 ### Review run phases
 
-A code review run progresses through three phases, displayed as a progress indicator at the top of the run detail page:
+A code review run progresses through the following phases, displayed as a progress indicator at the top of the run detail page:
 
 1. **Preflight** – AWS Security Agent validates access to your source code and sets up the testing environment. The preflight checks include:
 
@@ -132,7 +179,8 @@ A code review run progresses through three phases, displayed as a progress indic
    - Setup testing environment
 
 2. **Static analysis** – AWS Security Agent scans your source code for security vulnerabilities and requirement violations.
-3. **Finalizing** – AWS Security Agent compiles findings and generates the results summary.
+3. **Simulated validation** (optional) – If simulated validation is enabled, AWS Security Agent provisions a simulated environment and deploys your application. It then attempts to exploit the vulnerabilities discovered during static analysis. This step confirms whether findings are exploitable in the target runtime. This phase only appears when you enable simulated validation during code review creation.
+4. **Finalizing** – AWS Security Agent compiles findings and generates the results summary.
 
 ### View run details
 
@@ -141,6 +189,7 @@ On the run detail page, navigate between tabs to monitor progress:
 - **Code review run** – View the run summary including run ID, creation time, status, duration, task hours, severity level breakdown, and risk types chart.
 - **Preflight** – View the preflight check progress and status of each validation step.
 - **Code review logs** – View the tasks AWS Security Agent identified and conducted during the review, with detailed task logs for each step.
+- **Simulated validation** – When simulated validation is enabled, view the provisioning status, validation tasks for individual findings, and their results.
 - **Findings** – View security findings after the review completes (see [Review findings from a code review](review-code-scan-findings.md "review-code-scan-findings.md")).
 
 ### Run history

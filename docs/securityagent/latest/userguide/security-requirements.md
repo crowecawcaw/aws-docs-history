@@ -1,139 +1,173 @@
 # Manage security requirements
 
-Configure security requirements that AWS Security Agent uses to analyze your applications during design reviews and code reviews. You can enable AWS-managed requirements, customize them to fit your organization’s standards, or create custom requirements from scratch.
+Organize the security requirements that AWS Security Agent uses to analyze your applications into security requirement packs. A pack is a collection of security requirements. You can enable AWS-managed packs, create your own custom packs, and generate requirements for a custom pack by uploading your security documentation.
 
 ## Overview
 
-Security requirements define the security standards and policies that AWS Security Agent enforces when analyzing your applications. When you conduct design reviews or code reviews, AWS Security Agent evaluates your application against these requirements and identifies potential compliance issues.
+A security requirement defines a security standard or policy that AWS Security Agent evaluates your application against during design reviews and code reviews. When a design or code does not meet a requirement, AWS Security Agent reports a finding. Every security requirement belongs to a security requirement pack. Security requirements are shared across all Agent Spaces and evaluated during design and code reviews.
 
-AWS Security Agent provides two types of security requirements:
+AWS Security Agent provides two types of packs, shown on separate tabs:
 
-- **Managed security requirements** – AWS-provided requirements based on industry standards and best practices. These requirements are ready to use and maintained by AWS.
-- **Custom security requirements** – Requirements you define and maintain to address your organization’s specific security policies and standards.
+- **Managed security requirements packs** – AWS-provided packs of security requirements based on industry standards and best practices. You can enable these packs instantly to evaluate against common security policies without custom configuration. The requirements in a managed pack are read-only. You can use an AWS-managed requirement as a template for a custom requirement. For the list of available managed packs, see [AWS managed security requirement packs](security-requirement-managed-packs.md "security-requirement-managed-packs.md").
+- **Custom security requirements packs** – Packs that you create to enforce your organization’s specific policies and standards. You build the requirements in a custom pack from scratch, customize AWS-managed requirements as a starting point, or generate them by uploading your security documentation.
 
-You can customize managed requirements by creating a copy that you can modify, or create entirely new requirements tailored to your needs.
+###### Note
 
-###### Tip
+The compliance framework packs are designed to help identify security requirements that may be relevant for compliance with certain frameworks. They do not assess your compliance or guarantee that you will pass an audit.
 
-Click on any managed security requirement to view its full definition, including applicability criteria, compliance evaluation details, and remediation guidance.
+You enable and disable packs as a unit. When a pack is enabled, AWS Security Agent evaluates your applications against the requirements in that pack during design and code reviews.
 
-## Enable or disable managed security requirements
+###### Note
 
-Enable AWS-managed security requirements to enforce industry-standard security policies in your design and code reviews. You can enable multiple requirements at once and disable them when they’re no longer needed.
+Enabling or disabling a pack applies to new design reviews and code reviews. Existing reviews are not affected.
+
+## Enable or disable a managed pack
+
+Enable an AWS-managed pack to evaluate your applications against a set of AWS-maintained security requirements. Disable it when you no longer need it.
 
 1. In the AWS console, navigate to AWS Security Agent.
 2. In the navigation pane, choose **Security requirements**.
-3. Choose the **Managed security requirements** tab.
-4. Select the checkbox next to one or more security requirements you want to enable or disable.
+3. Choose the **Managed security requirements packs** tab.
+4. Select the pack you want to enable or disable.
 5. Do one of the following:
 
-   1. To enable the selected requirements, choose **Enable**.
-   2. To disable the selected requirements, choose **Disable**.
-
-6. Verify the change in the **Status** column, which displays **Enabled** or **Disabled**.
-
-###### Note
-
-Enabled security requirements are immediately applied to new design reviews and code reviews. Existing reviews are not affected.
-
-## Customize a managed security requirement
-
-Create a customized copy of an AWS-managed security requirement when you want to modify it to match your organization’s specific standards. The customized requirement becomes a custom security requirement that you can edit and maintain.
-
-1. In the AWS console, navigate to AWS Security Agent.
-2. In the navigation pane, choose **Security requirements**.
-3. Choose the **Managed security requirements** tab.
-4. Select the checkbox next to the security requirement you want to customize.
+   1. To enable the pack, choose **Enable pack**.
+   2. To disable the pack, choose **Disable pack**.
 
 ###### Tip
 
-You can only customize one requirement at a time. To customize multiple requirements, repeat this procedure for each one. 5. Choose **Customize**. 6. AWS Security Agent opens a **Create custom security requirement** form pre-populated with the managed requirement’s content. 7. (Optional) Edit any fields to customize the requirement for your organization’s needs. 8. Do one of the following:
+Choose a pack to view the security requirements it contains. Choose a requirement to view its full definition, including its applicability, compliance criteria, and remediation guidance.
 
-    1. To create the requirement without enabling it, choose **Create security requirement**.
-    2. To create and immediately enable the requirement for all future security reviews, choose **Create and enable security requirement**.
+## Create a custom pack
 
-###### Note
-
-Customizing a managed requirement creates an independent custom security requirement. Changes to the original managed requirement by AWS do not affect your custom version. Both the managed requirement and your custom version can be enabled simultaneously.
-
-## Create a custom security requirement
-
-Create a custom security requirement from scratch to enforce security policies unique to your organization that aren’t covered by AWS-managed requirements.
+Create a custom pack to group security requirements that are specific to your organization. After you create the pack, add requirements to it manually, customize an AWS-managed requirement, or upload documents to generate requirements.
 
 1. In the AWS console, navigate to AWS Security Agent.
 2. In the navigation pane, choose **Security requirements**.
-3. Choose the **Custom security requirements** tab.
-4. Choose **Create security requirement**.
-5. (Optional) To use a managed requirement as a template, in the **Customize a managed security requirement** section, search for and select a managed requirement.
+3. Choose the **Custom security requirements packs** tab.
+4. Choose **Create security requirements pack**.
+5. Enter a **Security requirement pack name** and an optional description.
+6. Choose **Create security requirement pack**.
 
-###### Tip
+###### Note
 
-Selecting a managed requirement pre-populates the form fields with that requirement’s details, which you can then modify to fit your needs. 6. In the **Security requirement details** section, configure the following fields:
+After you create a pack, you can add or upload source documents to generate the security requirements for your pack.
 
-    1. **Security requirement name** – Enter a descriptive name that clearly identifies the security control (maximum 80 characters).
-    2. **Description** – Provide a concise summary of what this security requirement enforces and why it matters (maximum 500 characters).
-    3. **Applicability** – Define when this requirement applies by specifying the types of workloads, systems, or conditions where it’s relevant. Include specific scenarios where the requirement should be marked NOT\_APPLICABLE (maximum 10,000 characters).
-    4. **Compliance criteria** – Define what makes a design or code compliant versus non-compliant. Provide specific indicators, examples, and technical details that AWS Security Agent should look for when evaluating compliance (maximum 10,000 characters).
-    5. **Remediation guidance** (Optional) – Provide step-by-step instructions for fixing violations, including specific technical details, configuration examples, and links to your organization’s internal documentation or standards (maximum 10,000 characters).
+## Add a security requirement manually
 
+Add a security requirement to a custom pack to define a security standard that AWS Security Agent enforces.
+
+1. In the AWS console, navigate to AWS Security Agent.
+2. In the navigation pane, choose **Security requirements**.
+3. Choose the **Custom security requirements packs** tab, and then choose the pack you want to add a requirement to.
+4. Choose **Add requirement manually**.
+5. Configure the following fields:
+
+   1. **Security requirement name** – Enter a descriptive name that identifies the security control, for example `enforce-encryption-at-rest` (maximum 80 characters).
+   2. **Description** – Provide a brief description of what this security requirement checks (maximum 500 characters).
+   3. **Applicability** – Describe the scenarios, system types, or conditions where this security requirement should be evaluated. Include the scenarios where the requirement should be marked NOT_APPLICABLE (maximum 10,000 characters).
+   4. **Compliance criteria** – Define what constitutes compliance versus non-compliance for this security requirement. Provide the indicators, examples, and technical details that AWS Security Agent looks for when it evaluates compliance (maximum 10,000 characters).
+   5. **Remediation guidance** (Optional) – Provide guidance on how to fix violations, including links to your organization’s internal documentation or standards (maximum 10,000 characters).
+
+6. Do one of the following:
+
+   1. To create the requirement without enabling it, choose **Create security requirement**.
+   2. To create the requirement and enable it, choose **Create and enable security requirement**.
+
+###### Note
+
+A requirement is evaluated during security reviews only when the pack that contains it is enabled. To control whether a pack is evaluated, enable or disable the pack.
+
+## Customize an AWS-managed security requirement
+
+Create a custom security requirement that uses an AWS-managed requirement as its starting point. AWS Security Agent pre-populates the requirement details from the managed requirement, and you edit them to fit your organization.
+
+1. In the AWS console, navigate to AWS Security Agent.
+2. In the navigation pane, choose **Security requirements**.
+3. Choose the **Custom security requirements packs** tab, and then choose the custom pack to add the requirement to.
+4. Choose **Create custom security requirement**.
+5. To pre-populate the form, in the **Customize an AWS-managed security requirement** section, search for and select an AWS-managed requirement to use as a template.
+6. Edit any of the fields to fit your organization’s needs.
 7. Do one of the following:
 
    1. To create the requirement without enabling it, choose **Create security requirement**.
-   2. To create and immediately enable the requirement for all future security reviews, choose **Create and enable security requirement**.
+   2. To create and immediately enable the requirement, choose **Create and enable security requirement**.
 
 ###### Note
 
-If you choose **Create security requirement** without enabling, the requirement appears in the Custom security requirements tab with a disabled status. You must manually enable it through the Custom security requirements tab before AWS Security Agent applies it to design and code reviews.
+Customizing an AWS-managed requirement creates an independent custom security requirement. Later changes to the AWS-managed requirement do not affect your custom version.
+
+## Generate requirements by uploading documents
+
+Generate the security requirements for a custom pack from your existing security documentation instead of writing each requirement by hand. AWS Security Agent reads the documents you upload, identifies the security-relevant content, and generates structured requirements that you can review and edit. For the full procedure, see [Generate security requirements from documents](import-security-requirements.md "import-security-requirements.md"). For guidance on what to include in the documents you upload, see [Prepare documents for requirement generation](prepare-import-documents.md "prepare-import-documents.md").
+
+###### Important
+
+Uploading new source documents regenerates all requirements for the pack. Any existing requirements, including ones you added manually, are replaced.
 
 ## Edit a custom security requirement
 
-Modify an existing custom security requirement to update its definition, criteria, or remediation guidance.
+Modify a custom security requirement to update its definition, criteria, or remediation guidance. You cannot edit the requirements in an AWS-managed pack.
 
 1. In the AWS console, navigate to AWS Security Agent.
 2. In the navigation pane, choose **Security requirements**.
-3. Choose the **Custom security requirements** tab.
-4. Select the custom security requirement you want to edit.
-5. From the _Actions_ menu, select **Edit**.
-6. Update any of the security requirement fields as needed.
-7. Choose **Update security requirement**.
+3. Choose the **Custom security requirements packs** tab, and then choose the pack that contains the requirement.
+4. Select the requirement you want to edit, and then choose **Edit custom security requirement**.
+5. Update the requirement fields as needed. The security requirement name cannot be changed after creation.
+6. Choose **Update security requirement**.
 
 ###### Note
 
-Changes to custom security requirements are immediately applied to new design reviews and code reviews. Existing reviews are not affected.
+Changes to a security requirement apply to new design reviews and code reviews. Existing reviews are not affected.
 
-## Enable or disable custom security requirements
+## Enable or disable a pack
 
-Enable or disable your custom security requirements to control which policies AWS Security Agent enforces during security reviews.
+Enable or disable a security requirement pack to control whether AWS Security Agent evaluates the requirements it contains. You enable and disable packs as a unit.
 
 1. In the AWS console, navigate to AWS Security Agent.
 2. In the navigation pane, choose **Security requirements**.
-3. Choose the **Custom security requirements** tab.
-4. Select the checkbox next to one or more custom security requirements you want to enable or disable.
-5. Do one of the following:
+3. Choose the tab for the type of pack, and then select the pack.
+4. Do one of the following:
 
-   1. To enable the selected requirements, from _Actions_ choose **Enable**.
-   2. To disable the selected requirements, from _Actions_ choose **Disable**.
+   1. To enable the pack, choose **Enable pack**.
+   2. To disable the pack, choose **Disable pack**.
 
-6. Verify the change in the **Status** column, which displays **Enabled** or shows disabled requirements.
+###### Note
+
+When a pack is enabled, the requirements in the pack are evaluated during security reviews. When a pack is disabled, its requirements are not evaluated.
+
+## Delete a custom security requirement
+
+Delete a custom security requirement when you no longer want AWS Security Agent to evaluate it.
+
+1. In the AWS console, navigate to AWS Security Agent.
+2. In the navigation pane, choose **Security requirements**.
+3. Choose the **Custom security requirements packs** tab, and then choose the pack that contains the requirement.
+4. Select one or more security requirements, and then choose **Delete security requirement**.
+5. Confirm the deletion.
+
+###### Note
+
+When you delete security requirements, they are no longer evaluated in future reviews. The requirements remain visible in past reviews as read-only results.
 
 ## Best practices for defining security requirements
 
-When creating or customizing security requirements, follow these guidelines to help AWS Security Agent accurately evaluate your applications and provide actionable findings.
+When you create a security requirement, follow these guidelines to help AWS Security Agent evaluate your applications accurately and provide actionable findings.
 
-**Security requirement name** – Use clear, specific names that identify the security control being enforced. Avoid generic terms that don’t convey the requirement’s purpose.
+**Security requirement name** – Use a clear, specific name that identifies the security control. Avoid generic terms that do not convey the requirement’s purpose.
 
-**Description** – Explain what the security control enforces and why it matters. Focus on the control’s purpose and the risk it mitigates to help users understand the requirement’s importance.
+**Description** – Explain what the control checks and the risk it mitigates. This helps users understand why the requirement matters.
 
-**Applicability** – Specify what types of workloads or systems this applies to and define the conditions that trigger evaluation. Clearly state when the requirement should be marked NOT_APPLICABLE with specific scenarios to avoid false positives. Use phrases like "This control applies to ALL workloads that…​" and "Mark as NOT_APPLICABLE if…​" to provide clear scope boundaries and handle edge cases.
+**Applicability** – Describe the workloads, system types, or conditions where the requirement should be evaluated. State when the requirement should be marked NOT_APPLICABLE, with specific scenarios, to avoid false positives. Phrases such as "This control applies to ALL workloads that…​" and "Mark as NOT_APPLICABLE if…​" set clear scope boundaries.
 
-**Compliance criteria** – Structure this in two parts: what demonstrates compliance and what indicates non-compliance. Be specific with technical indicators and include edge cases to help AWS Security Agent accurately evaluate your applications. Start with "A design is compliant if it demonstrates…​" followed by specific technical details, then "A design is clearly non-compliant if it…​" with patterns that indicate violations. This structure helps AWS Security Agent distinguish between compliant and non-compliant implementations.
+**Compliance criteria** – Structure this in two parts: what demonstrates compliance and what indicates non-compliance. Be specific with technical indicators and include edge cases. Start with "A design is compliant if it demonstrates…​" followed by technical details, then "A design is non-compliant if it…​" with the patterns that indicate a violation.
 
-**Remediation guidance** – Provide step-by-step instructions with specific technical details and configuration examples. Include links to your organization’s internal documentation or standards to give developers the resources they need to fix violations.
+**Remediation guidance** – Provide guidance with technical details and configuration examples. Include links to your organization’s internal documentation so that developers have the resources they need to fix violations.
 
 ## Next steps
 
-After configuring your security requirements:
+After you configure your security requirement packs:
 
-- Enable penetration testing to complement your design and code reviews
-- Configure the Agent Web App to provide users access to security capabilities
-- Assign users to your Agent Space through the AWS Security Agent console
+- Create a design review or code review to evaluate your application against the packs you enabled.
+- Enable penetration testing to complement your design and code reviews.
+- Grant users access to the AWS Security Agent web app.

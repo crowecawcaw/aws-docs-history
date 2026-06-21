@@ -63,7 +63,7 @@ If you already have GitHub repositories or S3 buckets connected to your Agent Sp
    3. Choose **Save** to return to the setup wizard.
 
 3. (Optional) Connect S3 sources. In the **S3 buckets** section, choose **Add S3 resource** and enter the S3 URI for a bucket containing source code, or choose **Browse** to pick one.
-4. Select your **Code review settings**. The default, **Security requirements and vulnerability findings**, analyzes code for both custom requirement compliance and common vulnerabilities.
+4. Select your **Code review settings**. The default, **Security requirements and vulnerability findings**, analyzes code for both compliance with the security requirements you’ve enabled and common vulnerabilities.
 5. Choose **Next**.
 
 ### Step 2: Optional configurations

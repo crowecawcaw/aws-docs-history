@@ -27,11 +27,12 @@ Track the progress of your code review run using the step indicator at the top o
 
    - **Preflight** – Validates access to your source code and sets up the scanning environment. Checks include service infrastructure setup, S3 source access validation, and testing environment setup, which includes GitHub access checks.
    - **Static analysis** – Scans your source code for security vulnerabilities and requirement violations.
+   - **Simulated validation** (optional) – When enabled, provisions a simulated environment and attempts to exploit discovered vulnerabilities against the running application.
    - **Finalizing** – Compiles findings and generates the results summary.
 
 ###### Note
 
-Each step displays a status indicator (Completed or In progress). The run is complete when all three phases show Completed.
+Each step displays a status indicator (Completed or In progress). The run is complete when all phases show Completed. The simulated validation step only appears when you enable simulated validation during code review creation.
 
 ## Step 3: Review the run summary
 
@@ -103,6 +104,13 @@ Select individual findings to view comprehensive information about each vulnerab
    - **Agent confidence** – The confidence level AWS Security Agent has in this finding
    - **Severity** – The risk level with a color-coded badge
    - **Risk Type** – The category of security risk
+   - **Validation status** – When simulated validation is enabled, indicates whether the finding was confirmed exploitable in a running environment:
+
+     - **Confirmed** – The vulnerability was successfully exploited in the simulated environment
+     - **Not reproduced** – The vulnerability could not be exploited in the target runtime
+     - **Validation failed** – The validation attempt was inconclusive due to an error
+     - **Not validated** – Simulated validation was not performed for this finding. This occurs when validation is not enabled or the validation step timed out before reaching this finding.
+
    - **Resolved** – Whether the finding has been resolved (Yes/No)
    - **Last updated** – Timestamp of the most recent update
 

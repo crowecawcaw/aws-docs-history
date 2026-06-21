@@ -7,7 +7,7 @@ AWS Security Agent operates across three interfaces to provide proactive applica
 AWS Security Agent consists of three main components:
 
 - **AWS Management Console** - Configure Agent Spaces, define security requirements, configure penetration testing, connect code repositories, and manage user access
-- **Security Agent Web Application** - Conduct design reviews, execute penetration tests, and review security findings within your assigned Agent Spaces
+- **Security Agent Web Application** - Conduct design reviews, create and run threat models, execute penetration tests, create and run code reviews, and review security findings within your assigned Agent Spaces
 - **Code Repository Integration** - Receive automated code reviews on pull requests and penetration test remediation pull requests. Currently AWS Security Agent supports connecting to GitHub.
 
 ### Console configuration
@@ -16,7 +16,7 @@ Administrators configure AWS Security Agent through the AWS Management Console.
 
 **Agent Spaces** - When you create your first Agent Space in the AWS Management Console, AWS Security Agent creates the Web Application for your account. Each Agent Space you create represents a distinct application or project you want to secure. In the Web Application, users select which Agent Space to work in when conducting security assessments.
 
-**Security requirements** - Define organizational security requirements centrally in the Console, such as approved authorization libraries, logging standards, and data access policies. These requirements apply across all Agent Spaces, and AWS Security Agent automatically validates them during design and code reviews.
+**Security requirements** - Define the security requirements that AWS Security Agent evaluates during design and code reviews, organized into security requirement packs. Enable AWS-managed packs based on industry standards, create custom packs for your organization’s policies, or generate requirements by uploading your security documentation. Requirements apply across all Agent Spaces.
 
 **Penetration testing configuration** - Configure penetration testing capabilities for each Agent Space by:
 
@@ -32,6 +32,13 @@ Administrators configure AWS Security Agent through the AWS Management Console.
 - Selecting code review settings (security vulnerabilities, custom requirements, or both)
 - Enabling pull request comments for automated review of code changes in GitHub
 - Setting up CloudWatch logging for code review runs
+
+**Threat modeling configuration** - Configure threat modeling capabilities for each Agent Space by:
+
+- Connecting source code repositories or S3 buckets containing source code
+- Adding scope docs (feature design documents) to focus the analysis on a specific feature
+- Configuring CloudWatch logging for threat model runs
+- Setting up a service role for AWS resource access
 
 **Integrations** - Connect GitHub repositories to each Agent Space to enable key capabilities:
 
@@ -49,11 +56,13 @@ Users access the Security Agent Web Application to conduct security assessments 
 
 **Design reviews** - Upload design documents and architecture specifications for analysis against organizational security requirements. Review findings with remediation guidance.
 
+**Threat models** - Create and run threat models by providing source code, technical design documents (scope docs), or both. Scope docs define what the agent focuses its analysis on; source code provides context about your existing system. Each run produces a system overview describing your application’s architecture, trust boundaries, data flows, and security posture, along with a set of threats classified by STRIDE category with severity levels and actionable recommendations.
+
 **Code reviews** - Create and run code reviews that perform comprehensive static analysis across your full source code. Select GitHub repositories or S3 sources, configure scan settings, and review detailed security findings with remediation guidance. AWS Security Agent identifies security vulnerabilities and validates compliance with your organization’s custom security requirements across your entire codebase.
 
 **Penetration tests** - Configure and execute penetration tests by providing target URLs, authentication details, and documentation. AWS Security Agent performs autonomous testing to discover exploitable vulnerabilities through multi-step attack scenarios.
 
-**Review findings** - Examine detailed security findings from design reviews, code reviews, and penetration tests, including impact analysis, reproducible attack paths, and remediation guidance.
+**Review findings** - Examine detailed security findings from design reviews, threat models, code reviews, and penetration tests, including impact analysis, reproducible attack paths, and remediation guidance.
 
 **Validate fixes** - Re-run security assessments after implementing remediations to verify vulnerabilities have been addressed.
 

@@ -20,14 +20,15 @@ Changes to security requirements affect all future design reviews and code revie
 
 Each Agent Space represents a distinct application or project you want to secure. Resources at the Agent Space level are scoped to that specific application, allowing different teams to work independently with their own configurations and assessments.
 
-| Resource                                  | What it is                                                                                                             | Why it’s scoped per application                                                                                                 |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Penetration test configurations**       | Test configurations for specific features, API endpoints, or functionality within your application                     | Each application has unique targets, authentication methods, and scope boundaries specific to that application.                 |
-| **Design reviews**                        | Individual architectural security assessments of design documents                                                      | Each application has its own architecture and design documents that are assessed independently.                                 |
-| **Connected repositories**                | GitHub repositories linked to this Agent Space                                                                         | Different applications use different repositories. Connecting them at the Agent Space level keeps application boundaries clear. |
-| **Code review settings**                  | Configuration of code review capabilities including connected sources, scan settings, and PR comment enablement        | Each application has its own repositories and security review needs configured independently.                                   |
-| **Penetration test remediation settings** | Configuration of which connected repositories can receive automated fix pull requests for penetration testing findings | Teams control where AWS Security Agent can submit code changes based on their application’s workflow.                           |
-| **User assignments**                      | Users who have access to this specific Agent Space                                                                     | Teams only see security assessments for applications they’re responsible for, keeping work organized and focused.               |
+| Resource                                  | What it is                                                                                                                | Why it’s scoped per application                                                                                                                                                  |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Penetration test configurations**       | Test configurations for specific features, API endpoints, or functionality within your application                        | Each application has unique targets, authentication methods, and scope boundaries specific to that application.                                                                  |
+| **Design reviews**                        | Individual architectural security assessments of design documents                                                         | Each application has its own architecture and design documents that are assessed independently.                                                                                  |
+| **Threat models**                         | Threat modeling assessments that build a system overview and identify threats from source code, design documents, or both | Each application has its own code and design, and is threat modeled independently. Threat models are reusable configurations that you can re-run as your code and design evolve. |
+| **Connected repositories**                | GitHub repositories linked to this Agent Space                                                                            | Different applications use different repositories. Connecting them at the Agent Space level keeps application boundaries clear.                                                  |
+| **Code review settings**                  | Configuration of code review capabilities including connected sources, scan settings, and PR comment enablement           | Each application has its own repositories and security review needs configured independently.                                                                                    |
+| **Penetration test remediation settings** | Configuration of which connected repositories can receive automated fix pull requests for penetration testing findings    | Teams control where AWS Security Agent can submit code changes based on their application’s workflow.                                                                            |
+| **User assignments**                      | Users who have access to this specific Agent Space                                                                        | Teams only see security assessments for applications they’re responsible for, keeping work organized and focused.                                                                |
 
 ###### Tip
 
@@ -79,6 +80,14 @@ Code reviews provide two modes of operation for securing your source code:
 
 Both modes use your configured code review settings (security vulnerabilities, custom requirements, or both) and support automated code remediation through pull requests.
 
+### Threat models: Reusable configurations with on-demand runs
+
+Threat models use a configuration-and-run model that supports iterative assessment of your architecture:
+
+- **Create once, run many times** – Define a threat model by selecting source code as sources, uploading design documents as scope docs, or both. Run it on demand and re-run it as your code and design evolve.
+- **Flexible inputs** – Run a threat model on source code only, design documents only, or both. Scope docs define what the agent focuses its analysis on; source code provides context about your existing system.
+- **System overview and threats** – Each run produces a system overview describing your application’s architecture, trust boundaries, data flows, and security posture, along with a set of threats classified by STRIDE category with severity, evidence, and actionable recommendations.
+
 ## Understanding resource relationships
 
 The hierarchy determines where you configure and access different resources:
@@ -94,7 +103,8 @@ The hierarchy determines where you configure and access different resources:
 - Create and manage penetration test configurations and test executions
 - Create and manage design reviews
 - Create, manage, and run code reviews against connected repositories and S3 sources
-- View findings from penetration tests, code reviews, and design reviews
+- Create, manage, and run threat models against source code, scope docs, or both
+- View findings from penetration tests, code reviews, design reviews, and threat models
 
 **In GitHub:**
 

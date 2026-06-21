@@ -21,7 +21,7 @@ Before you begin, ensure you have:
   - An S3 bucket containing source code you want to review
 
 - Permissions to configure integrations for your Agent Space
-- (Optional) Custom security requirements enabled if you plan to use security requirement validation (see [Manage security requirements](security-requirements.md "security-requirements.md"))
+- (Optional) At least one security requirement enabled in a security requirement pack if you plan to use security requirement validation (see [Manage security requirements](security-requirements.md "security-requirements.md"))
 
 ## Access the code review setup wizard
 
@@ -32,6 +32,10 @@ Navigate to the code review setup for your Agent Space.
 
    - The **Code review** card at the top of the Agent Space page
    - The **Code review** tab, then choose **Enable code review**
+
+###### Tip
+
+If you would like AWS Security Agent to address code review feedback automatically, enable **Code remediation** as well. See [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md") for details.
 
 You’ll be directed to the **Setup code review configurations** wizard.
 
@@ -62,10 +66,10 @@ If you haven’t registered a GitHub integration yet, choose **Settings** to nav
 
 ### Configure GitHub repository capabilities
 
-On the **Manage capabilities** step of the **Connect GitHub** wizard, choose what AWS Security Agent can do in each repository. **Code review comments** and **Automatic remediation** are set independently per repository.
+On the **Manage capabilities** step of the **Connect GitHub** wizard, choose what AWS Security Agent can do in each repository. **Code review comments** and **Code remediation** are set independently per repository.
 
 1. For each repository, toggle **Code review comments** on to have AWS Security Agent post security findings as comments on pull requests.
-2. For each repository, toggle **Automatic remediation** on to let users of the AWS Security Agent web application request pull requests that fix findings.
+2. For each repository, toggle **Code remediation** on to let AWS Security Agent fix findings. When enabled, web app users can request pull requests that fix findings, and pull request authors can comment `@AWS-Security-Agent fix all findings.` to have the agent address its review comments.
 3. Choose **Save** to apply your selections and return to the code review setup wizard.
 
 When **Code review comments** is enabled for a repository:
@@ -78,7 +82,7 @@ When **Code review comments** is enabled for a repository:
 
 Pull request comments are only available for private GitHub repositories.
 
-When **Automatic remediation** is enabled for a repository, web app users can start remediation for both code review and penetration test findings on that repository, and AWS Security Agent delivers each fix as a pull request. For more information, see [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md").
+When **Code remediation** is enabled for a repository, web app users can start remediation for both code review and penetration test findings on that repository, and AWS Security Agent delivers each fix as a pull request. For more information, see [Enable users to start remediation of penetration test and code review findings](enable-remediate-findings.md "enable-remediate-findings.md").
 
 For more information about how pull request findings appear in GitHub and how to respond to them, see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md").
 
@@ -104,13 +108,13 @@ Configure the types of security issues AWS Security Agent analyzes during code r
 
 1. In the **Code review settings** section, select one of the following options:
 
-   - **Security requirement validation** – Validate whether code complies with the custom security requirements you’ve enabled.
+   - **Security requirement validation** – Validate whether code complies with the security requirements you’ve enabled in your security requirement packs.
    - **Security vulnerability findings** – Identify common security vulnerabilities in code.
-   - **Security requirements and vulnerability findings** – Analyze code for both compliance with your organization’s custom security requirements and common security vulnerabilities. This is the default setting.
+   - **Security requirements and vulnerability findings** – Analyze code for both compliance with the security requirements you’ve enabled and common security vulnerabilities. This is the default setting.
 
 ###### Note
 
-When security requirement validation is enabled, AWS Security Agent checks code against your enabled custom security requirements. If you select security requirement validation but do not have at least one custom security requirement enabled, AWS Security Agent will not identify requirement-based findings. For more information about security requirements, see [Manage security requirements](security-requirements.md "security-requirements.md").
+When security requirement validation is enabled, AWS Security Agent checks code against the security requirements you’ve enabled in your security requirement packs. If you select security requirement validation but do not have at least one security requirement enabled, AWS Security Agent will not identify requirement-based findings. For more information about security requirements, see [Manage security requirements](security-requirements.md "security-requirements.md").
 
 1. Choose **Next** to proceed to optional configurations.
 
@@ -171,5 +175,5 @@ After setting up code review configurations:
 
 - Launch the web application to create and run code reviews (see [Create a code review](perform-code-review-scan.md "perform-code-review-scan.md"))
 - Connect additional GitHub repositories or S3 buckets as your codebase grows
-- Configure custom security requirements for organization-specific validation (see [Manage security requirements](security-requirements.md "security-requirements.md"))
+- Configure security requirement packs for organization-specific validation (see [Manage security requirements](security-requirements.md "security-requirements.md"))
 - Review how pull request findings appear in GitHub (see [Review code security findings in pull requests](review-code-findings-github.md "review-code-findings-github.md"))

@@ -101,3 +101,34 @@ To test different user roles or authentication systems:
 1. Click **Add another credential**.
 2. Configure the additional credential using either input method.
 3. To remove a credential, click **Remove** in the credential section.
+
+## Login Optimization
+
+Login Optimization allows AWS Security Agent to learn navigation patterns from previous pentest runs and apply them to subsequent runs. These patterns include login flows and multi-step authentication workflows. This reduces the time the agent spends re-discovering how to authenticate, resulting in faster scans and more consistent testing coverage.
+
+### How Login Optimization works
+
+On the first pentest run, the agent discovers how to navigate your application’s login flow using the credentials you provide. It records the successful navigation steps and generates a skill file that captures the learned login workflow.
+
+On subsequent runs, the agent reads the saved skill file and applies the learned navigation pattern directly, skipping the discovery phase. This means:
+
+- Faster time to authenticated testing — the agent applies proven navigation patterns immediately instead of exploring from scratch
+- More consistent behavior — the agent follows the same proven path rather than exploring alternatives
+
+###### Note
+
+Login Optimization learns during the first login session within a run. Subsequent login sessions in the same run will benefit from what was learned in the first session. On future runs, all login sessions benefit from the saved skill.
+
+### Enable or disable Login Optimization
+
+Login Optimization is enabled by default. To disable or re-enable it:
+
+1. In the pentest configuration, navigate to the **Authentication credentials - optional** section.
+2. Locate the **Login Optimization** toggle.
+3. To enable Login Optimization, turn on the toggle. To disable, turn it off.
+
+When disabled, the agent re-discovers the login flow from scratch on every run. Previously learned navigation skills are preserved and will be applied again if the feature is re-enabled.
+
+###### Tip
+
+If your application’s login flow changes significantly (for example a redesigned login page or a new authentication step), the agent automatically adapts by updating its learned skill on the next run. You do not need to manually reset the optimization.

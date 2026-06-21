@@ -1,6 +1,6 @@
 # What is AWS Security Agent?
 
-AWS Security Agent is a frontier agent that proactively secures your applications throughout the development lifecycle. It conducts automated security reviews tailored to your organizational requirements and delivers context-aware penetration testing on demand. By continuously validating security from design to deployment, AWS Security Agent helps prevent vulnerabilities early across all your environments.
+AWS Security Agent is a frontier agent that proactively secures your applications throughout the development lifecycle. It conducts automated security reviews tailored to your organizational requirements, builds threat models to identify how your applications could be attacked, and delivers context-aware penetration testing on demand. By continuously validating security from design to deployment, AWS Security Agent helps prevent vulnerabilities early across all your environments.
 
 Security teams define organizational security requirements once in the AWS Console: approved authorization libraries, logging standards, and data access policies. AWS Security Agent automatically enforces these security requirements throughout development, evaluating architectural documents and code against your standards and providing specific guidance when it detects violations. This delivers consistent security enforcement for design and code reviews across all teams.
 
@@ -14,6 +14,10 @@ AWS Security Agent provides comprehensive security capabilities spanning the ent
 
 AWS Security Agent shifts security left by providing real-time security feedback on design documents and assessing compliance with organizational security requirements before any code is written. Security teams upload documents through the web application and receive remediation guidance to prioritize findings, accelerating time-consuming manual reviews into focused analysis. By proactively embedding your security standards into every design review, you reduce late-stage architectural rework and keep pace with multiple development teams.
 
+### Threat modeling
+
+AWS Security Agent builds threat models of your applications to identify how they could be attacked. Provide technical design documents (scope docs) to define what the agent focuses on, source code as context for the agent to understand your existing system, or both. AWS Security Agent generates a system overview describing your application’s architecture, components, trust boundaries, data flows, and security posture, along with a set of threats classified by STRIDE category (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) with severity levels and actionable recommendations. Threat models are reusable configurations that you can re-run as your code and design evolve, enabling iterative security assessment throughout the development lifecycle.
+
 ### Code security review
 
 AWS Security Agent proactively secures applications through two complementary approaches. First, you can create code reviews in the web application to perform comprehensive scans of your full source code from GitHub, GitLab, Bitbucket, or GitHub Enterprise Server repositories or S3 buckets, identifying security vulnerabilities and validating compliance with your organizational requirements across your entire codebase. Second, you can enable automated pull request analysis for connected repositories, where AWS Security Agent reviews code changes and posts security findings directly as pull request or merge request comments. In both cases, developers receive remediation guidance, and AWS Security Agent can automatically generate pull requests or merge requests with code fixes for identified vulnerabilities. This embeds security expertise across all repositories, reducing security-related delays in the development pipeline and scaling evaluation across all codebases.
@@ -26,7 +30,7 @@ AWS Security Agent delivers on-demand penetration testing by deploying specializ
 
 ### On-demand accessibility
 
-AWS Security Agent provides immediate access to security expertise. Development teams can run design reviews, code analyses, and penetration tests on-demand whenever needed, matching the pace of modern development cycles and enabling proactive security at every stage.
+AWS Security Agent provides immediate access to security expertise. Development teams can run design reviews, threat models, code analyses, and penetration tests on-demand whenever needed, matching the pace of modern development cycles and enabling proactive security at every stage.
 
 ### Validate organizational requirements automatically
 

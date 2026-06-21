@@ -151,6 +151,81 @@ If a finding displays the Unknown "This finding is not validated by AWS Security
 
 Use the "Trace actions & logs" link to access the complete evidence package, including HTTP requests, responses, and exploitation attempts that demonstrate the vulnerability.
 
+### Edit findings
+
+You can edit any finding to correct its details or refine the agent’s assessment. The following fields are editable:
+
+- **name** — The title of the finding
+- **description** — Detailed description of the security vulnerability
+- **status** — Current status of the finding
+- **riskType** — Type of security risk identified
+- **riskLevel** — Severity level (CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL)
+- **riskScore** — Numeric risk score
+- **reasoning** — Justification for the assigned risk score
+- **attackScript** — Proof-of-concept code demonstrating the vulnerability
+- **customerNote** — Optional note explaining your rationale for the edit
+
+To edit a finding:
+
+1. Navigate to the finding detail page.
+2. Choose the edit icon to modify any of the fields in the preceding list.
+3. Save your changes.
+
+###### Note
+
+Your edits are saved immediately and reflected in the finding. If Findings Personalization is enabled, all editable fields you change will be used to refine the agent’s preferences for future runs.
+
+### View the original agent version
+
+When you edit a finding, a **Version selector** appears in the finding details header. This allows you to view the original agent assessment:
+
+1. Locate the **Version selector** in the finding details header.
+2. Select **Original** to view the finding as it was originally produced by the agent.
+3. Select **Latest** to return to the current version with your edits applied.
+
+### Review personalized findings
+
+When Findings Personalization is enabled, AWS Security Agent learns from your edits to findings. The agent applies those preferences to similar findings in future penetration test runs. When a finding has been adjusted based on your previous edits, the details panel displays a **Personalization changes** section. For information about enabling this feature, see [Enable or disable Findings Personalization](#enable-or-disable-findings-personalization "#enable-or-disable-findings-personalization").
+
+1. Locate the **Personalization changes** section in the finding details panel.
+
+###### Note
+
+The **Personalization changes** section appears only on findings that AWS Security Agent aligned to your previous edits. Findings that match no learned preference are shown exactly as the agent produced them, without this section. 2. Review the summary of what changed and why. The summary lists each adjusted attribute with its original agent-produced value, the personalized value, and the reasoning. For example:
+
+_Based on your previous edits the following changes have been made to the finding originally produced by the system: Risk level changed from MEDIUM to CRITICAL; Risk score changed from 5.3 to 9.5; Reasoning: Upgraded severity to reflect full exposure of application source code through publicly accessible source maps._
+
+1. Review the summary to understand how the finding was adjusted before deciding how to act on it.
+2. To override a personalized finding, edit it again as you would any other finding (for example, change the severity or risk score). Your most recent edit always takes precedence: AWS Security Agent learns from it and applies the updated preference on the next run, replacing the earlier rule.
+
+###### Note
+
+Personalization changes adjust finding attributes such as riskLevel, riskScore, name, description, reasoning, and attackScript to reflect the standards AWS Security Agent learned from your edits. Any field you have previously edited may be adjusted on similar findings in future runs.
+
+### How personalization learns from your edits
+
+When Findings Personalization is enabled, AWS Security Agent learns from all edits you make to findings and applies similar adjustments to future runs. Any field you edit (as listed in the preceding [Edit findings](#edit-findings "#edit-findings") section) will be used to refine the agent’s learned preferences.
+
+###### Note
+
+For the **status** field, only marking a finding as **FALSE_POSITIVE** is treated as a learnable preference. Changes to other status values do not trigger learning.
+
+On the next pentest run, the agent evaluates new findings against your learned preferences and applies adjustments where applicable. A **Personalization changes** section appears on any finding that was adjusted, explaining what was changed.
+
+###### Note
+
+Personalization only learns from edits made in the most recent completed pentest run. The feature must be enabled at the time the pentest starts for learning to occur. If you edit the same finding in a later run, the most recent edit takes precedence — the agent updates its preferences to reflect your latest decision.
+
+### Enable or disable Findings Personalization
+
+Findings Personalization is enabled by default. To disable or re-enable it:
+
+1. Navigate to your pentest configuration.
+2. Locate the **Findings Personalization** toggle.
+3. To enable Findings Personalization, turn on the toggle. To disable, turn it off.
+
+When disabled, findings appear in their raw agent-produced state with no personalization applied. Previously learned preferences are preserved and will be applied again if the feature is re-enabled.
+
 ## Step 7: Interpret CVSS metrics
 
 Understanding CVSS metrics helps you assess the true severity and prioritize remediation efforts.

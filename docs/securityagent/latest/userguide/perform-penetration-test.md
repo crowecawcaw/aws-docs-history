@@ -106,6 +106,22 @@ Add accessible domains for third-party services (such as Okta, Auth0, Stripe) th
 
 4. To remove a domain, click **Remove** next to the domain.
 
+### Add custom HTTP headers (optional)
+
+Specify custom HTTP headers that will be added to any requests made by AWS Security Agent during penetration testing.
+
+1. Locate the **Custom HTTP headers** section.
+2. Click in the input field and enter a header name and value that will be associated with outbound requests.
+
+###### Note
+
+By default, AWS Security Agent will add a custom header for **User-Agent** set to **securityagent** unless a different custom **User-Agent** header value is specified. 3. To add multiple custom headers:
+
+    1. Click **Add header**.
+    2. Enter each additional custom header.
+
+4. To remove a custom header, click **Remove** next to the header.
+
 ## Configure IAM Role
 
 Select the pre-configured service role for this penetration test. AWS Security Agent uses an Agent Space-based permission model where administrators configure IAM roles when setting up your Agent Space. You’ll select from roles that are already configured and ready to use.
