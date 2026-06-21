@@ -1,9 +1,16 @@
 # Required IAM permissions and roles
 
+**AWS managed policy**
+
+You can attach the `AWSResilienceHubV2AssessmentExecutionPolicy` to your IAM
+identities. While running an assessment, this policy grants read-only access permissions to other
+AWS services for resilience discovery, assessment, and management. For details about the
+permissions included in this policy, see [AWSResilienceHubV2AssessmentExecutionPolicy](next-gen-security-iam-awsmanpol.md#next-gen-security_iam_aws-v2-assessment-policy "next-gen-security-iam-awsmanpol.md#next-gen-security_iam_aws-v2-assessment-policy").
+
 **IAM Role for assessment**
 
-In order to run an assessment, the next generation of Resilience Hub needs to be able to assume an IAM role
-with a number of read-only permissions to discover and understand configuration of your AWS
+To run an assessment, the next generation of Resilience Hub must assume an IAM role
+with read-only permissions. This role discovers and reads the configuration of your AWS
 resources.
 
 You can create an IAM role in the AWS IAM console. Choose **Custom trust

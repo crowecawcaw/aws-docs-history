@@ -27,10 +27,17 @@ policy** and use a trust policy like this:
 
 ```
 
-For permissions, choose the `AWSResilienceHubAsssessmentExecutionPolicy`
-managed policy and the `ReadOnlyAccess` managed policy. The
-`ReadOnlyAccess` policy is required for the best performance of the failure
-mode assessment.
+For permissions, choose the
+`AWSResilienceHubV2AssessmentExecutionPolicy` managed policy. This policy
+grants read-only access to AWS services for resilience discovery, assessment, and
+management.
+
+###### Note
+
+The `AWSResilienceHubV2AssessmentExecutionPolicy` replaces the
+previous `AWSResilienceHubAsssessmentExecutionPolicy` for use with
+Next generation Resilience Hub. For details about the permissions included in this policy, see
+[AWSResilienceHubV2AssessmentExecutionPolicy](next-gen-security-iam-awsmanpol.md#next-gen-security_iam_aws-v2-assessment-policy "next-gen-security-iam-awsmanpol.md#next-gen-security_iam_aws-v2-assessment-policy").
 
 **IAM Service-Linked Role**
 
