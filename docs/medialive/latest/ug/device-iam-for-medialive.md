@@ -54,7 +54,7 @@ doesn't specify a principal. You specify the principal in the next step, when yo
 the trusted entity role.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane on the left, choose **Policies**. Choose
+2. In the navigation pane, choose **Policies**. Choose
    **Create Policy**, then choose the **JSON**
    tab.
 3. In the **Policy editor**, clear the sample content and paste the
@@ -85,7 +85,7 @@ In this step, you create a role that consists of a trust policy ("let MediaLive 
 this way, MediaLive has permission to assume the role. When it assumes the role, it acquires
 the permissions specified in the policy.
 
-1. On the IAM console, in the navigation pane on the left, choose
+1. On the IAM console, in the navigation pane, choose
    **Roles**, then **Create Role**. The
    **Create role** wizard appears. This wizard walks you through the
    steps of setting up a trusted entity, and adding permissions (by adding a
