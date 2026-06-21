@@ -92,7 +92,7 @@ When the gateway is successfully connected, Amazon Monitron displays the
 gateway device ID and MAC ID in the mobile app. 8. After it connects to the gateway, Amazon Monitron will provide two options
 for you to configure the network connection for your gateway.
 
-![Network configuration options for Monitron Gateway: Automatic (DHCP) or Manual.](/images/Monitron/latest/user-guide/images/ethernet-network-configuration.png) 9. Choose your network configuation.
+![Network configuration options for Monitron Gateway: Automatic (DHCP) or Manual.](images/ethernet-network-configuration.png) 9. Choose your network configuation.
 
 It can take a few minutes for the gateway to be commissioned and to
 connect to the network.
