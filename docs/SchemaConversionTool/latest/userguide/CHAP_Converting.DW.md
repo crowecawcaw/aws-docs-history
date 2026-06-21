@@ -425,7 +425,7 @@ Use the following procedure to create a database migration assessment report.
    (right-click) menu for the object, and then choose **Create
    Report**.
 
-![Create database migration assessment report](images/create_assessment_report.png)
+![Create database migration assessment report](/images/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
 
 ### Assessment report summary
 

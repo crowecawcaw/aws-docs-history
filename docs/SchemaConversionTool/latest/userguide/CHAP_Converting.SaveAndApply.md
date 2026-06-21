@@ -50,7 +50,7 @@ choose the schema element from the right panel of your project. Open the context
 (right-click) menu for the schema element, and then choose **Apply to
 database**, as shown following.
 
-![Apply to database](/images/SchemaConversionTool/latest/userguide/images/write_to_database.png)
+![Apply to database](images/write_to_database.png)
 
 ## The extension pack schema
 
