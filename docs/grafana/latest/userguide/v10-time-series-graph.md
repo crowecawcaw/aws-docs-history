@@ -100,7 +100,7 @@ Sets the size of the points, from 1 to 40 pixels in diameter.
 
 Choose how Grafana interpolates the series line.
 
-![An image showing different ways of drawing lines between points in Grafana.](images/viz/line-interpolation.png)
+![An image showing different ways of drawing lines between points in Grafana.](/images/grafana/latest/userguide/images/viz/line-interpolation.png)
 
 The options are:
 
