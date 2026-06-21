@@ -72,10 +72,13 @@ address.
 **Transit gateway address**
 
 The peer IP address (GRE outer IP address) on the transit gateway side of the
-Connect peer. The IP address must be specified from the transit gateway CIDR block,
-and must be unique across Connect attachments on the transit gateway. If you don't
-specify an IP address, we use the first available address from the transit gateway
-CIDR block.
+Connect peer. Specify this address from a transit gateway CIDR block. The address
+must be unique across the entire transit gateway. transit gateway CIDR blocks form a shared
+address pool used by Private-IP VPN tunnel outside IPs, Client VPN
+endpoints, and Connect peers. Only one resource can use each address at a
+time. For details, see "Transit gateway CIDR blocks" on the [Create a transit gateway](create-tgw.md "create-tgw.md") page. If you do
+not specify an address, Amazon VPC uses the first available address from the
+transit gateway CIDR block.
 
 You can add a transit gateway CIDR block when you [create](create-tgw.md "create-tgw.md") or [modify](tgw-modifying.md "tgw-modifying.md") a
 transit gateway.
