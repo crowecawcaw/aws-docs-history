@@ -98,8 +98,8 @@ The following is an example log file name without a prefix:
 s3://amzn-s3-demo-logging-bucket/AWSLogs/123456789012/elasticloadbalancing/us-east-2/2022/05/01/health_check_log_123456789012_elasticloadbalancing_us-east-2_app.my-loadbalancer.1234567890abcdef_20220215T2340Z_172.160.001.192_20sg8hgm.log.gz
 ```
 
-You can store your log files in your bucket for as long as you want, but you can
-also define Amazon S3 lifecycle rules to archive or delete log files automatically. For
+You can store log files in your bucket indefinitely. You can also define Amazon S3
+lifecycle rules to archive or delete log files automatically. For
 more information, see [Object
 lifecycle management](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") in the _Amazon S3 User Guide_.
 

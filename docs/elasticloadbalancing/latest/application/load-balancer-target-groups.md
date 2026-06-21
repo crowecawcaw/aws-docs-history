@@ -207,7 +207,7 @@ incoming traffic across its healthy registered targets. You can register each ta
 with one or more target groups.
 
 If demand on your application increases, you can register additional targets with one
-or more target groups to handle the demand. The load balancer starts routing
+or more target groups in order to handle the demand. The load balancer starts routing
 traffic to a newly registered target as soon as the registration process completes and
 the target passes the first initial health check, irrespective of the configured threshold.
 

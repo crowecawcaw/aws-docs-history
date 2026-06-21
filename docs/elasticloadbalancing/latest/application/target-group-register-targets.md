@@ -6,7 +6,7 @@ can register instance IDs, IP addresses, or Lambda functions. For more informati
 [Target groups for your Application Load Balancers](load-balancer-target-groups.md "load-balancer-target-groups.md").
 
 If demand on your currently registered targets increases, you can register additional
-targets to handle the demand. When your target is ready to handle requests,
+targets in order to handle the demand. When your target is ready to handle requests,
 register it with your target group. The load balancer starts routing requests to the
 target as soon as the registration process completes and the target passes the initial
 health checks.

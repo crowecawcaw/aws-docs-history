@@ -9,7 +9,7 @@ corresponding authentication and authorization logic in your application. For mo
 When you use mutual TLS in verify mode, the Application Load Balancer performs X.509 client certificate authentication
 for clients when a load balancer negotiates TLS connections.
 
-To use mutual TLS verify mode, perform the following:
+To utilize mutual TLS verify mode, perform the following:
 
 - Create a new trust store resource.
 - Upload your certificate authority (CA) bundle and, optionally, revocation lists.

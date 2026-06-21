@@ -29,7 +29,7 @@ balancer, we recommend performing load testing or reviewing historical workload 
 represents the upcoming traffic you expect. Using the Elastic Load Balancing console, you can
 estimate how much capacity you need to reserve based on the reviewed traffic.
 
-Alternatively, you can use the CloudWatch metric `PeakLCUs` to
+Alternatively, you can utilize the CloudWatch metric `PeakLCUs` to
 determine the level of capacity needed. The `PeakLCUs` metric
 accounts for peaks in your traffic pattern that the load balancer must scale across all
 scaling dimensions to support your workload. The `PeakLCUs` metric is

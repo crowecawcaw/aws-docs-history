@@ -43,7 +43,7 @@ for the secure connection.
     suite as specified by the US National Security Agency (NSA). To help with transition,
     they are available in two categories: strict policies that enforce full RFC 9151
     requirements, and interop policies (containing "INTEROP" in their name) that support
-    both RFC 9151-compliant and non-RFC 9151 ciphers to help gradual transition.
+    both RFC 9151-compliant and non-RFC 9151 ciphers to facilitate gradual transition.
     AWS recommends starting with `ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07`
     to minimize disruption, then gradually moving to stricter policies as clients support
     RFC 9151. You can use the `tls_protocol`, `tls_cipher`, and
@@ -245,13 +245,13 @@ government standard that specifies the security requirements for cryptographic
 modules that protect sensitive information. To learn more, see [Federal Information Processing Standard (FIPS) 140](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/")
 on the _AWS Cloud Security Compliance_ page.
 
-All FIPS policies use the AWS-LC FIPS validated cryptographic module. To learn more,
+All FIPS policies leverage the AWS-LC FIPS validated cryptographic module. To learn more,
 see the [AWS-LC Cryptographic Module](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4631 "https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4631") page on the _NIST Cryptographic Module Validation Program_ site.
 
 ###### Important
 
 Policies `ELBSecurityPolicy-TLS13-1-1-FIPS-2023-04` and `ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04`
-are provided for legacy compatibility only. While they use FIPS cryptography using the FIPS140 module, they may not
+are provided for legacy compatibility only. While they utilize FIPS cryptography using the FIPS140 module, they may not
 conform to the latest NIST guidance for TLS configuration.
 
 ###### Contents
@@ -336,12 +336,12 @@ learn more about RFC 9151, see [RFC 9151](https://datatracker.ietf.org/doc/html/
 RFC 9151 policies are available in two categories:
 
 - **Strict policies** – Enforce strict RFC 9151 cipher and signature scheme requirements. Use these when all your clients can support RFC 9151.
-- **Interop policies** – Support both RFC 9151-compliant and non-RFC 9151 ciphers and signature schemes to help a gradual transition to RFC 9151 compliance. Use these when you are uncertain whether all clients can support RFC 9151, or you want to avoid disrupting clients during the transition. All interop policies contain "INTEROP" in their policy name.
+- **Interop policies** – Support both RFC 9151-compliant and non-RFC 9151 ciphers and signature schemes to facilitate a gradual transition to RFC 9151 compliance. Use these when you are uncertain whether all clients can support RFC 9151, or you want to avoid disrupting clients during the transition. All interop policies contain "INTEROP" in their policy name.
 
 AWS recommends starting with the interop policy `ELBSecurityPolicy-TLS13-1-2-RFC9151-INTEROP4-FIPS-2023-07`,
 which supports clients that can negotiate classical TLS 1.3, TLS 1.2, or strict RFC 9151
 algorithms, minimizing disruption. You can gradually move to stricter policies as your
-clients can negotiate strict RFC 9151. You can use the `tls_protocol`,
+clients can negotiate strict RFC 9151. You can leverage the `tls_protocol`,
 `tls_cipher`, and `tls_keyexchange` fields in ALB connection logs
 to monitor how clients are connecting.
 
