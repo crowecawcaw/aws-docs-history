@@ -4,7 +4,7 @@ The steps for managing the streaming modes are the same across all supported web
 
 1. In the client, choose **Session**, **Preferences**.
 
-![Session is located inside the menu in the top-right of the interface.](images/web-preferences-menu.png) 2. Under the **Display** tab, choose one of the following options from the **Streaming options** section:
+![Session is located inside the menu in the top-right of the interface.](/images/dcv/latest/userguide/images/web-preferences-menu.png) 2. Under the **Display** tab, choose one of the following options from the **Streaming options** section:
 
     * **Best responsiveness**
     * **Best quality**
