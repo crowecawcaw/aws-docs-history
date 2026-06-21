@@ -76,7 +76,7 @@ in place before starting an upgrade.
   [kubectl
   convert plugin](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin "https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin") to facilitate the
   [conversion
-  of Kubernetes manifest files](https://kubernetes.io/docs/tasks/tools/included/kubectl-convert-overview/ "https://kubernetes.io/docs/tasks/tools/included/kubectl-convert-overview/") between different API versions. This can
+  of Kubernetes manifest files](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin "https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-convert-plugin") between different API versions. This can
   help ensure that your configurations remain compatible with the new
   Kubernetes version.
 
@@ -750,7 +750,7 @@ they’re safely drained and deleted. This is true even if they’re in use,
 allowing you to replace nodes with newly provisioned upgraded instances.
 When a node is replaced, Karpenter uses the latest EKS-optimized AMIs.
 For more information, see
-[Deprovisioning](https://karpenter.sh/docs/concepts/deprovisioning/#methods "https://karpenter.sh/docs/concepts/deprovisioning/#methods")
+[Disruption](https://karpenter.sh/docs/concepts/disruption/ "https://karpenter.sh/docs/concepts/disruption/")
 on the Karpenter website.
 
 Karpenter doesn’t automatically add jitter to this value. To prevent
@@ -764,11 +764,11 @@ applies to existing nodes associated with the provisioner.
 ## Use Drift feature for Karpenter managed nodes
 
 [Karpenter’s
-Drift feature](https://karpenter.sh/docs/concepts/deprovisioning/#drift "https://karpenter.sh/docs/concepts/deprovisioning/#drift") can automatically upgrade the Karpenter-provisioned nodes
+Drift feature](https://karpenter.sh/docs/concepts/disruption/#drift "https://karpenter.sh/docs/concepts/disruption/#drift") can automatically upgrade the Karpenter-provisioned nodes
 to stay in-sync with the EKS control plane. Karpenter Drift currently
 needs to be enabled using a
 [feature
-gate](https://karpenter.sh/docs/concepts/settings/#feature-gates "https://karpenter.sh/docs/concepts/settings/#feature-gates"). Karpenter’s default configuration uses the latest EKS-Optimized
+gate](https://karpenter.sh/docs/reference/settings/#feature-gates "https://karpenter.sh/docs/reference/settings/#feature-gates"). Karpenter’s default configuration uses the latest EKS-Optimized
 AMI for the same major and minor version as the EKS cluster’s control
 plane.
 
@@ -794,14 +794,14 @@ documentation.
 
 For example, eksctl supports
 [deleting
-and draining self-managed nodes.](https://eksctl.io/usage/managing-nodegroups/#deleting-and-draining "https://eksctl.io/usage/managing-nodegroups/#deleting-and-draining")
+and draining self-managed nodes.](../eksctl/managing-nodegroups.md "../eksctl/managing-nodegroups.md")
 
 Some common tools include:
 
-- [eksctl](https://eksctl.io/usage/nodegroup-upgrade/ "https://eksctl.io/usage/nodegroup-upgrade/")
+- [eksctl](../eksctl/nodegroup-upgrade.md "../eksctl/nodegroup-upgrade.md")
 - [kOps](https://kops.sigs.k8s.io/operations/updates_and_upgrades/ "https://kops.sigs.k8s.io/operations/updates_and_upgrades/")
 - [EKS
-  Blueprints](https://aws-ia.github.io/terraform-aws-eks-blueprints/node-groups/#self-managed-node-groups "https://aws-ia.github.io/terraform-aws-eks-blueprints/node-groups/#self-managed-node-groups")
+  Blueprints](https://github.com/aws-ia/terraform-aws-eks-blueprints "https://github.com/aws-ia/terraform-aws-eks-blueprints")
 
 ## Backup the cluster before upgrading
 

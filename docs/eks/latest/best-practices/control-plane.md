@@ -78,7 +78,7 @@ kubectl get --raw /metrics
 
 These metrics are represented in a
 [Prometheus
-text format](https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md "https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md").
+text format](https://github.com/prometheus/docs/blob/main/docs/instrumenting/exposition_formats.md "https://github.com/prometheus/docs/blob/main/docs/instrumenting/exposition_formats.md").
 
 You can use Prometheus to collect and store these metrics. In May 2020,
 CloudWatch added support for monitoring Prometheus metrics in CloudWatch

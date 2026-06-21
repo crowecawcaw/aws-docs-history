@@ -341,7 +341,7 @@ your cluster’s alignment with established best practices:
 - [kubesec.io](https://kubesec.io/ "https://kubesec.io/")
 - [polaris](https://github.com/FairwindsOps/polaris "https://github.com/FairwindsOps/polaris")
 - [Starboard](https://github.com/aquasecurity/starboard "https://github.com/aquasecurity/starboard")
-- [Snyk](https://support.snyk.io/hc/en-us/articles/360003916138-Kubernetes-integration-overview "https://support.snyk.io/hc/en-us/articles/360003916138-Kubernetes-integration-overview")
+- [Snyk](https://docs.snyk.io/scan-with-snyk/snyk-container/kubernetes-integration "https://docs.snyk.io/scan-with-snyk/snyk-container/kubernetes-integration")
 - [Kubescape](https://github.com/kubescape/kubescape "https://github.com/kubescape/kubescape") Kubescape is an open
   source kubernetes security tool that scans clusters, YAML files, and
   Helm charts. It detects misconfigurations according to multiple

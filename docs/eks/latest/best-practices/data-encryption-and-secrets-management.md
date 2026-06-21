@@ -216,7 +216,7 @@ of reading them from a volume.
 
 ###### Note
 
-When the secret store CSI driver has to fetch a secret, it assumes the IRSA role assigned to the pod that references a secret. The code for this operation can be found [here](https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/auth/auth.go "https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/auth/auth.go").
+When the secret store CSI driver has to fetch a secret, it assumes the IRSA role assigned to the pod that references a secret. The code for this operation can be found [here](https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/credential_provider/ "https://github.com/aws/secrets-store-csi-driver-provider-aws/blob/main/credential_provider/").
 
 For additional information about the AWS Secrets & Configuration
 Provider (ASCP) refer to the following resources:

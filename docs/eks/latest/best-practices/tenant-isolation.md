@@ -503,7 +503,7 @@ In the above examples, we used policies written for OPA/Gatekeeper.
 However, there are other policy management tools that handle our
 node-selection use case as well. For example, this
 [Kyverno
-policy](https://kyverno.io/policies/other/add_node_affinity/add_node_affinity/ "https://kyverno.io/policies/other/add_node_affinity/add_node_affinity/") could be used to handle the node affinity mutation.
+policy](https://kyverno.io/policies/other/add-node-affinity/add-node-affinity/ "https://kyverno.io/policies/other/add-node-affinity/add-node-affinity/") could be used to handle the node affinity mutation.
 
 ###### Note
 

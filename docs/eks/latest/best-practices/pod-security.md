@@ -108,7 +108,7 @@ when considering migrating from PSP to PSS.
 Kyverno, one of the PAC solutions outlined below, has specific guidance
 outlined in a
 [blog
-post](https://kyverno.io/blog/2023/05/24/podsecuritypolicy-migration-with-kyverno/ "https://kyverno.io/blog/2023/05/24/podsecuritypolicy-migration-with-kyverno/") when migrating from PSPs to its solution including analogous
+post](https://kyverno.io/blog/2023/05/24/psp-migration/ "https://kyverno.io/blog/2023/05/24/psp-migration/") when migrating from PSPs to its solution including analogous
 policies, feature comparisons, and a migration procedure. Additional
 information and guidance on migration to Kyverno with respect to Pod
 Security Admission (PSA) has been published on the AWS blog
@@ -419,11 +419,11 @@ Pros:
   dependent)
 - Can generate complementary policies and Kubernetes resources (solution
   dependent - From pod policies, Kyverno can
-  [auto-gen](https://kyverno.io/docs/writing-policies/autogen/ "https://kyverno.io/docs/writing-policies/autogen/") policies for
+  [auto-gen](https://kyverno.io/docs/policy-types/cluster-policy/autogen/ "https://kyverno.io/docs/policy-types/cluster-policy/autogen/") policies for
   higher-level controllers, such as Deployments. Kyverno can also generate
   additional Kubernetes resources _"`when a new resource is created or
 when the source is updated`"_ by using
-  [Generate Rules](https://kyverno.io/docs/writing-policies/generate/ "https://kyverno.io/docs/writing-policies/generate/").)
+  [Generate Rules](https://kyverno.io/docs/policy-types/cluster-policy/generate/ "https://kyverno.io/docs/policy-types/cluster-policy/generate/").)
 - Can be used to shift left, into CICD pipelines, before making calls to
   the Kubernetes API server (solution dependent)
 - Can be used to implement behaviors that are not necessarily security

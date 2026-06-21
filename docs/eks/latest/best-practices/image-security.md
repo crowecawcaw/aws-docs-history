@@ -90,7 +90,7 @@ The following tools can be used to generate SBOM:
   for a container image can be used as an input to scan. The SBOM and scan
   report are then
   [attested
-  and attached](https://github.com/sigstore/cosign/blob/main/doc/cosign_attach_attestation.md "https://github.com/sigstore/cosign/blob/main/doc/cosign_attach_attestation.md") to the image before pushing the image to a central OCI
+  and attached](https://github.com/sigstore/cosign/blob/main/doc/cosign_attest.md "https://github.com/sigstore/cosign/blob/main/doc/cosign_attest.md") to the image before pushing the image to a central OCI
   repository such as Amazon ECR for review and audit purposes.
 
 Learn more about securing your software supply chain by reviewing
@@ -130,7 +130,7 @@ capabilities out of the box, including:
 - [Aqua](https://www.aquasec.com/ "https://www.aquasec.com/")
 - [Kubei](https://github.com/Portshift/kubei "https://github.com/Portshift/kubei")
 - [Trivy](https://github.com/aquasecurity/trivy "https://github.com/aquasecurity/trivy")
-- [Snyk](https://support.snyk.io/hc/en-us/articles/360003946917-Test-images-with-the-Snyk-Container-CLI "https://support.snyk.io/hc/en-us/articles/360003946917-Test-images-with-the-Snyk-Container-CLI")
+- [Snyk](https://docs.snyk.io/developer-tools/snyk-cli/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-cli-for-snyk-container "https://docs.snyk.io/developer-tools/snyk-cli/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-cli-for-snyk-container")
 
 A Kubernetes validation webhook could also be used to validate that
 images are free of critical vulnerabilities. Validation webhooks are
@@ -167,7 +167,7 @@ workflow in place of having done the analysis ourself.
 - Kubernetes admission controllers such as [Kyverno](https://kyverno.io/ "https://kyverno.io/")
   can be used to
   [verify
-  attestations](https://kyverno.io/docs/writing-policies/verify-images/sigstore/ "https://kyverno.io/docs/writing-policies/verify-images/sigstore/").
+  attestations](https://kyverno.io/docs/policy-types/cluster-policy/verify-images/sigstore/ "https://kyverno.io/docs/policy-types/cluster-policy/verify-images/sigstore/").
 - Refer to this
   [workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/49343bb7-2cc5-4001-9d3b-f6a33b3c4442/en-US/0-introduction "https://catalog.us-east-1.prod.workshops.aws/workshops/49343bb7-2cc5-4001-9d3b-f6a33b3c4442/en-US/0-introduction")
   to learn more about software supply chain management best practices on
