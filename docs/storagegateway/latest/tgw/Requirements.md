@@ -359,7 +359,7 @@ physical hardware appliance, or in AWS as an Amazon EC2 instance.
 
 ###### Note
 
-UEFI boot mode with secure boot disabled (loader_secure=no) is required for File Gateway 2.x, Volume Gateway 3.x, and Tape Gateway 3.x. An xml file is provided with each qcow download as a quick set-up configuration.
+UEFI boot mode with secure boot disabled (loader\_secure=no) is required for File Gateway 2.x, Volume Gateway 3.x, and Tape Gateway 3.x. An xml file is provided with each qcow download as a quick set-up configuration.
 
 ###### Note
 
@@ -383,7 +383,7 @@ Storage Gateway supports the following hypervisor versions and hosts:
   recommend this option if you already have a KVM environment up and running and
   you are already familiar with how KVM works. Refer to the provided
   aws-storage-gateway.xml file for suggested boot configurations. UEFI boot mode
-  with secure boot disabled (loader_secure=no) is required for File Gateway 2.x,
+  with secure boot disabled (loader\_secure=no) is required for File Gateway 2.x,
   Volume Gateway 3.x, and Tape Gateway 3.x.
 - Nutanix AHV (Acropolis Hypervisor) beginning with version 10.0.1.1 – A KVM-based virtualization platform that is integrated into the Nutanix hyper-converged infrastructure (HCI) solution.
 - Amazon EC2 instance – Storage Gateway provides an Amazon Machine Image (AMI)

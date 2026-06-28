@@ -100,7 +100,7 @@ devices on Linux.
 8. Ensure that the barcode for any tape in the virtual tape library is eight
    characters or less. If you try to assign your tape a barcode that is longer
    than eight characters, you get this error message: `"Tape barcode
-is too long for media changer"`.
+ is too long for media changer"`.
 
 ## Writing Data to a Tape in IBM Data Protect
 

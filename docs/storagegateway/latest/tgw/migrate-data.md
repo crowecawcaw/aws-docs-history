@@ -55,87 +55,96 @@ Before proceeding, confirm that the ejected tapes have been archived:
      [Determining Tape Status in an Archive](understand-tapes-status.md#determine-tape-status-vts "understand-tapes-status.md#determine-tape-status-vts").
 
 3. Using your backup application, verify that there are no active backup jobs
-   going to the existing Tape Gateway before you stop it. If there are any active
-   backup jobs, wait for them to finish and eject your tapes (see previous step)
-   before stopping the gateway.
-4. Use the following steps to stop the existing Tape Gateway:
+going to the existing Tape Gateway before you stop it. If there are any active
+backup jobs, wait for them to finish and eject your tapes (see previous step)
+before stopping the gateway. 4. Use the following steps to stop the existing Tape Gateway:
 
-   1. In the navigation pane, choose **Gateways**, and then
-      choose the old Tape Gateway that you want to stop. The status of the
-      gateway is **Running**.
-   2. For **Actions**, choose **Stop
-      gateway**. Verify the ID of the gateway from the dialog
-      box, and then choose **Stop gateway**.
+    1. In the navigation pane, choose **Gateways**, and then
+     choose the old Tape Gateway that you want to stop. The status of the
+     gateway is **Running**.
+    2. For **Actions**, choose **Stop
+     gateway**. Verify the ID of the gateway from the dialog
+     box, and then choose **Stop gateway**.
 
-   While the old Tape Gateway is stopping, you might see a message that
-   indicates the status of the gateway. When the gateway shuts down, a
-   message and a **Start gateway** button appear in the
-   **Details** tab.For more information about stopping a gateway, see [Starting and Stopping a Tape Gateway](MaintenanceShutDown-common.md#start-stop-classic "MaintenanceShutDown-common.md#start-stop-classic").
 
-5. Create a new Tape Gateway. For detailed instructions, see [Creating a Gateway](create-gateway-vtl.md "create-gateway-vtl.md").
-6. Use the following steps to create new tapes:
+    While the old Tape Gateway is stopping, you might see a message that
+     indicates the status of the gateway. When the gateway shuts down, a
+     message and a **Start gateway** button appear in the
+     **Details** tab.For more information about stopping a gateway, see [Starting and Stopping a Tape Gateway](MaintenanceShutDown-common.md#start-stop-classic "MaintenanceShutDown-common.md#start-stop-classic").
 
-   1. In the navigation pane, choose the **Gateways**
-      tab.
-   2. Choose **Create tape** to open the **Create
-      tape** dialog box.
-   3. For **Gateway**, choose a gateway. The tape is
-      created for this gateway.
-   4. For **Number of tapes**, choose the number of tapes
-      that you want to create. For more information about tape limits, see
-      [AWS Storage Gateway quotas](resource-gateway-limits.md "resource-gateway-limits.md").
+5. Create a new Tape Gateway. For detailed instructions, see [Creating a Gateway](create-gateway-vtl.md "create-gateway-vtl.md"). 6. Use the following steps to create new tapes:
 
-   You can also set up automatic tape creation at this point. For more
-   information, see [Creating Tapes Automatically](GettingStartedCreateTapes.md#CreateTapesAutomatically "GettingStartedCreateTapes.md#CreateTapesAutomatically"). 5. For **Capacity**, enter the size of the virtual tape
-   that you want to create. Tapes must be larger than 100 GiB. For
-   information about capacity limits, see [AWS Storage Gateway quotas](resource-gateway-limits.md "resource-gateway-limits.md"). 6. For **Barcode prefix**, enter the prefix that you
-   want to prepend to the barcode of your virtual tapes.
+    1. In the navigation pane, choose the **Gateways**
+     tab.
+    2. Choose **Create tape** to open the **Create
+     tape** dialog box.
+    3. For **Gateway**, choose a gateway. The tape is
+     created for this gateway.
+    4. For **Number of tapes**, choose the number of tapes
+     that you want to create. For more information about tape limits, see
+     [AWS Storage Gateway quotas](resource-gateway-limits.md "resource-gateway-limits.md").
 
-   ###### Note
 
-   Virtual tapes are uniquely identified by a barcode. You can add a
-   prefix to the barcode. The prefix is optional, but you can use it to
-   help identify your virtual tapes. The prefix must be uppercase
-   letters (A–Z) and must be one to four characters long. 7. For **Pool**, choose **Glacier
-   Pool** or **Deep Archive Pool**. This pool
-   represents the storage class in which your tape will be stored when it
-   is ejected by your backup software.
+    You can also set up automatic tape creation at this point. For more
+     information, see [Creating Tapes Automatically](GettingStartedCreateTapes.md#CreateTapesAutomatically "GettingStartedCreateTapes.md#CreateTapesAutomatically").
+    5. For **Capacity**, enter the size of the virtual tape
+     that you want to create. Tapes must be larger than 100 GiB. For
+     information about capacity limits, see [AWS Storage Gateway quotas](resource-gateway-limits.md "resource-gateway-limits.md").
+    6. For **Barcode prefix**, enter the prefix that you
+     want to prepend to the barcode of your virtual tapes.
 
-   Choose **Glacier Pool** if you want to archive the
-   tape in S3 Glacier Flexible Retrieval. When your backup software ejects the
-   tape, it is automatically archived in S3 Glacier Flexible Retrieval. You
-   use S3 Glacier Flexible Retrieval for more active archives where you can
-   retrieve a tape typically within 3-5 hours. For more information, see
-   [Storage classes for archiving objects](../../../AmazonS3/latest/dev/storage-class-intro.md#sc-glacier "../../../AmazonS3/latest/dev/storage-class-intro.md#sc-glacier")
-   in the _Amazon Simple Storage Service User Guide_.
 
-   Choose **Deep Archive Pool** if you want to archive
-   the tape in S3 Glacier Deep Archive. When your backup software
-   ejects the tape, the tape is automatically archived in
-   S3 Glacier Deep Archive. You use S3 Glacier Deep Archive
-   for long-term data retention and digital preservation where data is
-   accessed once or twice a year. You can retrieve a tape archived in
-   S3 Glacier Deep Archive typically within 12 hours. For more
-   information, see [Storage classes for archiving objects](../../../AmazonS3/latest/dev/storage-class-intro.md#sc-glacier "../../../AmazonS3/latest/dev/storage-class-intro.md#sc-glacier") in the
-   _Amazon Simple Storage Service User Guide_.
+    ###### Note
 
-   If you archive a tape in S3 Glacier Flexible Retrieval, you can move it
-   to S3 Glacier Deep Archive later. For more information, see
-   [Moving tapes to S3 Glacier Deep Archive storage class](moving-tapes-vtl.md "moving-tapes-vtl.md").
+    Virtual tapes are uniquely identified by a barcode. You can add a
+     prefix to the barcode. The prefix is optional, but you can use it to
+     help identify your virtual tapes. The prefix must be uppercase
+     letters (A–Z) and must be one to four characters long.
+    7. For **Pool**, choose **Glacier
+     Pool** or **Deep Archive Pool**. This pool
+     represents the storage class in which your tape will be stored when it
+     is ejected by your backup software.
 
-   ###### Note
 
-   Tapes created before March 27, 2019, are archived directly in
-   S3 Glacier Flexible Retrieval when your backup software ejects
-   them. 8. (Optional) For **Tags**, enter a key and value to add
-   tags to your tape. A tag is a case-sensitive key-value pair that helps
-   you manage, filter, and search for your tapes. 9. Choose **Create tapes**.
+    Choose **Glacier Pool** if you want to archive the
+     tape in S3 Glacier Flexible Retrieval. When your backup software ejects the
+     tape, it is automatically archived in S3 Glacier Flexible Retrieval. You
+     use S3 Glacier Flexible Retrieval for more active archives where you can
+     retrieve a tape typically within 3-5 hours. For more information, see
+     [Storage classes for archiving objects](../../../AmazonS3/latest/dev/storage-class-intro.md#sc-glacier "../../../AmazonS3/latest/dev/storage-class-intro.md#sc-glacier")
+     in the *Amazon Simple Storage Service User Guide*.
+
+
+    Choose **Deep Archive Pool** if you want to archive
+     the tape in S3 Glacier Deep Archive. When your backup software
+     ejects the tape, the tape is automatically archived in
+     S3 Glacier Deep Archive. You use S3 Glacier Deep Archive
+     for long-term data retention and digital preservation where data is
+     accessed once or twice a year. You can retrieve a tape archived in
+     S3 Glacier Deep Archive typically within 12 hours. For more
+     information, see [Storage classes for archiving objects](../../../AmazonS3/latest/dev/storage-class-intro.md#sc-glacier "../../../AmazonS3/latest/dev/storage-class-intro.md#sc-glacier") in the
+     *Amazon Simple Storage Service User Guide*.
+
+
+    If you archive a tape in S3 Glacier Flexible Retrieval, you can move it
+     to S3 Glacier Deep Archive later. For more information, see
+     [Moving tapes to S3 Glacier Deep Archive storage class](moving-tapes-vtl.md "moving-tapes-vtl.md").
+
+
+    ###### Note
+
+    Tapes created before March 27, 2019, are archived directly in
+     S3 Glacier Flexible Retrieval when your backup software ejects
+     them.
+    8. (Optional) For **Tags**, enter a key and value to add
+     tags to your tape. A tag is a case-sensitive key-value pair that helps
+     you manage, filter, and search for your tapes.
+    9. Choose **Create tapes**.
 
 7. Use your backup application to start a backup job, and back up your data to
-   the new tape.
-8. (Optional) If your tape is archived and you need to restore data from it,
-   retrieve it to the new Tape Gateway. The tape will be in read-only mode. For
-   more information about retrieving archived tapes, see [Retrieving Archived Tapes](retrieving-archived-tapes-vtl.md "retrieving-archived-tapes-vtl.md").
+the new tape. 8. (Optional) If your tape is archived and you need to restore data from it,
+retrieve it to the new Tape Gateway. The tape will be in read-only mode. For
+more information about retrieving archived tapes, see [Retrieving Archived Tapes](retrieving-archived-tapes-vtl.md "retrieving-archived-tapes-vtl.md").
 
 ###### Note
 

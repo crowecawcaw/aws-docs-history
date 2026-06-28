@@ -56,12 +56,11 @@ Library**, and then choose **Next**. 3. On the next screen, do the following:
     5. Choose **Next** to continue.
 
 4. On the next screen, specify the slots that you want to use with HP Data
-   Protector. Use a hyphen ("-") between numbers to indicate a range of slots, for
-   example 1–6. When you've specified slots to use, choose
-   **Next**.
-5. For the standard type of media used by the physical device, choose
-   **LTO_Ultrium**, and then choose
-   **Finish** to complete the setup.
+Protector. Use a hyphen ("-") between numbers to indicate a range of slots, for
+example 1–6. When you've specified slots to use, choose
+**Next**. 5. For the standard type of media used by the physical device, choose
+**LTO\_Ultrium**, and then choose
+**Finish** to complete the setup.
 
 Your tape library is now ready to use. To load tapes into it, see the next
 section.
@@ -86,45 +85,44 @@ load virtual tapes into the library.
 
 ###### To load virtual tapes into your tape library
 
-1.  Choose the plus sign next to your tape library to display the nodes for
-    robotics paths, drives, and slots.
-2.  Open the context (right-click) menu for **Drives**,
-    choose **Add Drive**, type a name for your tape, and then
-    choose **Next** to continue.
-3.  Choose the tape drive you want to add for **SCSI address of data
-    drive**, choose **Automatically discover changed SCSI
-    address**, and then choose **Next**.
-4.  On the following screen, choose **Advanced**. The
-    **Advanced Options** pop-up screen appears.
+1. Choose the plus sign next to your tape library to display the nodes for
+   robotics paths, drives, and slots.
+2. Open the context (right-click) menu for **Drives**,
+   choose **Add Drive**, type a name for your tape, and then
+   choose **Next** to continue.
+3. Choose the tape drive you want to add for **SCSI address of data
+   drive**, choose **Automatically discover changed SCSI
+   address**, and then choose **Next**.
+4. On the following screen, choose **Advanced**. The
+   **Advanced Options** pop-up screen appears.
 
-    1.  On the **Settings** tab, you should consider the
-        following options:
+   1. On the **Settings** tab, you should consider the
+      following options:
 
-            * **CRC Check** (to detect accidental data
-             changes)
-            * **Detect dirty drive** (to ensure the
-             drive is clean before backup)
-            * **SCSI Reserve/Release(drive)** (to avoid
-             tape contention)
-
+      - **CRC Check** (to detect accidental data
+        changes)
+      - **Detect dirty drive** (to ensure the
+        drive is clean before backup)
+      - **SCSI Reserve/Release(drive)** (to avoid
+        tape contention)
         For testing purposes, you can leave these options deactivated
         (unchecked).
 
-    2.  On the **Sizes** tab, set the **Block
-        size (kB)** to **Default (256)**.
-    3.  Choose **OK** to close the advanced options
-        screen, and then choose **Next** to
-        continue.
+   2. On the **Sizes** tab, set the **Block
+      size (kB)** to **Default (256)**.
+   3. Choose **OK** to close the advanced options
+      screen, and then choose **Next** to
+      continue.
 
-5.  On the next screen, choose these options under **Device
-    Policies**:
+5. On the next screen, choose these options under **Device
+   Policies**:
 
-    - **Device may be used for restore**
-    - **Device may be used as source device for object
-      copy**
+   - **Device may be used for restore**
+   - **Device may be used as source device for object
+     copy**
 
-6.  Choose **Finish** to finish adding your tape drive to
-    your tape library.
+6. Choose **Finish** to finish adding your tape drive to
+   your tape library.
 
 ### Loading Virtual Tapes into Slots
 
@@ -160,7 +158,7 @@ To set up tape backup, you create a media pool.
    Pool**.
 2. For **Pool name**, type a name.
 3. For **Media Type**, choose
-   **LTO_Ultrium**, and then choose
+   **LTO\_Ultrium**, and then choose
    **Next**.
 4. On the following screen, accept the default values, and then choose
    **Next**.

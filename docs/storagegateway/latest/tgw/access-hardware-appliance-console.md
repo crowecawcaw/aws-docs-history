@@ -30,16 +30,15 @@ user account before you can access the console.
 - At the **Please set your login password** prompt, do the
   following:
 
-      1. For **Set Password**, enter a password, and then
-       press `Down arrow`.
-      2. For **Confirm**, re-enter your password, and then
-       choose **Save Password**.
-
-  After you set your password, the hardware console **Home** page
-  appears. The **Home** page displays network information for the
-  **em1**, **em2**, **em3**, and
-  **em4** network interfaces, and has the following menu
-  options:
+  1.  For **Set Password**, enter a password, and then
+      press `Down arrow`.
+  2.  For **Confirm**, re-enter your password, and then
+      choose **Save Password**.
+      After you set your password, the hardware console **Home** page
+      appears. The **Home** page displays network information for the
+      **em1**, **em2**, **em3**, and
+      **em4** network interfaces, and has the following menu
+      options:
 
 - Configure Network
 - Open Service Console
