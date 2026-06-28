@@ -100,7 +100,7 @@ range is 0-3600 seconds. The default value is 300 seconds.
 
 Indicates whether configurable flow stickiness is enabled for the target
 group. The possible values are `true` or `false`. The
-default is false. When the attribute is set to `false`, 5_tuple
+default is false. When the attribute is set to `false`, 5\_tuple
 is used.
 
 `stickiness.type`

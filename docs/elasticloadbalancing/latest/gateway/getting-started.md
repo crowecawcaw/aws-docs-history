@@ -30,7 +30,7 @@ Similarly, all traffic leaving the application servers (destination subnet) is r
 Gateway Load Balancer endpoint before it is routed back to the internet. The following network diagram is a visual
 representation of how a Gateway Load Balancer endpoint is used to access an endpoint service.
 
-![Using a Gateway Load Balancer endpoint to access an endpoint service](images/vpc-endpoint-service-gwlbe-new.png)
+![Using a Gateway Load Balancer endpoint to access an endpoint service](/images/elasticloadbalancing/latest/gateway/images/vpc-endpoint-service-gwlbe-new.png)
 
 The numbered items that follow, highlight and explain elements shown in the preceding image.
 
@@ -186,20 +186,20 @@ through AWS PrivateLink](../../../vpc/latest/privatelink/vpce-gateway-load-balan
 
 ###### To create a Gateway Load Balancer endpoint
 
-1.  Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  In the navigation pane, choose **Endpoints**.
-3.  Choose **Create endpoint** and do the following:
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Endpoints**.
+3. Choose **Create endpoint** and do the following:
 
-    1. For **Service category**, choose **Other endpoint services**.
-    2. For **Service name**, enter the service name that you noted earlier,
-       and then choose **Verify service**.
-    3. For **VPC**, select the service consumer VPC.
-    4. For **Subnets**, select a subnet for the Gateway Load Balancer endpoint.
+   1. For **Service category**, choose **Other endpoint services**.
+   2. For **Service name**, enter the service name that you noted earlier,
+      and then choose **Verify service**.
+   3. For **VPC**, select the service consumer VPC.
+   4. For **Subnets**, select a subnet for the Gateway Load Balancer endpoint.
 
-    **Note:** You can only select one subnet
-    within each Availability Zone when creating a Gateway Load Balancer endpoint. 5. For **IP address type**, choose from the following
-    options:
+   **Note:** You can only select one subnet
+   within each Availability Zone when creating a Gateway Load Balancer endpoint. 5. For **IP address type**, choose from the following
+   options:
 
         * **IPv4** – Assign IPv4 addresses to your endpoint
          network interfaces. This option is supported only if all selected subnets have
@@ -210,10 +210,10 @@ through AWS PrivateLink](../../../vpc/latest/privatelink/vpce-gateway-load-balan
         * **Dualstack** – Assign both IPv4 and IPv6 addresses to
          your endpoint network interfaces. This option is supported only if all selected
          subnets have both IPv4 and IPv6 address ranges.
-    6. (Optional) To add a tag, choose **Add new tag** and enter the tag key
-       and tag value.
-    7. Choose **Create endpoint**. The initial status is `pending
-acceptance`.
+
+   6. (Optional) To add a tag, choose **Add new tag** and enter the tag key
+   and tag value. 7. Choose **Create endpoint**. The initial status is `pending
+  acceptance`.
 
 To accept the endpoint connection request, use the following procedure.
 
