@@ -61,34 +61,33 @@ the old alias remains linked to the correct bucket.
 
 ###### To update the revocation settings
 
-1.  Sign in to your AWS account and open the AWS Private CA console at
-    [https://console.aws.amazon.com/acm-pca/home](https://console.aws.amazon.com/acm-pca/home "https://console.aws.amazon.com/acm-pca/home").
-2.  On the **Private certificate authorities** page,
-    choose a private CA from the list. This opens the details panel for the
-    CA.
-3.  Choose the **Revocation configuration** tab, then
-    choose **Edit**.
-4.  Under **Certificate revocation options**, two options
-    are displayed:
+1. Sign in to your AWS account and open the AWS Private CA console at
+   [https://console.aws.amazon.com/acm-pca/home](https://console.aws.amazon.com/acm-pca/home "https://console.aws.amazon.com/acm-pca/home").
+2. On the **Private certificate authorities** page,
+   choose a private CA from the list. This opens the details panel for the
+   CA.
+3. Choose the **Revocation configuration** tab, then
+   choose **Edit**.
+4. Under **Certificate revocation options**, two options
+   are displayed:
 
-        * **Activate CRL distribution**
-        * **Turn on OCSP**
+   - **Activate CRL distribution**
+   - **Turn on OCSP**
+     You can configure either, neither, or both of these revocation
+     mechanisms for your CA. Although optional, managed revocation is
+     recommended as a [best practice](ca-best-practices.md "ca-best-practices.md").
+     Before completing this step, see [Plan your AWS Private CA certificate revocation method](revocation-setup.md "revocation-setup.md") for information about the
+     advantages of each method, the preliminary setup that may be required,
+     and additional revocation features.
 
-    You can configure either, neither, or both of these revocation
-    mechanisms for your CA. Although optional, managed revocation is
-    recommended as a [best practice](ca-best-practices.md "ca-best-practices.md").
-    Before completing this step, see [Plan your AWS Private CA certificate revocation method](revocation-setup.md "revocation-setup.md") for information about the
-    advantages of each method, the preliminary setup that may be required,
-    and additional revocation features.
-
-5.  Select **Activate CRL
-    distribution**.
-6.  To create an Amazon S3 bucket for your CRL entries, select
-    **Create a new S3 bucket**.
-    Provide a unique bucket name. (You do not need to include the
-    path to the bucket.) Otherwise, leave this option unselected and
-    choose an existing bucket from the **S3 bucket
-    name** list.
+5. Select **Activate CRL
+   distribution**.
+6. To create an Amazon S3 bucket for your CRL entries, select
+   **Create a new S3 bucket**.
+   Provide a unique bucket name. (You do not need to include the
+   path to the bucket.) Otherwise, leave this option unselected and
+   choose an existing bucket from the **S3 bucket
+   name** list.
 
 If you create a new bucket, AWS Private CA creates and attaches
 the [required access policy](crl-planning.md#s3-policies "crl-planning.md#s3-policies") to
@@ -136,9 +135,10 @@ additional configuration options.
      period.
 
 4. Choose **Save changes** when done.
+
 1. On the **Certificate revocation** page,
    choose **Turn on OCSP**.
-1. (Optional) In the **Custom OCSP endpoint**
+2. (Optional) In the **Custom OCSP endpoint**
    field, provide a fully qualified domain name (FQDN) for your
    OCSP endpoint. To use OCSP over IPv6, set this field to a dualstack endpoint
    as described in [Using OCSP over IPv6](ocsp-customize.md#ocsp-ipv6 "ocsp-customize.md#ocsp-ipv6").

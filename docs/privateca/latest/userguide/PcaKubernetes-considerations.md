@@ -14,11 +14,11 @@ scenarios.
 The following table lists AWS Private CA templates that you can use with cert-manager to
 provision a Kubernetes cluster.
 
-| Templates supported for Kubernetes                                                                                                                                                            | Support for cross-account use |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| [BlankEndEntityCertificate_CSRPassthrough/V1 definition](template-definitions.md#BlankEndEntityCertificate_CSRPassthrough "template-definitions.md#BlankEndEntityCertificate_CSRPassthrough") | No                            |
-| [CodeSigningCertificate/V1 definition](template-definitions.md#CodeSigningCertificate-V1 "template-definitions.md#CodeSigningCertificate-V1")                                                 | No                            |
-| [EndEntityCertificate/V1 definition](template-definitions.md#EndEntityCertificate-V1 "template-definitions.md#EndEntityCertificate-V1")                                                       | Yes                           |
-| [EndEntityClientAuthCertificate/V1 definition](template-definitions.md#EndEntityClientAuthCertificate-V1 "template-definitions.md#EndEntityClientAuthCertificate-V1")                         | Yes                           |
-| [EndEntityServerAuthCertificate/V1 definition](template-definitions.md#EndEntityServerAuthCertificate-V1 "template-definitions.md#EndEntityServerAuthCertificate-V1")                         | Yes                           |
-| [OCSPSigningCertificate/V1 definition](template-definitions.md#OCSPSigningCertificate-V1 "template-definitions.md#OCSPSigningCertificate-V1")                                                 | No                            |
+| Templates supported for Kubernetes                                                                                                                                                             | Support for cross-account use |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| [BlankEndEntityCertificate\_CSRPassthrough/V1 definition](template-definitions.md#BlankEndEntityCertificate_CSRPassthrough "template-definitions.md#BlankEndEntityCertificate_CSRPassthrough") | No                            |
+| [CodeSigningCertificate/V1 definition](template-definitions.md#CodeSigningCertificate-V1 "template-definitions.md#CodeSigningCertificate-V1")                                                  | No                            |
+| [EndEntityCertificate/V1 definition](template-definitions.md#EndEntityCertificate-V1 "template-definitions.md#EndEntityCertificate-V1")                                                        | Yes                           |
+| [EndEntityClientAuthCertificate/V1 definition](template-definitions.md#EndEntityClientAuthCertificate-V1 "template-definitions.md#EndEntityClientAuthCertificate-V1")                          | Yes                           |
+| [EndEntityServerAuthCertificate/V1 definition](template-definitions.md#EndEntityServerAuthCertificate-V1 "template-definitions.md#EndEntityServerAuthCertificate-V1")                          | Yes                           |
+| [OCSPSigningCertificate/V1 definition](template-definitions.md#OCSPSigningCertificate-V1 "template-definitions.md#OCSPSigningCertificate-V1")                                                  | No                            |

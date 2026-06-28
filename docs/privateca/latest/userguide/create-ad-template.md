@@ -6,72 +6,72 @@ Console
 
 ###### To create a template using the console
 
-1.  Sign in to your AWS account and open the AWS Private CA Connector for Active Directory console at
-    `https://console.aws.amazon.com/pca-connector-ad/home`.
-2.  Choose a connector from the **Connectors for Active
-    Directory** list and then choose **View
-    details**.
-3.  On the details page for the connector, find the **Templates** section and then choose **Create template**.
-4.  On the **Create template** page, in the **Template
-    creation method** section, choose one of the method options.
+1. Sign in to your AWS account and open the AWS Private CA Connector for Active Directory console at
+   `https://console.aws.amazon.com/pca-connector-ad/home`.
+2. Choose a connector from the **Connectors for Active
+   Directory** list and then choose **View
+   details**.
+3. On the details page for the connector, find the **Templates** section and then choose **Create template**.
+4. On the **Create template** page, in the **Template
+   creation method** section, choose one of the method options.
 
-    - **Start from a predefined template** (default) –
-      Choose from a list of predefined templates for AD applications:
+   - **Start from a predefined template** (default) –
+     Choose from a list of predefined templates for AD applications:
 
-      - **Code Signing**
-      - **Computer**
-      - **Domain Controller Authentication**
-      - **EFS Recovery Agent**
-      - **Enrollment Agent**
-      - **Enrollment Agent (Computer)**
-      - **IPSec**
-      - **Kerberos Authentication**
-      - **RAS and IAS Server**
-      - **Smartcard Logon**
-      - **Trust List Signing**
-      - **User Signature**
-      - **Workstation Authentication**
+     - **Code Signing**
+     - **Computer**
+     - **Domain Controller Authentication**
+     - **EFS Recovery Agent**
+     - **Enrollment Agent**
+     - **Enrollment Agent (Computer)**
+     - **IPSec**
+     - **Kerberos Authentication**
+     - **RAS and IAS Server**
+     - **Smartcard Logon**
+     - **Trust List Signing**
+     - **User Signature**
+     - **Workstation Authentication**
 
-    - **Start from an existing template that you created**
-      – Choose from a list of custom templates that you previously created.
-    - **Start from a blank template** – Choose this
-      option to begin creating a completely new template.
+   - **Start from an existing template that you created**
+     – Choose from a list of custom templates that you previously created.
+   - **Start from a blank template** – Choose this
+     option to begin creating a completely new template.
 
-5.  In the **Certificate settings** section, define the following
-    settings for certificates based on this template.
+5. In the **Certificate settings** section, define the following
+   settings for certificates based on this template.
 
-    - **Certificate type** – Specify whether to create
-      **User** or **Computer**
-      certificates.
-    - **Auto-enrollment** – Choose whether to activate
-      auto-enrollment for certificates based on this template.
-    - **Validity period** – Specify a certificate
-      validity period as an integer value of hours, days, weeks, months, or years.
-      The minimum value is 2 hours.
-    - **Renewal period** – Specify a certificate renewal
-      period as an integer value of hours, days, weeks, months, or years. The
-      renewal period must be no more than 75% of the validity period.
-    - **Subject name** – Choose one or more options to
-      be included in the subject name based on information contained in Active
-      Directory.
+   - **Certificate type** – Specify whether to create
+     **User** or **Computer**
+     certificates.
+   - **Auto-enrollment** – Choose whether to activate
+     auto-enrollment for certificates based on this template.
+   - **Validity period** – Specify a certificate
+     validity period as an integer value of hours, days, weeks, months, or years.
+     The minimum value is 2 hours.
+   - **Renewal period** – Specify a certificate renewal
+     period as an integer value of hours, days, weeks, months, or years. The
+     renewal period must be no more than 75% of the validity period.
+   - **Subject name** – Choose one or more options to
+     be included in the subject name based on information contained in Active
+     Directory.
 
-    ###### Note
+   ###### Note
 
-    At least one subject name or subject alternative name option must be
-    specified.
+   At least one subject name or subject alternative name option must be
+   specified.
 
         + **Common name**
         + **DNS as common name**
         + **Directory path**
         + **Email**
-    - **Subject alternative name** – Choose one or more
-      options to be included in the subject alternative name based on information
-      contained in Active Directory.
+   - **Subject alternative name** – Choose one or more
+     options to be included in the subject alternative name based on information
+     contained in Active Directory.
 
-    ###### Note
+   ###### Note
 
-    At least one subject name or subject alternative name option must be
-    specified.
+   At least one subject name or subject alternative name option must be
+   specified.
 
         + **Directory GUID**
         + **DNS name**
@@ -80,37 +80,35 @@ Console
         + **Service principal name (SPN)**
         + **User principal name (UPN)**
 
-6.  In the **Certificate request handling and enrollment options**
-    section, specify the purpose of certificates based on the template, choosing one of
-    the following options.
+6. In the **Certificate request handling and enrollment options**
+   section, specify the purpose of certificates based on the template, choosing one of
+   the following options.
 
-        * **Signature**
-        * **Encryption**
-        * **Signature and encryption**
-        * **Signature and smartcard logon**
+   - **Signature**
+   - **Encryption**
+   - **Signature and encryption**
+   - **Signature and smartcard logon**
+     Next, choose which of the following features to activate. Options vary depending
+     on the certificate purpose.
 
-    Next, choose which of the following features to activate. Options vary depending
-    on the certificate purpose.
+   - **Delete invalid certificates (do not archive)**
+   - **Include symmetric algorithms**
+   - **Exportable private key**
+     Finally, choose a certificate enrollment option. Options vary depending on the
+     certificate purpose.
 
-        * **Delete invalid certificates (do not archive)**
-        * **Include symmetric algorithms**
-        * **Exportable private key**
+   - **No user input required**
+   - **Prompt user during enrollment**
+   - **Prompt user during enrollment and require user input**
 
-    Finally, choose a certificate enrollment option. Options vary depending on the
-    certificate purpose.
-
-        * **No user input required**
-        * **Prompt user during enrollment**
-        * **Prompt user during enrollment and require user input**
-
-7.  In the **Application policies** section, choose all of the
-    application policies that apply. The available policies are listed across several
-    pages. Some policies may be preselected because of previous settings.
-8.  In the **Custom application policies** section, you can add
-    custom OIDs to the template, and specify whether application policy extensions are
-    critical.
-9.  In the **Cryptography settings** section, choose the following
-    categories of cryptography settings for certificates based on this template.
+7. In the **Application policies** section, choose all of the
+   application policies that apply. The available policies are listed across several
+   pages. Some policies may be preselected because of previous settings.
+8. In the **Custom application policies** section, you can add
+   custom OIDs to the template, and specify whether application policy extensions are
+   critical.
+9. In the **Cryptography settings** section, choose the following
+   categories of cryptography settings for certificates based on this template.
 10. In the **Groups and permissions** section, you can view the
     templates existing groups and permissions for enrollment, or you can choose the
     **Add new groups and permissions** button to add a new ones.

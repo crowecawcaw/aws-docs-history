@@ -236,10 +236,10 @@ constraints values, including path length. The templates include the
 following:
 
 - RootCACertificate/V1
-- SubordinateCACertificate_PathLen0/V1
-- SubordinateCACertificate_PathLen1/V1
-- SubordinateCACertificate_PathLen2/V1
-- SubordinateCACertificate_PathLen3/V1
+- SubordinateCACertificate\_PathLen0/V1
+- SubordinateCACertificate\_PathLen1/V1
+- SubordinateCACertificate\_PathLen2/V1
+- SubordinateCACertificate\_PathLen3/V1
 - EndEntityCertificate/V1
 
 The `IssueCertificate` API will return an error if you attempt to

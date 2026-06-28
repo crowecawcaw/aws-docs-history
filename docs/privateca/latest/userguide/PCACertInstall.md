@@ -29,11 +29,10 @@ console and AWS CLI operations.
 - In a legacy AWS Region, a parent CA with the EDCSA key algorithm can
   issue certificates with the following signing algorithms:
 
-      + SHA256 ECDSA
-      + SHA384 ECDSA
-      + SHA512 ECDSA
-
-  Legacy AWS Regions include:
+  - SHA256 ECDSA
+  - SHA384 ECDSA
+  - SHA512 ECDSA
+    Legacy AWS Regions include:
 
 | Region name    | Geographical location     |
 | -------------- | ------------------------- |
@@ -60,14 +59,14 @@ console and AWS CLI operations.
 
 - In a non-legacy AWS Region, the following rules apply for EDCSA:
 
-  - A parent CA with the EC_prime256v1 signing algorithm can issue
+  - A parent CA with the EC\_prime256v1 signing algorithm can issue
     certificates with ECDSA P256.
-  - A parent CA with the EC_secp384r1 signing algorithm can issue
+  - A parent CA with the EC\_secp384r1 signing algorithm can issue
     certificates with ECDSA P384.
 
 - In every AWS Region, the following rules apply for EDCSA:
 
-  - A parent CA with the EC_secp521r1 signing algorithm can issue
+  - A parent CA with the EC\_secp521r1 signing algorithm can issue
     certificates with ECDSA P521.
 
 ## Install a root CA certificate
@@ -76,42 +75,38 @@ You can install a root CA certificate from the AWS Management Console or the AWS
 
 ###### To create and install a certificate for your private root CA (console)
 
-1.  (Optional) If you are not already on the CA's details page, open the
-    AWS Private CA console at [https://console.aws.amazon.com/acm-pca/home](https://console.aws.amazon.com/acm-pca/home "https://console.aws.amazon.com/acm-pca/home"). On the **Private
-    certificate authorities** page, choose a root CA with status
-    **Pending certificate** or **Active**.
-2.  Choose **Actions**, **Install CA
-    certificate** to open the **Install root CA
-    certificate** page.
-3.  Under **Specify the root CA certificate parameters**,
-    specify the following certificate parameters:
+1. (Optional) If you are not already on the CA's details page, open the
+   AWS Private CA console at [https://console.aws.amazon.com/acm-pca/home](https://console.aws.amazon.com/acm-pca/home "https://console.aws.amazon.com/acm-pca/home"). On the **Private
+   certificate authorities** page, choose a root CA with status
+   **Pending certificate** or **Active**.
+2. Choose **Actions**, **Install CA
+   certificate** to open the **Install root CA
+   certificate** page.
+3. Under **Specify the root CA certificate parameters**,
+   specify the following certificate parameters:
 
-        * **Validity** — Specifies the expiration
-         date and time for the CA certificate. The AWS Private CA default
-         validity period for a root CA certificate is 10 years.
-        * **Signature
-         algorithm** — Specifies the signing algorithm to
-         use when the root CA issues new certificates. Available options vary
-         according to the AWS Region where you are creating the CA. For
-         more information, see [Compatible signing algorithms](#signing_algorithms "#signing_algorithms"), [Supported cryptographic algorithms in AWS Private Certificate Authority](PcaWelcome.md#supported-algorithms "PcaWelcome.md#supported-algorithms"), and
-         **SigningAlgorithm** in [CertificateAuthorityConfiguration](../APIReference/API_CertificateAuthorityConfiguration.md#API_CertificateAuthorityConfiguration_Contents "../APIReference/API_CertificateAuthorityConfiguration.md#API_CertificateAuthorityConfiguration_Contents").
+   - **Validity** — Specifies the expiration
+     date and time for the CA certificate. The AWS Private CA default
+     validity period for a root CA certificate is 10 years.
+   - **Signature
+     algorithm** — Specifies the signing algorithm to
+     use when the root CA issues new certificates. Available options vary
+     according to the AWS Region where you are creating the CA. For
+     more information, see [Compatible signing algorithms](#signing_algorithms "#signing_algorithms"), [Supported cryptographic algorithms in AWS Private Certificate Authority](PcaWelcome.md#supported-algorithms "PcaWelcome.md#supported-algorithms"), and
+     **SigningAlgorithm** in [CertificateAuthorityConfiguration](../APIReference/API_CertificateAuthorityConfiguration.md#API_CertificateAuthorityConfiguration_Contents "../APIReference/API_CertificateAuthorityConfiguration.md#API_CertificateAuthorityConfiguration_Contents").
 
+     - SHA256 RSA
+     - SHA384 RSA
+     - SHA512 RSA
+       Review your settings for correctness, then choose **Confirm and
+       install**. AWS Private CA exports a CSR for your CA, generates a
+       certificate using a root CA certificate [template](UsingTemplates.md "UsingTemplates.md"), and self-signs the certificate. AWS Private CA then
+       imports the self-signed root CA certificate.
 
-
-
-        	+ SHA256 RSA
-        	+ SHA384 RSA
-        	+ SHA512 RSA
-
-    Review your settings for correctness, then choose **Confirm and
-    install**. AWS Private CA exports a CSR for your CA, generates a
-    certificate using a root CA certificate [template](UsingTemplates.md "UsingTemplates.md"), and self-signs the certificate. AWS Private CA then
-    imports the self-signed root CA certificate.
-
-4.  The details page for the CA displays the status of the installation
-    (success or failure) at the top. If the installation was successful, the
-    newly completed root CA displays a status of **Active** in
-    the **General** pane.
+4. The details page for the CA displays the status of the installation
+   (success or failure) at the top. If the installation was successful, the
+   newly completed root CA displays a status of **Active** in
+   the **General** pane.
 
 ###### To create and install a certificate for your private root CA (AWS CLI)
 

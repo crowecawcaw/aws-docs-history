@@ -67,7 +67,7 @@ Configure GPOs.
 3. Go to **Forest > Domains**. Select your
    domain name and right click on your domain. Select _Create a GPO in
    this domain, and link it here …_ and enter `PCA
-GPO` for the name.
+ GPO` for the name.
 4. The newly created GPO will now be listed under your domain name.
 5. Choose **PCA GPO** and select **Edit**. If a dialog box opens with the alert
    message _This is a link and that changes will be globally
@@ -100,9 +100,11 @@ GPO` for the name.
 15. Choose **Active Directory Enrollment Policy**
     and select **Remove**.
 16. In the confirmation dialog box, choose **Yes** to delete the LDAP-based authentication.
-17. Choose **Apply** and **OK** on the \*\*Certificate Services Client
-    > Certificate Enrollment Policy\*\* window and close
-    > it.
+17. Choose **Apply** and **OK** on the **Certificate Services Client
+
+> Certificate Enrollment Policy** window and close
+> it.
+
 18. Go to the **Public Key Policies** folder and
     choose **Certificate Services Client -
     Auto-Enrollment**.

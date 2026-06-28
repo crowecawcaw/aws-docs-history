@@ -202,7 +202,7 @@ settings:
      objects under the `crl` folder.
 
 2. After the distribution has initialized, locate its domain name in
-   the CloudFront console and save it for the next procedure.
+the CloudFront console and save it for the next procedure.
 
 ###### Note
 

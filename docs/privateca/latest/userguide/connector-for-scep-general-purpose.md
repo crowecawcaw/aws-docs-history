@@ -276,12 +276,10 @@ OpenSSL CLI
      is your keystore password to provide to Jamf Pro.
 
 2. In Jamf Pro, navigate to the **Management Certificate
-   Template** and go to the **External CA**
-   pane.
-3. At the bottom of the **External CA** pane, select
-   **Change Signing and CA Certificates**.
-4. Follow the onscreen instructions to upload the signing and CA certificates
-   for the external CA.
+Template** and go to the **External CA**
+pane. 3. At the bottom of the **External CA** pane, select
+**Change Signing and CA Certificates**. 4. Follow the onscreen instructions to upload the signing and CA certificates
+for the external CA.
 
 ### Step 4: (Optional) Install certificate during user-initiated enrollment
 

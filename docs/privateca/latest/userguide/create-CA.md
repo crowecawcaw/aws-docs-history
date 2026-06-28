@@ -41,51 +41,52 @@ Sign in to your AWS account and open the AWS Private CA console at `https://cons
      with a list of your CAs. Choose **Create CA**.
 
 2. Under **Mode options**, choose the
-   expiration mode of the certificates that your CA issues.
+expiration mode of the certificates that your CA issues.
 
-   - **General-purpose** – Issues certificates that
+    * **General-purpose** – Issues certificates that
      can be configured with any expiration date. This is the default.
-   - **Short-lived certificate** – Issues
+    * **Short-lived certificate** – Issues
      certificates with a maximum validity period of seven days. A short
      validity period can substitute in some cases for a revocation
      mechanism.
 
 3. On the **Type options** section of the console, choose the
-   type of private certificate authority that you want to create.
+type of private certificate authority that you want to create.
 
-   - Choosing **Root** establishes a new CA hierarchy.
+    * Choosing **Root** establishes a new CA hierarchy.
      This CA is backed by a self-signed certificate. It serves as the
      ultimate signing authority for other CAs and end-entity certificates
      in the hierarchy.
-   - Choosing **Subordinate** creates a CA that must be
+    * Choosing **Subordinate** creates a CA that must be
      signed by a parent CA above it in the hierarchy. Subordinate CAs are
      typically used to create other subordinate CAs or to issue end-entity
      certificates to users, computers, and applications.
 
-   ###### Note
 
-   AWS Private CA provides an automated signing process when your
-   subordinate CA's parent CA is also hosted by AWS Private CA. All you do
-   is choose the parent CA to use.
+    ###### Note
 
-   Your subordinate CA might need to be signed by an external trust
-   services provider. If so, AWS Private CA provides you with a certificate
-   signing request (CSR) that you must download and use to obtain a
-   signed CA certificate. For more information, see [Install a subordinate CA certificate signed by an external parent CA](PCACertInstall.md#InstallSubordinateExternal "PCACertInstall.md#InstallSubordinateExternal").
+    AWS Private CA provides an automated signing process when your
+     subordinate CA's parent CA is also hosted by AWS Private CA. All you do
+     is choose the parent CA to use.
+
+    Your subordinate CA might need to be signed by an external trust
+     services provider. If so, AWS Private CA provides you with a certificate
+     signing request (CSR) that you must download and use to obtain a
+     signed CA certificate. For more information, see [Install a subordinate CA certificate signed by an external parent CA](PCACertInstall.md#InstallSubordinateExternal "PCACertInstall.md#InstallSubordinateExternal").
 
 4. Under **Subject distinguished name options**, configure the
-   subject name of your private CA. You must enter a value for at least one of the
-   following options:
+subject name of your private CA. You must enter a value for at least one of the
+following options:
 
-   - **Organization (O)** – For example, a company
+    * **Organization (O)** – For example, a company
      name
-   - **Organization Unit (OU)** – For example, a division within a
+    * **Organization Unit (OU)** – For example, a division within a
      company
-   - **Country name (C)** – A two-letter country code
-   - **State or province name** – Full name of a
+    * **Country name (C)** – A two-letter country code
+    * **State or province name** – Full name of a
      state or province
-   - **Locality name** – The name of a city
-   - **Common Name (CN)** – A human-readable string to identify the CA.
+    * **Locality name** – The name of a city
+    * **Common Name (CN)** – A human-readable string to identify the CA.
 
 ###### Note
 
@@ -110,18 +111,18 @@ the algorithm strength. The default value is RSA 2048. You can choose from the f
     * ECDSA P384
     * ECDSA P521
 
-6.  Under **Certificate revocation options**, you can select from
-    two methods of sharing revocation status with clients that use your
-    certificates:
+6. Under **Certificate revocation options**, you can select from
+two methods of sharing revocation status with clients that use your
+certificates:
 
-        * **Activate CRL distribution**
-        * **Turn on OCSP**
+    * **Activate CRL distribution**
+    * **Turn on OCSP**
 
-    You can configure either, neither, or both of these revocation options for
-    your CA. Although optional, managed revocation is recommended as a [best practice](ca-best-practices.md "ca-best-practices.md"). Before completing this
-    step, see [Plan your AWS Private CA certificate revocation method](revocation-setup.md "revocation-setup.md")
-    for information about the advantages of each method, the preliminary setup that
-    might be required, and additional revocation features.
+You can configure either, neither, or both of these revocation options for
+your CA. Although optional, managed revocation is recommended as a [best practice](ca-best-practices.md "ca-best-practices.md"). Before completing this
+step, see [Plan your AWS Private CA certificate revocation method](revocation-setup.md "revocation-setup.md")
+for information about the advantages of each method, the preliminary setup that
+might be required, and additional revocation features.
 
 ###### Note
 
@@ -170,50 +171,58 @@ To configure **Certificate revocation options**, perform the following steps.
     	 AWS Private CA tries to regenerate the CRL at the midpoint of the specified
     	 period.
 
-7.  For **Certificate revocation options**,
-    choose **Turn on OCSP**.
+7. For **Certificate revocation options**,
+choose **Turn on OCSP**.
 
-    1. In the **Custom OCSP endpoint _- optional_** field, you can provide
-       a fully qualified domain name (FQDN) for a non-Amazon OCSP
-       endpoint. To use OCSP over IPv6, set this field to a dualstack endpoint
-       as described in [Using OCSP over IPv6](ocsp-customize.md#ocsp-ipv6 "ocsp-customize.md#ocsp-ipv6").
+    1. In the **Custom OCSP endpoint *- optional*** field, you can provide
+     a fully qualified domain name (FQDN) for a non-Amazon OCSP
+     endpoint. To use OCSP over IPv6, set this field to a dualstack endpoint
+     as described in [Using OCSP over IPv6](ocsp-customize.md#ocsp-ipv6 "ocsp-customize.md#ocsp-ipv6").
+
 
     When you provide an FQDN in this field, AWS Private CA inserts
-    the FQDN into the _Authority Information
-    Access_ extension of each
-    issued certificate in place of the default URL for the AWS OCSP
-    responder. When an endpoint receives a certificate containing
-    the custom FQDN, it queries that address for an OCSP response.
-    For this mechanism to work, you need to take two additional
-    actions:
+     the FQDN into the *Authority Information
+     Access* extension of each
+     issued certificate in place of the default URL for the AWS OCSP
+     responder. When an endpoint receives a certificate containing
+     the custom FQDN, it queries that address for an OCSP response.
+     For this mechanism to work, you need to take two additional
+     actions:
 
-        * Use a proxy server to forward traffic that
-         arrives at your custom FQDN to the AWS OCSP
-         responder.
-        * Add a corresponding CNAME record to your DNS
-         database.
 
+
+
+    	* Use a proxy server to forward traffic that
+    	 arrives at your custom FQDN to the AWS OCSP
+    	 responder.
+    	* Add a corresponding CNAME record to your DNS
+    	 database.
     ###### Tip
 
     For more information about implementing a complete
-    OCSP solution using a custom CNAME, see [Customize OCSP URL for AWS Private CA](ocsp-customize.md "ocsp-customize.md").
+     OCSP solution using a custom CNAME, see [Customize OCSP URL for AWS Private CA](ocsp-customize.md "ocsp-customize.md").
+
 
     For example, here is a CNAME record for customized
-    OCSP as it would appear in Amazon Route 53.
+     OCSP as it would appear in Amazon Route 53.
 
-    | Record name             | Type  | Routing policy | Differentiator | Value/Route traffic to |
-    | ----------------------- | ----- | -------------- | -------------- | ---------------------- |
-    | alternative.example.com | CNAME | Simple         | -              | proxy.example.com      |
+
+
+
+    | Record name | Type | Routing policy | Differentiator | Value/Route traffic to |
+    | --- | --- | --- | --- | --- |
+    | alternative.example.com | CNAME | Simple | - | proxy.example.com |
+
 
     ###### Note
 
     The value of the CNAME must not include a protocol
-    prefix such as "http://" or "https://".
+     prefix such as "http://" or "https://".
 
-8.  Under **Add tags**, you can optionally tag your CA. Tags are
-    key-value pairs that serve as metadata for identifying and organizing AWS
-    resources. For a list of AWS Private CA tag parameters and for instructions on how
-    to add tags to CAs after creation, see [Add tags for your private CA](PcaCaTagging.md "PcaCaTagging.md").
+8. Under **Add tags**, you can optionally tag your CA. Tags are
+key-value pairs that serve as metadata for identifying and organizing AWS
+resources. For a list of AWS Private CA tag parameters and for instructions on how
+to add tags to CAs after creation, see [Add tags for your private CA](PcaCaTagging.md "PcaCaTagging.md").
 
 ###### Note
 
@@ -325,7 +334,7 @@ your use.
 All of the examples use the following `ca_config.txt` configuration
 file unless otherwise stated.
 
-**File: ca_config.txt**
+**File: ca\_config.txt**
 
 ```
 {
@@ -347,7 +356,7 @@ file unless otherwise stated.
 In this example, the revocation file enables default OCSP support, which uses
 the AWS Private CA responder to check certificate status.
 
-**File: revoke_config.txt for OCSP**
+**File: revoke\_config.txt for OCSP**
 
 ```
 {
@@ -456,7 +465,7 @@ OCSP as it would appear in Amazon Route 53.
 The value of the CNAME must not include a protocol
 prefix such as "http://" or "https://".
 
-**File: revoke_config.txt for OCSP**
+**File: revoke\_config.txt for OCSP**
 
 ```
 {
@@ -512,7 +521,7 @@ This description should contain the following section.
 
 In this example, the revocation configuration defines CRL parameters.
 
-**File: revoke_config.txt**
+**File: revoke\_config.txt**
 
 ```
 {
@@ -571,7 +580,7 @@ This description should contain the following section.
 In this example, the revocation configuration defines CRL parameters that
 include a custom CNAME.
 
-**File: revoke_config.txt**
+**File: revoke\_config.txt**
 
 ```
 {
@@ -630,8 +639,8 @@ This description should contain the following section.
 ### Example 5: Create a CA and specify the usage mode
 
 In this example, the CA usage mode is specified when creating a CA. If
-unspecified, the usage mode parameter defaults to GENERAL_PURPOSE. In this
-example, the parameter is set to SHORT_LIVED_CERTIFICATE, which means that the
+unspecified, the usage mode parameter defaults to GENERAL\_PURPOSE. In this
+example, the parameter is set to SHORT\_LIVED\_CERTIFICATE, which means that the
 CA will issue certificates with a maximum validity period of seven days. In
 situations where it is inconvenient to configure revocation, a short-lived
 certificate that has been compromised quickly expires as part of normal
@@ -710,7 +719,7 @@ Policy](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/deployme
 This example uses the following `ca_config_AD.txt` configuration
 file.
 
-**File: ca_config_AD.txt**
+**File: ca\_config\_AD.txt**
 
 ```
 {
@@ -790,7 +799,7 @@ This description should contain the following section.
 You can create a private CA suitable for issuing certificates for the Matter smart home standard. In this example, the CA configuration in `ca_config_PAA.txt` defines a Matter Product Attestation Authority (PAA)
 with the Vendor ID (VID) set to FFF1.
 
-**File: ca_config_PAA.txt**
+**File: ca\_config\_PAA.txt**
 
 ```
 {
@@ -815,7 +824,7 @@ with the Vendor ID (VID) set to FFF1.
 
 The revocation configuration enables CRLs, and configures the CA to omit the default CDP URL from any issued certificates.
 
-**File: revoke_config.txt**
+**File: revoke\_config.txt**
 
 ```
 {

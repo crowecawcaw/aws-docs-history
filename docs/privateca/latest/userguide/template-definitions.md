@@ -3,7 +3,7 @@
 The following sections provide configuration details about supported AWS Private CA
 certificate templates.
 
-## BlankEndEntityCertificate_APIPassthrough/V1 definition
+## BlankEndEntityCertificate\_APIPassthrough/V1 definition
 
 With blank end-entity certificate templates, you can issue end-entity certificates
 with only X.509 Basic constraints present. This is the simplest end-entity
@@ -24,283 +24,283 @@ keyAgreement, keyCertSign, cRLSign, encipherOnly, and decipherOnly) and EKU can 
 any of the supported values (serverAuth, clientAuth, codesigning, emailProtection,
 timestamping, and OCSPSigning) plus custom extensions.
 
-| BlankEndEntityCertificate_APIPassthrough/V1 | X509v3 Parameter                    | Value |
-| ------------------------------------------- | ----------------------------------- | ----- |
-| Subject alternative name                    | [Passthrough from API or CSR]       |
-| Subject                                     | [Passthrough from API or CSR]       |
-| Basic constraints                           | CA:FALSE                            |
-| Authority key identifier                    | [SKI from CA certificate]           |
-| Subject key identifier                      | [Derived from CSR]                  |
-| CRL distribution points\*                   | [Passthrough from CA configuration] |
+BlankEndEntityCertificate\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | CA:FALSE |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-## BlankEndEntityCertificate_APICSRPassthrough/V1 definition
+## BlankEndEntityCertificate\_APICSRPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankEndEntityCertificate_APICSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ---------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                       | [Passthrough from API or CSR]              |
-| Subject                                        | [Passthrough from API or CSR]              |
-| Basic constraints                              | CA:FALSE                                   |
-| Authority key identifier                       | [SKI from CA certificate]                  |
-| Subject key identifier                         | [Derived from CSR]                         |
-| CRL distribution points\*                      | [Passthrough from CA configuration or CSR] |
-
-\* CRL distribution points are included in the template only if the CA is
-configured with CRL generation enabled.
-
-## BlankEndEntityCertificate_CriticalBasicConstraints_APICSRPassthrough/V1 definition
-
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
-
-| BlankEndEntityCertificate_CriticalBasicConstraints_APICSRPassthrough/V1 | X509v3 Parameter                                 | Value |
-| ----------------------------------------------------------------------- | ------------------------------------------------ | ----- |
-| Subject alternative name                                                | [Passthrough from API or CSR]                    |
-| Subject                                                                 | [Passthrough from API or CSR]                    |
-| Basic constraints                                                       | Critical, CA:FALSE                               |
-| Authority key identifier                                                | [SKI from CA certificate]                        |
-| Subject key identifier                                                  | [Derived from CSR]                               |
-| CRL distribution points\*                                               | [Passthrough from CA configuration, API, or CSR] |
+BlankEndEntityCertificate\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | CA:FALSE |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough/V1 definition
+## BlankEndEntityCertificate\_CriticalBasicConstraints\_APICSRPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough/V1 | X509v3 Parameter                           | Value |
-| -------------------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                             | [Passthrough from API or CSR]              |
-| Subject                                                              | [Passthrough from API or CSR]              |
-| Basic constraints                                                    | Critical, CA:FALSE                         |
-| Authority key identifier                                             | [SKI from CA certificate]                  |
-| Subject key identifier                                               | [Derived from CSR]                         |
-| CRL distribution points\*                                            | [Passthrough from CA configuration or API] |
-
-\* CRL distribution points are included in the template only if the CA is
-configured with CRL generation enabled.
-
-### BlankEndEntityCertificate_CriticalBasicConstraints_CSRPassthrough/V1 definition
-
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
-
-| BlankEndEntityCertificate_CriticalBasicConstraints_CSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| -------------------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                             | [Passthrough from API or CSR]              |
-| Subject                                                              | [Passthrough from API or CSR]              |
-| Basic constraints                                                    | Critical, CA:FALSE                         |
-| Authority key identifier                                             | [SKI from CA certificate]                  |
-| Subject key identifier                                               | [Derived from CSR]                         |
-| CRL distribution points\*                                            | [Passthrough from CA configuration or CSR] |
+BlankEndEntityCertificate\_CriticalBasicConstraints\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, CA:FALSE |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration, API, or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankEndEntityCertificate_CSRPassthrough/V1 definition
+### BlankEndEntityCertificate\_CriticalBasicConstraints\_APIPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankEndEntityCertificate_CSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                    | [Passthrough from CSR]                     |
-| Subject                                     | [Passthrough from CSR]                     |
-| Basic constraints                           | CA:FALSE                                   |
-| Authority key identifier                    | [SKI from CA certificate]                  |
-| Subject key identifier                      | [Derived from CSR]                         |
-| CRL distribution points\*                   | [Passthrough from CA configuration or CSR] |
-
-\* CRL distribution points are included in the template only if the CA is
-configured with CRL generation enabled.
-
-### BlankSubordinateCACertificate_PathLen0_CSRPassthrough/V1 definition
-
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
-
-| BlankSubordinateCACertificate_PathLen0_CSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| -------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                 | [Passthrough from CSR]                     |
-| Subject                                                  | [Passthrough from CSR]                     |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 0`          |
-| Authority key identifier                                 | [SKI from CA Certificate]                  |
-| Subject key identifier                                   | [Derived from CSR]                         |
-| CRL distribution points\*                                | [Passthrough from CA configuration or CSR] |
+BlankEndEntityCertificate\_CriticalBasicConstraints\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, CA:FALSE |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or API] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankSubordinateCACertificate_PathLen0_APICSRPassthrough/V1 definition
+### BlankEndEntityCertificate\_CriticalBasicConstraints\_CSRPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankSubordinateCACertificate_PathLen0_APICSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ----------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                    | [Passthrough from API or CSR]              |
-| Subject                                                     | [Passthrough from API or CSR]              |
-| Basic constraints                                           | Critical, `CA:TRUE`, `pathlen: 0`          |
-| Authority key identifier                                    | [SKI from CA Certificate]                  |
-| Subject key identifier                                      | [Derived from CSR]                         |
-| CRL distribution points\*                                   | [Passthrough from CA configuration or CSR] |
-
-\* CRL distribution points are included in the template only if the CA is
-configured with CRL generation enabled.
-
-### BlankSubordinateCACertificate_PathLen0_APIPassthrough/V1 definition
-
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
-
-| BlankSubordinateCACertificate_PathLen0_APIPassthrough/V1 | X509v3 Parameter                    | Value |
-| -------------------------------------------------------- | ----------------------------------- | ----- |
-| Subject alternative name                                 | [Passthrough from API or CSR]       |
-| Subject                                                  | [Passthrough from API or CSR]       |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 0`   |
-| Authority key identifier                                 | [SKI from CA Certificate]           |
-| Subject key identifier                                   | [Derived from CSR]                  |
-| CRL distribution points\*                                | [Passthrough from CA configuration] |
-
-### BlankSubordinateCACertificate_PathLen1_APIPassthrough/V1 definition
-
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
-
-| BlankSubordinateCACertificate_PathLen1_APIPassthrough/V1 | X509v3 Parameter                    | Value |
-| -------------------------------------------------------- | ----------------------------------- | ----- |
-| Subject alternative name                                 | [Passthrough from API or CSR]       |
-| Subject                                                  | [Passthrough from API or CSR]       |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 1`   |
-| Authority key identifier                                 | [SKI from CA Certificate]           |
-| Subject key identifier                                   | [Derived from CSR]                  |
-| CRL distribution points\*                                | [Passthrough from CA configuration] |
+BlankEndEntityCertificate\_CriticalBasicConstraints\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, CA:FALSE |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankSubordinateCACertificate_PathLen1_CSRPassthrough/V1 definition
+### BlankEndEntityCertificate\_CSRPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankSubordinateCACertificate_PathLen1_CSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| -------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                 | [Passthrough from CSR]                     |
-| Subject                                                  | [Passthrough from CSR]                     |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 1`          |
-| Authority key identifier                                 | [SKI from CA Certificate]                  |
-| Subject key identifier                                   | [Derived from CSR]                         |
-| CRL distribution points\*                                | [Passthrough from CA configuration or CSR] |
-
-\* CRL distribution points are included in the template only if the CA is
-configured with CRL generation enabled.
-
-### BlankSubordinateCACertificate_PathLen1_APICSRPassthrough/V1 definition
-
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
-
-| BlankSubordinateCACertificate_PathLen1_APICSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ----------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                    | [Passthrough from API or CSR]              |
-| Subject                                                     | [Passthrough from API or CSR]              |
-| Basic constraints                                           | Critical, `CA:TRUE`, `pathlen: 1`          |
-| Authority key identifier                                    | [SKI from CA Certificate]                  |
-| Subject key identifier                                      | [Derived from CSR]                         |
-| CRL distribution points\*                                   | [Passthrough from CA configuration or CSR] |
+BlankEndEntityCertificate\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | CA:FALSE |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankSubordinateCACertificate_PathLen2_APIPassthrough/V1 definition
+### BlankSubordinateCACertificate\_PathLen0\_CSRPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankSubordinateCACertificate_PathLen2_APIPassthrough/V1 | X509v3 Parameter                    | Value |
-| -------------------------------------------------------- | ----------------------------------- | ----- |
-| Subject alternative name                                 | [Passthrough from API or CSR]       |
-| Subject                                                  | [Passthrough from API or CSR]       |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 2`   |
-| Authority key identifier                                 | [SKI from CA Certificate]           |
-| Subject key identifier                                   | [Derived from CSR]                  |
-| CRL distribution points\*                                | [Passthrough from CA configuration] |
-
-\* CRL distribution points are included in the template only if the CA is
-configured with CRL generation enabled.
-
-### BlankSubordinateCACertificate_PathLen2_CSRPassthrough/V1 definition
-
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
-
-| BlankSubordinateCACertificate_PathLen2_CSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| -------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                 | [Passthrough from CSR]                     |
-| Subject                                                  | [Passthrough from CSR]                     |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 2`          |
-| Authority key identifier                                 | [SKI from CA Certificate]                  |
-| Subject key identifier                                   | [Derived from CSR]                         |
-| CRL distribution points\*                                | [Passthrough from CA configuration or CSR] |
+BlankSubordinateCACertificate\_PathLen0\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 0` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankSubordinateCACertificate_PathLen2_APICSRPassthrough/V1 definition
+### BlankSubordinateCACertificate\_PathLen0\_APICSRPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankSubordinateCACertificate_PathLen2_APICSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ----------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                    | [Passthrough from API or CSR]              |
-| Subject                                                     | [Passthrough from API or CSR]              |
-| Basic constraints                                           | Critical, `CA:TRUE`, `pathlen: 2`          |
-| Authority key identifier                                    | [SKI from CA Certificate]                  |
-| Subject key identifier                                      | [Derived from CSR]                         |
-| CRL distribution points\*                                   | [Passthrough from CA configuration or CSR] |
-
-\* CRL distribution points are included in the template only if the CA is
-configured with CRL generation enabled.
-
-### BlankSubordinateCACertificate_PathLen3_APIPassthrough/V1 definition
-
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
-
-| BlankSubordinateCACertificate_PathLen3_APIPassthrough/V1 | X509v3 Parameter                    | Value |
-| -------------------------------------------------------- | ----------------------------------- | ----- |
-| Subject alternative name                                 | [Passthrough from API or CSR]       |
-| Subject                                                  | [Passthrough from API or CSR]       |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 3`   |
-| Authority key identifier                                 | [SKI from CA Certificate]           |
-| Subject key identifier                                   | [Derived from CSR]                  |
-| CRL distribution points\*                                | [Passthrough from CA configuration] |
+BlankSubordinateCACertificate\_PathLen0\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 0` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankSubordinateCACertificate_PathLen3_CSRPassthrough/V1 definition
+### BlankSubordinateCACertificate\_PathLen0\_APIPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankSubordinateCACertificate_PathLen3_CSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| -------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                 | [Passthrough from CSR]                     |
-| Subject                                                  | [Passthrough from CSR]                     |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 3`          |
-| Authority key identifier                                 | [SKI from CA Certificate]                  |
-| Subject key identifier                                   | [Derived from CSR]                         |
-| CRL distribution points\*                                | [Passthrough from CA configuration or CSR] |
+BlankSubordinateCACertificate\_PathLen0\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 0` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration] |
+
+### BlankSubordinateCACertificate\_PathLen1\_APIPassthrough/V1 definition
+
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+
+BlankSubordinateCACertificate\_PathLen1\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 1` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankSubordinateCACertificate_PathLen3_APICSRPassthrough/V1 definition
+### BlankSubordinateCACertificate\_PathLen1\_CSRPassthrough/V1 definition
 
-For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
-| BlankSubordinateCACertificate_PathLen3_APICSRPassthrough | X509v3 Parameter                           | Value |
-| -------------------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                                 | [Passthrough from API or CSR]              |
-| Subject                                                  | [Passthrough from API or CSR]              |
-| Basic constraints                                        | Critical, `CA:TRUE`, `pathlen: 3`          |
-| Authority key identifier                                 | [SKI from CA Certificate]                  |
-| Subject key identifier                                   | [Derived from CSR]                         |
-| CRL distribution points\*                                | [Passthrough from CA configuration or CSR] |
+BlankSubordinateCACertificate\_PathLen1\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 1` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
+
+\* CRL distribution points are included in the template only if the CA is
+configured with CRL generation enabled.
+
+### BlankSubordinateCACertificate\_PathLen1\_APICSRPassthrough/V1 definition
+
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+
+BlankSubordinateCACertificate\_PathLen1\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 1` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
+
+\* CRL distribution points are included in the template only if the CA is
+configured with CRL generation enabled.
+
+### BlankSubordinateCACertificate\_PathLen2\_APIPassthrough/V1 definition
+
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+
+BlankSubordinateCACertificate\_PathLen2\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 2` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration] |
+
+\* CRL distribution points are included in the template only if the CA is
+configured with CRL generation enabled.
+
+### BlankSubordinateCACertificate\_PathLen2\_CSRPassthrough/V1 definition
+
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+
+BlankSubordinateCACertificate\_PathLen2\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 2` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
+
+\* CRL distribution points are included in the template only if the CA is
+configured with CRL generation enabled.
+
+### BlankSubordinateCACertificate\_PathLen2\_APICSRPassthrough/V1 definition
+
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+
+BlankSubordinateCACertificate\_PathLen2\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 2` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
+
+\* CRL distribution points are included in the template only if the CA is
+configured with CRL generation enabled.
+
+### BlankSubordinateCACertificate\_PathLen3\_APIPassthrough/V1 definition
+
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+
+BlankSubordinateCACertificate\_PathLen3\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 3` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration] |
+
+\* CRL distribution points are included in the template only if the CA is
+configured with CRL generation enabled.
+
+### BlankSubordinateCACertificate\_PathLen3\_CSRPassthrough/V1 definition
+
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+
+BlankSubordinateCACertificate\_PathLen3\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 3` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
+
+\* CRL distribution points are included in the template only if the CA is
+configured with CRL generation enabled.
+
+### BlankSubordinateCACertificate\_PathLen3\_APICSRPassthrough/V1 definition
+
+For general information about blank templates, see [BlankEndEntityCertificate\_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
+
+BlankSubordinateCACertificate\_PathLen3\_APICSRPassthrough| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 3` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
@@ -313,40 +313,40 @@ based on a private CA infrastructure. For example, customers using Code Signing
 for AWS IoT can generate a code-signing certificate with AWS Private CA and import it to
 AWS Certificate Manager. For more information, see [What Is Code Signing for AWS IoT?](../../../signer/latest/developerguide/Welcome.md "../../../signer/latest/developerguide/Welcome.md") and [Obtain and Import a Code Signing Certificate](../../../signer/latest/developerguide/obtain-cert.md "../../../signer/latest/developerguide/obtain-cert.md").
 
-| CodeSigningCertificate/V1 | X509v3 Parameter                    | Value |
-| ------------------------- | ----------------------------------- | ----- |
-| Subject alternative name  | [Passthrough from CSR]              |
-| Subject                   | [Passthrough from CSR]              |
-| Basic constraints         | `CA:FALSE`                          |
-| Authority key identifier  | [SKI from CA Certificate]           |
-| Subject key identifier    | [Derived from CSR]                  |
-| Key usage                 | Critical, digital signature         |
-| Extended key usage        | Critical, code signing              |
+CodeSigningCertificate/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | `CA:FALSE` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature |
+| Extended key usage | Critical, code signing |
 | CRL distribution points\* | [Passthrough from CA configuration] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### CodeSigningCertificate_APICSRPassthrough/V1 definition
+### CodeSigningCertificate\_APICSRPassthrough/V1 definition
 
 This template extends CodeSigningCertificate/V1 to support API and CSR
 passthrough values.
 
-| CodeSigningCertificate_APICSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                    | [Passthrough from API or CSR]              |
-| Subject                                     | [Passthrough from API or CSR]              |
-| Basic constraints                           | `CA:FALSE`                                 |
-| Authority key identifier                    | [SKI from CA Certificate]                  |
-| Subject key identifier                      | [Derived from CSR]                         |
-| Key usage                                   | Critical, digital signature                |
-| Extended key usage                          | Critical, code signing                     |
-| CRL distribution points\*                   | [Passthrough from CA configuration or CSR] |
+CodeSigningCertificate\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | `CA:FALSE` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature |
+| Extended key usage | Critical, code signing |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### CodeSigningCertificate_APIPassthrough/V1 definition
+### CodeSigningCertificate\_APIPassthrough/V1 definition
 
 This template is identical to the `CodeSigningCertificate` template
 with one difference: In this template, AWS Private CA passes additional extensions
@@ -354,21 +354,21 @@ through the API to the certificate if the extensions are not specified in the
 template. Extensions specified in the template always override extensions in the
 API.
 
-| CodeSigningCertificate_APIPassthrough/V1 | X509v3 Parameter                    | Value |
-| ---------------------------------------- | ----------------------------------- | ----- |
-| Subject alternative name                 | [Passthrough from API or CSR]       |
-| Subject                                  | [Passthrough from API or CSR]       |
-| Basic constraints                        | `CA:FALSE`                          |
-| Authority key identifier                 | [SKI from CA Certificate]           |
-| Subject key identifier                   | [Derived from CSR]                  |
-| Key usage                                | Critical, digital signature         |
-| Extended key usage                       | Critical, code signing              |
-| CRL distribution points\*                | [Passthrough from CA configuration] |
+CodeSigningCertificate\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | `CA:FALSE` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature |
+| Extended key usage | Critical, code signing |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### CodeSigningCertificate_CSRPassthrough/V1 definition
+### CodeSigningCertificate\_CSRPassthrough/V1 definition
 
 This template is identical to the `CodeSigningCertificate` template
 with one difference: In this template, AWS Private CA passes additional extensions
@@ -376,16 +376,16 @@ from the certificate signing request (CSR) into the certificate if the extension
 are not specified in the template. Extensions specified in the template always
 override extensions in the CSR.
 
-| CodeSigningCertificate_CSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ---------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                 | [Passthrough from CSR]                     |
-| Subject                                  | [Passthrough from CSR]                     |
-| Basic constraints                        | `CA:FALSE`                                 |
-| Authority key identifier                 | [SKI from CA Certificate]                  |
-| Subject key identifier                   | [Derived from CSR]                         |
-| Key usage                                | Critical, digital signature                |
-| Extended key usage                       | Critical, code signing                     |
-| CRL distribution points\*                | [Passthrough from CA configuration or CSR] |
+CodeSigningCertificate\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | `CA:FALSE` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature |
+| Extended key usage | Critical, code signing |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
@@ -395,40 +395,40 @@ configured with CRL generation enabled.
 This template is used to create certificates for end entities such as operating
 systems or web servers.
 
-| EndEntityCertificate/V1   | X509v3 Parameter                                                | Value |
-| ------------------------- | --------------------------------------------------------------- | ----- |
-| Subject alternative name  | [Passthrough from CSR]                                          |
-| Subject                   | [Passthrough from CSR]                                          |
-| Basic constraints         | CA:`FALSE`                                                      |
-| Authority key identifier  | [SKI from CA certificate]                                       |
-| Subject key identifier    | [Derived from CSR]                                              |
-| Key usage                 | Critical, digital signature, key encipherment                   |
-| Extended key usage        | TLS web server authentication, TLS web client<br>authentication |
-| CRL distribution points\* | [Passthrough from CA configuration]                             |
+EndEntityCertificate/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web server authentication, TLS web client<br>authentication |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityCertificate_APICSRPassthrough/V1 definition
+### EndEntityCertificate\_APICSRPassthrough/V1 definition
 
 This template extends EndEntityCertificate/V1 to support API and CSR
 passthrough values.
 
-| EndEntityCertificate_APICSRPassthrough/V1 | X509v3 Parameter                                                | Value |
-| ----------------------------------------- | --------------------------------------------------------------- | ----- |
-| Subject alternative name                  | [Passthrough from API or CSR]                                   |
-| Subject                                   | [Passthrough from API or CSR]                                   |
-| Basic constraints                         | CA:`FALSE`                                                      |
-| Authority key identifier                  | [SKI from CA certificate]                                       |
-| Subject key identifier                    | [Derived from CSR]                                              |
-| Key usage                                 | Critical, digital signature, key encipherment                   |
-| Extended key usage                        | TLS web server authentication, TLS web client<br>authentication |
-| CRL distribution points\*                 | [Passthrough from CA configuration or CSR]                      |
+EndEntityCertificate\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web server authentication, TLS web client<br>authentication |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityCertificate_APIPassthrough/V1 definition
+### EndEntityCertificate\_APIPassthrough/V1 definition
 
 This template is identical to the `EndEntityCertificate` template
 with one difference: In this template, AWS Private CA passes additional extensions
@@ -436,21 +436,21 @@ through the API to the certificate if the extensions are not specified in the
 template. Extensions specified in the template always override extensions in the
 API.
 
-| EndEntityCertificate_APIPassthrough/V1 | X509v3 Parameter                                                | Value |
-| -------------------------------------- | --------------------------------------------------------------- | ----- |
-| Subject alternative name               | [Passthrough from API or CSR]                                   |
-| Subject                                | [Passthrough from API or CSR]                                   |
-| Basic constraints                      | CA:`FALSE`                                                      |
-| Authority key identifier               | [SKI from CA certificate]                                       |
-| Subject key identifier                 | [Derived from CSR]                                              |
-| Key usage                              | Critical, digital signature, key encipherment                   |
-| Extended key usage                     | TLS web server authentication, TLS web client<br>authentication |
-| CRL distribution points\*              | [Passthrough from CA configuration]                             |
+EndEntityCertificate\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web server authentication, TLS web client<br>authentication |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityCertificate_CSRPassthrough/V1 definition
+### EndEntityCertificate\_CSRPassthrough/V1 definition
 
 This template is identical to the `EndEntityCertificate` template
 with one difference: In this template, AWS Private CA passes additional extensions
@@ -458,16 +458,16 @@ from the certificate signing request (CSR) into the certificate if the extension
 are not specified in the template. Extensions specified in the template always
 override extensions in the CSR.
 
-| EndEntityCertificate_CSRPassthrough/V1 | X509v3 Parameter                                                | Value |
-| -------------------------------------- | --------------------------------------------------------------- | ----- |
-| Subject alternative name               | [Passthrough from CSR]                                          |
-| Subject                                | [Passthrough from CSR]                                          |
-| Basic constraints                      | CA:`FALSE`                                                      |
-| Authority key identifier               | [SKI from CA certificate]                                       |
-| Subject key identifier                 | [Derived from CSR]                                              |
-| Key usage                              | Critical, digital signature, key encipherment                   |
-| Extended key usage                     | TLS web server authentication, TLS web client<br>authentication |
-| CRL distribution points\*              | [Passthrough from CA configuration or CSR]                      |
+EndEntityCertificate\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web server authentication, TLS web client<br>authentication |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
@@ -478,40 +478,40 @@ This template differs from the `EndEntityCertificate` only in the
 Extended key usage value, which restricts it to TLS web client
 authentication.
 
-| EndEntityClientAuthCertificate/V1 | X509v3 Parameter                              | Value |
-| --------------------------------- | --------------------------------------------- | ----- |
-| Subject alternative name          | [Passthrough from CSR]                        |
-| Subject                           | [Passthrough from CSR]                        |
-| Basic constraints                 | CA:`FALSE`                                    |
-| Authority key identifier          | [SKI from CA certificate]                     |
-| Subject key identifier            | [Derived from CSR]                            |
-| Key usage                         | Critical, digital signature, key encipherment |
-| Extended key usage                | TLS web client authentication                 |
-| CRL distribution points\*         | [Passthrough from CA configuration or CSR]    |
+EndEntityClientAuthCertificate/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web client authentication |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityClientAuthCertificate_APICSRPassthrough/V1 definition
+### EndEntityClientAuthCertificate\_APICSRPassthrough/V1 definition
 
 This template extends EndEntityClientAuthCertificate/V1 to support API and CSR
 passthrough values.
 
-| EndEntityClientAuthCertificate_APICSRPassthrough/V1 | X509v3 Parameter                              | Value |
-| --------------------------------------------------- | --------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from API or CSR]                 |
-| Subject                                             | [Passthrough from API or CSR]                 |
-| Basic constraints                                   | CA:`FALSE`                                    |
-| Authority key identifier                            | [SKI from CA certificate]                     |
-| Subject key identifier                              | [Derived from CSR]                            |
-| Key usage                                           | Critical, digital signature, key encipherment |
-| Extended key usage                                  | TLS web client authentication                 |
-| CRL distribution points\*                           | [Passthrough from CA configuration or CSR]    |
+EndEntityClientAuthCertificate\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web client authentication |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityClientAuthCertificate_APIPassthrough/V1 definition
+### EndEntityClientAuthCertificate\_APIPassthrough/V1 definition
 
 This template is identical to the `EndEntityClientAuthCertificate`
 template with one difference. In this template, AWS Private CA passes additional
@@ -519,21 +519,21 @@ extensions through the API into the certificate if the extensions are not
 specified in the template. Extensions specified in the template always override
 extensions in the API.
 
-| EndEntityClientAuthCertificate_APIPassthrough/V1 | X509v3 Parameter                              | Value |
-| ------------------------------------------------ | --------------------------------------------- | ----- |
-| Subject alternative name                         | [Passthrough from API or CSR]                 |
-| Subject                                          | [Passthrough from API or CSR]                 |
-| Basic constraints                                | CA:`FALSE`                                    |
-| Authority key identifier                         | [SKI from CA certificate]                     |
-| Subject key identifier                           | [Derived from CSR]                            |
-| Key usage                                        | Critical, digital signature, key encipherment |
-| Extended key usage                               | TLS web client authentication                 |
-| CRL distribution points\*                        | [Passthrough from CA configuration]           |
+EndEntityClientAuthCertificate\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web client authentication |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityClientAuthCertificate_CSRPassthrough/V1 definition
+### EndEntityClientAuthCertificate\_CSRPassthrough/V1 definition
 
 This template is identical to the `EndEntityClientAuthCertificate`
 template with one difference. In this template, AWS Private CA passes additional
@@ -541,16 +541,16 @@ extensions from the certificate signing request (CSR) into the certificate if th
 extensions are not specified in the template. Extensions specified in the template
 always override extensions in the CSR.
 
-| EndEntityClientAuthCertificate_CSRPassthrough/V1 | X509v3 Parameter                              | Value |
-| ------------------------------------------------ | --------------------------------------------- | ----- |
-| Subject alternative name                         | [Passthrough from CSR]                        |
-| Subject                                          | [Passthrough from CSR]                        |
-| Basic constraints                                | CA:`FALSE`                                    |
-| Authority key identifier                         | [SKI from CA certificate]                     |
-| Subject key identifier                           | [Derived from CSR]                            |
-| Key usage                                        | Critical, digital signature, key encipherment |
-| Extended key usage                               | TLS web client authentication                 |
-| CRL distribution points\*                        | [Passthrough from CA configuration or CSR]    |
+EndEntityClientAuthCertificate\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web client authentication |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
@@ -561,40 +561,40 @@ This template differs from the `EndEntityCertificate` only in the
 Extended key usage value, which restricts it to TLS web server
 authentication.
 
-| EndEntityServerAuthCertificate/V1 | X509v3 Parameter                              | Value |
-| --------------------------------- | --------------------------------------------- | ----- |
-| Subject alternative name          | [Passthrough from CSR]                        |
-| Subject                           | [Passthrough from CSR]                        |
-| Basic constraints                 | CA:`FALSE`                                    |
-| Authority key identifier          | [SKI from CA certificate]                     |
-| Subject key identifier            | [Derived from CSR]                            |
-| Key usage                         | Critical, digital signature, key encipherment |
-| Extended key usage                | TLS web server authentication                 |
-| CRL distribution points\*         | [Passthrough from CA configuration]           |
+EndEntityServerAuthCertificate/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web server authentication |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityServerAuthCertificate_APICSRPassthrough/V1 definition
+### EndEntityServerAuthCertificate\_APICSRPassthrough/V1 definition
 
 This template extends EndEntityServerAuthCertificate/V1 to support API and CSR
 passthrough values.
 
-| EndEntityServerAuthCertificate_APICSRPassthrough/V1 | X509v3 Parameter                              | Value |
-| --------------------------------------------------- | --------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from API or CSR]                 |
-| Subject                                             | [Passthrough from API or CSR]                 |
-| Basic constraints                                   | CA:`FALSE`                                    |
-| Authority key identifier                            | [SKI from CA certificate]                     |
-| Subject key identifier                              | [Derived from CSR]                            |
-| Key usage                                           | Critical, digital signature, key encipherment |
-| Extended key usage                                  | TLS web server authentication                 |
-| CRL distribution points\*                           | [Passthrough from CA configuration or CSR]    |
+EndEntityServerAuthCertificate\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web server authentication |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityServerAuthCertificate_APIPassthrough/V1 definition
+### EndEntityServerAuthCertificate\_APIPassthrough/V1 definition
 
 This template is identical to the `EndEntityServerAuthCertificate`
 template with one difference. In this template, AWS Private CA passes additional
@@ -602,21 +602,21 @@ extensions through the API into the certificate if the extensions are not
 specified in the template. Extensions specified in the template always override
 extensions in the API.
 
-| EndEntityServerAuthCertificate_APIPassthrough/V1 | X509v3 Parameter                              | Value |
-| ------------------------------------------------ | --------------------------------------------- | ----- |
-| Subject alternative name                         | [Passthrough from API or CSR]                 |
-| Subject                                          | [Passthrough from API or CSR]                 |
-| Basic constraints                                | CA:`FALSE`                                    |
-| Authority key identifier                         | [SKI from CA certificate]                     |
-| Subject key identifier                           | [Derived from CSR]                            |
-| Key usage                                        | Critical, digital signature, key encipherment |
-| Extended key usage                               | TLS web server authentication                 |
-| CRL distribution points\*                        | [Passthrough from CA configuration]           |
+EndEntityServerAuthCertificate\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web server authentication |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityServerAuthCertificate_CSRPassthrough/V1 definition
+### EndEntityServerAuthCertificate\_CSRPassthrough/V1 definition
 
 This template is identical to the `EndEntityServerAuthCertificate`
 template with one difference. In this template, AWS Private CA passes additional
@@ -624,16 +624,16 @@ extensions from the certificate signing request (CSR) into the certificate if th
 extensions are not specified in the template. Extensions specified in the template
 always override extensions in the CSR.
 
-| EndEntityServerAuthCertificate_CSRPassthrough/V1 | X509v3 Parameter                              | Value |
-| ------------------------------------------------ | --------------------------------------------- | ----- |
-| Subject alternative name                         | [Passthrough from CSR]                        |
-| Subject                                          | [Passthrough from CSR]                        |
-| Basic constraints                                | CA:`FALSE`                                    |
-| Authority key identifier                         | [SKI from CA certificate]                     |
-| Subject key identifier                           | [Derived from CSR]                            |
-| Key usage                                        | Critical, digital signature, key encipherment |
-| Extended key usage                               | TLS web server authentication                 |
-| CRL distribution points\*                        | [Passthrough from CA configuration or CSR]    |
+EndEntityServerAuthCertificate\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | CA:`FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, key encipherment |
+| Extended key usage | TLS web server authentication |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
@@ -645,40 +645,40 @@ template is identical to the `CodeSigningCertificate` template, except
 that the Extended key usage value specifies OCSP signing instead of code
 signing.
 
-| OCSPSigningCertificate/V1 | X509v3 Parameter                    | Value |
-| ------------------------- | ----------------------------------- | ----- |
-| Subject alternative name  | [Passthrough from CSR]              |
-| Subject                   | [Passthrough from CSR]              |
-| Basic constraints         | `CA:FALSE`                          |
-| Authority key identifier  | [SKI from CA certificate]           |
-| Subject key identifier    | [Derived from CSR]                  |
-| Key usage                 | Critical, digital signature         |
-| Extended key usage        | Critical, OCSP signing              |
+OCSPSigningCertificate/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | `CA:FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature |
+| Extended key usage | Critical, OCSP signing |
 | CRL distribution points\* | [Passthrough from CA configuration] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### OCSPSigningCertificate_APICSRPassthrough/V1 definition
+### OCSPSigningCertificate\_APICSRPassthrough/V1 definition
 
 This template extends the OCSPSigningCertificate/V1 to support API and CSR
 passthrough values.
 
-| OCSPSigningCertificate_APICSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ------------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                    | [Passthrough from API or CSR]              |
-| Subject                                     | [Passthrough from API or CSR]              |
-| Basic constraints                           | `CA:FALSE`                                 |
-| Authority key identifier                    | [SKI from CA certificate]                  |
-| Subject key identifier                      | [Derived from CSR]                         |
-| Key usage                                   | Critical, digital signature                |
-| Extended key usage                          | Critical, OCSP signing                     |
-| CRL distribution points\*                   | [Passthrough from CA configuration or CSR] |
+OCSPSigningCertificate\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | `CA:FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature |
+| Extended key usage | Critical, OCSP signing |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### OCSPSigningCertificate_APIPassthrough/V1 definition
+### OCSPSigningCertificate\_APIPassthrough/V1 definition
 
 This template is identical to the `OCSPSigningCertificate` template
 with one difference. In this template, AWS Private CA passes additional extensions
@@ -686,21 +686,21 @@ through the API into the certificate if the extensions are not specified in the
 template. Extensions specified in the template always override extensions in the
 API.
 
-| OCSPSigningCertificate_APIPassthrough/V1 | X509v3 Parameter                    | Value |
-| ---------------------------------------- | ----------------------------------- | ----- |
-| Subject alternative name                 | [Passthrough from API or CSR]       |
-| Subject                                  | [Passthrough from API or CSR]       |
-| Basic constraints                        | `CA:FALSE`                          |
-| Authority key identifier                 | [SKI from CA certificate]           |
-| Subject key identifier                   | [Derived from CSR]                  |
-| Key usage                                | Critical, digital signature         |
-| Extended key usage                       | Critical, OCSP signing              |
-| CRL distribution points\*                | [Passthrough from CA configuration] |
+OCSPSigningCertificate\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | `CA:FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature |
+| Extended key usage | Critical, OCSP signing |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### OCSPSigningCertificate_CSRPassthrough/V1 definition
+### OCSPSigningCertificate\_CSRPassthrough/V1 definition
 
 This template is identical to the `OCSPSigningCertificate` template
 with one difference. In this template, AWS Private CA passes additional extensions
@@ -708,16 +708,16 @@ from the certificate signing request (CSR) into the certificate if the extension
 are not specified in the template. Extensions specified in the template always
 override extensions in the CSR.
 
-| OCSPSigningCertificate_CSRPassthrough/V1 | X509v3 Parameter                           | Value |
-| ---------------------------------------- | ------------------------------------------ | ----- |
-| Subject alternative name                 | [Passthrough from CSR]                     |
-| Subject                                  | [Passthrough from CSR]                     |
-| Basic constraints                        | `CA:FALSE`                                 |
-| Authority key identifier                 | [SKI from CA certificate]                  |
-| Subject key identifier                   | [Derived from CSR]                         |
-| Key usage                                | Critical, digital signature                |
-| Extended key usage                       | Critical, OCSP signing                     |
-| CRL distribution points\*                | [Passthrough from CA configuration or CSR] |
+OCSPSigningCertificate\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | `CA:FALSE` |
+| Authority key identifier | [SKI from CA certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature |
+| Extended key usage | Critical, OCSP signing |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
@@ -732,31 +732,31 @@ future expansion of the hierarchy. Extended key usage is excluded to prevent use
 of the CA certificate as a TLS client or server certificate. No CRL information is
 specified because a self-signed certificate cannot be revoked.
 
-| RootCACertificate/V1     | X509v3 Parameter                                   | Value |
-| ------------------------ | -------------------------------------------------- | ----- |
-| Subject alternative name | [Passthrough from CSR]                             |
-| Subject                  | [Passthrough from CSR]                             |
-| Basic constraints        | Critical, `CA:TRUE`                                |
-| Subject key identifier   | [Derived from CSR]                                 |
-| Key usage                | Critical, digital signature, keyCertSign, CRL sign |
-| CRL distribution points  | N/A                                                |
+RootCACertificate/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE` |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, keyCertSign, CRL sign |
+| CRL distribution points | N/A |
 
-### RootCACertificate_APIPassthrough/V1 definition
+### RootCACertificate\_APIPassthrough/V1 definition
 
 This template extends RootCACertificate/V1 to support API passthrough
 values.
 
-| RootCACertificate_APIPassthrough/V1 | X509v3 Parameter                                   | Value |
-| ----------------------------------- | -------------------------------------------------- | ----- |
-| Subject alternative name            | [Passthrough from API or CSR]                      |
-| Subject                             | [Passthrough from API or CSR]                      |
-| Basic constraints                   | Critical, `CA:TRUE`                                |
-| Authority key identifier            | [Passthrough from API]                             |
-| Subject key identifier              | [Derived from CSR]                                 |
-| Key usage                           | Critical, digital signature, keyCertSign, CRL sign |
-| CRL distribution points\*           | N/A                                                |
+RootCACertificate\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE` |
+| Authority key identifier | [Passthrough from API] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, keyCertSign, CRL sign |
+| CRL distribution points\* | N/A |
 
-### BlankRootCACertificate_APIPassthrough/V1 definition
+### BlankRootCACertificate\_APIPassthrough/V1 definition
 
 With blank root certificate templates, you can issue root certificates with
 only X.509 basic constraints present. This is the simplest root certificate that
@@ -776,58 +776,58 @@ the KU extension, where KU can be any of the nine supported values
 `keyAgreement`, `keyCertSign`, `cRLSign`,
 `encipherOnly`, and `decipherOnly`).
 
-| BlankRootCACertificate_APIPassthrough/V1 | X509v3 Parameter              | Value |
-| ---------------------------------------- | ----------------------------- | ----- |
-| Subject alternative name                 | [Passthrough from API or CSR] |
-| Subject                                  | [Passthrough from API or CSR] |
-| Basic constraints                        | Critical, `CA:TRUE`           |
-| Subject key identifier                   | [Derived from CSR]            |
+BlankRootCACertificate\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE` |
+| Subject key identifier | [Derived from CSR] |
 
-### BlankRootCACertificate_PathLen0_APIPassthrough/V1 definition
+### BlankRootCACertificate\_PathLen0\_APIPassthrough/V1 definition
 
-For general information about blank root CA templates, see [BlankRootCACertificate_APIPassthrough/V1 definition](#BlankRootCACertificate_APIPassthrough "#BlankRootCACertificate_APIPassthrough").
+For general information about blank root CA templates, see [BlankRootCACertificate\_APIPassthrough/V1 definition](#BlankRootCACertificate_APIPassthrough "#BlankRootCACertificate_APIPassthrough").
 
-| BlankRootCACertificate_PathLen0_APIPassthrough/V1 | X509v3 Parameter                  | Value |
-| ------------------------------------------------- | --------------------------------- | ----- |
-| Subject alternative name                          | [Passthrough from API or CSR]     |
-| Subject                                           | [Passthrough from API or CSR]     |
-| Basic constraints                                 | Critical, `CA:TRUE`, `pathlen: 0` |
-| Subject key identifier                            | [Derived from CSR]                |
+BlankRootCACertificate\_PathLen0\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 0` |
+| Subject key identifier | [Derived from CSR] |
 
-### BlankRootCACertificate_PathLen1_APIPassthrough/V1 definition
+### BlankRootCACertificate\_PathLen1\_APIPassthrough/V1 definition
 
-For general information about blank root CA templates, see [BlankRootCACertificate_APIPassthrough/V1 definition](#BlankRootCACertificate_APIPassthrough "#BlankRootCACertificate_APIPassthrough").
+For general information about blank root CA templates, see [BlankRootCACertificate\_APIPassthrough/V1 definition](#BlankRootCACertificate_APIPassthrough "#BlankRootCACertificate_APIPassthrough").
 
-| BlankRootCACertificate_PathLen1_APIPassthrough/V1 | X509v3 Parameter                  | Value |
-| ------------------------------------------------- | --------------------------------- | ----- |
-| Subject alternative name                          | [Passthrough from API or CSR]     |
-| Subject                                           | [Passthrough from API or CSR]     |
-| Basic constraints                                 | Critical, `CA:TRUE`, `pathlen: 1` |
-| Subject key identifier                            | [Derived from CSR]                |
+BlankRootCACertificate\_PathLen1\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 1` |
+| Subject key identifier | [Derived from CSR] |
 
-### BlankRootCACertificate_PathLen2_APIPassthrough/V1 definition
+### BlankRootCACertificate\_PathLen2\_APIPassthrough/V1 definition
 
-For general information about blank root CA templates, see [BlankRootCACertificate_APIPassthrough/V1 definition](#BlankRootCACertificate_APIPassthrough "#BlankRootCACertificate_APIPassthrough").
+For general information about blank root CA templates, see [BlankRootCACertificate\_APIPassthrough/V1 definition](#BlankRootCACertificate_APIPassthrough "#BlankRootCACertificate_APIPassthrough").
 
-| BlankRootCACertificate_PathLen2_APIPassthrough/V1 | X509v3 Parameter                  | Value |
-| ------------------------------------------------- | --------------------------------- | ----- |
-| Subject alternative name                          | [Passthrough from API or CSR]     |
-| Subject                                           | [Passthrough from API or CSR]     |
-| Basic constraints                                 | Critical, `CA:TRUE`, `pathlen: 2` |
-| Subject key identifier                            | [Derived from CSR]                |
+BlankRootCACertificate\_PathLen2\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 2` |
+| Subject key identifier | [Derived from CSR] |
 
-### BlankRootCACertificate_PathLen3_APIPassthrough/V1 definition
+### BlankRootCACertificate\_PathLen3\_APIPassthrough/V1 definition
 
-For general information about blank root CA templates, see [BlankRootCACertificate_APIPassthrough/V1 definition](#BlankRootCACertificate_APIPassthrough "#BlankRootCACertificate_APIPassthrough").
+For general information about blank root CA templates, see [BlankRootCACertificate\_APIPassthrough/V1 definition](#BlankRootCACertificate_APIPassthrough "#BlankRootCACertificate_APIPassthrough").
 
-| BlankRootCACertificate_PathLen3_APIPassthrough/V1 | X509v3 Parameter                  | Value |
-| ------------------------------------------------- | --------------------------------- | ----- |
-| Subject alternative name                          | [Passthrough from API or CSR]     |
-| Subject                                           | [Passthrough from API or CSR]     |
-| Basic constraints                                 | Critical, `CA:TRUE`, `pathlen: 3` |
-| Subject key identifier                            | [Derived from CSR]                |
+BlankRootCACertificate\_PathLen3\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 3` |
+| Subject key identifier | [Derived from CSR] |
 
-### SubordinateCACertificate_PathLen0/V1 definition
+### SubordinateCACertificate\_PathLen0/V1 definition
 
 This template is used to issue subordinate CA certificates with a path length
 of `0`. CA certificates include a critical basic constraints extension with the CA
@@ -838,56 +838,56 @@ certificate from being used as a TLS client or server certificate.
 For more information about certification paths, see [Setting Length
 Constraints on the Certification Path](ca-hierarchy.md#length-constraints "ca-hierarchy.md#length-constraints").
 
-| SubordinateCACertificate_PathLen0/V1 | X509v3 Parameter                                        | Value |
-| ------------------------------------ | ------------------------------------------------------- | ----- |
-| Subject alternative name             | [Passthrough from CSR]                                  |
-| Subject                              | [Passthrough from CSR]                                  |
-| Basic constraints                    | Critical, `CA:TRUE`, `pathlen: 0`                       |
-| Authority key identifier             | [SKI from CA Certificate]                               |
-| Subject key identifier               | [Derived from CSR]                                      |
-| Key usage                            | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*            | [Passthrough from CA configuration]                     |
+SubordinateCACertificate\_PathLen0/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 0` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \*CRL distribution points are included in certificates that are issued with this
 template only if the CA is configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen0_APICSRPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen0\_APICSRPassthrough/V1 definition
 
-This template extends SubordinateCACertificate_PathLen0/V1 to support API and
+This template extends SubordinateCACertificate\_PathLen0/V1 to support API and
 CSR passthrough values.
 
-| SubordinateCACertificate_PathLen0_APICSRPassthrough/V1 | X509v3 Parameter                                        | Value |
-| ------------------------------------------------------ | ------------------------------------------------------- | ----- |
-| Subject alternative name                               | [Passthrough from API or CSR]                           |
-| Subject                                                | [Passthrough from API or CSR]                           |
-| Basic constraints                                      | Critical, `CA:TRUE`, `pathlen: 0`                       |
-| Authority key identifier                               | [SKI from CA Certificate]                               |
-| Subject key identifier                                 | [Derived from CSR]                                      |
-| Key usage                                              | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                              | [Passthrough from CA configuration or CSR]              |
+SubordinateCACertificate\_PathLen0\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 0` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen0_APIPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen0\_APIPassthrough/V1 definition
 
-This template extends SubordinateCACertificate_PathLen0/V1 to support API
+This template extends SubordinateCACertificate\_PathLen0/V1 to support API
 passthrough values.
 
-| SubordinateCACertificate_PathLen0_APIPassthrough/V1 | X509v3 Parameter                                        | Value |
-| --------------------------------------------------- | ------------------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from API or CSR]                           |
-| Subject                                             | [Passthrough from API or CSR]                           |
-| Basic constraints                                   | Critical, `CA:TRUE`, `pathlen: 0`                       |
-| Authority key identifier                            | [SKI from CA Certificate]                               |
-| Subject key identifier                              | [Derived from CSR]                                      |
-| Key usage                                           | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                           | [Passthrough from CA configuration]                     |
+SubordinateCACertificate\_PathLen0\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 0` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen0_CSRPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen0\_CSRPassthrough/V1 definition
 
 This template is identical to the
 `SubordinateCACertificate_PathLen0` template with one difference: In
@@ -901,20 +901,20 @@ the CSR.
 A CSR that contains custom additional extensions must be created outside of
 AWS Private CA.
 
-| SubordinateCACertificate_PathLen0_CSRPassthrough/V1 | X509v3 Parameter                                        | Value |
-| --------------------------------------------------- | ------------------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from CSR]                                  |
-| Subject                                             | [Passthrough from CSR]                                  |
-| Basic constraints                                   | Critical, `CA:TRUE`, `pathlen: 0`                       |
-| Authority key identifier                            | [SKI from CA Certificate]                               |
-| Subject key identifier                              | [Derived from CSR]                                      |
-| Key usage                                           | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                           | [Passthrough from CA configuration or CSR]              |
+SubordinateCACertificate\_PathLen0\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 0` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in certificates issued with this template
 only if the CA is configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen1/V1 definition
+### SubordinateCACertificate\_PathLen1/V1 definition
 
 This template is used to issue subordinate CA certificates with a path length
 of `1`. CA certificates include a critical Basic constraints extension with the CA
@@ -925,56 +925,56 @@ certificate from being used as a TLS client or server certificate.
 For more information about certification paths, see [Setting Length
 Constraints on the Certification Path](ca-hierarchy.md#length-constraints "ca-hierarchy.md#length-constraints").
 
-| SubordinateCACertificate_PathLen1/V1 | X509v3 Parameter                                        | Value |
-| ------------------------------------ | ------------------------------------------------------- | ----- |
-| Subject alternative name             | [Passthrough from CSR]                                  |
-| Subject                              | [Passthrough from CSR]                                  |
-| Basic constraints                    | Critical, `CA:TRUE`, `pathlen: 1`                       |
-| Authority key identifier             | [SKI from CA Certificate]                               |
-| Subject key identifier               | [Derived from CSR]                                      |
-| Key usage                            | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*            | [Passthrough from CA configuration]                     |
+SubordinateCACertificate\_PathLen1/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 1` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \*CRL distribution points are included in certificates issued with this template
 only if the CA is configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen1_APICSRPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen1\_APICSRPassthrough/V1 definition
 
-This template extends SubordinateCACertificate_PathLen1/V1 to support API and
+This template extends SubordinateCACertificate\_PathLen1/V1 to support API and
 CSR passthrough values.
 
-| SubordinateCACertificate_PathLen1_APICSRPassthrough/V1 | X509v3 Parameter                                        | Value |
-| ------------------------------------------------------ | ------------------------------------------------------- | ----- |
-| Subject alternative name                               | [Passthrough from API or CSR]                           |
-| Subject                                                | [Passthrough from API or CSR]                           |
-| Basic constraints                                      | Critical, `CA:TRUE`, `pathlen: 1`                       |
-| Authority key identifier                               | [SKI from CA Certificate]                               |
-| Subject key identifier                                 | [Derived from CSR]                                      |
-| Key usage                                              | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                              | [Passthrough from CA configuration or CSR]              |
+SubordinateCACertificate\_PathLen1\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 1` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen1_APIPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen1\_APIPassthrough/V1 definition
 
-This template extends SubordinateCACertificate_PathLen0/V1 to support API
+This template extends SubordinateCACertificate\_PathLen0/V1 to support API
 passthrough values.
 
-| SubordinateCACertificate_PathLen1_APIPassthrough/V1 | X509v3 Parameter                                        | Value |
-| --------------------------------------------------- | ------------------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from API or CSR]                           |
-| Subject                                             | [Passthrough from API or CSR]                           |
-| Basic constraints                                   | Critical, `CA:TRUE`, `pathlen: 1`                       |
-| Authority key identifier                            | [SKI from CA Certificate]                               |
-| Subject key identifier                              | [Derived from CSR]                                      |
-| Key usage                                           | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                           | [Passthrough from CA configuration]                     |
+SubordinateCACertificate\_PathLen1\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 1` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen1_CSRPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen1\_CSRPassthrough/V1 definition
 
 This template is identical to the
 `SubordinateCACertificate_PathLen1` template with one difference: In
@@ -988,20 +988,20 @@ the CSR.
 A CSR that contains custom additional extensions must be created outside of
 AWS Private CA.
 
-| SubordinateCACertificate_PathLen1_CSRPassthrough/V1 | X509v3 Parameter                                        | Value |
-| --------------------------------------------------- | ------------------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from CSR]                                  |
-| Subject                                             | [Passthrough from CSR]                                  |
-| Basic constraints                                   | Critical, `CA:TRUE`, `pathlen: 1`                       |
-| Authority key identifier                            | [SKI from CA Certificate]                               |
-| Subject key identifier                              | [Derived from CSR]                                      |
-| Key usage                                           | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                           | [Passthrough from CA configuration or CSR]              |
+SubordinateCACertificate\_PathLen1\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 1` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in certificates issued with this template
 only if the CA is configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen2/V1 definition
+### SubordinateCACertificate\_PathLen2/V1 definition
 
 This template is used to issue subordinate CA certificates with a path length
 of 2. CA certificates include a critical Basic constraints extension with the CA
@@ -1012,56 +1012,56 @@ certificate from being used as a TLS client or server certificate.
 For more information about certification paths, see [Setting Length
 Constraints on the Certification Path](ca-hierarchy.md#length-constraints "ca-hierarchy.md#length-constraints").
 
-| SubordinateCACertificate_PathLen2/V1 | X509v3 Parameter                                        | Value |
-| ------------------------------------ | ------------------------------------------------------- | ----- |
-| Subject alternative name             | [Passthrough from CSR]                                  |
-| Subject                              | [Passthrough from CSR]                                  |
-| Basic constraints                    | Critical, `CA:TRUE`, `pathlen: 2`                       |
-| Authority key identifier             | [SKI from CA Certificate]                               |
-| Subject key identifier               | [Derived from CSR]                                      |
-| Key usage                            | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*            | [Passthrough from CA configuration]                     |
+SubordinateCACertificate\_PathLen2/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 2` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \*CRL distribution points are included in certificates issued with this template
 only if the CA is configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen2_APICSRPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen2\_APICSRPassthrough/V1 definition
 
-This template extends SubordinateCACertificate_PathLen2/V1 to support API and
+This template extends SubordinateCACertificate\_PathLen2/V1 to support API and
 CSR passthrough values.
 
-| SubordinateCACertificate_PathLen2_APICSRPassthrough/V1 | X509v3 Parameter                                        | Value |
-| ------------------------------------------------------ | ------------------------------------------------------- | ----- |
-| Subject alternative name                               | [Passthrough from API or CSR]                           |
-| Subject                                                | [Passthrough from API or CSR]                           |
-| Basic constraints                                      | Critical, `CA:TRUE`, `pathlen: 2`                       |
-| Authority key identifier                               | [SKI from CA Certificate]                               |
-| Subject key identifier                                 | [Derived from CSR]                                      |
-| Key usage                                              | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                              | [Passthrough from CA configuration or CSR]              |
+SubordinateCACertificate\_PathLen2\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 2` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen2_APIPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen2\_APIPassthrough/V1 definition
 
-This template extends SubordinateCACertificate_PathLen2/V1 to support API
+This template extends SubordinateCACertificate\_PathLen2/V1 to support API
 passthrough values.
 
-| SubordinateCACertificate_PathLen2_APIPassthrough/V1 | X509v3 Parameter                                        | Value |
-| --------------------------------------------------- | ------------------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from API or CSR]                           |
-| Subject                                             | [Passthrough from API or CSR]                           |
-| Basic constraints                                   | Critical, `CA:TRUE`, `pathlen: 2`                       |
-| Authority key identifier                            | [SKI from CA Certificate]                               |
-| Subject key identifier                              | [Derived from CSR]                                      |
-| Key usage                                           | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                           | [Passthrough from CA configuration]                     |
+SubordinateCACertificate\_PathLen2\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 2` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen2_CSRPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen2\_CSRPassthrough/V1 definition
 
 This template is identical to the
 `SubordinateCACertificate_PathLen2` template with one difference: In
@@ -1075,20 +1075,20 @@ the CSR.
 A CSR that contains custom additional extensions must be created outside of
 AWS Private CA.
 
-| SubordinateCACertificate_PathLen2_CSRPassthrough/V1 | X509v3 Parameter                                        | Value |
-| --------------------------------------------------- | ------------------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from CSR]                                  |
-| Subject                                             | [Passthrough from CSR]                                  |
-| Basic constraints                                   | Critical, `CA:TRUE`, `pathlen: 2`                       |
-| Authority key identifier                            | [SKI from CA Certificate]                               |
-| Subject key identifier                              | [Derived from CSR]                                      |
-| Key usage                                           | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                           | [Passthrough from CA configuration or CSR]              |
+SubordinateCACertificate\_PathLen2\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 2` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in certificates issued with this template
 only if the CA is configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen3/V1 definition
+### SubordinateCACertificate\_PathLen3/V1 definition
 
 This template is used to issue subordinate CA certificates with a path length
 of 3. CA certificates include a critical Basic constraints extension with the CA
@@ -1099,56 +1099,56 @@ certificate from being used as a TLS client or server certificate.
 For more information about certification paths, see [Setting Length
 Constraints on the Certification Path](ca-hierarchy.md#length-constraints "ca-hierarchy.md#length-constraints").
 
-| SubordinateCACertificate_PathLen3/V1 | X509v3 Parameter                                        | Value |
-| ------------------------------------ | ------------------------------------------------------- | ----- |
-| Subject alternative name             | [Passthrough from CSR]                                  |
-| Subject                              | [Passthrough from CSR]                                  |
-| Basic constraints                    | Critical, `CA:TRUE`, `pathlen: 3`                       |
-| Authority key identifier             | [SKI from CA Certificate]                               |
-| Subject key identifier               | [Derived from CSR]                                      |
-| Key usage                            | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*            | [Passthrough from CA configuration]                     |
+SubordinateCACertificate\_PathLen3/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 3` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \*CRL distribution points are included in certificates issued with this template
 only if the CA is configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen3_APICSRPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen3\_APICSRPassthrough/V1 definition
 
-This template extends SubordinateCACertificate_PathLen3/V1 to support API and
+This template extends SubordinateCACertificate\_PathLen3/V1 to support API and
 CSR passthrough values.
 
-| SubordinateCACertificate_PathLen3_APICSRPassthrough/V1 | X509v3 Parameter                                        | Value |
-| ------------------------------------------------------ | ------------------------------------------------------- | ----- |
-| Subject alternative name                               | [Passthrough from API or CSR]                           |
-| Subject                                                | [Passthrough from API or CSR]                           |
-| Basic constraints                                      | Critical, `CA:TRUE`, `pathlen: 3`                       |
-| Authority key identifier                               | [SKI from CA Certificate]                               |
-| Subject key identifier                                 | [Derived from CSR]                                      |
-| Key usage                                              | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                              | [Passthrough from CA configuration or CSR]              |
+SubordinateCACertificate\_PathLen3\_APICSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 3` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen3_APIPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen3\_APIPassthrough/V1 definition
 
-This template extends SubordinateCACertificate_PathLen3/V1 to support API
+This template extends SubordinateCACertificate\_PathLen3/V1 to support API
 passthrough values.
 
-| SubordinateCACertificate_PathLen3_APIPassthrough/V1 | X509v3 Parameter                                        | Value |
-| --------------------------------------------------- | ------------------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from API or CSR]                           |
-| Subject                                             | [Passthrough from API or CSR]                           |
-| Basic constraints                                   | Critical, `CA:TRUE`, `pathlen: 3`                       |
-| Authority key identifier                            | [SKI from CA Certificate]                               |
-| Subject key identifier                              | [Derived from CSR]                                      |
-| Key usage                                           | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                           | [Passthrough from CA configuration]                     |
+SubordinateCACertificate\_PathLen3\_APIPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from API or CSR] |
+| Subject | [Passthrough from API or CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 3` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration] |
 
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### SubordinateCACertificate_PathLen3_CSRPassthrough/V1 definition
+### SubordinateCACertificate\_PathLen3\_CSRPassthrough/V1 definition
 
 This template is identical to the
 `SubordinateCACertificate_PathLen3` template with one difference: In
@@ -1162,15 +1162,15 @@ the CSR.
 A CSR that contains custom additional extensions must be created outside of
 AWS Private CA.
 
-| SubordinateCACertificate_PathLen3_CSRPassthrough/V1 | X509v3 Parameter                                        | Value |
-| --------------------------------------------------- | ------------------------------------------------------- | ----- |
-| Subject alternative name                            | [Passthrough from CSR]                                  |
-| Subject                                             | [Passthrough from CSR]                                  |
-| Basic constraints                                   | Critical, `CA:TRUE`, `pathlen: 3`                       |
-| Authority key identifier                            | [SKI from CA Certificate]                               |
-| Subject key identifier                              | [Derived from CSR]                                      |
-| Key usage                                           | Critical, digital signature, `keyCertSign`, CRL<br>sign |
-| CRL distribution points\*                           | [Passthrough from CA configuration or CSR]              |
+SubordinateCACertificate\_PathLen3\_CSRPassthrough/V1| X509v3 Parameter | Value |
+| --- | --- |
+| Subject alternative name | [Passthrough from CSR] |
+| Subject | [Passthrough from CSR] |
+| Basic constraints | Critical, `CA:TRUE`, `pathlen: 3` |
+| Authority key identifier | [SKI from CA Certificate] |
+| Subject key identifier | [Derived from CSR] |
+| Key usage | Critical, digital signature, `keyCertSign`, CRL<br>sign |
+| CRL distribution points\* | [Passthrough from CA configuration or CSR] |
 
 \*CRL distribution points are included in certificates issued with this template
 only if the CA is configured with CRL generation enabled.

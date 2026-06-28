@@ -10,7 +10,7 @@ Before you create a Connector for SCEP for Microsoft Intune, you must complete t
 - Create a Microsoft Intune Tenant.
 - Create an App Registration in your Microsoft Entra ID. See [Update an app's requested permissions in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#grant-admin-consent-in-app-registrations-pane "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal#grant-admin-consent-in-app-registrations-pane") in the Microsoft Entra documentation for information about how to manage application-level permissions for your App Registration. The App Registration must have the following permissions:
 
-  - Under **Intune** set **scep_challenge_provider**.
+  - Under **Intune** set **scep\_challenge\_provider**.
   - For **Microsoft Graph** set **Application.Read.All** and **User.Read**.
 
 - You must grant the application in your App Registration admin consent. For information, see [Grant tenant-wide admin consent to an application](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal") in the Microsoft Entra documentation.

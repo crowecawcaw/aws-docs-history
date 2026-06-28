@@ -12,7 +12,7 @@ extensions.
 
 **Examples**
 
-1. The template definition for [EndEntityClientAuthCertificate_APIPassthrough](template-definitions.md#EndEntityClientAuthCertificate_APIPassthrough "template-definitions.md#EndEntityClientAuthCertificate_APIPassthrough") defines the
+1. The template definition for [EndEntityClientAuthCertificate\_APIPassthrough](template-definitions.md#EndEntityClientAuthCertificate_APIPassthrough "template-definitions.md#EndEntityClientAuthCertificate_APIPassthrough") defines the
    ExtendedKeyUsage extension with a value of "TLS web server authentication, TLS web
    client authentication". If ExtendedKeyUsage is defined in the CSR or in the
    `IssueCertificate`
@@ -26,7 +26,7 @@ extensions.
 The template definition nonetheless copies over other values from the CSR,
 such as Subject and Subject Alternative Name. These values are still taken from
 the CSR even though the template is not a CSR passthrough variety, because the
-template definition always takes highest priority. 2. The template definition for [EndEntityClientAuthCertificate_APICSRPassthrough](template-definitions.md#EndEntityClientAuthCertificate_APICSRPassthrough "template-definitions.md#EndEntityClientAuthCertificate_APICSRPassthrough") defines the Subject
+template definition always takes highest priority. 2. The template definition for [EndEntityClientAuthCertificate\_APICSRPassthrough](template-definitions.md#EndEntityClientAuthCertificate_APICSRPassthrough "template-definitions.md#EndEntityClientAuthCertificate_APICSRPassthrough") defines the Subject
 Alternative Name (SAN) extension as being copied from the API or CSR. If the SAN
 extension is defined in the CSR and provided in the
 `IssueCertificate` `ApiPassthrough` parameter, the API

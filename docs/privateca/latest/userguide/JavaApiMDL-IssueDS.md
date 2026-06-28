@@ -1,6 +1,6 @@
 # Create a document signer certificate
 
-This Java sample shows how to use the [BlankEndEntityCertificate_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_APIPassthrough") template to create a [ISO/IEC mDL standard](https://www.iso.org/standard/69084.html "https://www.iso.org/standard/69084.html")-compliant
+This Java sample shows how to use the [BlankEndEntityCertificate\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_APIPassthrough") template to create a [ISO/IEC mDL standard](https://www.iso.org/standard/69084.html "https://www.iso.org/standard/69084.html")-compliant
 document signer certificate. You must generate base64-encoded values for
 `KeyUsage`, `IssuerAlternativeName`, and
 `CRLDistributionPoint` and pass them through

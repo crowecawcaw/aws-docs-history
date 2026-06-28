@@ -1,6 +1,6 @@
 # Activate an issuing authority certificate authority (IACA) certificate
 
-This Java sample shows how to use the [BlankRootCACertificate_PathLen0_APIPassthrough/V1 definition](template-definitions.md#BlankRootCACertificate_PathLen0_APIPassthrough "template-definitions.md#BlankRootCACertificate_PathLen0_APIPassthrough") template to create and
+This Java sample shows how to use the [BlankRootCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankRootCACertificate_PathLen0_APIPassthrough "template-definitions.md#BlankRootCACertificate_PathLen0_APIPassthrough") template to create and
 install an [ISO/IEC mDL
 standard](https://www.iso.org/standard/69084.html "https://www.iso.org/standard/69084.html")-compliant issuing authority certificate authority (IACA) certificate. You
 must generate base64-encoded values for `KeyUsage`,

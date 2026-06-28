@@ -10,56 +10,56 @@ Console
 Sign in to your AWS account and open the AWS Private CA Connector for Active Directory console at
 `https://console.aws.amazon.com/pca-connector-ad/home`.
 
-1.  On the first-time service landing page or the **Connectors for Active
-    Directory** page, choose **Create connector**.
-2.  On the **Create Private CA Connector for Active Directory** page,
-    provide information in the **Active Directory** section.
+1. On the first-time service landing page or the **Connectors for Active
+   Directory** page, choose **Create connector**.
+2. On the **Create Private CA Connector for Active Directory** page,
+   provide information in the **Active Directory** section.
 
-    - Under **Select your Active Directory type**, choose one
-      of the two available types:
+   - Under **Select your Active Directory type**, choose one
+     of the two available types:
 
-      - **AWS Directory Service for Microsoft Active Directory**
-        – Specifies an Active Directory managed by Directory Service.
-      - **On-premises Active Directory with AWS
-        AD Connector**– Uses AD Connector to access
-        an Active Directory that you host on-premises.
+     - **AWS Directory Service for Microsoft Active Directory**
+       – Specifies an Active Directory managed by Directory Service.
+     - **On-premises Active Directory with AWS
+       AD Connector**– Uses AD Connector to access
+       an Active Directory that you host on-premises.
 
-    - Under **Select your directory**, choose your directory
-      from the list.
+   - Under **Select your directory**, choose your directory
+     from the list.
 
-    Alternatively, you can choose **Create directory**, which
-    opens the Directory Service console in a new window. When you finish creating a new
-    directory, return to the AWS Private CA Connector for Active Directory console and refresh the list
-    of directories. Your new directory should be available for selection.
+   Alternatively, you can choose **Create directory**, which
+   opens the Directory Service console in a new window. When you finish creating a new
+   directory, return to the AWS Private CA Connector for Active Directory console and refresh the list
+   of directories. Your new directory should be available for selection.
 
-    ###### Note
+   ###### Note
 
-    When creating a directory, note that Connector for AD
-    supports only the following directory types offered in the Directory Service
-    console:
+   When creating a directory, note that Connector for AD
+   supports only the following directory types offered in the Directory Service
+   console:
 
         + **AWS Managed Microsoft AD**
         + **AD Connector**
-    - Under **Select security groups for VPC endpoint**, choose
-      a security group from the list.
+   - Under **Select security groups for VPC endpoint**, choose
+     a security group from the list.
 
-    Alternatively, you can choose **Create security group**,
-    which opens the Amazon EC2 console to the **Create security
-    group** page in a new window. When you finish creating a
-    security group, return to the AWS Private CA Connector for Active Directory console and refresh the
-    list of security groups. Your new security group should be available for
-    selection.
+   Alternatively, you can choose **Create security group**,
+   which opens the Amazon EC2 console to the **Create security
+   group** page in a new window. When you finish creating a
+   security group, return to the AWS Private CA Connector for Active Directory console and refresh the
+   list of security groups. Your new security group should be available for
+   selection.
 
-3.  In the **IP address type** section, choose from
-    the following options:
+3. In the **IP address type** section, choose from
+   the following options:
 
-    - **IPv4** - Enables IPv4 connectivity to
-      the service. Choose this option only if all subnets hosting your directory have IPv4 address ranges.
-    - **Dualstack** - Enables both IPv4 and IPv6 connectivity to the service. Choose
-      this option only if all subnets hosting your directory have both IPv4 and IPv6 address ranges.
+   - **IPv4** - Enables IPv4 connectivity to
+     the service. Choose this option only if all subnets hosting your directory have IPv4 address ranges.
+   - **Dualstack** - Enables both IPv4 and IPv6 connectivity to the service. Choose
+     this option only if all subnets hosting your directory have both IPv4 and IPv6 address ranges.
 
-4.  In the **Private certificate authority** section, choose a
-    private CA from the list.
+4. In the **Private certificate authority** section, choose a
+   private CA from the list.
 
 Alternatively, you can choose **Create Private CA**, which opens
 the AWS Private CA console to the **Private certificate authorities**
@@ -81,9 +81,9 @@ supported.
      for deletion, and choose **Save changes** to confirm.
 
 6. After providing the required information and reviewing your choices, choose
-   **Create connector**. This opens the **Connectors for
-   Active Directory** details page where can view the progress of your
-   connector as it is created.
+**Create connector**. This opens the **Connectors for
+Active Directory** details page where can view the progress of your
+connector as it is created.
 
 After the process of creating a connector completes, assign it a service principal
 name.

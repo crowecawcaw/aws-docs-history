@@ -227,7 +227,7 @@ example)
 
 - Verify the SCEP URL and static challenge password in Workspace ONE
   match AWS Private CA.
-- Test SCEP endpoint connectivity: curl <SCEP_URL>.
+- Test SCEP endpoint connectivity: curl <SCEP\_URL>.
 - Check AWS CloudTrail logs for AWS Private CA errors
   (`IssueCertificate` failures, for example).
 

@@ -1,6 +1,6 @@
 # Activate a Subordinate CA for Node Operational Certificates (NOC)
 
-This Java sample shows how to use the [BlankSubordinateCACertificate_PathLen0_APIPassthrough/V1 definition](template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough "template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough") template to
+This Java sample shows how to use the [BlankSubordinateCACertificate\_PathLen0\_APIPassthrough/V1 definition](template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough "template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough") template to
 issue and install a [Matter](https://buildwithmatter.com "https://buildwithmatter.com")
 Subordinate CA certificate to issue NOCs. You must generate a Base64-encoded KeyUsage value and pass it
 through a CustomExtension.

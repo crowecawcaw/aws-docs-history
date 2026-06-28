@@ -1,7 +1,7 @@
 # List connector templates
 
 You can use the AWS Private CA Connector for Active Directory console or AWS CLI to list templates for connectors
-that you own. Connector templates are based on AWS Private CA [BlankEndEntityCertificate_APIPassthrough/V1](UsingTemplates.md#BlankEndEntityCertificate_APIPassthrough "UsingTemplates.md#BlankEndEntityCertificate_APIPassthrough") templates.
+that you own. Connector templates are based on AWS Private CA [BlankEndEntityCertificate\_APIPassthrough/V1](UsingTemplates.md#BlankEndEntityCertificate_APIPassthrough "UsingTemplates.md#BlankEndEntityCertificate_APIPassthrough") templates.
 
 Console
 

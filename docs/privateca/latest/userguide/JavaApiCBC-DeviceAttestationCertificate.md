@@ -1,6 +1,6 @@
 # Create a Device Attestation Certificate (DAC)
 
-This Java sample shows how to use the [BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough") template to
+This Java sample shows how to use the [BlankEndEntityCertificate\_CriticalBasicConstraints\_APIPassthrough/V1](template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough "template-definitions.md#BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough") template to
 create a [Matter](https://buildwithmatter.com "https://buildwithmatter.com") Device
 Attestation Certificate. You must generate a Base64-encoded KeyUsage value and pass it
 through a CustomExtension.

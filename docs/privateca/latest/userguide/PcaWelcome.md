@@ -56,9 +56,9 @@ certificate from ACM, you can install the certificate anywhere you want.
 AWS Private CA supports the following cryptographic algorithms for private key generation
 and certificate signing.
 
-| Supported algorithm                                                                                                                                  | Private key algorithms                                                                                                            | Signing algorithms |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| ML_DSA_44<br>ML_DSA_65<br>ML_DSA_87<br>RSA_2048<br>RSA_3072<br>RSA_4096<br>EC_prime256v1<br>EC_secp384r1<br>EC_secp521r1<br>SM2 (China Regions only) | ML_DSA_44ML_DSA_65ML_DSA_87<br>SHA256WITHRSASHA384WITHRSASHA512WITHRSASHA256WITHECDSA<br>SHA384WITHECDSASHA512WITHECDSASM3WITHSM2 |
+Supported algorithm| Private key algorithms | Signing algorithms |
+| --- | --- |
+| ML\_DSA\_44<br>ML\_DSA\_65<br>ML\_DSA\_87<br>RSA\_2048<br>RSA\_3072<br>RSA\_4096<br>EC\_prime256v1<br>EC\_secp384r1<br>EC\_secp521r1<br>SM2 (China Regions only) | ML\_DSA\_44ML\_DSA\_65ML\_DSA\_87<br>SHA256WITHRSASHA384WITHRSASHA512WITHRSASHA256WITHECDSA<br>SHA384WITHECDSASHA512WITHECDSASM3WITHSM2 |
 
 This list applies only to certificates issued directly by AWS Private CA through its
 console, API, or command line. When AWS Certificate Manager issues certificates using a CA from
@@ -84,7 +84,7 @@ enforced.
 - [Not
   After date](https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 "https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5"). In conformity with [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280 "https://datatracker.ietf.org/doc/html/rfc5280"),
   AWS Private CA prevents the issuance of certificates bearing a `Not
-After` date later than the `Not After` date of the issuing
+ After` date later than the `Not After` date of the issuing
   CA's certificate.
 - [Basic constraints](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.9 "https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.9"). AWS Private CA enforces basic constraints and path
   length in imported CA certificates.
