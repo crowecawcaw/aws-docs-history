@@ -69,7 +69,7 @@ You are logged in at the home directory
 3. At the prompt, enter the activation code that belongs to this hardware
    unit. The following _key file_ is created
    in the home directory: `activation_<hostname of the
-system>`.key``.
+ system>`.key``.
 
 For example, `activation_SystemA.key` 4. Copy the key file from the appliance to your workstation. We recommend
 that you copy all the key files to a specific folder on your workstation.
