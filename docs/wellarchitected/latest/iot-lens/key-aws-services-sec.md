@@ -117,7 +117,8 @@ obtained in a secure manner.
 **Incident response**:
 [AWS IoT Device Defender](https://aws.amazon.com/iot-device-defender/ "https://aws.amazon.com/iot-device-defender/") allows you to create security profiles
 that can be used to detect deviations from normal device behavior
-and trigger automated responses including Serverless Computing -[AWS Lambda](https://aws.amazon.com/pm/lambda/ "https://aws.amazon.com/pm/lambda/").
+and trigger automated responses including Serverless Computing
+\-[AWS Lambda](https://aws.amazon.com/pm/lambda/ "https://aws.amazon.com/pm/lambda/").
 
 [AWS IoT Device Management](https://aws.amazon.com/iot-device-management/ "https://aws.amazon.com/iot-device-management/") should be used to group devices that
 need remediation and then using AWS IoT Jobs to deploy fixes to
