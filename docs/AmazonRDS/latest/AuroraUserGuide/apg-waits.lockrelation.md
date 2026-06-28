@@ -28,7 +28,7 @@ examples are the following:
   definition language (DDL) operations such as `DROP TABLE`,
   `TRUNCATE`, `VACUUM FULL`, and `CLUSTER`
   acquire `ACCESS EXCLUSIVE` locks implicitly. `ACCESS
-EXCLUSIVE` is also the default lock mode for `LOCK TABLE`
+ EXCLUSIVE` is also the default lock mode for `LOCK TABLE`
   statements that don't specify a mode explicitly.
 - Using `CREATE INDEX (without CONCURRENT)` on a table conflicts with data
   manipulation language (DML) statements `UPDATE`, `DELETE`,
@@ -140,7 +140,7 @@ the default `max_standby_streaming_delay` of 30 seconds. The lock times out
 before it's an issue.
 
 | Sequence event                                                                                                                  | Session        | Command or Output                                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---- | ------------------------------------------------------------------------------------------- | -------- | ------------------- | ------------------------------------ |
+| ------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Sets an environment variable called READER with the specified value and tries to connect to the DB instance with this endpoint. | Reader session | CLI command:<br>`<br>export READER=aurorapg2.12345678910.us-west-1.rds.amazonaws.com<br>psql -h $READER<br>`<br>Output:<br>`<br>psql (15devel, server 10.14)<br>Type "help" for help.<br>`                              |
 | Sets an environment variable called WRITER and tries to connect to the DB instance with this endpoint .                         | Writer session | CLI command:<br>`<br>export WRITER=aurorapg1.12345678910.us-west-1.rds.amazonaws.com<br>psql -h $WRITER<br>`<br>Output:<br>`<br>psql (15devel, server 10.14)<br>Type "help" for help.<br>`                              |
 | The writer session creates table t1 on the writer instance.                                                                     | Writer session | PostgreSQL query:<br>``<br>`postgres=>` CREATE TABLE t1(b integer);<br>CREATE TABLE<br>``                                                                                                                               |

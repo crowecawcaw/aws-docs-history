@@ -58,7 +58,7 @@ For Aurora MySQL, the following considerations apply:
 - After you upgrade your DB cluster to a DB engine version that supports dynamic
   resizing, and when the feature is enabled in that specific AWS Region, any
   space that's later freed by certain SQL statements, such as `DROP
-TABLE`, is reclaimable.
+ TABLE`, is reclaimable.
 
 If the feature is explicitly disabled in a particular AWS Region, the space
 might only be reusable—and not reclaimable—even on versions that
@@ -338,7 +338,7 @@ The maximum number of connections allowed to an Aurora DB instance is determined
 DB instance. The default value of that parameter varies depends on the DB instance class
 used for the DB instance and database engine compatibility.
 
-| Database engine          | max_connections default value                                                                                                                                                                                |
+| Database engine          | max\_connections default value                                                                                                                                                                               |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon Aurora MySQL      | See [Maximum connections to an Aurora MySQL DB instance](AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.MaxConnections "AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.MaxConnections")  |
 | Amazon Aurora PostgreSQL | See [Maximum connections to an Aurora PostgreSQL DB instance](AuroraPostgreSQL.Managing.md#AuroraPostgreSQL.Managing.MaxConnections "AuroraPostgreSQL.Managing.md#AuroraPostgreSQL.Managing.MaxConnections") |

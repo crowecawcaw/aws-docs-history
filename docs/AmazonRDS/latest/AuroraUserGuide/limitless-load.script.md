@@ -6,7 +6,7 @@ Perform the following steps to use the setup script:
 
 1. Make sure that you have the AWS CLI installed and configured with your AWS account credentials.
 2. Install the `jq` command-line JSON processor. For more information, see [jqlang/jq](https://github.com/jqlang/jq "https://github.com/jqlang/jq").
-3. Copy the [data_loading_script.zip](samples/data_loading_script.zip.md "samples/data_loading_script.zip.md") file to your computer, and extract the
+3. Copy the [data\_loading\_script.zip](samples/data_loading_script.zip.md "samples/data_loading_script.zip.md") file to your computer, and extract the
    `data_load_aws_setup_script.sh` file from it.
 4. Edit the script to replace the placeholder variables with the appropriate values for the following:
 

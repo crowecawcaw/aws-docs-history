@@ -30,13 +30,13 @@ currently supported.
 | Cursors (global)                                                            | GLOBAL cursors aren't supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Cursor (fetch behaviors)                                                    | The following cursor fetch behaviors aren't supported:<br>FETCH PRIOR, FIRST, LAST, ABSOLUTE, abd RELATIVE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Cursor-typed output parameters                                              | Cursor-typed variables and parameters aren't supported for<br>output parameters (an error is raised).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Cursor options                                                              | SCROLL, KEYSET, DYNAMIC, FAST_FORWARD, SCROLL_LOCKS,<br>OPTIMISTIC, TYPE_WARNING, and FOR UPDATE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Cursor options                                                              | SCROLL, KEYSET, DYNAMIC, FAST\_FORWARD, SCROLL\_LOCKS,<br>OPTIMISTIC, TYPE\_WARNING, and FOR UPDATE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Data encryption                                                             | Data encryption isn't supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Data-tier applications (DAC)                                                | Data-tier applications (DAC) import or export operations with<br>DAC package (.dacpac) or DAC backup (.bacpac) files aren't<br>supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | DBCC commands                                                               | Microsoft SQL Server Database Console Commands (DBCC)<br>aren't supported. DBCC CHECKIDENT is supported in<br>Babelfish 3.4.0 and higher releases.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | DROP IF EXISTS                                                              | This syntax isn't supported for USER and SCHEMA objects.<br>It's supported for the objects TABLE, VIEW, PROCEDURE, FUNCTION, and<br>DATABASE.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Encryption                                                                  | Built-in functions and statements don't support<br>encryption.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ENCRYPT_CLIENT_CERT connections                                             | Client certificate connections aren't<br>supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ENCRYPT\_CLIENT\_CERT connections                                           | Client certificate connections aren't<br>supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | EXECUTE AS statement                                                        | This statement isn't supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | EXECUTE AS SELF clause                                                      | This clause isn't supported in functions, procedures, or<br>triggers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | EXECUTE AS USER clause                                                      | This clause isn't supported in functions, procedures, or<br>triggers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -63,9 +63,9 @@ currently supported.
 | Remote object references                                                    | Executing stored procedures against Babelfish linked<br>servers isn’t supported. Four-part object names work only for<br>reading and doesn’t work for modifying the remote table. An UPDATE<br>can reference a remote table in the FROM clause without modifying<br>it. For more information, see [Babelfish supports linked servers](babelfish-postgres-linkedservers.md "babelfish-postgres-linkedservers.md").                                                                                                                                                                                                            |
 | Row-level security                                                          | Row-level security with CREATE SECURITY POLICY and inline<br>table-valued functions isn't supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Service broker functionality                                                | Service broker functionality isn't<br>supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| SESSIONPROPERTY                                                             | Unsupported properties: ANSI_NULLS, ANSI_PADDING,<br>ANSI_WARNINGS, ARITHABORT, CONCAT_NULL_YIELDS_NULL, and<br>NUMERIC_ROUNDABORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| SESSIONPROPERTY                                                             | Unsupported properties: ANSI\_NULLS, ANSI\_PADDING,<br>ANSI\_WARNINGS, ARITHABORT, CONCAT\_NULL\_YIELDS\_NULL, and<br>NUMERIC\_ROUNDABORT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | SET LANGUAGE                                                                | This syntax isn't supported with any value other than<br>`english` or `us_english`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| SP_CONFIGURE                                                                | This system stored procedure isn't<br>supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| SP\_CONFIGURE                                                               | This system stored procedure isn't<br>supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | SQL keyword `SPARSE`                                                        | The keyword SPARSE is accepted and ignored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Table value constructor syntax (FROM clause)                                | The unsupported syntax is for a derived table constructed with<br>the FROM clause.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Temporal tables                                                             | Temporal tables aren't supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -76,14 +76,14 @@ currently supported.
 
 The following settings aren't supported:
 
-- SET ANSI_NULL_DFLT_OFF ON
-- SET ANSI_NULL_DFLT_ON OFF
-- SET ANSI_PADDING OFF
-- SET ANSI_WARNINGS OFF
+- SET ANSI\_NULL\_DFLT\_OFF ON
+- SET ANSI\_NULL\_DFLT\_ON OFF
+- SET ANSI\_PADDING OFF
+- SET ANSI\_WARNINGS OFF
 - SET ARITHABORT OFF
 - SET ARITHIGNORE ON
-- SET CURSOR_CLOSE_ON_COMMIT ON
-- SET NUMERIC_ROUNDABORT ON
+- SET CURSOR\_CLOSE\_ON\_COMMIT ON
+- SET NUMERIC\_ROUNDABORT ON
 - SET PARSEONLY ON (command doesn't work as expected)
 - SET FMTONLY ON (command doesn't work as expected. It suppresses only the
   execution of SELECT statements but not others.)
@@ -146,10 +146,10 @@ The following built-in functions aren't supported:
 
 ###### Aggregate functions
 
-- APPROX_COUNT_DISTINCT
-- CHECKSUM_AGG
-- GROUPING_ID
-- STRING_AGG using the WITHIN GROUP clause
+- APPROX\_COUNT\_DISTINCT
+- CHECKSUM\_AGG
+- GROUPING\_ID
+- STRING\_AGG using the WITHIN GROUP clause
 
 ###### Cryptographic functions
 
@@ -197,7 +197,7 @@ The following built-in functions aren't supported:
 ###### Statements, operators, other functions
 
 - EVENTDATA function
-- GET_TRANSMISSION_STATUS
+- GET\_TRANSMISSION\_STATUS
 - OPENXML
 
 ## Syntax that isn't supported
@@ -274,14 +274,14 @@ The following syntax isn't supported:
 - SELECT... FOR XML PATH
 - SEND
 - SET DATEFORMAT
-- SET DEADLOCK_PRIORITY
+- SET DEADLOCK\_PRIORITY
 - SET FMTONLY
 - SET FORCEPLAN
-- SET NUMERIC_ROUNDABORT ON
+- SET NUMERIC\_ROUNDABORT ON
 - SET OFFSETS
-- SET REMOTE_PROC_TRANSACTIONS
-- SET SHOWPLAN_TEXT
-- SET SHOWPLAN_XML
+- SET REMOTE\_PROC\_TRANSACTIONS
+- SET SHOWPLAN\_TEXT
+- SET SHOWPLAN\_XML
 - SET STATISTICS
 - SET STATISTICS PROFILE
 - SET STATISTICS TIME
@@ -291,7 +291,7 @@ The following syntax isn't supported:
 - UPDATETEXT
 - Using EXECUTE to call a SQL function
 - VIEW... CHECK OPTION clause
-- VIEW... VIEW_METADATA clause
+- VIEW... VIEW\_METADATA clause
 - WAITFOR DELAY
 - WAITFOR TIME
 - WAITFOR, RECEIVE

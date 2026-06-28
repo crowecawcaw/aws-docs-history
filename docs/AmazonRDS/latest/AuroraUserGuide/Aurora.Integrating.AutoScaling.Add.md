@@ -25,24 +25,19 @@ The **Add Auto Scaling policy** dialog box appears. 6. For **Policy Name**, type
     * **Average connections of Aurora Replicas** to create a policy based on the average
      number of connections to Aurora Replicas.
 
-8.  For the target value, type one of the following:
+8. For the target value, type one of the following:
 
-        * If you chose **Average CPU utilization of Aurora Replicas** in the previous step, type
-         the percentage of CPU utilization that you want to maintain on Aurora Replicas.
-        * If you chose **Average connections of Aurora Replicas** in the previous step, type the
-         number of connections that you want to maintain.
+    * If you chose **Average CPU utilization of Aurora Replicas** in the previous step, type
+     the percentage of CPU utilization that you want to maintain on Aurora Replicas.
+    * If you chose **Average connections of Aurora Replicas** in the previous step, type the
+     number of connections that you want to maintain.
 
-    Aurora Replicas are added or removed to keep the metric close to the specified value.
-
-9.  (Optional) Expand **Additional Configuration** to create a scale-in or scale-out cooldown
-    period.
-10. For **Minimum capacity**, type the minimum number of Aurora Replicas that the Aurora Auto
-    Scaling policy is required to maintain.
-11. For **Maximum capacity**, type the maximum number of Aurora Replicas the Aurora Auto Scaling
-    policy is required to maintain.
-12. Choose **Add policy**.
-    The following dialog box creates an Auto Scaling policy based an average CPU utilization of 40 percent. The policy
-    specifies a minimum of 5 Aurora Replicas and a maximum of 15 Aurora Replicas.
+Aurora Replicas are added or removed to keep the metric close to the specified value. 9. (Optional) Expand **Additional Configuration** to create a scale-in or scale-out cooldown
+period. 10. For **Minimum capacity**, type the minimum number of Aurora Replicas that the Aurora Auto
+Scaling policy is required to maintain. 11. For **Maximum capacity**, type the maximum number of Aurora Replicas the Aurora Auto Scaling
+policy is required to maintain. 12. Choose **Add policy**.
+The following dialog box creates an Auto Scaling policy based an average CPU utilization of 40 percent. The policy
+specifies a minimum of 5 Aurora Replicas and a maximum of 15 Aurora Replicas.
 
 ![Creating an auto scaling policy based on average CPU utilization.](images/aurora-autoscaling-cpu.png)
 The following dialog box creates an auto scaling policy based an average number of connections of 100. The policy

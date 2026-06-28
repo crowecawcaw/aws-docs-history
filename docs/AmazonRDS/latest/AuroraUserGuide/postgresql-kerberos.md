@@ -92,4 +92,4 @@ PostgreSQL DB cluster, do the following:
      from the directory security group.
 
 6. Use the RDS master user credentials to connect to the PostgreSQL DB cluster. Create the user in PostgreSQL to be identified
-   externally. Externally identified users can log in to the PostgreSQL DB cluster using Kerberos authentication.
+externally. Externally identified users can log in to the PostgreSQL DB cluster using Kerberos authentication.

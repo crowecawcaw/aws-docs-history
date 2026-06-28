@@ -1,4 +1,4 @@
-# Installing the aws_s3 extension
+# Installing the aws\_s3 extension
 
 Before you can use Amazon S3 with your Aurora PostgreSQL DB cluster,
 you need to install the

@@ -18,7 +18,7 @@ indexes, and parameter configuration. Query tuning requires identifying bottlene
   plan and its measurements instead of the query result.
 - Keep your schema statistics updated by using the `ANALYZE` statement. The query optimizer can sometimes
   choose poor execution plans because of outdated statistics. This can lead to poor performance of a query because of
-  inaccurate cardinality estimates of both tables and indexes. The `last_update` column of the [innodb_table_stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables "https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables") table shows the last time your schema statistics were updated, which is a good indicator
+  inaccurate cardinality estimates of both tables and indexes. The `last_update` column of the [innodb\_table\_stats](https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables "https://dev.mysql.com/doc/refman/8.0/en/innodb-persistent-stats.html#innodb-persistent-stats-tables") table shows the last time your schema statistics were updated, which is a good indicator
   of "staleness."
 - Other issues can occur, such as distribution skew of data, that aren't taken into account for table cardinality. For
   more information, see [Estimating ANALYZE TABLE complexity for InnoDB tables](https://dev.mysql.com/doc/refman/8.0/en/innodb-analyze-table-complexity.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-analyze-table-complexity.html") and [Histogram statistics in MySQL](https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/ "https://dev.mysql.com/blog-archive/histogram-statistics-in-mysql/") in the
@@ -108,7 +108,7 @@ available for Aurora MySQL version 3 to examine how your queries perform.
 
 ###### Note
 
-Aurora MySQL version 3 uses the community default value of 20 for the [innodb_stats_persistent_sample_pages](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_persistent_sample_pages "https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_persistent_sample_pages") parameter.
+Aurora MySQL version 3 uses the community default value of 20 for the [innodb\_stats\_persistent\_sample\_pages](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_persistent_sample_pages "https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_persistent_sample_pages") parameter.
 
 You can use the following command to show the `optimizer_switch` values:
 

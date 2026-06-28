@@ -1,4 +1,4 @@
-# Implementing pg_columnmask in an end-to-end workflow
+# Implementing pg\_columnmask in an end-to-end workflow
 
 This section demonstrates a complete implementation of `pg_columnmask` using a sample employee table with sensitive data.
 You'll learn how to create custom masking functions, define multiple masking policies with different weight levels for
@@ -147,7 +147,7 @@ SELECT * FROM hr.employees;
   2 | Jane Smith | jane.smith@example.com | XXX-XX-4321 | 54000.00
 ```
 
-As ethan_support_intern user which is both intern and support user:
+As ethan\_support\_intern user which is both intern and support user:
 
 ```
 SET ROLE ethan_support_intern;
@@ -167,7 +167,7 @@ SELECT * FROM hr.employees;
 
 ```
 
-As a john_analyst_intern which is both intern and analyst:
+As a john\_analyst\_intern which is both intern and analyst:
 
 ```
 SET ROLE john_analyst_intern;

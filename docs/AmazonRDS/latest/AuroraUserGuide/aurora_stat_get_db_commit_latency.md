@@ -1,4 +1,4 @@
-# aurora_stat_get_db_commit_latency
+# aurora\_stat\_get\_db\_commit\_latency
 
 Gets the cumulative commit latency in microseconds for Aurora PostgreSQL databases.
 _Commit latency_ is measured as the time between
@@ -13,7 +13,7 @@ aurora_stat_get_db_commit_latency(database_oid)
 
 ## Arguments
 
-_database_oid_
+_database\_oid_
 
 The object ID (OID) of the Aurora PostgreSQL database.
 

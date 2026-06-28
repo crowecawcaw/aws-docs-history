@@ -442,10 +442,10 @@ The following prechecks are specific to Aurora MySQL:
 
 **Precheck level: Warning**
 
-**Check for deprecated validate_password plugin**
+**Check for deprecated validate\_password plugin**
 
 This precheck identifies usage of the deprecated `validate_password` plugin.
-In MySQL 8.0+, the validate_password functionality was reimplemented as a component
+In MySQL 8.0+, the validate\_password functionality was reimplemented as a component
 (`component_validate_password`). Aurora MySQL version 8.4 requires migration to
 the component-based implementation.
 

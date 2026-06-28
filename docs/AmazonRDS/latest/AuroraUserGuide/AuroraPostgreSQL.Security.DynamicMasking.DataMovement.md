@@ -1,4 +1,4 @@
-# Aurora PostgreSQL pg_columnmask data movement scenarios
+# Aurora PostgreSQL pg\_columnmask data movement scenarios
 
 `pg_columnmask` behavior varies across different data movement operations depending on whether the
 operation occurs at the storage, logical, or application layer. Storage-level operations (such as cloning) behave differently from
@@ -54,7 +54,7 @@ No masking policies are applied to replicated data in Zero-ETL.
 ## AWS Database Migration Service
 
 Initial data sync is masked or unmasked based on the user selected for the DMS task. CDC data is always unmasked.
-While `pg_columnmask` related internal RLS policies may be migrated, they won't function on non-pg_columnmask-enabled targets.
+While `pg_columnmask` related internal RLS policies may be migrated, they won't function on non-pg\_columnmask-enabled targets.
 
 ## Data exports
 
@@ -85,7 +85,7 @@ target has the `pg_columnmask` extension installed.
 
 Starting with PostgreSQL 18, `pg_dump` supports the `—no-policies` option which
 excludes both Row Level Security (RLS) and `pg_columnmask` masking policies from database dumps.
-For more information, see [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html "https://www.postgresql.org/docs/current/app-pgdump.html").
+For more information, see [pg\_dump](https://www.postgresql.org/docs/current/app-pgdump.html "https://www.postgresql.org/docs/current/app-pgdump.html").
 
 ## Foreign data wrapper
 

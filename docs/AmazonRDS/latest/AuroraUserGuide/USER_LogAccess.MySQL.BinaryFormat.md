@@ -32,7 +32,7 @@ documentation.
 With MySQL 8.0.34, MySQL deprecated the `binlog_format` parameter. In later MySQL
 versions, MySQL plans to remove the parameter and only support row-based replication. As
 a result, we recommend using row-based logging for new MySQL replication setups. For
-more information, see [binlog_format](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format "https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format") in the MySQL documentation.
+more information, see [binlog\_format](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format "https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format") in the MySQL documentation.
 
 MySQL versions 8.0 and 8.4 accept the parameter `binlog_format`. When using this parameter, MySQL
 issues a deprecation warning. In a future major release, MySQL will remove the parameter `binlog_format`.

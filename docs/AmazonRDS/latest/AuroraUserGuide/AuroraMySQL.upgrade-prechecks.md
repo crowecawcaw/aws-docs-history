@@ -307,7 +307,7 @@ one error, three warnings, and no notices. Because upgrades can't proceed when a
 
 The compatibility prechecks run before the DB instance is taken offline for the upgrade, so under regular circumstances they don't cause DB instance
 downtime while running. However, they can impact application workload running on the writer DB instance. The prechecks access the data dictionary through
-[information_schema](https://dev.mysql.com/doc/mysql-infoschema-excerpt/5.7/en/information-schema-introduction.html "https://dev.mysql.com/doc/mysql-infoschema-excerpt/5.7/en/information-schema-introduction.html") tables, which
+[information\_schema](https://dev.mysql.com/doc/mysql-infoschema-excerpt/5.7/en/information-schema-introduction.html "https://dev.mysql.com/doc/mysql-infoschema-excerpt/5.7/en/information-schema-introduction.html") tables, which
 can be slow if there are many database objects. Consider the following factors:
 
 - Precheck duration varies with the number of database objects such as tables, columns, routines, and constraints. DB clusters with a large number
@@ -432,7 +432,7 @@ Aurora MySQL has its own specific requirements when upgrading from version 3 to 
   upgrading.
 - Replace the deprecated `validate_password` plugin with the `component_validate_password` component. The
   `validate_password` plugin is deprecated in Aurora MySQL version 8.4 and will be removed in a future release. For more information,
-  see [Using the validate_password component](AuroraMySQL.PasswordPolicies.md#AuroraMySQL.PasswordPolicies.validate-password "AuroraMySQL.PasswordPolicies.md#AuroraMySQL.PasswordPolicies.validate-password").
+  see [Using the validate\_password component](AuroraMySQL.PasswordPolicies.md#AuroraMySQL.PasswordPolicies.validate-password "AuroraMySQL.PasswordPolicies.md#AuroraMySQL.PasswordPolicies.validate-password").
 - All objects in the `sys` schema must have the correct object types. Mismatches can occur if the schema was manually modified. For
   more information, see [auroraUpgradeCheckForSysSchemaObjectTypeMismatch](AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#v84-auroraUpgradeCheckForSysSchemaObjectTypeMismatch "AuroraMySQL.upgrade-prechecks-v3-to-v84.descriptions.md#v84-auroraUpgradeCheckForSysSchemaObjectTypeMismatch").
 

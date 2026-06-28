@@ -14,7 +14,7 @@ complete tasks. Shard wait events contain details on tasks that are being perfor
 
 ## Querying for wait events
 
-You can use the [limitless_stat_activity](limitless-monitoring-views.md#limitless_stat_activity "limitless-monitoring-views.md#limitless_stat_activity") view to query for wait events, as
+You can use the [limitless\_stat\_activity](limitless-monitoring-views.md#limitless_stat_activity "limitless-monitoring-views.md#limitless_stat_activity") view to query for wait events, as
 shown in the following example.
 
 ```

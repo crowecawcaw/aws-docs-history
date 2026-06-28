@@ -68,7 +68,7 @@ the following example, which creates a table.
 `postgres=>` CREATE TABLE images (image_name text, raster lo);
 ```
 
-## Using the lo_manage trigger function to delete objects
+## Using the lo\_manage trigger function to delete objects
 
 You can use the `lo_manage` function in a trigger on a `lo` or other
 large object columns to clean up (and prevent orphaned objects) when the `lo`

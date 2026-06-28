@@ -61,7 +61,7 @@ make it unencrypted. 11. Expand **Additional configuration** at the bottom of th
      box.
 
 13. Choose **Restore DB instance**.
-    The **Databases** page displays the restored DB cluster, with a status of `Creating`.
+The **Databases** page displays the restored DB cluster, with a status of `Creating`.
 
 ![Restored DB cluster on the Databases page.](images/tut-restore-cluster5.png)
 While the primary DB instance is being created, it appears as a reader instance, but after creation it's a writer

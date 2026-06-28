@@ -12,4 +12,4 @@ differences from the community MySQL database engine.
 - [Aurora MySQL isolation levels](AuroraMySQL.Reference.IsolationLevels.md "AuroraMySQL.Reference.IsolationLevels.md")
 - [Aurora MySQL hints](AuroraMySQL.Reference.Hints.md "AuroraMySQL.Reference.Hints.md")
 - [Aurora MySQL stored procedure reference](AuroraMySQL.Reference.StoredProcs.md "AuroraMySQL.Reference.StoredProcs.md")
-- [Aurora MySQL–specific information_schema tables](AuroraMySQL.Reference.ISTables.md "AuroraMySQL.Reference.ISTables.md")
+- [Aurora MySQL–specific information\_schema tables](AuroraMySQL.Reference.ISTables.md "AuroraMySQL.Reference.ISTables.md")

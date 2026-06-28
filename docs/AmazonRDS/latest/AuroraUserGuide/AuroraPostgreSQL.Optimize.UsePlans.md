@@ -94,9 +94,9 @@ used or not, as follows.
      (4).
 
 4. When a plan is captured for the first time for a given SQL statement, the
-   plan's status is always set to Approved (P1). If the optimizer
-   subsequently generates the same plan for the same SQL statement, the status
-   of that plan is changed to Unapproved (P1+n).
+plan's status is always set to Approved (P1). If the optimizer
+subsequently generates the same plan for the same SQL statement, the status
+of that plan is changed to Unapproved (P1+n).
 
 With the plan captured and its status updated, the evaluation continues at
 the next step (5). 5. A plan's _baseline_ consists of the history of the
@@ -115,41 +115,43 @@ the use plan baselines option is turned on or not, as follows.
      baseline (6).
 
 6. The plan is compared to other plans for the statement in the
-   baseline.
+baseline.
 
-   1. If the optimizer's plan is among the plans in the baseline,
-      its status is checked (7a).
-   2. If the optimizer's plan isn't among plans in the
-      baseline, the plan is added to the plans for the statement as a new
-      `Unapproved` plan.
+    1. If the optimizer's plan is among the plans in the baseline,
+     its status is checked (7a).
+    2. If the optimizer's plan isn't among plans in the
+     baseline, the plan is added to the plans for the statement as a new
+     `Unapproved` plan.
 
 7. The plan's status is checked to determine only if it's
-   Unapproved.
+Unapproved.
 
-   1. If the plan's status is Unapproved, the plan's estimated
-      cost is compared to the cost estimate specified for the unapproved
-      execution plan threshold.
+    1. If the plan's status is Unapproved, the plan's estimated
+     cost is compared to the cost estimate specified for the unapproved
+     execution plan threshold.
 
-      - If the plan's estimated cost is below the threshold,
-        the optimizer uses it even though it's an Unapproved
-        plan (A. Run Optimizer's plan). Generally, the
-        optimizer won't run an Unapproved plan. However, when
-        the
-        `apg_plan_mgmt.unapproved_plan_execution_threshold`
-        parameter specifies a cost threshold value, the optimizer
-        compares the Unapproved plan's cost to the threshold.
-        If the estimated cost is less than the threshold, the
-        optimizer runs the plan. For more information, see [apg_plan_mgmt.unapproved_plan_execution_threshold](AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.unapproved_plan_execution_threshold "AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.unapproved_plan_execution_threshold").
-      - If the plan's estimated cost isn't below the
-        threshold, the plan's other attributes are checked
-        (8a).
 
-   2. If the plan's status is anything other than Unapproved, its
-      other attributes are checked (8a).
+
+
+    	* If the plan's estimated cost is below the threshold,
+    	 the optimizer uses it even though it's an Unapproved
+    	 plan (A. Run Optimizer's plan). Generally, the
+    	 optimizer won't run an Unapproved plan. However, when
+    	 the
+    	 `apg_plan_mgmt.unapproved_plan_execution_threshold`
+    	 parameter specifies a cost threshold value, the optimizer
+    	 compares the Unapproved plan's cost to the threshold.
+    	 If the estimated cost is less than the threshold, the
+    	 optimizer runs the plan. For more information, see [apg\_plan\_mgmt.unapproved\_plan\_execution\_threshold](AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.unapproved_plan_execution_threshold "AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.unapproved_plan_execution_threshold").
+    	* If the plan's estimated cost isn't below the
+    	 threshold, the plan's other attributes are checked
+    	 (8a).
+    2. If the plan's status is anything other than Unapproved, its
+     other attributes are checked (8a).
 
 8. The optimizer won't use a plan that's disabled. That is, the
-   plan that has its `enable` attribute set to 'f' (false). The
-   optimizer also won't use a plan that has a status of Rejected.
+plan that has its `enable` attribute set to 'f' (false). The
+optimizer also won't use a plan that has a status of Rejected.
 
 The optimizer can't use any plans that aren't valid. Plans can
 become invalid over time when the objects that they depend on, such as
@@ -163,8 +165,8 @@ indexes and table partitions, are removed or deleted.
      plans, it's assessed in the next step (9).
 
 9. If the statement has any enabled and valid Approved plans, the optimizer
-   chooses the minimum-cost plan from among the Approved plans stored for this
-   SQL statement. The optimizer then runs the minimum-cost Approved plan.
+chooses the minimum-cost plan from among the Approved plans stored for this
+SQL statement. The optimizer then runs the minimum-cost Approved plan.
 
 If the statement doesn't have any valid and enabled Approved plans,
 the optimizer uses the minimum cost plan (A. Run Optimizer's plan).

@@ -272,12 +272,11 @@ The **Migrate Database** page appears. 3. Set the following values on the **Migr
 
     For more information about engine updates for Aurora MySQL, see [Database engine updates for Amazon Aurora MySQL](AuroraMySQL.Updates.md "AuroraMySQL.Updates.md").
 
-4. Choose **Migrate** to migrate your DB snapshot.
-5. Choose **Instances**, and then choose the arrow icon to show the DB cluster details
-   and monitor the progress of the migration. On the details page, you can find the cluster endpoint used
-   to connect to the primary instance of the DB cluster. For more information on connecting to an
-   Aurora MySQL DB cluster, see [Connecting to an Amazon Aurora DB cluster](Aurora.Connecting.md "Aurora.Connecting.md").
-   You can create an Aurora DB cluster from a DB snapshot of an RDS for MySQL DB instance by using the [`restore-db-cluster-from-snapshot`](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md") command with the following parameters:
+4. Choose **Migrate** to migrate your DB snapshot. 5. Choose **Instances**, and then choose the arrow icon to show the DB cluster details
+and monitor the progress of the migration. On the details page, you can find the cluster endpoint used
+to connect to the primary instance of the DB cluster. For more information on connecting to an
+Aurora MySQL DB cluster, see [Connecting to an Amazon Aurora DB cluster](Aurora.Connecting.md "Aurora.Connecting.md").
+You can create an Aurora DB cluster from a DB snapshot of an RDS for MySQL DB instance by using the [`restore-db-cluster-from-snapshot`](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md") command with the following parameters:
 
 - `--db-cluster-identifier` – The name of the DB cluster to create.
 - `--engine aurora-mysql` – For a MySQL 5.7–compatible or 8.0–compatible

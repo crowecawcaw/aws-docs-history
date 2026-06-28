@@ -57,13 +57,13 @@ Automatic management of the Performance Schema isn't supported for the t4g.mediu
 You can also manage the Performance Schema manually. If you choose this option, set the
 parameters according to the values in the following table.
 
-| Parameter name                                       | Parameter value                                          |
-| ---------------------------------------------------- | -------------------------------------------------------- |
-| `performance_schema`                                 | `1` (\*_Source_<br>• column has the value<br>`Modified`) |
-| `performance-schema-consumer-events-waits-current`   | `ON`                                                     |
-| `performance-schema-instrument`                      | `wait/%=ON`                                              |
-| `performance_schema_consumer_global_instrumentation` | `1`                                                      |
-| `performance_schema_consumer_thread_instrumentation` | `1`                                                      |
+| Parameter name                                       | Parameter value                                         |
+| ---------------------------------------------------- | ------------------------------------------------------- |
+| `performance_schema`                                 | `1` (*_Source_<br>• column has the value<br>`Modified`) |
+| `performance-schema-consumer-events-waits-current`   | `ON`                                                    |
+| `performance-schema-instrument`                      | `wait/%=ON`                                             |
+| `performance_schema_consumer_global_instrumentation` | `1`                                                     |
+| `performance_schema_consumer_thread_instrumentation` | `1`                                                     |
 
 If you change the `performance_schema` parameter value manually, and then later want to change to automatic management, see [Turn on the Performance Schema for Aurora MySQL](USER_PerfInsights.EnableMySQL.RDS.md "USER_PerfInsights.EnableMySQL.RDS.md").
 

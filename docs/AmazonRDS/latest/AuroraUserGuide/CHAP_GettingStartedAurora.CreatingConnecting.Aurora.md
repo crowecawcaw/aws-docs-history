@@ -124,7 +124,7 @@ page.
      choose **Launch instance**.
 
 5. On the **Launch Status** page, note the identifier for your new
-   EC2 instance, for example: `i-1234567890abcdef0`.
+EC2 instance, for example: `i-1234567890abcdef0`.
 
 ![EC2 instance identifier on Launch Status page.](images/getting-started-ec2-id.png) 6. Choose the EC2 instance identifier to open the list of EC2 instances, and then
 select your EC2 instance. 7. In the **Details** tab, note the following values, which you
@@ -144,7 +144,7 @@ need when you connect using SSH:
     ![EC2 key pair name on Details tab of Instance page.](images/easy-create-ec2-key-pair.png)
 
 8. Wait until the **Instance state** for your EC2 instance has a status
-   of **Running** before continuing.
+of **Running** before continuing.
 
 ## Step 2: Create an Aurora MySQL DB cluster
 

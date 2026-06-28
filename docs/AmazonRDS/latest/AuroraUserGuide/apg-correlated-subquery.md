@@ -17,10 +17,9 @@ SELECT ot.a, ot.b FROM ot WHERE ot.b < (SELECT AVG(it.b) FROM it WHERE it.a = ot
   with version 16.8, while Babelfish for Aurora PostgreSQL supports these features from 4.2.0.
 - Starting with Babelfish for Aurora PostgreSQL versions 4.6.0 and 5.2.0, the following parameters control these features:
 
-      + babelfishpg\_tsql.apg\_enable\_correlated\_scalar\_transform
-      + babelfishpg\_tsql.apg\_enable\_subquery\_cache
-
-  By default, both parameters are turned on.
+  - babelfishpg\_tsql.apg\_enable\_correlated\_scalar\_transform
+  - babelfishpg\_tsql.apg\_enable\_subquery\_cache
+    By default, both parameters are turned on.
 
 ## Improving Aurora PostgreSQL query performance using subquery transformation
 
@@ -141,8 +140,8 @@ the cache.
 
 PostgreSQL’s Memoize node is the key part of subquery cache. The Memoize node
 maintains a hash table in local cache to map from input parameter values to query result
-rows. The memory limit for the hash table is the product of work_mem and
-hash_mem_multiplier. To learn more, see [Resource
+rows. The memory limit for the hash table is the product of work\_mem and
+hash\_mem\_multiplier. To learn more, see [Resource
 Consumption](https://www.postgresql.org/docs/16/runtime-config-resource.html "https://www.postgresql.org/docs/16/runtime-config-resource.html").
 
 During query execution, subquery cache uses Cache Hit Rate (CHR) to estimate whether
@@ -152,9 +151,9 @@ number of requests. For example, if a correlated subquery needs to be executed 1
 times, and 70 of those execution results can be retrieved from the cache, the CHR is
 0.7.
 
-For every apg_subquery_cache_check_interval number of cache misses, the benefit of
+For every apg\_subquery\_cache\_check\_interval number of cache misses, the benefit of
 subquery cache is evaluated by checking whether the CHR is larger than
-apg_subquery_cache_hit_rate_threshold. If not, the cache will be deleted from memory,
+apg\_subquery\_cache\_hit\_rate\_threshold. If not, the cache will be deleted from memory,
 and the query execution will return to the original, uncached subquery re-execution.
 
 ### Parameters that control subquery cache behavior
@@ -162,11 +161,11 @@ and the query execution will return to the original, uncached subquery re-execut
 The following table lists the parameters that control the behavior of the subquery
 cache.
 
-| Parameter                             | Description                                                                            | Default | Allowed      |
-| ------------------------------------- | -------------------------------------------------------------------------------------- | ------- | ------------ |
-| apg_enable_subquery_cache             | Enables the use of cache for correlated scalar<br>subqueries.                          | OFF     | ON, OFF      |
-| apg_subquery_cache_check_interval     | Sets the frequency, in number of cache misses, to evaluate<br>subquery cache hit rate. | 500     | 0–2147483647 |
-| apg_subquery_cache_hit_rate_threshold | Sets the threshold for subquery cache hit rate.                                        | 0.3     | 0.0–1.0      |
+| Parameter                                  | Description                                                                            | Default | Allowed      |
+| ------------------------------------------ | -------------------------------------------------------------------------------------- | ------- | ------------ |
+| apg\_enable\_subquery\_cache               | Enables the use of cache for correlated scalar<br>subqueries.                          | OFF     | ON, OFF      |
+| apg\_subquery\_cache\_check\_interval      | Sets the frequency, in number of cache misses, to evaluate<br>subquery cache hit rate. | 500     | 0–2147483647 |
+| apg\_subquery\_cache\_hit\_rate\_threshold | Sets the threshold for subquery cache hit rate.                                        | 0.3     | 0.0–1.0      |
 
 ###### Note
 

@@ -86,14 +86,14 @@ SELECT aurora_inject_replica_failure(
 
 This fault injection query takes the following parameters:
 
-_percentage_of_failure_
+_percentage\_of\_failure_
 
 The percentage of replication to block during the failure event. This
 value can be a double between 0 and 100. If you specify 0, then no
 replication is blocked. If you specify 100, then all replication is
 blocked.
 
-_time_interval_
+_time\_interval_
 
 The amount of time to simulate the Aurora Replica failure. The interval
 is in seconds. For example, if the value is 20, the simulation runs for
@@ -107,7 +107,7 @@ writer instance writes a large amount of data during the failure
 event, then your Aurora DB cluster might assume that your Aurora
 Replica has crashed and replace it.
 
-_replica_name_
+_replica\_name_
 
 The Aurora Replica in which to inject the failure simulation. Specify
 the name of an Aurora Replica to simulate a failure of the single Aurora
@@ -145,7 +145,7 @@ SELECT aurora_inject_disk_failure(
 
 This fault injection query takes the following parameters:
 
-_percentage_of_failure_
+_percentage\_of\_failure_
 
 The percentage of the disk to mark as faulting during the failure
 event. This value can be a double between 0 and 100. If you specify 0,
@@ -159,14 +159,14 @@ event. If you exceed the range of available logical blocks or storage
 nodes data, you receive an error that tells you the maximum index value
 that you can specify. To avoid this error, see [Displaying volume status for an Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Managing.VolumeStatus.md "AuroraPostgreSQL.Managing.VolumeStatus.md").
 
-_is_disk_
+_is\_disk_
 
 Indicates whether the injection failure is to a logical block or a
 storage node. Specifying true means injection failures are to a logical
 block. Specifying false means injection failures are to a storage
 node.
 
-_time_interval_
+_time\_interval_
 
 The amount of time to simulate the disk failure. The interval is in
 seconds. For example, if the value is 20, the simulation runs for 20
@@ -198,7 +198,7 @@ SELECT aurora_inject_disk_congestion(
 
 This fault injection query takes the following parameters:
 
-_percentage_of_failure_
+_percentage\_of\_failure_
 
 The percentage of the disk to mark as congested during the failure
 event. This is a double value between 0 and 100. If you specify 0, then
@@ -214,14 +214,14 @@ If you exceed the range of available logical blocks or storage nodes
 of data, you receive an error that tells you the maximum index value
 that you can specify. To avoid this error, see [Displaying volume status for an Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Managing.VolumeStatus.md "AuroraPostgreSQL.Managing.VolumeStatus.md").
 
-_is_disk_
+_is\_disk_
 
 Indicates whether the injection failure is to a logical block or a
 storage node. Specifying true means injection failures are to a logical
 block. Specifying false means injection failures are to a storage
 node.
 
-_time_interval_
+_time\_interval_
 
 The amount of time to simulate the disk congestion. The interval is in
 seconds. For example, if the value is 20, the simulation runs for 20

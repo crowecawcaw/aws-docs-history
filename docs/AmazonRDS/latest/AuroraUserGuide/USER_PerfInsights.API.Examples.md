@@ -301,9 +301,9 @@ The following example groups `db.wait_events` by the top 10 SQL statements. Ther
 different groups for SQL statements:
 
 - `db.sql` – The full SQL statement, such as `select * from customers where
-customer_id = 123`
+ customer_id = 123`
 - `db.sql_tokenized` – The tokenized SQL statement, such as `select * from
-customers where customer_id = ?`
+ customers where customer_id = ?`
 
 When analyzing database performance, it can be useful to consider SQL statements that only differ by their
 parameters as one logic item. So, you can use `db.sql_tokenized` when querying. However,

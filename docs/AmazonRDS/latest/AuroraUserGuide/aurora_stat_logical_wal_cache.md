@@ -1,4 +1,4 @@
-# aurora_stat_logical_wal_cache
+# aurora\_stat\_logical\_wal\_cache
 
 Shows logical write-ahead log (WAL) cache usage per slot.
 
@@ -24,8 +24,8 @@ SETOF record with the following columns:
   since last reset.
 - `blks_read` – The total number of wal cache read
   requests.
-- `hit_rate` – The WAL cache hit rate (cache_hit /
-  blks_read).
+- `hit_rate` – The WAL cache hit rate (cache\_hit /
+  blks\_read).
 - `last_reset_timestamp` – Last time that the counter was
   reset.
 

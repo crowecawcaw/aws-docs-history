@@ -247,7 +247,7 @@ SELECT pg_drop_replication_slot('slot1') WHERE active ='f'
 
 ## Reader instances
 
-When the hot_standby_feedback setting is enabled, it prevents autovacuum on the writer
+When the hot\_standby\_feedback setting is enabled, it prevents autovacuum on the writer
 instance from removing dead rows that might still be needed by queries running on the reader
 instance. This behavior is necessary because queries running on the reader instance (also
 applicable to reader instances in Aurora Global Database) require those rows to remain
@@ -280,11 +280,11 @@ options to unblock autovacuum.
 
 - **Terminate the query** – Following the guidance
   in the suggestion column, you can connect to the read replica, as specified in the
-  suggested_action column, it's advisable to carefully review the option to terminate the
+  suggested\_action column, it's advisable to carefully review the option to terminate the
   session. If termination is deemed safe, you may use the
   `pg_terminate_backend()` function to terminate the session. This action can
   be performed by an administrator (such as the RDS master account) or a user with the
-  required pg_terminate_backend() privilege.
+  required pg\_terminate\_backend() privilege.
 
 You may run the following SQL command on the read replica to terminate the query
 that is preventing the vacuum on the primary from cleaning up old rows. The value of
@@ -309,7 +309,7 @@ WHERE
 
 [Temporary
 tables](https://www.postgresql.org/docs/current/sql-createtable.html "https://www.postgresql.org/docs/current/sql-createtable.html"), created using the `TEMPORARY` keyword, reside in the temp
-schema, for example pg_temp_xxx, and are only accessible to the session that created them.
+schema, for example pg\_temp\_xxx, and are only accessible to the session that created them.
 Temporary tables are dropped when the session ends. However, these tables are invisible to
 PostgreSQL's autovacuum process, and must be manually vacuumed by the session that created
 them. Trying to vacuum the temp table from another session has no effect.

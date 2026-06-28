@@ -19,7 +19,7 @@ processing.
 
 General logs can grow to be very large and consume your storage. For more information, see [Log rotation and retention for Aurora MySQL](USER_LogAccess.MySQL.LogFileSize.md#USER_LogAccess.AMS.LogFileSize.retention "USER_LogAccess.MySQL.LogFileSize.md#USER_LogAccess.AMS.LogFileSize.retention").
 
-- Slow query – The slow query log consists of SQL statements that take more than [long_query_time](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time") seconds to run and require at least [min_examined_row_limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_min_examined_row_limit "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_min_examined_row_limit") rows to be examined. You can use the slow query log to find queries that take a long
+- Slow query – The slow query log consists of SQL statements that take more than [long\_query\_time](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time") seconds to run and require at least [min\_examined\_row\_limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_min_examined_row_limit "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_min_examined_row_limit") rows to be examined. You can use the slow query log to find queries that take a long
   time to run and are therefore candidates for optimization.
 
 The default value for `long_query_time` is 10 seconds. We recommend that you start with a high value to

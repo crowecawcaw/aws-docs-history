@@ -72,14 +72,13 @@ the following requirements and prerequisites.
   Aurora global database. For example, if you want to use Aurora machine learning with SageMaker AI for your Aurora global database, you do the
   following for every Aurora MySQL DB cluster in every AWS Region:
 
-      + Set up the Amazon SageMaker AI services with the same SageMaker AI training models and endpoints. These must also use the same
-       names.
-      + Create the IAM roles as detailed in [Setting up your Aurora MySQL DB cluster to use Aurora machine learning](#aurora-ml-setting-up-access "#aurora-ml-setting-up-access").
-      + Add the ARN of the IAM role to the custom DB cluster parameter group for each Aurora MySQL DB cluster in every
-       AWS Region.
-
-  These tasks require that Aurora machine learning is available for your version of Aurora MySQL in all AWS Regions that make up your
-  Aurora global database.
+  - Set up the Amazon SageMaker AI services with the same SageMaker AI training models and endpoints. These must also use the same
+    names.
+  - Create the IAM roles as detailed in [Setting up your Aurora MySQL DB cluster to use Aurora machine learning](#aurora-ml-setting-up-access "#aurora-ml-setting-up-access").
+  - Add the ARN of the IAM role to the custom DB cluster parameter group for each Aurora MySQL DB cluster in every
+    AWS Region.
+    These tasks require that Aurora machine learning is available for your version of Aurora MySQL in all AWS Regions that make up your
+    Aurora global database.
 
 ## Region and version availability
 
@@ -100,12 +99,11 @@ When using Aurora MySQL with Aurora machine learning, the following limitations 
 - Aurora machine learning integrations aren't supported when used in a trigger.
 - Aurora machine learning functions aren't compatible with binary logging (binlog) replication.
 
-      + The setting `--binlog-format=STATEMENT` throws an exception for calls to Aurora machine learning functions.
-      + Aurora machine learning functions are nondeterministic, and nondeterministic stored functions aren't compatible with the
-       binlog format.
-
-  For more information, see [Binary Logging
-  Formats](https://dev.mysql.com/doc/refman/5.7/en/binary-log-formats.html "https://dev.mysql.com/doc/refman/5.7/en/binary-log-formats.html") in the MySQL documentation.
+  - The setting `--binlog-format=STATEMENT` throws an exception for calls to Aurora machine learning functions.
+  - Aurora machine learning functions are nondeterministic, and nondeterministic stored functions aren't compatible with the
+    binlog format.
+    For more information, see [Binary Logging
+    Formats](https://dev.mysql.com/doc/refman/5.7/en/binary-log-formats.html "https://dev.mysql.com/doc/refman/5.7/en/binary-log-formats.html") in the MySQL documentation.
 
 - Stored functions that call tables with generated-always columns aren't supported. This applies to any Aurora MySQL
   stored function. To learn more about this column type, see [CREATE TABLE and Generated
@@ -117,11 +115,10 @@ When using Aurora MySQL with Aurora machine learning, the following limitations 
   `ContentType` of `text/csv`. This format is accepted by the following built-in SageMaker AI
   algorithms:
 
-      + Linear Learner
-      + Random Cut Forest
-      + XGBoost
-
-  To learn more about these algorithms, see [Choose an Algorithm](../../../sagemaker/latest/dg/algorithms-choose.md "../../../sagemaker/latest/dg/algorithms-choose.md") in the _Amazon SageMaker AI Developer Guide_.
+  - Linear Learner
+  - Random Cut Forest
+  - XGBoost
+    To learn more about these algorithms, see [Choose an Algorithm](../../../sagemaker/latest/dg/algorithms-choose.md "../../../sagemaker/latest/dg/algorithms-choose.md") in the _Amazon SageMaker AI Developer Guide_.
 
 ## Setting up your Aurora MySQL DB cluster to use Aurora machine learning
 
@@ -362,9 +359,9 @@ The following table shows the roles and privileges that database users need to w
 
 | Aurora MySQL version 3 (role) | Aurora MySQL version 2 (privilege) |
 | ----------------------------- | ---------------------------------- |
-| AWS_BEDROCK_ACCESS            | –                                  |
-| AWS_COMPREHEND_ACCESS         | INVOKE COMPREHEND                  |
-| AWS_SAGEMAKER_ACCESS          | INVOKE SAGEMAKER                   |
+| AWS\_BEDROCK\_ACCESS          | –                                  |
+| AWS\_COMPREHEND\_ACCESS       | INVOKE COMPREHEND                  |
+| AWS\_SAGEMAKER\_ACCESS        | INVOKE SAGEMAKER                   |
 
 #### Granting access to Amazon Bedrock functions
 
@@ -549,7 +546,7 @@ in the _Amazon Bedrock User Guide_.
 For Aurora MySQL, Aurora machine learning provides the following two built-in functions for working with Amazon Comprehend and your text data. You provide
 the text to analyze (`input_data`) and specify the language (`language_code`).
 
-**aws_comprehend_detect_sentiment**
+**aws\_comprehend\_detect\_sentiment**
 
 This function identifies the text as having a positive, negative, neutral, or mixed emotional posture.
 This function's reference documentation is as follows.
@@ -565,11 +562,11 @@ aws_comprehend_detect_sentiment(
 To learn more, see [Sentiment](../../../comprehend/latest/dg/how-sentiment.md "../../../comprehend/latest/dg/how-sentiment.md") in the
 _Amazon Comprehend Developer Guide_.
 
-**aws_comprehend_detect_sentiment_confidence**
+**aws\_comprehend\_detect\_sentiment\_confidence**
 
 This function measures the confidence level of the sentiment detected for a given text. It returns a value (type,
 `double`) that indicates the confidence of the sentiment assigned by
-the aws_comprehend_detect_sentiment function to the text. Confidence is a
+the aws\_comprehend\_detect\_sentiment function to the text. Confidence is a
 statistical metric between 0 and 1. The higher the confidence level,
 the more weight you can give the result. A summary of the
 function's documentation is as follows.
@@ -582,7 +579,7 @@ aws_comprehend_detect_sentiment_confidence(
 )
 ```
 
-In both functions (aws_comprehend_detect_sentiment_confidence, aws_comprehend_detect_sentiment) the `max_batch_size` uses
+In both functions (aws\_comprehend\_detect\_sentiment\_confidence, aws\_comprehend\_detect\_sentiment) the `max_batch_size` uses
 a default value of 25 if none is specified. Batch size should always
 be greater than 0. You can use `max_batch_size` to tune the performance of the Amazon Comprehend function calls. A large batch
 size trades off faster performance for greater memory usage on the Aurora MySQL DB cluster. For more information, see

@@ -173,18 +173,18 @@ following operations. You can examine events as they occur on the **Events** pag
 
 6. Aurora upgrades the engine version on the writer DB instance:
 
-   - Aurora installs the binary for the new engine version on the writer DB instance.
-   - Aurora uses the writer DB instance to upgrade your data to the Aurora MySQL target version compatible format. During this stage, Aurora modifies
+    * Aurora installs the binary for the new engine version on the writer DB instance.
+    * Aurora uses the writer DB instance to upgrade your data to the Aurora MySQL target version compatible format. During this stage, Aurora modifies
      the system tables and performs other conversions that affect the data in your cluster volume. For version 2 to version 3 upgrades, in particular, Aurora upgrades the partition metadata in the system
      tables to be compatible with the MySQL 8.0 partition format. This stage can take a long time if the tables in your cluster have a large number of
      partitions.
 
-   If any errors occur during this stage, you can find the details in the MySQL error logs. After this stage starts, if the upgrade process
-   fails for any reason, Aurora restores the original data from the cloned cluster volume.
 
-7. Aurora upgrades the engine version on the reader DB instances.
-8. The upgrade process is completed. Aurora records a final event to indicate that the upgrade process completed successfully. Now your DB cluster is
-   running the new major version.
+     If any errors occur during this stage, you can find the details in the MySQL error logs. After this stage starts, if the upgrade process
+     fails for any reason, Aurora restores the original data from the cloned cluster volume.
+
+7. Aurora upgrades the engine version on the reader DB instances. 8. The upgrade process is completed. Aurora records a final event to indicate that the upgrade process completed successfully. Now your DB cluster is
+running the new major version.
 
 ## Planning a major version upgrade for an Aurora MySQL cluster
 

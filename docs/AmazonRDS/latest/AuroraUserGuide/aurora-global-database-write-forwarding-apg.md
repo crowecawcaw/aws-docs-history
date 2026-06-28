@@ -80,12 +80,11 @@ global cluster by using the AWS CLI.
 - Call the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI command and supply the following
   values:
 
-      + `--db-cluster-identifier` – The name of the DB cluster.
-      + `--enable-global-write-forwarding` to turn on or
-       `--no-enable-global-write-forwarding` to turn off.
-
-  The following example enables write forwarding for DB cluster
-  `sample-secondary-db-cluster`.
+  - `--db-cluster-identifier` – The name of the DB cluster.
+  - `--enable-global-write-forwarding` to turn on or
+    `--no-enable-global-write-forwarding` to turn off.
+    The following example enables write forwarding for DB cluster
+    `sample-secondary-db-cluster`.
 
 For Linux, macOS, or Unix:
 

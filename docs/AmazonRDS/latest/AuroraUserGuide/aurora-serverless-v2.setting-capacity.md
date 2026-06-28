@@ -997,13 +997,12 @@ happen for the following reasons:
 - Certain features can increase resource usage and prevent the database from scaling down to minimum capacity. These
   features include the following:
 
-      + Aurora global databases
-      + Exporting CloudWatch Logs
-      + Enabling `pg_audit` on Aurora PostgreSQL–compatible DB clusters
-      + Enhanced Monitoring
-      + Performance Insights
-
-  For more information, see [Choosing the minimum Aurora serverless capacity setting for a cluster](#aurora-serverless-v2.min_capacity_considerations "#aurora-serverless-v2.min_capacity_considerations").
+  - Aurora global databases
+  - Exporting CloudWatch Logs
+  - Enabling `pg_audit` on Aurora PostgreSQL–compatible DB clusters
+  - Enhanced Monitoring
+  - Performance Insights
+    For more information, see [Choosing the minimum Aurora serverless capacity setting for a cluster](#aurora-serverless-v2.min_capacity_considerations "#aurora-serverless-v2.min_capacity_considerations").
 
 - If a reader instance isn't scaling down to the minimum and stays at the same or higher capacity than the writer
   instance, then check the priority tier of the reader instance. Aurora serverless reader DB instances in tier 0 or 1 are

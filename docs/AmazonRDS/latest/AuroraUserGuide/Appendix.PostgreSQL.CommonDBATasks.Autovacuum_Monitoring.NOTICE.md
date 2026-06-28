@@ -19,7 +19,7 @@ NOTICE: postgres_get_av_diag() checks for blockers that prevent aggressive vacuu
 The `postgres_get_av_diag()` function provides the most accurate output
 when connected to the database with the oldest transaction ID age. The database with the
 oldest transaction ID age reported by `postgres_get_av_diag()` will be
-different than “my_database” in your case. If you are not connected to the correct
+different than “my\_database” in your case. If you are not connected to the correct
 database, the following NOTICE is generated:
 
 ```

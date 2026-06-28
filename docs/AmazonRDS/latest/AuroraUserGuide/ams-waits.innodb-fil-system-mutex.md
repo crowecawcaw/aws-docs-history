@@ -1,4 +1,4 @@
-# synch/mutex/innodb/fil_system_mutex
+# synch/mutex/innodb/fil\_system\_mutex
 
 The `synch/mutex/innodb/fil_system_mutex` event occurs when a session
 is waiting to access the tablespace memory cache.

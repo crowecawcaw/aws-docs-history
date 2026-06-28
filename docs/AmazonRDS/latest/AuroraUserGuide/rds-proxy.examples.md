@@ -6,7 +6,7 @@ examples.
 ###### Examples
 
 - [Preserving Connections to a MySQL Database Across a Failover](#example-mysql-preserve-connections "#example-mysql-preserve-connections")
-- [Adjusting the max_connections Setting for an Aurora DB Cluster](#example-adjust-cluster-max-connections "#example-adjust-cluster-max-connections")
+- [Adjusting the max\_connections Setting for an Aurora DB Cluster](#example-adjust-cluster-max-connections "#example-adjust-cluster-max-connections")
 
 ###### Example Preserving connections to a MySQL database across a failover
 
@@ -73,7 +73,7 @@ mysql> select @@aurora_server_id;
 1 row in set (0.02 sec)
 ```
 
-###### Example Adjusting the max_connections setting for an Aurora DB cluster
+###### Example Adjusting the max\_connections setting for an Aurora DB cluster
 
 This example demonstrates how you can adjust the `max_connections` setting for an Aurora MySQL DB cluster. To do so,
 you create your own DB cluster parameter group based on the default parameter settings for clusters that are compatible with

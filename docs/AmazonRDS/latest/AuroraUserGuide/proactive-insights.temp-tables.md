@@ -63,7 +63,7 @@ determines how large a table can grow. There is also no conversion to an on-disk
 
 The following Performance Insights metrics are related to this insight:
 
-- Created_tmp_disk_tables
-- Created_tmp_tables
+- Created\_tmp\_disk\_tables
+- Created\_tmp\_tables
 
-For more information, see [Created_tmp_disk_tables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Created_tmp_disk_tables "https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Created_tmp_disk_tables") in the MySQL documentation.
+For more information, see [Created\_tmp\_disk\_tables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Created_tmp_disk_tables "https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Created_tmp_disk_tables") in the MySQL documentation.

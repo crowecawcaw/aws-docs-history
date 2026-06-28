@@ -386,36 +386,35 @@ The **Create database by restoring from S3** page appears.
      this case, you specify a prefix of backups/gzip\_backup1 to restore from the files in the gzip\_backup1
      folder.
 
-6.  Under **Engine options**:
+6. Under **Engine options**:
 
     1. For **Engine type**, choose **Amazon Aurora**.
     2. For **Version**, choose the Aurora MySQL engine version for your restored DB
-       instance.
+     instance.
 
-7.  For **IAM role**, you can choose an existing IAM role.
-8.  (Optional) You can also have a new IAM role created for you by choosing **Create a new
-    role**. If so:
+7. For **IAM role**, you can choose an existing IAM role. 8. (Optional) You can also have a new IAM role created for you by choosing **Create a new
+role**. If so:
 
-    1.  Enter the **IAM role name**.
-    2.  Choose whether to **Allow access to KMS key**:
-
-            * If you didn't encrypt the backup files, choose **No**.
-            * If you encrypted the backup files with AES-256 (SSE-S3) when you uploaded them to Amazon S3, choose
-             **No**. In this case, the data is decrypted automatically.
-            * If you encrypted the backup files with AWS KMS (SSE-KMS) server-side encryption when you
-             uploaded them to Amazon S3, choose **Yes**. Next, choose the correct KMS key for
-             **AWS KMS key**.
+    1. Enter the **IAM role name**.
+    2. Choose whether to **Allow access to KMS key**:
 
 
-            The AWS Management Console creates an IAM policy that enables Aurora to decrypt the data.
 
-        For more information, see [Protecting data using
-        server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") in the _Amazon S3 Developer Guide_.
 
-9.  Choose settings for your DB cluster, such as the DB cluster storage configuration, DB instance class, DB
-    cluster identifier, and login credentials. For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings").
-10. Customize additional settings for your Aurora MySQL DB cluster as needed.
-11. Choose **Create database** to launch your Aurora DB instance.
+    	* If you didn't encrypt the backup files, choose **No**.
+    	* If you encrypted the backup files with AES-256 (SSE-S3) when you uploaded them to Amazon S3, choose
+    	 **No**. In this case, the data is decrypted automatically.
+    	* If you encrypted the backup files with AWS KMS (SSE-KMS) server-side encryption when you
+    	 uploaded them to Amazon S3, choose **Yes**. Next, choose the correct KMS key for
+    	 **AWS KMS key**.
+
+
+    	The AWS Management Console creates an IAM policy that enables Aurora to decrypt the data.
+    For more information, see [Protecting data using
+     server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") in the *Amazon S3 Developer Guide*.
+
+9. Choose settings for your DB cluster, such as the DB cluster storage configuration, DB instance class, DB
+cluster identifier, and login credentials. For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings"). 10. Customize additional settings for your Aurora MySQL DB cluster as needed. 11. Choose **Create database** to launch your Aurora DB instance.
 
 On the Amazon RDS console, the new DB instance appears in the list of DB instances. The DB instance has a status of
 **creating** until the DB instance is created and ready for use. When the state changes to
@@ -461,22 +460,21 @@ certificates and keys for the Aurora MySQL client are in files in .pem format.
 
 ###### To configure your external MySQL database and your Aurora MySQL DB cluster for encrypted replication
 
-1.  Ensure that you are prepared for encrypted replication:
+1. Ensure that you are prepared for encrypted replication:
 
-        * If you don't have SSL enabled on the external MySQL primary database and don't have a
-         client key and client certificate prepared, enable SSL on the MySQL database server and generate the
-         required client key and client certificate.
-        * If SSL is enabled on the external primary, supply a client key and certificate for the Aurora MySQL
-         DB cluster. If you don't have these, generate a new key and certificate for the Aurora MySQL DB
-         cluster. To sign the client certificate, you must have the certificate authority key that you used
-         to configure SSL on the external MySQL primary database.
-
-    For more information, see [Creating SSL
-    certificates and keys using openssl](https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html "https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html") in the MySQL documentation.
+   - If you don't have SSL enabled on the external MySQL primary database and don't have a
+     client key and client certificate prepared, enable SSL on the MySQL database server and generate the
+     required client key and client certificate.
+   - If SSL is enabled on the external primary, supply a client key and certificate for the Aurora MySQL
+     DB cluster. If you don't have these, generate a new key and certificate for the Aurora MySQL DB
+     cluster. To sign the client certificate, you must have the certificate authority key that you used
+     to configure SSL on the external MySQL primary database.
+     For more information, see [Creating SSL
+     certificates and keys using openssl](https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html "https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html") in the MySQL documentation.
 
 You need the certificate authority certificate, the client key, and the client certificate. 2. Connect to the Aurora MySQL DB cluster as the primary user using SSL.
 
-For information about connecting to an Aurora MySQL DB cluster with SSL, see [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL"). 3. Run the [mysql.rds_import_binlog_ssl_material](mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material") stored procedure to import the SSL information
+For information about connecting to an Aurora MySQL DB cluster with SSL, see [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL"). 3. Run the [mysql.rds\_import\_binlog\_ssl\_material](mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material") stored procedure to import the SSL information
 into the Aurora MySQL DB cluster.
 
 For the `ssl_material_value` parameter, insert the information from the .pem format files for
@@ -509,12 +507,12 @@ BQoQzd8v7yeb7OzlPnWOyN0qFU0XA246RA8QFYiCNYwI3f05p6KLxEXAMPLE
 
 ```
 
-For more information, see [mysql.rds_import_binlog_ssl_material](mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material") and [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL").
+For more information, see [mysql.rds\_import\_binlog\_ssl\_material](mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material") and [TLS connections to Aurora MySQL DB clusters](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL").
 
 ###### Note
 
 After running the procedure, the secrets are stored in files. To erase the files later, you can run
-the [mysql.rds_remove_binlog_ssl_material](mysql-stored-proc-replicating.md#mysql_rds_remove_binlog_ssl_material "mysql-stored-proc-replicating.md#mysql_rds_remove_binlog_ssl_material") stored procedure.
+the [mysql.rds\_remove\_binlog\_ssl\_material](mysql-stored-proc-replicating.md#mysql_rds_remove_binlog_ssl_material "mysql-stored-proc-replicating.md#mysql_rds_remove_binlog_ssl_material") stored procedure.
 
 ### Synchronizing the Amazon Aurora MySQL DB cluster with the external MySQL database
 
@@ -643,7 +641,7 @@ of the Aurora MySQL DB cluster, use the `host` command.
 host `<db_cluster_endpoint>`
 ```
 
-The host name is the DNS name from the Aurora MySQL DB cluster endpoint. 5. Enable binary log replication by running the [mysql.rds_reset_external_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") or [mysql.rds_reset_external_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source "mysql-stored-proc-replicating.md#mysql_rds_reset_external_source") stored procedure. This stored procedure has the
+The host name is the DNS name from the Aurora MySQL DB cluster endpoint. 5. Enable binary log replication by running the [mysql.rds\_reset\_external\_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") or [mysql.rds\_reset\_external\_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source "mysql-stored-proc-replicating.md#mysql_rds_reset_external_source") stored procedure. This stored procedure has the
 following syntax.
 
 ```
@@ -670,7 +668,7 @@ CALL mysql.rds_set_external_source (
 
 ```
 
-For information about the parameters, see [mysql.rds_reset_external_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") and [mysql.rds_reset_external_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source "mysql-stored-proc-replicating.md#mysql_rds_reset_external_source").
+For information about the parameters, see [mysql.rds\_reset\_external\_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_master "mysql-stored-proc-replicating.md#mysql_rds_reset_external_master") and [mysql.rds\_reset\_external\_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_reset_external_source "mysql-stored-proc-replicating.md#mysql_rds_reset_external_source").
 
 For `mysql_binary_log_file_name` and `mysql_binary_log_file_location`, use the
 position in the **Recovered from Binary log filename** event you noted earlier.
@@ -705,7 +703,7 @@ CALL mysql.rds_set_external_source(
 
 This stored procedure sets the parameters that the Aurora MySQL DB cluster uses for connecting to the
 external MySQL database and reading its binary log. If the data is encrypted, it also downloads the SSL
-certificate authority certificate, client certificate, and client key to the local disk. 6. Start binary log replication by running the [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored procedure.
+certificate authority certificate, client certificate, and client key to the local disk. 6. Start binary log replication by running the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") stored procedure.
 
 ```
 
@@ -728,7 +726,7 @@ SHOW REPLICA STATUS;
 
 In the command output, the `Seconds Behind Master` field shows how far the Aurora MySQL DB
 cluster is behind the MySQL primary. When this value is `0` (zero), the Aurora MySQL DB cluster has
-caught up to the primary, and you can move on to the next step to stop replication. 8. Connect to the MySQL replication primary database and stop replication. To do so, run the [mysql.rds_stop_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
+caught up to the primary, and you can move on to the next step to stop replication. 8. Connect to the MySQL replication primary database and stop replication. To do so, run the [mysql.rds\_stop\_replication](mysql-stored-proc-replicating.md#mysql_rds_stop_replication "mysql-stored-proc-replicating.md#mysql_rds_stop_replication") stored
 procedure.
 
 ```

@@ -1,4 +1,4 @@
-# aurora_stat_optimized_reads_cache
+# aurora\_stat\_optimized\_reads\_cache
 
 This function shows tiered cache stats.
 

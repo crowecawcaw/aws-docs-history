@@ -276,6 +276,6 @@ the optimizer. Review approved plans in QPM to ensure they align with current
 parallelism settings. Update or remove outdated plans that may be forcing suboptimal
 parallel execution.
 
-You can also fix the plans using pg_hint_plan. For more information, see [Fixing plans using pg_hint_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). You can use the
+You can also fix the plans using pg\_hint\_plan. For more information, see [Fixing plans using pg\_hint\_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). You can use the
 hint named `Parallel` to enforce parallel execution. For more
 information, see the [Hints for parallel plans](https://github.com/ossc-db/pg_hint_plan/blob/master/docs/hint_table.md#hints-for-parallel-plans "https://github.com/ossc-db/pg_hint_plan/blob/master/docs/hint_table.md#hints-for-parallel-plans").

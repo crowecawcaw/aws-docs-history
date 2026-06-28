@@ -136,8 +136,8 @@ For more information, see [UNIQUE](#unique-constraint "#unique-constraint"). For
 
 **Showing indexes**
 
-Not all indexes are visible on routers when you use `\d `table_name``or similar commands.
- Instead, use the`pg_catalog.pg_indexes` view to get indexes, as shown in the following example.
+Not all indexes are visible on routers when you use `\d `table_name`` or similar commands.
+Instead, use the `pg_catalog.pg_indexes` view to get indexes, as shown in the following example.
 
 ```
 SET rds_aurora.limitless_create_table_mode='sharded';
@@ -475,7 +475,7 @@ more information, see [Importing data from Amazon S3 into an Aurora PostgreSQL D
 - `citext`
 - `ip4r`
 - `pg_buffercache` – This extension behaves differently in Aurora PostgreSQL Limitless Database from community PostgreSQL. For more information,
-  see [pg_buffercache differences in Aurora PostgreSQL Limitless Database](#limitless-reference.DDL-limitations.Extensions.pg_buffercache "#limitless-reference.DDL-limitations.Extensions.pg_buffercache").
+  see [pg\_buffercache differences in Aurora PostgreSQL Limitless Database](#limitless-reference.DDL-limitations.Extensions.pg_buffercache "#limitless-reference.DDL-limitations.Extensions.pg_buffercache").
 - `pg_stat_statements`
 - `pg_trgm`
 - `pgcrypto`
@@ -488,7 +488,7 @@ more information, see [Importing data from Amazon S3 into an Aurora PostgreSQL D
 - `unaccent`
 - `uuid`
 
-Most PostgreSQL extensions currently aren't supported in Aurora PostgreSQL Limitless Database. However, you can still use the [shared_preload_libraries](https://www.postgresql.org/docs/current/runtime-config-client.html#RUNTIME-CONFIG-CLIENT-PRELOAD "https://www.postgresql.org/docs/current/runtime-config-client.html#RUNTIME-CONFIG-CLIENT-PRELOAD")
+Most PostgreSQL extensions currently aren't supported in Aurora PostgreSQL Limitless Database. However, you can still use the [shared\_preload\_libraries](https://www.postgresql.org/docs/current/runtime-config-client.html#RUNTIME-CONFIG-CLIENT-PRELOAD "https://www.postgresql.org/docs/current/runtime-config-client.html#RUNTIME-CONFIG-CLIENT-PRELOAD")
 (SPL) configuration setting to load extensions into the Aurora PostgreSQL primary DB cluster. They are also loaded into Aurora PostgreSQL Limitless Database, but might not
 function correctly.
 
@@ -497,7 +497,7 @@ are used.
 
 ###### Note
 
-You can't modify objects associated with the [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html") extension. For information on installing `pg_stat_statements`, see [limitless_stat_statements](limitless-monitoring-views.md#limitless_stat_statements "limitless-monitoring-views.md#limitless_stat_statements").
+You can't modify objects associated with the [pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html") extension. For information on installing `pg_stat_statements`, see [limitless\_stat\_statements](limitless-monitoring-views.md#limitless_stat_statements "limitless-monitoring-views.md#limitless_stat_statements").
 
 You can use the `pg_available_extensions` and `pg_available_extension_versions` functions to find the extensions that
 are supported in Aurora PostgreSQL Limitless Database.
@@ -554,9 +554,9 @@ ALTER EXTENSION `name` ADD `member_object`
 ALTER EXTENSION `name` DROP `member_object`
 ```
 
-### pg_buffercache differences in Aurora PostgreSQL Limitless Database
+### pg\_buffercache differences in Aurora PostgreSQL Limitless Database
 
-In Aurora PostgreSQL Limitless Database, when you install the [pg_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html "https://www.postgresql.org/docs/current/pgbuffercache.html") extension
+In Aurora PostgreSQL Limitless Database, when you install the [pg\_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html "https://www.postgresql.org/docs/current/pgbuffercache.html") extension
 and use the `pg_buffercache` view, you receive buffer-related information only from the node to which you're currently connected:
 the router. Similarly, using the function `pg_buffercache_summary` or `pg_buffercache_usage_counts` provides
 information only from the connected node.
@@ -738,7 +738,7 @@ Aurora PostgreSQL Limitless Database includes the following functions in the `rd
 
 - Purpose: Extract approximate tuple-level statistics for standard tables and their indexes
 - Input: `relation_name` (text) – The name of the relation
-- Output: Columns consistent with those returned by the pgstattuple_approx function in Aurora PostgreSQL
+- Output: Columns consistent with those returned by the pgstattuple\_approx function in Aurora PostgreSQL
 
 **`rds_aurora.limitless_pgstattuple_approx(`relation_name`,
  `subcluster_id`)`**
@@ -1070,7 +1070,7 @@ EXPLAIN(costs false, verbose true) SELECT * FROM get_data(1);
 
 ### Function volatility
 
-You can determine whether a function is immutable, stable, or volatile by checking the `provolatile` value in the [pg_proc](https://www.postgresql.org/docs/current/catalog-pg-proc.html "https://www.postgresql.org/docs/current/catalog-pg-proc.html") view. The `provolatile` value indicates
+You can determine whether a function is immutable, stable, or volatile by checking the `provolatile` value in the [pg\_proc](https://www.postgresql.org/docs/current/catalog-pg-proc.html "https://www.postgresql.org/docs/current/catalog-pg-proc.html") view. The `provolatile` value indicates
 whether the function's result depends only on its input arguments, or is affected by outside factors.
 
 The value is one of the following:
@@ -1177,7 +1177,7 @@ directly.
 The following limitations apply to sequences in Aurora PostgreSQL Limitless Database:
 
 - The `pg_sequence` catalog, `pg_sequences` function, and `SELECT * FROM
-`sequence_name`` statement all show only the local sequence state, not the distributed
+ `sequence_name`` statement all show only the local sequence state, not the distributed
   state.
 - Sequence values are guaranteed to be unique, and are guaranteed to be monotonic within a session. But they can be out of order
   with `nextval` statements run in other sessions, if those sessions are connected to other routers.
@@ -1331,10 +1331,10 @@ postgres=# SELECT * FROM t;
 
 Aurora PostgreSQL Limitless Database provides the following views for sequences.
 
-**rds_aurora.limitless_distributed_sequence**
+**rds\_aurora.limitless\_distributed\_sequence**
 
 This view shows a distributed sequence state and configuration. The `minvalue`, `maxvalue`,
-`start`, `inc`, and `cache` columns have the same meaning as in the [pg_sequences](https://www.postgresql.org/docs/current/view-pg-sequences.html "https://www.postgresql.org/docs/current/view-pg-sequences.html") view, and show the options with
+`start`, `inc`, and `cache` columns have the same meaning as in the [pg\_sequences](https://www.postgresql.org/docs/current/view-pg-sequences.html "https://www.postgresql.org/docs/current/view-pg-sequences.html") view, and show the options with
 which the sequence was created. The `lastval` column shows the latest allocated or reserved value in a distributed
 sequence object. This doesn't mean that the value was already used, as routers keep sequence chunks locally.
 
@@ -1347,7 +1347,7 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_distributed_sequence WHE
 (1 row)
 ```
 
-**rds_aurora.limitless_sequence_metadata**
+**rds\_aurora.limitless\_sequence\_metadata**
 
 This view shows distributed sequence metadata and aggregates sequence metadata from cluster nodes. It uses the following
 columns:
@@ -1390,7 +1390,7 @@ access to the sequence object, and increases the sequence object's `last_value` 
 `nextval` within that session simply return the pre-allocated values without touching the sequence object.
 
 Any numbers allocated but not used within a session are lost when that session ends, resulting in "holes" in the sequence.
-This can consume the sequence_chunk quickly and lead to to contention and wait events such as
+This can consume the sequence\_chunk quickly and lead to to contention and wait events such as
 `LIMITLESS:AuroraLimitlessSequenceReplace`, `LWLock:LockManager` , `Lockrelation`, and
 `LWlock:bufferscontent`.
 

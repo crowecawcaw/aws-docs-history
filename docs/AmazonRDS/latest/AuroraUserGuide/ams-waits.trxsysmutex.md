@@ -1,4 +1,4 @@
-# synch/mutex/innodb/trx_sys_mutex
+# synch/mutex/innodb/trx\_sys\_mutex
 
 The `synch/mutex/innodb/trx_sys_mutex` event occurs when there is high
 database activity with a large number of transactions.

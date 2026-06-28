@@ -912,15 +912,15 @@ B-tree index.
 A process is waiting to read or update vacuum-related information for a
 B-tree index.
 
-**LWLock:buffer_content**
+**LWLock:buffer\_content**
 
 A backend process is waiting to acquire a lightweight lock on the contents
-of a shared memory buffer. For more information, see [LWLock:buffer_content (BufferContent)](apg-waits.lockbuffercontent.md "apg-waits.lockbuffercontent.md").
+of a shared memory buffer. For more information, see [LWLock:buffer\_content (BufferContent)](apg-waits.lockbuffercontent.md "apg-waits.lockbuffercontent.md").
 
-**LWLock:buffer_mapping**
+**LWLock:buffer\_mapping**
 
 A backend process is waiting to associate a data block with a buffer in
-the shared buffer pool. For more information, see [LWLock:buffer_mapping](apg-waits.lwl-buffer-mapping.md "apg-waits.lwl-buffer-mapping.md").
+the shared buffer pool. For more information, see [LWLock:buffer\_mapping](apg-waits.lwl-buffer-mapping.md "apg-waits.lwl-buffer-mapping.md").
 
 **LWLock:BufferIO**
 
@@ -957,7 +957,7 @@ A process is waiting to read or update transaction status.
 A process is waiting to run `txid_status` or update the oldest
 transaction ID available to it.
 
-**LWLock:commit_timestamp**
+**LWLock:commit\_timestamp**
 
 A process is waiting for I/O on a commit timestamp buffer.
 
@@ -1004,11 +1004,11 @@ information.
 
 A process is waiting to read or update the dynamic shared memory state.
 
-**LWLock:lock_manager**
+**LWLock:lock\_manager**
 
 A backend process is waiting to add or examine locks for backend
 processes. Or it's waiting to join or exit a locking group that is used by
-parallel query. For more information, see [LWLock:lock_manager](apg-waits.lw-lock-manager.md "apg-waits.lw-lock-manager.md").
+parallel query. For more information, see [LWLock:lock\_manager](apg-waits.lw-lock-manager.md "apg-waits.lw-lock-manager.md").
 
 **LWLock:LockFastPath**
 
@@ -1029,11 +1029,11 @@ finish.
 
 A process modified the schema cache.
 
-**LWLock:multixact_member**
+**LWLock:multixact\_member**
 
-A process is waiting for I/O on a multixact_member buffer.
+A process is waiting for I/O on a multixact\_member buffer.
 
-**LWLock:multixact_offset**
+**LWLock:multixact\_offset**
 
 A process is waiting for I/O on a multixact offset buffer.
 
@@ -1131,17 +1131,17 @@ information.
 A process is waiting to read or update old snapshot control
 information.
 
-**LWLock:parallel_append**
+**LWLock:parallel\_append**
 
 A process is waiting to choose the next subplan during parallel append
 plan execution.
 
-**LWLock:parallel_hash_join**
+**LWLock:parallel\_hash\_join**
 
 A process is waiting to allocate or exchange a chunk of memory or update
 counters during a parallel hash plan execution.
 
-**LWLock:parallel_query_dsa**
+**LWLock:parallel\_query\_dsa**
 
 A process is waiting for a lock on dynamic shared memory allocation for a
 parallel query.
@@ -1181,7 +1181,7 @@ modifiers that identify anonymous record types.
 A process is waiting to access the list of predicate locks held by the
 current serializable transaction during a parallel query.
 
-**Lwlock:predicate_lock_manager**
+**Lwlock:predicate\_lock\_manager**
 
 A process is waiting to add or examine predicate lock information.
 
@@ -1226,11 +1226,11 @@ initialization file).
 A process is waiting to read or write a relation cache initialization
 file.
 
-**LWLock:replication_origin**
+**LWLock:replication\_origin**
 
 A process is waiting to read or update the replication progress.
 
-**LWLock:replication_slot_io**
+**LWLock:replication\_slot\_io**
 
 A process is waiting for I/O on a replication slot.
 
@@ -1384,7 +1384,7 @@ A process is waiting to read or update the state of prepared transactions.
 
 A process is waiting to read or update the state of prepared transactions.
 
-**LWLock:wal_insert**
+**LWLock:wal\_insert**
 
 A process is waiting to insert the write-ahead log (WAL) into a memory
 buffer.
@@ -1434,7 +1434,7 @@ for a transaction status.
 
 **LWLock:XactTruncation**
 
-A process is waiting to run pg_xact_status or update the oldest
+A process is waiting to run pg\_xact\_status or update the oldest
 transaction ID available to it.
 
 **LWLock:XidGen**
@@ -1451,7 +1451,7 @@ A process is waiting during base backup when throttling activity.
 
 **Timeout:PgSleep**
 
-A backend process has called the pg_sleep function and is waiting for the
+A backend process has called the pg\_sleep function and is waiting for the
 sleep timeout to expire. For more information, see [Timeout:PgSleep](apg-waits.timeoutpgsleep.md "apg-waits.timeoutpgsleep.md").
 
 **Timeout:RecoveryApplyDelay**
@@ -1462,7 +1462,7 @@ because of a delay setting.
 **Timeout:RecoveryRetrieveRetryInterval**
 
 A process is waiting during recovery when write-ahead log (WAL) data is
-not available from any source (pg_wal, archive, or stream).
+not available from any source (pg\_wal, archive, or stream).
 
 **Timeout:VacuumDelay**
 

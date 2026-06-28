@@ -30,22 +30,21 @@ Blue/Green Deployment feature. For more information, see [Using Amazon Aurora Bl
 
 You must meet the following requirements to perform this low downtime upgrade process:
 
-- You must have rds_superuser permissions.
+- You must have rds\_superuser permissions.
 - The Aurora PostgreSQL DB cluster you intend to upgrade must be running a supported
   version that can perform major version upgrades using logical replication. Make
   sure to apply any minor version updates and patches to your DB cluster. The
   `aurora_volume_logical_start_lsn` function that is used in this
   technique is supported in the following versions of Aurora PostgreSQL:
 
-      + 15.2 and higher 15 versions
-      + 14.3 and higher 14 versions
-      + 13.6 and higher 13 versions
-      + 12.10 and higher 12 versions
-      + 11.15 and higher 11 versions
-      + 10.20 and higher 10 versions
-
-  For more information on `aurora_volume_logical_start_lsn`
-  function, see [aurora_volume_logical_start_lsn](aurora_volume_logical_start_lsn.md "aurora_volume_logical_start_lsn.md").
+  - 15.2 and higher 15 versions
+  - 14.3 and higher 14 versions
+  - 13.6 and higher 13 versions
+  - 12.10 and higher 12 versions
+  - 11.15 and higher 11 versions
+  - 10.20 and higher 10 versions
+    For more information on `aurora_volume_logical_start_lsn`
+    function, see [aurora\_volume\_logical\_start\_lsn](aurora_volume_logical_start_lsn.md "aurora_volume_logical_start_lsn.md").
 
 - All of your tables must have a primary key or include a [PostgreSQL identity column](https://www.postgresql.org/docs/current/sql-createtable.html "https://www.postgresql.org/docs/current/sql-createtable.html").
 - Configure the security group for your VPC to allow inbound and outbound access
@@ -98,14 +97,14 @@ parameter group with the following settings:
   data capture from this DB cluster.
 - `max_wal_senders` – Set to the number of concurrent
   connections, plus a few extra, to make available for management tasks and new
-  sessions. If you are using AWS DMS, the number of max_wal_senders should be equal
+  sessions. If you are using AWS DMS, the number of max\_wal\_senders should be equal
   to the number of concurrent sessions plus the number of AWS DMS tasks that may be
   working at any given time.
 - `max_logical_replication_workers` – Set to the number of
   logical replication workers and table synchronization workers that you expect.
   It's generally safe to set the number of replication workers to the same
-  value used for max_wal_senders. The workers are taken from the pool of
-  background processes (max_worker_processes) allocated for the server.
+  value used for max\_wal\_senders. The workers are taken from the pool of
+  background processes (max\_worker\_processes) allocated for the server.
 - `max_worker_processes` – Set to the number of background
   processes for the server. This number should be large enough to allocate workers
   for replication, auto-vacuum processes, and other maintenance processes that may
@@ -148,7 +147,7 @@ INSERT INTO `my_table` VALUES (generate_series(1,100));
 CREATE PUBLICATION `publication_name` FOR ALL TABLES;
 ```
 
-The publication_name specifies the name of the publication. 3. You also need to create a replication slot on the instance. The following
+The publication\_name specifies the name of the publication. 3. You also need to create a replication slot on the instance. The following
 command creates a replication slot and loads the `pgoutput`
 [logical decoding plug-in](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html "https://www.postgresql.org/docs/current/logicaldecoding-explanation.html"). The plug-in changes content read from
 write-ahead logging (WAL) to the logical replication protocol, and filters the
@@ -224,7 +223,7 @@ aws rds modify-db-cluster —db-cluster-identifier $TARGET_Aurora_ID —engine-v
    - `subscription_name` – The name of the
      subscription.
    - `admin_user_name` – The name of an
-     administrative user with rds_superuser permissions.
+     administrative user with rds\_superuser permissions.
    - `admin_user_password` – The password associated with the administrative user.
    - `source_instance_URL` – The URL of the publication server instance.
    - `database` – The database that the subscription server will connect with.
@@ -237,7 +236,7 @@ CONNECTION `'postgres://admin_user_name:admin_user_password@source_instance_URL/
 WITH (copy_data = false, create_slot = false, enabled = false, connect = true, slot_name = `'replication_slot_name'`);
 ```
 
-2. After creating the subscription, query the [pg_replication_origin](https://www.postgresql.org/docs/14/catalog-pg-replication-origin.html "https://www.postgresql.org/docs/14/catalog-pg-replication-origin.html") view to retrieve the roname value, which is
+2. After creating the subscription, query the [pg\_replication\_origin](https://www.postgresql.org/docs/14/catalog-pg-replication-origin.html "https://www.postgresql.org/docs/14/catalog-pg-replication-origin.html") view to retrieve the roname value, which is
    the identifier of the replication origin. Each instance has one
    `roname`:
 
@@ -265,7 +264,7 @@ SELECT pg_replication_origin_advance(`'roname'`, `'log_sequence_number'`);
 ```
 
 `roname` is the identifier returned by the
-pg_replication_origin view.
+pg\_replication\_origin view.
 
 `log_sequence_number` is the value returned by the earlier
 query of the `aurora_volume_logical_start_lsn` function. 4. Then, use the `ALTER SUBSCRIPTION... ENABLE` clause to turn on logical replication.

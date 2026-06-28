@@ -84,7 +84,7 @@ Aurora PostgreSQL DB cluster.
   major version upgrade, so you must regenerate all statistics to avoid performance
   issues. For additional best practices during major version upgrades, see [Performing a major version upgrade](USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md "USER_UpgradeDBInstance.PostgreSQL.MajorVersion.md").
 - Avoid configuring triggers as `ENABLE REPLICA` or `ENABLE
-ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
+ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   replication system propagates changes and executes the trigger, which leads to
   duplication.
 - Long-running transactions can cause significant replica lag. To reduce replica lag,
@@ -128,14 +128,13 @@ ALWAYS` if the trigger is used on the source to manipulate data. Otherwise, the
   have the same settings in the target DB cluster parameter group for the green environment as
   in the source DB cluster parameter group:
 
-      + rds.babelfish\_status
-      + babelfishpg\_tds.tds\_default\_numeric\_precision
-      + babelfishpg\_tds.tds\_default\_numeric\_scale
-      + babelfishpg\_tsql.default\_locale
-      + babelfishpg\_tsql.migration\_mode
-      + babelfishpg\_tsql.server\_collation\_name
-
-  For more information about these parameters, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md").
+  - rds.babelfish\_status
+  - babelfishpg\_tds.tds\_default\_numeric\_precision
+  - babelfishpg\_tds.tds\_default\_numeric\_scale
+  - babelfishpg\_tsql.default\_locale
+  - babelfishpg\_tsql.migration\_mode
+  - babelfishpg\_tsql.server\_collation\_name
+    For more information about these parameters, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md "babelfish-configuration.md").
 
 ## Aurora Global Database best practices for blue/green deployments
 
@@ -144,10 +143,9 @@ Aurora Global Database.
 
 - Monitor the following CloudWatch metrics to identify periods of low activity in your production environment:
 
-      + `DatabaseConnections`
-      + `ActiveTransactions`
-
-  Schedule the blue/green switchover during your planned maintenance window or during a period of low activity.
+  - `DatabaseConnections`
+  - `ActiveTransactions`
+    Schedule the blue/green switchover during your planned maintenance window or during a period of low activity.
 
 - Blue/Green switchover duration varies based on your workload and the number of secondary regions. When you initiate a blue/green switchover, the service waits for replica lag to reach zero before proceeding. We recommend checking replica lag before initiating a switchover.
 - If you intend to use a DB parameter or DB Cluster parameter group other than the default one for your green environment, create the desired parameter group with the same name in all secondary regions before initiating the blue/green deployment.

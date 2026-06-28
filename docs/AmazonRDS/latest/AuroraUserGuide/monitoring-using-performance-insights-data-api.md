@@ -15,11 +15,11 @@ and charts.
 
 - For Data API queries that you submit to an Aurora cluster, the **Host** field in the PI
   dashboard is marked as **RDS Data API**. For Aurora PostgreSQL, the
-  **application_name** field has the value `rds-data-api`. Look for these labels
+  **application\_name** field has the value `rds-data-api`. Look for these labels
   when you analyze database load using **Top hosts** or **Top
   Applications** as a dimension.
 - All internal queries that Data API runs to manage database aspects such as the connection pool and query
   timeouts are annotated with a prefix **RDS Data API**. Example: `/* RDS Data API
-*/ select * from my_table;` Looks for these prefixes when you analyze database load by
+ */ select * from my_table;` Looks for these prefixes when you analyze database load by
   **Top SQL** as a dimension. statements are annotated with a SQL comment of `/* RDS
-Data API */`.
+ Data API */`.

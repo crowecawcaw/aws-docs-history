@@ -451,14 +451,14 @@ The following steps can help resolve your replication error:
   the steps described in [Skipping the current replication error](../UserGuide/Appendix.MySQL.CommonDBATasks.SkipError.md "../UserGuide/Appendix.MySQL.CommonDBATasks.SkipError.md"). Your Aurora MySQL DB
   instance must be running a version that includes the
   `mysql_rds_skip_repl_error` procedure. For more information,
-  see [mysql_rds_skip_repl_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md").
+  see [mysql\_rds\_skip\_repl\_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md").
 - If you encounter a binary log (binlog) position issue, you can change the
   replica replay position. You do so with the
   `mysql.rds_next_master_log` command for Aurora MySQL version 1
   and 2. You do so with the `mysql.rds_next_source_log` command for
   Aurora MySQL version 3 and higher. Your Aurora MySQL DB instance must be running
   a version that supports this command to change the replica replay position.
-  For version information, see [mysql_rds_next_master_log](../UserGuide/mysql_rds_next_master_log.md "../UserGuide/mysql_rds_next_master_log.md").
+  For version information, see [mysql\_rds\_next\_master\_log](../UserGuide/mysql_rds_next_master_log.md "../UserGuide/mysql_rds_next_master_log.md").
 - If you encounter a temporary performance issue because of high DML load,
   you can set the `innodb_flush_log_at_trx_commit` parameter to 2
   in the DB parameter group on the read replica. Doing this can help the read
@@ -492,7 +492,7 @@ files are retained on your replication source. After you have increased the binl
 retention time, you can restart replication and call the
 `mysql.rds_skip_repl_error` command as needed.
 
-To set the binlog retention time, use the [mysql_rds_set_configuration](../UserGuide/USER_ReadRepl.Troubleshooting.md "../UserGuide/USER_ReadRepl.Troubleshooting.md") procedure. Specify a configuration
+To set the binlog retention time, use the [mysql\_rds\_set\_configuration](../UserGuide/USER_ReadRepl.Troubleshooting.md "../UserGuide/USER_ReadRepl.Troubleshooting.md") procedure. Specify a configuration
 parameter of 'binlog retention hours' along with the number of hours to retain
 binlog files on the DB cluster, up to 2160 (90 days). The default for Aurora MySQL is
 24 (1 day). The following example sets the retention period for binlog files to 48

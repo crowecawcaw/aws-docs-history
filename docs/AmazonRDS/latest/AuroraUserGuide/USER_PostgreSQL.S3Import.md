@@ -28,7 +28,7 @@ Importing data from Amazon S3 isn't supported for Aurora Serverless v1. It is su
 
 ###### Topics
 
-- [Installing the aws_s3 extension](USER_PostgreSQL.S3Import.InstallExtension.md "USER_PostgreSQL.S3Import.InstallExtension.md")
+- [Installing the aws\_s3 extension](USER_PostgreSQL.S3Import.InstallExtension.md "USER_PostgreSQL.S3Import.InstallExtension.md")
 - [Overview of importing data from Amazon S3 data](USER_PostgreSQL.S3Import.Overview.md "USER_PostgreSQL.S3Import.Overview.md")
 - [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.AccessPermission.md "USER_PostgreSQL.S3Import.AccessPermission.md")
 - [Importing data from Amazon S3 to your Aurora PostgreSQL DB cluster](USER_PostgreSQL.S3Import.FileFormats.md "USER_PostgreSQL.S3Import.FileFormats.md")

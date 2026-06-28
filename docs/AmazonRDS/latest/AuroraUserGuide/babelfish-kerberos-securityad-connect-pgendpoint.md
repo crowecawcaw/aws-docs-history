@@ -8,7 +8,7 @@ format.
 
 PostgreSQL uses case-sensitive comparisons by default for usernames. For Aurora
 PostgreSQL to interpret Kerberos usernames as case-insensitive, you must set the
-krb_caseins_users parameter as true in the custom Babelfish cluster parameter group.
+krb\_caseins\_users parameter as true in the custom Babelfish cluster parameter group.
 This parameter is set to false by default. For more information, see [Configuring your Aurora PostgreSQL DB cluster for case-insensitive user names](postgresql-kerberos-setting-up.md#postgresql-kerberos-setting-up.create-logins.set-case-insentive "postgresql-kerberos-setting-up.md#postgresql-kerberos-setting-up.create-logins.set-case-insentive").
 
 ## Behavior differences between T-SQL and PostgreSQL endpoints when an AD user is part of multiple groups

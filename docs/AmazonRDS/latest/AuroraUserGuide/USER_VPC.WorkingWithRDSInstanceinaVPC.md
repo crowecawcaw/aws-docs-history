@@ -488,18 +488,16 @@ clusters:
 
 - Aurora MySQL versions:
 
-      + 3.02 and higher 3 versions
-      + 2.09.1 and higher 2 versions
-
-  For more information about Aurora MySQL versions, see the [_Release Notes for Aurora MySQL_](../AuroraMySQLReleaseNotes/Welcome.md "../AuroraMySQLReleaseNotes/Welcome.md").
+  - 3.02 and higher 3 versions
+  - 2.09.1 and higher 2 versions
+    For more information about Aurora MySQL versions, see the [_Release Notes for Aurora MySQL_](../AuroraMySQLReleaseNotes/Welcome.md "../AuroraMySQLReleaseNotes/Welcome.md").
 
 - Aurora PostgreSQL versions:
 
-      + 15.2 and all higher versions
-      + 14.3 and higher 14 versions
-      + 13.7 and higher 13 versions
-
-  For more information about Aurora PostgreSQL versions, see the [_Release Notes for Aurora PostgreSQL_](../AuroraPostgreSQLReleaseNotes/Welcome.md "../AuroraPostgreSQLReleaseNotes/Welcome.md").
+  - 15.2 and all higher versions
+  - 14.3 and higher 14 versions
+  - 13.7 and higher 13 versions
+    For more information about Aurora PostgreSQL versions, see the [_Release Notes for Aurora PostgreSQL_](../AuroraPostgreSQLReleaseNotes/Welcome.md "../AuroraPostgreSQLReleaseNotes/Welcome.md").
 
 #### Limitations for dual-stack network DB clusters
 

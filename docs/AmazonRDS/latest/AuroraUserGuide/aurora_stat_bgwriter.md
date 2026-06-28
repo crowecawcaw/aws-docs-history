@@ -1,4 +1,4 @@
-# aurora_stat_bgwriter
+# aurora\_stat\_bgwriter
 
 `aurora_stat_bgwriter` is a statistics view showing information about
 Optimized Reads cache writes.
@@ -27,7 +27,7 @@ You can reset stats for this function using
 - `orcache_blk_write_time` – If
   `track_io_timing` is enabled, it tracks the total time spent
   writing optimized reads cache data file blocks, in milliseconds. For more
-  information, see [track_io_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
+  information, see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
 
 ## Usage notes
 

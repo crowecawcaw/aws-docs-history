@@ -29,15 +29,15 @@ The data loading utility has the following limitations:
 
   - Primary instance
 
-    - Supported modes: snapshot, snapshot_then_cdc
+    - Supported modes: snapshot, snapshot\_then\_cdc
 
   - Replica instance
 
     - Supported mode: snapshot only
 
-      - Requirement: hot_standby_feedback must be enabled
+      - Requirement: hot\_standby\_feedback must be enabled
 
-    - Not supported: snapshot_then_cdc
+    - Not supported: snapshot\_then\_cdc
 
 ## Prerequisites
 
@@ -92,19 +92,20 @@ For example, its security group ID is `sg-056a84f1712b77926`. 4. On the **Inboun
 
 5. On the **Outbound rules** tab:
 
-   1. Choose **Edit outbound rules**.
-   2. Add a new outbound rule for the source DB cluster or instance:
+    1. Choose **Edit outbound rules**.
+    2. Add a new outbound rule for the source DB cluster or instance:
 
-      - Database port – `All traffic` (includes ports `0-65535`)
-      - Security group ID – `sg-056a84f1712b77926` in this example
 
-   ![Add outbound rule for the source database.](images/limitless_self_access_outbound_rule.png)
+
+
+    	* Database port – `All traffic` (includes ports `0-65535`)
+    	* Security group ID – `sg-056a84f1712b77926` in this example
+
+    ![Add outbound rule for the source database.](images/limitless_self_access_outbound_rule.png)
 
 6. Sign in to the AWS Management Console and open the Amazon VPC console at
-   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-7. Navigate to the **Network ACLs** page.
-8. Add the default network ACL configuration as outlined in
-   [Default network ACL](../../../vpc/latest/userguide/vpc-network-acls.md#default-network-acl "../../../vpc/latest/userguide/vpc-network-acls.md#default-network-acl").
+[https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 7. Navigate to the **Network ACLs** page. 8. Add the default network ACL configuration as outlined in
+[Default network ACL](../../../vpc/latest/userguide/vpc-network-acls.md#default-network-acl "../../../vpc/latest/userguide/vpc-network-acls.md#default-network-acl").
 
 ## Preparing the destination database
 

@@ -61,7 +61,7 @@ Policies](https://www.postgresql.org/docs/current/ddl-rowsecurity.html "https://
 documentation.
 
 For information about different versions of the Aurora PostgreSQL query plan
-management feature, see [Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
+management feature, see [Aurora PostgreSQL apg\_plan\_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
 _Release Notes for Aurora PostgreSQL_.
 
 ## Query plan management limitations
@@ -106,12 +106,12 @@ instance class size with more memory. For more information, see [Supported DB en
   `pg_stat_statements` can diverge when:
 
   - Objects are dropped and recreated after storing in
-    apg_plan_mgmt.dba_plans.
+    apg\_plan\_mgmt.dba\_plans.
   - `apg_plan_mgmt.plans` table is imported from another
     cluster.
 
 For information about different versions of the Aurora PostgreSQL query plan
-management feature, see [Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
+management feature, see [Aurora PostgreSQL apg\_plan\_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
 _Release Notes for Aurora PostgreSQL_.
 
 ## Query plan management terminology
@@ -157,7 +157,7 @@ latest release for your version of Aurora PostgreSQL.
 ###### Note
 
 For release notes for each `apg_plan_mgmt` extension versions, see
-[Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
+[Aurora PostgreSQL apg\_plan\_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
 _Release Notes for Aurora PostgreSQL_.
 
 You can identify the version running on your cluster by connecting to an instance
@@ -292,7 +292,7 @@ psql --host=`111122223333`.`aws-region`.rds.amazonaws.com --port=5432 --username
 ALTER EXTENSION apg_plan_mgmt UPDATE TO '2.1';
 ```
 
-3. Use the [apg_plan_mgmt.validate_plans](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.validate_plans "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.validate_plans")
+3. Use the [apg\_plan\_mgmt.validate\_plans](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.validate_plans "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.validate_plans")
    function to update the hashes of all plans. The optimizer validates all
    Approved, Unapproved, and Rejected plans to ensure that they's still
    viable plans for new version of the extension.
@@ -301,9 +301,9 @@ ALTER EXTENSION apg_plan_mgmt UPDATE TO '2.1';
 SELECT apg_plan_mgmt.validate_plans('update_plan_hash');
 ```
 
-To learn more about using this function, see [Validating plans](AuroraPostgreSQL.Optimize.Deleting.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans "AuroraPostgreSQL.Optimize.Deleting.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans"). 4. Use the [apg_plan_mgmt.reload](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.reload "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.reload") function to
+To learn more about using this function, see [Validating plans](AuroraPostgreSQL.Optimize.Deleting.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans "AuroraPostgreSQL.Optimize.Deleting.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans"). 4. Use the [apg\_plan\_mgmt.reload](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.reload "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.reload") function to
 refresh any plans in the shared memory with the validated plans from the
-dba_plans view.
+dba\_plans view.
 
 ```
 SELECT apg_plan_mgmt.reload();

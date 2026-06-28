@@ -5,7 +5,7 @@ unions, subqueries, and so on, Aurora MySQL determines whether to use parallel q
 see [Verifying which statements use parallel query for Aurora MySQL](aurora-mysql-parallel-query-verifying.md "aurora-mysql-parallel-query-verifying.md") and [SQL constructs for parallel query in Aurora MySQL](aurora-mysql-parallel-query-sql.md "aurora-mysql-parallel-query-sql.md").
 
 You can turn on and turn off parallel query dynamically at both the global and session level for a DB instance by using the
-**aurora_parallel_query** option. You can change the `aurora_parallel_query` setting in your
+**aurora\_parallel\_query** option. You can change the `aurora_parallel_query` setting in your
 DB cluster group to turn parallel query on or off by default.
 
 ```
@@ -73,8 +73,8 @@ level by working with parameter groups.
 
 1. Create a custom parameter group, as described in
    [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-2. Update **aurora_parallel_query** to **1** (turned on) or **0** (turned
-   off). For clusters where the parallel query feature is available, **aurora_parallel_query** is
+2. Update **aurora\_parallel\_query** to **1** (turned on) or **0** (turned
+   off). For clusters where the parallel query feature is available, **aurora\_parallel\_query** is
    turned off by default.
 3. If you use a custom cluster parameter group, attach it to the Aurora DB cluster where you plan to use the parallel query
    feature. If you use a custom DB parameter group, attach it to one or more DB instances in the cluster. We recommend

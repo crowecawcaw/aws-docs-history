@@ -52,29 +52,27 @@ implementations:
   ROWVERSION and TIMESTAMP datatypes is mostly semantically identical to SQL
   Server, with the following exceptions:
 
-      + The built-in @@DBTS function behaves similarly to SQL Server, but with
-       small differences. Rather than returning the last-used value for
-       `SELECT @@DBTS`, Babelfish generates a new
-       timestamp, due to the underlying PostgreSQL database engine and its
-       multi-version concurrency control (MVCC) implementation.
-      + In SQL Server, every inserted or updated row gets a unique
-       ROWVERSION/TIMESTAMP value. In Babelfish, every inserted row
-       updated by the same statement is assigned the same ROWVERSION/TIMESTAMP
-       value.
+  - The built-in @@DBTS function behaves similarly to SQL Server, but with
+    small differences. Rather than returning the last-used value for
+    `SELECT @@DBTS`, Babelfish generates a new
+    timestamp, due to the underlying PostgreSQL database engine and its
+    multi-version concurrency control (MVCC) implementation.
+  - In SQL Server, every inserted or updated row gets a unique
+    ROWVERSION/TIMESTAMP value. In Babelfish, every inserted row
+    updated by the same statement is assigned the same ROWVERSION/TIMESTAMP
+    value.
 
-
-      For example, when an UPDATE statement or INSERT-SELECT statement
-       affects multiple rows, in SQL Server, the affected rows all have
-       different values in their ROWVERSION/TIMESTAMP column. In
-       Babelfish (PostgreSQL), the rows have the same value.
-      + In SQL Server, when you create a new table with SELECT-INTO, you can
-       cast an explicit value (such as NULL) to a to-be-created
-       ROWVERSION/TIMESTAMP column. When you do the same thing in
-       Babelfish, an actual ROWVERSION/TIMESTAMP value is assigned to
-       each row in the new table for you, by Babelfish.
-
-  These minor differences in ROWVERSION/TIMESTAMP datatypes shouldn't have
-  an adverse impact on applications running on Babelfish.
+  For example, when an UPDATE statement or INSERT-SELECT statement
+  affects multiple rows, in SQL Server, the affected rows all have
+  different values in their ROWVERSION/TIMESTAMP column. In
+  Babelfish (PostgreSQL), the rows have the same value.
+  - In SQL Server, when you create a new table with SELECT-INTO, you can
+    cast an explicit value (such as NULL) to a to-be-created
+    ROWVERSION/TIMESTAMP column. When you do the same thing in
+    Babelfish, an actual ROWVERSION/TIMESTAMP value is assigned to
+    each row in the new table for you, by Babelfish.
+    These minor differences in ROWVERSION/TIMESTAMP datatypes shouldn't have
+    an adverse impact on applications running on Babelfish.
 
 - TOP N PERCENT clause – Babelfish provides support for the TOP N PERCENT clause with some limitations. SELECT operations are supported while UPDATE, DELETE and INSERT operations with TOP N PERCENT are not supported. The WITH TIES option and subqueries within the TOP clause are also not supported. When the expression value exceeds 100, behavior differs:
 
@@ -83,7 +81,8 @@ implementations:
 
 - Schema creation, ownership, and permissions –
   Permissions to create and access objects in a schema owned by a non-DBO user (using
-  `CREATE SCHEMA `schema name`AUTHORIZATION`user name``) differ for SQL Server and
+  `CREATE SCHEMA `schema name`AUTHORIZATION
+`user name``) differ for SQL Server and
   Babelfish non-DBO users, as shown in the following table:
 
 | Database user (non-DBO) who owns the schema can do the<br>following:      | SQL Server | Babelfish |

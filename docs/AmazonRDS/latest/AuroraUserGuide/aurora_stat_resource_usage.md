@@ -1,4 +1,4 @@
-# aurora_stat_resource_usage
+# aurora\_stat\_resource\_usage
 
 Reports the real-time resource utilization which consists of backend resource metrics and cpu usage for all Aurora PostgreSQL backend processes.
 
@@ -17,9 +17,9 @@ None
 SETOF record with columns:
 
 - pid - Process identifier
-- allocated_memory - Total memory allocated by process in bytes
-- used_memory - Actually used memory by process in bytes
-- cpu_usage_percent - CPU usage percentage of the process
+- allocated\_memory - Total memory allocated by process in bytes
+- used\_memory - Actually used memory by process in bytes
+- cpu\_usage\_percent - CPU usage percentage of the process
 
 ## Usage notes
 

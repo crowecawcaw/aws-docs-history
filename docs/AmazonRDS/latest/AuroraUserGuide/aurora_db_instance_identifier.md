@@ -1,4 +1,4 @@
-# aurora_db_instance_identifier
+# aurora\_db\_instance\_identifier
 
 Reports the name of the DB instance name to which you're connected.
 
@@ -38,7 +38,7 @@ The following example shows results of calling the
 
 You can join the results of this function with the
 `aurora_replica_status` function to obtain details about the DB
-instance for your connection. The [aurora_replica_status](aurora_replica_status.md "aurora_replica_status.md") alone doesn't provide show you
+instance for your connection. The [aurora\_replica\_status](aurora_replica_status.md "aurora_replica_status.md") alone doesn't provide show you
 which DB instance you're using. The following example shows you how.
 
 ```

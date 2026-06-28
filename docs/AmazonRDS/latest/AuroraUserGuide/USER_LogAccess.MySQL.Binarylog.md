@@ -57,7 +57,7 @@ mysqlbinlog ^
 ```
 
 Binary logs must remain available on the DB instance for the mysqlbinlog utility to access
-them. To ensure their availability, use the [mysql.rds_set_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure and specify a period with
+them. To ensure their availability, use the [mysql.rds\_set\_configuration](mysql-stored-proc-configuring.md#mysql_rds_set_configuration "mysql-stored-proc-configuring.md#mysql_rds_set_configuration") stored procedure and specify a period with
 enough time for you to download the logs. If this configuration isn't set, Amazon RDS purges the
 binary logs as soon as possible, leading to gaps in the binary logs that the mysqlbinlog
 utility retrieves.
@@ -68,7 +68,7 @@ The following example sets the retention period to 1 day.
 call mysql.rds_set_configuration('binlog retention hours', 24);
 ```
 
-To display the current setting, use the [mysql.rds_show_configuration](mysql-stored-proc-configuring.md#mysql_rds_show_configuration "mysql-stored-proc-configuring.md#mysql_rds_show_configuration")
+To display the current setting, use the [mysql.rds\_show\_configuration](mysql-stored-proc-configuring.md#mysql_rds_show_configuration "mysql-stored-proc-configuring.md#mysql_rds_show_configuration")
 stored procedure.
 
 ```

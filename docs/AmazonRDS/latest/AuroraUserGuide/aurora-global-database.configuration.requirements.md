@@ -8,12 +8,12 @@ Aurora DB instance. A secondary AWS Region runs a read-only Aurora DB cluster ma
 AWS Region is required, but an Aurora global database can have up to 10 secondary AWS Regions.
 The table lists the maximum Aurora DB clusters, Aurora DB instances, and Aurora Replicas allowed in an Aurora global database.
 
-| Description                                                                 | Primary AWS Region | Secondary AWS Regions                            |
-| --------------------------------------------------------------------------- | ------------------ | ------------------------------------------------ |
-| Aurora DB clusters                                                          | 1                  | 10 (maximum)                                     |
-| Writer instances                                                            | 1                  | 0                                                |
-| Read-only instances (Aurora replicas), per Aurora DB cluster                | 15 (max)           | 16 (total)                                       |
-| Read-only instances (max allowed, given actual number of secondary Regions) | 15<br>• _s_        | \*s<br>• = total number of secondary AWS Regions |
+| Description                                                                 | Primary AWS Region | Secondary AWS Regions                           |
+| --------------------------------------------------------------------------- | ------------------ | ----------------------------------------------- |
+| Aurora DB clusters                                                          | 1                  | 10 (maximum)                                    |
+| Writer instances                                                            | 1                  | 0                                               |
+| Read-only instances (Aurora replicas), per Aurora DB cluster                | 15 (max)           | 16 (total)                                      |
+| Read-only instances (max allowed, given actual number of secondary Regions) | 15<br>• _s_        | *s<br>• = total number of secondary AWS Regions |
 
 The Aurora DB clusters that make up an Aurora global database have the following specific requirements:
 

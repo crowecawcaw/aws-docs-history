@@ -47,8 +47,8 @@ application context as Babelfish.
 Starting with version 4.0.0 and 3.4.0, Babelfish users can now utilize the
 dump and restore utilities to backup and restore their databases. For more
 information, see [Babelfish dump and restore](https://github.com/babelfish-for-postgresql/babelfish-for-postgresql/wiki/Babelfish-Dump-and-Restore "https://github.com/babelfish-for-postgresql/babelfish-for-postgresql/wiki/Babelfish-Dump-and-Restore"). This feature is built on top of PostgreSQL
-dump and restore utilities. For more information, see [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html "https://www.postgresql.org/docs/current/app-pgdump.html")
-and see [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html "https://www.postgresql.org/docs/current/app-pgrestore.html"). In order to effectively use this feature in
+dump and restore utilities. For more information, see [pg\_dump](https://www.postgresql.org/docs/current/app-pgdump.html "https://www.postgresql.org/docs/current/app-pgdump.html")
+and see [pg\_restore](https://www.postgresql.org/docs/current/app-pgrestore.html "https://www.postgresql.org/docs/current/app-pgrestore.html"). In order to effectively use this feature in
 Babelfish, you need to use PostgreSQL-based tools that are specifically
 adapted for Babelfish. The backup and restore feature for Babelfish
 differs significantly from that of SQL Server. For more information on these

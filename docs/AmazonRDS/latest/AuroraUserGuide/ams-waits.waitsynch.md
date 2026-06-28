@@ -1,4 +1,4 @@
-# synch/mutex/innodb/aurora_lock_thread_slot_futex
+# synch/mutex/innodb/aurora\_lock\_thread\_slot\_futex
 
 The `synch/mutex/innodb/aurora_lock_thread_slot_futex`
 event occurs when one session has locked a row for an update, and another session

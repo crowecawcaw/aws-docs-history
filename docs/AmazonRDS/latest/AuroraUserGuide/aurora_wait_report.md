@@ -1,4 +1,4 @@
-# aurora_wait_report
+# aurora\_wait\_report
 
 This function shows wait event activity over a period of time.
 
@@ -18,14 +18,14 @@ The time in seconds. Default is 10 seconds.
 
 SETOF record with the following columns:
 
-- type_name – Wait type name
-- event_name – Wait event name
+- type\_name – Wait type name
+- event\_name – Wait event name
 - wait – Number of waits
-- wait_time – Wait time in milliseconds
-- ms_per_wait – Average milliseconds by the number of an wait
-- waits_per_xact – Average waits by the number of one
+- wait\_time – Wait time in milliseconds
+- ms\_per\_wait – Average milliseconds by the number of an wait
+- waits\_per\_xact – Average waits by the number of one
   transaction
-- ms_per_xact – Average milliseconds by the number of
+- ms\_per\_xact – Average milliseconds by the number of
   transactions
 
 ## Usage notes
@@ -45,7 +45,7 @@ For more information about available Aurora PostgreSQL extension versions, see [
 _Release Notes for Aurora PostgreSQL_.
 
 This function calculates the instance-level wait events by comparing two snapshots
-of statistics data from aurora_stat_system_waits() function and pg_stat_database
+of statistics data from aurora\_stat\_system\_waits() function and pg\_stat\_database
 PostgreSQL Statistics Views.
 
 For more information about `aurora_stat_system_waits()` and
@@ -63,8 +63,8 @@ the instance level and includes all databases on the instance.
 
 ## Examples
 
-This example shows how to create aurora_stat_utils extension to be able to use
-aurora_wait_report function.
+This example shows how to create aurora\_stat\_utils extension to be able to use
+aurora\_wait\_report function.
 
 ```
 `=>` `CREATE extension aurora_stat_utils;``CREATE EXTENSION`

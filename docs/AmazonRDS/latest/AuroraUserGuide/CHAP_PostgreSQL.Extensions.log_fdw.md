@@ -1,4 +1,4 @@
-# Using the log_fdw extension to access the DB log using SQL
+# Using the log\_fdw extension to access the DB log using SQL
 
 Aurora PostgreSQL DB cluster
 supports the `log_fdw` extension, which you can use to access
@@ -32,7 +32,7 @@ to do so, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.m
 The following example assumes that the `log_destination` parameter
 includes `cvslog`.
 
-###### To use the log_fdw extension
+###### To use the log\_fdw extension
 
 1. Install the `log_fdw` extension.
 
@@ -67,7 +67,7 @@ A sample response is as follows.
 (4 rows)
 ```
 
-4. Create a table with a single 'log_entry' column for the selected file.
+4. Create a table with a single 'log\_entry' column for the selected file.
 
 ```
 `postgres=>` `SELECT create_foreign_table_for_log_file('my_postgres_error_log',

@@ -35,7 +35,7 @@ million transactions old.
 ###### Topics
 
 - [Installing autovacuum monitoring and diagnostic tools in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Installation.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Installation.md")
-- [Functions of postgres_get_av_diag() in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions.md")
+- [Functions of postgres\_get\_av\_diag() in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions.md")
 - [Resolving identifiable vacuum blockers in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Identifiableblockers.md")
 - [Resolving unidentifiable vacuum blockers in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Unidentifiable_blockers.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Unidentifiable_blockers.md")
 - [Resolving vacuum performance issues in Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Performance.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Resolving_Performance.md")

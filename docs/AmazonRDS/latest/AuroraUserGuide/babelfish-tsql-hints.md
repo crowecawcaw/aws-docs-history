@@ -2,7 +2,7 @@
 
 Starting with version 2.3.0, Babelfish supports the use of query hints using `pg_hint_plan`. In Aurora PostgreSQL,
 `pg_hint_plan` is installed by default. For more information about the PostgreSQL extension
-`pg_hint_plan`, see [https://github.com/ossc-db/pg_hint_plan](https://github.com/ossc-db/pg_hint_plan "https://github.com/ossc-db/pg_hint_plan"). For details about the version of this extension supported by Aurora PostgreSQL, see [Extension versions for Amazon Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md")
+`pg_hint_plan`, see [https://github.com/ossc-db/pg\_hint\_plan](https://github.com/ossc-db/pg_hint_plan "https://github.com/ossc-db/pg_hint_plan"). For details about the version of this extension supported by Aurora PostgreSQL, see [Extension versions for Amazon Aurora PostgreSQL](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md")
 in _Release Notes for Aurora PostgreSQL_.
 
 The query optimizer is well-designed to find the optimal execution plan for a SQL statement. When selecting a plan, the query optimizer considers both the engine’s cost model, and column and table statistics. However,
@@ -11,7 +11,7 @@ the database engine about how to execute the query. For example, a hint may inst
 
 ## Turning on T-SQL query hints in Babelfish
 
-Currently, Babelfish ignores all T-SQL hints by default. To apply T-SQL hints, run the command `sp_babelfish_configure` with the enable_pg_hint value as ON.
+Currently, Babelfish ignores all T-SQL hints by default. To apply T-SQL hints, run the command `sp_babelfish_configure` with the enable\_pg\_hint value as ON.
 
 ```
 EXECUTE sp_babelfish_configure 'enable_pg_hint', 'on' [, 'server']

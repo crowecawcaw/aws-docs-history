@@ -9,7 +9,7 @@ into a specific table in your database.
 ###### Contents
 
 - [Aurora MySQL version considerations](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.ProcLambda.caveats "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.ProcLambda.caveats")
-- [Working with the mysql.lambda_async procedure to invoke a Lambda function (deprecated)](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async")
+- [Working with the mysql.lambda\_async procedure to invoke a Lambda function (deprecated)](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async")
 
   - [Syntax](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Syntax "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Syntax")
   - [Parameters](AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Parameters "AuroraMySQL.Integrating.ProcLambda.md#AuroraMySQL.Integrating.Lambda.mysql_lambda_async.Parameters")
@@ -25,7 +25,7 @@ recommend that you work with native Lambda functions instead.
 
 In Aurora MySQL version 3, the stored procedure isn't available.
 
-## Working with the mysql.lambda_async procedure to invoke a Lambda function (deprecated)
+## Working with the mysql.lambda\_async procedure to invoke a Lambda function (deprecated)
 
 The `mysql.lambda_async` procedure is a built-in stored procedure that
 invokes a Lambda function asynchronously. To use this procedure, your database user
@@ -49,12 +49,12 @@ CALL mysql.lambda_async (
 The `mysql.lambda_async` procedure has the following
 parameters.
 
-_lambda_function_ARN_
+_lambda\_function\_ARN_
 
 The Amazon Resource Name (ARN) of the Lambda function to
 invoke.
 
-_lambda_function_input_
+_lambda\_function\_input_
 
 The input string, in JSON format, for the invoked Lambda
 function.

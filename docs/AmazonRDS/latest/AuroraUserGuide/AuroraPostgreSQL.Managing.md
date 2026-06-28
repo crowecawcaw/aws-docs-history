@@ -11,7 +11,7 @@ DB cluster. It also includes information about other maintenance tasks.
 - [Huge pages for Aurora PostgreSQL](#AuroraPostgreSQL.Managing.HugePages "#AuroraPostgreSQL.Managing.HugePages")
 - [Testing Amazon Aurora PostgreSQL by using fault injection queries](AuroraPostgreSQL.Managing.FaultInjectionQueries.md "AuroraPostgreSQL.Managing.FaultInjectionQueries.md")
 - [Displaying volume status for an Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Managing.VolumeStatus.md "AuroraPostgreSQL.Managing.VolumeStatus.md")
-- [Specifying the RAM disk for the stats_temp_directory](AuroraPostgreSQL.Managing.RamDisk.md "AuroraPostgreSQL.Managing.RamDisk.md")
+- [Specifying the RAM disk for the stats\_temp\_directory](AuroraPostgreSQL.Managing.RamDisk.md "AuroraPostgreSQL.Managing.RamDisk.md")
 - [Managing temporary files with PostgreSQL](PostgreSQL.ManagingTempFiles.md "PostgreSQL.ManagingTempFiles.md")
 
 ## Scaling Aurora PostgreSQL DB instances
@@ -205,7 +205,7 @@ Aurora serverless.)
 
 For some workloads, you can reduce the amount of temporary storage by allocating more
 memory to the processes that are performing the operation. To increase the memory
-available to an operation, increasing the values of the [work_mem](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM") or [maintenance_work_mem](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM") PostgreSQL parameters.
+available to an operation, increasing the values of the [work\_mem](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM") or [maintenance\_work\_mem](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM "https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM") PostgreSQL parameters.
 
 ## Huge pages for Aurora PostgreSQL
 

@@ -99,8 +99,8 @@ rds-preview.us-east-2.amazonaws.com
 
 ## PostgreSQL version 17 in the Database Preview environment
 
-**_This is preview documentation for Aurora PostgreSQL version 17.
-It is subject to change._**
+_**This is preview documentation for Aurora PostgreSQL version 17.
+It is subject to change.**_
 
 PostgreSQL version 17.0 is now available in the Amazon RDS Database Preview
 environment. PostgreSQL version 17 contains several improvements that are

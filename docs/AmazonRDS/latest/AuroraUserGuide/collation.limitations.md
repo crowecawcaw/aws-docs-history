@@ -31,7 +31,7 @@ collations:
   uppercase first: `ABC`, `ABc`, `AbC`,
   `Abc`, `aBC`, `aBc`, `abC`,
   and finally `abc`. Thus, the `DENSE_RANK OVER (ORDER BY
-column)` analytic function assesses these strings as having the
+ column)` analytic function assesses these strings as having the
   same rank but orders them uppercase first within a partition.
 
 You can get a similar result with Babelfish by adding a `COLLATE` clause

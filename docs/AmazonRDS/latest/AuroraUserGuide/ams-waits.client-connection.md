@@ -1,4 +1,4 @@
-# io/socket/sql/client_connection
+# io/socket/sql/client\_connection
 
 The `io/socket/sql/client_connection` event occurs
 when a thread is in the process of handling a new connection.
@@ -44,7 +44,7 @@ actions depending on the causes of your wait event.
 - [Follow best practices for connection management](#ams-waits.client-connection.actions.manage-connections "#ams-waits.client-connection.actions.manage-connections")
 - [Scale up your instance if resources are being throttled](#ams-waits.client-connection.upgrade "#ams-waits.client-connection.upgrade")
 - [Check the top hosts and top users](#ams-waits.client-connection.top-hosts "#ams-waits.client-connection.top-hosts")
-- [Query the performance_schema tables](#ams-waits.client-connection.perf-schema "#ams-waits.client-connection.perf-schema")
+- [Query the performance\_schema tables](#ams-waits.client-connection.perf-schema "#ams-waits.client-connection.perf-schema")
 - [Check the thread states of your queries](#ams-waits.client-connection.thread-states "#ams-waits.client-connection.thread-states")
 - [Audit your requests and queries](#ams-waits.client-connection.auditing "#ams-waits.client-connection.auditing")
 - [Pool your database connections](#ams-waits.client-connection.pooling "#ams-waits.client-connection.pooling")
@@ -104,7 +104,7 @@ consider turning on Enhanced Monitoring. For more information, see [Monitoring O
 
 Use Performance Insights to check the top hosts and top users. For more information, see [Analyzing metrics with the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.md "USER_PerfInsights.UsingDashboard.md").
 
-### Query the performance_schema tables
+### Query the performance\_schema tables
 
 To get an accurate count of the current and total connections, query the `performance_schema`
 tables. With this technique, you identify the source user or host that is responsible for creating a high

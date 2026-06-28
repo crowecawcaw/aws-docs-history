@@ -1,4 +1,4 @@
-# synch/mutex/innodb/buf_pool_mutex
+# synch/mutex/innodb/buf\_pool\_mutex
 
 The `synch/mutex/innodb/buf_pool_mutex` event occurs when a thread has
 acquired a lock on the InnoDB buffer pool to access a page in memory.
@@ -92,7 +92,7 @@ Check whether the buffer pool size is sufficient for the workload by looking at 
 `innodb_buffer_pool_wait_free`. If the value of this metric is high and increasing continuously, that
 indicates that the size of the buffer pool isn't sufficient to handle the workload. If
 `innodb_buffer_pool_size` has been set properly, the value of `innodb_buffer_pool_wait_free`
-should be small. For more information, see [Innodb_buffer_pool_wait_free](https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free") in the MySQL documentation.
+should be small. For more information, see [Innodb\_buffer\_pool\_wait\_free](https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Innodb_buffer_pool_wait_free") in the MySQL documentation.
 
 Increase the buffer pool size if the DB instance has enough memory for session
 buffers and operating-system tasks. If it doesn't, change the DB instance to a

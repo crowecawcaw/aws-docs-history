@@ -244,10 +244,15 @@ now** option. 4. 1. If you choose **Schedule**,
 you are prompted to confirm the CA certificate
 rotation. This prompt also states the scheduled
 window for your update.
-![Confirm certificate rotation.](images/ssl-rotate-cert-confirm-schedule.png) 2. If you choose **Apply now**,
-you are prompted to confirm the CA certificate
-rotation.
-![Confirm certificate rotation.](images/ssl-rotate-cert-confirm-now.png)###### Important
+
+    ![Confirm certificate rotation.](images/ssl-rotate-cert-confirm-schedule.png)
+    2. If you choose **Apply now**,
+     you are prompted to confirm the CA certificate
+     rotation.
+
+
+
+    ![Confirm certificate rotation.](images/ssl-rotate-cert-confirm-now.png)###### Important
 
 Before scheduling the CA certificate rotation on
 your database, update any client applications that

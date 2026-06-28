@@ -43,7 +43,7 @@ In order to re-index the Full Text Index, you need to drop the Full Text Index a
 
   While Babelfish now identifies special characters in search string, it's essential to recognize that the results obtained may vary compared to those obtained with T-SQL.
 
-- Table alias in column_name:
+- Table alias in column\_name:
 
   - With table alias support, users can create more concise and readable SQL queries for Full-Text Search.
 

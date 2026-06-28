@@ -3,7 +3,7 @@
 ###### Topics
 
 - [Password policies](#AuroraMySQL.PasswordPolicies.overview "#AuroraMySQL.PasswordPolicies.overview")
-- [Using the validate_password component](#AuroraMySQL.PasswordPolicies.validate-password "#AuroraMySQL.PasswordPolicies.validate-password")
+- [Using the validate\_password component](#AuroraMySQL.PasswordPolicies.validate-password "#AuroraMySQL.PasswordPolicies.validate-password")
 - [Related documentation](#AuroraMySQL.PasswordPolicies.related "#AuroraMySQL.PasswordPolicies.related")
 
 ## Password policies
@@ -12,49 +12,49 @@ Aurora MySQL supports the following MySQL password policy features. For more inf
 
 ### Password expiration
 
-| Password expiration parameters                          | Parameter/Clause                                                            | Notes |
-| ------------------------------------------------------- | --------------------------------------------------------------------------- | ----- |
-| Cluster parameter `default_password_lifetime`           | Available in Aurora MySQL version 3 (compatible with MySQL 8.0) and higher. |
-| Per account DCL clause `PASSWORD EXPIRE INTERVAL N DAY` | None                                                                        |
-| Per account DCL clause `PASSWORD EXPIRE NEVER`          | None                                                                        |
-| Per account DCL clause `PASSWORD EXPIRE DEFAULT`        | None                                                                        |
-| Cluster parameter `disconnect_on_expired_password`      | Available in Aurora MySQL version 8.4 and higher.                           |
+Password expiration parameters| Parameter/Clause | Notes |
+| --- | --- |
+| Cluster parameter `default_password_lifetime` | Available in Aurora MySQL version 3 (compatible with MySQL 8.0) and higher. |
+| Per account DCL clause `PASSWORD EXPIRE INTERVAL N DAY` | None |
+| Per account DCL clause `PASSWORD EXPIRE NEVER` | None |
+| Per account DCL clause `PASSWORD EXPIRE DEFAULT` | None |
+| Cluster parameter `disconnect_on_expired_password` | Available in Aurora MySQL version 8.4 and higher. |
 
 ### Password reuse restrictions
 
-| Password reuse restriction parameters                  | Parameter/Clause                                  | Notes |
-| ------------------------------------------------------ | ------------------------------------------------- | ----- |
-| Cluster parameter `password_history`                   | Available in Aurora MySQL version 8.4 and higher. |
-| Cluster parameter `password_reuse_interval`            | Available in Aurora MySQL version 8.4 and higher. |
-| Per account DCL clause `PASSWORD HISTORY N`            | None                                              |
-| Per account DCL clause `PASSWORD REUSE INTERVAL N DAY` | None                                              |
-| Per account DCL clause `PASSWORD HISTORY DEFAULT`      | None                                              |
+Password reuse restriction parameters| Parameter/Clause | Notes |
+| --- | --- |
+| Cluster parameter `password_history` | Available in Aurora MySQL version 8.4 and higher. |
+| Cluster parameter `password_reuse_interval` | Available in Aurora MySQL version 8.4 and higher. |
+| Per account DCL clause `PASSWORD HISTORY N` | None |
+| Per account DCL clause `PASSWORD REUSE INTERVAL N DAY` | None |
+| Per account DCL clause `PASSWORD HISTORY DEFAULT` | None |
 
 ### Current password verification
 
-| Current password verification parameters                   | Parameter/Clause                                  | Notes |
-| ---------------------------------------------------------- | ------------------------------------------------- | ----- |
-| Parameter `password_require_current`                       | Available in Aurora MySQL version 8.4 and higher. |
-| Per account DCL clause `PASSWORD REQUIRE CURRENT`          | None                                              |
-| Per account DCL clause `PASSWORD REQUIRE CURRENT OPTIONAL` | None                                              |
-| Per account DCL clause `PASSWORD REQUIRE CURRENT DEFAULT`  | None                                              |
+Current password verification parameters| Parameter/Clause | Notes |
+| --- | --- |
+| Parameter `password_require_current` | Available in Aurora MySQL version 8.4 and higher. |
+| Per account DCL clause `PASSWORD REQUIRE CURRENT` | None |
+| Per account DCL clause `PASSWORD REQUIRE CURRENT OPTIONAL` | None |
+| Per account DCL clause `PASSWORD REQUIRE CURRENT DEFAULT` | None |
 
 ### Dual password support
 
-| Dual password support clauses                    | Parameter/Clause | Notes |
-| ------------------------------------------------ | ---------------- | ----- |
-| Per account DCL clause `RETAIN CURRENT PASSWORD` | None             |
-| Per account DCL clause `DISCARD OLD PASSWORD`    | None             |
+Dual password support clauses| Parameter/Clause | Notes |
+| --- | --- |
+| Per account DCL clause `RETAIN CURRENT PASSWORD` | None |
+| Per account DCL clause `DISCARD OLD PASSWORD` | None |
 
 ### Failed-login tracking and temporary account locking
 
-| Failed-login tracking clauses                         | Parameter/Clause | Notes |
-| ----------------------------------------------------- | ---------------- | ----- |
-| Per account DCL clause `FAILED_LOGIN_ATTEMPTS N`      | None             |
-| Per account DCL clause `PASSWORD_LOCK_TIME N`         | None             |
-| Per account DCL clause `PASSWORD_LOCK_TIME UNBOUNDED` | None             |
+Failed-login tracking clauses| Parameter/Clause | Notes |
+| --- | --- |
+| Per account DCL clause `FAILED_LOGIN_ATTEMPTS N` | None |
+| Per account DCL clause `PASSWORD_LOCK_TIME N` | None |
+| Per account DCL clause `PASSWORD_LOCK_TIME UNBOUNDED` | None |
 
-## Using the validate_password component
+## Using the validate\_password component
 
 The `validate_password` component is a MySQL server component that provides password strength
 validation and enforcement capabilities. It tests passwords against configurable rules to ensure they meet
@@ -72,7 +72,7 @@ Aurora MySQL version 8.4 provides a parameter-based approach to enable and manag
 `validate_password` component, eliminating the need for manual `INSTALL COMPONENT`
 and `UNINSTALL COMPONENT` commands.
 
-### Enabling the validate_password component
+### Enabling the validate\_password component
 
 To enable password validation in your Aurora MySQL cluster, use the cluster parameter:
 
@@ -100,20 +100,20 @@ cluster parameter group or through the global variable
 SELECT @@global.aurora_enable_validate_password_component;
 ```
 
-### Supported validate_password component parameters
+### Supported validate\_password component parameters
 
-| validate_password component parameters | Parameter name                                                                              | Notes |
-| -------------------------------------- | ------------------------------------------------------------------------------------------- | ----- |
-| `validate_password.check_user_name`    | Available in Aurora MySQL version 8.4 and higher.                                           |
-| `validate_password.length`             | Available in Aurora MySQL version 8.4 and higher.                                           |
-| `validate_password.mixed_case_count`   | Available in Aurora MySQL version 8.4 and higher.                                           |
-| `validate_password.number_count`       | Available in Aurora MySQL version 8.4 and higher.                                           |
-| `validate_password.policy`             | Available in Aurora MySQL version 8.4 and higher. Only LOW and MEDIUM levels are supported. |
-| `validate_password.special_char_count` | Available in Aurora MySQL version 8.4 and higher.                                           |
+validate\_password component parameters| Parameter name | Notes |
+| --- | --- |
+| `validate_password.check_user_name` | Available in Aurora MySQL version 8.4 and higher. |
+| `validate_password.length` | Available in Aurora MySQL version 8.4 and higher. |
+| `validate_password.mixed_case_count` | Available in Aurora MySQL version 8.4 and higher. |
+| `validate_password.number_count` | Available in Aurora MySQL version 8.4 and higher. |
+| `validate_password.policy` | Available in Aurora MySQL version 8.4 and higher. Only LOW and MEDIUM levels are supported. |
+| `validate_password.special_char_count` | Available in Aurora MySQL version 8.4 and higher. |
 
-For more information on MySQL validate_password parameters, see [MySQL Password Validation Options and Variables documentation](https://dev.mysql.com/doc/refman/8.4/en/validate-password-options-variables.html "https://dev.mysql.com/doc/refman/8.4/en/validate-password-options-variables.html").
+For more information on MySQL validate\_password parameters, see [MySQL Password Validation Options and Variables documentation](https://dev.mysql.com/doc/refman/8.4/en/validate-password-options-variables.html "https://dev.mysql.com/doc/refman/8.4/en/validate-password-options-variables.html").
 
-### validate_password plugin and component migration from RDS for MySQL or Aurora MySQL version 3 to Aurora MySQL version 8.4
+### validate\_password plugin and component migration from RDS for MySQL or Aurora MySQL version 3 to Aurora MySQL version 8.4
 
 Starting from Aurora MySQL version 8.4, if you had previously installed the
 `validate_password` plugin through the `INSTALL PLUGIN` command, you can migrate
@@ -189,5 +189,5 @@ password together.
 
 - [Aurora MySQL configuration parameters](AuroraMySQL.Reference.ParameterGroups.md "AuroraMySQL.Reference.ParameterGroups.md")
 - [Security with Amazon Aurora MySQL](AuroraMySQL.Security.md "AuroraMySQL.Security.md")
-- [MySQL validate_password Component Documentation](https://dev.mysql.com/doc/refman/8.4/en/validate-password.html "https://dev.mysql.com/doc/refman/8.4/en/validate-password.html")
+- [MySQL validate\_password Component Documentation](https://dev.mysql.com/doc/refman/8.4/en/validate-password.html "https://dev.mysql.com/doc/refman/8.4/en/validate-password.html")
 - [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md")

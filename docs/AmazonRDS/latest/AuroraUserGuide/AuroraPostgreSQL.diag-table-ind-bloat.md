@@ -98,9 +98,9 @@ steps:
    which is a program for running benchmark tests on PostgreSQL. For more
    information, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html "https://www.postgresql.org/docs/current/pgbench.html").
 
-After running your applications and viewing the result, use pg_repack or VACUUM FULL
+After running your applications and viewing the result, use pg\_repack or VACUUM FULL
 on the restored copy and compare the differences. If you see a significant drop in the
-dead_tuple_count, dead_tuple_len, or dead_tuple_percent, then adjust the vacuum schedule
+dead\_tuple\_count, dead\_tuple\_len, or dead\_tuple\_percent, then adjust the vacuum schedule
 on your production cluster to minimize the bloat.
 
 ## Avoiding bloat in temporary tables
@@ -109,10 +109,10 @@ If your application creates temporary tables, make sure that your application re
 those temporary tables when they’re no longer needed. Autovacuum processes don’t locate
 temporary tables. Left unchecked, temporary tables can quickly create database bloat.
 Moreover, the bloat can extend into the system tables, which are the internal tables
-that track PostgreSQL objects and attributes, like pg_attribute and pg_depend.
+that track PostgreSQL objects and attributes, like pg\_attribute and pg\_depend.
 
-When a temporary table is no longer needed, you can use a TRUNCATE statement to empty the table and free up the space. Then, manually vacuum the pg_attribute and
-pg_depend tables. Vacuuming these tables ensures that creating and truncating/deleting temporary tables continually isn't adding tuples and contributing to system bloat.
+When a temporary table is no longer needed, you can use a TRUNCATE statement to empty the table and free up the space. Then, manually vacuum the pg\_attribute and
+pg\_depend tables. Vacuuming these tables ensures that creating and truncating/deleting temporary tables continually isn't adding tuples and contributing to system bloat.
 
 You can avoid this problem while creating a temporary table by including the following
 syntax that deletes the new rows when content is committed:
@@ -129,14 +129,14 @@ When you change an indexed field in a table, the index update results in one or 
 dead tuples in that index. By default, the autovacuum process cleans up bloat in
 indexes, but that cleanup uses a significant amount of time and resources.
 To specify index cleanup preferences when you create a table, include the
-vacuum_index_cleanup clause. By default, at table creation time, the clause is set to
+vacuum\_index\_cleanup clause. By default, at table creation time, the clause is set to
 AUTO, which means that the server decides if your index requires cleanup when it vacuums
 the table. You can set the clause to ON to turn on index cleanup for a specific table,
 or OFF to turn off index cleanup for that table. Remember, turning off index cleanup
 might save time, but can potentially lead to a bloated index.
 
 You can manually control index cleanup when you VACUUM a table at the command line. To
-vacuum a table and remove dead tuples from the indexes, include the INDEX_CLEANUP clause
+vacuum a table and remove dead tuples from the indexes, include the INDEX\_CLEANUP clause
 with a value of ON and the table name:
 
 ```

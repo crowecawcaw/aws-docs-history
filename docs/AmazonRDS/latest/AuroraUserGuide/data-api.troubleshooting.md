@@ -5,17 +5,17 @@ problems that you have with the Amazon RDS Data API (Data API).
 
 ###### Topics
 
-- [Transaction <transaction_ID> isn't found](#data-api.troubleshooting.tran-id-not-found "#data-api.troubleshooting.tran-id-not-found")
+- [Transaction <transaction\_ID> isn't found](#data-api.troubleshooting.tran-id-not-found "#data-api.troubleshooting.tran-id-not-found")
 - [Packet for query is too large](#data-api.troubleshooting.packet-too-large "#data-api.troubleshooting.packet-too-large")
 - [Database response exceeded size limit](#data-api.troubleshooting.response-size-too-large "#data-api.troubleshooting.response-size-too-large")
-- [HttpEndpoint isn't enabled for cluster <cluster_ID>](#data-api.troubleshooting.http-endpoint-not-enabled "#data-api.troubleshooting.http-endpoint-not-enabled")
+- [HttpEndpoint isn't enabled for cluster <cluster\_ID>](#data-api.troubleshooting.http-endpoint-not-enabled "#data-api.troubleshooting.http-endpoint-not-enabled")
 - [DatabaseErrorException: Transaction is still running a query](#data-api.troubleshooting.txn-concurrent-requests-rejected "#data-api.troubleshooting.txn-concurrent-requests-rejected")
 - [Unsupported result exception](#data-api.troubleshooting.unsupported-result "#data-api.troubleshooting.unsupported-result")
 - [Multi-statements aren't supported](#data-api.troubleshooting.multi-statements "#data-api.troubleshooting.multi-statements")
 - [Schema parameter isn't supported](#data-api.troubleshooting.schema-parameter "#data-api.troubleshooting.schema-parameter")
 - [IPv6 connectivity issues](#data-api.troubleshooting.ipv6-connectivity "#data-api.troubleshooting.ipv6-connectivity")
 
-## Transaction <transaction_ID> isn't found
+## Transaction <transaction\_ID> isn't found
 
 In this case, the transaction ID specified in a Data API call wasn't found. The cause for this issue is appended
 to the error message, and is one of the following:
@@ -58,7 +58,7 @@ For more information about the `LIMIT` clause, see
 [SELECT syntax](https://dev.mysql.com/doc/refman/8.0/en/select.html "https://dev.mysql.com/doc/refman/8.0/en/select.html")
 in the MySQL documentation.
 
-## HttpEndpoint isn't enabled for cluster <cluster_ID>
+## HttpEndpoint isn't enabled for cluster <cluster\_ID>
 
 Check the following potential causes for this issue:
 

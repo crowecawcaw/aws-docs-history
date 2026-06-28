@@ -79,10 +79,9 @@ chosen S3 bucket, or create a new role.
      in **IAM role name**.
 
 10. For **AWS KMS key**, enter the ARN for the key to use for encrypting the
-    exported data.
-11. Choose **Export to Amazon S3**.
-    To export a DB snapshot to Amazon S3 using the AWS CLI, use the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command with the following required
-    options:
+exported data. 11. Choose **Export to Amazon S3**.
+To export a DB snapshot to Amazon S3 using the AWS CLI, use the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command with the following required
+options:
 
 - `--export-task-identifier`
 - `--source-arn`

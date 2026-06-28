@@ -48,11 +48,11 @@ your SQL Server instance convert only the server-side SQL code. We recommend tha
 you take the following steps:
 
 - Capture client-side queries by using the SQL Server Profiler with the
-  TSQL_Replay predefined template. This template captures T-SQL statement
+  TSQL\_Replay predefined template. This template captures T-SQL statement
   information that you can then replay for iterative tuning and testing. You
   can start the profiler within SQL Server Management Studio from the
   **Tools** menu. Choose **SQL Server
-  Profiler** to open the profiler and choose the TSQL_Replay
+  Profiler** to open the profiler and choose the TSQL\_Replay
   template.
 
 To use for your Babelfish migration, start a trace and then run
@@ -62,7 +62,7 @@ to an XML file with your client-side queries (File > Save as > Trace
 XML File for Replay).
 
 For more information, see [SQL Server Profiler](https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver16 "https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver16") in the Microsoft documentation. For more
-information about the TSQL_Replay template, see [SQL Server Profiler Templates](https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler-templates?view=sql-server-ver16 "https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler-templates?view=sql-server-ver16").
+information about the TSQL\_Replay template, see [SQL Server Profiler Templates](https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler-templates?view=sql-server-ver16 "https://docs.microsoft.com/en-us/sql/tools/sql-server-profiler/sql-server-profiler-templates?view=sql-server-ver16").
 
 - For applications with complex client-side SQL queries, we recommend that
   you use Babelfish Compass to analyze these queries for

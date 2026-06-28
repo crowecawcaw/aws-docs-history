@@ -18,7 +18,7 @@ You can use the following parameters and functions to manage the temporary files
 instance.
 
 - [`temp_file_limit`](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-DISK "https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-DISK") – This parameter
-  cancels any query exceeding the size of temp_files in KB. This limit prevents any
+  cancels any query exceeding the size of temp\_files in KB. This limit prevents any
   query from running endlessly and consuming disk space with temporary files. You can
   estimate the value using the results from the `log_temp_files` parameter.
   As a best practice, examine the workload behavior and set the limit according to the
@@ -103,8 +103,8 @@ sum of the temporary files for each PID.
 ```
 
 - `pg_stat_statements` – If you activate the
-  pg_stat_statements parameter, then you can view the average temporary file usage per
-  call. You can identify the query_id of the query and use it to examine the temporary
+  pg\_stat\_statements parameter, then you can view the average temporary file usage per
+  call. You can identify the query\_id of the query and use it to examine the temporary
   file usage as shown in the following example.
 
 ```
@@ -132,9 +132,9 @@ sum of the temporary files for each PID.
 ```
 
 - `Performance
-Insights` – In the Performance Insights
+ Insights` – In the Performance Insights
   dashboard, you can view temporary file usage by turning on the metrics
-  **temp_bytes** and **temp_files**. Then, you
+  **temp\_bytes** and **temp\_files**. Then, you
   can see the average of both of these metrics and see how they correspond to the
   query workload. The view within Performance Insights doesn't show specifically
   the queries that are generating the temporary files. However, when you combine

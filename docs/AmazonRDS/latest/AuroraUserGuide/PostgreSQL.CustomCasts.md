@@ -6,16 +6,16 @@ A cast specifies how to perform a conversion from one data type to another. For 
 
 For comprehensive information about PostgreSQL casting concepts and syntax, refer to the [PostgreSQL CREATE CAST Documentation](https://www.postgresql.org/docs/current/sql-createcast.html "https://www.postgresql.org/docs/current/sql-createcast.html").
 
-Starting with Aurora PostgreSQL versions 13.23, 14.20, 15.15, 16.11, 17.7, and 18.1, you can use the rds_casts extension to install additional casts for built-in types, while still being able to create your own casts for custom types.
+Starting with Aurora PostgreSQL versions 13.23, 14.20, 15.15, 16.11, 17.7, and 18.1, you can use the rds\_casts extension to install additional casts for built-in types, while still being able to create your own casts for custom types.
 
 ###### Topics
 
-- [Installing and using the rds_casts extension](#PostgreSQL.CustomCasts.Installing "#PostgreSQL.CustomCasts.Installing")
+- [Installing and using the rds\_casts extension](#PostgreSQL.CustomCasts.Installing "#PostgreSQL.CustomCasts.Installing")
 - [Supported casts](#PostgreSQL.CustomCasts.Supported "#PostgreSQL.CustomCasts.Supported")
 - [Creating or dropping casts](#PostgreSQL.CustomCasts.Creating "#PostgreSQL.CustomCasts.Creating")
 - [Creating custom casts with proper context strategy](#PostgreSQL.CustomCasts.BestPractices "#PostgreSQL.CustomCasts.BestPractices")
 
-## Installing and using the rds_casts extension
+## Installing and using the rds\_casts extension
 
 To create the `rds_casts` extension, connect to the writer instance of your Aurora PostgreSQL DB cluster as an `rds_superuser` and run the following command:
 
@@ -46,7 +46,7 @@ WHERE source_type = 'text' AND target_type = 'numeric';
  23 | text        | numeric     | rds_casts.rds_text_to_numeric_inout  | explicit
 ```
 
-The rds_casts extension provides two types of conversion functions for each cast:
+The rds\_casts extension provides two types of conversion functions for each cast:
 
 - _\_inout functions_ - Use PostgreSQL's standard I/O conversion mechanism, behaving identically to casts created with the INOUT method
 - _\_custom functions_ - Provide enhanced conversion logic that handles edge cases, such as converting empty strings to NULL values to avoid conversion errors
@@ -67,7 +67,7 @@ WITH FUNCTION rds_casts.rds_text_to_numeric_custom
 AS IMPLICIT;
 ```
 
-**Method 2: Using the rds_casts.create_cast function**
+**Method 2: Using the rds\_casts.create\_cast function**
 
 ```
 SELECT rds_casts.create_cast(10);
@@ -75,7 +75,7 @@ SELECT rds_casts.create_cast(10);
 
 The `create_cast` function takes the ID from the `list_supported_casts()` output. This method is simpler and ensures you're using the correct function and context combination. This id is guaranteed to remain the same across different postgres versions.
 
-To verify the cast was created successfully, query the pg_cast system catalog:
+To verify the cast was created successfully, query the pg\_cast system catalog:
 
 ```
 SELECT oid, castsource::regtype, casttarget::regtype, castfunc::regproc, castcontext, castmethod
@@ -96,7 +96,7 @@ The `castcontext` column shows: `e` for EXPLICIT, `a` for ASSIGNMENT, or `i` for
 DROP CAST IF EXISTS (text AS numeric);
 ```
 
-**Method 2: Using the rds_casts.drop_cast function**
+**Method 2: Using the rds\_casts.drop\_cast function**
 
 ```
 SELECT rds_casts.drop_cast(10);

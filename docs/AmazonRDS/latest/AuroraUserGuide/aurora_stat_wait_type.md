@@ -1,4 +1,4 @@
-# aurora_stat_wait_type
+# aurora\_stat\_wait\_type
 
 Lists all supported wait types for Aurora PostgreSQL.
 
@@ -16,8 +16,8 @@ None
 
 SETOF record with the following columns:
 
-- type_id – The ID of the type of wait event.
-- type_name – Wait type name.
+- type\_id – The ID of the type of wait event.
+- type\_name – Wait type name.
 
 ## Usage notes
 

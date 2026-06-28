@@ -1,4 +1,4 @@
-# Understanding the rds_superuser role
+# Understanding the rds\_superuser role
 
 In PostgreSQL, a _role_ can define a user, a group, or a set of
 specific permissions granted to a group or user for various objects in the database.
@@ -69,7 +69,7 @@ Predefined roles and their
 privileges can't be changed. You can't drop, rename, or modify privileges for these
 predefined roles. Attempting to do so results in an error.
 
-- rds_password – A role that can change passwords
+- rds\_password – A role that can change passwords
   and set up password constraints for database users. The `rds_superuser` role is
   granted with this role by default, and can grant the role to database users. For more
   information, see [Controlling user access to the PostgreSQL database](Appendix.PostgreSQL.CommonDBATasks.Access.md "Appendix.PostgreSQL.CommonDBATasks.Access.md").

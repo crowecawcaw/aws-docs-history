@@ -29,7 +29,7 @@ new minor release of Aurora PostgreSQL.
 To get complete version details, including the `patch`
 level, you can query the Aurora PostgreSQL DB cluster using the
 `aurora_version` Aurora PostgreSQL function. For more information, see
-[aurora_version](aurora_version.md "aurora_version.md") in the [Aurora PostgreSQL functions reference](Appendix.AuroraPostgreSQL.Functions.md "Appendix.AuroraPostgreSQL.Functions.md"). You can find an example
+[aurora\_version](aurora_version.md "aurora_version.md") in the [Aurora PostgreSQL functions reference](Appendix.AuroraPostgreSQL.Functions.md "Appendix.AuroraPostgreSQL.Functions.md"). You can find an example
 of using the function in the [To use the PostgreSQL port to query for version information](babelfish-information-identify-version.md#apg-version-info-psql "babelfish-information-identify-version.md#apg-version-info-psql") procedure in [Identifying your version of Babelfish](babelfish-information-identify-version.md "babelfish-information-identify-version.md").
 
 The following table shows Aurora PostgreSQL and Babelfish version and the

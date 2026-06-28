@@ -26,8 +26,8 @@ You can monitor query peak memory usage in your DB instance to detect queries co
 
 With `aurora_compute_plan_id`, you can access the execution plans using the following functions:
 
-- aurora_stat_activity
-- aurora_stat_plans
+- aurora\_stat\_activity
+- aurora\_stat\_plans
 
 The query peak memory does not include memory that is allocated before query processing starts. Peak memory usage is tracked and reported separately for the planning
 and execution phases of each query.
@@ -36,8 +36,8 @@ and execution phases of each query.
 
 You can access the query peak memory statistics using the following functions:
 
-- aurora_stat_statements
-- aurora_stat_plans
+- aurora\_stat\_statements
+- aurora\_stat\_plans
 
 For more information on these functions, see [Aurora PostgreSQL functions reference](Appendix.AuroraPostgreSQL.Functions.md "Appendix.AuroraPostgreSQL.Functions.md").
 
@@ -47,21 +47,21 @@ You can monitor the query execution plans using the below parameters in a DB par
 
 ###### Parameters
 
-- [aurora_compute_plan_id](#aurora.compute_plan_id "#aurora.compute_plan_id")
-- [aurora_stat_plans.minutes_until_recapture](#aurora.minutes_until_recapture "#aurora.minutes_until_recapture")
-- [aurora_stat_plans.calls_until_recapture](#aurora.calls_until_recapture "#aurora.calls_until_recapture")
-- [aurora_stat_plans.with_costs](#aurora.with_costs "#aurora.with_costs")
-- [aurora_stat_plans.with_analyze](#aurora.with_analyze "#aurora.with_analyze")
-- [aurora_stat_plans.with_timing](#aurora.with_timing "#aurora.with_timing")
-- [aurora_stat_plans.with_buffers](#aurora.with_buffers "#aurora.with_buffers")
-- [aurora_stat_plans.with_wal](#aurora.with_wal "#aurora.with_wal")
-- [aurora_stat_plans.with_triggers](#aurora.with_triggers "#aurora.with_triggers")
+- [aurora\_compute\_plan\_id](#aurora.compute_plan_id "#aurora.compute_plan_id")
+- [aurora\_stat\_plans.minutes\_until\_recapture](#aurora.minutes_until_recapture "#aurora.minutes_until_recapture")
+- [aurora\_stat\_plans.calls\_until\_recapture](#aurora.calls_until_recapture "#aurora.calls_until_recapture")
+- [aurora\_stat\_plans.with\_costs](#aurora.with_costs "#aurora.with_costs")
+- [aurora\_stat\_plans.with\_analyze](#aurora.with_analyze "#aurora.with_analyze")
+- [aurora\_stat\_plans.with\_timing](#aurora.with_timing "#aurora.with_timing")
+- [aurora\_stat\_plans.with\_buffers](#aurora.with_buffers "#aurora.with_buffers")
+- [aurora\_stat\_plans.with\_wal](#aurora.with_wal "#aurora.with_wal")
+- [aurora\_stat\_plans.with\_triggers](#aurora.with_triggers "#aurora.with_triggers")
 
 ###### Note
 
 The configuration for `aurora_stat_plans.with_*` parameters takes effect only for newly captured plans.
 
-### aurora_compute_plan_id
+### aurora\_compute\_plan\_id
 
 The `aurora_compute_plan_id` is a configuration parameter that controls whether a plan identifier is assigned during query execution.
 
@@ -70,7 +70,7 @@ The `aurora_compute_plan_id` is a configuration parameter that controls whether 
 | off     | 0(off)                                   | Set to `off` to prevent a plan identifier from being assigned. |
 | 1(on)   | Set to `on` to assign a plan identifier. |
 
-### aurora_stat_plans.minutes_until_recapture
+### aurora\_stat\_plans.minutes\_until\_recapture
 
 The number of minutes to pass before a plan is recaptured. Default is 0 which will disable recapturing
 a plan. When the `aurora_stat_plans.calls_until_recapture`
@@ -80,7 +80,7 @@ threshold is passed, the plan will be recaptured.
 | ------- | -------------- | -------------------------------------------------------------- |
 | 0       | 0-1073741823   | Set the number of minutes to pass before a plan is recaptured. |
 
-### aurora_stat_plans.calls_until_recapture
+### aurora\_stat\_plans.calls\_until\_recapture
 
 The number of calls to a plan before it is recaptured. Default is 0 which will disable recapturing
 a plan after a number of calls. When the `aurora_stat_plans.minutes_until_recapture`
@@ -90,7 +90,7 @@ threshold is passed, the plan will be recaptured.
 | ------- | -------------- | ---------------------------------------------------- |
 | 0       | 0-1073741823   | Set the number of calls before a plan is recaptured. |
 
-### aurora_stat_plans.with_costs
+### aurora\_stat\_plans.with\_costs
 
 Captures an EXPLAIN plan with estimated costs. The allowed values are `on` and `off`. The default is `on`.
 
@@ -99,7 +99,7 @@ Captures an EXPLAIN plan with estimated costs. The allowed values are `on` and `
 | on      | 0(off)                                            | Doesn't show estimated cost and rows for each plan node. |
 | 1(on)   | Shows estimated cost and rows for each plan node. |
 
-### aurora_stat_plans.with_analyze
+### aurora\_stat\_plans.with\_analyze
 
 Controls the EXPLAIN plan with ANALYZE. This mode is only used the first time a plan is captured. The allowed values are `on` and `off`. The default is `off`.
 
@@ -108,7 +108,7 @@ Controls the EXPLAIN plan with ANALYZE. This mode is only used the first time a 
 | off     | 0(off)                                            | Doesn't include actual run time statistics for the plan. |
 | 1(on)   | Includes actual run time statistics for the plan. |
 
-### aurora_stat_plans.with_timing
+### aurora\_stat\_plans.with\_timing
 
 Plan timing will be captured in the explain when ANALYZE is used. The default is `on`.
 
@@ -117,7 +117,7 @@ Plan timing will be captured in the explain when ANALYZE is used. The default is
 | on      | 0(off)                                                          | Doesn't include actual start up time and time spent in each plan node. |
 | 1(on)   | Includes actual start up time and time spent in each plan node. |
 
-### aurora_stat_plans.with_buffers
+### aurora\_stat\_plans.with\_buffers
 
 Plan buffer usage statistics will be captured in the explain when ANALYZE is used. The default is `off`.
 
@@ -126,7 +126,7 @@ Plan buffer usage statistics will be captured in the explain when ANALYZE is use
 | off     | 0(off)                                | Doesn't include information on buffer usage. |
 | 1(on)   | Includes information on buffer usage. |
 
-### aurora_stat_plans.with_wal
+### aurora\_stat\_plans.with\_wal
 
 Plan wal usage statistics will be captured in the explain when ANALYZE is used. The default is `off`.
 
@@ -135,7 +135,7 @@ Plan wal usage statistics will be captured in the explain when ANALYZE is used. 
 | off     | 0(off)                                         | Doesn't include information on WAL record generation. |
 | 1(on)   | Includes information on WAL record generation. |
 
-### aurora_stat_plans.with_triggers
+### aurora\_stat\_plans.with\_triggers
 
 Plan trigger execution statistics will be captured in the explain when `ANALYZE` is used. The default is `off`.
 

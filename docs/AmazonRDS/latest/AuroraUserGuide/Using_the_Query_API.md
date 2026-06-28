@@ -16,7 +16,7 @@ Each Query request must include some common parameters to handle authentication
 and selection of an action.
 
 Some operations take lists of parameters. These lists are specified using the
-`param.`n``notation. Values of
+`param.`n`` notation. Values of
 `n` are integers starting from 1.
 
 For information about Amazon RDS Regions and endpoints, go to [Amazon Relational Database Service

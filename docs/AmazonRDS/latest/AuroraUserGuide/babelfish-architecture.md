@@ -7,7 +7,7 @@ where all migrated SQL Server objects and structures reside.
 ###### Note
 
 In an Aurora PostgreSQL cluster, the `babelfish_db` database name is reserved for Babelfish. Creating
-your own "babelfish_db" database on a Babelfish DB cluster prevents Aurora from successfully provisioning Babelfish.
+your own "babelfish\_db" database on a Babelfish DB cluster prevents Aurora from successfully provisioning Babelfish.
 
 When you connect to the TDS port, the session is placed in the
 `babelfish_db` database. From T-SQL, the structure looks similar to being

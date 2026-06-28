@@ -9,16 +9,16 @@ The following stored procedures manage how the Global Status History is collecte
 
 ###### Topics
 
-- [mysql.rds_collect_global_status_history](#mysql_rds_collect_global_status_history "#mysql_rds_collect_global_status_history")
-- [mysql.rds_disable_gsh_collector](#mysql_rds_disable_gsh_collector "#mysql_rds_disable_gsh_collector")
-- [mysql.rds_disable_gsh_rotation](#mysql_rds_disable_gsh_rotation "#mysql_rds_disable_gsh_rotation")
-- [mysql.rds_enable_gsh_collector](#mysql_rds_enable_gsh_collector "#mysql_rds_enable_gsh_collector")
-- [mysql.rds_enable_gsh_rotation](#mysql_rds_enable_gsh_rotation "#mysql_rds_enable_gsh_rotation")
-- [mysql.rds_rotate_global_status_history](#mysql_rds_rotate_global_status_history "#mysql_rds_rotate_global_status_history")
-- [mysql.rds_set_gsh_collector](#mysql_rds_set_gsh_collector "#mysql_rds_set_gsh_collector")
-- [mysql.rds_set_gsh_rotation](#mysql_rds_set_gsh_rotation "#mysql_rds_set_gsh_rotation")
+- [mysql.rds\_collect\_global\_status\_history](#mysql_rds_collect_global_status_history "#mysql_rds_collect_global_status_history")
+- [mysql.rds\_disable\_gsh\_collector](#mysql_rds_disable_gsh_collector "#mysql_rds_disable_gsh_collector")
+- [mysql.rds\_disable\_gsh\_rotation](#mysql_rds_disable_gsh_rotation "#mysql_rds_disable_gsh_rotation")
+- [mysql.rds\_enable\_gsh\_collector](#mysql_rds_enable_gsh_collector "#mysql_rds_enable_gsh_collector")
+- [mysql.rds\_enable\_gsh\_rotation](#mysql_rds_enable_gsh_rotation "#mysql_rds_enable_gsh_rotation")
+- [mysql.rds\_rotate\_global\_status\_history](#mysql_rds_rotate_global_status_history "#mysql_rds_rotate_global_status_history")
+- [mysql.rds\_set\_gsh\_collector](#mysql_rds_set_gsh_collector "#mysql_rds_set_gsh_collector")
+- [mysql.rds\_set\_gsh\_rotation](#mysql_rds_set_gsh_rotation "#mysql_rds_set_gsh_rotation")
 
-## mysql.rds_collect_global_status_history
+## mysql.rds\_collect\_global\_status\_history
 
 Takes a snapshot on demand for the Global Status History.
 
@@ -28,7 +28,7 @@ Takes a snapshot on demand for the Global Status History.
 CALL mysql.rds_collect_global_status_history;
 ```
 
-## mysql.rds_disable_gsh_collector
+## mysql.rds\_disable\_gsh\_collector
 
 Turns off snapshots taken by the Global Status History.
 
@@ -38,7 +38,7 @@ Turns off snapshots taken by the Global Status History.
 CALL mysql.rds_disable_gsh_collector;
 ```
 
-## mysql.rds_disable_gsh_rotation
+## mysql.rds\_disable\_gsh\_rotation
 
 Turns off rotation of the `mysql.global_status_history` table.
 
@@ -48,7 +48,7 @@ Turns off rotation of the `mysql.global_status_history` table.
 CALL mysql.rds_disable_gsh_rotation;
 ```
 
-## mysql.rds_enable_gsh_collector
+## mysql.rds\_enable\_gsh\_collector
 
 Turns on the Global Status History to take default snapshots at intervals specified by
 `rds_set_gsh_collector`.
@@ -59,7 +59,7 @@ Turns on the Global Status History to take default snapshots at intervals specif
 CALL mysql.rds_enable_gsh_collector;
 ```
 
-## mysql.rds_enable_gsh_rotation
+## mysql.rds\_enable\_gsh\_rotation
 
 Turns on rotation of the contents of the `mysql.global_status_history` table to
 `mysql.global_status_history_old` at intervals specified by `rds_set_gsh_rotation`.
@@ -70,7 +70,7 @@ Turns on rotation of the contents of the `mysql.global_status_history` table to
 CALL mysql.rds_enable_gsh_rotation;
 ```
 
-## mysql.rds_rotate_global_status_history
+## mysql.rds\_rotate\_global\_status\_history
 
 Rotates the contents of the `mysql.global_status_history` table to `mysql.global_status_history_old` on
 demand.
@@ -81,7 +81,7 @@ demand.
 CALL mysql.rds_rotate_global_status_history;
 ```
 
-## mysql.rds_set_gsh_collector
+## mysql.rds\_set\_gsh\_collector
 
 Specifies the interval, in minutes, between snapshots taken by the Global Status History.
 
@@ -98,7 +98,7 @@ CALL mysql.rds_set_gsh_collector(`intervalPeriod`);
 The interval, in minutes, between snapshots. Default value is
 `5`.
 
-## mysql.rds_set_gsh_rotation
+## mysql.rds\_set\_gsh\_rotation
 
 Specifies the interval, in days, between rotations of the `mysql.global_status_history` table.
 

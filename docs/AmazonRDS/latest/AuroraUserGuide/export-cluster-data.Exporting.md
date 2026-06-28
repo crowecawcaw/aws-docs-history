@@ -71,9 +71,8 @@ or create a new role.
      **Create a new role** to create the role automatically. Next, enter a name for the
      role in **IAM role name**.
 
-9. For **KMS key**, enter the ARN for the key to use for encrypting the exported data.
-10. Choose **Export to Amazon S3**.
-    To export DB cluster data to Amazon S3 using the AWS CLI, use the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command with the following required options:
+9. For **KMS key**, enter the ARN for the key to use for encrypting the exported data. 10. Choose **Export to Amazon S3**.
+To export DB cluster data to Amazon S3 using the AWS CLI, use the [start-export-task](../../../cli/latest/reference/rds/start-export-task.md "../../../cli/latest/reference/rds/start-export-task.md") command with the following required options:
 
 - `--export-task-identifier`
 - `--source-arn` – the Amazon Resource Name (ARN) of the DB cluster

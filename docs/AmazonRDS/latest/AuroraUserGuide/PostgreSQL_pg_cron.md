@@ -1,30 +1,30 @@
-# Scheduling maintenance with the PostgreSQL pg_cron extension
+# Scheduling maintenance with the PostgreSQL pg\_cron extension
 
 You can use the PostgreSQL `pg_cron` extension to schedule maintenance commands
-within a PostgreSQL database. For more information about the extension, see [What is pg_cron?](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") in the pg_cron
+within a PostgreSQL database. For more information about the extension, see [What is pg\_cron?](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") in the pg\_cron
 documentation.
 
 The `pg_cron` extension is supported on Aurora PostgreSQL engine
 versions 12.6 and higher version
 
-To learn more about using `pg_cron`, see [Schedule jobs with pg_cron on your RDS for PostgreSQL or your Aurora PostgreSQL-Compatible Edition
+To learn more about using `pg_cron`, see [Schedule jobs with pg\_cron on your RDS for PostgreSQL or your Aurora PostgreSQL-Compatible Edition
 databases](https://aws.amazon.com/blogs/database/schedule-jobs-with-pg_cron-on-your-amazon-rds-for-postgresql-or-amazon-aurora-for-postgresql-databases/ "https://aws.amazon.com/blogs/database/schedule-jobs-with-pg_cron-on-your-amazon-rds-for-postgresql-or-amazon-aurora-for-postgresql-databases/").
 
 ###### Note
 
 The `pg_cron` extension version is displayed as a two digit version, for example, 1.6,
-in the pg_available_extensions view. While you might see three digit versions, for
+in the pg\_available\_extensions view. While you might see three digit versions, for
 example, 1.6.4 or 1.6.5, listed in some contexts, you must specify the two digit version
 when performing an extension upgrade.
 
 ###### Topics
 
-- [Setting up the pg_cron extension](#PostgreSQL_pg_cron.enable "#PostgreSQL_pg_cron.enable")
-- [Granting database users permissions to use pg_cron](#PostgreSQL_pg_cron.permissions "#PostgreSQL_pg_cron.permissions")
-- [Scheduling pg_cron jobs](#PostgreSQL_pg_cron.examples "#PostgreSQL_pg_cron.examples")
-- [Reference for the pg_cron extension](#PostgreSQL_pg_cron.reference "#PostgreSQL_pg_cron.reference")
+- [Setting up the pg\_cron extension](#PostgreSQL_pg_cron.enable "#PostgreSQL_pg_cron.enable")
+- [Granting database users permissions to use pg\_cron](#PostgreSQL_pg_cron.permissions "#PostgreSQL_pg_cron.permissions")
+- [Scheduling pg\_cron jobs](#PostgreSQL_pg_cron.examples "#PostgreSQL_pg_cron.examples")
+- [Reference for the pg\_cron extension](#PostgreSQL_pg_cron.reference "#PostgreSQL_pg_cron.reference")
 
-## Setting up the pg_cron extension
+## Setting up the pg\_cron extension
 
 Set up the `pg_cron` extension as follows:
 
@@ -50,7 +50,7 @@ database. 3. You can use the default settings, or you can schedule jobs to run i
 databases within your PostgreSQL DB instance. To schedule jobs for other
 databases within your PostgreSQL DB instance, see the example in [Scheduling a cron job for a database other than the default database](#PostgreSQL_pg_cron.otherDB "#PostgreSQL_pg_cron.otherDB").
 
-## Granting database users permissions to use pg_cron
+## Granting database users permissions to use pg\_cron
 
 Installing the `pg_cron` extension requires the `rds_superuser`
 privileges. However, permissions to use the `pg_cron` can be granted (by a
@@ -84,7 +84,7 @@ so on) that they plan to schedule.
 The details of the cron job and its success or failure are also captured in the
 `cron.job_run_details` table. For more information, see [Tables for scheduling jobs and capturing status](#PostgreSQL_pg_cron.tables "#PostgreSQL_pg_cron.tables").
 
-## Scheduling pg_cron jobs
+## Scheduling pg\_cron jobs
 
 The following sections show how you can schedule various management tasks using
 `pg_cron` jobs.
@@ -95,12 +95,12 @@ When you create `pg_cron` jobs, check that the
 `max_worker_processes` setting is larger than the number of
 `cron.max_running_jobs`. A `pg_cron` job fails if it runs
 out of background worker processes. The default number of `pg_cron` jobs
-is `5`. For more information, see [Parameters for managing the pg_cron extension](#PostgreSQL_pg_cron.parameters "#PostgreSQL_pg_cron.parameters").
+is `5`. For more information, see [Parameters for managing the pg\_cron extension](#PostgreSQL_pg_cron.parameters "#PostgreSQL_pg_cron.parameters").
 
 ###### Topics
 
 - [Vacuuming a table](#PostgreSQL_pg_cron.vacuum "#PostgreSQL_pg_cron.vacuum")
-- [Purging the pg_cron history table](#PostgreSQL_pg_cron.job_run_details "#PostgreSQL_pg_cron.job_run_details")
+- [Purging the pg\_cron history table](#PostgreSQL_pg_cron.job_run_details "#PostgreSQL_pg_cron.job_run_details")
 - [Logging errors to the postgresql.log file only](#PostgreSQL_pg_cron.log_run "#PostgreSQL_pg_cron.log_run")
 - [Scheduling a cron job for a database other than the default database](#PostgreSQL_pg_cron.otherDB "#PostgreSQL_pg_cron.otherDB")
 
@@ -145,7 +145,7 @@ failed jobs.
 
 For more information, see [Tables for scheduling jobs and capturing status](#PostgreSQL_pg_cron.tables "#PostgreSQL_pg_cron.tables").
 
-### Purging the pg_cron history table
+### Purging the pg\_cron history table
 
 The `cron.job_run_details` table contains a history of cron jobs that
 can become very large over time. We recommend that you schedule a job that purges
@@ -180,7 +180,7 @@ parameter.
 `postgres=>` `SHOW cron.log_run;`
 ```
 
-For more information, see [Parameters for managing the pg_cron extension](#PostgreSQL_pg_cron.parameters "#PostgreSQL_pg_cron.parameters").
+For more information, see [Parameters for managing the pg\_cron extension](#PostgreSQL_pg_cron.parameters "#PostgreSQL_pg_cron.parameters").
 
 ### Scheduling a cron job for a database other than the default database
 
@@ -228,27 +228,27 @@ database (`postgres`) before you update the correct database column.
 If the user name has permissions, the job successfully runs in the default
 database.
 
-## Reference for the pg_cron extension
+## Reference for the pg\_cron extension
 
 You can use the following parameters, functions, and tables with the
-`pg_cron` extension. For more information, see [What is pg_cron?](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") in the pg_cron
+`pg_cron` extension. For more information, see [What is pg\_cron?](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") in the pg\_cron
 documentation.
 
 ###### Topics
 
-- [Parameters for managing the pg_cron extension](#PostgreSQL_pg_cron.parameters "#PostgreSQL_pg_cron.parameters")
+- [Parameters for managing the pg\_cron extension](#PostgreSQL_pg_cron.parameters "#PostgreSQL_pg_cron.parameters")
 - [Function reference: cron.schedule](#PostgreSQL_pg_cron.schedule "#PostgreSQL_pg_cron.schedule")
 - [Function reference: cron.unschedule](#PostgreSQL_pg_cron.unschedule "#PostgreSQL_pg_cron.unschedule")
 - [Tables for scheduling jobs and capturing status](#PostgreSQL_pg_cron.tables "#PostgreSQL_pg_cron.tables")
 
-### Parameters for managing the pg_cron extension
+### Parameters for managing the pg\_cron extension
 
 Following is a list of parameters that control the `pg_cron` extension
 behavior.
 
 | Parameter                     | Description                                                                                                                                                                                                                   |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| cron.database_name            | The database in which `pg_cron` metadata is<br>kept.                                                                                                                                                                          |
+| cron.database\_name           | The database in which `pg_cron` metadata is<br>kept.                                                                                                                                                                          |
 | `cron.host`                   | The hostname to connect to PostgreSQL. You can't modify<br>this value.                                                                                                                                                        |
 | `cron.log_run`                | Log every job that runs in the `job_run_details`<br>table. Values are `on` or `off`. For more<br>information, see [Tables for scheduling jobs and capturing status](#PostgreSQL_pg_cron.tables "#PostgreSQL_pg_cron.tables"). |
 | `cron.log_statement`          | Log all cron statements before running them. Values are<br>`on` or `off`.                                                                                                                                                     |
@@ -352,7 +352,7 @@ cron.unschedule (job_name);
 The following tables are used to schedule the cron jobs and record how the jobs
 completed.
 
-| Table                  | Description                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `cron.job`             | Contains the metadata about each scheduled job. Most<br>interactions with this table should be done by using the<br>`cron.schedule` and `cron.unschedule`<br>functions.<br>ImportantWe recommend that you don't give update or insert<br>privileges directly to this table. Doing so would allow the<br>user to update the `username` column to run as<br>`rds-superuser`.                                   |
-| `cron.job_run_details` | Contains historic information about past scheduled jobs that<br>ran. This is useful to investigate the status, return messages,<br>and start and end time from the job that ran.<br>NoteTo prevent this table from growing indefinitely, purge it<br>on a regular basis. For an example, see [Purging the pg_cron history table](#PostgreSQL_pg_cron.job_run_details "#PostgreSQL_pg_cron.job_run_details"). |
+| Table                  | Description                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cron.job`             | Contains the metadata about each scheduled job. Most<br>interactions with this table should be done by using the<br>`cron.schedule` and `cron.unschedule`<br>functions.<br>ImportantWe recommend that you don't give update or insert<br>privileges directly to this table. Doing so would allow the<br>user to update the `username` column to run as<br>`rds-superuser`.                                    |
+| `cron.job_run_details` | Contains historic information about past scheduled jobs that<br>ran. This is useful to investigate the status, return messages,<br>and start and end time from the job that ran.<br>NoteTo prevent this table from growing indefinitely, purge it<br>on a regular basis. For an example, see [Purging the pg\_cron history table](#PostgreSQL_pg_cron.job_run_details "#PostgreSQL_pg_cron.job_run_details"). |

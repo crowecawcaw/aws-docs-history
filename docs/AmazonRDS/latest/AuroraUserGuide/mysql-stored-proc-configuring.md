@@ -4,10 +4,10 @@ The following stored procedures set and show configuration parameters, such as f
 
 ###### Topics
 
-- [mysql.rds_set_configuration](#mysql_rds_set_configuration "#mysql_rds_set_configuration")
-- [mysql.rds_show_configuration](#mysql_rds_show_configuration "#mysql_rds_show_configuration")
+- [mysql.rds\_set\_configuration](#mysql_rds_set_configuration "#mysql_rds_set_configuration")
+- [mysql.rds\_show\_configuration](#mysql_rds_show_configuration "#mysql_rds_show_configuration")
 
-## mysql.rds_set_configuration
+## mysql.rds\_set\_configuration
 
 Specifies the number of hours to retain binary logs or the number of seconds to delay replication.
 
@@ -61,7 +61,7 @@ For Aurora MySQL version 2.11.0 and higher and version 3 DB clusters, the maximu
 After you set the retention period, monitor storage usage for the DB instance to
 make sure that the retained binary logs don't take up too much storage.
 
-## mysql.rds_show_configuration
+## mysql.rds\_show\_configuration
 
 The number of hours that binary logs are retained.
 

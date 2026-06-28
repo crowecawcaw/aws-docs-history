@@ -15,7 +15,7 @@ from MySQL 8.0 Community Edition. There are two types of temporary tables that c
 - [Storage engine for internal (implicit) temporary tables](#ams3-temptable-behavior-engine "#ams3-temptable-behavior-engine")
 - [Limiting the size of internal, in-memory temporary tables](#ams3-temptable-behavior-limit "#ams3-temptable-behavior-limit")
 - [Mitigating fullness issues for internal temporary tables on Aurora Replicas](#ams3-temptable-behavior-mitigate "#ams3-temptable-behavior-mitigate")
-- [Optimizing the temptable_max_mmap parameter on Aurora MySQL DB instances](#ams-optimize-temptable_max_mmap "#ams-optimize-temptable_max_mmap")
+- [Optimizing the temptable\_max\_mmap parameter on Aurora MySQL DB instances](#ams-optimize-temptable_max_mmap "#ams-optimize-temptable_max_mmap")
 - [User-created (explicit) temporary tables on reader DB instances](#ams3-temptable-behavior.user "#ams3-temptable-behavior.user")
 - [Temporary table creation errors and mitigation](#ams3-temptable-behavior.errors "#ams3-temptable-behavior.errors")
 
@@ -50,7 +50,7 @@ temporary tables and memory-mapped files to hold any overflow data. This setting
 
 The `TempTable` storage engine is the default. `TempTable` uses a common memory pool for all
 temporary tables that use this engine, instead of a maximum memory limit per table. The size of this memory pool is
-specified by the [temptable_max_ram](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_ram "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_ram") parameter. It defaults to 1 GiB on DB instances with 16 or more GiB of memory, and 16 MB on
+specified by the [temptable\_max\_ram](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_ram "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_ram") parameter. It defaults to 1 GiB on DB instances with 16 or more GiB of memory, and 16 MB on
 DB instances with less than 16 GiB of memory. The size of the memory pool influences session-level memory
 consumption.
 
@@ -58,7 +58,7 @@ In some cases when you use the `TempTable` storage engine, the
 temporary data might exceed the size of the memory pool. If so, Aurora MySQL stores
 the overflow data using a secondary mechanism.
 
-You can set the [temptable_max_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap") parameter to choose whether the data overflows to memory-mapped temporary files or to InnoDB
+You can set the [temptable\_max\_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap") parameter to choose whether the data overflows to memory-mapped temporary files or to InnoDB
 internal temporary tables on disk. The different data formats and overflow criteria of these overflow mechanisms can affect
 query performance. They do so by influencing the amount of data written to disk and the demand on disk storage
 throughput.
@@ -83,15 +83,15 @@ your cluster:
 
 ###### Note
 
-We don't recommend using the [temptable_use_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_use_mmap "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_use_mmap") parameter. It has been deprecated, and support for it is expected to be removed in a
+We don't recommend using the [temptable\_use\_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_use_mmap "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_use_mmap") parameter. It has been deprecated, and support for it is expected to be removed in a
 future MySQL release.
 
 ## Limiting the size of internal, in-memory temporary tables
 
 As discussed in [Storage engine for internal (implicit) temporary tables](#ams3-temptable-behavior-engine "#ams3-temptable-behavior-engine"), you can
-control temporary table resources globally by using the [temptable_max_ram](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_ram "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_ram") and [temptable_max_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap") settings.
+control temporary table resources globally by using the [temptable\_max\_ram](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_ram "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_ram") and [temptable\_max\_mmap](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_temptable_max_mmap") settings.
 
-You can also limit the size of any individual internal, in-memory temporary table by using the [tmp_table_size](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size")
+You can also limit the size of any individual internal, in-memory temporary table by using the [tmp\_table\_size](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size")
 DB parameter. This limit is intended to prevent individual queries from consuming an inordinate amount of global temporary
 table resources, which can affect the performance of concurrent queries that require these resources.
 
@@ -134,8 +134,8 @@ when the global `TempTable` resources limit is reached:
 
 ###### Note
 
-The `aurora_tmptable_enable_per_table_limit` parameter has no effect when [internal_tmp_mem_storage_engine](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_internal_tmp_mem_storage_engine "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_internal_tmp_mem_storage_engine") is set to `MEMORY`. In this case, the maximum size of an
-in-memory temporary table is defined by the [tmp_table_size](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size") or [max_heap_table_size](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size") value, whichever is smaller.
+The `aurora_tmptable_enable_per_table_limit` parameter has no effect when [internal\_tmp\_mem\_storage\_engine](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_internal_tmp_mem_storage_engine "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_internal_tmp_mem_storage_engine") is set to `MEMORY`. In this case, the maximum size of an
+in-memory temporary table is defined by the [tmp\_table\_size](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size") or [max\_heap\_table\_size](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size") value, whichever is smaller.
 
 The following examples show the behavior of the `aurora_tmptable_enable_per_table_limit` parameter for writer
 and reader DB instances.
@@ -351,7 +351,7 @@ available local storage. For example, a 2xlarge instance has only 160 GiB of loc
 recommend setting the value to less than 160 GiB. For more information on the available local storage for DB instance
 sizes, see [Temporary storage limits for Aurora MySQL](AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.TempStorage "AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.TempStorage").
 
-## Optimizing the temptable_max_mmap parameter on Aurora MySQL DB instances
+## Optimizing the temptable\_max\_mmap parameter on Aurora MySQL DB instances
 
 The `temptable_max_mmap` parameter in Aurora MySQL controls the maximum
 amount of local disk space that can be used by memory mapped files before

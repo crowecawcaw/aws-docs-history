@@ -85,24 +85,24 @@ of transaction 1, even though transaction 1 doesn't touch all of them.
 
 ## Using database statistics for vacuuming
 
-To get information on tuples that you might need to clean up, use the [limitless_stat_all_tables](limitless-monitoring-views.md#limitless_stat_all_tables "limitless-monitoring-views.md#limitless_stat_all_tables") view, which works similarly to [pg_stat_all_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW"). The following example queries the view.
+To get information on tuples that you might need to clean up, use the [limitless\_stat\_all\_tables](limitless-monitoring-views.md#limitless_stat_all_tables "limitless-monitoring-views.md#limitless_stat_all_tables") view, which works similarly to [pg\_stat\_all\_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-TABLES-VIEW"). The following example queries the view.
 
 ```
 SELECT * FROM rds_aurora.limitless_stat_all_tables WHERE relname LIKE '%customer%';
 ```
 
-Similarly, for database statistics use [limitless_stat_database](limitless-monitoring-views.md#limitless_stat_database "limitless-monitoring-views.md#limitless_stat_database") instead of
-[pg_stat_database](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW"), and [limitless_stat_activity](limitless-monitoring-views.md#limitless_stat_activity "limitless-monitoring-views.md#limitless_stat_activity") instead of [pg_stat_activity](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW").
+Similarly, for database statistics use [limitless\_stat\_database](limitless-monitoring-views.md#limitless_stat_database "limitless-monitoring-views.md#limitless_stat_database") instead of
+[pg\_stat\_database](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-DATABASE-VIEW"), and [limitless\_stat\_activity](limitless-monitoring-views.md#limitless_stat_activity "limitless-monitoring-views.md#limitless_stat_activity") instead of [pg\_stat\_activity](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW").
 
-To check table disk usage, use the [limitless_stat_relation_sizes](limitless-monitoring-functions.md#limitless_stat_relation_sizes "limitless-monitoring-functions.md#limitless_stat_relation_sizes")
-function, which works similarly to [pg_relation_size](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-DBOBJECT "https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-DBOBJECT").
+To check table disk usage, use the [limitless\_stat\_relation\_sizes](limitless-monitoring-functions.md#limitless_stat_relation_sizes "limitless-monitoring-functions.md#limitless_stat_relation_sizes")
+function, which works similarly to [pg\_relation\_size](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-DBOBJECT "https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-DBOBJECT").
 The following example queries the function.
 
 ```
 SELECT * FROM rds_aurora.limitless_stat_relation_sizes('public','customer');
 ```
 
-To track the progress of a `VACUUM` operation on Aurora PostgreSQL Limitless Database, use the [limitless_stat_progress_vacuum](limitless-monitoring-views.md#limitless_stat_progress_vacuum "limitless-monitoring-views.md#limitless_stat_progress_vacuum") view instead of [pg_stat_progress_vacuum](https://www.postgresql.org/docs/15/progress-reporting.html#VACUUM-PROGRESS-REPORTING "https://www.postgresql.org/docs/15/progress-reporting.html#VACUUM-PROGRESS-REPORTING"). The following example queries the view.
+To track the progress of a `VACUUM` operation on Aurora PostgreSQL Limitless Database, use the [limitless\_stat\_progress\_vacuum](limitless-monitoring-views.md#limitless_stat_progress_vacuum "limitless-monitoring-views.md#limitless_stat_progress_vacuum") view instead of [pg\_stat\_progress\_vacuum](https://www.postgresql.org/docs/15/progress-reporting.html#VACUUM-PROGRESS-REPORTING "https://www.postgresql.org/docs/15/progress-reporting.html#VACUUM-PROGRESS-REPORTING"). The following example queries the view.
 
 ```
 SELECT * FROM rds_aurora.limitless_stat_progress_vacuum;

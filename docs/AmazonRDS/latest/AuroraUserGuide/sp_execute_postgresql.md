@@ -1,4 +1,4 @@
-# sp_execute_postgresql
+# sp\_execute\_postgresql
 
 You can execute PostgreSQL statements from T-SQL endpoint. This simplifies your applications as you don’t need to exit T-SQL port to execute these statements.
 
@@ -76,7 +76,7 @@ The following extensions available with Aurora PostgreSQL works with Babelfish.
 
 ###### Limitations
 
-- Users need to have sysadmin role on T-SQL and rds_superuser on postgres to install the extenstions.
+- Users need to have sysadmin role on T-SQL and rds\_superuser on postgres to install the extenstions.
 - Extensions cannot be installed in user created schemas and also in dbo and guest schemas for master, tempdb and msdb database.
 - CASCADE option is not supported.
 

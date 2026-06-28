@@ -1,4 +1,4 @@
-# LWLock:lock_manager
+# LWLock:lock\_manager
 
 This event occurs when the Aurora PostgreSQL engine maintains the shared lock's
 memory area to allocate, check, and deallocate a lock when a fast path lock isn't possible.

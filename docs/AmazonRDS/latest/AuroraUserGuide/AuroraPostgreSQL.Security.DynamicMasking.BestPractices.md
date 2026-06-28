@@ -1,4 +1,4 @@
-# Best practices for secure pg_columnmask implementation
+# Best practices for secure pg\_columnmask implementation
 
 The following section provides security best practices for implementing `pg_columnmask` in your Aurora PostgreSQL environment.
 Follow these recommendations to:
@@ -19,7 +19,7 @@ This approach provides better auditability and simplifies permission management 
 
 The following example creates an organizational role hierarchy with dedicated roles for different functions,
 then assigns individual users to the appropriate roles. In this example, organizational roles
-(analyst_role, support_role) are created first, then individual users are granted membership in these roles.
+(analyst\_role, support\_role) are created first, then individual users are granted membership in these roles.
 This structure allows you to manage permissions at the role level rather than for each individual user.
 
 ```
@@ -126,12 +126,12 @@ CREATE OR REPLACE FUNCTION secure_mask_phone(phone_number TEXT)
     END;
 ```
 
-## DML Triggers behavior with pg_columnmask
+## DML Triggers behavior with pg\_columnmask
 
 For table triggers, transition tables will be fully unmasked. For view triggers(IOT),
 transition tables will be masked according to the current user's view permissions.
 
-Table triggers with pg_columnmask
+Table triggers with pg\_columnmask
 Triggers are passed a transition table which contains the old and new version of the rows modified
 by the firing DML query. Depending upon when the trigger is fired, Aurora PostgreSQL populates the old and new rows.
 For example, a `BEFORE INSERT` trigger only has new versions of the rows and empty old versions because there is no old version to refer.
@@ -273,7 +273,7 @@ NOTICE:  Old credit_card_no was: 4532015112830366
 NOTICE:  New credit_card_no is 4532015112830366
 ```
 
-Triggers on views with pg_columnmask (Instead of triggers)
+Triggers on views with pg\_columnmask (Instead of triggers)
 Triggers can only be created on views in PostgreSQL.
 They are used for running DML statements on views that are not updatable.
 Transit tables are always masked inside instead of trigger (IOT), because

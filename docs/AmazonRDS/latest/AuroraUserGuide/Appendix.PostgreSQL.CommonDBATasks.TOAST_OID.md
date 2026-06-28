@@ -274,7 +274,7 @@ in Performance Insights during operations that require assigning new Object Iden
 during OID assignment and resource management. This is particularly common in environments
 with high data churn, extensive large data usage, or frequent object creation.
 
-#### LWLock:buffer_io
+#### LWLock:buffer\_io
 
 `LWLock:buffer_io` is a wait event that occurs when a PostgreSQL session is
 waiting for I/O operations on a shared buffer to complete. This typically happens when the

@@ -41,7 +41,7 @@ In Performance Insights, sudden spikes in the `io/table/sql/handler` event
 indicate an increase in workload activity. Increased activity means increased I/O.
 
 Performance Insights filters the nesting event IDs and doesn't report a `io/table/sql/handler` wait when the
-underlying nested event is a lock wait. For example, if the root cause event is [synch/mutex/innodb/aurora_lock_thread_slot_futex](ams-waits.waitsynch.md "ams-waits.waitsynch.md"), Performance Insights displays this wait in top wait events and not
+underlying nested event is a lock wait. For example, if the root cause event is [synch/mutex/innodb/aurora\_lock\_thread\_slot\_futex](ams-waits.waitsynch.md "ams-waits.waitsynch.md"), Performance Insights displays this wait in top wait events and not
 `io/table/sql/handler`.
 
 In views such as `performance_schema.events_waits_current`, waits for `io/table/sql/handler` often
@@ -99,7 +99,7 @@ are correlated with `io/table/sql/handler`, follow these steps:
 2. Retrieve the top tables from the `schema_table_statistics` and
    `x$schema_table_statistics` views. These views show the amount of time spent
    per table. For more information, see [The
-   schema_table_statistics and x$schema_table_statistics Views](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-table-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/sys-schema-table-statistics.html") in the
+   schema\_table\_statistics and x$schema\_table\_statistics Views](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-table-statistics.html "https://dev.mysql.com/doc/refman/5.7/en/sys-schema-table-statistics.html") in the
    _MySQL Reference Manual_.
 
 By default, rows are sorted by descending total wait time. Tables with the most contention appear first. The output indicates whether

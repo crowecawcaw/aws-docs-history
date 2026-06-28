@@ -39,63 +39,63 @@ In the AWS CLI, check the source of a parameter value by running the [describe-d
 
 The following SQL statistics are available for Aurora MySQL DB clusters.
 
-| Metric                                                     | Unit                                     |
-| ---------------------------------------------------------- | ---------------------------------------- |
-| db.sql_tokenized.stats.count_star_per_sec                  | Calls per second                         |
-| db.sql_tokenized.stats.sum_timer_wait_per_sec              | Average latency per second (in ms)       |
-| db.sql_tokenized.stats.sum_select_full_join_per_sec        | Select full join per second              |
-| db.sql_tokenized.stats.sum_select_range_check_per_sec      | Select range check per second            |
-| db.sql_tokenized.stats.sum_select_scan_per_sec             | Select scan per second                   |
-| db.sql_tokenized.stats.sum_sort_merge_passes_per_sec       | Sort merge passes per second             |
-| db.sql_tokenized.stats.sum_sort_scan_per_sec               | Sort scans per second                    |
-| db.sql_tokenized.stats.sum_sort_range_per_sec              | Sort ranges per second                   |
-| db.sql_tokenized.stats.sum_sort_rows_per_sec               | Sort rows per second                     |
-| db.sql_tokenized.stats.sum_rows_affected_per_sec           | Rows affected per second                 |
-| db.sql_tokenized.stats.sum_rows_examined_per_sec           | Rows examined per second                 |
-| db.sql_tokenized.stats.sum_rows_sent_per_sec               | Rows sent per second                     |
-| db.sql_tokenized.stats.sum_created_tmp_disk_tables_per_sec | Created temporary disk tables per second |
-| db.sql_tokenized.stats.sum_created_tmp_tables_per_sec      | Created temporary tables per second      |
-| db.sql_tokenized.stats.sum_lock_time_per_sec               | Lock time per second (in ms)             |
+| Metric                                                            | Unit                                     |
+| ----------------------------------------------------------------- | ---------------------------------------- |
+| db.sql\_tokenized.stats.count\_star\_per\_sec                     | Calls per second                         |
+| db.sql\_tokenized.stats.sum\_timer\_wait\_per\_sec                | Average latency per second (in ms)       |
+| db.sql\_tokenized.stats.sum\_select\_full\_join\_per\_sec         | Select full join per second              |
+| db.sql\_tokenized.stats.sum\_select\_range\_check\_per\_sec       | Select range check per second            |
+| db.sql\_tokenized.stats.sum\_select\_scan\_per\_sec               | Select scan per second                   |
+| db.sql\_tokenized.stats.sum\_sort\_merge\_passes\_per\_sec        | Sort merge passes per second             |
+| db.sql\_tokenized.stats.sum\_sort\_scan\_per\_sec                 | Sort scans per second                    |
+| db.sql\_tokenized.stats.sum\_sort\_range\_per\_sec                | Sort ranges per second                   |
+| db.sql\_tokenized.stats.sum\_sort\_rows\_per\_sec                 | Sort rows per second                     |
+| db.sql\_tokenized.stats.sum\_rows\_affected\_per\_sec             | Rows affected per second                 |
+| db.sql\_tokenized.stats.sum\_rows\_examined\_per\_sec             | Rows examined per second                 |
+| db.sql\_tokenized.stats.sum\_rows\_sent\_per\_sec                 | Rows sent per second                     |
+| db.sql\_tokenized.stats.sum\_created\_tmp\_disk\_tables\_per\_sec | Created temporary disk tables per second |
+| db.sql\_tokenized.stats.sum\_created\_tmp\_tables\_per\_sec       | Created temporary tables per second      |
+| db.sql\_tokenized.stats.sum\_lock\_time\_per\_sec                 | Lock time per second (in ms)             |
 
 ## Per-call statistics for Aurora MySQL
 
 The following metrics provide per call statistics for a SQL statement.
 
-| Metric                                                      | Unit                                   |
-| ----------------------------------------------------------- | -------------------------------------- |
-| db.sql_tokenized.stats.sum_timer_wait_per_call              | Average latency per call (in ms)       |
-| db.sql_tokenized.stats.sum_select_full_join_per_call        | Select full joins per call             |
-| db.sql_tokenized.stats.sum_select_range_check_per_call      | Select range check per call            |
-| db.sql_tokenized.stats.sum_select_scan_per_call             | Select scans per call                  |
-| db.sql_tokenized.stats.sum_sort_merge_passes_per_call       | Sort merge passes per call             |
-| db.sql_tokenized.stats.sum_sort_scan_per_call               | Sort scans per call                    |
-| db.sql_tokenized.stats.sum_sort_range_per_call              | Sort ranges per call                   |
-| db.sql_tokenized.stats.sum_sort_rows_per_call               | Sort rows per call                     |
-| db.sql_tokenized.stats.sum_rows_affected_per_call           | Rows affected per call                 |
-| db.sql_tokenized.stats.sum_rows_examined_per_call           | Rows examined per call                 |
-| db.sql_tokenized.stats.sum_rows_sent_per_call               | Rows sent per call                     |
-| db.sql_tokenized.stats.sum_created_tmp_disk_tables_per_call | Created temporary disk tables per call |
-| db.sql_tokenized.stats.sum_created_tmp_tables_per_call      | Created temporary tables per call      |
-| db.sql_tokenized.stats.sum_lock_time_per_call               | Lock time per call (in ms)             |
+| Metric                                                             | Unit                                   |
+| ------------------------------------------------------------------ | -------------------------------------- |
+| db.sql\_tokenized.stats.sum\_timer\_wait\_per\_call                | Average latency per call (in ms)       |
+| db.sql\_tokenized.stats.sum\_select\_full\_join\_per\_call         | Select full joins per call             |
+| db.sql\_tokenized.stats.sum\_select\_range\_check\_per\_call       | Select range check per call            |
+| db.sql\_tokenized.stats.sum\_select\_scan\_per\_call               | Select scans per call                  |
+| db.sql\_tokenized.stats.sum\_sort\_merge\_passes\_per\_call        | Sort merge passes per call             |
+| db.sql\_tokenized.stats.sum\_sort\_scan\_per\_call                 | Sort scans per call                    |
+| db.sql\_tokenized.stats.sum\_sort\_range\_per\_call                | Sort ranges per call                   |
+| db.sql\_tokenized.stats.sum\_sort\_rows\_per\_call                 | Sort rows per call                     |
+| db.sql\_tokenized.stats.sum\_rows\_affected\_per\_call             | Rows affected per call                 |
+| db.sql\_tokenized.stats.sum\_rows\_examined\_per\_call             | Rows examined per call                 |
+| db.sql\_tokenized.stats.sum\_rows\_sent\_per\_call                 | Rows sent per call                     |
+| db.sql\_tokenized.stats.sum\_created\_tmp\_disk\_tables\_per\_call | Created temporary disk tables per call |
+| db.sql\_tokenized.stats.sum\_created\_tmp\_tables\_per\_call       | Created temporary tables per call      |
+| db.sql\_tokenized.stats.sum\_lock\_time\_per\_call                 | Lock time per call (in ms)             |
 
 ## Primary statistics for Aurora MySQL
 
 The following SQL statistics are available for Aurora MySQL DB clusters.
 
-| Metric                                             | Unit                          |
-| -------------------------------------------------- | ----------------------------- |
-| db.sql_tokenized.stats.count_star                  | Calls                         |
-| db.sql_tokenized.stats.sum_timer_wait              | Wait time (in ms)             |
-| db.sql_tokenized.stats.sum_select_full_join        | Select full join              |
-| db.sql_tokenized.stats.sum_select_range_check      | Select range checks           |
-| db.sql_tokenized.stats.sum_select_scan             | Select scans                  |
-| db.sql_tokenized.stats.sum_sort_merge_passes       | Sort merge passes             |
-| db.sql_tokenized.stats.sum_sort_scan               | Sort scans                    |
-| db.sql_tokenized.stats.sum_sort_range              | Sort ranges                   |
-| db.sql_tokenized.stats.sum_sort_rows               | Sort rows                     |
-| db.sql_tokenized.stats.sum_rows_affected           | Rows affected                 |
-| db.sql_tokenized.stats.sum_rows_examined           | Rows examined                 |
-| db.sql_tokenized.stats.sum_rows_sent               | Rows sent                     |
-| db.sql_tokenized.stats.sum_created_tmp_disk_tables | Created temporary disk tables |
-| db.sql_tokenized.stats.sum_created_tmp_tables      | Created temporary tables      |
-| db.sql_tokenized.stats.sum_lock_time               | Lock time (in ms)             |
+| Metric                                                  | Unit                          |
+| ------------------------------------------------------- | ----------------------------- |
+| db.sql\_tokenized.stats.count\_star                     | Calls                         |
+| db.sql\_tokenized.stats.sum\_timer\_wait                | Wait time (in ms)             |
+| db.sql\_tokenized.stats.sum\_select\_full\_join         | Select full join              |
+| db.sql\_tokenized.stats.sum\_select\_range\_check       | Select range checks           |
+| db.sql\_tokenized.stats.sum\_select\_scan               | Select scans                  |
+| db.sql\_tokenized.stats.sum\_sort\_merge\_passes        | Sort merge passes             |
+| db.sql\_tokenized.stats.sum\_sort\_scan                 | Sort scans                    |
+| db.sql\_tokenized.stats.sum\_sort\_range                | Sort ranges                   |
+| db.sql\_tokenized.stats.sum\_sort\_rows                 | Sort rows                     |
+| db.sql\_tokenized.stats.sum\_rows\_affected             | Rows affected                 |
+| db.sql\_tokenized.stats.sum\_rows\_examined             | Rows examined                 |
+| db.sql\_tokenized.stats.sum\_rows\_sent                 | Rows sent                     |
+| db.sql\_tokenized.stats.sum\_created\_tmp\_disk\_tables | Created temporary disk tables |
+| db.sql\_tokenized.stats.sum\_created\_tmp\_tables       | Created temporary tables      |
+| db.sql\_tokenized.stats.sum\_lock\_time                 | Lock time (in ms)             |

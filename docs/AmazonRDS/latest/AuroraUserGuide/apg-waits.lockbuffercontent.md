@@ -1,4 +1,4 @@
-# LWLock:buffer_content (BufferContent)
+# LWLock:buffer\_content (BufferContent)
 
 The `LWLock:buffer_content` event occurs when a session is waiting to read or
 write a data page in memory while another session has that page locked for writing. In
@@ -145,7 +145,7 @@ reading or writing to the table, which can cause an outage.
 Additionally, `VACUUM FULL` will take longer if the table is
 large.
 
-**pg_repack**
+**pg\_repack**
 
 The `pg_repack` is helpful in situations where `VACUUM
  FULL` might not be suitable. It creates a new table that
@@ -153,8 +153,8 @@ contains the data of the bloated table, tracks the changes from the
 original table, and then replaces the original table with the new one.
 It doesn't lock the original table for read or write operations while
 it's building the new table. For more information, for how to use
-`pg_repack`, see [Removing bloat with pg_repack](../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md "../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md") and
-[pg_repack](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/").
+`pg_repack`, see [Removing bloat with pg\_repack](../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md "../../../prescriptive-guidance/latest/postgresql-maintenance-rds-aurora/pg-repack.md") and
+[pg\_repack](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/").
 
 **REINDEX**
 

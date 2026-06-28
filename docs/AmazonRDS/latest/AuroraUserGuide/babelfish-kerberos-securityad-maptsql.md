@@ -19,11 +19,11 @@ provision this security group in Babelfish, you must use the format
   accounts-group@CORP.EXAMPLE.COM
   Admin can now proceed to create the mapping between AD security group and T-SQL login
   from PostgreSQL endpoint via following psql command. For more information on the
-  function usage, see [Using functions from the pg_ad_mapping extension](AD.Security.Groups.md#AD.Security.Groups.functions "AD.Security.Groups.md#AD.Security.Groups.functions").
+  function usage, see [Using functions from the pg\_ad\_mapping extension](AD.Security.Groups.md#AD.Security.Groups.functions "AD.Security.Groups.md#AD.Security.Groups.functions").
 
 ###### Note
 
-T-SQL login should be specified in login_name@FQDN format while adding the
+T-SQL login should be specified in login\_name@FQDN format while adding the
 mapping. Weights are ignored when connecting through TDS endpoint. For more
 information about usage of weights, see [Connecting to Babelfish via PostgreSQL endpoint on the PostgreSQL port](babelfish-kerberos-securityad-connect-pgendpoint.md "babelfish-kerberos-securityad-connect-pgendpoint.md").
 

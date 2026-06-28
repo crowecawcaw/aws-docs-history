@@ -19,7 +19,7 @@ To control the maximum number of plans that can be captured and stored in the
 `dba_plans` view, set the `apg_plan_mgmt.max_plans` parameter
 in your DB instance-level parameter group. A change to the
 `apg_plan_mgmt.max_plans` parameter requires a DB instance reboot for a
-new value to take effect. For more information, see the [apg_plan_mgmt.max_plans](AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.max_plans "AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.max_plans") parameter.
+new value to take effect. For more information, see the [apg\_plan\_mgmt.max\_plans](AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.max_plans "AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.max_plans") parameter.
 
 ## Manually capturing plans for specific SQL statements
 
@@ -42,7 +42,7 @@ capture all the plans of interest.
 
 If you know of a better plan than the optimizer's minimum cost plan, you
 might be able to force the optimizer to use the better plan. To do so, specify one
-or more optimizer hints. For more information, see [Fixing plans using pg_hint_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). To compare
+or more optimizer hints. For more information, see [Fixing plans using pg\_hint\_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan"). To compare
 the performance of the `unapproved` and `approved` plans and
 approve, reject, or delete them, see [Evaluating plan performance](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance").
 

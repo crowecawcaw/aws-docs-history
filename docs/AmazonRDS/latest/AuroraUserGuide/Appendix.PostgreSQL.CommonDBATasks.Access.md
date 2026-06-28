@@ -80,7 +80,7 @@ the following:
 `CREATE ROLE`
 ```
 
-9. Grant these two users the privileges associated with the lab_tech role:
+9. Grant these two users the privileges associated with the lab\_tech role:
 
 ```
 `postgres=>` `GRANT lab_tech TO lab_user1;`

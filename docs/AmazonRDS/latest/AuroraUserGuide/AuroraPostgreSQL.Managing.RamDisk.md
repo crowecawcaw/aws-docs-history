@@ -1,4 +1,4 @@
-# Specifying the RAM disk for the stats_temp_directory
+# Specifying the RAM disk for the stats\_temp\_directory
 
 You can use the Aurora PostgreSQL parameter, `rds.pg_stat_ramdisk_size`, to
 specify the system memory allocated to a RAM disk for storing the PostgreSQL

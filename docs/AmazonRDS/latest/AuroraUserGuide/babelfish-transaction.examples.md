@@ -100,7 +100,7 @@ in SQL Server compared to the `REPEATABLE READ` Babelfish implementation.
 | Idle in transaction                                   | `UPDATE employee SET name='A_TXN2' WHERE id=1;`       | Transaction 2 blocked.                                  | Transaction 2 blocked.                                                                                    |
 | `COMMIT`                                              | Idle in transaction                                   | Commit successful and transaction 2 has been unblocked. | Commit successful and transaction 2 fails with error could not serialize access due to concurrent update. |
 | Idle in transaction                                   | `COMMIT`                                              | Commit successful.                                      | Transaction 2 has already been aborted.                                                                   |
-| Idle in transaction                                   | `SELECT<br>• FROM employee;`                          | Row with id=1 has name='A_TX2'.                         | Row with id=1 has name='A_TX1'.                                                                           |
+| Idle in transaction                                   | `SELECT<br>• FROM employee;`                          | Row with id=1 has name='A\_TX2'.                        | Row with id=1 has name='A\_TX1'.                                                                          |
 
 The following table provides details on the phantom reads behavior when concurrent transactions are executed. It shows observed results when using the `REPEATABLE READ` isolation level
 in SQL Server compared to the `REPEATABLE READ` Babelfish implementation.

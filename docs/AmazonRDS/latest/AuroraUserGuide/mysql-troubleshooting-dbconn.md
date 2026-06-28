@@ -41,7 +41,7 @@ with subnets can also lead to connection issues.
 **Connection limit reached**
 
 This issue arises when the number of concurrent connections to the database server exceeds the maximum allowed limit. Database servers
-typically have a configurable maximum connection limit defined by the parameter max_connections in the clusters and instance parameter
+typically have a configurable maximum connection limit defined by the parameter max\_connections in the clusters and instance parameter
 groups. By imposing a connection limit, the database server ensures that it has sufficient resources (for example, memory, CPU, and file
 handles) to handle the existing connections efficiently and provide acceptable performance. Causes can include connection leaks in the
 application, inefficient connection pooling, or an unexpected surge in connection requests.
@@ -198,13 +198,13 @@ To monitor and troubleshoot connectivity issues, you can use the following metri
 To troubleshoot connectivity issues in Aurora MySQL
 using Performance Insights, analyze Database metrics such as the following:
 
-- Aborted_clients
-- Aborted_connects
+- Aborted\_clients
+- Aborted\_connects
 - Connections
-- max_connections
-- Threads_connected
-- Threads_created
-- Threads_running
+- max\_connections
+- Threads\_connected
+- Threads\_created
+- Threads\_running
 
 These metrics can help you to identify connection bottlenecks, detect network or authentication problems, optimize connection pooling,
 and ensure efficient thread management. For more information, see [Performance Insights counters for Aurora MySQL](USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.Aurora_MySQL "USER_PerfInsights_Counters.md#USER_PerfInsights_Counters.Aurora_MySQL").
@@ -297,7 +297,7 @@ the following:
 - Incorrect database name – Double-check the database name used in the connection string or query for accuracy.
 - User permissions – Verify that the user has the necessary permissions to access the specified database.
 
-**Error Code 1153: Got a packet bigger than 'max_allowed_packet' bytes**
+**Error Code 1153: Got a packet bigger than 'max\_allowed\_packet' bytes**
 
 This error occurs when the client attempts to send or receive data that exceeds the maximum packet size allowed by the database
 server. Possible causes include the following:
@@ -309,7 +309,7 @@ server. Possible causes include the following:
 - Network configuration issues – Make sure that the network configuration (for example, MTU size) allows for the required
   packet sizes.
 
-**Error Code 1226: User '...' has exceeded the 'max_user_connections' resource (current value: ...)**
+**Error Code 1226: User '...' has exceeded the 'max\_user\_connections' resource (current value: ...)**
 
 This error indicates that the user has exceeded the maximum number of concurrent connections allowed by the database server. Possible
 causes include the following::

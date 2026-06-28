@@ -16,7 +16,7 @@ database are done, the local files are deleted.
   - [Parameters](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Parameters "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Parameters")
   - [Using a manifest to specify data files to load](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest")
 
-    - [Verifying loaded files using the aurora_s3_load_history table](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest.History "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest.History")
+    - [Verifying loaded files using the aurora\_s3\_load\_history table](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest.History "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Manifest.History")
 
   - [Examples](AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Examples "AuroraMySQL.Integrating.LoadFromS3.md#AuroraMySQL.Integrating.LoadFromS3.Text.Examples")
 
@@ -88,8 +88,8 @@ GRANT AWS_LOAD_S3_ACCESS TO '`user`'@'`domain-or-ip-address`'
 ###### Tip
 
 When you use the role technique in Aurora MySQL version 3, you can also activate the role by
-using the `SET ROLE `role_name``or`SET ROLE
-ALL` statement. If you aren't familiar with the MySQL 8.0 role system, you can
+using the `SET ROLE `role_name`` or `SET ROLE
+ ALL` statement. If you aren't familiar with the MySQL 8.0 role system, you can
 learn more in [Role-based privilege model](AuroraMySQL.Compare-80-v3.md#AuroraMySQL.privilege-model "AuroraMySQL.Compare-80-v3.md#AuroraMySQL.privilege-model"). For more details, see [Using roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html") in the
 _MySQL Reference Manual_.
 
@@ -101,7 +101,7 @@ statement](https://dev.mysql.com/doc/refman/8.0/en/set-role.html "https://dev.my
 You can use the `activate_all_roles_on_login` DB cluster parameter to
 automatically activate all roles when a user connects to a DB instance. When this
 parameter is set, you generally don't have to call the `SET ROLE` statement
-explicitly to activate a role. For more information, see [activate_all_roles_on_login](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login") in the _MySQL Reference
+explicitly to activate a role. For more information, see [activate\_all\_roles\_on\_login](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login") in the _MySQL Reference
 Manual_.
 
 However, you must call `SET ROLE ALL` explicitly at the beginning of a
@@ -118,8 +118,8 @@ The `AWS_LOAD_S3_ACCESS` role and `LOAD FROM S3` privilege are specific to Amazo
 available for external MySQL databases or RDS for MySQL DB instances. If you have set up replication between an Aurora DB cluster as
 the replication source and a MySQL database as the replication client, then the `GRANT` statement for the role or
 privilege causes replication to stop with an error. You can safely skip the error to resume replication. To skip the error on an
-RDS for MySQL instance, use the [mysql_rds_skip_repl_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md")
-procedure. To skip the error on an external MySQL database, use the [slave_skip_errors](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors") system variable (Aurora MySQL version 2) or [replica_skip_errors](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors") system variable (Aurora MySQL version 3).
+RDS for MySQL instance, use the [mysql\_rds\_skip\_repl\_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md")
+procedure. To skip the error on an external MySQL database, use the [slave\_skip\_errors](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors") system variable (Aurora MySQL version 2) or [replica\_skip\_errors](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors") system variable (Aurora MySQL version 3).
 
 ###### Note
 
@@ -250,7 +250,7 @@ Specifies to ignore a certain number of lines or rows at the start of the input 
  ROWS` to skip over the first two rows of data in the input file. If you also use `PREFIX`,
 `IGNORE` skips a certain number of lines or rows at the start of the first input file.
 
-**col_name_or_user_var, ...**
+**col\_name\_or\_user\_var, ...**
 
 Specifies a comma-separated list of one or more column names or user variables that identify which columns to
 load by name. The name of a user variable used for this purpose must match the name of an element from the text
@@ -388,7 +388,7 @@ LOAD DATA FROM S3 MANIFEST 's3-us-west-2://aurora-bucket/customer.manifest'
 After the statement completes, an entry for each successfully loaded file is
 written to the `aurora_s3_load_history` table.
 
-#### Verifying loaded files using the aurora_s3_load_history table
+#### Verifying loaded files using the aurora\_s3\_load\_history table
 
 Every successful `LOAD DATA FROM S3` statement updates the `aurora_s3_load_history` table in
 the `mysql` schema with an entry for each file that was loaded.
@@ -444,7 +444,7 @@ LOAD DATA FROM S3 PREFIX 's3-us-west-2://`amzn-s3-demo-bucket`/employee_data'
 ```
 
 The following statement loads data from the files specified in a JSON manifest
-file named q1_sales.json into the `sales` table.
+file named q1\_sales.json into the `sales` table.
 
 ```
 LOAD DATA FROM S3 MANIFEST 's3-us-west-2://`amzn-s3-demo-bucket1`/q1_sales.json'
@@ -549,7 +549,7 @@ Specifies to ignore a certain number of lines or rows at the start of the input 
 `IGNORE 1 LINES` to skip over the first line in the text file, or `IGNORE 2 ROWS` to
 skip over the first two rows of data in the input XML.
 
-**field_name_or_user_var, ...**
+**field\_name\_or\_user\_var, ...**
 
 Specifies a comma-separated list of one or more XML element names or user variables that identify which
 elements to load by name. The name of a user variable used for this purpose must match the name of an element

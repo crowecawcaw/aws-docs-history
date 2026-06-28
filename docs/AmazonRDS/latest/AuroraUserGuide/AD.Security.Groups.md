@@ -48,11 +48,11 @@ April 2025.
 
 - Managing a DB cluster in a Domain. For more information, see [Managing a DB cluster in a Domain](postgresql-kerberos-managing.md "postgresql-kerberos-managing.md").
 
-## Setting up the pg_ad_mapping extension
+## Setting up the pg\_ad\_mapping extension
 
 Aurora PostgreSQL is now providing `pg_ad_mapping` extension to manage the
 mapping between AD security groups and DB roles in Aurora PostgreSQL cluster. For more
-information about the functions provided by `pg_ad_mapping`, see [Using functions from the pg_ad_mapping extension](#AD.Security.Groups.functions "#AD.Security.Groups.functions").
+information about the functions provided by `pg_ad_mapping`, see [Using functions from the pg\_ad\_mapping extension](#AD.Security.Groups.functions "#AD.Security.Groups.functions").
 
 To set up the `pg_ad_mapping` extension on your Aurora PostgreSQL DB cluster,
 you first add `pg_ad_mapping` to the shared libraries on the custom DB
@@ -116,9 +116,9 @@ CREATE EXTENSION pg_ad_mapping;
 `labdb=>` `\q`
 ```
 
-###### To setup pg_ad_mapping
+###### To setup pg\_ad\_mapping
 
-To setup pg_ad_mapping using the AWS CLI, you call the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") operation to add this parameter in
+To setup pg\_ad\_mapping using the AWS CLI, you call the [modify-db-parameter-group](../../../cli/latest/reference/rds/modify-db-parameter-group.md "../../../cli/latest/reference/rds/modify-db-parameter-group.md") operation to add this parameter in
 your custom parameter group, as shown in the following procedure.
 
 1. Use the following AWS CLI command to add `pg_ad_mapping` to
@@ -132,7 +132,7 @@ aws rds modify-db-parameter-group \
 ```
 
 2. Use the following AWS CLI command to reboot the writer instance of your
-   Aurora PostgreSQL DB cluster so that the pg_ad_mapping is
+   Aurora PostgreSQL DB cluster so that the pg\_ad\_mapping is
    initialized.
 
 ```
@@ -154,7 +154,7 @@ rdsutils,pg_ad_mapping
 (1 row)`
 ```
 
-With pg_ad_mapping initialized, you can now create the
+With pg\_ad\_mapping initialized, you can now create the
 extension.
 
 ```
@@ -311,7 +311,7 @@ To determine the AD security principal identity, use the following command:
 
 Currently, AD user identity isn't visible in the audit logs. The
 `log_connections` parameter can be enabled to log DB session
-establishment. For more information, see [log_connections](../../../prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.md "../../../prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.md"). The output for this includes the AD user identity, as
+establishment. For more information, see [log\_connections](../../../prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.md "../../../prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.md"). The output for this includes the AD user identity, as
 shown below. The backend PID associated with this output can then help attribute actions
 back to the actual AD user.
 
@@ -328,7 +328,7 @@ back to the actual AD user.
 `pg_ad_mapping` extension provided support to the following
 functions:
 
-### pgadmap_set_mapping
+### pgadmap\_set\_mapping
 
 This function establishes the mapping between AD security group and Database role
 with an associated weight.
@@ -346,12 +346,12 @@ weight)
 
 #### Arguments
 
-| Parameter    | Description                                                                                                                                                                                                                                                                              |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ad_group     | Name of AD Group. Value cannot be null or empty<br>string.                                                                                                                                                                                                                               |
-| db_role      | Database role to be mapped to the specified AD Group. Value<br>cannot be null or empty string.                                                                                                                                                                                           |
-| ad_group_sid | Security identifier that is used to uniquely identify the AD<br>group. Value starts with 'S-1-' and cannot be null or empty<br>string. For more information, see [Retrieving Active Directory Group SID in PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving"). |
-| weight       | Weight associated with the database role. The role with<br>highest weight gets precedence when user is a member of multiple<br>groups. Default value of weight is 1.                                                                                                                     |
+| Parameter      | Description                                                                                                                                                                                                                                                                              |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ad\_group      | Name of AD Group. Value cannot be null or empty<br>string.                                                                                                                                                                                                                               |
+| db\_role       | Database role to be mapped to the specified AD Group. Value<br>cannot be null or empty string.                                                                                                                                                                                           |
+| ad\_group\_sid | Security identifier that is used to uniquely identify the AD<br>group. Value starts with 'S-1-' and cannot be null or empty<br>string. For more information, see [Retrieving Active Directory Group SID in PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving"). |
+| weight         | Weight associated with the database role. The role with<br>highest weight gets precedence when user is a member of multiple<br>groups. Default value of weight is 1.                                                                                                                     |
 
 #### Return type
 
@@ -361,7 +361,7 @@ weight)
 
 This function adds a new mapping from AD security group to database role. It
 can only be executed on the primary DB instance of the DB cluster by a user
-having rds_superuser privilege.
+having rds\_superuser privilege.
 
 #### Examples
 
@@ -372,7 +372,7 @@ having rds_superuser privilege.
 (1 row)`
 ```
 
-### pgadmap_read_mapping
+### pgadmap\_read\_mapping
 
 This function lists the mappings between AD security group and DB role that were
 set using `pgadmap_set_mapping` function.
@@ -390,12 +390,12 @@ pgadmap_read_mapping()
 
 #### Return type
 
-| Parameter    | Description                                                                                                                                                                                                                                                                                                       |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ad_group_sid | Security identifier that is used to uniquely identify the AD<br>group. Value starts with 'S-1-' and cannot be null or empty<br>string. For more information, see [Retrieving Active Directory Group SID in PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving").accounts-role@example.com |
-| db_role      | Database role to be mapped to the specified AD Group. Value<br>cannot be null or empty string.                                                                                                                                                                                                                    |
-| weight       | Weight associated with the database role. The role with<br>highest weight gets precedence when user is a member of multiple<br>groups. Default value of weight is 1.                                                                                                                                              |
-| ad_group     | Name of AD Group. Value cannot be null or empty<br>string.                                                                                                                                                                                                                                                        |
+| Parameter      | Description                                                                                                                                                                                                                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ad\_group\_sid | Security identifier that is used to uniquely identify the AD<br>group. Value starts with 'S-1-' and cannot be null or empty<br>string. For more information, see [Retrieving Active Directory Group SID in PowerShell](#AD.Security.Groups.retrieving "#AD.Security.Groups.retrieving").accounts-role@example.com |
+| db\_role       | Database role to be mapped to the specified AD Group. Value<br>cannot be null or empty string.                                                                                                                                                                                                                    |
+| weight         | Weight associated with the database role. The role with<br>highest weight gets precedence when user is a member of multiple<br>groups. Default value of weight is 1.                                                                                                                                              |
+| ad\_group      | Name of AD Group. Value cannot be null or empty<br>string.                                                                                                                                                                                                                                                        |
 
 #### Usage notes
 
@@ -414,7 +414,7 @@ S-1-2-33-12345-67890-12345-678 | accounts-role | 10 | accounts-group
 (1 row)`
 ```
 
-### pgadmap_reset_mapping
+### pgadmap\_reset\_mapping
 
 This function resets one or all the mappings that were set using
 `pgadmap_set_mapping` function.
@@ -431,11 +431,11 @@ weight)
 
 #### Arguments
 
-| Parameter    | Description                                                            |
-| ------------ | ---------------------------------------------------------------------- |
-| ad_group_sid | Security identifier that is used to uniquely identify the AD<br>group. |
-| db_role      | Database role to be mapped to the specified AD Group.                  |
-| weight       | Weight associated with the database role.                              |
+| Parameter      | Description                                                            |
+| -------------- | ---------------------------------------------------------------------- |
+| ad\_group\_sid | Security identifier that is used to uniquely identify the AD<br>group. |
+| db\_role       | Database role to be mapped to the specified AD Group.                  |
+| weight         | Weight associated with the database role.                              |
 
 If no arguments are provided, all AD group to DB role mappings are reset.
 Either all arguments need to be provided or none.

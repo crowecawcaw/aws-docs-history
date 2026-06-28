@@ -10,7 +10,7 @@ Use the following to learn about changes to be aware of when you upgrade your Au
 - [Parameter changes for Aurora MySQL version 3](#AuroraMySQL.mysql80-parameter-changes "#AuroraMySQL.mysql80-parameter-changes")
 - [Status variables](#AuroraMySQL.mysql80-status-vars "#AuroraMySQL.mysql80-status-vars")
 - [Inclusive language changes for Aurora MySQL version 3](#AuroraMySQL.8.0-inclusive-language "#AuroraMySQL.8.0-inclusive-language")
-- [AUTO_INCREMENT values](#AuroraMySQL.mysql80-autoincrement "#AuroraMySQL.mysql80-autoincrement")
+- [AUTO\_INCREMENT values](#AuroraMySQL.mysql80-autoincrement "#AuroraMySQL.mysql80-autoincrement")
 - [Binary log replication](#AuroraMySQL.mysql80-binlog "#AuroraMySQL.mysql80-binlog")
 
 ## Atomic Data Definition Language (DDL) support
@@ -214,7 +214,7 @@ removed in a future release.
 | `mysql.rds_reset_external_master`                  | `mysql.rds_reset_external_source`                  |
 | `mysql.rds_next_master_log`                        | `mysql.rds_next_source_log`                        |
 
-## AUTO_INCREMENT values
+## AUTO\_INCREMENT values
 
 In Aurora MySQL version 3, Aurora preserves the `AUTO_INCREMENT` value for each table when it restarts each DB
 instance. In Aurora MySQL version 2, the `AUTO_INCREMENT` value wasn't preserved after a restart.

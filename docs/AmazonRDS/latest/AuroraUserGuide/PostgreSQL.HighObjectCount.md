@@ -4,15 +4,15 @@ While PostgreSQL limitations are theoretical, having extremely high object count
 
 The following table provides a summary of object types and their potential impacts:
 
-| Object types and potential impacts                                                                         | Type of Object | Autovacuum | Logical Replication | Major Version Upgrade | pg_dump / pg_restore | General Performance | Instance Restart |
-| ---------------------------------------------------------------------------------------------------------- | -------------- | ---------- | ------------------- | --------------------- | -------------------- | ------------------- | ---------------- |
-| [Relations](#PostgreSQL.HighObjectCount.Relations "#PostgreSQL.HighObjectCount.Relations")                 | x              |            | x                   | x                     | x                    |                     |
-| [Temporary tables](#PostgreSQL.HighObjectCount.TempTables "#PostgreSQL.HighObjectCount.TempTables")        | x              |            |                     |                       | x                    |                     |
-| [Unlogged tables](#PostgreSQL.HighObjectCount.UnloggedTables "#PostgreSQL.HighObjectCount.UnloggedTables") |                | x          |                     |                       |                      | x                   |
-| [Partitions](#PostgreSQL.HighObjectCount.Partitions "#PostgreSQL.HighObjectCount.Partitions")              |                |            |                     |                       | x                    |                     |
-| [Temporary files](#PostgreSQL.HighObjectCount.TempFiles "#PostgreSQL.HighObjectCount.TempFiles")           |                |            |                     |                       | x                    |                     |
-| [Sequences](#PostgreSQL.HighObjectCount.Sequences "#PostgreSQL.HighObjectCount.Sequences")                 |                | x          |                     |                       |                      |                     |
-| [Large objects](#PostgreSQL.HighObjectCount.LargeObjects "#PostgreSQL.HighObjectCount.LargeObjects")       |                | x          | x                   |                       |                      |                     |
+Object types and potential impacts| Type of Object | Autovacuum | Logical Replication | Major Version Upgrade | pg\_dump / pg\_restore | General Performance | Instance Restart |
+| --- | --- | --- | --- | --- | --- | --- |
+| [Relations](#PostgreSQL.HighObjectCount.Relations "#PostgreSQL.HighObjectCount.Relations") | x | | x | x | x | |
+| [Temporary tables](#PostgreSQL.HighObjectCount.TempTables "#PostgreSQL.HighObjectCount.TempTables") | x | | | | x | |
+| [Unlogged tables](#PostgreSQL.HighObjectCount.UnloggedTables "#PostgreSQL.HighObjectCount.UnloggedTables") | | x | | | | x |
+| [Partitions](#PostgreSQL.HighObjectCount.Partitions "#PostgreSQL.HighObjectCount.Partitions") | | | | | x | |
+| [Temporary files](#PostgreSQL.HighObjectCount.TempFiles "#PostgreSQL.HighObjectCount.TempFiles") | | | | | x | |
+| [Sequences](#PostgreSQL.HighObjectCount.Sequences "#PostgreSQL.HighObjectCount.Sequences") | | x | | | | |
+| [Large objects](#PostgreSQL.HighObjectCount.LargeObjects "#PostgreSQL.HighObjectCount.LargeObjects") | | x | x | | | |
 
 ## Relations
 
@@ -22,11 +22,11 @@ There is not a specific hard limit regarding the number of tables in a PostgreSQ
 
 Autovacuum can struggle to keep up with transaction ID growth or table bloat due to lack of workers compared to amount of work.
 
-**Recommended action:** There are several factors for tuning autovacuum to keep up properly with a given number of tables and given workload. See [Best practices for working with PostgreSQL autovacuum](AuroraPostgreSQL.BestPractices.md#AuroraPostgreSQL.BestPractices.Autovacuum "AuroraPostgreSQL.BestPractices.md#AuroraPostgreSQL.BestPractices.Autovacuum") for suggestions on how to determine appropriate autovacuum settings. Use the [postgres_get_av_diag utility](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions.md") to monitor problems with transaction ID growth.
+**Recommended action:** There are several factors for tuning autovacuum to keep up properly with a given number of tables and given workload. See [Best practices for working with PostgreSQL autovacuum](AuroraPostgreSQL.BestPractices.md#AuroraPostgreSQL.BestPractices.Autovacuum "AuroraPostgreSQL.BestPractices.md#AuroraPostgreSQL.BestPractices.Autovacuum") for suggestions on how to determine appropriate autovacuum settings. Use the [postgres\_get\_av\_diag utility](Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions.md "Appendix.PostgreSQL.CommonDBATasks.Autovacuum_Monitoring.Functions.md") to monitor problems with transaction ID growth.
 
-**Impact: Major version upgrade / pg_dump and restore**
+**Impact: Major version upgrade / pg\_dump and restore**
 
-Amazon RDS uses the "--link" option during pg_upgrade execution to avoid having to make copies of datafiles, the schema metadata is still required to be restored into the new version of the database. Even with parallel pg_restore, if there are a significant number of relations this will increase the amount of downtime.
+Amazon RDS uses the "--link" option during pg\_upgrade execution to avoid having to make copies of datafiles, the schema metadata is still required to be restored into the new version of the database. Even with parallel pg\_restore, if there are a significant number of relations this will increase the amount of downtime.
 
 **Impact: General performance degradation**
 
@@ -107,7 +107,7 @@ Different than temporary tables mentioned above, temporary files are created by 
 
 **Impact: FreeLocalStorage consumption**
 
-Temporary files are a necessary part of PostgreSQL when query results are unable to fit in work_mem. Generally this is fine. However, when the workload uses this extensively, that indicates large queries are continually running and you will observe a decrease in FreeLocalStorage. See [Managing temporary files](PostgreSQL.ManagingTempFiles.md "PostgreSQL.ManagingTempFiles.md") for more details.
+Temporary files are a necessary part of PostgreSQL when query results are unable to fit in work\_mem. Generally this is fine. However, when the workload uses this extensively, that indicates large queries are continually running and you will observe a decrease in FreeLocalStorage. See [Managing temporary files](PostgreSQL.ManagingTempFiles.md "PostgreSQL.ManagingTempFiles.md") for more details.
 
 **General best practices:**
 
@@ -132,7 +132,7 @@ If you plan to use [Blue/Green Deployments](blue-green-deployments.md "blue-gree
 
 ## Large objects
 
-Large objects are stored in a single system table named pg_largeobject. Each large object also has an entry in the system table pg_largeobject_metadata. These objects are created, modified and cleaned up much differently than standard relations. Large objects are not handled by autovacuum and must be periodically cleaned up via a separate process called vacuumlo. See managing large objects with the lo module for examples on managing large objects.
+Large objects are stored in a single system table named pg\_largeobject. Each large object also has an entry in the system table pg\_largeobject\_metadata. These objects are created, modified and cleaned up much differently than standard relations. Large objects are not handled by autovacuum and must be periodically cleaned up via a separate process called vacuumlo. See managing large objects with the lo module for examples on managing large objects.
 
 **Impact: Logical replication**
 
@@ -140,7 +140,7 @@ Large objects are not currently replicated in PostgreSQL during logical replicat
 
 **Impact: Major version upgrade**
 
-An upgrade can run out of memory and fail if there are millions of large objects and the instance cannot handle them during an upgrade. The PostgreSQL major version upgrade process comprises of two broad phases: dumping the schema via pg_dump and restoring it through pg_restore. If your database has millions of large objects you need to ensure your instance has sufficient memory to handle the pg_dump and pg_restore during an upgrade and scale it to a larger instance type.
+An upgrade can run out of memory and fail if there are millions of large objects and the instance cannot handle them during an upgrade. The PostgreSQL major version upgrade process comprises of two broad phases: dumping the schema via pg\_dump and restoring it through pg\_restore. If your database has millions of large objects you need to ensure your instance has sufficient memory to handle the pg\_dump and pg\_restore during an upgrade and scale it to a larger instance type.
 
 **General best practices:**
 

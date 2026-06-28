@@ -103,7 +103,7 @@ end the connection. The following example shows how to end a connection.
 CALL mysql.rds_kill(`processID`);
 ```
 
-For more information, see [mysql.rds_kill](mysql-stored-proc-ending.md#mysql_rds_kill "mysql-stored-proc-ending.md#mysql_rds_kill").
+For more information, see [mysql.rds\_kill](mysql-stored-proc-ending.md#mysql_rds_kill "mysql-stored-proc-ending.md#mysql_rds_kill").
 
 If you end a session, the action might trigger a long rollback.
 

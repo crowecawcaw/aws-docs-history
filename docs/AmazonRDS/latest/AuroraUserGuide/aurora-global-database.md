@@ -124,20 +124,19 @@ The following limitations currently apply to Aurora Global Database:
   version must be version 2.08 or higher. For information about DAS, see [Monitoring Amazon Aurora with Database Activity Streams](DBActivityStreams.md "DBActivityStreams.md").
 - The following limitations currently apply to upgrading Aurora Global Database:
 
-      + You can't apply a custom parameter group to the global database cluster while you're performing a
-       major version upgrade of that Aurora global database. You create your custom parameter groups in each Region of
-       the global cluster and you apply them manually to the Regional clusters after the upgrade.
-      + With an Aurora global database based on Aurora MySQL, you can't perform an in-place upgrade from Aurora MySQL
-       version 2 to version 3 if the `lower_case_table_names` parameter is turned on. For more information
-       on the methods that you can use, see [Major version upgrades](aurora-global-database-upgrade.md#aurora-global-database-upgrade.major "aurora-global-database-upgrade.md#aurora-global-database-upgrade.major").
-      + With Aurora Global Database, you can't perform a major version
-       upgrade of the Aurora PostgreSQL DB engine if the recovery point objective (RPO) feature is turned on.
-       For information about the RPO feature, see [Managing RPOs for Aurora PostgreSQL–based global databases](aurora-global-database-disaster-recovery.md#aurora-global-database-manage-recovery "aurora-global-database-disaster-recovery.md#aurora-global-database-manage-recovery").
-      + With an Aurora Global Database, you can't perform a minor version upgrade from
-       Aurora MySQL version 3.01 or 3.02 to 3.03 or higher by using the standard process. For details about the process to use, see
-       [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.ModifyEngineVersion.md "AuroraMySQL.Updates.Patching.ModifyEngineVersion.md").
-
-  For information about upgrading Aurora Global Database, see [Upgrading an Amazon Aurora global database](aurora-global-database-upgrade.md "aurora-global-database-upgrade.md").
+  - You can't apply a custom parameter group to the global database cluster while you're performing a
+    major version upgrade of that Aurora global database. You create your custom parameter groups in each Region of
+    the global cluster and you apply them manually to the Regional clusters after the upgrade.
+  - With an Aurora global database based on Aurora MySQL, you can't perform an in-place upgrade from Aurora MySQL
+    version 2 to version 3 if the `lower_case_table_names` parameter is turned on. For more information
+    on the methods that you can use, see [Major version upgrades](aurora-global-database-upgrade.md#aurora-global-database-upgrade.major "aurora-global-database-upgrade.md#aurora-global-database-upgrade.major").
+  - With Aurora Global Database, you can't perform a major version
+    upgrade of the Aurora PostgreSQL DB engine if the recovery point objective (RPO) feature is turned on.
+    For information about the RPO feature, see [Managing RPOs for Aurora PostgreSQL–based global databases](aurora-global-database-disaster-recovery.md#aurora-global-database-manage-recovery "aurora-global-database-disaster-recovery.md#aurora-global-database-manage-recovery").
+  - With an Aurora Global Database, you can't perform a minor version upgrade from
+    Aurora MySQL version 3.01 or 3.02 to 3.03 or higher by using the standard process. For details about the process to use, see
+    [Upgrading Aurora MySQL by modifying the engine version](AuroraMySQL.Updates.Patching.ModifyEngineVersion.md "AuroraMySQL.Updates.Patching.ModifyEngineVersion.md").
+    For information about upgrading Aurora Global Database, see [Upgrading an Amazon Aurora global database](aurora-global-database-upgrade.md "aurora-global-database-upgrade.md").
 
 - You can't stop or start the Aurora DB clusters in your global database individually. To learn more,
   see [Stopping and starting an Amazon Aurora DB cluster](aurora-cluster-stop-start.md "aurora-cluster-stop-start.md").

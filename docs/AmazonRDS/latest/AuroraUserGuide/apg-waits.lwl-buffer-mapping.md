@@ -1,4 +1,4 @@
-# LWLock:buffer_mapping
+# LWLock:buffer\_mapping
 
 This event occurs when a session is waiting to associate a data block with a buffer in the shared buffer
 pool.

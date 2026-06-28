@@ -44,7 +44,7 @@ building the index during low-traffic periods if possible. For more information,
 [REINDEX](https://www.postgresql.org/docs/current/sql-reindex.html "https://www.postgresql.org/docs/current/sql-reindex.html")
 in _PostgreSQL_ documentation.
 
-- **Using the INDEX_CLEANUP FALSE option** – If
+- **Using the INDEX\_CLEANUP FALSE option** – If
   the indexes are large and estimated to require a significant amount of time to finish,
   you can unblock autovacuum by executing a manual VACUUM FREEZE while excluding indexes.
   This functionality is available in PostgreSQL version 12 and later versions.
@@ -61,13 +61,13 @@ leading to slower cleanup of dead tuples and increased risk of transaction ID wr
 You can monitor the transaction rate by measuring the difference in
 `max(age(datfrozenxid))` between two time periods, typically per second.
 Additionally, you can use the following counter metrics from RDS Performance Insights to
-measure the transaction rate (the sum of xact_commit and xact_rollback) which is the total
+measure the transaction rate (the sum of xact\_commit and xact\_rollback) which is the total
 number of transactions.
 
-| Counter       | Type         | Unit                 | Metric                        |
-| ------------- | ------------ | -------------------- | ----------------------------- |
-| xact_commit   | Transactions | Commits per second   | db.Transactions.xact_commit   |
-| xact_rollback | Transactions | Rollbacks per second | db.Transactions.xact_rollback |
+| Counter        | Type         | Unit                 | Metric                         |
+| -------------- | ------------ | -------------------- | ------------------------------ |
+| xact\_commit   | Transactions | Commits per second   | db.Transactions.xact\_commit   |
+| xact\_rollback | Transactions | Rollbacks per second | db.Transactions.xact\_rollback |
 
 A rapid increase indicates a high transaction load, which can overwhelm autovacuum,
 causing bloat, lock contention, and potential performance issues. This can negatively impact

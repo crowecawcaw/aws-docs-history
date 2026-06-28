@@ -46,51 +46,51 @@ You can only modify the target group from the proxy details page, not from the l
 
 ###### To modify the settings for a proxy target group
 
-1.  On the **Proxies** page, go to the details page for a proxy.
-2.  For **Target groups**, choose the `default` link. Currently, all proxies
-    have a single target group named `default`.
-3.  On the details page for the **default** target group, choose
-    **Modify**.
-4.  Choose new settings for the properties that you can modify:
+1. On the **Proxies** page, go to the details page for a proxy.
+2. For **Target groups**, choose the `default` link. Currently, all proxies
+   have a single target group named `default`.
+3. On the details page for the **default** target group, choose
+   **Modify**.
+4. Choose new settings for the properties that you can modify:
 
-    - **Database** – Choose a different Aurora cluster.
-    - **Connection pool maximum connections** – Adjust what percentage of the maximum available connections the proxy can use.
-    - **Session pinning filters** – (Optional) Choose a session
-      pinning filter. This circumvents
-      the default safety measures for multiplexing database connections across client connections.
-      Currently, the setting isn't supported for PostgreSQL. The only choice is
-      `EXCLUDE_VARIABLE_SETS`.
+   - **Database** – Choose a different Aurora cluster.
+   - **Connection pool maximum connections** – Adjust what percentage of the maximum available connections the proxy can use.
+   - **Session pinning filters** – (Optional) Choose a session
+     pinning filter. This circumvents
+     the default safety measures for multiplexing database connections across client connections.
+     Currently, the setting isn't supported for PostgreSQL. The only choice is
+     `EXCLUDE_VARIABLE_SETS`.
 
-    Enabling this setting can cause session variables of one connection to impact other
-    connections. This can cause errors or correctness issues if your queries depend on
-    session variable values set outside of the current transaction.
-    Consider using this option after verifying it is safe for your applications to share
-    database connections across client connections.
+   Enabling this setting can cause session variables of one connection to impact other
+   connections. This can cause errors or correctness issues if your queries depend on
+   session variable values set outside of the current transaction.
+   Consider using this option after verifying it is safe for your applications to share
+   database connections across client connections.
 
-    The following patterns can be considered safe:
+   The following patterns can be considered safe:
 
         + `SET` statements where there is no change to the effective
          session variable value, i.e., there is no change to the session variable.
         + You change the session variable value and execute a statement in the
          same transaction.
 
-    For more information, see [Avoiding pinning an RDS Proxy](rds-proxy-pinning.md "rds-proxy-pinning.md").
-    - **Connection borrow timeout** – Adjust the connection borrow timeout interval. This setting applies when the maximum number of
-      connections is already being used for the proxy. The setting determines how long the proxy waits
-      for a connection to become available before returning a timeout error.
-    - **Initialization query**. (Optional) Add an initialization
-      query, or modify the current one. You can specify one or more SQL statements for
-      the proxy to run when opening each new database connection. The setting is
-      typically used with `SET` statements to make sure that each
-      connection has identical settings. Make sure that the query you add is valid. To
-      include multiple variables in a single `SET` statement, use comma
-      separators. For example:
+   For more information, see [Avoiding pinning an RDS Proxy](rds-proxy-pinning.md "rds-proxy-pinning.md").
+   - **Connection borrow timeout** – Adjust the connection borrow timeout interval. This setting applies when the maximum number of
+     connections is already being used for the proxy. The setting determines how long the proxy waits
+     for a connection to become available before returning a timeout error.
+   - **Initialization query**. (Optional) Add an initialization
+     query, or modify the current one. You can specify one or more SQL statements for
+     the proxy to run when opening each new database connection. The setting is
+     typically used with `SET` statements to make sure that each
+     connection has identical settings. Make sure that the query you add is valid. To
+     include multiple variables in a single `SET` statement, use comma
+     separators. For example:
 
-    ```
-    SET `variable1`=`value1`, `variable2`=`value2`
-    ```
+   ```
+   SET `variable1`=`value1`, `variable2`=`value2`
+   ```
 
-    For multiple statements, use semicolons as the separator.
+   For multiple statements, use semicolons as the separator.
 
 You can't change certain properties, such as the target group identifier and the database engine. 5. Choose **Modify target group**.
 

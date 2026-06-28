@@ -8,7 +8,7 @@ in this topic.
 _Trusted Language Extensions for PostgreSQL_ is the official name of the open source
 development kit that's packaged as the `pg_tle` extension.
 It's available for use on any PostgreSQL system. For more information,
-see [aws/pg_tle](https://github.com/aws/pg_tle "https://github.com/aws/pg_tle") on
+see [aws/pg\_tle](https://github.com/aws/pg_tle "https://github.com/aws/pg_tle") on
 GitHub.
 
 **Trusted Language Extensions**

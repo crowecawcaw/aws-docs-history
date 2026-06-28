@@ -154,7 +154,7 @@ The price for a reserved DB instance doesn't provide a discount for the costs as
 storage, backups, and I/O. The following example illustrates the total cost per month for a reserved DB instance:
 
 - An Aurora MySQL reserved Single-AZ db.r5.large DB instance class in US East (N. Virginia) at a cost of $0.19 per
-  hour, or $138.70 per month
+ hour, or $138.70 per month
 - Aurora storage at a cost of $0.10 per GiB per month (assume $45.60 per month for this example)
 - Aurora I/O at a cost of $0.20 per 1 million requests (assume $20 per month for this example)
 - Aurora backup storage at $0.021 per GiB per month (assume $30 per month for this example)
@@ -164,7 +164,7 @@ Add all of these options ($138.70 + $45.60 + $20 + $30) with the reserved DB ins
 If you choose to use an on-demand DB instance instead of a reserved DB instance, an Aurora MySQL
 Single-AZ db.r5.large DB instance class in US East (N. Virginia) costs $0.29 per hour, or $217.50 per month. So, for an
 on-demand DB instance, add all of these options ($217.50 + $45.60 + $20 + $30), and the total cost per month is $313.10. You
-save nearly $79 per month by using the reserved DB instance.
+ save nearly $79 per month by using the reserved DB instance.
 
 #### Example using an Aurora Standard DB cluster with two reader instances
 
@@ -174,7 +174,7 @@ instance in the cluster.
 Extending the first example, you have an Aurora MySQL DB cluster with one writer DB instance and two
 Aurora Replicas, for a total of three DB instances in the cluster. The two Aurora Replicas incur no extra storage or
 backups charges. If you purchase three db.r5.large Aurora MySQL reserved DB instances, your cost will be $234.30 (for
-the writer DB instance) + 2 \* ($138.70 + $20 I/O per Aurora Replica), for a total of $551.70 per month.
+ the writer DB instance) + 2 \* ($138.70 + $20 I/O per Aurora Replica), for a total of $551.70 per month.
 
 The corresponding on-demand cost for an Aurora MySQL DB cluster with one writer DB instance and two
 Aurora Replicas is $313.10 + 2 \* ($217.50 + $20 I/O per instance) for a total of $788.10 per month. You save $236.40 per

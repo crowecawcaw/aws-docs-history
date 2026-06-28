@@ -25,7 +25,7 @@ may occur. For more information, see [Diagnosing and resolving lag between read 
 
 The permissions required to start replication on an Aurora MySQL DB cluster are
 restricted and not available to your Amazon RDS master user. Therefore, you must use
-the [mysql.rds_set_external_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") or [mysql.rds_set_external_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source") and [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") procedures to set up
+the [mysql.rds\_set\_external\_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") or [mysql.rds\_set\_external\_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source") and [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") procedures to set up
 replication between your Aurora MySQL DB cluster and your MySQL DB
 instance.
 
@@ -157,7 +157,7 @@ GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '`repl_user`'@'`example.co
    cluster.
 9. Make the Amazon Aurora DB cluster the replica. Connect to the Amazon Aurora DB
    cluster as the master user and identify the source MySQL database as the
-   replication source by using the [mysql.rds_set_external_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") or [mysql.rds_set_external_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source") and [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") procedures.
+   replication source by using the [mysql.rds\_set\_external\_master (Aurora MySQL version 2)](mysql-stored-proc-replicating.md#mysql_rds_set_external_master "mysql-stored-proc-replicating.md#mysql_rds_set_external_master") or [mysql.rds\_set\_external\_source (Aurora MySQL version 3)](mysql-stored-proc-replicating.md#mysql_rds_set_external_source "mysql-stored-proc-replicating.md#mysql_rds_set_external_source") and [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") procedures.
 
 Use the binlog file name and position that you determined in Step 2.
 The following is an example.
@@ -173,7 +173,7 @@ CALL mysql.rds_set_external_source ('mymasterserver.example.com', 3306,
 
 ```
 
-10. On the Amazon Aurora DB cluster, call the [mysql.rds_start_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") procedure to start
+10. On the Amazon Aurora DB cluster, call the [mysql.rds\_start\_replication](mysql-stored-proc-replicating.md#mysql_rds_start_replication "mysql-stored-proc-replicating.md#mysql_rds_start_replication") procedure to start
     replication.
 
 ```

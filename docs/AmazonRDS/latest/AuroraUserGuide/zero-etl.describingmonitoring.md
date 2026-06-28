@@ -74,13 +74,13 @@ reference](../../../redshift/latest/dg/cm_chap_system-tables.md "../../../redshi
 You can query the following system views and tables to get information about your
 Aurora zero-ETL integrations:
 
-- [SVV_INTEGRATION](../../../redshift/latest/dg/r_SVV_INTEGRATION.md "../../../redshift/latest/dg/r_SVV_INTEGRATION.md") –
+- [SVV\_INTEGRATION](../../../redshift/latest/dg/r_SVV_INTEGRATION.md "../../../redshift/latest/dg/r_SVV_INTEGRATION.md") –
   Provides configuration details for your integrations.
-- [SVV_INTEGRATION_TABLE_STATE](../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md "../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md") – Describes
+- [SVV\_INTEGRATION\_TABLE\_STATE](../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md "../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md") – Describes
   the state of each table within an integration.
-- [SYS_INTEGRATION_TABLE_STATE_CHANGE](../../../redshift/latest/dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md "../../../redshift/latest/dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md") – Displays table state
+- [SYS\_INTEGRATION\_TABLE\_STATE\_CHANGE](../../../redshift/latest/dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md "../../../redshift/latest/dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md") – Displays table state
   change logs for an integration.
-- [SYS_INTEGRATION_ACTIVITY](../../../redshift/latest/dg/r_SYS_INTEGRATION_ACTIVITY.md "../../../redshift/latest/dg/r_SYS_INTEGRATION_ACTIVITY.md") – Provides information about
+- [SYS\_INTEGRATION\_ACTIVITY](../../../redshift/latest/dg/r_SYS_INTEGRATION_ACTIVITY.md "../../../redshift/latest/dg/r_SYS_INTEGRATION_ACTIVITY.md") – Provides information about
   completed integration runs.
 
 All integration-related Amazon CloudWatch metrics originate from Amazon Redshift. For more information, see

@@ -172,7 +172,7 @@ For example, assume you have an Aurora cluster with two readers and `MaxDatabase
 
 RDS Proxy attempts to equalize the number of client connections on each replica, weighted by the database's connection limit. It doesn't load-balance traffic based on database metrics such as CPU utilization, and it doesn't know how long each client session will last after it's opened. As a result, a small imbalance in connection utilization between instances is a normal phenomenon.
 
-### Database connections usage by READWRITE/READ_ONLY role
+### Database connections usage by READWRITE/READ\_ONLY role
 
 The number of database connections utilized and allowed by the proxy and the database. There are two widgets of this type: one for the `READWRITE` role and one for the `READ_ONLY` role.
 

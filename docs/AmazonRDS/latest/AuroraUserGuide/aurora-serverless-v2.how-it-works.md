@@ -129,8 +129,9 @@ Platform versions in Aurora serverless represent improvements in performance, sc
 Amazon Aurora automatically manages platform version assignments at the cluster level. All new clusters,
 database restores, and new clones launch with the latest platform version available in your AWS Region.
 When a new platform version becomes available, existing clusters on previous platform versions can be upgraded
-directly to the latest platform version by stopping and restarting the cluster or by using blue/green deployments.
-Amazon Aurora recommends upgrading to the latest platform version to benefit from all the latest improvements.
+directly to the latest platform version by applying the pending maintenance, stopping and restarting the cluster, or
+by using blue/green deployments. Amazon Aurora recommends upgrading to the latest platform version to benefit from all
+the latest improvements.
 
 The following table shows the Aurora serverless platform versions with their ACU ranges and performance characteristics.
 

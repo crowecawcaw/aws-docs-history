@@ -8,7 +8,7 @@ Babelfish.
 ###### Note
 
 In an Aurora PostgreSQL cluster, the `babelfish_db` database name is
-reserved for Babelfish. Creating your own "babelfish_db" database
+reserved for Babelfish. Creating your own "babelfish\_db" database
 on a Babelfish for Aurora PostgreSQL prevents Aurora from successfully provisioning Babelfish.
 
 ###### To create a cluster with Babelfish running with the AWS Management Console
@@ -26,11 +26,10 @@ the following:
      create**.
 
 3. For **Engine type**, choose **Aurora
-   (PostgreSQL Compatible)**.
-4. For **Available versions**, choose an Aurora PostgreSQL
-   version. To get the latest Babelfish features, choose the highest
-   Aurora PostgreSQL major version. Babelfish is supported on
-   all supported Aurora PostgreSQL versions, 13 and higher.
+(PostgreSQL Compatible)**. 4. For **Available versions**, choose an Aurora PostgreSQL
+version. To get the latest Babelfish features, choose the highest
+Aurora PostgreSQL major version. Babelfish is supported on
+all supported Aurora PostgreSQL versions, 13 and higher.
 
 ![Choose an Aurora PostgreSQL version.](images/bbf_create_cluster_3.png) 5. For **Templates**, choose the template that matches
 your use case. 6. For **DB cluster identifier**, enter a name that you
@@ -71,25 +70,26 @@ following:
      box that follows.
 
 12. For **Database migration mode**, choose one of the
-    following:
+following:
 
-    - **Single database** to migrate a single SQL
-      Server database.
+    * **Single database** to migrate a single SQL
+     Server database.
+
 
     In some cases, you might migrate multiple user databases
-    together, with your end goal a complete migration to native
-    Aurora PostgreSQL without Babelfish. If the final
-    applications require consolidated schemas (a single
-    `dbo` schema), make sure to first consolidate
-    your SQL Server databases into a single SQL server database.
-    Then migrate to Babelfish using **Single
-    database** mode.
-    - **Multiple databases** to migrate multiple
-      SQL Server databases (originating from a single SQL Server
-      installation). Multiple database mode doesn't consolidate
-      multiple databases that don't originate from a single SQL
-      Server installation. For information about migrating multiple
-      databases, see [Using Babelfish with a single database or multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db "babelfish-architecture.md#babelfish-single_vs_multi_db").
+     together, with your end goal a complete migration to native
+     Aurora PostgreSQL without Babelfish. If the final
+     applications require consolidated schemas (a single
+     `dbo` schema), make sure to first consolidate
+     your SQL Server databases into a single SQL server database.
+     Then migrate to Babelfish using **Single
+     database** mode.
+    * **Multiple databases** to migrate multiple
+     SQL Server databases (originating from a single SQL Server
+     installation). Multiple database mode doesn't consolidate
+     multiple databases that don't originate from a single SQL
+     Server installation. For information about migrating multiple
+     databases, see [Using Babelfish with a single database or multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db "babelfish-architecture.md#babelfish-single_vs_multi_db").
 
 ###### Note
 
@@ -136,7 +136,7 @@ is available. 24. For **Maintenance window**, do the following:
      **No preference**.
 
 25. Select the **Enable deletion protection** box to
-    protect your database from being deleted by accident.
+protect your database from being deleted by accident.
 
 If you turn on this feature, you can't directly delete the
 database. Instead, you need to modify the database cluster and turn off

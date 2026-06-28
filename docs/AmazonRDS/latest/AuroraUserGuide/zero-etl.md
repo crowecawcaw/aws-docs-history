@@ -165,7 +165,7 @@ The following limitations apply to Aurora zero-ETL integrations.
 - Foreign key references with predefined table updates aren't supported.
   Specifically, `ON DELETE` and `ON UPDATE` rules aren't
   supported with `CASCADE`, `SET NULL`, and `SET
-DEFAULT` actions. Attempting to create or update a table with such
+ DEFAULT` actions. Attempting to create or update a table with such
   references to another table will put the table into a failed state.
 - [XA
   transactions](https://dev.mysql.com/doc/refman/8.0/en/xa.html "https://dev.mysql.com/doc/refman/8.0/en/xa.html") performed on the source DB cluster cause the integration
@@ -177,7 +177,7 @@ DEFAULT` actions. Attempting to create or update a table with such
   For a list of supported versions, see [Supported Regions and Aurora DB engines for zero-ETL integrations](Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL.md "Concepts.Aurora_Fea_Regions_DB-eng.Feature.Zero-ETL.md").
 - If you select an Aurora PostgreSQL source DB cluster, you must specify at least one
   data filter pattern. At minimum, the pattern must include a single database
-  (``database-name`._._`) for
+  (``database-name`.*.*`) for
   replication to the target warehouse. For more information, see [Data filtering for Aurora zero-ETL integrations](zero-etl.filtering.md "zero-etl.filtering.md").
 - All databases created within the source Aurora PostgreSQL DB cluster must use UTF-8
   encoding.

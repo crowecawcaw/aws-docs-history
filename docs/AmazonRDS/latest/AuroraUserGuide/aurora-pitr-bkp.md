@@ -60,11 +60,10 @@ are required:
 - `--metadata` – The metadata that you use to restore the DB cluster. The following
   parameters are required:
 
-      + `DBClusterIdentifier`
-      + `Engine`
-      + `RestoreToTime` or `UseLatestRestorableTime`
-
-  The following example shows how to restore a DB cluster to a specified time.
+  - `DBClusterIdentifier`
+  - `Engine`
+  - `RestoreToTime` or `UseLatestRestorableTime`
+    The following example shows how to restore a DB cluster to a specified time.
 
 ```
 aws backup start-restore-job \

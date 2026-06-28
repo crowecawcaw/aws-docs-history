@@ -205,11 +205,10 @@ For more information, see [Storage configurations for Amazon Aurora DB clusters]
     You can accept the provided settings, or you can change them for your clone.
 
 7. Choose other settings as needed for your clone. To learn more about Aurora DB cluster and instance settings,
-   see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md").
-8. Choose **Create clone**.
-   When the clone is created, it's listed with your other Aurora DB clusters in the
-   console **Databases** section and displays its current state. Your clone
-   is ready to use when its state is **Available**.
+see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md"). 8. Choose **Create clone**.
+When the clone is created, it's listed with your other Aurora DB clusters in the
+console **Databases** section and displays its current state. Your clone
+is ready to use when its state is **Available**.
 
 Using the AWS CLI for cloning your Aurora DB cluster involves separate steps for creating the clone cluster and
 adding one or more DB instances to it.

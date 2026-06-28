@@ -82,44 +82,44 @@ from the internet.
 
 ###### To create a VPC security group
 
-1.  Open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  Choose **VPC Dashboard**, choose **Security
-    Groups**, and then choose **Create security
-    group**.
-3.  On the **Create security group** page, set these values:
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. Choose **VPC Dashboard**, choose **Security
+   Groups**, and then choose **Create security
+   group**.
+3. On the **Create security group** page, set these values:
 
-    - **Security group name:**
-      `tutorial-dual-stack-securitygroup`
-    - **Description:**
-      `Tutorial Dual-Stack Security Group`
-    - **VPC:** Choose the VPC that you created earlier, for
-      example: **vpc-`identifier` (tutorial-dual-stack-vpc)**
+   - **Security group name:**
+     `tutorial-dual-stack-securitygroup`
+   - **Description:**
+     `Tutorial Dual-Stack Security Group`
+   - **VPC:** Choose the VPC that you created earlier, for
+     example: **vpc-`identifier` (tutorial-dual-stack-vpc)**
 
-4.  Add inbound rules to the security group.
+4. Add inbound rules to the security group.
 
-    1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
-       (SSH).
+   1. Determine the IP address to use to connect to EC2 instances in your VPC using Secure Shell
+      (SSH).
 
-    An example of an Internet Protocol version 4 (IPv4) address is `203.0.113.25/32`. An
-    example of an Internet Protocol version 6 (IPv6) address range is `2001:db8:1234:1a00::/64`.
+   An example of an Internet Protocol version 4 (IPv4) address is `203.0.113.25/32`. An
+   example of an Internet Protocol version 6 (IPv6) address range is `2001:db8:1234:1a00::/64`.
 
-    In many cases, you might connect through an internet service provider
-    (ISP) or from behind your firewall without a static IP address. If so,
-    find the range of IP addresses used by client computers.
+   In many cases, you might connect through an internet service provider
+   (ISP) or from behind your firewall without a static IP address. If so,
+   find the range of IP addresses used by client computers.
 
-    ###### Warning
+   ###### Warning
 
-    If you use `0.0.0.0/0` for IPv4 or `::0` for
-    IPv6, you make it possible for all IP addresses to access your
-    public instances using SSH. This approach is acceptable for a short
-    time in a test environment, but it's unsafe for production
-    environments. In production, authorize only a specific IP address or
-    range of addresses to access your instances. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow Secure
-    Shell (SSH) access to your Amazon EC2 instance. If you do this, you can
-    connect to your EC2 instance to install SQL clients and other
-    applications. Specify an IP address so you can access your EC2
-    instance:
+   If you use `0.0.0.0/0` for IPv4 or `::0` for
+   IPv6, you make it possible for all IP addresses to access your
+   public instances using SSH. This approach is acceptable for a short
+   time in a test environment, but it's unsafe for production
+   environments. In production, authorize only a specific IP address or
+   range of addresses to access your instances. 2. In the **Inbound rules** section, choose **Add rule**. 3. Set the following values for your new inbound rule to allow Secure
+   Shell (SSH) access to your Amazon EC2 instance. If you do this, you can
+   connect to your EC2 instance to install SQL clients and other
+   applications. Specify an IP address so you can access your EC2
+   instance:
 
         * **Type:**
         `SSH`
@@ -128,8 +128,8 @@ from the internet.
          `203.0.113.25/32`. An example of an IPv6 IP
          address is `2001:DB8::/32`.
 
-5.  Choose **Create security group** to create the security
-    group.
+5. Choose **Create security group** to create the security
+   group.
 
 Note the security group ID because you need it later in this tutorial.
 
@@ -211,8 +211,8 @@ in **Subnet group details**:
     * **VPC:** **tutorial-dual-stack-vpc (vpc-`identifier`)**
 
 6. In the **Add subnets** section, choose values for the
-   **Availability Zones** and **Subnets**
-   options.
+**Availability Zones** and **Subnets**
+options.
 
 For this tutorial, choose **us-east-2a** and **us-east-2b**
 for the **Availability Zones**. For **Subnets**, choose the private subnets you

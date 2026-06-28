@@ -44,7 +44,7 @@ Then, create a table and insert a row of sample data.
 Make sure that the table has a primary key. Otherwise, it can't be replicated to
 the target data warehouse.
 
-The pg_dump and pg_restore PostgreSQL utilities initially create tables without a primary key and then add it afterwards. If you're using one of these utilities, we recommend first creating a schema and then loading data in a separate command.
+The pg\_dump and pg\_restore PostgreSQL utilities initially create tables without a primary key and then add it afterwards. If you're using one of these utilities, we recommend first creating a schema and then loading data in a separate command.
 
 **MySQL**
 
@@ -87,7 +87,7 @@ queried.
    v2** from the left navigation pane.
 2. Connect to your cluster or workgroup and choose your destination database
    (which you created from the integration) from the dropdown menu
-   (**destination_database** in this example). For
+   (**destination\_database** in this example). For
    instructions to create a destination database, see [Create a destination database in Amazon Redshift](../../../redshift/latest/mgmt/zero-etl-using.creating-db.md#zero-etl-using.create-db "../../../redshift/latest/mgmt/zero-etl-using.creating-db.md#zero-etl-using.create-db").
 3. Use a SELECT statement to query your data. In this example, you can run the
    following command to select all data from the table that you created in the
@@ -115,7 +115,7 @@ destination_database=# select * from `my_db`."`books_table`";
 ###### Note
 
 For case-sensitivity, use double quotes (" ") for schema, table, and column
-names. For more information, see [enable_case_sensitive_identifier](../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md "../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md").
+names. For more information, see [enable\_case\_sensitive\_identifier](../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md "../../../redshift/latest/dg/r_enable_case_sensitive_identifier.md").
 
 ## Data type differences between Aurora and Amazon Redshift databases
 
@@ -214,13 +214,13 @@ types created by extensions.
 | numeric(p,s)                      | DECIMAL(p,s)              | User-defined fixed precision value                                | • `NaN` values not supported<br>• Precision and scale must be explicitly defined and not<br>greater than 38 (precision) and 37 (scale)<br>• Negative scale not supported |
 | oid                               | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
 | oidvector                         | SUPER                     | Semistructured data or documents as<br>values.                    | None                                                                                                                                                                     |
-| pg_brin_bloom_summary             | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_dependencies                   | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_lsn                            | VARCHAR(17)               | Variable-length string value up to 17<br>characters               | None                                                                                                                                                                     |
-| pg_mcv_list                       | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_ndistinct                      | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_node_tree                      | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| pg_snapshot                       | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg\_brin\_bloom\_summary          | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg\_dependencies                  | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg\_lsn                           | VARCHAR(17)               | Variable-length string value up to 17<br>characters               | None                                                                                                                                                                     |
+| pg\_mcv\_list                     | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg\_ndistinct                     | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg\_node\_tree                    | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| pg\_snapshot                      | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
 | real                              | REAL                      | Single precision floating-point number                            | Subnormal values not fully supported                                                                                                                                     |
 | refcursor                         | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
 | smallint                          | SMALLINT                  | Signed two-byte integer                                           | None                                                                                                                                                                     |
@@ -234,7 +234,7 @@ types created by extensions.
 | timestamp [(p)] with time zone    | TIMESTAMPTZ               | Date and time (with time zone)                                    | • `Infinity` and `-Infinity`<br>values not supported<br>• Values greater than `9999-12-31` not<br>supported<br>• B.C. values not supported                               |
 | tsquery                           | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
 | tsvector                          | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
-| txid_snapshot                     | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
+| txid\_snapshot                    | VARCHAR(65535)            | Variable-length string value up to 65,535<br>characters           | None                                                                                                                                                                     |
 | uuid                              | VARCHAR(36)               | Variable-length 36 character string                               | None                                                                                                                                                                     |
 | xid                               | BIGINT                    | Signed eight-byte integer                                         | None                                                                                                                                                                     |
 | xid8                              | DECIMAL(20, 0)            | Fixed precision decimal                                           | None                                                                                                                                                                     |

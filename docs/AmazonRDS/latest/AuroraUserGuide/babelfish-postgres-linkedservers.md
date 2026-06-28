@@ -11,7 +11,7 @@ You can install `tds_fdw` extension using the following methods.
 
 ###### Using CREATE EXTENSION from PostgreSQL endpoint
 
-1. Connect to your PostgreSQL DB instance on the Babelfish database in the PostgreSQL port. Use an account that has the rds_superuser role.
+1. Connect to your PostgreSQL DB instance on the Babelfish database in the PostgreSQL port. Use an account that has the rds\_superuser role.
 
 ```
 psql --host=`your-DB-instance.aws-region.rds.amazonaws.com` --port=5432 --username=`test` --dbname=babelfish_db --`password`
@@ -55,8 +55,8 @@ The following stored procedures and catalog views are supported in order to use 
 
 Stored procedures
 
-- sp_addlinkedserver – Babelfish doesn't support the `@provstr` parameter.
-- sp_addlinkedsrvlogin
+- sp\_addlinkedserver – Babelfish doesn't support the `@provstr` parameter.
+- sp\_addlinkedsrvlogin
 
   - You must provide an explicit
     remote username and password to connect to the remote data source. You can't connect with the user's self credentials. Babelfish
@@ -64,24 +64,24 @@ Stored procedures
   - Babelfish doesn't support the `@locallogin` parameter since
     configuring remote server access specific to local login isn't supported.
 
-- sp_linkedservers
-- sp_helplinkedsrvlogin
-- sp_dropserver
-- sp_droplinkedsrvlogin – Babelfish doesn't
+- sp\_linkedservers
+- sp\_helplinkedsrvlogin
+- sp\_dropserver
+- sp\_droplinkedsrvlogin – Babelfish doesn't
   support the `@locallogin` parameter since configuring remote server access
   specific to local login isn't supported.
-- sp_serveroption – Babelfish supports the following server options:
+- sp\_serveroption – Babelfish supports the following server options:
 
   - query timeout (from Babelfish version 3.2.0)
   - connect timeout (from Babelfish version 3.3.0)
 
-- sp_testlinkedserver (from Babelfish version 3.3.0)
-- sp_enum_oledb_providers (from Babelfish version 3.3.0)
+- sp\_testlinkedserver (from Babelfish version 3.3.0)
+- sp\_enum\_oledb\_providers (from Babelfish version 3.3.0)
 
 Catalog views
 
 - sys.servers
-- sys.linked_logins
+- sys.linked\_logins
 
 ## Using encryption in transit for the connection
 

@@ -102,11 +102,11 @@ pools. Threads can only use one buffer pool at a time.
 Make sure that the following memory settings used for each thread are properly
 sized:
 
-- read_buffer
-- read_rnd_buffer
-- sort_buffer
-- join_buffer
-- binlog_cache
+- read\_buffer
+- read\_rnd\_buffer
+- sort\_buffer
+- join\_buffer
+- binlog\_cache
 
 Unless you have a specific reason to modify the settings, use the default values.
 

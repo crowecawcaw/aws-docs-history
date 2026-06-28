@@ -93,7 +93,7 @@ Syntax
 
 The dividend and divisor arguments must be integer expressions.
 
-\*Multiplication operator: \*\*
+_Multiplication operator: \*_
 
 Multiplies the expressions, returning the product of the expressions. Decimals in the
 expressions are truncated, not rounded.

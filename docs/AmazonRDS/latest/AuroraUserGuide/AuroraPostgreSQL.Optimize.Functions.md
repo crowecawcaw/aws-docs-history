@@ -4,18 +4,18 @@ The `apg_plan_mgmt` extension provides the following functions.
 
 ###### Functions
 
-- [apg_plan_mgmt.copy_outline](#AuroraPostgreSQL.Optimize.Functions.copy_outline "#AuroraPostgreSQL.Optimize.Functions.copy_outline")
-- [apg_plan_mgmt.delete_plan](#AuroraPostgreSQL.Optimize.Functions.delete_plan "#AuroraPostgreSQL.Optimize.Functions.delete_plan")
-- [apg_plan_mgmt.evolve_plan_baselines](#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines")
-- [apg_plan_mgmt.get_explain_plan](#AuroraPostgreSQL.Optimize.Functions.get_explain_plan "#AuroraPostgreSQL.Optimize.Functions.get_explain_plan")
-- [apg_plan_mgmt.plan_last_used](#AuroraPostgreSQL.Optimize.Functions.plan_last_used "#AuroraPostgreSQL.Optimize.Functions.plan_last_used")
-- [apg_plan_mgmt.reload](#AuroraPostgreSQL.Optimize.Functions.reload "#AuroraPostgreSQL.Optimize.Functions.reload")
-- [apg_plan_mgmt.set_plan_enabled](#AuroraPostgreSQL.Optimize.Functions.set_plan_enabled "#AuroraPostgreSQL.Optimize.Functions.set_plan_enabled")
-- [apg_plan_mgmt.set_plan_status](#AuroraPostgreSQL.Optimize.Functions.set_plan_status "#AuroraPostgreSQL.Optimize.Functions.set_plan_status")
-- [apg_plan_mgmt.update_plans_last_used](#AuroraPostgreSQL.Optimize.Functions.update_plans_last_used "#AuroraPostgreSQL.Optimize.Functions.update_plans_last_used")
-- [apg_plan_mgmt.validate_plans](#AuroraPostgreSQL.Optimize.Functions.validate_plans "#AuroraPostgreSQL.Optimize.Functions.validate_plans")
+- [apg\_plan\_mgmt.copy\_outline](#AuroraPostgreSQL.Optimize.Functions.copy_outline "#AuroraPostgreSQL.Optimize.Functions.copy_outline")
+- [apg\_plan\_mgmt.delete\_plan](#AuroraPostgreSQL.Optimize.Functions.delete_plan "#AuroraPostgreSQL.Optimize.Functions.delete_plan")
+- [apg\_plan\_mgmt.evolve\_plan\_baselines](#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines")
+- [apg\_plan\_mgmt.get\_explain\_plan](#AuroraPostgreSQL.Optimize.Functions.get_explain_plan "#AuroraPostgreSQL.Optimize.Functions.get_explain_plan")
+- [apg\_plan\_mgmt.plan\_last\_used](#AuroraPostgreSQL.Optimize.Functions.plan_last_used "#AuroraPostgreSQL.Optimize.Functions.plan_last_used")
+- [apg\_plan\_mgmt.reload](#AuroraPostgreSQL.Optimize.Functions.reload "#AuroraPostgreSQL.Optimize.Functions.reload")
+- [apg\_plan\_mgmt.set\_plan\_enabled](#AuroraPostgreSQL.Optimize.Functions.set_plan_enabled "#AuroraPostgreSQL.Optimize.Functions.set_plan_enabled")
+- [apg\_plan\_mgmt.set\_plan\_status](#AuroraPostgreSQL.Optimize.Functions.set_plan_status "#AuroraPostgreSQL.Optimize.Functions.set_plan_status")
+- [apg\_plan\_mgmt.update\_plans\_last\_used](#AuroraPostgreSQL.Optimize.Functions.update_plans_last_used "#AuroraPostgreSQL.Optimize.Functions.update_plans_last_used")
+- [apg\_plan\_mgmt.validate\_plans](#AuroraPostgreSQL.Optimize.Functions.validate_plans "#AuroraPostgreSQL.Optimize.Functions.validate_plans")
 
-## apg_plan_mgmt.copy_outline
+## apg\_plan\_mgmt.copy\_outline
 
 Copy a given SQL plan hash and plan outline to a target SQL plan hash and outline,
 thereby overwriting the target's plan hash and outline. This function is
@@ -56,7 +56,7 @@ statements at every occurrence in the target statements. If the updated target q
 results in an invalid plan, this function raises an error and rolls back the
 attempted update.
 
-## apg_plan_mgmt.delete_plan
+## apg\_plan\_mgmt.delete\_plan
 
 Delete a managed plan.
 
@@ -80,7 +80,7 @@ Returns 0 if the delete was successful or -1 if the delete failed.
 | `sql_hash`  | The `sql_hash` ID of the plan's managed SQL<br>statement. |
 | `plan_hash` | The managed plan's `plan_hash` ID.                        |
 
-## apg_plan_mgmt.evolve_plan_baselines
+## apg\_plan\_mgmt.evolve\_plan\_baselines
 
 Executes the captured query and compares its performance against the best
 approved/preferred plan that is enabled, or the optimizer's plan. Based on the
@@ -150,7 +150,7 @@ view is updated with the `current_timestamp`. The
 `last_verified` timestamp might be used to avoid running this
 function again on a plan that recently had its performance verified.
 
-## apg_plan_mgmt.get_explain_plan
+## apg\_plan\_mgmt.get\_explain\_plan
 
 Generates the text of an `EXPLAIN` statement for the specified SQL
 statement.
@@ -186,7 +186,7 @@ you would use with an `EXPLAIN` statement. The Aurora PostgreSQL optimizer
 concatenates the list of options that you provide to the `EXPLAIN`
 statement.
 
-## apg_plan_mgmt.plan_last_used
+## apg\_plan\_mgmt.plan\_last\_used
 
 Returns the `last_used` date of the specified plan from shared memory.
 
@@ -216,7 +216,7 @@ Returns the `last_used` date.
 | `sql_hash`  | The `sql_hash` ID of the plan's managed SQL<br>statement. |
 | `plan_hash` | The managed plan's `plan_hash` ID.                        |
 
-## apg_plan_mgmt.reload
+## apg\_plan\_mgmt.reload
 
 Reload plans into shared memory from the `apg_plan_mgmt.dba_plans`
 view.
@@ -243,7 +243,7 @@ Call `reload` for the following situations:
   rather than wait for new plans to propagate to the replica.
 - Use it after importing managed plans.
 
-## apg_plan_mgmt.set_plan_enabled
+## apg\_plan\_mgmt.set\_plan\_enabled
 
 Enable or disable a managed plan.
 
@@ -269,7 +269,7 @@ Returns 0 if the setting was successful or -1 if the setting failed.
 | `plan_hash` | The managed plan's `plan_hash` ID.                                                                                     |
 | `enabled`   | Boolean value of true or false:<br>• A value of `true` enables the plan.<br>• A value of `false` disables the<br>plan. |
 
-## apg_plan_mgmt.set_plan_status
+## apg\_plan\_mgmt.set\_plan\_status
 
 Set a managed plan's status to `Approved`,
 `Unapproved`, `Rejected`, or `Preferred`.
@@ -290,13 +290,13 @@ Returns 0 if the setting was successful or -1 if the setting failed.
 
 **Parameters**
 
-| Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sql_hash`  | The `sql_hash` ID of the plan's managed SQL<br>statement.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `plan_hash` | The managed plan's `plan_hash` ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `status`    | A string with one of the following values:<br>• `'Approved'`<br>• `'Unapproved'`<br>• `'Rejected'`<br>• `'Preferred'`<br>The case you use does not matter, however the status value is<br>set to initial uppercase in the<br>`apg_plan_mgmt.dba_plans` view. For more<br>information about these values, see `status` in [Reference for the apg_plan_mgmt.dba_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md "AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md"). |
+| Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sql_hash`  | The `sql_hash` ID of the plan's managed SQL<br>statement.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `plan_hash` | The managed plan's `plan_hash` ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `status`    | A string with one of the following values:<br>• `'Approved'`<br>• `'Unapproved'`<br>• `'Rejected'`<br>• `'Preferred'`<br>The case you use does not matter, however the status value is<br>set to initial uppercase in the<br>`apg_plan_mgmt.dba_plans` view. For more<br>information about these values, see `status` in [Reference for the apg\_plan\_mgmt.dba\_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md "AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md"). |
 
-## apg_plan_mgmt.update_plans_last_used
+## apg\_plan\_mgmt.update\_plans\_last\_used
 
 Immediately updates the plans table with the `last_used` date stored in
 shared memory.
@@ -339,7 +339,7 @@ alternative plans that might perform better.
 The `update_plans_last_used` function has an effect only on the primary
 DB instance of the DB cluster.
 
-## apg_plan_mgmt.validate_plans
+## apg\_plan\_mgmt.validate\_plans
 
 Validate that the optimizer can still recreate plans. The optimizer validates
 `Approved`, `Unapproved`, and `Preferred`

@@ -146,10 +146,8 @@ want to create your DB cluster in. 6. In **Inbound rules**, choose **Add rule**.
      from the IP address detected in your browser.
 
 7. If you need to add more IP addresses or different port ranges, choose **Add rule**
-   and enter the information for the rule.
-8. (Optional) In **Outbound rules**, add rules for outbound traffic.
-   By default, all outbound traffic is allowed.
-9. Choose **Create security group**.
+and enter the information for the rule. 8. (Optional) In **Outbound rules**, add rules for outbound traffic.
+By default, all outbound traffic is allowed. 9. Choose **Create security group**.
 
 You can use the VPC security group you just created as the security group for your DB
 cluster when you create it.

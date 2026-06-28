@@ -6,7 +6,7 @@ more information about improving your query plans, see the following topics.
 ###### Topics
 
 - [Evaluating plan performance](#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance "#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance")
-- [Fixing plans using pg_hint_plan](#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan")
+- [Fixing plans using pg\_hint\_plan](#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan")
 
 ## Evaluating plan performance
 
@@ -100,7 +100,7 @@ To delete plans that aren't valid and that you expect to remain invalid,
 use the `apg_plan_mgmt.validate_plans` function. This function lets
 you delete or disable invalid plans. For more information, see [Validating plans](AuroraPostgreSQL.Optimize.Deleting.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans "AuroraPostgreSQL.Optimize.Deleting.md#AuroraPostgreSQL.Optimize.Maintenance.ValidatingPlans").
 
-## Fixing plans using pg_hint_plan
+## Fixing plans using pg\_hint\_plan
 
 The query optimizer is well-designed to find an optimal plan for all statements,
 and in most cases the optimizer finds a good plan. However, occasionally you might
@@ -112,7 +112,7 @@ variables in PostgreSQL:
 - `pg_hint_plan` extension – Specify a "hint" to modify
   how the planner works by using PostgreSQL's `pg_hint_plan`
   extension. To install and learn more about how to use the
-  `pg_hint_plan` extension, see the [pg_hint_plan
+  `pg_hint_plan` extension, see the [pg\_hint\_plan
   documentation](https://github.com/ossc-db/pg_hint_plan "https://github.com/ossc-db/pg_hint_plan").
 - GUC variables – Override one or more cost model parameters or other
   optimizer parameters, such as the `from_collapse_limit` or
@@ -147,7 +147,7 @@ WHERE t1.id = t2.id;
 
 The following steps show how to use `pg_hint_plan`.
 
-###### To modify the optimizer's generated plan and capture the plan using pg_hint_plan
+###### To modify the optimizer's generated plan and capture the plan using pg\_hint\_plan
 
 1. Turn on the manual capture mode.
 

@@ -1,4 +1,4 @@
-# synch/mutex/innodb/temp_pool_manager_mutex
+# synch/mutex/innodb/temp\_pool\_manager\_mutex
 
 The `synch/mutex/innodb/temp_pool_manager_mutex` wait event occurs when a session is waiting to acquire a mutex for managing the pool of session temporary tablespaces.
 
@@ -65,8 +65,8 @@ We recommend different actions depending on the causes of your wait event.
 ###### Topics
 
 - [Monitor and optimize temporary table usage](#ams-waits.io-temppoolmanager.actions.monitor "#ams-waits.io-temppoolmanager.actions.monitor")
-- [Review queries using INFORMATION_SCHEMA](#ams-waits.io-temppoolmanager.actions.schema-queries "#ams-waits.io-temppoolmanager.actions.schema-queries")
-- [Increase innodb_sync_array_size parameter](#ams-waits.io-temppoolmanager.actions.sync_array "#ams-waits.io-temppoolmanager.actions.sync_array")
+- [Review queries using INFORMATION\_SCHEMA](#ams-waits.io-temppoolmanager.actions.schema-queries "#ams-waits.io-temppoolmanager.actions.schema-queries")
+- [Increase innodb\_sync\_array\_size parameter](#ams-waits.io-temppoolmanager.actions.sync_array "#ams-waits.io-temppoolmanager.actions.sync_array")
 - [Implement connection pooling](#ams-waits.io-temppoolmanager.actions.connection_pooling "#ams-waits.io-temppoolmanager.actions.connection_pooling")
 
 ### Monitor and optimize temporary table usage
@@ -103,7 +103,7 @@ Note that certain query conditions will always require on-disk temporary tables,
 regardless of configuration settings. For more information `TempTable` storage engine, see
 [Use the TempTable storage engine on Amazon RDS for MySQL and Amazon Aurora MySQL](https://aws.amazon.com/blogs/database/use-the-temptable-storage-engine-on-amazon-rds-for-mysql-and-amazon-aurora-mysql/ "https://aws.amazon.com/blogs/database/use-the-temptable-storage-engine-on-amazon-rds-for-mysql-and-amazon-aurora-mysql/") .
 
-### Review queries using INFORMATION_SCHEMA
+### Review queries using INFORMATION\_SCHEMA
 
 When you query `INFORMATION_SCHEMA` tables, MySQL creates InnoDB temporary tables on the cluster volume. Each session needs a temporary tablespace for these tables, which can lead to performance issues during high concurrent access.
 
@@ -112,7 +112,7 @@ To improve performance:
 - Use `PERFORMANCE_SCHEMA` instead of `INFORMATION_SCHEMA` where possible.
 - If you must use `INFORMATION_SCHEMA`, reduce how often you run these queries.
 
-### Increase innodb_sync_array_size parameter
+### Increase innodb\_sync\_array\_size parameter
 
 The `innodb_sync_array_size` parameter controls the size of the mutex/lock
 wait array in MySQL. The default value of `1` works for general workloads, but

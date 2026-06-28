@@ -93,7 +93,8 @@ Directory.
 
 For example, suppose that the domain name for your AWS Managed
 Active Directory is `corp.example.com`. Then use the format
-``PostgreSQL-endpoint`.`AWS-Region`_.corp.example.com_` for the endpoint and put it in the`/etc/hosts` file.
+``PostgreSQL-endpoint`.`AWS-Region`*.corp.example.com*`
+for the endpoint and put it in the `/etc/hosts` file.
 
 ```
 % echo " 34.210.197.118  `PostgreSQL-endpoint`.`AWS-Region`.corp.example.com" >> /etc/hosts

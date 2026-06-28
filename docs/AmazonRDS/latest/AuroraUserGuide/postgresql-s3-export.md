@@ -31,15 +31,15 @@ API. For more information, see [Exporting DB cluster snapshot data to Amazon S3]
 
 ###### Topics
 
-- [Installing the aws_s3 extension](#USER_PostgreSQL.S3Export.InstallExtension "#USER_PostgreSQL.S3Export.InstallExtension")
+- [Installing the aws\_s3 extension](#USER_PostgreSQL.S3Export.InstallExtension "#USER_PostgreSQL.S3Export.InstallExtension")
 - [Overview of exporting data to Amazon S3](#postgresql-s3-export-overview "#postgresql-s3-export-overview")
 - [Specifying the Amazon S3 file path to export to](#postgresql-s3-export-file "#postgresql-s3-export-file")
 - [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md")
-- [Exporting query data using the aws_s3.query_export_to_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md")
+- [Exporting query data using the aws\_s3.query\_export\_to\_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md")
 - [Function reference](postgresql-s3-export-functions.md "postgresql-s3-export-functions.md")
 - [Troubleshooting access to Amazon S3](postgresql-s3-export-troubleshoot.md "postgresql-s3-export-troubleshoot.md")
 
-## Installing the aws_s3 extension
+## Installing the aws\_s3 extension
 
 Before you can use Amazon Simple Storage Service with your Aurora PostgreSQL DB cluster,
 you need to install the
@@ -124,8 +124,8 @@ the export will use for storage. Doing this includes the following steps:
 For details about this process, see [Setting up access to an Amazon S3 bucket](postgresql-s3-export-access-bucket.md "postgresql-s3-export-access-bucket.md"). 3. Identify a database query to get the data. Export the query data by calling
 the `aws_s3.query_export_to_s3` function.
 
-After you complete the preceding preparation tasks, use the [aws_s3.query_export_to_s3](postgresql-s3-export-functions.md#aws_s3.export_query_to_s3 "postgresql-s3-export-functions.md#aws_s3.export_query_to_s3") function to export query
-results to Amazon S3. For details about this process, see [Exporting query data using the aws_s3.query_export_to_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
+After you complete the preceding preparation tasks, use the [aws\_s3.query\_export\_to\_s3](postgresql-s3-export-functions.md#aws_s3.export_query_to_s3 "postgresql-s3-export-functions.md#aws_s3.export_query_to_s3") function to export query
+results to Amazon S3. For details about this process, see [Exporting query data using the aws\_s3.query\_export\_to\_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
 
 ## Specifying the Amazon S3 file path to export to
 
@@ -141,17 +141,16 @@ _Amazon Simple Storage Service User Guide_.
 - File path – The file path identifies where the export is stored in the
   Amazon S3 bucket. The file path consists of the following:
 
-      + An optional path prefix that identifies a virtual folder path.
-      + A file prefix that identifies one or more files to be stored. Larger
-       exports are stored in multiple files, each with a maximum size of
-       approximately 6 GB. The additional file names have the same file prefix
-       but with `_part`XX`` appended. The
-       ``XX`` represents 2, then 3,
-       and so on.
-
-  For example, a file path with an `exports` folder and a
-  `query-1-export` file prefix is
-  `/exports/query-1-export`.
+  - An optional path prefix that identifies a virtual folder path.
+  - A file prefix that identifies one or more files to be stored. Larger
+    exports are stored in multiple files, each with a maximum size of
+    approximately 6 GB. The additional file names have the same file prefix
+    but with `_part`XX`appended. The
+  `XX`` represents 2, then 3,
+    and so on.
+    For example, a file path with an `exports` folder and a
+    `query-1-export` file prefix is
+    `/exports/query-1-export`.
 
 - AWS Region (optional) – The AWS Region where the Amazon S3 bucket is
   located. If you don't specify an AWS Region value, then Aurora saves your files into Amazon S3 in the same AWS Region as the
@@ -165,7 +164,7 @@ DB cluster.
 For a listing of AWS Region names and associated values, see [Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 
 To hold the Amazon S3 file information about where the export is to be stored, you can use
-the [aws_commons.create_s3_uri](postgresql-s3-export-functions.md#aws_commons.create_s3_uri "postgresql-s3-export-functions.md#aws_commons.create_s3_uri") function to create an
+the [aws\_commons.create\_s3\_uri](postgresql-s3-export-functions.md#aws_commons.create_s3_uri "postgresql-s3-export-functions.md#aws_commons.create_s3_uri") function to create an
 `aws_commons._s3_uri_1` composite structure as follows.
 
 ```
@@ -177,4 +176,4 @@ psql=> SELECT aws_commons.create_s3_uri(
 ```
 
 You later provide this `s3_uri_1` value as a parameter in the call to the
-[aws_s3.query_export_to_s3](postgresql-s3-export-functions.md#aws_s3.export_query_to_s3 "postgresql-s3-export-functions.md#aws_s3.export_query_to_s3") function. For examples, see [Exporting query data using the aws_s3.query_export_to_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
+[aws\_s3.query\_export\_to\_s3](postgresql-s3-export-functions.md#aws_s3.export_query_to_s3 "postgresql-s3-export-functions.md#aws_s3.export_query_to_s3") function. For examples, see [Exporting query data using the aws\_s3.query\_export\_to\_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").

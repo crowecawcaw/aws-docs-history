@@ -39,7 +39,7 @@ access a bucket, take the following steps:
      information, see [Providing access to an Amazon S3 bucket using an IAM role](export-cluster-data.Setup.md#export-cluster-data.SetupIAMRole "export-cluster-data.Setup.md#export-cluster-data.SetupIAMRole").
 
 3. Create a symmetric encryption AWS KMS key for the server-side encryption. The KMS key is used by the cluster
-   export task to set up AWS KMS server-side encryption when writing the export data to S3.
+export task to set up AWS KMS server-side encryption when writing the export data to S3.
 
 The KMS key policy must include both the `kms:CreateGrant` and `kms:DescribeKey` permissions.
 For more information on using KMS keys in Amazon Aurora, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").

@@ -11,7 +11,7 @@ Following, you can find information about Aurora PostgreSQL query plan managemen
 how to set it up, and how to use it with your Aurora PostgreSQL DB cluster. Before you get
 started, we recommend that you review any release notes for the specific version of the
 `apg_plan_mgmt` extension available for your Aurora PostgreSQL version. For more
-information, see [Aurora PostgreSQL apg_plan_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
+information, see [Aurora PostgreSQL apg\_plan\_mgmt extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md#AuroraPostgreSQL.Extensions.apg_plan_mgmt") in the
 _Release Notes for Aurora PostgreSQL_.
 
 ###### Topics
@@ -21,11 +21,11 @@ _Release Notes for Aurora PostgreSQL_.
 - [Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.Start.md "AuroraPostgreSQL.Optimize.Start.md")
 - [Capturing Aurora PostgreSQL execution plans](AuroraPostgreSQL.Optimize.CapturePlans.md "AuroraPostgreSQL.Optimize.CapturePlans.md")
 - [Using Aurora PostgreSQL managed plans](AuroraPostgreSQL.Optimize.UsePlans.md "AuroraPostgreSQL.Optimize.UsePlans.md")
-- [Examining Aurora PostgreSQL query plans in the dba_plans view](AuroraPostgreSQL.Optimize.ViewPlans.md "AuroraPostgreSQL.Optimize.ViewPlans.md")
+- [Examining Aurora PostgreSQL query plans in the dba\_plans view](AuroraPostgreSQL.Optimize.ViewPlans.md "AuroraPostgreSQL.Optimize.ViewPlans.md")
 - [Improving Aurora PostgreSQL query plans](AuroraPostgreSQL.Optimize.Maintenance.md "AuroraPostgreSQL.Optimize.Maintenance.md")
 - [Deleting Aurora PostgreSQL query plans](AuroraPostgreSQL.Optimize.Deleting.md "AuroraPostgreSQL.Optimize.Deleting.md")
 - [Exporting and importing managed plans for Aurora PostgreSQL](AuroraPostgreSQL.Optimize.Maintenance.ExportingImporting.md "AuroraPostgreSQL.Optimize.Maintenance.ExportingImporting.md")
 - [Parameter reference for Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.Parameters.md "AuroraPostgreSQL.Optimize.Parameters.md")
 - [Function reference for Aurora PostgreSQL query plan management](AuroraPostgreSQL.Optimize.Functions.md "AuroraPostgreSQL.Optimize.Functions.md")
-- [Reference for the apg_plan_mgmt.dba_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md "AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md")
+- [Reference for the apg\_plan\_mgmt.dba\_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md "AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md")
 - [Advanced features in Query Plan Management](AuroraPostgreSQL.QPM.Advanced.md "AuroraPostgreSQL.QPM.Advanced.md")

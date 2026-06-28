@@ -7,23 +7,23 @@ The following table shows the new views for Aurora PostgreSQL Limitless Database
 The views listed in this table are located in the `rds_aurora` schema. When using a Limitless Database view, make sure to include
 the fully qualified object name: `rds_aurora`.`object_name`.
 
-| Aurora PostgreSQL Limitless Database view                                                                                            | Corresponding Aurora PostgreSQL view |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
-| [limitless_database](#limitless_database "#limitless_database")                                                                      | pg_database                          |
-| [limitless_locks](#limitless_locks "#limitless_locks")                                                                               | pg_locks                             |
-| [limitless_stat_activity](#limitless_stat_activity "#limitless_stat_activity")                                                       | pg_stat_activity                     |
-| [limitless_stat_all_indexes](#limitless_stat_all_indexes "#limitless_stat_all_indexes")                                              | pg_stat_all_indexes                  |
-| [limitless_stat_all_tables](#limitless_stat_all_tables "#limitless_stat_all_tables")                                                 | pg_stat_all_tables                   |
-| [limitless_stat_database](#limitless_stat_database "#limitless_stat_database")                                                       | pg_stat_database                     |
-| [limitless_stat_progress_vacuum](#limitless_stat_progress_vacuum "#limitless_stat_progress_vacuum")                                  | pg_stat_progress_vacuum              |
-| [limitless_stat_statements](#limitless_stat_statements "#limitless_stat_statements")                                                 | pg_stat_statements                   |
-| [limitless_stat_subclusters](#limitless_stat_subclusters "#limitless_stat_subclusters")                                              | None                                 |
-| [limitless_stat_statements_info](#limitless_stat_statements_info "#limitless_stat_statements_info")                                  | pg_stat_statements_info              |
-| [limitless_statio_all_indexes](#limitless_statio_all_indexes "#limitless_statio_all_indexes")                                        | pg_statio_all_indexes                |
-| [limitless_statio_all_tables](#limitless_statio_all_tables "#limitless_statio_all_tables")                                           | pg_statio_all_tables                 |
-| [limitless_tables](#limitless_tables "#limitless_tables")                                                                            | pg_tables                            |
-| [limitless_table_collocations](#limitless_table_collocations "#limitless_table_collocations")                                        | None                                 |
-| [limitless_table_collocation_distributions](#limitless_table_collocation_distributions "#limitless_table_collocation_distributions") | None                                 |
+| Aurora PostgreSQL Limitless Database view                                                                                               | Corresponding Aurora PostgreSQL view |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| [limitless\_database](#limitless_database "#limitless_database")                                                                        | pg\_database                         |
+| [limitless\_locks](#limitless_locks "#limitless_locks")                                                                                 | pg\_locks                            |
+| [limitless\_stat\_activity](#limitless_stat_activity "#limitless_stat_activity")                                                        | pg\_stat\_activity                   |
+| [limitless\_stat\_all\_indexes](#limitless_stat_all_indexes "#limitless_stat_all_indexes")                                              | pg\_stat\_all\_indexes               |
+| [limitless\_stat\_all\_tables](#limitless_stat_all_tables "#limitless_stat_all_tables")                                                 | pg\_stat\_all\_tables                |
+| [limitless\_stat\_database](#limitless_stat_database "#limitless_stat_database")                                                        | pg\_stat\_database                   |
+| [limitless\_stat\_progress\_vacuum](#limitless_stat_progress_vacuum "#limitless_stat_progress_vacuum")                                  | pg\_stat\_progress\_vacuum           |
+| [limitless\_stat\_statements](#limitless_stat_statements "#limitless_stat_statements")                                                  | pg\_stat\_statements                 |
+| [limitless\_stat\_subclusters](#limitless_stat_subclusters "#limitless_stat_subclusters")                                               | None                                 |
+| [limitless\_stat\_statements\_info](#limitless_stat_statements_info "#limitless_stat_statements_info")                                  | pg\_stat\_statements\_info           |
+| [limitless\_statio\_all\_indexes](#limitless_statio_all_indexes "#limitless_statio_all_indexes")                                        | pg\_statio\_all\_indexes             |
+| [limitless\_statio\_all\_tables](#limitless_statio_all_tables "#limitless_statio_all_tables")                                           | pg\_statio\_all\_tables              |
+| [limitless\_tables](#limitless_tables "#limitless_tables")                                                                              | pg\_tables                           |
+| [limitless\_table\_collocations](#limitless_table_collocations "#limitless_table_collocations")                                         | None                                 |
+| [limitless\_table\_collocation\_distributions](#limitless_table_collocation_distributions "#limitless_table_collocation_distributions") | None                                 |
 
 The following examples provide details about the Aurora PostgreSQL Limitless Database views. For more information on PostgreSQL views, see
 [Viewing statistics](https://www.postgresql.org/docs/15/monitoring-stats.html#MONITORING-STATS-VIEWS "https://www.postgresql.org/docs/15/monitoring-stats.html#MONITORING-STATS-VIEWS") in the
@@ -33,7 +33,7 @@ PostgreSQL documentation.
 
 Some statistics views can return inconsistent results if you have ongoing transactions.
 
-**limitless_database**
+**limitless\_database**
 
 This view contains information about the available databases in the DB shard group. For example:
 
@@ -57,7 +57,7 @@ The output parameters are the following:
 
 The rest of the columns are the same as in `pg_database`.
 
-**limitless_locks**
+**limitless\_locks**
 
 This view contains one row per process per node. It provides access to information about the locks held by
 active processes in the database server.
@@ -126,7 +126,7 @@ SELECT * FROM rds_aurora.limitless_locks WHERE relname = 'customers';
 (6 rows)
 ```
 
-**limitless_stat_activity**
+**limitless\_stat\_activity**
 
 This view contains one row per process per node. It can be used to track overall system health and triage
 processes that are taking a long time. For example:
@@ -175,7 +175,7 @@ The output parameters are the following:
 
 The rest of the columns are the same as in `pg_stat_activity`.
 
-**limitless_stat_all_indexes**
+**limitless\_stat\_all\_indexes**
 
 This view contains usage statistics on indexes in the DB shard group. For example:
 
@@ -199,7 +199,7 @@ postgres_limitless=> SELECT schemaname, relname, indexrelname, idx_scan
 (10 rows)
 ```
 
-**limitless_stat_all_tables**
+**limitless\_stat\_all\_tables**
 
 This view contains statistics about all tables in the current database in the DB shard group. This is useful
 when tracking vacuum operations and Data Manipulation language (DML) operations. For example:
@@ -234,7 +234,7 @@ The output parameters are the following:
 
 The rest of the columns are the same as in `pg_stat_all_tables`.
 
-**limitless_stat_database**
+**limitless\_stat\_database**
 
 This view contains statistics about all databases in the DB shard group. Returns one row per database per
 node. For example:
@@ -271,7 +271,7 @@ The output parameters are the following:
 
 The rest of the columns are the same as in `pg_stat_database`.
 
-**limitless_stat_progress_vacuum**
+**limitless\_stat\_progress\_vacuum**
 
 This view contains information about ongoing vacuuming operations. For example:
 
@@ -329,7 +329,7 @@ The output parameters are the following:
 
 The rest of the columns are the same as in `pg_stat_progress_vacuum`.
 
-**limitless_stat_statements**
+**limitless\_stat\_statements**
 
 This view provides a means for tracking planning and running statistics of all SQL statements run on all
 nodes.
@@ -337,7 +337,7 @@ nodes.
 ###### Note
 
 You must install the
-[pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html") extension
+[pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html") extension
 to use the `limitless_stat_statements` view.
 
 ```
@@ -389,12 +389,12 @@ The output parameters are the following:
 - `dbname` (name) – The database where the query was run.
 - `sso_calls` (name) – The number of times statement was single-shard optimized.
 
-The rest of the columns are the same as in [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html").
+The rest of the columns are the same as in [pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html").
 
-**limitless_stat_statements_info**
+**limitless\_stat\_statements\_info**
 
 This view contains statistics for the `limitless_stat_statements` view. Each row contains data for the
-[pg_stat_statements_info](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7 "https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7")
+[pg\_stat\_statements\_info](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7 "https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7")
 view from each node. The `subcluster_id` column identifies each node.
 
 ```
@@ -417,9 +417,9 @@ The output parameter is the following:
   belongs.
 
 The rest of the columns are the same as in
-[pg_stat_statements_info](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7 "https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7").
+[pg\_stat\_statements\_info](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7 "https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.7").
 
-**limitless_stat_subclusters**
+**limitless\_stat\_subclusters**
 
 This view contains network statistics between routers and other nodes. It contains a row per pair of router and other node, for
 example:
@@ -460,7 +460,7 @@ The output parameters are the following:
 - `stat_reset_timestamp` (timestamp) – The timestamp when the cumulative statistics for this view were
   last reset
 
-**limitless_statio_all_indexes**
+**limitless\_statio\_all\_indexes**
 
 This view contains input/output (I/O) statistics for all indexes in the DB shard group. For example:
 
@@ -480,7 +480,7 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_statio_all_indexes WHERE
 (8 rows)
 ```
 
-**limitless_statio_all_tables**
+**limitless\_statio\_all\_tables**
 
 This view contains input/output (I/O) statistics for all tables in the DB shard group. For example:
 
@@ -510,7 +510,7 @@ WHERE
 (8 rows)
 ```
 
-**limitless_tables**
+**limitless\_tables**
 
 This view contains information about tables in Aurora PostgreSQL Limitless Database.
 
@@ -526,7 +526,7 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_tables;
 (4 rows)
 ```
 
-**limitless_table_collocations**
+**limitless\_table\_collocations**
 
 This view contains information about collocated sharded tables.
 
@@ -546,7 +546,7 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_table_collocations ORDER
 (4 rows)
 ```
 
-**limitless_table_collocation_distributions**
+**limitless\_table\_collocation\_distributions**
 
 This view shows the key distribution for each collocation.
 

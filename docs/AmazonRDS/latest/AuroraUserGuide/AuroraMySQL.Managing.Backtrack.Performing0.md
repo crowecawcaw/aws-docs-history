@@ -42,13 +42,12 @@ The following procedure describes how to backtrack a DB cluster using the AWS CL
 - Call the [backtrack-db-cluster](../../../cli/latest/reference/rds/backtrack-db-cluster.md "../../../cli/latest/reference/rds/backtrack-db-cluster.md") AWS CLI command and supply
   the following values:
 
-      + `--db-cluster-identifier` – The name of the
-       DB cluster.
-      + `--backtrack-to` – The backtrack time stamp to backtrack the DB cluster to,
-       specified in ISO 8601 format.
-
-  The following example backtracks the DB cluster
-  `sample-cluster` to March 19, 2018, at 10 a.m.
+  - `--db-cluster-identifier` – The name of the
+    DB cluster.
+  - `--backtrack-to` – The backtrack time stamp to backtrack the DB cluster to,
+    specified in ISO 8601 format.
+    The following example backtracks the DB cluster
+    `sample-cluster` to March 19, 2018, at 10 a.m.
 
 For Linux, macOS, or Unix:
 

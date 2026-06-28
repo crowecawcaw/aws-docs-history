@@ -1,9 +1,9 @@
-# Working with Oracle databases by using the oracle_fdw extension
+# Working with Oracle databases by using the oracle\_fdw extension
 
 To access an Oracle database from your Aurora PostgreSQL DB cluster
 you can install and use the
 `oracle_fdw` extension. This extension is a foreign data wrapper for Oracle databases. To learn more about
-this extension, see the [oracle_fdw](https://github.com/laurenz/oracle_fdw "https://github.com/laurenz/oracle_fdw")
+this extension, see the [oracle\_fdw](https://github.com/laurenz/oracle_fdw "https://github.com/laurenz/oracle_fdw")
 documentation.
 
 The `oracle_fdw` extension is supported on Aurora PostgreSQL 12.7 (Amazon Aurora release 4.2)
@@ -11,16 +11,16 @@ and higher versions.
 
 ###### Topics
 
-- [Turning on the oracle_fdw extension](#postgresql-oracle-fdw.enabling "#postgresql-oracle-fdw.enabling")
+- [Turning on the oracle\_fdw extension](#postgresql-oracle-fdw.enabling "#postgresql-oracle-fdw.enabling")
 - [Example: Using a foreign server linked to an Amazon RDS for Oracle database](#postgresql-oracle-fdw.example "#postgresql-oracle-fdw.example")
 - [Working with encryption in transit](#postgresql-oracle-fdw.encryption "#postgresql-oracle-fdw.encryption")
-- [Understanding the pg_user_mappings view and permissions](#postgresql-oracle-fdw.permissions "#postgresql-oracle-fdw.permissions")
+- [Understanding the pg\_user\_mappings view and permissions](#postgresql-oracle-fdw.permissions "#postgresql-oracle-fdw.permissions")
 
-## Turning on the oracle_fdw extension
+## Turning on the oracle\_fdw extension
 
-To use the oracle_fdw extension, perform the following procedure.
+To use the oracle\_fdw extension, perform the following procedure.
 
-###### To turn on the oracle_fdw extension
+###### To turn on the oracle\_fdw extension
 
 - Run the following command using an account that has
   `rds_superuser` permissions.
@@ -92,13 +92,13 @@ DETAIL: ORA-12170: TNS:Connect timeout occurred
 
 PostgreSQL-to-Oracle encryption in transit is based on a combination of client and server configuration parameters. For an
 example using Oracle 21c, see [About the Values for Negotiating Encryption and Integrity](https://docs.oracle.com/en/database/oracle/oracle-database/21/dbseg/configuring-network-data-encryption-and-integrity.html#GUID-3A2AF4AA-AE3E-446B-8F64-31C48F27A2B5 "https://docs.oracle.com/en/database/oracle/oracle-database/21/dbseg/configuring-network-data-encryption-and-integrity.html#GUID-3A2AF4AA-AE3E-446B-8F64-31C48F27A2B5") in the Oracle documentation. The client used for
-oracle_fdw on Amazon RDS is configured with `ACCEPTED`, meaning that the encryption depends on the Oracle database
+oracle\_fdw on Amazon RDS is configured with `ACCEPTED`, meaning that the encryption depends on the Oracle database
 server configuration and it uses Oracle Security Library (libnnz) for encryption.
 
 If your database is on RDS for Oracle, see [Oracle native network encryption](../UserGuide/Appendix.Oracle.Options.NetworkEncryption.md "../UserGuide/Appendix.Oracle.Options.NetworkEncryption.md")
 to configure the encryption.
 
-## Understanding the pg_user_mappings view and permissions
+## Understanding the pg\_user\_mappings view and permissions
 
 The PostgreSQL catalog `pg_user_mapping` stores the mapping from an
 Aurora PostgreSQL user to the user on a foreign

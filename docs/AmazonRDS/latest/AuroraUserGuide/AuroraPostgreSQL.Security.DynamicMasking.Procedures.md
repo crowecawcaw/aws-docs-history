@@ -18,7 +18,7 @@ CREATE TABLE public.customers (
 );
 ```
 
-## CREATE_MASKING_POLICY
+## CREATE\_MASKING\_POLICY
 
 The following procedure creates a new masking policy for a user table:
 
@@ -61,7 +61,7 @@ CALL pgcolumnmask.create_masking_policy(
 );
 ```
 
-## ALTER_MASKING_POLICY
+## ALTER\_MASKING\_POLICY
 
 This procedure modifies an existing masking policy. `ALTER_MASKING_POLICY` can modify the policy masking expressions,
 set of roles to which the policy applies and the weight of the masking policy. When one of those parameters is omitted,
@@ -113,7 +113,7 @@ CALL pgcolumnmask.alter_masking_policy(
 );
 ```
 
-## DROP_MASKING_POLICY
+## DROP\_MASKING\_POLICY
 
 This procedure removes an existing masking policy.
 
@@ -136,7 +136,7 @@ drop_masking_policy(
 
 None
 
-###### Example of dropping the masking policy customer_mask
+###### Example of dropping the masking policy customer\_mask
 
 ```
 -- Drop a masking policy

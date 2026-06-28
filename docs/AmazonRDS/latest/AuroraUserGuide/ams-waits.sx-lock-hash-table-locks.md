@@ -1,4 +1,4 @@
-# synch/sxlock/innodb/hash_table_locks
+# synch/sxlock/innodb/hash\_table\_locks
 
 The `synch/sxlock/innodb/hash_table_locks` event occurs when pages not found in the buffer pool must be read
 from storage.
@@ -75,7 +75,7 @@ information, see [Best practices for Amazon Aurora MySQL database configuration]
 ### Improve data access patterns
 
 Check the queries affected by this wait and their execution plans. Consider improving data access patterns. For example,
-if you are using [mysqli_result::fetch_array](https://www.php.net/manual/en/mysqli-result.fetch-array.php "https://www.php.net/manual/en/mysqli-result.fetch-array.php"),
+if you are using [mysqli\_result::fetch\_array](https://www.php.net/manual/en/mysqli-result.fetch-array.php "https://www.php.net/manual/en/mysqli-result.fetch-array.php"),
 you can try increasing the array fetch size.
 
 You can use Performance Insights to show queries and sessions that might be causing the `synch/sxlock/innodb/hash_table_locks`

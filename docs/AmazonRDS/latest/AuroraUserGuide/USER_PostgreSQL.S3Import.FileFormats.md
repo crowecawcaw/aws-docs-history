@@ -1,8 +1,8 @@
 # Importing data from Amazon S3 to your Aurora PostgreSQL DB cluster
 
-You import data from your Amazon S3 bucket by using the `table_import_from_s3` function of the aws_s3
+You import data from your Amazon S3 bucket by using the `table_import_from_s3` function of the aws\_s3
 extension. For reference information, see
-[aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3").
+[aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3").
 
 ###### Note
 
@@ -34,9 +34,9 @@ The parameters are the following:
   include comma-separated value (CSV) as shown in this example, text, and binary.
   The default is text.
 - `s3_uri` – A structure that contains the information
-  identifying the Amazon S3 file. For an example of using the [aws_commons.create_s3_uri](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") function to
+  identifying the Amazon S3 file. For an example of using the [aws\_commons.create\_s3\_uri](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") function to
   create an `s3_uri` structure, see [Overview of importing data from Amazon S3 data](USER_PostgreSQL.S3Import.Overview.md "USER_PostgreSQL.S3Import.Overview.md").
-  For more information about this function, see [aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3").
+  For more information about this function, see [aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3").
 
 The `aws_s3.table_import_from_s3` function returns text. To specify other kinds of files for import
 from an Amazon S3 bucket, see one of the following examples.
@@ -55,7 +55,7 @@ Importing 0 bytes file will cause an error.
 
 The following example shows how to import a file that uses a custom delimiter. It
 also shows how to control where to put the data in the database table using the
-`column_list` parameter of the [aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function.
+`column_list` parameter of the [aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function.
 
 For this example, assume that the following information is organized into
 pipe-delimited columns in the Amazon S3 file.
@@ -76,10 +76,10 @@ pipe-delimited columns in the Amazon S3 file.
 `postgres=>` CREATE TABLE test (a text, b text, c text, d text, e text);
 ```
 
-2. Use the following form of the [aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function to import
+2. Use the following form of the [aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function to import
    data from the Amazon S3 file.
 
-You can include the [aws_commons.create_s3_uri](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") function
+You can include the [aws\_commons.create\_s3\_uri](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") function
 call inline within the `aws_s3.table_import_from_s3` function
 call to specify the file.
 

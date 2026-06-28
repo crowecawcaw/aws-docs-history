@@ -75,15 +75,14 @@ specified based on the DB cluster's past workload:
      estimate is based on the `BacktrackChangeRecordsCreationRate`
      metric for the DB cluster in Amazon CloudWatch.
 
-5. Choose **Continue**.
-6. For **Scheduling of Modifications**, choose one of
-   the following:
+5. Choose **Continue**. 6. For **Scheduling of Modifications**, choose one of
+the following:
 
-   - **Apply during the next scheduled maintenance
+    * **Apply during the next scheduled maintenance
      window** – Wait to apply the
      **Target Backtrack window** modification
      until the next maintenance window.
-   - **Apply immediately** – Apply the
+    * **Apply immediately** – Apply the
      **Target Backtrack window** modification
      as soon as possible.
 
@@ -108,12 +107,11 @@ You can also specify the `--backtrack-window` value using the following AWS CLI 
 - Call the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI command and supply
   the following values:
 
-      + `--db-cluster-identifier` – The name of the
-       DB cluster.
-      + `--backtrack-window` – The maximum number of seconds that you
-       want to be able to backtrack the DB cluster.
-
-  The following example sets the target backtrack window for `sample-cluster` to one day (86,400 seconds).
+  - `--db-cluster-identifier` – The name of the
+    DB cluster.
+  - `--backtrack-window` – The maximum number of seconds that you
+    want to be able to backtrack the DB cluster.
+    The following example sets the target backtrack window for `sample-cluster` to one day (86,400 seconds).
 
 For Linux, macOS, or Unix:
 

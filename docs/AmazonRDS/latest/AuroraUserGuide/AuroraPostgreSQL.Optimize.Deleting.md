@@ -52,7 +52,7 @@ SELECT (SELECT COUNT(*) from apg_plan_mgmt.dba_plans) total_plans,
  3 | 0 | 2`
 ```
 
-For more information, see [apg_plan_mgmt.delete_plan](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.delete_plan "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.delete_plan").
+For more information, see [apg\_plan\_mgmt.delete\_plan](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.delete_plan "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.delete_plan").
 
 To delete plans that aren't valid and that you expect to remain invalid, use
 the `apg_plan_mgmt.validate_plans` function. This function lets you
@@ -65,7 +65,7 @@ shared memory that's set aside for query plan management. To control how
 much memory is available for managed plans, use the
 `apg_plan_mgmt.max_plans` parameter. Set this parameter in your
 custom DB parameter group and reboot your DB instance for changes to take
-effect. For more information, see the [apg_plan_mgmt.max_plans](AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.max_plans "AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.max_plans") parameter.
+effect. For more information, see the [apg\_plan\_mgmt.max\_plans](AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.max_plans "AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.max_plans") parameter.
 
 ## Validating plans
 

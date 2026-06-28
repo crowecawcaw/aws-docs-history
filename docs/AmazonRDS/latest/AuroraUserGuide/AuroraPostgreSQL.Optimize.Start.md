@@ -36,7 +36,7 @@ cluster.
   to operators in EXPLAIN output.
   The `apg_plan_mgmt.dba_plans` view has many more columns that contain all
   details of the plan, such as when the plan was last used. For complete details, see
-  [Reference for the apg_plan_mgmt.dba_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md "AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md").
+  [Reference for the apg\_plan\_mgmt.dba\_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md "AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md").
 
 ## Normalization and the SQL hash
 

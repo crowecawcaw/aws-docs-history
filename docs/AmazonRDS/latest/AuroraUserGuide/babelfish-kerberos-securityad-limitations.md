@@ -1,6 +1,6 @@
 # Limitations
 
-- Dump/Restore utility doesn’t support dumping the pg_ad_mapping extension
+- Dump/Restore utility doesn’t support dumping the pg\_ad\_mapping extension
   mappings. You will need to recreate those mappings after restore.
 - Blue-Green deployment isn't supported for Babelfish and Aurora PostgreSQL
   instances with `pg_ad_mapping`.
@@ -35,15 +35,15 @@
 - DDLs from PostgreSQL endpoint is not supported in Group AD authenticated
   session. As a workaround, you can always connect using master user or any other
   user using password based authentication mechanism.
-- System objects like SUSER_SID(), IS_SRVROLEMEMBER(), IS_MEMBER(),
-  sys.dm_exec_sessions has following limitations.
+- System objects like SUSER\_SID(), IS\_SRVROLEMEMBER(), IS\_MEMBER(),
+  sys.dm\_exec\_sessions has following limitations.
 
-  - SUSER_SID() won’t return the SID when AD User or AD Security Group is
+  - SUSER\_SID() won’t return the SID when AD User or AD Security Group is
     supplied.
-  - IS_SRVROLEMEMBER() won’t consider the role membership if current AD
+  - IS\_SRVROLEMEMBER() won’t consider the role membership if current AD
     user is inheriting the server role membership from any Windows group
     login’s server role membership.
-  - IS_MEMBER() will return false for any Windows Group related
+  - IS\_MEMBER() will return false for any Windows Group related
     query.
-  - sys.dm_exec_sessions won’t show expected values login_name,
-    nt_user_name columns.
+  - sys.dm\_exec\_sessions won’t show expected values login\_name,
+    nt\_user\_name columns.

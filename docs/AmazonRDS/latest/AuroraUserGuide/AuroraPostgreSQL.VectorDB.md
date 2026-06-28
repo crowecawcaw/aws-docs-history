@@ -213,13 +213,13 @@ This command will create the `bedrock_kb` table in the
   in the table. Remember to take a note of the names you chose for reference
   during the Knowledge Base set up.
 
-| Column name     | Data type        | Description                                                                                                 |
-| --------------- | ---------------- | ----------------------------------------------------------------------------------------------------------- |
-| id              | UUID primary key | Contains unique identifiers for each<br>record.                                                             |
-| chunks          | Text             | Contains the chunks of raw text from your data<br>sources.                                                  |
-| embedding       | Vector           | Contains the vector embeddings of the data<br>sources.                                                      |
-| metadata        | JSON             | Contains metadata required to carry out source<br>attribution and to enable data ingestion and<br>querying. |
-| custom_metadata | JSONB            | (Optional) Defines the target column where Amazon Bedrock writes metadata details from your data sources.   |
+| Column name      | Data type        | Description                                                                                                 |
+| ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------- |
+| id               | UUID primary key | Contains unique identifiers for each<br>record.                                                             |
+| chunks           | Text             | Contains the chunks of raw text from your data<br>sources.                                                  |
+| embedding        | Vector           | Contains the vector embeddings of the data<br>sources.                                                      |
+| metadata         | JSON             | Contains metadata required to carry out source<br>attribution and to enable data ingestion and<br>querying. |
+| custom\_metadata | JSONB            | (Optional) Defines the target column where Amazon Bedrock writes metadata details from your data sources.   |
 
 With these details, you can now create a Knowledge Base in the Bedrock console. For
 more detailed information on setting up a vector index and creating a Knowledge Base

@@ -66,7 +66,7 @@ partition functions during creation because you can't add or remove partitions l
 - Babelfish doesn't support these syntax options but provides workarounds:
 
   - Usage of partition scheme with constraints or indexes in the CREATE TABLE statement.
-  - ALTER TABLE ... ADD CONSTRAINT ... ON partition_scheme_name (partition_column_name).
+  - ALTER TABLE ... ADD CONSTRAINT ... ON partition\_scheme\_name (partition\_column\_name).
 
 ###### Note
 

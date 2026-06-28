@@ -41,7 +41,7 @@ status variables and options added, deprecated, or removed in MySQL 8.0](https:/
 
   - [OOM response actions](AuroraMySQLOOM.md#AuroraMySQLOOM.actions "AuroraMySQLOOM.md#AuroraMySQLOOM.actions")
 
-    - [kill_connect version-specific behavior](AuroraMySQLOOM.md#AuroraMySQLOOM.actions.kill_connect "AuroraMySQLOOM.md#AuroraMySQLOOM.actions.kill_connect")
+    - [kill\_connect version-specific behavior](AuroraMySQLOOM.md#AuroraMySQLOOM.actions.kill_connect "AuroraMySQLOOM.md#AuroraMySQLOOM.actions.kill_connect")
 
   - [Default values by version](AuroraMySQLOOM.md#AuroraMySQLOOM.defaults "AuroraMySQLOOM.md#AuroraMySQLOOM.defaults")
   - [Aurora Serverless v2](AuroraMySQLOOM.md#AuroraMySQLOOM.serverless "AuroraMySQLOOM.md#AuroraMySQLOOM.serverless")
@@ -80,15 +80,14 @@ For more information on CloudWatch metrics, see [Instance-level metrics for Amaz
 - Enhanced Monitoring provides metrics returned by the operating system `top` command. It shows load averages and
   the following CPU states, with 1-second granularity:
 
-      + `Idle (%)` = Idle time
-      + `IRQ (%)` = Software interrupts
-      + `Nice (%)` = Nice time for processes with a [niced](https://en.wikipedia.org/wiki/Nice_(Unix) "https://en.wikipedia.org/wiki/Nice_(Unix)") priority.
-      + `Steal (%)` = Time spent serving other tenants (virtualization related)
-      + `System (%)` = System time
-      + `User (%)` = User time
-      + `Wait (%)` = I/O wait
-
-  For more information on Enhanced Monitoring metrics, see [OS metrics for Aurora](USER_Monitoring-Available-OS-Metrics.md#USER_Monitoring-Available-OS-Metrics-RDS "USER_Monitoring-Available-OS-Metrics.md#USER_Monitoring-Available-OS-Metrics-RDS").
+  - `Idle (%)` = Idle time
+  - `IRQ (%)` = Software interrupts
+  - `Nice (%)` = Nice time for processes with a [niced](<https://en.wikipedia.org/wiki/Nice_(Unix)> "https://en.wikipedia.org/wiki/Nice_(Unix)") priority.
+  - `Steal (%)` = Time spent serving other tenants (virtualization related)
+  - `System (%)` = System time
+  - `User (%)` = User time
+  - `Wait (%)` = I/O wait
+    For more information on Enhanced Monitoring metrics, see [OS metrics for Aurora](USER_Monitoring-Available-OS-Metrics.md#USER_Monitoring-Available-OS-Metrics-RDS "USER_Monitoring-Available-OS-Metrics.md#USER_Monitoring-Available-OS-Metrics-RDS").
 
 ### Memory usage
 
@@ -203,9 +202,7 @@ on my Amazon Aurora MySQL DB cluster?](https://repost.aws/knowledge-center/auror
      changes in the `Temp` section, such as `created_tmp_tables`. For more information, see
      [Monitoring DB load with Performance Insights on Amazon Aurora](USER_PerfInsights.md "USER_PerfInsights.md").
 
-10. Can you split long-running transactions into smaller ones that modify fewer rows?
-11. Are there any changes in blocked transactions or increases in deadlocks? Examine Performance Insights DB metrics for any changes
-    in status variables in the `Locks` section, such as `innodb_row_lock_time`, `innodb_row_lock_waits`, and `innodb_dead_locks`. Use 1-minute or 5-minute intervals.
-12. Are there increased wait events? Examine Performance Insights wait events and wait types using 1-minute or 5-minute intervals.
-    Analyze the top wait events and see whether they are correlated to workload changes or database contention. For
-    example, `buf_pool mutex` indicates buffer pool contention. For more information, see [Tuning Aurora MySQL with wait events](AuroraMySQL.Managing.Tuning.wait-events.md "AuroraMySQL.Managing.Tuning.wait-events.md").
+10. Can you split long-running transactions into smaller ones that modify fewer rows? 11. Are there any changes in blocked transactions or increases in deadlocks? Examine Performance Insights DB metrics for any changes
+in status variables in the `Locks` section, such as `innodb_row_lock_time`, `innodb_row_lock_waits`, and `innodb_dead_locks`. Use 1-minute or 5-minute intervals. 12. Are there increased wait events? Examine Performance Insights wait events and wait types using 1-minute or 5-minute intervals.
+Analyze the top wait events and see whether they are correlated to workload changes or database contention. For
+example, `buf_pool mutex` indicates buffer pool contention. For more information, see [Tuning Aurora MySQL with wait events](AuroraMySQL.Managing.Tuning.wait-events.md "AuroraMySQL.Managing.Tuning.wait-events.md").

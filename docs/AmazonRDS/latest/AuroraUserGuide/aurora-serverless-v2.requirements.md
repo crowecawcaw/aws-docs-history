@@ -116,9 +116,9 @@ maximum capacity.
 
 Potential incompatible Aurora PostgreSQL database parameters:
 
-- max_connections
-- track_activity_query_size
-- min_dynamic_shared_memory
+- max\_connections
+- track\_activity\_query\_size
+- min\_dynamic\_shared\_memory
 
 Recommendations:
 

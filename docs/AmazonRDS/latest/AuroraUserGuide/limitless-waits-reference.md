@@ -121,7 +121,7 @@ A SQL command is running on a remote node. This event will appear frequently for
 
 ### Action
 
-Idenfify long-running commands using the limitless_stat_statements view. In many cases this is an expected event, especially for background workers or internal processes and no action is needed.
+Idenfify long-running commands using the limitless\_stat\_statements view. In many cases this is an expected event, especially for background workers or internal processes and no action is needed.
 
 ## AuroraLimitless:FetchRemoteResults wait event
 

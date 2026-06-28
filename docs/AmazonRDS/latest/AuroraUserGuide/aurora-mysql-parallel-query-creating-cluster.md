@@ -89,7 +89,8 @@ aws rds modify-db-cluster-parameter-group --db-cluster-parameter-group-name pq-e
 ```
 
 If you perform this step, specify the option
-`--db-cluster-parameter-group-name `my_cluster_parameter_group`` in the subsequent`create-db-cluster` statement. Substitute the name of your own parameter group.
+`--db-cluster-parameter-group-name `my_cluster_parameter_group``
+in the subsequent `create-db-cluster` statement. Substitute the name of your own parameter group.
 If you omit this step, you create the parameter group and associate it with the cluster later, as described in
 [Turning parallel query on and off in Aurora MySQL](aurora-mysql-parallel-query-enabling.md "aurora-mysql-parallel-query-enabling.md"). 3. Follow the general AWS CLI procedure in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md"). 4. Specify the following set of options:
 

@@ -6,12 +6,12 @@ replication based on GTIDs with Aurora MySQL, see [Using GTID-based replication]
 
 ###### Topics
 
-- [mysql.rds_assign_gtids_to_anonymous_transactions (Aurora MySQL version 3)](#mysql_assign_gtids_to_anonymous_transactions "#mysql_assign_gtids_to_anonymous_transactions")
-- [mysql.rds_gtid_purged (Aurora MySQL version 3)](#mysql_rds_gtid_purged "#mysql_rds_gtid_purged")
-- [mysql.rds_skip_transaction_with_gtid(Aurora MySQL version 2 and 3)](#mysql_rds_skip_transaction_with_gtid "#mysql_rds_skip_transaction_with_gtid")
-- [mysql.rds_start_replication_until_gtid(Aurora MySQL version 3)](#mysql_rds_start_replication_until_gtid "#mysql_rds_start_replication_until_gtid")
+- [mysql.rds\_assign\_gtids\_to\_anonymous\_transactions (Aurora MySQL version 3)](#mysql_assign_gtids_to_anonymous_transactions "#mysql_assign_gtids_to_anonymous_transactions")
+- [mysql.rds\_gtid\_purged (Aurora MySQL version 3)](#mysql_rds_gtid_purged "#mysql_rds_gtid_purged")
+- [mysql.rds\_skip\_transaction\_with\_gtid(Aurora MySQL version 2 and 3)](#mysql_rds_skip_transaction_with_gtid "#mysql_rds_skip_transaction_with_gtid")
+- [mysql.rds\_start\_replication\_until\_gtid(Aurora MySQL version 3)](#mysql_rds_start_replication_until_gtid "#mysql_rds_start_replication_until_gtid")
 
-## mysql.rds_assign_gtids_to_anonymous_transactions (Aurora MySQL version 3)
+## mysql.rds\_assign\_gtids\_to\_anonymous\_transactions (Aurora MySQL version 3)
 
 Configures the `ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS` option of the
 `CHANGE REPLICATION SOURCE TO` statement. It makes the replication
@@ -93,7 +93,7 @@ mysql> call mysql.rds_assign_gtids_to_anonymous_transactions('317a4760-f3dd-3b74
 
 ```
 
-## mysql.rds_gtid_purged (Aurora MySQL version 3)
+## mysql.rds\_gtid\_purged (Aurora MySQL version 3)
 
 Sets the global value of the system variable `gtid_purged` to a given
 global transaction identifier (GTID) set. The `gtid_purged` system variable
@@ -154,7 +154,7 @@ CALL mysql.rds_gtid_purged('3E11FA47-71CA-11E1-9E33-C80AA9429562:23');
 
 ```
 
-## mysql.rds_skip_transaction_with_gtid(Aurora MySQL version 2 and 3)
+## mysql.rds\_skip\_transaction\_with\_gtid(Aurora MySQL version 2 and 3)
 
 Skips replication of a transaction with the specified global
 transaction identifier (GTID) on an Aurora primary instance.
@@ -195,7 +195,7 @@ CALL mysql.rds_skip_transaction_with_gtid('3E11FA47-71CA-11E1-9E33-C80AA9429562:
 
 ```
 
-## mysql.rds_start_replication_until_gtid(Aurora MySQL version 3)
+## mysql.rds\_start\_replication\_until\_gtid(Aurora MySQL version 3)
 
 Initiates replication from an Aurora MySQL DB cluster and stops
 replication immediately after the specified global transaction identifier (GTID).

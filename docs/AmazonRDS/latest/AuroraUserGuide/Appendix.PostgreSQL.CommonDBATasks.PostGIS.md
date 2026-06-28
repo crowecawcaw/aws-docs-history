@@ -209,7 +209,7 @@ the PostGIS documentation.
 
 Test access to the `topology` schema by using the following
 `SELECT` statement. This calls the `createtopology` function
-to register a new topology object (my_new_topo) with the specified spatial reference
+to register a new topology object (my\_new\_topo) with the specified spatial reference
 identifier (26986) and default tolerance (0.5). To learn more, see [CreateTopology](https://postgis.net/docs/CreateTopology.html "https://postgis.net/docs/CreateTopology.html") in the
 PostGIS documentation.
 

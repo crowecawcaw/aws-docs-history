@@ -42,7 +42,7 @@ The following prechecks are from Community MySQL:
 - [getEventsWithNullDefiner](#getEventsWithNullDefiner "#getEventsWithNullDefiner")
 - [getMismatchedMetadata](#getMismatchedMetadata "#getMismatchedMetadata")
 - [getTriggersWithNullDefiner](#getTriggersWithNullDefiner "#getTriggersWithNullDefiner")
-- [getValueOfVariablelower_case_table_names](#getValueOfVariable "#getValueOfVariable")
+- [getValueOfVariablelower\_case\_table\_names](#getValueOfVariable "#getValueOfVariable")
 - [groupByAscSyntaxCheck](#groupByAscSyntaxCheck "#groupByAscSyntaxCheck")
 - [mysqlEmptyDotTableSyntaxCheck](#mysqlEmptyDotTableSyntaxCheck "#mysqlEmptyDotTableSyntaxCheck")
 - [mysqlIndexTooLargeCheck](#mysqlIndexTooLargeCheck "#mysqlIndexTooLargeCheck")
@@ -607,7 +607,7 @@ Before dropping or redefining a `DEFINER`, carefully review and check your appli
 For more information, see [Stored object access
 control](https://dev.mysql.com/doc/refman/5.7/en/stored-objects-security.html "https://dev.mysql.com/doc/refman/5.7/en/stored-objects-security.html") in the MySQL documentation.
 
-**getValueOfVariablelower_case_table_names**
+**getValueOfVariablelower\_case\_table\_names**
 
 **Precheck level: Error**
 
@@ -615,7 +615,7 @@ control](https://dev.mysql.com/doc/refman/5.7/en/stored-objects-security.html "h
 `1`.**
 
 Before MySQL 8.0, database names, table names and other objects corresponded to files in the data directory, such as file-based
-metadata (.frm). The [lower_case_table_names](https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html "https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html") system variable allows users to control how the server handles identifier case sensitivity for
+metadata (.frm). The [lower\_case\_table\_names](https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html "https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html") system variable allows users to control how the server handles identifier case sensitivity for
 database objects, and the storage of such metadata objects. This parameter could be changed on an already initialized server
 following a reboot.
 
@@ -661,7 +661,7 @@ the DB cluster before starting the upgrade.
 Carefully test and review the documentation on [case sensitivity](https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html "https://dev.mysql.com/doc/refman/5.7/en/identifier-case-sensitivity.html") in MySQL, and how
 any such changes might affect your application.
 
-Also review the MySQL 8.0 documentation on how [lower_case_table_names](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names") are handled differently in MySQL 8.0.
+Also review the MySQL 8.0 documentation on how [lower\_case\_table\_names](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names") are handled differently in MySQL 8.0.
 
 **groupByAscSyntaxCheck**
 
@@ -780,8 +780,8 @@ Before proceeding with the upgrade, do one of the following:
 - Add an index mentioned in the precheck.
 - Change the row format used by the table.
 
-Here we rebuild the table to resolve the precheck failure. Before rebuilding the table, make sure that the [innodb_file_format](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_format "https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_format") is set
-to `Barracuda`, and the [innodb_default_row_format](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_default_row_format "https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_default_row_format") is set to `dynamic`. These are the defaults in MySQL 5.7. For more information,
+Here we rebuild the table to resolve the precheck failure. Before rebuilding the table, make sure that the [innodb\_file\_format](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_format "https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_format") is set
+to `Barracuda`, and the [innodb\_default\_row\_format](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_default_row_format "https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_default_row_format") is set to `dynamic`. These are the defaults in MySQL 5.7. For more information,
 see [InnoDB row formats](https://dev.mysql.com/doc/refman/5.7/en/innodb-row-format.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-row-format.html") and [InnoDB file-format management](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-format.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-file-format.html") in the MySQL
 documentation.
 
@@ -1165,7 +1165,7 @@ in the MySQL documentation.
 ```
 
 The precheck reports that the `test.GetLocationsInPolygon` stored procedure is using two removed functions: [POLYGONFROMTEXT](https://dev.mysql.com/doc/refman/5.7/en/gis-wkt-functions.html#function_polyfromtext "https://dev.mysql.com/doc/refman/5.7/en/gis-wkt-functions.html#function_polyfromtext") and [POINTFROMTEXT](https://dev.mysql.com/doc/refman/5.7/en/gis-wkt-functions.html#function_st-mpointfromtext "https://dev.mysql.com/doc/refman/5.7/en/gis-wkt-functions.html#function_st-mpointfromtext"). It also
-suggests that you use the new [ST_POLYGONFROMTEXT](https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-polyfromtext "https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-polyfromtext") and [ST_POINTFROMTEXT](https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-mpointfromtext "https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-mpointfromtext") as
+suggests that you use the new [ST\_POLYGONFROMTEXT](https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-polyfromtext "https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-polyfromtext") and [ST\_POINTFROMTEXT](https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-mpointfromtext "https://dev.mysql.com/doc/refman/8.0/en/gis-wkt-functions.html#function_st-mpointfromtext") as
 replacements. After re-creating the procedure using the suggestions, the precheck completes successfully.
 
 ```
@@ -1626,7 +1626,7 @@ documentation. For more information on XA transaction states, see [XA transactio
 
 This precheck reports an error because there are transactions in a prepared state that should be committed or rolled back.
 
-After logging into the database, you can check the [information_schema.innodb_trx](https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html")
+After logging into the database, you can check the [information\_schema.innodb\_trx](https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html")
 table and the `XA RECOVER` output for more information.
 
 ###### Important
@@ -2159,7 +2159,7 @@ Aurora MySQL version 2 to version 3, the `sys` schema views are re-created and u
 definitions.
 
 As part of the upgrade, if any objects in the `sys` schema are defined using storage engines (`sys_config/BASE
- TABLE` in [INFORMATION_SCHEMA.TABLES](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html")), rather than views, the upgrade will fail. Such tables can be found in the
+ TABLE` in [INFORMATION\_SCHEMA.TABLES](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html")), rather than views, the upgrade will fail. Such tables can be found in the
 `information_schema.tables` table. This is not an expected behavior, but in some cases can occur due to user
 error.
 
@@ -2185,7 +2185,7 @@ dropping them. Then retry the upgrade.
 }
 ```
 
-The precheck reports that the [sys.waits_global_by_latency](https://dev.mysql.com/doc/refman/5.7/en/sys-waits-global-by-latency.html "https://dev.mysql.com/doc/refman/5.7/en/sys-waits-global-by-latency.html") view in the `sys` schema has a type mismatch that is blocking the upgrade from
+The precheck reports that the [sys.waits\_global\_by\_latency](https://dev.mysql.com/doc/refman/5.7/en/sys-waits-global-by-latency.html "https://dev.mysql.com/doc/refman/5.7/en/sys-waits-global-by-latency.html") view in the `sys` schema has a type mismatch that is blocking the upgrade from
 proceeding.
 
 After logging into the DB instance, you can see that this object is defined as a InnoDB table, when it should be a view.
@@ -2514,7 +2514,7 @@ default authentication plugin used for database users is the `mysql_native_passw
 This precheck warns that this plugin will be removed and the default changed in a future major version release. Consider
 evaluating the compatibility of your application clients and users ahead of this change.
 
-For more information, see [caching_sha2_password compatibility issues and solutions](https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password-compatibility-issues "https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password-compatibility-issues") in the MySQL documentation.
+For more information, see [caching\_sha2\_password compatibility issues and solutions](https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password-compatibility-issues "https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password-compatibility-issues") in the MySQL documentation.
 
 **Example output:**
 
@@ -2534,7 +2534,7 @@ For more information, see [caching_sha2_password compatibility issues and soluti
 **Usage of obsolete `MAXDB`
 `sql_mode` flag**
 
-In MySQL 8.0, a number of deprecated [sql_mode](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sql_mode "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sql_mode") system variable
+In MySQL 8.0, a number of deprecated [sql\_mode](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sql_mode "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sql_mode") system variable
 options were [removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html "https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html"), one of which was
 `MAXDB`. This precheck examines all currently connected sessions, along with routines and triggers, to ensure that
 none have `sql_mode` set to any combination that includes `MAXDB`.
@@ -2921,7 +2921,7 @@ The precheck reports that the DB cluster contains a transaction with 11,000,000 
 rolled back during the clean shutdown process. The upgrade will proceed, but to reduce downtime during the upgrade process, we
 recommend that you monitor and investigate this before running the upgrade on your production clusters.
 
-To view active transactions on your writer DB instance, you can use the [information_schema.innodb_trx](https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html")
+To view active transactions on your writer DB instance, you can use the [information\_schema.innodb\_trx](https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema-innodb-trx-table.html")
 table. The following query on the writer DB instance shows current transactions, run time, state, and modified rows for the DB
 cluster.
 
@@ -2978,7 +2978,7 @@ management](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb-transactio
 
 **Precheck level: Warning**
 
-**Check for deprecated validate_password plugin usage**
+**Check for deprecated validate\_password plugin usage**
 
 The `validate_password` plugin is deprecated in Aurora MySQL version 8.4 and will be removed in a
 future release. This warning does not block the upgrade but indicates that you should plan to transition to the
@@ -3138,7 +3138,7 @@ constraints](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.h
 use the same data type.
 
 To verify whether this is related to a missing index or data type mismatch, log into the database and check the table definitions by
-temporarily disabling the session variable [foreign_key_checks](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html#foreign-key-checks "https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html#foreign-key-checks"). After
+temporarily disabling the session variable [foreign\_key\_checks](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html#foreign-key-checks "https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html#foreign-key-checks"). After
 doing so, we can see that the child constraint in question (`fk_pname`) uses `p_name varchar(20) CHARACTER SET latin1
  DEFAULT NULL` to reference the parent table `name varchar(20) NOT NULL`. The parent table uses `DEFAULT
  CHARSET=utf8`, but the child table’s `p_name` column uses `latin1`, so the data type mismatch error is

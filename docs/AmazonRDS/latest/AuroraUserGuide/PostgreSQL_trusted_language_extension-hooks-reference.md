@@ -24,11 +24,12 @@ metacommand.
 - `ALTER ROLE `username`...PASSWORD`
   – For more information, see [ALTER
   ROLE](https://www.postgresql.org/docs/current/sql-alterrole.html "https://www.postgresql.org/docs/current/sql-alterrole.html") in the PostgreSQL documentation.
-- `\password `username``– This
-interactive`psql`metacommand securely changes the password for the
-specified user by hashing the password before transparently using the`ALTER ROLE ... PASSWORD`syntax. The metacommand is a secure
-wrapper for the`ALTER ROLE ... PASSWORD`command, thus the hook
-applies to the behavior of the`psql` metacommand.
+- `\password `username`` – This
+  interactive `psql` metacommand securely changes the password for the
+  specified user by hashing the password before transparently using the
+  `ALTER ROLE ... PASSWORD` syntax. The metacommand is a secure
+  wrapper for the `ALTER ROLE ... PASSWORD` command, thus the hook
+  applies to the behavior of the `psql` metacommand.
 
 For an example, see [Password-check hook code listing](PostgreSQL_trusted_language_extension.overview.tles-and-hooks.md#PostgreSQL_trusted_language_extension-example-hook_code_listing "PostgreSQL_trusted_language_extension.overview.tles-and-hooks.md#PostgreSQL_trusted_language_extension-example-hook_code_listing").
 

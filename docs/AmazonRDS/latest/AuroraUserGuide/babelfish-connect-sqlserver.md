@@ -49,36 +49,33 @@ Explorer.
 
 ###### To connect to your Babelfish database with SSMS
 
-1.  Start SSMS.
-2.  Open the **Connect to Server** dialog box. To
-    continue with the connection, do one of the following:
+1. Start SSMS.
+2. Open the **Connect to Server** dialog box. To
+   continue with the connection, do one of the following:
 
-    - Choose **New Query**.
-    - If the Query Editor is open, choose
-      **Query**, **Connection**,
-      **Connect**.
+   - Choose **New Query**.
+   - If the Query Editor is open, choose
+     **Query**, **Connection**,
+     **Connect**.
 
-3.  Provide the following information for your database:
+3. Provide the following information for your database:
 
-        1. For **Server type**, choose
-         **Database Engine**.
-        2. For **Server name**, enter the DNS name. For
-         example, your server name should look similar to the
-         following.
+   1. For **Server type**, choose
+      **Database Engine**.
+   2. For **Server name**, enter the DNS name. For
+      example, your server name should look similar to the
+      following.
 
-
-
-        ```
-        `cluster-name`.cluster-`555555555555`.`aws-region`.rds.amazonaws.com,1433
-        ```
-        3. For **Authentication**, choose **SQL
-         Server Authentication**.
-        4. For **Login**, enter the user name that you
-         chose when you created your database.
-        5. For **Password**, enter the password that you
-         chose when you created your database.
-
-    ![Connecting to a Babelfish database with SSMS.](images/Babelfish-SSMS-connect-database1.png)
+   ```
+   `cluster-name`.cluster-`555555555555`.`aws-region`.rds.amazonaws.com,1433
+   ```
+   3. For **Authentication**, choose **SQL
+      Server Authentication**.
+   4. For **Login**, enter the user name that you
+      chose when you created your database.
+   5. For **Password**, enter the password that you
+      chose when you created your database.
+      ![Connecting to a Babelfish database with SSMS.](images/Babelfish-SSMS-connect-database1.png)
 
 ###### Note
 

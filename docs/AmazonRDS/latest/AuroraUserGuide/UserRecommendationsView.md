@@ -5,66 +5,57 @@ resources. For a DB cluster, the recommendations appear for the DB cluster and i
 
 ###### To view the Amazon Aurora recommendations
 
-1.  Sign in to the AWS Management Console and open the Amazon RDS console at
-    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2.  In the navigation pane, do any of the following:
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, do any of the following:
 
-        * Choose **Recommendations**. The number of active recommendations for your
-         resources and the number of recommendations with the highest
-         severity generated in the last month are available next to **Recommendations**.
-         To find the number of active recommendations for each severity,
-         choose the number that shows the highest severity.
+   - Choose **Recommendations**. The number of active recommendations for your
+     resources and the number of recommendations with the highest
+     severity generated in the last month are available next to **Recommendations**.
+     To find the number of active recommendations for each severity,
+     choose the number that shows the highest severity.
 
+   ![The Recommendations page in the console.](images/recommendations-select.png)
 
+   By default, the **Recommendations** page displays a list of
+   new recommendations in the last month. Amazon Aurora gives recommendations for all the resources in your account and sorts the recommendations by their severity.
 
-        ![The Recommendations page in the console.](images/recommendations-select.png)
+   ![Main Recommendations page in the console which contains all the recommendations.](images/Recommendations_List.png)
 
-        By default, the **Recommendations** page displays a list of
-         new recommendations in the last month. Amazon Aurora gives recommendations for all the resources in your account and sorts the recommendations by their severity.
+   You can choose a recommendation to view a section at the bottom of the page which contains the affected resources and details of how the recommendation will be applied.
+   - In the **Databases** page, choose **Recommendations** for a resource.
 
+   ![Recommendation option selected on Databases page in the console.](images/Recommendations_DBpage.png)
 
+   The **Recommendations** tab displays
+   the recommendations and its details for the selected resource.
 
-        ![Main Recommendations page in the console which contains all the recommendations.](images/Recommendations_List.png)
+   ![Recommendations tab on Databases page in the console.](images/RecommendationsTab_DBpage.png)
+   The following details are available for the recommendations:
 
-        You can choose a recommendation to view a section at the bottom of the page which contains the affected resources and details of how the recommendation will be applied.
-        * In the **Databases** page, choose **Recommendations** for a resource.
+   - **Severity** – The implication level of the issue. The severity levels are
+     **High**, **Medium**, **Low**, and **Informational**.
+   - **Detection** – The number of affected resources and a short description of the issue.
+     Choose this link to view the recommendation and the analysis details.
+   - **Recommendation** – A short description of the recommended action to apply.
+   - **Impact** – A short description of the possible impact when the recommendation isn't applied.
+   - **Category** – The type of recommendation. The categories are **Performance efficiency**,
+     **Security**, **Reliability**, **Cost optimization**, **Operational excellence**,
+     and **Sustainability**.
+   - **Status** – The current status of the recommendation. The possible statuses are **All**,
+     **Active**, **Dismissed**, **Resolved**, and **Pending**.
+   - **Start time** – The time when the issue began. For example,
+     **18 hours ago**.
+   - **Last modified** – The time when the recommendation was last updated
+     by the system because of a change in the **Severity**,
+     or the time you responded to the recommendation. For example,
+     **10 hours ago**.
+   - **End time** – The time when the issue ended. The time won't display for any continuing issues.
+   - **Resource identifier** – The name of one or more resources.
 
-
-
-        ![Recommendation option selected on Databases page in the console.](images/Recommendations_DBpage.png)
-
-        The **Recommendations** tab displays
-         the recommendations and its details for the selected resource.
-
-
-
-        ![Recommendations tab on Databases page in the console.](images/RecommendationsTab_DBpage.png)
-
-    The following details are available for the recommendations:
-
-        * **Severity** – The implication level of the issue. The severity levels are
-         **High**, **Medium**, **Low**, and **Informational**.
-        * **Detection** – The number of affected resources and a short description of the issue.
-         Choose this link to view the recommendation and the analysis details.
-        * **Recommendation** – A short description of the recommended action to apply.
-        * **Impact** – A short description of the possible impact when the recommendation isn't applied.
-        * **Category** – The type of recommendation. The categories are **Performance efficiency**,
-         **Security**, **Reliability**, **Cost optimization**, **Operational excellence**,
-         and **Sustainability**.
-        * **Status** – The current status of the recommendation. The possible statuses are **All**,
-         **Active**, **Dismissed**, **Resolved**, and **Pending**.
-        * **Start time** – The time when the issue began. For example,
-         **18 hours ago**.
-        * **Last modified** – The time when the recommendation was last updated
-         by the system because of a change in the **Severity**,
-         or the time you responded to the recommendation. For example,
-         **10 hours ago**.
-        * **End time** – The time when the issue ended. The time won't display for any continuing issues.
-        * **Resource identifier** – The name of one or more resources.
-
-3.  (Optional) Choose **Severity** or
-    **Category** operators in the field to filter the list
-    of recommendations.
+3. (Optional) Choose **Severity** or
+   **Category** operators in the field to filter the list
+   of recommendations.
 
 ![Recommendations page with severity operation in the console.](images/Recommendations_Severity.png)
 

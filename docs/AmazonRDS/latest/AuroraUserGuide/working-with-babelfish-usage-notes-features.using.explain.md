@@ -3,7 +3,7 @@
 Starting with version 2.1.0, Babelfish includes two functions that
 transparently use the PostgreSQL optimizer to generate
 estimated and actual query plans for T-SQL queries on the TDS port.
-These functions are similar to using SET STATISTICS PROFILE or SET SHOWPLAN_ALL with SQL Server databases
+These functions are similar to using SET STATISTICS PROFILE or SET SHOWPLAN\_ALL with SQL Server databases
 to identify and improve slow running queries.
 
 ###### Note
@@ -16,8 +16,8 @@ SQL Server, Babelfish, and PostgreSQL.
 
 | SQL Server                                                                                                                                                                                                                                       | Babelfish                                                                                                                                                 | PostgreSQL                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| SHOWPLAN_ALL                                                                                                                                                                                                                                     | BABELFISH_SHOWPLAN_ALL                                                                                                                                    | EXPLAIN                                                                                                      |
-| STATISTICS PROFILE                                                                                                                                                                                                                               | BABELFISH_STATISTICS PROFILE                                                                                                                              | EXPLAIN ANALYZE                                                                                              |
+| SHOWPLAN\_ALL                                                                                                                                                                                                                                    | BABELFISH\_SHOWPLAN\_ALL                                                                                                                                  | EXPLAIN                                                                                                      |
+| STATISTICS PROFILE                                                                                                                                                                                                                               | BABELFISH\_STATISTICS PROFILE                                                                                                                             | EXPLAIN ANALYZE                                                                                              |
 | Uses the SQL Server optimizer                                                                                                                                                                                                                    | Uses the PostgreSQL optimizer                                                                                                                             | Uses the PostgreSQL optimizer                                                                                |
 | SQL Server input and output format                                                                                                                                                                                                               | SQL Server input and PostgreSQL output format                                                                                                             | PostgreSQL input and output format                                                                           |
 | Set for the session                                                                                                                                                                                                                              | Set for the session                                                                                                                                       | Apply to a specific statement                                                                                |
@@ -25,11 +25,11 @@ SQL Server, Babelfish, and PostgreSQL.
 
 Use the Babelfish functions as follows:
 
-- SET BABELFISH_SHOWPLAN_ALL [ON|OFF] – Set to ON to generate an estimated query
+- SET BABELFISH\_SHOWPLAN\_ALL [ON|OFF] – Set to ON to generate an estimated query
   execution plan. This function implements the behavior of the PostgreSQL
   `EXPLAIN` command. Use this command to obtain the explain plan
   for given query.
-- SET BABELFISH_STATISTICS PROFILE [ON|OFF] – Set to ON for actual query execution plans.
+- SET BABELFISH\_STATISTICS PROFILE [ON|OFF] – Set to ON for actual query execution plans.
   This function implements the behavior of PostgreSQL's `EXPLAIN
  ANALYZE` command.
   For more information about PostgreSQL `EXPLAIN` and `EXPLAIN ANALYZE`
@@ -74,7 +74,7 @@ shown following:
 `1>` SET BABELFISH_SHOWPLAN_ALL OFF
 ```
 
-With BABELFISH_STATISTICS PROFILE set to ON, each executed query returns
+With BABELFISH\_STATISTICS PROFILE set to ON, each executed query returns
 its regular result set followed by an additional result set that shows actual query execution plans.
 Babelfish generates the query plan that provides the fastest result set when it invokes the SELECT statement.
 
@@ -115,16 +115,16 @@ the PostgreSQL documentation.
 You can use the parameters shown in the following table to
 control the type of information that's displayed by your query plan.
 
-| Parameter                         | Description                                                                                                                                                  |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| babelfishpg_tsql.explain_buffers  | A boolean that turns on (and off) buffer usage information for the optimizer. (Default: off) (Allowable: off, on)                                            |
-| babelfishpg_tsql.explain_costs    | A boolean that turns on (and off) estimated startup and total cost information for the optimizer. (Default: on) (Allowable: off, on)                         |
-| babelfishpg_tsql.explain_format   | Specifies the output format for the `EXPLAIN` plan. (Default: text) (Allowable: text, xml, json, yaml)                                                       |
-| babelfishpg_tsql.explain_settings | A boolean that turns on (or off) the inclusion of information about configuration parameters in the EXPLAIN plan output. (Default: off) (Allowable: off, on) |
-| babelfishpg_tsql.explain_summary  | A boolean that turns on (or off) summary information such as<br>total time after the query plan. (Default: on) (Allowable: off, on)                          |
-| babelfishpg_tsql.explain_timing   | A boolean that turns on (or off)<br>actual startup time and time spent in each node in the output. (Default: on) (Allowable: off, on)                        |
-| babelfishpg_tsql.explain_verbose  | A boolean that turns on (or off) the most detailed<br>version of an explain plan. (Default: off) (Allowable: off, on)                                        |
-| babelfishpg_tsql.explain_wal      | A boolean that turns on (or off)<br>generation of WAL record information as part of an explain plan. (Default: off) (Allowable: off, on)                     |
+| Parameter                           | Description                                                                                                                                                  |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| babelfishpg\_tsql.explain\_buffers  | A boolean that turns on (and off) buffer usage information for the optimizer. (Default: off) (Allowable: off, on)                                            |
+| babelfishpg\_tsql.explain\_costs    | A boolean that turns on (and off) estimated startup and total cost information for the optimizer. (Default: on) (Allowable: off, on)                         |
+| babelfishpg\_tsql.explain\_format   | Specifies the output format for the `EXPLAIN` plan. (Default: text) (Allowable: text, xml, json, yaml)                                                       |
+| babelfishpg\_tsql.explain\_settings | A boolean that turns on (or off) the inclusion of information about configuration parameters in the EXPLAIN plan output. (Default: off) (Allowable: off, on) |
+| babelfishpg\_tsql.explain\_summary  | A boolean that turns on (or off) summary information such as<br>total time after the query plan. (Default: on) (Allowable: off, on)                          |
+| babelfishpg\_tsql.explain\_timing   | A boolean that turns on (or off)<br>actual startup time and time spent in each node in the output. (Default: on) (Allowable: off, on)                        |
+| babelfishpg\_tsql.explain\_verbose  | A boolean that turns on (or off) the most detailed<br>version of an explain plan. (Default: off) (Allowable: off, on)                                        |
+| babelfishpg\_tsql.explain\_wal      | A boolean that turns on (or off)<br>generation of WAL record information as part of an explain plan. (Default: off) (Allowable: off, on)                     |
 
 You can check the values of any Babelfish-related parameters on your system by
 using either PostgreSQL client or SQL Server client. Run the following command to get your current

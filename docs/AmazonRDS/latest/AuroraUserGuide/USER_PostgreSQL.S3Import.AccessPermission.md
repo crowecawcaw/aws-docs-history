@@ -15,7 +15,7 @@ topics.
 
 Before you load data from an Amazon S3 file, give your Aurora PostgreSQL DB cluster permission to access the Amazon S3 bucket the file is
 in. This way, you don't have to manage additional credential information or
-provide it in the [aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function call.
+provide it in the [aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function call.
 
 To do this, create an IAM policy that provides access to the Amazon S3 bucket. Create
 an IAM role and attach the policy to the role. Then assign the IAM role to your DB
@@ -275,11 +275,11 @@ operation.
 
 If you prefer, you can use security credentials to provide access to an Amazon S3
 bucket instead of providing access with an IAM role. You do so by specifying the
-`credentials` parameter in the [aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function call.
+`credentials` parameter in the [aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function call.
 
 The `credentials` parameter is a structure of type
 `aws_commons._aws_credentials_1`, which contains AWS credentials. Use
-the [aws_commons.create_aws_credentials](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_aws_credentials "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_aws_credentials") function
+the [aws\_commons.create\_aws\_credentials](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_aws_credentials "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_aws_credentials") function
 to set the access key and secret key in an
 `aws_commons._aws_credentials_1` structure, as shown following.
 
@@ -290,7 +290,7 @@ AS creds \gset
 ```
 
 After creating the `aws_commons._aws_credentials_1` structure, use the
-[aws_s3.table_import_from_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function with the
+[aws\_s3.table\_import\_from\_s3](USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3 "USER_PostgreSQL.S3Import.Reference.md#aws_s3.table_import_from_s3") function with the
 `credentials` parameter to import the data, as shown
 following.
 
@@ -302,7 +302,7 @@ following.
 );
 ```
 
-Or you can include the [aws_commons.create_aws_credentials](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_aws_credentials "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_aws_credentials") function
+Or you can include the [aws\_commons.create\_aws\_credentials](USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_aws_credentials "USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_aws_credentials") function
 call inline within the `aws_s3.table_import_from_s3` function
 call.
 

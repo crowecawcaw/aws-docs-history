@@ -74,14 +74,13 @@ Aurora MySQL:
   binary logs. The following settings for the `binlog_format` parameter result
   in different amounts of log data:
 
-      + `ROW` – The most log data
-      + `STATEMENT` – The least log data
-      + `MIXED` – A moderate amount of log data that usually provides
-       the best combination of data integrity and performance
-
-  The amount of binary log data affects recovery time. If there is more data logged in
-  the binary logs, the DB instance must process more data during recovery, which increases
-  recovery time.
+  - `ROW` – The most log data
+  - `STATEMENT` – The least log data
+  - `MIXED` – A moderate amount of log data that usually provides
+    the best combination of data integrity and performance
+    The amount of binary log data affects recovery time. If there is more data logged in
+    the binary logs, the DB instance must process more data during recovery, which increases
+    recovery time.
 
 - To reduce computational overhead and improve recovery times with binary logging, you
   can use enhanced binlog. Enhanced binlog improves the database recovery time by up to

@@ -1,4 +1,4 @@
-# aurora_stat_wait_event
+# aurora\_stat\_wait\_event
 
 Lists all supported wait events for Aurora PostgreSQL. For information about Aurora PostgreSQL
 wait events, see [Amazon Aurora PostgreSQL wait events](AuroraPostgreSQL.Reference.Waitevents.md "AuroraPostgreSQL.Reference.Waitevents.md").
@@ -17,10 +17,10 @@ None
 
 SETOF record with the following columns:
 
-- type_id – The ID of the type of wait event.
-- event_id – The ID of the wait event.
-- type_name – Wait type name
-- event_name – Wait event name
+- type\_id – The ID of the type of wait event.
+- event\_id – The ID of the wait event.
+- type\_name – Wait type name
+- event\_name – Wait event name
 
 ## Usage notes
 

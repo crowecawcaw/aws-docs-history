@@ -1,4 +1,4 @@
-# Examining Aurora PostgreSQL query plans in the dba_plans view
+# Examining Aurora PostgreSQL query plans in the dba\_plans view
 
 Database users and administrators that have been granted the
 `apg_plan_mgmt` role can view and manage the plans stored in the
@@ -35,4 +35,4 @@ FROM apg_plan_mgmt.dba_plans;`
 ```
 
 For readability, the query and the output shown list just a few of the columns
-from the `dba_plans` view. For complete information, see [Reference for the apg_plan_mgmt.dba_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md "AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md").
+from the `dba_plans` view. For complete information, see [Reference for the apg\_plan\_mgmt.dba\_plans view for Aurora PostgreSQL-Compatible Edition](AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md "AuroraPostgreSQL.Optimize.dba_plans_view_Reference.md").

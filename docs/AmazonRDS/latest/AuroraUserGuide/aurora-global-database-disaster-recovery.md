@@ -296,7 +296,9 @@ To ensure the data is in a consistent state, Aurora creates a new storage volume
 after it recovers. Before creating the new storage volume in the AWS Region, Aurora attempts to take a
 snapshot of the old storage volume at the point of failure. That way, you can restore the snapshot and recover
 any of the missing data from it. If this operation is successful, Aurora places this snapshot named
-`rds:unplanned-global-failover-`name-of-old-primary-DB-cluster`-`timestamp`` in the snapshot section of the AWS Management Console. You can also use the`describe-db-cluster-snapshots` AWS CLI command or the`DescribeDBClusterSnapshots` API operation to see details for the snapshot.
+`rds:unplanned-global-failover-`name-of-old-primary-DB-cluster`-`timestamp``
+in the snapshot section of the AWS Management Console. You can also use the `describe-db-cluster-snapshots`
+AWS CLI command or the `DescribeDBClusterSnapshots` API operation to see details for the snapshot.
 
 When you initiate a managed failover, Aurora also attempts to halt write traffic through the highly-available
 Aurora storage layer. We refer to this mechanism as "write fencing". If the process succeeds, Aurora
@@ -750,7 +752,7 @@ AWS Management Console, the AWS CLI, or the RDS API.
 2. In the navigation pane, choose **Parameter groups**.
 3. In the list, choose your primary DB cluster parameter group.
 4. Choose **Edit parameters**.
-5. Choose the box next to the **rds.global_db_rpo** parameter.
+5. Choose the box next to the **rds.global\_db\_rpo** parameter.
 6. Choose **Reset**.
 7. When the screen shows **Reset parameters in DB parameter group**, choose
    **Reset parameters**.

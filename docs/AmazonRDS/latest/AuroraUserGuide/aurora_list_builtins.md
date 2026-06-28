@@ -1,4 +1,4 @@
-# aurora_list_builtins
+# aurora\_list\_builtins
 
 Lists all available Aurora PostgreSQL built-in functions, along with brief descriptions
 and function details.

@@ -91,7 +91,7 @@ information, see [Password policies and Password validation in Aurora MySQL](Aur
 
 ## Parameter default changes
 
-### temptable_max_mmap
+### temptable\_max\_mmap
 
 **Aurora MySQL version 3** uses a fixed default of 1 GiB
 (`1073741824`) for the `temptable_max_mmap` parameter across all instance classes

@@ -226,11 +226,10 @@ for a DB cluster using the AWS CLI.
 - Call the [describe-db-cluster-backtracks](../../../cli/latest/reference/rds/describe-db-cluster-backtracks.md "../../../cli/latest/reference/rds/describe-db-cluster-backtracks.md")
   AWS CLI command and supply the following values:
 
-      + `--db-cluster-identifier` – The name of the
-       DB cluster.
-
-  The following example retrieves existing backtracks for
-  `sample-cluster`.
+  - `--db-cluster-identifier` – The name of the
+    DB cluster.
+    The following example retrieves existing backtracks for
+    `sample-cluster`.
 
 For Linux, macOS, or Unix:
 

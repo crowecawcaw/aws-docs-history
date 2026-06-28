@@ -7,7 +7,7 @@ Community Edition.
 
 - [Authentication](#AuroraMySQL.Compare-v84-community.auth "#AuroraMySQL.Compare-v84-community.auth")
 - [Reserved users](#AuroraMySQL.Compare-v84-community.reserved-users "#AuroraMySQL.Compare-v84-community.reserved-users")
-- [rds_superuser_role](#AuroraMySQL.Compare-v84-community.rds-superuser "#AuroraMySQL.Compare-v84-community.rds-superuser")
+- [rds\_superuser\_role](#AuroraMySQL.Compare-v84-community.rds-superuser "#AuroraMySQL.Compare-v84-community.rds-superuser")
 - [Password validation component support in Aurora MySQL version 8.4](#AuroraMySQL.Compare-v84-community.validate-password "#AuroraMySQL.Compare-v84-community.validate-password")
 - [Parameter default changes](#AuroraMySQL.Compare-v84-community.parameters "#AuroraMySQL.Compare-v84-community.parameters")
 
@@ -37,7 +37,7 @@ because it is the monitoring user for RDS Proxy. Aurora creates the
 For details about the rejected operations and error output, see
 [Reserved users in Aurora MySQL](AuroraMySQL.Security.md#AuroraMySQL.Security.ReservedUsers "AuroraMySQL.Security.md#AuroraMySQL.Security.ReservedUsers").
 
-## rds_superuser_role
+## rds\_superuser\_role
 
 Aurora MySQL version 8.4 includes a special role that has all the following privileges. This role is
 named `rds_superuser_role`. The master user for each cluster already has this role granted.
@@ -96,7 +96,7 @@ For more information, see [Password policies and Password validation in Aurora M
 
 ## Parameter default changes
 
-### temptable_max_mmap
+### temptable\_max\_mmap
 
 In MySQL 8.4 Community Edition, the default value of `temptable_max_mmap` is
 `0`, which disables memory-mapped temporary tables.

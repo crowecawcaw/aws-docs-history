@@ -135,13 +135,13 @@ In Aurora MySQL version 3.10 and higher, Aurora introduces an optimization known
 
 By default, the in-memory relay log feature is automatically enabled for Aurora-managed replication scenarios (including blue-green deployments, Aurora-Aurora replication, and cross-region replicas) when the replica meets any of these configurations:
 
-- Single-threaded replication mode (replica_parallel_workers = 0)
+- Single-threaded replication mode (replica\_parallel\_workers = 0)
 - Multi-threaded replication with GTID mode enabled:
 
   - Auto-position enabled
   - GTID mode set to ON on the replica
 
-- File-based replication with replica_preserve_commit_order = ON
+- File-based replication with replica\_preserve\_commit\_order = ON
 
 The in-memory relay log feature is supported on instance classes larger than t3.large, but is not available on Aurora Serverless instances. The relay log circular buffer has a fixed size of 128 MB. To monitor the memory consumption of this feature, you can run the following query:
 
@@ -149,10 +149,10 @@ The in-memory relay log feature is supported on instance classes larger than t3.
 SELECT event_name, current_alloc FROM sys.memory_global_by_current_bytes WHERE event_name = 'memory/sql/relaylog_io_cache';
 ```
 
-The in-memory relay log feature is controlled by the aurora_in_memory_relaylog parameter, which can be set at either the DB cluster or instance level. You can enable or disable this feature dynamically without restarting your instance:
+The in-memory relay log feature is controlled by the aurora\_in\_memory\_relaylog parameter, which can be set at either the DB cluster or instance level. You can enable or disable this feature dynamically without restarting your instance:
 
 1. Stop the ongoing replication
-2. Set aurora_in_memory_relaylog to ON (to enable) or OFF (to disable) in parameter group
+2. Set aurora\_in\_memory\_relaylog to ON (to enable) or OFF (to disable) in parameter group
 3. Restart replication
 
 Example:
@@ -163,7 +163,7 @@ set aurora_in_memory_relaylog to ON to enable or OFF to disable in cluster param
 CALL mysql.rds_start_replication;
 ```
 
-Even when aurora_in_memory_relaylog is set to ON, the in-memory relay log feature might still be disabled under certain conditions. To verify the feature's current status, you can use the following command:
+Even when aurora\_in\_memory\_relaylog is set to ON, the in-memory relay log feature might still be disabled under certain conditions. To verify the feature's current status, you can use the following command:
 
 ```
 SHOW GLOBAL STATUS LIKE 'Aurora_in_memory_relaylog_status';

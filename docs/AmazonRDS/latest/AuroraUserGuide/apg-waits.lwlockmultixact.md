@@ -82,7 +82,7 @@ If this wait event spikes suddenly and affects your production environment, you 
 
 - Use _VACUUM FREEZE_ on the affected table or table partition
   to resolve the issue immediately. For more information, see [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html").
-- Use the VACUUM (FREEZE, INDEX_CLEANUP FALSE) clause to perform a quick vacuum by skipping the indexes.
+- Use the VACUUM (FREEZE, INDEX\_CLEANUP FALSE) clause to perform a quick vacuum by skipping the indexes.
   For more information, see [Vacuuming a table as quickly as possible](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.md#Appendix.PostgreSQL.CommonDBATasks.Autovacuum.LargeIndexes.Executing").
 
 ### Increase autovacuum frequency on tables with this wait event
@@ -96,7 +96,7 @@ If using VACUUM FREEZE on the affected table or table partition resolves the wai
 to perform the VACUUM instead of adjusting autovacuum at the instance level.
 
 For the autovacuum to happen more frequently, you can reduce the value of the storage parameter `autovacuum_multixact_freeze_max_age` in the affected table.
-For more information, see [autovacuum_multixact_freeze_max_age](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MULTIXACT-FREEZE-MAX-AGE "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MULTIXACT-FREEZE-MAX-AGE").
+For more information, see [autovacuum\_multixact\_freeze\_max\_age](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MULTIXACT-FREEZE-MAX-AGE "https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MULTIXACT-FREEZE-MAX-AGE").
 
 ### Increase memory parameters
 

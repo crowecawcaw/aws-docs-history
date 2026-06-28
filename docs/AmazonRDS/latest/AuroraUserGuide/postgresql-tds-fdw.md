@@ -1,16 +1,16 @@
-# Working with SQL Server databases by using the tds_fdw extension
+# Working with SQL Server databases by using the tds\_fdw extension
 
 You can use the PostgreSQL `tds_fdw` extension to access databases that support
 the tabular data stream (TDS) protocol, such as Sybase and Microsoft SQL Server databases. This
 foreign data wrapper lets you connect from your
 Aurora PostgreSQL DB cluster to databases that
 use the TDS protocol, including Amazon RDS for Microsoft SQL Server. For more information, see
-[tds-fdw/tds_fdw](https://github.com/tds-fdw/tds_fdw "https://github.com/tds-fdw/tds_fdw") documentation on GitHub.
+[tds-fdw/tds\_fdw](https://github.com/tds-fdw/tds_fdw "https://github.com/tds-fdw/tds_fdw") documentation on GitHub.
 
 The `tds_fdw` extension is supported on Amazon Aurora PostgreSQL version 13.6 and
 higher releases.
 
-## Setting up your Aurora PostgreSQL DB to use the tds_fdw extension
+## Setting up your Aurora PostgreSQL DB to use the tds\_fdw extension
 
 In the following procedures, you can find an example of setting up and using the `tds_fdw`
 with an Aurora PostgreSQL DB cluster.
@@ -33,7 +33,7 @@ Adaptive Server is unavailable or does not exist (`mssql2019`.`aws-region`.rds.a
 
 ```
 
-###### To use tds_fdw to connect to a SQL Server database
+###### To use tds\_fdw to connect to a SQL Server database
 
 1. Connect to your Aurora PostgreSQL DB cluster's primary
    instance using an account that has the `rds_superuser` role:
@@ -65,7 +65,7 @@ using an account that has
 `CREATE SERVER`
 ```
 
-To access non-ASCII data on the SQLServer side, create a server link with the character_set option in the Aurora PostgreSQL DB cluster:
+To access non-ASCII data on the SQLServer side, create a server link with the character\_set option in the Aurora PostgreSQL DB cluster:
 
 ```
 `test=>` `CREATE SERVER `sqlserverdb` FOREIGN DATA WRAPPER tds_fdw OPTIONS (servername '`mssql2019`.`aws-region`.rds.amazonaws.com', port '1433', database '`tds_fdw_testing`', character_set `'UTF-8'`);`

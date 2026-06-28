@@ -24,8 +24,8 @@ The following features from community MySQL 8.0 aren't available or work differe
 
 - Resource groups and associated SQL statements aren't supported in Aurora MySQL.
 - Aurora MySQL doesn't support user-defined undo tablespaces and associated SQL statements, such as `CREATE
-UNDO TABLESPACE`, `ALTER UNDO TABLESPACE ... SET INACTIVE`, and `DROP UNDO
-TABLESPACE`.
+ UNDO TABLESPACE`, `ALTER UNDO TABLESPACE ... SET INACTIVE`, and `DROP UNDO
+ TABLESPACE`.
 - Aurora MySQL doesn't support undo tablespace truncation for Aurora MySQL versions lower than 3.06. In Aurora MySQL
   version 3.06 and higher, [automated
   undo tablespace truncation](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html#truncate-undo-tablespace "https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html#truncate-undo-tablespace") is supported.
@@ -67,11 +67,11 @@ practice of using a database user created with the minimal privileges required f
 
 ###### Topics
 
-- [rds_superuser_role](#AuroraMySQL.privilege-model.rds_superuser_role "#AuroraMySQL.privilege-model.rds_superuser_role")
+- [rds\_superuser\_role](#AuroraMySQL.privilege-model.rds_superuser_role "#AuroraMySQL.privilege-model.rds_superuser_role")
 - [Privilege checks user for binary log replication](#AuroraMySQL.privilege-model.binlog "#AuroraMySQL.privilege-model.binlog")
 - [Roles for accessing other AWS services](#AuroraMySQL.privilege-model.other "#AuroraMySQL.privilege-model.other")
 
-### rds_superuser_role
+### rds\_superuser\_role
 
 Aurora MySQL version 3 includes a special role that has all of the following
 privileges. This role is named `rds_superuser_role`. The primary
@@ -167,7 +167,7 @@ to accessing other AWS services:
   [Granting database users access to Aurora machine learning](mysql-ml.md#aurora-ml-sql-privileges "mysql-ml.md#aurora-ml-sql-privileges").
 
 When you grant access by using roles in Aurora MySQL version 3, you also activate the role by using the `SET ROLE `role_name``
- or`SET ROLE ALL`statement. The following example shows how. Substitute the appropriate role name for`AWS_SELECT_S3_ACCESS`.
+or `SET ROLE ALL` statement. The following example shows how. Substitute the appropriate role name for `AWS_SELECT_S3_ACCESS`.
 
 ```
 # Grant role to user.

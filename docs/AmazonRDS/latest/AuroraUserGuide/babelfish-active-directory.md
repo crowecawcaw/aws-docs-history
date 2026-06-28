@@ -53,7 +53,7 @@ EXEC babelfish_add_domain_mapping_entry 'corp', 'corp.example.com'
 ```
 
 To delete an existing mapping entry, use the system stored procedure
-babelfish_remove_domain_mapping_entry.
+babelfish\_remove\_domain\_mapping\_entry.
 
 ###### Example
 
@@ -71,7 +71,7 @@ EXEC babelfish_remove_domain_mapping_entry 'corp'
 ```
 
 To remove all existing mapping entries, use the system stored procedure
-babelfish_truncate_domain_mapping_table:
+babelfish\_truncate\_domain\_mapping\_table:
 
 ###### Example
 
@@ -144,7 +144,7 @@ following:
 - DISABLE – To disable a login. You can't use a disabled login for
   authentication.
 - ENABLE – To enable a disabled login.
-- DEFAULT_DATABASE – To change the default database of a
+- DEFAULT\_DATABASE – To change the default database of a
   login.
 
 ###### Note

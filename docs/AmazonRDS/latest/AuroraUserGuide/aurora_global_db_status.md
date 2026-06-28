@@ -1,4 +1,4 @@
-# aurora_global_db_status
+# aurora\_global\_db\_status
 
 Displays information about various aspects of Aurora global database lag, specifically,
 lag of the underlying Aurora storage (so called durability lag) and lag between the
@@ -64,7 +64,7 @@ for each DB cluster in an Aurora PostgreSQL global database. You can run this fu
 from any instance in your Aurora PostgreSQL global database.
 
 To evaluate Aurora global database replication lag, which is the visible data lag,
-see [aurora_global_db_instance_status](aurora_global_db_instance_status.md "aurora_global_db_instance_status.md").
+see [aurora\_global\_db\_instance\_status](aurora_global_db_instance_status.md "aurora_global_db_instance_status.md").
 
 To learn more about using `aurora_global_db_status` and
 `aurora_global_db_instance_status` to monitor Aurora global database

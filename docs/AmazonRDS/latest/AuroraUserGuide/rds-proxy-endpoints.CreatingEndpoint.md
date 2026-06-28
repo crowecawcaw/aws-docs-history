@@ -67,9 +67,9 @@ You can also include the following optional parameters:
   [Using reader endpoints with Aurora clusters](rds-proxy-endpoints.md#rds-proxy-endpoints-reader "rds-proxy-endpoints.md#rds-proxy-endpoints-reader")
   .
 - `--vpc-security-group-ids `value``. Separate the security group
-IDs with spaces. If you omit this parameter, RDS Proxy uses the default security group for the VPC.
-RDS Proxy determines the VPC based on the subnet IDs that you specify for the
-`--vpc-subnet-ids` parameter.
+  IDs with spaces. If you omit this parameter, RDS Proxy uses the default security group for the VPC.
+  RDS Proxy determines the VPC based on the subnet IDs that you specify for the
+  `--vpc-subnet-ids` parameter.
 - `--endpoint-network-type { IPV4 | IPV6 | DUAL }`. This parameter specifies the IP version for the proxy endpoint. The default is `IPV4`. To use `IPV6` or `DUAL`, your VPC and subnets must be configured to support the selected network type.
 
 ###### Example

@@ -104,7 +104,7 @@ keep the default setting of 1.
 Changing `innodb_flush_log_at_trx_commit` to a nondefault value can help reduce data manipulation language
 (DML) latency, but sacrifices the durability of the log records. This lack of durability makes the database ACID
 noncompliant. We recommend that your databases be ACID compliant to avoid the risk of data loss in the event of a server
-restart. For more information on this parameter, see [innodb_flush_log_at_trx_commit](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit "https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit") in the MySQL documentation.
+restart. For more information on this parameter, see [innodb\_flush\_log\_at\_trx\_commit](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit "https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit") in the MySQL documentation.
 
 In Aurora MySQL, redo log processing is offloaded to the storage layer, so no flushing to log files occurs on the DB
 instance. When a write is issued, redo logs are sent from the writer DB instance directly to the Aurora cluster volume. The
@@ -217,21 +217,18 @@ To reduce the number of possible partial rollbacks, you can try some of the foll
     ```
 
 2. Avoid long-running transactions, active or idle, that might hold onto locks. This includes interactive MySQL
-   client sessions that might be open for an extended period with an uncommitted transaction. When optimizing
-   transaction sizes or batch sizes, the impact can vary depending on a number of factors such as concurrency,
-   number of duplicates, and table structure. Any changes should be implemented and tested based on your
-   workload.
-3. In some situations, deadlocks can occur when two transactions attempt to access the same datasets, either in
-   one or multiple tables, in different orders. To prevent this, you can modify the transactions to access the data
-   in the same order, thereby serializing the access. For example, create a queue of transactions to be completed.
-   This approach can help to avoid deadlocks when multiple transactions occur concurrently.
-4. Adding carefully chosen indexes to your tables can improve selectivity and reduce the need to access rows,
-   which leads to less locking.
-5. If you encounter [gap
-   locking](https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-gap-locks "https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-gap-locks"), you can modify the transaction isolation level to `READ COMMITTED` for the
-   session or transaction to prevent it. For more information on InnoDB isolation levels and their behaviors, see
-   [Transaction
-   isolation levels](https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html") in the MySQL documentation.
+client sessions that might be open for an extended period with an uncommitted transaction. When optimizing
+transaction sizes or batch sizes, the impact can vary depending on a number of factors such as concurrency,
+number of duplicates, and table structure. Any changes should be implemented and tested based on your
+workload. 3. In some situations, deadlocks can occur when two transactions attempt to access the same datasets, either in
+one or multiple tables, in different orders. To prevent this, you can modify the transactions to access the data
+in the same order, thereby serializing the access. For example, create a queue of transactions to be completed.
+This approach can help to avoid deadlocks when multiple transactions occur concurrently. 4. Adding carefully chosen indexes to your tables can improve selectivity and reduce the need to access rows,
+which leads to less locking. 5. If you encounter [gap
+locking](https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-gap-locks "https://dev.mysql.com/doc/refman/5.7/en/innodb-locking.html#innodb-gap-locks"), you can modify the transaction isolation level to `READ COMMITTED` for the
+session or transaction to prevent it. For more information on InnoDB isolation levels and their behaviors, see
+[Transaction
+isolation levels](https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html") in the MySQL documentation.
 
 ###### Note
 
@@ -255,7 +252,7 @@ number of rows inserted, updated, or deleted.
   [details](https://dev.mysql.com/doc/refman/5.7/en/show-engine.html "https://dev.mysql.com/doc/refman/5.7/en/show-engine.html") of the most recent
   deadlock encountered on the database since the last restart.
 - MySQL error log – If you encounter frequent deadlocks where the output of the `SHOW ENGINE`
-  statement is inadequate, you can turn on the [innodb_print_all_deadlocks](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks "https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks") DB cluster parameter.
+  statement is inadequate, you can turn on the [innodb\_print\_all\_deadlocks](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks "https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks") DB cluster parameter.
 
 When this parameter is turned on, information about all deadlocks in InnoDB user transactions is recorded in the
 Aurora MySQL [error log](https://dev.mysql.com/doc/refman/8.0/en/error-log.html "https://dev.mysql.com/doc/refman/8.0/en/error-log.html").

@@ -61,9 +61,9 @@ parameters in this list:
 - `general_log`: To create the general log, set to 1. The default is 0.
 - `long_query_time`: To prevent fast-running queries from being logged in the
   slow query log, specify a value for the shortest query runtime to be logged, in
-  seconds. The default is 10 seconds; the minimum is 0. If log_output = FILE, you
+  seconds. The default is 10 seconds; the minimum is 0. If log\_output = FILE, you
   can specify a floating point value that goes to microsecond resolution. If
-  log_output = TABLE, you must specify an integer value with second resolution.
+  log\_output = TABLE, you must specify an integer value with second resolution.
   Only queries whose runtime exceeds the `long_query_time` value are
   logged. For example, setting `long_query_time` to 0.1 prevents any
   query that runs for less than 100 milliseconds from being logged.
@@ -72,15 +72,14 @@ parameters in this list:
   even if their runtime is less than the value of the `long_query_time`
   parameter. The default is 0.
 - `log_output `option``: You can specify one of the following
- options for the `log_output` parameter.
+  options for the `log_output` parameter.
 
-      + TABLE
-       – Write general queries to the
-       `mysql.general_log` table, and slow queries to the `mysql.slow_log` table.
-      + FILE – Write both general and slow query logs to the file system.
-      + NONE – Disable logging.
-
-  For Aurora MySQL versions 2 and 3, the default for `log_output` is `FILE`.
+  - TABLE
+    – Write general queries to the
+    `mysql.general_log` table, and slow queries to the `mysql.slow_log` table.
+  - FILE – Write both general and slow query logs to the file system.
+  - NONE – Disable logging.
+    For Aurora MySQL versions 2 and 3, the default for `log_output` is `FILE`.
 
 For slow query data to appear in Amazon CloudWatch Logs, the following conditions must be met:
 

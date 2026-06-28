@@ -69,27 +69,20 @@ Ensure that the following permissions are selected:
     * `PutLogEvents`
     * `PutRetentionPolicy`
 
-6. Choose **Resources** and choose **Add ARN** for **log-group**.
-7. In the **Add ARN(s)** dialog box, enter the following values:
+6. Choose **Resources** and choose **Add ARN** for **log-group**. 7. In the **Add ARN(s)** dialog box, enter the following values:
 
-   - **Region** – An AWS Region or `*`
-   - **Account** – An account number or `*`
-   - **Log Group Name** – `/aws/rds/*`
+    * **Region** – An AWS Region or `*`
+    * **Account** – An account number or `*`
+    * **Log Group Name** – `/aws/rds/*`
 
-8. In the **Add ARN(s)** dialog box, choose **Add**.
-9. Choose **Add ARN** for **log-stream**.
-10. In the **Add ARN(s)** dialog box, enter the following values:
+8. In the **Add ARN(s)** dialog box, choose **Add**. 9. Choose **Add ARN** for **log-stream**. 10. In the **Add ARN(s)** dialog box, enter the following values:
 
-    - **Region** – An AWS Region or `*`
-    - **Account** – An account number or `*`
-    - **Log Group Name** – `/aws/rds/*`
-    - **Log Stream Name** – `*`
+    * **Region** – An AWS Region or `*`
+    * **Account** – An account number or `*`
+    * **Log Group Name** – `/aws/rds/*`
+    * **Log Stream Name** – `*`
 
-11. In the **Add ARN(s)** dialog box, choose **Add**.
-12. Choose **Review policy**.
-13. Set **Name** to a name for your IAM policy, for
-    example `AmazonRDSCloudWatchLogs`. You use this name when you
-    create an IAM role to associate with your Aurora DB cluster. You can also add
-    an optional **Description** value.
-14. Choose **Create policy**.
-15. Complete the steps in [Creating an IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.CreateRole.md "AuroraMySQL.Integrating.Authorizing.IAM.CreateRole.md").
+11. In the **Add ARN(s)** dialog box, choose **Add**. 12. Choose **Review policy**. 13. Set **Name** to a name for your IAM policy, for
+example `AmazonRDSCloudWatchLogs`. You use this name when you
+create an IAM role to associate with your Aurora DB cluster. You can also add
+an optional **Description** value. 14. Choose **Create policy**. 15. Complete the steps in [Creating an IAM role to allow Amazon Aurora to access AWS services](AuroraMySQL.Integrating.Authorizing.IAM.CreateRole.md "AuroraMySQL.Integrating.Authorizing.IAM.CreateRole.md").

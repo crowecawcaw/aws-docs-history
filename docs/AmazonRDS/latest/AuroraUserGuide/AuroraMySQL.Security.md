@@ -304,7 +304,7 @@ aws rds describe-engine-default-cluster-parameters --db-parameter-group-family a
        ...some output truncated...
 ```
 
-For more information about ciphers, see the [ssl_cipher](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher") variable in the MySQL documentation. For more information
+For more information about ciphers, see the [ssl\_cipher](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher") variable in the MySQL documentation. For more information
 about cipher suite formats, see the [openssl-ciphers list format](https://www.openssl.org/docs/manmaster/man1/openssl-ciphers.html#CIPHER-LIST-FORMAT "https://www.openssl.org/docs/manmaster/man1/openssl-ciphers.html#CIPHER-LIST-FORMAT") and [openssl-ciphers string format](https://www.openssl.org/docs/manmaster/man1/openssl-ciphers.html#CIPHER-STRINGS "https://www.openssl.org/docs/manmaster/man1/openssl-ciphers.html#CIPHER-STRINGS") documentation on the OpenSSL website.
 
 ### Encrypting connections to an Aurora MySQL DB cluster

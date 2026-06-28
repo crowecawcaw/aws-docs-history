@@ -134,7 +134,7 @@ that you can run is subject to the Data API limitations. For more information, s
      need to enter the connection information again.
 
 7. In the query editor, enter the SQL query that you want to run on the
-   database.
+database.
 
 ![Query editor with a SQL statement in the text area.](images/query-editor.png)
 

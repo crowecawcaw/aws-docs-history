@@ -46,7 +46,7 @@ provide the information to access a bucket, take the following steps:
      bucket. For more information, see [Providing access to an Amazon S3 bucket using an IAM role](aurora-export-snapshot.Setup.md#aurora-export-snapshot.SetupIAMRole "aurora-export-snapshot.Setup.md#aurora-export-snapshot.SetupIAMRole").
 
 3. Create a symmetric encryption AWS KMS key for the server-side encryption. The KMS key is used by the snapshot
-   export task to set up AWS KMS server-side encryption when writing the export data to S3.
+export task to set up AWS KMS server-side encryption when writing the export data to S3.
 
 The KMS key policy must include both the `kms:CreateGrant` and `kms:DescribeKey` permissions.
 For more information on using KMS keys in Amazon Aurora, see [AWS KMS key management](Overview.Encryption.Keys.md "Overview.Encryption.Keys.md").

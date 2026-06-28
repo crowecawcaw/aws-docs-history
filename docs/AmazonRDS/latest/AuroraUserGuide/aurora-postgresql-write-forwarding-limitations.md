@@ -34,7 +34,7 @@ can result in the use of SAVEPOINT, which is not a supported statement.
 You can consider using the following SQL statements with write forwarding:
 
 - A DML statement might consist of multiple parts, such as an `INSERT ... SELECT` statement or a `DELETE ...
-WHERE` statement. In this case, the entire statement is forwarded to the writer DB instance and run there.
+ WHERE` statement. In this case, the entire statement is forwarded to the writer DB instance and run there.
 - Data manipulation language (DML) statements, such as `INSERT`,
   `DELETE`, and `UPDATE`.
 - `EXPLAIN` statements with the statements in this list.

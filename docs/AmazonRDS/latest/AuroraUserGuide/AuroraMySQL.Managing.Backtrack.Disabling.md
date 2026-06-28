@@ -33,12 +33,11 @@ again for that cluster.
 - Call the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md")
   AWS CLI command and supply the following values:
 
-      + `--db-cluster-identifier` – The name of the
-       DB cluster.
-      + `--backtrack-window` – specify `0` to turn off backtracking.
-
-  The following example disables the Backtrack feature for the `sample-cluster` by
-  setting `--backtrack-window` to `0`.
+  - `--db-cluster-identifier` – The name of the
+    DB cluster.
+  - `--backtrack-window` – specify `0` to turn off backtracking.
+    The following example disables the Backtrack feature for the `sample-cluster` by
+    setting `--backtrack-window` to `0`.
 
 For Linux, macOS, or Unix:
 

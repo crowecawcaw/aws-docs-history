@@ -112,15 +112,15 @@ WHERE
    ```
    SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
    ```
-   - Remove all uses of the \*reg\** data types before
+   - Remove all uses of the _reg\*_ data types before
      attempting an upgrade. Except for `regtype` and
      `regclass`, you can't upgrade the
-     *reg\*\* data types. The pg_upgrade utility
+     _reg\*_ data types. The pg\_upgrade utility
      (used by Amazon Aurora to do the upgrade) can't persist this data
-     type. To learn more about this utility, see [pg_upgrade](https://www.postgresql.org/docs/current/pgupgrade.html "https://www.postgresql.org/docs/current/pgupgrade.html") in the PostgreSQL documentation.
+     type. To learn more about this utility, see [pg\_upgrade](https://www.postgresql.org/docs/current/pgupgrade.html "https://www.postgresql.org/docs/current/pgupgrade.html") in the PostgreSQL documentation.
 
    To verify that there are no uses of unsupported
-   \*reg\*\* data types, use the following query
+   _reg\*_ data types, use the following query
    for each database.
 
    ```
@@ -224,7 +224,7 @@ extensions to drop include:
     * `tsearch2`
 
 9. Drop `unknown` data types, depending on your target
-   version.
+version.
 
 PostgreSQL version 10 doesn't support the `unknown` data
 type. If a version 9.6 database uses the `unknown` data type, an
@@ -278,7 +278,7 @@ completed. However, you can't perform a point-in-time restore to a
 previous minor version.
 
 For information about an upgrade in progress, you can use Amazon RDS to view
-two logs that the pg_upgrade utility produces. These are
+two logs that the pg\_upgrade utility produces. These are
 `pg_upgrade_internal.log` and
 `pg_upgrade_server.log`. Amazon Aurora appends a timestamp to the
 file name for these logs. You can view these logs as you can any other log.
@@ -387,9 +387,9 @@ aware of the following:
   instead of an incremental copy.
 
 To safely upgrade the DB instances that make up your cluster, Aurora PostgreSQL uses
-the pg_upgrade utility. After the writer upgrade completes, each reader instance
+the pg\_upgrade utility. After the writer upgrade completes, each reader instance
 experiences a brief outage while it's upgraded to the new major version. To
-learn more about this PostgreSQL utility, see [pg_upgrade](https://www.postgresql.org/docs/current/pgupgrade.html "https://www.postgresql.org/docs/current/pgupgrade.html")
+learn more about this PostgreSQL utility, see [pg\_upgrade](https://www.postgresql.org/docs/current/pgupgrade.html "https://www.postgresql.org/docs/current/pgupgrade.html")
 in the PostgreSQL documentation.
 
 You can upgrade your Aurora PostgreSQL DB cluster to a new version by using the AWS Management Console,

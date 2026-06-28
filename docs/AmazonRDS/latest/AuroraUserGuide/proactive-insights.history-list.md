@@ -87,7 +87,7 @@ WHERE a.trx_mysql_thread_id=b.id
 ORDER BY trx_started
 ```
 
-2. End each long-running transaction with the stored procedure [mysql.rds_kill](mysql-stored-proc-ending.md#mysql_rds_kill "mysql-stored-proc-ending.md#mysql_rds_kill").
+2. End each long-running transaction with the stored procedure [mysql.rds\_kill](mysql-stored-proc-ending.md#mysql_rds_kill "mysql-stored-proc-ending.md#mysql_rds_kill").
 
 ### Identify the top hosts and top users by using Performance Insights.
 
@@ -100,7 +100,7 @@ The following metrics are related to this insight:
 
 - `trx_rseg_history_len` – This counter metric can be viewed
   in Performance Insights, as well as the `INFORMATION_SCHEMA.INNODB_METRICS` table.
-  For more information, see [InnoDB INFORMATION_SCHEMA metrics table](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-metrics-table.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-metrics-table.html") in the MySQL
+  For more information, see [InnoDB INFORMATION\_SCHEMA metrics table](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-metrics-table.html "https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-metrics-table.html") in the MySQL
   documentation.
 - `RollbackSegmentHistoryListLength` – This Amazon CloudWatch metric
   measures the undo logs that record committed transactions with delete-marked

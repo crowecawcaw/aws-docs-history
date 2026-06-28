@@ -80,8 +80,8 @@ We recommend different actions depending on the causes of your wait event.
 - [Avoid using the DISTINCT operation](#apg-waits.iobuffile.actions.distinct "#apg-waits.iobuffile.actions.distinct")
 - [Consider using window functions instead of GROUP BY functions](#apg-waits.iobuffile.actions.window "#apg-waits.iobuffile.actions.window")
 - [Investigate materialized views and CTAS statements](#apg-waits.iobuffile.actions.mv-refresh "#apg-waits.iobuffile.actions.mv-refresh")
-- [Use pg_repack when you create indexes](#apg-waits.iobuffile.actions.pg_repack "#apg-waits.iobuffile.actions.pg_repack")
-- [Increase maintenance_work_mem when you cluster tables](#apg-waits.iobuffile.actions.cluster "#apg-waits.iobuffile.actions.cluster")
+- [Use pg\_repack when you create indexes](#apg-waits.iobuffile.actions.pg_repack "#apg-waits.iobuffile.actions.pg_repack")
+- [Increase maintenance\_work\_mem when you cluster tables](#apg-waits.iobuffile.actions.cluster "#apg-waits.iobuffile.actions.cluster")
 - [Tune memory to prevent IO:BufFileRead and IO:BufFileWrite](#apg-waits.iobuffile.actions.tuning-memory "#apg-waits.iobuffile.actions.tuning-memory")
 
 ### Identify the problem
@@ -269,7 +269,7 @@ temporary files and the wait events `IO:BufFileWrite` and
 `SELECT` statement, the `CREATE TABLE` statement runs a
 query. To reduce the temporary files needed, optimize the query.
 
-### Use pg_repack when you create indexes
+### Use pg\_repack when you create indexes
 
 When you create an index, the engine orders the result set. As tables grow in
 size, and as values in the indexed column become more diverse, the temporary files
@@ -277,16 +277,16 @@ require more space. In most cases, you can't prevent the creation of temporary f
 for large tables without modifying the maintenance work memory area. For more
 information, see [Maintenance work memory area](AuroraPostgreSQL.Tuning.concepts.md#AuroraPostgreSQL.Tuning.concepts.local.maintenance_work_mem "AuroraPostgreSQL.Tuning.concepts.md#AuroraPostgreSQL.Tuning.concepts.local.maintenance_work_mem").
 
-A possible workaround when recreating a large index is to use the pg_repack tool.
+A possible workaround when recreating a large index is to use the pg\_repack tool.
 For more information, see [Reorganize
-tables in PostgreSQL databases with minimal locks](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/") in the pg_repack
+tables in PostgreSQL databases with minimal locks](https://reorg.github.io/pg_repack/ "https://reorg.github.io/pg_repack/") in the pg\_repack
 documentation.
 
-### Increase maintenance_work_mem when you cluster tables
+### Increase maintenance\_work\_mem when you cluster tables
 
 The `CLUSTER` command clusters the table specified by
-_table_name_ based on an existing index specified by
-_index_name_. Aurora PostgreSQL physically recreates the table to
+_table\_name_ based on an existing index specified by
+_index\_name_. Aurora PostgreSQL physically recreates the table to
 match the order of a given index.
 
 When magnetic storage was prevalent, clustering was common because storage

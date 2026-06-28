@@ -14,4 +14,4 @@ to both inbound and outbound binlog replication.
    To do so, follow the procedures in
    [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
 3. (Optional) Specify how to assign GTIDs to transactions that don't include them. To do so, call the stored
-   procedure in [mysql.rds_assign_gtids_to_anonymous_transactions (Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_assign_gtids_to_anonymous_transactions "mysql-stored-proc-gtid.md#mysql_assign_gtids_to_anonymous_transactions").
+   procedure in [mysql.rds\_assign\_gtids\_to\_anonymous\_transactions (Aurora MySQL version 3)](mysql-stored-proc-gtid.md#mysql_assign_gtids_to_anonymous_transactions "mysql-stored-proc-gtid.md#mysql_assign_gtids_to_anonymous_transactions").

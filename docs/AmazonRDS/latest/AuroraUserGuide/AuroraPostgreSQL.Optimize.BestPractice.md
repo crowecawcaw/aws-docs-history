@@ -52,9 +52,9 @@ The optimizer always uses a minimum-cost Approved plan, even if more than one
 Approved plan for the same statement exists. After an upgrade the optimizer
 might discover new plans but they will be saved as Unapproved plans. These plans
 are performed only if approved using the reactive style of plan management with
-the unapproved_plan_execution_threshold parameter. You can maximize plan
+the unapproved\_plan\_execution\_threshold parameter. You can maximize plan
 stability using the proactive style of plan management with the
-evolve_plan_baselines parameter. This compares the performance of the new plans
+evolve\_plan\_baselines parameter. This compares the performance of the new plans
 to the old plans and approves or rejects plans that are at least 10% faster than
 the next best plan.
 
@@ -74,7 +74,7 @@ managed plans in your production environment, as detailed in [Using Aurora Postg
    another plan for the same parameter bindings, then you can mark the
    slower plan as Rejected.
 
-For more information, see [Approving better plans](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Approving "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Approving"). For reference information about this function, see [apg_plan_mgmt.evolve_plan_baselines](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines").
+For more information, see [Approving better plans](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Approving "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.EvaluatingPerformance.Approving"). For reference information about this function, see [apg\_plan\_mgmt.evolve\_plan\_baselines](AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines "AuroraPostgreSQL.Optimize.Functions.md#AuroraPostgreSQL.Optimize.Functions.evolve_plan_baselines").
 
 For more information, see [Ensuring consistent performance after major version upgrades with
 Amazon Aurora PostgreSQL-Compatible Edition Query Plan Management](https://aws.amazon.com/blogs/database/ensuring-consistent-performance-after-major-version-upgrades-with-amazon-aurora-postgresql-query-plan-management/ "https://aws.amazon.com/blogs/database/ensuring-consistent-performance-after-major-version-upgrades-with-amazon-aurora-postgresql-query-plan-management/").
@@ -105,4 +105,4 @@ In some cases, you might prefer to fix a bad plan rather than reject,
 disable, or delete it. Use the `pg_hint_plan` extension to
 experiment with improving a plan. With `pg_hint_plan`, you use
 special comments to tell the optimizer to override how it normally creates a
-plan. For more information, see [Fixing plans using pg_hint_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan").
+plan. For more information, see [Fixing plans using pg\_hint\_plan](AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan "AuroraPostgreSQL.Optimize.Maintenance.md#AuroraPostgreSQL.Optimize.Maintenance.pg_hint_plan").

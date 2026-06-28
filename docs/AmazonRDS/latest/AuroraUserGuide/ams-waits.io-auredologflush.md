@@ -1,4 +1,4 @@
-# io/aurora_redo_log_flush
+# io/aurora\_redo\_log\_flush
 
 The `io/aurora_redo_log_flush` event occurs when a session is writing
 persistent data to Amazon Aurora storage.
@@ -22,7 +22,7 @@ The `io/aurora_redo_log_flush` event is for a write input/output (I/O) operation
 
 ###### Note
 
-In Aurora MySQL version 3, this wait event is named [io/redo_log_flush](ams-waits.io-redologflush.md "ams-waits.io-redologflush.md").
+In Aurora MySQL version 3, this wait event is named [io/redo\_log\_flush](ams-waits.io-redologflush.md "ams-waits.io-redologflush.md").
 
 ## Likely causes of increased waits
 

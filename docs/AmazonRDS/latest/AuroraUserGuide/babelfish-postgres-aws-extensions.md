@@ -142,7 +142,7 @@ refer to that table as `database_schema_tableA` in the
      [Exporting query data using the aws\_s3.query\_export\_to\_s3 function](postgresql-s3-export-examples.md "postgresql-s3-export-examples.md").
 
 2. Make sure to reference Babelfish tables using PostgreSQL naming when using the
-   `aws_s3` extension and Amazon S3, as shown in the following table.
+`aws_s3` extension and Amazon S3, as shown in the following table.
 
 | Babelfish table               | Aurora PostgreSQL table       |
 | ----------------------------- | ----------------------------- |
@@ -305,13 +305,13 @@ see [Invoking an AWS Lambda function from an Aurora PostgreSQL DB cluster](Postg
 [Getting started with Lambda](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md")
 in the _AWS Lambda Developer Guide._
 
-## Using pg_stat_statements in Babelfish
+## Using pg\_stat\_statements in Babelfish
 
-Babelfish for Aurora PostgreSQL supports `pg_stat_statements` extension from 3.3.0. To learn more, see [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html").
+Babelfish for Aurora PostgreSQL supports `pg_stat_statements` extension from 3.3.0. To learn more, see [pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html").
 
 For details about the version of this extension supported by Aurora PostgreSQL, see [Extension versions](../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md "../AuroraPostgreSQLReleaseNotes/AuroraPostgreSQL.Extensions.md").
 
-### Creating pg_stat_statements extension
+### Creating pg\_stat\_statements extension
 
 To turn on `pg_stat_statements`, you must turn on the Query identifier calculation. This is done automatically if `compute_query_id`
 is set to `on` or `auto` in the parameter group. The default value of `compute_query_id` parameter is `auto`.
@@ -346,7 +346,7 @@ You can also create the extension from PSQL endpoint.
 
 By default, you can see the statistics for queries performed within your T-SQL database without the need of any authorization.
 
-To access query statistics created by others, you need to have `pg_read_all_stats` PostgreSQL role. Follow the steps mentioned below to construct GRANT pg_read_all_stats command.
+To access query statistics created by others, you need to have `pg_read_all_stats` PostgreSQL role. Follow the steps mentioned below to construct GRANT pg\_read\_all\_stats command.
 
 1. In T-SQL, use the following query that returns the internal PG role name.
 
@@ -354,7 +354,7 @@ To access query statistics created by others, you need to have `pg_read_all_stat
 SELECT rolname FROM pg_roles WHERE oid = USER_ID();
 ```
 
-2. Connect to Babelfish for Aurora PostgreSQL database with rds_superuser privilege and use the following command:
+2. Connect to Babelfish for Aurora PostgreSQL database with rds\_superuser privilege and use the following command:
 
 ```
 GRANT pg_read_all_stats TO <rolname_from_above_query>
@@ -386,7 +386,7 @@ babelfish_db=# grant pg_read_all_stats to master_dbo;
 `GRANT ROLE`
 ```
 
-You can access the query statistics using the pg_stat_statements view:
+You can access the query statistics using the pg\_stat\_statements view:
 
 ```
 `1>`create table t1(cola int);
@@ -420,8 +420,8 @@ You can access the query statistics using the pg_stat_statements view:
 
 ### Resetting query statistics
 
-You can use `pg_stat_statements_reset()` to reset the statistics gathered so far by pg_stat_statements. To learn more, see
-[pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html " https://www.postgresql.org/docs/current/pgstatstatements.html"). It is currently supported through
+You can use `pg_stat_statements_reset()` to reset the statistics gathered so far by pg\_stat\_statements. To learn more, see
+[pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html " https://www.postgresql.org/docs/current/pgstatstatements.html"). It is currently supported through
 PSQL endpoint only. Connect to Babelfish for Aurora PostgreSQL with `rds_superuser` privilege, use the following command:
 
 ```
@@ -441,18 +441,18 @@ Example
 select next value for [dbo].[newCounter];
 ```
 
-The above query is re-written as the following in the pg_stat_statements view.
+The above query is re-written as the following in the pg\_stat\_statements view.
 
 ```
 select nextval($1);
 ```
 
-- Based on the execution flow of the statements, some of the queries might not be tracked by pg_stat_statements and will not be visible in the view. This includes the following
+- Based on the execution flow of the statements, some of the queries might not be tracked by pg\_stat\_statements and will not be visible in the view. This includes the following
   statements: `use dbname`, `goto`, `print`, `raise error`, `set`, `throw`, `declare cursor`.
 - For CREATE LOGIN and ALTER LOGIN statements, query and queryid will not be shown. It will show insufficient privileges.
 - `pg_stat_statements` view always contains the below two entries, as these are executed internally by `sqlcmd` client.
 
-  - SET QUOTED_IDENTIFIER OFF
+  - SET QUOTED\_IDENTIFIER OFF
   - SET TEXTSIZE 4096
 
 ## Using pgvector in Babelfish
@@ -506,7 +506,7 @@ see [Querying](https://github.com/pgvector/pgvector?tab=readme-ov-file#querying 
 
 T-SQL `Create Index` now supports `USING INDEX_METHOD` syntax. You can now define similarity search operator to be used on a specific column when creating an index.
 
-The grammar is also extended to support Vector similarity operations on the required column (Check column_name_list_with_order_for_vector grammar).
+The grammar is also extended to support Vector similarity operations on the required column (Check column\_name\_list\_with\_order\_for\_vector grammar).
 
 ```
 CREATE [UNIQUE] [clustered] [COLUMNSTORE] INDEX <index_name> ON <table_name> [USING vector_index_method] (<column_name_list_with_order_for_vector>)
@@ -519,12 +519,11 @@ see [Indexing](https://github.com/pgvector/pgvector?tab=readme-ov-file#indexing 
 
 - Performance
 
-      + Use `SET BABELFISH_STATISTICS PROFILE ON` to debug Query Plans from T-SQL endpoint.
-      + Increase `max_parallel_workers_get_gather` using the `set_config` function supported in T-SQL.
-      + Use `IVFFlat` for approximate searches. For more information, see [IVFFlat](https://github.com/pgvector/pgvector?tab=readme-ov-file#ivfflat "https://github.com/pgvector/pgvector?tab=readme-ov-file#ivfflat").
-
-  To improve performance with pgvector,
-  see [Performance](https://github.com/pgvector/pgvector?tab=readme-ov-file#performance "https://github.com/pgvector/pgvector?tab=readme-ov-file#performance").
+  - Use `SET BABELFISH_STATISTICS PROFILE ON` to debug Query Plans from T-SQL endpoint.
+  - Increase `max_parallel_workers_get_gather` using the `set_config` function supported in T-SQL.
+  - Use `IVFFlat` for approximate searches. For more information, see [IVFFlat](https://github.com/pgvector/pgvector?tab=readme-ov-file#ivfflat "https://github.com/pgvector/pgvector?tab=readme-ov-file#ivfflat").
+    To improve performance with pgvector,
+    see [Performance](https://github.com/pgvector/pgvector?tab=readme-ov-file#performance "https://github.com/pgvector/pgvector?tab=readme-ov-file#performance").
 
 ### Limitations
 
@@ -564,7 +563,7 @@ create extension aws_common;
 
 The following examples explains how T-SQL syntax and semantics are applied to the Amazon ML services:
 
-###### Example: aws_bedrock.invoke_model – A simple query using Amazon Bedrock functions
+###### Example: aws\_bedrock.invoke\_model – A simple query using Amazon Bedrock functions
 
 ```
 aws_bedrock.invoke_model(
@@ -575,7 +574,7 @@ aws_bedrock.invoke_model(
 Returns Varchar(MAX)
 ```
 
-The following example shows how to invoke a Anthropic Claude 2 model for Bedrock using invoke_model.
+The following example shows how to invoke a Anthropic Claude 2 model for Bedrock using invoke\_model.
 
 ```
 
@@ -593,7 +592,7 @@ SELECT aws_bedrock.invoke_model (
 
 ```
 
-###### Example: aws_comprehend.detect_sentiment – A simple query using Amazon Comprehend functions
+###### Example: aws\_comprehend.detect\_sentiment – A simple query using Amazon Comprehend functions
 
 ```
 
@@ -613,7 +612,7 @@ select sentiment from aws_comprehend.detect_sentiment('This is great', 'en');
 
 ```
 
-###### Example: aws_sagemaker.invoke_endpoint – A simple query using Amazon SageMaker functions
+###### Example: aws\_sagemaker.invoke\_endpoint – A simple query using Amazon SageMaker functions
 
 ```
 aws_sagemaker.invoke_endpoint(
@@ -623,7 +622,7 @@ aws_sagemaker.invoke_endpoint(
 Rerurns Varchar(MAX)
 ```
 
-Since model_input is marked as VARIADIC and of type “any”, users can pass a list of any length and any datatype to the function which will act as the input the input to the model.
+Since model\_input is marked as VARIADIC and of type “any”, users can pass a list of any length and any datatype to the function which will act as the input the input to the model.
 The following example shows how to invoke the Amazon SageMaker service.
 
 ```

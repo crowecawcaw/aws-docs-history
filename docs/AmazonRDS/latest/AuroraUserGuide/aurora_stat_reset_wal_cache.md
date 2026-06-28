@@ -1,4 +1,4 @@
-# aurora_stat_reset_wal_cache
+# aurora\_stat\_reset\_wal\_cache
 
 Resets the counter for logical wal cache.
 

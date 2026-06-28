@@ -32,65 +32,65 @@ this parameter, a DB instance reboot is required.
 
 The following SQL digest statistics are available for Aurora PostgreSQL DB instances.
 
-| Metric                                             | Unit                                       |
-| -------------------------------------------------- | ------------------------------------------ |
-| db.sql_tokenized.stats.calls_per_sec               | Calls per second                           |
-| db.sql_tokenized.stats.rows_per_sec                | Rows per second                            |
-| db.sql_tokenized.stats.total_time_per_sec          | Average active executions per second (AAE) |
-| db.sql_tokenized.stats.shared_blks_hit_per_sec     | Block hits per second                      |
-| db.sql_tokenized.stats.shared_blks_read_per_sec    | Block reads per second                     |
-| db.sql_tokenized.stats.shared_blks_dirtied_per_sec | Blocks dirtied per second                  |
-| db.sql_tokenized.stats.shared_blks_written_per_sec | Block writes per second                    |
-| db.sql_tokenized.stats.local_blks_hit_per_sec      | Local block hits per second                |
-| db.sql_tokenized.stats.local_blks_read_per_sec     | Local block reads per second               |
-| db.sql_tokenized.stats.local_blks_dirtied_per_sec  | Local block dirtied per second             |
-| db.sql_tokenized.stats.local_blks_written_per_sec  | Local block writes per second              |
-| db.sql_tokenized.stats.temp_blks_written_per_sec   | Temporary writes per second                |
-| db.sql_tokenized.stats.temp_blks_read_per_sec      | Temporary reads per second                 |
-| db.sql_tokenized.stats.blk_read_time_per_sec       | Average concurrent reads per second        |
-| db.sql_tokenized.stats.blk_write_time_per_sec      | Average concurrent writes per second       |
+| Metric                                                  | Unit                                       |
+| ------------------------------------------------------- | ------------------------------------------ |
+| db.sql\_tokenized.stats.calls\_per\_sec                 | Calls per second                           |
+| db.sql\_tokenized.stats.rows\_per\_sec                  | Rows per second                            |
+| db.sql\_tokenized.stats.total\_time\_per\_sec           | Average active executions per second (AAE) |
+| db.sql\_tokenized.stats.shared\_blks\_hit\_per\_sec     | Block hits per second                      |
+| db.sql\_tokenized.stats.shared\_blks\_read\_per\_sec    | Block reads per second                     |
+| db.sql\_tokenized.stats.shared\_blks\_dirtied\_per\_sec | Blocks dirtied per second                  |
+| db.sql\_tokenized.stats.shared\_blks\_written\_per\_sec | Block writes per second                    |
+| db.sql\_tokenized.stats.local\_blks\_hit\_per\_sec      | Local block hits per second                |
+| db.sql\_tokenized.stats.local\_blks\_read\_per\_sec     | Local block reads per second               |
+| db.sql\_tokenized.stats.local\_blks\_dirtied\_per\_sec  | Local block dirtied per second             |
+| db.sql\_tokenized.stats.local\_blks\_written\_per\_sec  | Local block writes per second              |
+| db.sql\_tokenized.stats.temp\_blks\_written\_per\_sec   | Temporary writes per second                |
+| db.sql\_tokenized.stats.temp\_blks\_read\_per\_sec      | Temporary reads per second                 |
+| db.sql\_tokenized.stats.blk\_read\_time\_per\_sec       | Average concurrent reads per second        |
+| db.sql\_tokenized.stats.blk\_write\_time\_per\_sec      | Average concurrent writes per second       |
 
 ## Per-call digest statistics for Aurora PostgreSQL
 
 The following metrics provide per call statistics for a SQL statement.
 
-| Metric                                              | Unit                             |
-| --------------------------------------------------- | -------------------------------- |
-| db.sql_tokenized.stats.rows_per_call                | Rows per call                    |
-| db.sql_tokenized.stats.avg_latency_per_call         | Average latency per call (in ms) |
-| db.sql_tokenized.stats.shared_blks_hit_per_call     | Block hits per call              |
-| db.sql_tokenized.stats.shared_blks_read_per_call    | Block reads per call             |
-| db.sql_tokenized.stats.shared_blks_written_per_call | Block writes per call            |
-| db.sql_tokenized.stats.shared_blks_dirtied_per_call | Blocks dirtied per call          |
-| db.sql_tokenized.stats.local_blks_hit_per_call      | Local block hits per call        |
-| db.sql_tokenized.stats.local_blks_read_per_call     | Local block reads per call       |
-| db.sql_tokenized.stats.local_blks_dirtied_per_call  | Local block dirtied per call     |
-| db.sql_tokenized.stats.local_blks_written_per_call  | Local block writes per call      |
-| db.sql_tokenized.stats.temp_blks_written_per_call   | Temporary block writes per call  |
-| db.sql_tokenized.stats.temp_blks_read_per_call      | Temporary block reads per call   |
-| db.sql_tokenized.stats.blk_read_time_per_call       | Read time per call (in ms)       |
-| db.sql_tokenized.stats.blk_write_time_per_call      | Write time per call (in ms)      |
+| Metric                                                   | Unit                             |
+| -------------------------------------------------------- | -------------------------------- |
+| db.sql\_tokenized.stats.rows\_per\_call                  | Rows per call                    |
+| db.sql\_tokenized.stats.avg\_latency\_per\_call          | Average latency per call (in ms) |
+| db.sql\_tokenized.stats.shared\_blks\_hit\_per\_call     | Block hits per call              |
+| db.sql\_tokenized.stats.shared\_blks\_read\_per\_call    | Block reads per call             |
+| db.sql\_tokenized.stats.shared\_blks\_written\_per\_call | Block writes per call            |
+| db.sql\_tokenized.stats.shared\_blks\_dirtied\_per\_call | Blocks dirtied per call          |
+| db.sql\_tokenized.stats.local\_blks\_hit\_per\_call      | Local block hits per call        |
+| db.sql\_tokenized.stats.local\_blks\_read\_per\_call     | Local block reads per call       |
+| db.sql\_tokenized.stats.local\_blks\_dirtied\_per\_call  | Local block dirtied per call     |
+| db.sql\_tokenized.stats.local\_blks\_written\_per\_call  | Local block writes per call      |
+| db.sql\_tokenized.stats.temp\_blks\_written\_per\_call   | Temporary block writes per call  |
+| db.sql\_tokenized.stats.temp\_blks\_read\_per\_call      | Temporary block reads per call   |
+| db.sql\_tokenized.stats.blk\_read\_time\_per\_call       | Read time per call (in ms)       |
+| db.sql\_tokenized.stats.blk\_write\_time\_per\_call      | Write time per call (in ms)      |
 
 ## Primary statistics for Aurora PostgreSQL
 
 The following SQL statistics are available for Aurora PostgreSQL DB instances.
 
-| Metric                                     | Unit                              |
-| ------------------------------------------ | --------------------------------- |
-| db.sql_tokenized.stats.calls               | Calls                             |
-| db.sql_tokenized.stats.rows                | Rows                              |
-| db.sql_tokenized.stats.total_time          | Total time (in ms)                |
-| db.sql_tokenized.stats.shared_blks_hit     | Block hits                        |
-| db.sql_tokenized.stats.shared_blks_read    | Block reads                       |
-| db.sql_tokenized.stats.shared_blks_dirtied | Blocks dirtied                    |
-| db.sql_tokenized.stats.shared_blks_written | Block writes                      |
-| db.sql_tokenized.stats.local_blks_hit      | Local block hits                  |
-| db.sql_tokenized.stats.local_blks_read     | Local block reads                 |
-| db.sql_tokenized.stats.local_blks_dirtied  | Local blocks dirtied              |
-| db.sql_tokenized.stats.local_blks_written  | Local block writes                |
-| db.sql_tokenized.stats.temp_blks_written   | Temporary writes                  |
-| db.sql_tokenized.stats.temp_blks_read      | Temporary reads                   |
-| db.sql_tokenized.stats.blk_read_time       | Average concurrent reads (in ms)  |
-| db.sql_tokenized.stats.blk_write_time      | Average concurrent writes (in ms) |
+| Metric                                        | Unit                              |
+| --------------------------------------------- | --------------------------------- |
+| db.sql\_tokenized.stats.calls                 | Calls                             |
+| db.sql\_tokenized.stats.rows                  | Rows                              |
+| db.sql\_tokenized.stats.total\_time           | Total time (in ms)                |
+| db.sql\_tokenized.stats.shared\_blks\_hit     | Block hits                        |
+| db.sql\_tokenized.stats.shared\_blks\_read    | Block reads                       |
+| db.sql\_tokenized.stats.shared\_blks\_dirtied | Blocks dirtied                    |
+| db.sql\_tokenized.stats.shared\_blks\_written | Block writes                      |
+| db.sql\_tokenized.stats.local\_blks\_hit      | Local block hits                  |
+| db.sql\_tokenized.stats.local\_blks\_read     | Local block reads                 |
+| db.sql\_tokenized.stats.local\_blks\_dirtied  | Local blocks dirtied              |
+| db.sql\_tokenized.stats.local\_blks\_written  | Local block writes                |
+| db.sql\_tokenized.stats.temp\_blks\_written   | Temporary writes                  |
+| db.sql\_tokenized.stats.temp\_blks\_read      | Temporary reads                   |
+| db.sql\_tokenized.stats.blk\_read\_time       | Average concurrent reads (in ms)  |
+| db.sql\_tokenized.stats.blk\_write\_time      | Average concurrent writes (in ms) |
 
-For more information about these metrics, see [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html") in the PostgreSQL documentation.
+For more information about these metrics, see [pg\_stat\_statements](https://www.postgresql.org/docs/current/pgstatstatements.html "https://www.postgresql.org/docs/current/pgstatstatements.html") in the PostgreSQL documentation.

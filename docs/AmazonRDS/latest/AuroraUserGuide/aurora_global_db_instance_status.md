@@ -1,4 +1,4 @@
-# aurora_global_db_instance_status
+# aurora\_global\_db\_instance\_status
 
 Displays the status of all Aurora instances, including replicas in an Aurora global DB
 cluster.

@@ -21,7 +21,7 @@ Syntax
 ## Configuring Babelfish product version parameter
 
 You must use the cluster parameter group to set the
-babelfishpg_tds.product_version parameter in the console. For more information on
+babelfishpg\_tds.product\_version parameter in the console. For more information on
 how to modify the DB cluster parameter, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md "USER_WorkingWithParamGroups.ModifyingCluster.md").
 
 When you set the product version parameter to an invalid value, the change will
@@ -52,24 +52,24 @@ aws rds modify-db-cluster-parameter-group ^
 
 | Query/Parameter                              | Result                                                                                  | Effective time                                 |
 | -------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| SELECT @@VERSION                             | Returns user defined SQL Server version<br>(babelfishpg_tsql.version value = Default)   | Immediately                                    |
+| SELECT @@VERSION                             | Returns user defined SQL Server version<br>(babelfishpg\_tsql.version value = Default)  | Immediately                                    |
 | SELECT SERVERPROPERTY('ProductVersion')      | Returns user defined SQL Server version                                                 | Immediately                                    |
 | SELECT SERVERPROPERTY('ProductMajorVersion') | Returns Major Version of the user defined SQL Server version                            | Immediately                                    |
 | VERSION tokens in PRELOGIN Response Message  | Server returns PRELOGIN messages with user defined SQL Server<br>version                | Takes effect when a user creates a new session |
 | SQLServerVersion in LoginAck when using JDBC | DatabaseMetaData.getDatabaseProductVersion() returns user<br>defined SQL Server version | Takes effect when a user creates a new session |
 
-## Interface with babelfishpg_tsql.version parameter
+## Interface with babelfishpg\_tsql.version parameter
 
 You can set the output of the @@VERSION using the parameters
-babelfishpg_tsql.version and babelfishpg_tds.product_version. The following examples
+babelfishpg\_tsql.version and babelfishpg\_tds.product\_version. The following examples
 show how these two parameters interface.
 
-- When babelfishpg_tsql.version parameter is "default" and
-  babelfishpg_tds.product_version is 15.0.2000.8.
+- When babelfishpg\_tsql.version parameter is "default" and
+  babelfishpg\_tds.product\_version is 15.0.2000.8.
 
   - Output of @@version – 15.0.2000.8.
 
-- When babelfishpg_tsql.version parameter is set to 13.0.2000.8 and
-  babelfishpg_tds.product_version parameter is 15.0.2000.8.
+- When babelfishpg\_tsql.version parameter is set to 13.0.2000.8 and
+  babelfishpg\_tds.product\_version parameter is 15.0.2000.8.
 
   - Output of @@version – 13.0.2000.8.

@@ -237,9 +237,9 @@ The inability to scale greater than 128 ACUs can happen for one of two reasons:
 
   ###### Note
 
-      - If you maintain your database credentials in AWS Secrets Manager, you can't use blue/green deployments.
-      - Aurora Global Database doesn't support blue/green deployments.
-      - **Important:** Once you upgrade to a newer platform version, you cannot downgrade to a previous version.
+        - If you maintain your database credentials in AWS Secrets Manager, you can't use blue/green deployments.
+        - Aurora Global Database doesn't support blue/green deployments.
+        - **Important:** Once you upgrade to a newer platform version, you cannot downgrade to a previous version.
 
 ## Checking the capacity range for Aurora serverless
 
@@ -545,13 +545,13 @@ instance running the MySQL database engine](../UserGuide/USER_ConnectToInstance.
 Aurora serverless supports all TLS/SSL modes available to the MySQL client (`mysql`) and PostgreSQL
 client (`psql`), including those listed in the following table.
 
-| Description of TLS/SSL mode                                                    | mysql           | psql             |
-| ------------------------------------------------------------------------------ | --------------- | ---------------- |
-| Connect without using TLS/SSL.                                                 | DISABLED        | disable          |
-| Try the connection using TLS/SSL first, but fall back to non-SSL if necessary. | PREFERRED       | prefer (default) |
-| Enforce using TLS/SSL.                                                         | REQUIRED        | require          |
-| Enforce TLS/SSL and verify the certificate authority (CA).                     | VERIFY_CA       | verify-ca        |
-| Enforce TLS/SSL, verify the CA, and verify the CA hostname.                    | VERIFY_IDENTITY | verify-full      |
+| Description of TLS/SSL mode                                                    | mysql            | psql             |
+| ------------------------------------------------------------------------------ | ---------------- | ---------------- |
+| Connect without using TLS/SSL.                                                 | DISABLED         | disable          |
+| Try the connection using TLS/SSL first, but fall back to non-SSL if necessary. | PREFERRED        | prefer (default) |
+| Enforce using TLS/SSL.                                                         | REQUIRED         | require          |
+| Enforce TLS/SSL and verify the certificate authority (CA).                     | VERIFY\_CA       | verify-ca        |
+| Enforce TLS/SSL, verify the CA, and verify the CA hostname.                    | VERIFY\_IDENTITY | verify-full      |
 
 Aurora serverless uses wildcard certificates. If you specify the "verify CA" or the "verify CA and CA hostname"
 option when using TLS/SSL, first download the

@@ -1,4 +1,4 @@
-# aurora_ccm_status
+# aurora\_ccm\_status
 
 Displays the status of cluster cache manager.
 
@@ -58,8 +58,8 @@ this function returns the following error message:
 ERROR: Cluster Cache Manager is disabled
 ```
 
-You can also the PostgreSQL pg_buffercache extension to analyze the buffer cache.
-For more information, see [pg_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html "https://www.postgresql.org/docs/current/pgbuffercache.html") in the PostgreSQL documentation.
+You can also the PostgreSQL pg\_buffercache extension to analyze the buffer cache.
+For more information, see [pg\_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html "https://www.postgresql.org/docs/current/pgbuffercache.html") in the PostgreSQL documentation.
 
 For more information, see [Introduction to Aurora PostgreSQL cluster cache management](https://aws.amazon.com/blogs/database/introduction-to-aurora-postgresql-cluster-cache-management/ "https://aws.amazon.com/blogs/database/introduction-to-aurora-postgresql-cluster-cache-management/").
 

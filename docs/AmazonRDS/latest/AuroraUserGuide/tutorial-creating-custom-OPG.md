@@ -55,7 +55,7 @@ If you don't already have those set up, complete the steps in the following sect
 ## Create an Amazon Aurora DB cluster parameter group
 
 In this tutorial, you learn how to create a custom parameter group with
-[default_password_lifetime](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_password_lifetime "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_password_lifetime")
+[default\_password\_lifetime](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_password_lifetime "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_password_lifetime")
 for a MySQL DB cluster in the console.
 
 The `default_password_lifetime` parameter controls the number of days before the client password automatically expires.
@@ -131,8 +131,7 @@ custom parameter group.
     * Under the **DB cluster parameter group** dropdown, select the name of the
      DB cluster parameter group you created previously.
 
-6. For this tutorial, you can leave the default settings for any other DB settings or modify them as required.
-7. Choose **Create database**.
+6. For this tutorial, you can leave the default settings for any other DB settings or modify them as required. 7. Choose **Create database**.
 
 RDS creates a new MySQL DB cluster with a
 custom parameter group group. To see more information on this database,

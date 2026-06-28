@@ -100,7 +100,7 @@ upgrading to an instance class with more memory. This can provide the necessary 
 enhance both manual and automatic vacuum operations, leading to improved overall vacuum and
 database performance.
 
-**Disable INDEX_CLEANUP**
+**Disable INDEX\_CLEANUP**
 
 Manual `VACUUM` in PostgreSQL version 12 and later allows skipping the index
 cleanup phase, while emergency autovacuum in PostgreSQL version 14 and later does this
@@ -167,7 +167,7 @@ NOTICE: The current setting of autovacuum_max_workers:3 might not be sufficient.
 
 **Guidance**
 
-**Increase autovacuum_max_workers**
+**Increase autovacuum\_max\_workers**
 
 To expedite the vacuuming, we recommend adjusting the
 `autovacuum_max_workers` parameter to allow more concurrent autovacuum workers.

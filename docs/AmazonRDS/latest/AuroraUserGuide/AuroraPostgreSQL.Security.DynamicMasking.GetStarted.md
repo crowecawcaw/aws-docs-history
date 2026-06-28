@@ -7,7 +7,7 @@ role configuration, policy creation, and validation testing.
 ## Extension installation and configuration
 
 Connect to your Aurora PostgreSQL cluster using the RDS Console Query Editor or a PostgreSQL client such as psql with
-rds_superuser (master user) credentials.
+rds\_superuser (master user) credentials.
 
 Execute the extension creation command to enable `pg_columnmask` functionality:
 

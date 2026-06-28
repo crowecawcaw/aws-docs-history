@@ -35,7 +35,7 @@ The parameters are as follows:
   access. (The example shows the default master username.)
 
 When you run a SQL command on the psql client, you end the command with a
-semicolon. For example, the following SQL command queries the [pg_tables
+semicolon. For example, the following SQL command queries the [pg\_tables
 system view](https://www.postgresql.org/docs/current/view-pg-tables.html "https://www.postgresql.org/docs/current/view-pg-tables.html") to return information about each table in the
 database.
 

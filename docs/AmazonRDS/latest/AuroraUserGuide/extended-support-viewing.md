@@ -5,7 +5,8 @@ RDS Extended Support using the AWS Management Console, the AWS CLI, or the RDS A
 
 ###### Note
 
-The **RDS Extended Support** column in the console, the -`-engine-lifecycle-support` option in the AWS CLI, and the
+The **RDS Extended Support** column in the console, the
+\-`-engine-lifecycle-support` option in the AWS CLI, and the
 `EngineLifecycleSupport` parameter in the RDS API only indicate
 enrollment in RDS Extended Support. Charges for RDS Extended Support only start when your DB engine version
 has reached the Aurora end of standard support. For more information, see [Amazon Aurora major versions](Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions "Aurora.VersionPolicy.Versioning.md#Aurora.VersionPolicy.MajorVersions").

@@ -116,20 +116,20 @@ Aurora PostgreSQL Limitless Database:
 
 - VACUUM
 - [ANALYZE](#limitless-reference.DML-limitations.ANALYZE "#limitless-reference.DML-limitations.ANALYZE")
-- DISABLE_PAGE_SKIPPING
+- DISABLE\_PAGE\_SKIPPING
 - FREEZE
 - FULL
-- INDEX_CLEANUP
+- INDEX\_CLEANUP
 - PARALLEL
-- PROCESS_TOAST
+- PROCESS\_TOAST
 - TRUNCATE
 - VERBOSE
 
 `VACUUM` on Aurora PostgreSQL Limitless Database has the following limitations:
 
-- The [pg_visibility_map](https://www.postgresql.org/docs/current/pgvisibility.html "https://www.postgresql.org/docs/current/pgvisibility.html") extension isn't supported.
-- Checking for unused indexes with the [pg_stat_all_indexes](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-INDEXES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-INDEXES-VIEW")
+- The [pg\_visibility\_map](https://www.postgresql.org/docs/current/pgvisibility.html "https://www.postgresql.org/docs/current/pgvisibility.html") extension isn't supported.
+- Checking for unused indexes with the [pg\_stat\_all\_indexes](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-INDEXES-VIEW "https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ALL-INDEXES-VIEW")
   view isn't supported.
-- Consolidated views for [pg_stat_user_indexes](https://www.postgresql.org/docs/current/monitoring-stats.html "https://www.postgresql.org/docs/current/monitoring-stats.html"), [pg_class](https://www.postgresql.org/docs/current/catalog-pg-class.html "https://www.postgresql.org/docs/current/catalog-pg-class.html"), and [pg_stats](https://www.postgresql.org/docs/current/view-pg-stats.html "https://www.postgresql.org/docs/current/view-pg-stats.html") aren't implemented.
+- Consolidated views for [pg\_stat\_user\_indexes](https://www.postgresql.org/docs/current/monitoring-stats.html "https://www.postgresql.org/docs/current/monitoring-stats.html"), [pg\_class](https://www.postgresql.org/docs/current/catalog-pg-class.html "https://www.postgresql.org/docs/current/catalog-pg-class.html"), and [pg\_stats](https://www.postgresql.org/docs/current/view-pg-stats.html "https://www.postgresql.org/docs/current/view-pg-stats.html") aren't implemented.
 
 For more information on the `VACUUM` command, see [VACUUM](https://www.postgresql.org/docs/current/sql-vacuum.html "https://www.postgresql.org/docs/current/sql-vacuum.html") in the PostgreSQL documentation. For more information on how vacuuming works in Aurora PostgreSQL Limitless Database, see [Reclaiming storage space by vacuuming](limitless-vacuum.md "limitless-vacuum.md").

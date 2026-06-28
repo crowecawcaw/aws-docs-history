@@ -101,9 +101,9 @@ changed to `mydb`.
 RDS renames the DB
 cluster and DB instances in the blue environment by
 appending `-old`n`to the current name, where
-`n``is a number. For example, assume the name of
- a DB instance in the blue environment is`mydb`. After switchover, the DB
- instance name might be `mydb-old1`.
+`n`` is a number. For example, assume the name of
+a DB instance in the blue environment is `mydb`. After switchover, the DB
+instance name might be `mydb-old1`.
 
 RDS also renames the endpoints in the green environment to match the corresponding endpoints in the
 blue environment so that application changes aren't required. 6. Allows connections to databases in both environments. 7. Allows write operations on the
@@ -356,7 +356,8 @@ replication continuity.
 2. Filter by events where the source is the name of the old green writer DB instance, before switchover.
 3. Locate the event that contains the binary log coordinates. The event message is
    similar to: `Binary log coordinates in green environment after switchover: file
-mysql-bin-changelog.`000003`and position`40134574``.
+ mysql-bin-changelog.`000003`and position
+`40134574``.
 4. Make sure that the consumer or replica has applied all binary logs from the old blue
    environment. Then, use the provided binary log coordinates to resume replication on the
    consumers. For example, if you're running a MySQL replica on EC2, you can use the

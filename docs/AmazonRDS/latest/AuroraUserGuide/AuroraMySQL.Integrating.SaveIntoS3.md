@@ -84,8 +84,8 @@ GRANT AWS_SELECT_S3_ACCESS TO '`user`'@'`domain-or-ip-address`'
 ###### Tip
 
 When you use the role technique in Aurora MySQL version 3, you can also activate the role by
-using the `SET ROLE `role_name``or`SET ROLE
-ALL` statement. If you aren't familiar with the MySQL 8.0 role system, you can
+using the `SET ROLE `role_name`` or `SET ROLE
+ ALL` statement. If you aren't familiar with the MySQL 8.0 role system, you can
 learn more in [Role-based privilege model](AuroraMySQL.Compare-80-v3.md#AuroraMySQL.privilege-model "AuroraMySQL.Compare-80-v3.md#AuroraMySQL.privilege-model"). For more details, see [Using roles](https://dev.mysql.com/doc/refman/8.0/en/roles.html "https://dev.mysql.com/doc/refman/8.0/en/roles.html") in the
 _MySQL Reference Manual_.
 
@@ -97,7 +97,7 @@ statement](https://dev.mysql.com/doc/refman/8.0/en/set-role.html "https://dev.my
 You can use the `activate_all_roles_on_login` DB cluster parameter to
 automatically activate all roles when a user connects to a DB instance. When this
 parameter is set, you generally don't have to call the `SET ROLE` statement
-explicitly to activate a role. For more information, see [activate_all_roles_on_login](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login") in the _MySQL Reference
+explicitly to activate a role. For more information, see [activate\_all\_roles\_on\_login](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_activate_all_roles_on_login") in the _MySQL Reference
 Manual_.
 
 However, you must call `SET ROLE ALL` explicitly at the beginning of a
@@ -114,7 +114,7 @@ The `AWS_SELECT_S3_ACCESS` role and `SELECT INTO S3` privilege are specific to A
 are not available for MySQL databases or RDS for MySQL DB instances. If you have set up replication between an Aurora MySQL DB
 cluster as the replication source and a MySQL database as the replication client, then the `GRANT` statement for the
 role or privilege causes replication to stop with an error. You can safely skip the error to resume replication. To skip the
-error on an RDS for MySQL DB instance, use the [mysql_rds_skip_repl_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md") procedure. To skip the error on an external MySQL database, use the [slave_skip_errors](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors") system variable (Aurora MySQL version 2) or [replica_skip_errors](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors") system variable (Aurora MySQL version 3).
+error on an RDS for MySQL DB instance, use the [mysql\_rds\_skip\_repl\_error](../UserGuide/mysql_rds_skip_repl_error.md "../UserGuide/mysql_rds_skip_repl_error.md") procedure. To skip the error on an external MySQL database, use the [slave\_skip\_errors](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_skip_errors") system variable (Aurora MySQL version 2) or [replica\_skip\_errors](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors "https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replica_skip_errors") system variable (Aurora MySQL version 3).
 
 ## Specifying a path to an Amazon S3 bucket
 
@@ -151,9 +151,9 @@ specifies `s3-us-west-2://bucket/prefix` as the path in which to store
 data files and creates three data files. The specified Amazon S3 bucket contains the
 following data files.
 
-- s3-us-west-2://bucket/prefix.part_00000
-- s3-us-west-2://bucket/prefix.part_00001
-- s3-us-west-2://bucket/prefix.part_00002
+- s3-us-west-2://bucket/prefix.part\_00000
+- s3-us-west-2://bucket/prefix.part\_00001
+- s3-us-west-2://bucket/prefix.part\_00002
 
 ## Creating a manifest to list data files
 
@@ -278,7 +278,7 @@ Indicates whether existing files in the specified Amazon S3 bucket are overwritt
 specified, existing files that match the file prefix in the URI specified in `s3-uri`are overwritten.
 Otherwise, an error occurs.
 
-**ENCRYPTION {ON | OFF | SSE_S3 | SSE_KMS ['`cmk_id`']}**
+**ENCRYPTION {ON | OFF | SSE\_S3 | SSE\_KMS ['`cmk_id`']}**
 
 Indicates whether to use server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS,
 including AWS managed keys and customer managed keys). The `SSE_S3` and `SSE_KMS` settings are
@@ -373,7 +373,7 @@ files created by this statement include the following:
   query, such as to recover from a failure. In these cases, you must
   either remove any existing data files in the Amazon S3 bucket with the same
   file prefix specified in `s3-uri`, or include `OVERWRITE
-ON` in the `SELECT INTO OUTFILE S3` query.
+ ON` in the `SELECT INTO OUTFILE S3` query.
 
 The `SELECT INTO OUTFILE S3` statement returns a typical MySQL
 error number and response on success or failure. If you don't have access to the

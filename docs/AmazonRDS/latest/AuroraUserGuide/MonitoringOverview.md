@@ -94,24 +94,22 @@ recommend that you also check the log files on your DB instance.
 - From the Trusted Advisor dashboard, you can review the following cost optimization, security, fault
   tolerance, and performance improvement checks:
 
-      + Amazon RDS Idle DB Instances
-      + Amazon RDS Security Group Access Risk
-      + Amazon RDS Backups
-      + Amazon RDS Multi-AZ
-      + Aurora DB Instance Accessibility
-
-  For more information on these checks, see [Trusted Advisor best practices (checks)](https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/ "https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/").
+  - Amazon RDS Idle DB Instances
+  - Amazon RDS Security Group Access Risk
+  - Amazon RDS Backups
+  - Amazon RDS Multi-AZ
+  - Aurora DB Instance Accessibility
+    For more information on these checks, see [Trusted Advisor best practices (checks)](https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/ "https://aws.amazon.com/premiumsupport/trustedadvisor/best-practices/").
 
 - CloudWatch home page shows:
 
-      + Current alarms and status
-      + Graphs of alarms and resources
-      + Service health status
+  - Current alarms and status
+  - Graphs of alarms and resources
+  - Service health status
+    In addition, you can use CloudWatch to do the following:
 
-  In addition, you can use CloudWatch to do the following:
-
-      + Create [customized dashboards](../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.md") to
-       monitor the services that you care about.
-      + Graph metric data to troubleshoot issues and discover trends.
-      + Search and browse all your AWS resource metrics.
-      + Create and edit alarms to be notified of problems.
+  - Create [customized dashboards](../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.md") to
+    monitor the services that you care about.
+  - Graph metric data to troubleshoot issues and discover trends.
+  - Search and browse all your AWS resource metrics.
+  - Create and edit alarms to be notified of problems.

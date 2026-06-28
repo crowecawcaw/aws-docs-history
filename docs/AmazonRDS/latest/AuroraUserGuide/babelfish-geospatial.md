@@ -22,46 +22,46 @@ Starting with versions 3.5.0 and 4.1.0, Babelfish includes support for the follo
   Creates a point instance using WKT representation.
 - Point ( X, Y, SRID ) –
   Creates a point instance using float values of x and y coordinates.
-- <geometry_instance>.STAsText ( ) –
+- <geometry\_instance>.STAsText ( ) –
   Extracts WKT representation from geometry instance.
-- <geometry_instance>.STAsBinary ( ) –
+- <geometry\_instance>.STAsBinary ( ) –
   Extracts WKB representation from geometry instance.
-- <geometry_instance>.STArea ( ) –
+- <geometry\_instance>.STArea ( ) –
   Calculates the total surface area of geometry instance.
-- <geometry_instance>.STSrid ( ) –
+- <geometry\_instance>.STSrid ( ) –
   Extracts the spatial reference identifier (SRID) of the geometry instance.
-- <geometry_instance>.STDimension ( ) –
+- <geometry\_instance>.STDimension ( ) –
   Retrieves spatial dimension of geometry instance.
-- <geometry_instance>.STIsEmpty ( ) –
+- <geometry\_instance>.STIsEmpty ( ) –
   Checks if the geometry instance is empty.
-- <geometry_instance>.STIsClosed ( ) –
+- <geometry\_instance>.STIsClosed ( ) –
   Checks if the geometry instance is closed.
-- <geometry_instance>.STIsValid ( ) –
+- <geometry\_instance>.STIsValid ( ) –
   Checks if the geometry instance is valid.
-- <geometry_instance>.STDistance (other_geometry) –
+- <geometry\_instance>.STDistance (other\_geometry) –
   Calculates the distance between two geometry instances.
-- <geometry_instance>.STEquals (other_geometry) –
+- <geometry\_instance>.STEquals (other\_geometry) –
   Checks if the geometry instance represents the same point set as another geometry instance.
-- <geometry_instance>.STContains (other_geometry) –
-  Checks if the geometry instance contains the other_geometry instance.
-- <geometry_instance>.STDisjoint (other_geometry) –
+- <geometry\_instance>.STContains (other\_geometry) –
+  Checks if the geometry instance contains the other\_geometry instance.
+- <geometry\_instance>.STDisjoint (other\_geometry) –
   Checks if two geometry instances have no points in common.
-- <geometry_instance>.STIntersects (other_geometry) –
+- <geometry\_instance>.STIntersects (other\_geometry) –
   Checks if two geometry instances spatially intersect.
-- <geometry_instance>.STX –
+- <geometry\_instance>.STX –
   Extracts the X coordinate (longitude) for geometry instance.
-- <geometry_instance>.STY –
+- <geometry\_instance>.STY –
   Extracts the Y coordinate (latitude) for geometry instance.
 
 Starting with versions 4.7.0 and 5.3.0, Babelfish includes support for the following spatial data functions:
 
-- <geometry_instance>.M –
+- <geometry\_instance>.M –
   Extracts the M coordinate of the geometry instance.
-- <geometry_instance>.Z –
+- <geometry\_instance>.Z –
   Extracts the Z coordinate of the geometry instance.
-- <geometry_instance>.HasM –
+- <geometry\_instance>.HasM –
   Checks if the geometry instance has atleast one M value.
-- <geometry_instance>.HasZ –
+- <geometry\_instance>.HasZ –
   Checks if the geometry instance has atleast one Z value.
 
 Starting with versions 5.4.0, Babelfish includes support for the following spatial data function:
@@ -82,46 +82,46 @@ Starting with versions 5.5.0 and 6.0.0, Babelfish includes support for the follo
   Creates a point instance using WKT representation.
 - Point (Lat, Long, SRID) –
   Creates a point instance using float values of Latitude and Longitude.
-- <geography_instance>.STAsText ( ) –
+- <geography\_instance>.STAsText ( ) –
   Extracts WKT representation from geography instance.
-- <geography_instance>.STAsBinary ( ) –
+- <geography\_instance>.STAsBinary ( ) –
   Extracts WKB representation from geography instance.
-- <geography_instance>.STArea ( ) –
+- <geography\_instance>.STArea ( ) –
   Calculates the total surface area of geography instance.
-- <geography_instance>.STSrid ( ) –
+- <geography\_instance>.STSrid ( ) –
   Extracts the spatial reference identifier (SRID) of the geography instance.
-- <geography_instance>.STDimension ( ) –
+- <geography\_instance>.STDimension ( ) –
   Retrieves spatial dimension of geography instance.
-- <geography_instance>.STIsEmpty ( ) –
+- <geography\_instance>.STIsEmpty ( ) –
   Checks if the geography instance is empty.
-- <geography_instance>.STIsClosed ( ) –
+- <geography\_instance>.STIsClosed ( ) –
   Checks if the geography instance is closed.
-- <geography_instance>.STIsValid( ) –
+- <geography\_instance>.STIsValid( ) –
   Checks if the geography instance is valid.
-- <geography_instance>.STDistance (other_geography) –
+- <geography\_instance>.STDistance (other\_geography) –
   Calculates the distance between two geography instances.
-- <geography_instance>.STEquals (other_geography) –
+- <geography\_instance>.STEquals (other\_geography) –
   Checks if the geography instance represents the same point set as another geography instance.
-- <geography_instance>.STContains (other_geography) –
-  Checks if the geography instance contains the other_geography instance.
-- <geography_instance>.STDisjoint (other_geography) –
+- <geography\_instance>.STContains (other\_geography) –
+  Checks if the geography instance contains the other\_geography instance.
+- <geography\_instance>.STDisjoint (other\_geography) –
   Checks if two geography instances have no points in common.
-- <geography_instance>.STIntersects (other_geography) –
+- <geography\_instance>.STIntersects (other\_geography) –
   Checks if two geography instances spatially intersect.
-- <geography_instance>.Lat –
+- <geography\_instance>.Lat –
   Extracts the Latitude value for geography instance.
-- <geography_instance>.Long –
+- <geography\_instance>.Long –
   Extracts the Longitude value for geography instance.
 
 Starting with versions 4.7.0 and 5.3.0, Babelfish includes support for the following spatial data functions:
 
-- <geography_instance>.M –
+- <geography\_instance>.M –
   Extracts the M coordinate of the geography instance.
-- <geography_instance>.Z –
+- <geography\_instance>.Z –
   Extracts the Z coordinate of the geography instance.
-- <geography_instance>.HasM –
+- <geography\_instance>.HasM –
   Checks if the geography instance has atleast one M value.
-- <geography_instance>.HasZ –
+- <geography\_instance>.HasZ –
   Checks if the geography instance has atleast one Z value.
 
 Starting with versions 5.4.0, Babelfish includes support for the following spatial data function:
@@ -152,10 +152,10 @@ Starting with versions 5.5.0 and 6.0.0, Babelfish includes support for the follo
   [Geography data type functions supported in Babelfish](#babelfish-geospatial-overview-geography "#babelfish-geospatial-overview-geography").
 - STDistance function output for Geography data might have minor precision variations compared to T-SQL.
   This is due to the underlying PostGIS implementation.
-  For more information, see [ST_Distance](https://postgis.net/docs/ST_Distance.html "https://postgis.net/docs/ST_Distance.html")
+  For more information, see [ST\_Distance](https://postgis.net/docs/ST_Distance.html "https://postgis.net/docs/ST_Distance.html")
 - STIsValid function output for both Geometry and Geography data might have some deviations compared to T-SQL.
   Due to this, the functions - STDistance, STContains, STInstersects, STDisjoint, STDimension, STArea, STEquals may also deviate from T-SQL for some cases ( returns output instead of throwing error ).
   This is due to the underlying PostGIS implementation.
-  For more information, see [ST_IsValid](https://postgis.net/docs/ST_IsValid.html "https://postgis.net/docs/ST_IsValid.html").
+  For more information, see [ST\_IsValid](https://postgis.net/docs/ST_IsValid.html "https://postgis.net/docs/ST_IsValid.html").
 - For optimal performance, use built-in Geospatial data types, without creating additional layers of abstraction in Babelfish.
 - In Babelfish, Geospatial function names are used as keywords and will perform spatial operations only if used in the intended way.

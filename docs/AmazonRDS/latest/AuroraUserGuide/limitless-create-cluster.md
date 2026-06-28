@@ -70,25 +70,29 @@ The **Create database** page displays. 3. For **Engine type**, choose **Aurora (
 
 6. For **Connectivity**:
 
-   1. (Optional) Select **Connect to an EC2 compute resource**, then choose an existing EC2 instance or create
-      a new one.
+    1. (Optional) Select **Connect to an EC2 compute resource**, then choose an existing EC2 instance or create
+     a new one.
 
-   ###### Note
 
-   If you connect to an EC2 instance, you can't make the DB shard group publicly accessible. 2. For **Network type**, choose either **IPv4** or **Dual-stack
-   mode**. 3. Choose the **Virtual private cloud (VPC)** and **DB subnet group**, or use the default
-   settings.
+    ###### Note
 
-   ###### Note
+    If you connect to an EC2 instance, you can't make the DB shard group publicly accessible.
+    2. For **Network type**, choose either **IPv4** or **Dual-stack
+     mode**.
+    3. Choose the **Virtual private cloud (VPC)** and **DB subnet group**, or use the default
+     settings.
 
-   If you create your Limitless Database DB cluster in the US East (N. Virginia) Region, don't include the
-   `us-east-1e` Availability Zone (AZ) in your DB subnet group. Because of resource limitations,
-   Aurora serverless—and therefore Limitless Database—isn't supported in the `us-east-1e` AZ. 4. Choose the **VPC security group (firewall)**, or use the default setting.
+
+    ###### Note
+
+    If you create your Limitless Database DB cluster in the US East (N. Virginia) Region, don't include the
+     `us-east-1e` Availability Zone (AZ) in your DB subnet group. Because of resource limitations,
+     Aurora serverless—and therefore Limitless Database—isn't supported in the `us-east-1e` AZ.
+    4. Choose the **VPC security group (firewall)**, or use the default setting.
 
 7. For **Database authentication**, choose either **Password authentication** or **Password
-   and IAM database authentication**.
-8. For **Monitoring**, make sure that the **Turn on Performance Insights** and **Enable Enhanced Monitoring**
-   check boxes are selected.
+and IAM database authentication**. 8. For **Monitoring**, make sure that the **Turn on Performance Insights** and **Enable Enhanced Monitoring**
+check boxes are selected.
 
 For Performance Insights, choose a retention time of at least 1 month. 9. Expand the last **Additional configuration** on the page. 10. For **Log exports**, make sure that the **PostgreSQL log** check box is selected. 11. Specify other settings as needed. For more information, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings "Aurora.CreateInstance.md#Aurora.CreateInstance.Settings"). 12. Choose **Create database**.
 After the primary DB cluster and DB shard group are created, they're displayed on the **Databases** page.
@@ -152,22 +156,24 @@ options.
 ###### To create the primary DB cluster
 
 - ```
-  aws rds create-db-cluster \
-      --db-cluster-identifier `my-limitless-cluster` \
-      --engine aurora-postgresql \
-      --engine-version 16.6-limitless \
-      --storage-type aurora-iopt1 \
-      --cluster-scalability-type limitless \
-      --master-username `myuser` \
-      --master-user-password `mypassword` \
-      --db-subnet-group-name `mysubnetgroup` \
-      --vpc-security-group-ids `sg-c7e5b0d2` \
-      --enable-performance-insights \
-      --performance-insights-retention-period `31` \
-      --monitoring-interval `5` \
-      --monitoring-role-arn arn:aws:iam::`123456789012`:role/`EMrole` \
-      --enable-cloudwatch-logs-exports postgresql
+
   ```
+
+aws rds create-db-cluster \
+--db-cluster-identifier `my-limitless-cluster` \
+--engine aurora-postgresql \
+--engine-version 16.6-limitless \
+--storage-type aurora-iopt1 \
+--cluster-scalability-type limitless \
+--master-username `myuser` \
+--master-user-password `mypassword` \
+--db-subnet-group-name `mysubnetgroup` \
+--vpc-security-group-ids `sg-c7e5b0d2` \
+--enable-performance-insights \
+--performance-insights-retention-period `31` \
+--monitoring-interval `5` \
+--monitoring-role-arn arn:aws:iam::`123456789012`:role/`EMrole` \
+--enable-cloudwatch-logs-exports postgresql
 
 ````
 

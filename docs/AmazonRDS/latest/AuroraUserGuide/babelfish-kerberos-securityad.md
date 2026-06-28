@@ -23,9 +23,9 @@ SELECT netbios_domain_name, fq_domain_name FROM babelfish_domain_mapping;
   works as expected. The connection using Kerberos authentication as an Active
   Directory user should be successful. If you face any issues, see [Frequently occurring errors](babelfish-active-directory.md#babelfish-active-directory-errors "babelfish-active-directory.md#babelfish-active-directory-errors").
 
-## Setting up the pg_ad_mapping extension
+## Setting up the pg\_ad\_mapping extension
 
-You must follow all the steps mentioned at [Setting up the pg_ad_mapping extension](AD.Security.Groups.md#AD.Security.Groups.Setup "AD.Security.Groups.md#AD.Security.Groups.Setup") . To verify that the extension is
+You must follow all the steps mentioned at [Setting up the pg\_ad\_mapping extension](AD.Security.Groups.md#AD.Security.Groups.Setup "AD.Security.Groups.md#AD.Security.Groups.Setup") . To verify that the extension is
 installed, run the following query from TDS endpoint:
 
 ```
@@ -66,7 +66,7 @@ corp\user1
 
 Currently, AD user identity isn't visible in the logs. You can turn on the
 `log_connections` parameter to log DB session establishment. For more
-information, see [log_connections](../../../prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.md "../../../prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.md"). The output includes the AD user identity as principal as
+information, see [log\_connections](../../../prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.md "../../../prescriptive-guidance/latest/tuning-postgresql-parameters/log-connections.md"). The output includes the AD user identity as principal as
 shown in the following example. The backend PID associated with this output can then
 help attribute actions back to the actual AD user.
 

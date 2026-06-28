@@ -182,7 +182,7 @@ A DML statement might consist of multiple parts, such as an `INSERT ... SELECT` 
 
 If the transaction access mode is set to read only, write forwarding isn't used. You can specify the access mode for the
 transaction by using the `SET TRANSACTION` statement or the `START TRANSACTION` statement. You can also
-specify the transaction access mode by changing the value of the [transaction_read_only](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only") session variable. You can change this session value only while you're connected to a DB
+specify the transaction access mode by changing the value of the [transaction\_read\_only](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only") session variable. You can change this session value only while you're connected to a DB
 cluster that has write forwarding enabled.
 
 If a long-running transaction doesn't issue any statement for a substantial period of time, it might exceed the idle timeout
@@ -237,7 +237,7 @@ For more information on DB parameter groups, see [Parameter groups for Amazon Au
 ## Identifying forwarded transactions and queries
 
 You can use the `information_schema.aurora_forwarding_processlist` table to identify forwarded transactions and
-queries. For more information on this table, see [information_schema.aurora_forwarding_processlist](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_forwarding_processlist "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_forwarding_processlist").
+queries. For more information on this table, see [information\_schema.aurora\_forwarding\_processlist](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_forwarding_processlist "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_forwarding_processlist").
 
 The following example shows all forwarded connections on a writer DB instance.
 

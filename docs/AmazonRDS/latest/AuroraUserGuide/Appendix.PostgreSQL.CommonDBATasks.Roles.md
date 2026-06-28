@@ -22,7 +22,7 @@ privileges.
 
 ###### Topics
 
-- [Understanding the rds_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md "Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md")
+- [Understanding the rds\_superuser role](Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md "Appendix.PostgreSQL.CommonDBATasks.Roles.rds_superuser.md")
 - [Controlling user access to the PostgreSQL database](Appendix.PostgreSQL.CommonDBATasks.Access.md "Appendix.PostgreSQL.CommonDBATasks.Access.md")
 - [Delegating and controlling user password management](Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt.md "Appendix.PostgreSQL.CommonDBATasks.RestrictPasswordMgmt.md")
 - [Using SCRAM for PostgreSQL password encryption](PostgreSQL_Password_Encryption_configuration.md "PostgreSQL_Password_Encryption_configuration.md")

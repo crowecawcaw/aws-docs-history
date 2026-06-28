@@ -27,10 +27,10 @@ reasons. For the most current pinning behavior, see [Avoiding pinning an RDS Pro
 As a general rule, connections can be multiplexed when they have identical state.
 Connections can't be multiplexed when they contain custom session-specific state
 information. One of the aspects defining session state is the database user name
-associated with a connection. When you connect to the proxy as "user_A", the proxy
-needs to open a back-end database connection as "user_A" as well. The proxy can
+associated with a connection. When you connect to the proxy as "user\_A", the proxy
+needs to open a back-end database connection as "user\_A" as well. The proxy can
 potentially pool and reuse this back-end connection for other clients that log in as
-"user_A", but not for clients using a different user name.
+"user\_A", but not for clients using a different user name.
 
 This behavior can significantly reduce pooling and multiplexing efficiency in
 multi-user environments with a large number of unique database accounts. This is

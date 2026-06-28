@@ -1,4 +1,4 @@
-# io/aurora_respond_to_client
+# io/aurora\_respond\_to\_client
 
 The `io/aurora_respond_to_client` event occurs when a thread is waiting to return a result set to a client.
 
@@ -56,7 +56,7 @@ We recommend different actions depending on the causes of your wait event.
 - [Scale the DB instance class](#ams-waits.respond-to-client.actions.scale-db-instance-class "#ams-waits.respond-to-client.actions.scale-db-instance-class")
 - [Check workload for unexpected results](#ams-waits.respond-to-client.actions.workload "#ams-waits.respond-to-client.actions.workload")
 - [Distribute workload with reader instances](#ams-waits.respond-to-client.actions.balance "#ams-waits.respond-to-client.actions.balance")
-- [Use the SQL_BUFFER_RESULT modifier](#ams-waits.respond-to-client.actions.sql-buffer-result "#ams-waits.respond-to-client.actions.sql-buffer-result")
+- [Use the SQL\_BUFFER\_RESULT modifier](#ams-waits.respond-to-client.actions.sql-buffer-result "#ams-waits.respond-to-client.actions.sql-buffer-result")
 
 ### Identify the sessions and queries causing the events
 
@@ -109,7 +109,7 @@ You can distribute read-only workload with Aurora replicas. You can scale horizo
 Doing so can result in an increase in the throttling limits for network bandwidth. For more information, see
 [Amazon Aurora DB clusters](Aurora.Overview.md "Aurora.Overview.md").
 
-### Use the SQL_BUFFER_RESULT modifier
+### Use the SQL\_BUFFER\_RESULT modifier
 
 You can add the `SQL_BUFFER_RESULT` modifier to
 `SELECT` statements to force the result into a temporary table before

@@ -1,4 +1,4 @@
-# Working with MySQL databases by using the mysql_fdw extension
+# Working with MySQL databases by using the mysql\_fdw extension
 
 To access a MySQL-compatible database from your Aurora PostgreSQL DB cluster, you can install and
 use the `mysql_fdw` extension. This foreign data wrapper lets you
@@ -12,11 +12,11 @@ It supports selects, inserts, updates, and deletes from an RDS for PostgreSQL DB
 
 ###### Topics
 
-- [Setting up your Aurora PostgreSQL DB to use the mysql_fdw extension](#postgresql-mysql-fdw.setting-up "#postgresql-mysql-fdw.setting-up")
+- [Setting up your Aurora PostgreSQL DB to use the mysql\_fdw extension](#postgresql-mysql-fdw.setting-up "#postgresql-mysql-fdw.setting-up")
 - [Example: Working with an Aurora MySQL database from Aurora PostgreSQL](#postgresql-mysql-fdw.using-mysql_fdw "#postgresql-mysql-fdw.using-mysql_fdw")
 - [Using encryption in transit with the extension](#postgresql-mysql-fdw.encryption-in-transit "#postgresql-mysql-fdw.encryption-in-transit")
 
-## Setting up your Aurora PostgreSQL DB to use the mysql_fdw extension
+## Setting up your Aurora PostgreSQL DB to use the mysql\_fdw extension
 
 Setting up the `mysql_fdw` extension on your Aurora PostgreSQL DB cluster involves loading the extension
 in your DB cluster and then creating the connection point to the MySQL DB instance. For that task, you need to have
@@ -40,7 +40,7 @@ In the following procedure, you (as the `rds_superuser` account) create the fore
 foreign server to specific users. These users then create their own mappings to the appropriate MySQL user accounts to work with
 the MySQL DB instance.
 
-###### To use mysql_fdw to access a MySQL database server
+###### To use mysql\_fdw to access a MySQL database server
 
 1. Connect to your PostgreSQL DB instance using an account that has the `rds_superuser` role.
    If you accepted the defaults when you created your Aurora PostgreSQL DB cluster
@@ -172,4 +172,4 @@ _MySQL Reference Manual_.
 | `ALTER USER '`user`'@'%' REQUIRE SSL;` | `GRANT USAGE ON *.<br>• to '`user`'@'%' REQUIRE SSL;` |
 
 For more information about the `mysql_fdw` extension, see the
-[mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw") documentation.
+[mysql\_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw") documentation.

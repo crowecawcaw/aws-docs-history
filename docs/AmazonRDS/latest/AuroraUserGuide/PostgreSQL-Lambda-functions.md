@@ -6,11 +6,11 @@ Aurora PostgreSQL
 
 ###### Functions and parameters
 
-- [aws_lambda.invoke](#aws_lambda.invoke "#aws_lambda.invoke")
-- [aws_commons.create_lambda_function_arn](#aws_commons.create_lambda_function_arn "#aws_commons.create_lambda_function_arn")
-- [aws_lambda parameters](#aws_lambda.parameters "#aws_lambda.parameters")
+- [aws\_lambda.invoke](#aws_lambda.invoke "#aws_lambda.invoke")
+- [aws\_commons.create\_lambda\_function\_arn](#aws_commons.create_lambda_function_arn "#aws_commons.create_lambda_function_arn")
+- [aws\_lambda parameters](#aws_lambda.parameters "#aws_lambda.parameters")
 
-## aws_lambda.invoke
+## aws\_lambda.invoke
 
 Runs a Lambda function for an
 Aurora PostgreSQL DB cluster
@@ -86,7 +86,7 @@ OUT log_result TEXT
 
 ###### Input parameters
 
-**function_name**
+**function\_name**
 
 The identifying name of the Lambda function. The value can be the
 function name, an ARN, or a partial ARN. For a listing of possible
@@ -106,7 +106,7 @@ DB instance
 Region. If this Region value conflicts with the one provided in the
 `function_name` ARN, an error is raised.
 
-_invocation_type_
+_invocation\_type_
 
 The invocation type of the Lambda function. The value is
 case-sensitive. Possible values include the following:
@@ -125,7 +125,7 @@ case-sensitive. Possible values include the following:
 - `DryRun` – This type of invocation tests
   access without running the Lambda function.
 
-_log_type_
+_log\_type_
 
 The type of Lambda log to return in the `log_result` output
 parameter. The value is case-sensitive. Possible values include the
@@ -148,7 +148,7 @@ invoked. If this value conflicts with one provided in the
 
 ###### Output parameters
 
-_status_code_
+_status\_code_
 
 An HTTP status response code. For more information, see [Lambda Invoke response elements](../../../lambda/latest/dg/API_Invoke.md#API_Invoke_ResponseElements "../../../lambda/latest/dg/API_Invoke.md#API_Invoke_ResponseElements") in the _AWS Lambda Developer Guide._
 
@@ -157,23 +157,23 @@ _payload_
 The information returned from the Lambda function that ran. The format
 is in JSON or JSONB.
 
-_executed_version_
+_executed\_version_
 
 The version of the Lambda function that ran.
 
-_log_result_
+_log\_result_
 
 The execution log information returned if the `log_type`
 value is `Tail` when the Lambda function was invoked. The
 result contains the last 4 KB of the execution log encoded in
 Base64.
 
-## aws_commons.create_lambda_function_arn
+## aws\_commons.create\_lambda\_function\_arn
 
 Creates an `aws_commons._lambda_function_arn_1` structure to hold
 Lambda function name information. You can use the results of the
 `aws_commons.create_lambda_function_arn` function in the
-`function_name` parameter of the aws_lambda.invoke [aws_lambda.invoke](#aws_lambda.invoke "#aws_lambda.invoke") function.
+`function_name` parameter of the aws\_lambda.invoke [aws\_lambda.invoke](#aws_lambda.invoke "#aws_lambda.invoke") function.
 
 **Syntax**
 
@@ -187,7 +187,7 @@ aws_commons.create_lambda_function_arn(
 
 ###### Input parameters
 
-_function_name_
+_function\_name_
 
 A required text string containing the Lambda function name. The
 value can be a function name, a partial ARN, or a full ARN.
@@ -198,7 +198,7 @@ An optional text string containing the AWS Region that the Lambda
 function is in. For a listing of Region names and associated values, see
 [Regions and Availability Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 
-## aws_lambda parameters
+## aws\_lambda parameters
 
 In this table, you can find parameters associated with the `aws_lambda` function.
 

@@ -39,7 +39,7 @@ You must pair `tune_buffer_pool` with either `kill_query` or
 of these, buffer pool resizing does not occur even when `tune_buffer_pool` is
 included.
 
-### kill_connect version-specific behavior
+### kill\_connect version-specific behavior
 
 | Aurora MySQL version                  | Behavior                                                                                                                                                                                               |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

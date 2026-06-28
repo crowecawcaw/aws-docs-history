@@ -1,4 +1,4 @@
-# aurora_replica_status
+# aurora\_replica\_status
 
 Displays the status of all Aurora PostgreSQL reader nodes.
 
@@ -60,7 +60,7 @@ later in the sequence.
   replica status. From Aurora PostgreSQL 13.9, the
   `last_update_timestamp` value for the DB instance that you are
   connected to is set to `NULL`.
-- `feedback_xmin` – The hot standby feedback_xmin of the
+- `feedback_xmin` – The hot standby feedback\_xmin of the
   replica. The minimum (oldest) active transaction ID used by the DB
   instance.
 - `feedback_epoch` – The epoch the DB instance uses when

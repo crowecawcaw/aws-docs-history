@@ -62,14 +62,13 @@ The input parameters are the following:
 - (optional) `schemas` or `tables` – An array of schemas or tables to load. You can specify either of the
   following:
 
-      + A list of tables in the format `tables => ARRAY['`schema1`.`table1`',
-       '`schema1`.`table2`',
-       '`schema2`.`table1`', ...]`
-      + A list of schemas in the format `schemas => ARRAY[`'schema1`',
-       '`schema2`', ...]`
-
-  If you don't include this parameter, the entire specified source database is migrated.
-  The output parameter is the job ID with a message.
+  - A list of tables in the format `tables => ARRAY['`schema1`.`table1`',
+   '`schema1`.`table2`',
+   '`schema2`.`table1`', ...]`
+  - A list of schemas in the format `schemas => ARRAY[`'schema1`',
+   '`schema2`', ...]`
+    If you don't include this parameter, the entire specified source database is migrated.
+    The output parameter is the job ID with a message.
 
 The following example shows how to use the `rds_aurora.limitless_data_load_start` stored procedure to load data from an
 Aurora PostgreSQL DB cluster.

@@ -1,6 +1,6 @@
-# LWLock:pg_stat_statements
+# LWLock:pg\_stat\_statements
 
-The LWLock:pg_stat_statements wait event occurs when the `pg_stat_statements`
+The LWLock:pg\_stat\_statements wait event occurs when the `pg_stat_statements`
 extension takes an exclusive lock on the hash table that tracks SQL statements. This happens
 in the following scenarios:
 
@@ -26,19 +26,19 @@ This wait event information is supported for all versions of Aurora PostgreSQL.
 
 ## Context
 
-Understanding the pg_stat_statements extension –
-The pg_stat_statements extension tracks SQL statement execution statistics in a hash
+Understanding the pg\_stat\_statements extension –
+The pg\_stat\_statements extension tracks SQL statement execution statistics in a hash
 table. The extension tracks SQL statements up to the limit defined by the `pg_stat_statements.max`
-parameter. This parameter determines the maximum number of statements that can be tracked which corresponds to the maximum number of rows in the pg_stat_statements view.
+parameter. This parameter determines the maximum number of statements that can be tracked which corresponds to the maximum number of rows in the pg\_stat\_statements view.
 
 Statement statistics persistence – The extension
 persists statement statistics across instance restarts by:
 
-- Writing data to a file named pg_stat_statements.stat
-- Using the pg_stat_statements.save parameter to control persistence
+- Writing data to a file named pg\_stat\_statements.stat
+- Using the pg\_stat\_statements.save parameter to control persistence
   behavior
 
-When pg_stat_statements.save is set to:
+When pg\_stat\_statements.save is set to:
 
 - on (default): Statistics are saved at shutdown and reloaded at server
   start
@@ -55,7 +55,7 @@ Statement deallocation process – When the number
 of tracked statements reaches the `pg_stat_statements.max` limit and new statements need
 to be tracked, the extension:
 
-- Takes an exclusive lock (LWLock:pg_stat_statements) on the hash table.
+- Takes an exclusive lock (LWLock:pg\_stat\_statements) on the hash table.
 - Loads existing data into local memory.
 - Performs a quicksort based on the number of calls.
 - Removes the least-called statements (bottom 5%).
@@ -63,7 +63,7 @@ to be tracked, the extension:
 
 Monitoring statement deallocation – In
 PostgreSQL 14 and later, you can monitor statement deallocation using the
-pg_stat_statements_info view. This view includes a dealloc column that shows how many
+pg\_stat\_statements\_info view. This view includes a dealloc column that shows how many
 times statements were deallocated to make room for new ones
 
 If the deallocation of statements occurs frequently, it will lead to more frequent
@@ -85,25 +85,25 @@ identify `LWLock:pg_stat_statements` events by using Amazon RDS Performance
 Insights or by querying the view `pg_stat_activity`.
 
 Adjust the following `pg_stat_statements` parameters to control
-tracking behavior and reduce LWLock:pg_stat\_
+tracking behavior and reduce LWLock:pg\_stat\_
 statements wait events.
 
 ###### Topics
 
-- [Disable pg_stat_statements.track parameter](#apg-rpg-lwlockpgstat.actions.disabletrack "#apg-rpg-lwlockpgstat.actions.disabletrack")
-- [Increase pg_stat_statements.max parameter](#apg-rpg-lwlockpgstat.actions.increasemax "#apg-rpg-lwlockpgstat.actions.increasemax")
-- [Disable pg_stat_statements.track_utility parameter](#apg-rpg-lwlockpgstat.actions.disableutility "#apg-rpg-lwlockpgstat.actions.disableutility")
+- [Disable pg\_stat\_statements.track parameter](#apg-rpg-lwlockpgstat.actions.disabletrack "#apg-rpg-lwlockpgstat.actions.disabletrack")
+- [Increase pg\_stat\_statements.max parameter](#apg-rpg-lwlockpgstat.actions.increasemax "#apg-rpg-lwlockpgstat.actions.increasemax")
+- [Disable pg\_stat\_statements.track\_utility parameter](#apg-rpg-lwlockpgstat.actions.disableutility "#apg-rpg-lwlockpgstat.actions.disableutility")
 
-### Disable pg_stat_statements.track parameter
+### Disable pg\_stat\_statements.track parameter
 
-If the LWLock:pg_stat_statements wait event is adversely impacting database
+If the LWLock:pg\_stat\_statements wait event is adversely impacting database
 performance, and a rapid solution is required before further analysis of the
 `pg_stat_statements` view to identify the root cause, the
 `pg_stat_statements.track` parameter can be disabled by setting it to
 `none`. This will disable the collection of statement
 statistics.
 
-### Increase pg_stat_statements.max parameter
+### Increase pg\_stat\_statements.max parameter
 
 To reduce deallocation and minimize garbage collection of the
 `pgss_query_texts.stat` file on disk, increase the value of the
@@ -115,9 +115,9 @@ To reduce deallocation and minimize garbage collection of the
 The `pg_stat_statements.max` parameter is static. You must restart
 your DB instance to apply any changes to this parameter.
 
-### Disable pg_stat_statements.track_utility parameter
+### Disable pg\_stat\_statements.track\_utility parameter
 
-You can analyze the pg_stat_statements view to determine which utility commands
+You can analyze the pg\_stat\_statements view to determine which utility commands
 are consuming the most resources tracked by `pg_stat_statements`.
 
 The `pg_stat_statements.track_utility` parameter controls whether the
@@ -136,7 +136,7 @@ The `pg_stat_statements.track_utility` parameter is a dynamic
 parameter. You can change its value without restarting your database
 instance.
 
-###### Example of unique save point queries in pg_stat_statements
+###### Example of unique save point queries in pg\_stat\_statements
 
 ```
 

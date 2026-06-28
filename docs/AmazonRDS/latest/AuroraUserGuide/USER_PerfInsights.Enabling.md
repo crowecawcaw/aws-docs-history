@@ -121,13 +121,12 @@ You can also specify these values using the following AWS CLI commands:
 - Call the [modify-db-cluster](../../../cli/latest/reference/rds/modify-db-cluster.md "../../../cli/latest/reference/rds/modify-db-cluster.md") AWS CLI command and supply the following
   values:
 
-      + `--db-cluster-identifier` – The name of the DB instance in your DB cluster.
-      + `--enable-performance-insights` to turn on or
-       `--no-enable-performance-insights` to turn off
-      + `database-insights-mode` – The mode of Database Insights for the DB cluster. To turn off Performance Insights, set this value to `standard`.
-
-  The following example turns on Performance Insights for
-  `sample-db-cluster`.
+  - `--db-cluster-identifier` – The name of the DB instance in your DB cluster.
+  - `--enable-performance-insights` to turn on or
+    `--no-enable-performance-insights` to turn off
+  - `database-insights-mode` – The mode of Database Insights for the DB cluster. To turn off Performance Insights, set this value to `standard`.
+    The following example turns on Performance Insights for
+    `sample-db-cluster`.
 
 For Linux, macOS, or Unix:
 

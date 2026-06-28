@@ -1,13 +1,13 @@
 # Examples: Invoking Lambda functions from your Aurora PostgreSQL DB cluster
 
-Following, you can find several examples of calling the [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") function. Most of the examples
+Following, you can find several examples of calling the [aws\_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") function. Most of the examples
 use the composite structure `aws_lambda_arn_1` that you create in [Step 4: Use Lambda helper functions with your Aurora PostgreSQL DB cluster (Optional)](PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function "PostgreSQL-Lambda.md#PostgreSQL-Lambda-specify-function") to simplify passing the function details.
 For an example of asynchronous invocation, see [Example: Asynchronous (Event) invocation of Lambda functions](#PostgreSQL-Lambda-Event "#PostgreSQL-Lambda-Event"). All the other examples listed use synchronous invocation.
 
 To learn more about Lambda invocation types, see [Invoking Lambda functions](../../../lambda/latest/dg/lambda-invocation.md "../../../lambda/latest/dg/lambda-invocation.md")
 in the _AWS Lambda Developer Guide_.
 For more information about `aws_lambda_arn_1`,
-see [aws_commons.create_lambda_function_arn](PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn "PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn").
+see [aws\_commons.create\_lambda\_function\_arn](PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn "PostgreSQL-Lambda-functions.md#aws_commons.create_lambda_function_arn").
 
 ###### Examples list
 
@@ -44,7 +44,7 @@ SELECT * FROM aws_lambda.invoke(aws_commons.create_lambda_function_arn('my-funct
 ```
 
 - `'{"body": "Hello from
-PostgreSQL!"}'::json` – The JSON payload to pass to
+ PostgreSQL!"}'::json` – The JSON payload to pass to
   the Lambda function.
 - `'RequestResponse'` – The Lambda invocation type.
 
@@ -71,7 +71,7 @@ capture the results of the Lambda execution log in the response, as shown follow
 SELECT *, select convert_from(decode(log_result, 'base64'), 'utf-8') as log FROM aws_lambda.invoke(:'aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json, 'RequestResponse', 'Tail');
 ```
 
-Set the [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke")
+Set the [aws\_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke")
 function's `log_type` parameter to `Tail` to include the
 execution log in the response. The default value for the `log_type`
 parameter is `None`.
@@ -80,7 +80,7 @@ The `log_result` that's returned is a `base64` encoded
 string. You can decode the contents using a combination of the `decode`
 and `convert_from` PostgreSQL functions.
 
-For more information about `log_type`, see [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke").
+For more information about `log_type`, see [aws\_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke").
 
 ## Example: Including client context in a Lambda function
 
@@ -91,10 +91,10 @@ use to pass information separate from the payload, as shown following.
 SELECT *, convert_from(decode(log_result, 'base64'), 'utf-8') as log FROM aws_lambda.invoke(:'aws_lambda_arn_1', '{"body": "Hello from Postgres!"}'::json, 'RequestResponse', 'Tail');
 ```
 
-To include client context, use a JSON object for the [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") function's
+To include client context, use a JSON object for the [aws\_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") function's
 `context` parameter.
 
-For more information about the `context` parameter, see the [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") reference.
+For more information about the `context` parameter, see the [aws\_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") reference.
 
 ## Example: Invoking a specific version of a Lambda function
 
@@ -115,4 +115,4 @@ SELECT * FROM aws_lambda.invoke(aws_commons.create_lambda_function_arn('my-funct
 '{"body": "Hello from Postgres!"}'::json);
 ```
 
-For more information about `qualifier` and other parameters, see the [aws_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") reference.
+For more information about `qualifier` and other parameters, see the [aws\_lambda.invoke](PostgreSQL-Lambda-functions.md#aws_lambda.invoke "PostgreSQL-Lambda-functions.md#aws_lambda.invoke") reference.

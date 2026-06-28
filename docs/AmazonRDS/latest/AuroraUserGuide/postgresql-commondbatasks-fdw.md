@@ -1,12 +1,12 @@
-# Using the postgres_fdw extension to access external data
+# Using the postgres\_fdw extension to access external data
 
-You can access data in a table on a remote database server with the [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html "https://www.postgresql.org/docs/current/static/postgres-fdw.html")
+You can access data in a table on a remote database server with the [postgres\_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html "https://www.postgresql.org/docs/current/static/postgres-fdw.html")
 extension. If you set up a remote connection from your PostgreSQL DB instance, access is also
 available to your read replica.
 
-###### To use postgres_fdw to access a remote database server
+###### To use postgres\_fdw to access a remote database server
 
-1. Install the postgres_fdw extension.
+1. Install the postgres\_fdw extension.
 
 ```
 CREATE EXTENSION postgres_fdw;

@@ -112,7 +112,7 @@ cause unexpected behavior:
 For MySQL, the following interactions also cause pinning:
 
 - Explicit table lock statements `LOCK TABLE`, `LOCK
-TABLES`, or `FLUSH TABLES WITH READ LOCK` cause the proxy to pin
+ TABLES`, or `FLUSH TABLES WITH READ LOCK` cause the proxy to pin
   the session.
 - Creating named locks by using `GET_LOCK` causes the proxy to pin the
   session.

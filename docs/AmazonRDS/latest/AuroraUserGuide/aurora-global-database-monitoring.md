@@ -58,8 +58,8 @@ For more information, see [Monitoring Amazon Aurora with Database Activity Strea
 
 ## Monitoring Aurora MySQL-based global databases
 
-To view the status of an Aurora MySQL-based global database, query the [information_schema.aurora_global_db_status](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_status "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_status") and
-[information_schema.aurora_global_db_instance_status](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_instance_status "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_instance_status") tables.
+To view the status of an Aurora MySQL-based global database, query the [information\_schema.aurora\_global\_db\_status](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_status "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_status") and
+[information\_schema.aurora\_global\_db\_instance\_status](AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_instance_status "AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.aurora_global_db_instance_status") tables.
 
 ###### Note
 
@@ -114,8 +114,8 @@ following columns:
     * **OLDEST\_READ\_VIEW\_TRX\_ID** – The ID of the oldest transaction that the writer DB instance can purge to.
 
 3. Query the `information_schema.aurora_global_db_instance_status` table to
-   list all secondary DB instances for both the primary DB cluster and the secondary DB
-   clusters.
+list all secondary DB instances for both the primary DB cluster and the secondary DB
+clusters.
 
 ```
 mysql> select * from information_schema.aurora_global_db_instance_status;
@@ -163,13 +163,13 @@ mysql> COMMIT;
 
 In some cases, there might be a network disconnect between the primary DB cluster and
 the secondary DB cluster after the `BEGIN` statement. If so, the secondary DB
-cluster's **DURABILITY_LAG_IN_MILLISECONDS** value starts
+cluster's **DURABILITY\_LAG\_IN\_MILLISECONDS** value starts
 increasing. At the end of the `INSERT` statement, the
-**DURABILITY_LAG_IN_MILLISECONDS** value is 1 hour. However, the
-**RPO_LAG_IN_MILLISECONDS** value is 0 because all the user data
+**DURABILITY\_LAG\_IN\_MILLISECONDS** value is 1 hour. However, the
+**RPO\_LAG\_IN\_MILLISECONDS** value is 0 because all the user data
 committed between the primary DB cluster and secondary DB cluster are still the same. As
 soon as the `COMMIT` statement completes, the
-**RPO_LAG_IN_MILLISECONDS** value increases.
+**RPO\_LAG\_IN\_MILLISECONDS** value increases.
 
 ## Monitoring Aurora PostgreSQL-based global databases
 
@@ -239,7 +239,7 @@ following columns:
      active transaction ID used by a secondary DB cluster.
 
 3. Use the `aurora_global_db_instance_status` function to list all secondary
-   DB instances for both the primary DB cluster and secondary DB clusters.
+DB instances for both the primary DB cluster and secondary DB clusters.
 
 ```
 postgres=> select * from aurora_global_db_instance_status();

@@ -43,11 +43,10 @@ Besides the default settings, the following settings are set up for you. As you 
 
 - A progress banner will be displayed throughout the resource provisioning process, allowing you to track the status of the following sub-events:
 
-      + Aurora cluster creation
-      + Seeding the Aurora cluster
-      + Knowledge Base creation
-
-  The banner stays visible until the knowledge base is fully created, even if you navigate away from the page and return.
+  - Aurora cluster creation
+  - Seeding the Aurora cluster
+  - Knowledge Base creation
+    The banner stays visible until the knowledge base is fully created, even if you navigate away from the page and return.
 
 - You can click `View details` on the progress banner to see the status of each step. For more information about events
   during knowledge base creation, choose the CloudFormation link in the view details screen. Once the process is complete, your new Bedrock

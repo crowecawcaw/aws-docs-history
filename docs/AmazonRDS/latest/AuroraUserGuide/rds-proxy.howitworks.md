@@ -184,11 +184,11 @@ No SSL is allowed.
 
 Enforce SSL.
 
-**VERIFY_CA**
+**VERIFY\_CA**
 
 Enforce SSL and verify the certificate authority (CA).
 
-**VERIFY_IDENTITY**
+**VERIFY\_IDENTITY**
 
 Enforce SSL and verify the CA and CA hostname.
 
@@ -246,21 +246,21 @@ database supports additional cipher suites, only the following cipher suites are
 by RDS Proxy. Enforcing other cipher suites on client connections to the proxy will cause
 failure in connection setup.
 
-| Cipher suites supported by RDS Proxy | #                         | TLS Version                 | Cipher in OpenSSL Format                  | Cipher in IANA Format |
-| ------------------------------------ | ------------------------- | --------------------------- | ----------------------------------------- | --------------------- |
-| 1                                    | TLS 1.0, TLS 1.1, TLS 1.2 | ECDHE-RSA-AES256-SHA        | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA        |
-| 2                                    | TLS 1.0, TLS 1.1, TLS 1.2 | DHE-RSA-AES256-SHA          | TLS_DHE_RSA_WITH_AES_256_CBC_SHA          |
-| 3                                    | TLS 1.0, TLS 1.1, TLS 1.2 | ECDHE-RSA-AES128-SHA        | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA        |
-| 4                                    | TLS 1.0, TLS 1.1, TLS 1.2 | DHE-RSA-AES128-SHA          | TLS_DHE_RSA_WITH_AES_128_CBC_SHA          |
-| 5                                    | TLS 1.2                   | ECDHE-RSA-AES256-GCM-SHA384 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384     |
-| 6                                    | TLS 1.2                   | DHE-RSA-AES256-GCM-SHA384   | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384       |
-| 7                                    | TLS 1.2                   | DHE-RSA-AES256-SHA256       | TLS_DHE_RSA_WITH_AES_256_CBC_SHA256       |
-| 8                                    | TLS 1.2                   | ECDHE-RSA-AES128-GCM-SHA256 | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256     |
-| 9                                    | TLS 1.2                   | DHE-RSA-AES128-GCM-SHA256   | TLS_DHE_RSA_WITH_AES_128_GCM_SHA256       |
-| 10                                   | TLS 1.2                   | DHE-RSA-AES128-SHA256       | TLS_DHE_RSA_WITH_AES_128_CBC_SHA256       |
-| 11                                   | TLS 1.2                   | DHE-RSA-CHACHA20-POLY1305   | TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 |
-| 12                                   | TLS 1.3                   | TLS_AES_256_GCM_SHA384      | TLS_AES_256_GCM_SHA384                    |
-| 13                                   | TLS 1.3                   | TLS_AES_128_GCM_SHA256      | TLS_AES_128_GCM_SHA256                    |
+Cipher suites supported by RDS Proxy| # | TLS Version | Cipher in OpenSSL Format | Cipher in IANA Format |
+| --- | --- | --- | --- |
+| 1 | TLS 1.0, TLS 1.1, TLS 1.2 | ECDHE-RSA-AES256-SHA | TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA |
+| 2 | TLS 1.0, TLS 1.1, TLS 1.2 | DHE-RSA-AES256-SHA | TLS\_DHE\_RSA\_WITH\_AES\_256\_CBC\_SHA |
+| 3 | TLS 1.0, TLS 1.1, TLS 1.2 | ECDHE-RSA-AES128-SHA | TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA |
+| 4 | TLS 1.0, TLS 1.1, TLS 1.2 | DHE-RSA-AES128-SHA | TLS\_DHE\_RSA\_WITH\_AES\_128\_CBC\_SHA |
+| 5 | TLS 1.2 | ECDHE-RSA-AES256-GCM-SHA384 | TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384 |
+| 6 | TLS 1.2 | DHE-RSA-AES256-GCM-SHA384 | TLS\_DHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384 |
+| 7 | TLS 1.2 | DHE-RSA-AES256-SHA256 | TLS\_DHE\_RSA\_WITH\_AES\_256\_CBC\_SHA256 |
+| 8 | TLS 1.2 | ECDHE-RSA-AES128-GCM-SHA256 | TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256 |
+| 9 | TLS 1.2 | DHE-RSA-AES128-GCM-SHA256 | TLS\_DHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256 |
+| 10 | TLS 1.2 | DHE-RSA-AES128-SHA256 | TLS\_DHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 |
+| 11 | TLS 1.2 | DHE-RSA-CHACHA20-POLY1305 | TLS\_DHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256 |
+| 12 | TLS 1.3 | TLS\_AES\_256\_GCM\_SHA384 | TLS\_AES\_256\_GCM\_SHA384 |
+| 13 | TLS 1.3 | TLS\_AES\_128\_GCM\_SHA256 | TLS\_AES\_128\_GCM\_SHA256 |
 
 ## Failover
 

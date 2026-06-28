@@ -15,9 +15,9 @@ queries across the DB clusters and engine versions.
 
 Turn on `capture_plan_baselines parameter` in Aurora Replica - Set `capture_plan_baselines`
 parameter to automatic or manual to capture plans in Aurora Replicas. For more information, see
-[apg_plan_mgmt.capture_plan_baselines](AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.capture_plan_baselines "AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.capture_plan_baselines").
+[apg\_plan\_mgmt.capture\_plan\_baselines](AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.capture_plan_baselines "AuroraPostgreSQL.Optimize.Parameters.md#AuroraPostgreSQL.Optimize.Parameters.capture_plan_baselines").
 
-Install postgres_fdw extension - You must install `postgres_fdw` foreign data wrapper extension to capture plans in Aurora Replicas.
+Install postgres\_fdw extension - You must install `postgres_fdw` foreign data wrapper extension to capture plans in Aurora Replicas.
 Run the following command in each database, to install the extension.
 
 ```
@@ -30,13 +30,13 @@ Run the following command in each database, to install the extension.
 
 You must have `rds_superuser` privileges to create or remove Plan Capture in Aurora Replicas. For more information on user roles and permissions, see [Understanding PostgreSQL roles and permissions](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Roles.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Roles.md").
 
-To capture plans, call the function apg_plan_mgmt.create_replica_plan_capture in the writer DB instance, as shown in the following:
+To capture plans, call the function apg\_plan\_mgmt.create\_replica\_plan\_capture in the writer DB instance, as shown in the following:
 
 ```
 `postgres=>` CALL apg_plan_mgmt.create_replica_plan_capture(`'endpoint'`, `'password'`);
 ```
 
-- endpoint - Aurora Global Database writer endpoint or cluster_endpoint provides failover support for Plan Capture in Aurora Replicas.
+- endpoint - Aurora Global Database writer endpoint or cluster\_endpoint provides failover support for Plan Capture in Aurora Replicas.
 
 For more information on the Aurora Global Database writer endpoint, see [Viewing the endpoints of an Amazon Aurora global database](aurora-global-database-connecting.md#viewing-endpoints "aurora-global-database-connecting.md#viewing-endpoints").
 
@@ -65,7 +65,7 @@ You can completely remove Plan Capture in Aurora Replicas but make sure before y
 `postgres=>` CALL apg_plan_mgmt.remove_replica_plan_capture();
 ```
 
-You must call apg_plan_mgmt.create_replica_plan_capture() again to turn on plan capture in Aurora Replicas with the endpoint and password.
+You must call apg\_plan\_mgmt.create\_replica\_plan\_capture() again to turn on plan capture in Aurora Replicas with the endpoint and password.
 
 ## Troubleshooting
 
@@ -78,7 +78,7 @@ Following, you can find troubleshooting ideas and workarounds if the plan is not
 `postgres=>` SELECT * FROM pg_extension WHERE extname = 'postgres_fdw'
 ```
 
-- create_replica_plan_capture() is called - Use the following command to check if the user mapping exits.
+- create\_replica\_plan\_capture() is called - Use the following command to check if the user mapping exits.
   Otherwise, call `create_replica_plan_capture()` to initialize the feature.
 
 ```
@@ -93,9 +93,9 @@ Use the following command to verify if the endpoint used in the create() and to 
 `postgres=>` SELECT srvoptions FROM pg_foreign_server WHERE srvname = 'apg_plan_mgmt_writer_foreign_server';
 ```
 
-- reload() - You must call apg_plan_mgmt.reload() after calling apg_plan_mgmt.delete_plan() in Aurora Replicas to make the delete function effective.
+- reload() - You must call apg\_plan\_mgmt.reload() after calling apg\_plan\_mgmt.delete\_plan() in Aurora Replicas to make the delete function effective.
   This ensures that the change has been successfully implemented.
-- Password - You must enter password in create_replica_plan_capture() as per the guidelines mentioned. Otherwise, you will receive an error message. For more information,see [Managing plan capture for Aurora Replicas](#AuroraPostgreSQL.QPM.Plancapturereplicas.managing "#AuroraPostgreSQL.QPM.Plancapturereplicas.managing").
+- Password - You must enter password in create\_replica\_plan\_capture() as per the guidelines mentioned. Otherwise, you will receive an error message. For more information,see [Managing plan capture for Aurora Replicas](#AuroraPostgreSQL.QPM.Plancapturereplicas.managing "#AuroraPostgreSQL.QPM.Plancapturereplicas.managing").
   Use another password that aligns with the requirements.
 - Cross-Region connection - Plan capture in Aurora Replicas is also supported in Aurora global database, where writer
   instance and Aurora Replicas can be in different regions. Ensure that you use the Aurora Global Database writer endpoint to maintain connectivity after failover or switchover events.

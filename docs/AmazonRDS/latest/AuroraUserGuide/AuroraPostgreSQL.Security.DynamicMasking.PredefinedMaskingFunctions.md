@@ -3,7 +3,7 @@
 `pg_columnmask` extension provides built-in utility functions written in C language
 (for faster execution) which can be used as masking expression for `pg_columnmask` policies.
 
-**mask_text**
+**mask\_text**
 
 A function to mask text data with configurable visibility options.
 
@@ -15,7 +15,7 @@ A function to mask text data with configurable visibility options.
 | `mask_char`      | CHAR(1)  | Character used for masking (default: 'X')                                                     |
 | `visible_prefix` | INT      | Number of characters at the beginning of input text that will<br>remain unmasked (default: 0) |
 | `visible_suffix` | INT      | Number of characters at the end of input text that will remain<br>unmasked (default: 0)       |
-| `use_hash_mask`  | BOOLEAN  | If TRUE, uses a hash-based masking instead of mask_char (default: FALSE)                      |
+| `use_hash_mask`  | BOOLEAN  | If TRUE, uses a hash-based masking instead of mask\_char (default: FALSE)                     |
 
 ###### Example of using different masking options
 
@@ -56,7 +56,7 @@ postgres=> SELECT pgcolumnmask.mask_text('Hello World', '*', 2, 2, true);
  Hex36dOHild
 ```
 
-**mask_timestamp**
+**mask\_timestamp**
 
 | Parameter    | Datatype  | Description                                                                                                                            |
 | ------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -96,7 +96,7 @@ postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00', 'all', '201
  2012-12-12 12:12:12
 ```
 
-**mask_timestamp**
+**mask\_timestamp**
 
 A function to mask email addresses while preserving email structure.
 

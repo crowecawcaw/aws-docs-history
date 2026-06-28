@@ -146,8 +146,8 @@ functionality for the current session, as shown in the following example.
 
 ```
 
-For more information about the **batched_key_access** and
-**mrr_cost_based** optimizer switches, see [Switchable optimizations](https://dev.mysql.com/doc/refman/5.6/en/switchable-optimizations.html "https://dev.mysql.com/doc/refman/5.6/en/switchable-optimizations.html") in the MySQL documentation.
+For more information about the **batched\_key\_access** and
+**mrr\_cost\_based** optimizer switches, see [Switchable optimizations](https://dev.mysql.com/doc/refman/5.6/en/switchable-optimizations.html "https://dev.mysql.com/doc/refman/5.6/en/switchable-optimizations.html") in the MySQL documentation.
 
 ### Optimizing queries for asynchronous key prefetch
 
@@ -348,7 +348,7 @@ see [Scaling reads for your MySQL database with Amazon Aurora](AuroraMySQL.Repli
 When the value of the system variable `time_zone` is set to `SYSTEM`, each MySQL function call that
 requires a time zone calculation makes a system library call. When you run SQL statements that return or change such
 `TIMESTAMP` values at high concurrency, you might experience increased latency, lock contention, and CPU
-usage. For more information, see [time_zone](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_time_zone "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_time_zone") in the
+usage. For more information, see [time\_zone](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_time_zone "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_time_zone") in the
 MySQL documentation.
 
 To avoid this behavior, we recommend that you change the value of the `time_zone` DB cluster parameter to

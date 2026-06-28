@@ -139,14 +139,16 @@ associated with the database.
 For a compute resource to be listed, the following conditions must apply:
 
 - The name of the security group associated with the compute resource matches the pattern
-  `ec2-rds-`n`(where`n`` is a number).
+  `ec2-rds-`n`(where
+`n`` is a number).
 - The security group associated with the compute resource has an outbound rule
   with the port range set to the port that the DB cluster uses.
 - The security group associated with the compute resource has an outbound rule with the source
   set to a security group associated with the
   DB cluster.
 - The name of the security group associated with the DB cluster matches the
-  pattern `rds-ec2-`n`(where`n`` is a number).
+  pattern `rds-ec2-`n`(where
+`n`` is a number).
 - The security group associated with the DB cluster has an inbound
   rule with the port range set to the port that the DB cluster uses.
 - The security group associated with the

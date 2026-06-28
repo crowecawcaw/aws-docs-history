@@ -92,7 +92,7 @@ for that specific database by using the following command.
 ALTER DATABASE mydatabase SET pgaudit.log to 'NONE';
 ```
 
-Then, use the following query to check the database_specific_settings column
+Then, use the following query to check the database\_specific\_settings column
 to confirm that pgaudit.log is set to NONE.
 
 ```

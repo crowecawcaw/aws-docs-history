@@ -18,17 +18,14 @@ following requirements:
 - Your Aurora PostgreSQL DB cluster must be version 11 or later.
 - On your publisher Aurora PostgreSQL DB cluster:
 
-      + Enable IAM database authentication.
+  - Enable IAM database authentication.
 
+  For more information, see [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md").
+  - Enable logical replication by setting the
+    `rds.logical_replication` parameter to
+    `1`.
 
-      For more information, see [Enabling and disabling IAM database authentication](UsingWithRDS.IAMDBAuth.Enabling.md "UsingWithRDS.IAMDBAuth.Enabling.md").
-      + Enable logical replication by setting the
-       `rds.logical_replication` parameter to
-       `1`.
-
-
-      For more information, see [Setting up logical replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.Configure.md "AuroraPostgreSQL.Replication.Logical.Configure.md").
-
+  For more information, see [Setting up logical replication for your Aurora PostgreSQL DB cluster](AuroraPostgreSQL.Replication.Logical.Configure.md "AuroraPostgreSQL.Replication.Logical.Configure.md").
   In logical replication, the publisher is the source Aurora PostgreSQL DB
   cluster that sends data to subscriber clusters. For more information, see
   [Overview of PostgreSQL logical replication with Aurora](AuroraPostgreSQL.Replication.Logical.md "AuroraPostgreSQL.Replication.Logical.md").

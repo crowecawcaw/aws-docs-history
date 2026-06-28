@@ -30,9 +30,9 @@ Use the `server_audit_incl_users` and `server_audit_excl_users`
 parameters to specify who gets audited. By default, all users are audited. For details
 about how these parameters work when one or both are left empty, or the same
 user names are specified in both, see
-[server_audit_incl_users](#AuroraMySQL.Auditing.Enable.server_audit_incl_users "#AuroraMySQL.Auditing.Enable.server_audit_incl_users")
+[server\_audit\_incl\_users](#AuroraMySQL.Auditing.Enable.server_audit_incl_users "#AuroraMySQL.Auditing.Enable.server_audit_incl_users")
 and
-[server_audit_excl_users](#AuroraMySQL.Auditing.Enable.server_audit_excl_users "#AuroraMySQL.Auditing.Enable.server_audit_excl_users").
+[server\_audit\_excl\_users](#AuroraMySQL.Auditing.Enable.server_audit_excl_users "#AuroraMySQL.Auditing.Enable.server_audit_excl_users").
 
 Configure Advanced Auditing by setting these parameters in the parameter group used by
 your DB cluster. You can use the procedure shown in
@@ -49,12 +49,12 @@ is required.
 
 ###### Topics
 
-- [server_audit_logging](#AuroraMySQL.Auditing.Enable.server_audit_logging "#AuroraMySQL.Auditing.Enable.server_audit_logging")
-- [server_audit_events](#AuroraMySQL.Auditing.Enable.server_audit_events "#AuroraMySQL.Auditing.Enable.server_audit_events")
-- [server_audit_incl_users](#AuroraMySQL.Auditing.Enable.server_audit_incl_users "#AuroraMySQL.Auditing.Enable.server_audit_incl_users")
-- [server_audit_excl_users](#AuroraMySQL.Auditing.Enable.server_audit_excl_users "#AuroraMySQL.Auditing.Enable.server_audit_excl_users")
+- [server\_audit\_logging](#AuroraMySQL.Auditing.Enable.server_audit_logging "#AuroraMySQL.Auditing.Enable.server_audit_logging")
+- [server\_audit\_events](#AuroraMySQL.Auditing.Enable.server_audit_events "#AuroraMySQL.Auditing.Enable.server_audit_events")
+- [server\_audit\_incl\_users](#AuroraMySQL.Auditing.Enable.server_audit_incl_users "#AuroraMySQL.Auditing.Enable.server_audit_incl_users")
+- [server\_audit\_excl\_users](#AuroraMySQL.Auditing.Enable.server_audit_excl_users "#AuroraMySQL.Auditing.Enable.server_audit_excl_users")
 
-### server_audit_logging
+### server\_audit\_logging
 
 Enables or disables Advanced Auditing. This parameter defaults to OFF; set it to
 ON to enable Advanced Auditing.
@@ -68,7 +68,7 @@ for that instance have names of the form
 To see the names of the log files, follow the procedure in
 [Viewing and listing database log files](USER_LogAccess.Procedural.Viewing.md "USER_LogAccess.Procedural.Viewing.md").
 
-### server_audit_events
+### server\_audit\_events
 
 Contains the comma-delimited list of events to log. Events must be specified in
 all caps, and there should be no white space between the list elements, for example:
@@ -91,11 +91,11 @@ you can use the more specific kinds of events. You can also use the CloudWatch
 interface to search in the logs for events related to specific databases,
 tables, or users.
 
-- QUERY_DCL – Similar to the QUERY event, but returns only data
+- QUERY\_DCL – Similar to the QUERY event, but returns only data
   control language (DCL) queries (GRANT, REVOKE, and so on).
-- QUERY_DDL – Similar to the QUERY event, but returns only data
+- QUERY\_DDL – Similar to the QUERY event, but returns only data
   definition language (DDL) queries (CREATE, ALTER, and so on).
-- QUERY_DML – Similar to the QUERY event, but returns only data
+- QUERY\_DML – Similar to the QUERY event, but returns only data
   manipulation language (DML) queries (INSERT, UPDATE, and so on, and also
   SELECT).
 - TABLE – Logs the tables that were affected by query
@@ -107,11 +107,11 @@ There's no filter in Aurora that excludes certain queries from audit logs. To
 exclude `SELECT` queries, you must exclude all DML statements.
 
 If a certain user is reporting these internal `SELECT` queries in
-the audit logs, then you can exclude that user by setting the [server_audit_excl_users](#AuroraMySQL.Auditing.Enable.server_audit_excl_users "#AuroraMySQL.Auditing.Enable.server_audit_excl_users") DB cluster parameter. However, if that user
+the audit logs, then you can exclude that user by setting the [server\_audit\_excl\_users](#AuroraMySQL.Auditing.Enable.server_audit_excl_users "#AuroraMySQL.Auditing.Enable.server_audit_excl_users") DB cluster parameter. However, if that user
 is also used in other activities and can't be omitted, then there is no other
 option for excluding `SELECT` queries.
 
-### server_audit_incl_users
+### server\_audit\_incl\_users
 
 Contains the comma-delimited list of user names for users whose activity is logged. There should be no white space between
 the list elements, for example: `user_3,user_4`. This parameter defaults to an empty string. The maximum length
@@ -138,7 +138,7 @@ logged if specified. A user is logged even if that user is also specified in the
 `server_audit_excl_users` parameter, because
 `server_audit_incl_users` has higher priority.
 
-### server_audit_excl_users
+### server\_audit\_excl\_users
 
 Contains the comma-delimited list of user names for users whose activity isn't logged. There should be no white space
 between the list elements, for example: `rdsadmin,user_1,user_2`. This parameter defaults to an empty string. The

@@ -48,15 +48,15 @@ test_slot2 |            | 1         | 0          |  1        | 100.00%  | 2022-0
 ```
 
 The `last_reset_timestamp` values have been shortened for readability.
-For more information about this function, see [aurora_stat_logical_wal_cache](aurora_stat_logical_wal_cache.md "aurora_stat_logical_wal_cache.md").
+For more information about this function, see [aurora\_stat\_logical\_wal\_cache](aurora_stat_logical_wal_cache.md "aurora_stat_logical_wal_cache.md").
 
 Aurora PostgreSQL provides the following two functions for monitoring the
 write-through cache.
 
 - The `aurora_stat_logical_wal_cache` function – For
-  reference documentation, see [aurora_stat_logical_wal_cache](aurora_stat_logical_wal_cache.md "aurora_stat_logical_wal_cache.md").
+  reference documentation, see [aurora\_stat\_logical\_wal\_cache](aurora_stat_logical_wal_cache.md "aurora_stat_logical_wal_cache.md").
 - The `aurora_stat_reset_wal_cache` function – For
-  reference documentation, see [aurora_stat_reset_wal_cache](aurora_stat_reset_wal_cache.md "aurora_stat_reset_wal_cache.md").
+  reference documentation, see [aurora\_stat\_reset\_wal\_cache](aurora_stat_reset_wal_cache.md "aurora_stat_reset_wal_cache.md").
 
 If you find that the automatically adjusted WAL cache size isn't sufficient
 for your workloads, you can change the the value of the

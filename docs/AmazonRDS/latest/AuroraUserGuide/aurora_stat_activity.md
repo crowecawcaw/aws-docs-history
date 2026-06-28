@@ -1,4 +1,4 @@
-# aurora_stat_activity
+# aurora\_stat\_activity
 
 Returns one row per server process, showing information related to the current
 activity of that process.
@@ -27,14 +27,14 @@ with an additional `plan_id` column which shows the current query
 execution plan.
 
 `aurora_compute_plan_id` must be enabled for the view to return a
-plan_id.
+plan\_id.
 
 This function is available from Aurora PostgreSQL versions 14.10, 15.5, and for all
 other later versions.
 
 ## Examples
 
-The example query below aggregates the top load by query_id and plan_id.
+The example query below aggregates the top load by query\_id and plan\_id.
 
 ```
 `db1=# select count(*), query_id, plan_id
@@ -51,8 +51,8 @@ db1-# order by 1 desc;`
 
 ```
 
-If the plan used for query_id changes, a new plan_id will be reported by
-aurora_stat_activity.
+If the plan used for query\_id changes, a new plan\_id will be reported by
+aurora\_stat\_activity.
 
 ```
 

@@ -1,4 +1,4 @@
-# aurora_stat_plans
+# aurora\_stat\_plans
 
 Returns a row for every tracked execution plan.
 
@@ -21,14 +21,14 @@ Returns a row for each tracked plan that contains all the columns from
 `aurora_stat_statements` and the following additional columns.
 
 - planid – plan identifier
-- explain_plan – explain plan text
-- plan_type:
+- explain\_plan – explain plan text
+- plan\_type:
 
   - `no plan` - no plan was captured
   - `estimate` - plan captured with estimated costs
   - `actual` - plan captured with EXPLAIN ANALYZE
 
-- plan_captured_time – last time a plan was captured
+- plan\_captured\_time – last time a plan was captured
 
 ## Usage notes
 

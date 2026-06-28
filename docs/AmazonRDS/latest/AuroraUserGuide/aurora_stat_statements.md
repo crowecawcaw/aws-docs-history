@@ -1,4 +1,4 @@
-# aurora_stat_statements
+# aurora\_stat\_statements
 
 Displays all `pg_stat_statements` columns and adds more columns in the end.
 
@@ -28,15 +28,15 @@ You can reset stats for this function using
 - `storage_blk_read_time` – If
   `track_io_timing` is enabled, it tracks the total time the
   statement spent reading shared blocks from aurora storage, in milliseconds,
-  otherwise the value is zero. For more information, see [track_io_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
+  otherwise the value is zero. For more information, see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
 - `local_blk_read_time` – If `track_io_timing`
   is enabled, it tracks the total time the statement spent reading local
   blocks, in milliseconds, otherwise the value is zero. For more information,
-  see [track_io_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
+  see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
 - `orcache_blk_read_time` – If
   `track_io_timing` is enabled, it tracks the total time the
   statement spent reading shared blocks from optimized reads cache, in
-  milliseconds, otherwise the value is zero. For more information, see [track_io_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
+  milliseconds, otherwise the value is zero. For more information, see [track\_io\_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING "https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING").
 - `total_plan_peakmem` – Total sum of peak memory values
   during planning phase for all calls to this statement. To see the average
   peak memory during planning for the statement, divide this value by the
@@ -62,7 +62,7 @@ You can reset stats for this function using
 
 ## Usage notes
 
-To use the aurora_stat_statements() function, you must include
+To use the aurora\_stat\_statements() function, you must include
 `pg_stat_statements` extension in the
 `shared_preload_libraries` parameter.
 
@@ -79,7 +79,7 @@ The columns showing peak memory are available from the following versions:
 
 ## Examples
 
-The following example shows how it carries all the pg_stat_statements columns and
+The following example shows how it carries all the pg\_stat\_statements columns and
 append 11 new columns in the end:
 
 ```

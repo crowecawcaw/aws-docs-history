@@ -1,6 +1,6 @@
 # Troubleshooting Aurora zero-ETL integrations
 
-You can check the state of a zero-ETL integration by querying the [SVV_INTEGRATION](../../../redshift/latest/dg/r_SVV_INTEGRATION.md "../../../redshift/latest/dg/r_SVV_INTEGRATION.md") system table in the
+You can check the state of a zero-ETL integration by querying the [SVV\_INTEGRATION](../../../redshift/latest/dg/r_SVV_INTEGRATION.md "../../../redshift/latest/dg/r_SVV_INTEGRATION.md") system table in the
 analytics destination. If the `state` column has a value of
 `ErrorState`, it means something's wrong. For more information, see [Monitoring integrations using system tables for Amazon Redshift](zero-etl.describingmonitoring.md#zero-etl.monitoring "zero-etl.describingmonitoring.md#zero-etl.monitoring").
 
@@ -86,7 +86,7 @@ the following resources:
 ## One or more of my Amazon Redshift tables requires a resync
 
 Running certain commands on your source database might require your tables to be
-resynchronized. In these cases, the [SVV_INTEGRATION_TABLE_STATE](../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md "../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md") system view shows a
+resynchronized. In these cases, the [SVV\_INTEGRATION\_TABLE\_STATE](../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md "../../../redshift/latest/dg/r_SVV_INTEGRATION_TABLE_STATE.md") system view shows a
 `table_state` of `ResyncRequired`, which means that the
 integration must completely reload data for that specific table from MySQL to
 Amazon Redshift.

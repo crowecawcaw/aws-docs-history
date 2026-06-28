@@ -74,12 +74,12 @@ The following image shows an example of a production DB cluster.
 The following image shows an example of a blue/green deployment of the production environment from step 1.
 While creating the blue/green deployment, RDS copies the complete topology and configuration of the
 Aurora DB cluster to create the green environment. The names of the copied DB cluster and DB instances are appended
-with `-green-`random-characters``. The staging environment in 
- the image contains the DB cluster (auroradb-green-`_abc123_`).
- It also contains the three DB instances in the DB cluster 
- (auroradb-instance1-green-`_abc123_`, 
- auroradb-instance2-green-`_abc123_`, and 
- auroradb-instance3-green-`_abc123_`).
+with `-green-`random-characters``. The staging environment in
+the image contains the DB cluster (auroradb-green-`*abc123*`).
+It also contains the three DB instances in the DB cluster
+(auroradb-instance1-green-`*abc123*`,
+auroradb-instance2-green-`*abc123*`, and
+auroradb-instance3-green-`*abc123*`).
 
 ![Blue-green deployment for Amazon Aurora.](images/blue-green-deployment-aurora.png)
 
@@ -128,9 +128,9 @@ assigned to the newly switched over production environment, requiring no changes
 application. As a result, your production traffic now flows to the new production
 environment. The DB cluster and DB instances in the blue environment are renamed by appending
 `-old`n`to the current name, where
-`n``is a number. For example, assume the name of
- the DB instance in the blue environment is`auroradb-instance-1`. After switchover,
- the DB instance name might be `auroradb-instance-1-old1`.
+`n`` is a number. For example, assume the name of
+the DB instance in the blue environment is `auroradb-instance-1`. After switchover,
+the DB instance name might be `auroradb-instance-1-old1`.
 
 In the example in the image, the following changes occur during switchover:
 
@@ -152,7 +152,7 @@ In the example in the image, the following changes occur during switchover:
      `auroradb-instance3-old1`.
 
 6. If you no longer need a blue/green deployment, you can delete it. For instructions, see
-   [Deleting a blue/green deployment in Amazon Aurora](blue-green-deployments-deleting.md "blue-green-deployments-deleting.md").
+[Deleting a blue/green deployment in Amazon Aurora](blue-green-deployments-deleting.md "blue-green-deployments-deleting.md").
 
 After switchover, the previous production environment isn't deleted so that you can use it for regression
 testing, if necessary.

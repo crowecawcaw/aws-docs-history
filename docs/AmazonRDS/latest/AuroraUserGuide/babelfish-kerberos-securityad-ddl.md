@@ -66,7 +66,7 @@ corp\accounts-group 24162 sch_acc
 
 Try creating object without specifying schema explicitly using AD user user1.
 Table t2 will be created in default schema of [corp\accounts-group] Windows
-group user Owner of this object will be same as owner of schema sch_acc.
+group user Owner of this object will be same as owner of schema sch\_acc.
 
 ```
 

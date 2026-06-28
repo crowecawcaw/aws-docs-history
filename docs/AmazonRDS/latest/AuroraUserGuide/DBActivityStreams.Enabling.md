@@ -67,8 +67,8 @@ AWS CLI command.
 - `--resource-arn `arn`` – Specifies the Amazon Resource Name (ARN) of
   the DB cluster.
 - `--mode `sync-or-async`` – Specifies either
-synchronous (`sync`) or asynchronous (`async`) mode. For Aurora PostgreSQL, you can choose either value. For Aurora MySQL,
-specify `async`.
+  synchronous (`sync`) or asynchronous (`async`) mode. For Aurora PostgreSQL, you can choose either value. For Aurora MySQL,
+  specify `async`.
 - `--kms-key-id `key`` – Specifies the KMS key identifier for encrypting messages in the database
   activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS key.
 

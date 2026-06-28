@@ -52,4 +52,4 @@ running on your Aurora PostgreSQL DB cluster, and how to upgrade to a new versio
 
   - [Configuring Babelfish product version parameter](babelfish-guc-version.md#babelfish-guc-version-setvalues "babelfish-guc-version.md#babelfish-guc-version-setvalues")
   - [Affected queries and parameter](babelfish-guc-version.md#babelfish-guc-version-affects "babelfish-guc-version.md#babelfish-guc-version-affects")
-  - [Interface with babelfishpg_tsql.version parameter](babelfish-guc-version.md#babelfish-guc-version-tsql "babelfish-guc-version.md#babelfish-guc-version-tsql")
+  - [Interface with babelfishpg\_tsql.version parameter](babelfish-guc-version.md#babelfish-guc-version-tsql "babelfish-guc-version.md#babelfish-guc-version-tsql")

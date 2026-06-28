@@ -240,14 +240,14 @@ role for the feature.
 Using these functions depends on having the IAM setup for the Aurora machine learning service (Amazon Comprehend, SageMaker AI, Amazon Bedrock)
 complete, as detailed in [Setting up your Aurora PostgreSQL DB cluster to use Aurora machine learning](#postgresql-ml-setting-up "#postgresql-ml-setting-up").
 
-- aws_comprehend.detect_sentiment – You use this function
+- aws\_comprehend.detect\_sentiment – You use this function
   to apply sentiment analysis to text stored in in the database on your Aurora PostgreSQL DB cluster.
-- aws_sagemaker.invoke_endpoint – You use this function
+- aws\_sagemaker.invoke\_endpoint – You use this function
   in your SQL code to communicate with the SageMaker AI endpoint from your cluster.
-- aws_bedrock.invoke_model – You use this function in your SQL code to communicate with the
+- aws\_bedrock.invoke\_model – You use this function in your SQL code to communicate with the
   Bedrock Models from your cluster. The response of this function will be in the format of a TEXT, so if a model responds in the format of a
   JSON body then the output of this function will be relayed in the format of a string to the end user.
-- aws_bedrock.invoke_model_get_embeddings – You use this function in your SQL code to invoke
+- aws\_bedrock.invoke\_model\_get\_embeddings – You use this function in your SQL code to invoke
   Bedrock Models that return output embeddings within a JSON response. This can be leveraged when you want to extract the embeddings directly associated
   with the json-key to streamline the response with any self-managed workflows.
 
@@ -293,7 +293,7 @@ For Aurora PostgreSQL, Aurora machine learning provides the following Amazon Bed
 is available only after you install the `aws_ml` 2.0 extension and complete all setup procedures. For more information,
 see [Setting up your Aurora PostgreSQL DB cluster to use Aurora machine learning](#postgresql-ml-setting-up "#postgresql-ml-setting-up").
 
-**aws_bedrock.invoke_model**
+**aws\_bedrock.invoke\_model**
 
 This function takes text formatted in JSON as input and processes it for variety of models hosted on Amazon Bedrock and gets back the JSON text response from the model.
 This response could contain text, image, or embeddings. A summary of the function's documentation is as follows.
@@ -312,11 +312,11 @@ The inputs and outputs of this function are as follows.
 - `model_id` – Identifier of the model.
 - `content_type` – The type of the request to Bedrock’s model.
 - `accept_type` – The type of the response to expect from Bedrock’s model. Usually application/JSON for most of the models.
-- `model_input` – Prompts; a specific set of inputs to the model in the format as specified by content_type. For more information on the request
+- `model_input` – Prompts; a specific set of inputs to the model in the format as specified by content\_type. For more information on the request
   format/structure the model accepts, see [Inference parameters for foundation models](../../../bedrock/latest/userguide/model-parameters.md "../../../bedrock/latest/userguide/model-parameters.md").
 - `model_output` – The Bedrock model's output as text.
 
-The following example shows how to invoke a Anthropic Claude 2 model for Bedrock using invoke_model.
+The following example shows how to invoke a Anthropic Claude 2 model for Bedrock using invoke\_model.
 
 ###### Example: A simple query using Amazon Bedrock functions
 
@@ -330,10 +330,10 @@ SELECT aws_bedrock.invoke_model (
 );
 ```
 
-**aws_bedrock.invoke_model_get_embeddings**
+**aws\_bedrock.invoke\_model\_get\_embeddings**
 
-The model output can point to vector embeddings for some cases. Given the response varies per model, another function invoke_model_get_embeddings can be
-leveraged which works exactly like invoke_model but outputs the embeddings by specifying the appropriate json-key.
+The model output can point to vector embeddings for some cases. Given the response varies per model, another function invoke\_model\_get\_embeddings can be
+leveraged which works exactly like invoke\_model but outputs the embeddings by specifying the appropriate json-key.
 
 ```
 aws_bedrock.invoke_model_get_embeddings(
@@ -347,8 +347,8 @@ aws_bedrock.invoke_model_get_embeddings(
 The inputs and outputs of this function are as follows.
 
 - `model_id` – Identifier of the model.
-- `content_type` – The type of the request to Bedrock’s model. Here, the accept_type is set to default value `application/json`.
-- `model_input` – Prompts; a specific set of inputs to the Model in the format as specified by content_type. For more information on the request
+- `content_type` – The type of the request to Bedrock’s model. Here, the accept\_type is set to default value `application/json`.
+- `model_input` – Prompts; a specific set of inputs to the Model in the format as specified by content\_type. For more information on the request
   format/structure the Model accepts, see [Inference parameters for foundation models](../../../bedrock/latest/userguide/model-parameters.md "../../../bedrock/latest/userguide/model-parameters.md").
 - `json_key` – Reference to the field to extract the embedding from. This may vary if the embedding model changes.
 - `model_output` – The Bedrock model's output as an array of embeddings having 16 bit decimals.
@@ -371,7 +371,7 @@ For Aurora PostgreSQL, Aurora machine learning provides the following Amazon Com
 is available only after you install the `aws_ml` extension and complete all setup procedures. For more information,
 see [Setting up your Aurora PostgreSQL DB cluster to use Aurora machine learning](#postgresql-ml-setting-up "#postgresql-ml-setting-up").
 
-**aws_comprehend.detect_sentiment**
+**aws\_comprehend.detect\_sentiment**
 
 This function takes text as input and evaluates whether the text has a
 a positive, negative, neutral, or mixed emotional posture. It outputs this sentiment
@@ -469,7 +469,7 @@ that you provided during the setup process. SageMaker AI model endpoints are sco
 account ID from the authentication token that is supplied by the SageMaker AI IAM role of the
 database instance.
 
-**aws_sagemaker.invoke_endpoint**
+**aws\_sagemaker.invoke\_endpoint**
 This function takes the SageMaker AI endpoint as input and the number of rows that
 should be processed as a batch. It also takes as input the various parameters
 expected by the SageMaker AI model endpoint. This function's reference documentation is as follows.
@@ -741,7 +741,7 @@ migration in a session, use query plan management to save the resulting plan as 
 This enforcement occurs regardless of the `apg_enable_function_migration` GUC
 parameter setting. For more information, see [Managing query execution plans for Aurora PostgreSQL](AuroraPostgreSQL.Optimize.md "AuroraPostgreSQL.Optimize.md").
 
-#### Using the max_rows_per_batch parameter
+#### Using the max\_rows\_per\_batch parameter
 
 Both the `aws_comprehend.detect_sentiment` and the
 `aws_sagemaker.invoke_endpoint` functions have
@@ -929,9 +929,9 @@ SELECT pg_stat_reset();
 
 You can get the names of your SQL functions that call the `aws_sagemaker.invoke_endpoint`
 function by querying the PostgreSQL `pg_proc` system catalog. This catalog stores information
-about functions, procedures, and more. For more information, see [pg_proc](https://www.postgresql.org/docs/current/catalog-pg-proc.html "https://www.postgresql.org/docs/current/catalog-pg-proc.html") in the PostgreSQL
+about functions, procedures, and more. For more information, see [pg\_proc](https://www.postgresql.org/docs/current/catalog-pg-proc.html "https://www.postgresql.org/docs/current/catalog-pg-proc.html") in the PostgreSQL
 documentation. Following is an example of querying the table to get the names of functions (`proname`)
-whose source (`prosrc`) includes the text _invoke_endpoint_.
+whose source (`prosrc`) includes the text _invoke\_endpoint_.
 
 ```
 SELECT proname FROM pg_proc WHERE prosrc LIKE '%invoke_endpoint%';

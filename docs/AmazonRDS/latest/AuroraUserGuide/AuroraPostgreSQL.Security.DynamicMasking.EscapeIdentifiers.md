@@ -70,12 +70,12 @@ weight            | 100
 You can review all the `pg_columnmask` policy using the publicly accessible `pgcolumnmask.pg_columnmask_policies` administrative view.
 Following information is available using this view. The view only returns the masking policies owned by current user.
 
-| Column name       | Data type | Description                                                           |
-| ----------------- | --------- | --------------------------------------------------------------------- |
-| schemaname        | NAME      | Schema of the relation to which the policy is attached                |
-| tablename         | NAME      | Name of the relation to which the policy is attached                  |
-| policyname        | NAME      | Name of the masking policy, all masking policies have unique<br>names |
-| roles             | TEXT[]    | Role to which policy applies.                                         |
-| masked_columns    | TEXT[]    | Masked columns                                                        |
-| masking_functions | TEXT[]    | Masking functions                                                     |
-| weight            | INT       | Weight of the attached policy                                         |
+| Column name        | Data type | Description                                                           |
+| ------------------ | --------- | --------------------------------------------------------------------- |
+| schemaname         | NAME      | Schema of the relation to which the policy is attached                |
+| tablename          | NAME      | Name of the relation to which the policy is attached                  |
+| policyname         | NAME      | Name of the masking policy, all masking policies have unique<br>names |
+| roles              | TEXT[]    | Role to which policy applies.                                         |
+| masked\_columns    | TEXT[]    | Masked columns                                                        |
+| masking\_functions | TEXT[]    | Masking functions                                                     |
+| weight             | INT       | Weight of the attached policy                                         |

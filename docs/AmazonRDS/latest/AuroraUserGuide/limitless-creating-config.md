@@ -90,7 +90,7 @@ After you reset this variable, tables are created as standard tables, which is t
 
 You can find information about Limitless Database tables by using the following views.
 
-**rds_aurora.limitless_tables**
+**rds\_aurora.limitless\_tables**
 
 The `rds_aurora.limitless_tables` view contains information about limitless tables and their types.
 
@@ -106,7 +106,7 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_tables;
 (4 rows)
 ```
 
-**rds_aurora.limitless_table_collocations**
+**rds\_aurora.limitless\_table\_collocations**
 
 The `rds_aurora.limitless_table_collocations` view contains information about collocated sharded tables. For example,
 the `orders` and `customers` tables are collocated, and have the same `collocation_id`. The
@@ -124,7 +124,7 @@ postgres_limitless=> SELECT * FROM rds_aurora.limitless_table_collocations ORDER
 (4 rows)
 ```
 
-**rds_aurora.limitless_table_collocation_distributions**
+**rds\_aurora.limitless\_table\_collocation\_distributions**
 
 The `rds_aurora.limitless_table_collocation_distributions` shows the key distribution for each collocation.
 

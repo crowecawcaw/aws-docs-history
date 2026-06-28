@@ -1,4 +1,4 @@
-# sp_babelfish_volatility
+# sp\_babelfish\_volatility
 
 PostgreSQL function volatility helps the optimizer for a better query execution which when used in parts of certain clauses has a significant impact on query performance.
 
@@ -10,7 +10,7 @@ sp_babelfish_volatility ‘function_name’, ‘volatility’
 
 ## Arguments
 
-_function_name (optional)_
+_function\_name (optional)_
 
 You can either specify the value of this argument with a two-part name as `schema_name.function_name`or only the `function_name`.
 If you specify only the `function_name`, the schema name is the default schema for the current user.
@@ -73,7 +73,7 @@ The following example shows how to change the volatility of the functions:
 
 ```
 
-When you specify only the function_name, it displays the schema name, function name and volatility of that function.
+When you specify only the function\_name, it displays the schema name, function name and volatility of that function.
 The following example displays volatility of functions after changing the values:
 
 ```

@@ -485,7 +485,7 @@ is forwarded to the primary cluster and run there.
 
 Whether the transaction is forwarded to the primary cluster depends on the access mode of the transaction. You can specify the access mode for the
 transaction by using the `SET TRANSACTION` statement or the `START TRANSACTION` statement. You can also specify the transaction
-access mode by changing the value of the [transaction_read_only](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only") session variable. You can change this session value only while you're connected to a DB cluster that has write
+access mode by changing the value of the [transaction\_read\_only](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_read_only") session variable. You can change this session value only while you're connected to a DB cluster that has write
 forwarding enabled.
 
 If a long-running transaction doesn't issue any statement for a substantial period of time, it might

@@ -59,7 +59,7 @@ Sign in to the AWS Management Console and open the CloudWatch console at
 
 1. Navigate to **Logs**, then **Log groups**.
 2. Choose the **/aws/rds/aurora-limitless-database** log group.
-3. Search for the log stream of your data loading job by **job_id**.
+3. Search for the log stream of your data loading job by **job\_id**.
 
 The log stream has the pattern **Data-Load-Job-`job_id`**. 4. Choose the log stream to see the log events.
 
