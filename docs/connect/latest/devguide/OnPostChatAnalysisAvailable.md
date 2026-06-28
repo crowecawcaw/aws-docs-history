@@ -4,7 +4,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - Agent hierarchy ARNs.
 - ComparisonValue - "$.ContactLens.PostChat.Agent.HierarchyGroup.ARN"
 - Negate - false
@@ -13,13 +13,13 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
 
   - 'INBOUND'
   - 'OUTBOUND'
   - 'TRANSFER'
-  - 'QUEUE_TRANSFER'
+  - 'QUEUE\_TRANSFER'
   - 'CALLBACK'
   - 'API'
   - 'DISCONNECT'
@@ -31,33 +31,33 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
 
-  - 'TELECOM_BUSY'
-  - 'TELECOM_NUMBER_INVALID'
-  - 'TELECOM_POTENTIAL_BLOCKING'
-  - 'TELECOM_UNANSWERED'
-  - 'TELECOM_TIMEOUT'
-  - 'TELECOM_ORIGINATOR_CANCEL'
-  - 'TELECOM_PROBLEM'
-  - 'CUSTOMER_NEVER_ARRIVED'
-  - 'THIRD_PARTY_DISCONNECT'
-  - 'CUSTOMER_DISCONNECT'
-  - 'AGENT_DISCONNECT'
+  - 'TELECOM\_BUSY'
+  - 'TELECOM\_NUMBER\_INVALID'
+  - 'TELECOM\_POTENTIAL\_BLOCKING'
+  - 'TELECOM\_UNANSWERED'
+  - 'TELECOM\_TIMEOUT'
+  - 'TELECOM\_ORIGINATOR\_CANCEL'
+  - 'TELECOM\_PROBLEM'
+  - 'CUSTOMER\_NEVER\_ARRIVED'
+  - 'THIRD\_PARTY\_DISCONNECT'
+  - 'CUSTOMER\_DISCONNECT'
+  - 'AGENT\_DISCONNECT'
   - 'BARGED'
-  - 'CONTACT_FLOW_DISCONNECT'
+  - 'CONTACT\_FLOW\_DISCONNECT'
   - 'OTHER'
-  - 'OUTBOUND_DESTINATION_ENDPOINT_ERROR'
-  - 'OUTBOUND_RESOURCE_ERROR'
-  - 'OUTBOUND_ATTEMPT_FAILED'
+  - 'OUTBOUND\_DESTINATION\_ENDPOINT\_ERROR'
+  - 'OUTBOUND\_RESOURCE\_ERROR'
+  - 'OUTBOUND\_ATTEMPT\_FAILED'
   - 'EXPIRED'
-  - 'AGENT_NETWORK_DISCONNECT'
-  - 'CUSTOMER_CONNECTION_NOT_ESTABLISHED'
+  - 'AGENT\_NETWORK\_DISCONNECT'
+  - 'CUSTOMER\_CONNECTION\_NOT\_ESTABLISHED'
   - 'API'
-  - 'IDLE_DISCONNECT'
-  - 'SYSTEM_ERROR'
-  - 'AGENT_COMPLETED'
+  - 'IDLE\_DISCONNECT'
+  - 'SYSTEM\_ERROR'
+  - 'AGENT\_COMPLETED'
   - 'TRANSFERRED'
   - 'DISCARDED'
 
@@ -77,7 +77,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - Routing profile ARNs.
 - ComparisonValue - "$.ContactLens.PostChat.Agent.RoutingProfile"
 - Negate - false
@@ -86,7 +86,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY" where it is matched by a possible operand or "EQUALS" where the operand has to have no value.
+- Operator - "CONTAINS\_ANY" where it is matched by a possible operand or "EQUALS" where the operand has to have no value.
 - Operands - A validated enum of possible values or no value.
 - ComparisonValue - "$.ContactLens.PostChat.PotentialDisconnectIssue"
 - Negate - false
@@ -95,7 +95,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A list of segment attribute values. The values must be a value in the pre-defined attribute resource.
 - ComparisonValue - "$.ContactLens.PostChat.SegmentAttributes.UserDefined.[KEY]"
 
@@ -107,7 +107,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A list of strings. Strings are either a list of different UUIDs by themselves or a list of strings prefixed with the same UUID, with different possible version numbers uuid:2 and uuid:3. For example:
 
   - Different UUIDs by themselves: ['30682191-2312-4c27-9fc1-752e7a399d52', '2b81c7d5-85bc-459f-b605-0f5280a4301e']
@@ -141,7 +141,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of strings
 - ComparisonValue –
   "$.ContactLens.PostChat.ExactMatch.Transcript"
@@ -173,7 +173,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of strings
 - ComparisonValue –
   "$.ContactLens.PostChat.SemanticMatch.Transcript"
@@ -230,7 +230,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of pattern match objects. See [PatternMatch Operands](../adminguide/patternmatch-operands.md "../adminguide/patternmatch-operands.md").
 - ComparisonValue –
   "$.ContactLens.PostChat.PatternMatch.Transcript"
@@ -266,7 +266,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of agent IDs
 - ComparisonValue – "$.ContactLens.PostChat.Agent.AgentId"
 - Negate - false
@@ -275,7 +275,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of queue IDs.
 - ComparisonValue – "$.ContactLens.PostChat.Queue.QueueId"
 - Negate - false

@@ -4,7 +4,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - Agent hierarchy ARNs.
 - ComparisonValue - "$.ContactLens.Email.Agent.HierarchyGroup.ARN"
 - Negate - false
@@ -13,12 +13,12 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
 
   - 'INBOUND'
   - 'OUTBOUND'
-  - 'AGENT_REPLY'
+  - 'AGENT\_REPLY'
   - 'FLOW'
 
 - ComparisonValue - "$.ContactLens.Email.InitiationMethod"
@@ -28,11 +28,11 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
 
-  - 'AGENT_DISCONNECT'
-  - 'CONTACT_FLOW_DISCONNECT'
+  - 'AGENT\_DISCONNECT'
+  - 'CONTACT\_FLOW\_DISCONNECT'
   - 'EXPIRED'
   - 'DISCARDED'
   - 'OTHER'
@@ -55,7 +55,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - Routing profile ARNs.
 - ComparisonValue - "$.ContactLens.Email.Agent.RoutingProfile"
 - Negate - false
@@ -64,7 +64,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A list of segment attribute values. The values must be a value in the pre-defined attribute resource.
 - ComparisonValue - "$.ContactLens.Email.SegmentAttributes.UserDefined.[KEY]"
 
@@ -76,7 +76,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of agent IDs
 - ComparisonValue – "$.ContactLens.Email.Agent.AgentId"
 - Negate - false
@@ -85,7 +85,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of queue IDs.
 - ComparisonValue – "$.ContactLens.Email.Queue.QueueId"
 - Negate - false

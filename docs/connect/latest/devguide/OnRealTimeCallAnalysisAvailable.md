@@ -4,7 +4,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of strings
 - ComparisonValue –
   "$.ContactLens.RealTimeCall.ExactMatch.Transcript"
@@ -28,7 +28,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of pattern match objects. See [PatternMatch Operands](../adminguide/patternmatch-operands.md "../adminguide/patternmatch-operands.md").
 - ComparisonValue –
   "$.ContactLens.RealTimeCall.PatternMatch.Transcript"
@@ -56,7 +56,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of agent IDs
 - ComparisonValue – "$.ContactLens.RealTimeCall.Agent.AgentId"
 - Negate - false
@@ -65,7 +65,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of queue IDs
 - ComparisonValue – "$.ContactLens.RealTimeCall.Queue.QueueId"
 - Negate - true/false. If set to true, it means _If queue is

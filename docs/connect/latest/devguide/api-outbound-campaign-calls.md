@@ -40,8 +40,8 @@ Disconnect reasons can be grouped into the following 3 categories:
 
 - **Success**: A contact is successfully dialed
   out. Values: `CUSTOMER_DISCONNECT | AGENT_DISCONNECT |
-THIRD_PARTY_DISCONNECT | BARGED | CONTACT_FLOW_DISCONNECT |
-OTHER`
+ THIRD_PARTY_DISCONNECT | BARGED | CONTACT_FLOW_DISCONNECT |
+ OTHER`
 - **Expired**: This is expected behavior of the
   dialing algorithm. When the dialing algorithm determines insufficient dialing
   capacity (for example, because all agents are occupied or all telecom capacity
@@ -51,7 +51,7 @@ OTHER`
 - **Failed**: Outbound campaigns failed a dial
   attempt because there are specific systematic errors. Values:
   `OUTBOUND_DESTINATION_ENDPOINT_ERROR | OUTBOUND_RESOURCE_ERROR |
-OUTBOUND_ATTEMPT_FAILED | TELECOM_PROBLEM`
+ OUTBOUND_ATTEMPT_FAILED | TELECOM_PROBLEM`
 
 For a description of each of these values, see DisconnectReason in the [Contact
 records data model](../adminguide/ctr-data-model.md "../adminguide/ctr-data-model.md") topic in the _Connect Customer Administrator

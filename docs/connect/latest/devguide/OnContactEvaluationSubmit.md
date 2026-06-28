@@ -4,7 +4,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - Agent hierarchy ARNs.
 - ComparisonValue - "$.ContactLens.ContactEvaluation.Agent.HierarchyGroup.ARN"
 - Negate - false
@@ -13,13 +13,13 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
 
   - 'INBOUND'
   - 'OUTBOUND'
   - 'TRANSFER'
-  - 'QUEUE_TRANSFER'
+  - 'QUEUE\_TRANSFER'
   - 'CALLBACK'
   - 'API'
   - 'DISCONNECT'
@@ -31,33 +31,33 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
 
-  - 'TELECOM_BUSY'
-  - 'TELECOM_NUMBER_INVALID'
-  - 'TELECOM_POTENTIAL_BLOCKING'
-  - 'TELECOM_UNANSWERED'
-  - 'TELECOM_TIMEOUT'
-  - 'TELECOM_ORIGINATOR_CANCEL'
-  - 'TELECOM_PROBLEM'
-  - 'CUSTOMER_NEVER_ARRIVED'
-  - 'THIRD_PARTY_DISCONNECT'
-  - 'CUSTOMER_DISCONNECT'
-  - 'AGENT_DISCONNECT'
+  - 'TELECOM\_BUSY'
+  - 'TELECOM\_NUMBER\_INVALID'
+  - 'TELECOM\_POTENTIAL\_BLOCKING'
+  - 'TELECOM\_UNANSWERED'
+  - 'TELECOM\_TIMEOUT'
+  - 'TELECOM\_ORIGINATOR\_CANCEL'
+  - 'TELECOM\_PROBLEM'
+  - 'CUSTOMER\_NEVER\_ARRIVED'
+  - 'THIRD\_PARTY\_DISCONNECT'
+  - 'CUSTOMER\_DISCONNECT'
+  - 'AGENT\_DISCONNECT'
   - 'BARGED'
-  - 'CONTACT_FLOW_DISCONNECT'
+  - 'CONTACT\_FLOW\_DISCONNECT'
   - 'OTHER'
-  - 'OUTBOUND_DESTINATION_ENDPOINT_ERROR'
-  - 'OUTBOUND_RESOURCE_ERROR'
-  - 'OUTBOUND_ATTEMPT_FAILED'
+  - 'OUTBOUND\_DESTINATION\_ENDPOINT\_ERROR'
+  - 'OUTBOUND\_RESOURCE\_ERROR'
+  - 'OUTBOUND\_ATTEMPT\_FAILED'
   - 'EXPIRED'
-  - 'AGENT_NETWORK_DISCONNECT'
-  - 'CUSTOMER_CONNECTION_NOT_ESTABLISHED'
+  - 'AGENT\_NETWORK\_DISCONNECT'
+  - 'CUSTOMER\_CONNECTION\_NOT\_ESTABLISHED'
   - 'API'
-  - 'IDLE_DISCONNECT'
-  - 'SYSTEM_ERROR'
-  - 'AGENT_COMPLETED'
+  - 'IDLE\_DISCONNECT'
+  - 'SYSTEM\_ERROR'
+  - 'AGENT\_COMPLETED'
   - 'TRANSFERRED'
   - 'DISCARDED'
 
@@ -68,7 +68,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - Routing profile ARNs.
 - ComparisonValue - "$.ContactLens.ContactEvaluation.Agent.RoutingProfile"
 - Negate - false
@@ -77,7 +77,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY" or "EQUALS"
+- Operator - "CONTAINS\_ANY" or "EQUALS"
 - Operands - A validated enum of possible values.
 - ComparisonValue - "$.ContactLens.ContactEvaluation.PotentialDisconnectIssue"
 - Negate - false
@@ -86,7 +86,7 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands - A list of segment attribute values. The values must be a value in the pre-defined attribute resource.
 - ComparisonValue - "$.ContactLens.ContactEvaluation.SegmentAttributes.UserDefined.[KEY]"
 
@@ -297,7 +297,7 @@ Following is an example for single select question type.
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of agent IDs.
 - ComparisonValue –
   "$.ContactLens.ContactEvaluation.Agent.AgentId"

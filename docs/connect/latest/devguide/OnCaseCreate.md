@@ -4,9 +4,9 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of queue ids
-- ComparisonValue – "$.Case.Fields.assigned_queue"
+- ComparisonValue – "$.Case.Fields.assigned\_queue"
 - Negate - false
 
 ```
@@ -23,9 +23,9 @@
 
 ###### Parameters
 
-- Operator - "CONTAINS_ANY"
+- Operator - "CONTAINS\_ANY"
 - Operands – A list of queue ids
-- ComparisonValue – "$.Case.Fields.assigned_user"
+- ComparisonValue – "$.Case.Fields.assigned\_user"
 - Negate - false
 
 ```
@@ -47,7 +47,7 @@
 
 1.  The value is a case reason.
 
-- ComparisonValue – "$.Case.Fields.case_reason"
+- ComparisonValue – "$.Case.Fields.case\_reason"
 - Negate - true/false
 
 ```
@@ -113,7 +113,7 @@
 
 1.  The value is interpreted as a numeric value.
 
-- ComparisonValue – "$.Case.Fields.last_closed_datetime"
+- ComparisonValue – "$.Case.Fields.last\_closed\_datetime"
 - Negate - false
 
 ```
@@ -135,7 +135,7 @@
 
 1.  The value is interpreted as a numeric value.
 
-- ComparisonValue – "$.Case.Fields.last_updated_datetime"
+- ComparisonValue – "$.Case.Fields.last\_updated\_datetime"
 - Negate - false
 
 ```
@@ -157,7 +157,7 @@
 
 1.  The value is interpreted as a numeric value.
 
-- ComparisonValue – "$.Case.Fields.created_datetime"
+- ComparisonValue – "$.Case.Fields.created\_datetime"
 - Negate - true/false
 
 ```
@@ -179,7 +179,7 @@
 
 1.  The value is interpreted as a numeric value.
 
-- ComparisonValue – "$.Case.Fields.reference_number"
+- ComparisonValue – "$.Case.Fields.reference\_number"
 - Negate - true
 
 ```
@@ -201,7 +201,7 @@
 
 1.
 
-- ComparisonValue – "$.Case.Fields.custom_case_field_id"
+- ComparisonValue – "$.Case.Fields.custom\_case\_field\_id"
 - Negate - true/false
 
 ```
@@ -218,7 +218,7 @@
 
 ###### Parameters
 
-- Operator - “CONTAINS_ANY”
+- Operator - “CONTAINS\_ANY”
 - Operands – A list of template ids.
 - ComparisonValue – "$.Case.TemplateId"
 - Negate - true/false

@@ -8,7 +8,7 @@ There are several restrictions on parameters. Here's what they mean:
 
 If JSONPath is used, it must be the entirety of the value; you can't specify
 an input of "My name is $.Name". Further, the JSONPath must be valid -
-$.Attributes.stuff is okay, $.BadValue is not okay because there's no "BadValue"
+ $.Attributes.stuff is okay, $.BadValue is not okay because there's no "BadValue"
 path on the object used by flows.
 
 - May be defined statically or dynamically. Anything goes. A value of "My name

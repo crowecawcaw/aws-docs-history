@@ -4,7 +4,7 @@
 
 ###### Parameters
 
-- Operator - “CONTAINS_ANY”
+- Operator - “CONTAINS\_ANY”
 - Operands – A list of SLA names.
 - ComparisonValue – "$.RelatedItem.SlaConfiguration.Name"
 - Negate - false
