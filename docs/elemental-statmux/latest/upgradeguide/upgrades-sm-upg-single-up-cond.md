@@ -10,34 +10,30 @@ following section describes upgrading to 2.20.x.
 
 These steps must be performed on the AWS Elemental Statmux hardware unit.
 
-1.  From a Linux prompt, log in with the _elemental_ user credentials. Once
-    you're logged in, the initial directory is `/home/elemental`.
-2.  Run the installer with the skip-all option:
+1. From a Linux prompt, log in with the _elemental_ user credentials. Once
+   you're logged in, the initial directory is `/home/elemental`.
+2. Run the installer with the skip-all option:
 
-        * For GPU and CPU versions of the software.
+   - For GPU and CPU versions of the software.
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_production\_statmux\_2.20.n.nnnnn.run --skip-all --start**
+   ```
+   - For CPU-only versions of the software.
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_production\_statmux\_cpu\_2.20.n.nnnnn.run --skip-all --start**
+   ```
 
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_production\_statmux\_2.20.n.nnnnn.run --skip-all --start**
-        ```
-        * For CPU-only versions of the software.
+The installer automatically stops the software, if it's still running. The following
+prompts are skipped:
 
+    * You are not prompted to change the network setup (eth0 and eth1) or the
+     Ethernet partitioning (setup of eth0 as a management interface).
+    * You are not prompted to choose the time zone.
+    * You are not prompted to enable or disable user authentication.
 
-
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_production\_statmux\_cpu\_2.20.n.nnnnn.run --skip-all --start**
-        ```
-
-    The installer automatically stops the software, if it's still running. The following
-    prompts are skipped:
-
-        * You are not prompted to change the network setup (eth0 and eth1) or the
-         Ethernet partitioning (setup of eth0 as a management interface).
-        * You are not prompted to choose the time zone.
-        * You are not prompted to enable or disable user authentication.
-
-    You _are_ prompted to accept the EULA (end user license agreement).
+You _are_ prompted to accept the EULA (end user license agreement).
 
 The new software is installed and all services except `elemental_se` are
 automatically be restarted. 3. Once installation is complete, you might be prompted to reboot.
@@ -63,7 +59,7 @@ for this message on the command line:
 Starting elemental_se: [ OK ]
 ```
 
-4. If you're not prompted to reboot, you are prompted to start elemental_se:
+4. If you're not prompted to reboot, you are prompted to start elemental\_se:
 
 ```
 Would you like to start the Elemental service now? [Y]

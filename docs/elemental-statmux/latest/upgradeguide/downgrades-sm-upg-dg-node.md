@@ -58,7 +58,7 @@ Switches are as follows:
     ```
 
 5. When the installer completes, **do not** reboot or
-   restart! Run these two commands first:
+restart! Run these two commands first:
 
 ```
 [elemental@hostname ~]$ **sudo yum versionlock delete device-mapper\***
