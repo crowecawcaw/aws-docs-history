@@ -252,7 +252,8 @@ following steps:
      **Sound** dialog box, choose the **Playback** tab.
    - For macOS, choose the **Apple menu** >
      **System Preferences** > **Sound**
-     > **Output**.
+
+   > **Output**.
    - For iPad, open the **Control Center** and tap the **AirPlay**
 
    ![Airplay button on the control center page](images/ipad-airplay-icon.png)

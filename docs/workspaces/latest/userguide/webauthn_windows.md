@@ -13,24 +13,22 @@ Your WorkSpaces administrator can enable and disable WebAuthn. Your browser will
 
 ###### To install the browser extension manually (optional)
 
-1.  Sign into your WorkSpace.
-2.  In your browser, open one of the following links, depending on the browser you're using:
+1. Sign into your WorkSpace.
+2. In your browser, open one of the following links, depending on the browser you're using:
 
-    - For **Microsoft Edge**:
-      https://microsoftedge.microsoft.com/addons/detail/dcv-webauthn-redirection-/ihejeaahjpbegmaaegiikmlphghlfmeh
-    - For **Google Chrome**:
-      https://chromewebstore.google.com/detail/dcv-webauthn-redirection/mmiioagbgnbojdbcjoddlefhmcocfpmn?pli=1
+   - For **Microsoft Edge**:
+     https://microsoftedge.microsoft.com/addons/detail/dcv-webauthn-redirection-/ihejeaahjpbegmaaegiikmlphghlfmeh
+   - For **Google Chrome**:
+     https://chromewebstore.google.com/detail/dcv-webauthn-redirection/mmiioagbgnbojdbcjoddlefhmcocfpmn?pli=1
 
-3.  Install the extension by choosing:
+3. Install the extension by choosing:
 
-        * **Get** (for Microsoft Edge)
-        * **Add to Chrome** (for Google Chrome).
+   - **Get** (for Microsoft Edge)
+   - **Add to Chrome** (for Google Chrome).
 
-
-        Then choose **Add extension**.
-
-    Once the installation is complete, you'll see a confirmation message saying that you've
-    successfully added the extension.
+   Then choose **Add extension**.
+   Once the installation is complete, you'll see a confirmation message saying that you've
+   successfully added the extension.
 
 ## Enhanced WebAuthn
 

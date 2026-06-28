@@ -83,10 +83,10 @@ following:
 2. Choose **Displays**.
 3. Do one of the following to adjust the display scaling, depending on your display type:
 
-| If you're using...  | Do this                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------- |
-| A built-in display  | On the **Display\*<br>• tab, under **Resolution**,<br>choose **Scaled**, and then choose **Default\*\*. |
-| An external display | On the **Display\*<br>• tab, choose **Default for display\*\*.                                          |
+| If you're using...  | Do this                                                                                              |
+| ------------------- | ---------------------------------------------------------------------------------------------------- |
+| A built-in display  | On the *_Display_<br>• tab, under **Resolution**,<br>choose **Scaled**, and then choose **Default**. |
+| An external display | On the *_Display_<br>• tab, choose **Default for display**.                                          |
 
 If the images and text in your WorkSpace are smaller than you prefer, you will also need
 to adjust the display scale settings on your Windows or Linux WorkSpace.

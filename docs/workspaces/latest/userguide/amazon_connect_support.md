@@ -5,7 +5,13 @@ can use Connect Customer audio optimization.
 
 To use Connect Customer audio optimization with your WorkSpace:
 
-- You must have the WorkSpaces Windows client version 4.0.6 or later installed.
+- You must have a supported WorkSpaces client installed:
+
+  - Windows client version 5.33.0 or later
+  - macOS client version 5.31.0 or later
+  - Linux client version 2026.0 or later on Ubuntu 22 and Ubuntu 24 (x86\_64)
+  - Web client (Chrome and Edge)
+
 - You must have a web browser installed onto the WorkSpaces client endpoint that's
   supported by Connect Customer. For the list of supported browsers, see [Browsers supported by Amazon Connect](../../../connect/latest/adminguide/browsers.md "../../../connect/latest/adminguide/browsers.md").
 
@@ -20,11 +26,12 @@ If you do not have a supported web browser, you will be asked to install a suppo
 ###### Log in to your WorkSpace and Connect Customer Contact Control Panel (CCP)
 
 After your administrator has enabled Connect Customer Contact Control Panel (CCP) audio
-optimization, log in to your WorkSpace and the CCP Panel.
+optimization, log in to your WorkSpace and the CCP.
 
 1. Open the WorkSpaces client and log in to your WorkSpace.
-2. A web browser will open locally, displaying your CCP login page.
-3. Log in to your CCP in the local browser window. When you have logged in,
+2. A web browser opens locally and displays your CCP login page. Log in to
+   CCP in your WorkSpace to control the call.
+3. Log in to your CCP in the local device browser window to enable audio optimization. After you log in,
    CCP audio optimization is enabled.
 4. Switch back to your WorkSpaces window, but keep the local browser window running in
    the background.
