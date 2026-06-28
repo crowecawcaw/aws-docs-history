@@ -117,11 +117,11 @@ def lambda_grader(samples: list[dict]) -> list[dict]:
 
 ### Output fields
 
-| Field                  | Description                                 | Additional notes                            |
-| ---------------------- | ------------------------------------------- | ------------------------------------------- |
-| id                     | Same identifier as input sample             | Must match input                            |
-| aggregate_reward_score | Overall score for the sample                | Float (e.g., 0.0–1.0 or task-defined range) |
-| metrics_list           | Component scores that make up the aggregate | Array of metric objects                     |
+| Field                    | Description                                 | Additional notes                            |
+| ------------------------ | ------------------------------------------- | ------------------------------------------- |
+| id                       | Same identifier as input sample             | Must match input                            |
+| aggregate\_reward\_score | Overall score for the sample                | Float (e.g., 0.0–1.0 or task-defined range) |
+| metrics\_list            | Component scores that make up the aggregate | Array of metric objects                     |
 
 ## Technical constraints
 
@@ -208,7 +208,7 @@ This Lambda function implements a two-stage evaluation process: the `lambda_hand
 - **Deterministic Scoring**: Uses temperature=0.0 to ensure consistent scores across evaluations
 - **Flexible Reference Format**: Automatically handles both string and dictionary reference answers
 - **Score Clamping**: Ensures all scores fall within valid [0.0, 1.0] range
-- **Model Agnostic**: Change JUDGE_MODEL_ID to use any Amazon Bedrock model (Nova, Llama, Mistral, etc.)
+- **Model Agnostic**: Change JUDGE\_MODEL\_ID to use any Amazon Bedrock model (Nova, Llama, Mistral, etc.)
 
 ```
 """

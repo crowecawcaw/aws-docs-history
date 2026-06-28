@@ -16,7 +16,7 @@ history:
 
 A conversation history can be included only once, after the system/speech
 prompt and before audio streaming begins. Overall chat history cannot be larger
-than 40KB. The following diagram shows when chat history is passed in during the
+than 200KB. The following diagram shows when chat history is passed in during the
 event lifecycle:
 
 ![Chat history sent from client to Bedrock, placed between system prompt and audio streaming.](images/Sending-Chat-History_4.png)
@@ -47,9 +47,9 @@ Each historical message requires three events: `contentStart`,
 ```
 
 - `textInput` - Contains the actual message content. One
-  textInput cannot be larger than 1KB. If so, split into multiple
+  textInput cannot be larger than 50KB. If so, split into multiple
   textInputs in the same content block. If the conversation is larger than
-  40KB, trim the overall chat history.
+  200KB, trim the overall chat history.
 
 ```
 {

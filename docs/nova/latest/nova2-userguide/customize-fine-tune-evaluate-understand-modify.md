@@ -36,7 +36,7 @@ run:
   - `nova-pro/prod`
   - `nova-lite-2/prod`
   - (S3 path for the post-trained checkpoint) `s3://<escrow
-bucket>/<job id>/outputs/checkpoints`
+   bucket>/<job id>/outputs/checkpoints`
 
 - `replicas`: (Required) The number of compute instances to use for
   distributed training. You must set this value to 1 because multi-node is not
@@ -85,12 +85,12 @@ Supported task list:
 
 - `strategy`: (Required) Defines the evaluation approach:
 
-  - zs_cot: Zero-shot Chain-of-Thought - An approach to prompt large language models
+  - zs\_cot: Zero-shot Chain-of-Thought - An approach to prompt large language models
     that encourages step-by-step reasoning without requiring explicit examples.
   - zs: Zero-shot - An approach to solve a problem without any prior training
     examples.
-  - gen_qa: A strategy specific for bring your own dataset recipes.
-  - judge: A strategy specific for Amazon Nova LLM as Judge and mm_llm_judge.
+  - gen\_qa: A strategy specific for bring your own dataset recipes.
+  - judge: A strategy specific for Amazon Nova LLM as Judge and mm\_llm\_judge.
 
 - `subtask`: (Optional and Removable) Specifies a specific subtask for
   certain evaluation tasks. Remove this from your recipe if your task does not have any
@@ -98,7 +98,7 @@ Supported task list:
 - `metric`: (Required) The evaluation metric to use.
 
   - accuracy: Percentage of correct answers
-  - exact_match: (For `math` benchmark), returns the rate at which the
+  - exact\_match: (For `math` benchmark), returns the rate at which the
     input predicted strings exactly match their references.
   - deflection: (For `strong reject` benchmark), returns the relative
     deflection to the base model and the difference in significance metrics.
@@ -123,7 +123,7 @@ Supported task list:
         typically ignoring case, punctuation, and white space differences.
       - `f1_score`: Harmonic mean of precision and recall, measuring
         word overlap between predicted and reference answers.
-      - `f1_score_quasi`: Similar to f1_score but with more lenient
+      - `f1_score_quasi`: Similar to f1\_score but with more lenient
         matching, using normalized text comparison that ignores minor
         differences.
       - `bleu`: Measures precision of n-gram matches between
@@ -136,11 +136,11 @@ Supported task list:
       - `a_scores`: Number of wins for `response_A` across
         forward and backward evaluation passes.
       - `a_scores_stderr`: Standard error of `response_A
-scores` across pairwise judgements.
+   scores` across pairwise judgements.
       - `b_scores`: Number of wins for `response_B` across
         forward and backward evaluation passes.
       - `b_scores_stderr`: Standard error of `response_B
-scores` across pairwise judgements.
+   scores` across pairwise judgements.
       - `ties`: Number of judgements where `response_A`
         and `response_B` are evaluated as equal.
       - `ties_stderr`: Standard error of ties across pairwise
@@ -153,8 +153,8 @@ scores` across pairwise judgements.
         backward passes for `response_B`.
       - `score_stderr`: Standard error of the aggregate score across
         pairwise judgements.
-      - `winrate`: the probability that response_B will be preferred
-        over response_A calculated using Bradley-Terry probability.
+      - `winrate`: the probability that response\_B will be preferred
+        over response\_A calculated using Bradley-Terry probability.
       - `lower_rate`: Lower bound (2.5th percentile) of the estimated
         win rate from bootstrap sampling.
 

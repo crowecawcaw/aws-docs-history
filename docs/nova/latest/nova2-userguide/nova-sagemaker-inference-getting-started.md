@@ -166,7 +166,7 @@ For more information about SageMaker execution roles, see [SageMaker Roles](../.
 
 ## Step 3: Configure model parameters
 
-Configure the deployment parameters for your Amazon Nova model. These settings control model behavior, resource allocation, and inference characteristics. For a list of supported instance types and supported CONTEXT_LENGTH and MAX_CONCURRENCY values for each, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported "nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported"). For a complete list of additional container features such as sampling defaults, speculative decoding, and quantization, see [Inference Container Features](nova-sagemaker-inference-container-features.md "nova-sagemaker-inference-container-features.md").
+Configure the deployment parameters for your Amazon Nova model. These settings control model behavior, resource allocation, and inference characteristics. For a list of supported instance types and supported CONTEXT\_LENGTH and MAX\_CONCURRENCY values for each, see [Supported models and instances](nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported "nova-model-sagemaker-inference.md#nova-sagemaker-inference-supported"). For a complete list of additional container features such as sampling defaults, speculative decoding, and quantization, see [Inference Container Features](nova-sagemaker-inference-container-features.md "nova-sagemaker-inference-container-features.md").
 
 **Required parameters**
 

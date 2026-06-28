@@ -64,7 +64,7 @@ Each example is a JSON object containing:
 
 - `messages`: Array of conversational turns with `system` and
   `user` roles
-- Optional other metadata, e.g. reference_answer
+- Optional other metadata, e.g. reference\_answer
 
 ###### Data format example
 
@@ -141,9 +141,9 @@ Two preset reward functions (`prime_code` and `prime_math`) are available as a L
 
 These preset functions provide out-of-the-box evaluation capabilities for:
 
-- **prime_code**: Code generation and correctness
+- **prime\_code**: Code generation and correctness
   evaluation
-- **prime_math**: Mathematical reasoning and
+- **prime\_math**: Mathematical reasoning and
   problem-solving evaluation
 
 ###### Quick setup
@@ -173,7 +173,7 @@ from prime_code import compute_score  # For code evaluation
 from prime_math import compute_score  # For math evaluation
 ```
 
-###### prime_code function
+###### prime\_code function
 
 **Purpose**: Evaluates Python code generation tasks by
 executing code against test cases and measuring correctness.
@@ -193,7 +193,7 @@ executing code against test cases and measuring correctness.
 - Syntax validation and compilation checks
 - Detailed error reporting with tracebacks
 
-###### prime_math function
+###### prime\_math function
 
 **Purpose**: Evaluates mathematical reasoning and
 problem-solving capabilities with symbolic math support.

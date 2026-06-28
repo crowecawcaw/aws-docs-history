@@ -159,7 +159,7 @@ The model decides whether to call a tool and how many tools to call
 ## Call a tool
 
 When Amazon Nova decides to call a tool, it returns a tool use block as part of the
-assistant message with stopReason set to "tool_use". The tool block contains the tool
+assistant message with stopReason set to "tool\_use". The tool block contains the tool
 name and its inputs.
 
 ###### Note
@@ -387,7 +387,7 @@ schema:
 
 Web grounding enables Amazon Nova to access real-time information from the internet,
 providing up-to-date responses and reducing hallucinations. Enable by specifying the
-nova_grounding system tool:
+nova\_grounding system tool:
 
 ```
 tool_config = {

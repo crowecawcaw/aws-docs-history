@@ -935,8 +935,8 @@ If a benchmark fails due to dependency conflicts with pre-installed packages, cr
 If evaluation scores are unexpectedly low or inconsistent, check the following settings in your recipe:
 
 - **temperature** — Set to `0.0` for deterministic, reproducible results
-- **max_tokens** — Ensure the value is large enough for the model to complete its response
-- **completion_mode** — For base (non-chat) models, set `completion_mode: true` in your recipe to use completion-style prompting instead of chat format
+- **max\_tokens** — Ensure the value is large enough for the model to complete its response
+- **completion\_mode** — For base (non-chat) models, set `completion_mode: true` in your recipe to use completion-style prompting instead of chat format
 
 ## Data privacy
 

@@ -55,15 +55,15 @@ responses are difficult to define upfront:
 Amazon Nova 2.0 supports reasoning mode during RFT training. The following modes are
 available:
 
-- **none**: No reasoning (omit the reasoning_effort
+- **none**: No reasoning (omit the reasoning\_effort
   field)
 - **low**: Minimal reasoning overhead
 - **high**: Maximum reasoning capability (default when
-  reasoning_effort is specified)
+  reasoning\_effort is specified)
 
 ###### Note
 
-There is no medium option for RFT. If the reasoning_effort field is absent from your
+There is no medium option for RFT. If the reasoning\_effort field is absent from your
 configuration, reasoning is disabled.
 
 Use high reasoning for the following:
@@ -72,7 +72,7 @@ Use high reasoning for the following:
 - Mathematical problem-solving
 - Multi-step logical deduction
 - Tasks where step-by-step thinking adds value
-  Use none (omit reasoning_effort) or low reasoning for the following:
+  Use none (omit reasoning\_effort) or low reasoning for the following:
 
 - Simple factual queries
 - Direct classifications

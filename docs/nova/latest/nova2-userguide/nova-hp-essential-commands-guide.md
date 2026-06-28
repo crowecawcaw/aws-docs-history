@@ -85,7 +85,7 @@ environment](https://docs.python.org/3/library/venv.html "https://docs.python.or
 
 - `python -m venv nova_forge`
 - `source nova_forge/bin/activate`
-- Your command line will now display (nova_forge) at the beginning of your prompt
+- Your command line will now display (nova\_forge) at the beginning of your prompt
 - This ensures there are no competing dependencies when using the CLI
 
 **Purpose**: Why do we do `pip install -e .`
@@ -221,7 +221,7 @@ search for your cluster name. For example, if your cluster were called
   - `i-00b3d8a1bf25714e4` here represents the Hyperpodfriendly machine
     name where your training job is running. Recall how in the previous command
     `kubectl get pods -o wide -w -n kubeflow | (head -n1 ; grep
-my-cpt-run)` output we captured a column called **NODE**.
+   my-cpt-run)` output we captured a column called **NODE**.
   - The "master" node run was in this case running on
     hyperpod-`i-00b3d8a1bf25714e4` and thus we'll use that string to select
     the log group to view. Select the one that says
@@ -412,7 +412,7 @@ export PYTHONPATH=<path_to_hyperpod_cli>/sagemaker-hyperpod-cli/src/hyperpod_cli
 ```
 
 - `FileNotFoundError: [Errno 2] No such file or directory:
-'/tmp/hyperpod_current_context.json'` indicates you missed running the hyperpod
+ '/tmp/hyperpod_current_context.json'` indicates you missed running the hyperpod
   connect cluster command.
 - If you don't see your job scheduled, double check if the output of your
   SageMaker HyperPod CLI has this section with job names and other metadata. If not,

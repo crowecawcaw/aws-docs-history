@@ -279,9 +279,9 @@ Summary of Categories and Info Labels:
 
 #### Parameter Guide
 
-- **dataset_catalog:** Use `cpt_text_lite` to read curated data from FSx (default), or `cpt_text_lite_s3` to stream curated data from Amazon S3 and reduce storage costs. For more information, see [Reduce storage costs by streaming training data from Amazon S3](#nova-forge-cpt-s3-catalog "#nova-forge-cpt-s3-catalog").
-- **nova_data:** Percentage of the individual categories of Nova data when mixed in. They should add up to 1.0.
-- **customer_data**: the percentage of customer's data mixed into the Nova data.
+- **dataset\_catalog:** Use `cpt_text_lite` to read curated data from FSx (default), or `cpt_text_lite_s3` to stream curated data from Amazon S3 and reduce storage costs. For more information, see [Reduce storage costs by streaming training data from Amazon S3](#nova-forge-cpt-s3-catalog "#nova-forge-cpt-s3-catalog").
+- **nova\_data:** Percentage of the individual categories of Nova data when mixed in. They should add up to 1.0.
+- **customer\_data**: the percentage of customer's data mixed into the Nova data.
 
 The total number of tokens used in training can be calculated from `max_length` \* `global_batch_size` \* `max_steps`
 

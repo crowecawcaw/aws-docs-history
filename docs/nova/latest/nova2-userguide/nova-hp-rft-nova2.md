@@ -20,7 +20,7 @@ Each training example is a JSON object containing the following:
 
 - **messages**: An array of conversational turns using
   system, user, and optionally assistant roles
-- **reference_answer**: Expected output or evaluation
+- **reference\_answer**: Expected output or evaluation
   criteria for reward calculation
 - **tools** (optional): Array of function definitions
   available to the model
@@ -56,7 +56,7 @@ ground truth values:
 
 ###### Note
 
-The reference_answer contains ground truth values calculated using
+The reference\_answer contains ground truth values calculated using
 domain-specific rules. Your reward function compares the model's predicted values
 against these reference values to calculate a reward score.
 
@@ -135,11 +135,11 @@ The following example shows tool usage with expected behavior:
 | messages[].role    | Who is speaking in the message                                   | Common values: "system", "user" (sometimes "assistant" in other<br>contexts)                             | No       |
 | messages[].content | The text content of the message                                  | Plain string. For system it's instructions, for user it's the task or<br>input.                          | No       |
 | tools              | Tool specifications available to the model during this example   | Array. Each item defines a tool's interface and metadata. Types may include<br>"function" or "internal". | No       |
-| reference_answer   | The expected model output for this example                       | String or object depending on task. Used as target for evaluation or<br>training.                        | No       |
+| reference\_answer  | The expected model output for this example                       | String or object depending on task. Used as target for evaluation or<br>training.                        | No       |
 
 ###### Note
 
-Any additional custom fields (for example, task_id, difficulty_level, context_data)
+Any additional custom fields (for example, task\_id, difficulty\_level, context\_data)
 are not validated and will be passed to your reward function as metadata.
 
 ## Hyperparameter guidance
@@ -175,17 +175,17 @@ You can include the following types of additional fields:
 
 **Metadata:**
 
-- task_id: Unique identifier for tracking
-- difficulty_level: Problem complexity indicator
+- task\_id: Unique identifier for tracking
+- difficulty\_level: Problem complexity indicator
 - domain: Subject area or category
-- expected_reasoning_steps: Number of steps in solution
+- expected\_reasoning\_steps: Number of steps in solution
 
 **Evaluation criteria:**
 
-- evaluation_criteria: Specific grading rubrics
-- custom_scoring_weights: Relative importance of different aspects
-- context_data: Background information for the problem
-- external_references: Links to relevant documentation or resources
+- evaluation\_criteria: Specific grading rubrics
+- custom\_scoring\_weights: Relative importance of different aspects
+- context\_data: Background information for the problem
+- external\_references: Links to relevant documentation or resources
 
 ### Example with additional properties
 

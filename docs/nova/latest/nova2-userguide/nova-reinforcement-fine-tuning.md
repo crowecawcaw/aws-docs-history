@@ -316,13 +316,13 @@ This is particularly valuable for tasks where traditional reward functions are d
 
 **Available modes**
 
-- none – No reasoning (omit the reasoning_effort field)
+- none – No reasoning (omit the reasoning\_effort field)
 - low – Minimal reasoning overhead
-- high – Maximum reasoning capability (default when reasoning_effort is specified)
+- high – Maximum reasoning capability (default when reasoning\_effort is specified)
 
 ###### Note
 
-There is no medium option for RFT. If the reasoning_effort field is absent from your configuration, reasoning is disabled. When reasoning is enabled, you should set `max_new_tokens` to 32768 to accommodate extended reasoning outputs.
+There is no medium option for RFT. If the reasoning\_effort field is absent from your configuration, reasoning is disabled. When reasoning is enabled, you should set `max_new_tokens` to 32768 to accommodate extended reasoning outputs.
 
 **When to use each mode**
 
@@ -333,7 +333,7 @@ Use high reasoning for:
 - Multi-step logical deduction
 - Tasks where step-by-step thinking adds value
 
-Use none (omit reasoning_effort) or low reasoning for:
+Use none (omit reasoning\_effort) or low reasoning for:
 
 - Simple factual queries
 - Direct classifications
@@ -540,12 +540,12 @@ Adaptive curriculum is supported for `max_prompt_length` up to 32,768 tokens (32
 
 The following settings keep adaptive curriculum usable and cost-effective on long-context datasets. Apply them together; they address different components of screening cost.
 
-| Typical `max_prompt_length`   | Recommended adaptive curriculum settings                                                                                                                                                                                          |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Up to 8K tokens               | Use defaults: `selection_pool_multiplier: 8`, `selection_lookahead_steps: 4`. Screening overhead is small and does not need tuning.                                                                                               |
-| Over 8K and up to 16K tokens  | Set `selection_lookahead_steps: 2`. This halves the number of predictor passes per step while keeping enough pre-approved prompts in the queue to avoid rollout starvation.                                                       |
-| Over 16K and up to 24K tokens | Keep `selection_lookahead_steps: 2` \*and<br>• lower `selection_pool_multiplier` to `4`. The smaller pool halves the predictor batch size at some cost to selection quality; together these keep per-step screening time bounded. |
-| Over 24K and up to 32K tokens | Use `selection_pool_multiplier: 4` with `selection_lookahead_steps: 1`. The predictor runs once per training step on a minimum-sized pool. This is the most aggressive supported setting; going beyond 32K is not supported.      |
+| Typical `max_prompt_length`   | Recommended adaptive curriculum settings                                                                                                                                                                                         |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Up to 8K tokens               | Use defaults: `selection_pool_multiplier: 8`, `selection_lookahead_steps: 4`. Screening overhead is small and does not need tuning.                                                                                              |
+| Over 8K and up to 16K tokens  | Set `selection_lookahead_steps: 2`. This halves the number of predictor passes per step while keeping enough pre-approved prompts in the queue to avoid rollout starvation.                                                      |
+| Over 16K and up to 24K tokens | Keep `selection_lookahead_steps: 2` *and<br>• lower `selection_pool_multiplier` to `4`. The smaller pool halves the predictor batch size at some cost to selection quality; together these keep per-step screening time bounded. |
+| Over 24K and up to 32K tokens | Use `selection_pool_multiplier: 4` with `selection_lookahead_steps: 1`. The predictor runs once per training step on a minimum-sized pool. This is the most aggressive supported setting; going beyond 32K is not supported.     |
 
 Example configuration tuned for a long-context dataset (around 24K–32K token prompts):
 

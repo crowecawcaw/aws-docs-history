@@ -133,7 +133,7 @@ from prime_code import compute_score  # For code evaluation
 from prime_math import compute_score  # For math evaluation
 ```
 
-### prime_code function
+### prime\_code function
 
 Evaluates Python code generation tasks by executing code against test cases and measuring correctness.
 
@@ -152,7 +152,7 @@ Evaluates Python code generation tasks by executing code against test cases and 
 - Syntax validation and compilation checks
 - Detailed error reporting with tracebacks
 
-### prime_math function
+### prime\_math function
 
 Evaluates mathematical reasoning and problem-solving capabilities with symbolic math support.
 
@@ -338,22 +338,21 @@ If your Lambda function accesses other AWS services (e.g., S3 for reference data
 
 ## Executing the evaluation job
 
-1.  **Prepare your data** – Format your evaluation data according to the data format requirements and upload your JSONL file to S3: `s3://your-bucket/eval-data/eval_data.jsonl`
-2.  **Configure your recipe** – Update the sample recipe with your configuration:
+1. **Prepare your data** – Format your evaluation data according to the data format requirements and upload your JSONL file to S3: `s3://your-bucket/eval-data/eval_data.jsonl`
+2. **Configure your recipe** – Update the sample recipe with your configuration:
 
-        * Set `model_name_or_path` to your model location
-        * Set `lambda_arn` to your reward function ARN
-        * Set `output_s3_path` to your desired output location
-        * Adjust `inference` parameters as needed
+   - Set `model_name_or_path` to your model location
+   - Set `lambda_arn` to your reward function ARN
+   - Set `output_s3_path` to your desired output location
+   - Adjust `inference` parameters as needed
+     Save the recipe as `rft_eval_recipe.yaml`
 
-    Save the recipe as `rft_eval_recipe.yaml`
+3. **Run the evaluation** – Execute the evaluation job using the provided notebook: [Evaluation notebooks](../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-notebook "../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-notebook")
+4. **Monitor progress** – Monitor your evaluation job through:
 
-3.  **Run the evaluation** – Execute the evaluation job using the provided notebook: [Evaluation notebooks](../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-notebook "../../../sagemaker/latest/dg/nova-model-evaluation.md#nova-model-evaluation-notebook")
-4.  **Monitor progress** – Monitor your evaluation job through:
-
-    - SageMaker Console: Check job status and logs
-    - CloudWatch Logs: View detailed execution logs
-    - Lambda Logs: Debug reward function issues
+   - SageMaker Console: Check job status and logs
+   - CloudWatch Logs: View detailed execution logs
+   - Lambda Logs: Debug reward function issues
 
 ## Understanding evaluation results
 

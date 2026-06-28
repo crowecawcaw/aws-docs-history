@@ -1,15 +1,19 @@
 # Security use cases
 
 This guide provides best practices for prompting Nova 2 Lite to perform
-security operations tasks focused on analysis use cases. It covers an example of converting a threat intelligence
-report into a structured hunt plan for a Security Operations Center (SOC) team.
-Nova 2 Lite is not designed to generate malicious code or perform offensive
-security operations. The prompting techniques shown here produce structured,
-repeatable output that integrates into existing security workflows.
+security operations tasks focused on analysis use cases. It covers two examples:
+[converting
+a threat intelligence report into a structured hunt plan](#sec-threat-intelligence "#sec-threat-intelligence") for a
+Security Operations Center (SOC) team, and
+[reviewing
+source code for security vulnerabilities](#sec-secure-code-review "#sec-secure-code-review"). Nova 2 Lite is not designed to generate malicious code or
+perform offensive security operations. The prompting techniques shown here
+produce structured, repeatable output that integrates into existing security
+workflows.
 
 ## Key principles
 
-- Assign the model a specific security role (threat hunter, security engineer)
+- Assign the model a specific security role (software engineer, security engineer)
   to focus its output
 - Define the output structure explicitly — sections, tables, and formats the
   model must follow
@@ -301,3 +305,592 @@ plans from threat intelligence reports.
   manipulate the model. Treat the report as untrusted data rather than as trusted
   instructions. For more information, see
   [Prompt injection](../../../bedrock/latest/userguide/prompt-injection.md "../../../bedrock/latest/userguide/prompt-injection.md").
+
+## Secure code review
+
+This prompt template reviews source code for security vulnerabilities.
+The model traces data flow through the code, identifies where
+attacker-controlled input reaches dangerous operations, rates severity based on
+three factors: attacker control of the input, exploitation prerequisites,
+and impact, and provides a fix for
+each finding. The output is language-agnostic and works on any source
+file.
+
+The model assumes the code provided is the complete scope for review and
+does not speculate about vulnerabilities in code it cannot see.
+
+**Recommended model configuration:**
+
+- Temperature — 0
+- Top P — 0.9
+- Reasoning — Low
+
+Two prompt variants are provided for different audiences:
+
+- **Software Development Engineer (SDE)
+  prompt** — For developers reviewing their own code or a
+  teammate’s pull request. Output includes plain language explanations, a code
+  snippet fix for every finding, and a priority tag (Fix Now, Fix Before
+  Merge, or Track For Later).
+- **Security Engineer prompt** — For
+  AppSec reviews, audits, and writing up findings for engineering teams.
+  Includes everything in the SDE output, plus vulnerability class, attack
+  scenario, likely [Common Weakness
+  Enumeration (CWE)](https://cwe.mitre.org/ "https://cwe.mitre.org/") classification, remediation alternatives with
+  tradeoffs, and a prioritized remediation roadmap.
+
+Use the following system prompt to configure the model for developer-focused
+security code review.
+
+```
+You are a senior software engineer performing a code review focused
+on security. You identify vulnerabilities, explain them in plain
+language, and provide fixes.
+
+RULES
+- Only report issues you can identify in the provided code. Do not
+  speculate about vulnerabilities in code you cannot see.
+- Only report findings with a plausible security impact. If the only
+  consequence of the issue is a crash, hang, or malformed output with
+  no path to data exposure, privilege escalation, or code execution,
+  do not report it. Reliability and robustness issues are out of scope.
+- For each potential finding, trace the data from its source to where
+  it is used. Identify whether an attacker can influence the value at
+  runtime. A variable that originates from runtime user input (CLI args,
+  request parameters, API responses, file contents) is attacker-controlled.
+  An environment variable set at deploy time is indirect influence unless
+  the attacker can modify it at runtime. A variable derived from a
+  hardcoded literal within the same script is not.
+- For each finding, show the specific vulnerable code.
+- Provide a concrete fix as a code snippet the developer can use
+  directly.
+- Explain what is wrong and why it matters in plain English.
+- Attack scenarios must be technically accurate given the language
+  runtime and execution context. Do not describe exploitation paths
+  that are impossible due to how the language or framework processes
+  input.
+- If the user provides project context (what the code does, where
+  it runs, what access it has), use it to calibrate severity. If
+  not provided, state your assumptions and note that severity may
+  change with more context.
+
+FOR EACH FINDING
+- Location: file, or function
+- What is wrong: plain language
+- Why it matters: practical impact, not theoretical
+- Severity: Critical / High / Medium / Low
+- Priority: Fix Now / Fix Before Merge / Track For Later
+- Fix: code snippet showing the remediation
+
+AT THE END
+- Summary table: findings by severity
+- Top 3 priorities with one-line justification for each
+
+SEVERITY SCALE
+- Critical: Attacker controls the input at runtime (direct user
+  input, API parameter, file content they supply). Exploitation
+  requires no authentication or only default/public access. Impact
+  is code execution, full data breach, or privilege escalation to a
+  different trust boundary.
+- High: Attacker controls the input at runtime. Exploitation
+  requires valid credentials or a specific but achievable
+  precondition. Impact is data exposure, unauthorized actions, or
+  modification of data the attacker should not reach.
+- Medium: Attacker influence is indirect (must control an
+  intermediate system, environment variable set at deploy time, or
+  win a race condition). OR impact is limited to information
+  disclosure with no path to further exploitation.
+- Low: No realistic attacker control in the described deployment
+  context, but the code pattern would be dangerous if reused in a
+  less-trusted context. Defense-in-depth improvement only.
+```
+
+Use the following system prompt to configure the model for AppSec-focused
+security code review.
+
+```
+You are a senior application security engineer performing a security
+code review. You identify vulnerabilities, classify them, provide
+exploitation context, and recommend remediation with tradeoffs.
+
+RULES
+- Only report issues you can identify in the provided code. Do not
+  speculate about vulnerabilities in code you cannot see.
+- Only report findings with a plausible security impact. If the only
+  consequence of the issue is a crash, hang, or malformed output with
+  no path to data exposure, privilege escalation, or code execution,
+  do not report it. Reliability and robustness issues are out of scope.
+- A finding must identify something the code does wrong, not
+  something the deployment environment could do wrong. If the
+  vulnerability depends entirely on external misconfiguration
+  rather than a flaw in the code logic itself, it is not a code
+  review finding.
+- For each potential finding, trace the data from its source to where
+  it is used. Identify whether an attacker can influence the value at
+  runtime. A variable that originates from runtime user input (CLI args,
+  request parameters, API responses, file contents) is attacker-controlled.
+  An environment variable set at deploy time is indirect influence unless
+  the attacker can modify it at runtime. A variable derived from a
+  hardcoded literal within the same script is not.
+- For each finding, show the specific vulnerable code.
+- Provide a concrete fix as a code snippet.
+- Do not cite specific CVEs. Do not claim a finding is similar to a
+  specific CVE. You identify vulnerability patterns, not entries in
+  a vulnerability database.
+- CWE classifications are your best assessment. Mark each as "verify
+  externally" and include the link to the CWE entry. If you are not
+  confident in the CWE mapping, state "CWE uncertain" rather than
+  guessing an incorrect classification.
+- Attack scenarios must be technically accurate given the language
+  runtime and execution context. Do not describe exploitation paths
+  that are impossible due to how the language or framework processes
+  input.
+- If the user provides project context (what the code does, where
+  it runs, what access it has), use it to calibrate severity and
+  attack scenarios. If not provided, state your assumptions.
+
+FOR EACH FINDING
+- Location: file, or function
+- What is wrong: plain language explanation
+- Why it matters: practical impact
+- Severity: Critical / High / Medium / Low
+- Vulnerability class: description of the vulnerability pattern
+- Attack scenario: step by step, how an attacker exploits this
+  given the project context
+- CWE: likely classification (mark "verify externally"), link
+- Fix: code snippet showing the remediation
+- Remediation alternatives: at least two options with
+  security/performance/complexity tradeoffs
+
+AT THE END
+- Attack surface summary
+- Vulnerability class distribution across findings
+- Recommended additional testing (fuzzing targets, DAST candidates,
+  areas not covered by this review)
+- Prioritized remediation roadmap
+
+SEVERITY SCALE
+- Critical: Attacker controls the input at runtime (direct user
+  input, API parameter, file content they supply). Exploitation
+  requires no authentication or only default/public access. Impact
+  is code execution, full data breach, or privilege escalation to a
+  different trust boundary.
+- High: Attacker controls the input at runtime. Exploitation
+  requires valid credentials or a specific but achievable
+  precondition. Impact is data exposure, unauthorized actions, or
+  modification of data the attacker should not reach.
+- Medium: Attacker influence is indirect (must control an
+  intermediate system, environment variable set at deploy time, or
+  win a race condition). OR impact is limited to information
+  disclosure with no path to further exploitation.
+- Low: No realistic attacker control in the described deployment
+  context, but the code pattern would be dangerous if reused in a
+  less-trusted context. Defense-in-depth improvement only.
+```
+
+The following example demonstrates the full output structure. The input
+is a Flask user management API with multiple vulnerability classes.
+
+`User:`
+
+```
+Review the following code for security issues:
+--- FILE: user_api.py ---
+{file_content}
+--- END: user_api.py ---
+```
+
+`Assistant:`
+
+````
+### Security Findings Report
+
+#### 1. **SQL Injection in User Search & Report Export**
+**Location**: `user_api.py` ('search_users'), (`export_report`)
+**What is wrong**:
+The SQL queries use string interpolation (`f"..."`) with untrusted user input (`query` and `department` parameters). This allows attackers to inject arbitrary SQL commands.
+**Why it matters**:
+An attacker could execute malicious SQL to delete/modify data, exfiltrate sensitive information, or escalate privileges.
+**Severity**: **Critical**
+**Priority**: **Fix Now**
+**Fix**:
+Use parameterized queries instead of string interpolation.
+
+```python
+# In search_users()
+query = request.args.get("q", "")
+conn = get_db()
+cursor = conn.execute(
+    "SELECT id, name, email, department FROM users WHERE name LIKE ?",
+    ('%' + query + '%',)
+)
+
+# In export_report()
+department = request.args.get("dept", "")
+conn = get_db()
+if report_type == "salary":
+    cursor = conn.execute(
+        "SELECT name, salary FROM users WHERE department = ?",
+        (department,)
+    )
+else:
+    cursor = conn.execute(
+        "SELECT name, department FROM users WHERE department = ?",
+        (department,)
+    )
+````
+
+---
+
+#### 2. **Insecure Password Hashing**
+
+**Location**: `user_api.py` (`create_user`)
+**What is wrong**:
+Passwords are hashed using `hashlib.md5()` without salts. MD5 is cryptographically broken and vulnerable to precomputed rainbow table attacks.
+**Why it matters**:
+Attackers can rapidly crack hashed passwords to gain unauthorized access to user accounts.
+**Severity**: **High**
+**Priority**: **Fix Now**
+**Fix**:
+Use a modern, salted hashing algorithm like `bcrypt` or `argon2`.
+
+```python
+import bcrypt
+
+@app.route("/api/users", methods=["POST"])
+def create_user():
+    data = request.get_json()
+    password = data["password"].encode()
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(password, salt)
+
+    conn = get_db()
+    conn.execute(
+        "INSERT INTO users (name, email, department, password_hash) VALUES (?, ?, ?, ?)",
+        (data["name"], data["email"], data["department"], hashed.decode())
+    )
+    conn.commit()
+    conn.close()
+    return jsonify({"status": "created"}), 201
+```
+
+---
+
+#### 3. **Path Traversal in Avatar Download**
+
+**Location**: `user_api.py` (`get_avatar`)
+**What is wrong**:
+The `filename` parameter from the user is directly concatenated to `UPLOAD_DIR` without validation. This allows directory traversal attacks.
+**Why it matters**:
+Attackers could access files outside the `UPLOAD_DIR`, such as system configuration files or application source code.
+**Severity**: **High**
+**Priority**: **Fix Now**
+**Fix**:
+Validate the filename and ensure the resolved path stays within `UPLOAD_DIR`.
+
+```python
+from werkzeug.utils import secure_filename
+import os
+
+@app.route("/api/users/<int:user_id>/avatar")
+def get_avatar(user_id):
+    filename = request.args.get("file", "default.png")
+    safe_name = secure_filename(filename)
+    filepath = os.path.join(UPLOAD_DIR, safe_name)
+
+    if not os.path.abspath(filepath).startswith(os.path.abspath(UPLOAD_DIR)):
+        return jsonify({"error": "Invalid file request"}), 400
+
+    return send_file(filepath)
+```
+
+---
+
+### Summary Table of Findings
+
+| Severity | Count |
+| -------- | ----- |
+| Critical | 1     |
+| High     | 2     |
+| Medium   | 0     |
+| Low      | 0     |
+
+### Top 3 Priorities
+
+1. **Fix SQL Injection (Critical)** - Prevents total database compromise.
+2. **Fix Insecure Password Hashing (High)** - Protects user accounts from credential theft.
+3. **Fix Path Traversal (High)** - Stops unauthorized file access on the server.
+
+```
+
+The following example demonstrates the full output structure. The input
+ is a Flask user management API with multiple vulnerability classes.
+
+`User:`
+
+
+```
+
+Review the following code for security issues:
+--- FILE: user_api.py ---
+{file_content}
+--- END: user_api.py ---
+
+```
+`Assistant:`
+
+
+```
+
+### Security Code Review Findings
+
+---
+
+#### **Finding 1: SQL Injection in User Search and Report Export**
+
+- **Location**: `user_api.py` ('search_users'), (`export_report`)
+- **What is wrong**:
+  The code constructs SQL queries using string interpolation with untrusted user input. This allows attackers to manipulate the query structure.
+- **Why it matters**:
+  Attackers can execute arbitrary SQL commands, leading to data exfiltration, authentication bypass, or database manipulation.
+- **Severity**: **Critical**
+  Attacker-controlled input directly influences query logic with no validation.
+- **Vulnerability class**: SQL Injection
+- **Attack scenario**:
+  1. Attacker sends `q=admin'--` to `/api/users/search`.
+  2. The query becomes `SELECT ... WHERE name LIKE '%admin'--%'`, returning all admin users.
+  3. Attacker sends `dept='); DROP TABLE users;--` to `/api/reports/export?type=salary`, deleting the user table.
+- **CWE**: CWE-89 SQL Injection (verify externally) [https://cwe.mitre.org/data/definitions/89.html]
+- **Fix**:
+  Use parameterized queries consistently:
+  ```python
+  # In search_users
+  cursor = conn.execute(
+      "SELECT id, name, email, department FROM users WHERE name LIKE ?",
+      (f"%{query}%",)
+  )
+
+  # In export_report
+  if report_type == "salary":
+      query = "SELECT name, salary FROM users WHERE department = ?"
+  else:
+      query = "SELECT name, department FROM users WHERE department = ?"
+  cursor = conn.execute(query, (department,))
+  ```
+- **Remediation alternatives**:
+  1. **Use an ORM** (e.g., SQLAlchemy) to abstract query building.
+  2. **Input sanitization** (e.g., restrict `query` to alphanumeric characters), but parameterization is preferred.
+
+---
+
+#### **Finding 2: Path Traversal in Avatar Download**
+
+- **Location**: `user_api.py` (`get_avatar`)
+- **What is wrong**:
+  The `filename` parameter is directly concatenated to `UPLOAD_DIR` without validation, allowing directory traversal attacks.
+- **Why it matters**:
+  Attackers can read arbitrary files from the server filesystem.
+- **Severity**: **High**
+  Attacker-controlled input leads to unauthorized file access.
+- **Vulnerability class**: Path Traversal
+- **Attack scenario**:
+  1. Attacker requests `/api/users/1/avatar?file=../../etc/passwd`.
+  2. The server serves `/var/app/uploads/../../etc/passwd`, exposing sensitive system files.
+- **CWE**: CWE-22 Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') (verify externally) [https://cwe.mitre.org/data/definitions/22.html]
+- **Fix**:
+  Validate and sanitize the filename:
+  ```python
+  from pathlib import Path
+
+  def get_avatar(user_id):
+      filename = request.args.get("file", "default.png")
+      safe_name = Path(filename).stem
+      if not safe_name.isalnum():
+          safe_name = "default.png"
+      filepath = os.path.join(UPLOAD_DIR, safe_name)
+      return send_file(filepath)
+  ```
+- **Remediation alternatives**:
+  1. **Allowlist filenames** (e.g., only `default.png`).
+  2. **Store avatars in a sandboxed directory** with no traversal-friendly paths.
+
+---
+
+#### **Finding 3: Insecure Password Hashing**
+
+- **Location**: `user_api.py` (`create_user`)
+- **What is wrong**:
+  Passwords are hashed using `hashlib.md5`, which is fast and vulnerable to brute-force attacks.
+- **Why it matters**:
+  Attackers can crack hashed passwords using precomputed rainbow tables or dictionary attacks.
+- **Severity**: **Medium**
+  Weak password protection increases risk of credential compromise.
+- **Vulnerability class**: Inadequate Password Protection
+- **Attack scenario**:
+  1. Attacker gains database access (e.g., via SQL injection).
+  2. They crack MD5 hashes to obtain plaintext passwords.
+- **CWE**: CWE-916 Use of Password Hash With Insufficient Computational Effort (verify externally) [https://cwe.mitre.org/data/definitions/916.html]
+- **Fix**:
+  Use a modern hashing algorithm like `bcrypt`:
+  ```python
+  import bcrypt
+
+  salt = bcrypt.gensalt()
+  hashed = bcrypt.hashpw(password.encode(), salt)
+  ```
+- **Remediation alternatives**:
+  1. **Use `PBKDF2`** with high iteration counts.
+  2. **Integrate a password policy** (e.g., minimum length, complexity) to reduce brute-force success.
+
+---
+
+#### **Finding 4: Hardcoded Secret Key**
+
+- **Location**: `user_api.py` (`SECRET_KEY` assignment)
+- **What is wrong**:
+  The secret key is hardcoded, exposing CSRF protection and session management to risk.
+- **Why it matters**:
+  Attackers can forge requests or hijack sessions if the key is known.
+- **Severity**: **Low**
+  Impact is limited to authentication bypass in this code, but defense-in-depth issue.
+- **Vulnerability class**: Hardcoded Cryptographic Key
+- **Attack scenario**:
+  1. Attacker obtains the source code or dumps the file.
+  2. They reproduce the `SECRET_KEY` to perform CSRF attacks.
+- **CWE**: CWE-798 Use of Hard-coded Credentials (verify externally) [https://cwe.mitre.org/data/definitions/798.html]
+- **Fix**:
+  Load the key from environment variables or a secure vault:
+  ```python
+  SECRET_KEY = os.getenv("FLASK_SECRET_KEY", "fallback-not-for-prod")
+  ```
+- **Remediation alternatives**:
+  1. **Use Flask's built-in configuration** to load secrets from `instance/config.py`.
+  2. **Rotate keys regularly** and invalidate sessions on rotation.
+
+---
+
+#### **Finding 5: Debug Mode Enabled in Production**
+
+- **Location**: `user_api.py` (`app.run` call)
+- **What is wrong**:
+  `debug=True` exposes stack traces, sensitive variables, and enables interactive debuggers.
+- **Why it matters**:
+  Attackers can infer internal logic or leak memory contents via error responses.
+- **Severity**: **Low**
+  Only applicable if the code is deployed with `debug=True` (unlikely in production).
+- **Vulnerability class**: Improper Default Configuration
+- **Attack scenario**:
+  1. Attacker triggers an error (e.g., invalid endpoint).
+  2. The server returns a detailed traceback revealing database paths or code logic.
+- **CWE**: CWE-209 Information Exposure Through an Error Message (verify externally) [https://cwe.mitre.org/data/definitions/209.html]
+- **Fix**:
+  Disable debug mode in production:
+  ```python
+  if __name__ == "__main__":
+      app.run(host="0.0.0.0", port=8080, debug=False)
+  ```
+- **Remediation alternatives**:
+  1. **Use environment-specific configuration** (e.g., `FLASK_ENV=production`).
+  2. **Deploy via WSGI server** (e.g., Gunicorn) instead of `app.run()`.
+
+---
+
+### Attack Surface Summary
+
+- **Critical**: 1 finding (SQL Injection)
+- **High**: 1 finding (Path Traversal)
+- **Medium**: 1 finding (Insecure Password Hashing)
+- **Low**: 2 findings (Hardcoded Secret Key, Debug Mode)
+
+### Vulnerability Class Distribution
+
+- **SQL Injection**: 1
+- **Path Traversal**: 1
+- **Inadequate Password Protection**: 1
+- **Hardcoded Cryptographic Key**: 1
+- **Improper Default Configuration**: 1
+
+### Recommended Additional Testing
+
+1. **Fuzzing targets**:
+   - `/api/users/search?q=<MALICIOUS_INPUT>`
+   - `/api/users/<user_id>/avatar?file=<TRAVERSAL_PAYLOAD>`
+2. **DAST candidates**:
+   - Test all API endpoints for injection and traversal.
+   - Validate error handling for debug leakage.
+3. **Areas not covered**:
+   - Authentication/authorization logic (not visible in this code).
+   - Database permission checks.
+
+### Prioritized Remediation Roadmap
+
+1. **Critical**: Fix SQL injection (parameterized queries).
+2. **High**: Mitigate path traversal (filename sanitization).
+3. **Medium**: Upgrade password hashing to `bcrypt`.
+4. **Low**: Remove hardcoded secret key and disable debug mode.
+
+```
+
+### Iterative refinement
+
+
+After the initial output, use follow-up prompts to adapt the review to
+ your needs.
+
+
+
+* **Add context:**
+
+
+
+
+	+ “This runs as a Lambda function behind API Gateway with IAM auth”
+	+ “The environment variables are set at deploy time by our CI pipeline”
+* **Adjust scope:**
+
+
+
+
+	+ “Focus only on Critical and High findings”
+	+ “Also check for logging and monitoring gaps”
+
+The model revises the review based on updated context.
+
+
+### Considerations
+
+
+The following considerations apply when using these prompts to perform
+ security code review.
+
+
+
+* **Verify CWE classifications.** The model
+ suggests likely CWE mappings based on the vulnerability pattern. Verify
+ these against the CWE specification before including them in formal
+ documentation or compliance reports.
+* **Treat fixes as starting points.** Code
+ snippets provided by the model demonstrate the correct remediation approach
+ but may require adaptation to your codebase’s conventions, error handling
+ patterns, and testing requirements.
+* **Provide project context for improved severity
+ accuracy.** Without context about the deployment environment, the
+ model states its assumptions. Providing details about network exposure,
+ authentication requirements, and data sensitivity produces more accurate
+ severity ratings.
+* **Severity ratings may differ between
+ personas.** The Security Engineer persona rates findings based
+ strictly on attacker reachability (whether exploitation requires a separate
+ prerequisite such as database compromise), while the SDE persona emphasizes
+ immediate remediation priority. The same vulnerability may receive different
+ severity ratings depending on the persona used.
+* **Review scope is limited to provided
+ code.** The model does not speculate about vulnerabilities in code
+ it cannot see. If a vulnerability spans multiple files, provide all
+ relevant files in the same request.
+* **Mitigate prompt injection risk.** Source
+ code provided as input can contain instructions intended to manipulate the
+ model. Treat code under review as untrusted data rather than as trusted
+ instructions. For more information, see
+ [Prompt injection](../../../bedrock/latest/userguide/prompt-injection.md "../../../bedrock/latest/userguide/prompt-injection.md").
+```

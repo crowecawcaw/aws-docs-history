@@ -30,7 +30,7 @@ With data mixing, you can combine your custom training datasets with Nova's prop
 
 The data mixing feature allows you to blend your own fine-tuning training samples with samples from the Nova datasets used to fine-tune the Nova. This can prevent overfitting on your custom training and "catastrophic forgetting" of Nova capabilities, or help you build capabilities when training from a new pretrained checkpoint.
 
-To mix in Nova data, you simply need to add a data_mixing block as a top-level section in your recipe YAML file (alongside run and training_config). Text and multi-modal data mixing blocks have different content. Please refer to corresponding recipes.
+To mix in Nova data, you simply need to add a data\_mixing block as a top-level section in your recipe YAML file (alongside run and training\_config). Text and multi-modal data mixing blocks have different content. Please refer to corresponding recipes.
 
 ### Supported models
 
@@ -158,12 +158,12 @@ data_mixing:
 
 ## Training approaches
 
-| Training approach selection guide                                                                            | Data Type    | Data Volume                  | Perform                             | With Checkpoint |
-| ------------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------- | ----------------------------------- | --------------- |
-| Large-scale unstructured raw domain data (documents, logs, articles, code, etc.)                             | 1T+ Tokens   | Continued Pre-Training       | End of Constant Learning Rate (CLR) |
-| Large-scale unstructured raw domain data                                                                     | 100B+ Tokens | Mid-Training                 | End of CLR                          |
-| Smaller volumes of unstructured raw data; Structured reasoning traces / CoT data                             | 1B+ Tokens   | Mid-Training                 | Nova base model                     |
-| Structured demonstrations (high-quality input-output pairs, curated task instructions, multi-turn dialogues) | 1K+ Examples | Supervised Fine-Tuning (SFT) | Nova base model                     |
+Training approach selection guide| Data Type | Data Volume | Perform | With Checkpoint |
+| --- | --- | --- | --- |
+| Large-scale unstructured raw domain data (documents, logs, articles, code, etc.) | 1T+ Tokens | Continued Pre-Training | End of Constant Learning Rate (CLR) |
+| Large-scale unstructured raw domain data | 100B+ Tokens | Mid-Training | End of CLR |
+| Smaller volumes of unstructured raw data; Structured reasoning traces / CoT data | 1B+ Tokens | Mid-Training | Nova base model |
+| Structured demonstrations (high-quality input-output pairs, curated task instructions, multi-turn dialogues) | 1K+ Examples | Supervised Fine-Tuning (SFT) | Nova base model |
 
 ## Prerequisites
 
@@ -279,7 +279,7 @@ The most relevant parameters for LoRA are learning rate, alpha (scaling paramete
 
 ## Setting up the data mixing block
 
-Add the data_mixing section to your recipe with the appropriate percentage distribution across dataset categories.
+Add the data\_mixing section to your recipe with the appropriate percentage distribution across dataset categories.
 
 The following table describes each available Nova data category.
 
@@ -321,31 +321,31 @@ data_mixing:
 
 The following table describes each available Nova data category.
 
-| Nova 2.0 text data categories   | Category Name                               | Info detail |
-| ------------------------------- | ------------------------------------------- | ----------- |
-| agents                          | Agentic reasoning and task completion       |
-| baseline                        | General language comprehension              |
-| chat                            | Conversational fluency                      |
-| code                            | Code generation and understanding           |
-| factuality                      | Factual accuracy and verification           |
-| identity                        | Consistent identity and persona             |
-| long-context                    | Long-context comprehension                  |
-| math                            | Mathematics                                 |
-| rai                             | Responsible AI alignment                    |
-| instruction-following           | Instruction following                       |
-| stem                            | STEM                                        |
-| planning                        | Planning and task decomposition             |
-| reasoning-chat                  | Conversational reasoning                    |
-| reasoning-code                  | Code reasoning                              |
-| reasoning-factuality            | Factual reasoning and verification          |
+Nova 2.0 text data categories| Category Name | Info detail |
+| --- | --- |
+| agents | Agentic reasoning and task completion |
+| baseline | General language comprehension |
+| chat | Conversational fluency |
+| code | Code generation and understanding |
+| factuality | Factual accuracy and verification |
+| identity | Consistent identity and persona |
+| long-context | Long-context comprehension |
+| math | Mathematics |
+| rai | Responsible AI alignment |
+| instruction-following | Instruction following |
+| stem | STEM |
+| planning | Planning and task decomposition |
+| reasoning-chat | Conversational reasoning |
+| reasoning-code | Code reasoning |
+| reasoning-factuality | Factual reasoning and verification |
 | reasoning-instruction-following | Reasoning for complex instruction following |
-| reasoning-math                  | Mathematical reasoning                      |
-| reasoning-planning              | Reasoning for planning and strategy         |
-| reasoning-rag                   | Reasoning with retrieved context            |
-| reasoning-rai                   | Responsible AI reasoning                    |
-| reasoning-stem                  | STEM reasoning                              |
-| rag                             | Retrieval-augmented generation              |
-| translation                     | Multilingual comprehension and fluency      |
+| reasoning-math | Mathematical reasoning |
+| reasoning-planning | Reasoning for planning and strategy |
+| reasoning-rag | Reasoning with retrieved context |
+| reasoning-rai | Responsible AI reasoning |
+| reasoning-stem | STEM reasoning |
+| rag | Retrieval-augmented generation |
+| translation | Multilingual comprehension and fluency |
 
 ### Multimodal data mixing (Nova 2.0)
 
@@ -375,19 +375,19 @@ Note: Nova 2.0 includes video data category support that is not available in Nov
 
 The following table describes each available multimodal data category.
 
-| Nova 2.0 multimodal data categories | Category Name                              | Info detail |
-| ----------------------------------- | ------------------------------------------ | ----------- |
-| charts                              | Chart and data visualization understanding |
-| chat                                | Multimodal conversational fluency          |
-| code                                | Visual code interpretation                 |
-| docs                                | Document understanding                     |
-| general                             | General visual comprehension               |
-| grounding                           | Visual grounding                           |
-| rag                                 | Multimodal retrieval-augmented generation  |
-| screenshot                          | UI and screenshot understanding            |
-| text                                | Text-based generalist abilities            |
-| translation                         | Multilingual visual comprehension          |
-| video                               | Video understanding                        |
+Nova 2.0 multimodal data categories| Category Name | Info detail |
+| --- | --- |
+| charts | Chart and data visualization understanding |
+| chat | Multimodal conversational fluency |
+| code | Visual code interpretation |
+| docs | Document understanding |
+| general | General visual comprehension |
+| grounding | Visual grounding |
+| rag | Multimodal retrieval-augmented generation |
+| screenshot | UI and screenshot understanding |
+| text | Text-based generalist abilities |
+| translation | Multilingual visual comprehension |
+| video | Video understanding |
 
 ## Launching a job
 
@@ -395,27 +395,27 @@ You can also refer to the README, if you only need to get the essential details 
 
 Container Information:
 
-| Container information and launch commands | Model       | Technique                              | Subcategory                                                                          | Image URI                                                                                                                                                                                                                                                                                                 | Hyperpod Launcher Command |
-| ----------------------------------------- | ----------- | -------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| Nova 2.0                                  | Fine-tuning | SFT Text (with or without data mixing) | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_text_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }' |
-| Nova 2.0                                  | Fine-tuning | SFT MM (with or without data mixing)   | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova_2_0/nova_lite/SFT/nova_lite_2_0_p5_gpu_sft_mm_with_datamix \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }'   |
+Container information and launch commands| Model | Technique | Subcategory | Image URI | Hyperpod Launcher Command |
+| --- | --- | --- | --- | --- |
+| Nova 2.0 | Fine-tuning | SFT Text (with or without data mixing) | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova\_2\_0/nova\_lite/SFT/nova\_lite\_2\_0\_p5\_gpu\_sft\_text\_with\_datamix \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }' |
+| Nova 2.0 | Fine-tuning | SFT MM (with or without data mixing) | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest | hyperpod start-job \ -n kubeflow \ --recipe fine-tuning/nova/forge/nova\_2\_0/nova\_lite/SFT/nova\_lite\_2\_0\_p5\_gpu\_sft\_mm\_with\_datamix \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-fine-tune-repo:SM-HP-SFT-V2-latest" }' |
 
 Once you're all setup, starting from the root of the sagemaker-hyperpod-cli repository, navigate to the default nova sft recipe folder
 
-- cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova/
+- cd /src/hyperpod\_cli/sagemaker\_hyperpod\_recipes/recipes\_collection/recipes/fine-tuning/nova/
 - Here you can choose whether you want to run nova 1 or nova 2 recipies based on the choice of base model.
 
 For Nova 2.0 sft:
 
 - If you would like to use a regular sft job , You should be able to see one recipe under this folder
 
-  - cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova_2_0/nova_lite/SFT and then you should be able to see one recipe under this folder called nova_lite_2_0_p5_gpu_sft.yaml
+  - cd /src/hyperpod\_cli/sagemaker\_hyperpod\_recipes/recipes\_collection/recipes/fine-tuning/nova\_2\_0/nova\_lite/SFT and then you should be able to see one recipe under this folder called nova\_lite\_2\_0\_p5\_gpu\_sft.yaml
 
 - If you would like to use datamixing sft Job, you can navigate to the sft Forge recipes folder
 
-  - cd /src/hyperpod_cli/sagemaker_hyperpod_recipes/recipes_collection/recipes/fine-tuning/nova/forge/nova_2_0/nova_lite/SFT and you should be able to see one recipe under this folder called: nova_lite_2_0_p5_gpu_sft_text_with_datamix.yaml
+  - cd /src/hyperpod\_cli/sagemaker\_hyperpod\_recipes/recipes\_collection/recipes/fine-tuning/nova/forge/nova\_2\_0/nova\_lite/SFT and you should be able to see one recipe under this folder called: nova\_lite\_2\_0\_p5\_gpu\_sft\_text\_with\_datamix.yaml
 
-- Edit the sections in the recipe required by the job such as name, data_s3_path, validation_s3_path, output_s3_path, and max_steps. Since we're performing sft, the notion of epochs doesn't apply here.
+- Edit the sections in the recipe required by the job such as name, data\_s3\_path, validation\_s3\_path, output\_s3\_path, and max\_steps. Since we're performing sft, the notion of epochs doesn't apply here.
 
 The data mixing configuration file includes an additional `data_mixing` section, as shown in the following example.
 
@@ -455,8 +455,8 @@ data_mixing:
 
 The data mixing configuration includes two top-level categories:
 
-- nova_data : This is the actual data mixing and is sub-divided into even more categories. It is imperative that they sum up to 100%
-- customer_data : This is your training data referenced in the `data_s3_path` key at the top of your YAML. The percentage provided here determines the resulting percentage for nova_data. For example, with the preceding percent selections, during training the job uses 25% of customer_data and 75% of nova_data.
+- nova\_data : This is the actual data mixing and is sub-divided into even more categories. It is imperative that they sum up to 100%
+- customer\_data : This is your training data referenced in the `data_s3_path` key at the top of your YAML. The percentage provided here determines the resulting percentage for nova\_data. For example, with the preceding percent selections, during training the job uses 25% of customer\_data and 75% of nova\_data.
 
 Tip: Run pip install -e . once again and you're ready to submit your job!
 
@@ -731,9 +731,9 @@ hyperpod start-job -n kubeflow \
 
 Job launching commands for different recipes with corresponding images.
 
-| Evaluation job launch commands | Model      | Technique | Subcategory                                                                         | Image URI                                                                                                                                                                                                                                                                          | Command |
-| ------------------------------ | ---------- | --------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Nova 2.0                       | Evaluation | Eval      | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest | hyperpod start-job -n kubeflow \ --recipe evaluation/nova/nova_2_0/nova_lite/nova_lite_2_0_p5_48xl_gpu_ft_eval \ --override-parameters '{ "instance_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest" }' |
+Evaluation job launch commands| Model | Technique | Subcategory | Image URI | Command |
+| --- | --- | --- | --- | --- |
+| Nova 2.0 | Evaluation | Eval | 708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest | hyperpod start-job -n kubeflow \ --recipe evaluation/nova/nova\_2\_0/nova\_lite/nova\_lite\_2\_0\_p5\_48xl\_gpu\_ft\_eval \ --override-parameters '{ "instance\_type": "ml.p5.48xlarge", "container": "708977205387.dkr.ecr.us-east-1.amazonaws.com/nova-evaluation-repo:SM-HP-Eval-latest" }' |
 
 ## Lessons learned and tips
 

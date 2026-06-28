@@ -676,10 +676,9 @@ The recipe also contains largely the same hyperparameters as Nova 1.0. The notab
 - `max_steps` – The number of steps you want to run the job for. Generally, for one epoch (one run through your entire dataset), the number of steps = number of data samples / global batch size. The larger the number of steps and the smaller your global batch size, the longer the job will take to run.
 - `reasoning_enabled` – Controls reasoning mode for your dataset. Options:
 
-      + `true`: Enables reasoning mode (equivalent to high reasoning)
-      + `false`: Disables reasoning mode
-
-  Note: For SFT, there is no granular control over reasoning effort levels. Setting `reasoning_enabled: true` enables full reasoning capability.
+  - `true`: Enables reasoning mode (equivalent to high reasoning)
+  - `false`: Disables reasoning mode
+    Note: For SFT, there is no granular control over reasoning effort levels. Setting `reasoning_enabled: true` enables full reasoning capability.
 
 - `peft.peft_scheme` – Setting this to "lora" enables PEFT-based fine tuning. Setting it to null (no quotes) enables Full-Rank fine tuning.
 

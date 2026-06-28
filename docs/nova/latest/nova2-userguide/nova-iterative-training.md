@@ -328,7 +328,7 @@ run:
   model_name_or_path: "nova-lite-2/prod"
 ```
 
-**Subsequent iterations must use the same model_type**
+**Subsequent iterations must use the same model\_type**
 
 ```
 run:
@@ -375,7 +375,7 @@ The training technique must remain consistent across iterations:
 - If the checkpoint was trained with LoRA, use LoRA in your new recipe
 - If the checkpoint was trained with Full-Rank, use Full-Rank in your new recipe
 
-### Error: "Base model for the job extracted from model_name_or_path does not match model_type"
+### Error: "Base model for the job extracted from model\_name\_or\_path does not match model\_type"
 
 **Cause**: The model type specified in `model_type` doesn't match the actual model in the checkpoint.
 

@@ -33,7 +33,7 @@ parameters, and expected inputs.
 
 The following are tool definition components and explanations:
 
-- Name: Unique identifier for the tool (use snake_case)
+- Name: Unique identifier for the tool (use snake\_case)
 - Description: Clear explanation of what the tool does; helps the AI
   decide when to use it
 - InputSchema: JSON schema defining the parameters the tool
@@ -241,7 +241,13 @@ Example ToolResult Event
   open-ended strings whenever possible.
 - Error handling: Return meaningful error messages in toolResult events
   when tools fail.
+- Always respond to tool calls: Nova 2 Sonic expects a toolResult
+  event after every toolUse event it sends. If your application fails to
+  respond, even when an error occurs, the model enters a waiting state,
+  causing unresponsive behavior or unexpected output. Always send a
+  toolResult event in response, even if it contains an error message or
+  signals that the session is ending.
 - Async execution: Take advantage of asynchronous tool calling to
   maintain conversation flow.
 - Tool naming: Use descriptive, action-oriented names (such as
-  get_weather, search_database, send_email).
+  get\_weather, search\_database, send\_email).

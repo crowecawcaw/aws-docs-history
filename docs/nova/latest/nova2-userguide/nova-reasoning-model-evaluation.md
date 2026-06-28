@@ -34,7 +34,7 @@ inference:
   temperature: 0                                         # [MODIFIABLE] Sampling temperature (0 = deterministic)
 ```
 
-## Using the reasoning_effort parameter
+## Using the reasoning\_effort parameter
 
 The `reasoning_effort` parameter controls the reasoning behavior for reasoning-capable models.
 
@@ -51,11 +51,11 @@ The `reasoning_effort` parameter controls the reasoning behavior for reasoning-c
 | low            | Enables reasoning with constraints    | 4,000 tokens for internal reasoning  | Scenarios requiring concise reasoning; optimizes for speed and cost      |
 | high           | Enables reasoning without constraints | No token limit on internal reasoning | Complex problems requiring extensive analysis and step-by-step reasoning |
 
-| Training method                 | Available options | How to configure                                                            |
-| ------------------------------- | ----------------- | --------------------------------------------------------------------------- |
-| SFT (Supervised Fine-Tuning)    | High or Off only  | Use reasoning_enabled: true (high) or reasoning_enabled: false (off)        |
-| RFT (Reinforcement Fine-Tuning) | Low, High, or Off | Use reasoning_effort: low or reasoning_effort: high. Omit field to disable. |
-| Evaluation                      | Low, High, or Off | Use reasoning_effort: low or reasoning_effort: high. Use null to disable.   |
+| Training method                 | Available options | How to configure                                                              |
+| ------------------------------- | ----------------- | ----------------------------------------------------------------------------- |
+| SFT (Supervised Fine-Tuning)    | High or Off only  | Use reasoning\_enabled: true (high) or reasoning\_enabled: false (off)        |
+| RFT (Reinforcement Fine-Tuning) | Low, High, or Off | Use reasoning\_effort: low or reasoning\_effort: high. Omit field to disable. |
+| Evaluation                      | Low, High, or Off | Use reasoning\_effort: low or reasoning\_effort: high. Use null to disable.   |
 
 ### When to enable reasoning
 

@@ -130,30 +130,22 @@ The following sections provide detailed explanations of each request parameter:
 - `role` – (Required) The role of the conversation turn. Valid values are `user` and `assistant`. The first message must always use the `user` role.
 - `content` – (Required) An array of content blocks. Each block specifies a content type (`text`, `image`, `video`, or `audio`):
 
-      + `text` – Text content for the conversation turn. If combined with image or video, interpreted as accompanying text.
-      + `image` – (Not supported for Nova 2 Lite) Image content with:
+  - `text` – Text content for the conversation turn. If combined with image or video, interpreted as accompanying text.
+  - `image` – (Not supported for Nova 2 Lite) Image content with:
 
+    - `format` – (Required) Image format: `jpeg`, `png`, `webp`, or `gif`
+    - `source.bytes` – (Required) Image data as binary array (Converse API) or Base64 string (Invoke API)
 
+  - `video` – (Not supported for Nova 2 Lite) Video content with:
 
+    - `format` – (Required) Video format: `mkv`, `mov`, `mp4`, `webm`, `three_gp`, `flv`, `mpeg`, `mpg`, or `wmv`
+    - `source` – (Required) Video source via S3 URI (`s3Location.uri` and optional `bucketOwner`) or file bytes (`bytes`)
 
-      	- `format` – (Required) Image format: `jpeg`, `png`, `webp`, or `gif`
-      	- `source.bytes` – (Required) Image data as binary array (Converse API) or Base64 string (Invoke API)
-      + `video` – (Not supported for Nova 2 Lite) Video content with:
+  - `audio` – (Amazon Nova Sonic and only) Audio content with:
 
-
-
-
-      	- `format` – (Required) Video format: `mkv`, `mov`, `mp4`, `webm`, `three_gp`, `flv`, `mpeg`, `mpg`, or `wmv`
-      	- `source` – (Required) Video source via S3 URI (`s3Location.uri` and optional `bucketOwner`) or file bytes (`bytes`)
-      + `audio` – (Amazon Nova Sonic and only) Audio content with:
-
-
-
-
-      	- `format` – (Required) Audio format: `mp3`, `opus`, `wav`, `aac`, `flac`, `mp4`, `ogg`, or `mkv`
-      	- `source` – (Required) Audio source via S3 URI or file bytes
-
-  `inferenceConfig` – (Optional) Configuration parameters controlling model output generation.
+    - `format` – (Required) Audio format: `mp3`, `opus`, `wav`, `aac`, `flac`, `mp4`, `ogg`, or `mkv`
+    - `source` – (Required) Audio source via S3 URI or file bytes
+      `inferenceConfig` – (Optional) Configuration parameters controlling model output generation.
 
 - `maxTokens` – (Optional) Maximum tokens to generate before stopping. Amazon Nova models may stop before reaching this limit. Maximum value is 5,000. If not specified, uses a dynamic default based on request context.
 - `temperature` – (Optional) Randomness in responses. Valid range: 0.00001-1 (default: 0.7). Lower values produce more deterministic output.
@@ -262,12 +254,11 @@ The following sections provide detailed explanations of each response field:
 - `message` – (Required) The assistant's response message with role and content array.
 - `content` – (Required) Array of content blocks that can include:
 
-      + `reasoningContent` – (Optional) Returned if reasoning was enabled. Contains reasoning text, which will always be `[REDACTED]` in the response.
-      + `toolUse` – (Optional) Returned if a tool was called. Contains tool use ID, name and input arguments.
-      + `text` – (Optional) Returned if the model responded with text content.
-      + `image` – (Optional, only) Returned if the model generated an image. Format will always be PNG.
-
-  `stopReason` – (Required) Indicates why the model stopped generating output:
+  - `reasoningContent` – (Optional) Returned if reasoning was enabled. Contains reasoning text, which will always be `[REDACTED]` in the response.
+  - `toolUse` – (Optional) Returned if a tool was called. Contains tool use ID, name and input arguments.
+  - `text` – (Optional) Returned if the model responded with text content.
+  - `image` – (Optional, only) Returned if the model generated an image. Format will always be PNG.
+    `stopReason` – (Required) Indicates why the model stopped generating output:
 
 - `end_turn` – Natural end of response reached
 - `max_tokens` – Reached maxTokens limit or model's maximum output limit

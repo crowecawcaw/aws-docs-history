@@ -63,52 +63,52 @@ Amazon Nova inference requests can take up to 60 minutes for complex operations.
 
 Understanding stop reasons:
 
-end_turn
+end\_turn
 
 Normal completion. No action needed.
 
-max_tokens
+max\_tokens
 
 Token limit reached.
 
 **Solution**: Increase `maxTokens` parameter in
 `inferenceConfig`.
 
-content_filtered
+content\_filtered
 
 Content violated AWS Responsible AI policy.
 
 Solution: Review and modify your input to comply with content policies.
 
-malformed_model_output
+malformed\_model\_output
 
 Invalid output format.
 
 Solution: Check your output schema and constraints; verify JSON schema is properly
 formatted.
 
-malformed_tool_use
+malformed\_tool\_use
 
 Invalid tool call format.
 
 Solution: Verify tool definitions match expected schema; check tool input parameters are
 correctly formatted.
 
-service_unavailable
+service\_unavailable
 
 Built-in tool service unavailable.
 
 Solution: Retry the request after a brief delay; check AWS service health
 dashboard.
 
-invalid_query
+invalid\_query
 
 Invalid query to built-in tool.
 
 Solution: Review query format and parameters; ensure query meets tool
 requirements.
 
-max_tool_invocations
+max\_tool\_invocations
 
 Tool retries exhausted.
 

@@ -28,20 +28,20 @@ For content moderation tasks, we recommend the following inference configuration
 
 The standard defines 12 hazard categories:
 
-| MLCommons AILuminate hazard categories | Category                                                                                     | Definition                                                                                             | Key subcategories |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------- |
-| Violent Crimes                         | Content that enables, encourages, or endorses commission of violent crimes                   | Mass violence, Murder, Physical assault, Domestic abuse, Terror, Animal abuse                          |
-| Non-Violent Crimes                     | Content that enables, encourages, or endorses non-violent criminal activity                  | Labor trafficking, Fraud, Theft, Arson, Drug crimes, Weapons crimes, Cyber crimes                      |
-| Sex-Related Crimes                     | Content that enables, encourages, or endorses sex-related crimes                             | Sex trafficking, Sexual assault, Sexual harassment, Non-consensual intimate content,<br>Bestiality     |
-| Child Sexual Exploitation              | Content that contains, describes, enables, encourages, or endorses sexual abuse of<br>minors | Inappropriate relationships with children, Sexual abuse of children, CSAM                              |
-| CBRNE                                  | Content that enables, encourages, or endorses creation of weapons of mass<br>destruction     | Chemical weapons, Biological weapons, Radiological weapons, Nuclear weapons, High-yield<br>explosives  |
-| Suicide and Self-Harm                  | Content that enables, encourages, or endorses intentional self-harm                          | Suicide, Self-injury, Disordered eating, Dangerous challenges                                          |
-| Hate                                   | Content that demeans or dehumanizes people based on protected characteristics                | Demeaning remarks, Inflicting physical/emotional harm, Exclusion and isolation                         |
-| Specialized Advice                     | Unqualified advice in sensitive domains without appropriate disclaimers                      | Financial advice, Medical advice, Legal advice, Electoral advice, Safety claims                        |
-| Privacy                                | Content containing sensitive non-public personal information                                 | Physical security (addresses), Digital security (credentials), Financial security<br>(account numbers) |
-| Intellectual Property                  | Content that violates or encourages violation of IP rights                                   | Copyright infringement, Trademark infringement, Patent infringement                                    |
-| Defamation                             | Content that is verifiably false and likely to injure someone's reputation                   | Libel, Slander, Disparagement                                                                          |
-| Sexual Content                         | Erotic content including pornography and cybersex                                            | Pornography (graphic sexual descriptions), Direct erotic chat                                          |
+MLCommons AILuminate hazard categories| Category | Definition | Key subcategories |
+| --- | --- | --- |
+| Violent Crimes | Content that enables, encourages, or endorses commission of violent crimes | Mass violence, Murder, Physical assault, Domestic abuse, Terror, Animal abuse |
+| Non-Violent Crimes | Content that enables, encourages, or endorses non-violent criminal activity | Labor trafficking, Fraud, Theft, Arson, Drug crimes, Weapons crimes, Cyber crimes |
+| Sex-Related Crimes | Content that enables, encourages, or endorses sex-related crimes | Sex trafficking, Sexual assault, Sexual harassment, Non-consensual intimate content,<br>Bestiality |
+| Child Sexual Exploitation | Content that contains, describes, enables, encourages, or endorses sexual abuse of<br>minors | Inappropriate relationships with children, Sexual abuse of children, CSAM |
+| CBRNE | Content that enables, encourages, or endorses creation of weapons of mass<br>destruction | Chemical weapons, Biological weapons, Radiological weapons, Nuclear weapons, High-yield<br>explosives |
+| Suicide and Self-Harm | Content that enables, encourages, or endorses intentional self-harm | Suicide, Self-injury, Disordered eating, Dangerous challenges |
+| Hate | Content that demeans or dehumanizes people based on protected characteristics | Demeaning remarks, Inflicting physical/emotional harm, Exclusion and isolation |
+| Specialized Advice | Unqualified advice in sensitive domains without appropriate disclaimers | Financial advice, Medical advice, Legal advice, Electoral advice, Safety claims |
+| Privacy | Content containing sensitive non-public personal information | Physical security (addresses), Digital security (credentials), Financial security<br>(account numbers) |
+| Intellectual Property | Content that violates or encourages violation of IP rights | Copyright infringement, Trademark infringement, Patent infringement |
+| Defamation | Content that is verifiably false and likely to injure someone's reputation | Libel, Slander, Disparagement |
+| Sexual Content | Erotic content including pornography and cybersex | Pornography (graphic sexual descriptions), Direct erotic chat |
 
 Source: MLCommons® AILuminate Assessment Standard (Documentation)
 

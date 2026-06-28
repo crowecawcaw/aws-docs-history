@@ -27,14 +27,14 @@ pricing](https://aws.amazon.com/sagemaker-ai/pricing/ "https://aws.amazon.com/sa
 The following tables summarize the computational requirements for SageMaker HyperPod and SageMaker AI
 training jobs training for Amazon Nova 2 models.
 
-| Nova 2 Training Requirements               | Training Technique | Minimum Instances | Instance Type | GPU Count                                                | Notes       | Supported Models |
-| ------------------------------------------ | ------------------ | ----------------- | ------------- | -------------------------------------------------------- | ----------- | ---------------- |
-| SFT (LoRA)                                 | 4                  | P5.48xlarge       | 16            | Parameter-efficient fine-tuning                          | Nova 2 Lite |
-| SFT (Full Rank)                            | 4                  | P5.48xlarge       | 32            | Full model fine-tuning                                   | Nova 2 Lite |
-| RFT on SageMaker Training Jobs (LoRA)      | 2                  | P5.48xlarge       | 16            | Custom Reward Functions in your AWS Environment          | Nova 2 Lite |
-| RFT on SageMaker Training Jobs (Full Rank) | 4                  | P5.48xlarge       | 32            | 32K context length                                       | Nova 2 Lite |
-| RFT on SageMaker HyperPod                  | 8                  | P5.48xlarge       | 64            | Default 8192 context length                              | Nova 2 Lite |
-| CPT                                        | 4                  | P5.48xlarge       | 16            | Processes approximately 400M tokens per instance per day | Nova 2 Lite |
+Nova 2 Training Requirements| Training Technique | Minimum Instances | Instance Type | GPU Count | Notes | Supported Models |
+| --- | --- | --- | --- | --- | --- |
+| SFT (LoRA) | 4 | P5.48xlarge | 16 | Parameter-efficient fine-tuning | Nova 2 Lite |
+| SFT (Full Rank) | 4 | P5.48xlarge | 32 | Full model fine-tuning | Nova 2 Lite |
+| RFT on SageMaker Training Jobs (LoRA) | 2 | P5.48xlarge | 16 | Custom Reward Functions in your AWS Environment | Nova 2 Lite |
+| RFT on SageMaker Training Jobs (Full Rank) | 4 | P5.48xlarge | 32 | 32K context length | Nova 2 Lite |
+| RFT on SageMaker HyperPod | 8 | P5.48xlarge | 64 | Default 8192 context length | Nova 2 Lite |
+| CPT | 4 | P5.48xlarge | 16 | Processes approximately 400M tokens per instance per day | Nova 2 Lite |
 
 To optimize your Amazon Nova model customization workflows on Hyperpod, follow these recommended best practices for efficient training, resource management, and successful model deployment.
 

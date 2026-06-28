@@ -171,7 +171,7 @@ Symptoms: High error rate in reward function calls during training
 | Issue                    | Symptoms                           | Resolution                                                                    |
 | ------------------------ | ---------------------------------- | ----------------------------------------------------------------------------- |
 | Lambda timeout           | Frequent timeouts after 15 minutes | Optimize function performance; consider Nova Forge for complex<br>evaluations |
-| Insufficient concurrency | Lambda throttling errors           | Increase lambda_concurrency_limit or request quota increase                   |
+| Insufficient concurrency | Lambda throttling errors           | Increase lambda\_concurrency\_limit or request quota increase                 |
 | Invalid return format    | Training fails with format errors  | Verify return structure matches required interface format                     |
 | Unhandled exceptions     | Intermittent errors                | Add comprehensive error handling and logging                                  |
 | External API failures    | Inconsistent scoring               | Implement retry logic and fallback strategies                                 |

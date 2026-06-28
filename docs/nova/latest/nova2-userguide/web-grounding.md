@@ -6,7 +6,7 @@ Web Grounding enables Amazon Nova to search the web for current information and 
 
 When Web Grounding is enabled for a prompt, the following steps are performed:
 
-1. **Request Configuration**: Your application sends a user prompt to the Amazon Bedrock API with nova_grounding enabled as a `systemTool`.
+1. **Request Configuration**: Your application sends a user prompt to the Amazon Bedrock API with nova\_grounding enabled as a `systemTool`.
 2. **Search & Analysis**: The model determines if search is needed, performs one or more searches for relevant information, and evaluates whether additional searches are required to expand its understanding or dive deeper on specific subtopics.
 3. **Response generation**: Amazon Nova automatically synthesizes information from search results to generate a final API response grounded in real-time information, complete with citations to its sources.
 

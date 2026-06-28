@@ -474,24 +474,24 @@ Assistant:
 "name": "Nikon D850",
 "brand": "Nikon",
 "price": "$3,296.95",
-"summary": "The Nikon D850 is a professional full-frame DSLR camera known for its exceptional image quality, 45.7-megapixel resolution, 7 fps continuous shooting, and 4K video capabilities."
-},
-{
-"name": "Canon EOS 5D Mark IV",
-"brand": "Canon",
-"price": "$3,499.00",
+ "summary": "The Nikon D850 is a professional full-frame DSLR camera known for its exceptional image quality, 45.7-megapixel resolution, 7 fps continuous shooting, and 4K video capabilities."
+ },
+ {
+ "name": "Canon EOS 5D Mark IV",
+ "brand": "Canon",
+ "price": "$3,499.00",
 "summary": "The Canon EOS 5D Mark IV is a popular full-frame DSLR appreciated for its 30.4-megapixel sensor, 4K video recording, robust build quality, and reliable autofocus system."
 },
 {
 "name": "Sony A7R III",
 "brand": "Sony",
 "price": "$3,198.00",
-"summary": "The Sony A7R III is a high-resolution full-frame mirrorless camera renowned for its 42.4-megapixel sensor, excellent low-light performance, and versatile lens compatibility."
-},
-{
-"name": "Fujifilm GFX 100S",
-"brand": "Fujifilm",
-"price": "$5,999.99",
+ "summary": "The Sony A7R III is a high-resolution full-frame mirrorless camera renowned for its 42.4-megapixel sensor, excellent low-light performance, and versatile lens compatibility."
+ },
+ {
+ "name": "Fujifilm GFX 100S",
+ "brand": "Fujifilm",
+ "price": "$5,999.99",
 "summary": "The Fujifilm GFX 100S is a medium format mirrorless camera that stands out for its 102-megapixel sensor, high dynamic range, and exceptional color reproduction."
 },
 {
