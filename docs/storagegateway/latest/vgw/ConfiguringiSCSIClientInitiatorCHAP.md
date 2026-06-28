@@ -209,7 +209,7 @@ keys that you used to configure CHAP for the volume on the Storage Gateway conso
    | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | `username`            | The initiator name that you found in a previous<br>step in this procedure. The value starts with<br>_iqn_. For example,<br>`iqn.1994-05.com.redhat:8e89b27b5b8`<br>is a valid `username`<br>value. |
    | `password`            | The secret key used to authenticate the initiator<br>(the client you are using) when it communicates with the<br>volume.                                                                           |
-   | `username_in`         | The IQN of the target volume. The value starts<br>with \*iqn<br>• and ends with the<br>target name. For example,<br>`iqn.1997-05.com.amazon:myvolume`<br>is a valid `username_in`<br>value.        |
+   | `username_in`         | The IQN of the target volume. The value starts<br>with *iqn<br>• and ends with the<br>target name. For example,<br>`iqn.1997-05.com.amazon:myvolume`<br>is a valid `username_in`<br>value.         |
    | `password_in`         | The secret key used to authenticate the target<br>(the volume) when it communicates to the<br>initiator.                                                                                           |
    4. Save the changes in the configuration file, and then close the
       file.

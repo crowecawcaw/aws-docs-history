@@ -13,7 +13,7 @@ the following information:
   name-value pair that helps you to uniquely identify a metric. The dimensions for
   Storage Gateway are `GatewayId`, `GatewayName`, and
   `VolumeId`. In the CloudWatch console, you can use the `Gateway
-Metrics` and `Volume Metrics` views to easily select
+ Metrics` and `Volume Metrics` views to easily select
   gateway-specific and volume-specific dimensions. For more information about
   dimensions, see [Dimensions](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Dimension "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Dimension") in the _Amazon CloudWatch User Guide_.
 - The metric name, such as `ReadBytes`.

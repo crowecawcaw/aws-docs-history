@@ -35,4 +35,4 @@ options:
      your gateway.
 
 7. When you finish modifying the settings you want to change, choose **Save
-   changes**.
+changes**.

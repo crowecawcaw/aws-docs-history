@@ -20,7 +20,6 @@ information about Amazon EC2 key pairs, see [Amazon EC2 Key Pairs](../../../AWSE
 | Test network connectivity                | [Testing gateway network connectivity](EC2_MaintenanceTestGatewayConnectivity-common.md "EC2_MaintenanceTestGatewayConnectivity-common.md") |
 | Run Storage Gateway console commands     | [Running Storage Gateway commands on the local console](EC2_MaintenanceGatewayConsole-common.md "EC2_MaintenanceGatewayConsole-common.md")  |
 | View a system resource check             | [Viewing your gateway system resource status](EC2_system-resource-check-common.md "EC2_system-resource-check-common.md").                   |
-
-To shut down the gateway, enter `0`.
+| To shut down the gateway, enter `0`.     |
 
 To exit the configuration session, enter `X`.

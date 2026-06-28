@@ -58,7 +58,7 @@ connect to your gateway volume. For instructions on how to connect to your volum
    initiator might not be the subkey `0000`. You can ensure that
    you have selected the correct subkey by verifying that the string
    `DriverDesc` has the value `Microsoft iSCSI
- Initiator`. 4. To show the iSCSI settings, choose the **Parameters**
+  Initiator`. 4. To show the iSCSI settings, choose the **Parameters**
    subkey. 5. Open the context (right-click) menu for the
    **MaxRequestHoldTime** DWORD (32-bit) value, choose
    **Modify**, and then change the value to
@@ -115,7 +115,7 @@ best performance, see the documentation for your backup software. 3. Increase th
      value represents a timeout period of 600 seconds.
 
 4. To ensure that the new configuration values take effect, restart your
-   system.
+system.
 
 Before restarting, you must make sure that the results of all write operations
 to volumes are flushed. To do this, take any mapped storage volume disks offline

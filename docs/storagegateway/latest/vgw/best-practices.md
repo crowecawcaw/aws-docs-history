@@ -132,10 +132,10 @@ enter the grub boot menu. 5. From the menu, press `e` to edit. 6. Choose the ker
 option from the option you just appended. 8. Delete both `console=` lines, making sure to delete all values
 following the `=` symbol, including those separated by commas. 9. Press `Return` to save the changes. 10. Press `b` to boot your computer with the modified kernel
 option. Your computer will boot to a `bash#` prompt. 11. Enter `/sbin/fsck -f
- `/dev/sda1``to run this command
- manually from the prompt, to check and repair your file system. If the command
- does not work with the`/dev/sda1`path, you can use
-`lsblk`to determine the root filesystem device for
+ `/dev/sda1`` to run this command
+manually from the prompt, to check and repair your file system. If the command
+does not work with the `/dev/sda1` path, you can use
+`lsblk` to determine the root filesystem device for
 `/` and use that path instead. 12. When the file system check and repair is complete, reboot the instance. The
 grub settings will revert to the original values, and the gateway will boot up
 normally. 13. Wait for snapshots that are in-progress from the original gateway to complete,

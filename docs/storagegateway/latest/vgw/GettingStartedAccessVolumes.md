@@ -75,7 +75,7 @@ The output of the discovery command should look like the following example
 output.
 
 For Volume Gateways: ``[GATEWAY_IP]`:3260, 1
-iqn.1997-05.com.amazon:myvolume`
+ iqn.1997-05.com.amazon:myvolume`
 
 For Tape Gateways:
 `iqn.1997-05.com.amazon:`[GATEWAY_IP]`-tapedrive-01` 4. Connect to a target.

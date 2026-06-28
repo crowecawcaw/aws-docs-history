@@ -125,9 +125,7 @@ or making web requests to the new gateway VM's IP address (described below).
     When the gateway migration process is successfully completed, you will see
      a message confirming successful migration.
 
-13. Detach the old gateway's root disk, whose volume ID you noted in step
-14.
-15. Start the gateway.
+13. Detach the old gateway's root disk, whose volume ID you noted in step 7. 14. Start the gateway.
 
 Use the following steps to start the new cached Volume Gateway:
 
@@ -140,10 +138,9 @@ Use the following steps to start the new cached Volume Gateway:
      gateway**.For more information about starting a gateway, see [Starting and Stopping a Volume Gateway](MaintenanceShutDown-common.md#start-stop-classic "MaintenanceShutDown-common.md#start-stop-classic").
 
 15. Your volumes should now be available to your applications through the new gateway VM's network interfaces.
-    The migration success message includes details about the updated mapping between each volume and the new
-    gateway's network interface. For more information about the IP address associated with each network interface,
-    visit the main page of the gateway's local console. See [Accessing
-    the Gateway Local Console](accessing-local-console.md "accessing-local-console.md").
-16. Confirm that your volumes are available, and delete the old gateway VM. For
-    information about deleting a VM, see the documentation for your
-    hypervisor.
+The migration success message includes details about the updated mapping between each volume and the new
+gateway's network interface. For more information about the IP address associated with each network interface,
+visit the main page of the gateway's local console. See [Accessing
+the Gateway Local Console](accessing-local-console.md "accessing-local-console.md"). 16. Confirm that your volumes are available, and delete the old gateway VM. For
+information about deleting a VM, see the documentation for your
+hypervisor.

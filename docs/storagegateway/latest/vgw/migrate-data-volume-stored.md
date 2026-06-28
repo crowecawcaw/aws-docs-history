@@ -85,4 +85,4 @@ When a gateway is deleted, there is no way to recover it.
      **Delete**.
 
 11. Delete the old gateway VM. For information about deleting a VM, see the
-    documentation for your hypervisor.
+documentation for your hypervisor.

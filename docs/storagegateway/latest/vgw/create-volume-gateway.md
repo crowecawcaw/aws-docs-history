@@ -59,7 +59,7 @@ Volume Gateway.
         configure the gateway virtual machine using Linux KVM.
         Refer to the provided aws-storage-gateway.xml file for
         suggested boot configurations. UEFI boot mode with secure
-        boot disabled (loader_secure=no) is required for File
+        boot disabled (loader\_secure=no) is required for File
         Gateway 2.x, Volume Gateway 3.x, and Tape Gateway 3.x.
       - **Amazon EC2** - Configure and launch an Amazon EC2
         instance to host your gateway. This option is not available
@@ -140,19 +140,18 @@ to activate the gateway. For instructions, see [Review settings and activate you
 
 ###### To activate a new Volume Gateway
 
-1.  Complete the procedures described in the following topics if you have not
-    done so already:
+1. Complete the procedures described in the following topics if you have not
+   done so already:
 
-        * [Set up a Volume Gateway](create-volume-gateway.md#set-up-gateway-volume "create-volume-gateway.md#set-up-gateway-volume")
-        * [Connect your Volume Gateway to AWS](create-volume-gateway.md#connect-to-amazon-volume "create-volume-gateway.md#connect-to-amazon-volume")
+   - [Set up a Volume Gateway](create-volume-gateway.md#set-up-gateway-volume "create-volume-gateway.md#set-up-gateway-volume")
+   - [Connect your Volume Gateway to AWS](create-volume-gateway.md#connect-to-amazon-volume "create-volume-gateway.md#connect-to-amazon-volume")
+     When finished, choose **Next** to open the
+     **Review and activate** page in the Storage Gateway
+     console.
 
-    When finished, choose **Next** to open the
-    **Review and activate** page in the Storage Gateway
-    console.
-
-2.  Review the initial gateway details for each section on the page.
-3.  If a section contains errors, choose **Edit** to return
-    to the corresponding settings page and make changes.
+2. Review the initial gateway details for each section on the page.
+3. If a section contains errors, choose **Edit** to return
+   to the corresponding settings page and make changes.
 
 ###### Note
 
@@ -167,34 +166,33 @@ instructions, see [Configure your Volume Gateway](create-volume-gateway.md#confi
 
 ###### To perform first-time configuration on a new Volume Gateway
 
-1.  Complete the procedures described in the following topics if you have not
-    done so already:
+1. Complete the procedures described in the following topics if you have not
+   done so already:
 
-        * [Set up a Volume Gateway](create-volume-gateway.md#set-up-gateway-volume "create-volume-gateway.md#set-up-gateway-volume")
-        * [Connect your Volume Gateway to AWS](create-volume-gateway.md#connect-to-amazon-volume "create-volume-gateway.md#connect-to-amazon-volume")
-        * [Review settings and activate your
-         Volume Gateway](create-volume-gateway.md#review-and-activate-volume "create-volume-gateway.md#review-and-activate-volume")
+   - [Set up a Volume Gateway](create-volume-gateway.md#set-up-gateway-volume "create-volume-gateway.md#set-up-gateway-volume")
+   - [Connect your Volume Gateway to AWS](create-volume-gateway.md#connect-to-amazon-volume "create-volume-gateway.md#connect-to-amazon-volume")
+   - [Review settings and activate your
+     Volume Gateway](create-volume-gateway.md#review-and-activate-volume "create-volume-gateway.md#review-and-activate-volume")
+     When finished, choose **Next** to open the
+     **Configure gateway** page in the Storage Gateway
+     console.
 
-    When finished, choose **Next** to open the
-    **Configure gateway** page in the Storage Gateway
-    console.
+2. In the **Configure storage** section, use the drop-down
+   menus to allocate at least one disk with at least **165
+   GiB** capacity for **CACHE
+   STORAGE**, and at least one disk with at least **150 GiB** capacity for **UPLOAD
+   BUFFER**. The local disks listed in this section correspond to
+   the physical storage that you provisioned on your host platform.
+3. In the **CloudWatch log group** section, choose how to set up
+   Amazon CloudWatch Logs to monitor the health of your gateway. You can choose from the
+   following options:
 
-2.  In the **Configure storage** section, use the drop-down
-    menus to allocate at least one disk with at least **165
-    GiB** capacity for **CACHE
-    STORAGE**, and at least one disk with at least **150 GiB** capacity for **UPLOAD
-    BUFFER**. The local disks listed in this section correspond to
-    the physical storage that you provisioned on your host platform.
-3.  In the **CloudWatch log group** section, choose how to set up
-    Amazon CloudWatch Logs to monitor the health of your gateway. You can choose from the
-    following options:
-
-    - **Create a new log group** - Set up a new log
-      group to monitor your gateway.
-    - **Use an existing log group** - Choose an
-      existing log group from the corresponding drop-down menu.
-    - **Deactivate logging** - Do not use Amazon CloudWatch Logs to
-      monitor your gateway.
+   - **Create a new log group** - Set up a new log
+     group to monitor your gateway.
+   - **Use an existing log group** - Choose an
+     existing log group from the corresponding drop-down menu.
+   - **Deactivate logging** - Do not use Amazon CloudWatch Logs to
+     monitor your gateway.
 
 ###### Note
 
@@ -255,11 +253,10 @@ limits. You can choose from the following options:
      notifications about your gateway's metrics.
 
 5. (Optional) In the **Tags** section, choose **Add
-   new tag**, then enter a case-sensitive key-value pair to help
-   you search and filter for your gateway on list pages in the Storage Gateway console.
-   Repeat this step to add as many tags as you need.
-6. Choose **Configure** to finish creating your
-   gateway.
+new tag**, then enter a case-sensitive key-value pair to help
+you search and filter for your gateway on list pages in the Storage Gateway console.
+Repeat this step to add as many tags as you need. 6. Choose **Configure** to finish creating your
+gateway.
 
 To check the status of your new gateway, search for it on the
 **Gateway overview** page of the Storage Gateway.

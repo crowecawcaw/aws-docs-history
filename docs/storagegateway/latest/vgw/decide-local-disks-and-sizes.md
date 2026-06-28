@@ -6,14 +6,13 @@ additional storage:
 
 - Volume Gateways:
 
-      + Stored gateways require at least one disk to use as an upload
-       buffer.
-      + Cached gateways require at least two disks. One to use as a cache, and
-       one to use as an upload buffer.
-
-  The following table recommends sizes for local disk storage for your deployed gateway.
-  You can add more local storage later after you set up the gateway, and as your workload
-  demands increase.
+  - Stored gateways require at least one disk to use as an upload
+    buffer.
+  - Cached gateways require at least two disks. One to use as a cache, and
+    one to use as an upload buffer.
+    The following table recommends sizes for local disk storage for your deployed gateway.
+    You can add more local storage later after you set up the gateway, and as your workload
+    demands increase.
 
 | Local storage | Description                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
