@@ -144,14 +144,13 @@ create the following resources:
 
 ###### To create a carrier gateway using the AWS CLI
 
-1.  Use the [create-carrier-gateway](../../../cli/latest/reference/ec2/create-carrier-gateway.md "../../../cli/latest/reference/ec2/create-carrier-gateway.md") command.
-2.  Add a VPC route table with the following resources:
+1. Use the [create-carrier-gateway](../../../cli/latest/reference/ec2/create-carrier-gateway.md "../../../cli/latest/reference/ec2/create-carrier-gateway.md") command.
+2. Add a VPC route table with the following resources:
 
-        * A route for all VPC local traffic
-        * A route that routes all non-local traffic to the carrier gateway
-        * An association with the subnets in the Wavelength Zone
-
-    For more information, see [Routing to a Wavelength Zone carrier gateway](#route-tables-cgw "#route-tables-cgw").
+   - A route for all VPC local traffic
+   - A route that routes all non-local traffic to the carrier gateway
+   - An association with the subnets in the Wavelength Zone
+     For more information, see [Routing to a Wavelength Zone carrier gateway](#route-tables-cgw "#route-tables-cgw").
 
 ### Create a security group to access the carrier network
 
