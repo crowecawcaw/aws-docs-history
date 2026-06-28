@@ -93,9 +93,9 @@ enum AppRoute {
 }
 ```
 
-1. Create a new dart file inside the **lib/features/activity/service** folder and call it **activities_api_service.dart**.
+1. Create a new dart file inside the **lib/features/activity/service** folder and call it **activities\_api\_service.dart**.
 
-![lib interface](images/m3-flutter-part-2-activities-api-service.png) 2. Open the **activities_api_service.dart** file and
+![lib interface](images/m3-flutter-part-2-activities-api-service.png) 2. Open the **activities\_api\_service.dart** file and
 update it with the following code snippet to create the **ActivitiesAPIService**, which contains the following functions:
 
     * **getActivitiesForTrip:** Queries the Amplify
@@ -205,9 +205,9 @@ class ActivitiesAPIService {
 }
 ```
 
-3. Create a new dart file in the **lib/features/activity/data** folder and name it  **activities_repository.dart**.
+3. Create a new dart file in the **lib/features/activity/data** folder and name it  **activities\_repository.dart**.
 
-![lib interface](images/m3-flutter-part-2-activities-repository.png) 4. Open the **activities_repository.dart** file and update it with the following code:
+![lib interface](images/m3-flutter-part-2-activities-repository.png) 4. Open the **activities\_repository.dart** file and update it with the following code:
 
 ```
 import 'package:amplify_trips_planner/features/activity/service/activities_api_service.dart';
@@ -248,13 +248,13 @@ class ActivitiesRepository {
 }
 ```
 
-1. Create a new dart file inside the **lib/features/activity/controller** folder and name it **activities_list_controller.dart.**
+1. Create a new dart file inside the **lib/features/activity/controller** folder and name it **activities\_list\_controller.dart.**
 
-![lib interface](images/m3-flutter-part-2-activities-list-controller.png) 2. Open the **activities_list_controller.dart** file and update it with the following code. The UI will use the controller to get the activities for a trip, add a new activity, and delete an activity.
+![lib interface](images/m3-flutter-part-2-activities-list-controller.png) 2. Open the **activities\_list\_controller.dart** file and update it with the following code. The UI will use the controller to get the activities for a trip, add a new activity, and delete an activity.
 
 ###### Note
 
-VSCode will show errors due to the missing **activities_list_controller.g.dart** file. You will fix that in the next
+VSCode will show errors due to the missing **activities\_list\_controller.g.dart** file. You will fix that in the next
 step.
 
 ```
@@ -333,11 +333,11 @@ class ActivitiesListController extends _$ActivitiesListController {
 dart run build_runner build -d
 ```
 
-This will generate the **activities_list.g.dart** file inside the **lib/feature/activity/controller** folder.
+This will generate the **activities\_list.g.dart** file inside the **lib/feature/activity/controller** folder.
 
-![lib interface](images/m3-flutter-part-2-activities-list-controller-g.png) 4. Create a new dart file in the **lib/features/activity/ui** folder and name it **activity_category_icon.dart**.
+![lib interface](images/m3-flutter-part-2-activities-list-controller-g.png) 4. Create a new dart file in the **lib/features/activity/ui** folder and name it **activity\_category\_icon.dart**.
 
-![lib interface](images/m3-flutter-part-2-activity-category-icon.png) 5. Open the **activity_category_icon.dart** file and
+![lib interface](images/m3-flutter-part-2-activity-category-icon.png) 5. Open the **activity\_category\_icon.dart** file and
 update it with the following code. This will allow the app to display an icon
 representing the activity’s category.
 
@@ -394,11 +394,11 @@ class ActivityCategoryIcon extends StatelessWidget {
 ```
 
 6. Create a new folder inside the **lib/features/activity/ui
-   folder**, name it **activities_list**, and
-   then create the file **activities_timeline.dart** inside
+   folder**, name it **activities\_list**, and
+   then create the file **activities\_timeline.dart** inside
    it.
 
-![features interface](images/m3-flutter-part-2-activities-timeline.png) 7. Open the **activities_timeline.dart** file and update
+![features interface](images/m3-flutter-part-2-activities-timeline.png) 7. Open the **activities\_timeline.dart** file and update
 it with the following code. This will display a timeline of the trip’s
 activities.
 
@@ -486,11 +486,11 @@ class ActivitiesTimeline extends StatelessWidget {
 }
 ```
 
-8. Create the file **activities_list.dart** inside the
-   **lib/features/activity/ui/activities_list**
+8. Create the file **activities\_list.dart** inside the
+   **lib/features/activity/ui/activities\_list**
    folder.
 
-![lib interface](images/m3-flutter-part-2-activities-list-contents.png) 9. Open the **activities_list.dart** file and update it
+![lib interface](images/m3-flutter-part-2-activities-list-contents.png) 9. Open the **activities\_list.dart** file and update it
 with the following code to use the **ActivitiesTimeline**
 widget you created previously to display a timeline of the trip’s activities.
 
@@ -537,9 +537,9 @@ class ActivitiesList extends ConsumerWidget {
 }
 ```
 
-1. Create a new folder inside the **lib/features/activity/ui** folder, name it **add_activity**, and then create the file **add_activity_form.dart** inside it.
+1. Create a new folder inside the **lib/features/activity/ui** folder, name it **add\_activity**, and then create the file **add\_activity\_form.dart** inside it.
 
-![lib interface](images/m3-flutter-part-2-add-activity-form.png) 2. Open the **add_activity_form.dart** file and update
+![lib interface](images/m3-flutter-part-2-add-activity-form.png) 2. Open the **add\_activity\_form.dart** file and update
 it with the following code. This will allow us to present a form to the user to submit
 the required details to create a new activity for the selected trip.
 
@@ -722,9 +722,9 @@ switch (widget.trip) {
 }
 ```
 
-3. Create a new file inside the **lib/features/activity/ui/add_activity** folder and name it **add_activity_page.dart**.
+3. Create a new file inside the **lib/features/activity/ui/add\_activity** folder and name it **add\_activity\_page.dart**.
 
-![lib interface](images/m3-flutter-part-2-add-activity-page.png) 4. Open the **add_activity_page.dart** file and update
+![lib interface](images/m3-flutter-part-2-add-activity-page.png) 4. Open the **add\_activity\_page.dart** file and update
 it with the following code to use the **AddActivityForm**
 you created above to create a new activity for the selected trip.
 
@@ -776,9 +776,9 @@ class AddActivityPage extends ConsumerWidget {
 }
 ```
 
-5. Create a new file in the **lib/features/trip/ui/trip_page** folder and name it **trip_page_floating_button.dart**.
+5. Create a new file in the **lib/features/trip/ui/trip\_page** folder and name it **trip\_page\_floating\_button.dart**.
 
-![activity interface](images/m3-flutter-part-2-trip-page-floating-button.png) 6. Open the **lib/features/trip/ui/trip_page/trip_page_floating_button.dart** file and
+![activity interface](images/m3-flutter-part-2-trip-page-floating-button.png) 6. Open the **lib/features/trip/ui/trip\_page/trip\_page\_floating\_button.dart** file and
 update it to a **floatingActionButton** to open the
 **AddActivityForm**.
 
@@ -825,7 +825,7 @@ switch (trip) {
 }
 ```
 
-7. Open the **lib/features/trip/ui/trip_page/trip_page.dart** file and update it to use
+7. Open the **lib/features/trip/ui/trip\_page/trip\_page.dart** file and update it to use
    the **TripPageFloatingButton** to add an activity to the
    trip.
 
@@ -835,7 +835,7 @@ floatingActionButton: TripPageFloatingButton(
 ),
 ```
 
-The **trip_page.dart** should look like the following
+The **trip\_page.dart** should look like the following
 code snippet.
 
 ```
@@ -891,7 +891,7 @@ class TripPage extends ConsumerWidget {
 }
 ```
 
-8. Open the **lib/features/trip/ui/trip_page/trip_details.dart** file and update it as
+8. Open the **lib/features/trip/ui/trip\_page/trip\_details.dart** file and update it as
    shown in the following to display the list of activities for the trip.
 
 ```
@@ -902,7 +902,7 @@ class TripPage extends ConsumerWidget {
 )
 ```
 
-The **trip_details.dart** should look like the
+The **trip\_details.dart** should look like the
 following code snippet.
 
 ```
@@ -1074,16 +1074,16 @@ final router = GoRouter(
 );
 ```
 
-1. Create a new dart file inside the folder **lib/features/activity/controller** and name it **activity_controller.dart.**
+1. Create a new dart file inside the folder **lib/features/activity/controller** and name it **activity\_controller.dart.**
 
-![lib interface](images/m3-flutter-part-2-activity-controller.png) 2. Open the **activity_controller.dart** file and update
+![lib interface](images/m3-flutter-part-2-activity-controller.png) 2. Open the **activity\_controller.dart** file and update
 it with the following code. The UI will use this controller for editing and deleting
 an activity using its ID. The UI will also use the controller for uploading a file for
 the activity.
 
 ###### Note
 
-VSCode will show errors due to the missing **activity_controller.g.dart** file. You will fix that in the next
+VSCode will show errors due to the missing **activity\_controller.g.dart** file. You will fix that in the next
 step.
 
 ```
@@ -1151,12 +1151,12 @@ class ActivityController extends _$ActivityController {
 dart run build_runner build -d
 ```
 
-This will generate the **activity_controller.g.dart**
+This will generate the **activity\_controller.g.dart**
 file inside the **lib/feature/activity/controller** folder.
 
-![lib interface](images/m3-flutter-part-2-activity-controller-g.png) 4. Create a new folder inside the **lib/features/activity/ui** folder, name it **activity_page**, and then create the file **delete_activity_dialog.dart** inside it.
+![lib interface](images/m3-flutter-part-2-activity-controller-g.png) 4. Create a new folder inside the **lib/features/activity/ui** folder, name it **activity\_page**, and then create the file **delete\_activity\_dialog.dart** inside it.
 
-![features interface](images/m3-flutter-part-2-delete-activity-dialog.png) 5. Open the **delete_activity_dialog.dart** file and
+![features interface](images/m3-flutter-part-2-delete-activity-dialog.png) 5. Open the **delete\_activity\_dialog.dart** file and
 update it with the following code. This will display a dialog for the user to confirm
 deleting the selected activity.
 
@@ -1192,9 +1192,9 @@ class DeleteActivityDialog extends StatelessWidget {
 }
 ```
 
-6. Create a new dart file inside the folder **lib/features/activity/ui/activity_page** and name it **activity_page_appbar_icon.dart**.
+6. Create a new dart file inside the folder **lib/features/activity/ui/activity\_page** and name it **activity\_page\_appbar\_icon.dart**.
 
-![features interface](images/m3-flutter-part-2-activity-page-appbar-icon.png) 7. Open the **activity_page_appbar_icon.dart** file and
+![features interface](images/m3-flutter-part-2-activity-page-appbar-icon.png) 7. Open the **activity\_page\_appbar\_icon.dart** file and
 update it with the following code to create an **IconButton** to navigate back to the activity’s trip page.
 
 ```
@@ -1240,9 +1240,9 @@ class ActivityPageAppBarIcon extends StatelessWidget {
 }
 ```
 
-8. Create a new dart file inside the folder**lib/features/activity/ui/activity_page** and name it **activity_listview.dart**.
+8. Create a new dart file inside the folder**lib/features/activity/ui/activity\_page** and name it **activity\_listview.dart**.
 
-![features interface](images/m3-flutter-part-2-activity-listview.png) 9. Open the **activity_listview.dart** file and update
+![features interface](images/m3-flutter-part-2-activity-listview.png) 9. Open the **activity\_listview.dart** file and update
 it with the following code to display the activity details and enable the user to
 upload and open a file for the activity.
 
@@ -1507,9 +1507,9 @@ class ActivityListView extends ConsumerWidget {
 }
 ```
 
-10. Create a new dart file inside the folder **lib/features/activity/ui/activity_page** and name it **activity_page.dart**.
+10. Create a new dart file inside the folder **lib/features/activity/ui/activity\_page** and name it **activity\_page.dart**.
 
-![features interface](images/m3-flutter-part-2-activity-page.png) 11. Open the **activity_page.dart** file and update it
+![features interface](images/m3-flutter-part-2-activity-page.png) 11. Open the **activity\_page.dart** file and update it
 with the following code to create the **ActivityPage**
 which will use the **ActivityListView** you created above
 to display the activity’s details.
@@ -1646,9 +1646,9 @@ final router = GoRouter(
 );
 ```
 
-1. Create a new folder inside the **lib/features/activity/ui** folder, name it **edit_activity**, and then create the file **edit_activity_page.dart** inside it.
+1. Create a new folder inside the **lib/features/activity/ui** folder, name it **edit\_activity**, and then create the file **edit\_activity\_page.dart** inside it.
 
-![features interface](images/m3-flutter-part-2-edit-activity-page.png) 2. Open the **edit_activity_page.dart** file and update it with the following code. This will allow us to present a form to the user to update the details of the selected activity.
+![features interface](images/m3-flutter-part-2-edit-activity-page.png) 2. Open the **edit\_activity\_page.dart** file and update it with the following code. This will allow us to present a form to the user to update the details of the selected activity.
 
 ```
 import 'package:amplify_flutter/amplify_flutter.dart';

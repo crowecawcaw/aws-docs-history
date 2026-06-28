@@ -111,9 +111,9 @@ The Amplify CLI will generate the dart files in the **lib/models** folder.
 
 ![Trip wide-screenshot](images/m4-flutter-part-2-confirmation-screenshot-4.png)
 
-1. Create a new dart file inside the folder **lib/common/services** and name it **auth_service.dart**.
+1. Create a new dart file inside the folder **lib/common/services** and name it **auth\_service.dart**.
 
-![lib interface](images/m4-flutter-part-2-auth-service.png) 2. Open **auth_service.dart** file and update it with
+![lib interface](images/m4-flutter-part-2-auth-service.png) 2. Open **auth\_service.dart** file and update it with
 the following code to create the **AuthService**. The
 service will use Amplify to sign the user out.
 
@@ -139,7 +139,7 @@ class AuthService {
 }
 ```
 
-3. Open the file **lib/common/navigation/ui/the_navigation_drawer.dart**. Update it with the
+3. Open the file **lib/common/navigation/ui/the\_navigation\_drawer.dart**. Update it with the
    following code to add the option to sign out from the app.
 
 ```
@@ -150,7 +150,7 @@ class AuthService {
           ),
 ```
 
-The **the_navigation_drawer.dart** should look like
+The **the\_navigation\_drawer.dart** should look like
 the following code snippet.
 
 ```
@@ -468,9 +468,9 @@ enum AppRoute {
 }
 ```
 
-4. Create a new dart file inside the **lib/features/profile/service** folder and call it **profile_api_service.dart**.
+4. Create a new dart file inside the **lib/features/profile/service** folder and call it **profile\_api\_service.dart**.
 
-![lib interface](images/m4-flutter-part-2-profile-api-service.png) 5. Open the **profile_api_service.dart** file and update it with the following code snippet to create **ProfileAPIService**, which contains the following functions:
+![lib interface](images/m4-flutter-part-2-profile-api-service.png) 5. Open the **profile\_api\_service.dart** file and update it with the following code snippet to create **ProfileAPIService**, which contains the following functions:
 
     * **getProfile:** Queries the Amplify API for the user’s profile and returns its details.
     * **updateProfile:** Update the user’s profile using the Amplify API.
@@ -516,9 +516,9 @@ class ProfileAPIService {
 }
 ```
 
-6. Create a new dart file inside the **lib/features/profile/data** folder and call it **profile_repository.dart**.
+6. Create a new dart file inside the **lib/features/profile/data** folder and call it **profile\_repository.dart**.
 
-![lib interface](images/m4-flutter-part-2-profile-repository.png) 7. Open the **profile_repository.dart** file and update it
+![lib interface](images/m4-flutter-part-2-profile-repository.png) 7. Open the **profile\_repository.dart** file and update it
 with the following code:
 
 ```
@@ -545,13 +545,13 @@ class ProfileRepository {
 }
 ```
 
-1. Create a new dart file inside the folder **lib/features/profile/controller** and name it **profile_controller.dart**/
+1. Create a new dart file inside the folder **lib/features/profile/controller** and name it **profile\_controller.dart**/
 
-![lib interface](images/m4-flutter-part-2-profile-controller.png) 2. Open the **profile_controller.dart** file and update it with the following code. The UI will use the controller to edit the details of the profile.
+![lib interface](images/m4-flutter-part-2-profile-controller.png) 2. Open the **profile\_controller.dart** file and update it with the following code. The UI will use the controller to edit the details of the profile.
 
 ###### Note
 
-VSCode will show errors due to the missing **profile_controller.g.dart** file. You will fix that in the next
+VSCode will show errors due to the missing **profile\_controller.g.dart** file. You will fix that in the next
 step.
 
 ```
@@ -585,17 +585,17 @@ class ProfileController extends _$ProfileController {
 ```
 
 3. Create a new folder inside the **lib/features/profile/ui
-   folder**, name it **profile_page**, and then
-   create the file **edit_profile_bottomsheet.dart** inside
+   folder**, name it **profile\_page**, and then
+   create the file **edit\_profile\_bottomsheet.dart** inside
    it.
 
 ```
 dart run build_runner build -d
 ```
 
-![lib interface](images/m4-flutter-part-2-profile-controller-g.png) 4. Create a new folder inside the **lib/features/profile/ui** folder, name it **profile_page**, and then create the file **edit_profile_bottomsheet.dart** inside it.
+![lib interface](images/m4-flutter-part-2-profile-controller-g.png) 4. Create a new folder inside the **lib/features/profile/ui** folder, name it **profile\_page**, and then create the file **edit\_profile\_bottomsheet.dart** inside it.
 
-![features interface](images/m4-flutter-part-2-edit-profile-bottomsheet.png) 5. Open the **edit_profile_bottomsheet.dart** file and
+![features interface](images/m4-flutter-part-2-edit-profile-bottomsheet.png) 5. Open the **edit\_profile\_bottomsheet.dart** file and
 update it with the following code. This will allow us to present a form to the user to
 submit the required details to update the user’s profile.
 
@@ -698,9 +698,9 @@ class EditProfileBottomSheet extends ConsumerWidget {
 }
 ```
 
-6. Create a new dart file inside the folder **lib/features/profile/ui/profile_page** and name it **profile_listview.dart**.
+6. Create a new dart file inside the folder **lib/features/profile/ui/profile\_page** and name it **profile\_listview.dart**.
 
-![lib interface](images/m4-flutter-part-2-profile-listview.png) 7. Open the **profile_listview.dart** file and update it
+![lib interface](images/m4-flutter-part-2-profile-listview.png) 7. Open the **profile\_listview.dart** file and update it
 with the following code. This will display the user’s profile details.
 
 ```
@@ -833,9 +833,9 @@ class ProfileListView extends ConsumerWidget {
 }
 ```
 
-8. Create a new dart file inside the folder **lib/features/profile/ui/profile_page** and name it **profile_page.dart**.
+8. Create a new dart file inside the folder **lib/features/profile/ui/profile\_page** and name it **profile\_page.dart**.
 
-![lib interface](images/m4-flutter-part-2-profile-page.png) 9. Open the **profile_page.dart** file and update it
+![lib interface](images/m4-flutter-part-2-profile-page.png) 9. Open the **profile\_page.dart** file and update it
 with the following code to use the**ProfileListView**
 you created above to display the user’s profile details.
 
@@ -977,7 +977,7 @@ final router = GoRouter(
 );
 ```
 
-11. Open the file **lib/common/navigation/ui/the_navigation_drawer.dart**. Update it with the
+11. Open the file **lib/common/navigation/ui/the\_navigation\_drawer.dart**. Update it with the
     following code to add the option to navigate to the profile route.
 
 ```
@@ -992,7 +992,7 @@ final router = GoRouter(
           ),
 ```
 
-The **the_navigation_drawer.dart** should look like
+The **the\_navigation\_drawer.dart** should look like
 the following code snippet.
 
 ```

@@ -31,9 +31,9 @@ enum AppRoute {
 }
 ```
 
-2. Create a new dart file inside the folder **lib/common/ui** and name it the **the_navigation_drawer.dart**.
+2. Create a new dart file inside the folder **lib/common/ui** and name it the **the\_navigation\_drawer.dart**.
 
-![lib screenshot](images/m2-flutter-part-2-navigation-drawer-file.png) 3. Open **the_navigation_drawer.dart** file and update it with the following code to create the options to navigate to the trip’s route and the past trip's route.
+![lib screenshot](images/m2-flutter-part-2-navigation-drawer-file.png) 3. Open **the\_navigation\_drawer.dart** file and update it with the following code to create the options to navigate to the trip’s route and the past trip's route.
 
 ```
 import 'package:amplify_trips_planner/common/navigation/router/routes.dart';
@@ -93,14 +93,14 @@ class TheNavigationDrawer extends ConsumerWidget {
 }
 ```
 
-4. Open the **lib/features/trip/ui/trips_list/trips_list_page.dart** file and update it
+4. Open the **lib/features/trip/ui/trips\_list/trips\_list\_page.dart** file and update it
    to add the navigation drawer.
 
 ```
 drawer: const TheNavigationDrawer(),
 ```
 
-The **trips_list_page.dart** should look like the
+The **trips\_list\_page.dart** should look like the
 following code snippet.
 
 ```
@@ -154,14 +154,14 @@ return Scaffold(
 }
 ```
 
-5. Open the **lib/features/trip/ui/trip_page/trip_page.dart** file and update it to add
+5. Open the **lib/features/trip/ui/trip\_page/trip\_page.dart** file and update it to add
    the navigation drawer.
 
 ```
 drawer: const TheNavigationDrawer(),
 ```
 
-The **trip_page.dart** should look like the following
+The **trip\_page.dart** should look like the following
 code snippet.
 
 ```
@@ -282,14 +282,14 @@ const List<double> greyoutMatrix = [
 ];
 ```
 
-2. Open the **lib/features/trip/ui/trips_gridview/trip_gridview_item.dart** file and
+2. Open the **lib/features/trip/ui/trips\_gridview/trip\_gridview\_item.dart** file and
    update it with the following code. The app will use a widget to display the trip card
    in a **GridView**. If the trip is in the past, it will be
    greyed out using a color filter and the constant you created above.
 
 ###### Note
 
-VSCode will show an error in the **trips_list_gridview.dart** file about a missing **isPast** parameter for the **TripGridViewItem** widget. You will fix that in the next steps.
+VSCode will show an error in the **trips\_list\_gridview.dart** file about a missing **isPast** parameter for the **TripGridViewItem** widget. You will fix that in the next steps.
 
 ```
 import 'package:amplify_trips_planner/common/navigation/router/routes.dart';
@@ -336,7 +336,7 @@ class TripGridViewItem extends StatelessWidget {
 }
 ```
 
-3. Open the **lib/features/trip/ui/trips_gridview/trips_list_gridview.dart** file and
+3. Open the **lib/features/trip/ui/trips\_gridview/trips\_list\_gridview.dart** file and
    update it with the following code.
 
 ```
@@ -401,7 +401,7 @@ class TripsListGridView extends StatelessWidget {
 }
 ```
 
-4. Open the **lib/features/trip/ui/trips_list/trips_list_page.dart** file and update it
+4. Open the **lib/features/trip/ui/trips\_list/trips\_list\_page.dart** file and update it
    to set the **isPast** parameter.
 
 ```
@@ -456,15 +456,15 @@ class TripsListPage extends ConsumerWidget {
 }
 ```
 
-1. Create a new dart file inside the **lib/feature/trip/controller** folder and name it **past_trips_list_controller.dart**.
+1. Create a new dart file inside the **lib/feature/trip/controller** folder and name it **past\_trips\_list\_controller.dart**.
 
-![lib interface](images/m2-flutter-part-2-past-trips-list.png) 2. Open the **past_trips_list_controller.dart** file and
+![lib interface](images/m2-flutter-part-2-past-trips-list.png) 2. Open the **past\_trips\_list\_controller.dart** file and
 update it with the following code. The UI will use the controller to get the user’s
 past trips using the **tripsRepository.getPastTrips()**function.
 
 ###### Note
 
-VSCode will show errors due to the missing **past_trips_list_controller.g.dart** file. You will fix that in the next
+VSCode will show errors due to the missing **past\_trips\_list\_controller.g.dart** file. You will fix that in the next
 step.
 
 ```
@@ -498,13 +498,13 @@ return _fetchTrips();
 dart run build_runner build -d
 ```
 
-This will generate the **past_trips_list_controller.g.dart** file in the**lib/feature/trip/controller**folder.
+This will generate the **past\_trips\_list\_controller.g.dart** file in the**lib/feature/trip/controller**folder.
 
 ![lib interface](images/m2-flutter-part-2-past-trips-list-controller.png) 4. Create a new folder in the **lib/features/trip/ui**
-folder, name it **past_trips**, and then create the file
-**past_trips_list.dart** inside it.
+folder, name it **past\_trips**, and then create the file
+**past\_trips\_list.dart** inside it.
 
-![lib interface](images/m2-flutter-part-2-past-trips-list-dart.png) 5. Open the **past_trips_list.dart** file and update it
+![lib interface](images/m2-flutter-part-2-past-trips-list-dart.png) 5. Open the **past\_trips\_list.dart** file and update it
 with the following code to create a **GridView** for
 displaying the past trips.
 
@@ -605,9 +605,9 @@ final router = GoRouter(
 );
 ```
 
-1. Create a new folder inside the **lib/features/trip/ui** folder, name it **past_trip_page**, and  then create the file **selected_past_trip_card.dart** inside it.
+1. Create a new folder inside the **lib/features/trip/ui** folder, name it **past\_trip\_page**, and  then create the file **selected\_past\_trip\_card.dart** inside it.
 
-![lib interface](images/m2-flutter-part-2-past-trip-page.png) 2. Open the **selected_past_trip_card.dart** file and update it with the following code. Here we check if there is an image for the past trip and display it in a card widget. We use the placeholder image from the app assets if there is no image.
+![lib interface](images/m2-flutter-part-2-past-trip-page.png) 2. Open the **selected\_past\_trip\_card.dart** file and update it with the following code. Here we check if there is an image for the past trip and display it in a card widget. We use the placeholder image from the app assets if there is no image.
 
 ```
 import 'package:amplify_trips_planner/common/utils/colors.dart' as constants;
@@ -675,9 +675,9 @@ class SelectedPastTripCard extends StatelessWidget {
 }
 ```
 
-3. Create a new dart file inside the **lib/features/trip/ui/past_trip_page** folder and call it **past_trip_details.dart**.
+3. Create a new dart file inside the **lib/features/trip/ui/past\_trip\_page** folder and call it **past\_trip\_details.dart**.
 
-![lib interface](images/m2-flutter-part-2-past-trip-page-2.png) 4. Open the **past_trip_details.dart** file and update it with the following code to create the **PastTripDetails**, which will use the **SelectedPastTripCard** you created above to display the data.
+![lib interface](images/m2-flutter-part-2-past-trip-page-2.png) 4. Open the **past\_trip\_details.dart** file and update it with the following code to create the **PastTripDetails**, which will use the **SelectedPastTripCard** you created above to display the data.
 
 ```
 import 'package:amplify_trips_planner/features/trip/ui/past_trip_page/selected_past_trip_card.dart';
@@ -745,9 +745,9 @@ class PastTripDetails extends ConsumerWidget {
 }
 ```
 
-5. Create a new dart file inside the **lib/features/trip/ui/past_trip_page** folder and name it **past_trip_page.dart**.
+5. Create a new dart file inside the **lib/features/trip/ui/past\_trip\_page** folder and name it **past\_trip\_page.dart**.
 
-![lib interface](images/m2-flutter-part-2-past-trip-page-3.png) 6. Open the **past_trip_page.dart** file and update it
+![lib interface](images/m2-flutter-part-2-past-trip-page-3.png) 6. Open the **past\_trip\_page.dart** file and update it
 with the following code to create the **PastTripPage**,
 which will get the past trip details using the **tripId**. The **PastTripPage** will grey out
 and use the **PastTripDetails** you created above to
