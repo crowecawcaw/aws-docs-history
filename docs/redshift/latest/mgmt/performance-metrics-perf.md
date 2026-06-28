@@ -17,27 +17,26 @@ tasks:
 
 ###### To view performance data
 
-1.  Sign in to the AWS Management Console and open the Amazon Redshift console at
-    [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2.  On the navigation menu, choose **Clusters**, then choose
-    the name of a cluster from the list to open its details. The details of the
-    cluster are displayed, which can include **Cluster performance**, **Query monitoring**,
-    **Databases**, **Datashares**,
-    **Schedules**, **Maintenance**, and **Properties** tabs.
-3.  Choose the **Cluster performance** tab for performance
-    information including the following:
+1. Sign in to the AWS Management Console and open the Amazon Redshift console at
+   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
+2. On the navigation menu, choose **Clusters**, then choose
+   the name of a cluster from the list to open its details. The details of the
+   cluster are displayed, which can include **Cluster performance**, **Query monitoring**,
+   **Databases**, **Datashares**,
+   **Schedules**, **Maintenance**, and **Properties** tabs.
+3. Choose the **Cluster performance** tab for performance
+   information including the following:
 
-        * **CPU utilization**
-        * **Percentage disk space used**
-        * **Database connections**
-        * **Health status**
-        * **Query duration**
-        * **Query throughput**
-        * **Concurrency scaling activity**
-
-    Many more metrics are available. To see the available metrics and choose
-    which are displayed, choose the **Preferences**
-    icon.
+   - **CPU utilization**
+   - **Percentage disk space used**
+   - **Database connections**
+   - **Health status**
+   - **Query duration**
+   - **Query throughput**
+   - **Concurrency scaling activity**
+     Many more metrics are available. To see the available metrics and choose
+     which are displayed, choose the **Preferences**
+     icon.
 
 ## Cluster performance graphs
 

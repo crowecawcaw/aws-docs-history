@@ -33,13 +33,13 @@ only a subset of these.
 - **Include `EXTERNAL TABLE` in
   `SQLTables` type filters.** In ODBC 2.x, both
   Amazon Redshift Spectrum tables and datashare tables are reported as `EXTERNAL
-TABLE`. If you filter `SQLTables` by type, add
+ TABLE`. If you filter `SQLTables` by type, add
   `EXTERNAL TABLE` to keep seeing these objects.
 - **Cast `INTERVAL` to
   `VARCHAR` for applications that do not support the interval
   data type.** Some clients do not support ODBC interval types.
   For those clients, cast the column in your query: `SELECT col::VARCHAR
-FROM ...`
+ FROM ...`
 
 ### Application code
 

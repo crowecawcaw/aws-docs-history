@@ -30,16 +30,16 @@ must have been taken on a cluster with cluster version 1.0.10013, or later.
 When a restore is in progress, events are typically emitted in the following
 order:
 
-1. RESTORE_STARTED – REDSHIFT-EVENT-2008 sent when the restore process begins.
-2. RESTORE_SUCCEEDED – REDSHIFT-EVENT-3003 sent when the new cluster has been
+1. RESTORE\_STARTED – REDSHIFT-EVENT-2008 sent when the restore process begins.
+2. RESTORE\_SUCCEEDED – REDSHIFT-EVENT-3003 sent when the new cluster has been
    created.
 
-The cluster is available for queries. 3. DATA_TRANSFER_COMPLETED – REDSHIFT-EVENT-3537 sent when data transfer
+The cluster is available for queries. 3. DATA\_TRANSFER\_COMPLETED – REDSHIFT-EVENT-3537 sent when data transfer
 complete.
 
 ###### Note
 
-RG and RA3 clusters only emit RESTORE_STARTED and RESTORE_SUCCEEDED events. There is no
+RG and RA3 clusters only emit RESTORE\_STARTED and RESTORE\_SUCCEEDED events. There is no
 explicit data transfer to be done after a RESTORE succeeds because RG and RA3 node types store
 data in Amazon Redshift managed storage. With RG and RA3 nodes, data is continuously transferred between
 RG and RA3 nodes and Amazon Redshift managed storage as part of normal query processing. RG and RA3 nodes cache

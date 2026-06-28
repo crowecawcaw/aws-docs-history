@@ -141,20 +141,18 @@ If your client needs a certificate, Redshift Serverless provides a bundle certif
 - Download the bundle from
   [https://s3.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt](https://s3.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt "https://s3.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt").
 
-      + The expected MD5 checksum number is 418dea9b6d5d5de7a8f1ac42e164cdcf.
-      + The sha256 checksum number is 36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.
-
-  Don't use the previous certificate bundle that was located at
-  `https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt`.
+  - The expected MD5 checksum number is 418dea9b6d5d5de7a8f1ac42e164cdcf.
+  - The sha256 checksum number is 36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.
+    Don't use the previous certificate bundle that was located at
+    `https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt`.
 
 - In the China AWS Region, download the bundle from
   [https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/amazon-trust-ca-bundle.crt](https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/amazon-trust-ca-bundle.crt "https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/amazon-trust-ca-bundle.crt").
 
-      + The expected MD5 checksum number is 418dea9b6d5d5de7a8f1ac42e164cdcf.
-      + The sha256 checksum number is 36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.
-
-  Don't use the previous certificate bundles that were located at
-  `https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/redshift-ca-bundle.crt`
+  - The expected MD5 checksum number is 418dea9b6d5d5de7a8f1ac42e164cdcf.
+  - The sha256 checksum number is 36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.
+    Don't use the previous certificate bundles that were located at
+    `https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/redshift-ca-bundle.crt`
 
 and `https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/redshift-ssl-ca-cert.pem`
 
@@ -229,7 +227,7 @@ aws redshift-serverless update-workgroup \
 ```
 
 For more information about configuring Redshift Serverless to use FIPS-compliant connections, see
-[use_fips_ssl](../dg/use_fips_ssl.md "../dg/use_fips_ssl.md") in the _Amazon Redshift Database Developer Guide_.
+[use\_fips\_ssl](../dg/use_fips_ssl.md "../dg/use_fips_ssl.md") in the _Amazon Redshift Database Developer Guide_.
 
 ## Connecting to Amazon Redshift Serverless from an Amazon Redshift managed VPC endpoint
 

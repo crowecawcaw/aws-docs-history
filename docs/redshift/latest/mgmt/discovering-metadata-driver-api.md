@@ -47,7 +47,7 @@ DatabaseMetaData dbmd = connection.getMetaData();
 ResultSet rs = dbmd.getTables("test", "test_pattern", null, new String[] {"TABLE", "EXTERNAL TABLE"});
 ```
 
-## Example: Using Python cursor.get_columns() to retrieve column metadata
+## Example: Using Python cursor.get\_columns() to retrieve column metadata
 
 ```
 cursor: redshift_connector.Cursor = conn.cursor()

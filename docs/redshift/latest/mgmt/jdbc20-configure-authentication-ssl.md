@@ -97,51 +97,51 @@ The driver also supports credential provider plugins from the following services
 If you use one of these services, the connection URL needs to specify the
 following properties:
 
-- Plugin_Name – The fully-qualified
+- Plugin\_Name – The fully-qualified
   class path for your credentials provider plugin class.
-- IdP_Host: – The host for the service
+- IdP\_Host: – The host for the service
   that you are using to authenticate into Amazon Redshift.
-- IdP_Port – The port that the host
+- IdP\_Port – The port that the host
   for the authentication service listens at. Not required for Okta.
-- User – The username for the idp_host
+- User – The username for the idp\_host
   server.
 - Password – The password associated
-  with the idp_host username.
+  with the idp\_host username.
 - DbUser – The Amazon Redshift username you are
   connecting as.
-- SSL_Insecure – Indicates whether the
+- SSL\_Insecure – Indicates whether the
   IDP server certificate should be verified.
-- Client_ID – The client ID associated
+- Client\_ID – The client ID associated
   with the username in the Azure AD portal. Only used for Azure AD.
-- Client_Secret – The client secret
+- Client\_Secret – The client secret
   associated with the client ID in the Azure AD portal. Only used for Azure
   AD.
-- IdP_Tenant – The Azure AD tenant ID
+- IdP\_Tenant – The Azure AD tenant ID
   for your Amazon Redshift application. Only used for Azure AD.
-- App_ID – The Okta app ID for your
+- App\_ID – The Okta app ID for your
   Amazon Redshift application. Only used for Okta.
-- App_Name – The optional Okta app
+- App\_Name – The optional Okta app
   name for your Amazon Redshift application. Only used for Okta.
-- Partner_SPID – The optional partner
+- Partner\_SPID – The optional partner
   SPID (service provider ID) value. Only used for PingFederate.
-- Idc_Region – The AWS Region where
+- Idc\_Region – The AWS Region where
   the AWS IAM Identity Center instance is located. Only used for AWS IAM Identity Center.
-- Issuer_Url – The AWS IAM Identity Center
+- Issuer\_Url – The AWS IAM Identity Center
   server's instance endpoint. Only used for AWS IAM Identity Center.
 
 If you are using a browser plugin for one of these services, the connection URL
 can also include:
 
-- Login_URL –The URL for the resource
+- Login\_URL –The URL for the resource
   on the identity provider's website when using the Security Assertion Markup
   Language (SAML) or Azure AD services through a browser plugin. This
   parameter is required if you are using a browser plugin.
 
-- Listen_Port – The port that the
+- Listen\_Port – The port that the
   driver uses to get the SAML response from the identity provider when using
   the SAML, Azure AD, or AWS IAM Identity Center services through a browser plugin.
 
-- IdP_Response_Timeout – The amount of
+- IdP\_Response\_Timeout – The amount of
   time, in seconds, that the driver waits for the SAML response from the
   identity provider when using the SAML, Azure AD, or AWS IAM Identity Center services
   through a browser plugin.

@@ -73,11 +73,10 @@ summary of your resources and graphs of your usage.
   number of RPUs used in an hour. You determine an action to occur
   when you reach a limit that you set, as follows:
 
-      + Send an alert.
-      + Log an entry to a system table.
-      + Turn off user queries.
-
-  You can set up to four limits.
+  - Send an alert.
+  - Log an entry to a system table.
+  - Turn off user queries.
+    You can set up to four limits.
 
 - **Query limits** – You can add a limit to
   monitor performance and limits. For more information about query

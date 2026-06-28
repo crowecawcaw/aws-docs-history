@@ -66,8 +66,8 @@ For Redshift Spectrum, in addition to Amazon S3 access, add
 
 Choose **Next: Tags**. 7. The **Add tags** page appears. You can optionally add tags.
 Choose **Next: Review**. 8. For **Role name**, type a name for your role, for example
-`RedshiftCopyUnload`. Choose \***\*Create
-role\*\***. 9. The new role is available to all users on clusters that use the role. To
+`RedshiftCopyUnload`. Choose ****Create
+role****. 9. The new role is available to all users on clusters that use the role. To
 restrict access to only specific users on specific clusters, or to clusters in
 specific regions, edit the trust relationship for the role. For more
 information, see [Restricting access to IAM roles](authorizing-redshift-service-database-users.md "authorizing-redshift-service-database-users.md"). 10. Associate the role with your cluster. You can associate an IAM role with a

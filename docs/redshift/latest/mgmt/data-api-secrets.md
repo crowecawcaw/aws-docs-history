@@ -16,73 +16,64 @@ with AWS Secrets Manager](../../../secretsmanager/latest/userguide/managing-secr
 
 ###### To store your credentials in a secret for an Amazon Redshift cluster
 
-1.  Use the AWS Secrets Manager console to create a secret that contains credentials for
-    your cluster:
+1. Use the AWS Secrets Manager console to create a secret that contains credentials for
+   your cluster:
 
-        * When you choose **Store a new secret**, choose
-         **Credentials for Redshift cluster**.
-        * Store your values for **User name** (database
-         user), **Password**, and **DB cluster** (cluster identifier) in your secret.
-        * Tag the secret with the key `RedshiftDataFullAccess`.
-         The AWS managed policy `AmazonRedshiftDataFullAccess`
-         only allows the action `secretsmanager:GetSecretValue`
-         for secrets tagged with the key `RedshiftDataFullAccess`.
+   - When you choose **Store a new secret**, choose
+     **Credentials for Redshift cluster**.
+   - Store your values for **User name** (database
+     user), **Password**, and **DB cluster** (cluster identifier) in your secret.
+   - Tag the secret with the key `RedshiftDataFullAccess`.
+     The AWS managed policy `AmazonRedshiftDataFullAccess`
+     only allows the action `secretsmanager:GetSecretValue`
+     for secrets tagged with the key `RedshiftDataFullAccess`.
+     For instructions, see [Creating a Basic
+     Secret](../../../secretsmanager/latest/userguide/manage_create-basic-secret.md "../../../secretsmanager/latest/userguide/manage_create-basic-secret.md") in the _AWS Secrets Manager User Guide_.
 
-    For instructions, see [Creating a Basic
-    Secret](../../../secretsmanager/latest/userguide/manage_create-basic-secret.md "../../../secretsmanager/latest/userguide/manage_create-basic-secret.md") in the _AWS Secrets Manager User Guide_.
-
-2.  Use the AWS Secrets Manager console to view the details for the secret you created,
-    or run the `aws secretsmanager describe-secret` AWS CLI
-    command.
+2. Use the AWS Secrets Manager console to view the details for the secret you created,
+   or run the `aws secretsmanager describe-secret` AWS CLI
+   command.
 
 Note the name and ARN of the secret. You can use these in calls to the
 Data API.
 
 ###### To store your credentials in a secret for a serverless workgroup
 
-1.  Use AWS Secrets Manager AWS CLI commands to store a secret that contains credentials
-    for your serverless workgroup:
+1. Use AWS Secrets Manager AWS CLI commands to store a secret that contains credentials
+   for your serverless workgroup:
 
-        * Create your secret in a file, for example a JSON file named
-         `mycreds.json`. Provide the values for
-         **User name** (database user) and
-         **Password** in the file.
+   - Create your secret in a file, for example a JSON file named
+     `mycreds.json`. Provide the values for
+     **User name** (database user) and
+     **Password** in the file.
 
+   ```
+   {
+         "username": "myusername",
+         "password": "mypassword"
+   }
+   ```
+   - Store your values in your secret and tag the secret with the key
+     `RedshiftDataFullAccess`.
 
+   ```
+   aws secretsmanager create-secret --name MyRedshiftSecret  --tags Key="RedshiftDataFullAccess",Value="serverless" --secret-string file://mycreds.json
+   ```
 
-        ```
-        {
-              "username": "myusername",
-              "password": "mypassword"
-        }
-        ```
-        * Store your values in your secret and tag the secret with the key
-         `RedshiftDataFullAccess`.
+   The following shows the output.
 
+   ```
+   {
+       "ARN": "arn:aws:secretsmanager:`region`:`accountId`:secret:MyRedshiftSecret-`mvLHxf`",
+       "Name": "MyRedshiftSecret",
+       "VersionId": "a1603925-e8ea-4739-9ae9-e509eEXAMPLE"
+   }
+   ```
 
-
-        ```
-        aws secretsmanager create-secret --name MyRedshiftSecret  --tags Key="RedshiftDataFullAccess",Value="serverless" --secret-string file://mycreds.json
-        ```
-
-        The following shows the output.
-
-
-
-        ```
-        {
-            "ARN": "arn:aws:secretsmanager:`region`:`accountId`:secret:MyRedshiftSecret-`mvLHxf`",
-            "Name": "MyRedshiftSecret",
-            "VersionId": "a1603925-e8ea-4739-9ae9-e509eEXAMPLE"
-        }
-        ```
-
-    For more information, see [Creating a Basic Secret with AWS CLI](../../../secretsmanager/latest/userguide/manage_create-basic-secret.md#proc-create-api "../../../secretsmanager/latest/userguide/manage_create-basic-secret.md#proc-create-api") in the
-    _AWS Secrets Manager User Guide_.
-
-2.  Use the AWS Secrets Manager console to view the details for the secret you created,
-    or run the `aws secretsmanager describe-secret` AWS CLI
-    command.
+For more information, see [Creating a Basic Secret with AWS CLI](../../../secretsmanager/latest/userguide/manage_create-basic-secret.md#proc-create-api "../../../secretsmanager/latest/userguide/manage_create-basic-secret.md#proc-create-api") in the
+_AWS Secrets Manager User Guide_. 2. Use the AWS Secrets Manager console to view the details for the secret you created,
+or run the `aws secretsmanager describe-secret` AWS CLI
+command.
 
 Note the name and ARN of the secret. You can use these in calls to the
 Data API.

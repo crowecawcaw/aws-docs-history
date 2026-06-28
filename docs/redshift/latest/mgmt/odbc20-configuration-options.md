@@ -25,60 +25,60 @@ version 2.x driver:
 ###### Topics
 
 - [AccessKeyID](#odbc20-accesskeyid-option "#odbc20-accesskeyid-option")
-- [app_id](#odbc20-app-id-option "#odbc20-app-id-option")
+- [app\_id](#odbc20-app-id-option "#odbc20-app-id-option")
 - [ApplicationName](#odbc20-application_name-option "#odbc20-application_name-option")
-- [app_name](#odbc20-app-name-option "#odbc20-app-name-option")
+- [app\_name](#odbc20-app-name-option "#odbc20-app-name-option")
 - [AuthProfile](#odbc20-authprofile-option "#odbc20-authprofile-option")
 - [AuthType](#odbc20-authtype-option "#odbc20-authtype-option")
 - [AutoCreate](#odbc20-autocreate-option "#odbc20-autocreate-option")
 - [CaFile](#odbc20-cafile-option "#odbc20-cafile-option")
-- [client_id](#odbc20-client-id-option "#odbc20-client-id-option")
+- [client\_id](#odbc20-client-id-option "#odbc20-client-id-option")
 - [client\_ secret](#odbc20-client-secret-option "#odbc20-client-secret-option")
 - [ClusterId](#odbc20-clusterid-option "#odbc20-clusterid-option")
 - [compression](#odbc20-compression-option "#odbc20-compression-option")
 - [Database](#odbc20-database-option "#odbc20-database-option")
 - [DatabaseMetadataCurrentDbOnly](#odbc20-database-metadata-option "#odbc20-database-metadata-option")
-- [dbgroups_filter](#odbc20-dbgroups-filter-option "#odbc20-dbgroups-filter-option")
+- [dbgroups\_filter](#odbc20-dbgroups-filter-option "#odbc20-dbgroups-filter-option")
 - [Driver](#odbc20-driver-option "#odbc20-driver-option")
 - [DSN](#odbc20-dsn-option "#odbc20-dsn-option")
 - [EndpointUrl](#odbc20-endpointurl-option "#odbc20-endpointurl-option")
 - [ForceLowercase](#odbc20-forcelowercase-option "#odbc20-forcelowercase-option")
-- [group_federation](#odbc20-group-federation-option "#odbc20-group-federation-option")
-- [https_proxy_host](#odbc20-https-proxy-host-option "#odbc20-https-proxy-host-option")
-- [https_proxy_password](#odbc20-https-proxy-password-option "#odbc20-https-proxy-password-option")
-- [https_proxy_port](#odbc20-https-proxy-port-option "#odbc20-https-proxy-port-option")
-- [https_proxy_username](#odbc20-https-proxy-username-option "#odbc20-https-proxy-username-option")
+- [group\_federation](#odbc20-group-federation-option "#odbc20-group-federation-option")
+- [https\_proxy\_host](#odbc20-https-proxy-host-option "#odbc20-https-proxy-host-option")
+- [https\_proxy\_password](#odbc20-https-proxy-password-option "#odbc20-https-proxy-password-option")
+- [https\_proxy\_port](#odbc20-https-proxy-port-option "#odbc20-https-proxy-port-option")
+- [https\_proxy\_username](#odbc20-https-proxy-username-option "#odbc20-https-proxy-username-option")
 - [IAM](#odbc20-iam-option "#odbc20-iam-option")
-- [idc_client_display_name](#odbc20-idc_client_display_name-option "#odbc20-idc_client_display_name-option")
-- [idc_region](#odbc20-idc_region "#odbc20-idc_region")
-- [idp_host](#odbc20-idp-host-option "#odbc20-idp-host-option")
-- [idp_port](#odbc20-idp-port-option "#odbc20-idp-port-option")
-- [idp_response_timeout](#odbc20-idp-response-timeout-option "#odbc20-idp-response-timeout-option")
-- [idp_tenant](#odbc20-idp-tenant-option "#odbc20-idp-tenant-option")
-- [idp_partition](#odbc20-idp-partition-option "#odbc20-idp-partition-option")
-- [idp_use_https_proxy](#odbc20-idp-use-https-proxy-option "#odbc20-idp-use-https-proxy-option")
+- [idc\_client\_display\_name](#odbc20-idc_client_display_name-option "#odbc20-idc_client_display_name-option")
+- [idc\_region](#odbc20-idc_region "#odbc20-idc_region")
+- [idp\_host](#odbc20-idp-host-option "#odbc20-idp-host-option")
+- [idp\_port](#odbc20-idp-port-option "#odbc20-idp-port-option")
+- [idp\_response\_timeout](#odbc20-idp-response-timeout-option "#odbc20-idp-response-timeout-option")
+- [idp\_tenant](#odbc20-idp-tenant-option "#odbc20-idp-tenant-option")
+- [idp\_partition](#odbc20-idp-partition-option "#odbc20-idp-partition-option")
+- [idp\_use\_https\_proxy](#odbc20-idp-use-https-proxy-option "#odbc20-idp-use-https-proxy-option")
 - [InstanceProfile](#odbc20-instanceprofile-option "#odbc20-instanceprofile-option")
-- [issuer_url](#odbc20-issuer_url "#odbc20-issuer_url")
+- [issuer\_url](#odbc20-issuer_url "#odbc20-issuer_url")
 - [KeepAlive](#odbc20-keepalive-option "#odbc20-keepalive-option")
 - [KeepAliveCount](#odbc20-keepalivecount-option "#odbc20-keepalivecount-option")
 - [KeepAliveInterval](#odbc20-keepaliveinterval-option "#odbc20-keepaliveinterval-option")
 - [KeepAliveIdle](#odbc20-keepaliveidle-option "#odbc20-keepaliveidle-option")
-- [listen_port](#odbc20-listen-port-option "#odbc20-listen-port-option")
-- [login_url](#odbc20-login-url-option "#odbc20-login-url-option")
+- [listen\_port](#odbc20-listen-port-option "#odbc20-listen-port-option")
+- [login\_url](#odbc20-login-url-option "#odbc20-login-url-option")
 - [loginToRp](#odbc20-logintorp-option "#odbc20-logintorp-option")
 - [LogLevel](#odbc20-loglevel-option "#odbc20-loglevel-option")
 - [LogPath](#odbc20-logpath-option "#odbc20-logpath-option")
 - [LoginTimeout](#odbc20-logintimeout-option "#odbc20-logintimeout-option")
 - [MaxLongVarcharSize](#odbc20-maxlongvarcharsize-option "#odbc20-maxlongvarcharsize-option")
 - [MaxVarcharSize](#odbc20-maxvarcharsize-option "#odbc20-maxvarcharsize-option")
-- [Min_TLS](#odbc20-min-tls-option "#odbc20-min-tls-option")
-- [partner_spid](#odbc20-partner-spid-option "#odbc20-partner-spid-option")
+- [Min\_TLS](#odbc20-min-tls-option "#odbc20-min-tls-option")
+- [partner\_spid](#odbc20-partner-spid-option "#odbc20-partner-spid-option")
 - [Password | PWD](#odbc20-password-option "#odbc20-password-option")
-- [plugin_name](#odbc20-plugin-name-option "#odbc20-plugin-name-option")
+- [plugin\_name](#odbc20-plugin-name-option "#odbc20-plugin-name-option")
 - [Port | PortNumber](#odbc20-port-option "#odbc20-port-option")
-- [preferred_role](#odbc20-preferred-role-option "#odbc20-preferred-role-option")
+- [preferred\_role](#odbc20-preferred-role-option "#odbc20-preferred-role-option")
 - [Profile](#odbc20-profile-option "#odbc20-profile-option")
-- [provider_name](#odbc20-provider-name-option "#odbc20-provider-name-option")
+- [provider\_name](#odbc20-provider-name-option "#odbc20-provider-name-option")
 - [ProxyHost](#odbc20-proxyhost-option "#odbc20-proxyhost-option")
 - [ProxyPort](#odbc20-proxyport-option "#odbc20-proxyport-option")
 - [ProxyPwd](#odbc20-proxypwd-option "#odbc20-proxypwd-option")
@@ -88,16 +88,16 @@ version 2.x driver:
 - [SecretAccessKey](#odbc20-secretaccesskey-option "#odbc20-secretaccesskey-option")
 - [SessionToken](#odbc20-sessiontoken-option "#odbc20-sessiontoken-option")
 - [Server | HostName | Host](#odbc20-server-option "#odbc20-server-option")
-- [ssl_insecure](#odbc20-ssl-insecure-option "#odbc20-ssl-insecure-option")
+- [ssl\_insecure](#odbc20-ssl-insecure-option "#odbc20-ssl-insecure-option")
 - [SSLMode](#odbc20-sslmode-option "#odbc20-sslmode-option")
 - [StreamingCursorRows](#odbc20-streamingcursorrows-option "#odbc20-streamingcursorrows-option")
 - [StsConnectionTimeout](#odbc20-stsconnectiontimeout-option "#odbc20-stsconnectiontimeout-option")
 - [StsEndpointUrl](#odbc20-stsendpointurl-option "#odbc20-stsendpointurl-option")
 - [token](#jdbc20-token-option "#jdbc20-token-option")
-- [token_type](#jdbc20-token-type-option "#jdbc20-token-type-option")
+- [token\_type](#jdbc20-token-type-option "#jdbc20-token-type-option")
 - [UID | User | LogonID](#odbc20-uid-option "#odbc20-uid-option")
 - [UseUnicode](#odbc20-useunicode-option "#odbc20-useunicode-option")
-- [web_identity_token](#odbc20-web-identity-token-option "#odbc20-web-identity-token-option")
+- [web\_identity\_token](#odbc20-web-identity-token-option "#odbc20-web-identity-token-option")
 
 ## AccessKeyID
 
@@ -109,7 +109,7 @@ specify **SecretAccessKey**.
 
 This parameter is optional.
 
-## app_id
+## app\_id
 
 - Default Value – None
 - Data Type – String
@@ -124,14 +124,14 @@ This parameter is optional.
 - Data type – String
 
 The name of the client application to pass to Amazon Redshift for audit purposes.
-The application name that you provide appears in the 'application_name'
-column of the [SYS_CONNECTION_LOG](../dg/SYS_CONNECTION_LOG.md "../dg/SYS_CONNECTION_LOG.md")
+The application name that you provide appears in the 'application\_name'
+column of the [SYS\_CONNECTION\_LOG](../dg/SYS_CONNECTION_LOG.md "../dg/SYS_CONNECTION_LOG.md")
 table. This helps track and
 troubleshoot connection sources when debugging issues.
 
 This parameter is optional.
 
-## app_name
+## app\_name
 
 - Default Value – None
 - Data Type – String
@@ -180,7 +180,7 @@ Driver DSN Setup dialog box in the Windows driver. When you configure a connecti
 using a connection string or a non-Windows machine, the driver automatically
 determines whether to use Standard, AWS Profile, or AWS IAM Credentials
 authentication based on your specified credentials. To use an identity provider, you
-must set the **plugin_name** property.
+must set the **plugin\_name** property.
 
 This parameter is required.
 
@@ -211,7 +211,7 @@ This parameter is only available on Linux.
 
 This parameter is optional.
 
-## client_id
+## client\_id
 
 - Default Value – None
 - Data Type – String
@@ -282,7 +282,7 @@ and clusters.
 
 This parameter is optional.
 
-## dbgroups_filter
+## dbgroups\_filter
 
 - Default Value – None
 - Data Type – String
@@ -338,7 +338,7 @@ identity provider to Amazon Redshift when using single sign-on authentication.
 
 This parameter is optional.
 
-## group_federation
+## group\_federation
 
 - Default Value – 0
 - Data Type – Boolean
@@ -355,7 +355,7 @@ clusters. Note that this option does not apply to Redshift Serverless namespaces
 
 This parameter is optional.
 
-## https_proxy_host
+## https\_proxy\_host
 
 - Default Value – None
 - Data Type – String
@@ -365,7 +365,7 @@ IAM authentication processes.
 
 This parameter is optional.
 
-## https_proxy_password
+## https\_proxy\_password
 
 - Default Value – None
 - Data Type – String
@@ -375,7 +375,7 @@ authentication.
 
 This parameter is optional.
 
-## https_proxy_port
+## https\_proxy\_port
 
 - Default Value – None
 - Data Type – Integer
@@ -385,7 +385,7 @@ connections. It’s used for IAM authentication.
 
 This parameter is optional.
 
-## https_proxy_username
+## https\_proxy\_username
 
 - Default Value – None
 - Data Type – String
@@ -410,7 +410,7 @@ authenticate the connection.
 
 This parameter is optional.
 
-## idc_client_display_name
+## idc\_client\_display\_name
 
 - Default Value – Amazon Redshift ODBC
   driver
@@ -421,7 +421,7 @@ BrowserIdcAuthPlugin.
 
 This parameter is optional.
 
-## idc_region
+## idc\_region
 
 - Default Value – None
 - Data Type – String
@@ -429,10 +429,10 @@ This parameter is optional.
 The AWS region where the AWS IAM Identity Center instance is located.
 
 This parameter is required only when authenticating using
-`BrowserIdcAuthPlugin` in the plugin_name configuration
+`BrowserIdcAuthPlugin` in the plugin\_name configuration
 option.
 
-## idp_host
+## idp\_host
 
 - Default Value – None
 - Data Type – String
@@ -442,7 +442,7 @@ Amazon Redshift.
 
 This parameter is optional.
 
-## idp_port
+## idp\_port
 
 - Default Value – None
 - Data Type – Integer
@@ -453,7 +453,7 @@ the cluster, allow access to the selected port.
 
 This parameter is optional.
 
-## idp_response_timeout
+## idp\_response\_timeout
 
 - Default Value – 120
 - Data Type – Integer
@@ -463,7 +463,7 @@ identity provider when using SAML or Azure AD services through a browser plugin.
 
 This parameter is optional.
 
-## idp_tenant
+## idp\_tenant
 
 - Default Value – None
 - Data Type – String
@@ -472,7 +472,7 @@ The Azure AD tenant ID associated with your Amazon Redshift application.
 
 This parameter is required if authenticating through the Azure AD service.
 
-## idp_partition
+## idp\_partition
 
 - Default Value – None
 - Data Type – String
@@ -486,7 +486,7 @@ If this parameter is left blank, the driver defaults to the commercial partition
 
 This parameter is optional.
 
-## idp_use_https_proxy
+## idp\_use\_https\_proxy
 
 - Default Value – 0
 - Data Type – Boolean
@@ -515,7 +515,7 @@ configured to use a profile for authentication.
 
 This parameter is optional.
 
-## issuer_url
+## issuer\_url
 
 - Default Value – None
 - Data Type – String
@@ -523,7 +523,7 @@ This parameter is optional.
 Points to the AWS IAM Identity Center server's instance endpoint.
 
 This parameter is required only when authenticating using
-`BrowserIdcAuthPlugin` in the plugin_name configuration
+`BrowserIdcAuthPlugin` in the plugin\_name configuration
 option.
 
 ## KeepAlive
@@ -572,7 +572,7 @@ setting.
 
 This parameter is optional.
 
-## listen_port
+## listen\_port
 
 - Default Value – 7890
 - Data Type – Integer
@@ -583,7 +583,7 @@ through a browser plugin.
 
 This parameter is optional.
 
-## login_url
+## login\_url
 
 - Default Value – None
 - Data Type – String
@@ -764,7 +764,7 @@ specified in **MaxLongVarcharSize**.
 
 This parameter is optional. It is available in driver versions 2.1.16 and later.
 
-## Min_TLS
+## Min\_TLS
 
 - Default Value – 1.2
 - Data Type – String
@@ -773,7 +773,7 @@ The minimum version of TLS/SSL that the driver allows the data store to use for
 encrypting connections. For example, if TLS 1.2 is specified, TLS 1.1 cannot be used
 to encrypt connections.
 
-Min_TLS accepts the following values:
+Min\_TLS accepts the following values:
 
 - 1.0: The connection must use at least TLS 1.0.
 - 1.1: The connection must use at least TLS 1.1.
@@ -781,7 +781,7 @@ Min_TLS accepts the following values:
 
 This parameter is optional.
 
-## partner_spid
+## partner\_spid
 
 - Default Value – None
 - Data Type – String
@@ -802,7 +802,7 @@ field (**UID** | **User** |
 
 This parameter is optional.
 
-## plugin_name
+## plugin\_name
 
 - Default Value – None
 - Data Type – String
@@ -840,7 +840,7 @@ connections.
 
 This parameter is optional.
 
-## preferred_role
+## preferred\_role
 
 - Default Value – None
 - Data Type – String
@@ -868,7 +868,7 @@ The name of the user AWS profile used to authenticate into Amazon Redshift.
 
 This parameter is optional.
 
-## provider_name
+## provider\_name
 
 - Default Value – None
 - Data Type – String
@@ -968,7 +968,7 @@ The endpoint server to connect to.
 
 This parameter is required.
 
-## ssl_insecure
+## ssl\_insecure
 
 - Default Value – 0
 - Data Type – Boolean
@@ -1067,7 +1067,7 @@ with AWS IAM Identity Center or an identity provider linked with AWS IAM Identit
 
 This parameter works with `IdpTokenAuthPlugin`.
 
-## token_type
+## token\_type
 
 - Default Value – None
 - Data Type – String
@@ -1076,11 +1076,11 @@ The type of token that is being used in `IdpTokenAuthPlugin`.
 
 You can specify the following values:
 
-**ACCESS_TOKEN**
+**ACCESS\_TOKEN**
 
 Enter this if you use an AWS IAM Identity Center provided access token.
 
-**EXT_JWT**
+**EXT\_JWT**
 
 Enter this if you use an OpenID Connect (OIDC) JSON Web Token (JWT)
 provided by a web-based identity provider that's integrated with AWS
@@ -1108,22 +1108,22 @@ regular SQL types.
 - 1 | TRUE: The Driver returns wide SQL type for character data
   type.
 
-  - SQL_WCHAR is returned instead of SQL_CHAR.
-  - SQL_WVARCHAR is returned instead of SQL_VARCHAR.
-  - SQL_WLONGVARCHAR is returned instead of
-    SQL_LONGVARCHAR.
+  - SQL\_WCHAR is returned instead of SQL\_CHAR.
+  - SQL\_WVARCHAR is returned instead of SQL\_VARCHAR.
+  - SQL\_WLONGVARCHAR is returned instead of
+    SQL\_LONGVARCHAR.
 
 - 0 | FALSE: The driver returns normal SQL type for character data
   type.
 
-  - SQL_CHAR is returned instead of SQL_WCHAR.
-  - SQL_VARCHAR is returned instead of SQL_WVARCHAR.
-  - SQL_LONGVARCHAR is returned instead of
-    SQL_WLONGVARCHAR.
+  - SQL\_CHAR is returned instead of SQL\_WCHAR.
+  - SQL\_VARCHAR is returned instead of SQL\_WVARCHAR.
+  - SQL\_LONGVARCHAR is returned instead of
+    SQL\_WLONGVARCHAR.
 
 This parameter is optional. It is available in driver versions 2.1.15 and later.
 
-## web_identity_token
+## web\_identity\_token
 
 - Default Value – None
 - Data Type – String
@@ -1131,5 +1131,5 @@ This parameter is optional. It is available in driver versions 2.1.15 and later.
 The OAUTH token that is provided by the identity provider. It’s used in the JWT
 plugin.
 
-This parameter is required if you set the **plugin_name**
+This parameter is required if you set the **plugin\_name**
 parameter to BasicJwtCredentialsProvider.

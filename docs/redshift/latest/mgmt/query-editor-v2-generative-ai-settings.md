@@ -15,7 +15,7 @@ For more information about managed policies, see
 1. Choose the ![Settings](images/qev2-cog.png)
    **Settings** icon to show a menu of the different settings screens.
 2. Then choose the
-   ![Generative SQL settings](images/qev2-amazon-q.png)
+   ![Generative SQL settings](/images/redshift/latest/mgmt/images/qev2-amazon-q.png)
    Generative SQL settings icon to show the **Q generative SQL settings** page.
 3. Select **Q generative SQL settings** to turn on the generative SQL capability for users in the account.
 

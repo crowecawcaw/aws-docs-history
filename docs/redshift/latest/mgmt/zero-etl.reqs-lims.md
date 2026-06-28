@@ -25,7 +25,7 @@ The following considerations apply to zero-ETL integrations with Amazon Redshift
   `QUERY_ALL_STATES` to `TRUE`. For information about setting
   `QUERY_ALL_STATES`, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER
   DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the _Amazon Redshift Database Developer Guide_. For more information about
-  the state of your database, see [SVV_INTEGRATION_TABLE_STATE](../dg/r_SVV_INTEGRATION_TABLE_STATE.md "../dg/r_SVV_INTEGRATION_TABLE_STATE.md") in the _Amazon Redshift Database Developer Guide_.
+  the state of your database, see [SVV\_INTEGRATION\_TABLE\_STATE](../dg/r_SVV_INTEGRATION_TABLE_STATE.md "../dg/r_SVV_INTEGRATION_TABLE_STATE.md") in the _Amazon Redshift Database Developer Guide_.
 - Amazon Redshift accepts only UTF-8 characters, so it might not honor the collation defined in
   your source. The sorting and comparison rules might be different, which can ultimately
   change the query results.

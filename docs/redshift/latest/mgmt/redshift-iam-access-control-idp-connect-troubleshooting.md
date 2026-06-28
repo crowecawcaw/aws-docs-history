@@ -14,28 +14,27 @@ Redshift database with query editor v2, using an AWS IAM Identity Center identit
   connection attempts from Amazon Redshift query editor v2 to a Redshift database. Follow the remediation
   steps detailed for your browser:
 
-      + **Firefox** – Currently, third-party cookies
-       are blocked by default. Click the shield in the browser's address bar and switch the
-       toggle to turn off enhanced tracking protection for query editor v2.
-      + **Chrome incognito mode** – By default,
-       Chrome Incognito mode blocks third party cookies. Click the eye icon in the address
-       bar to allow third-party cookies for query editor v2. After you change the setting to allow
-       cookies, you may not see the eye icon on the address bar.
-      + **Safari** – On a Mac, open the Safari app.
-       Choose **Settings**, then choose **Advanced**.
-       Toggle to turn off: **Block all cookies**.
-      + **Edge** – Choose
-       **Settings**, then choose **Cookies and site
-       permissions**. Then select **Manage and delete cookies and site
-       data** and turn off **Block third-party
-       cookies**.
-
-  If you try to connect after changing the settings and continue to receive the error
-  message **Connection Issue: No Identity center session information
-  available**, we recommend that you refresh your connection with AWS IAM Identity Center.
-  To do this, right click your Redshift database instance and choose
-  **Refresh**. A new window appears, which you can use to
-  authenticate.
+  - **Firefox** – Currently, third-party cookies
+    are blocked by default. Click the shield in the browser's address bar and switch the
+    toggle to turn off enhanced tracking protection for query editor v2.
+  - **Chrome incognito mode** – By default,
+    Chrome Incognito mode blocks third party cookies. Click the eye icon in the address
+    bar to allow third-party cookies for query editor v2. After you change the setting to allow
+    cookies, you may not see the eye icon on the address bar.
+  - **Safari** – On a Mac, open the Safari app.
+    Choose **Settings**, then choose **Advanced**.
+    Toggle to turn off: **Block all cookies**.
+  - **Edge** – Choose
+    **Settings**, then choose **Cookies and site
+    permissions**. Then select **Manage and delete cookies and site
+    data** and turn off **Block third-party
+    cookies**.
+    If you try to connect after changing the settings and continue to receive the error
+    message **Connection Issue: No Identity center session information
+    available**, we recommend that you refresh your connection with AWS IAM Identity Center.
+    To do this, right click your Redshift database instance and choose
+    **Refresh**. A new window appears, which you can use to
+    authenticate.
 
 - Error: **Connection issue: Identity center session expired or
   invalid.** – Following integration of a Redshift provisioned cluster

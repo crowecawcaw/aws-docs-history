@@ -81,7 +81,7 @@ example below shows a POST request.
 The example assumes the following:
 
 - The time stamp of the request is `Fri, 07 Dec 2012 00:00:00
-GMT`.
+ GMT`.
 - The endpoint is US East (Northern Virginia) Region,
   `us-east-1`.
   The general request syntax is:

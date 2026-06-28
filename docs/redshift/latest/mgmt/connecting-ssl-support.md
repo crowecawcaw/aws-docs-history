@@ -19,23 +19,21 @@ certificate, Amazon Redshift provides a bundle certificate as follows:
 
 - Download the bundle from [https://s3.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt](https://s3.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt "https://s3.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt").
 
-      + The expected MD5 checksum number is
-       418dea9b6d5d5de7a8f1ac42e164cdcf.
-      + The sha256 checksum number is
-       36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.
-
-  Don't use the previous certificate bundle that was located at
-  `https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt`.
+  - The expected MD5 checksum number is
+    418dea9b6d5d5de7a8f1ac42e164cdcf.
+  - The sha256 checksum number is
+    36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.
+    Don't use the previous certificate bundle that was located at
+    `https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt`.
 
 - In the China AWS Region, download the bundle from [https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/amazon-trust-ca-bundle.crt](https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/amazon-trust-ca-bundle.crt "https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/amazon-trust-ca-bundle.crt").
 
-      + The expected MD5 checksum number is
-       418dea9b6d5d5de7a8f1ac42e164cdcf.
-      + The sha256 checksum number is
-       36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.
-
-  Don't use the previous certificate bundles that were located at
-  `https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/redshift-ca-bundle.crt`
+  - The expected MD5 checksum number is
+    418dea9b6d5d5de7a8f1ac42e164cdcf.
+  - The sha256 checksum number is
+    36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.
+    Don't use the previous certificate bundles that were located at
+    `https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/redshift-ca-bundle.crt`
 
 and
 `https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/redshift-ssl-ca-cert.pem`
@@ -122,18 +120,18 @@ connection between the client and the server. To do this, you need to review the
 following table describes the encryption result for the various client and server
 setting combinations:
 
-| sslmode (client)         | require_SSL (server) | Result                                                                                                                 |
-| ------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `disable`                | `false`              | The connection is not encrypted.                                                                                       |
-| `disable`                | `true`               | The connection can't be made because the<br>server requires SSL and the client has SSL disabled for the<br>connection. |
-| `allow`                  | `true`               | The connection is encrypted.                                                                                           |
-| `allow`                  | `false`              | The connection is not encrypted.                                                                                       |
-| `prefer` or<br>`require` | `true`               | The connection is encrypted.                                                                                           |
-| `prefer` or<br>`require` | `false`              | The connection is encrypted.                                                                                           |
-| `verify-ca`              | `true`               | The connection is encrypted and the server<br>certificate is verified.                                                 |
-| `verify-ca`              | `false`              | The connection is encrypted and the server<br>certificate is verified.                                                 |
-| `verify-full`            | `true`               | The connection is encrypted and the server<br>certificate and hostname are verified.                                   |
-| `verify-full`            | `false`              | The connection is encrypted and the server<br>certificate and hostname are verified.                                   |
+| sslmode (client)         | require\_SSL (server) | Result                                                                                                                 |
+| ------------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `disable`                | `false`               | The connection is not encrypted.                                                                                       |
+| `disable`                | `true`                | The connection can't be made because the<br>server requires SSL and the client has SSL disabled for the<br>connection. |
+| `allow`                  | `true`                | The connection is encrypted.                                                                                           |
+| `allow`                  | `false`               | The connection is not encrypted.                                                                                       |
+| `prefer` or<br>`require` | `true`                | The connection is encrypted.                                                                                           |
+| `prefer` or<br>`require` | `false`               | The connection is encrypted.                                                                                           |
+| `verify-ca`              | `true`                | The connection is encrypted and the server<br>certificate is verified.                                                 |
+| `verify-ca`              | `false`               | The connection is encrypted and the server<br>certificate is verified.                                                 |
+| `verify-full`            | `true`                | The connection is encrypted and the server<br>certificate and hostname are verified.                                   |
+| `verify-full`            | `false`               | The connection is encrypted and the server<br>certificate and hostname are verified.                                   |
 
 ### Connect using the server certificate with ODBC on Microsoft Windows
 

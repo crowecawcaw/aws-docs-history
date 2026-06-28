@@ -96,8 +96,8 @@ rather than queue.
 
 JSON property: `short_query_queue`
 
-\***\*Maximum run time for short
-queries\*\***
+****Maximum run time for short
+queries****
 
 When you enable SQA, you can specify 0 to let WLM dynamically set the
 maximum run time for short queries. Alternatively, you can specify a
@@ -246,7 +246,7 @@ assignment rules. If the query doesn't match any other queue
 definition, the query is canceled; it isn't assigned to the default
 queue. For more information, see [WLM query queue hopping](../dg/cm-c-defining-query-queues.md#wlm-queue-hopping "../dg/cm-c-defining-query-queues.md#wlm-queue-hopping"). WLM timeout doesn't apply to
 a query that has reached the `returning` state. To view the
-state of a query, see the [STV_WLM_QUERY_STATE](../dg/r_STV_WLM_QUERY_STATE.md "../dg/r_STV_WLM_QUERY_STATE.md") system table.
+state of a query, see the [STV\_WLM\_QUERY\_STATE](../dg/r_STV_WLM_QUERY_STATE.md "../dg/r_STV_WLM_QUERY_STATE.md") system table.
 
 JSON property: `max_execution_time`
 

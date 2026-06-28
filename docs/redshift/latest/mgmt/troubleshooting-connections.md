@@ -74,16 +74,15 @@ net.ipv4.tcp_keepalive_probes=5
 
 - Windows — If your client runs on Windows, edit the values for
   the following registry settings under
-  HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\:
+  HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\:
 
-      + KeepAliveTime: 30000
-      + KeepAliveInterval: 1000
-      + TcpMaxDataRetransmissions: 10
-
-  These settings use the DWORD data type. If they do not exist under the
-  registry path, you can create the settings and specify these recommended
-  values. For more information about editing the Windows registry, refer
-  to Windows documentation.
+  - KeepAliveTime: 30000
+  - KeepAliveInterval: 1000
+  - TcpMaxDataRetransmissions: 10
+    These settings use the DWORD data type. If they do not exist under the
+    registry path, you can create the settings and specify these recommended
+    values. For more information about editing the Windows registry, refer
+    to Windows documentation.
 
 After you set these values, restart your computer for the changes to
 take effect.
@@ -312,7 +311,7 @@ $ sudo ip link set dev eth0 mtu 1500
 ###### To set MTU on a Mac operating system
 
 - Follow instructions on the macOS support site about `How to
-change the MTU for troubleshooting purposes`. For more
+ change the MTU for troubleshooting purposes`. For more
   information, search the [support
   site.](https://support.apple.com "https://support.apple.com")
 

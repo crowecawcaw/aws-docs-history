@@ -41,7 +41,7 @@ Bug Fixes
 
 - Fixed an issue where RSQL could not describe materialized
   views.
-- Fixed permission-denied error on stl_connection_log when using
+- Fixed permission-denied error on stl\_connection\_log when using
   Amazon Redshift Serverless.
 - Fixed issue where RSQL may process \GOTO labels incorrectly.
 - Fixed issue where SSL messages are printed in quiet mode.
@@ -65,7 +65,7 @@ Bug Fixes
 Bug Fixes
 
 - Send SQL error messages to standard error (stderr).
-- Fixed issue with exit codes when using ON_ERROR_STOP. Scripts now end
+- Fixed issue with exit codes when using ON\_ERROR\_STOP. Scripts now end
   after encountering an error and return the correct exit codes.
 - Maxerror is now case insensitive.
   New

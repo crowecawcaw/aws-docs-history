@@ -9,7 +9,7 @@ integration in Amazon Redshift.
 
 Connect to your target Redshift Serverless workgroup or provisioned cluster and create a database with a
 reference to your integration identifier. This identifier is the value returned for
-`integration_id` when you query the [SVV_INTEGRATION](../dg/r_SVV_INTEGRATION.md "../dg/r_SVV_INTEGRATION.md") view.
+`integration_id` when you query the [SVV\_INTEGRATION](../dg/r_SVV_INTEGRATION.md "../dg/r_SVV_INTEGRATION.md") view.
 
 ###### Important
 

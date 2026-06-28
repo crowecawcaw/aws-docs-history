@@ -164,7 +164,7 @@ order by total_price desc;
    **Bar**.
 4. For **X**, choose _eventname_.
 5. For **Y**, choose
-   _total_price_.
+   _total\_price_.
 
 The bar chart displays with event names along the X axis. 6. Under **Style**, choose **Traces**. 7. For **Name**, enter _Revenue_. 8. Under **Style**, choose **Axes**. 9. For **Titles**, choose **Y** and enter
 _Revenue_.
@@ -176,7 +176,7 @@ The label _Revenue_ displays on the left Y axis. 10. Under **Structure**, choose
 **Trace**.
 
 The trace 1 options display. 12. For **Type**, choose **Line**. 13. For **X**, choose _eventname_. 14. For **Y**, choose
-_total_qty_sold_. 15. Under **Axes To Use**, for **Y Axis**
+_total\_qty\_sold_. 15. Under **Axes To Use**, for **Y Axis**
 choose
 ![Plus sign icon representing an addition or new item action.](images/add-plus.png)
 .

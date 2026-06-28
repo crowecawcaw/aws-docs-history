@@ -159,7 +159,7 @@ the editor, such as `sample_data_dev`.
 The following command sets the `search_path` server configuration
 parameter to _public_ for the session. For more information, see
 [SET](../dg/r_SET.md "../dg/r_SET.md") and
-[search_path](../dg/r_search_path.md "../dg/r_search_path.md") in the _Amazon Redshift Database Developer Guide_.
+[search\_path](../dg/r_search_path.md "../dg/r_search_path.md") in the _Amazon Redshift Database Developer Guide_.
 
 ```
 set search_path to public;

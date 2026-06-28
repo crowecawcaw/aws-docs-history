@@ -30,8 +30,8 @@ user:
   `redshift-serverless:GetCredentials` action to retrieve the
   workgroup tagged with the key `RedshiftDataFullAccess`. The
   database user is mapped 1:1 to the source AWS Identity and Access Management (IAM) identity. For
-  example, the user sample_user is mapped to database user
-  `IAM:sample_user`, and IAM role sample_role is mapped to
+  example, the user sample\_user is mapped to database user
+  `IAM:sample_user`, and IAM role sample\_role is mapped to
   `IAMR:sample_role`.
 
 For more information about IAM identities, see [IAM Identities (users, user groups,

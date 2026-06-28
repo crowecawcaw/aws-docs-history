@@ -72,7 +72,7 @@ your provisioned cluster or serverless namespace and then choose the
 **Zero-ETL integrations** tab.
 
 From the **Zero-ETL integrations** list, you can choose **Query
-data** to jump to Amazon Redshift query editor v2. The Amazon Redshift target database has the [enable_case_sensitive_identifier](../dg/r_enable_case_sensitive_identifier.md "../dg/r_enable_case_sensitive_identifier.md") parameter enabled. When you write SQL, you
+data** to jump to Amazon Redshift query editor v2. The Amazon Redshift target database has the [enable\_case\_sensitive\_identifier](../dg/r_enable_case_sensitive_identifier.md "../dg/r_enable_case_sensitive_identifier.md") parameter enabled. When you write SQL, you
 might need to surround schemas, tables, and column names with double quotes
 ("<name>"). For more information about querying data in your Amazon Redshift data
 warehouse, see [Querying a database using the query editor v2](query-editor-v2.md "query-editor-v2.md").

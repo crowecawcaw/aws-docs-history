@@ -11,17 +11,17 @@ You can monitor your zero-ETL integrations by querying the system views or with 
 You can monitor your zero-ETL integrations by querying the following system views in
 Amazon Redshift.
 
-- [SVV_INTEGRATION](../dg/r_SVV_INTEGRATION.md "../dg/r_SVV_INTEGRATION.md") provides information about configuration details of
+- [SVV\_INTEGRATION](../dg/r_SVV_INTEGRATION.md "../dg/r_SVV_INTEGRATION.md") provides information about configuration details of
   zero-ETL integrations.
-- [SYS_INTEGRATION_ACTIVITY](../dg/r_SYS_INTEGRATION_ACTIVITY.md "../dg/r_SYS_INTEGRATION_ACTIVITY.md") provides information about completed
+- [SYS\_INTEGRATION\_ACTIVITY](../dg/r_SYS_INTEGRATION_ACTIVITY.md "../dg/r_SYS_INTEGRATION_ACTIVITY.md") provides information about completed
   zero-ETL integrations.
-- [SVV_INTEGRATION_TABLE_MAPPING](../dg/r_SVV_INTEGRATION_TABLE_MAPPING.md "../dg/r_SVV_INTEGRATION_TABLE_MAPPING.md") provides information about mapping metadata
+- [SVV\_INTEGRATION\_TABLE\_MAPPING](../dg/r_SVV_INTEGRATION_TABLE_MAPPING.md "../dg/r_SVV_INTEGRATION_TABLE_MAPPING.md") provides information about mapping metadata
   values from source to target.
-- [SVV_INTEGRATION_TABLE_STATE](../dg/r_SVV_INTEGRATION_TABLE_STATE.md "../dg/r_SVV_INTEGRATION_TABLE_STATE.md") provides information about integration
+- [SVV\_INTEGRATION\_TABLE\_STATE](../dg/r_SVV_INTEGRATION_TABLE_STATE.md "../dg/r_SVV_INTEGRATION_TABLE_STATE.md") provides information about integration
   state.
-- [SYS_INTEGRATION_TABLE_ACTIVITY](../dg/r_SYS_INTEGRATION_TABLE_ACTIVITY.md "../dg/r_SYS_INTEGRATION_TABLE_ACTIVITY.md") provides information about insert, delete, and
+- [SYS\_INTEGRATION\_TABLE\_ACTIVITY](../dg/r_SYS_INTEGRATION_TABLE_ACTIVITY.md "../dg/r_SYS_INTEGRATION_TABLE_ACTIVITY.md") provides information about insert, delete, and
   update activity of integrations.
-- [SYS_INTEGRATION_TABLE_STATE_CHANGE](../dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md "../dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md") provides information about table state
+- [SYS\_INTEGRATION\_TABLE\_STATE\_CHANGE](../dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md "../dg/r_SYS_INTEGRATION_TABLE_STATE_CHANGE.md") provides information about table state
   change log for integrations.
 
 ## Monitoring zero-ETL integrations with Amazon EventBridge

@@ -54,7 +54,7 @@ In the destination database, one or more of the tables don't have a primary key
 and can't be synchronized.
 
 To resolve this issue, go to the **Table statistics** tab on the
-integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables.
 You can add primary keys to the tables and Amazon Redshift will resynchronize the tables.
 Alternatively, although not recommended, you can drop these tables on Aurora and create
 tables with a primary key. For more information, see [Amazon Redshift best
@@ -93,7 +93,7 @@ is replicated from the Aurora DB cluster, one or more of the tables have unsuppo
 types and can't be synchronized.
 
 To resolve this issue, go to the **Table statistics** tab on the
-integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables.
 Then, remove these tables and recreate new tables on Amazon RDS. For more information on
 unsupported data types, see [Data type differences between Aurora and Amazon Redshift databases](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping") in the
 _Amazon Aurora User Guide_.
@@ -101,7 +101,7 @@ _Amazon Aurora User Guide_.
 ### Data manipulation language commands failed
 
 Amazon Redshift could not run DML commands on the Redshift tables. To resolve this issue,
-use SVV_INTEGRATION_TABLE_STATE to view the failed tables. Amazon Redshift automatically
+use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables. Amazon Redshift automatically
 resynchronizes the tables to resolve this error.
 
 ### Tracked changes between data sources don't match
@@ -163,7 +163,7 @@ Your table is in the **Resync Required** or **Resync
 Initiated** state.
 
 To gather more detailed error information about why your table is in that state, use
-the [SYS_LOAD_ERROR_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
+the [SYS\_LOAD\_ERROR\_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
 
 ### Integration lag growing
 
@@ -216,7 +216,7 @@ In the destination database, one or more of the tables don't have a primary key
 and can't be synchronized.
 
 To resolve this issue, go to the **Table statistics** tab on the
-integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables.
 You can add primary keys to the tables and Amazon Redshift will resynchronize the tables.
 Alternatively, although not recommended, you can drop these tables on Aurora and create
 tables with a primary key. For more information, see [Amazon Redshift best
@@ -255,7 +255,7 @@ is replicated from the Aurora DB cluster, one or more of the tables have unsuppo
 types and can't be synchronized.
 
 To resolve this issue, go to the **Table statistics** tab on the
-integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables.
 Then, remove these tables and recreate new tables on Amazon RDS. For more information on
 unsupported data types, see [Data type differences between Aurora and Amazon Redshift databases](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping") in the
 _Amazon Aurora User Guide_.
@@ -263,7 +263,7 @@ _Amazon Aurora User Guide_.
 ### Data manipulation language commands failed
 
 Amazon Redshift could not run DML commands on the Redshift tables. To resolve this issue,
-use SVV_INTEGRATION_TABLE_STATE to view the failed tables. Amazon Redshift automatically
+use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables. Amazon Redshift automatically
 resynchronizes the tables to resolve this error.
 
 ### Tracked changes between data sources don't match
@@ -325,7 +325,7 @@ Your table is in the **Resync Required** or **Resync
 Initiated** state.
 
 To gather more detailed error information about why your table is in that state, use
-the [SYS_LOAD_ERROR_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
+the [SYS\_LOAD\_ERROR\_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
 
 Use the following information to troubleshoot common issues with zero-ETL integrations with
 RDS for MySQL.
@@ -373,7 +373,7 @@ In the destination database, one or more of the tables don't have a primary key
 and can't be synchronized.
 
 To resolve this issue, go to the **Table statistics** tab on the
-integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables.
 You can add primary keys to the tables and Amazon Redshift will resynchronize the tables.
 Alternatively, although not recommended, you can drop these tables on RDS and create
 tables with a primary key. For more information, see [Amazon Redshift best
@@ -412,7 +412,7 @@ is replicated from the RDS DB instance, one or more of the tables have unsupport
 types and can't be synchronized.
 
 To resolve this issue, go to the **Table statistics** tab on the
-integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables.
 Then, remove these tables and recreate new tables on Amazon RDS. For more information on
 unsupported data types, see [Data type differences between RDS and Amazon Redshift databases](../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping "../../../AmazonRDS/latest/AuroraUserGuide/zero-etl.querying.md#zero-etl.data-type-mapping") in the
 _Amazon RDS User Guide_.
@@ -420,7 +420,7 @@ _Amazon RDS User Guide_.
 ### Data manipulation language commands failed
 
 Amazon Redshift could not run DML commands on the Redshift tables. To resolve this issue,
-use SVV_INTEGRATION_TABLE_STATE to view the failed tables. Amazon Redshift automatically
+use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables. Amazon Redshift automatically
 resynchronizes the tables to resolve this error.
 
 ### Tracked changes between data sources don't match
@@ -481,7 +481,7 @@ Your table is in the **Resync Required** or **Resync
 Initiated** state.
 
 To gather more detailed error information about why your table is in that state, use
-the [SYS_LOAD_ERROR_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
+the [SYS\_LOAD\_ERROR\_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
 
 Use the following information to troubleshoot common issues with zero-ETL integrations with
 Amazon DynamoDB.
@@ -613,7 +613,7 @@ In the destination database, one or more of the tables don't have a primary key
 and can't be synchronized.
 
 To resolve this issue, go to the **Table statistics** tab on the
-integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables.
 You can add primary keys to the tables and Amazon Redshift will resynchronize the tables. You
 can run the following command to resynchronize them. Replace
 `dbname` with the name of your Amazon Redshift database. And, replace
@@ -634,7 +634,7 @@ is replicated from zero-ETL integrations with applications, one or more of the t
 unsupported data types and can't be synchronized.
 
 To resolve this issue, go to the **Table statistics** tab on the
-integration details page or use SVV_INTEGRATION_TABLE_STATE to view the failed tables.
+integration details page or use SVV\_INTEGRATION\_TABLE\_STATE to view the failed tables.
 Then, remove these tables and recreate new tables at the source. For more information,
 see see [Zero-ETL integrations](../../../glue/latest/dg/zero-etl-using.md "../../../glue/latest/dg/zero-etl-using.md") in the _AWS Glue Developer Guide_.
 
@@ -662,4 +662,4 @@ Your table is in the **Resync Required** or **Resync
 Initiated** state.
 
 To gather more detailed error information about why your table is in that state, use
-the [SYS_LOAD_ERROR_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.
+the [SYS\_LOAD\_ERROR\_DETAIL](../dg/SYS_LOAD_ERROR_DETAIL.md "../dg/SYS_LOAD_ERROR_DETAIL.md") system view.

@@ -9,23 +9,23 @@ between Amazon Redshift, SQL, and Java data types.
 
 The following table lists the supported data type mappings.
 
-| Amazon Redshift type | SQL type             | Java type          |
-| -------------------- | -------------------- | ------------------ |
-| BIGINT               | SQL_BIGINT           | Long               |
-| BOOLEAN              | SQL_BIT              | Boolean            |
-| CHAR                 | SQL_CHAR             | String             |
-| DATE                 | SQL_TYPE_DATE        | java.sql.Date      |
-| DECIMAL              | SQL_NUMERIC          | BigDecimal         |
-| DOUBLE PRECISION     | SQL_DOUBLE           | Double             |
-| GEOMETRY             | SQL\_ LONGVARBINARY  | byte[]             |
-| INTEGER              | SQL_INTEGER          | Integer            |
-| OID                  | SQL_BIGINT           | Long               |
-| SUPER                | SQL_LONGVARCHAR      | String             |
-| REAL                 | SQL_REAL             | Float              |
-| SMALLINT             | SQL_SMALLINT         | Short              |
-| TEXT                 | SQL_VARCHAR          | String             |
-| TIME                 | SQL_TYPE_TIME        | java.sql.Time      |
-| TIMETZ               | SQL_TYPE_TIME        | java.sql.Time      |
-| TIMESTAMP            | SQL_TYPE\_ TIMESTAMP | java.sql.Timestamp |
-| TIMESTAMPTZ          | SQL_TYPE\_ TIMESTAMP | java.sql.Timestamp |
-| VARCHAR              | SQL_VARCHAR          | String             |
+| Amazon Redshift type | SQL type              | Java type          |
+| -------------------- | --------------------- | ------------------ |
+| BIGINT               | SQL\_BIGINT           | Long               |
+| BOOLEAN              | SQL\_BIT              | Boolean            |
+| CHAR                 | SQL\_CHAR             | String             |
+| DATE                 | SQL\_TYPE\_DATE       | java.sql.Date      |
+| DECIMAL              | SQL\_NUMERIC          | BigDecimal         |
+| DOUBLE PRECISION     | SQL\_DOUBLE           | Double             |
+| GEOMETRY             | SQL\_ LONGVARBINARY   | byte[]             |
+| INTEGER              | SQL\_INTEGER          | Integer            |
+| OID                  | SQL\_BIGINT           | Long               |
+| SUPER                | SQL\_LONGVARCHAR      | String             |
+| REAL                 | SQL\_REAL             | Float              |
+| SMALLINT             | SQL\_SMALLINT         | Short              |
+| TEXT                 | SQL\_VARCHAR          | String             |
+| TIME                 | SQL\_TYPE\_TIME       | java.sql.Time      |
+| TIMETZ               | SQL\_TYPE\_TIME       | java.sql.Time      |
+| TIMESTAMP            | SQL\_TYPE\_ TIMESTAMP | java.sql.Timestamp |
+| TIMESTAMPTZ          | SQL\_TYPE\_ TIMESTAMP | java.sql.Timestamp |
+| VARCHAR              | SQL\_VARCHAR          | String             |

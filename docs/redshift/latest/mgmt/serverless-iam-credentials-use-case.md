@@ -26,7 +26,7 @@ to assign policy permissions.
 CREATE ROLE urban_planning;
 ```
 
-Query the [SVV_ROLES](../dg/r_SVV_ROLES.md "../dg/r_SVV_ROLES.md") system
+Query the [SVV\_ROLES](../dg/r_SVV_ROLES.md "../dg/r_SVV_ROLES.md") system
 view to check that your role is created. It also returns system roles.
 
 ```

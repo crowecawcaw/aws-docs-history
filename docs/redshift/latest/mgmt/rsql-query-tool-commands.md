@@ -330,7 +330,7 @@ quiet.
 
 ## \i
 
-Runs commands from a file. For example, assuming you have rsql_steps.sql in
+Runs commands from a file. For example, assuming you have rsql\_steps.sql in
 your working directory, the following runs the commands in the file: `\i
  rsql_steps.sql`.
 
@@ -389,7 +389,7 @@ Type "help" for help.
 Specifies the name of an export file that RSQL uses to store database
 information returned by a subsequent SQL SELECT statement.
 
-export_01.sql
+export\_01.sql
 
 ```
 \export report file='E:\\accounts.out'

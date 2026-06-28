@@ -13,7 +13,7 @@ To download and install the ODBC driver:
 
 1. Download the following driver: [64-bit ODBC driver version 2.2.0.0](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.2.0.0/AmazonRedshiftODBC-64-bit.2.2.0.0.universal.pkg "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.2.0.0/AmazonRedshiftODBC-64-bit.2.2.0.0.universal.pkg")
 
-This driver is supported on both x86_64 and arm64 architectures. The name for this driver is **Amazon Redshift ODBC Driver
+This driver is supported on both x86\_64 and arm64 architectures. The name for this driver is **Amazon Redshift ODBC Driver
 (x64)**. 2. Review the [Amazon Redshift ODBC driver version 2.x license](https://github.com/aws/amazon-redshift-odbc-driver/blob/master/LICENSE "https://github.com/aws/amazon-redshift-odbc-driver/blob/master/LICENSE"). 3. Double-click the .pkg file, then follow the steps in the wizard to install
 the driver. Alternatively, run the following command:
 

@@ -46,7 +46,7 @@ generated and sent to CloudWatch. For more information about CloudWatch, see [Wh
 
 Amazon Redshift Serverless offers a free trial. If you participate in the free trial, you can
 view the free trial credit balance in the Redshift console, and check free trial usage
-in the [SYS_SERVERLESS_USAGE](../dg/SYS_SERVERLESS_USAGE.md "../dg/SYS_SERVERLESS_USAGE.md")
+in the [SYS\_SERVERLESS\_USAGE](../dg/SYS_SERVERLESS_USAGE.md "../dg/SYS_SERVERLESS_USAGE.md")
 system view. Note that billing details for free trial usage does not appear in the
 billing console. You can only view usage in the billing console after the free trial
 ends. For more information about the Amazon Redshift Serverless free trial, see [Amazon Redshift Serverless free trial](https://aws.amazon.com//redshift/free-trial/ "https://aws.amazon.com//redshift/free-trial/").
@@ -178,11 +178,11 @@ your environments and adjust your refresh settings based on workload needs. Cons
 making the following adjustments:
 
 - Use the lower base RPU capacity of 8 RPU where available for workloads.
-- Configure the REFRESH_INTERVAL of your target Redshift instance to balance
+- Configure the REFRESH\_INTERVAL of your target Redshift instance to balance
   freshness with cost. Shorter intervals ensure near real-time updates but drive
   up compute costs. Longer intervals (5 minutes or longer) reduce charges for
   workloads where immediate freshness is not critical, such as reporting or
-  historical analysis. To edit your Redshift target REFRESH_INTERVAL, see the
+  historical analysis. To edit your Redshift target REFRESH\_INTERVAL, see the
   refresh interval clause in the [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") description.
 - Maximize utilization of your Amazon Redshift Serverless environment by concurrently running
   analytics workloads while zero-ETL data is being ingested. This ensures that

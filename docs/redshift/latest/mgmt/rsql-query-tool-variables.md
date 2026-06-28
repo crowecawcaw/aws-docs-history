@@ -21,7 +21,7 @@ a count of affected rows to the client application at command completion for
 `SELECT`, `COPY` or `UNLOAD`. But
 `ACTIVITYCOUNT` does.
 
-activitycount_01.sql:
+activitycount\_01.sql:
 
 ```
 select viewname, schemaname
@@ -48,7 +48,7 @@ Assigns severity levels to errors. Use the severity levels to determine a
 course of action. If the `ERRORLEVEL` command has not been used, its
 value is `ON` by default.
 
-errorlevel_01.sql:
+errorlevel\_01.sql:
 
 ```
 \rset errorlevel 42P01 severity 0
@@ -80,7 +80,7 @@ Enables users to specify a header that appears at the top of a report. Header
 specified by the `RSET RTITLE` command automatically includes the
 current system date of the client computer.
 
-rset_heading_rtitle_02.rsql content:
+rset\_heading\_rtitle\_02.rsql content:
 
 ```
 \remark Starting...
@@ -121,7 +121,7 @@ statement that produces an error-severity level greater than the designated
 `maxerror` value, RSQL immediately exits. Therefore, to have RSQL
 exit on an error-severity level of 8, use `RSET MAXERROR 7`.
 
-maxerror_01.sql content:
+maxerror\_01.sql content:
 
 ```
 \rset maxerror 0
@@ -146,7 +146,7 @@ col
 Enables users to specify whether to apply settings for the formatting
 commands.
 
-rset_rformat.rsql content:
+rset\_rformat.rsql content:
 
 ```
 \remark Starting...
@@ -207,7 +207,7 @@ particular format. |
 Press any key to continue . . .
 ```
 
-## ROW_COUNT
+## ROW\_COUNT
 
 Gets the number of records affected by the previous query. It's typically used
 to check a result, like in the following code fragment:
@@ -256,7 +256,7 @@ Sets the output format to wrapped and specifies the target width for each line
 in a report. Without a parameter, it returns the current settings for both the
 format and target width.
 
-rset_width_01.rsql content:
+rset\_width\_01.rsql content:
 
 ```
 \echo Starting...

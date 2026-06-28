@@ -160,7 +160,7 @@ features to provide insights and set actions.
 
 ### Visualizing usage by querying a system view
 
-Query the SYS_SERVERLESS_USAGE system table to track usage and get the charges
+Query the SYS\_SERVERLESS\_USAGE system table to track usage and get the charges
 for queries:
 
 ```
@@ -179,11 +179,11 @@ usage.
 
 - You pay for the workloads you run in RPU-hours on a per-second
   basis, with a 60-second minimum charge.
-- Records from the sys_serverless_usage system table show cost
+- Records from the sys\_serverless\_usage system table show cost
   incurred in 1-minute time intervals. Understanding the following
   columns is important:
 
-The charged_seconds column:
+The charged\_seconds column:
 
     + Provides the compute unit (RPU) seconds that were charged
      during the time interval. The results include any minimum
@@ -192,7 +192,7 @@ The charged_seconds column:
      transactions complete. Thus, this column value may be 0 if
      transactions haven't finished.
 
-The compute_seconds column:
+The compute\_seconds column:
 
     + Provides real-time compute usage information. This doesn't
      include any minimum charges in Amazon Redshift Serverless. Thus it
@@ -202,11 +202,11 @@ The compute_seconds column:
      transaction hasn’t ended), and hence the data provided is
      real-time.
 
-- There are situations where compute_seconds is 0 but
-  charged_seconds is greater than 0, or vice versa. This is normal
+- There are situations where compute\_seconds is 0 but
+  charged\_seconds is greater than 0, or vice versa. This is normal
   behavior resulting from the way data is recorded in the system view.
   For a more accurate representation of serverless usage details, we
-  recommend aggregating the data in SYS_SERVERLESS_USAGE.
+  recommend aggregating the data in SYS\_SERVERLESS\_USAGE.
 
 For more information about monitoring tables and views, see [Monitoring queries and
 workloads with Amazon Redshift Serverless](serverless-monitoring.md "serverless-monitoring.md").

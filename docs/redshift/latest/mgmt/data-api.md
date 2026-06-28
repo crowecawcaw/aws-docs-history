@@ -233,8 +233,8 @@ Consider the following when using named parameters:
   --sql "insert into mytable values (:id, :address)"
   ```
   - You can replace the values in a conditions clause, such as `WHERE
-attr >= :val1`, `WHERE attr BETWEEN :val1 AND
-:val2`, and `HAVING COUNT(attr) > :val`.
+   attr >= :val1`, `WHERE attr BETWEEN :val1 AND
+   :val2`, and `HAVING COUNT(attr) > :val`.
   - You can't replace column names in an SQL statement, such as
     `SELECT column-name`, `ORDER BY column-name`,
     or `GROUP BY column-name`.
@@ -251,7 +251,7 @@ attr >= :val1`, `WHERE attr BETWEEN :val1 AND
   does not substitute the column name for the parameter
   (`"QueryString": "SELECT :colname, FROM event"`), and an
   error is reported (**`ERROR: syntax error at or near \"FROM\"\n
- Position: 12`**).
+   Position: 12`**).
   - You can't replace column names in an aggregate function, such as
     `COUNT(column-name)`, `AVG(column-name)`, or
     `SUM(column-name)`.

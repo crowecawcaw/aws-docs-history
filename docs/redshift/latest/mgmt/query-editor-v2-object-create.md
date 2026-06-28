@@ -116,15 +116,13 @@ as a consumer for the table `category2` in cluster
     			* Tables: `category2`
 
 4. Choose
-   ![Plus sign icon inside a circle, indicating an add or create action.](images/qev2-add.png)
-   **Create**, and then choose
-   **Database**.
-5. Enter `see_datashare_base` for **Database
-   name**.
-6. Select **Create using a datashare**, and choose a
-   **Select a datashare**. Choose
-   `datashare_base` to use as the source of the database you are
-   creating.
+![Plus sign icon inside a circle, indicating an add or create action.](images/qev2-add.png)
+**Create**, and then choose
+**Database**. 5. Enter `see_datashare_base` for **Database
+name**. 6. Select **Create using a datashare**, and choose a
+**Select a datashare**. Choose
+`datashare_base` to use as the source of the database you are
+creating.
 
 The tree-view panel in query editor v2 shows the hierarchy of
 `cluster-view` as:
@@ -147,9 +145,9 @@ The tree-view panel in query editor v2 shows the hierarchy of
     			* Tables: `category2`
 
 7. When you query the data, connect to the default database of the cluster
-   `cluster-view` (typically named `dev`), but
-   reference the datashare database `see_datashare_base` in your
-   SQL.
+`cluster-view` (typically named `dev`), but
+reference the datashare database `see_datashare_base` in your
+SQL.
 
 ###### Note
 
@@ -211,8 +209,8 @@ The tree-view panel in query editor v2 shows the hierarchy of
     			* Tables: `category3`
 
 4. When you query the data, connect to the default database of the cluster
-   `cluster-view` (typically named `dev`), but
-   reference the database `data_catalog_database` in your SQL.
+`cluster-view` (typically named `dev`), but
+reference the database `data_catalog_database` in your SQL.
 
 ###### Note
 
@@ -310,35 +308,35 @@ TABLE statement before you run the query to create the table.
      the column names and data types are what you intend.
 
 6. For each column, choose the column and choose the options that you
-   want:
+want:
 
-   - Choose a value for **Encoding**.
-   - Choose a **Default value**.
-   - Turn on **Automatically increment** if you want
+    * Choose a value for **Encoding**.
+    * Choose a **Default value**.
+    * Turn on **Automatically increment** if you want
      the column values to increment. Then specify a value for
      **Auto increment seed** and **Auto
      increment step**.
-   - Turn on **Not NULL** if the column should always
+    * Turn on **Not NULL** if the column should always
      contain a value.
-   - Enter a **Size** value for the column.
-   - Turn on **Primary key** if you want the column to
+    * Enter a **Size** value for the column.
+    * Turn on **Primary key** if you want the column to
      be a primary key.
-   - Turn on **Unique key** if you want the column to
+    * Turn on **Unique key** if you want the column to
      be a unique key.
 
 7. (Optional) Choose **Table details** and choose any of the
-   following options:
+following options:
 
-   - Distribution key column and style.
-   - Sort key column and sort type.
-   - Turn on **Backup** to include the table in
+    * Distribution key column and style.
+    * Sort key column and sort type.
+    * Turn on **Backup** to include the table in
      snapshots.
-   - Turn on **Temporary table** to create the table
+    * Turn on **Temporary table** to create the table
      as a temporary table.
 
 8. Choose **Open query in editor** to continue specifying
-   options to define the table or choose **Create table** to
-   create the table.
+options to define the table or choose **Create table** to
+create the table.
 
 ## Creating functions
 

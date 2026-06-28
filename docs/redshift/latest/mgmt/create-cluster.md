@@ -64,11 +64,10 @@ password**, you can choose from the following options:
      fee. For information on AWS Secrets Manager pricing, see [AWS Secrets Manager Pricing](https://aws.amazon.com/secrets-manager/pricing/ "https://aws.amazon.com/secrets-manager/pricing/").
 
 6. (Optional) Follow the instructions on the console page to enter properties for
-   **Cluster permissions**. Provide cluster permissions if
-   your cluster needs to access other AWS services for you, for example to load
-   data from Amazon S3.
-7. Choose **Create cluster** to create the cluster. The cluster
-   might take several minutes to be ready to use.
+**Cluster permissions**. Provide cluster permissions if
+your cluster needs to access other AWS services for you, for example to load
+data from Amazon S3. 7. Choose **Create cluster** to create the cluster. The cluster
+might take several minutes to be ready to use.
 
 ## Additional configurations
 

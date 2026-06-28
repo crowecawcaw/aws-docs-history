@@ -40,21 +40,20 @@ For more information about cluster properties, see [Additional configurations](c
 
 ###### To modify a cluster
 
-1.  Sign in to the AWS Management Console and open the Amazon Redshift console at
-    [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2.  On the navigation menu, choose **Clusters**.
-3.  Choose the cluster to modify.
-4.  Choose **Edit**. The **Edit cluster** page
-    appears.
-5.  Update the cluster properties. Some of the properties you can modify are:
+1. Sign in to the AWS Management Console and open the Amazon Redshift console at
+   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
+2. On the navigation menu, choose **Clusters**.
+3. Choose the cluster to modify.
+4. Choose **Edit**. The **Edit cluster** page
+   appears.
+5. Update the cluster properties. Some of the properties you can modify are:
 
-        * Cluster identifier
-        * Snapshot retention
-        * Cluster relocation
+   - Cluster identifier
+   - Snapshot retention
+   - Cluster relocation
+     To edit settings for **Network and security**,
+     **Maintenance**, and **Database
+     configurations**, the console provides links to the appropriate
+     cluster details tab.
 
-    To edit settings for **Network and security**,
-    **Maintenance**, and **Database
-    configurations**, the console provides links to the appropriate
-    cluster details tab.
-
-6.  Choose **Save changes**.
+6. Choose **Save changes**.

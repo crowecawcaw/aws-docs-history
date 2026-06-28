@@ -27,7 +27,7 @@ Amazon Redshift requires Nitro-based instances to support VPC encryption control
 
 **SSL/TLS requirements**
 
-When VPC encryption controls is enabled in enforce mode, the require_ssl parameter must be set to true and cannot be disabled. This ensures that all client connections use encrypted TLS connections.
+When VPC encryption controls is enabled in enforce mode, the require\_ssl parameter must be set to true and cannot be disabled. This ensures that all client connections use encrypted TLS connections.
 
 ## Migrating to VPC ecncryption controls
 
@@ -43,13 +43,13 @@ encryption controls if you have an existing cluster or workgroup:
    - For provisioned clusters: Use the `restore-from-cluster-snapshot` operation
    - For serverless: Use the `restore-from-snapshot` operation on your workgroup
 
-**When creating new clusters or workgroups in a VPC with encryption controls enabled, the require_ssl parameter must be set to true.**
+**When creating new clusters or workgroups in a VPC with encryption controls enabled, the require\_ssl parameter must be set to true.**
 
 Amazon Redshift requires Nitro-based instances to support VPC encryption controls. All modern Redshift instance types support the necessary encryption capabilities.
 
 **SSL/TLS requirements**
 
-When VPC encryption controls is enabled in enforce mode, the require_ssl parameter must be set to true and cannot be disabled. This ensures that all client connections use encrypted TLS connections.
+When VPC encryption controls is enabled in enforce mode, the require\_ssl parameter must be set to true and cannot be disabled. This ensures that all client connections use encrypted TLS connections.
 
 ## Considerations and limitations
 
@@ -62,7 +62,7 @@ When using VPC encryption controls in Amazon Redshift, consider the following:
 
 **SSL configuration**
 
-- require_ssl parameter: Must always be `true` for clusters and workgroups created in encryption-enforced VPCs
+- require\_ssl parameter: Must always be `true` for clusters and workgroups created in encryption-enforced VPCs
 - Once a cluster or workgroup is created in an encryption-enforced VPC, `require_ssl` cannot be disabled for its lifetime
 
 **Region availability**

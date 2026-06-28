@@ -40,8 +40,8 @@ When the load completes, the query editor displays with the generated COPY
 command that was used to load your data. The **Result** of
 the COPY is shown. If successful, you can now use SQL to select data from
 the loaded table. When there is an error, query the system view
-STL_LOAD_ERRORS to get more details. For information about COPY command
-errors, see [STL_LOAD_ERRORS](../dg/r_STL_LOAD_ERRORS.md "../dg/r_STL_LOAD_ERRORS.md")
+STL\_LOAD\_ERRORS to get more details. For information about COPY command
+errors, see [STL\_LOAD\_ERRORS](../dg/r_STL_LOAD_ERRORS.md "../dg/r_STL_LOAD_ERRORS.md")
 in the _Amazon Redshift Database Developer Guide_.
 When you load data into a new table, query editor v2 first creates the table in the database, then loads the data as separate actions in the same workflow.
 
@@ -88,6 +88,6 @@ When the load completes, the query editor displays with the generated COPY
 command that was used to load your data. The **Result** of
 the COPY is shown. If successful, you can now use SQL to select data from
 the loaded table. When there is an error, query the system view
-STL_LOAD_ERRORS to get more details. For information about COPY command
-errors, see [STL_LOAD_ERRORS](../dg/r_STL_LOAD_ERRORS.md "../dg/r_STL_LOAD_ERRORS.md")
+STL\_LOAD\_ERRORS to get more details. For information about COPY command
+errors, see [STL\_LOAD\_ERRORS](../dg/r_STL_LOAD_ERRORS.md "../dg/r_STL_LOAD_ERRORS.md")
 in the _Amazon Redshift Database Developer Guide_.

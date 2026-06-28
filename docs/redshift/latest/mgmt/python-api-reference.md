@@ -7,7 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Following, you can find a description of the Amazon Redshift Python connector API
 operations.
 
-## redshift_connector
+## redshift\_connector
 
 Following, you can find a description of the `redshift_connector` API
 operation.
@@ -67,7 +67,7 @@ for use with the COPY command.
 `xid(format_id, global_transaction_id, …)`
 
 Create a transaction ID. Only the `global_transaction_id`
-parameter is used in postgres. format_id and branch_qualifier are not
+parameter is used in postgres. format\_id and branch\_qualifier are not
 used in postgres. The `global_transaction_id` can be any
 string identifier supported by postgres that returns a tuple
 (`format_id`, `global_transaction_id`,
@@ -82,22 +82,22 @@ qualifier.
 `tpc_prepare`
 
 Performs the first phase of a transaction started with
-.tpc_begin.
+.tpc\_begin.
 
 `tpc_commit([xid])`
 
-When called with no arguments, .tpc_commit commits a TPC transaction
-previously prepared with .tpc_prepare().
+When called with no arguments, .tpc\_commit commits a TPC transaction
+previously prepared with .tpc\_prepare().
 
 `tpc_rollback([xid])`
 
-When called with no arguments, .tpc_rollback rolls back a TPC
+When called with no arguments, .tpc\_rollback rolls back a TPC
 transaction.
 
 `tpc_recover`
 
 Returns a list of pending transaction IDs suitable for use with
-.tpc_commit(xid) or .tpc_rollback(xid).
+.tpc\_commit(xid) or .tpc\_rollback(xid).
 
 ## Cursor
 

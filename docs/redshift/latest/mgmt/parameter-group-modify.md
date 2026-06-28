@@ -20,38 +20,37 @@ tab.
 
 ###### To modify a parameter group
 
-1.  Sign in to the AWS Management Console and open the Amazon Redshift console at
-    [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
-2.  On the navigation menu, choose
-    **Configurations**, then choose **Workload
-    management** to display the **Workload
-    management** page.
-3.  Choose the parameter group that you want to modify to display the
-    details page, with tabs for **Parameters** and
-    **Workload management**.
-4.  Choose the **Parameters** tab to view the current
-    parameter settings.
-5.  Choose **Edit parameters** to enable changing
-    settings for these parameters:
+1. Sign in to the AWS Management Console and open the Amazon Redshift console at
+   [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
+2. On the navigation menu, choose
+   **Configurations**, then choose **Workload
+   management** to display the **Workload
+   management** page.
+3. Choose the parameter group that you want to modify to display the
+   details page, with tabs for **Parameters** and
+   **Workload management**.
+4. Choose the **Parameters** tab to view the current
+   parameter settings.
+5. Choose **Edit parameters** to enable changing
+   settings for these parameters:
 
-        * `auto_analyze`
-        * `auto_mv`
-        * `datestyle`
-        * `enable_case_sensitive_identifier`
-        * `enable_user_activity_logging`
-        * `extra_float_digits`
-        * `max_concurrency_scaling_clusters`
-        * `max_cursor_result_set_size`
-        * `query_group`
-        * `require_ssl`
-        * `search_path`
-        * `statement_timeout`
-        * `use_fips_ssl`
+   - `auto_analyze`
+   - `auto_mv`
+   - `datestyle`
+   - `enable_case_sensitive_identifier`
+   - `enable_user_activity_logging`
+   - `extra_float_digits`
+   - `max_concurrency_scaling_clusters`
+   - `max_cursor_result_set_size`
+   - `query_group`
+   - `require_ssl`
+   - `search_path`
+   - `statement_timeout`
+   - `use_fips_ssl`
+     For more information about these parameters, see [Amazon Redshift parameter groups](working-with-parameter-groups.md "working-with-parameter-groups.md").
 
-    For more information about these parameters, see [Amazon Redshift parameter groups](working-with-parameter-groups.md "working-with-parameter-groups.md").
-
-6.  Enter your changes and then choose **Save** to
-    update the parameter group.
+6. Enter your changes and then choose **Save** to
+   update the parameter group.
 
 ###### To modify the WLM configuration for a parameter group
 
@@ -126,8 +125,8 @@ runtime to a fixed value, choose a value of 1–20. 7. Do one or more of the fol
      the queue's row in the table.
 
 8. (Optional) Select **Defer dynamic changes until
-   reboot** to have the changes applied to clusters after
-   their next reboot.
+reboot** to have the changes applied to clusters after
+their next reboot.
 
 ###### Note
 

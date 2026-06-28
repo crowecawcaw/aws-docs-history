@@ -15,7 +15,7 @@ uses the Amazon Redshift Data API.
 
 ![Editor](images/qev2-align-left.png)
 view, choose
-![Schedule](/images/redshift/latest/mgmt/images/qev2-calendar.png)
+![Schedule](images/qev2-calendar.png)
 
 **Schedule** to create a schedule to run a SQL
 statement. 2. When you define the schedule, you provide the following information.
@@ -46,11 +46,11 @@ statement. 2. When you define the schedule, you provide the following informatio
      topic](../../../eventbridge/latest/userguide/eventbridge-troubleshooting.md#eb-no-messages-published-sns "../../../eventbridge/latest/userguide/eventbridge-troubleshooting.md#eb-no-messages-published-sns") in the *Amazon EventBridge User Guide*.
 
 3. Choose **Schedule query** to save and activate the schedule
-   and add the schedule to the list of queries in the **Scheduled
-   queries** view.
-   The **Scheduled queries**
+and add the schedule to the list of queries in the **Scheduled
+queries** view.
+The **Scheduled queries**
 
-![Scheduled queries](/images/redshift/latest/mgmt/images/qev2-calendar.png)
+![Scheduled queries](images/qev2-calendar.png)
 view lists all the scheduled queries for your clusters and
 workgroups. With this view, you can display schedule query details, activate or
 deactivate the schedule, edit the schedule, and delete the scheduled query. When you

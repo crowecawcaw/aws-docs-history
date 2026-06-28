@@ -10,7 +10,7 @@ during creation. However, you can update a serverless workgroup through the AWS 
 of source tables and columns. The `enable_case_sensitive_identifier` is a
 configuration value that determines whether name identifiers of databases, tables, and
 columns are case sensitive. This parameter must be turned on to create zero-ETL integrations in the
-data warehouse. For more information, see [enable_case_sensitive_identifier](../dg/r_enable_case_sensitive_identifier.md "../dg/r_enable_case_sensitive_identifier.md").
+data warehouse. For more information, see [enable\_case\_sensitive\_identifier](../dg/r_enable_case_sensitive_identifier.md "../dg/r_enable_case_sensitive_identifier.md").
 
 For Amazon Redshift Serverless – [Turn on case sensitivity for Amazon Redshift Serverless using the AWS CLI](#case-sensitivity-serverless-cli "#case-sensitivity-serverless-cli"). Note that you can turn on case
 sensitivity for Amazon Redshift Serverless only from the AWS CLI.
@@ -46,7 +46,7 @@ step.
 5. On the workload management page, choose the parameter group.
 6. Choose the **Parameters** tab.
 7. Choose **Edit parameters**, then change
-   **enable_case_sensitive_identifier** to
+   **enable\_case\_sensitive\_identifier** to
    **true**.
 8. Then, choose **Save**.
 

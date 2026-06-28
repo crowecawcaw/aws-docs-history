@@ -22,7 +22,7 @@ Consider the following when using serverless queues:
   `queue_type`, `query_concurrency`, `memory_percent_to_use`,
   `user_group`, `user_group_wild_card`.
 
-Additionally hop, change_query_priority actions are not supported in Serverless.
+Additionally hop, change\_query\_priority actions are not supported in Serverless.
 
 - The hop Action (moving queries between queues) is not supported in Amazon Redshift Serverless.
 - Queue priorities are supported only for Amazon Redshift provisioned clusters.

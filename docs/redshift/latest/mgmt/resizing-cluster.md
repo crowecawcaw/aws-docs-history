@@ -286,7 +286,7 @@ Both reads and writes to the database work during this migration process,
 but it can take longer for queries to complete. However, concurrency scaling
 can boost performance during this time by adding resources for query
 workloads. You can see the progress of data migration by viewing results
-from the [SYS_RESTORE_STATE](../dg/SYS_RESTORE_STATE.md "../dg/SYS_RESTORE_STATE.md") and [SYS_RESTORE_LOG](../dg/SYS_RESTORE_LOG.md "../dg/SYS_RESTORE_LOG.md") views.
+from the [SYS\_RESTORE\_STATE](../dg/SYS_RESTORE_STATE.md "../dg/SYS_RESTORE_STATE.md") and [SYS\_RESTORE\_LOG](../dg/SYS_RESTORE_LOG.md "../dg/SYS_RESTORE_LOG.md") views.
 More information about monitoring follows.
 
 After the cluster is fully resized, the following sort behavior
@@ -348,7 +348,7 @@ both elastic resize and classic resize.
 
 To monitor a classic resize of a provisioned cluster in progress,
 including KEY distribution, use
-[SYS_RESTORE_STATE](../dg/SYS_RESTORE_STATE.md "../dg/SYS_RESTORE_STATE.md"). It
+[SYS\_RESTORE\_STATE](../dg/SYS_RESTORE_STATE.md "../dg/SYS_RESTORE_STATE.md"). It
 shows the percentage completed for the table being converted. You must be a
 super user to access the
 data.
@@ -451,8 +451,8 @@ The snapshot, restore, and classic resize approach uses the following process:
    repeat this process several times until the data is the same in both the
    source and target clusters.
 6. Stop all queries running on the source cluster. To do this, you can
-   reboot the cluster, or you can log on as a superuser and use the [PG_CANCEL_BACKEND](../dg/PG_CANCEL_BACKEND.md "../dg/PG_CANCEL_BACKEND.md")
-   and the [PG_TERMINATE_BACKEND](../dg/PG_TERMINATE_BACKEND.md "../dg/PG_TERMINATE_BACKEND.md") commands. Rebooting the cluster is the
+   reboot the cluster, or you can log on as a superuser and use the [PG\_CANCEL\_BACKEND](../dg/PG_CANCEL_BACKEND.md "../dg/PG_CANCEL_BACKEND.md")
+   and the [PG\_TERMINATE\_BACKEND](../dg/PG_TERMINATE_BACKEND.md "../dg/PG_TERMINATE_BACKEND.md") commands. Rebooting the cluster is the
    easiest way to make sure that the cluster is unavailable.
 7. Rename the source cluster. For example, rename it from
    `examplecluster` to `examplecluster-source`.

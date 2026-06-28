@@ -27,19 +27,18 @@ details page for an integration. Possible metrics include the following types:
   that are currently active or have errors. The statistics on this tab are as follows
   (depending on source type):
 
-      + **Schema name** – The name of the schema that the table is
-       in.
-      + **Table name** – The name of the table in the source
-       database.
-      + **Status** – The status of the table. Possible values
-       include `Synced`, `Failed`, `Deleted`, `Resync
-       Required`, and `Resync Initiated`.
-      + **Database** – The Amazon Redshift database the table is in.
-      + **Last updated** – The date and time (UTC) when the last
-       update was made to the table.
-      + **Table row count** – The number of rows in the
-       table.
-      + **Table size**  – The size of the table.
-
-  You can also view a graph of the number of **Rows** inserted, deleted,
-  and updated for the selected timeframe.
+  - **Schema name** – The name of the schema that the table is
+    in.
+  - **Table name** – The name of the table in the source
+    database.
+  - **Status** – The status of the table. Possible values
+    include `Synced`, `Failed`, `Deleted`, `Resync
+   Required`, and `Resync Initiated`.
+  - **Database** – The Amazon Redshift database the table is in.
+  - **Last updated** – The date and time (UTC) when the last
+    update was made to the table.
+  - **Table row count** – The number of rows in the
+    table.
+  - **Table size** – The size of the table.
+    You can also view a graph of the number of **Rows** inserted, deleted,
+    and updated for the selected timeframe.

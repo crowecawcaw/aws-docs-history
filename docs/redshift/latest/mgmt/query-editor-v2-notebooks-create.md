@@ -22,17 +22,16 @@ By default, a SQL query cell appears in the notebook. 3. In the SQL query cell, 
     * Paste a query that you copied.
 
 4. (Optionally) Choose the plus icon (
-   ![Plus sign icon representing an addition or new item action.](images/add-plus.png)
-   ), then choose **Markdown** to add a
-   Markdown cell where you can provide descriptive or explanatory text using
-   standard Markdown syntax.
-5. (Optionally) Choose the plus icon (
-   ![Plus sign icon representing an addition or new item action.](images/add-plus.png)
-   ), then choose **SQL** to insert a SQL
-   cell.
-   You can rename notebooks using the pencil icon (
-   ![Pencil icon representing an editing or writing function.](images/qev2-edit.png)
-   ).
+![Plus sign icon representing an addition or new item action.](images/add-plus.png)
+), then choose **Markdown** to add a
+Markdown cell where you can provide descriptive or explanatory text using
+standard Markdown syntax. 5. (Optionally) Choose the plus icon (
+![Plus sign icon representing an addition or new item action.](images/add-plus.png)
+), then choose **SQL** to insert a SQL
+cell.
+You can rename notebooks using the pencil icon (
+![Pencil icon representing an editing or writing function.](images/qev2-edit.png)
+).
 
 From the menu icon (
 ![Three dots arranged horizontally, representing an ellipsis or "more" menu icon.](images/qev2-more.png)

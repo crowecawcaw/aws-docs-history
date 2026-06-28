@@ -17,7 +17,7 @@ perform granular identity management in both your third-party identity provider 
 because identity information is shared.
 
 For information about using session roles that are transferred from identity provider
-(IdP) groups, see [PG_GET_SESSION_ROLES](../dg/PG_GET_SESSION_ROLES.md "../dg/PG_GET_SESSION_ROLES.md") in the
+(IdP) groups, see [PG\_GET\_SESSION\_ROLES](../dg/PG_GET_SESSION_ROLES.md "../dg/PG_GET_SESSION_ROLES.md") in the
 _Amazon Redshift Database Developer Guide_.
 
 ## Native identity provider (IdP) federation

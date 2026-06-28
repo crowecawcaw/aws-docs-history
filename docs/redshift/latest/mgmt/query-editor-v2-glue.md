@@ -108,17 +108,17 @@ following ways:
      more information about this authentication method, see [Connecting to an Amazon Redshift database](query-editor-v2-connecting.md "query-editor-v2-connecting.md").
 
 4. With the granted privilege, you can use your IAM identity to run SQL against
-   your AWS Glue Data Catalog.
-   After connecting, you can use query editor v2 to query data cataloged in AWS Glue Data Catalog. On the query editor v2
-   tree-view pane, choose the cluster or workgroup and `awsdatacatalog` database. In
-   the editor or notebook pane, confirm the correct cluster or workgroup is chosen. The
-   database chosen should be the initial Amazon Redshift database such as `dev`. For
-   information about authoring queries, see [Authoring queries with Amazon Redshift](query-editor-v2-query-run.md "query-editor-v2-query-run.md") and [Notebooks in Amazon Redshift](query-editor-v2-notebooks.md "query-editor-v2-notebooks.md"). The
-   database named `awsdatacatalog` is reserved to reference the external Data Catalog
-   database in your account. Queries against the `awsdatacatalog` database can only
-   be read-only. Use three-part notation to reference the table in your SELECT statement. Where
-   the first part is the database name, the second part is the AWS Glue database name, and the
-   third part is the AWS Glue table name.
+your AWS Glue Data Catalog.
+After connecting, you can use query editor v2 to query data cataloged in AWS Glue Data Catalog. On the query editor v2
+tree-view pane, choose the cluster or workgroup and `awsdatacatalog` database. In
+the editor or notebook pane, confirm the correct cluster or workgroup is chosen. The
+database chosen should be the initial Amazon Redshift database such as `dev`. For
+information about authoring queries, see [Authoring queries with Amazon Redshift](query-editor-v2-query-run.md "query-editor-v2-query-run.md") and [Notebooks in Amazon Redshift](query-editor-v2-notebooks.md "query-editor-v2-notebooks.md"). The
+database named `awsdatacatalog` is reserved to reference the external Data Catalog
+database in your account. Queries against the `awsdatacatalog` database can only
+be read-only. Use three-part notation to reference the table in your SELECT statement. Where
+the first part is the database name, the second part is the AWS Glue database name, and the
+third part is the AWS Glue table name.
 
 ```
 SELECT * FROM awsdatacatalog.`<aws-glue-db-name`>.<`aws-glue-table-name`>;

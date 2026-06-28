@@ -37,18 +37,17 @@ steps. These instructions assume you have an existing Redshift Spectrum external
 references a data file stored in an Amazon S3 bucket, and the bucket is in the same
 account as your Amazon Redshift cluster or Amazon Redshift Serverless data warehouse.
 
-1.  Create an IAM identity. This can be a user or an IAM role. Use any
-    name supported by IAM.
-2.  Attach permissions policies to the identity. Specify either of the
-    following:
+1. Create an IAM identity. This can be a user or an IAM role. Use any
+   name supported by IAM.
+2. Attach permissions policies to the identity. Specify either of the
+   following:
 
-        * `redshift:GetClusterCredentialsWithIAM` (for an Amazon Redshift
-         provisioned cluster)
-        * `redshift-serverless:GetCredentials` (for
-         Amazon Redshift Serverless)
-
-    You can add permissions with the policy editor, using the IAM
-    console.
+   - `redshift:GetClusterCredentialsWithIAM` (for an Amazon Redshift
+     provisioned cluster)
+   - `redshift-serverless:GetCredentials` (for
+     Amazon Redshift Serverless)
+     You can add permissions with the policy editor, using the IAM
+     console.
 
 The IAM identity also needs permissions to access external data. Grant
 access to Amazon S3 by adding the following AWS managed policies
@@ -80,28 +79,28 @@ client-connection extended properties:
     * *LogLevel* – Integer log-level value.
      This is optional.
 
-4.  Set the URL to the JDBC endpoint found in the Amazon Redshift or Amazon Redshift Serverless
-    console. Replace your URL schema with
-    _jdbc:redshift:iam:_ and use this formatting:
+4. Set the URL to the JDBC endpoint found in the Amazon Redshift or Amazon Redshift Serverless
+console. Replace your URL schema with
+_jdbc:redshift:iam:_ and use this formatting:
 
-        * Format for an Amazon Redshift provisioned cluster:
-         `jdbc:redshift:iam://<cluster_id>.<unique_suffix>.<region>.redshift.amazonaws.com:<port>/<database_name>`
-
-
-        Example:
-         `jdbc:redshift:iam://test1.12345abcdefg.us-east-1.redshift.amazonaws.com:5439/dev`
-        * Format for Amazon Redshift Serverless:
-         `jdbc:redshift:iam://<workgroup-name>.<account-number>.<aws-region>.redshift-serverless.amazonaws.com:5439:<port>/<database_name>`
+    * Format for an Amazon Redshift provisioned cluster:
+     `jdbc:redshift:iam://<cluster_id>.<unique_suffix>.<region>.redshift.amazonaws.com:<port>/<database_name>`
 
 
-        Example:
-         `jdbc:redshift:iam://default.123456789012.us-east-1.redshift-serverless.amazonaws.com:5439/dev`
+    Example:
+     `jdbc:redshift:iam://test1.12345abcdefg.us-east-1.redshift.amazonaws.com:5439/dev`
+    * Format for Amazon Redshift Serverless:
+     `jdbc:redshift:iam://<workgroup-name>.<account-number>.<aws-region>.redshift-serverless.amazonaws.com:5439:<port>/<database_name>`
 
-    After you connect to the database for the first time, using an IAM
-    identity, Amazon Redshift automatically creates an Amazon Redshift identity with the same name,
-    prefixed with `IAM:` for a user or `IAMR:` for an
-    IAM role. The remaining steps in this topic show examples for a
-    user.
+
+    Example:
+     `jdbc:redshift:iam://default.123456789012.us-east-1.redshift-serverless.amazonaws.com:5439/dev`
+
+After you connect to the database for the first time, using an IAM
+identity, Amazon Redshift automatically creates an Amazon Redshift identity with the same name,
+prefixed with `IAM:` for a user or `IAMR:` for an
+IAM role. The remaining steps in this topic show examples for a
+user.
 
 If a Redshift user isn't automatically created, you can create one by
 running a `CREATE USER` statement, using an admin account,

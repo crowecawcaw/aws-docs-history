@@ -35,10 +35,10 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
   - max
   - min
   - sum
-  - stddev_samp
-  - stddev_pop
-  - var_samp
-  - var_pop
+  - stddev\_samp
+  - stddev\_pop
+  - var\_samp
+  - var\_pop
 
 - Boolean operators
 
@@ -115,11 +115,11 @@ Functions](https://spark.apache.org/docs/latest/api/sql/index.html "https://spar
 
 - Time and date functions
 
-  - add_months
+  - add\_months
   - date
-  - date_add
-  - date_sub
-  - date_trunc
+  - date\_add
+  - date\_sub
+  - date\_trunc
   - timestamp
   - trunc
 

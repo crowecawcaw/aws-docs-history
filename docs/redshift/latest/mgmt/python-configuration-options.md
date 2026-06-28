@@ -8,7 +8,7 @@ Following, you can find descriptions for the options that you can specify for th
 Amazon Redshift Python connector. The options below apply to the latest available connector
 version unless specified otherwise.
 
-## access_key_id
+## access\_key\_id
 
 - Default value – None
 - Data type – String
@@ -18,7 +18,7 @@ authentication.
 
 This parameter is optional.
 
-## allow_db_user_override
+## allow\_db\_user\_override
 
 - Default value – False
 - Data type – Boolean
@@ -35,7 +35,7 @@ parameter is used.
 
 This parameter is optional.
 
-## app_name
+## app\_name
 
 - Default value – None
 - Data type – String
@@ -44,20 +44,20 @@ The name of the identity provider (IdP) application used for authentication.
 
 This parameter is optional.
 
-## application_name
+## application\_name
 
 - Default value – None
 - Data type – String
 
 The name of the client application to pass to Amazon Redshift for audit purposes.
-The application name that you provide appears in the 'application_name'
-column of the [SYS_CONNECTION_LOG](../dg/SYS_CONNECTION_LOG.md "../dg/SYS_CONNECTION_LOG.md")
+The application name that you provide appears in the 'application\_name'
+column of the [SYS\_CONNECTION\_LOG](../dg/SYS_CONNECTION_LOG.md "../dg/SYS_CONNECTION_LOG.md")
 table. This helps track and
 troubleshoot connection sources when debugging issues.
 
 This parameter is optional.
 
-## auth_profile
+## auth\_profile
 
 - Default value – None
 - Data type – String
@@ -71,7 +71,7 @@ more information, see the [RedshiftProperty class](https://github.com/aws/amazon
 
 This parameter is optional.
 
-## auto_create
+## auto\_create
 
 - Default value – False
 - Data type – Boolean
@@ -80,7 +80,7 @@ A value that indicates whether to create the user if the user doesn't exist.
 
 This parameter is optional.
 
-## client_id
+## client\_id
 
 - Default value – None
 - Data type – String
@@ -89,7 +89,7 @@ The client ID from Azure IdP.
 
 This parameter is optional.
 
-## client_secret
+## client\_secret
 
 - Default value – None
 - Data type – String
@@ -98,7 +98,7 @@ The client secret from Azure IdP.
 
 This parameter is optional.
 
-## cluster_identifier
+## cluster\_identifier
 
 - Default value – None
 - Data type – String
@@ -107,7 +107,7 @@ The cluster identifier of the Amazon Redshift cluster.
 
 This parameter is optional.
 
-## credentials_provider
+## credentials\_provider
 
 - Default value – None
 - Data type – String
@@ -139,7 +139,7 @@ The name of the database to which you want to connect.
 
 This parameter is required.
 
-## database_metadata_current_db_only
+## database\_metadata\_current\_db\_only
 
 - Default value – True
 - Data type – Boolean
@@ -150,7 +150,7 @@ support multidatabase datashare catalogs for backward compatibility.
 
 This parameter is optional.
 
-## db_groups
+## db\_groups
 
 - Default value – None
 - Data type – String
@@ -160,7 +160,7 @@ DbUser joins for the current session.
 
 This parameter is optional.
 
-## db_user
+## db\_user
 
 - Default value – None
 - Data type – String
@@ -169,7 +169,7 @@ The user ID to use with Amazon Redshift.
 
 This parameter is optional.
 
-## endpoint_url
+## endpoint\_url
 
 - Default value – None
 - Data type – String
@@ -178,7 +178,7 @@ The Amazon Redshift endpoint URL. This option is only for AWS internal use.
 
 This parameter is optional.
 
-## group_federation
+## group\_federation
 
 - Default value – False
 - Data type – Boolean
@@ -194,7 +194,7 @@ Use Amazon Redshift Identity Provider (IDP) groups.
 **false**
 
 Use STS API and GetClusterCredentials for user federation and specify
-**db_groups** for the connection.
+**db\_groups** for the connection.
 
 ## host
 
@@ -214,7 +214,7 @@ IAM authentication is enabled.
 
 This parameter is required.
 
-## iam_disable_cache
+## iam\_disable\_cache
 
 - Default value – False
 - Data type – Boolean
@@ -225,7 +225,7 @@ gateway are throttled.
 
 This parameter is optional.
 
-## idc_client_display_name
+## idc\_client\_display\_name
 
 - Default Value – Amazon Redshift Python
   connector
@@ -236,7 +236,7 @@ BrowserIdcAuthPlugin.
 
 This parameter is optional.
 
-## idc_region
+## idc\_region
 
 - Default Value – None
 - Data Type – String
@@ -244,10 +244,10 @@ This parameter is optional.
 The AWS region where the AWS IAM Identity Center instance is located.
 
 This parameter is required only when authenticating using
-`BrowserIdcAuthPlugin` in the credentials_provider configuration
+`BrowserIdcAuthPlugin` in the credentials\_provider configuration
 option.
 
-## idp_partition
+## idp\_partition
 
 - Default Value – None
 - Data Type – String
@@ -270,7 +270,7 @@ The listen port to which IdP sends the SAML assertion.
 
 This parameter is required.
 
-## idp_response_timeout
+## idp\_response\_timeout
 
 - Default value – 120
 - Data type – Integer
@@ -279,7 +279,7 @@ The timeout for retrieving SAML assertion from IdP.
 
 This parameter is required.
 
-## idp_tenant
+## idp\_tenant
 
 - Default value – None
 - Data type – String
@@ -288,7 +288,7 @@ The IdP tenant.
 
 This parameter is optional.
 
-## issuer_url
+## issuer\_url
 
 - Default Value – None
 - Data Type – String
@@ -296,10 +296,10 @@ This parameter is optional.
 Points to the AWS IAM Identity Center server's instance endpoint.
 
 This parameter is required only when authenticating using
-`BrowserIdcAuthPlugin` in the credentials_provider configuration
+`BrowserIdcAuthPlugin` in the credentials\_provider configuration
 option.
 
-## listen_port
+## listen\_port
 
 - Default value – 7890
 - Data type – Integer
@@ -310,7 +310,7 @@ through a browser plugin.
 
 This parameter is optional.
 
-## login_url
+## login\_url
 
 - Default value – None
 - Data type – String
@@ -319,7 +319,7 @@ The single sign-on Url for the IdP.
 
 This parameter is optional.
 
-## max_prepared_statements
+## max\_prepared\_statements
 
 - Default value – 1000
 - Data type – Integer
@@ -330,7 +330,7 @@ number for this parameter sets it to the default value.
 
 This parameter is optional.
 
-## numeric_to_float
+## numeric\_to\_float
 
 - Default value – False
 - Data type – Boolean
@@ -339,7 +339,7 @@ This option specifies if the connector converts numeric data type values from
 decimal.Decimal to float. By default, the connector receives numeric data type
 values as decimal.Decimal and does not convert them.
 
-We don't recommend enabling numeric_to_float for use cases that require
+We don't recommend enabling numeric\_to\_float for use cases that require
 precision, as results may be rounded.
 
 For more information on decimal.Decimal and the tradeoffs between it and float,
@@ -348,7 +348,7 @@ Decimal fixed point and floating point arithmetic](https://docs.python.org/3/lib
 
 This parameter is optional.
 
-## partner_sp_id
+## partner\_sp\_id
 
 - Default value – None
 - Data type – String
@@ -375,7 +375,7 @@ The port number of the Amazon Redshift cluster.
 
 This parameter is required.
 
-## preferred_role
+## preferred\_role
 
 - Default value – None
 - Data type – String
@@ -384,7 +384,7 @@ The IAM role preferred for the current connection.
 
 This parameter is optional.
 
-## principal_arn
+## principal\_arn
 
 - Default value – None
 - Data type – String
@@ -405,7 +405,7 @@ credentials.
 
 This parameter is optional.
 
-## provider_name
+## provider\_name
 
 - Default value – None
 - Data type – String
@@ -423,7 +423,7 @@ The AWS Region where the cluster is located.
 
 This parameter is optional.
 
-## role_arn
+## role\_arn
 
 - Default value – None
 - Data type – String
@@ -434,10 +434,10 @@ parameter is used by the provider indicated by `JwtCredentialsProvider`.
 For the `JwtCredentialsProvider` provider, this parameter is mandatory.
 Otherwise, this parameter is optional.
 
-## role_session_name
+## role\_session\_name
 
 - Default value –
-  jwt_redshift_session
+  jwt\_redshift\_session
 - Data type – String
 
 An identifier for the assumed role session. Typically, you pass the name or
@@ -456,12 +456,12 @@ This parameter is optional.
 A space-separated list of scopes to which the user can consent. You specify this
 parameter so that your application can get consent for APIs that you want to call.
 You can specify this parameter when you specify
-BrowserAzureOAuth2CredentialsProvider for the credentials_provider option.
+BrowserAzureOAuth2CredentialsProvider for the credentials\_provider option.
 
 This parameter is required for the BrowserAzureOAuth2CredentialsProvider
 plug-in.
 
-## secret_access_key_id
+## secret\_access\_key\_id
 
 - Default value – None
 - Data type – String
@@ -471,7 +471,7 @@ authentication.
 
 This parameter is optional.
 
-## session_token
+## session\_token
 
 - Default value – None
 - Data type – String
@@ -482,7 +482,7 @@ used.
 
 This parameter is optional.
 
-## serverless_acct_id
+## serverless\_acct\_id
 
 - Default value – None
 - Data type – String
@@ -491,7 +491,7 @@ The Amazon Redshift Serverless account ID.
 
 This parameter is optional.
 
-## serverless_work_group
+## serverless\_work\_group
 
 - Default value – None
 - Data type – String
@@ -509,7 +509,7 @@ Secure Sockets Layer (SSL) is enabled.
 
 This parameter is required.
 
-## ssl_insecure
+## ssl\_insecure
 
 - Default value – False
 - Data type – Boolean
@@ -535,7 +535,7 @@ following:
 
 This parameter is required.
 
-## tcp_keepalive
+## tcp\_keepalive
 
 - Default value – True
 - Data type – Boolean
@@ -547,7 +547,7 @@ Whether to use TCP keepalives to keep connections from timing out. You can speci
 
 This parameter is optional.
 
-## tcp_keepalive_count
+## tcp\_keepalive\_count
 
 - Default value – None
 - Data type – Integer
@@ -562,7 +562,7 @@ system's default value.
 
 This parameter is optional.
 
-## tcp_keepalive_interval
+## tcp\_keepalive\_interval
 
 - Default value – None
 - Data type – Integer
@@ -577,7 +577,7 @@ uses the system's default value.
 
 This parameter is optional.
 
-## tcp_keepalive_idle
+## tcp\_keepalive\_idle
 
 - Default value – None
 - Data type – Integer
@@ -614,7 +614,7 @@ with AWS IAM Identity Center or an identity provider linked with AWS IAM Identit
 
 This parameter works with `IdpTokenAuthPlugin`.
 
-## token_type
+## token\_type
 
 - Default Value – None
 - Data Type – String
@@ -623,11 +623,11 @@ The type of token that is being used in `IdpTokenAuthPlugin`.
 
 You can specify the following values:
 
-**ACCESS_TOKEN**
+**ACCESS\_TOKEN**
 
 Enter this if you use an AWS IAM Identity Center provided access token.
 
-**EXT_JWT**
+**EXT\_JWT**
 
 Enter this if you use an OpenID Connect (OIDC) JSON Web Token (JWT)
 provided by a web-based identity provider that's integrated with AWS
@@ -644,7 +644,7 @@ The user name to use for authentication.
 
 This parameter is optional.
 
-## web_identity_token
+## web\_identity\_token
 
 - Default value – None
 - Data type – String

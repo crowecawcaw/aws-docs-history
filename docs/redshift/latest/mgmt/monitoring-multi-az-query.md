@@ -10,7 +10,7 @@ Zone aren't available. All the compute resources will be used at all times. This
 allows full operation across two Availability Zones in an active-active fashion for both
 read and write operations.
 
-You can query SYS\_ views in pg_catalog schema to monitor query runtime in a Multi-AZ
+You can query SYS\_ views in pg\_catalog schema to monitor query runtime in a Multi-AZ
 deployment. The SYS\_ views display query runtime activities or statistics from primary
 and secondary clusters. For a list of monitoring views, see [Monitoring views](../dg/serverless-monitoring.md "../dg/serverless-monitoring.md").
 
@@ -21,12 +21,12 @@ Multi-AZ deployment:
    deployment and run queries through the query editor.
 2. Run any sample query on the Multi-AZ Amazon Redshift deployment.
 3. For a Multi-AZ deployment, you can identify a query and the Availability Zone
-   where it is run by using the compute_type column in the SYS_QUERY_HISTORY table.
+   where it is run by using the compute\_type column in the SYS\_QUERY\_HISTORY table.
    _primary_ stands for queries run on the
    primary cluster in the Multi-AZ deployment, and _secondary_ stands for queries run on the secondary cluster in the
    Multi-AZ deployment.
 
-The following query uses compute_type column to monitor a query.
+The following query uses compute\_type column to monitor a query.
 
 ```
 select (compute_type) as compute_type, left(query_text, 50) query_text from sys_query_history order by start_time desc;

@@ -17,6 +17,7 @@ The following describes upcoming behavior changes.
 ###### Topics
 
 - [Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026](#snapshot-billing-model-jun2026 "#snapshot-billing-model-jun2026")
+- [Iceberg DELETE on Lake Formation tables requires DELETE permission starting with Patch 202](#iceberg-delete-lf-permission-patch202 "#iceberg-delete-lf-permission-patch202")
 - [Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202](#serverless-restore-integrations-patch202 "#serverless-restore-integrations-patch202")
 - [End of support for the Amazon Redshift ODBC 1.x driver on September 30, 2026](#odbc1x-deprecation-jun2026 "#odbc1x-deprecation-jun2026")
 - [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
@@ -41,6 +42,33 @@ No action is required. The enhanced billing model automatically applies to both 
 and new manual snapshots.
 
 For more information about snapshot pricing, see [Amazon Redshift pricing](https://aws.amazon.com//redshift/pricing/ "https://aws.amazon.com//redshift/pricing/").
+
+### Iceberg DELETE on Lake Formation tables requires DELETE permission starting with Patch 202
+
+Starting with Amazon Redshift Patch 202, Iceberg DELETE operations on Lake Formation (LF)
+managed tables require the DELETE Lake Formation permission. UPDATE and MERGE operations
+require both INSERT and DELETE permissions. All Iceberg DML operations require ALTER
+permission.
+
+You may be impacted by this if you perform DELETE, UPDATE, or MERGE operations against
+Iceberg tables managed by AWS Lake Formation.
+
+Previously, principals with only INSERT permission (and no DELETE permission) could
+perform delete operations on LF-managed Iceberg tables. Starting with Patch 202, DELETE
+operations require the DELETE Lake Formation permission. Principals relying solely on INSERT
+permission to perform deletes will receive a permission error until DELETE permission is
+explicitly granted. S3 Tables are not affected by this change.
+
+To continue performing DELETE operations after this change, review your Lake Formation
+permission grants for Iceberg tables and ensure that principals performing delete operations
+have the DELETE Lake Formation permission granted. You can verify existing grants using the
+AWS Lake Formation console or the `aws lakeformation list-permissions` AWS CLI
+command.
+
+If you need to temporarily revert to the previous behavior, contact AWS Support to
+disable this change on your cluster without requiring a code deployment.
+
+For more information about patch versions, see [Cluster versions for Amazon Redshift](cluster-versions.md "cluster-versions.md").
 
 ### Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202
 
@@ -153,10 +181,10 @@ This update might impact you if you use TLS versions 1.0 or 1.1 to connect to Am
 
 To verify which TLS version you are currently using, you can:
 
-For Amazon Redshift Provisioned: Check the sslversion column in the STL_CONNECTION_LOG system
+For Amazon Redshift Provisioned: Check the sslversion column in the STL\_CONNECTION\_LOG system
 table [1].
 
-For Amazon Redshift Serverless Workgroup: Check the ssl_version column in the SYS_CONNECTION_LOG system
+For Amazon Redshift Serverless Workgroup: Check the ssl\_version column in the SYS\_CONNECTION\_LOG system
 table [2].
 
 To maintain uninterrupted access to your Amazon Redshift data warehouse after this change, please
@@ -167,9 +195,9 @@ follow the steps listed below:
 
 We recommend using the latest version of the Amazon Redshift driver [3] if possible.
 
-[1] [https://docs.aws.amazon.com/redshift/latest/dg/r_STL_CONNECTION_LOG.html](../dg/r_STL_CONNECTION_LOG.md "../dg/r_STL_CONNECTION_LOG.md")
+[1] [https://docs.aws.amazon.com/redshift/latest/dg/r\_STL\_CONNECTION\_LOG.html](../dg/r_STL_CONNECTION_LOG.md "../dg/r_STL_CONNECTION_LOG.md")
 
-[2] [https://docs.aws.amazon.com/redshift/latest/dg/SYS_CONNECTION_LOG.html](../dg/SYS_CONNECTION_LOG.md "../dg/SYS_CONNECTION_LOG.md")
+[2] [https://docs.aws.amazon.com/redshift/latest/dg/SYS\_CONNECTION\_LOG.html](../dg/SYS_CONNECTION_LOG.md "../dg/SYS_CONNECTION_LOG.md")
 
 [3] [https://docs.aws.amazon.com/redshift/latest/mgmt/configuring-connections.html](configuring-connections.md "configuring-connections.md")
 
@@ -210,7 +238,7 @@ Lambda UDFs, see the [blog post](https://aws.amazon.com/blogs/big-data/amazon-re
 Beginning Aug 26, 2025, Amazon Redshift calculates time zones by adopting the latest IANA Time
 Zone Database patches. This change alters how date and time conversions function for certain
 time zones and time periods. This update affects explicit time zone conversions, such as
-those performed with the [CONVERT_TIMEZONE](../dg/CONVERT_TIMEZONE.md "../dg/CONVERT_TIMEZONE.md") function or the
+those performed with the [CONVERT\_TIMEZONE](../dg/CONVERT_TIMEZONE.md "../dg/CONVERT_TIMEZONE.md") function or the
 [TIMEZONE](../dg/r_TIMEZONE.md "../dg/r_TIMEZONE.md") and
 [AT TIME
 ZONE](../dg/r_AT_TIME_ZONE.md "../dg/r_AT_TIME_ZONE.md") commands, as well as implicit conversions that occur during type casting

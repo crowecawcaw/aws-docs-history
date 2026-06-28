@@ -129,8 +129,8 @@ columns in the order of the input data file. 12. Choose **Load data** to start t
 When the load completes, a message is displayed whether the load was successful or not.
 If successful, you can now use SQL to select data from
 the loaded table. When there is an error, query the system view
-STL_LOAD_ERRORS to get more details. For information about COPY command
-errors, see [STL_LOAD_ERRORS](../dg/r_STL_LOAD_ERRORS.md "../dg/r_STL_LOAD_ERRORS.md")
+STL\_LOAD\_ERRORS to get more details. For information about COPY command
+errors, see [STL\_LOAD\_ERRORS](../dg/r_STL_LOAD_ERRORS.md "../dg/r_STL_LOAD_ERRORS.md")
 in the _Amazon Redshift Database Developer Guide_.
 
 The COPY command template that was used to load data appears in your **Query history**.
@@ -181,8 +181,8 @@ _Amazon Redshift Database Developer Guide_. 11. Choose **Load data** to start th
 When the load completes, a message displays indicating whether the load
 was successful or not. If successful, you can now use SQL to select data
 from the loaded table. When there is an error, query the system view
-STL_LOAD_ERRORS to get more details. For information about COPY command
-errors, see [STL_LOAD_ERRORS](../dg/r_STL_LOAD_ERRORS.md "../dg/r_STL_LOAD_ERRORS.md")
+STL\_LOAD\_ERRORS to get more details. For information about COPY command
+errors, see [STL\_LOAD\_ERRORS](../dg/r_STL_LOAD_ERRORS.md "../dg/r_STL_LOAD_ERRORS.md")
 in the _Amazon Redshift Database Developer Guide_.
 
 The COPY command template that was used to load data appears in your **Query history**.

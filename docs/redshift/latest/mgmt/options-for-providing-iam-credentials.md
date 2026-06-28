@@ -116,11 +116,11 @@ condition using an IAM policy in [Example 8: IAM policy for using GetClusterCred
 
 The following table lists the options for creating database user credentials.
 
-| Option     | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DbUser     | The name of a database user. If a user named DbUser exists in<br>the database, the temporary user credentials have the same<br>permissions as the existing user. If DbUser doesn't exist<br>in the database and AutoCreate is true, a new user named DbUser<br>is created. Optionally, disable the password for an existing<br>user. For more information, see [ALTER_USER](../dg/r_ALTER_USER.md "../dg/r_ALTER_USER.md") |
-| AutoCreate | Specify `true` to create a database user with the<br>name specified for DbUser if one does not exist. The default is<br>false.                                                                                                                                                                                                                                                                                             |
-| `DbGroups` | A comma-delimited list of the names of one or more<br>existing database groups the database user joins for the current<br>session. By default, the new user is added only to PUBLIC.                                                                                                                                                                                                                                       |
+| Option     | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DbUser     | The name of a database user. If a user named DbUser exists in<br>the database, the temporary user credentials have the same<br>permissions as the existing user. If DbUser doesn't exist<br>in the database and AutoCreate is true, a new user named DbUser<br>is created. Optionally, disable the password for an existing<br>user. For more information, see [ALTER\_USER](../dg/r_ALTER_USER.md "../dg/r_ALTER_USER.md") |
+| AutoCreate | Specify `true` to create a database user with the<br>name specified for DbUser if one does not exist. The default is<br>false.                                                                                                                                                                                                                                                                                              |
+| `DbGroups` | A comma-delimited list of the names of one or more<br>existing database groups the database user joins for the current<br>session. By default, the new user is added only to PUBLIC.                                                                                                                                                                                                                                        |
 
 ## Credentials provider plugins
 
@@ -167,7 +167,7 @@ With the browser Azure AD plugin, SAML authentication flows like this:
    from the Azure AD `oauth2/authorize` endpoint.
 4. The web browser follows the generated link over HTTPS and prompts the
    user to enter credentials. The link is generated using configuration
-   properties, such as tenant and client_id.
+   properties, such as tenant and client\_id.
 5. After the user authenticates and grants consent, the Azure AD
    `oauth2/authorize` endpoint returns and sends a response
    over HTTPS with the authorization code to the indicated

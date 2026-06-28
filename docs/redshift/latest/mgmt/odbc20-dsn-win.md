@@ -67,34 +67,31 @@ following information:
      `dev`.
 
 7. Under the **Authentication** section, specify the
-   configuration options to configure standard or IAM authentication.
-8. Choose **SSL Options** and specify a value for the
-   following:
+configuration options to configure standard or IAM authentication. 8. Choose **SSL Options** and specify a value for the
+following:
 
-   - ###### Authentication mode
+    * ###### Authentication mode
 
-   Choose a mode for handling Secure Sockets Layer (SSL). In a
-   test environment, you might use `prefer`. However,
-   for production environments and when secure data exchange is
-   required, use `verify-ca` or
-   `verify-full`.
-   - ###### Min TLS
 
-   Optionally, choose the minimum version of TLS/SSL that the
-   driver allows the data store to use for encrypting connections.
-   For example, if you specify TLS 1.2, TLS 1.1 can't be used to
-   encrypt connections. The default version is TLS 1.2.
+    Choose a mode for handling Secure Sockets Layer (SSL). In a
+     test environment, you might use `prefer`. However,
+     for production environments and when secure data exchange is
+     required, use `verify-ca` or
+     `verify-full`.
+    * ###### Min TLS
+
+
+    Optionally, choose the minimum version of TLS/SSL that the
+     driver allows the data store to use for encrypting connections.
+     For example, if you specify TLS 1.2, TLS 1.1 can't be used to
+     encrypt connections. The default version is TLS 1.2.
 
 9. In the **Proxy** tab, specify any proxy connection
-   setting.
-10. In the **Cursor** tab, specify options on how to return
-    query results to your SQL client tool or application.
-11. In **Advanced Options**, specify values for
-    `logLevel`, `logPath`, `compression`,
-    and other options.
-12. Choose **Test**. If the client computer can connect to
-    the Amazon Redshift database, the following message appears: **Connection
-    successful**. If the client computer fails to connect to the
-    database, you can troubleshoot possible issues by generating a log file and
-    contacting AWS support. For information on generating logs, see (LINK).
-13. Choose **OK**.
+setting. 10. In the **Cursor** tab, specify options on how to return
+query results to your SQL client tool or application. 11. In **Advanced Options**, specify values for
+`logLevel`, `logPath`, `compression`,
+and other options. 12. Choose **Test**. If the client computer can connect to
+the Amazon Redshift database, the following message appears: **Connection
+successful**. If the client computer fails to connect to the
+database, you can troubleshoot possible issues by generating a log file and
+contacting AWS support. For information on generating logs, see (LINK). 13. Choose **OK**.

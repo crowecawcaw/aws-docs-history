@@ -14,13 +14,13 @@ see [Building the connection URL](jdbc20-build-connection-url.md "jdbc20-build-c
 
 - [AccessKeyID](#jdbc20-accesskeyid-option "#jdbc20-accesskeyid-option")
 - [AllowDBUserOverride](#jdbc20-allowdbuseroverride-option "#jdbc20-allowdbuseroverride-option")
-- [App_ID](#jdbc20-app-id-option "#jdbc20-app-id-option")
-- [App_Name](#jdbc20-app-name-option "#jdbc20-app-name-option")
+- [App\_ID](#jdbc20-app-id-option "#jdbc20-app-id-option")
+- [App\_Name](#jdbc20-app-name-option "#jdbc20-app-name-option")
 - [ApplicationName](#jdbc20-applicationname-option "#jdbc20-applicationname-option")
 - [AuthProfile](#jdbc20-authprofile-option "#jdbc20-authprofile-option")
 - [AutoCreate](#jdbc20-autocreate-option "#jdbc20-autocreate-option")
-- [Client_ID](#jdbc20-client_id-option "#jdbc20-client_id-option")
-- [Client_Secret](#jdbc20-client_secret-option "#jdbc20-client_secret-option")
+- [Client\_ID](#jdbc20-client_id-option "#jdbc20-client_id-option")
+- [Client\_Secret](#jdbc20-client_secret-option "#jdbc20-client_secret-option")
 - [ClusterID](#jdbc20-clusterid-option "#jdbc20-clusterid-option")
 - [Compression](#jdbc20-compression-option "#jdbc20-compression-option")
 - [connectTimeout](#jdbc20-connecttimeout-option "#jdbc20-connecttimeout-option")
@@ -39,29 +39,29 @@ see [Building the connection URL](jdbc20-build-connection-url.md "jdbc20-build-c
 - [HOST](#jdbc20-host-option "#jdbc20-host-option")
 - [IAMDisableCache](#jdbc20-iamdisablecache-option "#jdbc20-iamdisablecache-option")
 - [IAMDuration](#jdbc20-iamduration-option "#jdbc20-iamduration-option")
-- [Idc_Client_Display_Name](#jdbc20-idc_client_display_name "#jdbc20-idc_client_display_name")
-- [Idc_Region](#jdbc20-idc_region "#jdbc20-idc_region")
-- [IdP_Host](#jdbc20-idp_host-option "#jdbc20-idp_host-option")
-- [IdP_Partition](#jdbc20-idp_partition-option "#jdbc20-idp_partition-option")
-- [IdP_Port](#jdbc20-idp_port-option "#jdbc20-idp_port-option")
-- [IdP_Tenant](#jdbc20-idp_tenant-option "#jdbc20-idp_tenant-option")
-- [IdP_Response_Timeout](#jdbc20-idp_response_timeout-option "#jdbc20-idp_response_timeout-option")
+- [Idc\_Client\_Display\_Name](#jdbc20-idc_client_display_name "#jdbc20-idc_client_display_name")
+- [Idc\_Region](#jdbc20-idc_region "#jdbc20-idc_region")
+- [IdP\_Host](#jdbc20-idp_host-option "#jdbc20-idp_host-option")
+- [IdP\_Partition](#jdbc20-idp_partition-option "#jdbc20-idp_partition-option")
+- [IdP\_Port](#jdbc20-idp_port-option "#jdbc20-idp_port-option")
+- [IdP\_Tenant](#jdbc20-idp_tenant-option "#jdbc20-idp_tenant-option")
+- [IdP\_Response\_Timeout](#jdbc20-idp_response_timeout-option "#jdbc20-idp_response_timeout-option")
 - [IniFile](#jdbc20-inifile-option "#jdbc20-inifile-option")
 - [IniSection](#jdbc20-inisection-option "#jdbc20-inisection-option")
 - [isServerless](#jdbc20-isserverless-option "#jdbc20-isserverless-option")
-- [Issuer_Url](#jdbc20-issuer-url "#jdbc20-issuer-url")
-- [Listen_Port](#jdbc20-listen-port "#jdbc20-listen-port")
-- [Login_URL](#jdbc20-login_url-option "#jdbc20-login_url-option")
+- [Issuer\_Url](#jdbc20-issuer-url "#jdbc20-issuer-url")
+- [Listen\_Port](#jdbc20-listen-port "#jdbc20-listen-port")
+- [Login\_URL](#jdbc20-login_url-option "#jdbc20-login_url-option")
 - [loginTimeout](#jdbc20-logintimeout-option "#jdbc20-logintimeout-option")
 - [loginToRp](#jdbc20-logintorp-option "#jdbc20-logintorp-option")
 - [LogLevel](#jdbc20-loglevel-option "#jdbc20-loglevel-option")
 - [LogPath](#jdbc20-logpath-option "#jdbc20-logpath-option")
 - [OverrideSchemaPatternType](#jdbc20-override-schema-pattern-type "#jdbc20-override-schema-pattern-type")
-- [Partner_SPID](#jdbc20-partner_spid-option "#jdbc20-partner_spid-option")
+- [Partner\_SPID](#jdbc20-partner_spid-option "#jdbc20-partner_spid-option")
 - [Password](#jdbc20-password-option "#jdbc20-password-option")
-- [Plugin_Name](#jdbc20-plugin_name-option "#jdbc20-plugin_name-option")
+- [Plugin\_Name](#jdbc20-plugin_name-option "#jdbc20-plugin_name-option")
 - [PORT](#jdbc20-port-option "#jdbc20-port-option")
-- [Preferred_Role](#jdbc20-preferred_role-option "#jdbc20-preferred_role-option")
+- [Preferred\_Role](#jdbc20-preferred_role-option "#jdbc20-preferred_role-option")
 - [Profile](#jdbc20-profile-option "#jdbc20-profile-option")
 - [PWD](#jdbc20-pwd-option "#jdbc20-pwd-option")
 - [queryGroup](#jdbc20-querygroup-option "#jdbc20-querygroup-option")
@@ -79,7 +79,7 @@ see [Building the connection URL](jdbc20-build-connection-url.md "jdbc20-build-c
 - [socketFactory](#jdbc20-socketfactory-option "#jdbc20-socketfactory-option")
 - [socketTimeout](#jdbc20-sockettimeout-option "#jdbc20-sockettimeout-option")
 - [SSL](#jdbc20-ssl-option "#jdbc20-ssl-option")
-- [SSL_Insecure](#jdbc20-ssl_insecure-option "#jdbc20-ssl_insecure-option")
+- [SSL\_Insecure](#jdbc20-ssl_insecure-option "#jdbc20-ssl_insecure-option")
 - [SSLCert](#jdbc20-sslcert-option "#jdbc20-sslcert-option")
 - [SSLFactory](#jdbc20-sslfactory-option "#jdbc20-sslfactory-option")
 - [SSLKey](#jdbc20-sslkey-option "#jdbc20-sslkey-option")
@@ -89,7 +89,7 @@ see [Building the connection URL](jdbc20-build-connection-url.md "jdbc20-build-c
 - [StsEndpointUrl](#jdbc20-stsendpointurl-option "#jdbc20-stsendpointurl-option")
 - [tcpKeepAlive](#jdbc20-tcpkeepalive-option "#jdbc20-tcpkeepalive-option")
 - [token](#jdbc20-token-option "#jdbc20-token-option")
-- [token_type](#jdbc20-token-type-option "#jdbc20-token-type-option")
+- [token\_type](#jdbc20-token-type-option "#jdbc20-token-type-option")
 - [UID](#jdbc20-uid-option "#jdbc20-uid-option")
 - [User](#jdbc20-user-option "#jdbc20-user-option")
 - [webIdentityToken](#jdbc20-webidentitytoken-option "#jdbc20-webidentitytoken-option")
@@ -138,7 +138,7 @@ value, the driver uses the value specified in the connection profile. If
 the connection profile also doesn't specify a value, the driver
 uses the value from the SAML assertion.
 
-## App_ID
+## App\_ID
 
 - Default Value – None
 - Data Type – String
@@ -147,7 +147,7 @@ The Okta-provided unique ID associated with your Amazon Redshift application.
 
 This parameter is required if authenticating through the Okta service.
 
-## App_Name
+## App\_Name
 
 - Default Value – None
 - Data Type – String
@@ -195,7 +195,7 @@ doesn't exist, a new user with that name is created.
 The driver doesn't cause new users to be created. If the
 specified user doesn't exist, the authentication fails.
 
-## Client_ID
+## Client\_ID
 
 - Default Value – None
 - Data Type – String
@@ -205,7 +205,7 @@ service.
 
 This parameter is required if authenticating through the Azure AD service.
 
-## Client_Secret
+## Client\_Secret
 
 - Default Value – None
 - Data Type – String
@@ -525,7 +525,7 @@ The length of time, in seconds, until the temporary IAM credentials expire.
 
 This parameter is optional.
 
-## Idc_Client_Display_Name
+## Idc\_Client\_Display\_Name
 
 - Default Value – Amazon Redshift JDBC
   driver
@@ -536,7 +536,7 @@ BrowserIdcAuthPlugin.
 
 This parameter is optional.
 
-## Idc_Region
+## Idc\_Region
 
 - Default Value – None
 - Data Type – String
@@ -544,10 +544,10 @@ This parameter is optional.
 The AWS region where the IAM Identity Center instance is located.
 
 This parameter is required only when authenticating using
-`BrowserIdcAuthPlugin` in the plugin_name configuration
+`BrowserIdcAuthPlugin` in the plugin\_name configuration
 option.
 
-## IdP_Host
+## IdP\_Host
 
 - Default Value – None
 - Data Type – String
@@ -557,7 +557,7 @@ be specified in either the connection string or in a profile.
 
 This parameter is optional.
 
-## IdP_Partition
+## IdP\_Partition
 
 - Default Value – None
 - Data Type – String
@@ -571,7 +571,7 @@ If this parameter is left blank, the driver defaults to the commercial partition
 
 This parameter is optional.
 
-## IdP_Port
+## IdP\_Port
 
 - Default Value – None
 - Data Type – String
@@ -583,7 +583,7 @@ the selected port.
 
 This parameter is optional.
 
-## IdP_Tenant
+## IdP\_Tenant
 
 - Default Value – None
 - Data Type – String
@@ -592,7 +592,7 @@ The Azure AD tenant ID for your Amazon Redshift application.
 
 This parameter is required if authenticating through the Azure AD service.
 
-## IdP_Response_Timeout
+## IdP\_Response\_Timeout
 
 - Default Value – 120
 - Data Type – Integer
@@ -653,7 +653,7 @@ The Amazon Redshift endpoint host is a serverless instance.
 
 The Amazon Redshift endpoint host is a provisioned cluster.
 
-## Issuer_Url
+## Issuer\_Url
 
 - Default Value – None
 - Data Type – String
@@ -661,10 +661,10 @@ The Amazon Redshift endpoint host is a provisioned cluster.
 Points to the AWS IAM Identity Center server's instance endpoint.
 
 This parameter is required only when authenticating using
-`BrowserIdcAuthPlugin` in the plugin_name configuration
+`BrowserIdcAuthPlugin` in the plugin\_name configuration
 option.
 
-## Listen_Port
+## Listen\_Port
 
 - Default Value – 7890
 - Data Type – Integer
@@ -675,7 +675,7 @@ services through a browser plugin.
 
 This parameter is optional.
 
-## Login_URL
+## Login\_URL
 
 - Default Value – None
 - Data Type – String
@@ -808,7 +808,7 @@ External Schema Query
 
 This parameter is optional.
 
-## Partner_SPID
+## Partner\_SPID
 
 - Default Value – None
 - Data Type – String
@@ -824,12 +824,12 @@ This parameter is optional.
 - Data Type – String
 
 When connecting using IAM authentication through an IDP, this is the password
-for the IDP_Host server. When using standard authentication, this can be used for
+for the IDP\_Host server. When using standard authentication, this can be used for
 the Amazon Redshift database password instead of PWD.
 
 This parameter is optional.
 
-## Plugin_Name
+## Plugin\_Name
 
 - Default Value – None
 - Data Type – String
@@ -878,7 +878,7 @@ the port in the JDBC connection URL.
 
 This parameter is optional.
 
-## Preferred_Role
+## Preferred\_Role
 
 - Default Value – None
 - Data Type – String
@@ -974,25 +974,25 @@ This parameter is optional.
 - Data Type – String
 
 The Amazon Resource Name (ARN) of role. Make sure to specify this parameter when
-you specify BasicJwtCredentialsProvider for the Plugin_Name option. You specify the
+you specify BasicJwtCredentialsProvider for the Plugin\_Name option. You specify the
 ARN in the following format:
 
 `arn:`partition`:`service`:`region`:`account-id`:`resource-id``
 
 This parameter is required if you specify BasicJwtCredentialsProvider for the
-Plugin_Name option.
+Plugin\_Name option.
 
 ## roleSessionName
 
 - Default Value –
-  jwt_redshift_session
+  jwt\_redshift\_session
 - Data Type – String
 
 An identifier for the assumed role session. Typically, you pass the name or
 identifier that is associated with the user of your application. The temporary
 security credentials that your application uses are associated with that user. You
 can specify this parameter when you specify BasicJwtCredentialsProvider for the
-Plugin_Name option.
+Plugin\_Name option.
 
 This parameter is optional.
 
@@ -1004,7 +1004,7 @@ This parameter is optional.
 A space-separated list of scopes to which the user can consent. You specify this
 parameter so that your Microsoft Azure application can get consent for APIs that you
 want to call. You can specify this parameter when you specify
-BrowserAzureOAuth2CredentialsProvider for the Plugin_Name option.
+BrowserAzureOAuth2CredentialsProvider for the Plugin\_Name option.
 
 This parameter is required for the BrowserAzureOAuth2CredentialsProvider
 plug-in.
@@ -1095,7 +1095,7 @@ not supported with IAM authentication.
 
 Alternatively, you can configure the AuthMech property.
 
-## SSL_Insecure
+## SSL\_Insecure
 
 - Default Value – true
 - Data Type – String
@@ -1227,7 +1227,7 @@ with AWS IAM Identity Center or an identity provider linked with AWS IAM Identit
 
 This parameter works with `IdpTokenAuthPlugin`.
 
-## token_type
+## token\_type
 
 - Default Value – None
 - Data Type – String
@@ -1236,11 +1236,11 @@ The type of token that is being used in `IdpTokenAuthPlugin`.
 
 You can specify the following values:
 
-**ACCESS_TOKEN**
+**ACCESS\_TOKEN**
 
 Enter this if you use an AWS IAM Identity Center provided access token.
 
-**EXT_JWT**
+**EXT\_JWT**
 
 Enter this if you use an OpenID Connect (OIDC) JSON Web Token (JWT)
 provided by a web-based identity provider that's integrated with AWS
@@ -1263,7 +1263,7 @@ This parameter is required.
 - Data Type – String
 
 When connecting using IAM authentication through an IDP, this is the username
-for the idp_host server. When using standard authentication, this can be used for
+for the idp\_host server. When using standard authentication, this can be used for
 the Amazon Redshift database username.
 
 This parameter is optional.
@@ -1276,7 +1276,7 @@ This parameter is optional.
 The OAuth 2.1 access token or OpenID Connect ID token that is provided by the
 identity provider. Your application must get this token by authenticating the user
 of your application with a web identity provider. Make sure to specify this
-parameter when you specify BasicJwtCredentialsProvider for the Plugin_Name option.
+parameter when you specify BasicJwtCredentialsProvider for the Plugin\_Name option.
 
 This parameter is required if you specify BasicJwtCredentialsProvider for the
-Plugin_Name option.
+Plugin\_Name option.

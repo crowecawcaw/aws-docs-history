@@ -28,12 +28,12 @@ used to schedule the query must have the equivalent of managed policy
 
 **Query history status is `Failed`**
 
-View the SYS_QUERY_HISTORY system view for details about why the query
+View the SYS\_QUERY\_HISTORY system view for details about why the query
 failed. A common issue is that the database user or role that was used to
 run the query might not have the required privilege to run the SQL. For more
 information, see [Authenticating a scheduled query](query-editor-v2-schedule-query-authentication.md "query-editor-v2-schedule-query-authentication.md").
 
-The following SQL queries the SYS_QUERY_HISTORY view to return failed
+The following SQL queries the SYS\_QUERY\_HISTORY view to return failed
 queries.
 
 ```

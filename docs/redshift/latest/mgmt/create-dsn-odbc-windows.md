@@ -37,16 +37,13 @@ folder:
     * **Amazon Redshift ODBC Driver (32-bit)**
 
 3. Choose the **System DSN** tab to configure the
-   driver for all users on the computer, or the **User
-   DSN** tab to configure the driver for your user account
-   only.
-4. Choose **Add**. The **Create New Data
-   Source** window opens.
-5. Choose the **Amazon Redshift** ODBC driver, and then
-   choose **Finish**. The **Amazon Redshift ODBC
-   Driver DSN Setup** window opens.
-6. Under **Connection Settings**, enter the
-   following information:
+driver for all users on the computer, or the **User
+DSN** tab to configure the driver for your user account
+only. 4. Choose **Add**. The **Create New Data
+Source** window opens. 5. Choose the **Amazon Redshift** ODBC driver, and then
+choose **Finish**. The **Amazon Redshift ODBC
+Driver DSN Setup** window opens. 6. Under **Connection Settings**, enter the
+following information:
 
 ###### Data source name
 

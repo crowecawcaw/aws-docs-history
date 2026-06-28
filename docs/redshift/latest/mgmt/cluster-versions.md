@@ -65,6 +65,8 @@ and avoid potential disruptions to your workloads, see
 
 Cluster versions in this patch:
 
+- 1.0.340728 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
+  workgroup version – Released June 22, 2026
 - 1.0.331549 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
   workgroup version – Released June 16, 2026
 - 1.0.323213 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless
@@ -76,7 +78,7 @@ Cluster versions in this patch:
 
 - Added support for superusers to drop IAM Identity Center identity providers that are in a disabled state of Lakehouse type
 - Added support for concurrency scaling for queries that reference temporary tables.
-- Surfaced internal maintenance queries labeled "JIT ANALYZE" in the STL_QUERY and STL_QUERYTEXT system tables. These queries are automatically executed by Amazon Redshift to collect external table statistics and keep query plans optimized. No customer action is required.
+- Surfaced internal maintenance queries labeled "JIT ANALYZE" in the STL\_QUERY and STL\_QUERYTEXT system tables. These queries are automatically executed by Amazon Redshift to collect external table statistics and keep query plans optimized. No customer action is required.
 - We have optimized Kinesis stream identity validation to reduce `DescribeStreamSummary` API calls. This will avoid hitting Kinesis API quotas for Redshift customers with many Kinesis stream MVs. See the Redshift Streaming documentation section for details.
 - Enhanced query execution performance by using Top K Aggregation for queries with GROUP BY, ORDER BY, and LIMIT clauses, reducing the amount of data processed during aggregations.
 - Enhanced performance for queries on partitioned AWS Glue Data Catalog tables by pushing compound filter predicates (OR, IN, NOT IN) to the Glue GetPartitions API, reducing the number of partitions retrieved.
@@ -86,7 +88,7 @@ Cluster versions in this patch:
 - Allow using ARN as the name of AWS Lambda when creating Lambda User-Defined functions.
 - Improved query performance by optimizing memory usage for COALESCE and CASE WHEN expressions.
 - Applies advanced filtering to queries containing subplans that are evaluated once, with their results reused as constants throughout the remaining execution.
-- Improved performance of the first time run queries using ST_Transform
+- Improved performance of the first time run queries using ST\_Transform
 - Improved Apache Iceberg compatibility by accepting positional delete files that contain duplicate row indices, which can be produced by AWS Glue compaction.
 - Improved Apache Iceberg compatibility by accepting s3a:// paths in delete file references.
 - Improved handling of the Spectrum partition level fetching errors when processing not properly configured tables
@@ -96,7 +98,7 @@ Cluster versions in this patch:
 - Fixed an issue where duplicate query IDs could appear in system tables after a cluster pause and resume when the internal query ID counter was near its maximum value.
 - Fixed an issue where queries on STL system tables could return incomplete results after a Multi-AZ failover due to an internal caching inconsistency
 - Fixed an issue where the "isAutoIncremented" field in extended row descriptions could return incorrect values for IDENTITY columns
-- Fixed an issue where the ARRAY_CONTAINS and ARRAY_POSITION functions did not return NULL as expected when given NULL inputs.
+- Fixed an issue where the ARRAY\_CONTAINS and ARRAY\_POSITION functions did not return NULL as expected when given NULL inputs.
 - Fixed a rare issue where queries with multiple combined filter predicates during vectorized scans could fail unexpectedly.
 - Fixed a rare issue where concurrent COPY operations could cause cluster instability in the data loading process
 - Fixed an issue where automatic maintenance operations such as vacuum and analyze could cause cluster instability during process shutdown
@@ -139,7 +141,7 @@ Cluster versions in this patch:
 - Added support for SHOW GRANTS and SHOW COLUMN GRANTS commands for identities with federated permissions.
 - Added support for materialized view auto-refresh as a user workload with burst capacity on Amazon Redshift Serverless.
 - Allow AutoWLM to assign more cluster memory to queries writing to wide tables.
-- Amazon Redshift improved the query performance of the SVV_ATTACHED_MASKING_POLICY system view, reducing execution time on instances with a large number of permissions and dynamic data masking policy attachments.
+- Amazon Redshift improved the query performance of the SVV\_ATTACHED\_MASKING\_POLICY system view, reducing execution time on instances with a large number of permissions and dynamic data masking policy attachments.
 - Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped.
 - Upgraded the librdkafka library to version 2.13.x from 2.8.x to provide the latest bug fixes and performance enhancements.
 - Enhanced performance for queries using Lambda User-Defined Functions in the HAVING clause of aggregates.
@@ -201,7 +203,7 @@ Cluster versions in this patch:
 - Improved zero-ETL CDC ingestion reliability by using the most recent ingestion position across both table and client state to filter already-applied data.
 - Fixed a data reliability issue in zero-ETL table resync where old, already-applied checkpoints could be re-ingested after table failures, by correctly tracking checkpoint lower bounds and resync state across the re-synchronization lifecycle.
 - Improved zero-ETL error messages with clearer failure reasons, including details for column length exceeded and invalid UTF-8 character errors.
-- Enhanced the SYS_LUDF_DETAIL system view to report duration in microseconds instead of milliseconds for improved observability.
+- Enhanced the SYS\_LUDF\_DETAIL system view to report duration in microseconds instead of milliseconds for improved observability.
 - Fixed an issue where Auto COPY job creation was incorrectly allowed in zero-ETL databases.
 - Improved query performance on row-level security (RLS) protected tables by classifying additional built-in functions as RLS-safe, enabling predicate pushdown for common query patterns that previously experienced performance degradation.
 - Added support for DELETE, UPDATE, and MERGE operations on Apache Iceberg tables.
@@ -238,7 +240,7 @@ Cluster versions in this patch:
 - Released a [new query compilation enhancement](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/ "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-redshift-increases-performance-for-new-queries/") that increases performance for new queries (first runs of queries) in the Redshift CURRENT Maintenance Track. The TRAILING track will follow in an upcoming patch release.
 - Enabled support for Column level grants from a consumer using Redshift federated permissions for a new grantee on producer.
 - Amazon Redshift federated permissions supports querying external tables through Late Binding Views (LBVs).
-- ALTER EXTERNAL SCHEMA can now be used with the KINESIS external schema type to change the IAM_ROLE and REGION of an existing external schema.
+- ALTER EXTERNAL SCHEMA can now be used with the KINESIS external schema type to change the IAM\_ROLE and REGION of an existing external schema.
 - Added restore support for NO-BACKUP tables on Redshift RA3 and Serverless data warehouses. Since these instance types do not support the NO-BACKUP feature, tables marked as NO-BACKUP are always included in snapshots and are now properly restored as permanent tables
 - Amazon Redshift now supports writing to external tables when connected using IAM roles or IAM users. Previously, only read operations on external tables were supported with IAM role-based authentication. With this update, Redshift correctly uses your IAM session credentials when writing data to Amazon S3 for external tables, enabling full read and write access.
 - For auto refreshing Kafka stream MVs, we now use a more efficient heuristic to determine if there are new records to ingest. This will reduce the amount of data transferred from the Kafka brokers for this check, and reduce the latency on starting the subsequent MV refresh.
@@ -252,9 +254,9 @@ Cluster versions in this patch:
   The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release
   P198 and newer. It is currently disabled on Serverless.
 - Improved scheduling for automatic tasks to better prioritize user-critical tasks such as streaming ingestion, auto-copy (COPY JOB), and materialized view auto refresh.
-- Fixed an issue where pg_last_query_id() incorrectly returned the rewritten query ID instead of the user query ID for Multi-AZ clusters
+- Fixed an issue where pg\_last\_query\_id() incorrectly returned the rewritten query ID instead of the user query ID for Multi-AZ clusters
 - Fixes an issue where SHOW GRANTS would fail to process one-part object references.
-- Fixed an issue where DROP TABLE conflicted with the catalog rebuild worker's timestamp auto worker due to simultaneous updates on pg_class_extended, by skipping deletion during DROP TABLE and allowing the timestamp worker to clean up on its next run.
+- Fixed an issue where DROP TABLE conflicted with the catalog rebuild worker's timestamp auto worker due to simultaneous updates on pg\_class\_extended, by skipping deletion during DROP TABLE and allowing the timestamp worker to clean up on its next run.
 - Fixed zero-ETL channel filter parsing issue when database, schema, or table names contained include/exclude keywords
 - Fixed a race condition that could occur when vacuum operations ran concurrently with zero-ETL table operations
 - Fixed an issue where zero-ETL integrations incorrectly attempted resync operations instead of transitioning to an error state when KMS encryption context changed
@@ -285,16 +287,16 @@ Cluster versions in this patch:
 - Enables auto refresh of manually created materialized views to run on concurrency scaling clusters.
 - Improves connection performance by enabling direct connections between main clusters and concurrency scaling clusters, reducing latency and eliminating connection throughput limitations.
 - Improves error classification for zero-ETL integrations, making it easier to identify root causes and debug issues.
-- Removes error messages from SYS_QUERY_HISTORY for successfully executed queries, providing cleaner query history records.
-- Improves compile time logging accuracy for bursted queries in SYS_QUERY_HISTORY, providing better performance insights.
-- Adds support for array functions: ARRAY_CONTAINS, ARRAY_POSITION, ARRAYS_OVERLAP, ARRAY_INTERSECTION, ARRAY_SORT, ARRAY_UNION, ARRAY_DISTINCT, ARRAY_EXCEPT, and ARRAY_POSITIONS.
-- Adds support for the GET_NUMBER_ATTRIBUTES function that returns the number of attributes within a SUPER object.
+- Removes error messages from SYS\_QUERY\_HISTORY for successfully executed queries, providing cleaner query history records.
+- Improves compile time logging accuracy for bursted queries in SYS\_QUERY\_HISTORY, providing better performance insights.
+- Adds support for array functions: ARRAY\_CONTAINS, ARRAY\_POSITION, ARRAYS\_OVERLAP, ARRAY\_INTERSECTION, ARRAY\_SORT, ARRAY\_UNION, ARRAY\_DISTINCT, ARRAY\_EXCEPT, and ARRAY\_POSITIONS.
+- Adds support for the GET\_NUMBER\_ATTRIBUTES function that returns the number of attributes within a SUPER object.
 - Enables idle transaction timeout for failed transactions to improve resource management.
 - Adds support for the TEMPLATE object type that enables you to define reusable formatting parameters, eliminating the need to manually specify them for each operation.
 - Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) on Common Table Expressions (CTEs).
 - Improves performance for queries that invoke Lambda User-Defined Functions (LUDFs) in the THEN clause of CASE expressions.
 - Creation of new Python User-Defined Functions is deprecated. Existing Python UDFs will be supported until June 30, 2026. Migrate to Lambda User-Defined Functions (LUDFs) for continued support.
-- Improves observability for Lambda User-Defined Functions (LUDFs) with a new system table, SYS_LUDF_DETAIL. This table records information and metrics for LUDFs used in queries.
+- Improves observability for Lambda User-Defined Functions (LUDFs) with a new system table, SYS\_LUDF\_DETAIL. This table records information and metrics for LUDFs used in queries.
 - Auto REFRESH queries for Amazon Redshift materialized views (MVs) are now treated as user queries instead of background autonomics processes.
   Auto REFRESH queries now run with the same priority as other user queries and are no longer deferred by autonomics background processes.
   The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release
@@ -326,10 +328,10 @@ Cluster versions in this patch:
 - Global autonomics for clusters in the mesh, Autonomics now consider the workload of the entire mesh to optimize Vacuum, Analyze and ATO.
 - Create and refresh Materialized Views from multiple Amazon Redshift data warehouses.
 - Added support to store strings literals up to 16,000,000 bytes within the SUPER data types
-- Added GET_NUMBER_ATTRIBUTES(super_object) function that returns the total number of attributes contained within a SUPER object.
+- Added GET\_NUMBER\_ATTRIBUTES(super\_object) function that returns the total number of attributes contained within a SUPER object.
 - Release patch compatibility restrictions are enforced for table restore operations. When attempting to restore a table, the backup can only be used on clusters running the same patch version as when the backup was created, one patch version lower than the backup, or any patch version higher than the backup.
 - Enhanced the LIKE operator to properly handle trailing whitespaces in patterns when using CHAR datatype.
-- Introduced 4 new spatial H3 functions operating on cell hierarchies: H3_Resolution, H3_ToParent, H3_ToChildren and H3_IsValid.
+- Introduced 4 new spatial H3 functions operating on cell hierarchies: H3\_Resolution, H3\_ToParent, H3\_ToChildren and H3\_IsValid.
 - Enables Amazon Redshift Federated Permissions that simplifies permissions management across multiple Redshift data warehouses by enabling you to define data permissions once and automatically enforce them across all warehouses in your AWS account.
 - Enables object-level grants, fine-grained column-level access control, scoped permissions grants and database-level grants on Amazon Redshift Federated Permissions Catalog objects.
 - Enables CREATE, ALTER, ATTACH, DETACH and DROP RLS policy operations on Amazon Redshift Federated Permissions Catalog.
@@ -347,8 +349,8 @@ Cluster versions in this patch:
 - Improved constant strings collation handling in some INTERSECT or EXCEPT queries.
 - Enhanced SHOW TABLES to display a warning message instead of failing when FAS credentials are missing for AWS Glue Data Catalog access.
 - Enhanced SHOW COLUMNS command with additional metadata columns for sort keys, distribution style, encoding, and collation information.
-- Added grantor_name column to SHOW GRANTS output and standardized database_name inclusion across all SHOW GRANTS result sets.
-- Enhanced SHOW TABLES command with additional columns: table_owner, last_altered_time, last_modified_time, dist_style, and table_sub_type.
+- Added grantor\_name column to SHOW GRANTS output and standardized database\_name inclusion across all SHOW GRANTS result sets.
+- Enhanced SHOW TABLES command with additional columns: table\_owner, last\_altered\_time, last\_modified\_time, dist\_style, and table\_sub\_type.
 - **Identity Center Authentication Support:** Amazon Redshift now supports IAM Identity Center authentication through the new `GetIdentityCenterAuthToken` API operations. This feature enables federated access to Amazon Redshift clusters and serverless workgroups using existing Identity Center identities. Key benefits include single sign-on access using Identity Center credentials, enhanced security with encrypted authentication tokens, comprehensive audit logging for compliance, and seamless integration with existing Identity Center setup. The API operations generate authentication tokens scoped to specific cluster identifiers or workgroup names. Requirements include identity-enhanced credentials with embedded Identity Center identity information and appropriate IAM permissions for API access.
 
 ## Amazon Redshift patch 196
@@ -389,7 +391,7 @@ Cluster versions in this patch:
 - Adds support for writing to Iceberg tables using CREATE TABLE , CREATE TABLE AS SELECT, INSERT INTO, SQL commands.
 - Adds support for the SUPER data type in databases with case-insensitive collation.
 - Updates the IANA Time Zone Database database version to 2025b.
-- Adds support for the TZDB_VERSION function. This
+- Adds support for the TZDB\_VERSION function. This
   function displays the current IANA Time Zone Database version in use.
 - Amazon Redshift now enforces patch compatibility restrictions.
   Backups created on patch versions that are more than one patch version
@@ -422,7 +424,7 @@ Cluster versions in this patch:
 - Added support for the NULL AS option in COPY command for SUPER columns,
   letting you specify a custom string to represent NULL values.
 - Added support for the ISOWEEK and ISOYEAR date parts in EXTRACT
-  and DATE_PART functions when used with dates and timestamps.
+  and DATE\_PART functions when used with dates and timestamps.
 - Fixed PartiQL navigation on grouped variables to ensure correct
   parsing and evaluation of nested field access in
   GROUP BY queries.
@@ -451,7 +453,7 @@ Cluster versions in this patch:
 - Added support for creating tables using CREATE TABLE LIKE to clone one parent
   table from remote databases (both within the same cluster and between different
   clusters).
-- Added ST_GeomFromGeoJSON overload that creates a geometry from the SUPER
+- Added ST\_GeomFromGeoJSON overload that creates a geometry from the SUPER
   datatype in GeoJSON format, with support for geometries up to 1 MB.
 - Changed the default fallback option in case of misconfigurations in automatic
   workload management (WLM). The default fallback option is now automatic WLM
@@ -565,7 +567,7 @@ Cluster versions in this patch:
 - Adds support for concurrency scaling for write queries using the SUPER, GEOMETRY, and GEOGRAPHY data types.
 - Fixes an issue that allowed SUPER, GEOMETRY, or GEOGRAPHY columns to be set as
   DISTKEY or SORTKEY columns during table creation with CREATE TABLE AS.
-- Adds support for the TRY_CAST function.
+- Adds support for the TRY\_CAST function.
 - Enables support for running multiple vacuum commands concurrently across
   different tables.
 
@@ -627,7 +629,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- Introduces two new spatial H3 functions (H3_center and H3_boundary).
+- Introduces two new spatial H3 functions (H3\_center and H3\_boundary).
 - Enables dynamic disk cache on concurrency scaling clusters.
 - Fixes an inefficiency in memory usage during the ingestion of sorted tables that could impact performance.
 - Fixes an issue where certain queries with a subquery inside the SELECT clause, such as `SELECT ARRAY_FLATTEN((SELECT FROM ...))`,
@@ -796,14 +798,14 @@ Cluster versions in this patch:
   Amazon Redshift can now ingest records from Amazon Kinesis Data Streams up to 1,048,576 bytes, or 1MiB. Redshift can ingest records from Amazon Managed Streaming for Apache Kafka up to
   16,777,216 bytes, or 16 MiB.
   If you're using the ATA SQL command `ALTER TABLE <target_tbl> APPEND FROM <streaming_mv>`,
-  please drop and recreate your <target_tbl> to have the corresponding larger VARBYTE column sizes.
+  please drop and recreate your <target\_tbl> to have the corresponding larger VARBYTE column sizes.
 - Amazon Redshift datashares now can include Amazon S3 data lake tables and views that reference AWS Glue Data Catalog including tables governed by Lake Formation.
 - Adds support for automatic and incremental refresh of materialized views on tables from zero-ETL integration with DynamoDB.
 - Adds support to configure the 'refresh interval' on zero-ETL integration tables to specify the replication refresh rate on Amazon Redshift.
   You can set it at the time of creating a database for a new integration or alter the database of an existing integration.
 - Adds support for Mutual Transport Layer Security (mTLS) authentication in Amazon Redshift streaming ingestion for Amazon Managed Streaming for Apache Kafka.
 - Adds support for query hash, a unique identifier for a SQL query based on the textual representation of the query and the values of its parameters.
-  It can be used to identify, group, and analyze similar queries. Query hash can now be found in SYS_QUERY_HISTORY view,
+  It can be used to identify, group, and analyze similar queries. Query hash can now be found in SYS\_QUERY\_HISTORY view,
   with the addition of two new columns:
 
   - `user_query_hash` – The hash as submitted by the user including the query literals.
@@ -836,7 +838,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- Adds support for discovery of Scoped Permissions via SVV_DATABASE_PRIVILEGES and SVV_SCHEMA_PRIVILEGES. Also introduces the column privilege_scope to SVV_DATABASE_PRIVILEGES and SVV_SCHEMA_PRIVILEGES.
+- Adds support for discovery of Scoped Permissions via SVV\_DATABASE\_PRIVILEGES and SVV\_SCHEMA\_PRIVILEGES. Also introduces the column privilege\_scope to SVV\_DATABASE\_PRIVILEGES and SVV\_SCHEMA\_PRIVILEGES.
 - Improves performance of queries that execute distinct aggregation operations when grouping columns have a low number of distinct values (NDV).
 - Improves performance of INSERT/COPY statements for provisioned data warehouses
   elastically resized by 2x or higher in size.
@@ -847,7 +849,7 @@ Cluster versions in this patch:
 - Improves resilience to out of memory errors in clusters with limited memory available
 - Adds support for non-ASCII characters as field delimiters to the COPY command.
 - Adds support for ingesting data encoded in the ISO-8859-1 character set using the COPY command.
-- Removes requirement to specify CLUSTER_ARN in MSK external schema definition if specifying URI.
+- Removes requirement to specify CLUSTER\_ARN in MSK external schema definition if specifying URI.
 - Supports applying range scan filters during scans on zero-ETL integration tables.
 - Supports adding sort keys to zero-ETL integration tables.
 - Supports database options like `serializable` and `collation` to be specified with CREATE DATABASE statement when creating a zero-ETL integration database.
@@ -876,7 +878,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- Updates LISTAGG, MEDIAN, PERCENTILE_CONT and PERCENTILE_DISC to no longer require user-defined tables. Queries that reference catalog tables
+- Updates LISTAGG, MEDIAN, PERCENTILE\_CONT and PERCENTILE\_DISC to no longer require user-defined tables. Queries that reference catalog tables
   or that don't reference any tables can also use these functions.
 - Reduces query-planning time for datasharing read queries by consolidating temp tables across multiple queries within
   a single session, for high-concurrency workloads.
@@ -904,7 +906,7 @@ Cluster versions in this patch:
 - Fixes queries failing on concurrency scaling clusters with the message: **`ran out of WLM queues for restart`**.
 - Fixes a workload management (WLM) issue where Amazon Redshift falls back to manual WLM when customers try to apply an invalid WLM configuration.
 - Allows data sharing consumers to run read queries even when the producer is down due to planned maintenance or an unplanned outage.
-- Fixes a rare cluster restart issue that occurs when the ANY_VALUE function is used in queries that aggregate data, for example, the COUNT(DISTINCT) aggregation function.
+- Fixes a rare cluster restart issue that occurs when the ANY\_VALUE function is used in queries that aggregate data, for example, the COUNT(DISTINCT) aggregation function.
 
 ## Amazon Redshift patch 181
 
@@ -931,12 +933,12 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- Introduces support for the 'lower_attribute_names()' and 'upper_attribute_names()' functions which modify the case of attribute names for SUPER object values.
+- Introduces support for the 'lower\_attribute\_names()' and 'upper\_attribute\_names()' functions which modify the case of attribute names for SUPER object values.
 - Fixes an issue in CREATE TABLE LIKE when using an identity column. Previously, the new table would inherit the identifier from the source table.
   This caused problems if the source table was later dropped, since the identifier would become invalid in the new table.
-- Fixes an issue preventing some external tables from showing in SVV_ALL_TABLES.
+- Fixes an issue preventing some external tables from showing in SVV\_ALL\_TABLES.
 - Improves cluster bootstrap time, and speeds up query initialization for high concurrent workloads.
-- Fixes an issue with federated query that caused errors when passing split_part() functions to the federated source to RDS and Aurora MySQL
+- Fixes an issue with federated query that caused errors when passing split\_part() functions to the federated source to RDS and Aurora MySQL
 - Supports user initiated changes to the distribution key through ALTER TABLE...ALTER DISTSTYLE KEY DISTKEY commands on provisioned concurrency scaling clusters and serverless autoscaling compute.
 - Supports manually refreshed materialized views that involve aggregation on provisioned concurrency scaling and serverless autoscaling compute.
 - Adds support for zero-ETL to handle records up to 16 MB in size and for supporting SUPER values up to 16 MB.
@@ -945,7 +947,7 @@ Cluster versions in this patch:
   Tagging helps you manage, identify, organize, search for, and filter resources.
 - Improves the performance of queries involving Lambda user-defined functions (UDFs) by optimizing the data processing with the AWS Lambda.
 - Reduces memory utilization during data ingestion in sorted tables of elastically resized and serverless clusters.
-- Adds support for newlines (\n) in column `query_text` in view SYS_QUERY_HISTORY and for column `text` in view SYS_QUERY_TEXT.
+- Adds support for newlines (\n) in column `query_text` in view SYS\_QUERY\_HISTORY and for column `text` in view SYS\_QUERY\_TEXT.
 
 ## Amazon Redshift patch 180
 
@@ -978,16 +980,16 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- Changes CURRENT_USER to no longer truncate the returned username to 64 characters.
+- Changes CURRENT\_USER to no longer truncate the returned username to 64 characters.
 - Adds the ability to apply data masking policies on standard views and late binding views.
 - Adds the ability to apply dynamic data masking (DDM) to scalar attributes in SUPER data type columns.
-- Adds OBJECT_TRANSFORM SQL function.
+- Adds OBJECT\_TRANSFORM SQL function.
   For more information, see
-  [OBJECT_TRANSFORM function](../dg/r_object_transform_function.md "../dg/r_object_transform_function.md")
+  [OBJECT\_TRANSFORM function](../dg/r_object_transform_function.md "../dg/r_object_transform_function.md")
   in the _Amazon Redshift Database Developer Guide_.
 - Adds the ability to apply AWS Lake Formation fine-grained access control to your nested data, and query with Amazon Redshift data lake analytics.
 - Adds the INTERVAL data type.
-- Adds CONTINUE_HANDLER, which is a type of exception handler that controls the flow of a stored procedure.
+- Adds CONTINUE\_HANDLER, which is a type of exception handler that controls the flow of a stored procedure.
   Using it, you can catch and handle exceptions without ending the existing statement block.
 - Adds the ability to define permissions on a scope (schema or database) in addition to individual objects.
   This allows users and roles to be granted a permission on all current and future objects within the scope.
@@ -998,7 +1000,7 @@ Cluster versions in this patch:
 - Changes external functions to now implicitly cast numbers with or without fractional parts to the numeric data type of the column.
   For int2, int4, and int8 columns, numbers with fractional digits are accepted by truncating unless the number is out of range.
   For float4 and float8 columns, numbers are accepted without fractional digits.
-- Adds three spatial functions that work with the H3 hierarchical geospatial indexing grid system: H3_FromLongLat, H3_FromPoint, and H3_Polyfill.
+- Adds three spatial functions that work with the H3 hierarchical geospatial indexing grid system: H3\_FromLongLat, H3\_FromPoint, and H3\_Polyfill.
 
 ## Amazon Redshift patch 179
 
@@ -1030,11 +1032,11 @@ Cluster versions in this patch:
   with appropriate permissions can view row-level
   security and dynamic data masking system views, including:
 
-  - SVV_ATTACHED_MASKING_POLICY
-  - SVV_MASKING_POLICY
-  - SVV_RLS_ATTACHED_POLICY
-  - SVV_RLS_POLICY
-  - SVV_RLS_RELATION
+  - SVV\_ATTACHED\_MASKING\_POLICY
+  - SVV\_MASKING\_POLICY
+  - SVV\_RLS\_ATTACHED\_POLICY
+  - SVV\_RLS\_POLICY
+  - SVV\_RLS\_RELATION
 
 - Adds functionality such that a query that contains only scalar
   functions in the FROM clause now results in an error.
@@ -1045,9 +1047,9 @@ Cluster versions in this patch:
   redistribution status after running classic resize on
   RA3 clusters:
 
-  - The SYS_RESTORE_STATE system table
+  - The SYS\_RESTORE\_STATE system table
     shows table level redistribution progress.
-  - The SYS_RESTORE_LOG system table
+  - The SYS\_RESTORE\_LOG system table
     shows historical throughput of data redistribution.
 
 - Improves slice skew minimizing on EVEN tables after running
@@ -1106,7 +1108,7 @@ Cluster versions in this patch:
   reducing the overall encryption time and improving the availability of the data warehouse during the encryption process.
 - Improves support for queries when unnesting and unpivoting data stored in the SUPER data type.
 - Improves performance of refreshing materialized views with SUPER data types.
-- Adds support for aggregating INTERVAL literals with the ANY_VALUE function.
+- Adds support for aggregating INTERVAL literals with the ANY\_VALUE function.
 - Streaming ingestion now supports the following new SQL command to purge streaming data:
   `DELETE FROM streaming_materialized_views WHERE <where filter clause>`.
 - The DECODE function replaces a specific value with either another specific value or a default value,
@@ -1119,7 +1121,7 @@ Cluster versions in this patch:
 - Adds functionality to stored procedures to allow for catching data overflow
   data type conversion errors, and handling inside an exception-handling block.
 - You'll now receive an error when querying row-level security or dynamic data
-  masking-protected relations if you change enable_case_sensitive_identifier to be
+  masking-protected relations if you change enable\_case\_sensitive\_identifier to be
   different from the session default setting. Additionally, the following configuration is blocked when
   row-level security or dynamic data masking policies are applied in your provisioned cluster or serverless
   namespace:
@@ -1137,28 +1139,28 @@ Cluster versions in this patch:
   on concurrency scaling clusters and Amazon Redshift Serverless.
 - Amazon Redshift Federated Query has expanded pushdown support for timezone with timestamp on Amazon RDS for PostgreSQL and Amazon Aurora PostgreSQL.
 - You can now use Amazon RDS for MySQL and Aurora MySQL database names starting with digits with federated queries.
-- Adds the SYS_ANALYZE_HISTORY view, which contains record details for ANALYZE operations.
-- Adds the SYS_ANALYZE_COMPRESSION_HISTORY view, which contains record
+- Adds the SYS\_ANALYZE\_HISTORY view, which contains record details for ANALYZE operations.
+- Adds the SYS\_ANALYZE\_COMPRESSION\_HISTORY view, which contains record
   details for compression analysis operations during COPY or ANALYZE COMPRESSION commands.
-- Adds the SYS_SESSION_HISTORY view, which contains record details related
+- Adds the SYS\_SESSION\_HISTORY view, which contains record details related
   to active, historical, and restarted sessions.
-- Adds the SYS_TRANSACTION_HISTORY view, which contains record details
+- Adds the SYS\_TRANSACTION\_HISTORY view, which contains record details
   related to transaction level analysis that provides the time spent on commit, datasha
   number of blocks committed, and isolation level.
-- Adds the SVV_REDSHIFT_SCHEMA_QUOTA view, which contains records related to
+- Adds the SVV\_REDSHIFT\_SCHEMA\_QUOTA view, which contains records related to
   quotas and the current disk usage for each schema in a database.
-- Adds the SYS_PROCEDURE_CALL view, which contains records
+- Adds the SYS\_PROCEDURE\_CALL view, which contains records
   related to stored procedure calls, including start time, end time,
   status of the stored procedure call, and call hierarchy for
   nested stored procedure calls.
-- Adds the SYS_CROSS_REGION_DATASHARING_USAGE view, which contains
+- Adds the SYS\_CROSS\_REGION\_DATASHARING\_USAGE view, which contains
   records related to tracking cross-Region data sharing usage.
-- Adds the SYS_PROCEDURE_MESSAGES view, which contains records related to tracking
+- Adds the SYS\_PROCEDURE\_MESSAGES view, which contains records related to tracking
   information about logged stored procedure messages.
-- Adds the SYS_UDF_LOG view, which contains records related to tracking system log messages
+- Adds the SYS\_UDF\_LOG view, which contains records related to tracking system log messages
   from user-defined function calls, errors, warnings, or traces when applicable.
-- Adds the new columns IS_RECURSIVE, IS_NESTED, S3LIST_TIME, and GET_PARTITION_TIME to
-  SYS_EXTERNAL_QUERY_DETAIL.
+- Adds the new columns IS\_RECURSIVE, IS\_NESTED, S3LIST\_TIME, and GET\_PARTITION\_TIME to
+  SYS\_EXTERNAL\_QUERY\_DETAIL.
 - Adds MaxRPU, a new compute cost control setting for Redshift Serverless.
   With MaxRPU, you can optionally specify an upper compute threshold to control data warehouse costs at different points in time by selecting
   the maximum compute level that Redshift Serverless can scale per workgroup.
@@ -1188,21 +1190,21 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- Adds the SYS_MV_STATE view, which contains a row for every state transition of a materialized view.
-  SYS_MV_STATE can be used for MV refresh monitoring for Amazon Redshift Serverless and Amazon Redshift
+- Adds the SYS\_MV\_STATE view, which contains a row for every state transition of a materialized view.
+  SYS\_MV\_STATE can be used for MV refresh monitoring for Amazon Redshift Serverless and Amazon Redshift
   provisioned instances.
-- Adds the SYS_USERLOG view, which records details for the changes to a database user for Create user,
+- Adds the SYS\_USERLOG view, which records details for the changes to a database user for Create user,
   Drop user, Alter user (rename), Alter user (alter properties).
-- Adds the SYS_COPY_REPLACEMENTS view, which displays a log that records when invalid UTF-8 characters were
+- Adds the SYS\_COPY\_REPLACEMENTS view, which displays a log that records when invalid UTF-8 characters were
   replaced by the COPY command with the ACCEPTINVCHARS option.
-- Adds the SYS_SPATIAL_SIMPLIFY view, which contains information about simplified
+- Adds the SYS\_SPATIAL\_SIMPLIFY view, which contains information about simplified
   spatial geometry objects using the COPY command.
-- Adds the SYS_VACUUM_HISTORY view, which you can use to see the details and results of VACUUM operations.
-- Adds the SYS_SCHEMA_QUOTA_VIOLATIONS view to record the occurrence, timestamp, XID, and other
+- Adds the SYS\_VACUUM\_HISTORY view, which you can use to see the details and results of VACUUM operations.
+- Adds the SYS\_SCHEMA\_QUOTA\_VIOLATIONS view to record the occurrence, timestamp, XID, and other
   useful information when a schema quota is exceeded.
-- Adds the SYS_RESTORE_STATE view, which you can use monitor the redistribution progress of each table in the
+- Adds the SYS\_RESTORE\_STATE view, which you can use monitor the redistribution progress of each table in the
   cluster during asynchronous classic resize.
-- Adds the SYS_EXTERNAL_QUERY_ERROR view that return information about Redshift Spectrum scan errors.
+- Adds the SYS\_EXTERNAL\_QUERY\_ERROR view that return information about Redshift Spectrum scan errors.
 - Adds the tag parameter to the CREATE MODEL command, so you can now track training costs with
   autopilot training jobs.
 - Adds custom domain names (CNAME) for Amazon Redshift clusters.
@@ -1216,8 +1218,8 @@ Cluster versions in this patch:
   a exception-handling block.
 - Fixes a bug that prevented queries from using concurrency scaling to write data to
   tables when the source table is a data sharing table.
-- Fixes the case-sensitive identifier documented at enable_case_sensitive_identifier to now work with MERGE statements.
-- Fixes the bug that a query on the function pg_get_late_binding_view_cols() might get ignored occasionally.
+- Fixes the case-sensitive identifier documented at enable\_case\_sensitive\_identifier to now work with MERGE statements.
+- Fixes the bug that a query on the function pg\_get\_late\_binding\_view\_cols() might get ignored occasionally.
   You can now always cancel such queries.
 - Improves performance for data sharing queries running on consumers when running vacuum
   jobs on the producer.
@@ -1246,10 +1248,10 @@ Cluster versions in this patch:
 - Improved error handling when writing GROUP BY () for an empty grouping set. This was ignored previously and now returns a parser error.
 - Performance enhancements for incrementally refreshing
   materialized views with SUPER columns.
-- ALTER TABLE <target_tbl> APPEND FROM <streaming_mv> – (ATA) SQL command now supports moving all records from a
+- ALTER TABLE <target\_tbl> APPEND FROM <streaming\_mv> – (ATA) SQL command now supports moving all records from a
   streaming materialized view (MV) as a source, in addition to tables as a source, to a target table. The support for ATA on streaming
   MVs allows users to rapidly purge all records in a streaming MV by moving them to another table to manage data growth.
-- TRUNCATE <streaming_mv> – SQL command now supports truncating all records in a streaming materialized
+- TRUNCATE <streaming\_mv> – SQL command now supports truncating all records in a streaming materialized
   view (MV), in addition to tables. TRUNCATE deletes all records in the streaming MV, while leaving the streaming MV structure intact. Running
   TRUNCATE on streaming MVs allows customers to rapidly purge all records in a streaming
   MV to manage data growth.
@@ -1267,17 +1269,17 @@ Cluster versions in this patch:
   table protected by a row-level security (RLS) policy.
 - Reduction in the overall encryption time for Amazon Redshift RA3 clusters and improvement in the availability of the data warehouse during encryption. For more
   information, see [Amazon Redshift database encryption](working-with-db-encryption.md "working-with-db-encryption.md").
-- A new system view SYS_MV_REFRESH_HISTORY has been added to Redshift. The SYS_MV_REFRESH_HISTORY view contains a
-  row for the refresh activity of materialized views. Using SYS_MV_REFRESH_HISTORY, you can check the refresh history of materialized
-  views. SYS_MV_REFRESH_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data.
+- A new system view SYS\_MV\_REFRESH\_HISTORY has been added to Redshift. The SYS\_MV\_REFRESH\_HISTORY view contains a
+  row for the refresh activity of materialized views. Using SYS\_MV\_REFRESH\_HISTORY, you can check the refresh history of materialized
+  views. SYS\_MV\_REFRESH\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data.
 
-A new column SPILLED_BLOCK_LOCAL_DISK has been added to system view SYS_QUERY_DETAIL. The new column SPILLED_BLOCK_LOCAL_DISK helps customers
-to determine blocks spilled to local disk. You can use SYS_QUERY_DETAIL to view details for queries at a step level. SYS_QUERY_DETAIL is
+A new column SPILLED\_BLOCK\_LOCAL\_DISK has been added to system view SYS\_QUERY\_DETAIL. The new column SPILLED\_BLOCK\_LOCAL\_DISK helps customers
+to determine blocks spilled to local disk. You can use SYS\_QUERY\_DETAIL to view details for queries at a step level. SYS\_QUERY\_DETAIL is
 visible to all users. Superusers can see all rows; regular users can see only metadata to which they have access.
 
-- A new system view, SYS_QUERY_TEXT, has been added to Amazon Redshift Serverless and Amazon Redshift provisioned. The SYS_QUERY_TEXT view is similar
-  to [SVL_STATEMENTTEXT](../dg/r_SVL_STATEMENTTEXT.md "../dg/r_SVL_STATEMENTTEXT.md") for provisioned clusters. Use the `sequence`
-  column in the SYS_QUERY_TEXT view to get complete SQL statement text.
+- A new system view, SYS\_QUERY\_TEXT, has been added to Amazon Redshift Serverless and Amazon Redshift provisioned. The SYS\_QUERY\_TEXT view is similar
+  to [SVL\_STATEMENTTEXT](../dg/r_SVL_STATEMENTTEXT.md "../dg/r_SVL_STATEMENTTEXT.md") for provisioned clusters. Use the `sequence`
+  column in the SYS\_QUERY\_TEXT view to get complete SQL statement text.
 
 ## Amazon Redshift patch 175
 
@@ -1464,7 +1466,7 @@ Cluster versions in this patch:
 
 ### New features and improvements in this patch
 
-- ST_GeomfromGeoJSON: Constructs an Amazon Redshift spatial geometry object from VARCHAR in GeoJSON representation.
+- ST\_GeomfromGeoJSON: Constructs an Amazon Redshift spatial geometry object from VARCHAR in GeoJSON representation.
 
 ## Amazon Redshift patch 169
 

@@ -55,11 +55,11 @@ resulting in more total rows in the target with multiple record versions. Record
 deleted from the target table when deleted or modified in the source. You can manage
 target tables by deleting inactive records.
 
-| Column name          | Data type | Description                                                                                                    |
-| -------------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
-| \_record_is_active   | Boolean   | Indicates if a record in the target is currently active in the<br>source. True indicates the record is active. |
-| \_record_create_time | Timestamp | Starting time (UTC) when the source record is active.                                                          |
-| \_record_delete_time | Timestamp | Ending time (UTC) when the source record is updated or<br>deleted.                                             |
+| Column name            | Data type | Description                                                                                                    |
+| ---------------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
+| \_record\_is\_active   | Boolean   | Indicates if a record in the target is currently active in the<br>source. True indicates the record is active. |
+| \_record\_create\_time | Timestamp | Starting time (UTC) when the source record is active.                                                          |
+| \_record\_delete\_time | Timestamp | Ending time (UTC) when the source record is updated or<br>deleted.                                             |
 
 You can delete inactive records from a history mode table by filtering on records
 where the column `_record_is_active` is false. The following SQL DELETE command
@@ -85,5 +85,5 @@ ALTER TABLE `[schema-name.]``table-name_historical_timestamp` RENAME TO `new_tab
 For more information, see [ALTER TABLE](../dg/r_ALTER_TABLE.md "../dg/r_ALTER_TABLE.md") in the
 _Amazon Redshift Database Developer Guide_.
 You can also manage history mode using SQL commands CREATE DATABASE and ALTER DATABASE.
-For more information about how to set HISTORY_MODE, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md")
+For more information about how to set HISTORY\_MODE, see [CREATE DATABASE](../dg/r_CREATE_DATABASE.md "../dg/r_CREATE_DATABASE.md") and [ALTER DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md")
 in the _Amazon Redshift Database Developer Guide_.

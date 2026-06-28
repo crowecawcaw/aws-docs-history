@@ -42,7 +42,7 @@ AWS Glue.
 The CREATE EXTERNAL FUNCTION, CREATE EXTERNAL SCHEMA, CREATE MODEL, and CREATE
 LIBRARY commands have a `default` keyword. For this keyword for these
 commands, Amazon Redshift uses the IAM role that is set as the default and associated
-with the cluster when the command runs. You can run the [DEFAULT_IAM_ROLE](../dg/r_DEFAULT_IAM_ROLE.md "../dg/r_DEFAULT_IAM_ROLE.md") command to
+with the cluster when the command runs. You can run the [DEFAULT\_IAM\_ROLE](../dg/r_DEFAULT_IAM_ROLE.md "../dg/r_DEFAULT_IAM_ROLE.md") command to
 check the current default IAM role that is attached to the cluster.
 
 To control access privileges of the IAM role created and set as default for your
@@ -241,10 +241,9 @@ the following methods:
      the table.
 
 9. Choose **Create IAM role as default**. Amazon Redshift
-   automatically creates and sets the IAM role as the default for your
-   cluster.
-10. Choose **Create cluster** to create the cluster. The
-    cluster might take several minutes to be ready to use.
+automatically creates and sets the IAM role as the default for your
+cluster. 10. Choose **Create cluster** to create the cluster. The
+cluster might take several minutes to be ready to use.
 
 ### Removing IAM roles from your cluster
 

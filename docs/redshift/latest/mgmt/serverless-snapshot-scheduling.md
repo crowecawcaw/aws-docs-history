@@ -66,12 +66,11 @@ interpreted as two expressions.
   you must use a **?** (question mark) in the other.
 - Snapshot schedules don't support the following frequencies:
 
-      + Snapshots scheduled more frequently than 1 per hour.
-      + Snapshots scheduled less frequently than 1 per day (24 hours).
-
-  If you have overlapping schedules that result in scheduling snapshots within a
-  1 hour window, a validation error results.
-  The following table has some sample cron strings.
+  - Snapshots scheduled more frequently than 1 per hour.
+  - Snapshots scheduled less frequently than 1 per day (24 hours).
+    If you have overlapping schedules that result in scheduling snapshots within a
+    1 hour window, a validation error results.
+    The following table has some sample cron strings.
 
 | Minutes | Hours   | Day of week | Meaning                                                                                                                                                                              |
 | ------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

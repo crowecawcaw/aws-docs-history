@@ -28,24 +28,23 @@ steps:
 
 ###### Create a DNS CNAME entry for your custom domain name
 
-1.  Register a root domain, for example `example.com`. Optionally, you
-    can use an existing domain. Your custom name can be limited by restrictions on
-    particular characters, or other naming validation. For more information about
-    registering a domain with Route 53, see [Registering a new
-    domain](../../../Route53/latest/DeveloperGuide/domain-register.md "../../../Route53/latest/DeveloperGuide/domain-register.md").
-2.  Add a DNS CNAME record that points your custom domain name to the Redshift
-    endpoint for your cluster or workgroup. You can find the endpoint in the
-    properties for the cluster or workgroup, in the Redshift console or in the
-    Amazon Redshift Serverless console. Copy the **JDBC URL** that's
-    available in the cluster or workgroup properties, under **General
-    information**. The URLs appear like the following:
+1. Register a root domain, for example `example.com`. Optionally, you
+   can use an existing domain. Your custom name can be limited by restrictions on
+   particular characters, or other naming validation. For more information about
+   registering a domain with Route 53, see [Registering a new
+   domain](../../../Route53/latest/DeveloperGuide/domain-register.md "../../../Route53/latest/DeveloperGuide/domain-register.md").
+2. Add a DNS CNAME record that points your custom domain name to the Redshift
+   endpoint for your cluster or workgroup. You can find the endpoint in the
+   properties for the cluster or workgroup, in the Redshift console or in the
+   Amazon Redshift Serverless console. Copy the **JDBC URL** that's
+   available in the cluster or workgroup properties, under **General
+   information**. The URLs appear like the following:
 
-        * For an Amazon Redshift cluster:
-         `redshift-cluster-sample.abc123456.us-east-1.redshift.amazonaws.com`
-        * For an Amazon Redshift Serverless workgroup:
-         `endpoint-name.012345678901.us-east-1-dev.redshift-serverless-dev.amazonaws.com`
-
-    If the URL has a JDBC prefix, remove it.
+   - For an Amazon Redshift cluster:
+     `redshift-cluster-sample.abc123456.us-east-1.redshift.amazonaws.com`
+   - For an Amazon Redshift Serverless workgroup:
+     `endpoint-name.012345678901.us-east-1-dev.redshift-serverless-dev.amazonaws.com`
+     If the URL has a JDBC prefix, remove it.
 
 ###### Note
 

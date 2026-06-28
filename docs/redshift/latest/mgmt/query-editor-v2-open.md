@@ -228,8 +228,8 @@ Consider the following when working with query editor v2.
 - The query editor v2 doesn't support an IAM `RoleSessionName` that
   contains commas (,). You might see an error similar to the following:
   **`Error Message : "'AROA123456789EXAMPLE:mytext,yourtext' is
-not a valid value for TagValue - it contains illegal
-characters"`** This issue arises when you define an IAM
+ not a valid value for TagValue - it contains illegal
+ characters"`** This issue arises when you define an IAM
   `RoleSessionName` that includes a comma and then use query editor v2
   with that IAM role.
 

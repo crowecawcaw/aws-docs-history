@@ -55,10 +55,10 @@ Query Profiler shows the query that the user provides as the final child query t
 Query profiler displays information returned by the `SYS_QUERY_HISTORY`,
 `SYS_QUERY_DETAIL`, `SYS_QUERY_EXPLAIN`, and `SYS_CHILD_QUERY_TEXT`
 views. For more information about these views, see
-[SYS_QUERY_HISTORY](../dg/SYS_QUERY_HISTORY.md "../dg/SYS_QUERY_HISTORY.md"),
-[SYS_QUERY_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md"),
-[SYS_QUERY_EXPLAIN](../dg/SYS_QUERY_EXPLAIN.md "../dg/SYS_QUERY_EXPLAIN.md"), and
-[SYS_CHILD_QUERY_TEXT](../dg/SYS_CHILD_QUERY_TEXT.md "../dg/SYS_CHILD_QUERY_TEXT.md")
+[SYS\_QUERY\_HISTORY](../dg/SYS_QUERY_HISTORY.md "../dg/SYS_QUERY_HISTORY.md"),
+[SYS\_QUERY\_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md"),
+[SYS\_QUERY\_EXPLAIN](../dg/SYS_QUERY_EXPLAIN.md "../dg/SYS_QUERY_EXPLAIN.md"), and
+[SYS\_CHILD\_QUERY\_TEXT](../dg/SYS_CHILD_QUERY_TEXT.md "../dg/SYS_CHILD_QUERY_TEXT.md")
 in the _Amazon Redshift Database Developer Guide_.
 
 Query profiler only displays query information for queries that have recently run on the database.
@@ -221,7 +221,7 @@ The Query details page has the following components:
 - **Top pane** – The pane at the top of the page shows details about the
   query, such as the status and type. For information
   about the source of the information that the top pane shows, see
-  [SYS_QUERY_HISTORY](../dg/SYS_QUERY_HISTORY.md "../dg/SYS_QUERY_HISTORY.md")
+  [SYS\_QUERY\_HISTORY](../dg/SYS_QUERY_HISTORY.md "../dg/SYS_QUERY_HISTORY.md")
   in the _Amazon Redshift Database Developer Guide_.
 - **SQL tab** – This tab of the bottom panel shows the SQL text
   for the original user query.
@@ -230,7 +230,7 @@ The Query details page has the following components:
   to prepare data and statistics for the user query. By default, the **Child queries** list shows
   information and aggregated statistics about each child query.
   For information about the source of the information that this page shows, see
-  [SYS_QUERY_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md") in the
+  [SYS\_QUERY\_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md") in the
   _Amazon Redshift Database Developer Guide_.
 
 You can add or remove columns from the **Child queries** list using the Preferences menu.
@@ -238,17 +238,16 @@ You can add or remove columns from the **Child queries** list using the Preferen
 - **Related metrics** – This tab of the bottom panel
   shows the following CloudWatch metrics for the query:
 
-      + **RPU capacity used** (for serverless workgroups): The compute capacity used by
-       the query, measured in Redshift Processing Units (RPUs).
-       For more information, see [Compute capacity for Amazon Redshift Serverless](serverless-capacity.md "serverless-capacity.md").
-      + **Cluster health status**,
-       **CPU Utilization**,
-       **Storage capacity used** (for provisioned clusters): The status and
-       system resources the query used.
-      + **Active database connections**: the `DatabaseConnections`
-       metric for the query.
-
-  For more information about CloudWatch metrics, see [Performance data in Amazon Redshift](metrics-listing.md "metrics-listing.md").
+  - **RPU capacity used** (for serverless workgroups): The compute capacity used by
+    the query, measured in Redshift Processing Units (RPUs).
+    For more information, see [Compute capacity for Amazon Redshift Serverless](serverless-capacity.md "serverless-capacity.md").
+  - **Cluster health status**,
+    **CPU Utilization**,
+    **Storage capacity used** (for provisioned clusters): The status and
+    system resources the query used.
+  - **Active database connections**: the `DatabaseConnections`
+    metric for the query.
+    For more information about CloudWatch metrics, see [Performance data in Amazon Redshift](metrics-listing.md "metrics-listing.md").
 
 ### Child query page
 
@@ -266,7 +265,7 @@ The Child query page has the following components:
   - **Streams** – This pane shows the list of streams in the
     child query. This pane shows information and aggregated data about the streams that Amazon Redshift uses to
     optimize the query. For information about the details in this pane, see
-    [SYS_QUERY_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md")
+    [SYS\_QUERY\_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md")
     in the _Amazon Redshift Database Developer Guide_.
 
   You can add or remove columns from the **Streams** pane using the Preferences
@@ -279,16 +278,16 @@ The Child query page has the following components:
   the SQL code for the child query.
 - **Child query details pane** – This pane in the right panel shows
   details about the child query. For information about the details in this pane, see
-  [SYS_QUERY_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md")
+  [SYS\_QUERY\_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md")
   in the _Amazon Redshift Database Developer Guide_.
 - **Stream details pane** – When you choose a stream in the **Streams**
   pane, the **Stream details** pane shows information about the stream. For information about the details
-  in this panel, see [SYS_QUERY_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md")
+  in this panel, see [SYS\_QUERY\_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md")
   in the _Amazon Redshift Database Developer Guide_.
 - **Step details pane** – When you choose a step in either the
   **Streams** pane or the graph in the **Child query plan**, the **Step details**
   pane shows information about the step, For information about the details in this pane, see
-  [SYS_QUERY_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md")
+  [SYS\_QUERY\_DETAIL](../dg/SYS_QUERY_DETAIL.md "../dg/SYS_QUERY_DETAIL.md")
   in the _Amazon Redshift Database Developer Guide_.:
 
 ## Child query pane

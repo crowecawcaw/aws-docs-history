@@ -99,11 +99,13 @@ the IAM provider.
 | **https://redshift.amazon.com/SAML/Attributes/DbGroups**   | user.assignedroles                                                                                      |
 | **https://redshift.amazon.com/SAML/Attributes/DbUser**     | user.userprincipalname                                                                                  |
 
-15. Under \*\*App Registration >
+15. Under **App Registration >
     `your-application-name`
-    > Authentication**, add **Mobile And Desktop
-    > Application\*\*. Specify the URL as
-    > http://localhost/redshift/.
+
+> Authentication**, add **Mobile And Desktop
+> Application**. Specify the URL as
+> http://localhost/redshift/.
+
 16. In the **SAML Signing Certificate** section,
     choose **Download** to download and save the
     federation metadata XML file for use when you create an IAM SAML

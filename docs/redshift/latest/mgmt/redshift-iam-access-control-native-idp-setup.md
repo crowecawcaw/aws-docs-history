@@ -14,7 +14,7 @@ Complete the following steps in Amazon Redshift:
 1. You run a SQL statement to register the identity provider, including descriptions of
    the Azure application metadata. To create the identity provider in Amazon Redshift, run the
    following command after replacing the parameter values _issuer_,
-   _client_id_, _client_secret_, and
+   _client\_id_, _client\_secret_, and
    _audience_. These parameters are specific to Microsoft Azure AD.
    Replace the identity provider name with a name of your choosing, and replace the
    namespace with a unique name to contain users and roles from your identity provider
@@ -61,7 +61,7 @@ PARAMETERS '{"issuer":"https://sts.windows.net/2sdfdsf-d475-420d-b5ac-667adad7c7
 "client_pk_password":"test_password"}';
 ```
 
-The private key password, _client_pk_password_, is
+The private key password, _client\_pk\_password_, is
 optional. 2. Optional: Run SQL commands in Amazon Redshift to pre-create users and roles. This facilitates
 granting permissions in advance. The role name in Amazon Redshift is like the following:
 _<Namespace>:<GroupName on Azure AD>_. For example,

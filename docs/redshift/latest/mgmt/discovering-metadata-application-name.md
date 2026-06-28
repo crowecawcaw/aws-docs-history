@@ -34,7 +34,7 @@ following:
 
 - JDBC: [ApplicationName](jdbc20-configuration-options.md#jdbc20-applicationname-option "jdbc20-configuration-options.md#jdbc20-applicationname-option")
 - ODBC: [ApplicationName](odbc20-configuration-options.md#odbc20-application_name-option "odbc20-configuration-options.md#odbc20-application_name-option")
-- Python: [application_name](python-configuration-options.md#python-application_name-option "python-configuration-options.md#python-application_name-option")
+- Python: [application\_name](python-configuration-options.md#python-application_name-option "python-configuration-options.md#python-application_name-option")
 
 ###### Note
 

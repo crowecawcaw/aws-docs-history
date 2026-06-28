@@ -280,7 +280,7 @@ HSM partition.
 You provide Amazon Redshift with the HSM IP address, HSM partition name, HSM partition
 password, and a public HSM server certificate, which is encrypted by using an
 internal root key. Amazon Redshift completes the configuration process and verifies that it
-can connect to the HSM. If it cannot, the cluster is put into the INCOMPATIBLE_HSM
+can connect to the HSM. If it cannot, the cluster is put into the INCOMPATIBLE\_HSM
 state and the cluster is not created. In this case, you must delete the incomplete
 cluster and try again.
 
@@ -304,7 +304,7 @@ automated or manual snapshots of the cluster. Amazon Redshift also rotates the D
 specified cluster, but cannot rotate the DEK for the snapshots while they are stored
 internally in Amazon Simple Storage Service (Amazon S3) and encrypted using the existing DEK.
 
-While the rotation is in progress, the cluster is put into a ROTATING_KEYS state until
+While the rotation is in progress, the cluster is put into a ROTATING\_KEYS state until
 completion, at which time the cluster returns to the AVAILABLE state. Amazon Redshift handles
 decryption and re-encryption during the key rotation process.
 

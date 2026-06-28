@@ -26,7 +26,7 @@ When connecting to Amazon Redshift using Identity Center tokens, you may encount
 
 - **Token credentials expired or invalid** – Generate a new token using the `GetIdentityCenterAuthToken` API and update your connection configuration.
 - **invalid token** – Verify the token format and ensure it was generated for the correct cluster or workgroup.
-- **TYPE_INVALID_TOKEN** – Ensure you're using `token_type = SUBJECT_TOKEN` in your connection parameters.
+- **TYPE\_INVALID\_TOKEN** – Ensure you're using `token_type = SUBJECT_TOKEN` in your connection parameters.
 - **identity provider type "awsidc" is not supported** – Verify your Amazon Redshift cluster or workgroup supports Identity Center authentication and update to a compatible version.
 - **AWS IdC identity provider does not exist** – Configure Identity Center integration for your Amazon Redshift resource through the AWS console.
 - **Invalid scope. User's credentials are not authorized to connect to Amazon Redshift** – Verify the user has appropriate permissions in Identity Center and the token was generated for the correct resources.

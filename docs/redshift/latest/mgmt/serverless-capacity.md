@@ -253,10 +253,10 @@ You can monitor the AI-driven RPU scaling in the following ways:
 - Monitor the `ComputeCapacity` metric under `AWS/Redshift-Serverless`
   and `Workgroup` in CloudWatch.
 - Query the
-  [SYS_QUERY_HISTORY](../dg/SYS_QUERY_HISTORY.md "../dg/SYS_QUERY_HISTORY.md")
+  [SYS\_QUERY\_HISTORY](../dg/SYS_QUERY_HISTORY.md "../dg/SYS_QUERY_HISTORY.md")
   view. Provide
   the specific query ID or query text to identify the time period. Use this time period to query the
-  [SYS_SERVERLESS_USAGE](../dg/SYS_SERVERLESS_USAGE.md "../dg/SYS_SERVERLESS_USAGE.md") system view to find the
+  [SYS\_SERVERLESS\_USAGE](../dg/SYS_SERVERLESS_USAGE.md "../dg/SYS_SERVERLESS_USAGE.md") system view to find the
   `compute_capacity` value. The `compute_capacity` field shows the RPUs scaled
   during the query runtime.
 

@@ -20,9 +20,9 @@ following locations, listed in order of precedence:
   information about the `IniFile` parameter, see [IniFile](jdbc20-configuration-options.md#jdbc20-inifile-option "jdbc20-configuration-options.md#jdbc20-inifile-option"). If
   the `IniFile` parameter incorrectly specifies the location of the
   .ini file, an error displays.
-- Environment variables such as AMAZON_REDSHIFT_JDBC_INI_FILE with the full
+- Environment variables such as AMAZON\_REDSHIFT\_JDBC\_INI\_FILE with the full
   path, including the file name. You can use `rsjdbc.ini` or specify a
-  file name. If the AMAZON_REDSHIFT_JDBC_INI_FILE environment variable incorrectly
+  file name. If the AMAZON\_REDSHIFT\_JDBC\_INI\_FILE environment variable incorrectly
   specifies the location of the .ini file, an error displays.
 - Directory where the driver JAR file is located.
 - User home directory.

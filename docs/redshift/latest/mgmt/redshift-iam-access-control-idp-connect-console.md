@@ -261,7 +261,7 @@ in the _AWS IAM Identity Center User Guide_.
 
 After the Redshift administrator finishes the steps and saves the configuration, the
 AWS IAM Identity Center properties appear in the Redshift console. You can also query the system view
-[SVV_IDENTITY_PROVIDERS](../dg/r_SVV_IDENTITY_PROVIDERS.md "../dg/r_SVV_IDENTITY_PROVIDERS.md") to
+[SVV\_IDENTITY\_PROVIDERS](../dg/r_SVV_IDENTITY_PROVIDERS.md "../dg/r_SVV_IDENTITY_PROVIDERS.md") to
 verify the application's properties. These include the application name and the namespace.
 You use the namespace as a prefix for Redshift database objects that are associated with
 the application. Completing these tasks makes Redshift an AWS IAM Identity Center enabled
