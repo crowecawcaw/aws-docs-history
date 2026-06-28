@@ -103,7 +103,7 @@ For more information about pricing, see [AWS Billing Conductor Pricing](https://
 
 ## Related services
 
-\***\*AWS Billing\*\***
+****AWS Billing****
 
 The AWS Billing is the portal for all AWS customers, from students and
 startup companies to large enterprises. You can use the console to see the resources that are
@@ -128,7 +128,7 @@ For more information, see the following topics:
 - [Analyzing your costs with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md") in the _AWS Cost Management User
   Guide_
 
-\***\*AWS Cost and Usage Reports\*\***
+****AWS Cost and Usage Reports****
 
 The AWS Cost and Usage Reports (AWS CUR) contain the most comprehensive set of cost and usage data
 available. You can use Cost and Usage Reports to publish your AWS billing reports to an Amazon Simple Storage Service (Amazon S3)
@@ -144,7 +144,7 @@ AWS Cost and Usage Reports track your AWS usage and provide estimated charges as
 account. Each report contains line items for each unique combination of AWS products, usage
 type, and operation that you use in your AWS account.
 
-\***\*AWS Identity and Access Management (IAM)\*\***
+****AWS Identity and Access Management (IAM)****
 
 The AWS Billing Conductor service is integrated with AWS Identity and Access Management (IAM). You can use IAM with AWS Billing Conductor to
 ensure that other people who work in your account have only as much access as they need to get
@@ -158,7 +158,7 @@ structure of your AWS account.
 For more information about how to work with IAM, see [What Is IAM?](../../../IAM/latest/UserGuide/IAM_Concepts.md "../../../IAM/latest/UserGuide/IAM_Concepts.md") and [Security Best Practices in IAM](../../../IAM/latest/UserGuide/IAMBestPractices.md "../../../IAM/latest/UserGuide/IAMBestPractices.md") in the
 _IAM User Guide_.
 
-\***\*AWS Organizations (Consolidated billing)\*\***
+****AWS Organizations (Consolidated billing)****
 
 AWS products and services can accommodate every size of company, from small startups to
 enterprises. If your company is large or likely to grow, you might want to set up multiple
@@ -172,7 +172,7 @@ to combine all your member accounts under one management account and receive a s
 For more information, see [Consolidated billing for
 Organizations](../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md "../../../awsaccountbilling/latest/aboutv2/consolidated-billing.md") in the _AWS Billing User Guide_.
 
-\***\*Billing transfer\*\***
+****Billing transfer****
 
 Billing transfer decouples billing and financial management from security and governance management. This enables a single AWS Organizations to get centralized access to costs data and AWS invoices across multiple organizations.
 
@@ -180,7 +180,7 @@ To centralize billing while maintaining security management autonomy, billing tr
 
 For more information, see [Transfer billing management to external accounts](../../../awsaccountbilling/latest/aboutv2/orgs_transfer_billing.md "../../../awsaccountbilling/latest/aboutv2/orgs_transfer_billing.md").
 
-\***\*Billing views\*\***
+****Billing views****
 
 A billing view helps you manage and control access to cost management data within your AWS environment. With billing views, cost management data is represented as an AWS resource. Through resource-based policies, you can configure what data is accessible to an account when using AWS Billing and Cost Management tools.
 

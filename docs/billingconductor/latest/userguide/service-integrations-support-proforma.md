@@ -4,7 +4,7 @@ The following Cloud Financial Management services and their features support pro
 costs.
 
 | Service and features              | Support level by AWS account type |
-| --------------------------------- | --------------------------------- | ----------------- | ------------------------- |
+| --------------------------------- | --------------------------------- |
 |                                   | _Payer (management account)_      | _Primary account_ | _Linked (member account)_ |
 | **AWS Cost and Usage Report**     | Yes                               | Yes               | Yes                       |
 | Split cost allocation             | No                                | No                | No                        |

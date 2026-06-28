@@ -15,7 +15,7 @@ month, or to reoccur for multiple months.
 
 Custom Line Items will appears in Billing and Cost Management tools such as Bills Page, Cost Explorer and Cost and Usage Records with specific line item types, line item subtypes, or charge types.
 For Custom Line Items which are presented under Billing Conductor service, the types will be **Fee** or **Credit**, depending on the type of the Custom Line Item.
-For Custom Line Items which are presented under any other service, or for Itemized Custom Line Items, the types will be **Proforma_Fee** or **Proforma_Credit** ,
+For Custom Line Items which are presented under any other service, or for Itemized Custom Line Items, the types will be **Proforma\_Fee** or **Proforma\_Credit** ,
 depending on the type of the Custom Line Item.
 
 Common use cases for custom line item creation include, but are not limited to the
