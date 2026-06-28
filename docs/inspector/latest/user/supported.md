@@ -157,7 +157,7 @@ It also specifies the CIS benchmark version for each operating system.
 
 ###### Note
 
-CIS standards are intended for x86_64 operating systems.
+CIS standards are intended for x86\_64 operating systems.
 Some checks may not be evaluated or return invalid remediation instructions on ARM-based resources.
 
 | Operating system                | Version | CIS benchmark version |

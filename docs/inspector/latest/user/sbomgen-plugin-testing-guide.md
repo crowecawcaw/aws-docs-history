@@ -284,4 +284,5 @@ When an assertion fails, the failure is recorded but the test function continues
 
 - Keep fixtures minimal — use the smallest file that exercises the behavior
 - Avoid committing large binaries to `_testdata/` when a small text fixture would suffice
-- Each plugin's `_testdata/` should be self-contained — no references to files outside the plugin directory
+- Each plugin's `_testdata/` should be self-contained — no references to files outside the plugin directory. At runtime, `sbomgen.*` reads are confined to the artifact under inventory, so a plugin that depends on files elsewhere on the host will not work outside `localhost` scans.
+- Use representative, non-sensitive fixtures. Sbomgen does not redact SBOM contents, so never commit real secrets or credentials to `_testdata/`.

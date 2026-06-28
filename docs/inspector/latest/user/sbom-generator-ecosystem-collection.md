@@ -1186,7 +1186,7 @@ Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
 
 - .NET Framework – Parses Windows Registry and reads file metadata to detect installed .NET Framework versions. The scanner checks the following registry key and value, and files.
 
-  - **Registry Key** (<VERSION_SUB_KEY> represents the .NET Framework version, such as v2.0.50727, v3.5, or v4\Full)
+  - **Registry Key** (<VERSION\_SUB\_KEY> represents the .NET Framework version, such as v2.0.50727, v3.5, or v4\Full)
 
   ```
   HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\<VERSION_SUB_KEY>
@@ -1200,7 +1200,7 @@ Microsoft.NETCore.App/<VERSION>/Microsoft.NETCore.App.deps.json
 
     - Install – Indicates whether the .NET Framework version is installed.
     - Version – Installed .NET Framework version (version 4.0 or lower)
-    - Release – A REG_DWORD value that maps to the installed .NET Framework version (version 4.5 or later)
+    - Release – A REG\_DWORD value that maps to the installed .NET Framework version (version 4.5 or later)
 
   - **DLL Files**
 
@@ -1474,7 +1474,7 @@ The following are supported platforms. (\* is an arbitrary version)
 
 - C:\Program Files\nodejs\node.exe
 - C:\Program Files (x86)\nodejs\node.exe
-- ~\AppData\Roaming\fnm\node-versions\\\*\installation\node.exe
+- ~\AppData\Roaming\fnm\node-versions\\*\installation\node.exe
 
 ###### macOS
 
@@ -1839,7 +1839,7 @@ Sample PURL: pkg:generic/codeium/windsurf@1.10.5?distro=linux
 
 ###### Key features
 
-- WordPress core – parses the `/wp-includes/version.php` file to extract version value from $wp_version variable.
+- WordPress core – parses the `/wp-includes/version.php` file to extract version value from $wp\_version variable.
 - WordPress plugins – parses the `/wp-content/plugins/<WordPress Plugin>/readme.txt` file or `/wp-content/plugins/<WordPress Plugin>/readme.md` file to extract the `Stable` tag as the version string.
 - WordPress themes – parses the `/wp-content/themes/<WordPress Theme>/style.css` file to extract the version from the version metadata.
 

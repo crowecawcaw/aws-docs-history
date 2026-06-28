@@ -10,16 +10,16 @@ If you enable Enhanced EC2 Scanning in the Amazon Inspector console, Amazon Insp
 
 Inspector VM Scanner is available for standalone installation through the following links:
 
-| Inspector VM Scanner packages | **Package Type** | **Architecture**                                                                                         | **URL** |
-| ----------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------- | ------- |
-| .apk                          | ARM              | https://inspector-vm-scanner.s3.amazonaws.com/latest/APK-ARM/inspector-vm-scanner-latest-r0.apk          |
-|                               | X86_64           | https://inspector-vm-scanner.s3.amazonaws.com/latest/APK-X86\_64/inspector-vm-scanner-latest-r0.apk      |
-| .deb                          | ARM              | https://inspector-vm-scanner.s3.amazonaws.com/latest/DEB-ARM/inspector-vm-scanner\_latest\_arm64.deb     |
-|                               | X86_64           | https://inspector-vm-scanner.s3.amazonaws.com/latest/DEB-X86\_64/inspector-vm-scanner\_latest\_amd64.deb |
-| .msi                          | X86_64           | https://inspector-vm-scanner.s3.amazonaws.com/latest/MSI-X86\_64/inspector-vm-scanner-x86\_64-latest.msi |
-| .pkg                          | ARM              | https://inspector-vm-scanner.s3.amazonaws.com/latest/PKG-ARM/inspector-vm-scanner.latest.arm64.pkg       |
-| .rpm                          | ARM              | https://inspector-vm-scanner.s3.amazonaws.com/latest/RPM-ARM/inspector-vm-scanner-latest.arm64.rpm       |
-|                               | X86_64           | https://inspector-vm-scanner.s3.amazonaws.com/latest/RPM-X86\_64/inspector-vm-scanner-latest.x86\_64.rpm |
+Inspector VM Scanner packages| **Package Type** | **Architecture** | **URL** |
+| --- | --- | --- |
+| .apk | ARM | https://inspector-vm-scanner.s3.amazonaws.com/latest/APK-ARM/inspector-vm-scanner-latest-r0.apk |
+| | X86\_64 | https://inspector-vm-scanner.s3.amazonaws.com/latest/APK-X86\_64/inspector-vm-scanner-latest-r0.apk |
+| .deb | ARM | https://inspector-vm-scanner.s3.amazonaws.com/latest/DEB-ARM/inspector-vm-scanner\_latest\_arm64.deb |
+| | X86\_64 | https://inspector-vm-scanner.s3.amazonaws.com/latest/DEB-X86\_64/inspector-vm-scanner\_latest\_amd64.deb |
+| .msi | X86\_64 | https://inspector-vm-scanner.s3.amazonaws.com/latest/MSI-X86\_64/inspector-vm-scanner-x86\_64-latest.msi |
+| .pkg | ARM | https://inspector-vm-scanner.s3.amazonaws.com/latest/PKG-ARM/inspector-vm-scanner.latest.arm64.pkg |
+| .rpm | ARM | https://inspector-vm-scanner.s3.amazonaws.com/latest/RPM-ARM/inspector-vm-scanner-latest.arm64.rpm |
+| | X86\_64 | https://inspector-vm-scanner.s3.amazonaws.com/latest/RPM-X86\_64/inspector-vm-scanner-latest.x86\_64.rpm |
 
 To view the procedure for manually installing Inspector VM Scanner on the specified package manager, choose a link from the following list:
 
@@ -41,7 +41,7 @@ curl -O https://inspector-vm-scanner.s3.amazonaws.com/latest/APK-ARM/inspector-v
 apk add inspector-vm-scanner-latest-r0.apk
 ```
 
-**X86_64**
+**X86\_64**
 
 ```
 curl --output-dir /etc/apk/keys -O https://inspector-vm-scanner.s3.amazonaws.com/latest/APK-X86_64/inspector-vm-scanner.pem.pub
@@ -69,7 +69,7 @@ gpg --verify inspector-vm-scanner_latest_arm64.deb
 sudo dpkg -i inspector-vm-scanner_latest_arm64.deb
 ```
 
-**X86_64**
+**X86\_64**
 
 ```
 curl -O https://inspector-vm-scanner.s3.amazonaws.com/latest/DEB-X86_64/inspector-vm-scanner.gpg.pub
@@ -89,7 +89,7 @@ sudo dpkg -r inspector-vm-scanner
 
 #### Installation
 
-**X86_64**
+**X86\_64**
 
 ```
 Invoke-WebRequest https://inspector-vm-scanner.s3.amazonaws.com/latest/MSI-X86_64/inspector-vm-scanner-x86_64-latest.msi -OutFile inspector-vm-scanner-x86_64-latest.msi
@@ -137,7 +137,7 @@ rpm --checksig inspector-vm-scanner-latest.arm64.rpm
 sudo yum install inspector-vm-scanner-latest.arm64.rpm
 ```
 
-**X86_64**
+**X86\_64**
 
 ```
 curl -O https://inspector-vm-scanner.s3.amazonaws.com/latest/RPM-X86_64/inspector-vm-scanner.gpg.pub

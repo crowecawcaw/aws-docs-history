@@ -71,7 +71,7 @@ This finding type has the following details:
   with the finding. If the vulnerability has been fixed in multiple
   versions, this field lists the most recent version that includes the
   fix. If a fix isn't available, this value is `None
-available`.
+ available`.
 
 ###### Note
 

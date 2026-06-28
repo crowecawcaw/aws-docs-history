@@ -42,18 +42,18 @@ The following tables summarize malicious package detections by Amazon Inspector 
 
 The following table lists the ten most recent malicious package advisories published by Amazon Inspector Security Research, ordered by published date.
 
-| Package name            | MAL-ID        | Registry | Detection date |
-| ----------------------- | ------------- | -------- | -------------- |
-| d4rktg                  | MAL-2026-3688 | PyPI     | 2026-05-13     |
-| @dropout-ai/runtime     | MAL-2026-3683 | NPM      | 2026-05-13     |
-| amino.fix               | MAL-2026-3686 | PyPI     | 2026-05-13     |
-| @gusmano/reext          | MAL-2026-3684 | NPM      | 2026-05-12     |
-| always-updates          | MAL-2026-3685 | PyPI     | 2026-05-12     |
-| @a91082900/test_package | MAL-2026-3680 | NPM      | 2026-05-12     |
-| kaggle-runner           | MAL-2026-3693 | PyPI     | 2026-05-12     |
-| 88q                     | MAL-2026-3676 | NPM      | 2026-05-12     |
-| 66o                     | MAL-2026-3674 | NPM      | 2026-05-12     |
-| 6cc                     | MAL-2026-3675 | NPM      | 2026-05-12     |
+| Package name             | MAL-ID        | Registry | Detection date |
+| ------------------------ | ------------- | -------- | -------------- |
+| d4rktg                   | MAL-2026-3688 | PyPI     | 2026-05-13     |
+| @dropout-ai/runtime      | MAL-2026-3683 | NPM      | 2026-05-13     |
+| amino.fix                | MAL-2026-3686 | PyPI     | 2026-05-13     |
+| @gusmano/reext           | MAL-2026-3684 | NPM      | 2026-05-12     |
+| always-updates           | MAL-2026-3685 | PyPI     | 2026-05-12     |
+| @a91082900/test\_package | MAL-2026-3680 | NPM      | 2026-05-12     |
+| kaggle-runner            | MAL-2026-3693 | PyPI     | 2026-05-12     |
+| 88q                      | MAL-2026-3676 | NPM      | 2026-05-12     |
+| 66o                      | MAL-2026-3674 | NPM      | 2026-05-12     |
+| 6cc                      | MAL-2026-3675 | NPM      | 2026-05-12     |
 
 ## Related resources
 

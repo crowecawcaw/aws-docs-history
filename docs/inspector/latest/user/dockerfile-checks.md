@@ -179,22 +179,22 @@ The severity rating for this check is **High**.
 
 Several command line utilities or programming language runtimes support bypassing secure defaults, which allows execution through insecure methods.
 
-###### NODE_TLS_REJECT_UNAUTHORIZED=0
+###### NODE\_TLS\_REJECT\_UNAUTHORIZED=0
 
 When Node.js processes run with `NODE_TLS_REJECT_UNAUTHORIZED` set to `0`, TLS certificate validation is disabled.
-For more information, see [NODE_TLS_REJECT_UNAUTHORIZED=0](https://nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue "https://nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue") in the Node.js website.
+For more information, see [NODE\_TLS\_REJECT\_UNAUTHORIZED=0](https://nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue "https://nodejs.org/api/cli.html#node_tls_reject_unauthorizedvalue") in the Node.js website.
 
-###### GIT_SSL_NO_VERIFY=\*
+###### GIT\_SSL\_NO\_VERIFY=\*
 
 When git command line processes run with `GIT_SSL_NO_VERIFY` set, Git skips verifying TLS certificates.
 For more information, see [Environment variables](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables "https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables") in the Git website.
 
-###### PIP_TRUSTED_HOST=\*
+###### PIP\_TRUSTED\_HOST=\*
 
 When Python pip command line processes run with `PIP_TRUSTED_HOST` set, Pip skips verifying TLS certificates on the specified domain.
 For more information, see [--trusted-host](https://pip.pypa.io/en/stable/cli/pip/#cmdoption-trusted-host "https://pip.pypa.io/en/stable/cli/pip/#cmdoption-trusted-host") in the Pip website.
 
-###### NPM_CONFIG_STRICT_SSL=false
+###### NPM\_CONFIG\_STRICT\_SSL=false
 
 When Node.js npm command line processes run with `NPM_CONFIG_STRICT_SSL` set to false, the Node Package Manager (npm) utility will connect to the NPM registry without validating TLS certificates.
 For more information, see [strict-ssl](https://docs.npmjs.com/cli/v10/using-npm/config#strict-ssl "https://docs.npmjs.com/cli/v10/using-npm/config#strict-ssl") in the npm Docs website website.

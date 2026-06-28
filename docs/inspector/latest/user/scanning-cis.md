@@ -7,7 +7,7 @@ For information about how to activate Amazon EC2 scanning, see [Activating a sca
 
 ###### Note
 
-CIS standards are intended for x86_64 operating systems.
+CIS standards are intended for x86\_64 operating systems.
 Some checks may not be evaluated or return invalid remediation instructions on ARM-based resources.
 
 Amazon Inspector performs CIS scans on target Amazon EC2 instances based on instance tags and your defined scanning schedule.

@@ -264,11 +264,11 @@ Choose your preferred access method to export an SBOM.
 Console1. Sign in using your credentials, and then open the Amazon Inspector console at [https://console.aws.amazon.com/inspector/v2/home](https://console.aws.amazon.com/inspector/v2/home "https://console.aws.amazon.com/inspector/v2/home"). 2. Using the AWS Region selector in the upper-right corner of the page,
 select the Region with the resources you want to export SBOM for. 3. In the navigation pane, choose **Export SBOMs**. 4. (Optional) In the **Export SBOMs** page, use the **Add filter** menu to select a subset of resources to create reports for. If no filter is provided Amazon Inspector will export reports for all active resources. If you are a delegated administrator this will include all active resources in your organization. 5. Under **Export setting** select the format you want for the SBOM. 6. Enter an **Amazon S3 URI** or choose **Browse Amazon S3** to select an Amazon S3 location to store the SBOM. 7. Enter a **AWS KMS key** configured for Amazon Inspector to use to encrypt your reports.
 
-API\* To export SBOMs for your resources programmatically, use the [CreateSbomExport](../../v2/APIReference/API_CreateSbomExport.md "../../v2/APIReference/API_CreateSbomExport.md") operation of the Amazon Inspector API.
+API* To export SBOMs for your resources programmatically, use the [CreateSbomExport](../../v2/APIReference/API_CreateSbomExport.md "../../v2/APIReference/API_CreateSbomExport.md") operation of the Amazon Inspector API.
 
 In your request, use the `reportFormat` parameter to specify the SBOM output format, choose `CYCLONEDX_1_4` or `SPDX_2_3`. The `s3Destination` parameter is required and you must specify an S3 bucket configured with a policy that allows Amazon Inspector to write to it. Optionally use `resourceFilterCriteria` parameters to limit the scope of the report to specific resources.
 
-AWS CLI\* To export SBOMs for your resources using the AWS Command Line Interface run the following command:
+AWS CLI* To export SBOMs for your resources using the AWS Command Line Interface run the following command:
 
 `aws inspector2 create-sbom-export --report-format `FORMAT` --s3-destination bucketName=`amzn-s3-demo-bucket1`,keyPrefix=`PREFIX`,kmsKeyArn=`arn:aws:kms:Region:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
 

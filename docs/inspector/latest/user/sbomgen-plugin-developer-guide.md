@@ -687,9 +687,15 @@ Plugins run in a sandboxed Lua VM with limited standard library access:
 | `debug`     | ✗             | Blocked to prevent VM introspection            |
 | `coroutine` | ✗             | Not loaded                                     |
 
-Direct filesystem access via `io.open` or `os.execute` is not available. All file operations must go through the `sbomgen` API, which ensures consistent behavior across artifact types and prevents plugins from accessing files outside the artifact.
+Direct filesystem access via `io.open` or `os.execute` is not available. All file operations must go through the `sbomgen` API, which ensures consistent behavior across artifact types.
+
+The `sbomgen` file functions confine reads to the artifact under inventory: a path that resolves outside the artifact root (for example via `../` traversal) is rejected and returns an error. The `localhost` artifact type is the exception — it inventories the host itself, so reads are not confined to a narrower root.
 
 `require()` can load modules only from within the plugin's own directory tree. Parent-directory traversal such as `require("../shared")` is blocked.
+
+### SBOM contents are not sanitized
+
+The read boundary above governs what a plugin can read, not what it writes. Sbomgen does not inspect or filter the data a plugin emits into the SBOM, and does not detect or redact secrets, credentials, or other sensitive values. Whatever a plugin places into a finding appears in the output SBOM and travels wherever that SBOM is published, so only emit data derived from the artifact you intend to inventory.
 
 ## Sharing Code Between Plugins
 

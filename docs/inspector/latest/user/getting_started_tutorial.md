@@ -64,19 +64,19 @@ In the **Capability Selection**, do one of the following:
     * Choose **Configure and enable all capabilities (Recommended)**. This turns on all of the Inspector capabilities including EC2, ECR, Lambda standard, Lambda code scan, and Code Security.
     * Choose **Select subset of capabilities**. Select any scan type capabilities that should be turned on.
 
-6.  In the **Account selection** section, select one of the following options:
+6. In the **Account selection** section, select one of the following options:
 
-    - Choose **All organizational units and accounts** if you want to apply the configuration to all organizational units and accounts.
-    - Choose **Specific organizational units and accounts** if you want to apply the configuration to specific organizational units and accounts. If you choose this option, use the search bar or organizational structure tree to specify the organizational units and accounts where the policy will be applied.
-    - Choose **No organizational units or accounts** if you do not want to apply the configuration to any organizational unit or account.
+    * Choose **All organizational units and accounts** if you want to apply the configuration to all organizational units and accounts.
+    * Choose **Specific organizational units and accounts** if you want to apply the configuration to specific organizational units and accounts. If you choose this option, use the search bar or organizational structure tree to specify the organizational units and accounts where the policy will be applied.
+    * Choose **No organizational units or accounts** if you do not want to apply the configuration to any organizational unit or account.
 
-7.  In the **Regions** section, choose **Enable all Regions**, **Disable all Regions**, or **Specify Regions**.
+7. In the **Regions** section, choose **Enable all Regions**, **Disable all Regions**, or **Specify Regions**.
 
-        * If you choose **Enable all Regions**, you can determine whether to automatically enable new Regions.
-        * If you choose **Disable all Regions**, you can determine whether to automatically disable new Regions.
-        * If you choose **Specify Regions**, you must choose which Regions you want to enable and disable.
+    * If you choose **Enable all Regions**, you can determine whether to automatically enable new Regions.
+    * If you choose **Disable all Regions**, you can determine whether to automatically disable new Regions.
+    * If you choose **Specify Regions**, you must choose which Regions you want to enable and disable.
 
-    (Optional) For **Advanced settings**, refer to the guidance from AWS Organizations.
+(Optional) For **Advanced settings**, refer to the guidance from AWS Organizations.
 
 (Optional) For **Resource tags**, add tags as key-value pairs to help you easily identify the configuration. 8. Choose **Next**, review your changes, and then choose **Apply**. Your target accounts are configured based on the policy.
 The configuration status of your policy displays at the top of the Policies page.

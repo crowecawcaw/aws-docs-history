@@ -65,4 +65,4 @@ pkg:maven/org.example.com/testmaven@1.0.2%20Beta-RC-1_Release
 
 ###### Note
 
-The use of a non-standard suffix, such as Beta-RC-1_Release, isn't compliant with standard semantic versioning and cannot be assessed for vulnerabilities within the Amazon Inspector detection engine.
+The use of a non-standard suffix, such as Beta-RC-1\_Release, isn't compliant with standard semantic versioning and cannot be assessed for vulnerabilities within the Amazon Inspector detection engine.

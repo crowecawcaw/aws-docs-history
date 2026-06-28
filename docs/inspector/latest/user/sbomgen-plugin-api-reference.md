@@ -22,12 +22,12 @@ Plugins run in a sandboxed Lua VM with restricted standard library access. The f
 
 The following standard library modules are **explicitly disallowed** for security and stability:
 
-| **Module**  | **Reason**                                                                                                                                                                                                                     |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `io`        | Direct filesystem access is blocked. All file operations must go through `sbomgen.*` functions, which route through the artifact interface for consistent behavior across artifact types (directory, container, volume, etc.). |
-| `os`        | System-level operations (`os.execute`, `os.remove`, `os.rename`, `os.getenv`, etc.) are blocked to prevent plugins from modifying the host system.                                                                             |
-| `debug`     | The debug library is blocked to prevent inspection or modification of the Lua VM internals.                                                                                                                                    |
-| `coroutine` | Coroutines are not loaded.                                                                                                                                                                                                     |
+| **Module**  | **Reason**                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `io`        | Direct filesystem access is blocked. All file operations must go through `sbomgen.*` functions, which route through the artifact interface for consistent behavior across artifact types (directory, container, volume, etc.) and confine reads to the artifact under inventory (see [File access boundary](#sbomgen-plugin-api-reference-file-access-boundary "#sbomgen-plugin-api-reference-file-access-boundary")). |
+| `os`        | System-level operations (`os.execute`, `os.remove`, `os.rename`, `os.getenv`, etc.) are blocked to prevent plugins from modifying the host system.                                                                                                                                                                                                                                                                     |
+| `debug`     | The debug library is blocked to prevent inspection or modification of the Lua VM internals.                                                                                                                                                                                                                                                                                                                            |
+| `coroutine` | Coroutines are not loaded.                                                                                                                                                                                                                                                                                                                                                                                             |
 
 These modules are not in the VM's allowlist and cannot be accessed by plugins.
 
@@ -62,6 +62,14 @@ A plugin is a Lua file named `init.lua` that defines certain top-level global fu
 ## File I/O
 
 All file operations must go through the `sbomgen.*` API. Direct filesystem access via Lua's `io` library is not available (see [Sandbox Restrictions](#sbomgen-plugin-api-reference-sandbox-restrictions "#sbomgen-plugin-api-reference-sandbox-restrictions")). The `sbomgen` file I/O functions route through the artifact interface, ensuring your plugin works identically whether scanning a directory on disk, a container image, a compressed archive, or a mounted volume.
+
+### File access boundary
+
+The `sbomgen.*` file functions confine reads to the artifact under inventory. A path that resolves outside the artifact root — for example via `../` traversal — is rejected, and the call returns an error rather than reading the host filesystem. This applies to `read_file`, `open_file`, `read_dir`, `file_stat`, and the binary/hash helpers that take a path.
+
+The exception is the `localhost` artifact type, which inventories the host itself; there the host filesystem is the artifact, so reads are not confined to a narrower root.
+
+This boundary governs file _reads_ only. It does not constrain what a plugin writes into the SBOM — see [SBOM contents are not sanitized](#sbomgen-plugin-api-reference-sbom-contents-not-sanitized "#sbomgen-plugin-api-reference-sbom-contents-not-sanitized").
 
 ### `sbomgen.get_file_list()`
 
@@ -517,10 +525,10 @@ The `amazon:inspector:*` family of CycloneDX property namespaces is reserved for
 
 Property keys passed to `sbomgen.push_package()` are processed as follows:
 
-| **Input key**                               | **Resulting key in SBOM**                                | **Recommended for custom plugins?**                                      |
-| ------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Contains `:` (e.g., `acme:my_plugin:field`) | Used verbatim                                            | \*_Yes_<br>• — place every plugin-defined property in your own namespace |
-| No `:` (e.g., `field`)                      | Auto-prefixed to `amazon:inspector:sbom_generator:field` | \*_No_<br>• — this writes into a reserved namespace                      |
+| **Input key**                               | **Resulting key in SBOM**                                | **Recommended for custom plugins?**                                     |
+| ------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Contains `:` (e.g., `acme:my_plugin:field`) | Used verbatim                                            | *_Yes_<br>• — place every plugin-defined property in your own namespace |
+| No `:` (e.g., `field`)                      | Auto-prefixed to `amazon:inspector:sbom_generator:field` | *_No_<br>• — this writes into a reserved namespace                      |
 
 Always include at least one colon in property keys you define. Use a namespace unique to your organization or plugin (for example `acme:python-pip:*`):
 
@@ -546,6 +554,12 @@ Sbomgen may attach properties of its own to every component it emits. These valu
 - `source_file_scanner` and `source_package_collector` are added when `--enable-debug-props` is enabled.
 
 The full taxonomy of reserved keys is maintained in the Amazon Inspector user guide: [Using CycloneDX namespaces with Amazon Inspector](cyclonedx-namespace.md "cyclonedx-namespace.md").
+
+### SBOM contents are not sanitized
+
+Sbomgen does not inspect or filter the data a plugin emits. Component names, versions, PURLs, hashes, and property values are written to the SBOM as provided. Sbomgen does not detect or redact secrets, credentials, tokens, or other sensitive data — if a plugin places such a value into a finding, it appears in the output SBOM and travels wherever that SBOM is published.
+
+You are responsible for what your plugins write. Only emit data derived from the artifact you intend to inventory, and treat the SBOM as a shareable artifact when deciding what to include.
 
 ## Property Constants
 
@@ -875,7 +889,7 @@ Reads an integer value from an open registry key.
 
 ### `sbomgen.registry_get_strings(key, value_name)`
 
-Reads a multi-string (REG_MULTI_SZ) value from an open registry key. Returns a table of strings.
+Reads a multi-string (REG\_MULTI\_SZ) value from an open registry key. Returns a table of strings.
 
 - **Returns:** `{string, ...}, err`
 
@@ -987,7 +1001,7 @@ local result = testing.scan_directory("_testdata/example")
 | `testing.assert_nil`        | `(value: any, message?: string)`                       | Fails if `value` is not `nil`.                                   |
 | `testing.assert_not_nil`    | `(value: any, message?: string)`                       | Fails if `value` is `nil`.                                       |
 | `testing.assert_contains`   | `(haystack: string, needle: string, message?: string)` | Fails if `haystack` does not contain `needle` (substring match). |
-| `testing.assert_matches`    | `(str: string, pattern: string, message?: string)`     | Fails if `str` does not match the given \*_Go (RE2)_<br>• regex. |
+| `testing.assert_matches`    | `(str: string, pattern: string, message?: string)`     | Fails if `str` does not match the given **Go (RE2)*<br>• regex.  |
 | `testing.assert_length`     | `(tbl: table, expected: integer, message?: string)`    | Fails if `#tbl` does not equal `expected`.                       |
 
 ### Control flow
