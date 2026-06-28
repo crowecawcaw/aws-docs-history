@@ -62,7 +62,7 @@ replaced by a more recent execution.
    the white **Add action group**
    button.
 8. Under **Action name,** enter
-   **Manual_Review.**
+   **Manual\_Review.**
 9. From the **Action
    provider** dropdown, select
    **Manual approval.**

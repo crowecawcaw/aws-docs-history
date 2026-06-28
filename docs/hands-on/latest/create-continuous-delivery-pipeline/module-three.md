@@ -92,7 +92,7 @@ Select **Amazon Linux 2**from the **Operating system** dropdown menu.
 
 Select **Standard** from the **Runtime(s)** dropdown menu.
 
-Select **aws/codebuild/amazonlinux2-x86_64-standard:3.0** from the **Image** dropdown menu.
+Select **aws/codebuild/amazonlinux2-x86\_64-standard:3.0** from the **Image** dropdown menu.
 
 Confirm that **Always use the latest image for this runtime
 version** is selected for **Image version.**

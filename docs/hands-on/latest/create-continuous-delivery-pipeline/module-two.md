@@ -56,7 +56,7 @@ Choose **Create Application**.
 Choose **Web server environment** under the Configure
 environment heading.
 
-In the text box under the heading Application name, enter **DevOpsGettingStarted\*\***.\*\*
+In the text box under the heading Application name, enter **DevOpsGettingStarted****.**
 
 In the **Platform** dropdown menu, under the Platform
 heading, select **Node.js** . **Platform branch** and **Platform version**
