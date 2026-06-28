@@ -17,13 +17,13 @@ for all AWS Sign-In actions (`signin:Authenticate`,
 `signin:AuthorizeOAuth2Access`, and `signin:CreateOAuth2Token`) in
 both resource-based policies and RCPs.
 
-| Network-based condition keys | Condition key                        | Operators                         | Description                                                                                                                                    | Usage rules |
-| ---------------------------- | ------------------------------------ | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `aws:SourceIp`               | `IpAddress`, `NotIpAddress`          | Public IP address or CIDR range   | Not present when a request uses a VPC endpoint. Use<br>`IfExists` operators when combining with VPC-based<br>conditions in the same statement. |
-| `aws:SourceVpc`              | `StringEquals`,<br>`StringNotEquals` | VPC ID (`vpc-xxxxxxxx`)           | Only present when a request uses a VPC endpoint. Use with<br>`aws:RequestedRegion` to prevent cross-region VPC ID<br>collision.                |
-| `aws:SourceVpce`             | `StringEquals`,<br>`StringNotEquals` | VPC endpoint ID (`vpce-xxxxxxxx`) | Only present when a request uses a VPC endpoint.                                                                                               |
-| `aws:VpcSourceIp`            | `IpAddress`, `NotIpAddress`          | Private IP within the VPC         | Always use the `aws:VpcSourceIp` condition key with the<br>`aws:SourceVpc` or `aws:SourceVpce` condition<br>keys.                              |
-| `aws:RequestedRegion`        | `StringEquals`,<br>`StringNotEquals` | Target AWS Region code            | Recommended when using `aws:SourceVpc` to prevent<br>cross-region VPC ID collision. Multiple Regions can be<br>specified.                      |
+Network-based condition keys| Condition key | Operators | Description | Usage rules |
+| --- | --- | --- | --- |
+| `aws:SourceIp` | `IpAddress`, `NotIpAddress` | Public IP address or CIDR range | Not present when a request uses a VPC endpoint. Use<br>`IfExists` operators when combining with VPC-based<br>conditions in the same statement. |
+| `aws:SourceVpc` | `StringEquals`,<br>`StringNotEquals` | VPC ID (`vpc-xxxxxxxx`) | Only present when a request uses a VPC endpoint. Use with<br>`aws:RequestedRegion` to prevent cross-region VPC ID<br>collision. |
+| `aws:SourceVpce` | `StringEquals`,<br>`StringNotEquals` | VPC endpoint ID (`vpce-xxxxxxxx`) | Only present when a request uses a VPC endpoint. |
+| `aws:VpcSourceIp` | `IpAddress`, `NotIpAddress` | Private IP within the VPC | Always use the `aws:VpcSourceIp` condition key with the<br>`aws:SourceVpc` or `aws:SourceVpce` condition<br>keys. |
+| `aws:RequestedRegion` | `StringEquals`,<br>`StringNotEquals` | Target AWS Region code | Recommended when using `aws:SourceVpc` to prevent<br>cross-region VPC ID collision. Multiple Regions can be<br>specified. |
 
 ###### Important
 
@@ -39,10 +39,10 @@ post-authentication actions (`signin:AuthorizeOAuth2Access` and
 `signin:CreateOAuth2Token`), where the principal identity has been
 established.
 
-| Identity-based condition keys | Condition key                                                              | Operators                              | Description                                                                       | Examples |
-| ----------------------------- | -------------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------- | -------- |
-| `aws:PrincipalArn`            | `ArnEquals`, `ArnLike`,<br>`ArnNotEquals`, `StringEquals`,<br>`StringLike` | ARN of the authenticated IAM principal | `arn:aws:iam::123456789012:user/alice`,<br>`arn:aws:iam::123456789012:role/Admin` |
-| `aws:PrincipalAccount`        | `StringEquals`,<br>`StringNotEquals`                                       | AWS account ID of the principal        | `123456789012`                                                                    |
+Identity-based condition keys| Condition key | Operators | Description | Examples |
+| --- | --- | --- | --- |
+| `aws:PrincipalArn` | `ArnEquals`, `ArnLike`,<br>`ArnNotEquals`, `StringEquals`,<br>`StringLike` | ARN of the authenticated IAM principal | `arn:aws:iam::123456789012:user/alice`,<br>`arn:aws:iam::123456789012:role/Admin` |
+| `aws:PrincipalAccount` | `StringEquals`,<br>`StringNotEquals` | AWS account ID of the principal | `123456789012` |
 
 ## Service-specific condition key: signin:PrincipalArn
 
@@ -142,16 +142,16 @@ principal after authentication, during OAuth token exchange. See [Policy example
 
 ## Condition key availability by action
 
-| Condition key availability by action | Condition key | signin:Authenticate | signin:AuthorizeOAuth2Access | signin:CreateOAuth2Token |
-| ------------------------------------ | ------------- | ------------------- | ---------------------------- | ------------------------ |
-| `aws:SourceIp`                       | Yes           | Yes                 | Yes                          |
-| `aws:SourceVpc`                      | Yes           | Yes                 | Yes                          |
-| `aws:SourceVpce`                     | Yes           | Yes                 | Yes                          |
-| `aws:VpcSourceIp`                    | Yes           | Yes                 | Yes                          |
-| `aws:RequestedRegion`                | Yes           | Yes                 | Yes                          |
-| `aws:PrincipalArn`                   | –             | Yes                 | Yes                          |
-| `aws:PrincipalAccount`               | –             | Yes                 | Yes                          |
-| `signin:PrincipalArn`                | Yes           | –                   | –                            |
+Condition key availability by action| Condition key | signin:Authenticate | signin:AuthorizeOAuth2Access | signin:CreateOAuth2Token |
+| --- | --- | --- | --- |
+| `aws:SourceIp` | Yes | Yes | Yes |
+| `aws:SourceVpc` | Yes | Yes | Yes |
+| `aws:SourceVpce` | Yes | Yes | Yes |
+| `aws:VpcSourceIp` | Yes | Yes | Yes |
+| `aws:RequestedRegion` | Yes | Yes | Yes |
+| `aws:PrincipalArn` | – | Yes | Yes |
+| `aws:PrincipalAccount` | – | Yes | Yes |
+| `signin:PrincipalArn` | Yes | – | – |
 
 ###### Note
 

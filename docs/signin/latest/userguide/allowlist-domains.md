@@ -45,7 +45,7 @@ the _IAM Identity Center User Guide_.
 ###### IPv4 allow list
 
 - ``[Directory ID or
-alias]`.awsapps.com`
+  alias]`.awsapps.com`
 - ``[IAM Identity Center instance ID]`.`[Region]`.portal.amazonaws.com`
 - `*.aws.dev`
 - `*.awsstatic.com`

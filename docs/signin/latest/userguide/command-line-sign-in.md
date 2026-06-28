@@ -55,9 +55,8 @@ parameters:
      authenticate in a specific region
 
 2. Follow the prompts in your terminal. The command will automatically open your
-   default browser and guide you through the authentication process. After successful authentication, your AWS CLI session will be valid for up to 12
-   hours.
-3. To end your session, use:
+default browser and guide you through the authentication process. After successful authentication, your AWS CLI session will be valid for up to 12
+hours. 3. To end your session, use:
 
 ```
 `$` `aws logout`
