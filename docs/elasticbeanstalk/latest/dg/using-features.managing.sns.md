@@ -55,10 +55,10 @@ or an SDK.
 - Notification Endpoint – The email address, Amazon SQS queue, or URL to send notifications to. If you set this
   option, then an SQS queue and a subscription for the specified endpoint are created. If the endpoint isn't an email address, you must also set the
   `Notification Protocol` option. SNS validates the value of `Notification Endpoint` based on the value of `Notification
-Protocol`. Setting this option multiple times creates additional subscriptions to the topic. If you remove this option, the topic is
+ Protocol`. Setting this option multiple times creates additional subscriptions to the topic. If you remove this option, the topic is
   deleted.
 - Notification Protocol – The protocol that's used to send notifications to the `Notification
-Endpoint`. This option defaults to `email`. Set this option to `email-json` to send JSON-formatted emails,
+ Endpoint`. This option defaults to `email`. Set this option to `email-json` to send JSON-formatted emails,
   `http` or `https` to post JSON-formatted notifications to an HTTP endpoint, or `sqs` to send notifications to an
   SQS queue.
 

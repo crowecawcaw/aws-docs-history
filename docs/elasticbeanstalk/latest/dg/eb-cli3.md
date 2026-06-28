@@ -171,7 +171,7 @@ version of Python than you normally do. 2. Add the path to the executable file t
     	6. Close any running Command Prompt windows, and then reopen a Command Prompt window.
 
 3. Verify that the EB CLI installed correctly by running **eb
-   --version**.
+--version**.
 
 ```
 $ `eb --version`

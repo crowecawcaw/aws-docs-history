@@ -226,10 +226,10 @@ services:
 
 ###### Notes
 
-- _${EB_LOG_BASE_DIR}_ is an environment variable set by Elastic Beanstalk with the value
+- _${EB\_LOG\_BASE\_DIR}_ is an environment variable set by Elastic Beanstalk with the value
   `/var/log/eb-docker/containers`.
-- Elastic Beanstalk automatically creates the `/var/log/eb-docker/containers/`<service name>``directory for each
-service in the`docker-compose.yml`file.
+- Elastic Beanstalk automatically creates the `/var/log/eb-docker/containers/`<service name>`` directory for each
+  service in the `docker-compose.yml`file.
 
 ## Docker images
 

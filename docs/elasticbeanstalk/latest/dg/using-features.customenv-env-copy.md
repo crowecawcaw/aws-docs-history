@@ -83,7 +83,7 @@ see [Cleaning up a custom AMI](using-features.customenv.md#using-features.custom
 
 ## Standalone script
 
-The following script provides the same results as the previous manual steps. Download the script by selecting this link: [copy_ami_and_update_env.zip](samples/copy_ami_and_update_env.zip.md "samples/copy_ami_and_update_env.zip.md").
+The following script provides the same results as the previous manual steps. Download the script by selecting this link: [copy\_ami\_and\_update\_env.zip](samples/copy_ami_and_update_env.zip.md "samples/copy_ami_and_update_env.zip.md").
 
 ```
 #!/bin/bash
@@ -220,7 +220,7 @@ These steps describe the process that the script follows.
 7. Update the environment configuration to use the new AMI.
 8. Wait for the environment update to complete.
 
-After you extract the script from the [copy_ami_and_update_env.zip](samples/copy_ami_and_update_env.zip.md "samples/copy_ami_and_update_env.zip.md") file, run it by executing the following
+After you extract the script from the [copy\_ami\_and\_update\_env.zip](samples/copy_ami_and_update_env.zip.md "samples/copy_ami_and_update_env.zip.md") file, run it by executing the following
 example. Replace the application name and environment name in the example with your own values.
 
 ```

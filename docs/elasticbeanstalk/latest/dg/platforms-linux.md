@@ -53,22 +53,21 @@ Although there are some differences to note:
   `httpd.conf` file for AL2023 platforms has some configuration settings
   that are different from those for AL2:
 
-      + Deny access to the server’s entire file system by default. These settings are
-       described in *Protect Server Files by Default* on the Apache website
-       [Security
-       Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html "https://httpd.apache.org/docs/2.4/misc/security_tips.html") page.
-      + Deny access to set up of `.htaccess` in all directories, except for
-       those specifically enabled. This setting is described in *Protecting System
-       Settings* on the Apache website [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html "https://httpd.apache.org/docs/2.4/misc/security_tips.html")
-       page. The [Apache HTTP
-       Server Tutorial: .htaccess files](https://httpd.apache.org/docs/2.4/howto/htaccess.html "https://httpd.apache.org/docs/2.4/howto/htaccess.html")  page states this setting may help improve
-       performance.
-      + Deny access to files with name pattern `.ht*`. This setting
-       prevents web clients from viewing `.htaccess` and
-       `.htpasswd` files.
-
-  You can change any of the above configuration settings for your environment. For more
-  information, see [Configuring Apache HTTPD](platforms-linux-extend.proxy.md#platforms-linux-extend.proxy.httpd "platforms-linux-extend.proxy.md#platforms-linux-extend.proxy.httpd").
+  - Deny access to the server’s entire file system by default. These settings are
+    described in _Protect Server Files by Default_ on the Apache website
+    [Security
+    Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html "https://httpd.apache.org/docs/2.4/misc/security_tips.html") page.
+  - Deny access to set up of `.htaccess` in all directories, except for
+    those specifically enabled. This setting is described in _Protecting System
+    Settings_ on the Apache website [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html "https://httpd.apache.org/docs/2.4/misc/security_tips.html")
+    page. The [Apache HTTP
+    Server Tutorial: .htaccess files](https://httpd.apache.org/docs/2.4/howto/htaccess.html "https://httpd.apache.org/docs/2.4/howto/htaccess.html") page states this setting may help improve
+    performance.
+  - Deny access to files with name pattern `.ht*`. This setting
+    prevents web clients from viewing `.htaccess` and
+    `.htpasswd` files.
+    You can change any of the above configuration settings for your environment. For more
+    information, see [Configuring Apache HTTPD](platforms-linux-extend.proxy.md#platforms-linux-extend.proxy.httpd "platforms-linux-extend.proxy.md#platforms-linux-extend.proxy.httpd").
 
 - Multiline environment variable support – AL2023 platforms
   support multiline values for environment variables and secrets in systemd service

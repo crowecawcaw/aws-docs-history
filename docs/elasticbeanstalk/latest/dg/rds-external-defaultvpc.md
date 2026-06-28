@@ -38,9 +38,9 @@ Do not choose **Easy Create**. If you choose it, you can't configure the necessa
      settings because you will use them later.
 
 7. Verify the default settings for the remaining options, and then choose **Create database**.
-   Next, modify the security group that's attached to your DB instance to allow inbound traffic on the appropriate port. This is the same security group
-   that you will attach to your Elastic Beanstalk environment later. As a result, the rule that you add will grant inbound access permission to other resources in the
-   same security group.
+Next, modify the security group that's attached to your DB instance to allow inbound traffic on the appropriate port. This is the same security group
+that you will attach to your Elastic Beanstalk environment later. As a result, the rule that you add will grant inbound access permission to other resources in the
+same security group.
 
 ###### To modify the inbound rules on the security group that's attached to your RDS instance
 
@@ -67,24 +67,23 @@ with the additional security group attached.
 
 - Do one of the following:
 
-      + To add a security group using the Elastic Beanstalk console
+  - To add a security group using the Elastic Beanstalk console
 
+    1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+       and in the **Regions** list, select your AWS Region.
+    2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+    3. In the navigation pane, choose **Configuration**.
+    4. In the **Instances** configuration category, choose **Edit**.
+    5. Under **EC2 security groups**, choose the security group to attach to the instances, in addition to the instance security group that
+       Elastic Beanstalk creates.
+    6. To save the changes choose **Apply** at the bottom of the page.
+    7. Read the warning, and then choose **Confirm**.
 
-      	1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
-      	 and in the **Regions** list, select your AWS Region.
-      	2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
-      	3. In the navigation pane, choose **Configuration**.
-      	4. In the **Instances** configuration category, choose **Edit**.
-      	5. Under **EC2 security groups**, choose the security group to attach to the instances, in addition to the instance security group that
-      	 Elastic Beanstalk creates.
-      	6. To save the changes choose **Apply** at the bottom of the page.
-      	7. Read the warning, and then choose **Confirm**.
-      + To add a security group using a [configuration file](ebextensions.md "ebextensions.md"), use the [`securitygroup-addexisting.config`](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/security-configuration/securitygroup-addexisting.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/security-configuration/securitygroup-addexisting.config") example file.
-
-  Next, pass the connection information to your environment by using environment properties. When you [add a
-  DB instance to your environment](using-features.managing.db.md "using-features.managing.db.md") with the Elastic Beanstalk console, Elastic Beanstalk uses environment properties, such as **RDS_HOSTNAME**, to pass
-  connection information to your application. You can use the same properties. By doing this, you use the same application code with both integrated DB
-  instances and external DB instances. Or, alternatively, you can choose your own property names.
+  - To add a security group using a [configuration file](ebextensions.md "ebextensions.md"), use the [`securitygroup-addexisting.config`](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/security-configuration/securitygroup-addexisting.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/security-configuration/securitygroup-addexisting.config") example file.
+    Next, pass the connection information to your environment by using environment properties. When you [add a
+    DB instance to your environment](using-features.managing.db.md "using-features.managing.db.md") with the Elastic Beanstalk console, Elastic Beanstalk uses environment properties, such as **RDS\_HOSTNAME**, to pass
+    connection information to your application. You can use the same properties. By doing this, you use the same application code with both integrated DB
+    instances and external DB instances. Or, alternatively, you can choose your own property names.
 
 ###### To configure environment properties for an Amazon RDS DB instance
 
@@ -97,13 +96,13 @@ with the additional security group attached.
    compatibility with environments that have an integrated RDS DB instance, use the following names and values. You can find all values, except for your
    password, in the [RDS console](https://console.aws.amazon.com/rds/home "https://console.aws.amazon.com/rds/home").
 
-| Property name  | Description                                                                                    | Property value                                                                         |
-| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+| Property name  | Description                                                                                    | Property value                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the *_Connectivity & security_<br>• tab on the Amazon RDS console: **Endpoint**. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the *_Connectivity & security_<br>• tab on the Amazon RDS console: **Port**.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the *_Configuration_<br>• tab on the Amazon RDS console: **DB Name**.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the *_Configuration_<br>• tab on the Amazon RDS console: **Master username**.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                              |
 
 ![Environment properties configuration section with RDS properties added](images/environment-cfg-envprops-rds.png) 6. To save the changes choose **Apply** at the bottom of the page.
 If you didn't program your application to read environment properties and construct a connection string yet, see the following language-specific

@@ -107,8 +107,8 @@ info: Microsoft.Hosting.Lifetime[0]
 The `dotnet` command selects a port at random when running the application locally. In this example the port is 5052. When you
 deploy the application to your Elastic Beanstalk environment, the application will run on port 5000.
 
-Enter the URL address `http://localhost:`port``in your web browser. For this specific example, the
- command is`http://localhost:5052`. The web browser should display “Hello World!”.
+Enter the URL address `http://localhost:`port`` in your web browser. For this specific example, the
+command is `http://localhost:5052`. The web browser should display “Hello World!”.
 
 ## Step 3: Deploy your .NET Core on Linux application with the EB CLI
 

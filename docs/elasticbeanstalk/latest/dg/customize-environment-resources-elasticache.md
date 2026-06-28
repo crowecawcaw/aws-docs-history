@@ -106,7 +106,7 @@ option_settings:
 These lines tell Elastic Beanstalk to get the values for the **CacheNodeType, NumCacheNodes,
 and Engine** properties from the **CacheNodeType, NumCacheNodes, and
 Engine** values in a config file (options.config in our example) that contains an
-option_settings section with an **aws:elasticbeanstalk:customoption** section
+option\_settings section with an **aws:elasticbeanstalk:customoption** section
 that contains a name-value pair that contains the actual value to use. In the example above,
 this means cache.m1.small, 1, and memcached would be used for the values. For more information
 about `Fn::GetOptionSetting`, see [Functions](ebextensions-functions.md "ebextensions-functions.md").
@@ -283,7 +283,7 @@ subnet in the subnet group.
 ###### Note
 
 We recommend that you use private subnets for the ElastiCache cluster. For more
-information about a VPC with a private subnet, see [https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html](../../../vpc/latest/userguide/VPC_Scenario2.md "../../../vpc/latest/userguide/VPC_Scenario2.md").
+information about a VPC with a private subnet, see [https://docs.aws.amazon.com/vpc/latest/userguide/VPC\_Scenario2.html](../../../vpc/latest/userguide/VPC_Scenario2.md "../../../vpc/latest/userguide/VPC_Scenario2.md").
 
 ```
 #This sample requires you to create a separate configuration file that defines the custom option settings for CacheCluster properties.

@@ -17,7 +17,7 @@ You can configure your application with your own provided Puma server. This prov
 pre-installed with the Ruby platform branch. You can also configure your application to use a different application server, such as Passenger. To do so, you
 must include and customize a `Gemfile` in your deployment. You're also required to configure a `Procfile` to start the
 application server. For more information see _[Configuring the application process with a
-Procfile](ruby-platform-procfile.md "ruby-platform-procfile.md")\*\*._
+Procfile](ruby-platform-procfile.md "ruby-platform-procfile.md")**._
 
 ###### Other configuration options
 
@@ -86,7 +86,7 @@ The following examples illustrate how the default configuration works:
 
 - If your application source contains a file named `logo.png` in a folder named `public`, the proxy server
   serves it to users from ``subdomain`.elasticbeanstalk.com/public/logo.png` and
-``subdomain`.elasticbeanstalk.com/logo.png`.
+ ``subdomain`.elasticbeanstalk.com/logo.png`.
 - If your application source contains a file named `logo.png` in a folder named `assets` inside the
   `public` folder, the proxy server serves it from
   ``subdomain`.elasticbeanstalk.com/assets/logo.png`.
@@ -108,18 +108,18 @@ your application. Environment properties are passed in as key-value pairs to the
 
 The Ruby platform defines the following properties for environment configuration:
 
-- **BUNDLE_WITHOUT** – A colon-separated list of groups to ignore when [installing dependencies](http://bundler.io/bundle_install.html "http://bundler.io/bundle_install.html") from a [Gemfile](http://bundler.io/v1.15/man/gemfile.5.html "http://bundler.io/v1.15/man/gemfile.5.html").
-- **BUNDLER_DEPLOYMENT_MODE** – Set to `true` (the default) to install dependencies in [deployment mode](https://bundler.io/man/bundle-install.1.html#DEPLOYMENT-MODE "https://bundler.io/man/bundle-install.1.html#DEPLOYMENT-MODE") using Bundler. Set to `false` to run
+- **BUNDLE\_WITHOUT** – A colon-separated list of groups to ignore when [installing dependencies](http://bundler.io/bundle_install.html "http://bundler.io/bundle_install.html") from a [Gemfile](http://bundler.io/v1.15/man/gemfile.5.html "http://bundler.io/v1.15/man/gemfile.5.html").
+- **BUNDLER\_DEPLOYMENT\_MODE** – Set to `true` (the default) to install dependencies in [deployment mode](https://bundler.io/man/bundle-install.1.html#DEPLOYMENT-MODE "https://bundler.io/man/bundle-install.1.html#DEPLOYMENT-MODE") using Bundler. Set to `false` to run
   `bundle install` in development mode.
 
 ###### Note
 
 This environment property isn't defined on Amazon Linux AMI Ruby platform branches (preceding Amazon Linux 2).
 
-- **RAILS_SKIP_ASSET_COMPILATION** – Set to `true` to skip running [`rake assets:precompile`](http://guides.rubyonrails.org/asset_pipeline.html#precompiling-assets "http://guides.rubyonrails.org/asset_pipeline.html#precompiling-assets") during deployment.
-- **RAILS_SKIP_MIGRATIONS** – Set to `true` to skip running [`rake db:migrate`](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations "http://guides.rubyonrails.org/active_record_migrations.html#running-migrations") during
+- **RAILS\_SKIP\_ASSET\_COMPILATION** – Set to `true` to skip running [`rake assets:precompile`](http://guides.rubyonrails.org/asset_pipeline.html#precompiling-assets "http://guides.rubyonrails.org/asset_pipeline.html#precompiling-assets") during deployment.
+- **RAILS\_SKIP\_MIGRATIONS** – Set to `true` to skip running [`rake db:migrate`](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations "http://guides.rubyonrails.org/active_record_migrations.html#running-migrations") during
   deployment.
-- **RACK_ENV** – Specify the environment stage for Rack. For example, `development`, `production`, or
+- **RACK\_ENV** – Specify the environment stage for Rack. For example, `development`, `production`, or
   `test`.
 
 Inside the Ruby environment running in Elastic Beanstalk, environment variables are accessible using the `ENV` object. For example, you could read a

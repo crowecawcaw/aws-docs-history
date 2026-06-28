@@ -121,7 +121,7 @@ platform version (preceding Amazon Linux 2).
   GZIP compression is enabled.
 - **Node command** – Lets you enter the command used to start the Node.js application. An empty
   string (the default) means Elastic Beanstalk uses `app.js`, then `server.js`, and then `npm
-start`.
+ start`.
 
 ## Node.js configuration namespace
 

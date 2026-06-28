@@ -22,12 +22,11 @@ The URL must contain the following parameters, which are case sensitive:
 - **platform** – Specify the platform version to use for the environment. Use one of the following methods, then URL-encode
   your choice:
 
-      + Specify a platform ARN without a version. Elastic Beanstalk selects the latest platform version of the corresponding platform major version. For example,
-       to select the latest Python 3.6 platform version, specify `Python 3.6 running on 64bit Amazon Linux`.
-      + Specify the platform name. Elastic Beanstalk selects the latest version of the platform's latest language runtime (for example,
-       `Python`).
-
-  For a description of all available platforms and their versions, see [Elastic Beanstalk supported platforms](concepts.platforms.md "concepts.platforms.md").
+  - Specify a platform ARN without a version. Elastic Beanstalk selects the latest platform version of the corresponding platform major version. For example,
+    to select the latest Python 3.6 platform version, specify `Python 3.6 running on 64bit Amazon Linux`.
+  - Specify the platform name. Elastic Beanstalk selects the latest version of the platform's latest language runtime (for example,
+    `Python`).
+    For a description of all available platforms and their versions, see [Elastic Beanstalk supported platforms](concepts.platforms.md "concepts.platforms.md").
 
 You can use the [AWS Command Line Interface](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") (AWS CLI) to get a list of all the available platform versions with their respective
 ARNs. The `list-platform-versions` command lists detailed information about all the available platform versions. Use the

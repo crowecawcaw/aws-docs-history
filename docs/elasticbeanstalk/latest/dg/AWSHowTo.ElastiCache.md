@@ -7,19 +7,18 @@ Redis and Memcached environments will work seamlessly with the service. For more
 
 **To use Elastic Beanstalk with Amazon ElastiCache**
 
-1.  Create an ElastiCache cluster.
+1. Create an ElastiCache cluster.
 
-    - For instructions on how to create an ElastiCache cluster with Redis, go to [Getting Started with Amazon ElastiCache for Redis](../../../AmazonElastiCache/latest/red-ug/GettingStarted.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.md") in the _ElastiCache
-      for Redis User Guide_.
-    - For instructions on how to create an ElastiCache cluster with Memcached, go to [Getting Started with Amazon ElastiCache for Memcached](../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md "../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md") in the
-      _ElastiCache for Memcached User Guide_.
+   - For instructions on how to create an ElastiCache cluster with Redis, go to [Getting Started with Amazon ElastiCache for Redis](../../../AmazonElastiCache/latest/red-ug/GettingStarted.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.md") in the _ElastiCache
+     for Redis User Guide_.
+   - For instructions on how to create an ElastiCache cluster with Memcached, go to [Getting Started with Amazon ElastiCache for Memcached](../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md "../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md") in the
+     _ElastiCache for Memcached User Guide_.
 
-2.  Configure your ElastiCache Security Group to allow access from the Amazon EC2 security group used by your Elastic Beanstalk application. For instructions on how to find
-    the name of your EC2 security group using the AWS Management Console, see [EC2 security groups](using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups "using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups") on the _EC2 Instances_ document page.
+2. Configure your ElastiCache Security Group to allow access from the Amazon EC2 security group used by your Elastic Beanstalk application. For instructions on how to find
+   the name of your EC2 security group using the AWS Management Console, see [EC2 security groups](using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups "using-features.managing.ec2.console.md#using-features.managing.ec2.securitygroups") on the _EC2 Instances_ document page.
 
-        * For more information on Redis, go to [Authorize
-         Access](../../../AmazonElastiCache/latest/red-ug/GettingStarted.AuthorizeAccess.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.AuthorizeAccess.md") in the *ElastiCache for Redis User Guide*.
-        * For more information on Memcached, go to [Authorize Access](../../../AmazonElastiCache/latest/mem-ug/GettingStarted.AuthorizeAccess.md "../../../AmazonElastiCache/latest/mem-ug/GettingStarted.AuthorizeAccess.md") in the *ElastiCache for Memcached User Guide*.
-
-    You can use configuration files to customize your Elastic Beanstalk environment to use ElastiCache. For configuration file examples that integrate ElastiCache with Elastic Beanstalk, see
-    [Example: ElastiCache](customize-environment-resources-elasticache.md "customize-environment-resources-elasticache.md").
+   - For more information on Redis, go to [Authorize
+     Access](../../../AmazonElastiCache/latest/red-ug/GettingStarted.AuthorizeAccess.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.AuthorizeAccess.md") in the _ElastiCache for Redis User Guide_.
+   - For more information on Memcached, go to [Authorize Access](../../../AmazonElastiCache/latest/mem-ug/GettingStarted.AuthorizeAccess.md "../../../AmazonElastiCache/latest/mem-ug/GettingStarted.AuthorizeAccess.md") in the _ElastiCache for Memcached User Guide_.
+     You can use configuration files to customize your Elastic Beanstalk environment to use ElastiCache. For configuration file examples that integrate ElastiCache with Elastic Beanstalk, see
+     [Example: ElastiCache](customize-environment-resources-elasticache.md "customize-environment-resources-elasticache.md").

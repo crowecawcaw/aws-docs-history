@@ -43,7 +43,7 @@ HTTPS.
 ###### Note
 
 A certificate uploaded to IAM stays stored even after it's no longer used in any environment's load balancer. It contains sensitive data. When you
-no longer need the certificate for any environment, be sure to delete it. For details about deleting a certificate from IAM, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html#delete-server-certificate](../../../IAM/latest/UserGuide/id_credentials_server-certs.md#delete-server-certificate "../../../IAM/latest/UserGuide/id_credentials_server-certs.md#delete-server-certificate").
+no longer need the certificate for any environment, be sure to delete it. For details about deleting a certificate from IAM, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_credentials\_server-certs.html#delete-server-certificate](../../../IAM/latest/UserGuide/id_credentials_server-certs.md#delete-server-certificate "../../../IAM/latest/UserGuide/id_credentials_server-certs.md#delete-server-certificate").
 
 For more information about server certificates in IAM, see [Working with Server
 Certificates](../../../IAM/latest/UserGuide/id_credentials_server-certs.md "../../../IAM/latest/UserGuide/id_credentials_server-certs.md") in the _IAM User Guide_.

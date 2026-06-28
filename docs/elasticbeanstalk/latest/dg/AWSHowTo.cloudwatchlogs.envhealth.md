@@ -56,8 +56,9 @@ You can enable environment health streaming to CloudWatch Logs using the Elastic
 
 7. To save the changes choose **Apply** at the bottom of the page.
 
-After you enable log streaming, you can return to the **Monitoring** configuration category or page and find the **Log
-Group** link. Click this link to see your environment health logs in the CloudWatch console.
+After you enable log streaming, the environment health log group
+(`/aws/elasticbeanstalk/`environment-name`/environment-health.log`) appears in the Elastic Beanstalk console alongside your
+instance log groups, on the environment's **Logs** page. Choose it to view its log events in a built-in viewer.
 
 ### Environment health log streaming using the EB CLI
 

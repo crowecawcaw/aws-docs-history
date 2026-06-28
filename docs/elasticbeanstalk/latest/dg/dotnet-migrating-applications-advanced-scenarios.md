@@ -203,7 +203,7 @@ The **eb migrate** command preserves virtual directory structures while migratin
 
 When migrating virtual directories, **eb migrate** establishes a baseline set of permissions by granting ReadAndExecute access to:
 
-- IIS_IUSRS
+- IIS\_IUSRS
 - IUSR
 - Authenticated Users
 

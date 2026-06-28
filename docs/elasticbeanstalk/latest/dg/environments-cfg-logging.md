@@ -33,8 +33,9 @@ To view instance logs, you can enable instance log rotation and log streaming in
 
 7. To save the changes choose **Apply** at the bottom of the page.
 
-After you enable log streaming, you can return to the **Software** configuration category or page and find the **Log
-Groups** link. Click this link to see your instance logs in the CloudWatch console.
+After you enable log streaming, Elastic Beanstalk displays the streamed CloudWatch Logs log groups in the environment management console, on the
+**Logs** page. Choose a log group to view its log events in a built-in viewer—Elastic Beanstalk automatically selects the most recently
+active log stream, and you can switch streams, search and filter events, and load earlier events.
 
 ## Configuring environment health log viewing
 

@@ -102,7 +102,7 @@ option_settings:
 These lines tell Elastic Beanstalk to get the values for the **VisibilityTimeout and
 Subscription Endpoint** properties from the **VisibilityTimeout and
 Subscription Endpoint** values in a config file (options.config in our example) that
-contains an option_settings section with an
+contains an option\_settings section with an
 **aws:elasticbeanstalk:customoption** section that contains a name-value pair
 that contains the actual value to use. In the example above, this means 30 and
 "nobody@amazon.com" would be used for the values. For more information about

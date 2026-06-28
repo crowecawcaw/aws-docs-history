@@ -113,7 +113,7 @@ After you have created an application and deployed to an environment, you can de
 application or a different application at any time. Deploying a new application version is
 faster because it doesn't require provisioning or restarting Amazon EC2 instances.
 
-Update your PHP code to include the REQUEST_TIME value from the server environment:
+Update your PHP code to include the REQUEST\_TIME value from the server environment:
 
 ```
 <?php

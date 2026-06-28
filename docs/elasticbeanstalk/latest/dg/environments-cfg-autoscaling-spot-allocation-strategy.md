@@ -38,14 +38,13 @@ Amazon EC2 Auto Scaling provides the following allocation strategies for Spot In
 
 - **Lowest price**
 
-      + Requests Spot Instances from the *lowest priced
-       pool* with available instances.
-      + It's important to take precaution when using this strategy, since it only
-       considers instance price and not capacity availability, which will result in high
-       interruption rates.
-
-  For more details about each allocation strategy, see [Allocation strategies for
-  multiple instance types](../../../autoscaling/ec2/userguide/allocation-strategies.md "../../../autoscaling/ec2/userguide/allocation-strategies.md") in the _Amazon EC2 Auto Scaling User Guide_.
+  - Requests Spot Instances from the _lowest priced
+    pool_ with available instances.
+  - It's important to take precaution when using this strategy, since it only
+    considers instance price and not capacity availability, which will result in high
+    interruption rates.
+    For more details about each allocation strategy, see [Allocation strategies for
+    multiple instance types](../../../autoscaling/ec2/userguide/allocation-strategies.md "../../../autoscaling/ec2/userguide/allocation-strategies.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
 To help you understand which allocation strategy is best suited to meet your
 environment's requirements, see [Choose the appropriate Spot allocation strategy](../../../AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.md#ec2-fleet-allocation-use-cases "../../../AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.md#ec2-fleet-allocation-use-cases") in the

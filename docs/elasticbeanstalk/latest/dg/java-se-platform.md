@@ -123,7 +123,7 @@ The Java SE platform supports one platform-specific configuration namespace in a
 supported by all platforms](command-options-general.md "command-options-general.md"). The `aws:elasticbeanstalk:container:java:staticfiles` namespace lets you define options that map paths
 on your web application to folders in your application source bundle that contain static content.
 
-For example, this [option_settings](ebextensions-optionsettings.md "ebextensions-optionsettings.md") snippet defines two options in the static files namespace.
+For example, this [option\_settings](ebextensions-optionsettings.md "ebextensions-optionsettings.md") snippet defines two options in the static files namespace.
 The first maps the path `/public` to a folder named `public`, and the second maps the path `/images` to a
 folder named `img`:
 

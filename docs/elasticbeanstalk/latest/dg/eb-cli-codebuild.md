@@ -61,8 +61,8 @@ For details, see [Managing Elastic Beanstalk user policies](AWSHowTo.iam.managed
 
 `ComputeType`
 
-The amount of resources used by the Docker container in the CodeBuild build environment. Valid values are BUILD_GENERAL1_SMALL,
-BUILD_GENERAL1_MEDIUM, and BUILD_GENERAL1_LARGE.
+The amount of resources used by the Docker container in the CodeBuild build environment. Valid values are BUILD\_GENERAL1\_SMALL,
+BUILD\_GENERAL1\_MEDIUM, and BUILD\_GENERAL1\_LARGE.
 
 `Image`
 

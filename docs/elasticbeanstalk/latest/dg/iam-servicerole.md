@@ -47,11 +47,11 @@ This policy is grouped into statements based on the set of permissions provided.
   passed to Elastic Beanstalk and to other downstream services like CloudFormation.
 - _`ReadOnlyPermissions`_ – This group of permissions is for collecting information about the running
   environment.
-- *`*OperationPermissions`\* – Groups with this naming pattern are for calling the necessary operations to perform
+- _`*OperationPermissions`_ – Groups with this naming pattern are for calling the necessary operations to perform
   platform updates.
-- *`*BroadOperationPermissions`\* – Groups with this naming pattern are for calling the necessary operations to
+- _`*BroadOperationPermissions`_ – Groups with this naming pattern are for calling the necessary operations to
   perform platform updates. They also include broad permissions for supporting legacy environments.
-- *`*TagResource`\* – Groups with this naming pattern are for calls that use the tag-on-create APIs to attach tags
+- _`*TagResource`_ – Groups with this naming pattern are for calls that use the tag-on-create APIs to attach tags
   on resources that are being created in an Elastic Beanstalk environment.
 
 To view the content of a managed policy, you can also use the [**Policies**

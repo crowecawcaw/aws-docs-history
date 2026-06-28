@@ -67,7 +67,7 @@ Amazon SQS automatically deletes messages that have been in a queue for longer t
 The daemon sets the following HTTP headers.
 
 | **HTTP headers**                           |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------ |
 | **Name**                                   | **Value**                                                                                                                                                                                                                                                                  |
 | `User-Agent`                               | `aws-sqsd`<br>`aws-sqsd/1.1`1                                                                                                                                                                                                                                              |
 | `X-Aws-Sqsd-Msgid`                         | SQS message ID, used to detect message storms (an unusually high number of new messages).                                                                                                                                                                                  |
@@ -145,7 +145,7 @@ leader goes out of service, another instance quickly takes its place.
 For periodic tasks, the worker daemon sets the following additional headers.
 
 | **HTTP headers**          |
-| ------------------------- | ---------------------------------------------------- |
+| ------------------------- |
 | **Name**                  | **Value**                                            |
 | `X-Aws-Sqsd-Taskname`     | For periodic tasks, the name of the task to perform. |
 | `X-Aws-Sqsd-Scheduled-At` | Time at which the periodic task was scheduled        |

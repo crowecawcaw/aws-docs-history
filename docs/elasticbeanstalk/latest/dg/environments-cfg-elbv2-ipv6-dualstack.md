@@ -53,10 +53,10 @@ This step provides two procedures that you must complete:
     * Associate an IPv6 CIDR block with your VPC subnets.
 
 2. (Optional) If your environment exchanges network traffic with components outside of
-   the VPC, it has route tables that specify which networks your VPC can communicate with.
-   In this case you must update the VPC route tables to enable IPv6 traffic. To complete
-   this configuration see [Step 2:
-   Update your route tables](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md#vpc-migrate-ipv6-routes "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md#vpc-migrate-ipv6-routes") in the _Amazon VPC User Guide_.
+the VPC, it has route tables that specify which networks your VPC can communicate with.
+In this case you must update the VPC route tables to enable IPv6 traffic. To complete
+this configuration see [Step 2:
+Update your route tables](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md#vpc-migrate-ipv6-routes "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md#vpc-migrate-ipv6-routes") in the _Amazon VPC User Guide_.
 
 ### Complete VPC prerequisites using the AWS CLI
 
@@ -204,7 +204,7 @@ this step along with its sub-steps to move on to select the VPC.
      steps again.
 
 4. On the **Set up networking, database, and tags** page select a
-   value from the **VPC** dropdown that has an associated IPv6 CIDR block.
+value from the **VPC** dropdown that has an associated IPv6 CIDR block.
 
 After you select a VPC the **Instance subnets** will populate with
 the VPC subnets. 5. Select one or more **Instance subnets**, then select

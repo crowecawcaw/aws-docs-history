@@ -73,58 +73,58 @@ The following tables list Elastic Beanstalk platform branches that are already i
 their components in the [Platform history](../platforms/platform-history.md "../platforms/platform-history.md") of the
 _AWS Elastic Beanstalk Platforms_ guide.
 
-| Amazon Linux 2023 (AL2023) | Runtime version / platform branch | Retirement date |
-| -------------------------- | --------------------------------- | --------------- |
-| .NET 6 AL2023              | April 8, 2025                     |
-| Node.js 18 AL2023          | August 11, 2025                   |
-| PHP 8.1 AL2023             | April 16, 2026                    |
+Amazon Linux 2023 (AL2023)| Runtime version / platform branch | Retirement date |
+| --- | --- |
+| .NET 6 AL2023 | April 8, 2025 |
+| Node.js 18 AL2023 | August 11, 2025 |
+| PHP 8.1 AL2023 | April 16, 2026 |
 
-| Amazon Linux 2 (AL2)            | Runtime version / platform branch | Retirement date |
-| ------------------------------- | --------------------------------- | --------------- |
-| Corretto 11 with Tomcat 8.5 AL2 | October 10, 2024                  |
-| Corretto 8 with Tomcat 8.5 AL2  | October 10, 2024                  |
-| Corretto 11 with Tomcat 7 AL2   | June 29, 2022                     |
-| Corretto 8 with Tomcat 7 AL2    | June 29, 2022                     |
-| Node.js 18 AL2                  | August 11, 2025                   |
-| Node.js 16 AL2                  | October 10, 2024                  |
-| Node.js 14 AL2                  | October 10, 2024                  |
-| Node.js 12 AL2                  | December 23, 2022                 |
-| Node.js 10 AL2                  | June 29, 2022                     |
-| PHP 8.1 AL2                     | April 16, 2026                    |
-| PHP 8.0 AL2                     | October 10, 2024                  |
-| PHP 7.4 AL2                     | June 9, 2023                      |
-| PHP 7.3 AL2                     | June 29, 2022                     |
-| PHP 7.2 AL2                     | June 29, 2022                     |
-| Python 3.8 AL2                  | April 8, 2025                     |
-| Python 3.7 AL2                  | October 10, 2024                  |
-| Ruby 3.0 AL2                    | October 10, 2024                  |
-| Ruby 2.7 AL2                    | October 10, 2024                  |
-| Ruby 2.6 AL2                    | December 23, 2022                 |
-| Ruby 2.5 AL2                    | June 29, 2022                     |
+Amazon Linux 2 (AL2)| Runtime version / platform branch | Retirement date |
+| --- | --- |
+| Corretto 11 with Tomcat 8.5 AL2 | October 10, 2024 |
+| Corretto 8 with Tomcat 8.5 AL2 | October 10, 2024 |
+| Corretto 11 with Tomcat 7 AL2 | June 29, 2022 |
+| Corretto 8 with Tomcat 7 AL2 | June 29, 2022 |
+| Node.js 18 AL2 | August 11, 2025 |
+| Node.js 16 AL2 | October 10, 2024 |
+| Node.js 14 AL2 | October 10, 2024 |
+| Node.js 12 AL2 | December 23, 2022 |
+| Node.js 10 AL2 | June 29, 2022 |
+| PHP 8.1 AL2 | April 16, 2026 |
+| PHP 8.0 AL2 | October 10, 2024 |
+| PHP 7.4 AL2 | June 9, 2023 |
+| PHP 7.3 AL2 | June 29, 2022 |
+| PHP 7.2 AL2 | June 29, 2022 |
+| Python 3.8 AL2 | April 8, 2025 |
+| Python 3.7 AL2 | October 10, 2024 |
+| Ruby 3.0 AL2 | October 10, 2024 |
+| Ruby 2.7 AL2 | October 10, 2024 |
+| Ruby 2.6 AL2 | December 23, 2022 |
+| Ruby 2.5 AL2 | June 29, 2022 |
 
-| Amazon Linux AMI (AL1)                              | Runtime version / platform branch | Retirement date |
-| --------------------------------------------------- | --------------------------------- | --------------- |
-| Single Container Docker                             | July 18, 2022                     |
-| Multicontainer Docker                               | July 18, 2022                     |
-| Preconfigured Docker<br>• GlassFish 5.0 with Java 8 | July 18, 2022                     |
-| Go 1                                                | July 18, 2022                     |
-| Java 8                                              | July 18, 2022                     |
-| Java 7                                              | July 18, 2022                     |
-| Java 8 with Tomcat 8.5                              | July 18, 2022                     |
-| Java 7 with Tomcat 7                                | July 18, 2022                     |
-| Node.js                                             | July 18, 2022                     |
-| PHP 7.2<br>• 7.3                                    | July 18, 2022                     |
-| Python 3.6                                          | July 18, 2022                     |
-| Ruby 2,4, 2.5, 2.6 with Passenger                   | July 18, 2022                     |
-| Ruby 2.4, 2.5, 2.6 with Puma                        | July 18, 2022                     |
-| Go 1.3–1.10                                         | October 31, 2020                  |
-| Java 6                                              | October 31, 2020                  |
-| Node.js 4.x–8.x                                     | October 31, 2020                  |
-| PHP 5.4–5.6                                         | October 31, 2020                  |
-| PHP 7.0–7.1                                         | October 31, 2020                  |
-| Python 2.6, 2.7, 3.4                                | October 31, 2020                  |
-| Ruby 1.9.3                                          | October 31, 2020                  |
-| Ruby 2.0–2.3                                        | October 31, 2020                  |
+Amazon Linux AMI (AL1)| Runtime version / platform branch | Retirement date |
+| --- | --- |
+| Single Container Docker | July 18, 2022 |
+| Multicontainer Docker | July 18, 2022 |
+| Preconfigured Docker<br>• GlassFish 5.0 with Java 8 | July 18, 2022 |
+| Go 1 | July 18, 2022 |
+| Java 8 | July 18, 2022 |
+| Java 7 | July 18, 2022 |
+| Java 8 with Tomcat 8.5 | July 18, 2022 |
+| Java 7 with Tomcat 7 | July 18, 2022 |
+| Node.js | July 18, 2022 |
+| PHP 7.2<br>• 7.3 | July 18, 2022 |
+| Python 3.6 | July 18, 2022 |
+| Ruby 2,4, 2.5, 2.6 with Passenger | July 18, 2022 |
+| Ruby 2.4, 2.5, 2.6 with Puma | July 18, 2022 |
+| Go 1.3–1.10 | October 31, 2020 |
+| Java 6 | October 31, 2020 |
+| Node.js 4.x–8.x | October 31, 2020 |
+| PHP 5.4–5.6 | October 31, 2020 |
+| PHP 7.0–7.1 | October 31, 2020 |
+| Python 2.6, 2.7, 3.4 | October 31, 2020 |
+| Ruby 1.9.3 | October 31, 2020 |
+| Ruby 2.0–2.3 | October 31, 2020 |
 
 ###### Note
 
@@ -132,15 +132,15 @@ On [July 18, 2022](../relnotes/release-2022-07-18-linux-al1-retire.md "../relnot
 Elastic Beanstalk set the status of all platform branches based on Amazon Linux AMI (AL1) to **retired**.
 For more information, see [Platform retirement FAQ](using-features.migration-al.FAQ.md "using-features.migration-al.FAQ.md").
 
-| Windows Server                                                         | Runtime version / platform branch | Retirement date |
-| ---------------------------------------------------------------------- | --------------------------------- | --------------- |
-| IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2               | December 4, 2023                  |
-| IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2 version 0.1.0 | June 29, 2022                     |
-| IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2 version 1.2.0 | June 29, 2022                     |
-| IIS 10.0 running on 64bit Windows Server 2016 (& Core) version 1.2.0   | June 29, 2022                     |
-| IIS 8 running on 64bit Windows Server 2012 R1 Platform Branch          | June 22, 2022                     |
-| IIS 8 running on 64bit Windows Server 2012 R1 version 0.1.0            | June 22, 2022                     |
-| IIS 8 running on 64bit Windows Server 2012 R1 version 1.2.0            | June 22, 2022                     |
+Windows Server| Runtime version / platform branch | Retirement date |
+| --- | --- |
+| IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2 | December 4, 2023 |
+| IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2 version 0.1.0 | June 29, 2022 |
+| IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2 version 1.2.0 | June 29, 2022 |
+| IIS 10.0 running on 64bit Windows Server 2016 (& Core) version 1.2.0 | June 29, 2022 |
+| IIS 8 running on 64bit Windows Server 2012 R1 Platform Branch | June 22, 2022 |
+| IIS 8 running on 64bit Windows Server 2012 R1 version 0.1.0 | June 22, 2022 |
+| IIS 8 running on 64bit Windows Server 2012 R1 version 1.2.0 | June 22, 2022 |
 
 ###### Note
 
@@ -153,22 +153,22 @@ The following tables provide a history of the operating systems, application ser
 All of the platform branches that utilized these components are now retired. The dates reflect the retirement date of the last Elastic Beanstalk platform branch that
 included the component.
 
-| Operating Systems                           | OS version       | Platform retirement date |
-| ------------------------------------------- | ---------------- | ------------------------ |
-| Windows Server 2012 R2 running IIS 8.5      | December 4, 2023 |
+Operating Systems| OS version | Platform retirement date |
+| --- | --- |
+| Windows Server 2012 R2 running IIS 8.5 | December 4, 2023 |
 | Windows Server Core 2012 R2 running IIS 8.5 | December 4, 2023 |
-| Amazon Linux AMI (AL1)                      | July 18, 2022    |
-| Windows Server 2012 R1                      | June 22, 2022    |
-| Windows Server 2008 R2                      | October 28, 2019 |
+| Amazon Linux AMI (AL1) | July 18, 2022 |
+| Windows Server 2012 R1 | June 22, 2022 |
+| Windows Server 2008 R2 | October 28, 2019 |
 
-| Application servers | Application server version                                                                                | Platform retirement date |
-| ------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------ |
-| Tomcat 7            | June 29, 2022 for Amazon Linux 2 (AL2) platforms<br>July 18, 2022<br>for Amazon Linux AMI (AL1) platforms |
-| Tomcat 8            | October 31, 2020                                                                                          |
-| Tomcat 6            | October 31, 2020                                                                                          |
+Application servers| Application server version | Platform retirement date |
+| --- | --- |
+| Tomcat 7 | June 29, 2022 for Amazon Linux 2 (AL2) platforms<br>July 18, 2022<br>for Amazon Linux AMI (AL1) platforms |
+| Tomcat 8 | October 31, 2020 |
+| Tomcat 6 | October 31, 2020 |
 
-| Web servers                           | Web server version | Platform retirement date |
-| ------------------------------------- | ------------------ | ------------------------ |
-| IIS 8 running on 64bit Windows Server | June 22, 2022      |
-| Apache HTTP Server 2.2                | October 31, 2020   |
-| Nginx 1.12.2                          | October 31, 2020   |
+Web servers| Web server version | Platform retirement date |
+| --- | --- |
+| IIS 8 running on 64bit Windows Server | June 22, 2022 |
+| Apache HTTP Server 2.2 | October 31, 2020 |
+| Nginx 1.12.2 | October 31, 2020 |

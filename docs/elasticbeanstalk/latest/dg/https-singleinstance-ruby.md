@@ -186,7 +186,7 @@ configuration file and a JSON file to enable HTTPS.
    `/etc/pki/tls/certs/server.key`
 
    Creates the private key file on the instance. Replace `private
- key contents` with the contents of the private key used to create
+  key contents` with the contents of the private key used to create
    the certificate request or self-signed certificate.
 
 ###### Example.Ebextensions snippet for configuring HTTPS for Ruby with Passenger

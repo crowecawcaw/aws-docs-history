@@ -40,7 +40,7 @@ For more information about configuration files, see [Advanced environment custom
 This file has two sections:
 
 - `files` — This section adds the agent configuration file. It indicates which metrics and logs the agent should send to Amazon CloudWatch.
-  In this example, we're only sending the _mem_used_percent_ metric. For a complete listing of system level metrics supported by the
+  In this example, we're only sending the _mem\_used\_percent_ metric. For a complete listing of system level metrics supported by the
   Amazon CloudWatch agent, see [Metrics
   collected by the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.md "../../../AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.md") in the _Amazon CloudWatch User Guide_.
 - `container_commands` — This section contains the command that starts the agent, passing in the configuration file as a parameter.

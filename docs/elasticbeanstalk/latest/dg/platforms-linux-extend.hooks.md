@@ -24,7 +24,7 @@ configuration file and before running `Buildfile` commands.
 - `predeploy` – Files here run after the Elastic Beanstalk platform engine sets up and configures the application and web server, and
   before it deploys them to their final runtime location.
 
-The `predeploy` files run after running commands found in the [container_commands](customize-containers-ec2.md#linux-container-commands "customize-containers-ec2.md#linux-container-commands") section of any configuration file and before running `Procfile` commands.
+The `predeploy` files run after running commands found in the [container\_commands](customize-containers-ec2.md#linux-container-commands "customize-containers-ec2.md#linux-container-commands") section of any configuration file and before running `Procfile` commands.
 
 - `postdeploy` – Files here run after the Elastic Beanstalk platform engine deploys the application and proxy server.
 

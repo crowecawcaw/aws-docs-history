@@ -77,9 +77,7 @@ The **environment** event field isn't affected by this hierarchy, so it displays
     * If you select **Any environment**, then no environments are added to your event pattern. Because of this, your rule doesn't
      filter any of the Elastic Beanstalk events based on environment.
 
-17. Choose **Next**.
-18. For **Target types**, choose **AWS service**.
-19. For **Select a target**, choose the target action to take when a resource state change event is received from Elastic Beanstalk.
+17. Choose **Next**. 18. For **Target types**, choose **AWS service**. 19. For **Select a target**, choose the target action to take when a resource state change event is received from Elastic Beanstalk.
 
 For example, you can use an Amazon Simple Notification Service (SNS) topic to send an email or text message when an event occurs. To do this, you need to create an Amazon SNS
 topic using the Amazon SNS console. To learn more, see [Using Amazon SNS for

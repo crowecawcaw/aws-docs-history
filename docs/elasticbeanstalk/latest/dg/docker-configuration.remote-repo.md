@@ -263,4 +263,4 @@ JSON
 
 ```
 
-Once these permissions are attached to your instance profile, Elastic Beanstalk will automatically authenticate with Amazon ECR Public registries. You can reference Amazon ECR Public images using the standard `public.ecr.aws/`registry-alias`/`repository-name:tag``format in your`Dockerrun.aws.json` file or Dockerfile.
+Once these permissions are attached to your instance profile, Elastic Beanstalk will automatically authenticate with Amazon ECR Public registries. You can reference Amazon ECR Public images using the standard `public.ecr.aws/`registry-alias`/`repository-name:tag`` format in your `Dockerrun.aws.json` file or Dockerfile.

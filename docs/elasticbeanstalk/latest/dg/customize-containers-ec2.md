@@ -61,7 +61,7 @@ guaranteed. Use a package manager supported by your operating system.
 
 ###### Note
 
-Elastic Beanstalk supports two underlying package managers for Python, pip and easy_install. However, in the syntax of the configuration file, you must
+Elastic Beanstalk supports two underlying package managers for Python, pip and easy\_install. However, in the syntax of the configuration file, you must
 specify the package manager name as `python`. When you use a configuration file to specify a Python package manager, Elastic Beanstalk uses Python 2.7.
 If your application relies on a different version of Python, you can specify the packages to install in a `requirements.txt` file.
 For more information, see [Specifying dependencies using a requirements file on Elastic Beanstalk](python-configuration-requirements.md "python-configuration-requirements.md").
@@ -261,7 +261,8 @@ Linux user that owns the file.
 `mode`
 
 A six-digit octal value representing the mode for this file. Not supported for Windows systems. Use the first three digits for symlinks and
-the last three digits for setting permissions. To create a symlink, specify `120`xxx``, where `xxx` defines the permissions of the target file. To specify permissions for a file, use the last three digits, such as`000644`.
+the last three digits for setting permissions. To create a symlink, specify `120`xxx``, where `xxx`
+defines the permissions of the target file. To specify permissions for a file, use the last three digits, such as `000644`.
 
 `authentication`
 

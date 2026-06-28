@@ -38,9 +38,9 @@ These configuration options do not apply to
 - Docker platform (Amazon Linux 2) with Docker Compose
 - Multicontainer Docker platform (Amazon Linux AMI AL1) - this platform is retired
 
-| Namespace: `aws:elasticbeanstalk:environment:proxy` | **Name**                                    | **Description** | **Default**                                                       | **Valid values** |
-| --------------------------------------------------- | ------------------------------------------- | --------------- | ----------------------------------------------------------------- | ---------------- |
-| ProxyServer                                         | Specifies the web server to use as a proxy. | `nginx`         | `nginx`<br>`none` – *Amazon Linux AM<br>• and *Docker w/DC only\* |
+Namespace: `aws:elasticbeanstalk:environment:proxy`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| ProxyServer | Specifies the web server to use as a proxy. | `nginx` | `nginx`<br>`none` – *Amazon Linux AM<br>• and _Docker w/DC only_ |
 
 ## Go platform options
 
@@ -74,44 +74,44 @@ a different path.
 
 ## Java with Tomcat platform options
 
-| Namespace: `aws:elasticbeanstalk:application:environment` | **Name**                                       | **Description** | **Default** | **Valid values** |
-| --------------------------------------------------------- | ---------------------------------------------- | --------------- | ----------- | ---------------- |
-| JDBC_CONNECTION_STRING                                    | The connection string to an external database. | n/a             | n/a         |
+Namespace: `aws:elasticbeanstalk:application:environment`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| JDBC\_CONNECTION\_STRING | The connection string to an external database. | n/a | n/a |
 
 See [Environment variables and other software settings](environments-cfg-softwaresettings.md "environments-cfg-softwaresettings.md")
 for more information.
 
-| Namespace: `aws:elasticbeanstalk:container:tomcat:jvmoptions` | **Name**                                                                                                                                                                                                                                                       | **Description** | **Default** | **Valid values** |
-| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------- | ---------------- |
-| JVM Options                                                   | Pass command-line options to the JVM at startup.                                                                                                                                                                                                               | n/a             | n/a         |
-| Xmx                                                           | Maximum JVM heap sizes.                                                                                                                                                                                                                                        | `256m`          | n/a         |
-| XX:MaxPermSize                                                | Section of the JVM heap that is used to store class definitions and associated metadata.<br>NoteThis option only applies to Java versions earlier than Java 8, and isn't<br>supported on Elastic Beanstalk Tomcat platforms based on Amazon Linux 2 and later. | `64m`           | n/a         |
-| Xms                                                           | Initial JVM heap sizes.                                                                                                                                                                                                                                        | `256m`          | n/a         |
-| `optionName`                                                  | Specify arbitrary JVM options in addition to the those defined by the Tomcat platform.                                                                                                                                                                         | n/a             | n/a         |
+Namespace: `aws:elasticbeanstalk:container:tomcat:jvmoptions`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| JVM Options | Pass command-line options to the JVM at startup. | n/a | n/a |
+| Xmx | Maximum JVM heap sizes. | `256m` | n/a |
+| XX:MaxPermSize | Section of the JVM heap that is used to store class definitions and associated metadata.<br>NoteThis option only applies to Java versions earlier than Java 8, and isn't<br>supported on Elastic Beanstalk Tomcat platforms based on Amazon Linux 2 and later. | `64m` | n/a |
+| Xms | Initial JVM heap sizes. | `256m` | n/a |
+| `optionName` | Specify arbitrary JVM options in addition to the those defined by the Tomcat platform. | n/a | n/a |
 
-| Namespace: `aws:elasticbeanstalk:environment:proxy` | **Name**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Description**                                         | **Default**                                                   | **Valid values** |
-| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------- | ---------------- |
-| GzipCompression                                     | Set to `false` to disable response compression.<br>_Only valid on Amazon Linux AMI (preceding Amazon Linux 2) platform versions._                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `true`                                                  | `true`<br>`false`                                             |
-| ProxyServer                                         | Set the proxy to use on your environment's instances. If you set this option to `apache`, Elastic Beanstalk uses [Apache 2.4](https://httpd.apache.org/docs/2.4/ "https://httpd.apache.org/docs/2.4/").<br>Set to `apache/2.2` if your application isn't ready to migrate away from [Apache<br>2.2](https://httpd.apache.org/docs/2.2/ "https://httpd.apache.org/docs/2.2/") due to incompatible proxy configuration settings. _This value is only valid on Amazon Linux AMI (preceding Amazon Linux 2) platform<br>versions._<br>Set to `nginx` to use [nginx](https://www.nginx.com/ "https://www.nginx.com/"). This is the default starting with Amazon Linux 2 platform<br>versions.<br>For more information, see [Configuring the proxy server](java-tomcat-proxy.md "java-tomcat-proxy.md"). | `nginx` (Amazon Linux 2)<br>`apache` (Amazon Linux AMI) | `apache`<br>`apache/2.2` – _Amazon Linux AMI only_<br>`nginx` |
+Namespace: `aws:elasticbeanstalk:environment:proxy`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| GzipCompression | Set to `false` to disable response compression.<br>_Only valid on Amazon Linux AMI (preceding Amazon Linux 2) platform versions._ | `true` | `true`<br>`false` |
+| ProxyServer | Set the proxy to use on your environment's instances. If you set this option to `apache`, Elastic Beanstalk uses [Apache 2.4](https://httpd.apache.org/docs/2.4/ "https://httpd.apache.org/docs/2.4/").<br>Set to `apache/2.2` if your application isn't ready to migrate away from [Apache<br>2.2](https://httpd.apache.org/docs/2.2/ "https://httpd.apache.org/docs/2.2/") due to incompatible proxy configuration settings. _This value is only valid on Amazon Linux AMI (preceding Amazon Linux 2) platform<br>versions._<br>Set to `nginx` to use [nginx](https://www.nginx.com/ "https://www.nginx.com/"). This is the default starting with Amazon Linux 2 platform<br>versions.<br>For more information, see [Configuring the proxy server](java-tomcat-proxy.md "java-tomcat-proxy.md"). | `nginx` (Amazon Linux 2)<br>`apache` (Amazon Linux AMI) | `apache`<br>`apache/2.2` – _Amazon Linux AMI only_<br>`nginx` |
 
 ## .NET Core on Linux platform options
 
-| Namespace: `aws:elasticbeanstalk:environment:proxy` | **Name**                                    | **Description** | **Default**       | **Valid values** |
-| --------------------------------------------------- | ------------------------------------------- | --------------- | ----------------- | ---------------- |
-| ProxyServer                                         | Specifies the web server to use as a proxy. | `nginx`         | `nginx`<br>`none` |
+Namespace: `aws:elasticbeanstalk:environment:proxy`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| ProxyServer | Specifies the web server to use as a proxy. | `nginx` | `nginx`<br>`none` |
 
 ## .NET platform options
 
-| Namespace: `aws:elasticbeanstalk:container:dotnet:apppool` | **Name**                                                   | **Description** | **Default**       | **Valid values** |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | --------------- | ----------------- | ---------------- |
-| Target Runtime                                             | Choose the version of .NET Framework for your application. | `4.0`           | `2.0`<br>`4.0`    |
-| Enable 32-bit Applications                                 | Set to `True` to run 32-bit applications.                  | `False`         | `True`<br>`False` |
+Namespace: `aws:elasticbeanstalk:container:dotnet:apppool`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| Target Runtime | Choose the version of .NET Framework for your application. | `4.0` | `2.0`<br>`4.0` |
+| Enable 32-bit Applications | Set to `True` to run 32-bit applications. | `False` | `True`<br>`False` |
 
 ## Node.js platform options
 
-| Namespace: `aws:elasticbeanstalk:environment:proxy` | **Name**                                              | **Description** | **Default**         | **Valid values** |
-| --------------------------------------------------- | ----------------------------------------------------- | --------------- | ------------------- | ---------------- |
-| ProxyServer                                         | Set the proxy to use on your environment's instances. | `nginx`         | `apache`<br>`nginx` |
+Namespace: `aws:elasticbeanstalk:environment:proxy`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| ProxyServer | Set the proxy to use on your environment's instances. | `nginx` | `apache`<br>`nginx` |
 
 ### Amazon Linux AMI (pre-Amazon Linux 2) platform options
 
@@ -139,19 +139,19 @@ Static file settings do not apply if `aws:elasticbeanstalk:container:nodejs::Pro
 
 ## PHP platform options
 
-| Namespace: `aws:elasticbeanstalk:container:php:phpini` | **Name**                                                                                                                                                                                                                                                                                                    | **Description** | **Default**                                                             | **Valid values** |
-| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------- | ---------------- |
-| document_root                                          | Specify the child directory of your project that is treated as the public-facing web root.                                                                                                                                                                                                                  | `/`             | A blank string is treated as `/`, or specify a string starting with `/` |
-| memory_limit                                           | Amount of memory allocated to the PHP environment.                                                                                                                                                                                                                                                          | `256M`          | n/a                                                                     |
-| zlib.output_compression                                | Specifies whether or not PHP should use compression for output.                                                                                                                                                                                                                                             | `Off`           | `On`<br>`Off`<br>`true`<br>`false`                                      |
-| allow_url_fopen                                        | Specifies if PHP's file functions are allowed to retrieve data from remote locations, such as websites or FTP servers.                                                                                                                                                                                      | `On`            | `On`<br>`Off`<br>`true`<br>`false`                                      |
-| display_errors                                         | Specifies if error messages should be part of the output.                                                                                                                                                                                                                                                   | `Off`           | `On`<br>`Off`                                                           |
-| max_execution_time                                     | Sets the maximum time, in seconds, a script is allowed to run before it is terminated by the environment.                                                                                                                                                                                                   | `60`            | `0` to `9223372036854775807` (PHP_INT_MAX)                              |
-| composer_options                                       | Sets custom options to use when installing dependencies using Composer through the \*_composer.phar install_<br>• command. For<br>more information, see [install](https://getcomposer.org/doc/03-cli.md#install-i "https://getcomposer.org/doc/03-cli.md#install-i") on the \*getcomposer.org<br>• website. | n/a             | n/a                                                                     |
+Namespace: `aws:elasticbeanstalk:container:php:phpini`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| document\_root | Specify the child directory of your project that is treated as the public-facing web root. | `/` | A blank string is treated as `/`, or specify a string starting with `/` |
+| memory\_limit | Amount of memory allocated to the PHP environment. | `256M` | n/a |
+| zlib.output\_compression | Specifies whether or not PHP should use compression for output. | `Off` | `On`<br>`Off`<br>`true`<br>`false` |
+| allow\_url\_fopen | Specifies if PHP's file functions are allowed to retrieve data from remote locations, such as websites or FTP servers. | `On` | `On`<br>`Off`<br>`true`<br>`false` |
+| display\_errors | Specifies if error messages should be part of the output. | `Off` | `On`<br>`Off` |
+| max\_execution\_time | Sets the maximum time, in seconds, a script is allowed to run before it is terminated by the environment. | `60` | `0` to `9223372036854775807` (PHP\_INT\_MAX) |
+| composer\_options | Sets custom options to use when installing dependencies using Composer through the *_composer.phar install_<br>• command. For<br>more information, see [install](https://getcomposer.org/doc/03-cli.md#install-i "https://getcomposer.org/doc/03-cli.md#install-i") on the *getcomposer.org<br>• website. | n/a | n/a |
 
-| Namespace: `aws:elasticbeanstalk:environment:proxy` | **Name**                                              | **Description** | **Default**         | **Valid values** |
-| --------------------------------------------------- | ----------------------------------------------------- | --------------- | ------------------- | ---------------- |
-| ProxyServer                                         | Set the proxy to use on your environment's instances. | `nginx`         | `apache`<br>`nginx` |
+Namespace: `aws:elasticbeanstalk:environment:proxy`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| ProxyServer | Set the proxy to use on your environment's instances. | `nginx` | `apache`<br>`nginx` |
 
 ###### Note
 
@@ -159,22 +159,22 @@ For more information about the PHP platform, see [Using the Elastic Beanstalk PH
 
 ## Python platform options
 
-| Namespace: `aws:elasticbeanstalk:application:environment` | **Name**                              | **Description** | **Default** | **Valid values** |
-| --------------------------------------------------------- | ------------------------------------- | --------------- | ----------- | ---------------- |
-| DJANGO_SETTINGS_MODULE                                    | Specifies which settings file to use. | n/a             | n/a         |
+Namespace: `aws:elasticbeanstalk:application:environment`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| DJANGO\_SETTINGS\_MODULE | Specifies which settings file to use. | n/a | n/a |
 
 See [Environment variables and other software settings](environments-cfg-softwaresettings.md "environments-cfg-softwaresettings.md")
 for more information.
 
-| Namespace: `aws:elasticbeanstalk:container:python` | **Name**                                                                                                                                  | **Description**                                                                                                             | **Default** | **Valid values** |
-| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------- |
-| WSGIPath                                           | The file that contains the WSGI application. This file must have an `application` callable.                                               | On Amazon Linux 2 Python platform versions: `application`<br>On Amazon Linux AMI Python platform versions: `application.py` | n/a         |
-| NumProcesses                                       | The number of daemon processes that should be started for the process group when running WSGI applications.                               | `1`                                                                                                                         | n/a         |
-| NumThreads                                         | The number of threads to be created to handle requests in each daemon process within the process group when running WSGI<br>applications. | `15`                                                                                                                        | n/a         |
+Namespace: `aws:elasticbeanstalk:container:python`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| WSGIPath | The file that contains the WSGI application. This file must have an `application` callable. | On Amazon Linux 2 Python platform versions: `application`<br>On Amazon Linux AMI Python platform versions: `application.py` | n/a |
+| NumProcesses | The number of daemon processes that should be started for the process group when running WSGI applications. | `1` | n/a |
+| NumThreads | The number of threads to be created to handle requests in each daemon process within the process group when running WSGI<br>applications. | `15` | n/a |
 
-| Namespace: `aws:elasticbeanstalk:environment:proxy` | **Name**                                              | **Description** | **Default**         | **Valid values** |
-| --------------------------------------------------- | ----------------------------------------------------- | --------------- | ------------------- | ---------------- |
-| ProxyServer                                         | Set the proxy to use on your environment's instances. | `nginx`         | `apache`<br>`nginx` |
+Namespace: `aws:elasticbeanstalk:environment:proxy`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| ProxyServer | Set the proxy to use on your environment's instances. | `nginx` | `apache`<br>`nginx` |
 
 ### Amazon Linux AMI (pre-Amazon Linux 2) platform options
 
@@ -188,18 +188,18 @@ a different path.
 By default, the proxy server in a Python environment serves any files in a folder named
 `static` at the `/static` path.
 
-| Namespace: `aws:elasticbeanstalk:container:python:staticfiles`                                                                        | **Name**                                                                                                                                                         | **Value** |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+Namespace: `aws:elasticbeanstalk:container:python:staticfiles`| **Name** | **Value** |
+| --- | --- |
 | Path where the proxy server will serve the files.<br>Example: `/images` to serve files at ``subdomain`.eleasticbeanstalk.com/images`. | Name of the folder containing the files.<br>Example: `staticimages` to serve files from a folder named `staticimages` at the top level of your source<br>bundle. |
 
 ## Ruby platform options
 
-| Namespace: `aws:elasticbeanstalk:application:environment` | **Name**                                                                                                                                                                                            | **Description**    | **Default**       | **Valid values** |
-| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ---------------- |
-| RAILS_SKIP_MIGRATIONS                                     | Specifies whether to run `rake db:migrate` on behalf of the users' applications; or whether it should be skipped. This is only<br>applicable to Rails 3 applications.                               | `false`            | `true`<br>`false` |
-| RAILS_SKIP_ASSET_COMPILATION                              | Specifies whether the container should run `rake assets:precompile` on behalf of the users' applications; or whether it should<br>be skipped. This is also only applicable to Rails 3 applications. | `false`            | `true`<br>`false` |
-| BUNDLE_WITHOUT                                            | A colon (`:`) separated list of groups to ignore when installing dependencies from a Gemfile.                                                                                                       | `test:development` | n/a               |
-| RACK_ENV                                                  | Specifies what environment stage an application can be run in. Examples of common environments include development, production, test.                                                               | `production`       | n/a               |
+Namespace: `aws:elasticbeanstalk:application:environment`| **Name** | **Description** | **Default** | **Valid values** |
+| --- | --- | --- | --- |
+| RAILS\_SKIP\_MIGRATIONS | Specifies whether to run `rake db:migrate` on behalf of the users' applications; or whether it should be skipped. This is only<br>applicable to Rails 3 applications. | `false` | `true`<br>`false` |
+| RAILS\_SKIP\_ASSET\_COMPILATION | Specifies whether the container should run `rake assets:precompile` on behalf of the users' applications; or whether it should<br>be skipped. This is also only applicable to Rails 3 applications. | `false` | `true`<br>`false` |
+| BUNDLE\_WITHOUT | A colon (`:`) separated list of groups to ignore when installing dependencies from a Gemfile. | `test:development` | n/a |
+| RACK\_ENV | Specifies what environment stage an application can be run in. Examples of common environments include development, production, test. | `production` | n/a |
 
 See [Environment variables and other software settings](environments-cfg-softwaresettings.md "environments-cfg-softwaresettings.md")
 for more information.

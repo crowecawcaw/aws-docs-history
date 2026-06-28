@@ -111,7 +111,7 @@ environment that was caused by a recent change. If the health of your environmen
   `The stack ``stack_id`` associated with environment ``environment-ID`` is in ``stack-status`` state`, see [Recovering your Elastic Beanstalk environment from an invalid state](environment-management-invalid-stack.md "environment-management-invalid-stack.md") for troubleshooting
   help.
 - If an operation on your environment returns an error that contains the text `Environment `environment-name`
-associated CloudFormation stack`stack_arn` does not exist`, terminate your environment and create another one.
+ associated CloudFormation stack`stack_arn` does not exist`, terminate your environment and create another one.
 - Review recent environment [events](using-features.events.md "using-features.events.md"). Messages from Elastic Beanstalk about deployment, load, and configuration issues
   often appear here.
 - Review recent environment [change history](using-features.changehistory.md "using-features.changehistory.md"). Change history lists all of the configuration changes

@@ -120,7 +120,7 @@ This command creates a load-balanced environment with the default settings for t
      Developer Network.
 
 3. When environment creation completes, use the [eb open](eb3-open.md "eb3-open.md") command to open the environment's URL in the
-   default browser.
+default browser.
 
 ```
 ~/nodejs-example-dynamo$ `eb open`
@@ -255,7 +255,7 @@ instead of creating a new one.
 2. Open `.ebextensions/options.config` and change the values of the following settings:
 
    - **NewSignupEmail** – Your email address.
-   - **STARTUP_SIGNUP_TABLE** – **nodejs-tutorial**
+   - **STARTUP\_SIGNUP\_TABLE** – **nodejs-tutorial**
 
 ###### Example.ebextensions/options.config
 

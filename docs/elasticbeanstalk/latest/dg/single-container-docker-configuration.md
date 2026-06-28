@@ -115,7 +115,7 @@ specify the host ports that **ContainerPort** values are mapped to. If you don't
 
 ```
 
-\***\*Volumes\*\***
+****Volumes****
 
 Map volumes from an EC2 instance to your Docker container. Specify one or more arrays of volumes to map.
 
@@ -130,7 +130,7 @@ Map volumes from an EC2 instance to your Docker container. Specify one or more a
 ...
 ```
 
-\***\*Logging\*\***
+****Logging****
 
 Specify the directory inside the container to which your application writes logs. Elastic Beanstalk uploads any logs in this directory to Amazon S3 when you
 request tail or bundle logs. If you rotate logs to a folder named `rotated` within this directory, you can also configure

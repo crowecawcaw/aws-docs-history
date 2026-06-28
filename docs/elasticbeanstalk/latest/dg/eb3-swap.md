@@ -27,10 +27,10 @@ default environment.
 
 ## Options
 
-| Name                                                      | Description                                                                                                                                                                                          |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-n`<br>or<br>`--destination_name`                        | Specifies the name of the environment with which you want to swap CNAMEs. If<br>you run \*_eb swap_<br>• without this option, then EB CLI prompts you to<br>choose from a list of your environments. |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                                                                                                                                      |
+| Name                                                      | Description                                                                                                                                                                                         |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-n`<br>or<br>`--destination_name`                        | Specifies the name of the environment with which you want to swap CNAMEs. If<br>you run *_eb swap_<br>• without this option, then EB CLI prompts you to<br>choose from a list of your environments. |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                                                                                                                                     |
 
 ## Output
 

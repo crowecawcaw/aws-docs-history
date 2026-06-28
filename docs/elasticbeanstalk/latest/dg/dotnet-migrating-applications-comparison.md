@@ -2,16 +2,16 @@
 
 AWS offers multiple paths for migrating Windows applications to the cloud. This section compares two primary options: the **eb migrate** command in the EB CLI and AWS Transform MGN (MGN). Understanding the differences between these approaches will help you choose the most appropriate migration strategy for your specific needs.
 
-| Comparison of migration options | Feature                                                                                                              | EB CLI (**eb migrate**)                                                                                  | AWS Transform MGN (MGN) |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------- |
-| Primary focus                   | Application-level migration of IIS websites and applications                                                         | Server-level rehosting of entire machines (physical, virtual, or cloud servers)                          |
-| Best suited for                 | IIS applications that you want to migrate directly to Elastic Beanstalk with minimal reconfiguration                 | Large-scale migrations involving many servers or complex infrastructure                                  |
-| Discovery approach              | Application-level discovery of IIS sites, applications, and configurations                                           | Server-level replication of entire machines, including operating system and applications                 |
-| Target environment              | Directly creates and configures Elastic Beanstalk environments optimized for Windows applications                    | Creates EC2 instances that require additional configuration to work with Elastic Beanstalk               |
-| Configuration preservation      | Automatically preserves IIS-specific configurations (sites, application pools, bindings)                             | Preserves entire server configuration, which may include unnecessary components                          |
-| Deployment model                | Creates a clean Elastic Beanstalk environment with your applications deployed using Elastic Beanstalk best practices | Creates a replica of your source server that may require optimization for cloud operations               |
-| Scale of migration              | Ideal for targeted migrations of specific applications                                                               | Designed for large-scale migrations of many servers                                                      |
-| Post-migration steps            | Minimal; environment is ready for use with Elastic Beanstalk management tools                                        | Requires additional steps to integrate with Elastic Beanstalk, such as executing SSM post-launch actions |
+Comparison of migration options| Feature | EB CLI (**eb migrate**) | AWS Transform MGN (MGN) |
+| --- | --- | --- |
+| Primary focus | Application-level migration of IIS websites and applications | Server-level rehosting of entire machines (physical, virtual, or cloud servers) |
+| Best suited for | IIS applications that you want to migrate directly to Elastic Beanstalk with minimal reconfiguration | Large-scale migrations involving many servers or complex infrastructure |
+| Discovery approach | Application-level discovery of IIS sites, applications, and configurations | Server-level replication of entire machines, including operating system and applications |
+| Target environment | Directly creates and configures Elastic Beanstalk environments optimized for Windows applications | Creates EC2 instances that require additional configuration to work with Elastic Beanstalk |
+| Configuration preservation | Automatically preserves IIS-specific configurations (sites, application pools, bindings) | Preserves entire server configuration, which may include unnecessary components |
+| Deployment model | Creates a clean Elastic Beanstalk environment with your applications deployed using Elastic Beanstalk best practices | Creates a replica of your source server that may require optimization for cloud operations |
+| Scale of migration | Ideal for targeted migrations of specific applications | Designed for large-scale migrations of many servers |
+| Post-migration steps | Minimal; environment is ready for use with Elastic Beanstalk management tools | Requires additional steps to integrate with Elastic Beanstalk, such as executing SSM post-launch actions |
 
 ## When to use each migration option
 

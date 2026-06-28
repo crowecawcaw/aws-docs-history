@@ -51,10 +51,9 @@ If you don't see **ASP.NET Core Web Application** listed in the project template
     5. After the installer completes, exit the panel to return to where you left off in Visual Studio .
 
 4. In the **Configure your new project** dialog box, enter a **Project name**. The **Solution
-   name** defaults to your project name. Next, choose **Create**.
-5. In the **Create a new ASP.NET Core web application** dialog box, select **.NET Core**, and then select
-   **ASP.NET Core 3.1**. From the list of application types that are displayed, select **Web Application**, then
-   select the **Create** button.
+name** defaults to your project name. Next, choose **Create**. 5. In the **Create a new ASP.NET Core web application** dialog box, select **.NET Core**, and then select
+**ASP.NET Core 3.1**. From the list of application types that are displayed, select **Web Application**, then
+select the **Create** button.
 
 Visual Studio displays the **Creating Project** dialog box when it creates your application. After Visual Studio completes generating your
 application, a panel with your application name is displayed.

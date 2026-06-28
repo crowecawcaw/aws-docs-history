@@ -49,9 +49,9 @@ here. For information about supported platform versions, see [Elastic Beanstalk 
 
 7. Your choice for **Presets** depends on your purpose for the environment.
 
-   - If you're creating a sample environment to learn about Elastic Beanstalk or a development environment,
+    * If you're creating a sample environment to learn about Elastic Beanstalk or a development environment,
      choose **Single instance (free tier eligible)**.
-   - If you're creating a production environment or an environment to learn more about load
+    * If you're creating a production environment or an environment to learn more about load
      balancing, choose one of the **High availability** options.
 
 8. Choose **Next**.

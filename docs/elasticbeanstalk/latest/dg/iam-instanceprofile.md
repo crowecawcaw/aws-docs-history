@@ -70,9 +70,10 @@ restricted set of permissions.
 To use the [AI-powered environment analysis](health-ai-analysis.md "health-ai-analysis.md") feature, add the `bedrock:InvokeModel`,
 `bedrock:ListFoundationModels`, `elasticbeanstalk:DescribeEvents`, and `elasticbeanstalk:DescribeEnvironmentHealth`
 permissions to your instance profile. These permissions allow Elastic Beanstalk to use Amazon Bedrock and access environment data for analyzing
-logs, events, and instance health. If this is the first time an Anthropic Claude model is being used in your AWS account, also add the
+logs, events, and instance health. In commercial regions, if this is the first time an Anthropic Claude model is being used in your AWS account, also add the
 `aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`, and `aws-marketplace:ViewSubscriptions` permissions.
 These AWS Marketplace permissions enable the automatic model subscription that Amazon Bedrock requires for first-time access to third-party models.
+In GovCloud regions, AI analysis uses the NVIDIA Nemotron model and does not require AWS Marketplace permissions.
 
 ###### Sections
 

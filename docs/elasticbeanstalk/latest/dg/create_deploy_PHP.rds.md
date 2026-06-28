@@ -29,13 +29,13 @@ Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment]
 Adding a DB instance takes about 10 minutes. When the environment update is complete, the DB instance's hostname and other connection information are
 available to your application through the following environment properties:
 
-| Property name  | Description                                                                                    | Property value                                                                         |
-| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+| Property name  | Description                                                                                    | Property value                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the *_Connectivity & security_<br>• tab on the Amazon RDS console: **Endpoint**. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the *_Connectivity & security_<br>• tab on the Amazon RDS console: **Port**.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the *_Configuration_<br>• tab on the Amazon RDS console: **DB Name**.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the *_Configuration_<br>• tab on the Amazon RDS console: **Master username**.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                              |
 
 For more information about configuring a database instance coupled with an Elastic Beanstalk environment,
 see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md "using-features.managing.db.md").
@@ -79,7 +79,7 @@ For other drivers, replace `mysql` with the name of your driver – `pgsql`, `oc
 
 For MySQLi, pass the hostname, user name, password, database name, and port to the `mysqli` constructor.
 
-###### Example Connect to an RDS database with mysqli_connect()
+###### Example Connect to an RDS database with mysqli\_connect()
 
 ```
 $link = new mysqli($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);

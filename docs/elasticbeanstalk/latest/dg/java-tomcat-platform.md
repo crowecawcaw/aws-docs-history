@@ -160,7 +160,7 @@ string to an external database.
 
 If you attach an RDS DB instance to your environment, construct the JDBC connection
 string dynamically from the Amazon Relational Database Service (Amazon RDS) environment properties provided by Elastic Beanstalk.
-Use JDBC_CONNECTION_STRING only for database instances that are not provisioned using
+Use JDBC\_CONNECTION\_STRING only for database instances that are not provisioned using
 Elastic Beanstalk.
 
 For more information about using Amazon RDS with your Java application, see [Adding an Amazon RDS DB instance to your Java Elastic Beanstalk environment](java-rds.md "java-rds.md").

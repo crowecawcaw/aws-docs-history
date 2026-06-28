@@ -70,7 +70,7 @@ Installing setuptools, pip...done.
 ```
 
 2. Once your virtual environment is ready, start it by running the `activate` script located in the environment's `bin`
-   directory. For example, to start the **eb_python_app** environment created in the previous step, you would type:
+   directory. For example, to start the **eb\_python\_app** environment created in the previous step, you would type:
 
 ```
 $ `source /tmp/eb_python_app/bin/activate`

@@ -64,9 +64,9 @@ different logs. The following table lists the logs, by platform.
 | Docker                           | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/docker<br>• /var/log/docker-events.log<br>• /var/log/eb-docker/containers/eb-current-app/stdouterr.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log |
 | ECS on Docker                    | • /var/log/docker-events.log<br>• /var/log/eb-ecs-mgr.log<br>• /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/ecs/ecs-agent.log<br>• /var/log/ecs/ecs-init.log                                                       |
 | Go<br>.NET Core on Linux<br>Java | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                                                         |
-| Node.js<br>Python                | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/httpd/access_log<br>• /var/log/httpd/error_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                            |
-| Tomcat<br>PHP                    | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/httpd/access_log<br>• /var/log/httpd/error_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                         |
-| .NET on Windows Server           | • C:\inetpub\logs\LogFiles\W3SVC1\u_ex\*.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\AWSDeployment.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\Hooks.log                                                        |
+| Node.js<br>Python                | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/web.stdout.log<br>• /var/log/httpd/access\_log<br>• /var/log/httpd/error\_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                          |
+| Tomcat<br>PHP                    | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/httpd/access\_log<br>• /var/log/httpd/error\_log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                       |
+| .NET on Windows Server           | • C:\inetpub\logs\LogFiles\W3SVC1\u\_ex\*.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\AWSDeployment.log<br>• C:\Program Files\Amazon\ElasticBeanstalk\logs\Hooks.log                                                       |
 | Ruby                             | • /var/log/eb-engine.log<br>• /var/log/eb-hooks.log<br>• /var/log/puma/puma.log<br>• /var/log/web.stdout.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log                                                             |
 
 ###### Note
@@ -84,19 +84,19 @@ The following table lists the log files streamed from instances on platform bran
 | Glassfish (Preconfigured Docker)                                                                                         | • /var/log/eb-activity.log<br>• /var/log/nginx/error.log<br>• /var/log/docker-events.log<br>• /var/log/docker<br>• /var/log/nginx/access.log                                                                 |
 | Go                                                                                                                       | • /var/log/eb-activity.log<br>• /var/log/nginx/error.log<br>• /var/log/nginx/access.log                                                                                                                      |
 | Java /<br>Platform Branch: Java 8 running on 64bit Amazon Linux<br>Platform Branch: Java 7 running on 64bit Amazon Linux | • /var/log/eb-activity.log<br>• /var/log/nginx/access.log<br>• /var/log/nginx/error.log<br>• /var/log/web-1.error.log<br>• /var/log/web-1.log                                                                |
-| Tomcat                                                                                                                   | • /var/log/eb-activity.log<br>• /var/log/httpd/error_log<br>• /var/log/httpd/access_log<br>• /var/log/nginx/error_log<br>• /var/log/nginx/access_log                                                         |
+| Tomcat                                                                                                                   | • /var/log/eb-activity.log<br>• /var/log/httpd/error\_log<br>• /var/log/httpd/access\_log<br>• /var/log/nginx/error\_log<br>• /var/log/nginx/access\_log                                                     |
 | Node.js                                                                                                                  | • /var/log/eb-activity.log<br>• /var/log/nodejs/nodejs.log<br>• /var/log/nginx/error.log<br>• /var/log/nginx/access.log<br>• /var/log/httpd/error.log<br>• /var/log/httpd/access.log                         |
-| PHP                                                                                                                      | • /var/log/eb-activity.log<br>• /var/log/httpd/error_log<br>• /var/log/httpd/access_log                                                                                                                      |
-| Python                                                                                                                   | • /var/log/eb-activity.log<br>• /var/log/httpd/error_log<br>• /var/log/httpd/access_log<br>• /opt/python/log/supervisord.log                                                                                 |
+| PHP                                                                                                                      | • /var/log/eb-activity.log<br>• /var/log/httpd/error\_log<br>• /var/log/httpd/access\_log                                                                                                                    |
+| Python                                                                                                                   | • /var/log/eb-activity.log<br>• /var/log/httpd/error\_log<br>• /var/log/httpd/access\_log<br>• /opt/python/log/supervisord.log                                                                               |
 | Ruby /<br>Platform Branch: Puma with Ruby running on 64bit Amazon Linux                                                  | • /var/log/eb-activity.log<br>• /var/log/nginx/error.log<br>• /var/log/puma/puma.log<br>• /var/log/nginx/access.log                                                                                          |
 | Ruby / Platform Branch: Passenger with Ruby running on 64bit Amazon Linux                                                | • /var/log/eb-activity.log<br>• /var/app/support/logs/passenger.log<br>• /var/app/support/logs/access.log<br>• /var/app/support/logs/error.log                                                               |
 
 Elastic Beanstalk configures log groups in CloudWatch Logs for the various log files that it streams. To retrieve specific log files from CloudWatch Logs, you have to know the name
 of the corresponding log group. The log group naming scheme depends on the platform's operating system.
 
-For Linux platforms, prefix the on-instance log file location with `/aws/elasticbeanstalk/`environment_name``to
- get the log group name. For example, to retrieve the file`/var/log/nginx/error.log`, specify the log group
- `/aws/elasticbeanstalk/`environment_name`/var/log/nginx/error.log`.
+For Linux platforms, prefix the on-instance log file location with `/aws/elasticbeanstalk/`environment_name`` to
+get the log group name. For example, to retrieve the file `/var/log/nginx/error.log`, specify the log group
+`/aws/elasticbeanstalk/`environment_name`/var/log/nginx/error.log`.
 
 For Windows platforms, see the following table for the log group corresponding to each log file.
 
@@ -152,8 +152,9 @@ JSON
 
 6. To save the changes choose **Apply** at the bottom of the page.
 
-After you enable log streaming, you can return to the **Software** configuration category or page and find the **Log
-Groups** link. Click this link to see your logs in the CloudWatch console.
+After you enable log streaming, Elastic Beanstalk displays the streamed CloudWatch Logs log groups in the environment management console, on the
+**Logs** page. Choose a log group to view its log events in a built-in viewer—Elastic Beanstalk automatically selects the most recently
+active log stream, and you can switch streams, search and filter events, and load earlier events.
 
 ### Instance log streaming using the EB CLI
 

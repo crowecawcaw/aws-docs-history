@@ -93,13 +93,13 @@ see [Master User Account Privileges](../../../AmazonRDS/latest/UserGuide/UsingWi
 It takes about 10 minutes to add a DB instance. When the update is complete the new database is _coupled_ to your environment. The
 hostname and other connection information for the DB instance are available to your application through the following environment properties.
 
-| Property name  | Description                                                                                    | Property value                                                                         |
-| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+| Property name  | Description                                                                                    | Property value                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the *_Connectivity & security_<br>• tab on the Amazon RDS console: **Endpoint**. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the *_Connectivity & security_<br>• tab on the Amazon RDS console: **Port**.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the *_Configuration_<br>• tab on the Amazon RDS console: **DB Name**.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the *_Configuration_<br>• tab on the Amazon RDS console: **Master username**.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                              |
 
 ## Connecting to the database
 
@@ -127,8 +127,8 @@ You can view and modify configuration settings for your database instance in the
 3. In the navigation pane, choose **Configuration**.
 4. In the **Database** configuration category, choose **Edit**.
 
-You can modify the **Instance class**, \***\*Storage**, Password**,
-**Availability**, and **Database deletion policy\*\* settings after database creation. If you change the instance class,
+You can modify the **Instance class**, ****Storage**, Password**,
+**Availability**, and **Database deletion policy** settings after database creation. If you change the instance class,
 Elastic Beanstalk re-provisions the DB instance.
 
 If you no longer need Elastic Beanstalk to associate the database to the environment, you can choose to decouple it by selecting **Decouple

@@ -24,4 +24,4 @@ customized `Gemfile`.
 For both of these cases you're required to configure a `Procfile` to start the
 application server.
 
-For more information see _[Configuring the application process with a Procfile](ruby-platform-procfile.md "ruby-platform-procfile.md")\*\*._
+For more information see _[Configuring the application process with a Procfile](ruby-platform-procfile.md "ruby-platform-procfile.md")**._

@@ -2,7 +2,7 @@
 
 Your application might have dependencies on some Node.js modules, such as the ones you specify in `require()` statements.
 These modules are stored in a `node_modules` directory. When your application runs, Node.js loads the modules from this
-directory. For more information, see [Loading from node_modules
+directory. For more information, see [Loading from node\_modules
 folders](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders "https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders") in the Node.js documentation.
 
 You can specify these module dependencies using a `package.json` file. If Elastic Beanstalk detects this file and a
@@ -22,7 +22,7 @@ The following sections provide more information about establishing your Node.js 
 If you experience any deployment issues when Elastic Beanstalk is running `npm install`, consider an alternate approach. Include the
 `node_modules` directory with the dependency modules in your application source bundle. Doing so can circumvent issues with
 installing dependencies from the public npm registry while you investigate the issue. Because the dependency modules are sourced from a local directory,
-dong this might also help reduce deployment time. For more information, see [Including Node.js dependencies in a node_modules directory](#nodejs-platform-nodemodules "#nodejs-platform-nodemodules")
+dong this might also help reduce deployment time. For more information, see [Including Node.js dependencies in a node\_modules directory](#nodejs-platform-nodemodules "#nodejs-platform-nodemodules")
 
 ## Specifying Node.js dependencies with a package.json file
 
@@ -60,11 +60,11 @@ To specify your dependencies in the `package.json` file use the _dependencies_ a
 _devDependencies_ attributes. The _dependencies_ attribute designates packages required by your application in
 production. The _devDependencies_ attribute designates packages that are only needed for local development and testing.
 
-If you need to install the _devDependencies_ packages, set the NPM_USE_PRODUCTION environment property to `false`.
+If you need to install the _devDependencies_ packages, set the NPM\_USE\_PRODUCTION environment property to `false`.
 With this setting we will not use the above options when running npm install. This will result in the _devDependencies_ packages
 being installed.
 
-## Including Node.js dependencies in a node_modules directory
+## Including Node.js dependencies in a node\_modules directory
 
 To deploy dependency packages to environment instances together with your application code, include them in a directory that's named
 `node_modules` in the root of your project source. For more information, see [Downloading and installing packages locally](https://docs.npmjs.com/downloading-and-installing-packages-locally "https://docs.npmjs.com/downloading-and-installing-packages-locally") in the _npm
@@ -72,7 +72,7 @@ Docs_ website.
 
 When you deploy a `node_modules` directory to an AL2023/AL2 Node.js platform version, Elastic Beanstalk assumes that you're
 providing your own dependency packages, and avoids installing dependencies that are specified in a [package.json](#nodejs-platform-packagejson "#nodejs-platform-packagejson") file. Node.js looks for dependencies in the `node_modules` directory. For more information, see
-[Loading from node_modules Folders](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders "https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders") in the
+[Loading from node\_modules Folders](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders "https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders") in the
 Node.js documentation.
 
 ###### Note

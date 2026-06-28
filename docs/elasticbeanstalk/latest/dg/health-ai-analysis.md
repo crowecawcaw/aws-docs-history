@@ -21,7 +21,7 @@ Before you use AI analysis, verify that your environment meets the following req
 
 - Environment running a [supported platform version](#health-ai-analysis-supported-platforms "#health-ai-analysis-supported-platforms")
 - [Instance profile](iam-instanceprofile.md "iam-instanceprofile.md") with required permissions (see [Required permissions](#health-ai-analysis-permissions "#health-ai-analysis-permissions") below)
-- **Anthropic use case details** – AI analysis uses Anthropic Claude models through Amazon Bedrock. Anthropic
+- **Anthropic use case details (commercial regions)** – In commercial regions, AI analysis uses Anthropic Claude models through Amazon Bedrock. Anthropic
   requires you to submit a one-time use case details form before you can invoke their models. To submit this form, select any Anthropic model from the
   model catalog in the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/ "https://console.aws.amazon.com/bedrock/"), or call the
   [`PutUseCaseForModelAccess`](../../../bedrock/latest/APIReference/API_PutUseCaseForModelAccess.md "../../../bedrock/latest/APIReference/API_PutUseCaseForModelAccess.md")
@@ -34,7 +34,7 @@ Before you use AI analysis, verify that your environment meets the following req
     following error:
 
   `AccessDeniedException: Model access is denied due to IAM user or service role is not authorized to perform the required
- AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model.`
+   AWS Marketplace actions (aws-marketplace:ViewSubscriptions, aws-marketplace:Subscribe) to enable access to this model.`
 
   To resolve this, add `aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`, and
   `aws-marketplace:ViewSubscriptions` permissions to your instance profile. These permissions are only needed for the first
@@ -42,11 +42,12 @@ Before you use AI analysis, verify that your environment meets the following req
   [Grant IAM permissions to request
   access to Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md#model-access-permissions "../../../bedrock/latest/userguide/model-access.md#model-access-permissions").
 
-- **GovCloud regions** – If you are using AWS GovCloud (US) regions, you must enable access to the latest
-  Anthropic Claude Sonnet and/or Opus model in Amazon Bedrock before using AI analysis. For instructions on enabling model access in GovCloud regions, see
-  [Manage access to Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md#model-access-govcloud "../../../bedrock/latest/userguide/model-access.md#model-access-govcloud").
-  For information about the latest available Anthropic Claude Sonnet and/or Opus model, see
-  [Supported Regions and models for inference profiles](../../../bedrock/latest/userguide/inference-profiles-support.md "../../../bedrock/latest/userguide/inference-profiles-support.md").
+- **GovCloud regions** – If you are using AWS GovCloud (US) regions, AI analysis uses the NVIDIA Nemotron model
+  instead of Anthropic Claude. You must request access to the NVIDIA Nemotron 3 Super 120B model in Amazon Bedrock before using AI analysis. To request access,
+  open the [Amazon Bedrock Model access](https://console.amazonaws-us-gov.com/bedrock/home#/modelaccess "https://console.amazonaws-us-gov.com/bedrock/home#/modelaccess") page in the
+  GovCloud console and request access to NVIDIA Nemotron 3 Super 120B. The Anthropic use case details form and AWS Marketplace permissions are not
+  required for GovCloud regions. For more information about enabling model access in GovCloud, see
+  [Access Amazon Bedrock foundation models in AWS GovCloud (US)](../../../bedrock/latest/userguide/model-access.md#model-access-govcloud "../../../bedrock/latest/userguide/model-access.md#model-access-govcloud").
 
 ## Required permissions
 
@@ -62,8 +63,9 @@ For more information about configuring instance profiles, see [Managing Elastic 
 
 ###### Note
 
-If this is the first time an Anthropic Claude model is being invoked in your account, you also need AWS Marketplace permissions
+In commercial regions, if this is the first time an Anthropic Claude model is being invoked in your account, you also need AWS Marketplace permissions
 (`aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`, and `aws-marketplace:ViewSubscriptions`).
+These permissions are not required in GovCloud regions.
 See [Prerequisites](#health-ai-analysis-prereqs "#health-ai-analysis-prereqs") for details.
 
 ## Using AI analysis in the console
@@ -147,8 +149,9 @@ The `--analyze` option requires EB CLI version 3.27 or later.
 - **Data privacy** – The analysis sends environment events and logs to Amazon Bedrock in your account for
   processing. For information about how Amazon Bedrock handles your data, see [Amazon Bedrock
   Security and Compliance](https://aws.amazon.com/bedrock/security-compliance/ "https://aws.amazon.com/bedrock/security-compliance/").
-- **Service quotas** – AI analysis uses an Anthropic Claude model in Amazon Bedrock, which has default
-  quotas for requests per minute and tokens per minute. If you encounter throttling errors, you can request a quota increase. For more information,
+- **Service quotas** – AI analysis uses Amazon Bedrock foundation models, which have default
+  quotas for requests per minute and tokens per minute. In commercial regions, Anthropic Claude models are used. In GovCloud regions, the NVIDIA
+  Nemotron model is used. If you encounter throttling errors, you can request a quota increase. For more information,
   see [Requesting a quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md").
 
 ## Supported platform versions

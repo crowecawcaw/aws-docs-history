@@ -120,21 +120,20 @@ procedure to safely migrate your environment to the new platform version.
 
 ###### To migrate your environment to a platform version with major updates
 
-1.  [Create a new environment](using-features.environments.md "using-features.environments.md"), using the new target platform version, and deploy your application
-    code to it. The new environment should be in the Elastic Beanstalk application that contains the environment you're migrating. Don't terminate the existing
-    environment yet.
-2.  Use the new environment to migrate your application. In particular:
+1. [Create a new environment](using-features.environments.md "using-features.environments.md"), using the new target platform version, and deploy your application
+   code to it. The new environment should be in the Elastic Beanstalk application that contains the environment you're migrating. Don't terminate the existing
+   environment yet.
+2. Use the new environment to migrate your application. In particular:
 
-        * Find and fix any application compatibility issues that you couldn't discover during the development phase.
-        * Ensure that any customizations that your application makes using [configuration files](ebextensions.md "ebextensions.md") work correctly in the
-         new environment. These might include option settings, additional installed packages, custom security policies, and script or configuration files
-         installed on environment instances.
-        * If your application uses a custom Amazon Machine Image (AMI), create a new custom AMI based on the AMI of the new platform version. To learn
-         more, see [Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.customenv.md "using-features.customenv.md"). Specifically, this is required if your application
-         uses the Windows Server platform with a custom AMI, and you're migrating to a Windows Server V2 platform version. In this case, see also [Migrating from earlier major versions of the Windows server platform](dotnet-v2migration.md#dotnet-v2migration.migration "dotnet-v2migration.md#dotnet-v2migration.migration").
+   - Find and fix any application compatibility issues that you couldn't discover during the development phase.
+   - Ensure that any customizations that your application makes using [configuration files](ebextensions.md "ebextensions.md") work correctly in the
+     new environment. These might include option settings, additional installed packages, custom security policies, and script or configuration files
+     installed on environment instances.
+   - If your application uses a custom Amazon Machine Image (AMI), create a new custom AMI based on the AMI of the new platform version. To learn
+     more, see [Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.customenv.md "using-features.customenv.md"). Specifically, this is required if your application
+     uses the Windows Server platform with a custom AMI, and you're migrating to a Windows Server V2 platform version. In this case, see also [Migrating from earlier major versions of the Windows server platform](dotnet-v2migration.md#dotnet-v2migration.migration "dotnet-v2migration.md#dotnet-v2migration.migration").
+     Iterate on testing and deploying your fixes until you're satisfied with the application on the new environment.
 
-    Iterate on testing and deploying your fixes until you're satisfied with the application on the new environment.
-
-3.  Turn the new environment into your production environment by swapping its CNAME with the existing production environment's CNAME. For details, see
-    [Blue/Green deployments with Elastic Beanstalk](using-features.CNAMESwap.md "using-features.CNAMESwap.md").
-4.  When you're satisfied with the state of your new environment in production, terminate the old environment. For details, see [Terminate an Elastic Beanstalk environment](using-features.terminating.md "using-features.terminating.md").
+3. Turn the new environment into your production environment by swapping its CNAME with the existing production environment's CNAME. For details, see
+   [Blue/Green deployments with Elastic Beanstalk](using-features.CNAMESwap.md "using-features.CNAMESwap.md").
+4. When you're satisfied with the state of your new environment in production, terminate the old environment. For details, see [Terminate an Elastic Beanstalk environment](using-features.terminating.md "using-features.terminating.md").

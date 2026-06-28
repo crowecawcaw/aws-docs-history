@@ -281,7 +281,7 @@ on your environment's Amazon EC2 instances.
 ```
 
 When a `composer.json` file is present, Elastic Beanstalk runs `composer.phar install` to install dependencies. You can add
-options to append to the command by setting the [composer_options option](#php-namespaces "#php-namespaces") in the
+options to append to the command by setting the [composer\_options option](#php-namespaces "#php-namespaces") in the
 `aws:elasticbeanstalk:container:php:phpini` namespace.
 
 ### Include dependencies in source bundle

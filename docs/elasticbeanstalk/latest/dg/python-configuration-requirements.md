@@ -82,7 +82,7 @@ The following steps describe the logic that Elastic Beanstalk follows to install
 - If there is a `requirements.txt` file, we use the command `pip install -r requirements.txt`.
 - Starting with the March 7, 2023 Amazon Linux 2 platform release, if there is no `requirements.txt` file, but there is a
   `Pipfile.lock`, we use the command `pipenv sync`. Prior to that release, we used `pipenv install
---ignore-pipfile`.
+ --ignore-pipfile`.
 - If there is neither a `requirements.txt` file nor a `Pipfile.lock`, but there is a
   `Pipfile`, we use the command `pipenv install --skip-lock`.
 - If none of the three requirements files are found, we don't install any application dependencies.

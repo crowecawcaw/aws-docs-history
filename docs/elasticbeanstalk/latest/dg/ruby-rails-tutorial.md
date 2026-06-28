@@ -199,7 +199,7 @@ the view and add a route to make this page appear at the top level of the site.
 Use a text editor to edit the content in `app/views/welcome_page/welcome.html.erb`. For this example, you'll use `cat`
 to simply overwrite the content of the existing file.
 
-###### Example app/views/welcome_page/welcome.html.erb
+###### Example app/views/welcome\_page/welcome.html.erb
 
 ```
 <h1>Welcome!</h1>

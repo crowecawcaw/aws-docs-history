@@ -98,7 +98,7 @@ This command creates a load-balanced environment with the default settings for t
      Developer Network.
 
 3. When environment creation completes, use the [eb open](eb3-open.md "eb3-open.md") command to open the environment's URL in the
-   default browser.
+default browser.
 
 ```
 ~/nodejs-example-express-rds$ `eb open`

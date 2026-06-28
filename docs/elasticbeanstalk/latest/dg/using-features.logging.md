@@ -269,6 +269,9 @@ after your environment is terminated.
 The set of logs streamed varies per environment, but always includes `eb-engine.log` and access logs from the nginx or Apache proxy
 server that runs in front of your application.
 
+When log streaming is enabled, you can view these log groups directly in the Elastic Beanstalk console, on the environment's **Logs** page. Choose a
+log group to open its log events in a built-in viewer, where you can switch between log streams, and search and filter events.
+
 You can configure log streaming in the Elastic Beanstalk console either [during environment creation](environments-create-wizard.md#environments-create-wizard-software "environments-create-wizard.md#environments-create-wizard-software") or
 [for an existing environment](environments-cfg-logging.md#environments-cfg-logging-console "environments-cfg-logging.md#environments-cfg-logging-console"). You can set the following options from the console: enable
 /disable log streaming to CloudWatch Logs, set the number of retention days, and select from Lifecyle options. In the following example, logs are saved for up to

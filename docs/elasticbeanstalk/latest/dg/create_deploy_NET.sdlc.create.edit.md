@@ -7,7 +7,7 @@ and see the results in moments.
 
 1. In **Solution Explorer**, right-click your application, and then click
    **Republish to Environment <`your environment
-name`>**. The **Re-publish to AWS Elastic Beanstalk** wizard opens.
+ name`>**. The **Re-publish to AWS Elastic Beanstalk** wizard opens.
 
 ![Publish to beanstalk wizard 1](images/aeb-vs-republish-beanstalk-sameenv.png) 2. Review your deployment details and click **Deploy**.
 

@@ -147,12 +147,12 @@ Number of completed requests.
 These lists are not comprehensive. For a full list of metrics that can be reported for
 these resources, see the following topics in the Amazon CloudWatch Developer Guide:
 
-| Metrics                                 | Namespace                                                                                                                                                                                                  | Topic |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| AWS::ElasticLoadBalancing::LoadBalancer | [Elastic Load Balancing Metrics and<br>Resources](../../../AmazonCloudWatch/latest/DeveloperGuide/elb-metricscollected.md "../../../AmazonCloudWatch/latest/DeveloperGuide/elb-metricscollected.md")       |
-| AWS::AutoScaling::AutoScalingGroup      | [Amazon Elastic Compute Cloud Metrics and<br>Resources](../../../AmazonCloudWatch/latest/DeveloperGuide/ec2-metricscollected.md "../../../AmazonCloudWatch/latest/DeveloperGuide/ec2-metricscollected.md") |
-| AWS::SQS::Queue                         | [Amazon SQS Metrics and<br>Resources](../../../AmazonCloudWatch/latest/DeveloperGuide/sqs-metricscollected.md "../../../AmazonCloudWatch/latest/DeveloperGuide/sqs-metricscollected.md")                   |
-| AWS::RDS::DBInstance                    | [Amazon RDS Dimensions and<br>Metrics](../../../AmazonCloudWatch/latest/DeveloperGuide/rds-metricscollected.md "../../../AmazonCloudWatch/latest/DeveloperGuide/rds-metricscollected.md")                  |
+Metrics| Namespace | Topic |
+| --- | --- |
+| AWS::ElasticLoadBalancing::LoadBalancer | [Elastic Load Balancing Metrics and<br>Resources](../../../AmazonCloudWatch/latest/DeveloperGuide/elb-metricscollected.md "../../../AmazonCloudWatch/latest/DeveloperGuide/elb-metricscollected.md") |
+| AWS::AutoScaling::AutoScalingGroup | [Amazon Elastic Compute Cloud Metrics and<br>Resources](../../../AmazonCloudWatch/latest/DeveloperGuide/ec2-metricscollected.md "../../../AmazonCloudWatch/latest/DeveloperGuide/ec2-metricscollected.md") |
+| AWS::SQS::Queue | [Amazon SQS Metrics and<br>Resources](../../../AmazonCloudWatch/latest/DeveloperGuide/sqs-metricscollected.md "../../../AmazonCloudWatch/latest/DeveloperGuide/sqs-metricscollected.md") |
+| AWS::RDS::DBInstance | [Amazon RDS Dimensions and<br>Metrics](../../../AmazonCloudWatch/latest/DeveloperGuide/rds-metricscollected.md "../../../AmazonCloudWatch/latest/DeveloperGuide/rds-metricscollected.md") |
 
 ### Worker environment health metric
 

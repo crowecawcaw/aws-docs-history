@@ -140,7 +140,7 @@ deployment. For instructions, see [Storing private keys securely in Amazon S3](h
 
 ###### Note for Amazon Linux 2023 environments
 
-On Amazon Linux 2023, `mod_wsgi` must be installed separately as it's not available in the package repositories. For installation instructions, see [mod_wsgi](https://pypi.org/project/mod-wsgi/ "https://pypi.org/project/mod-wsgi/") on PyPI.
+On Amazon Linux 2023, `mod_wsgi` must be installed separately as it's not available in the package repositories. For installation instructions, see [mod\_wsgi](https://pypi.org/project/mod-wsgi/ "https://pypi.org/project/mod-wsgi/") on PyPI.
 
 In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file

@@ -127,23 +127,26 @@ tab. In the **Items to deploy** section, select **All Files in the Project Folde
 
 7. On the **Application Options** page, configure your application options.
 
-   1. For Target framework, select **.NET Framework 4.0**.
-   2. Elastic Load Balancing uses a health check to determine whether the Amazon EC2 instances running your application are healthy. The health
-      check determines an instance's health status by probing a specified URL at a set interval. You can override the default URL to match an existing
-      resource in your application (e.g., `/myapp/index.aspx`) by entering it in the **Application health check
-      URL** box. For more information about application health checks, see [Health check](environments-cfg-clb.md#using-features.managing.elb.healthchecks "environments-cfg-clb.md#using-features.managing.elb.healthchecks").
-   3. Type an email address if you want to receive Amazon Simple Notification Service (Amazon SNS) notifications of important events affecting your
-      application.
-   4. The **Application Environment** section lets you specify environment variables on the Amazon EC2 instances that are running
-      your application. This setting enables greater portability by eliminating the need to recompile your source code as you move between
-      environments.
-   5. Select the application credentials option you want to use to deploy your application.
+    1. For Target framework, select **.NET Framework 4.0**.
+    2. Elastic Load Balancing uses a health check to determine whether the Amazon EC2 instances running your application are healthy. The health
+     check determines an instance's health status by probing a specified URL at a set interval. You can override the default URL to match an existing
+     resource in your application (e.g., `/myapp/index.aspx`) by entering it in the **Application health check
+     URL** box. For more information about application health checks, see [Health check](environments-cfg-clb.md#using-features.managing.elb.healthchecks "environments-cfg-clb.md#using-features.managing.elb.healthchecks").
+    3. Type an email address if you want to receive Amazon Simple Notification Service (Amazon SNS) notifications of important events affecting your
+     application.
+    4. The **Application Environment** section lets you specify environment variables on the Amazon EC2 instances that are running
+     your application. This setting enables greater portability by eliminating the need to recompile your source code as you move between
+     environments.
+    5. Select the application credentials option you want to use to deploy your application.
 
-   ![Publish to beanstalk wizard 6](images/aeb-vs-publish-beanstalk3a.png) 6. Click **Next**.
+
+
+    ![Publish to beanstalk wizard 6](images/aeb-vs-publish-beanstalk3a.png)
+    6. Click **Next**.
 
 8. If you have previously set up an Amazon RDS database, the **Amazon RDS DB Security Group** page appears. If you want to connect
-   your Elastic Beanstalk environment to your Amazon RDS DB Instance, then select one or more security groups. Otherwise, go on to the next step. When
-   you're ready, click **Next**.
+your Elastic Beanstalk environment to your Amazon RDS DB Instance, then select one or more security groups. Otherwise, go on to the next step. When
+you're ready, click **Next**.
 
 ![Publish to beanstalk wizard 7](images/aeb-vs-publish-beanstalk6b.png) 9. Review your deployment options. If everything is as you want, click **Deploy**.
 

@@ -21,45 +21,45 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
 
 ###### To configure Auto Scaling group capacity in the Elastic Beanstalk console
 
-1.  Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
-    and in the **Regions** list, select your AWS Region.
-2.  In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
-3.  In the navigation pane, choose **Configuration**.
-4.  In the **Capacity** configuration category, choose
-    **Edit**.
-5.  In the **Auto Scaling group** section, configure the following
-    settings.
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Configuration**.
+4. In the **Capacity** configuration category, choose
+   **Edit**.
+5. In the **Auto Scaling group** section, configure the following
+   settings.
 
-    - **Environment type** – Select **Load
-      balanced**.
-    - **Min instances** – The minimum number of EC2
-      instances that the group should contain at any time. The group starts with the
-      minimum count and adds instances when the scale-up trigger condition is
-      met.
-    - **Max instances** – The maximum number of EC2
-      instances that the group should contain at any time.
+   - **Environment type** – Select **Load
+     balanced**.
+   - **Min instances** – The minimum number of EC2
+     instances that the group should contain at any time. The group starts with the
+     minimum count and adds instances when the scale-up trigger condition is
+     met.
+   - **Max instances** – The maximum number of EC2
+     instances that the group should contain at any time.
 
-    ###### Note
+   ###### Note
 
-    If you use rolling updates, be sure that the maximum instance count is
-    higher than the [Minimum
-    instances in service setting](using-features.rollingupdates.md#rollingupdates-configure "using-features.rollingupdates.md#rollingupdates-configure") for rolling updates.
-    - **Fleet composition** – The default is
-      **On-Demand Instances**. To enable _Spot
-      Instance_ requests, select **Combined purchase options and
-      instances**.
+   If you use rolling updates, be sure that the maximum instance count is
+   higher than the [Minimum
+   instances in service setting](using-features.rollingupdates.md#rollingupdates-configure "using-features.rollingupdates.md#rollingupdates-configure") for rolling updates.
+   - **Fleet composition** – The default is
+     **On-Demand Instances**. To enable _Spot
+     Instance_ requests, select **Combined purchase options and
+     instances**.
 
-    ###### Important
+   ###### Important
 
-    The `EnableSpot`
-    option setting can cause Elastic Beanstalk to migrate an existing environment with launch configurations to launch
-    templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
-    policies instead of our managed policies, environment creation or updates might fail when you update your environment
-    configuration. For more information
-    and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
+   The `EnableSpot`
+   option setting can cause Elastic Beanstalk to migrate an existing environment with launch configurations to launch
+   templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
+   policies instead of our managed policies, environment creation or updates might fail when you update your environment
+   configuration. For more information
+   and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
-    The following options are enabled if you select to enable _Spot
-    Instance_ requests:
+   The following options are enabled if you select to enable _Spot
+   Instance_ requests:
 
         + **Spot allocation strategy** – Determines the
          method used to manage and provision the Spot Instances in your environment,
@@ -92,32 +92,32 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
          in the Auto Scaling group before they're interrupted, minimizing Spot Instance
          interruptions to your applications. For more information, see [Capacity Rebalancing](../../../autoscaling/ec2/userguide/capacity-rebalance.md "../../../autoscaling/ec2/userguide/capacity-rebalance.md") in the *Amazon EC2 Auto Scaling User
          Guide*
-    - **Architecture** – The processor architecture for your
-      EC2 instances. The processor architecture determines the EC2 Instance types that
-      become available in the next field.
-    - **Instance types** – The types of Amazon EC2 instance
-      launched to run your application. For details, see [Instance types](using-features.managing.ec2.console.md#using-features.managing.ec2.instancetypes "using-features.managing.ec2.console.md#using-features.managing.ec2.instancetypes").
-    - **AMI ID** – The machine image that Elastic Beanstalk uses to
-      launch Amazon EC2 instances in your environment. For details, see [AMI ID](using-features.managing.ec2.console.md#using-features.managing.ec2.customami "using-features.managing.ec2.console.md#using-features.managing.ec2.customami").
-    - **Availability Zones** – Choose the number of
-      Availability Zones to spread your environment's instances across. By default, the
-      Auto Scaling group launches instances evenly across all usable zones. To concentrate your
-      instances in fewer zones, choose the number of zones to use. For production
-      environments, use at least two zones to ensure that your application is available
-      in case one Availability Zone goes out.
-    - **Placement** (optional) – Choose the Availability
-      Zones to use. Use this setting if your instances need to connect to resources in
-      specific zones, or if you have purchased [reserved
-      instances](../../../AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.md "../../../AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.md"), which are zone-specific.
+   - **Architecture** – The processor architecture for your
+     EC2 instances. The processor architecture determines the EC2 Instance types that
+     become available in the next field.
+   - **Instance types** – The types of Amazon EC2 instance
+     launched to run your application. For details, see [Instance types](using-features.managing.ec2.console.md#using-features.managing.ec2.instancetypes "using-features.managing.ec2.console.md#using-features.managing.ec2.instancetypes").
+   - **AMI ID** – The machine image that Elastic Beanstalk uses to
+     launch Amazon EC2 instances in your environment. For details, see [AMI ID](using-features.managing.ec2.console.md#using-features.managing.ec2.customami "using-features.managing.ec2.console.md#using-features.managing.ec2.customami").
+   - **Availability Zones** – Choose the number of
+     Availability Zones to spread your environment's instances across. By default, the
+     Auto Scaling group launches instances evenly across all usable zones. To concentrate your
+     instances in fewer zones, choose the number of zones to use. For production
+     environments, use at least two zones to ensure that your application is available
+     in case one Availability Zone goes out.
+   - **Placement** (optional) – Choose the Availability
+     Zones to use. Use this setting if your instances need to connect to resources in
+     specific zones, or if you have purchased [reserved
+     instances](../../../AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.md "../../../AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.md"), which are zone-specific.
 
-    If you launch your environment in a custom VPC, you cannot configure this option.
-    In a custom VPC, you choose Availability Zones for the subnets that you assign to
-    your environment.
-    - **Scaling cooldown** – The amount of time, in seconds,
-      to wait for instances to launch or terminate after scaling, before continuing to
-      evaluate triggers. For more information, see [Scaling Cooldowns](../../../autoscaling/ec2/userguide/Cooldown.md "../../../autoscaling/ec2/userguide/Cooldown.md").
+   If you launch your environment in a custom VPC, you cannot configure this option.
+   In a custom VPC, you choose Availability Zones for the subnets that you assign to
+   your environment.
+   - **Scaling cooldown** – The amount of time, in seconds,
+     to wait for instances to launch or terminate after scaling, before continuing to
+     evaluate triggers. For more information, see [Scaling Cooldowns](../../../autoscaling/ec2/userguide/Cooldown.md "../../../autoscaling/ec2/userguide/Cooldown.md").
 
-6.  To save the changes choose **Apply** at the bottom of the page.
+6. To save the changes choose **Apply** at the bottom of the page.
 
 ## Configuration using namespace options
 

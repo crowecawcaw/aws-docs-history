@@ -256,7 +256,7 @@ Subscription:
 These lines that tell Elastic Beanstalk to get the value for the **Endpoint** property
 from the **SessionAlarmEmail** value in a config file
 (`options.config` in our sample application) that contains an
-option_settings section with an **aws:elasticbeanstalk:customoption** section
+option\_settings section with an **aws:elasticbeanstalk:customoption** section
 that contains a name-value pair that contains the actual value to use. In the example above,
 this means **SessionAlarmEmail** would be assigned the value
 `nobody@amazon.com`.
