@@ -20,7 +20,7 @@ In this tutorial, you create a custom journey for the following migration scenar
 7. In the **Space name** field, enter
    `tutorial-two-space`.
 8. In the **Create phases** section, enter `Planning
-phase` in the **Phase name** field.
+ phase` in the **Phase name** field.
 9. Choose **Add phase**, and then enter
    `Pre-discovery` in the **Phase name**
    field.
@@ -41,7 +41,7 @@ add to each phase.
 4. In the **Modules in the Pre-discovery phase** section, choose
    **Add module**.
 5. In the **Title** field, enter `Main
-module`.
+ module`.
 6. For the **Phase** field, use the dropdown list to choose
    **Pre-discovery**.
 7. Choose **Add module**.
@@ -55,12 +55,12 @@ module`.
    module**.
 2. Choose **Create task**.
 3. In the **Title** field, enter `Groom the
-pre-discovery backlog.`.
+ pre-discovery backlog.`.
 4. For the **Module** field, choose **Pre-discovery main
    module** from the dropdown list.
 5. For the task description, enter `Conduct the pre-discovery backlog
-grooming working session with department leads and application
-owners.`
+ grooming working session with department leads and application
+ owners.`
 6. Choose **Create task**.
 7. Repeat the steps in this procedure to add to the journey all of the tasks that
    are listed under [Epics](../../../prescriptive-guidance/latest/patterns/rehost-on-premises-workloads-in-the-aws-cloud-migration-checklist.md#rehost-on-premises-workloads-in-the-aws-cloud-migration-checklist-epics "../../../prescriptive-guidance/latest/patterns/rehost-on-premises-workloads-in-the-aws-cloud-migration-checklist.md#rehost-on-premises-workloads-in-the-aws-cloud-migration-checklist-epics").
