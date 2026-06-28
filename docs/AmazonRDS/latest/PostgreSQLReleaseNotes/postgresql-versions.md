@@ -119,7 +119,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 18.4 release](https://w
 **General enhancements**
 
 - Fixed `pgactive` extension unavailability issue during TRUNCATE operations.
-- Enabled SET for the parameter 'plv8.memory_limit'.
+- Enabled SET for the parameter 'plv8.memory\_limit'.
 
 This version also includes the following extension changes:
 
@@ -127,8 +127,8 @@ This version also includes the following extension changes:
 - The `PostGIS` extension was updated to version 3.6.3, and the following
   dependencies were updated:
 
-  - Added support for postgis_topology.
-  - PROJ_DATA was updated to version 1.24.
+  - Added support for postgis\_topology.
+  - PROJ\_DATA was updated to version 1.24.
   - GEOS was updated to 3.14.1.
   - GDAL was updated to 3.11.5.
 
@@ -151,13 +151,13 @@ improvements for PostgreSQL announced in the [PostgreSQL 18.2 release](https://w
 
 - Improved stability and reliability for database operations.
 - Enhanced data collection capabilities.
-- _Advanced query performance monitoring_: Introduced the pg_stat_monitor extension for PostgreSQL 18.2 and higher to provide comprehensive query performance insights and help identify performance bottlenecks. For extension availability by version, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
+- _Advanced query performance monitoring_: Introduced the pg\_stat\_monitor extension for PostgreSQL 18.2 and higher to provide comprehensive query performance insights and help identify performance bottlenecks. For extension availability by version, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
 This version also includes the following extension changes:
 
 The following extension was added:
 
-- pg_stat_monitor
+- pg\_stat\_monitor
 - The `pgactive` extension was updated to version 2.1.7.
 - The `pglogical` extension was updated to version 2.4.6.
 - The `pg_hint_plan` extension was updated to version 1.6.2.
@@ -180,14 +180,14 @@ following release documentation, [PostgreSQL 18](https://www.postgresql.org/docs
 
 The following parameters were updated:
 
-- track_cost_delay_timing default is set to on
-- max_active_replication_origins default is set to 20.
-- pclient_connection_check_interval default is set to 60000.
-- log_connections was updated to reflect the new PostgreSQL 18 behavior.
+- track\_cost\_delay\_timing default is set to on
+- max\_active\_replication\_origins default is set to 20.
+- pclient\_connection\_check\_interval default is set to 60000.
+- log\_connections was updated to reflect the new PostgreSQL 18 behavior.
   The old default value of 0 is equivalent to the new default empty value,
   and the old value of 1 is equivalent to specifying all three values of receipt,
   authentication, and authorization.
-- autovacuum_worker_slots,io_workers,io_max_concurrency
+- autovacuum\_worker\_slots,io\_workers,io\_max\_concurrency
 
 The following extensions were added:
 
@@ -436,7 +436,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 17.10 release](https://
 **General enhancements**
 
 - Fixed `pgactive` extension unavailability issue during TRUNCATE operations.
-- Enabled SET for the parameter 'plv8.memory_limit'.
+- Enabled SET for the parameter 'plv8.memory\_limit'.
 
 This version also includes the following extension changes:
 
@@ -444,7 +444,7 @@ This version also includes the following extension changes:
 - The `PostGIS` extension was updated to version 3.5.6, and the following
   dependencies were updated:
 
-  - PROJ_DATA was updated to version 1.24.
+  - PROJ\_DATA was updated to version 1.24.
 
 - The `pg_partman` extension was updated to version 5.4.3.
 - The `pgcollection` extension was updated to version 1.1.1.
@@ -515,7 +515,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 17.6 release](https://w
 
 **General enhancements**
 
-- Grant rds_superuser access to pg_wal_pause / pg_wal_replay functions to perform logical
+- Grant rds\_superuser access to pg\_wal\_pause / pg\_wal\_replay functions to perform logical
   upgrades and verification/validation.
 - Updated V8 engine to version 11.5.150.2 for the `plv8` extension
   3.1.10.
@@ -558,7 +558,7 @@ This version also includes the following extension changes:
 - The `pg_repack` extension was updated to version 1.5.1.
 - The `pglogical` extension was updated to version 2.4.5.
 - The `PgAudit` extension was updated to version 17.1.
-- The `RDKit` extension was updated to version 2024_09_6.
+- The `RDKit` extension was updated to version 2024\_09\_6.
 
 ### PostgreSQL version 17.4-R2 on Amazon RDS
 
@@ -598,7 +598,7 @@ PostgreSQL version 17.3 is now available on Amazon RDS. This release contains se
 - The `rds_tools` extension was updated to 1.9.
 - The `orafce` extension was updated to 4.14.0.
 - The `pg_cron` extension was updated to 1.6.5.
-- The `rdkit` extension was updated to 2024_09_3.
+- The `rdkit` extension was updated to 2024\_09\_3.
 - The `pg_active` extension was updated to 2.1.4.
 - The `pg_partman` extension was updated to 5.2.4.
 - The `prefix` extension was updated to 1.2.10.
@@ -659,18 +659,18 @@ results in an error.
 - `PostGIS` was updated to version 3.5.0, and the following dependencies
   were updated:
 
-  - `json-c` was updated to version 0.18_20240915.
+  - `json-c` was updated to version 0.18\_20240915.
   - `GDAL` was updated to version 3.9.3
   - `PROJ` was updated to version 9.5.0
   - `PROJ_DATA` was updated to version 1.19
 
 - The `orafce` extension was updated to version 4.13.4.
-- The `pg_bigm` extension was updated to version 1.2_20240606.
+- The `pg_bigm` extension was updated to version 1.2\_20240606.
 - The `pg_proctab` extension was updated to version 0.0.12.
 - The `pg_repack` extension was updated to version 1.5.1.
 - The `pgrouting` extension was updated to version 3.6.3.
 - The `pgvector` extension was updated to version 0.8.0.
-- The `rdkit` extension was updated to version 2024_09_2(4.6.1).
+- The `rdkit` extension was updated to version 2024\_09\_2(4.6.1).
 - The `rds_tools` extension was updated to version 1.8.
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
@@ -898,9 +898,9 @@ improvements for PostgreSQL announced in the [PostgreSQL 16.14 release](https://
 **General enhancements**
 
 - Fixed `pgactive` extension unavailability issue during TRUNCATE operations.
-- Enabled SET for the parameter 'plv8.memory_limit'.
-- Added support for auto_explain Configuration Parameters (auto_explain.log_wal,
-  auto_explain.log_settings, auto_explain.log_level) in Amazon RDS PostgreSQL version 16 DB
+- Enabled SET for the parameter 'plv8.memory\_limit'.
+- Added support for auto\_explain Configuration Parameters (auto\_explain.log\_wal,
+  auto\_explain.log\_settings, auto\_explain.log\_level) in Amazon RDS PostgreSQL version 16 DB
   parameter groups.
 
 This version also includes the following extension changes:
@@ -909,7 +909,7 @@ This version also includes the following extension changes:
 - The `PostGIS` extension was updated to version 3.4.6, and the following
   dependencies were updated:
 
-  - PROJ_DATA was updated to version 1.24.
+  - PROJ\_DATA was updated to version 1.24.
 
 - The `pg_partman` extension was updated to version 5.4.3.
 - The `pgcollection` extension was updated to version 1.1.1.
@@ -980,7 +980,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 16.10 release](https://
 
 **General enhancements**
 
-- Grant rds_superuser access to pg_wal_pause / pg_wal_replay functions to perform logical
+- Grant rds\_superuser access to pg\_wal\_pause / pg\_wal\_replay functions to perform logical
   upgrades and verification/validation.
 - Updated V8 engine to version 11.5.150.2 for the `plv8` extension
   3.1.10.
@@ -1022,7 +1022,7 @@ This version also includes the following extension changes:
 - The `pg_repack` extension was updated to version 1.5.1.
 - The `pglogical` extension was updated to version 2.4.5.
 - The `PgAudit` extension was updated to version 16.1.
-- The `RDKit` extension was updated to version 2024_09_6.
+- The `RDKit` extension was updated to version 2024\_09\_6.
 
 ### PostgreSQL version 16.8-R2 on Amazon RDS
 
@@ -1060,7 +1060,7 @@ PostgreSQL version 16.7 is now available on Amazon RDS. This release contains se
 - The `rds_tools` extension was updated to 1.9.
 - The `orafce` extension was updated to 4.14.0.
 - The `pg_cron` extension was updated to 1.6.5.
-- The `rdkit` extension was updated to 2024_09_3.
+- The `rdkit` extension was updated to 2024\_09\_3.
 - The `pg_active` extension was updated to 2.1.4.
 - The `pg_partman` extension was updated to 5.2.4.
 - The `prefix` extension was updated to 1.2.10.
@@ -1148,7 +1148,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 16.4 release](https://w
 
 - [Delegated extension role](../UserGuide/RDS_delegated_ext.md "../UserGuide/RDS_delegated_ext.md") was added.
 - Fixed [CVE-2024-7348](https://www.postgresql.org/support/security/CVE-2024-7348/ "https://www.postgresql.org/support/security/CVE-2024-7348/") that prevents search path restrictions bypass through
-  pattern-matching queries in information_schema.
+  pattern-matching queries in information\_schema.
 
 This version also includes the following extension updates:
 
@@ -1158,7 +1158,7 @@ This version also includes the following extension updates:
 - The `pg_cron` extension was updated to 1.6.3.
 - The `pgTAP` extension was updated to 1.3.3.
 - The `pgvector` extension was updated to 0.7.3.
-- The `rdkit` extension was updated to 4.5.0 (Release 2024_03_5).
+- The `rdkit` extension was updated to 4.5.0 (Release 2024\_03\_5).
 - The `wal2json` extension was updated to 2.6.
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
@@ -1202,7 +1202,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 16.3 release](https://w
 **New features and enhancements**
 
 - The blue/green deployment switchover won’t be blocked by the `REFRESH MATERIALIZED
-VIEW` statement.
+ VIEW` statement.
 - Fixed the permission denial for the `CREATE DATABASE WITH OWNER`
   statement.
 - Upgraded the `aws_s3` extension to version 1.2 to support the export to S3
@@ -1516,7 +1516,7 @@ announced in the [PostgreSQL 15.18 release](https://www.postgresql.org/docs/rele
 
 **Fixes and improvements**
 
-- Fixed performance issues on x86_64 type instances.
+- Fixed performance issues on x86\_64 type instances.
 
 ### PostgreSQL version 15.18 on Amazon RDS
 
@@ -1526,9 +1526,9 @@ improvements for PostgreSQL announced in the [PostgreSQL 15.18 release](https://
 **General enhancements**
 
 - Fixed `pgactive` extension unavailability issue during TRUNCATE operations.
-- Enabled SET for the parameter 'plv8.memory_limit'.
-- Added support for auto_explain Configuration Parameters (auto_explain.log_wal,
-  auto_explain.log_settings, auto_explain.log_level) in Amazon RDS PostgreSQL version 15 DB
+- Enabled SET for the parameter 'plv8.memory\_limit'.
+- Added support for auto\_explain Configuration Parameters (auto\_explain.log\_wal,
+  auto\_explain.log\_settings, auto\_explain.log\_level) in Amazon RDS PostgreSQL version 15 DB
   parameter groups.
 
 This version also includes the following extension changes:
@@ -1537,7 +1537,7 @@ This version also includes the following extension changes:
 - The `PostGIS` extension was updated to version 3.4.6, and the following
   dependencies were updated:
 
-  - PROJ_DATA was updated to version 1.24.
+  - PROJ\_DATA was updated to version 1.24.
 
 - The `pg_partman` extension was updated to version 5.4.3.
 - The `pgcollection` extension was updated to version 1.1.1.
@@ -1608,7 +1608,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 15.14 release](https://
 
 **General enhancements**
 
-- Grant rds_superuser access to pg_wal_pause / pg_wal_replay functions to perform logical
+- Grant rds\_superuser access to pg\_wal\_pause / pg\_wal\_replay functions to perform logical
   upgrades and verification/validation.
 - Updated V8 engine to version 11.5.150.2 for the `plv8` extension
   3.1.10.
@@ -1650,7 +1650,7 @@ This version also includes the following extension changes:
 - The `pg_repack` extension was updated to version 1.5.1.
 - The `pglogical` extension was updated to version 2.4.5.
 - The `PgAudit` extension was updated to version 1.7.1.
-- The `RDKit` extension was updated to version 2024_09_6.
+- The `RDKit` extension was updated to version 2024\_09\_6.
 
 ### PostgreSQL version 15.12-R2 on Amazon RDS
 
@@ -1688,7 +1688,7 @@ PostgreSQL version 15.11 is now available on Amazon RDS. This release contains s
 - The `rds_tools` extension was updated to 1.9.
 - The `orafce` extension was updated to 4.14.0.
 - The `pg_cron` extension was updated to 1.6.5.
-- The `rdkit` extension was updated to 2024_09_3.
+- The `rdkit` extension was updated to 2024\_09\_3.
 - The `pg_active` extension was updated to 2.1.4.
 - The `pg_partman` extension was updated to 5.2.4.
 - The `prefix` extension was updated to 1.2.10.
@@ -1784,7 +1784,7 @@ This version also includes the following extension updates:
 - The `pg_cron` extension was updated to 1.6.3.
 - The `pgTAP` extension was updated to 1.3.3.
 - The `pgvector` extension was updated to 0.7.3.
-- The `rdkit` extension was updated to 4.5.0 (Release 2024_03_5).
+- The `rdkit` extension was updated to 4.5.0 (Release 2024\_03\_5).
 - The `wal2json` extension was updated to 2.6.
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
@@ -1826,7 +1826,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 15.7 release](https://w
 **New features and enhancements**
 
 - The blue/green deployment switchover won’t be blocked by the `REFRESH MATERIALIZED
-VIEW` statement.
+ VIEW` statement.
 - Fixed the permission denial for the `CREATE DATABASE WITH OWNER`
   statement.
 - Upgraded the `aws_s3` extension to version 1.2 to support the export to S3
@@ -1903,9 +1903,9 @@ PostgreSQL version 15.5-R2 is now available on Amazon RDS. This release contains
 ###### New features and enhancements
 
 - Fixed a crash in `CatalogCacheComputeHashValue` with `dblink_connect` due to a `Null` or `invalid` connection.
-- Backported run_as_owner to RPG 15:
+- Backported run\_as\_owner to RPG 15:
 
-  - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds_superuser).
+  - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds\_superuser).
     The logical apply worker mitigates the risk by temporarily switching the role from the subscription owner to the table owner during logical apply.
 
   In the cases of potential security breaches, the fix will break your existing logical replication if any table in the subscription is owned by a regular user, and there are
@@ -2045,13 +2045,13 @@ release](https://www.postgresql.org/docs/release/15.3/ "https://www.postgresql.o
 - Fixed a security issue involving `rds_sec_override` which wasn't reset
   after the intended usage, allowing unauthorized access to restricted tables
 - Added the `hypopg` extension at version 1.3.1
-- You can use logical_seed_lsn to determine the LSN at which a snapshot is taken in
+- You can use logical\_seed\_lsn to determine the LSN at which a snapshot is taken in
   order to establish logical replication connection between the source and the
   restored target database. You can then use logical replication to continuously
   stream the newer data recorded after the LSN and synchronize the changes from
   publisher to subscriber. Specifically, it allows the customer to create a logical
   slot on a source RDS database, take a snapshot, restore the snapshot to a new RDS
-  instance (target), and use the value of logical_seed_lsn() from the target instance
+  instance (target), and use the value of logical\_seed\_lsn() from the target instance
   to advance the logical slot on the source instance in order to subscribe the target
   to the source.
 
@@ -2173,7 +2173,7 @@ announced in the [PostgreSQL 14.23 release](https://www.postgresql.org/docs/rele
 
 **Fixes and improvements**
 
-- Fixed performance issues on x86_64 type instances.
+- Fixed performance issues on x86\_64 type instances.
 
 ### PostgreSQL version 14.23 on Amazon RDS
 
@@ -2183,9 +2183,9 @@ improvements for PostgreSQL announced in the [PostgreSQL 14.23 release](https://
 **General enhancements**
 
 - Fixed `pgactive` extension unavailability issue during TRUNCATE operations.
-- Enabled SET for the parameter 'plv8.memory_limit'.
-- Added support for auto_explain Configuration Parameters (auto_explain.log_wal,
-  auto_explain.log_settings, auto_explain.log_level) in Amazon RDS PostgreSQL version 14 DB
+- Enabled SET for the parameter 'plv8.memory\_limit'.
+- Added support for auto\_explain Configuration Parameters (auto\_explain.log\_wal,
+  auto\_explain.log\_settings, auto\_explain.log\_level) in Amazon RDS PostgreSQL version 14 DB
   parameter groups.
 
 This version also includes the following extension changes:
@@ -2194,7 +2194,7 @@ This version also includes the following extension changes:
 - The `PostGIS` extension was updated to version 3.4.6, and the following
   dependencies were updated:
 
-  - PROJ_DATA was updated to version 1.24.
+  - PROJ\_DATA was updated to version 1.24.
 
 - The `pg_partman` extension was updated to version 5.4.3.
 - The `pgvector` extension was updated to version 0.8.2.
@@ -2265,7 +2265,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 14.19 release](https://
 
 **General enhancements**
 
-- Grant rds_superuser access to pg_wal_pause / pg_wal_replay functions to perform logical
+- Grant rds\_superuser access to pg\_wal\_pause / pg\_wal\_replay functions to perform logical
   upgrades and verification/validation.
 - Updated V8 engine to version 11.5.150.2 for the `plv8` extension
   3.1.10.
@@ -2307,7 +2307,7 @@ This version also includes the following extension changes:
 - The `pg_repack` extension was updated to version 1.5.1.
 - The `pglogical` extension was updated to version 2.4.5.
 - The `PgAudit` extension was updated to version 1.6.3.
-- The `RDKit` extension was updated to version 2024_09_6.
+- The `RDKit` extension was updated to version 2024\_09\_6.
 
 ### PostgreSQL version 14.17-R2 on Amazon RDS
 
@@ -2345,7 +2345,7 @@ PostgreSQL version 14.16 is now available on Amazon RDS. This release contains s
 - The `rds_tools` extension was updated to 1.9.
 - The `orafce` extension was updated to 4.14.0.
 - The `pg_cron` extension was updated to 1.6.5.
-- The `rdkit` extension was updated to 2024_09_3.
+- The `rdkit` extension was updated to 2024\_09\_3.
 - The `pg_active` extension was updated to 2.1.4.
 - The `pg_partman` extension was updated to 5.2.4.
 - The `prefix` extension was updated to 1.2.10.
@@ -2448,7 +2448,7 @@ This version also includes the following extension updates:
 - The `pg_cron` extension was updated to 1.6.3.
 - The `pgTAP` extension was updated to 1.3.3.
 - The `pgvector` extension was updated to 0.7.3.
-- The `rdkit` extension was updated to 4.5.0 (Release 2024_03_5).
+- The `rdkit` extension was updated to 4.5.0 (Release 2024\_03\_5).
 - The `wal2json` extension was updated to 2.6.
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
@@ -2500,7 +2500,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 14.12 release](https://
 **New features and enhancements**
 
 - The blue/green deployment switchover won’t be blocked by the `REFRESH MATERIALIZED
-VIEW` statement.
+ VIEW` statement.
 - Fixed the permission denial for the `CREATE DATABASE WITH OWNER`
   statement.
 - Upgraded the `aws_s3` extension to version 1.2 to support the export to S3
@@ -2592,9 +2592,9 @@ PostgreSQL version 14.10-R2 is now available on Amazon RDS. This release contain
 ###### New features and enhancements
 
 - Fixed a crash in `CatalogCacheComputeHashValue` with `dblink_connect` due to a `Null` or `invalid` connection.
-- Backported run_as_owner to RPG 14
+- Backported run\_as\_owner to RPG 14
 
-  - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds_superuser).
+  - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds\_superuser).
     The logical apply worker mitigates the risk by temporarily switching the role from the subscription owner to the table owner during logical apply.
 
   In the cases of potential security breaches, the fix will break your existing logical replication if any table in the subscription is owned by a regular user, and there are
@@ -2718,13 +2718,13 @@ release](https://www.postgresql.org/docs/release/14.8/ "https://www.postgresql.o
   after the intended usage, allowing unauthorized access to restricted tables
 - Added extension `hypopg` version 1.3.1
 - Added extension `pgvector` version 0.4.1
-- You can use logical_seed_lsn to determine the LSN at which a snapshot is taken in
+- You can use logical\_seed\_lsn to determine the LSN at which a snapshot is taken in
   order to establish logical replication connection between the source and the
   restored target database. You can then use logical replication to continuously
   stream the newer data recorded after the LSN and synchronize the changes from
   publisher to subscriber. Specifically, it allows the customer to create a logical
   slot on a source RDS database, take a snapshot, restore the snapshot to a new RDS
-  instance (target), and use the value of logical_seed_lsn() from the target instance
+  instance (target), and use the value of logical\_seed\_lsn() from the target instance
   to advance the logical slot on the source instance in order to subscribe the target
   to the source.
 
@@ -2835,7 +2835,7 @@ This version also includes the following changes:
 
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical")
   extension was updated to version 2.4.1.
-- The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan "https://github.com/ossc-db/pg_hint_plan")
+- The [pg\_hint\_plan](https://github.com/ossc-db/pg_hint_plan "https://github.com/ossc-db/pg_hint_plan")
   extension was updated to version 1.4.
 - The [postgresql-hll](https://github.com/citusdata/postgresql-hll "https://github.com/citusdata/postgresql-hll")extension was updated to version 2.16.
 
@@ -2848,10 +2848,10 @@ improvements for PostgreSQL announced in [PostgreSQL 14.2](https://www.postgresq
 
 This version also includes the following changes:
 
-- The [mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw")
-  extension version 2.7.0 is added. For more information, see [Working with MySQL databases by using the mysql_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw").
-- The [tds_fdw](https://github.com/tds-fdw/tds_fdw "https://github.com/tds-fdw/tds_fdw") extension
-  version 2.0.2 is added. For more information, see [Working with SQL Server databases by using the tds_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw") in the
+- The [mysql\_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw")
+  extension version 2.7.0 is added. For more information, see [Working with MySQL databases by using the mysql\_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw").
+- The [tds\_fdw](https://github.com/tds-fdw/tds_fdw "https://github.com/tds-fdw/tds_fdw") extension
+  version 2.0.2 is added. For more information, see [Working with SQL Server databases by using the tds\_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw") in the
   _Amazon RDS User Guide_.
 - The [pgaudit](https://github.com/pgaudit/pgaudit/ "https://github.com/pgaudit/pgaudit/") extension is
   updated to 1.6.1. For information about using this extension with RDS for PostgreSQL, see
@@ -2869,11 +2869,11 @@ improvements that were announced in [PostgreSQL 14.1](https://www.postgresql.org
 
 This version also includes the following changes:
 
-- The [old_snapshot](https://www.postgresql.org/docs/14/oldsnapshot.html "https://www.postgresql.org/docs/14/oldsnapshot.html") extension 1.0 is added. If you set `old_snapshot_threshold` to a
+- The [old\_snapshot](https://www.postgresql.org/docs/14/oldsnapshot.html "https://www.postgresql.org/docs/14/oldsnapshot.html") extension 1.0 is added. If you set `old_snapshot_threshold` to a
   value, this extension lets you map transaction ID to a timestamp.
 - The [amcheck](https://www.postgresql.org/docs/14/amcheck.html "https://www.postgresql.org/docs/14/amcheck.html")
   extension was updated to version 1.3.
-- The [btree_gist](http://www.postgresql.org/docs/14/btree-gist.html "http://www.postgresql.org/docs/14/btree-gist.html") extension was updated to version 1.6.
+- The [btree\_gist](http://www.postgresql.org/docs/14/btree-gist.html "http://www.postgresql.org/docs/14/btree-gist.html") extension was updated to version 1.6.
 - The [cube](http://www.postgresql.org/docs/14/cube.html "http://www.postgresql.org/docs/14/cube.html")
   extension was updated to version 1.5.
 - The [hstore](http://www.postgresql.org/docs/14/hstore.html "http://www.postgresql.org/docs/14/hstore.html")
@@ -2881,18 +2881,18 @@ This version also includes the following changes:
 - The [intarray](http://www.postgresql.org/docs/14/intarray.html "http://www.postgresql.org/docs/14/intarray.html")
   extension was updated to version 1.5.
 - The [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html "https://www.postgresql.org/docs/current/pageinspect.html") extension was updated to version 1.9.
-- The pg_cron extension was updated to version 1.4
-- The pg_partman extension was updated to version
+- The pg\_cron extension was updated to version 1.4
+- The pg\_partman extension was updated to version
   4.6.0.
-- The [pg_repack](http://reorg.github.io/pg_repack/ "http://reorg.github.io/pg_repack/") extension was
+- The [pg\_repack](http://reorg.github.io/pg_repack/ "http://reorg.github.io/pg_repack/") extension was
   updated to version 1.4.7.
-- The [pg_stat_statements](http://www.postgresql.org/docs/14/pgstatstatements.html "http://www.postgresql.org/docs/14/pgstatstatements.html") extension was updated to version 1.9.
-- The [pg_trgm](http://www.postgresql.org/docs/14/pgtrgm.html "http://www.postgresql.org/docs/14/pgtrgm.html")
+- The [pg\_stat\_statements](http://www.postgresql.org/docs/14/pgstatstatements.html "http://www.postgresql.org/docs/14/pgstatstatements.html") extension was updated to version 1.9.
+- The [pg\_trgm](http://www.postgresql.org/docs/14/pgtrgm.html "http://www.postgresql.org/docs/14/pgtrgm.html")
   extension was updated to version 1.6.
 - The [pgaudit](https://github.com/pgaudit/pgaudit/blob/master/README.md "https://github.com/pgaudit/pgaudit/blob/master/README.md") extension was updated to version 1.6.
 - The [pgrouting](http://docs.pgrouting.org/latest/en/index.html "http://docs.pgrouting.org/latest/en/index.html")
   extension was updated to version 3.2.0.
-- The [postgres_fdw](http://www.postgresql.org/docs/14/postgres-fdw.html "http://www.postgresql.org/docs/14/postgres-fdw.html") extension was updated to version 1.1.
+- The [postgres\_fdw](http://www.postgresql.org/docs/14/postgres-fdw.html "http://www.postgresql.org/docs/14/postgres-fdw.html") extension was updated to version 1.1.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
@@ -3205,7 +3205,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 13.15 release](https://
 **New features and enhancements**
 
 - The blue/green deployment switchover won’t be blocked by the `REFRESH MATERIALIZED
-VIEW` statement.
+ VIEW` statement.
 - Fixed the permission denial for the `CREATE DATABASE WITH OWNER`
   statement.
 - Upgraded the `aws_s3` extension to version 1.2 to support the export to S3
@@ -3297,9 +3297,9 @@ PostgreSQL version 13.13-R2 is now available on Amazon RDS. This release contain
 ###### New features and enhancements
 
 - Fixed a crash in `CatalogCacheComputeHashValue` with `dblink_connect` due to a `Null` or `invalid` connection.
-- Backported run_as_owner to RPG 13:
+- Backported run\_as\_owner to RPG 13:
 
-  - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds_superuser).
+  - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds\_superuser).
     The logical apply worker mitigates the risk by temporarily switching the role from the subscription owner to the table owner during logical apply.
 
   In the cases of potential security breaches, the fix will break your existing logical replication if any table in the subscription is owned by a regular user, and there are
@@ -3400,11 +3400,11 @@ PostgreSQL version 13.11 is now available on Amazon RDS. This release contains s
   access to restricted tables
 - Added extension `hypopg` version 1.3.1
 - Added extension `pgvector` version 0.4.1
-- You can use logical_seed_lsn to determine the LSN at which a snapshot is taken in order to establish logical replication
+- You can use logical\_seed\_lsn to determine the LSN at which a snapshot is taken in order to establish logical replication
   connection between the source and the restored target database. You can then use logical replication to continuously stream the newer
   data recorded after the LSN and synchronize the changes from publisher to subscriber. Specifically, it allows the customer to create a
   logical slot on a source RDS database, take a snapshot, restore the snapshot to a new RDS instance (target), and use the value of
-  logical_seed_lsn() from the target instance to advance the logical slot on the source instance in order to subscribe the target to
+  logical\_seed\_lsn() from the target instance to advance the logical slot on the source instance in order to subscribe the target to
   the source.
 
 This version also includes the following changes:
@@ -3456,7 +3456,7 @@ This version includes the following changes:
 - The PostGIS dependency GDAL is updated to 3.4.3.
 - The PostGIS dependency PROJ is updated to 8.0.1.
 - The wal2json extension is updated to 2.5.
-- The aws_s3 extension is updated to 1.1.
+- The aws\_s3 extension is updated to 1.1.
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
@@ -3491,11 +3491,11 @@ improvements that were announced in [PostgreSQL 13.6](https://www.postgresql.org
 
 This version also includes the following changes:
 
-- The [mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw")
-  extension version 2.7.0 is added. For more information, see [Working with MySQL databases by using the mysql_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw") in the
+- The [mysql\_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw")
+  extension version 2.7.0 is added. For more information, see [Working with MySQL databases by using the mysql\_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-mysql-fdw") in the
   _Amazon RDS User Guide_.
-- The [tds_fdw](https://github.com/tds-fdw/tds_fdw "https://github.com/tds-fdw/tds_fdw") extension
-  version 2.0.2 is added. For more information, see [Working with SQL Server databases by using the tds_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw") in the
+- The [tds\_fdw](https://github.com/tds-fdw/tds_fdw "https://github.com/tds-fdw/tds_fdw") extension
+  version 2.0.2 is added. For more information, see [Working with SQL Server databases by using the tds\_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-tds-fdw") in the
   _Amazon RDS User Guide_.
 - The [pgaudit](https://github.com/pgaudit/pgaudit/ "https://github.com/pgaudit/pgaudit/") extension is
   updated to 1.5.1. For information about using this extension with RDS for PostgreSQL, see
@@ -3513,7 +3513,7 @@ improvements that were announced in [PostgreSQL 13.5](https://www.postgresql.org
 
 This version also includes the following change:
 
-- The [pg_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension
+- The [pg\_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension
   is updated to 1.4.1
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
@@ -3528,7 +3528,7 @@ This version also includes the following changes:
 - The `flow_control` extension version 1.0 is added in this
   release.
 - The [spi
-  module](https://www.postgresql.org/docs/13/contrib-spi.html "https://www.postgresql.org/docs/13/contrib-spi.html") extensions refint, autoinc, inset_username, and moddatetime
+  module](https://www.postgresql.org/docs/13/contrib-spi.html "https://www.postgresql.org/docs/13/contrib-spi.html") extensions refint, autoinc, inset\_username, and moddatetime
   version 1.0 are added.
 - The [pgrouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html")
   extension is updated to version 3.1.3.
@@ -3536,11 +3536,11 @@ This version also includes the following changes:
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the following
   related extensions:
 
-  - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
-  - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
-  - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
+  - [address\_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [PostGIS\_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
+  - [PostGIS\_tiger\_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
+  - [PostGIS\_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
@@ -3551,23 +3551,23 @@ improvements that were announced in [PostgreSQL 13.3](https://www.postgresql.org
 
 This version also includes the following changes:
 
-- The [oracle_fdw](https://github.com/laurenz/oracle_fdw "https://github.com/laurenz/oracle_fdw")
-  extension version 2.3.0 is added. For more information, see [Working with Oracle databases by using the oracle_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw") in the
+- The [oracle\_fdw](https://github.com/laurenz/oracle_fdw "https://github.com/laurenz/oracle_fdw")
+  extension version 2.3.0 is added. For more information, see [Working with Oracle databases by using the oracle\_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw") in the
   _Amazon RDS User Guide_.
 - The [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") extension is
   updated to version 3.15.
-- The [pg_cron](../UserGuide/PostgreSQL_pg_cron.md "../UserGuide/PostgreSQL_pg_cron.md")
+- The [pg\_cron](../UserGuide/PostgreSQL_pg_cron.md "../UserGuide/PostgreSQL_pg_cron.md")
   extension is updated to version 1.3.1.
-- The [pg_partman](../UserGuide/PostgreSQL_Partitions.md "../UserGuide/PostgreSQL_Partitions.md")
+- The [pg\_partman](../UserGuide/PostgreSQL_Partitions.md "../UserGuide/PostgreSQL_Partitions.md")
   extension is updated to version 4.5.1.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.0.3, along with the following
   related extensions:
 
-  - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
-  - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
-  - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
+  - [address\_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [PostGIS\_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
+  - [PostGIS\_tiger\_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
+  - [PostGIS\_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
@@ -3582,7 +3582,7 @@ This version also added the following new extensions:
   [Invoking an AWS Lambda
   function from an RDS for PostgreSQL DB instance](../UserGuide/PostgreSQL-Lambda.md "../UserGuide/PostgreSQL-Lambda.md") in the
   _Amazon RDS User Guide_.
-- The [pg_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html")
+- The [pg\_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html")
   extension version 1.2.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
@@ -3779,7 +3779,7 @@ improvements for PostgreSQL announced in the [PostgreSQL 12.19 release](https://
 **New features and enhancements**
 
 - The blue/green deployment switchover won’t be blocked by the `REFRESH MATERIALIZED
-VIEW` statement.
+ VIEW` statement.
 - Fixed the permission denial for the `CREATE DATABASE WITH OWNER`
   statement.
 - Upgraded the `aws_s3` extension to version 1.2 to support the export to S3
@@ -3869,9 +3869,9 @@ PostgreSQL version 12.17-R2 is now available on Amazon RDS. This release contain
 ###### New features and enhancements
 
 - Fixed a crash in `CatalogCacheComputeHashValue` with `dblink_connect` due to a `Null` or `invalid` connection.
-- Backported run_as_owner to RPG 12:
+- Backported run\_as\_owner to RPG 12:
 
-  - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds_superuser).
+  - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds\_superuser).
     The logical apply worker mitigates the risk by temporarily switching the role from the subscription owner to the table owner during logical apply.
 
   In the cases of potential security breaches, the fix will break your existing logical replication if any table in the subscription is owned by a regular user, and there are
@@ -3958,11 +3958,11 @@ PostgreSQL version 12.15 is now available on Amazon RDS. This release contains s
 
 - Fixed a security issue involving `rds_sec_override` which wasn't reset after the intended usage, allowing unauthorized
   access to restricted tables
-- You can use logical_seed_lsn to determine the LSN at which a snapshot is taken in order to establish logical replication
+- You can use logical\_seed\_lsn to determine the LSN at which a snapshot is taken in order to establish logical replication
   connection between the source and the restored target database. You can then use logical replication to continuously stream the newer
   data recorded after the LSN and synchronize the changes from publisher to subscriber. Specifically, it allows the customer to create a
   logical slot on a source RDS database, take a snapshot, restore the snapshot to a new RDS instance (target), and use the value of
-  logical_seed_lsn() from the target instance to advance the logical slot on the source instance in order to subscribe the target to
+  logical\_seed\_lsn() from the target instance to advance the logical slot on the source instance in order to subscribe the target to
   the source.
 
 This version also includes the following changes:
@@ -4014,7 +4014,7 @@ This version includes the following changes:
 - The PostGIS dependency GDAL is updated to 3.4.3.
 - The PostGIS dependency PROJ is updated to 7.0.1.
 - The wal2json extension is updated to 2.5.
-- The aws_s3 extension is updated to 1.1.
+- The aws\_s3 extension is updated to 1.1.
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
@@ -4066,9 +4066,9 @@ improvements that were announced in [12.9](https://www.postgresql.org/docs/relea
 
 This version also includes the following changes:
 
-- The [pg_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension
+- The [pg\_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension
   is updated to 1.4.1
-- The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/")
+- The [pg\_hint\_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/")
   extension is updated to 1.3.7.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
@@ -4086,11 +4086,11 @@ This version also includes the following changes:
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the following
   related extensions:
 
-  - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
-  - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
-  - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
+  - [address\_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [PostGIS\_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
+  - [PostGIS\_tiger\_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
+  - [PostGIS\_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
@@ -4101,23 +4101,23 @@ several improvements that were announced for PostgreSQL release [12.7](https://w
 
 This version also includes the following changes:
 
-- The [oracle_fdw](https://github.com/laurenz/oracle_fdw "https://github.com/laurenz/oracle_fdw")
-  extension version 2.3.0 is added. For more information, see [Working with Oracle databases by using the oracle_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw") in the
+- The [oracle\_fdw](https://github.com/laurenz/oracle_fdw "https://github.com/laurenz/oracle_fdw")
+  extension version 2.3.0 is added. For more information, see [Working with Oracle databases by using the oracle\_fdw extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#postgresql-oracle-fdw") in the
   _Amazon RDS User Guide_.
 - The [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") extension is
   updated to version 3.15.
-- The [pg_cron](../UserGuide/PostgreSQL_pg_cron.md "../UserGuide/PostgreSQL_pg_cron.md")
+- The [pg\_cron](../UserGuide/PostgreSQL_pg_cron.md "../UserGuide/PostgreSQL_pg_cron.md")
   extension is updated to version 1.3.1.
-- The [pg_partman](../UserGuide/PostgreSQL_Partitions.md "../UserGuide/PostgreSQL_Partitions.md")
+- The [pg\_partman](../UserGuide/PostgreSQL_Partitions.md "../UserGuide/PostgreSQL_Partitions.md")
   extension is updated to version 4.5.1.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.0.3, along with the following
   related extensions:
 
-  - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
-  - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
-  - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
+  - [address\_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [PostGIS\_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
+  - [PostGIS\_tiger\_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
+  - [PostGIS\_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
@@ -4132,7 +4132,7 @@ This version also includes the following changes:
   see [Invoking an AWS Lambda
   function from an RDS for PostgreSQL DB instance](../UserGuide/PostgreSQL-Lambda.md "../UserGuide/PostgreSQL-Lambda.md") in the
   _Amazon RDS User Guide_.
-- The [pg_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html")
+- The [pg\_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html")
   extension version 1.2 is added.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.0.2.
 
@@ -4147,11 +4147,11 @@ This version also includes the following changes:
 
 - Added the `pg_partman` extension version 4.4.0. For more information,
   see [Managing PostgreSQL
-  partitions with the pg_partman extension](../UserGuide/PostgreSQL_Partitions.md "../UserGuide/PostgreSQL_Partitions.md") in the _Amazon RDS User
+  partitions with the pg\_partman extension](../UserGuide/PostgreSQL_Partitions.md "../UserGuide/PostgreSQL_Partitions.md") in the _Amazon RDS User
   Guide_.
 - Added the `pg_cron` extension version 1.3.0. For more information, see
   [Scheduling maintenance
-  with the PostgreSQL pg_cron extension](../UserGuide/PostgreSQL_pg_cron.md "../UserGuide/PostgreSQL_pg_cron.md") in the
+  with the PostgreSQL pg\_cron extension](../UserGuide/PostgreSQL_pg_cron.md "../UserGuide/PostgreSQL_pg_cron.md") in the
   _Amazon RDS User Guide_.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
@@ -4225,11 +4225,11 @@ release](https://www.postgresql.org/docs/release/11.22/ "https://www.postgresql.
 
 ###### New features and enhancements
 
-- Backported run_as_owner to RPG 11:
+- Backported run\_as\_owner to RPG 11:
 
   - Backported a security fix for the logical replication apply
     worker that allows regular table owners to obtain privilege
-    escalation to the subscription owner (an rds_superuser). The logical
+    escalation to the subscription owner (an rds\_superuser). The logical
     apply worker mitigates the risk by temporarily switching the role
     from the subscription owner to the table owner during logical
     apply.
@@ -4268,7 +4268,7 @@ release](https://www.postgresql.org/docs/release/11.22/ "https://www.postgresql.
 - Exposed RDKit guc param `rdkit.morgan_fp_size`.
 - Fixed the bug where setting `TABLESPACE` with
   `DEFAULT` option in `CREATE` or `ALTER
-DATABASE` fails.
+ DATABASE` fails.
 - Added the `pgactive` extension.
 
 This version includes the following changes:
@@ -4314,14 +4314,14 @@ release](https://www.postgresql.org/docs/release/11.20/ "https://www.postgresql.
 - Fixed a security issue involving `rds_sec_override` which
   wasn't reset after the intended usage, allowing unauthorized access to
   restricted tables
-- You can use logical_seed_lsn to determine the LSN at which a snapshot is
+- You can use logical\_seed\_lsn to determine the LSN at which a snapshot is
   taken in order to establish logical replication connection between the
   source and the restored target database. You can then use logical
   replication to continuously stream the newer data recorded after the LSN and
   synchronize the changes from publisher to subscriber. Specifically, it
   allows the customer to create a logical slot on a source RDS database, take
   a snapshot, restore the snapshot to a new RDS instance (target), and use the
-  value of logical_seed_lsn() from the target instance to advance the logical
+  value of logical\_seed\_lsn() from the target instance to advance the logical
   slot on the source instance in order to subscribe the target to the
   source.
 
@@ -4374,7 +4374,7 @@ This version includes the following changes:
 - The PostGIS dependency GDAL is updated to 3.4.3.
 - The PostGIS dependency PROJ is updated to 7.0.1.
 - The wal2json extension is updated to 2.5.
-- The aws_s3 extension is updated to 1.1.
+- The aws\_s3 extension is updated to 1.1.
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
@@ -4399,7 +4399,7 @@ fixes and improvements that were announced in [PostgreSQL
 This version also includes the following changes:
 
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical") extension is updated to 2.4.1.
-- The [aws_commons](../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
+- The [aws\_commons](../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
@@ -4425,7 +4425,7 @@ contains several improvements that were announced for PostgreSQL release [11.14]
 
 This version also includes the following change:
 
-- The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.3.7.
+- The [pg\_hint\_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.3.7.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
@@ -4441,11 +4441,11 @@ This version also includes the following changes:
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the
   following related extensions:
 
-  - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
-  - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
-  - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
+  - [address\_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [PostGIS\_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
+  - [PostGIS\_tiger\_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
+  - [PostGIS\_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
@@ -4468,7 +4468,7 @@ contains several improvements that were announced for PostgreSQL release [11.11]
 
 This version also added the following new extension:
 
-- The [pg_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html") extension version 1.2.
+- The [pg\_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html") extension version 1.2.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
@@ -4618,7 +4618,7 @@ following:
   is included in `shared_preload_libraries` by default. This avoids
   having to reboot the instance immediately after creation. However, this
   functionality still requires you to run the statement `CREATE EXTENSION
-pg_stat_statements;`. Also, `track_io_timing` is
+ pg_stat_statements;`. Also, `track_io_timing` is
   enabled by default to add more granular data to
   `pg_stat_statements`.
 - The tsearch2 extension is no longer supported – If your application
@@ -4699,7 +4699,7 @@ This version includes the following changes:
 - PostGIS dependency GDAL is updated to 3.4.3.
 - PostGIS dependency PROJ is updated to 7.0.1.
 - The wal2json extension is updated to 2.5.
-- The aws_s3 extension is updated to 1.1.
+- The aws\_s3 extension is updated to 1.1.
 
 For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
@@ -4724,7 +4724,7 @@ fixes and improvements that were announced in [PostgreSQL
 This version also includes the following changes:
 
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical") extension is updated to 2.4.1.
-- The [aws_commons](../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
+- The [aws\_commons](../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.Reference.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
@@ -4750,7 +4750,7 @@ contains several improvements that were announced for PostgreSQL release [10.19]
 
 This version also includes the following change:
 
-- The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.3.6.
+- The [pg\_hint\_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.3.6.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
@@ -4766,11 +4766,11 @@ This version also includes the following changes:
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the
   following related extensions:
 
-  - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
-  - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
-  - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
+  - [address\_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [PostGIS\_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
+  - [PostGIS\_tiger\_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
+  - [PostGIS\_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
@@ -4965,14 +4965,14 @@ This version also includes the following changes:
   database versions for 10.4 and above. For more information, see [Performing logical replication for Amazon RDS for PostgreSQL](../UserGuide/CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication "../UserGuide/CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication") in the
   _Amazon RDS User Guide_.
 - The temporary file size limitation is user-configurable. You require the
-  **rds_superuser** role to modify the
+  **rds\_superuser** role to modify the
   `temp_file_limit` parameter.
 - Update of the `GDAL` library, which is used by the PostGIS
   extension. See [Managing spatial data with the PostGIS extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") in the
   _Amazon RDS User Guide_.
 - Update of the `ip4r` extension to version 2.1.1.
 - Update of the `pg_repack` extension to version 1.4.3. See
-  [Working with the pg_repack extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the
+  [Working with the pg\_repack extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the
   _Amazon RDS User Guide_.
 - Update of the `plv8` extension to version 2.1.2.
 
@@ -5024,7 +5024,7 @@ PostgreSQL version 10.1 includes the following changes:
   routing.
 - Parallel queries – When you create a
   new PostgreSQL 10.1 instance, parallel queries are enabled for the
-  `default.postgres10` parameter group. The parameter [max_parallel_workers_per_gather](https://www.postgresql.org/docs/10/static/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER "https://www.postgresql.org/docs/10/static/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER") is set to 2 by default, but you
+  `default.postgres10` parameter group. The parameter [max\_parallel\_workers\_per\_gather](https://www.postgresql.org/docs/10/static/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER "https://www.postgresql.org/docs/10/static/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER") is set to 2 by default, but you
   can modify it to support your specific workload requirements.
 - Support for the international components for unicode
   (ICU) – You can use the ICU library to provide
@@ -5088,7 +5088,7 @@ contains several improvements that were announced for PostgreSQL release [9.6.24
 
 This version also includes the following change:
 
-- The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.2.7.
+- The [pg\_hint\_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.2.7.
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
@@ -5103,10 +5103,10 @@ This version also includes the following changes:
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 2.5.5, along with the
   following related extensions:
 
-  - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
-  - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
-  - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
+  - [address\_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [address\_standardizer\_data\_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
+  - [PostGIS\_tiger\_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
+  - [PostGIS\_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
 For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
@@ -5248,7 +5248,7 @@ _Amazon RDS User Guide_.
 This version includes the following changes:
 
 - The temporary file size limitation is user-configurable. You require the
-  **rds_superuser** role to modify the
+  **rds\_superuser** role to modify the
   `temp_file_limit` parameter.
 - Update of the `GDAL` library, which is used by the PostGIS
   extension. See [Working with the PostGIS extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") in the
@@ -5258,7 +5258,7 @@ This version includes the following changes:
   extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in the _Amazon RDS User Guide_.
 
 Update of the `pg_repack` extension to version 1.4.3. See
-[Working with the pg_repack extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the
+[Working with the pg\_repack extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the
 _Amazon RDS User Guide_.
 
 - Update of the `plv8` extension to version 2.1.2.
@@ -5307,7 +5307,7 @@ documentation](http://www.postgresql.org/docs/9.6/static/release-9-6-5.html "htt
 PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md "../UserGuide/USER_UpgradeDBInstance.PostgreSQL.md") in the
 _Amazon RDS User Guide_.
 
-This version also includes support for the [pgrouting](http://pgrouting.org/ "http://pgrouting.org/"), [postgresql-hll](https://github.com/citusdata/postgresql-hll/releases/tag/v2.10.2 "https://github.com/citusdata/postgresql-hll/releases/tag/v2.10.2") extensions, and the [decoder_raw](https://github.com/michaelpq/pg_plugins/tree/master/decoder_raw "https://github.com/michaelpq/pg_plugins/tree/master/decoder_raw") optional extension.
+This version also includes support for the [pgrouting](http://pgrouting.org/ "http://pgrouting.org/"), [postgresql-hll](https://github.com/citusdata/postgresql-hll/releases/tag/v2.10.2 "https://github.com/citusdata/postgresql-hll/releases/tag/v2.10.2") extensions, and the [decoder\_raw](https://github.com/michaelpq/pg_plugins/tree/master/decoder_raw "https://github.com/michaelpq/pg_plugins/tree/master/decoder_raw") optional extension.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
@@ -5318,7 +5318,7 @@ includes the following features:
 
 - Supports the extension `pg_repack` version 1.4.0. You can use
   this extension to remove bloat from tables and indexes. For more information
-  on using `pg_repack` with Amazon RDS, see [Reducing bloat in tables and indexes with the pg_repack
+  on using `pg_repack` with Amazon RDS, see [Reducing bloat in tables and indexes with the pg\_repack
   extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.md#Appendix.PostgreSQL.CommonDBATasks.pg_repack") in the _Amazon RDS User Guide_.
 - Supports the extension `pgaudit` version 1.1.0. This extension
   provides detailed session and object audit logging. For more information on
@@ -5343,16 +5343,16 @@ PostgreSQL version 9.6.2 contains several new features and bug fixes. The new
 version also includes the following extension versions:
 
 - PostGIS version 2.3.2
-- [pg_freespacemap](https://www.postgresql.org/docs/current/static/pgfreespacemap.html "https://www.postgresql.org/docs/current/static/pgfreespacemap.html") version 1.1–Provides a way to examine
+- [pg\_freespacemap](https://www.postgresql.org/docs/current/static/pgfreespacemap.html "https://www.postgresql.org/docs/current/static/pgfreespacemap.html") version 1.1–Provides a way to examine
   the free space map (FSM). This extension provides an overloaded function
-  called pg_freespace. The functions show the value recorded in the free space
+  called pg\_freespace. The functions show the value recorded in the free space
   map for a given page, or for all pages in the relation.
-- [pg_hint_plan](http://pghintplan.osdn.jp/pg_hint_plan.html "http://pghintplan.osdn.jp/pg_hint_plan.html") version 1.1.3– Provides control of
+- [pg\_hint\_plan](http://pghintplan.osdn.jp/pg_hint_plan.html "http://pghintplan.osdn.jp/pg_hint_plan.html") version 1.1.3– Provides control of
   execution plans by using hinting phrases at the beginning of SQL
   statements.
-- log_fdw version 1.0–Using this extension from Amazon RDS, you can load
+- log\_fdw version 1.0–Using this extension from Amazon RDS, you can load
   and query your database engine log from within the database. For more
-  information, see [Using the log_fdw extension to access the DB log using SQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#CHAP_PostgreSQL.Extensions.log_fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#CHAP_PostgreSQL.Extensions.log_fdw") in
+  information, see [Using the log\_fdw extension to access the DB log using SQL](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#CHAP_PostgreSQL.Extensions.log_fdw "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.Extensions.foreign-data-wrappers.md#CHAP_PostgreSQL.Extensions.log_fdw") in
   the _Amazon RDS User Guide_.
 - With this version release, you can now edit the
   `max_worker_processes` parameter in a DB parameter group.
@@ -5384,7 +5384,7 @@ PostgreSQL version 9.6.1 includes the following changes:
   processing, set the parameter `max_parallel_workers_per_gather`
   to a value larger than zero.
 
-- **Updated postgres_fdw extension**: Supports
+- **Updated postgres\_fdw extension**: Supports
   remote JOINs, SORTs, UPDATEs, and DELETE operations.
 - **plv8 update**: Provides version 1.5.3 of
   the plv8 language.
