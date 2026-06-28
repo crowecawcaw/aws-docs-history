@@ -49,7 +49,7 @@ Amazon Linux 2 includes the following packages.
 | mesa-libGL-18.3.4-5.amzn2.0.1                  |
 | mesa-libgbm-18.3.4-5.amzn2.0.1                 |
 | mesa-libglapi-18.3.4-5.amzn2.0.1               |
-| microcode_ctl-2.1-47.amzn2.0.6                 |
+| microcode\_ctl-2.1-47.amzn2.0.6                |
 | openssl-1.0.2k-19.amzn2.0.3                    |
 | openssl-libs-1.0.2k-19.amzn2.0.3               |
 | python-pillow-2.0.0-20.gitd1c6db8.amzn2.0.1    |

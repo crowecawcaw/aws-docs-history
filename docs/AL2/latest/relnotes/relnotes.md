@@ -11,7 +11,7 @@ upgrade mechanisms.
 Amazon Linux 2 uses the systemd 219 init system to bootstrap userspace and manage system
 processes. This is available as /sbin/init and replaces the System V-style init system that
 was available in the previous generation of Amazon Linux. Do not put initscripts sin /etc/init.d.
-systemctl {start|stop|restart}. Instead, use SERVICE_NAME.service. Service SERVICE_NAME
+systemctl {start|stop|restart}. Instead, use SERVICE\_NAME.service. Service SERVICE\_NAME
 {start|stop|restart} is compatible with both Amazon Linux 1 and Amazon Linux 2.
 
 ## Extras
@@ -69,7 +69,7 @@ Requires: /usr/bin/grep
 ## cloud-init updates
 
 Cloud-init has been updated to version 18.2 to handle early initialization of the operating system. Cloud-init sets the default locale and
-instance hostname, and it generates SSH private keys and adds SSH keys into the user’s .ssh/authorized_keys entry. It also establishes
+instance hostname, and it generates SSH private keys and adds SSH keys into the user’s .ssh/authorized\_keys entry. It also establishes
 ephemeral mount points and configures the network devices.
 
 ## Virtual Machine images for on-premises use
