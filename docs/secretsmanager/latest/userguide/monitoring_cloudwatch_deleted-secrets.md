@@ -35,7 +35,7 @@ monitor them for Secrets Manager API requests to retrieve a secret pending delet
 5. For **New or existing log group**, type a name for the log group,
    such as `CloudTrail/MyCloudWatchLogGroup`.
 6. For **IAM role**, you can use the default role named
-   **CloudTrail_CloudWatchLogs_Role**. This role has a default role
+   **CloudTrail\_CloudWatchLogs\_Role**. This role has a default role
    policy with the required permissions to deliver CloudTrail events to the log group.
 7. Choose **Continue** to save your configuration.
 8. On the **AWS CloudTrail will deliver CloudTrail events associated with API activity in
@@ -76,24 +76,25 @@ following:
      `1`.
     4. Choose **Create Filter**.
 
-7. In the filter box, choose **Create Alarm**.
-8. In the **Create Alarm** window, do the following:
+7. In the filter box, choose **Create Alarm**. 8. In the **Create Alarm** window, do the following:
 
-   1. For **Name**, type
-      `AttemptsToAccessDeletedSecretsAlarm`.
-   2. **Whenever:**, for **is:**, choose
-      **>=**, and then type `1`.
-   3. Next to **Send notification to:**, do one of the
-      following:
+    1. For **Name**, type
+     `AttemptsToAccessDeletedSecretsAlarm`.
+    2. **Whenever:**, for **is:**, choose
+     **>=**, and then type `1`.
+    3. Next to **Send notification to:**, do one of the
+     following:
 
-      - To create and use a new Amazon SNS topic, choose **New list**,
-        and then type a new topic name. For **Email list:**, type at
-        least one email address. You can type more than one email address by
-        separating them with commas.
-      - To use an existing Amazon SNS topic, choose the name of the topic to use. If a
-        list doesn't exist, choose **Select list**.
 
-   4. Choose **Create Alarm**.
+
+
+    	* To create and use a new Amazon SNS topic, choose **New list**,
+    	 and then type a new topic name. For **Email list:**, type at
+    	 least one email address. You can type more than one email address by
+    	 separating them with commas.
+    	* To use an existing Amazon SNS topic, choose the name of the topic to use. If a
+    	 list doesn't exist, choose **Select list**.
+    4. Choose **Create Alarm**.
 
 ## Step 3: Test the CloudWatch alarm
 

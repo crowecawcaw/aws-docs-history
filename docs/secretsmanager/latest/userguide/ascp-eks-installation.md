@@ -57,7 +57,7 @@ The configuration file can be a YAML or JSON file. To see the configuration sche
 ###### To install the ASCP by using Helm
 
 1. To make sure the repo is pointing to the latest charts, use `helm repo
-update.`
+ update.`
 2. Install the chart. The following is an example of the `helm install`
    command:
 

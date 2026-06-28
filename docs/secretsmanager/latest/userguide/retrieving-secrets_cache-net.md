@@ -30,24 +30,20 @@ the cache returns the cached copy of the secret.
 
 - Do one of the following:
 
-      + Run the following .NET CLI command in your project directory.
+  - Run the following .NET CLI command in your project directory.
 
+  ```
+  dotnet add package AWSSDK.SecretsManager.Caching --version 1.0.6
+  ```
+  - Add the following package reference to your `.csproj` file.
 
+  ```
+  <ItemGroup>
+      <PackageReference Include="AWSSDK.SecretsManager.Caching" Version="1.0.6" />
+  </ItemGroup>
+  ```
 
-      ```
-      dotnet add package AWSSDK.SecretsManager.Caching --version 1.0.6
-      ```
-      + Add the following package reference to your `.csproj` file.
-
-
-
-      ```
-      <ItemGroup>
-          <PackageReference Include="AWSSDK.SecretsManager.Caching" Version="1.0.6" />
-      </ItemGroup>
-      ```
-
-  **Required permissions:**
+**Required permissions:**
 
 - `secretsmanager:DescribeSecret`
 - `secretsmanager:GetSecretValue`

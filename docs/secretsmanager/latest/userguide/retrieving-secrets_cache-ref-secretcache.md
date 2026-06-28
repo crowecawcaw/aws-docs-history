@@ -1,6 +1,6 @@
 # SecretCache
 
-An in-memory cache for secrets retrieved from Secrets Manager. You use [get_secret_string](#retrieving-secrets_cache-ref-secretcache_get_secret_string "#retrieving-secrets_cache-ref-secretcache_get_secret_string") or [get_secret_binary](#retrieving-secrets_cache-ref-secretcache_get_secret_binary "#retrieving-secrets_cache-ref-secretcache_get_secret_binary") to retrieve a
+An in-memory cache for secrets retrieved from Secrets Manager. You use [get\_secret\_string](#retrieving-secrets_cache-ref-secretcache_get_secret_string "#retrieving-secrets_cache-ref-secretcache_get_secret_string") or [get\_secret\_binary](#retrieving-secrets_cache-ref-secretcache_get_secret_binary "#retrieving-secrets_cache-ref-secretcache_get_secret_binary") to retrieve a
 secret from the cache. You can configure the cache settings by passing in a [SecretCacheConfig](retrieving-secrets_cache-ref-secretcacheconfig.md "retrieving-secrets_cache-ref-secretcacheconfig.md") object in the
 constructor.
 
@@ -15,10 +15,10 @@ cache = SecretCache(
 
 ###### These are the available methods:
 
-- [get_secret_string](#retrieving-secrets_cache-ref-secretcache_get_secret_string "#retrieving-secrets_cache-ref-secretcache_get_secret_string")
-- [get_secret_binary](#retrieving-secrets_cache-ref-secretcache_get_secret_binary "#retrieving-secrets_cache-ref-secretcache_get_secret_binary")
+- [get\_secret\_string](#retrieving-secrets_cache-ref-secretcache_get_secret_string "#retrieving-secrets_cache-ref-secretcache_get_secret_string")
+- [get\_secret\_binary](#retrieving-secrets_cache-ref-secretcache_get_secret_binary "#retrieving-secrets_cache-ref-secretcache_get_secret_binary")
 
-## get_secret_string
+## get\_secret\_string
 
 Retrieves the secret string value.
 
@@ -42,7 +42,7 @@ Return type
 
 string
 
-## get_secret_binary
+## get\_secret\_binary
 
 Retrieves the secret binary value.
 

@@ -34,34 +34,34 @@ If you choose the _alternating users strategy_, you must [Create secrets](create
 
 ###### To turn on rotation for an Amazon RDS, Amazon DocumentDB, or Amazon Redshift secret
 
-1.  Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
-2.  On the **Secrets** page, choose your secret.
-3.  On the **Secret details** page, in the **Rotation
-    configuration** section, choose **Edit rotation**.
-4.  In the **Edit rotation configuration** dialog box, do the
-    following:
+1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+2. On the **Secrets** page, choose your secret.
+3. On the **Secret details** page, in the **Rotation
+   configuration** section, choose **Edit rotation**.
+4. In the **Edit rotation configuration** dialog box, do the
+   following:
 
-    1. Turn on **Automatic rotation**.
-    2. Under **Rotation schedule**, enter your schedule in UTC
-       time zone in either the **Schedule expression builder**
-       or as a **Schedule expression**. Secrets Manager stores your schedule as a
-       `rate()` or `cron()`
-       expression. The rotation window automatically starts at midnight
-       unless you specify a **Start time**. You can rotate a secret as often as every four hours. For more
-       information, see [Rotation schedules](rotate-secrets_schedule.md "rotate-secrets_schedule.md").
-    3. (Optional) For **Window duration**, choose the length of
-       the window during which you want Secrets Manager to rotate your secret, for example
-       `3h` for a three hour window. The window must not
-       extend into the next rotation window. If you don't specify **Window
-       duration**, for a rotation schedule in hours, the
-       window automatically closes after one hour. For a rotation schedule in days, the
-       window automatically closes at the end of the day.
-    4. (Optional) Choose **Rotate immediately when the secret is
-       stored** to rotate your secret when you save your
-       changes. If you clear the checkbox, then the first rotation will
-       begin on the schedule you set.
+   1. Turn on **Automatic rotation**.
+   2. Under **Rotation schedule**, enter your schedule in UTC
+      time zone in either the **Schedule expression builder**
+      or as a **Schedule expression**. Secrets Manager stores your schedule as a
+      `rate()` or `cron()`
+      expression. The rotation window automatically starts at midnight
+      unless you specify a **Start time**. You can rotate a secret as often as every four hours. For more
+      information, see [Rotation schedules](rotate-secrets_schedule.md "rotate-secrets_schedule.md").
+   3. (Optional) For **Window duration**, choose the length of
+      the window during which you want Secrets Manager to rotate your secret, for example
+      `3h` for a three hour window. The window must not
+      extend into the next rotation window. If you don't specify **Window
+      duration**, for a rotation schedule in hours, the
+      window automatically closes after one hour. For a rotation schedule in days, the
+      window automatically closes at the end of the day.
+   4. (Optional) Choose **Rotate immediately when the secret is
+      stored** to rotate your secret when you save your
+      changes. If you clear the checkbox, then the first rotation will
+      begin on the schedule you set.
 
-    If rotation fails, for example because Steps 3 and 4 are not yet completed, Secrets Manager retries the rotation process multiple times. 5. Under **Rotation function**, do one of the following:
+   If rotation fails, for example because Steps 3 and 4 are not yet completed, Secrets Manager retries the rotation process multiple times. 5. Under **Rotation function**, do one of the following:
 
         * Choose **Create a new Lambda
          function** and enter a name for your new function.
@@ -74,10 +74,11 @@ If you choose the _alternating users strategy_, you must [Create secrets](create
          reuse a rotation function you used for another secret. The rotation
          functions listed under **Recommended VPC configurations** have the
          same VPC and security group as the database, which helps the function access the database.
-    6. For **Rotation strategy**,
-       choose the **Single user** or **Alternating users** strategy. For more information, see [Step 1: Choose a rotation strategy and (optionally) create a superuser secret](#rotate-secrets_turn-on-for-db_step1 "#rotate-secrets_turn-on-for-db_step1").
 
-5.  Choose **Save**.
+   6. For **Rotation strategy**,
+   choose the **Single user** or **Alternating users** strategy. For more information, see [Step 1: Choose a rotation strategy and (optionally) create a superuser secret](#rotate-secrets_turn-on-for-db_step1 "#rotate-secrets_turn-on-for-db_step1").
+
+5. Choose **Save**.
 
 ## Step 3: (Optional) Set additional permissions conditions on the rotation function
 

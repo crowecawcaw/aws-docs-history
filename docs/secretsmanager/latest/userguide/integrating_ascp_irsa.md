@@ -79,7 +79,7 @@ kubectl get pods
 2. To describe the Pod, in the following command, for
    `podId` use the Pod ID from the Pods you found in the
    previous step. If you aren't using the default namespace, use `-n
-`nameSpace``.
+ `nameSpace``.
 
 ```
 kubectl describe pod/`podId`

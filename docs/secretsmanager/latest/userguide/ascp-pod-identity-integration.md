@@ -110,7 +110,7 @@ it defaults to using IAM Roles for Service Accounts (IRSA).
      "False", "FALSE", "f", or "F"`.
 
 5. Deploy the Pod that mounts the secrets under
-   `/mnt/secrets-store`:
+`/mnt/secrets-store`:
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/examples/ExampleDeployment-PodIdentity.yaml
@@ -144,7 +144,7 @@ You can view most errors by describing the Pod deployment.
 
 1. Get a list of Pod names with the following command. If you aren't using the
    default namespace, use `-n
-`NAMESPACE``.
+ `NAMESPACE``.
 
 ```
 kubectl get pods
@@ -153,7 +153,7 @@ kubectl get pods
 2. To describe the Pod, in the following command, for
    `PODID` use the Pod ID from the Pods you found in
    the previous step. If you aren't using the default namespace, use `-n
-`NAMESPACE``.
+ `NAMESPACE``.
 
 ```
 kubectl describe pod/`PODID`

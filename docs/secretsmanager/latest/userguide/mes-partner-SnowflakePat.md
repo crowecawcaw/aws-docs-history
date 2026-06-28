@@ -54,7 +54,7 @@ The following are the metadata fields for Snowflake Programmatic Access Token:
 
 daysToExpiry
 
-(Optional) The PAT's DAYS_TO_EXPIRY value set at creation time (1–365). Default: 15.
+(Optional) The PAT's DAYS\_TO\_EXPIRY value set at creation time (1–365). Default: 15.
 Must match the Snowflake setting. Used to validate that the rotation schedule is shorter than
 the token's TTL.
 

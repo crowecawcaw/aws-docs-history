@@ -18,7 +18,7 @@ information, see [Managed rotation for AWS Secrets Manager secrets](rotate-secre
 - [Error: "Access to KMS is not allowed"](#troubleshoot_rotation_kms-key "#troubleshoot_rotation_kms-key")
 - [Error: "Key is missing from secret JSON"](#tshoot-lambda-mismatched-secretvalue "#tshoot-lambda-mismatched-secretvalue")
 - [Error: "setSecret: Unable to log into database"](#troubleshoot_rotation_setSecret "#troubleshoot_rotation_setSecret")
-- [Error: "Unable to import module 'lambda_function'"](#tshoot-python-version "#tshoot-python-version")
+- [Error: "Unable to import module 'lambda\_function'"](#tshoot-python-version "#tshoot-python-version")
 - [Upgrade an existing rotation function to Python 3.12](#troubleshoot_rotation_python_latest "#troubleshoot_rotation_python_latest")
 - [AWS Lambda secret rotation with PutSecretValue failed](#troubleshoot_rotation_putsecretvalue "#troubleshoot_rotation_putsecretvalue")
 - [Error: "Error when executing lambda <arn> during <a rotation> step"](#concurrency-related-failures "#concurrency-related-failures")
@@ -273,7 +273,7 @@ support connections that use SSL/TLS, you need to [recreate your rotation functi
    date the stack was created. This is the date the Lambda rotation function was
    created.
 
-## Error: "Unable to import module 'lambda_function'"
+## Error: "Unable to import module 'lambda\_function'"
 
 You might receive this error if you're running an earlier Lambda function that was
 automatically upgraded from Python 3.7 to a newer version of Python. To resolve the error, you
@@ -347,7 +347,7 @@ then under **Edit template in Application Composer**, choose the button
      **Confirm and continue to CloudFormation**.
 
 4. Continue through the CloudFormation stack workflow and then choose
-   **Submit**.
+**Submit**.
 
 #### Option 2: Update the runtime for the existing rotation function using CloudFormation
 
@@ -384,7 +384,7 @@ then under **Edit template in Application Composer**, choose the button
      **Confirm and continue to CloudFormation**.
 
 4. Continue through the CloudFormation stack workflow and then choose
-   **Submit**.
+**Submit**.
 
 #### Option 3: For AWS CDK users, upgrade the CDK library
 
@@ -466,8 +466,8 @@ Use the following procedure to update AWS Serverless Application Repository depl
         - The Lambda application name can be found by using the link in the
           banner. For example, the banner states the following
           `serverlessrepo-`SecretsManagerRedshiftRotationSingleUser``.
-The name in this example is
-`SecretsManagerRedshiftRotationSingleUser`.
+          The name in this example is
+          `SecretsManagerRedshiftRotationSingleUser`.
 
       - **Lambda rotation function name**
       - **Secrets Manager endpoint**
@@ -475,7 +475,7 @@ The name in this example is
         - The endpoint can be found under the
           **Configurations** and the **Environment
           variables** tabs assigned to the
-          **SECRETS_MANAGER_ENDPOINT** variable.
+          **SECRETS\_MANAGER\_ENDPOINT** variable.
 
 3. To upgrade Python, you must update the semantic version of the serverless
    application. See [Updating Applications](../../../serverlessrepo/latest/devguide/serverlessrepo-how-to-consume-new-version.md#update-applications "../../../serverlessrepo/latest/devguide/serverlessrepo-how-to-consume-new-version.md#update-applications") in the _AWS Serverless Application Repository Developer
@@ -551,7 +551,7 @@ update your Lambda function to use the `RotationToken` parameter.
 
 2. Edit `Lambda_handler`
 
-Include the rotation_token parameter in the create_secret step for cross-account
+Include the rotation\_token parameter in the create\_secret step for cross-account
 rotation:
 
 ```

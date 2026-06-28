@@ -36,12 +36,12 @@ appId
 The App ID is the identifier for your Salesforce External Client Application (ECA).
 You can retrieve this by calling the Salesforce OAuth Usage endpoint. It
 must begin with `0x` and contain only alphanumeric
-characters. This field refers to the external_client_app_identifier in the [Salesforce rotation guide](https://help.salesforce.com/s/articleView?id=xcloud.eca_stage_oauth_credentials.htm&type=5 "https://help.salesforce.com/s/articleView?id=xcloud.eca_stage_oauth_credentials.htm&type=5").
+characters. This field refers to the external\_client\_app\_identifier in the [Salesforce rotation guide](https://help.salesforce.com/s/articleView?id=xcloud.eca_stage_oauth_credentials.htm&type=5 "https://help.salesforce.com/s/articleView?id=xcloud.eca_stage_oauth_credentials.htm&type=5").
 
 consumerId
 
 The consumer ID is the identifier for your Salesforce External Client Application (ECA) consumer.
-You can retrieve this by calling the Salesforce OAuth Credentials by App ID endpoint. This field refers to the consumer_id in the [Salesforce rotation guide](https://help.salesforce.com/s/articleView?id=xcloud.eca_stage_oauth_credentials.htm&type=5 "https://help.salesforce.com/s/articleView?id=xcloud.eca_stage_oauth_credentials.htm&type=5").
+You can retrieve this by calling the Salesforce OAuth Credentials by App ID endpoint. This field refers to the consumer\_id in the [Salesforce rotation guide](https://help.salesforce.com/s/articleView?id=xcloud.eca_stage_oauth_credentials.htm&type=5 "https://help.salesforce.com/s/articleView?id=xcloud.eca_stage_oauth_credentials.htm&type=5").
 
 ## Secret Metadata Fields
 

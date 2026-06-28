@@ -86,8 +86,8 @@ are routed to the endpoints within the VPC.
    **Auto-generate**, enter
    `SecretsManagerTutorial`.
 5. For **DNS options**, choose both `Enable DNS
-hostnames` and `Enable DNS
-resolution`.
+ hostnames` and `Enable DNS
+ resolution`.
 6. Choose **Create VPC**.
 
 ###### To create a Secrets Manager endpoint within the VPC
@@ -103,7 +103,7 @@ resolution`.
    US East (N. Virginia), choose
    `com.amazonaws.us-east-1.secretsmanager`.
 4. For **VPC**, choose `vpc****
-(SecretsManagerTutorial)`.
+ (SecretsManagerTutorial)`.
 5. For **Subnets**, select all **Availability
    Zones**, and then for each one, choose a **Subnet
    ID** to include.
@@ -112,7 +112,7 @@ resolution`.
 7. For **Security groups**, choose the default security
    group.
 8. For **Policy**, choose `Full
-access`.
+ access`.
 9. Choose **Create endpoint**.
 
 ###### To create an Amazon RDS endpoint within the VPC
@@ -127,7 +127,7 @@ access`.
    For example, in the US East (N. Virginia), choose
    `com.amazonaws.us-east-1.rds`.
 4. For **VPC**, choose `vpc****
-(SecretsManagerTutorial)`.
+ (SecretsManagerTutorial)`.
 5. For **Subnets**, select all **Availability
    Zones**, and then for each one, choose a **Subnet
    ID** to include.
@@ -136,7 +136,7 @@ access`.
 7. For **Security groups**, choose the default security
    group.
 8. For **Policy**, choose `Full
-access`.
+ access`.
 9. Choose **Create endpoint**.
 
 ### Prereq B: Amazon EC2 instance
@@ -197,7 +197,7 @@ instance to allow your local computer to connect to it as well.
 2. In the **Engine options** section, for **Engine
    type**, choose `MySQL`.
 3. In the **Templates** section, choose `Free
-tier`.
+ tier`.
 4. In the **Settings** section, do the following:
 
    1. For **DB instance identifier**, enter
@@ -234,7 +234,7 @@ address) to connect to the bastion host by using SSH over the internet.
    1. For **Type**, choose
       `SSH`.
    2. For **Source type**, choose `My
-IP`.
+  IP`.
 
 ## Step 1: Create an Amazon RDS database user
 
@@ -260,7 +260,7 @@ configuration, you need some information from both Amazon EC2 and Amazon RDS.
    1. For **Connection Name**, enter
       `SecretsManagerTutorial`.
    2. For **Connection Method**, choose `Standard
-TCP/IP over SSH`.
+  TCP/IP over SSH`.
    3. On the **Parameters** tab, do the following:
 
       1. For **SSH Hostname**, enter the public IP
@@ -352,8 +352,8 @@ to change the first user's password.
       **Description** that includes the name of the database
       you created in this tutorial
       `secretsmanagertutorial`, for example `Secret
-associated with primary RDS DB instance:
-arn:aws:rds:`Region`:`AccountId`:db:secretsmanagertutorial`.
+  associated with primary RDS DB instance:
+  arn:aws:rds:`Region`:`AccountId`:db:secretsmanagertutorial`.
    5. Choose **Next**.
 
 6. On the **Review** page, choose

@@ -47,7 +47,7 @@ To use the action, add a step to your workflow that uses the following syntax.
 
 Secret ARNS, names, and name prefixes.
 
-To set the environment variable name, enter it before the secret ID, followed by a comma. For example `ENV_VAR_1, secretId` creates an environment variable named **ENV_VAR_1** from the secret `secretId`. The environment variable name can consist of uppercase letters, numbers, and underscores.
+To set the environment variable name, enter it before the secret ID, followed by a comma. For example `ENV_VAR_1, secretId` creates an environment variable named **ENV\_VAR\_1** from the secret `secretId`. The environment variable name can consist of uppercase letters, numbers, and underscores.
 
 To use a prefix, enter at least three characters followed by an asterisk. For example `dev*` matches all secrets with a name beginning in **dev**. The maximum number of matching secrets that can be retrieved is 100. If you set the variable name, and the prefix matches multiple secrets, then the action fails.
 
@@ -79,7 +79,7 @@ If two environment variables would end up with the same name, the action fails. 
 Examples of when the names might conflict:
 
 - A secret named "MySecret" and a secret named "mysecret" would both become environment variables named "MYSECRET".
-- A secret named "Secret_keyname" and a JSON-parsed secret named "Secret" with a key named "keyname" would both become environment variables named "SECRET_KEYNAME".
+- A secret named "Secret\_keyname" and a JSON-parsed secret named "Secret" with a key named "keyname" would both become environment variables named "SECRET\_KEYNAME".
 
 You can set the environment variable name by specifying an _alias_, as
 shown in the following example, which creates a variable named

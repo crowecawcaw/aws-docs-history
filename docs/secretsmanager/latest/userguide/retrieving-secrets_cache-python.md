@@ -18,7 +18,7 @@ To use the component, you must have the following:
 
 - Python 3.6 or later.
 - botocore 1.12 or higher. See [AWS SDK for Python](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/") and [Botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html "https://botocore.amazonaws.com/v1/documentation/api/latest/index.html").
-- setuptools_scm 3.2 or higher. See [https://pypi.org/project/setuptools-scm/](https://pypi.org/project/setuptools-scm/ "https://pypi.org/project/setuptools-scm/").
+- setuptools\_scm 3.2 or higher. See [https://pypi.org/project/setuptools-scm/](https://pypi.org/project/setuptools-scm/ "https://pypi.org/project/setuptools-scm/").
   To download the source code, see [Secrets Manager Python-based
   caching client component](https://github.com/aws/aws-secretsmanager-caching-python "https://github.com/aws/aws-secretsmanager-caching-python ") on GitHub.
 

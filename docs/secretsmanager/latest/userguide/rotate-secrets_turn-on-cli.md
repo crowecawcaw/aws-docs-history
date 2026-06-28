@@ -23,9 +23,7 @@ For information about the strategies offered by Secrets Manager, see [Lambda fun
 
 ### Option 1: Single user strategy
 
-If you choose the _single user strategy_, you can continue with Step
-
-1.
+If you choose the _single user strategy_, you can continue with Step 1.
 
 ### Option 2: Alternating users strategy
 

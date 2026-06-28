@@ -861,7 +861,7 @@ A list of environment variable names the AWS Workload Credentials Provider check
 order for the SSRF token. The environment variable can contain the token or
 a reference to the token file as in:
 `AWS_TOKEN=file:///var/run/awssmatoken`. The default is
-"AWS_TOKEN, AWS_SESSION_TOKEN, AWS_CONTAINER_AUTHORIZATION_TOKEN".
+"AWS\_TOKEN, AWS\_SESSION\_TOKEN, AWS\_CONTAINER\_AUTHORIZATION\_TOKEN".
 
 ###### Logging options (`[logging]`)
 
