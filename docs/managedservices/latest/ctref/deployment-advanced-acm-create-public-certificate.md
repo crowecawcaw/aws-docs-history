@@ -144,11 +144,11 @@ following five common system addresses where `your_domain`
 is the domain name you entered when you initially requested a certificate and .com is the
 top-level domain.
 
-- administrator@your_domain.com
-- hostmaster@your_domain.com
-- postmaster@your_domain.com
-- webmaster@your_domain.com
-- admin@your_domain.com
+- administrator@your\_domain.com
+- hostmaster@your\_domain.com
+- postmaster@your\_domain.com
+- webmaster@your\_domain.com
+- admin@your\_domain.com
   If set to **DNS**, ACM provides you one or more CNAME records
   to add into your DNS database, ACM uses CNAME records to validate that you own or
   control a domain. If the **Route53DNSValidation** parameter is set to

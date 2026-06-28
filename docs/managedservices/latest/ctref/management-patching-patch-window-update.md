@@ -142,7 +142,7 @@ aws amscm create-rfc --generate-cli-skeleton > UpdatePatchWindowRfc.json
 aws amscm create-rfc --cli-input-json file://UpdatePatchWindowRfc.json --execution-parameters file://UpdatePatchWindowParams.json
 ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the SSM patch baseline, look in the execution output: Use the stack_id to view the patch baseline in the Systems Manager console.
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the SSM patch baseline, look in the execution output: Use the stack\_id to view the patch baseline in the Systems Manager console.
 
 - This solution uses custom logic to detect drift in AWS resources not yet supported by CloudFormation (AWS::SSM::MaintenanceWindow &
   AWS::SSM::MaintenanceWindowTarget). We recommend executing this change type with the parameter **OnlyCheckForMaintenanceWindowDrift=True**

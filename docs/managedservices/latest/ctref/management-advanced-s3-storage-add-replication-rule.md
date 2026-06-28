@@ -85,23 +85,25 @@ aws amscm get-change-type-version --change-type-id "ct-31eb7rrxb7qju" --query "C
 ```
 
 2. ```
-   {
-       "DocumentName" : "AWSManagedServices-PutReplicationRule",
-       "Region": "`us-east-1`",
-       "Parameters": {
-         "ReplicationRuleName" : "`test-replication-all-params`",
-         "SourceBucketName" : "`amzn-s3-demo-source-bucket`",
-         "DestinationAccount" : "`123456789012`",
-         "DestinationBucketName" : "`amzn-s3-demo-destination-bucket`",
-         "ReplicationRole" : "`arn:aws:iam::123456789012:role/customer_test_s3_replication`",
-         "OwnerTranslation" : "`false`",
-         "DecryptObjectKMSKey" : ["`arn:aws:kms:us-east-1:123456789012:key/12345678-aaaa-bbbb-cccc-123456789012`"],
-         "EncryptReplicaKMSKey" : "`arn:aws:kms:eu-west-1:012987654321:key/87654321-aaaa-bbbb-cccc-012987654321`",
-         "Prefix" : " ",
-         "Priority" : "`1`"
-       }
-   }
+
    ```
+
+{
+"DocumentName" : "AWSManagedServices-PutReplicationRule",
+"Region": "`us-east-1`",
+"Parameters": {
+"ReplicationRuleName" : "`test-replication-all-params`",
+"SourceBucketName" : "`amzn-s3-demo-source-bucket`",
+"DestinationAccount" : "`123456789012`",
+"DestinationBucketName" : "`amzn-s3-demo-destination-bucket`",
+"ReplicationRole" : "`arn:aws:iam::123456789012:role/customer_test_s3_replication`",
+"OwnerTranslation" : "`false`",
+"DecryptObjectKMSKey" : ["`arn:aws:kms:us-east-1:123456789012:key/12345678-aaaa-bbbb-cccc-123456789012`"],
+"EncryptReplicaKMSKey" : "`arn:aws:kms:eu-west-1:012987654321:key/87654321-aaaa-bbbb-cccc-012987654321`",
+"Prefix" : " ",
+"Priority" : "`1`"
+}
+}
 
 ```
 3. Output the RFC template to a file in your current folder; this example names it PutReplicationRuleRfc.json:
@@ -121,7 +123,7 @@ aws amscm create-rfc --generate-cli-skeleton > PutReplicationRuleRfc.json
 
 {
 "ChangeTypeVersion": "1.0",  
- "ChangeTypeId": "ct-31eb7rrxb7qju",
+"ChangeTypeId": "ct-31eb7rrxb7qju",
 "Title": "`Add S3 replication rule in the source bucket."`
 }
 

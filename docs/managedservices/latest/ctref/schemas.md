@@ -33172,6 +33172,17 @@ Change type schemas specify the execution input parameters for a change type.
             "type": "string"
           }
         },
+        "SecurityGroups": {
+          "description": "A list of security groups to associate with the load balancer. If you create a Network Load Balancer without assigning security groups during the initial setup, you cannot add security groups to it afterward.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sg-[a-z0-9]{8}$|^sg-[a-z0-9]{17}$"
+          },
+          "minItems": 1,
+          "maxItems": 5,
+          "uniqueItems": true
+        },
         "ProxyProtocolV2": {
           "type": "string",
           "description": "True if proxy protocol version 2 is enabled. False if it is not.",
@@ -33261,6 +33272,7 @@ Change type schemas specify the execution input parameters for a change type.
         "ui:order": [
           "LoadBalancerName",
           "SubnetIds",
+          "SecurityGroups",
           "Public",
           "LoadBalancerPort",
           "InstancePort",

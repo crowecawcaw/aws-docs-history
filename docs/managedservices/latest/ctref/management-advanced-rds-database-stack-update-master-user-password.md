@@ -118,7 +118,7 @@ aws amscm create-rfc --generate-cli-skeleton > UpdateRdsMPRfc.json
 aws amscm create-rfc --cli-input-json file://UpdateRdsMPRfc.json --execution-parameters file://UpdateRdsMPParams.json
 ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the RDS, look in the execution output: Use the "stack_id" to view the RDS in the Cloud Formation Console. 7. You are now able to manage the database via a database management tool such as SQL server management studio. You do not have to request access from AMS.
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the RDS, look in the execution output: Use the "stack\_id" to view the RDS in the Cloud Formation Console. 7. You are now able to manage the database via a database management tool such as SQL server management studio. You do not have to request access from AMS.
 
 - Before you use this CT, you must first store your new master user password in one of the following:
 
@@ -127,16 +127,16 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 
 - To use **SSM (AWS Systems Manager) Parameter Store**
 
-| SSM Parameter Store | CT Parameter              | Value |
-| ------------------- | ------------------------- | ----- |
-| SSMParameter        | "`my_ssm_parameter_name`" |
+SSM Parameter Store| CT Parameter | Value |
+| --- | --- |
+| SSMParameter | "`my_ssm_parameter_name`" |
 
 - To use **AWS Secrets Manager**
 
-| AWS Secrets Manager | CT Parameter       | Value |
-| ------------------- | ------------------ | ----- |
-| SecretName          | "`my_secret_name`" |
-| SecretKey           | "`my_secret_key`"  |
+AWS Secrets Manager| CT Parameter | Value |
+| --- | --- |
+| SecretName | "`my_secret_name`" |
+| SecretKey | "`my_secret_key`" |
 
 - To learn more about Amazon RDS, including size recommendations, see
   [Documentation](https://aws.amazon.com/documentation/rds/ "https://aws.amazon.com/documentation/rds/").

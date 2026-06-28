@@ -87,7 +87,7 @@ aws amscm get-change-type-version --change-type-id "ct-2taqdgegqthjr" --query "C
 2. Modify and save the CreateRhelPatchBaselineParams file. See examples below; make sure to modify these parameters to meet your specific needs.
 
 In this example, all critical security updates are approved for installation five days after release. Patches included in Red Hat Security Advisory RHSA-2018:0151 are approved
-immediately even if they are not a critical severity. Finally, example-pkg-0.710.10-2.7.abcd.x86_64 will not be installed, even if it matches an approval rule.
+immediately even if they are not a critical severity. Finally, example-pkg-0.710.10-2.7.abcd.x86\_64 will not be installed, even if it matches an approval rule.
 
 ```
 {
@@ -138,7 +138,7 @@ aws amscm create-rfc --generate-cli-skeleton > CreateRhelPatchBaselineRfc.json
 aws amscm create-rfc --cli-input-json file://CreateRhelPatchBaselineRfc.json --execution-parameters file://CreateRhelPatchBaselineParams.json
 ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the SSM patch baseline, look in the execution output: Use the stack_id to view the patch baseline in the Systems Manager console.
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the SSM patch baseline, look in the execution output: Use the stack\_id to view the patch baseline in the Systems Manager console.
 
 ###### Note
 

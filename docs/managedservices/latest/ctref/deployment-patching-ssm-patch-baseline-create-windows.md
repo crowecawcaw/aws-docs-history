@@ -138,7 +138,7 @@ aws amscm create-rfc --generate-cli-skeleton > CreateWinPatchBaselineRfc.json
 aws amscm create-rfc --cli-input-json file://CreateWinPatchBaselineRfc.json --execution-parameters file://CreateWinPatchBaselineParams.json
 ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the SSM patch baseline, look in the execution output: Use the stack_id to view the patch baseline in the Systems Manager console.
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the SSM patch baseline, look in the execution output: Use the stack\_id to view the patch baseline in the Systems Manager console.
 
 ###### Note
 

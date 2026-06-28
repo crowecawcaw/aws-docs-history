@@ -72,7 +72,7 @@ Issue the create RFC command with execution parameters provided inline (escape q
 the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws --profile saml --region us-east-1 amscm create-rfc  --change-type-id "ct-2qldv4h9osmau" --change-type-version "1.0" --title "`Test-NLB-QC`" --execution-parameters "{\"Description\":\"`QCNLB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\":\"stm-l70qr9itukvqssg8d\", \"Name\":\"`QCNLB`\", \"TimeoutInMinutes\":60, \"Parameters\":{\"SubnetIds\":[\"`SUBNET_ID`\",\"`SUBNET_ID`\"]}}"
+aws --profile saml --region us-east-1 amscm create-rfc  --change-type-id "ct-2qldv4h9osmau" --change-type-version "1.0" --title "`Test-NLB-QC`" --execution-parameters "{\"Description\":\"`QCNLB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\":\"stm-l70qr9itukvqssg8d\", \"Name\":\"`QCNLB`\", \"TimeoutInMinutes\":60, \"Parameters\":{\"SubnetIds\":[\"`SUBNET_ID`\",\"`SUBNET_ID`\"], \"SecurityGroups\":[\"`SECURITY_GROUP_ID`\",\"`SECURITY_GROUP_ID`\"]}}"
 ```
 
 _TEMPLATE CREATE_:
@@ -98,6 +98,7 @@ aws amscm get-change-type-version --change-type-id "ct-2qldv4h9osmau" --query "C
 
 "Parameters":   {
     "SubnetIds":  ["`PUBLIC_AZ1`", "`PUBLIC_AZ2`"],
+    "SecurityGroups": ["`SECURITY_GROUP_ID`", "`SECURITY_GROUP_ID`"],
     "HealthCheckHealthyThreshold":   `2`,
     "HealthCheckInterval":           `30`,
     "HealthCheckTargetPath":         `traffic-port`",
@@ -129,7 +130,7 @@ aws amscm create-rfc --generate-cli-skeleton > CreateNlbRfc.json
 aws amscm create-rfc --cli-input-json file://CreateNlbRfc.json --execution-parameters file://CreateNlbParams.json
 ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the load balancer, look in the execution output: Use the stack_id to view the NLB in
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the load balancer, look in the execution output: Use the stack\_id to view the NLB in
 the CloudFormation console or to create a Delete Stack RFC, and use the NLB CName value
 to programmatically access the NLB.
 
@@ -177,7 +178,7 @@ Example not available.
     "ProxyProtocolV2": "false",
     "Public": "false",
     "SubnetIds": ["subnet-01234567890abcdef", "subnet-01234567891abcdef"],
-    "SecurityGroupIds":["sg-01234567890abcdef"],
+    "SecurityGroups": ["sg-01234567890abcdef"],
     "Target1AvailabilityZone": "us-east-1a",
     "Target1ID": "i-01234567890abcdef",
     "Target1Port": "80",

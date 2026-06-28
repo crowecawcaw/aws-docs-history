@@ -229,10 +229,10 @@ the default recommended role is the `Customer_ReadOnly_Role`. Then execute the s
 
 The report contains the following columns:
 
-- **scan_time**: The time at which the instance scan was performed
-- **instance_id**: The EC2 instance ID
-- **scan_type**: The type of scan that was performed. For example, if the scan looked at in memory information,
-  the scan_type will be MEMORY. If the filesystem was checked, the scan_type will be FILESYSTEM
+- **scan\_time**: The time at which the instance scan was performed
+- **instance\_id**: The EC2 instance ID
+- **scan\_type**: The type of scan that was performed. For example, if the scan looked at in memory information,
+  the scan\_type will be MEMORY. If the filesystem was checked, the scan\_type will be FILESYSTEM
 - **location**: The path to the match
 
 ## Execution Input Parameters

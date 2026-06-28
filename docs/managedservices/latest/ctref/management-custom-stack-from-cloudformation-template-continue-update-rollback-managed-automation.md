@@ -1,6 +1,6 @@
 # Stack from CloudFormation Template | Continue Update Rollback (Managed Automation)
 
-Request a ContinueUpdateRollback operation for the specified CloudFormation stack that's in the UPDATE_ROLLBACK_FAILED state. Use this operation when a CloudFormation stack is stopped due to a failed update rollback and you need AMS engineers to complete the rollback and return the stack to its last known working state.
+Request a ContinueUpdateRollback operation for the specified CloudFormation stack that's in the UPDATE\_ROLLBACK\_FAILED state. Use this operation when a CloudFormation stack is stopped due to a failed update rollback and you need AMS engineers to complete the rollback and return the stack to its last known working state.
 
 **Full classification:** Management | Custom Stack | Stack From CloudFormation Template | Continue update rollback (managed automation)
 

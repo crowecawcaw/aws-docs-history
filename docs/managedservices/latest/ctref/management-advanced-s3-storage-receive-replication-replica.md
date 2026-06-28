@@ -85,18 +85,20 @@ aws amscm get-change-type-version --change-type-id "ct-00zr0b0ozlcn3" --query "C
 ```
 
 2. ```
-   {
-       "DocumentName" : "AWSManagedServices-ReceiveReplicationReplica",
-       "Region": "`us-east-1`",
-       "Parameters": {
-         "DestinationBucketName" : "`amzn-s3-demo-destination-bucket`",
-         "SourceBucketName" : "`amzn-s3-demo-source-bucket`",
-         "ReplicationRole" : "`arn:aws:iam::123456789012:role/s3crr_role_for_test-replication`",
-         "EncryptReplicaKMSKey" : "`arn:aws:kms:us-east-1:123456789012:key/12345678-aaaa-bbbb-cccc-123456789012`",
-         "OwnerTranslation" : "`false`"
-       }
-   }
+
    ```
+
+{
+"DocumentName" : "AWSManagedServices-ReceiveReplicationReplica",
+"Region": "`us-east-1`",
+"Parameters": {
+"DestinationBucketName" : "`amzn-s3-demo-destination-bucket`",
+"SourceBucketName" : "`amzn-s3-demo-source-bucket`",
+"ReplicationRole" : "`arn:aws:iam::123456789012:role/s3crr_role_for_test-replication`",
+"EncryptReplicaKMSKey" : "`arn:aws:kms:us-east-1:123456789012:key/12345678-aaaa-bbbb-cccc-123456789012`",
+"OwnerTranslation" : "`false`"
+}
+}
 
 ```
 3. Output the RFC template to a file in your current folder; this example names it ReceiveReplicationReplicaRfc.json:
@@ -116,7 +118,7 @@ aws amscm create-rfc --generate-cli-skeleton > ReceiveReplicationReplicaRfc.json
 
 {
 "ChangeTypeVersion": "1.0",  
- "ChangeTypeId": "ct-00zr0b0ozlcn3",
+"ChangeTypeId": "ct-00zr0b0ozlcn3",
 "Title": "Receive S3 object replicas in the destination bucket."
 }
 

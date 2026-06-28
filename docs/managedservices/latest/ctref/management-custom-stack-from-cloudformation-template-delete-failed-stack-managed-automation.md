@@ -1,6 +1,6 @@
 # Stack from CloudFormation Template | Delete Failed Stack (Managed Automation)
 
-Use to delete a CloudFormation stack that's in the DELETE_FAILED state. This is useful when stack deletion fails because of resource dependencies and you want to delete the stack while keeping specific resources.
+Use to delete a CloudFormation stack that's in the DELETE\_FAILED state. This is useful when stack deletion fails because of resource dependencies and you want to delete the stack while keeping specific resources.
 
 **Full classification:** Management | Custom Stack | Stack From CloudFormation Template | Delete Failed Stack (managed automation)
 
