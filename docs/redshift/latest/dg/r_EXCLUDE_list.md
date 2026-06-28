@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# EXCLUDE column_list
+# EXCLUDE column\_list
 
-The EXCLUDE column_list names the columns that are excluded from the query results.
+The EXCLUDE column\_list names the columns that are excluded from the query results.
 Using the EXCLUDE option is helpful when only a subset of columns need to be excluded from a _wide_ table, which is a table that contains many columns.
 
 ###### Topics
@@ -21,10 +21,10 @@ EXCLUDE *column\_list*
 
 ## Parameters
 
-_column_list_
+_column\_list_
 
 A comma-separated list of one or more column names that exist in the tables
-referenced by the query. The _column_list_ can optionally be enclosed in parentheses.
+referenced by the query. The _column\_list_ can optionally be enclosed in parentheses.
 Only column names are supported in the exclude list of column names, not expressions (such as `upper(col1)`) or asterisk (\*).
 
 ```

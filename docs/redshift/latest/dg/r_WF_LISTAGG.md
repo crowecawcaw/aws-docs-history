@@ -24,7 +24,7 @@ expression before concatenating. Trailing spaces are ignored, so the strings
 `'a'` and `'a '` are treated as duplicates. LISTAGG
 uses the first value encountered. For more information, see [Significance of trailing blanks](r_Character_types.md#r_Character_types-significance-of-trailing-blanks "r_Character_types.md#r_Character_types-significance-of-trailing-blanks").
 
-_aggregate_expression_
+_aggregate\_expression_
 
 Any valid expression (such as a column name) that provides the values to
 aggregate. NULL values and empty strings are ignored.
@@ -34,7 +34,7 @@ _delimiter_
 (Optional) The string constant to will separate the concatenated values.
 The default is NULL.
 
-WITHIN GROUP (ORDER BY _order_list_)
+WITHIN GROUP (ORDER BY _order\_list_)
 
 (Optional) A clause that specifies the sort order of the aggregated
 values. Deterministic only if ORDER BY provides unique ordering. The default
@@ -45,7 +45,7 @@ OVER
 A clause that specifies the window partitioning. The OVER clause cannot
 contain a window ordering or window frame specification.
 
-PARTITION BY _partition_expression_
+PARTITION BY _partition\_expression_
 
 (Optional) Sets the range of records for each group in the OVER
 clause.

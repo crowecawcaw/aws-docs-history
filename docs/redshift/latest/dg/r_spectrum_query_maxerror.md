@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# spectrum_query_maxerror
+# spectrum\_query\_maxerror
 
 ## Values (default in bold)
 
@@ -10,7 +10,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ## Description
 
-You can specify an integer to indicate the maximum number of errors to accept before canceling the query. A negative value turns off maximum error data handling. The results are logged in [SVL_SPECTRUM_SCAN_ERROR](r_SVL_SPECTRUM_SCAN_ERROR.md "r_SVL_SPECTRUM_SCAN_ERROR.md").
+You can specify an integer to indicate the maximum number of errors to accept before canceling the query. A negative value turns off maximum error data handling. The results are logged in [SVL\_SPECTRUM\_SCAN\_ERROR](r_SVL_SPECTRUM_SCAN_ERROR.md "r_SVL_SPECTRUM_SCAN_ERROR.md").
 
 ## Example
 
@@ -34,4 +34,4 @@ set spectrum_query_maxerror to 1;
 SELECT my_string FROM orc_data;
 ```
 
-The query stops and the results are logged in [SVL_SPECTRUM_SCAN_ERROR](r_SVL_SPECTRUM_SCAN_ERROR.md "r_SVL_SPECTRUM_SCAN_ERROR.md").
+The query stops and the results are logged in [SVL\_SPECTRUM\_SCAN\_ERROR](r_SVL_SPECTRUM_SCAN_ERROR.md "r_SVL_SPECTRUM_SCAN_ERROR.md").

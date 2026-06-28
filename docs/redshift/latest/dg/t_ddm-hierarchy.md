@@ -72,5 +72,5 @@ SELECT employees.col_person.name FROM employees;
 
 To confirm which masking policy applies to a given user and column or role and column combination, users
 with the [`sys:secadmin`](r_roles-default.md "r_roles-default.md") role can look up the column/role or column/user
-pair in the [SVV_ATTACHED_MASKING_POLICY](r_SVV_ATTACHED_MASKING_POLICY.md "r_SVV_ATTACHED_MASKING_POLICY.md") system view. For more information,
+pair in the [SVV\_ATTACHED\_MASKING\_POLICY](r_SVV_ATTACHED_MASKING_POLICY.md "r_SVV_ATTACHED_MASKING_POLICY.md") system view. For more information,
 see [Dynamic data masking system views](r_ddm-svv.md "r_ddm-svv.md").

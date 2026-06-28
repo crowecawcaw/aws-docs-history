@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Buffer
+# ST\_Buffer
 
-ST_Buffer returns 2D geometry that represents all points whose distance from the input geometry projected on the xy-Cartesian plane is less than or equal to the input distance.
+ST\_Buffer returns 2D geometry that represents all points whose distance from the input geometry projected on the xy-Cartesian plane is less than or equal to the input distance.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ _distance_
 
 A value of data type `DOUBLE PRECISION` that represents distance (or radius) of the buffer.
 
-_number_of_segments_per_quarter_circle_
+_number\_of\_segments\_per\_quarter\_circle_
 
 A value of data type `INTEGER`. This value determines the number of points to approximate a quarter circle around each vertex of the input geometry. Negative values default to zero. The default is 8.
 
@@ -35,7 +35,7 @@ A value of data type `INTEGER`. This value determines the number of points to ap
 
 `GEOMETRY`
 
-The ST_Buffer function returns two-dimensional (2D) geometry in the xy-Cartesian plane.
+The ST\_Buffer function returns two-dimensional (2D) geometry in the xy-Cartesian plane.
 
 If _geom_ is a `GEOMETRYCOLLECTION`, then an error is returned.
 

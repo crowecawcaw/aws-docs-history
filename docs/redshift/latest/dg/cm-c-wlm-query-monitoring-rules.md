@@ -31,9 +31,9 @@ action per query per rule. If the queue contains other rules, those rules remain
 If the action is hop and the query is routed to another queue, the rules for the new queue
 apply. For more information about query monitoring and tracking actions taken on specific queries, see the collection of samples at [Short query acceleration](wlm-short-query-acceleration.md "wlm-short-query-acceleration.md").
 
-When all of a rule's predicates are met, WLM writes a row to the [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system table. In
-addition, Amazon Redshift records query metrics for currently running queries to [STV_QUERY_METRICS](r_STV_QUERY_METRICS.md "r_STV_QUERY_METRICS.md"). Metrics for
-completed queries are stored in [STL_QUERY_METRICS](r_STL_QUERY_METRICS.md "r_STL_QUERY_METRICS.md").
+When all of a rule's predicates are met, WLM writes a row to the [STL\_WLM\_RULE\_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system table. In
+addition, Amazon Redshift records query metrics for currently running queries to [STV\_QUERY\_METRICS](r_STV_QUERY_METRICS.md "r_STV_QUERY_METRICS.md"). Metrics for
+completed queries are stored in [STL\_QUERY\_METRICS](r_STL_QUERY_METRICS.md "r_STL_QUERY_METRICS.md").
 
 ###### Note
 
@@ -78,7 +78,7 @@ To define a query monitoring rule, you specify the following elements:
   are:
 
   - Log – Record information about the query in the
-    STL_WLM_RULE_ACTION system table. Use the Log action when you want to only
+    STL\_WLM\_RULE\_ACTION system table. Use the Log action when you want to only
     write a log record. WLM creates at most one log per query, per rule.
     Following a log action, other rules remain in force and WLM continues to
     monitor the query.
@@ -125,7 +125,7 @@ For steps to create or modify a query monitoring rule, see
 [Creating a query monitoring rule](../mgmt/parameter-group-modify-qmr-console.md "../mgmt/parameter-group-modify-qmr-console.md")
 
 and [Properties in
-the wlm_json_configuration Parameter](../mgmt/workload-mgmt-config.md#wlm-json-config-properties "../mgmt/workload-mgmt-config.md#wlm-json-config-properties") in the
+the wlm\_json\_configuration Parameter](../mgmt/workload-mgmt-config.md#wlm-json-config-properties "../mgmt/workload-mgmt-config.md#wlm-json-config-properties") in the
 _Amazon Redshift Management Guide_.
 
 You can find more information about query monitoring rules in the following topics:
@@ -140,7 +140,7 @@ You can find more information about query monitoring rules in the following topi
 ## Query monitoring metrics for Amazon Redshift provisioned
 
 The following table describes the metrics used in query monitoring rules. (These
-metrics are distinct from the metrics stored in the [STV_QUERY_METRICS](r_STV_QUERY_METRICS.md "r_STV_QUERY_METRICS.md") and [STL_QUERY_METRICS](r_STL_QUERY_METRICS.md "r_STL_QUERY_METRICS.md") system tables.)
+metrics are distinct from the metrics stored in the [STV\_QUERY\_METRICS](r_STV_QUERY_METRICS.md "r_STV_QUERY_METRICS.md") and [STL\_QUERY\_METRICS](r_STL_QUERY_METRICS.md "r_STL_QUERY_METRICS.md") system tables.)
 
 For a given metric, the performance threshold is tracked either at the query level or
 the segment level. For more information about segments and steps, see [Query planning and execution workflow](c-query-planning.md "c-query-planning.md").
@@ -178,8 +178,8 @@ distinct from query monitoring rules.
   sampling errors, include segment execution time in your rules. A good starting point
   is `segment_execution_time > 10`.
 
-The [SVL_QUERY_METRICS](r_SVL_QUERY_METRICS.md "r_SVL_QUERY_METRICS.md") view
-shows the metrics for completed queries. The [SVL_QUERY_METRICS_SUMMARY](r_SVL_QUERY_METRICS_SUMMARY.md "r_SVL_QUERY_METRICS_SUMMARY.md") view shows the maximum values of
+The [SVL\_QUERY\_METRICS](r_SVL_QUERY_METRICS.md "r_SVL_QUERY_METRICS.md") view
+shows the metrics for completed queries. The [SVL\_QUERY\_METRICS\_SUMMARY](r_SVL_QUERY_METRICS_SUMMARY.md "r_SVL_QUERY_METRICS_SUMMARY.md") view shows the maximum values of
 metrics for completed queries. Use the values in these views as an aid to determine
 threshold values for defining query monitoring rules.
 
@@ -191,7 +191,7 @@ The following table describes the metrics used in query monitoring rules for Ama
 | -------------------------- | ---------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Blocks read                | `query_blocks_read`          | `max_query_blocks_read`          | Number of 1 MB data blocks read by the query.Valid<br>values are 0–1,048,575.                                                                                                                                                                |
 | Scan row count             | `scan_row_count`             | `max_scan_row_count`             | The number of rows in a scan step. The row count is the total number<br>of rows emitted before filtering rows marked for deletion (ghost rows)<br>and before applying user-defined query filters.<br>Valid values are 0–999,999,999,999,999. |
-| Query execution time       | `query_execution_time`       | max_query_execution_time         | Elapsed execution time for a query, in seconds.<br>Execution time doesn't include time spent waiting in a queue. If a query exceeds the set execution time, Amazon Redshift Serverless stops the query.<br>Valid values are 0–86,399.        |
+| Query execution time       | `query_execution_time`       | max\_query\_execution\_time      | Elapsed execution time for a query, in seconds.<br>Execution time doesn't include time spent waiting in a queue. If a query exceeds the set execution time, Amazon Redshift Serverless stops the query.<br>Valid values are 0–86,399.        |
 | Query queue time           | `query_queue_time`           | `max_query_queue_time`           | Time spent waiting in a queue, in seconds. Valid values are 0–86,399.                                                                                                                                                                        |
 | Memory to disk             | `query_temp_blocks_to_disk`  | `max_query_temp_blocks_to_disk`  | Temporary disk space used to write intermediate results,<br>in 1 MB blocks.Valid values are 0–319,815,679.                                                                                                                                   |
 | Rows joined                | `join_row_count`             | `max_join_row_count`             | The number of rows processed in a join step.Valid<br>values are 0–999,999,999,999,999.                                                                                                                                                       |
@@ -229,17 +229,17 @@ The following table lists available templates.
 
 ## System tables and views for query monitoring rules
 
-When all of a rule's predicates are met, WLM writes a row to the [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system table.
+When all of a rule's predicates are met, WLM writes a row to the [STL\_WLM\_RULE\_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system table.
 This row contains details for the query that triggered the rule and the resulting
 action.
 
 In addition, Amazon Redshift records query metrics the following system tables and views.
 
-- The [STV_QUERY_METRICS](r_STV_QUERY_METRICS.md "r_STV_QUERY_METRICS.md")
+- The [STV\_QUERY\_METRICS](r_STV_QUERY_METRICS.md "r_STV_QUERY_METRICS.md")
   table displays the metrics for currently running queries.
-- The [STL_QUERY_METRICS](r_STL_QUERY_METRICS.md "r_STL_QUERY_METRICS.md")
+- The [STL\_QUERY\_METRICS](r_STL_QUERY_METRICS.md "r_STL_QUERY_METRICS.md")
   table records the metrics for completed queries.
-- The [SVL_QUERY_METRICS](r_SVL_QUERY_METRICS.md "r_SVL_QUERY_METRICS.md")
+- The [SVL\_QUERY\_METRICS](r_SVL_QUERY_METRICS.md "r_SVL_QUERY_METRICS.md")
   view shows the metrics for completed queries.
-- The [SVL_QUERY_METRICS_SUMMARY](r_SVL_QUERY_METRICS_SUMMARY.md "r_SVL_QUERY_METRICS_SUMMARY.md") view shows the maximum values of
+- The [SVL\_QUERY\_METRICS\_SUMMARY](r_SVL_QUERY_METRICS_SUMMARY.md "r_SVL_QUERY_METRICS_SUMMARY.md") view shows the maximum values of
   metrics for completed queries.

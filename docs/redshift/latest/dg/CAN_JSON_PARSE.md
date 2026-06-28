@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# CAN_JSON_PARSE function
+# CAN\_JSON\_PARSE function
 
-The CAN_JSON_PARSE function parses data in JSON format and returns `true` if the result can be converted to a `SUPER` value using the JSON_PARSE function.
+The CAN\_JSON\_PARSE function parses data in JSON format and returns `true` if the result can be converted to a `SUPER` value using the JSON\_PARSE function.
 
 ## Syntax
 
@@ -14,12 +14,12 @@ CAN_JSON_PARSE( {*json\_string* | *binary\_value*} )
 
 ## Arguments
 
-_json_string_
+_json\_string_
 
 An expression that returns serialized JSON in `VARCHAR`
 form.
 
-_binary_value_
+_binary\_value_
 
 A VARBYTE type binary value.
 
@@ -29,13 +29,13 @@ A VARBYTE type binary value.
 
 ## Usage notes
 
-- CAN_JSON_PARSE returns false for empty strings. It returns NULL when the input argument is null.
+- CAN\_JSON\_PARSE returns false for empty strings. It returns NULL when the input argument is null.
 
 ## Examples
 
-The following example shows CAN_JSON_PARSE running on a properly formed JSON array
+The following example shows CAN\_JSON\_PARSE running on a properly formed JSON array
 using a CASE condition.
-It returns true, so Amazon Redshift runs the JSON_PARSE function on the example value.
+It returns true, so Amazon Redshift runs the JSON\_PARSE function on the example value.
 
 ```
 `SELECT CASE
@@ -48,7 +48,7 @@ It returns true, so Amazon Redshift runs the JSON_PARSE function on the example 
 '[10001,10002,"abc"]'`
 ```
 
-The following example shows CAN_JSON_PARSE running on a value that isn’t JSON format
+The following example shows CAN\_JSON\_PARSE running on a value that isn’t JSON format
 using a CASE condition.
 It returns false, so Amazon Redshift returns the segment in the ELSE clause of the CASE condition instead.
 

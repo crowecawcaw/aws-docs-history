@@ -2,14 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using JSON_PARSE to insert data into SUPER columns
+# Using JSON\_PARSE to insert data into SUPER columns
 
 You can insert or update JSON data into a SUPER column using the
-[JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md").
+[JSON\_PARSE function](JSON_PARSE.md "JSON_PARSE.md").
 The function parses data in JSON format and converts it into the SUPER data type, which
 you can use in INSERT or UPDATE statements.
 
-The following example inserts JSON data into a SUPER column. If the JSON_PARSE function
+The following example inserts JSON data into a SUPER column. If the JSON\_PARSE function
 is missing in the query, Amazon Redshift treats the value as a single string instead of
 a JSON-formatted string that must be parsed.
 

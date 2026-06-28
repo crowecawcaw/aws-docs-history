@@ -63,7 +63,7 @@ JSON
 - Your target Amazon Redshift provisioned cluster or Redshift Serverless namespace must have permission to the bucket. Confirm an IAM role that is associated with your cluster or serverless namesspace has a IAM policy
   that allows the proper permissions.
   The policy must allow both `s3:GetObject` for a bucket resource such as `amzn-s3-demo-bucket`
-  and `s3:ListBucket` for a bucket resource and its contents such as ``amzn-s3-demo-bucket`/\*`.
+  and `s3:ListBucket` for a bucket resource and its contents such as ``amzn-s3-demo-bucket`/*`.
 
 JSON
 
@@ -337,14 +337,14 @@ For more information, see
 
 You can query system views to see the COPY JOB status and progress. Views are provided as follows:
 
-- [SYS_COPY_JOB](SYS_COPY_JOB.md "SYS_COPY_JOB.md") – contains a row for each currently defined COPY JOB.
-- [SYS_COPY_JOB_DETAIL](SYS_COPY_JOB_DETAIL.md "SYS_COPY_JOB_DETAIL.md") – contains details on pending, error, and ingested files for each COPY JOB.
-- [SYS_COPY_JOB_INFO](SYS_COPY_JOB_INFO.md "SYS_COPY_JOB_INFO.md") – contains messages logged about a COPY JOB.
-- [SYS_LOAD_HISTORY](SYS_LOAD_HISTORY.md "SYS_LOAD_HISTORY.md") – contains details of COPY commands.
-- [SYS_LOAD_ERROR_DETAIL](SYS_LOAD_ERROR_DETAIL.md "SYS_LOAD_ERROR_DETAIL.md") – contains details of COPY command errors.
-- [SVV_COPY_JOB_INTEGRATIONS](SVV_COPY_JOB_INTEGRATIONS.md "SVV_COPY_JOB_INTEGRATIONS.md") – contains details of S3 event integrations.
-- [STL_LOAD_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md") – contains errors from COPY commands.
-- [STL_LOAD_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md") – contains information used to troubleshoot a COPY command data load.
+- [SYS\_COPY\_JOB](SYS_COPY_JOB.md "SYS_COPY_JOB.md") – contains a row for each currently defined COPY JOB.
+- [SYS\_COPY\_JOB\_DETAIL](SYS_COPY_JOB_DETAIL.md "SYS_COPY_JOB_DETAIL.md") – contains details on pending, error, and ingested files for each COPY JOB.
+- [SYS\_COPY\_JOB\_INFO](SYS_COPY_JOB_INFO.md "SYS_COPY_JOB_INFO.md") – contains messages logged about a COPY JOB.
+- [SYS\_LOAD\_HISTORY](SYS_LOAD_HISTORY.md "SYS_LOAD_HISTORY.md") – contains details of COPY commands.
+- [SYS\_LOAD\_ERROR\_DETAIL](SYS_LOAD_ERROR_DETAIL.md "SYS_LOAD_ERROR_DETAIL.md") – contains details of COPY command errors.
+- [SVV\_COPY\_JOB\_INTEGRATIONS](SVV_COPY_JOB_INTEGRATIONS.md "SVV_COPY_JOB_INTEGRATIONS.md") – contains details of S3 event integrations.
+- [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md") – contains errors from COPY commands.
+- [STL\_LOAD\_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md") – contains information used to troubleshoot a COPY command data load.
 
 For information about troubleshooting S3 event integration errors, see
 [Troubleshooting S3 event integration and COPY JOB errors](s3-integration-troubleshooting.md "s3-integration-troubleshooting.md").

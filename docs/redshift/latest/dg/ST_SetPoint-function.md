@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_SetPoint
+# ST\_SetPoint
 
-ST_SetPoint returns a linestring with updated coordinates with respect to the input linestring's position as specified by the index.
+ST\_SetPoint returns a linestring with updated coordinates with respect to the input linestring's position as specified by the index.
 The new coordinates are the coordinates of the input point.
 
 The dimension of the returned geometry is the same as that of the

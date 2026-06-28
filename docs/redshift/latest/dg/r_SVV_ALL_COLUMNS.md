@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_ALL_COLUMNS
+# SVV\_ALL\_COLUMNS
 
-Use SVV_ALL_COLUMNS to view a union of columns from Amazon Redshift tables as shown in SVV_REDSHIFT_COLUMNS and the
+Use SVV\_ALL\_COLUMNS to view a union of columns from Amazon Redshift tables as shown in SVV\_REDSHIFT\_COLUMNS and the
 consolidated list of all external columns from all external tables. For information
-about Amazon Redshift columns, see [SVV_REDSHIFT_COLUMNS](r_SVV_REDSHIFT_COLUMNS.md "r_SVV_REDSHIFT_COLUMNS.md").
+about Amazon Redshift columns, see [SVV\_REDSHIFT\_COLUMNS](r_SVV_REDSHIFT_COLUMNS.md "r_SVV_REDSHIFT_COLUMNS.md").
 
-SVV_ALL_COLUMNS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_ALL\_COLUMNS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For more information about best practices when querying system tables and views, see
 [Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
@@ -21,24 +21,24 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name              | Data type     | Description                                                                               |
-| ------------------------ | ------------- | ----------------------------------------------------------------------------------------- |
-| database_name            | varchar(128)  | The name of the database.                                                                 |
-| schema_name              | varchar(128)  | The name of the schema.                                                                   |
-| table_name               | varchar(128)  | The name of the table.                                                                    |
-| column_name              | varchar(128)  | The name of the column.                                                                   |
-| ordinal_position         | integer       | The position of the column in the table.                                                  |
-| column_default           | varchar(4000) | The default value of the column.                                                          |
-| is_nullable              | varchar(3)    | A value that indicates whether the column is<br>nullable. Possible values are yes and no. |
-| data_type                | varchar(128)  | The data type of the column.                                                              |
-| character_maximum_length | integer       | The maximum number of characters in the<br>column.                                        |
-| numeric_precision        | integer       | The numeric precision.                                                                    |
-| numeric_scale            | integer       | The numeric scale.                                                                        |
-| remarks                  | varchar(256)  | Remarks.                                                                                  |
+| Column name                | Data type     | Description                                                                               |
+| -------------------------- | ------------- | ----------------------------------------------------------------------------------------- |
+| database\_name             | varchar(128)  | The name of the database.                                                                 |
+| schema\_name               | varchar(128)  | The name of the schema.                                                                   |
+| table\_name                | varchar(128)  | The name of the table.                                                                    |
+| column\_name               | varchar(128)  | The name of the column.                                                                   |
+| ordinal\_position          | integer       | The position of the column in the table.                                                  |
+| column\_default            | varchar(4000) | The default value of the column.                                                          |
+| is\_nullable               | varchar(3)    | A value that indicates whether the column is<br>nullable. Possible values are yes and no. |
+| data\_type                 | varchar(128)  | The data type of the column.                                                              |
+| character\_maximum\_length | integer       | The maximum number of characters in the<br>column.                                        |
+| numeric\_precision         | integer       | The numeric precision.                                                                    |
+| numeric\_scale             | integer       | The numeric scale.                                                                        |
+| remarks                    | varchar(256)  | Remarks.                                                                                  |
 
 ## Sample queries
 
-The following example returns the output of SVV_ALL_COLUMNS.
+The following example returns the output of SVV\_ALL\_COLUMNS.
 
 ```
 SELECT *

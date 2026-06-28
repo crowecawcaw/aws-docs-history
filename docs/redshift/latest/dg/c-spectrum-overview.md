@@ -51,9 +51,9 @@ supported AWS Regions, see [Encryption and Secure Access for AWS Glue](../../../
 ###### Note
 
 You can't view details for Redshift Spectrum tables using the same resources that you
-use for standard Amazon Redshift tables, such as [PG_TABLE_DEF](r_PG_TABLE_DEF.md "r_PG_TABLE_DEF.md"), [STV_TBL_PERM](r_STV_TBL_PERM.md "r_STV_TBL_PERM.md"), PG_CLASS, or information_schema. If your business
+use for standard Amazon Redshift tables, such as [PG\_TABLE\_DEF](r_PG_TABLE_DEF.md "r_PG_TABLE_DEF.md"), [STV\_TBL\_PERM](r_STV_TBL_PERM.md "r_STV_TBL_PERM.md"), PG\_CLASS, or information\_schema. If your business
 intelligence or analytics tool doesn't recognize Redshift Spectrum external tables,
-configure your application to query [SVV_EXTERNAL_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV_EXTERNAL_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md").
+configure your application to query [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV\_EXTERNAL\_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md").
 
 ## Amazon Redshift Spectrum Regions
 

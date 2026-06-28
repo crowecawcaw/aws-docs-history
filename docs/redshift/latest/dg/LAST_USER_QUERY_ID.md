@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# LAST_USER_QUERY_ID
+# LAST\_USER\_QUERY\_ID
 
 Returns the query ID of the most recently completed user query in the current session. If
-no queries have been run in the current session, last_user_query_id returns -1. The function
+no queries have been run in the current session, last\_user\_query\_id returns -1. The function
 does not return the query ID for queries that run exclusively on the
 leader node. For more information, see [Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md").
 

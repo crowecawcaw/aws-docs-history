@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# IS_DECIMAL function
+# IS\_DECIMAL function
 
-Checks whether a value is a `DECIMAL`. The IS_DECIMAL function returns `true` for numbers
+Checks whether a value is a `DECIMAL`. The IS\_DECIMAL function returns `true` for numbers
 that are not floating points. The function returns `false` for any other values, including
 null.
 
-The IS_DECIMAL function is a superset of IS_BIGINT.
+The IS\_DECIMAL function is a superset of IS\_BIGINT.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ IS_DECIMAL(*super\_expression*)
 
 ## Arguments
 
-_super_expression_
+_super\_expression_
 
 A `SUPER` expression or column.
 
@@ -29,7 +29,7 @@ A `SUPER` expression or column.
 
 ## Examples
 
-To check if `1.22` is a `DECIMAL` using the IS_DECIMAL function, use the following example.
+To check if `1.22` is a `DECIMAL` using the IS\_DECIMAL function, use the following example.
 
 ```
 `CREATE TABLE t(s SUPER);

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# BIT_OR function
+# BIT\_OR function
 
-The BIT_OR function runs bit-wise OR operations on all of the
+The BIT\_OR function runs bit-wise OR operations on all of the
 values in a single integer column or expression. This function aggregates each bit of
 each binary value that corresponds to each integer value in the expression.
 
@@ -18,7 +18,7 @@ For example, suppose that your table contains four integer values in a column: 3
 | 10      | 1010         |
 | 22      | 10110        |
 
-If you apply the BIT_OR function to the set of integer values, the operation looks
+If you apply the BIT\_OR function to the set of integer values, the operation looks
 for any value in which a `1` is found in each position.
 In this case, a `1` exists in the last five positions for at least one of the
 values, yielding a binary result of `00011111`; therefore, the function
@@ -47,7 +47,7 @@ For more information, see [DISTINCT support for bit-wise aggregations](c_bitwise
 
 ## Example
 
-The following query applies the BIT_OR function to the LIKES column in a table called USERLIKES and groups the results by the CITY column.
+The following query applies the BIT\_OR function to the LIKES column in a table called USERLIKES and groups the results by the CITY column.
 
 ```
 select city, bit_or(likes) from userlikes group by city

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_SetSRID
+# ST\_SetSRID
 
-ST_SetSRID returns a geometry that is the same as input geometry, except updated with
+ST\_SetSRID returns a geometry that is the same as input geometry, except updated with
 the value input for the spatial reference system identifier (SRID).
 
 ## Syntax

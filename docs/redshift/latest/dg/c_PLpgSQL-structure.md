@@ -149,7 +149,7 @@ The following built-in variables are supported:
 - FOUND
 - SQLSTATE
 - SQLERRM
-- GET DIAGNOSTICS integer_var := ROW_COUNT;
+- GET DIAGNOSTICS integer\_var := ROW\_COUNT;
 
 FOUND is a special variable of type Boolean. FOUND starts out false within each procedure call. FOUND is set by the following types of statements:
 
@@ -214,7 +214,7 @@ $$ LANGUAGE plpgsql;
 
 ```
 
-ROW_COUNT is used with the GET DIAGNOSTICS command. It shows the number of rows processed by the last SQL command sent down to the SQL engine.
+ROW\_COUNT is used with the GET DIAGNOSTICS command. It shows the number of rows processed by the last SQL command sent down to the SQL engine.
 
 The following shows an example.
 

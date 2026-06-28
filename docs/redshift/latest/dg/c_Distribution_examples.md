@@ -26,7 +26,7 @@ from pg_table_def where tablename = 'users';
 ```
 
 USERID is a good choice for the distribution column on this table. If you
-query the SVV_DISKUSAGE system view, you can see that the table is very evenly
+query the SVV\_DISKUSAGE system view, you can see that the table is very evenly
 distributed. Column numbers are zero-based, so USERID is column 0.
 
 ```
@@ -44,7 +44,7 @@ slice| col | rows  | minvalue | maxvalue
 (4 rows)
 ```
 
-The table contains 49,990 rows. The rows (num_values) column shows that each
+The table contains 49,990 rows. The rows (num\_values) column shows that each
 slice contains about the same number of rows. The minvalue and maxvalue columns
 show the range of values on each slice. Each slice includes nearly the entire
 range of values, so there's a good chance that every slice participates in

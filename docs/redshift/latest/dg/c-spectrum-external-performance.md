@@ -54,7 +54,7 @@ XN Limit  (cost=1001055770628.63..1001055770628.65 rows=10 width=31)
 Note the following elements in the query plan:
 
 - The `S3 Seq Scan` node shows the filter `pricepaid >
-30.00` was processed in the Redshift Spectrum layer.
+ 30.00` was processed in the Redshift Spectrum layer.
 
 A filter node under the `XN S3 Query Scan` node indicates predicate
 processing in Amazon Redshift on top of the data returned from the Redshift Spectrum
@@ -106,7 +106,7 @@ and ORDER BY.
   your most common query predicates, then prune partitions by filtering on partition
   columns. For more information, see [Partitioning Redshift Spectrum external tables](c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning "c-spectrum-external-tables.md#c-spectrum-external-tables-partitioning").
 
-Query [SVL_S3PARTITION](r_SVL_S3PARTITION.md "r_SVL_S3PARTITION.md") to
+Query [SVL\_S3PARTITION](r_SVL_S3PARTITION.md "r_SVL_S3PARTITION.md") to
 view total partitions and qualified partitions.
 
 - Use AWS Glue's statistics generator to compute column-level statistics for AWS Glue Data Catalog

@@ -18,11 +18,11 @@ SHOW TABLE [*schema\_name*.]*table\_name*
 
 ## Parameters
 
-_schema_name_
+_schema\_name_
 
 (Optional) The name of the related schema.
 
-_table_name_
+_table\_name_
 
 The name of the table to show.
 
@@ -52,7 +52,7 @@ DISTSTYLE KEY SORTKEY ( dateid );
 ```
 
 Following is an example of the SHOW TABLE output for the table `category`
-in the schema `public`. The collation of the database is CASE_SENSITIVE.
+in the schema `public`. The collation of the database is CASE\_SENSITIVE.
 
 ```
 show table public.category;
@@ -90,7 +90,7 @@ DISTSTYLE AUTO;
 ```
 
 In this example, we create a table where column `a` inherits the database's default
-CASE_SENSITIVE collation, while `b` and `c` are explicitly set to CASE_INSENSITIVE collation.
+CASE\_SENSITIVE collation, while `b` and `c` are explicitly set to CASE\_INSENSITIVE collation.
 
 ```
 CREATE TABLE public.foo (

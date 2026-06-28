@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# QUOTE_LITERAL function
+# QUOTE\_LITERAL function
 
-The QUOTE_LITERAL function returns the specified string as a single quoted string so that it
+The QUOTE\_LITERAL function returns the specified string as a single quoted string so that it
 can be used as a string literal in a SQL statement. If the input parameter is a number,
-QUOTE_LITERAL treats it as a string. Appropriately doubles any embedded single quotation marks
+QUOTE\_LITERAL treats it as a string. Appropriately doubles any embedded single quotation marks
 and backslashes.
 
 ## Syntax
@@ -23,7 +23,7 @@ A `CHAR` or `VARCHAR` string.
 
 ## Return type
 
-The QUOTE_LITERAL function returns a `CHAR` or `VARCHAR` string that is the same data type as the
+The QUOTE\_LITERAL function returns a `CHAR` or `VARCHAR` string that is the same data type as the
 input _string_.
 
 ## Examples

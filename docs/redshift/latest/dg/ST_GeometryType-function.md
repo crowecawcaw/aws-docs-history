@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeometryType
+# ST\_GeometryType
 
-ST_GeometryType returns the subtype of an input geometry as a string.
+ST\_GeometryType returns the subtype of an input geometry as a string.
 
-For 3DM, 3DZ, and 4D geometry inputs, ST_GeometryType returns the same result as for 2D geometry inputs.
+For 3DM, 3DZ, and 4D geometry inputs, ST\_GeometryType returns the same result as for 2D geometry inputs.
 
 ## Syntax
 
@@ -28,15 +28,15 @@ If _geom_ is null, then null is returned.
 
 The values returned are as follows.
 
-| Returned string value   | Geometry subtype                                          |
-| ----------------------- | --------------------------------------------------------- |
-| `ST_Point`              | Returned if \*geom<br>• is a `POINT` subtype              |
-| `ST_LineString`         | Returned if \*geom<br>• is a `LINESTRING` subtype         |
-| `ST_Polygon`            | Returned if \*geom<br>• is a `POLYGON` subtype            |
-| `ST_MultiPoint`         | Returned if \*geom<br>• is a `MULTIPOINT` subtype         |
-| `ST_MultiLineString`    | Returned if \*geom<br>• is a `MULTILINESTRING` subtype    |
-| `ST_MultiPolygon`       | Returned if \*geom<br>• is a `MULTIPOLYGON` subtype       |
-| `ST_GeometryCollection` | Returned if \*geom<br>• is a `GEOMETRYCOLLECTION` subtype |
+| Returned string value   | Geometry subtype                                         |
+| ----------------------- | -------------------------------------------------------- |
+| `ST_Point`              | Returned if *geom<br>• is a `POINT` subtype              |
+| `ST_LineString`         | Returned if *geom<br>• is a `LINESTRING` subtype         |
+| `ST_Polygon`            | Returned if *geom<br>• is a `POLYGON` subtype            |
+| `ST_MultiPoint`         | Returned if *geom<br>• is a `MULTIPOINT` subtype         |
+| `ST_MultiLineString`    | Returned if *geom<br>• is a `MULTILINESTRING` subtype    |
+| `ST_MultiPolygon`       | Returned if *geom<br>• is a `MULTIPOLYGON` subtype       |
+| `ST_GeometryCollection` | Returned if *geom<br>• is a `GEOMETRYCOLLECTION` subtype |
 
 ## Examples
 

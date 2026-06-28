@@ -25,5 +25,5 @@ where target.primarykey = stage.primarykey
 and target.distkey = stage.distkey
 ```
 
-To verify that the query will use a collocated join, run the query with [EXPLAIN](r_EXPLAIN.md "r_EXPLAIN.md") and check for DS_DIST_NONE on all of
+To verify that the query will use a collocated join, run the query with [EXPLAIN](r_EXPLAIN.md "r_EXPLAIN.md") and check for DS\_DIST\_NONE on all of
 the joins. For more information, see [Evaluating the query plan](c_data_redistribution.md "c_data_redistribution.md")

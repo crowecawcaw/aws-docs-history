@@ -14,7 +14,7 @@ EXECUTE *plan\_name* [ (*parameter* [, ...]) ]
 
 ## Parameters
 
-_plan_name_
+_plan\_name_
 
 Name of the prepared statement to be run.
 

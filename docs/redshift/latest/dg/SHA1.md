@@ -10,7 +10,7 @@ hexadecimal value of a 160-bit checksum.
 
 ## Syntax
 
-SHA1 is a synonym of [SHA function](SHA.md "SHA.md") and [FUNC_SHA1 function](FUNC_SHA1.md "FUNC_SHA1.md").
+SHA1 is a synonym of [SHA function](SHA.md "SHA.md") and [FUNC\_SHA1 function](FUNC_SHA1.md "FUNC_SHA1.md").
 
 ```
 SHA1(*string*)

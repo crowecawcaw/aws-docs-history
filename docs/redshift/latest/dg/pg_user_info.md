@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_USER_INFO
+# PG\_USER\_INFO
 
-PG_USER_INFO is an Amazon Redshift system view that shows user information, such as user ID and password expiration time.
+PG\_USER\_INFO is an Amazon Redshift system view that shows user information, such as user ID and password expiration time.
 
-Only superusers can see PG_USER_INFO.
+Only superusers can see PG\_USER\_INFO.
 
 ## Table columns
 
-PG_USER_INFO contains the following columns. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/8.0/view-pg-user.html "https://www.postgresql.org/docs/8.0/view-pg-user.html").
+PG\_USER\_INFO contains the following columns. For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/8.0/view-pg-user.html "https://www.postgresql.org/docs/8.0/view-pg-user.html").
 
 | Column name  | Data type | Description                                       |
 | ------------ | --------- | ------------------------------------------------- |

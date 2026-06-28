@@ -2,19 +2,19 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVL_S3LOG
+# SVL\_S3LOG
 
-Use the SVL_S3LOG view to get details about data lake queries at the segment and
+Use the SVL\_S3LOG view to get details about data lake queries at the segment and
 node slice level.
 
-SVL_S3LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL\_S3LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 
-SVL_S3LOG only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
+SVL\_S3LOG only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
 or on serverless namespaces.
 To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS_EXTERNAL_QUERY_DETAIL](SYS_EXTERNAL_QUERY_DETAIL.md "SYS_EXTERNAL_QUERY_DETAIL.md")
+[SYS\_EXTERNAL\_QUERY\_DETAIL](SYS_EXTERNAL_QUERY_DETAIL.md "SYS_EXTERNAL_QUERY_DETAIL.md")
 . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
@@ -32,7 +32,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Sample query
 
-The following example queries SVL_S3LOG for the last query that ran.
+The following example queries SVL\_S3LOG for the last query that ran.
 
 ```
 select *

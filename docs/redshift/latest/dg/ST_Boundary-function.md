@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Boundary
+# ST\_Boundary
 
-ST_Boundary returns the boundary of an input geometry as follows:
+ST\_Boundary returns the boundary of an input geometry as follows:
 
 - If the input geometry is empty (that is, it contains no points) it is returned as is.
 - If the input geometry is a point or nonempty multipoint, an empty geometry collection is
@@ -14,7 +14,7 @@ ST_Boundary returns the boundary of an input geometry as follows:
 - If the input is a polygon that does not have any interior rings, then a closed linestring representing its boundary is returned.
 - If the input is a polygon that has interior rings, or is a multipolygon, then a multilinestring is returned.
   The multilinestring contains all the boundaries of all the rings in the areal geometry as closed linestrings.
-  To determine point equality, ST_Boundary operates on the 2D projection of the input geometry.
+  To determine point equality, ST\_Boundary operates on the 2D projection of the input geometry.
   If the input geometry is empty, a copy of it is returned in the same dimension as the input.
   For nonempty 3DM and 4D geometries, their `m` coordinates are dropped.
   In the special case of 3DZ and 4D multilinestrings, the `z` coordinates of the multilinestring's boundary points

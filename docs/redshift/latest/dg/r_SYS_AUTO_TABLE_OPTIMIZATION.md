@@ -2,23 +2,23 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_AUTO_TABLE_OPTIMIZATION
+# SYS\_AUTO\_TABLE\_OPTIMIZATION
 
 Records automated actions taken by Amazon Redshift on tables defined for automatic optimization.
 
-SYS_AUTO_TABLE_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_AUTO\_TABLE\_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name      | Data type      | Description                                                                                                                                                |
-| ---------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transaction_id   | long           | The transaction identifier.                                                                                                                                |
-| session_id       | int            | The session identifier of the process that<br>executed the alter command.                                                                                  |
-| table_id         | int            | The table identifier.                                                                                                                                      |
-| alter_table_type | character(32)  | The type of recommendation. Possible values are<br>`distkey`, `sortkey`, and<br>`encode`.                                                                  |
-| status           | character(128) | The completion status of the recommendation.<br>Possible values are `Start`, `Complete`,<br>`Skipped`, `Abort`,<br>`Checkpoint`, and `Failed`.             |
-| event_time       | timestamp      | The timestamp of the status column.                                                                                                                        |
-| alter_from       | character(200) | The previous distribution style and sort keys of<br>the table before applying the recommendation. The value is truncated<br>into 200-character increments. |
+| Column name        | Data type      | Description                                                                                                                                                |
+| ------------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transaction\_id    | long           | The transaction identifier.                                                                                                                                |
+| session\_id        | int            | The session identifier of the process that<br>executed the alter command.                                                                                  |
+| table\_id          | int            | The table identifier.                                                                                                                                      |
+| alter\_table\_type | character(32)  | The type of recommendation. Possible values are<br>`distkey`, `sortkey`, and<br>`encode`.                                                                  |
+| status             | character(128) | The completion status of the recommendation.<br>Possible values are `Start`, `Complete`,<br>`Skipped`, `Abort`,<br>`Checkpoint`, and `Failed`.             |
+| event\_time        | timestamp      | The timestamp of the status column.                                                                                                                        |
+| alter\_from        | character(200) | The previous distribution style and sort keys of<br>the table before applying the recommendation. The value is truncated<br>into 200-character increments. |
 
 ## Sample queries
 

@@ -130,7 +130,7 @@ ORDER BY 1,2;
 To query a supported PostgreSQL remote database that has a mixed-case name of a database, schema, table, or column, then set
 `enable_case_sensitive_identifier` to `true`.
 For more information about this session parameter, see
-[enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
+[enable\_case\_sensitive\_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
 
 ```
 SET enable_case_sensitive_identifier TO TRUE;

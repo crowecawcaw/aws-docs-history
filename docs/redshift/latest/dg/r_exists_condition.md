@@ -18,15 +18,15 @@ if a subquery returns no rows.
 
 EXISTS
 
-Is true when the _table_subquery_ returns at least
+Is true when the _table\_subquery_ returns at least
 one row.
 
 NOT EXISTS
 
-Is true when the _table_subquery_ returns no
+Is true when the _table\_subquery_ returns no
 rows.
 
-_table_subquery_
+_table\_subquery_
 
 A subquery that evaluates to a table with one or more columns and one
 or more rows.

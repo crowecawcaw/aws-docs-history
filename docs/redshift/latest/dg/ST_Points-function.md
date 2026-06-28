@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Points
+# ST\_Points
 
-ST_Points returns a multipoint geometry containing all nonempty points in the input
-geometry. ST_Points doesn't remove points that are duplicated in the input, including
+ST\_Points returns a multipoint geometry containing all nonempty points in the input
+geometry. ST\_Points doesn't remove points that are duplicated in the input, including
 the start and end points of ring geometries.
 
 ## Syntax

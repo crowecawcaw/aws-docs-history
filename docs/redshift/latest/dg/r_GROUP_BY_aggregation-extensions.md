@@ -132,7 +132,7 @@ GROUP BY CUBE(category, product) ORDER BY 1,2;
 (9 rows)
 ```
 
-## _GROUPING/GROUPING_ID functions_
+## _GROUPING/GROUPING\_ID functions_
 
 ROLLUP and CUBE add NULL values to the result set to indicate subtotal rows.
 For example, GROUP BY ROLLUP((a), (b)) returns one or more rows that
@@ -149,7 +149,7 @@ a row with a value of NULL in the b grouping column that isn't a subtotal.
 
 To distinguish between NULL values created by ROLLUP and CUBE, and the NULL
 values stored in the tables themselves, you can use the GROUPING function, or its
-alias GROUPING_ID. GROUPING takes a single grouping set as its argument, and for
+alias GROUPING\_ID. GROUPING takes a single grouping set as its argument, and for
 each row in the result set returns a 0 or 1 bit value corresponding to the
 grouping column in that position, and then converts that value into an integer.
 If the value in that
@@ -367,7 +367,7 @@ ORDER BY 4,1,2,3;
 (13 rows)
 ```
 
-Note that because both ROLLUP(category) and CUBE(product, pre_owned)
+Note that because both ROLLUP(category) and CUBE(product, pre\_owned)
 contain the grouping set (), the row representing the grand total is
 duplicated.
 

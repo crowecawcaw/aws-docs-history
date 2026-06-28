@@ -24,15 +24,15 @@ SHOW TEMPLATE [*database\_name*.][*schema\_name*.]*template\_name*;
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 (Optional) The name of the database in which the template is created. If not specified, the current database is used.
 
-_schema_name_
+_schema\_name_
 
 (Optional) The name of the schema in which the template is created. If not specified, the template is searched for in the current search path.
 
-_template_name_
+_template\_name_
 
 The name of the template.
 

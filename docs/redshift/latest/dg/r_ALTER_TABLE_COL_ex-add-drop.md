@@ -9,11 +9,11 @@ basic table column and also how to drop a column with a dependent object.
 
 ## ADD then DROP a basic column
 
-The following example adds a standalone FEEDBACK_SCORE column to the USERS table.
+The following example adds a standalone FEEDBACK\_SCORE column to the USERS table.
 This column simply contains an integer, and the default value for this column is NULL
 (no feedback score).
 
-First, query the PG_TABLE_DEF catalog table to view the schema of the USERS table:
+First, query the PG\_TABLE\_DEF catalog table to view the schema of the USERS table:
 
 ```
 column        | type                   | encoding | distkey | sortkey
@@ -39,7 +39,7 @@ likemusicals  | boolean                | none     | false   |       0
 
 ```
 
-Now add the feedback_score column:
+Now add the feedback\_score column:
 
 ```
 alter table users
@@ -48,7 +48,7 @@ default NULL;
 
 ```
 
-Select the FEEDBACK_SCORE column from USERS to verify that it was added:
+Select the FEEDBACK\_SCORE column from USERS to verify that it was added:
 
 ```
 `select feedback_score from users limit 5;`
@@ -72,7 +72,7 @@ alter table users drop column feedback_score;
 The following example drops a column that has a dependent object. As a result, the
 dependent object is also dropped.
 
-To start, add the FEEDBACK_SCORE column to the USERS table again:
+To start, add the FEEDBACK\_SCORE column to the USERS table again:
 
 ```
 alter table users
@@ -80,13 +80,13 @@ add column feedback_score int
 default NULL;
 ```
 
-Next, create a view from the USERS table called USERS_VIEW:
+Next, create a view from the USERS table called USERS\_VIEW:
 
 ```
 create view users_view as select * from users;
 ```
 
-Now, try to drop the FEEDBACK_SCORE column from the USERS table. This DROP
+Now, try to drop the FEEDBACK\_SCORE column from the USERS table. This DROP
 statement uses the default behavior (RESTRICT):
 
 ```
@@ -96,7 +96,7 @@ alter table users drop column feedback_score;
 Amazon Redshift displays an error message that the column can't be dropped because
 another object depends on it.
 
-Try dropping the FEEDBACK_SCORE column again, this time specifying CASCADE to drop
+Try dropping the FEEDBACK\_SCORE column again, this time specifying CASCADE to drop
 all dependent objects:
 
 ```

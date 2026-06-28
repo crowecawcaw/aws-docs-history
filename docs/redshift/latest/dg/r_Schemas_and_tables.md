@@ -10,7 +10,7 @@ named PUBLIC. You can use schemas to group database objects under a common name.
 are similar to file system directories, except that schemas cannot be nested.
 
 Identical database object names can be used in different schemas in the same database
-without conflict. For example, both MY_SCHEMA and YOUR_SCHEMA can contain a table named
+without conflict. For example, both MY\_SCHEMA and YOUR\_SCHEMA can contain a table named
 MYTABLE. Users with the necessary permissions can access objects across multiple schemas in
 a database.
 
@@ -30,7 +30,7 @@ the following ways:
 
 ## Search path
 
-The search path is defined in the search_path parameter with a comma-separated list
+The search path is defined in the search\_path parameter with a comma-separated list
 of schema names. The search path specifies the order in which schemas are searched when
 an object, such as a table or function, is referenced by a simple name that does not
 include a schema qualifier.
@@ -42,4 +42,4 @@ first schema in the search path that contains an object with that name.
 
 To change the default schema for the current session, use the [SET](r_SET.md "r_SET.md") command.
 
-For more information, see the [search_path](r_search_path.md "r_search_path.md") description in the Configuration Reference.
+For more information, see the [search\_path](r_search_path.md "r_search_path.md") description in the Configuration Reference.

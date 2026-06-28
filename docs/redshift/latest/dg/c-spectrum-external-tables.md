@@ -90,7 +90,7 @@ location 's3://redshift-downloads/tickit/spectrum/sales/'
 table properties ('numRows'='172000');
 ```
 
-To view external tables, query the [SVV_EXTERNAL_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") system view.
+To view external tables, query the [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") system view.
 
 ## Pseudocolumns
 
@@ -115,10 +115,10 @@ You can disable
 the
 creation of pseudocolumns for a session by setting the
 `spectrum_enable_pseudo_columns` configuration parameter to `false`. For
-more information, see [spectrum_enable_pseudo_columns](r_spectrum_enable_pseudo_columns.md "r_spectrum_enable_pseudo_columns.md"). You can also disable only the
+more information, see [spectrum\_enable\_pseudo\_columns](r_spectrum_enable_pseudo_columns.md "r_spectrum_enable_pseudo_columns.md"). You can also disable only the
 `$spectrum_oid` pseudocolumn by setting the
 `enable_spectrum_oid` to `false`.
-For more information, see [enable_spectrum_oid](r_spectrum_enable_spectrum_oid.md "r_spectrum_enable_spectrum_oid.md"). However, disabling the
+For more information, see [enable\_spectrum\_oid](r_spectrum_enable_spectrum_oid.md "r_spectrum_enable_spectrum_oid.md"). However, disabling the
 `$spectrum_oid` pseudocolumn also disables support for correlated queries with Redshift Spectrum.
 
 ###### Important
@@ -289,7 +289,7 @@ eventid | sum
    6032 | 17265.00
 ```
 
-To view external table partitions, query the [SVV_EXTERNAL_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md "r_SVV_EXTERNAL_PARTITIONS.md")
+To view external table partitions, query the [SVV\_EXTERNAL\_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md "r_SVV_EXTERNAL_PARTITIONS.md")
 system view.
 
 ```
@@ -464,16 +464,16 @@ The underlying ORC file has the following file structure.
 In this example, you can map each column in the external table to a column in ORC
 file strictly by position. The following shows the mapping.
 
-| External table column name    | ORC column ID | ORC column name |
-| ----------------------------- | ------------- | --------------- |
-| int_col                       | 1             | int_col         |
-| float_col                     | 2             | float_col       |
-| nested_col                    | 3             | nested_col      |
-| nested_col.int_col            | 4             | int_col         |
-| nested_col.map_col            | 5             | map_col         |
-| nested_col.map_col.key        | 6             | NA              |
-| nested_col.map_col.value      | 7             | NA              |
-| nested_col.map_col.value.item | 8             | NA              |
+| External table column name      | ORC column ID | ORC column name |
+| ------------------------------- | ------------- | --------------- |
+| int\_col                        | 1             | int\_col        |
+| float\_col                      | 2             | float\_col      |
+| nested\_col                     | 3             | nested\_col     |
+| nested\_col.int\_col            | 4             | int\_col        |
+| nested\_col.map\_col            | 5             | map\_col        |
+| nested\_col.map\_col.key        | 6             | NA              |
+| nested\_col.map\_col.value      | 7             | NA              |
+| nested\_col.map\_col.value.item | 8             | NA              |
 
 ### Mapping by column name
 
@@ -500,9 +500,9 @@ Using position mapping, Redshift Spectrum attempts the following mapping.
 
 | External table column name | ORC column ID | ORC column name |
 | -------------------------- | ------------- | --------------- |
-| int_col                    | 1             | struct          |
-| float_col                  | 7             | int_col         |
-| nested_col                 | 8             | float_col       |
+| int\_col                   | 1             | struct          |
+| float\_col                 | 7             | int\_col        |
+| nested\_col                | 8             | float\_col      |
 
 When you query a table with the preceding position mapping, the SELECT command
 fails on type validation because the structures are different.

@@ -28,15 +28,15 @@ SHOW PROCEDURES FROM SCHEMA
 
 ## Parameters
 
-database_name
+database\_name
 
 The name of the database that contains the procedures to list.
 
-schema_name
+schema\_name
 
 The name of the schema that contains the procedures to list.
 
-filter_pattern
+filter\_pattern
 
 A valid UTF-8 character expression with a pattern to match procedure names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:
 
@@ -45,15 +45,15 @@ A valid UTF-8 character expression with a pattern to match procedure names. The 
 | %             | Matches any sequence of zero or more characters |
 | \_            | Matches any single character                    |
 
-Note that the filter_pattern only matches the procedure name.
+Note that the filter\_pattern only matches the procedure name.
 
-row_limit
+row\_limit
 
-The maximum number of rows to return. The _row_limit_ can be 0–10,000.
+The maximum number of rows to return. The _row\_limit_ can be 0–10,000.
 
 ## Examples
 
-The following example shows procedures from schema demo_db.demo_schema:
+The following example shows procedures from schema demo\_db.demo\_schema:
 
 ```
 SHOW PROCEDURES FROM SCHEMA demo_db.demo_schema;
@@ -64,7 +64,7 @@ SHOW PROCEDURES FROM SCHEMA demo_db.demo_schema;
  demo_db       | demo_schema | sp_process_data   |                   2 | numeric, numeric                             | numeric, character varying                                       |
 ```
 
-The following example shows procedures from schema demo_schema with names ending in 'data':
+The following example shows procedures from schema demo\_schema with names ending in 'data':
 
 ```
 SHOW PROCEDURES FROM SCHEMA demo_schema like '%data';

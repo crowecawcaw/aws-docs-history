@@ -11,15 +11,15 @@ Use the [INSERT](r_INSERT_30.md "r_INSERT_30.md") and [CREATE TABLE AS](r_CREATE
 need to move data or a subset of data from one table into another.
 
 For example, the following INSERT statement selects all of the rows from the CATEGORY
-table and inserts them into the CATEGORY_STAGE table.
+table and inserts them into the CATEGORY\_STAGE table.
 
 ```
 insert into category_stage
 (select * from category);
 ```
 
-The following example creates CATEGORY_STAGE as a copy of CATEGORY and inserts all of
-the rows in CATEGORY into CATEGORY_STAGE.
+The following example creates CATEGORY\_STAGE as a copy of CATEGORY and inserts all of
+the rows in CATEGORY into CATEGORY\_STAGE.
 
 ```
 create table category_stage as

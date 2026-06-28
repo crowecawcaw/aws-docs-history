@@ -66,7 +66,7 @@ using the Amazon Redshift Management Console, CLI, or API. For more information,
 Cluster](../mgmt/copy-unload-iam-role.md "../mgmt/copy-unload-iam-role.md") in the _Amazon Redshift Management Guide_.
 
 When you create an IAM role, IAM returns an Amazon Resource Name (ARN) for the
-role. To specify an IAM role, provide the role ARN with either the [Using the IAM_ROLE parameter](copy-parameters-authorization.md#copy-iam-role "copy-parameters-authorization.md#copy-iam-role") parameter or the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials")
+role. To specify an IAM role, provide the role ARN with either the [Using the IAM\_ROLE parameter](copy-parameters-authorization.md#copy-iam-role "copy-parameters-authorization.md#copy-iam-role") parameter or the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials")
 parameter.
 
 For example, suppose the following role is attached to the cluster.
@@ -75,7 +75,7 @@ For example, suppose the following role is attached to the cluster.
 "IamRoleArn": "arn:aws:iam::0123456789012:role/MyRedshiftRole"
 ```
 
-The following COPY command example uses the IAM_ROLE parameter with the ARN in the
+The following COPY command example uses the IAM\_ROLE parameter with the ARN in the
 previous example for authentication and access to Amazon S3.
 
 ```
@@ -98,7 +98,7 @@ In addition, a superuser can grant the ASSUMEROLE privilege to database users an
 
 With key-based access control, you
 provide the access key ID and secret access key for an IAM user that is authorized
-to access the AWS resources that contain the data. You can use either the [Using the ACCESS_KEY_ID and SECRET_ACCESS_KEY parameters](copy-parameters-authorization.md#copy-access-key-id "copy-parameters-authorization.md#copy-access-key-id") parameters together or the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials") parameter.
+to access the AWS resources that contain the data. You can use either the [Using the ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY parameters](copy-parameters-authorization.md#copy-access-key-id "copy-parameters-authorization.md#copy-access-key-id") parameters together or the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials") parameter.
 
 ###### Note
 
@@ -109,7 +109,7 @@ create an IAM user and provide that user's access key ID and secret access key.
 For steps to create an IAM user, see [Creating an IAM User in Your AWS
 Account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md").
 
-To authenticate using ACCESS_KEY_ID and SECRET_ACCESS_KEY, replace
+To authenticate using ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY, replace
 `<access-key-id>` and
 `<secret-access-key>` with an authorized user's
 access key ID and full secret access key as shown following.
@@ -158,11 +158,11 @@ users. For more information about creating temporary security credentials, see
 [Using Temporary Security
 Credentials](../../../STS/latest/UsingSTS/Welcome.md "../../../STS/latest/UsingSTS/Welcome.md") in the IAM User Guide.
 
-You can use either the [Using the ACCESS_KEY_ID and SECRET_ACCESS_KEY parameters](copy-parameters-authorization.md#copy-access-key-id "copy-parameters-authorization.md#copy-access-key-id") parameters
-together with the [SESSION_TOKEN](copy-parameters-authorization.md#copy-token "copy-parameters-authorization.md#copy-token") parameter or the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials") parameter. You must also supply the access key ID
+You can use either the [Using the ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY parameters](copy-parameters-authorization.md#copy-access-key-id "copy-parameters-authorization.md#copy-access-key-id") parameters
+together with the [SESSION\_TOKEN](copy-parameters-authorization.md#copy-token "copy-parameters-authorization.md#copy-token") parameter or the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials") parameter. You must also supply the access key ID
 and secret access key that were provided with the token.
 
-To authenticate using ACCESS_KEY_ID, SECRET_ACCESS_KEY, and SESSION_TOKEN,
+To authenticate using ACCESS\_KEY\_ID, SECRET\_ACCESS\_KEY, and SESSION\_TOKEN,
 replace `<temporary-access-key-id>`,
 `<temporary-secret-access-key>`, and
 `<temporary-token>` as shown following.

@@ -84,7 +84,7 @@ To revoke usage, use the following command.
 ```
 
 4. Authorize access to the datashare for Lake Formation by using the `aws
-redshift authorize-data-share` API operation. Doing so lets Lake Formation
+ redshift authorize-data-share` API operation. Doing so lets Lake Formation
    recognize the datashare in the service account and manage associating
    consumers to the datashare.
 

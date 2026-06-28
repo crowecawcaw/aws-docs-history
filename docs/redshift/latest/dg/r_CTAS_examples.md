@@ -4,7 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # CTAS examples
 
-The following example creates a table called EVENT_BACKUP for the EVENT table:
+The following example creates a table called EVENT\_BACKUP for the EVENT table:
 
 ```
 create table event_backup as select * from event;

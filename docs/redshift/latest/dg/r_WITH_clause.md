@@ -5,7 +5,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # WITH clause
 
 A WITH clause is an optional clause that precedes the SELECT list in a query. The
-WITH clause defines one or more _common_table_expressions_. Each common table expression (CTE) defines a temporary table, which is similar to a view definition.
+WITH clause defines one or more _common\_table\_expressions_. Each common table expression (CTE) defines a temporary table, which is similar to a view definition.
 You can reference these temporary tables in the FROM clause. They're used only
 while the query they belong to runs. Each CTE in the WITH clause specifies a table
 name, an optional list of column names, and a query expression that evaluates to a table
@@ -25,13 +25,13 @@ subexpressions aren't limited to those defined in the WITH clause.)
 [ WITH [RECURSIVE] *common\_table\_expression* [, *common\_table\_expression* , ...] ]
 ```
 
-where _common_table_expression_ can be either non-recursive or recursive. Following is the non-recursive form:
+where _common\_table\_expression_ can be either non-recursive or recursive. Following is the non-recursive form:
 
 ```
 *CTE\_table\_name* [ ( *column\_name* [, ...] ) ] AS ( *query* )
 ```
 
-Following is the recursive form of _common_table_expression_:
+Following is the recursive form of _common\_table\_expression_:
 
 ```
 *CTE\_table\_name* (*column\_name* [, ...] ) AS ( *recursive\_query* )
@@ -43,13 +43,13 @@ Following is the recursive form of _common_table_expression_:
 RECURSIVE
 
 Keyword that identifies the query as a recursive
-CTE. This keyword is required if any _common_table_expression_ defined in the WITH clause is recursive. You can only specify the RECURSIVE keyword once, immediately following the WITH keyword, even when the WITH clause contains multiple recursive CTEs. In general, a recursive CTE is a UNION ALL subquery with two parts.
+CTE. This keyword is required if any _common\_table\_expression_ defined in the WITH clause is recursive. You can only specify the RECURSIVE keyword once, immediately following the WITH keyword, even when the WITH clause contains multiple recursive CTEs. In general, a recursive CTE is a UNION ALL subquery with two parts.
 
-_common_table_expression_
+_common\_table\_expression_
 
 Defines a temporary table that you can reference in the [FROM clause](r_FROM_clause30.md "r_FROM_clause30.md") and is used only during the execution of the query to which it belongs.
 
-_CTE_table_name_
+_CTE\_table\_name_
 
 A unique name for a temporary table that defines the results of a WITH
 
@@ -57,27 +57,27 @@ clause subquery. You can't use duplicate names within a single WITH
 clause. Each subquery must be given a table name that can be referenced in
 the [FROM clause](r_FROM_clause30.md "r_FROM_clause30.md").
 
-_column_name_
+_column\_name_
 
 A list of output column names for the WITH clause subquery,
 separated by commas. The number of column names specified must be equal to
-or less than the number of columns defined by the subquery. For a CTE that is non-recursive, the _column_name_ clause is optional. For a recursive CTE, the _column_name_ list is required.
+or less than the number of columns defined by the subquery. For a CTE that is non-recursive, the _column\_name_ clause is optional. For a recursive CTE, the _column\_name_ list is required.
 
 _query_
 
 Any SELECT query that Amazon Redshift supports. See [SELECT](r_SELECT_synopsis.md "r_SELECT_synopsis.md").
 
-_recursive_query_
+_recursive\_query_
 
 A UNION ALL query that consists of two SELECT subqueries:
 
 - The first SELECT subquery doesn't have a recursive reference to the same
-  _CTE_table_name_. It returns a result set
+  _CTE\_table\_name_. It returns a result set
   that is the initial seed of the recursion. This part is called the initial member or seed member.
 - The second SELECT subquery references the same
-  _CTE_table_name_ in its FROM clause. This is called the recursive member. The
-  _recursive_query_ contains a WHERE condition to end
-  the _recursive_query_.
+  _CTE\_table\_name_ in its FROM clause. This is called the recursive member. The
+  _recursive\_query_ contains a WHERE condition to end
+  the _recursive\_query_.
 
 ## Usage notes
 
@@ -144,7 +144,7 @@ against changing this to a larger value than the default. This prevents infinite
 
 You can specify a sort order and limit on the result of the recursive CTE. You can include group by and distinct options on the final result of the recursive CTE.
 
-You can't specify a WITH RECURSIVE clause inside a subquery. The _recursive_query_ member can't include an order by or limit clause.
+You can't specify a WITH RECURSIVE clause inside a subquery. The _recursive\_query_ member can't include an order by or limit clause.
 
 ## Examples
 
@@ -175,9 +175,9 @@ v     10 | Pizza Hut Park             | Frisco          | TX         |          
 ```
 
 The following example shows a WITH clause that produces two tables, named
-VENUE_SALES and TOP_VENUES. The second WITH query table selects from the first. In
+VENUE\_SALES and TOP\_VENUES. The second WITH query table selects from the first. In
 turn, the WHERE clause of the main query block contains a subquery that constrains
-the TOP_VENUES table.
+the TOP\_VENUES table.
 
 ```
 with venue_sales as

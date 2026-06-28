@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_GET_GRANTEE_BY_IAM_ROLE
+# PG\_GET\_GRANTEE\_BY\_IAM\_ROLE
 
 Returns all users and groups granted a specified IAM role.
 
@@ -14,7 +14,7 @@ pg_get_grantee_by_iam_role('*iam\_role\_arn*')
 
 ## Arguments
 
-_iam_role_arn_
+_iam\_role\_arn_
 
 The IAM role for which to return the users and groups that have been granted this role.
 
@@ -24,7 +24,7 @@ VARCHAR
 
 ## Usage notes
 
-The PG_GET_GRANTEE_BY_IAM_ROLE function returns one row for each user or group.
+The PG\_GET\_GRANTEE\_BY\_IAM\_ROLE function returns one row for each user or group.
 Each row contains the grantee name, grantee type, and granted privilege. The possible
 values for the grantee type are `p` for public, `u` for user,
 and `g` for group.
@@ -51,7 +51,7 @@ select pg_get_grantee_by_iam_role('arn:aws:iam::123456789012:role/Redshift-S3-Wr
  (reg_user1,u,UNLOAD)
 ```
 
-The following example of the PG_GET_GRANTEE_BY_IAM_ROLE function formats the result as a table.
+The following example of the PG\_GET\_GRANTEE\_BY\_IAM\_ROLE function formats the result as a table.
 
 ```
 select grantee, grantee_type, cmd_type FROM pg_get_grantee_by_iam_role('arn:aws:iam::123456789012:role/Redshift-S3-Write') res_grantee(grantee text, grantee_type text, cmd_type text) ORDER BY 1,2,3;

@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ARRAY_POSITIONS function
+# ARRAY\_POSITIONS function
 
 Returns an array of positions (indices) where the specified element appears in the input array. The indices are 0-based, where 0 indicates the first element, 1 indicates the second element, and so on. Returns an empty array if the element is not found.
 
@@ -22,12 +22,12 @@ _value_
 
 A value that specifies the element to search for.
 
-_null_match_
+_null\_match_
 
 A boolean value that specifies how NULL values are handled:
 
-- _null_match_ = FALSE: Searching for NULL returns NULL. If the array contains NULL values and no match is found for a non-NULL search value, returns NULL.
-- _null_match_ = TRUE: NULLs are treated as valid, searchable elements. If the array contains NULL values and no match is found for a non-NULL search value, it returns an empty array.
+- _null\_match_ = FALSE: Searching for NULL returns NULL. If the array contains NULL values and no match is found for a non-NULL search value, returns NULL.
+- _null\_match_ = TRUE: NULLs are treated as valid, searchable elements. If the array contains NULL values and no match is found for a non-NULL search value, it returns an empty array.
 
 The default is TRUE.
 
@@ -40,11 +40,11 @@ SET default_array_search_null_handling to TRUE;
 
 ## Return type
 
-The ARRAY_POSITIONS function returns a SUPER type.
+The ARRAY\_POSITIONS function returns a SUPER type.
 
 ## Example
 
-The following examples show the ARRAY_POSITIONS function.
+The following examples show the ARRAY\_POSITIONS function.
 
 ```
 SELECT ARRAY_POSITIONS(ARRAY('red', 'green', 'red'), 'red');
@@ -60,7 +60,7 @@ SELECT ARRAY_POSITIONS(ARRAY(1, 2, 3), 4);
 (1 row)
 ```
 
-The following examples show the function behavior with _null_match_ set to TRUE.
+The following examples show the function behavior with _null\_match_ set to TRUE.
 
 ```
 SET default_array_search_null_handling to TRUE;
@@ -80,7 +80,7 @@ SELECT ARRAY_POSITIONS(ARRAY('red', NULL, 'green'), 'blue', TRUE);
 (1 row)
 ```
 
-The following examples show the function behavior with _null_match_ set to FALSE. Note that specifying the _null_match_ behavior in the function will override the default configuration setting.
+The following examples show the function behavior with _null\_match_ set to FALSE. Note that specifying the _null\_match_ behavior in the function will override the default configuration setting.
 
 ```
 -- same as null_match = TRUE
@@ -113,6 +113,6 @@ SELECT ARRAY_POSITIONS(ARRAY('red', NULL, 'green'), 'blue');
 
 ## See also
 
-- [ARRAY_POSITION function](array_position.md "array_position.md")
-- [ARRAY_CONTAINS function](array_contains.md "array_contains.md")
+- [ARRAY\_POSITION function](array_position.md "array_position.md")
+- [ARRAY\_CONTAINS function](array_contains.md "array_contains.md")
 - [SUBARRAY function](r_subarray.md "r_subarray.md")

@@ -45,8 +45,8 @@ DESC DATASHARE salesshare OF ACCOUNT '123456789012' NAMESPACE 'dd8772e1-d792-4fa
 (8 rows)
 ```
 
-Only cluster superusers can do this. You can also use SVV_DATASHARES to
-view the datashares and SVV_DATASHARE_OBJECTS to view the objects within the
+Only cluster superusers can do this. You can also use SVV\_DATASHARES to
+view the datashares and SVV\_DATASHARE\_OBJECTS to view the objects within the
 datashare.
 
 The following example displays the inbound datashares in a consumer
@@ -92,7 +92,7 @@ CREATE DATABASE sales_db WITH PERMISSIONS FROM DATASHARE salesshare OF ACCOUNT '
 ```
 
 You can see databases that you created from the datashare by querying
-[SVV_REDSHIFT_DATABASES](r_SVV_REDSHIFT_DATABASES.md "r_SVV_REDSHIFT_DATABASES.md") view. You can connect to these
+[SVV\_REDSHIFT\_DATABASES](r_SVV_REDSHIFT_DATABASES.md "r_SVV_REDSHIFT_DATABASES.md") view. You can connect to these
 databases directly, or you can connect to a local database on your consumer
 cluster and perform a cross-database query to query the data from the
 datashare databases. You can't create a datashare on top of database
@@ -145,7 +145,7 @@ GRANT SELECT ON sales_db.public.tickit_sales_redshift to Bob;
 Users and roles with permissions on consumer databases and schemas on
 consumer clusters can explore and navigate the metadata of any shared
 objects. They can also explore and navigate local objects in a consumer
-cluster. To do this, use JDBC or ODBC drivers or SVV_ALL and SVV_REDSHIFT
+cluster. To do this, use JDBC or ODBC drivers or SVV\_ALL and SVV\_REDSHIFT
 views.
 
 Producer clusters might have many schemas in the database, tables, and

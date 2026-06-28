@@ -18,7 +18,7 @@ For more information, see [Aggregate functions](c_Aggregate_Functions.md "c_Aggr
 [ GROUP BY  *expression* [, ...] | ALL | *aggregation\_extension*  ]
 ```
 
-where _aggregation_extension_ is one of the following:
+where _aggregation\_extension_ is one of the following:
 
 ```
 GROUPING SETS ( () | *aggregation\_extension* [, ...] ) |
@@ -96,7 +96,7 @@ If you EXCLUDE a column in the SELECT list, the GROUP BY ALL clause does not gro
 SELECT * EXCLUDE col3 FROM testtable GROUP BY ALL
 ```
 
-**aggregation_extension**
+**aggregation\_extension**
 
 You can use the aggregation extensions GROUPING SETS, ROLLUP, and CUBE
 to perform the work of multiple GROUP BY operations in a single statement.

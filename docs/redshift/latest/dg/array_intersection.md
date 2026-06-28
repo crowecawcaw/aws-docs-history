@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ARRAY_INTERSECTION function
+# ARRAY\_INTERSECTION function
 
 Returns a new array containing only the elements that exist in both input arrays. The function is NULL-safe, meaning it treats NULLs are treated as known objects. The order of elements in the result is not guaranteed.
 
@@ -33,11 +33,11 @@ The default is FALSE.
 
 ## Return type
 
-The ARRAY_INTERSECTION function returns a SUPER type.
+The ARRAY\_INTERSECTION function returns a SUPER type.
 
 ## Example
 
-The following examples show the ARRAY_INTERSECTION function.
+The following examples show the ARRAY\_INTERSECTION function.
 
 ```
 SELECT ARRAY_INTERSECTION(ARRAY('a','b','c'), ARRAY('b','c','d'));
@@ -79,7 +79,7 @@ SELECT ARRAY_INTERSECTION(ARRAY('a',NULL), ARRAY('b',NULL));
 
 ## See also
 
-- [ARRAY_EXCEPT function](array_except.md "array_except.md")
-- [ARRAYS_OVERLAP function](arrays_overlap.md "arrays_overlap.md")
-- [ARRAY_UNION function](array_union.md "array_union.md")
-- [ARRAY_DISTINCT function](array_distinct.md "array_distinct.md")
+- [ARRAY\_EXCEPT function](array_except.md "array_except.md")
+- [ARRAYS\_OVERLAP function](arrays_overlap.md "arrays_overlap.md")
+- [ARRAY\_UNION function](array_union.md "array_union.md")
+- [ARRAY\_DISTINCT function](array_distinct.md "array_distinct.md")

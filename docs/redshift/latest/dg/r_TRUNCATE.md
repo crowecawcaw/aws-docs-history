@@ -31,7 +31,7 @@ TABLE
 
 Optional keyword.
 
-_table_name_
+_table\_name_
 
 A temporary or persistent table. Only the owner of the table or a superuser
 may truncate it.
@@ -41,7 +41,7 @@ foreign-key constraints.
 
 You don't need to vacuum a table after truncating it.
 
-_materialized_view_name_
+_materialized\_view\_name_
 
 A materialized view.
 
@@ -55,11 +55,10 @@ You can truncate a materialized view that is used for [Streaming ingestion to a 
 - TRUNCATE operations hold exclusive locks when run on Amazon Redshift streaming materialized views
   connected to any of the following:
 
-      + An Amazon Kinesis data stream
-      + An Amazon Managed Streaming for Apache Kafka topic
-      + A supported external stream, such as a Confluent Cloud Kafka topic
-
-  For more information, see [Streaming ingestion to a materialized view](materialized-view-streaming-ingestion.md "materialized-view-streaming-ingestion.md").
+  - An Amazon Kinesis data stream
+  - An Amazon Managed Streaming for Apache Kafka topic
+  - A supported external stream, such as a Confluent Cloud Kafka topic
+    For more information, see [Streaming ingestion to a materialized view](materialized-view-streaming-ingestion.md "materialized-view-streaming-ingestion.md").
 
 ## Examples
 

@@ -56,8 +56,8 @@ You can also create late-binding views on top of shared objects and use
 these to assign granular permissions. You can also consider having producer
 clusters or workgroups create additional datashares for you with the
 granularity required. You can create as many schema references to the
-database created from the datashare. 5. Database users can use the views SVV_EXTERNAL_TABLES and
-SVV_EXTERNAL_COLUMNS to find all of the shared tables or columns within the
+database created from the datashare. 5. Database users can use the views SVV\_EXTERNAL\_TABLES and
+SVV\_EXTERNAL\_COLUMNS to find all of the shared tables or columns within the
 AWS Glue database
 
 ```
@@ -73,7 +73,7 @@ Users and roles with permissions on consumer databases and schemas on
 consumer clusters or workgroups can explore and navigate the metadata of any
 shared objects. They can also explore and navigate local objects in a
 consumer cluster or workgroup. To do so, they can use the JDBC or ODBC
-drivers or the SVV_ALL and SVV_EXTERNAL views.
+drivers or the SVV\_ALL and SVV\_EXTERNAL views.
 
 ```
 `SELECT * FROM lf_db.schema.table;`

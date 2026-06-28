@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# CUME_DIST window function
+# CUME\_DIST window function
 
 Calculates the cumulative distribution of a value within a window or partition.
 Assuming ascending ordering, the cumulative distribution is determined using this
@@ -43,12 +43,12 @@ OVER
 A clause that specifies the window partitioning. The OVER clause cannot
 contain a window frame specification.
 
-PARTITION BY _partition_expression_
+PARTITION BY _partition\_expression_
 
 Optional. An expression that sets the range of records for each group in
 the OVER clause.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 The expression on which to calculate cumulative distribution. The
 expression must have either a numeric data type or be implicitly convertible

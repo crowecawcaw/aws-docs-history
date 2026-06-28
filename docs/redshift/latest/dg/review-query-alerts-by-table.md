@@ -13,7 +13,7 @@ maintenance, such as having [ANALYZE](r_ANALYZE.md "r_ANALYZE.md") or [VACUUM](r
 it.
 
 If the `count` value is high for a row but the `table` value
-is null, run a query against STL_ALERT_EVENT_LOG for the associated
+is null, run a query against STL\_ALERT\_EVENT\_LOG for the associated
 `event` value to investigate why that alert is getting raised so
 often.
 

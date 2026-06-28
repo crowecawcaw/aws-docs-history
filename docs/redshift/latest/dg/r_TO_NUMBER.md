@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# TO_NUMBER
+# TO\_NUMBER
 
-TO_NUMBER converts a string to a numeric (decimal) value.
+TO\_NUMBER converts a string to a numeric (decimal) value.
 
 ###### Note
 
@@ -34,7 +34,7 @@ a numeric value. For a list of valid formats, see [Numeric format strings](r_Num
 
 ## Return type
 
-TO_NUMBER returns a DECIMAL number.
+TO\_NUMBER returns a DECIMAL number.
 
 If the conversion to _format_ fails, then an error is returned.
 

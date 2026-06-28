@@ -2,14 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STDDEV_SAMP and STDDEV_POP functions
+# STDDEV\_SAMP and STDDEV\_POP functions
 
-The STDDEV_SAMP and STDDEV_POP functions return the sample and population standard
+The STDDEV\_SAMP and STDDEV\_POP functions return the sample and population standard
 deviation of a set of numeric values (integer, decimal, or floating-point). The result
-of the STDDEV_SAMP function is equivalent to the square root of the sample variance of
+of the STDDEV\_SAMP function is equivalent to the square root of the sample variance of
 the same set of values.
 
-STDDEV_SAMP and STDDEV are synonyms for the same function.
+STDDEV\_SAMP and STDDEV are synonyms for the same function.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ result in slight imprecision.
 
 ## Usage notes
 
-When the sample standard deviation (STDDEV or STDDEV_SAMP) is calculated for an
+When the sample standard deviation (STDDEV or STDDEV\_SAMP) is calculated for an
 expression that consists of a single value, the result of the function is NULL not 0.
 
 ## Examples

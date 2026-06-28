@@ -88,7 +88,7 @@ for running queries on the cluster and the database described.
 select * from svv_external_schemas;
 ```
 
-The [SVV_EXTERNAL_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md") view returns information about
+The [SVV\_EXTERNAL\_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md") view returns information about
 available external schemas. In this case, the external schema created by the stack
 is returned, `myfederated_schema`. You might also have other external
 schemas returned, if you have any set up. The view also returns the schema's

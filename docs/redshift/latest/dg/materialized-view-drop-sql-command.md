@@ -24,7 +24,7 @@ If the materialized view doesn't exist, then the `DROP
 useful when scripting, to keep the script from failing if you drop a
 nonexistent materialized view.
 
-_mv_name_
+_mv\_name_
 
 The name of the materialized view to be dropped.
 

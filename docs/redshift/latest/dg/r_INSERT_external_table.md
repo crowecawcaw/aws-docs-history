@@ -29,12 +29,12 @@ INSERT INTO *external\_schema.table\_name*
 
 ## Parameters
 
-_external_schema.table_name_
+_external\_schema.table\_name_
 
 The name of an existing external schema and a target external table to
 insert into.
 
-_select_statement_
+_select\_statement_
 
 A statement that inserts one or more rows into the external table by
 defining any query. All of the rows that the query produces are written to Amazon S3
@@ -72,14 +72,14 @@ Consider the following when running the INSERT (external table) command:
   supported.
 - This command supports existing table properties such as
   'write.parallel', 'write.maxfilesize.mb',
-  'compression_type’, and 'serialization.null.format'. To update
+  'compression\_type’, and 'serialization.null.format'. To update
   those values, run the ALTER TABLE SET TABLE PROPERTIES command.
 - The 'numRows’ table property is automatically updated toward the end of
   the INSERT operation. The table property must be defined or added to the table
   already if it wasn't created by CREATE EXTERNAL TABLE AS operation.
 - The LIMIT clause isn't supported in the outer SELECT query. Instead, use a
   nested LIMIT clause.
-- You can use the [STL_UNLOAD_LOG](r_STL_UNLOAD_LOG.md "r_STL_UNLOAD_LOG.md") table to track the files that got written to
+- You can use the [STL\_UNLOAD\_LOG](r_STL_UNLOAD_LOG.md "r_STL_UNLOAD_LOG.md") table to track the files that got written to
   Amazon S3 by each INSERT (external table) operation.
 - Amazon Redshift supports only Amazon S3 standard encryption for INSERT (external table).
 

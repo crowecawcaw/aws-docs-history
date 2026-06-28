@@ -39,7 +39,7 @@ ERROR: group "guests" can't be dropped because the group has a privilege on some
 If the group has privileges for an object, you must revoke the privileges before
 dropping the group. To find the objects that the `guests` group has
 privileges for, use the following example. For more information about the metadata view
-used in the example, see [SVV_RELATION_PRIVILEGES](r_SVV_RELATION_PRIVILEGES.md "r_SVV_RELATION_PRIVILEGES.md").
+used in the example, see [SVV\_RELATION\_PRIVILEGES](r_SVV_RELATION_PRIVILEGES.md "r_SVV_RELATION_PRIVILEGES.md").
 
 ```
 `SELECT DISTINCT namespace_name, relation_name, identity_name, identity_type

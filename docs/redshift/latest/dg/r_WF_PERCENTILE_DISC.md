@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PERCENTILE_DISC window function
+# PERCENTILE\_DISC window function
 
-PERCENTILE_DISC is an inverse distribution function that assumes a discrete
+PERCENTILE\_DISC is an inverse distribution function that assumes a discrete
 distribution model. It takes a percentile value and a sort specification and returns an
 element from the given set.
 
-For a given percentile value P, PERCENTILE_DISC sorts the values of the expression in
+For a given percentile value P, PERCENTILE\_DISC sorts the values of the expression in
 the ORDER BY clause and returns the value with the smallest cumulative distribution
 value (with respect to the same sort specification) that is greater than or equal to P.
 
@@ -96,7 +96,7 @@ OVER(PARTITION BY sellerid) AS MEDIAN FROM winsales;`
 +----------+-----+--------+`
 ```
 
-To find PERCENTILE_DISC(0.25) and PERCENTILE_DISC(0.75) for the quantity when partitioned by the seller ID, use the following examples.
+To find PERCENTILE\_DISC(0.25) and PERCENTILE\_DISC(0.75) for the quantity when partitioned by the seller ID, use the following examples.
 
 ```
 `SELECT sellerid, qty, PERCENTILE_DISC(0.25)

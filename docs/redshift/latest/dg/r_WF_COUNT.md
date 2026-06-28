@@ -39,17 +39,17 @@ Specifies the window clauses for the aggregation functions. The OVER
 clause distinguishes window aggregation functions from normal set
 aggregation functions.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Defines the window for the COUNT function in terms of one or more
 expressions.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Sorts the rows within each partition. If no PARTITION BY is specified,
 ORDER BY uses the entire table.
 
-_frame_clause_
+_frame\_clause_
 
 If an ORDER BY clause is used for an aggregate function, an explicit
 frame clause is required. The frame clause refines the set of rows in a
@@ -93,7 +93,7 @@ salesid | qty | count
 For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
 
 The following example shows how the sales ID, quantity, and count of non-null rows from the beginning of the
-data window. (In the WINSALES table, the QTY_SHIPPED column contains some NULLs.)
+data window. (In the WINSALES table, the QTY\_SHIPPED column contains some NULLs.)
 
 ```
 select salesid, qty, qty_shipped,

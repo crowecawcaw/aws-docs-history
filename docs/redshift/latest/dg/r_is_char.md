@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# IS_CHAR function
+# IS\_CHAR function
 
-Checks whether a value is a `CHAR`. The IS_CHAR function returns `true` for strings that
+Checks whether a value is a `CHAR`. The IS\_CHAR function returns `true` for strings that
 have only ASCII characters, because the CHAR type can store only characters that are in the
 ASCII format. The function returns `false` for any other values.
 
@@ -17,7 +17,7 @@ IS_CHAR(*super\_expression*)
 
 ## Arguments
 
-_super_expression_
+_super\_expression_
 
 A `SUPER` expression or column.
 
@@ -27,7 +27,7 @@ A `SUPER` expression or column.
 
 ## Examples
 
-To check if `t` is a `CHAR` using the IS_CHAR function, use the following example.
+To check if `t` is a `CHAR` using the IS\_CHAR function, use the following example.
 
 ```
 `CREATE TABLE t(s SUPER);

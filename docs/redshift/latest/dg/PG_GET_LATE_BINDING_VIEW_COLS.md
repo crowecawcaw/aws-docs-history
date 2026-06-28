@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_GET_LATE_BINDING_VIEW_COLS
+# PG\_GET\_LATE\_BINDING\_VIEW\_COLS
 
 Returns the column metadata for all late-binding views in the database. For more
 information, see [Late-binding views](r_CREATE_VIEW.md#r_CREATE_VIEW_late-binding-views "r_CREATE_VIEW.md#r_CREATE_VIEW_late-binding-views")

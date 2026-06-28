@@ -188,7 +188,7 @@ authentication methods for Apache Kafka and Confluent Cloud**
 | ------------------- | ----------------------- | ---------------------- | ----------------------- |
 | AUTHENTICATION NONE | PLAINTEXT               | No                     | No                      |
 | AUTHENTICATION NONE | SSL                     | Yes                    | No                      |
-| AUTHENTICATION IAM  | SASL_SSL                | No                     | No                      |
+| AUTHENTICATION IAM  | SASL\_SSL               | No                     | No                      |
 | AUTHENTICATION MTLS | SSL                     | Yes (with certificate) | Yes (with certificate)  |
 
 Note that Amazon Redshift does not support SASL/SCRAM or SASL/PLAINTEXT.
@@ -306,20 +306,20 @@ uppercase and lowercase letters. To ingest from topics with uppercase
 names, you can set the configuration
 `enable_case_sensitive_identifier` to `true`
 at the session or database level. For more information, see [Names and identifiers](r_names.md "r_names.md") and
-[enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
+[enable\_case\_sensitive\_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
 
 To turn on auto refresh, use `AUTO REFRESH YES`. The default behavior is manual refresh. 3. Metadata columns include the following:
 
-| Metadata column      | Data type                   | Description                                                                                                                                                                                                                                                |
-| -------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| kafka_partition      | bigint                      | Partition id of the record from the Kafka<br>topic                                                                                                                                                                                                         |
-| kafka_offset         | bigint                      | Offset of the record in the Kafka topic for<br>a given partition                                                                                                                                                                                           |
-| kafka_timestamp_type | char(1)                     | Type of timestamp used in the Kafka record:<br>• _C_ – Record creation time (CREATE_TIME) on the client side<br>• _L_ – Record append time (LOG_APPEND_TIME) on the Kafka server side<br>• _U_ – Record creation time is not available (NO_TIMESTAMP_TYPE) |
-| kafka_timestamp      | timestamp without time zone | The timestamp value for the record                                                                                                                                                                                                                         |
-| kafka_key            | varbyte                     | The key of the Kafka record                                                                                                                                                                                                                                |
-| kafka_value          | varbyte                     | The record received from Kafka                                                                                                                                                                                                                             |
-| kafka_headers        | super                       | The header of the record received from Kafka                                                                                                                                                                                                               |
-| refresh_time         | timestamp without time zone | The time the refresh started                                                                                                                                                                                                                               |
+| Metadata column        | Data type                   | Description                                                                                                                                                                                                                                                     |
+| ---------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| kafka\_partition       | bigint                      | Partition id of the record from the Kafka<br>topic                                                                                                                                                                                                              |
+| kafka\_offset          | bigint                      | Offset of the record in the Kafka topic for<br>a given partition                                                                                                                                                                                                |
+| kafka\_timestamp\_type | char(1)                     | Type of timestamp used in the Kafka record:<br>• _C_ – Record creation time (CREATE\_TIME) on the client side<br>• _L_ – Record append time (LOG\_APPEND\_TIME) on the Kafka server side<br>• _U_ – Record creation time is not available (NO\_TIMESTAMP\_TYPE) |
+| kafka\_timestamp       | timestamp without time zone | The timestamp value for the record                                                                                                                                                                                                                              |
+| kafka\_key             | varbyte                     | The key of the Kafka record                                                                                                                                                                                                                                     |
+| kafka\_value           | varbyte                     | The record received from Kafka                                                                                                                                                                                                                                  |
+| kafka\_headers         | super                       | The header of the record received from Kafka                                                                                                                                                                                                                    |
+| refresh\_time          | timestamp without time zone | The time the refresh started                                                                                                                                                                                                                                    |
 
 It's important to note if you have business logic in your materialized view definition that
 results in business logic errors, this can result in ingestion failures in streaming

@@ -34,7 +34,7 @@ The following limitations apply to nested data:
 - Subquery result columns must be top-level. (preview)
 - If an `OUTER JOIN` expression refers to a nested table, it can
   refer only to that table and its nested arrays (and maps). If an `OUTER
-JOIN` expression doesn't refer to a nested table, it can refer to
+ JOIN` expression doesn't refer to a nested table, it can refer to
   any number of non-nested tables.
 - If a `FROM` clause in a subquery refers to a nested table, it
   can't refer to any other table.

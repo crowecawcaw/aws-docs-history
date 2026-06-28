@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ARRAYS_OVERLAP function
+# ARRAYS\_OVERLAP function
 
 Checks whether two arrays have any common elements. Returns TRUE if the arrays share at least one element, or FALSE if no common elements exist. The function is NULL-safe, meaning it treats NULLs are treated as known objects.
 
@@ -24,11 +24,11 @@ A SUPER expression that specifies an array.
 
 ## Return type
 
-The ARRAYS_OVERLAP function returns a Boolean type.
+The ARRAYS\_OVERLAP function returns a Boolean type.
 
 ## Example
 
-The following examples show the ARRAYS_OVERLAP function.
+The following examples show the ARRAYS\_OVERLAP function.
 
 ```
 SELECT ARRAYS_OVERLAP(ARRAY('blue', 'green'), ARRAY('red', 'green'));
@@ -62,6 +62,6 @@ SELECT ARRAYS_OVERLAP(JSON_PARSE('[null]'), ARRAY(NULL));
 
 ## See also
 
-- [ARRAY_INTERSECTION function](array_intersection.md "array_intersection.md")
-- [ARRAY_CONTAINS function](array_contains.md "array_contains.md")
-- [ARRAY_EXCEPT function](array_except.md "array_except.md")
+- [ARRAY\_INTERSECTION function](array_intersection.md "array_intersection.md")
+- [ARRAY\_CONTAINS function](array_contains.md "array_contains.md")
+- [ARRAY\_EXCEPT function](array_except.md "array_except.md")

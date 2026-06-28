@@ -11,7 +11,7 @@ section covers querying datashares in your Amazon Redshift environment.
 Users and roles with permissions on consumer databases and schemas on consumer
 clusters can explore and navigate the metadata of any shared objects. They can
 also explore and navigate local objects in a consumer cluster. To do this, they
-use JDBC or ODBC drivers or SVV_ALL and SVV_REDSHIFT views.
+use JDBC or ODBC drivers or SVV\_ALL and SVV\_REDSHIFT views.
 
 Producer clusters might have many schemas in the database, tables, and views
 within each schema. The users on the consumer side can see only the subset of

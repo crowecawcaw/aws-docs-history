@@ -197,27 +197,27 @@ in the _IAM User Guide_.
 
 ###### To grant SELECT permissions on the table to query in the Lake Formation database
 
-1.  Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
-2.  In the navigation pane, choose **Data lake permissions**, and then choose
-    **Grant**.
-3.  Follow the instructions in [Granting table permissions using the named resource method](../../../lake-formation/latest/dg/granting-table-permissions.md "../../../lake-formation/latest/dg/granting-table-permissions.md") in the
-    _AWS Lake Formation Developer Guide_.
-    Provide the following information:
+1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
+2. In the navigation pane, choose **Data lake permissions**, and then choose
+   **Grant**.
+3. Follow the instructions in [Granting table permissions using the named resource method](../../../lake-formation/latest/dg/granting-table-permissions.md "../../../lake-formation/latest/dg/granting-table-permissions.md") in the
+   _AWS Lake Formation Developer Guide_.
+   Provide the following information:
 
-    - For **IAM role**, choose the IAM role you created,
-      `myspectrum_role`. When you run the Amazon Redshift Query Editor, it
-      uses this IAM role for permission to the data.
+   - For **IAM role**, choose the IAM role you created,
+     `myspectrum_role`. When you run the Amazon Redshift Query Editor, it
+     uses this IAM role for permission to the data.
 
-    ###### Note
+   ###### Note
 
-    To grant SELECT permission on the table in a Lake Formation–enabled Data Catalog to query, do the
-    following:
+   To grant SELECT permission on the table in a Lake Formation–enabled Data Catalog to query, do the
+   following:
 
         + Register the path for the data in Lake Formation.
         + Grant users permission to that path in Lake Formation.
         + Created tables can be found in the path registered in Lake Formation.
 
-4.  Choose **Grant**.
+4. Choose **Grant**.
 
 ###### Important
 
@@ -322,7 +322,7 @@ include joining tables, aggregating data, and filtering on predicates.
 
 ###### To query your data in Amazon S3
 
-1. Get the number of rows in the MYSPECTRUM_SCHEMA.SALES table.
+1. Get the number of rows in the MYSPECTRUM\_SCHEMA.SALES table.
 
 ```
 select count(*) from myspectrum_schema.sales;
@@ -361,7 +361,7 @@ iam_role 'arn:aws:iam::123456789012:role/myspectrum_role'
 delimiter '|' timeformat 'YYYY-MM-DD HH:MI:SS' region 'us-east-1';
 ```
 
-The following example joins the external Amazon S3 table MYSPECTRUM_SCHEMA.SALES with the local
+The following example joins the external Amazon S3 table MYSPECTRUM\_SCHEMA.SALES with the local
 Amazon Redshift table EVENT to find the total sales for the top 10 events.
 
 ```

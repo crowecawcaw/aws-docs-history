@@ -45,7 +45,7 @@ TEMPORARY | TEMP
 Creates a temporary table. A temporary table is automatically dropped at the
 end of the session in which it was created.
 
-_table_name_
+_table\_name_
 
 The name of the table to be created.
 
@@ -82,7 +82,7 @@ Multiple temporary tables with the same name are allowed to exist at the
 same time in the same database if they are created in separate sessions. These
 tables are assigned to different schemas.
 
-_column_name_
+_column\_name_
 
 The name of a column in the new table. If no column names are provided, the
 column names are taken from the output column names of the query. Default
@@ -120,7 +120,7 @@ performance of your database. For more information, see [Data distribution for q
 
 - AUTO: Amazon Redshift assigns an optimal distribution style based on the table
   data. To view the distribution style applied to a table, query the
-  PG_CLASS system catalog table. For more information, see [Viewing distribution styles](viewing-distribution-styles.md "viewing-distribution-styles.md").
+  PG\_CLASS system catalog table. For more information, see [Viewing distribution styles](viewing-distribution-styles.md "viewing-distribution-styles.md").
 - EVEN: The data in the table is spread evenly across the nodes in a
   cluster in a round-robin distribution. Row IDs are used to determine the
   distribution, and roughly the same number of rows are distributed to each
@@ -158,7 +158,7 @@ You can define the same column as the distribution key and the sort key;
 this approach tends to accelerate joins when the column in question is a
 joining column in the query.
 
-[ COMPOUND | INTERLEAVED ] SORTKEY ( _column_name_ [, ... ]
+[ COMPOUND | INTERLEAVED ] SORTKEY ( _column\_name_ [, ... ]
 )
 
 Specifies one or more sort keys for the table. When data is loaded into the

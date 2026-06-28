@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# USER_IS_MEMBER_OF
+# USER\_IS\_MEMBER\_OF
 
 ###### Important
 
@@ -34,15 +34,15 @@ user_is_member_of( *user\_name*,  *role\_name* | *group\_name*)
 
 ## Arguments
 
-_user_name_
+_user\_name_
 
 The name of the user.
 
-_role_name_
+_role\_name_
 
 The name of the role.
 
-_group_name_
+_group\_name_
 
 The name of the group.
 

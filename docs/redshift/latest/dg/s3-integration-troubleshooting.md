@@ -20,8 +20,8 @@ Amazon Redshift data warehouse.
 
 If data from a COPY JOB doesn't appear, check the following.
 
-- Query SYS_COPY_JOB_DETAIL to view if the Amazon S3 file has been loaded, whether its pending ingestion, or there is an error. For more information, see
-  [SYS_COPY_JOB_DETAIL](SYS_COPY_JOB_DETAIL.md "SYS_COPY_JOB_DETAIL.md").
-- Consult STL_ERROR or SYS_COPY_JOB_INFO if the Amazon S3 file is not there or there is unexpected wait time.
+- Query SYS\_COPY\_JOB\_DETAIL to view if the Amazon S3 file has been loaded, whether its pending ingestion, or there is an error. For more information, see
+  [SYS\_COPY\_JOB\_DETAIL](SYS_COPY_JOB_DETAIL.md "SYS_COPY_JOB_DETAIL.md").
+- Consult STL\_ERROR or SYS\_COPY\_JOB\_INFO if the Amazon S3 file is not there or there is unexpected wait time.
   Look for credential errors or anything that suggests the integration is inactive. For more information, see
-  [STL_ERROR](r_STL_ERROR.md "r_STL_ERROR.md") and [SYS_COPY_JOB_INFO](SYS_COPY_JOB_INFO.md "SYS_COPY_JOB_INFO.md").
+  [STL\_ERROR](r_STL_ERROR.md "r_STL_ERROR.md") and [SYS\_COPY\_JOB\_INFO](SYS_COPY_JOB_INFO.md "SYS_COPY_JOB_INFO.md").

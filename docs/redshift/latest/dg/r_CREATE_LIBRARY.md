@@ -46,7 +46,7 @@ depends on the library is running concurrently, the UDF might fail or return
 unexpected results, even if the UDF is running within a transaction. You must
 be the owner or a superuser to replace a library.
 
-_library_name_
+_library\_name_
 
 The name of the library to be installed. You can't create a library
 that contains a module with the same name as a Python Standard Library module
@@ -68,7 +68,7 @@ library must be packaged in the form of a `.zip` file. For more
 information, see [Building and Installing Python Modules](https://docs.python.org/2/library/distutils.html?highlight=distutils#module-distutils "https://docs.python.org/2/library/distutils.html?highlight=distutils#module-distutils") in the Python
 documentation.
 
-https://_file_url_
+https://_file\_url_
 
 The URL to download the file from a public website. The URL can contain up
 to three redirects. The following is an example of a file URL.
@@ -77,7 +77,7 @@ to three redirects. The following is an example of a file URL.
 'https://www.example.com/pylib.zip'
 ```
 
-s3://_bucket_name/file_name_
+s3://_bucket\_name/file\_name_
 
 The path to a single Amazon S3 object that contains the library file. The
 following is an example of an Amazon S3 object path.
@@ -93,7 +93,7 @@ AWS user that has permission to download the file.
 
 If the Amazon S3 bucket doesn't reside in the same AWS Region as your
 Amazon Redshift cluster, you must use the REGION option to specify the AWS Region in
-which the data is located. The value for _aws_region_
+which the data is located. The value for _aws\_region_
 must match an AWS Region listed in the table in the [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region") parameter description for the COPY
 command.
 
@@ -116,8 +116,8 @@ role that is set as default and associated with the cluster when the CREATE
 LIBRARY command runs.
 
 Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses
-for authentication and authorization. If you specify IAM_ROLE, you can't
-use ACCESS_KEY_ID and SECRET_ACCESS_KEY, SESSION_TOKEN, or CREDENTIALS.
+for authentication and authorization. If you specify IAM\_ROLE, you can't
+use ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY, SESSION\_TOKEN, or CREDENTIALS.
 
 Optionally, if the Amazon S3 bucket uses server-side encryption, provide the
 encryption key in the credentials-args string. If you use temporary security
@@ -126,11 +126,11 @@ _credentials-args_ string.
 
 For more information, see [Temporary security credentials](copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials "copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials").
 
-REGION [AS] _aws_region_
+REGION [AS] _aws\_region_
 
 The AWS Region where the Amazon S3 bucket is located. REGION is required when
 the Amazon S3 bucket isn't in the same AWS Region as the Amazon Redshift cluster.
-The value for _aws_region_ must match an AWS Region listed
+The value for _aws\_region_ must match an AWS Region listed
 in the table in the [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region") parameter description for the
 COPY command.
 

@@ -36,7 +36,7 @@ where source.filter = 'filter_expression';
      distribution key is not being updated, add a redundant join on the
      distribution key. To verify that the query will use a collocated join, run
      the query with [EXPLAIN](r_EXPLAIN.md "r_EXPLAIN.md") and
-     check for DS_DIST_NONE on all of the joins. For more information, see [Evaluating the query plan](c_data_redistribution.md "c_data_redistribution.md")
+     check for DS\_DIST\_NONE on all of the joins. For more information, see [Evaluating the query plan](c_data_redistribution.md "c_data_redistribution.md")
    - If your target table is sorted by timestamp, add a predicate to take
      advantage of range-restricted scans on the target table. For more
      information, see [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").

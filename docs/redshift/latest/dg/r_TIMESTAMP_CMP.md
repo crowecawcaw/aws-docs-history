@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# TIMESTAMP_CMP function
+# TIMESTAMP\_CMP function
 
 Compares the value of two timestamps and returns an integer. If the timestamps are
 identical, the function returns `0`. If the first timestamp is greater, the
@@ -44,7 +44,7 @@ comparison.
 ```
 
 The following example compares the LISTTIME and SALETIME for a listing. The value for
-TIMESTAMP_CMP is `-1` for all listings because the timestamp for the sale is after the
+TIMESTAMP\_CMP is `-1` for all listings because the timestamp for the sale is after the
 timestamp for the listing.
 
 ```
@@ -70,7 +70,7 @@ limit 10;`
 (10 rows)`
 ```
 
-This example shows that TIMESTAMP_CMP returns a 0 for identical timestamps:
+This example shows that TIMESTAMP\_CMP returns a 0 for identical timestamps:
 
 ```
 `select listid, timestamp_cmp(listtime, listtime)

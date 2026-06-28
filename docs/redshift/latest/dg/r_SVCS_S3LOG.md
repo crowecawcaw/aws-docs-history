@@ -2,20 +2,20 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVCS_S3LOG
+# SVCS\_S3LOG
 
-Use the SVCS_S3LOG view to get troubleshooting details about data lake queries at the segment level.
+Use the SVCS\_S3LOG view to get troubleshooting details about data lake queries at the segment level.
 One segment can perform one external table scan.
-This view is derived from the SVL_S3LOG system view but doesn't show slice-level for queries run on a concurrency scaling cluster.
+This view is derived from the SVL\_S3LOG system view but doesn't show slice-level for queries run on a concurrency scaling cluster.
 
 ###### Note
 
 System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
 The views are similar to the views with the prefix SVL except that the SVL views provide information only for queries run on the main cluster.
 
-SVCS_S3LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS\_S3LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-For information about SVL_S3LOG, see [SVL_S3LOG](r_SVL_S3LOG.md "r_SVL_S3LOG.md").
+For information about SVL\_S3LOG, see [SVL\_S3LOG](r_SVL_S3LOG.md "r_SVL_S3LOG.md").
 
 ## Table columns
 
@@ -31,7 +31,7 @@ For information about SVL_S3LOG, see [SVL_S3LOG](r_SVL_S3LOG.md "r_SVL_S3LOG.md"
 
 ## Sample query
 
-The following example queries SVCS_S3LOG for the last query that ran.
+The following example queries SVCS\_S3LOG for the last query that ran.
 
 ```
 select *

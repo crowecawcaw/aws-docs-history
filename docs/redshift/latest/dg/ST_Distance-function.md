@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Distance
+# ST\_Distance
 
-For input geometries, ST_Distance returns the minimum Euclidean distance between the 2D projections of the two input geometry values.
+For input geometries, ST\_Distance returns the minimum Euclidean distance between the 2D projections of the two input geometry values.
 
-For 3DM, 3DZ, 4D geometries, ST_Distance returns the Euclidean distance between the 2D projections of two input geometry values.
+For 3DM, 3DZ, 4D geometries, ST\_Distance returns the Euclidean distance between the 2D projections of two input geometry values.
 
-For input geographies, ST_Distance returns the geodesic distance of the two 2D points.
+For input geographies, ST\_Distance returns the geodesic distance of the two 2D points.
 The unit of distance is in meters. For geographies other than points and empty points an error is returned.
 
 ## Syntax

@@ -127,7 +127,7 @@ A superuser or a user with the `sys:secadmin` privilege can view RLS and DDM pol
 ###### Note
 
 - User defined functions (UDF) in RLS, DDM policy definitions are not supported with Amazon Redshift federated permissions.
-- Redshift SQL functions user_is_member_of, role_is_member_of, user_is_member_of_role are not supported with Amazon Redshift federated permissions.
+- Redshift SQL functions user\_is\_member\_of, role\_is\_member\_of, user\_is\_member\_of\_role are not supported with Amazon Redshift federated permissions.
 
 ### Permissions you can grant on Amazon Redshift federated permissions catalog
 

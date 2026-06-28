@@ -9,8 +9,8 @@ tables to get useful information about an Amazon Redshift database.
 
 ## View table ID, database, schema, and table name
 
-The following view definition joins the STV_TBL_PERM system table with the
-PG_CLASS, PG_NAMESPACE, and PG_DATABASE system catalog tables to return the
+The following view definition joins the STV\_TBL\_PERM system table with the
+PG\_CLASS, PG\_NAMESPACE, and PG\_DATABASE system catalog tables to return the
 table ID, database name, schema name, and table name.
 
 ```
@@ -40,8 +40,8 @@ table_id | db_name   | schema_name | table_name
 ## List the number of columns per Amazon Redshift table
 
 The following query joins some catalog tables to find out how many columns
-each Amazon Redshift table contains. Amazon Redshift table names are stored in both PG_TABLES
-and STV_TBL_PERM; where possible, use PG_TABLES to return Amazon Redshift table
+each Amazon Redshift table contains. Amazon Redshift table names are stored in both PG\_TABLES
+and STV\_TBL\_PERM; where possible, use PG\_TABLES to return Amazon Redshift table
 names.
 
 This query does not involve any Amazon Redshift tables.
@@ -70,7 +70,7 @@ public  | venue    |        5
 
 ## List the schemas and tables in a database
 
-The following query joins STV_TBL_PERM to some PG tables to return a list of
+The following query joins STV\_TBL\_PERM to some PG tables to return a list of
 tables in the TICKIT database and their schema names (NSPNAME column). The query
 also returns the total number of rows in each table. (This query is helpful when
 multiple schemas in your system have the same table names.)
@@ -126,7 +126,7 @@ attrelid |  rtrim   |    attname     |  typname
 
 ## Count the number of data blocks for each column in a table
 
-The following query joins the STV_BLOCKLIST table to PG_CLASS to return
+The following query joins the STV\_BLOCKLIST table to PG\_CLASS to return
 storage information for the columns in the SALES table.
 
 ```

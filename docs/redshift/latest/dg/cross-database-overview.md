@@ -84,7 +84,7 @@ within the same Amazon Redshift cluster. For information, see [CREATE EXTERNAL S
 command.
 
 After external schema references are created, Amazon Redshift shows the tables under the
-schema of the other database in [SVV_EXTERNAL_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV_EXTERNAL_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md") for the tools to explore the
+schema of the other database in [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV\_EXTERNAL\_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md") for the tools to explore the
 metadata.
 
 To integrate cross-database query with BI tools, you can use the following system views.

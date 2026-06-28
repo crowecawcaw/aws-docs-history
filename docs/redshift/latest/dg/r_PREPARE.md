@@ -21,7 +21,7 @@ PREPARE *plan\_name* [ (*datatype* [, ...] ) ] AS *statement*
 
 ## Parameters
 
-_plan_name_
+_plan\_name_
 
 An arbitrary name given to this particular prepared statement. It must be
 unique within a single session and is subsequently used to run or deallocate a

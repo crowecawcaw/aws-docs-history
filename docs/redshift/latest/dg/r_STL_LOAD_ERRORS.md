@@ -2,55 +2,55 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_LOAD_ERRORS
+# STL\_LOAD\_ERRORS
 
 Displays the records of all Amazon Redshift load errors.
 
-STL_LOAD_ERRORS contains a history of all Amazon Redshift load errors. See [Load error reference](r_Load_Error_Reference.md "r_Load_Error_Reference.md") for a
+STL\_LOAD\_ERRORS contains a history of all Amazon Redshift load errors. See [Load error reference](r_Load_Error_Reference.md "r_Load_Error_Reference.md") for a
 comprehensive list of possible load errors and explanations.
 
-Query [STL_LOADERROR_DETAIL](r_STL_LOADERROR_DETAIL.md "r_STL_LOADERROR_DETAIL.md")
+Query [STL\_LOADERROR\_DETAIL](r_STL_LOADERROR_DETAIL.md "r_STL_LOADERROR_DETAIL.md")
 for additional details, such as the exact data row and column where a parse error
-occurred, after you query STL_LOAD_ERRORS to find out general information about the
+occurred, after you query STL\_LOAD\_ERRORS to find out general information about the
 error.
 
-STL_LOAD_ERRORS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_LOAD\_ERRORS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 
-STL_LOAD_ERRORS only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
+STL\_LOAD\_ERRORS only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
 or on serverless namespaces.
 To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS_LOAD_ERROR_DETAIL](SYS_LOAD_ERROR_DETAIL.md "SYS_LOAD_ERROR_DETAIL.md")
+[SYS\_LOAD\_ERROR\_DETAIL](SYS_LOAD_ERROR_DETAIL.md "SYS_LOAD_ERROR_DETAIL.md")
 . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
 
-| Column name     | Data type       | Description                                                                                                                                                                                                                           |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid          | integer         | ID of the user who generated the entry.                                                                                                                                                                                               |
-| slice           | integer         | Slice where the error occurred.                                                                                                                                                                                                       |
-| tbl             | integer         | Table ID.                                                                                                                                                                                                                             |
-| starttime       | timestamp       | Start time in UTC for the load.                                                                                                                                                                                                       |
-| session         | integer         | Session ID for the session performing the load.                                                                                                                                                                                       |
-| query           | integer         | Query ID. The query column can be used to join other system tables and views.                                                                                                                                                         |
-| filename        | character(256)  | Complete path to the input file for the load.                                                                                                                                                                                         |
-| line_number     | bigint          | Line number in the load file with the error. For<br>COPY from JSON, the line number of the last line of the JSON object<br>with the error.                                                                                            |
-| colname         | character(127)  | Field with the error.                                                                                                                                                                                                                 |
-| type            | character(10)   | Data type of the field.                                                                                                                                                                                                               |
-| col_length      | character(10)   | Column length, if applicable. This field is<br>populated when the data type has a limit length. For example, for a<br>column with a data type of "character(3)", this column will contain<br>the value "3".                           |
-| position        | integer         | Position of the error in the field.                                                                                                                                                                                                   |
-| raw_line        | character(1024) | Raw load data that contains the error. Multibyte<br>characters in the load data are replaced with a period.                                                                                                                           |
-| raw_field_value | char(1024)      | The pre-parsing value for the field "colname" that<br>lead to the parsing error.                                                                                                                                                      |
-| err_code        | integer         | Error code.                                                                                                                                                                                                                           |
-| err_reason      | character(100)  | Explanation for the error.                                                                                                                                                                                                            |
-| is_partial      | integer         | Value that if true (1) indicates the input file is<br>split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.                                                                           |
-| start_offset    | bigint          | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes). If the line number in the file is unknown, the line number is -1. If<br>the file isn't split, this value is 0. |
-| copy_job_id     | bigint          | The copy job identifier. A `0` indicates no job identifier.                                                                                                                                                                           |
+| Column name       | Data type       | Description                                                                                                                                                                                                                           |
+| ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid            | integer         | ID of the user who generated the entry.                                                                                                                                                                                               |
+| slice             | integer         | Slice where the error occurred.                                                                                                                                                                                                       |
+| tbl               | integer         | Table ID.                                                                                                                                                                                                                             |
+| starttime         | timestamp       | Start time in UTC for the load.                                                                                                                                                                                                       |
+| session           | integer         | Session ID for the session performing the load.                                                                                                                                                                                       |
+| query             | integer         | Query ID. The query column can be used to join other system tables and views.                                                                                                                                                         |
+| filename          | character(256)  | Complete path to the input file for the load.                                                                                                                                                                                         |
+| line\_number      | bigint          | Line number in the load file with the error. For<br>COPY from JSON, the line number of the last line of the JSON object<br>with the error.                                                                                            |
+| colname           | character(127)  | Field with the error.                                                                                                                                                                                                                 |
+| type              | character(10)   | Data type of the field.                                                                                                                                                                                                               |
+| col\_length       | character(10)   | Column length, if applicable. This field is<br>populated when the data type has a limit length. For example, for a<br>column with a data type of "character(3)", this column will contain<br>the value "3".                           |
+| position          | integer         | Position of the error in the field.                                                                                                                                                                                                   |
+| raw\_line         | character(1024) | Raw load data that contains the error. Multibyte<br>characters in the load data are replaced with a period.                                                                                                                           |
+| raw\_field\_value | char(1024)      | The pre-parsing value for the field "colname" that<br>lead to the parsing error.                                                                                                                                                      |
+| err\_code         | integer         | Error code.                                                                                                                                                                                                                           |
+| err\_reason       | character(100)  | Explanation for the error.                                                                                                                                                                                                            |
+| is\_partial       | integer         | Value that if true (1) indicates the input file is<br>split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.                                                                           |
+| start\_offset     | bigint          | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes). If the line number in the file is unknown, the line number is -1. If<br>the file isn't split, this value is 0. |
+| copy\_job\_id     | bigint          | The copy job identifier. A `0` indicates no job identifier.                                                                                                                                                                           |
 
 ## Sample queries
 
-The following query joins STL_LOAD_ERRORS to STL_LOADERROR_DETAIL to view the
+The following query joins STL\_LOAD\_ERRORS to STL\_LOADERROR\_DETAIL to view the
 details errors that occurred during the most recent load.
 
 ```
@@ -75,7 +75,7 @@ and d.query = pg_last_copy_id();
 
 ```
 
-The following example uses STL_LOAD_ERRORS with STV_TBL_PERM to create a new view,
+The following example uses STL\_LOAD\_ERRORS with STV\_TBL\_PERM to create a new view,
 and then uses that view to determine what errors occurred while loading data into
 the EVENT table:
 
@@ -111,8 +111,8 @@ event | 309 |  0 |  5 | Error in Timestamp value or format [%Y-%m-%d %H:%M:%S] |
 (1 row)
 ```
 
-In cases where the COPY command automatically splits large, uncompressed, text-delimited file data to facilitate parallelism, the _line_number_,
-_is_partial_, and _start_offset_ columns show information pertaining to splits. (The line number can be unknown in cases where the line number from the original file is unavailable.)
+In cases where the COPY command automatically splits large, uncompressed, text-delimited file data to facilitate parallelism, the _line\_number_,
+_is\_partial_, and _start\_offset_ columns show information pertaining to splits. (The line number can be unknown in cases where the line number from the original file is unavailable.)
 
 ```
 --scan ranges information

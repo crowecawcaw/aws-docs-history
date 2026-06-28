@@ -10,8 +10,8 @@ multibyte UTF-8 characters, to a maximum of four bytes. For more information, se
 [Character types](r_Character_types.md "r_Character_types.md").
 
 If a line in your load data contains a character that is not valid for the column
-data type, COPY returns an error and logs a row in the STL_LOAD_ERRORS system log
-table with error number 1220. The ERR_REASON field includes the byte sequence, in
+data type, COPY returns an error and logs a row in the STL\_LOAD\_ERRORS system log
+table with error number 1220. The ERR\_REASON field includes the byte sequence, in
 hex, for the invalid character.
 
 An alternative to fixing not valid characters in your load data is to replace the

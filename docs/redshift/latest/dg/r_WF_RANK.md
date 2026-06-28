@@ -11,7 +11,7 @@ ranking criteria receive the same rank. Amazon Redshift adds the number of tied 
 tied rank to calculate the next rank and thus the ranks might not be consecutive
 numbers. For example, if two rows are ranked 1, the next rank is 3.
 
-RANK differs from the [DENSE_RANK window function](r_WF_DENSE_RANK.md "r_WF_DENSE_RANK.md") in one respect: For DENSE_RANK, if two or more rows
+RANK differs from the [DENSE\_RANK window function](r_WF_DENSE_RANK.md "r_WF_DENSE_RANK.md") in one respect: For DENSE\_RANK, if two or more rows
 tie, there is no gap in the sequence of ranked values. For example, if two rows are
 ranked 1, the next rank is 2.
 
@@ -38,11 +38,11 @@ OVER
 
 The window clauses for the RANK function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Optional. One or more expressions that define the window.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Optional. Defines the columns on which the ranking values are based. If
 no PARTITION BY is specified, ORDER BY uses the entire table. If ORDER BY is

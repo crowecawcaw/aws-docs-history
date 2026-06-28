@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# HLL_CREATE_SKETCH function
+# HLL\_CREATE\_SKETCH function
 
-The HLL_CREATE_SKETCH function returns an HLLSKETCH data type that encapsulates the
-input expression values. The HLL_CREATE_SKETCH function works with any data type and
+The HLL\_CREATE\_SKETCH function returns an HLLSKETCH data type that encapsulates the
+input expression values. The HLL\_CREATE\_SKETCH function works with any data type and
 ignores NULL values. When there are no rows in a table or all rows are NULL, the
 resulting sketch has no index-value pairs such as
 `{"version":1,"logm":15,"sparse":{"indices":[],"values":[]}}`.
@@ -18,7 +18,7 @@ HLL_CREATE_SKETCH (*aggregate\_expression*)
 
 ## Argument
 
-_aggregate_expression_
+_aggregate\_expression_
 
 Any valid expression that provides the value to an aggregate, such as a
 column name. NULL values are ignored. This function supports any data type
@@ -26,7 +26,7 @@ as input except HLLSKETCH, GEOMETRY, GEOGRAPHY, and VARBYTE.
 
 ## Return type
 
-The HLL_CREATE_SKETCH function returns an HLLSKETCH value.
+The HLL\_CREATE\_SKETCH function returns an HLLSKETCH value.
 
 ## Examples
 

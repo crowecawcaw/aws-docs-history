@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeomFromGeoSquare
+# ST\_GeomFromGeoSquare
 
-ST_GeomFromGeoSquare returns a geometry that covers the area that is represented by an input geosquare value.
+ST\_GeomFromGeoSquare returns a geometry that covers the area that is represented by an input geosquare value.
 The returned geometry is always two-dimensional.
 To calculate a geosquare value, see
-[ST_GeoSquare](ST_GeoSquare-function.md "ST_GeoSquare-function.md").
+[ST\_GeoSquare](ST_GeoSquare-function.md "ST_GeoSquare-function.md").
 
 ## Syntax
 
@@ -25,9 +25,9 @@ _geosquare_
 
 A value of data type `BIGINT` or an expression that evaluates to a `BIGINT` type that
 is a geosquare value that describes the sequence of subdivisions made on the initial domain to reach the desired square.
-This value is calculated by [ST_GeoSquare](ST_GeoSquare-function.md "ST_GeoSquare-function.md").
+This value is calculated by [ST\_GeoSquare](ST_GeoSquare-function.md "ST_GeoSquare-function.md").
 
-_max_depth_
+_max\_depth_
 
 A value of data type `INTEGER` that represents the maximum number of domain subdivisions made on the initial domain.
 The value must be greater than or equal to `1`.
@@ -38,7 +38,7 @@ The value must be greater than or equal to `1`.
 
 If _geosquare_ is not valid, the function returns an error.
 
-If the input _max_depth_ is not within range, the function returns an error.
+If the input _max\_depth_ is not within range, the function returns an error.
 
 ## Examples
 

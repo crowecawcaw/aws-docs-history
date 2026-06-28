@@ -43,12 +43,11 @@ Amazon Redshift provides built-in support to ingest the following semi-structure
 
 - A complex value:
 
-      + An array of values, including scalar or complex
-      + A structure, also known as tuple or object, that is a map of
-       attribute names and values (scalar or complex)
-
-  Any of the two types of complex values contain their own scalars or complex
-  values without having any restrictions for regularity.
+  - An array of values, including scalar or complex
+  - A structure, also known as tuple or object, that is a map of
+    attribute names and values (scalar or complex)
+    Any of the two types of complex values contain their own scalars or complex
+    values without having any restrictions for regularity.
 
 The default compression encoding for the SUPER data type is ZSTD. For more information on
 compression encoding, see [Compression encodings](c_Compression_encodings.md "c_Compression_encodings.md").
@@ -71,4 +70,4 @@ data masking with the SUPER data type, see [Using dynamic data masking with SUPE
 
 We recommend that you set the `r_enable_case_sensitive_super_attribute` configuration option to
 true when working with SUPER data. For more information, see
-[enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md").
+[enable\_case\_sensitive\_super\_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md").

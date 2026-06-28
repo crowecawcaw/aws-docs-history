@@ -31,7 +31,7 @@ the database. For more information, see [Creating and interpreting a query plan]
 ###### Query needs more memory to run
 
 If a specific query needs more memory, you can increase the available memory by
-increasing the [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md").
+increasing the [wlm\_query\_slot\_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md").
 
 ###### Database requires a VACUUM command to be run
 
@@ -43,15 +43,15 @@ to maintain the sort order and restore performance. For more information, see [V
 
 The following are system-view topics and other documentation sections that are helpful for query tuning:
 
-- The [STV_INFLIGHT](r_STV_INFLIGHT.md "r_STV_INFLIGHT.md") system view shows which queries are running on the
-  cluster. It can be helpful to use it together with [STV_RECENTS](r_STV_RECENTS.md "r_STV_RECENTS.md") to determine which queries
+- The [STV\_INFLIGHT](r_STV_INFLIGHT.md "r_STV_INFLIGHT.md") system view shows which queries are running on the
+  cluster. It can be helpful to use it together with [STV\_RECENTS](r_STV_RECENTS.md "r_STV_RECENTS.md") to determine which queries
   are currently running or recently completed.
-- [SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md") is useful for troubleshooting. It
+- [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md") is useful for troubleshooting. It
   shows DDL and DML queries with relevant properties like their current status, such as `running` or `failed`, the time
   it took each to run, and whether a query ran on a concurrency-scaling cluster.
-- [STL_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md") captures the query text for SQL commands. Additionally, [SVV_QUERY_INFLIGHT](r_SVV_QUERY_INFLIGHT.md "r_SVV_QUERY_INFLIGHT.md"), which joins STL_QUERYTEXT to STV_INFLIGHT, shows more query metadata.
+- [STL\_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md") captures the query text for SQL commands. Additionally, [SVV\_QUERY\_INFLIGHT](r_SVV_QUERY_INFLIGHT.md "r_SVV_QUERY_INFLIGHT.md"), which joins STL\_QUERYTEXT to STV\_INFLIGHT, shows more query metadata.
 - A transaction-lock conflict can be a possible source of query-performance issues. For information about transactions that currently hold locks
-  on tables, see [SVV_TRANSACTIONS](r_SVV_TRANSACTIONS.md "r_SVV_TRANSACTIONS.md").
+  on tables, see [SVV\_TRANSACTIONS](r_SVV_TRANSACTIONS.md "r_SVV_TRANSACTIONS.md").
 - [Identifying
   queries that are top candidates for tuning](diagnostic-queries-for-query-tuning.md#identify-queries-that-are-top-candidates-for-tuning "diagnostic-queries-for-query-tuning.md#identify-queries-that-are-top-candidates-for-tuning") provides a troubleshooting query that helps you determine which recently-run
   queries were the most time consuming. This can help you focus your efforts on queries that need improvement.

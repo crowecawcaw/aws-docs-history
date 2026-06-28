@@ -2,25 +2,25 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_CLASS_INFO
+# PG\_CLASS\_INFO
 
-PG_CLASS_INFO is an Amazon Redshift system view built on the PostgreSQL catalog tables PG_CLASS
-and PG_CLASS_EXTENDED. PG_CLASS_INFO includes details about table creation time and the
+PG\_CLASS\_INFO is an Amazon Redshift system view built on the PostgreSQL catalog tables PG\_CLASS
+and PG\_CLASS\_EXTENDED. PG\_CLASS\_INFO includes details about table creation time and the
 current distribution style. For more information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md").
 
-PG_CLASS_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+PG\_CLASS\_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-PG_CLASS_INFO shows the following columns in addition to the columns in
-PG_CLASS. The `oid` column in PG_CLASS is called `reloid` in the PG_CLASS_INFO table.
+PG\_CLASS\_INFO shows the following columns in addition to the columns in
+PG\_CLASS. The `oid` column in PG\_CLASS is called `reloid` in the PG\_CLASS\_INFO table.
 
 | Column name           | Data type | Description                                                                                                                                       |
 | --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | relcreationtime       | timestamp | Time in UTC that the table was created.                                                                                                           |
 | releffectivediststyle | integer   | The distribution style of a table or, if the table<br>uses automatic distribution, the current distribution style assigned<br>by Amazon Redshift. |
 
-The RELEFFECTIVEDISTSTYLE column in PG_CLASS_INFO indicates the current
+The RELEFFECTIVEDISTSTYLE column in PG\_CLASS\_INFO indicates the current
 distribution style for the table. If the table uses automatic distribution,
 RELEFFECTIVEDISTSTYLE is 10, 11, or 12, which indicates whether the effective
 distribution style is AUTO (ALL), AUTO (EVEN), or AUTO (KEY). If the table uses automatic

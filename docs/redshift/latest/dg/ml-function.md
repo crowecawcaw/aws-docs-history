@@ -14,4 +14,4 @@ Amazon Redshift supports.
 
 ###### Topics
 
-- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+- [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md")

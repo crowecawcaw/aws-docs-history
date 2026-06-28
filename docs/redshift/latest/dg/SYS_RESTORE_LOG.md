@@ -2,36 +2,36 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_RESTORE_LOG
+# SYS\_RESTORE\_LOG
 
-Use SYS_RESTORE_LOG to monitor the migration progress of each table in the cluster
+Use SYS\_RESTORE\_LOG to monitor the migration progress of each table in the cluster
 during a classic resize to RG or RA3 nodes. It captures the historic throughput of data
 migration during the resize operation. For more information about classic resize to RG or RA3
 nodes, see [Classic
 resize](../mgmt/managing-cluster-operations.md#classic-resize-faster "../mgmt/managing-cluster-operations.md#classic-resize-faster").
 
-SYS_RESTORE_LOG is visible only to superusers.
+SYS\_RESTORE\_LOG is visible only to superusers.
 
 ## Table columns
 
-| Column name          | Data type | Description                                                                                                                                                                                                                                                                              |
-| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event_time           | timestamp | A timestamp that indicates when the log entry is<br>recorded.                                                                                                                                                                                                                            |
-| database_name        | char(128) | The name of the database.                                                                                                                                                                                                                                                                |
-| schema_name          | char(128) | The name of the schema.                                                                                                                                                                                                                                                                  |
-| table_name           | char(128) | The name of the table.                                                                                                                                                                                                                                                                   |
-| table_id             | integer   | The ID of the table.                                                                                                                                                                                                                                                                     |
-| action               | char(128) | The action taken at the time of the entry. Values<br>can include: Migration started, checkpoint, resumed, completed,<br>cancelled, or reset.                                                                                                                                             |
-| table_size           | long      | The size of the table.                                                                                                                                                                                                                                                                   |
-| total_data_processed | long      | The size of the data in MB processed up to this<br>point for the table.                                                                                                                                                                                                                  |
-| delta_data_processed | long      | Size of data processed since the last event_time<br>update, in MB. This helps you determine how much of the data has<br>been processed since the previous recorded time interval. You can<br>compare this with the table_size to get a sense of how quickly data<br>processing is going. |
-| message              | char(512) | A detailed explanation for the value in the action<br>column.                                                                                                                                                                                                                            |
-| redistribution_type  | char(32)  | The redistribution type for the table. Either KEY<br>conversion or an EVEN rebalancing task. For more information about<br>distribution styles, see [Distribution<br>styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md").                                                         |
+| Column name            | Data type | Description                                                                                                                                                                                                                                                                                |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| event\_time            | timestamp | A timestamp that indicates when the log entry is<br>recorded.                                                                                                                                                                                                                              |
+| database\_name         | char(128) | The name of the database.                                                                                                                                                                                                                                                                  |
+| schema\_name           | char(128) | The name of the schema.                                                                                                                                                                                                                                                                    |
+| table\_name            | char(128) | The name of the table.                                                                                                                                                                                                                                                                     |
+| table\_id              | integer   | The ID of the table.                                                                                                                                                                                                                                                                       |
+| action                 | char(128) | The action taken at the time of the entry. Values<br>can include: Migration started, checkpoint, resumed, completed,<br>cancelled, or reset.                                                                                                                                               |
+| table\_size            | long      | The size of the table.                                                                                                                                                                                                                                                                     |
+| total\_data\_processed | long      | The size of the data in MB processed up to this<br>point for the table.                                                                                                                                                                                                                    |
+| delta\_data\_processed | long      | Size of data processed since the last event\_time<br>update, in MB. This helps you determine how much of the data has<br>been processed since the previous recorded time interval. You can<br>compare this with the table\_size to get a sense of how quickly data<br>processing is going. |
+| message                | char(512) | A detailed explanation for the value in the action<br>column.                                                                                                                                                                                                                              |
+| redistribution\_type   | char(32)  | The redistribution type for the table. Either KEY<br>conversion or an EVEN rebalancing task. For more information about<br>distribution styles, see [Distribution<br>styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md").                                                           |
 
 ## Sample queries
 
 The following query calculates the throughput of data processing, using
-SYS_RESTORE_LOG.
+SYS\_RESTORE\_LOG.
 
 ```
 SELECT

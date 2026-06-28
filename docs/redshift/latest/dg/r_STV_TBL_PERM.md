@@ -2,33 +2,33 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_TBL_PERM
+# STV\_TBL\_PERM
 
-The STV_TBL_PERM table contains information about the permanent tables in Amazon Redshift,
-including temporary tables created by a user for the current session. STV_TBL_PERM
+The STV\_TBL\_PERM table contains information about the permanent tables in Amazon Redshift,
+including temporary tables created by a user for the current session. STV\_TBL\_PERM
 contains information for all tables in all databases.
 
-This table differs from [STV_TBL_TRANS](r_STV_TBL_TRANS.md "r_STV_TBL_TRANS.md"), which contains information about transient
+This table differs from [STV\_TBL\_TRANS](r_STV_TBL_TRANS.md "r_STV_TBL_TRANS.md"), which contains information about transient
 database tables that the system creates during query processing.
 
-STV_TBL_PERM is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_TBL\_PERM is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name     | Data type     | Description                                                                                                                                                                                                                                                                                                            |
-| --------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| slice           | integer       | Node slice allocated to the table.                                                                                                                                                                                                                                                                                     |
-| id              | integer       | Table ID.                                                                                                                                                                                                                                                                                                              |
-| name            | character(72) | Table name.                                                                                                                                                                                                                                                                                                            |
-| rows            | bigint        | Number of data rows in the slice.                                                                                                                                                                                                                                                                                      |
-| sorted_rows     | bigint        | Number of rows in the slice that are already<br>sorted on disk. If this number does not match the ROWS number,<br>vacuum the table to resort the rows.                                                                                                                                                                 |
-| temp            | integer       | Whether or not the table is a temporary table. 0 =<br>false; 1 = true.                                                                                                                                                                                                                                                 |
-| db_id           | integer       | ID of the database where the table was created.                                                                                                                                                                                                                                                                        |
-| insert_pristine | integer       | For internal use.                                                                                                                                                                                                                                                                                                      |
-| delete_pristine | integer       | For internal use.                                                                                                                                                                                                                                                                                                      |
-| backup          | integer       | Value that indicates whether the table is included<br>in cluster snapshots. 0 = no; 1 = yes. For more information, see the<br>[BACKUP](r_CREATE_TABLE_NEW.md#create-table-backup "r_CREATE_TABLE_NEW.md#create-table-backup") parameter for the CREATE<br>TABLE command.                                               |
-| dist_style      | integer       | Distribution style of the table that the slice<br>belongs to. For information on the values, see [Viewing distribution styles](viewing-distribution-styles.md "viewing-distribution-styles.md"). For information on distribution styles, see [Distribution styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md"). |
-| block_count     | integer       | Number of blocks used by the slice. The value is -1 when the block count can't be calculated.                                                                                                                                                                                                                          |
+| Column name      | Data type     | Description                                                                                                                                                                                                                                                                                                            |
+| ---------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| slice            | integer       | Node slice allocated to the table.                                                                                                                                                                                                                                                                                     |
+| id               | integer       | Table ID.                                                                                                                                                                                                                                                                                                              |
+| name             | character(72) | Table name.                                                                                                                                                                                                                                                                                                            |
+| rows             | bigint        | Number of data rows in the slice.                                                                                                                                                                                                                                                                                      |
+| sorted\_rows     | bigint        | Number of rows in the slice that are already<br>sorted on disk. If this number does not match the ROWS number,<br>vacuum the table to resort the rows.                                                                                                                                                                 |
+| temp             | integer       | Whether or not the table is a temporary table. 0 =<br>false; 1 = true.                                                                                                                                                                                                                                                 |
+| db\_id           | integer       | ID of the database where the table was created.                                                                                                                                                                                                                                                                        |
+| insert\_pristine | integer       | For internal use.                                                                                                                                                                                                                                                                                                      |
+| delete\_pristine | integer       | For internal use.                                                                                                                                                                                                                                                                                                      |
+| backup           | integer       | Value that indicates whether the table is included<br>in cluster snapshots. 0 = no; 1 = yes. For more information, see the<br>[BACKUP](r_CREATE_TABLE_NEW.md#create-table-backup "r_CREATE_TABLE_NEW.md#create-table-backup") parameter for the CREATE<br>TABLE command.                                               |
+| dist\_style      | integer       | Distribution style of the table that the slice<br>belongs to. For information on the values, see [Viewing distribution styles](viewing-distribution-styles.md "viewing-distribution-styles.md"). For information on distribution styles, see [Distribution styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md"). |
+| block\_count     | integer       | Number of blocks used by the slice. The value is -1 when the block count can't be calculated.                                                                                                                                                                                                                          |
 
 ## Sample queries
 
@@ -82,7 +82,7 @@ order by col;
 
 The ROWS column includes counts of deleted rows that have not been vacuumed (or
 have been vacuumed but with the SORT ONLY option). Therefore, the SUM of the ROWS
-column in the STV_TBL_PERM table might not match the COUNT(\*) result when you query
+column in the STV\_TBL\_PERM table might not match the COUNT(\*) result when you query
 a given table directly. For example, if 2 rows are deleted from VENUE, the COUNT(\*)
 result is 200 but the SUM(ROWS) result is still 202:
 
@@ -105,7 +105,7 @@ venue     | 202
 (1 row)
 ```
 
-To synchronize the data in STV_TBL_PERM, run a full vacuum the VENUE table.
+To synchronize the data in STV\_TBL\_PERM, run a full vacuum the VENUE table.
 
 ```
 vacuum venue;

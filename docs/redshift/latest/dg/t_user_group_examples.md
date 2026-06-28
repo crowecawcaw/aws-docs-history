@@ -24,86 +24,72 @@ create group webdevusers;
 
 ```
 
-2.  Create several database users with different permissions and add them
-    to the groups.
+2. Create several database users with different permissions and add them
+   to the groups.
 
-    1. Create two users and add them to the WEBAPPUSERS group:
+   1. Create two users and add them to the WEBAPPUSERS group:
 
-    ```
-    create user webappuser1 password 'webAppuser1pass'
-    in group webappusers;
+   ```
+   create user webappuser1 password 'webAppuser1pass'
+   in group webappusers;
 
-    create user webappuser2 password 'webAppuser2pass'
-    in group webappusers;
+   create user webappuser2 password 'webAppuser2pass'
+   in group webappusers;
 
-    ```
-    2. Create a web developer user and add it to the WEBDEVUSERS group:
+   ```
+   2. Create a web developer user and add it to the WEBDEVUSERS group:
 
-    ```
-    create user webdevuser1 password 'webDevuser2pass'
-    in group webdevusers;
+   ```
+   create user webdevuser1 password 'webDevuser2pass'
+   in group webdevusers;
 
-    ```
-    3. Create a superuser. This user will have administrative rights
-       to create other users:
+   ```
+   3. Create a superuser. This user will have administrative rights
+      to create other users:
 
-    ```
-    create user webappadmin  password 'webAppadminpass1'
-    createuser;
+   ```
+   create user webappadmin  password 'webAppadminpass1'
+   createuser;
 
-    ```
+   ```
 
-3.  Create a schema to be associated with the database tables used by the web
-    application, and grant the various user groups access to this schema:
+3. Create a schema to be associated with the database tables used by the web
+   application, and grant the various user groups access to this schema:
 
-        1. Create the WEBAPP schema:
+   1. Create the WEBAPP schema:
 
+   ```
+   create schema webapp;
 
+   ```
+   2. Grant USAGE permissions to the WEBAPPUSERS group:
 
+   ```
+   grant usage on schema webapp to group webappusers;
 
-        ```
-        create schema webapp;
+   ```
+   3. Grant USAGE permissions to the WEBPOWERUSERS group:
 
-        ```
-        2. Grant USAGE permissions to the WEBAPPUSERS group:
+   ```
+   grant usage on schema webapp to group webpowerusers;
 
+   ```
+   4. Grant ALL permissions to the WEBDEVUSERS group:
 
+   ```
+   grant all on schema webapp to group webdevusers;
 
+   ```
 
-        ```
-        grant usage on schema webapp to group webappusers;
-
-        ```
-        3. Grant USAGE permissions to the WEBPOWERUSERS group:
-
-
-
-
-        ```
-        grant usage on schema webapp to group webpowerusers;
-
-        ```
-        4. Grant ALL permissions to the WEBDEVUSERS group:
-
-
-
-
-        ```
-        grant all on schema webapp to group webdevusers;
-
-        ```
-
-    The basic users and groups are now set up. You can now alter the users and groups.
-
-4.  For example, the following command alters the search_path parameter for the
-    WEBAPPUSER1.
+The basic users and groups are now set up. You can now alter the users and groups. 4. For example, the following command alters the search\_path parameter for the
+WEBAPPUSER1.
 
 ```
 alter user webappuser1 set search_path to webapp, public;
 
 ```
 
-The SEARCH_PATH specifies the schema search order for database objects, such as
+The SEARCH\_PATH specifies the schema search order for database objects, such as
 tables and functions, when the object is referenced by a simple name with no schema
 specified. 5. You can also add users to a group after creating the group, such as adding
 WEBAPPUSER2 to the WEBPOWERUSERS group:

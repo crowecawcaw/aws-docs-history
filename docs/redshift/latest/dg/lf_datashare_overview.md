@@ -51,7 +51,7 @@ permissions:
    database ARN, and grants usage to [database
    users authenticated with IAM credentials](../mgmt/options-for-providing-iam-credentials.md "../mgmt/options-for-providing-iam-credentials.md") to start querying the
    Amazon Redshift database.
-7. Database users can use the views SVV_EXTERNAL_TABLES and SVV_EXTERNAL_COLUMNS
+7. Database users can use the views SVV\_EXTERNAL\_TABLES and SVV\_EXTERNAL\_COLUMNS
    to find all of the tables or columns within the AWS Glue database that they have
    access to, and then they can query the AWS Glue database’s tables.
 8. When the producer cluster or workgroup administrator decides to no longer share

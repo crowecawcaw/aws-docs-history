@@ -22,14 +22,13 @@ refreshing a materialized view:
   data in the materialized view. Incremental refresh is supported on the following
   SQL constructs used in the query when defining the materialized view:
 
-      + Constructs that contain the clauses SELECT, FROM, [INNER] JOIN, WHERE,
-       GROUP BY, or HAVING.
-      + Constructs that contain aggregations, such as SUM, MIN, MAX, AVG, and COUNT.
-      + Most built-in SQL functions, specifically the ones that are immutable,
-       given that these have the same input arguments and always produce the
-       same output.
-
-  Incremental refresh is also supported for a materialized view that's based on a datashare table or materialized view.
+  - Constructs that contain the clauses SELECT, FROM, [INNER] JOIN, WHERE,
+    GROUP BY, or HAVING.
+  - Constructs that contain aggregations, such as SUM, MIN, MAX, AVG, and COUNT.
+  - Most built-in SQL functions, specifically the ones that are immutable,
+    given that these have the same input arguments and always produce the
+    same output.
+    Incremental refresh is also supported for a materialized view that's based on a datashare table or materialized view.
 
 - If an incremental refresh isn't possible, then Amazon Redshift performs a full
   refresh. A _full refresh_ reruns the underlying
@@ -127,8 +126,8 @@ a query using the following SQL elements:
 
 - OUTER JOIN (RIGHT, LEFT, or FULL).
 - The set operations UNION, INTERSECT, EXCEPT, and MINUS.
-- The aggregate functions MEDIAN, PERCENTILE_CONT, LISTAGG,
-  STDDEV_SAMP, STDDEV_POP, APPROXIMATE COUNT, APPROXIMATE PERCENTILE, and bitwise
+- The aggregate functions MEDIAN, PERCENTILE\_CONT, LISTAGG,
+  STDDEV\_SAMP, STDDEV\_POP, APPROXIMATE COUNT, APPROXIMATE PERCENTILE, and bitwise
   aggregate functions.
 
 ###### Note
@@ -143,11 +142,10 @@ The COUNT, SUM, and AVG aggregate functions are supported.
 - External tables referencing the following formats in the query that defines
   the materialized view.
 
-      + Delta Lake
-      + Hudi
-
-  Incremental refresh is supported for materialized views defined using formats
-  other than those listed above. For more information, see [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
+  - Delta Lake
+  - Hudi
+    Incremental refresh is supported for materialized views defined using formats
+    other than those listed above. For more information, see [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
 
 ## Autorefreshing a materialized view
 
@@ -179,7 +177,7 @@ Consider the following when you refresh materialized views:
   even if you haven't enabled autorefresh for the materialized
   view.
 - Auto refresh is supported on materialized views defined on datasharing tables or Iceberg tables but not on the combination of the two.
-- For refresh status, you can check SVL_MV_REFRESH_STATUS, which records queries that were
+- For refresh status, you can check SVL\_MV\_REFRESH\_STATUS, which records queries that were
   user-initiated or autorefreshed.
 - To run REFRESH on recompute-only materialized views, make sure that you have the CREATE
   permission on schemas. For more information, see [GRANT](r_GRANT.md "r_GRANT.md").

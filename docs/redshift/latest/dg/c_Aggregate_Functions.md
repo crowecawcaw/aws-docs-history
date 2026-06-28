@@ -6,18 +6,18 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [ANY_VALUE function](r_ANY_VALUE.md "r_ANY_VALUE.md")
-- [APPROXIMATE PERCENTILE_DISC function](r_APPROXIMATE_PERCENTILE_DISC.md "r_APPROXIMATE_PERCENTILE_DISC.md")
+- [ANY\_VALUE function](r_ANY_VALUE.md "r_ANY_VALUE.md")
+- [APPROXIMATE PERCENTILE\_DISC function](r_APPROXIMATE_PERCENTILE_DISC.md "r_APPROXIMATE_PERCENTILE_DISC.md")
 - [AVG function](r_AVG.md "r_AVG.md")
 - [COUNT function](r_COUNT.md "r_COUNT.md")
 - [LISTAGG function](r_LISTAGG.md "r_LISTAGG.md")
 - [MAX function](r_MAX.md "r_MAX.md")
 - [MEDIAN function](r_MEDIAN.md "r_MEDIAN.md")
 - [MIN function](r_MIN.md "r_MIN.md")
-- [PERCENTILE_CONT function](r_PERCENTILE_CONT.md "r_PERCENTILE_CONT.md")
-- [STDDEV_SAMP and STDDEV_POP functions](r_STDDEV_functions.md "r_STDDEV_functions.md")
+- [PERCENTILE\_CONT function](r_PERCENTILE_CONT.md "r_PERCENTILE_CONT.md")
+- [STDDEV\_SAMP and STDDEV\_POP functions](r_STDDEV_functions.md "r_STDDEV_functions.md")
 - [SUM function](r_SUM.md "r_SUM.md")
-- [VAR_SAMP and VAR_POP functions](r_VARIANCE_functions.md "r_VARIANCE_functions.md")
+- [VAR\_SAMP and VAR\_POP functions](r_VARIANCE_functions.md "r_VARIANCE_functions.md")
   Aggregate functions compute a single result value from a set of input values.
 
 SELECT statements using aggregate functions can include two optional clauses: GROUP BY

@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_DEFAULT_PRIVILEGES
+# SVV\_DEFAULT\_PRIVILEGES
 
-Use SVV_DEFAULT_PRIVILEGES to view the default privileges that a user has access to in an Amazon Redshift cluster.
+Use SVV\_DEFAULT\_PRIVILEGES to view the default privileges that a user has access to in an Amazon Redshift cluster.
 
-SVV_DEFAULT_PRIVILEGES is visible to the following users:
+SVV\_DEFAULT\_PRIVILEGES is visible to the following users:
 
 - Superusers
 - Users with the ACCESS SYSTEM TABLE permission
@@ -24,21 +24,21 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                                                                              |
-| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| schema_name    | text      | The name of the schema.                                                                                                                  |
-| object_type    | text      | The object type. Possible values are RELATION, FUNCTION, or PROCEDURE.                                                                   |
-| owner_id       | integer   | The owner ID. Possible value is the user ID.                                                                                             |
-| owner_name     | text      | The name of the owner.                                                                                                                   |
-| owner_type     | text      | The owner type. Possible value is user.                                                                                                  |
-| privilege_type | text      | The privilege type. Possible values are INSERT, SELECT, UPDATE, DELETE, RULE, REFERENCES<br>TRIGGER, DROP, and EXECUTE.                  |
-| grantee_id     | integer   | The grantee ID. Possible values are user ID, role ID, and group ID.                                                                      |
-| grantee_type   | text      | The grantee type. Possible values are user, role, and public.                                                                            |
-| admin_option   | boolean   | The value that indicates whether the user can grant permissions to other users and roles.<br>It is always false for role and group type. |
+| Column name     | Data type | Description                                                                                                                              |
+| --------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| schema\_name    | text      | The name of the schema.                                                                                                                  |
+| object\_type    | text      | The object type. Possible values are RELATION, FUNCTION, or PROCEDURE.                                                                   |
+| owner\_id       | integer   | The owner ID. Possible value is the user ID.                                                                                             |
+| owner\_name     | text      | The name of the owner.                                                                                                                   |
+| owner\_type     | text      | The owner type. Possible value is user.                                                                                                  |
+| privilege\_type | text      | The privilege type. Possible values are INSERT, SELECT, UPDATE, DELETE, RULE, REFERENCES<br>TRIGGER, DROP, and EXECUTE.                  |
+| grantee\_id     | integer   | The grantee ID. Possible values are user ID, role ID, and group ID.                                                                      |
+| grantee\_type   | text      | The grantee type. Possible values are user, role, and public.                                                                            |
+| admin\_option   | boolean   | The value that indicates whether the user can grant permissions to other users and roles.<br>It is always false for role and group type. |
 
 ## Sample query
 
-The following example returns the output for SVV_DEFAULT_PRIVILEGES.
+The following example returns the output for SVV\_DEFAULT\_PRIVILEGES.
 
 ```
 SELECT * from svv_default_privileges;

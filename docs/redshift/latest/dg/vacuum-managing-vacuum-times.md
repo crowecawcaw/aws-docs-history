@@ -38,7 +38,7 @@ sort key column values to determine the optimal sort order. If the distribution 
 key values changes, or skews, as rows are added, the sort strategy will no longer be
 optimal, and the performance benefit of sorting will degrade. To reanalyze the sort
 key distribution you can run a VACUUM REINDEX. The reindex operation is time
-consuming, so to decide whether a table will benefit from a reindex, query the [SVV_INTERLEAVED_COLUMNS](r_SVV_INTERLEAVED_COLUMNS.md "r_SVV_INTERLEAVED_COLUMNS.md")
+consuming, so to decide whether a table will benefit from a reindex, query the [SVV\_INTERLEAVED\_COLUMNS](r_SVV_INTERLEAVED_COLUMNS.md "r_SVV_INTERLEAVED_COLUMNS.md")
 view.
 
 For example, the following query shows details for tables that use interleaved
@@ -167,7 +167,7 @@ cost of the sort stage, as the following diagram shows.
 
 ![Diagram showing how the merge stage becomes more costly when new rows have sort keys overlapping with existing rows.](images/vacuum-example-merge-region-grows.png)
 
-To determine what proportion of a table was remerged, query SVV_VACUUM_SUMMARY
+To determine what proportion of a table was remerged, query SVV\_VACUUM\_SUMMARY
 after the vacuum operation completes. The following query shows the effect of six
 successive vacuums as CUSTSALES grew larger over time.
 
@@ -186,7 +186,7 @@ where table_name = 'custsales';`
  (6 rows)`
 ```
 
-The merge_increments column gives an indication of the amount of data that was
+The merge\_increments column gives an indication of the amount of data that was
 merged for each vacuum operation. If the number of merge increments over consecutive
 vacuums increases in proportion to the growth in table size, it indicates that each
 vacuum operation is remerging an increasing number of rows in the table because the

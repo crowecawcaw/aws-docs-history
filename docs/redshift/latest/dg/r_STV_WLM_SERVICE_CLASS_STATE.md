@@ -2,23 +2,23 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_WLM_SERVICE_CLASS_STATE
+# STV\_WLM\_SERVICE\_CLASS\_STATE
 
 Contains the current state of the service classes.
 
-STV_WLM_SERVICE_CLASS_STATE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_WLM\_SERVICE\_CLASS\_STATE is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name                     | Data type | Description                                                                                                                                                                                                              |
-| ------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| service_class                   | integer   | ID for the service class. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids "cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids").           |
-| num_queued_queries              | integer   | Number of queries currently in the queue.                                                                                                                                                                                |
-| num_executing_queries           | integer   | Number of queries currently executing.                                                                                                                                                                                   |
-| num_serviced_queries            | integer   | Number of queries that have ever been in the<br>service class.                                                                                                                                                           |
-| num_executed_queries            | integer   | Number of queries that have run since Amazon Redshift<br>was restarted.                                                                                                                                                  |
-| num_evicted_queries             | integer   | Number of queries that have been evicted since<br>Amazon Redshift was restarted. Some of the reasons for an evicted query include a WLM timeout, a QMR hop action, and a query failing on a concurrency scaling cluster. |
-| num_concurrency_scaling_queries | integer   | Number of queries run on a concurrency scaling cluster since<br>Amazon Redshift was restarted.                                                                                                                           |
+| Column name                        | Data type | Description                                                                                                                                                                                                              |
+| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| service\_class                     | integer   | ID for the service class. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids "cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids").           |
+| num\_queued\_queries               | integer   | Number of queries currently in the queue.                                                                                                                                                                                |
+| num\_executing\_queries            | integer   | Number of queries currently executing.                                                                                                                                                                                   |
+| num\_serviced\_queries             | integer   | Number of queries that have ever been in the<br>service class.                                                                                                                                                           |
+| num\_executed\_queries             | integer   | Number of queries that have run since Amazon Redshift<br>was restarted.                                                                                                                                                  |
+| num\_evicted\_queries              | integer   | Number of queries that have been evicted since<br>Amazon Redshift was restarted. Some of the reasons for an evicted query include a WLM timeout, a QMR hop action, and a query failing on a concurrency scaling cluster. |
+| num\_concurrency\_scaling\_queries | integer   | Number of queries run on a concurrency scaling cluster since<br>Amazon Redshift was restarted.                                                                                                                           |
 
 ## Sample query
 

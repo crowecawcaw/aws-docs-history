@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_LAST_UNLOAD_COUNT
+# PG\_LAST\_UNLOAD\_COUNT
 
 Returns the number of rows that were unloaded by the last UNLOAD command completed in
-the current session. PG_LAST_UNLOAD_COUNT is updated with the query ID of the last
+the current session. PG\_LAST\_UNLOAD\_COUNT is updated with the query ID of the last
 UNLOAD, even if the operation failed. The query ID is updated when the UNLOAD is
 completed. If the UNLOAD fails because of a syntax error or because of insufficient
-privileges, PG_LAST_UNLOAD_COUNT returns the count for the previous UNLOAD. If no UNLOAD
+privileges, PG\_LAST\_UNLOAD\_COUNT returns the count for the previous UNLOAD. If no UNLOAD
 commands were completed in the current session, or if the last UNLOAD failed during the
-unload operation, PG_LAST_UNLOAD_COUNT returns 0.
+unload operation, PG\_LAST\_UNLOAD\_COUNT returns 0.
 
 ## Syntax
 

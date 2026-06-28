@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_DATASHARE_CONSUMERS
+# SVV\_DATASHARE\_CONSUMERS
 
-Use SVV_DATASHARE_CONSUMERS to view a list of consumers for a datashare created on a
+Use SVV\_DATASHARE\_CONSUMERS to view a list of consumers for a datashare created on a
 cluster.
 
-SVV_DATASHARE_CONSUMERS is visible to the following users:
+SVV\_DATASHARE\_CONSUMERS is visible to the following users:
 
 - Superusers
 - Datashare owners
@@ -16,16 +16,16 @@ SVV_DATASHARE_CONSUMERS is visible to the following users:
 
 ## Table columns
 
-| Column name        | Data type                   | Description                                                         |
-| ------------------ | --------------------------- | ------------------------------------------------------------------- |
-| share_name         | varchar(128)                | The name of the datashare.                                          |
-| consumer_account   | varchar(16)                 | The account ID for the datashare consumer.                          |
-| consumer_namespace | varchar(64)                 | The unique cluster identifier of the datashare consumer<br>cluster. |
-| share_date         | timestamp without time zone | The date that the datashare was shared.                             |
+| Column name         | Data type                   | Description                                                         |
+| ------------------- | --------------------------- | ------------------------------------------------------------------- |
+| share\_name         | varchar(128)                | The name of the datashare.                                          |
+| consumer\_account   | varchar(16)                 | The account ID for the datashare consumer.                          |
+| consumer\_namespace | varchar(64)                 | The unique cluster identifier of the datashare consumer<br>cluster. |
+| share\_date         | timestamp without time zone | The date that the datashare was shared.                             |
 
 ## Sample query
 
-The following example returns the output for SVV_DATASHARE_CONSUMERS.
+The following example returns the output for SVV\_DATASHARE\_CONSUMERS.
 
 ```
 SELECT count(*)

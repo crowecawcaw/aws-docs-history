@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ANY_VALUE function
+# ANY\_VALUE function
 
-The ANY_VALUE function returns any value from the input expression values
+The ANY\_VALUE function returns any value from the input expression values
 nondeterministically. This function returns `NULL` if the input expression
 doesn't result in any rows being returned. The function can also return
 `NULL` if there are `NULL` values in the input expression. If
@@ -60,7 +60,7 @@ Returns the same data type as _expression_.
 
 ## Usage notes
 
-If a statement that specifies the ANY_VALUE function for a column also includes a second column reference, the second column must appear in a GROUP BY clause or be included in an aggregate function.
+If a statement that specifies the ANY\_VALUE function for a column also includes a second column reference, the second column must appear in a GROUP BY clause or be included in an aggregate function.
 
 ## Examples
 

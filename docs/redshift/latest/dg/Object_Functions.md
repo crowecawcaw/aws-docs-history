@@ -9,8 +9,8 @@ supports to create and operate on SUPER type objects:
 
 ###### Topics
 
-- [GET_NUMBER_ATTRIBUTES function](get_number_attributes.md "get_number_attributes.md")
-- [LOWER_ATTRIBUTE_NAMES function](r_lower_attribute_names.md "r_lower_attribute_names.md")
+- [GET\_NUMBER\_ATTRIBUTES function](get_number_attributes.md "get_number_attributes.md")
+- [LOWER\_ATTRIBUTE\_NAMES function](r_lower_attribute_names.md "r_lower_attribute_names.md")
 - [OBJECT function](r_object_function.md "r_object_function.md")
-- [OBJECT_TRANSFORM function](r_object_transform_function.md "r_object_transform_function.md")
-- [UPPER_ATTRIBUTE_NAMES function](r_upper_attribute_names.md "r_upper_attribute_names.md")
+- [OBJECT\_TRANSFORM function](r_object_transform_function.md "r_object_transform_function.md")
+- [UPPER\_ATTRIBUTE\_NAMES function](r_upper_attribute_names.md "r_upper_attribute_names.md")

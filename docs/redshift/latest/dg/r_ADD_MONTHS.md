@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ADD_MONTHS function
+# ADD\_MONTHS function
 
-ADD_MONTHS adds the specified number of months to a date or timestamp value or
+ADD\_MONTHS adds the specified number of months to a date or timestamp value or
 expression. The [DATEADD](r_DATEADD_function.md "r_DATEADD_function.md") function provides similar functionality.
 
 ## Syntax
@@ -35,8 +35,8 @@ TIMESTAMP
 
 ## Examples
 
-The following query uses the ADD_MONTHS function inside a TRUNC function. The TRUNC
-function removes the time of day from the result of ADD_MONTHS. The ADD_MONTHS function
+The following query uses the ADD\_MONTHS function inside a TRUNC function. The TRUNC
+function removes the time of day from the result of ADD\_MONTHS. The ADD\_MONTHS function
 adds 12 months to each value from the CALDATE column. The values in the CALDATE column
 are dates.
 
@@ -55,7 +55,7 @@ order by 1 asc;`
 (365 rows)`
 ```
 
-The following example uses the ADD_MONTHS function to add 1 month to a _timestamp_.
+The following example uses the ADD\_MONTHS function to add 1 month to a _timestamp_.
 
 ```
 `select add_months('2008-01-01 05:07:30', 1);`
@@ -65,7 +65,7 @@ The following example uses the ADD_MONTHS function to add 1 month to a _timestam
 2008-02-01 05:07:30`
 ```
 
-The following examples demonstrate the behavior when the ADD_MONTHS function operates
+The following examples demonstrate the behavior when the ADD\_MONTHS function operates
 on dates with months that have different numbers of days. This example shows how the
 function handles adding 1 month to March 31 and adding 1 month to April 30. April has 30
 days, so adding 1 month to March 31 results in April 30. May has 31 days, so adding 1

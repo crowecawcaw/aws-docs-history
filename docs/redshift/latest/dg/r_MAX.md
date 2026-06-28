@@ -46,8 +46,8 @@ for calculating the maximum. ALL is the default.
 
 Returns the same data type as
 _expression_. The Boolean equivalent of the MIN function is the
-[BOOL_AND function](r_BOOL_AND.md "r_BOOL_AND.md"), and the Boolean
-equivalent of MAX is the [BOOL_OR function](r_BOOL_OR.md "r_BOOL_OR.md").
+[BOOL\_AND function](r_BOOL_AND.md "r_BOOL_AND.md"), and the Boolean
+equivalent of MAX is the [BOOL\_OR function](r_BOOL_OR.md "r_BOOL_OR.md").
 
 ## Examples
 

@@ -66,8 +66,8 @@ create table listing(
 ```
 
 In the following query plan, the Merge Join step for the join on SALES and LISTING
-shows DS_DIST_NONE, which indicates that no redistribution is required for the step.
-However, moving up the query plan, the other inner joins show DS_BCAST_INNER, which
+shows DS\_DIST\_NONE, which indicates that no redistribution is required for the step.
+However, moving up the query plan, the other inner joins show DS\_BCAST\_INNER, which
 indicates that the inner table is broadcast as part of the query execution. Because
 only one pair of tables can be collocated using key distribution, five tables must
 be rebroadcast.
@@ -119,7 +119,7 @@ ALTER TABLE event ALTER DISTSTYLE ALL;
 ```
 
 Run the same query with EXPLAIN again, and examine the new query plan. The joins
-now show DS_DIST_ALL_NONE, indicating that no redistribution is required because the
+now show DS\_DIST\_ALL\_NONE, indicating that no redistribution is required because the
 data was distributed to every node using DISTSTYLE ALL.
 
 ```

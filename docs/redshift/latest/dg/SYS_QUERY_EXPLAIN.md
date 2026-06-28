@@ -2,23 +2,23 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_QUERY_EXPLAIN
+# SYS\_QUERY\_EXPLAIN
 
 Displays the EXPLAIN plan for a query that has been submitted for execution.
 
-SYS_QUERY_EXPLAIN is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_QUERY\_EXPLAIN is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name          | Data type      | Description                                                                                                                                                                       |
-| -------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid               | integer        | The identifier of the user who submitted the<br>query.                                                                                                                            |
-| query_id             | bigint         | The query identifier. Detailed query information is stored in<br>[SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md").                                                |
-| child_query_sequence | integer        | The sequence of the rewritten user query, starting<br>with 1.                                                                                                                     |
-| plan_node_id         | integer        | The identifier of a plan node that maps to one or more steps in the query.                                                                                                        |
-| plan_parent_id       | integer        | The identifier of the plan node's parent node.<br>A parent node can have multiple child nodes. For example, a merge join<br>is the parent node of the scans on the joined tables. |
-| plan_node            | character(400) | The node text from the EXPLAIN output.<br>Plan nodes that refer to execution on compute nodes are prefixed with XN in the EXPLAIN output.                                         |
-| plan_info            | character(400) | Qualifier and filter information for the plan node.<br>For example, join conditions and WHERE clause restrictions are included in this column.                                    |
+| Column name            | Data type      | Description                                                                                                                                                                       |
+| ---------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid                 | integer        | The identifier of the user who submitted the<br>query.                                                                                                                            |
+| query\_id              | bigint         | The query identifier. Detailed query information is stored in<br>[SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md").                                              |
+| child\_query\_sequence | integer        | The sequence of the rewritten user query, starting<br>with 1.                                                                                                                     |
+| plan\_node\_id         | integer        | The identifier of a plan node that maps to one or more steps in the query.                                                                                                        |
+| plan\_parent\_id       | integer        | The identifier of the plan node's parent node.<br>A parent node can have multiple child nodes. For example, a merge join<br>is the parent node of the scans on the joined tables. |
+| plan\_node             | character(400) | The node text from the EXPLAIN output.<br>Plan nodes that refer to execution on compute nodes are prefixed with XN in the EXPLAIN output.                                         |
+| plan\_info             | character(400) | Qualifier and filter information for the plan node.<br>For example, join conditions and WHERE clause restrictions are included in this column.                                    |
 
 ## Sample queries
 

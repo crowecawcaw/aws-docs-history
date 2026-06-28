@@ -8,5 +8,5 @@ Before you load data from Amazon S3, first verify that your Amazon S3 bucket con
 and only those files. For more
 information, see [Verifying that the correct files are present in your bucket](verifying-that-correct-files-are-present.md "verifying-that-correct-files-are-present.md").
 
-After the load operation is complete, query the [STL_LOAD_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md") system table to verify that the expected files
+After the load operation is complete, query the [STL\_LOAD\_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md") system table to verify that the expected files
 were loaded. For more information, see [Verifying that the data loaded correctly](verifying-that-data-loaded-correctly.md "verifying-that-data-loaded-correctly.md").

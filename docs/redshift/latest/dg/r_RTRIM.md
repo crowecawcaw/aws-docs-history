@@ -19,7 +19,7 @@ _string_
 
 A string column, expression, or string literal to be trimmed.
 
-_trim_chars_
+_trim\_chars_
 
 A string column, expression, or string literal that represents the characters to be trimmed from the end of _string_. If not specified, a space is used as the trim character.
 
@@ -54,8 +54,8 @@ rtrim('xyzaxyzbxyzcxyz', 'xyz') as trim;`
 ```
 
 The following example removes the trailing parts
-from the string `'setuphistorycassettes'` that match any of the characters in the _trim_chars_ list `'tes'`.
-Any `t`, `e`, or `s` that occur before another character that is not in the _trim_chars_ list at the ending of the input string are removed.
+from the string `'setuphistorycassettes'` that match any of the characters in the _trim\_chars_ list `'tes'`.
+Any `t`, `e`, or `s` that occur before another character that is not in the _trim\_chars_ list at the ending of the input string are removed.
 
 ```
 `SELECT rtrim('setuphistorycassettes', 'tes');`

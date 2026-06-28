@@ -141,7 +141,7 @@ turning on concurrency scaling. This is because increasing the query slot count 
 system resources and limit the overall throughput of a single cluster. With concurrency scaling, you can run hundreds
 of queries in parallel, up to a configured number of concurrency scaling clusters.
 The number of concurrency scaling clusters is controlled by
-[max_concurrency_scaling_clusters](r_max_concurrency_scaling_clusters.md "r_max_concurrency_scaling_clusters.md").
+[max\_concurrency\_scaling\_clusters](r_max_concurrency_scaling_clusters.md "r_max_concurrency_scaling_clusters.md").
 For more information about concurrency scaling, see [Concurrency scaling](concurrency-scaling.md "concurrency-scaling.md").
 
 For more information, see [Query performance improvement](query-performance-improvement-opportunities.md "query-performance-improvement-opportunities.md").
@@ -223,15 +223,15 @@ SELECT statements. Queries that can't be hopped are canceled. For more informati
 [WLM query queue hopping](wlm-queue-hopping.md "wlm-queue-hopping.md").
 
 WLM timeout doesn't apply to a query that has reached the returning state. To view
-the state of a query, see the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table. COPY statements and maintenance
+the state of a query, see the [STV\_WLM\_QUERY\_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table. COPY statements and maintenance
 operations, such as ALTER, ANALYZE and VACUUM, are not subject to WLM timeout.
 
-The function of WLM timeout is similar to the [statement_timeout](r_statement_timeout.md "r_statement_timeout.md") configuration parameter. The difference is
+The function of WLM timeout is similar to the [statement\_timeout](r_statement_timeout.md "r_statement_timeout.md") configuration parameter. The difference is
 that, where the `statement_timeout` configuration parameter applies to the
 entire cluster, WLM timeout is specific to a single queue in the WLM configuration.
 
-If [statement_timeout](r_statement_timeout.md "r_statement_timeout.md") is also
-specified, the lower of statement_timeout and WLM timeout (max_execution_time) is used.
+If [statement\_timeout](r_statement_timeout.md "r_statement_timeout.md") is also
+specified, the lower of statement\_timeout and WLM timeout (max\_execution\_time) is used.
 
 ## Query monitoring rules
 

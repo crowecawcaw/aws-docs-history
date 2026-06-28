@@ -26,7 +26,7 @@ DROP ROLE *role\_name* [ FORCE | RESTRICT ]
 
 ## Parameters
 
-_role_name_
+_role\_name_
 
 The name of the role.
 
@@ -44,7 +44,7 @@ The following example drops the role `sample_role`.
 DROP ROLE sample_role FORCE;
 ```
 
-The following example attempts to drop the role sample_role1 that has been granted to
+The following example attempts to drop the role sample\_role1 that has been granted to
 a user with the default RESTRICT option.
 
 ```
@@ -54,14 +54,14 @@ DROP ROLE sample_role1;
 ERROR:  cannot drop this role since it has been granted on a user
 ```
 
-To successfully drop the sample_role1 that has been granted to a user, use the FORCE
+To successfully drop the sample\_role1 that has been granted to a user, use the FORCE
 option.
 
 ```
 DROP ROLE sample_role1 FORCE;
 ```
 
-The following example attempts to drop the role sample_role2 that has another role
+The following example attempts to drop the role sample\_role2 that has another role
 dependent on it with the default RESTRICT option.
 
 ```
@@ -73,7 +73,7 @@ ERROR:  cannot drop this role since it depends on another role
 
 ```
 
-To successfully drop the sample_role2 that has another role dependent on it, use the
+To successfully drop the sample\_role2 that has another role dependent on it, use the
 FORCE option.
 
 ```

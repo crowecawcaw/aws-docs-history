@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# CURRENT_SETTING
+# CURRENT\_SETTING
 
-CURRENT_SETTING returns the current value of the specified configuration
+CURRENT\_SETTING returns the current value of the specified configuration
 parameter.
 
 This function is equivalent to the [SHOW](r_SHOW.md "r_SHOW.md")
@@ -30,13 +30,13 @@ _parameter_
 Parameter value to display. For a list of configuration parameters, see
 [Configuration reference](cm_chap_ConfigurationRef.md "cm_chap_ConfigurationRef.md")
 
-_variable_name_
+_variable\_name_
 
 The name of the variable to display. This must be a string constant for session context variables.
 
-_error_if_undefined_
+_error\_if\_undefined_
 
-(Optional) A boolean value that specifies the behavior if the variable name doesn't exist. When error_if_undefined is set to `TRUE`, which is the default, Amazon Redshift throws an error. When error_if_undefined is set to `FALSE`, Amazon Redshift returns `NULL`. Amazon Redshift supports the _error_if_undefined_ parameter only for session context variables. This can't be used when the input is a configuration parameter.
+(Optional) A boolean value that specifies the behavior if the variable name doesn't exist. When error\_if\_undefined is set to `TRUE`, which is the default, Amazon Redshift throws an error. When error\_if\_undefined is set to `FALSE`, Amazon Redshift returns `NULL`. Amazon Redshift supports the _error\_if\_undefined_ parameter only for session context variables. This can't be used when the input is a configuration parameter.
 
 ## Return type
 

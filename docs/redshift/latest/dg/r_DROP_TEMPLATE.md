@@ -21,15 +21,15 @@ DROP TEMPLATE [*database\_name*.][*schema\_name*.]*template\_name*;
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 (Optional) The name of the database in which the template is created. If not specified, the current database is used.
 
-_schema_name_
+_schema\_name_
 
 (Optional) The name of the schema in which the template is created. If not specified, the template is searched for in the current search path.
 
-_template_name_
+_template\_name_
 
 The name of the template to remove. In the following example, the database name is `demo_database`,
 the schema name is `demo_schema`, and the template name is `test`.
@@ -40,13 +40,13 @@ DROP TEMPLATE demo_database.demo_schema.test;
 
 ## Examples
 
-The following example drops the template test_template from the current schema:
+The following example drops the template test\_template from the current schema:
 
 ```
 DROP TEMPLATE test_template;
 ```
 
-The following example drops the template test_template from the schema test_schema:
+The following example drops the template test\_template from the schema test\_schema:
 
 ```
 DROP TEMPLATE test_schema.test_template;

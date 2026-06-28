@@ -211,7 +211,7 @@ The unload file looks similar to the following.
 
 To create a manifest file, include the MANIFEST option. The following example
 unloads the VENUE table and writes a manifest file along with the data files to
-s3://amzn-s3-demo-bucket/venue_pipe\_:
+s3://amzn-s3-demo-bucket/venue\_pipe\_:
 
 ###### Important
 
@@ -353,7 +353,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 parallel off;
 ```
 
-The result is one file named venue_serial_000.
+The result is one file named venue\_serial\_000.
 
 If the unload data is larger than 6.2 GB, UNLOAD creates a new file for each 6.2
 GB data segment. The following example unloads the LINEORDER table and writes the

@@ -182,7 +182,7 @@ salesshare |    100       | dev             |                   |  OUTBOUND  | 2
 
 For more information, see [DESC DATASHARE](r_DESC_DATASHARE.md "r_DESC_DATASHARE.md") and [SHOW DATASHARES](r_SHOW_DATASHARES.md "r_SHOW_DATASHARES.md").
 
-You can also use [SVV_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md"), [SVV_DATASHARE_CONSUMERS](r_SVV_DATASHARE_CONSUMERS.md "r_SVV_DATASHARE_CONSUMERS.md"), and [SVV_DATASHARE_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md") to view the datashares, the objects within the datashare, and the
+You can also use [SVV\_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md"), [SVV\_DATASHARE\_CONSUMERS](r_SVV_DATASHARE_CONSUMERS.md "r_SVV_DATASHARE_CONSUMERS.md"), and [SVV\_DATASHARE\_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md") to view the datashares, the objects within the datashare, and the
 datashare consumers. 5. Drop datashares. We recommend that you don't delete an AWS Data Exchange
 datashare shared to other AWS accounts using the DROP DATASHARE statement.
 Those accounts will lose access to the datashare. This action is
@@ -197,7 +197,7 @@ ERROR:  Drop of ADX-managed datashare salesshare requires session variable datas
 ```
 
 To allow dropping an AWS Data Exchange datashare, set the
-datashare_break_glass_session_var variable and run the DROP DATASHARE
+datashare\_break\_glass\_session\_var variable and run the DROP DATASHARE
 statement again. If you want to delete an AWS Data Exchange datashare, see [DROP DATASHARE usage notes](r_DROP_DATASHARE.md#r_DROP_DATASHARE_usage "r_DROP_DATASHARE.md#r_DROP_DATASHARE_usage").
 
 You can also use the Amazon Redshift console to delete datashares. For more

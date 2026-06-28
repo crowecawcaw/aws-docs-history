@@ -42,13 +42,13 @@ For more information, see [DROP RLS POLICY](r_DROP_RLS_POLICY.md "r_DROP_RLS_POL
 
 - Use the GRANT and REVOKE statements to explicitly grant and revoke SELECT permissions to RLS
   policies that reference lookup tables. For more information, see [GRANT](r_GRANT.md "r_GRANT.md") and [REVOKE](r_REVOKE.md "r_REVOKE.md").
-  To monitor the policies created, sys:secadmin can view the [SVV_RLS_POLICY](r_SVV_RLS_POLICY.md "r_SVV_RLS_POLICY.md") and [SVV_RLS_ATTACHED_POLICY](r_SVV_RLS_ATTACHED_POLICY.md "r_SVV_RLS_ATTACHED_POLICY.md").
+  To monitor the policies created, sys:secadmin can view the [SVV\_RLS\_POLICY](r_SVV_RLS_POLICY.md "r_SVV_RLS_POLICY.md") and [SVV\_RLS\_ATTACHED\_POLICY](r_SVV_RLS_ATTACHED_POLICY.md "r_SVV_RLS_ATTACHED_POLICY.md").
 
-To list RLS-protected relations, sys:secadmin can view [SVV_RLS_RELATION](r_SVV_RLS_RELATION.md "r_SVV_RLS_RELATION.md").
+To list RLS-protected relations, sys:secadmin can view [SVV\_RLS\_RELATION](r_SVV_RLS_RELATION.md "r_SVV_RLS_RELATION.md").
 
 To trace the application of RLS policies on queries that reference RLS-protected
 relations, a superuser, sys:operator, or any user with the system permission ACCESS
-SYSTEM TABLE can view [SVV_RLS_APPLIED_POLICY](r_SVV_RLS_APPLIED_POLICY.md "r_SVV_RLS_APPLIED_POLICY.md"). Note that sys:secadmin is not granted
+SYSTEM TABLE can view [SVV\_RLS\_APPLIED\_POLICY](r_SVV_RLS_APPLIED_POLICY.md "r_SVV_RLS_APPLIED_POLICY.md"). Note that sys:secadmin is not granted
 these permissions by default.
 
 To allow users full access to an RLS-protected relation, you can grant the IGNORE RLS

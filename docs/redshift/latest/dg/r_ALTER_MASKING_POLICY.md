@@ -22,16 +22,16 @@ USING (masking_expression);
 
 ## Parameters
 
-_policy_name_
+_policy\_name_
 
 The name of the masking policy. This must be the name of a masking policy
 that already exists in the database.
 
-database_name
+database\_name
 
 The name of the database from where the policy is created. The database can be the connected database or a database that supports Amazon Redshift federated permissions.
 
-_masking_expression_
+_masking\_expression_
 
 The SQL expression used to transform the target columns. It can be written
 using data manipulation functions such as String manipulation functions, or in

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeometryN
+# ST\_GeometryN
 
-ST_GeometryN returns a geometry pointed to by the input index of the input geometry, as follows:
+ST\_GeometryN returns a geometry pointed to by the input index of the input geometry, as follows:
 
 - If the input is a point, linestring, or polygon, then a geometry is returned as is if the
   index is equal to one (1), and null if the index is other than one (1).

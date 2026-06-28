@@ -66,7 +66,7 @@ date_add
 ```
 
 The
-default column name for a DATEADD function is DATE_ADD. The default timestamp for a
+default column name for a DATEADD function is DATE\_ADD. The default timestamp for a
 date value is `00:00:00`.
 
 The following example adds 30 minutes to a date value that doesn't specify a
@@ -86,7 +86,7 @@ stands for minutes, not months.
 
 ## Examples with a TIME column
 
-The following example table TIME_TEST has a column TIME_VAL (type TIME) with three
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three
 values inserted.
 
 ```
@@ -99,7 +99,7 @@ time_val
 00:58:00
 ```
 
-The following example adds 5 minutes to each TIME_VAL in the TIME_TEST table.
+The following example adds 5 minutes to each TIME\_VAL in the TIME\_TEST table.
 
 ```
 select dateadd(minute,5,time_val) as minplus5 from time_test;
@@ -135,7 +135,7 @@ date_add
 
 The output values in these examples are in UTC which is the default timezone.
 
-The following example table TIMETZ_TEST has a column TIMETZ_VAL (type TIMETZ) with
+The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with
 three values inserted.
 
 ```
@@ -148,7 +148,7 @@ timetz_val
 05:58:00+00
 ```
 
-The following example adds 5 minutes to each TIMETZ_VAL in TIMETZ_TEST table.
+The following example adds 5 minutes to each TIMETZ\_VAL in TIMETZ\_TEST table.
 
 ```
 select dateadd(minute,5,timetz_val) as minplus5_tz from timetz_test;
@@ -174,7 +174,7 @@ date_add
 
 The output values in these examples are in UTC which is the default timezone.
 
-The following example table TIMESTAMP_TEST has a column TIMESTAMP_VAL (type TIMESTAMP) with
+The following example table TIMESTAMP\_TEST has a column TIMESTAMP\_VAL (type TIMESTAMP) with
 three values inserted.
 
 ```
@@ -188,7 +188,7 @@ timestamp_val
 ```
 
 The following example adds 20 years only
-to the TIMESTAMP_VAL values in TIMESTAMP_TEST from before the year 2000.
+to the TIMESTAMP\_VAL values in TIMESTAMP\_TEST from before the year 2000.
 
 ```
 SELECT dateadd(year,20,timestamp_val)
@@ -213,10 +213,10 @@ date_add
 
 ## Usage notes
 
-The DATEADD(month, ...) and ADD_MONTHS functions handle dates that fall at the ends
+The DATEADD(month, ...) and ADD\_MONTHS functions handle dates that fall at the ends
 of months differently:
 
-- ADD_MONTHS: If the date you are adding to is the last day of the month, the
+- ADD\_MONTHS: If the date you are adding to is the last day of the month, the
   result is always the last day of the result month, regardless of the length of the
   month. For example, April 30 + 1 month is May 31.
 

@@ -71,19 +71,18 @@ Any workload with queries that are used repeatedly can benefit from AutoMV. Comm
 - An automated materialized view can be initiated and created by a query or subquery, provided
   it contains a `GROUP BY` clause or one of the following aggregate functions: SUM, COUNT, MIN, MAX or AVG. But it cannot contain any of the following:
 
-      + Left, right, or full outer joins
-      + Aggregate functions other than SUM, COUNT, MIN, MAX, and AVG. (These particular functions work with automatic query rewriting.)
-      + Any aggregate function that includes DISTINCT
-      + Any window functions
-      + SELECT DISTINCT or HAVING clauses
-      + Other materialized views
-
-  It isn't guaranteed that a query that meets the criteria will initiate the
-  creation of an automated materialized view. The system determines from which
-  candidates to create a view, based on its expected benefit to the workload
-  and cost in resources to maintain, which includes the cost to the system to
-  refresh. Each resulting materialized view is usable by automatic query
-  rewriting.
+  - Left, right, or full outer joins
+  - Aggregate functions other than SUM, COUNT, MIN, MAX, and AVG. (These particular functions work with automatic query rewriting.)
+  - Any aggregate function that includes DISTINCT
+  - Any window functions
+  - SELECT DISTINCT or HAVING clauses
+  - Other materialized views
+    It isn't guaranteed that a query that meets the criteria will initiate the
+    creation of an automated materialized view. The system determines from which
+    candidates to create a view, based on its expected benefit to the workload
+    and cost in resources to maintain, which includes the cost to the system to
+    refresh. Each resulting materialized view is usable by automatic query
+    rewriting.
 
 - Even though AutoMV might be initiated by a subquery or individual legs of set operators, the
   resulting materialized view won't contain subqueries or set
@@ -104,7 +103,7 @@ Following are limitations for working with automated materialized views:
   capacity, no new automated materialized views are created. At 90% of total
   capacity, they may be dropped to facilitate that user workloads continue
   without performance degradation. For more information about determining
-  cluster capacity, see [STV_NODE_STORAGE_CAPACITY](r_STV_NODE_STORAGE_CAPACITY.md "r_STV_NODE_STORAGE_CAPACITY.md").
+  cluster capacity, see [STV\_NODE\_STORAGE\_CAPACITY](r_STV_NODE_STORAGE_CAPACITY.md "r_STV_NODE_STORAGE_CAPACITY.md").
 
 ## Billing for automated materialized views
 

@@ -36,9 +36,9 @@ _Amazon Redshift Management Guide_.
 
 When you create an IAM role, IAM returns an Amazon Resource Name (ARN) for the
 role. To run a COPY command using an IAM role, provide the role ARN using the
-IAM_ROLE parameter or the CREDENTIALS parameter.
+IAM\_ROLE parameter or the CREDENTIALS parameter.
 
-The following COPY command example uses IAM_ROLE parameter with the role
+The following COPY command example uses IAM\_ROLE parameter with the role
 `MyRedshiftRole` for authentication.
 
 ```

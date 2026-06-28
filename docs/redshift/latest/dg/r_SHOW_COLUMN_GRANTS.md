@@ -26,15 +26,15 @@ SHOW COLUMN GRANTS ON TABLE
 
 ## Parameters
 
-database_name
+database\_name
 
 The name of the database containing the target table
 
-schema_name
+schema\_name
 
 The name of the schema containing the target table
 
-table_name
+table\_name
 
 The name of the target table
 
@@ -42,21 +42,21 @@ username
 
 Only include grants to username in the output
 
-role_name
+role\_name
 
-Only include grants to role_name in the output
+Only include grants to role\_name in the output
 
 PUBLIC
 
 Only include grants to PUBLIC in the output
 
-row_limit
+row\_limit
 
-The maximum number of rows to return. The _row_limit_ can be 0–10,000.
+The maximum number of rows to return. The _row\_limit_ can be 0–10,000.
 
 ## Examples
 
-The following example shows column grants on table demo_db.demo_schema.t100:
+The following example shows column grants on table demo\_db.demo\_schema.t100:
 
 ```
 SHOW COLUMN GRANTS ON TABLE demo_db.demo_schema.t100;
@@ -67,7 +67,7 @@ SHOW COLUMN GRANTS ON TABLE demo_db.demo_schema.t100;
  demo_db       | demo_schema | t100       | a           | COLUMN      | UPDATE         |         130 | alice         | user          | f            | COLUMN          | dbadmin
 ```
 
-The following example shows column grants on table demo_schema.t100 for user bob:
+The following example shows column grants on table demo\_schema.t100 for user bob:
 
 ```
 SHOW COLUMN GRANTS ON TABLE demo_schema.t100 for bob;

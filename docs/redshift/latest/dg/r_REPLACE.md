@@ -8,8 +8,8 @@ Replaces all occurrences of a set of characters within an existing string with o
 specified characters.
 
 REPLACE is similar to the [TRANSLATE function](r_TRANSLATE.md "r_TRANSLATE.md")
-and the [REGEXP_REPLACE function](REGEXP_REPLACE.md "REGEXP_REPLACE.md"), except that
-TRANSLATE makes multiple single-character substitutions and REGEXP_REPLACE lets you
+and the [REGEXP\_REPLACE function](REGEXP_REPLACE.md "REGEXP_REPLACE.md"), except that
+TRANSLATE makes multiple single-character substitutions and REGEXP\_REPLACE lets you
 search a string for a regular expression pattern, while REPLACE substitutes one entire
 string with another string.
 
@@ -25,19 +25,19 @@ _string_
 
 `CHAR` or `VARCHAR` string to be searched search
 
-_old_chars_
+_old\_chars_
 
 `CHAR` or `VARCHAR` string to replace.
 
-_new_chars_
+_new\_chars_
 
-New `CHAR` or `VARCHAR` string replacing the _old_string_.
+New `CHAR` or `VARCHAR` string replacing the _old\_string_.
 
 ## Return type
 
 VARCHAR
 
-If either _old_chars_ or _new_chars_ is
+If either _old\_chars_ or _new\_chars_ is
 `NULL`, the return is `NULL`.
 
 ## Examples

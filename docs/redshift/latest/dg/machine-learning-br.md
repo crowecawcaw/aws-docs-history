@@ -204,7 +204,7 @@ Note the following when using inference functions with Amazon Redshift ML integr
   Amazon Redshift retries requests multiple times, but queries can still get throttled because
   throughput for non-provisioned models might be variable.
 - If you encounter throttling exceptions coming from Amazon Bedrock such as `Too many requests, 
-please wait before trying again.` even with small amounts of data, check the quotas under
+ please wait before trying again.` even with small amounts of data, check the quotas under
   **Service Quotas** in your Amazon Bedrock account. Check that the applied account-level
   quota is at least the same as the AWS default quota value for the **InvokeModel** requests
   for the model you are using.

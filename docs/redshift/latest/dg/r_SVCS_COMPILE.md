@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVCS_COMPILE
+# SVCS\_COMPILE
 
 Records compile time and location for each query segment of queries, including
 queries run on a scaling cluster as well as queries run on the main cluster.
@@ -12,9 +12,9 @@ queries run on a scaling cluster as well as queries run on the main cluster.
 System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
 The views are similar to the views with the prefix SVL except that the SVL views provide information only for queries run on the main cluster.
 
-SVCS_COMPILE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS\_COMPILE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-For information about SCL_COMPILE, see [SVL_COMPILE](r_SVL_COMPILE.md "r_SVL_COMPILE.md").
+For information about SCL\_COMPILE, see [SVL\_COMPILE](r_SVL_COMPILE.md "r_SVL_COMPILE.md").
 
 ## Table columns
 

@@ -194,7 +194,7 @@ implement the slot reduction optimization by [modifying a parameter group](../mg
   captured a peak utilization period. If it didn't, run the preceding SQL
   repeatedly to monitor peak concurrency requirements.
 - For more details on interpreting the query results from the preceding SQL
-  code, see the [wlm_apex_hourly.sql script](https://github.com/awslabs/amazon-redshift-utils/blob/master/src/AdminScripts/wlm_apex_hourly.sql "https://github.com/awslabs/amazon-redshift-utils/blob/master/src/AdminScripts/wlm_apex_hourly.sql") on GitHub.
+  code, see the [wlm\_apex\_hourly.sql script](https://github.com/awslabs/amazon-redshift-utils/blob/master/src/AdminScripts/wlm_apex_hourly.sql "https://github.com/awslabs/amazon-redshift-utils/blob/master/src/AdminScripts/wlm_apex_hourly.sql") on GitHub.
 
 ## Skip compression analysis during COPY
 

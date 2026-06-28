@@ -26,17 +26,17 @@ SELECT c.c_name, c.c_orders[0].o_totalprice
 FROM customer_orders_lineitem c;
 ```
 
-You can create a single materialized view super_mv to accelerate both queries.
+You can create a single materialized view super\_mv to accelerate both queries.
 
-To answer the first query, you must materialize the attribute o_orderstatus. You can
-omit the attribute c_name because it doesn't involve nested navigation nor
-unnesting. You must also include in the materialized view the attribute c_custkey of
-customer_orders_lineitem to be able to join the base table with the materialized
+To answer the first query, you must materialize the attribute o\_orderstatus. You can
+omit the attribute c\_name because it doesn't involve nested navigation nor
+unnesting. You must also include in the materialized view the attribute c\_custkey of
+customer\_orders\_lineitem to be able to join the base table with the materialized
 view.
 
-To answer the second query, you must also materialize the attribute o_totalprice and
-the array index o_idx of c_orders. Hence, you can access the index 0 of
-c_orders.
+To answer the second query, you must also materialize the attribute o\_totalprice and
+the array index o\_idx of c\_orders. Hence, you can access the index 0 of
+c\_orders.
 
 ```
 CREATE MATERIALIZED VIEW super_mv distkey(c_custkey) sortkey(c_custkey) AS (
@@ -45,10 +45,10 @@ CREATE MATERIALIZED VIEW super_mv distkey(c_custkey) sortkey(c_custkey) AS (
 );
 ```
 
-The attributes o_orderstatus and o_totalprice of the materialized view super_mv are SUPER.
+The attributes o\_orderstatus and o\_totalprice of the materialized view super\_mv are SUPER.
 
-The materialized view super_mv will be refreshed incrementally upon changes to the
-base table customer_orders_lineitem.
+The materialized view super\_mv will be refreshed incrementally upon changes to the
+base table customer\_orders\_lineitem.
 
 ```
 REFRESH MATERIALIZED VIEW super_mv;
@@ -56,7 +56,7 @@ INFO: Materialized view super_mv was incrementally updated successfully.
 ```
 
 To rewrite the first PartiQL query as a regular SQL query, join
-customer_orders_lineitem with super_mv as follows.
+customer\_orders\_lineitem with super\_mv as follows.
 
 ```
 SELECT c.c_name, v.o_orderstatus
@@ -64,7 +64,7 @@ FROM customer_orders_lineitem c
 JOIN super_mv v ON c.c_custkey = v.c_custkey;
 ```
 
-Similarly, you can rewrite the second PartiQL query. The following example uses a filter on o_idx = 0.
+Similarly, you can rewrite the second PartiQL query. The following example uses a filter on o\_idx = 0.
 
 ```
 SELECT c.c_name, v.o_totalprice
@@ -73,11 +73,11 @@ JOIN super_mv v ON c.c_custkey = v.c_custkey
 WHERE v.o_idx = 0;
 ```
 
-In the CREATE MATERIALIZED VIEW command, specify c_custkey as distribution key and
-sort key for super_mv. Amazon Redshift performs an efficient merge join, assuming that
-c_custkey is also the distribution key and sort key of customer_orders_lineitem. If
-that isn’t the case, you can specify c_custkey as the sort key and distribution key
-of customer_orders_lineitem as follows.
+In the CREATE MATERIALIZED VIEW command, specify c\_custkey as distribution key and
+sort key for super\_mv. Amazon Redshift performs an efficient merge join, assuming that
+c\_custkey is also the distribution key and sort key of customer\_orders\_lineitem. If
+that isn’t the case, you can specify c\_custkey as the sort key and distribution key
+of customer\_orders\_lineitem as follows.
 
 ```
 ALTER TABLE customer_orders_lineitem

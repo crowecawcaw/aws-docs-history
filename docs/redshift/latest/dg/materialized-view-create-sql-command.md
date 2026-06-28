@@ -32,7 +32,7 @@ setting has no affect on automatic replication of data to other nodes within
 the cluster, so materialized views with BACKUP NO specified are restored in the
 event of a node failure. The default is BACKUP YES.
 
-_table_attributes_
+_table\_attributes_
 
 A clause that specifies how the data in the materialized view is
 distributed, including the following:
@@ -43,9 +43,9 @@ distributed, including the following:
   [Distribution styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md").
 - The distribution key for the materialized view, in the format
   `DISTKEY ( *distkey\_identifier*
-)`. For more information, see [Designating distribution styles](t_designating_distribution_styles.md "t_designating_distribution_styles.md").
+ )`. For more information, see [Designating distribution styles](t_designating_distribution_styles.md "t_designating_distribution_styles.md").
 - The sort key for the materialized view, in the format `SORTKEY (
-*column\_name* [, ...] )`.
+ *column\_name* [, ...] )`.
   For more information, see [Sort keys](t_Sorting_data.md "t_Sorting_data.md").
 
 AS _query_
@@ -65,7 +65,7 @@ refresh, Amazon Redshift displays a message indicating that the materialized vie
 a full refresh. The message may or may not be displayed, depending on the SQL
 client application.
 Check the `state` column of the
-[STV_MV_INFO](r_STV_MV_INFO.md "r_STV_MV_INFO.md") to see the
+[STV\_MV\_INFO](r_STV_MV_INFO.md "r_STV_MV_INFO.md") to see the
 refresh type used by a materialized view.
 
 AUTO REFRESH
@@ -134,8 +134,8 @@ following:
 - Late-binding references to base tables. In other words, any base tables or
   related columns referenced in the defining SQL query of the materialized view must
   exist and must be valid.
-- Leader node-only functions: CURRENT_SCHEMA, CURRENT_SCHEMAS,
-  HAS_DATABASE_PRIVILEGE, HAS_SCHEMA_PRIVILEGE, HAS_TABLE_PRIVILEGE.
+- Leader node-only functions: CURRENT\_SCHEMA, CURRENT\_SCHEMAS,
+  HAS\_DATABASE\_PRIVILEGE, HAS\_SCHEMA\_PRIVILEGE, HAS\_TABLE\_PRIVILEGE.
 - You can't use the AUTO REFRESH YES option when the materialized view
   definition includes mutable functions or external schemas. You also can't use it
   when you define a materialized view on another materialized view.
@@ -149,8 +149,8 @@ following:
 
 The following example creates a materialized view from three base tables that are
 joined and aggregated. Each row represents a category with the number of tickets sold.
-When you query the tickets_mv materialized view, you directly access the precomputed
-data in the tickets_mv materialized view.
+When you query the tickets\_mv materialized view, you directly access the precomputed
+data in the tickets\_mv materialized view.
 
 ```
 CREATE MATERIALIZED VIEW tickets_mv AS
@@ -228,17 +228,17 @@ Then, create a materialized view.
 CREATE MATERIALIZED VIEW mv_baseball DISTSTYLE ALL AUTO REFRESH YES AS SELECT ball AS baseball FROM baseball_table;
 ```
 
-Now you can query the mv_baseball materialized view. To check if AUTO REFRESH is
-turned on for a materialized view, see [STV_MV_INFO](r_STV_MV_INFO.md "r_STV_MV_INFO.md").
+Now you can query the mv\_baseball materialized view. To check if AUTO REFRESH is
+turned on for a materialized view, see [STV\_MV\_INFO](r_STV_MV_INFO.md "r_STV_MV_INFO.md").
 
 The following sample creates a materialized view that references a source table in
-another database. It assumes that the database containing the source table, database_A,
+another database. It assumes that the database containing the source table, database\_A,
 is in the same cluster or workgroup as your materialized view, which you create in
-database_B. (You can substitute your own databases for the sample.) First, create a
-table in database_A called _cities_, with
-a *cityname* column. Make the column's data type a VARCHAR. After
-you create the source table, run the following command in database_B to create a
-materialized view whose source is your *cities* table. Make sure to
+database\_B. (You can substitute your own databases for the sample.) First, create a
+table in database\_A called _cities_, with
+a _cityname_ column. Make the column's data type a VARCHAR. After
+you create the source table, run the following command in database\_B to create a
+materialized view whose source is your _cities_ table. Make sure to
 specify the source table's database and schema in the FROM clause:
 
 ```
@@ -248,13 +248,13 @@ FROM    database_A.public.cities;
 ```
 
 Query the materialized view you created. The query retrieves records whose original
-source is the *cities* table in database_A:
+source is the _cities_ table in database\_A:
 
 ```
 select * from cities_mv;
 ```
 
-When you run the SELECT statement, _cities_mv_ returns the
+When you run the SELECT statement, _cities\_mv_ returns the
 records. Records are refreshed from the source table only when a REFRESH statement is
 run. Also, note that you can't update records directly in the materialized view. For
 information about refreshing the data in a materialized view, see [REFRESH MATERIALIZED VIEW](materialized-view-refresh-sql-command.md "materialized-view-refresh-sql-command.md").

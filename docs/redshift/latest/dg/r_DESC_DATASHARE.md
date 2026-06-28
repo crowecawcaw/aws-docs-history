@@ -9,7 +9,7 @@ ALTER DATASHARE. Amazon Redshift displays the names, databases, schemas, and typ
 views, and functions.
 
 Additional information about datashare objects can be found by using system views. For
-more information, see [SVV_DATASHARE_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md") and [SVV_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md").
+more information, see [SVV\_DATASHARE\_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md") and [SVV\_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md").
 
 ## Syntax
 
@@ -19,17 +19,17 @@ DESC DATASHARE *datashare\_name* [ OF [ ACCOUNT *account\_id* ] NAMESPACE *names
 
 ## Parameters
 
-_datashare_name_
+_datashare\_name_
 
 The name of the datashare .
 
-NAMESPACE _namespace_guid_
+NAMESPACE _namespace\_guid_
 
 A value that specifies the namespace that the datashare uses. When you run
 DESC DATAHSARE as a consumer cluster administrator, specify the NAMESPACE
 parameter to view inbound datashares.
 
-ACCOUNT _account_id_
+ACCOUNT _account\_id_
 
 A value that specifies the account that the datashare belongs to.
 

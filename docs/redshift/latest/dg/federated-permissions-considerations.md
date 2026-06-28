@@ -63,10 +63,9 @@ DDM protected objects from the federated permissions catalog if the policies con
   federated users and AWS IAM federated users or roles are authorized to query Amazon Redshift federated permissions catalogs.
 - When your Amazon Redshift Cluster or Amazon Redshift Serverless namespace is registered with Amazon Redshift federated permissions, the following GRANT command limitations apply to AWS IAM Identity Center federated users or roles and AWS IAM federated users or roles:
 
-      + You cannot grant a federated role to any user or role. One exception to this rule is you can grant a Redshift database role to a IAM federated user.
-      + You cannot grant any role to a federated role or user. One exception to this rule is you can grant a system-defined role to federated user or role.
-
-  **Engine Access**
+  - You cannot grant a federated role to any user or role. One exception to this rule is you can grant a Redshift database role to a IAM federated user.
+  - You cannot grant any role to a federated role or user. One exception to this rule is you can grant a system-defined role to federated user or role.
+    **Engine Access**
 
 - Access from engines other than Redshift is not supported
   **Alter User Set Global identity**

@@ -14,13 +14,13 @@ SUBARRAY( *super\_expr*, *start\_position*, *length* )
 
 ## Arguments
 
-_super_expr_
+_super\_expr_
 
 A valid SUPER expression in array form.
 
-_start_position_
+_start\_position_
 
-An integer that specifies the starting position for extraction. The index is 0-based, where 0 indicates the first element. If start_position is beyond the array length, an empty array is returned.
+An integer that specifies the starting position for extraction. The index is 0-based, where 0 indicates the first element. If start\_position is beyond the array length, an empty array is returned.
 
 _length_
 
@@ -45,7 +45,7 @@ The following is an example of a SUBARRAY function.
 
 ## See also
 
-- [ARRAY_POSITION function](array_position.md "array_position.md")
-- [ARRAY_POSITIONS function](array_positions.md "array_positions.md")
-- [ARRAY_FLATTEN function](array_flatten.md "array_flatten.md")
-- [ARRAY_CONCAT function](r_array_concat.md "r_array_concat.md")
+- [ARRAY\_POSITION function](array_position.md "array_position.md")
+- [ARRAY\_POSITIONS function](array_positions.md "array_positions.md")
+- [ARRAY\_FLATTEN function](array_flatten.md "array_flatten.md")
+- [ARRAY\_CONCAT function](r_array_concat.md "r_array_concat.md")

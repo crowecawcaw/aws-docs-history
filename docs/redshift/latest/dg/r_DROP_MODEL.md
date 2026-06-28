@@ -36,13 +36,13 @@ A clause that indicates that if the specified schema already exists, the
 command should make no changes and return a message that the schema
 exists.
 
-_model_name_
+_model\_name_
 
 The name of the model. The model name in a schema must be unique.
 
 ## Examples
 
-The following example drops the model demo_ml.customer_churn.
+The following example drops the model demo\_ml.customer\_churn.
 
 ```
 DROP MODEL demo_ml.customer_churn

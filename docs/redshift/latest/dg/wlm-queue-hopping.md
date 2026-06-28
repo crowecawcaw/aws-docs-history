@@ -40,7 +40,7 @@ WLM hops the following types of queries when they time out:
 
 - Read-only queries, such as SELECT statements, that are in a WLM state of
   `running`. To find the WLM state of a query, view the STATE column
-  on the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
+  on the [STV\_WLM\_QUERY\_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
 - CREATE TABLE AS (CTAS) statements. WLM queue hopping supports both user-defined
   and system-generated CTAS statements.
 - SELECT INTO statements.
@@ -52,7 +52,7 @@ until completion. The following types of queries aren't subject to WLM timeout:
 - Maintenance operations, such as ALTER, ANALYZE and VACUUM
 - Read-only queries, such as SELECT statements, that have reached a WLM state of
   `returning`. To find the WLM state of a query, view the STATE column
-  on the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
+  on the [STV\_WLM\_QUERY\_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
 
 Queries that aren't eligible for hopping by WLM timeout are canceled when they time
 out. The following types of queries are not eligible for hopping by a WLM
@@ -74,7 +74,7 @@ A query is reassigned only if all of the following are true:
 
 - A matching queue is found.
 - The new queue has enough free slots to run the query. A query might require
-  multiple slots if the [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md") parameter was set to a value greater
+  multiple slots if the [wlm\_query\_slot\_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md") parameter was set to a value greater
   than 1.
 - The new queue has at least as much memory available as the query currently
   uses.
@@ -103,7 +103,7 @@ hop action.
 | CREATE TABLE AS (CTAS), SELECT INTO         | Reassign or restart            |
 
 To find whether a query that was hopped by QMR was reassigned, restarted, or
-canceled, query the [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system log table.
+canceled, query the [STL\_WLM\_RULE\_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md") system log table.
 
 ## QMR hop action reassigned and restarted queries
 
@@ -117,7 +117,7 @@ A query is reassigned only if all of the following are true:
 
 - A matching queue is found.
 - The new queue has enough free slots to run the query. A query might require
-  multiple slots if the [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md") parameter was set to a value greater
+  multiple slots if the [wlm\_query\_slot\_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md") parameter was set to a value greater
   than 1.
 - The new queue has at least as much memory available as the query currently
   uses.

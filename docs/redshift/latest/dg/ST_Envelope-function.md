@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Envelope
+# ST\_Envelope
 
-ST_Envelope returns the minimum bounding box of the input geometry, as follows:
+ST\_Envelope returns the minimum bounding box of the input geometry, as follows:
 
 - If the input geometry is empty, the returned geometry is a copy of the input geometry.
 - If the minimum bounding box of the input geometry degenerates to a point, the returned geometry is a point.

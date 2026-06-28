@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_ALL_TABLES
+# SVV\_ALL\_TABLES
 
-Use SVV_ALL_TABLES to view a union of Amazon Redshift tables as shown in SVV_REDSHIFT_TABLES and the consolidated list of all external tables from all external
-schemas. For information about Amazon Redshift tables, see [SVV_REDSHIFT_TABLES](r_SVV_REDSHIFT_TABLES.md "r_SVV_REDSHIFT_TABLES.md").
+Use SVV\_ALL\_TABLES to view a union of Amazon Redshift tables as shown in SVV\_REDSHIFT\_TABLES and the consolidated list of all external tables from all external
+schemas. For information about Amazon Redshift tables, see [SVV\_REDSHIFT\_TABLES](r_SVV_REDSHIFT_TABLES.md "r_SVV_REDSHIFT_TABLES.md").
 
-SVV_ALL_TABLES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_ALL\_TABLES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For more information about best practices when querying system tables and views, see
 [Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
@@ -20,18 +20,18 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name   | Data type    | Description                                                                                           |
-| ------------- | ------------ | ----------------------------------------------------------------------------------------------------- |
-| database_name | varchar(128) | The name of the database where the table exists.                                                      |
-| schema_name   | varchar(128) | The schema name for the table.                                                                        |
-| table_name    | varchar(128) | The name of the table.                                                                                |
-| table_acl     | varchar(128) | The string that defines the permission for the<br>specified user or user group for the table.         |
-| table_type    | varchar(128) | The type of the table. Possible values are views,<br>base tables, external tables, and shared tables. |
-| remarks       | varchar(256) | Remarks.                                                                                              |
+| Column name    | Data type    | Description                                                                                           |
+| -------------- | ------------ | ----------------------------------------------------------------------------------------------------- |
+| database\_name | varchar(128) | The name of the database where the table exists.                                                      |
+| schema\_name   | varchar(128) | The schema name for the table.                                                                        |
+| table\_name    | varchar(128) | The name of the table.                                                                                |
+| table\_acl     | varchar(128) | The string that defines the permission for the<br>specified user or user group for the table.         |
+| table\_type    | varchar(128) | The type of the table. Possible values are views,<br>base tables, external tables, and shared tables. |
+| remarks        | varchar(256) | Remarks.                                                                                              |
 
 ## Sample queries
 
-The following example returns the output of SVV_ALL_TABLES.
+The following example returns the output of SVV\_ALL\_TABLES.
 
 ```
 `SELECT *
@@ -50,4 +50,4 @@ LIMIT 5;`
  tickit_db | public | tickit_sales_redshift | TABLE | |`
 ```
 
-If the table_acl value is null, no access privileges have been explicitly granted to the corresponding table.
+If the table\_acl value is null, no access privileges have been explicitly granted to the corresponding table.

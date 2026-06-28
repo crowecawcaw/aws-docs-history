@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_IsPolygonCCW
+# ST\_IsPolygonCCW
 
-ST_IsPolygonCCW returns true if the 2D projection of the input polygon or multipolygon is
+ST\_IsPolygonCCW returns true if the 2D projection of the input polygon or multipolygon is
 counterclockwise. If the input geometry is a point, linestring, multipoint, or
-multilinestring, then true is returned. For geometry collections, ST_IsPolygonCCW returns
+multilinestring, then true is returned. For geometry collections, ST\_IsPolygonCCW returns
 true if all the geometries in the collection are counterclockwise.
 
 ## Syntax

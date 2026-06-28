@@ -2,16 +2,16 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_COMMIT_STATS
+# STL\_COMMIT\_STATS
 
 Provides metrics related to commit performance, including the timing of the various
-stages of commit and the number of blocks committed. Query STL_COMMIT_STATS to determine
+stages of commit and the number of blocks committed. Query STL\_COMMIT\_STATS to determine
 what portion of a transaction was spent on commit and how much queuing is
 occurring.
 
-STL_COMMIT_STATS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_COMMIT\_STATS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS_TRANSACTION_HISTORY](SYS_TRANSACTION_HISTORY.md "SYS_TRANSACTION_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_TRANSACTION\_HISTORY](SYS_TRANSACTION_HISTORY.md "SYS_TRANSACTION_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
@@ -38,7 +38,7 @@ We recommend that you use the SYS monitoring view for your queries.
 | metadatawritten  | int       | This information is for internal use only.                                         |
 | tombstonedblocks | _bigint_  | This information is for internal use only.                                         |
 | tossedblocks     | bigint    | This information is for internal use only.                                         |
-| batched_by       | bigint    | This information is for internal use only.                                         |
+| batched\_by      | bigint    | This information is for internal use only.                                         |
 
 ## Sample query
 

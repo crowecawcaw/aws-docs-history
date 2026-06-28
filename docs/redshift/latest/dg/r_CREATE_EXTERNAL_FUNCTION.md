@@ -41,7 +41,7 @@ If you define a function with the same name as an existing function but a
 different signature, you create a new function. In other words, the function
 name is overloaded. For more information, see [Overloading function names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
 
-_external_fn_name_
+_external\_fn\_name_
 
 The name of the external function. If you specify a schema name (such as
 myschema.myfunction), the function is created using the specified schema.
@@ -54,12 +54,12 @@ prefix, you help ensure that your UDF name won't conflict with any
 built-in SQL function names for Amazon Redshift now or in the future. For more
 information, see [Preventing UDF naming conflicts](udf-naming-udfs.md "udf-naming-udfs.md").
 
-_data_type_
+_data\_type_
 
 The data type for the input arguments. For more information, see
 [Scalar Python UDFs](udf-creating-a-scalar-udf.md "udf-creating-a-scalar-udf.md") and [Scalar Lambda UDFs](udf-creating-a-lambda-sql-udf.md "udf-creating-a-lambda-sql-udf.md").
 
-RETURNS _data_type_
+RETURNS _data\_type_
 
 The data type of the value returned by the function. The RETURNS data type
 can be any standard Amazon Redshift data type. For more information, see
@@ -98,7 +98,7 @@ can result in an incorrect result set.
 
 The IMMUTABLE clause isn't currently supported for Lambda UDFs.
 
-LAMBDA _'lambda_fn_name'_
+LAMBDA _'lambda\_fn\_name'_
 
 The name of the function that Amazon Redshift calls.
 
@@ -110,7 +110,7 @@ For information regarding permissions required for the Lambda function, see
 [AWS Lambda permissions](../../../lambda/latest/dg/lambda-permissions.md "../../../lambda/latest/dg/lambda-permissions.md") in the
 _AWS Lambda Developer Guide_.
 
-IAM_ROLE { default |
+IAM\_ROLE { default |
 ‘arn:aws:iam::`<AWS account-id>`:role/`<role-name>`’
 
 Use the default keyword to have Amazon Redshift use the IAM role that is set as
@@ -123,13 +123,13 @@ authorized to invoke Lambda functions through this IAM role. If your cluster has
 an existing IAM role with permissions to invoke Lambda functions attached, you
 can substitute your role's ARN. For more information, see [Configuring the authorization parameter for Lambda UDFs](udf-creating-a-lambda-sql-udf.md#udf-lambda-authorization "udf-creating-a-lambda-sql-udf.md#udf-lambda-authorization").
 
-The following shows the syntax for the IAM_ROLE parameter.
+The following shows the syntax for the IAM\_ROLE parameter.
 
 ```
 IAM_ROLE 'arn:aws:iam::*aws-account-id*:role/*role-name*'
 ```
 
-RETRY_TIMEOUT _milliseconds_
+RETRY\_TIMEOUT _milliseconds_
 
 The amount of total time in milliseconds that Amazon Redshift uses for the delays
 in retry backoffs.
@@ -137,27 +137,27 @@ in retry backoffs.
 Instead of retrying immediately for any failed queries, Amazon Redshift performs
 backoffs and waits for a certain amount of time between retries. Then Amazon Redshift
 retries the request to rerun the failed query until the sum of all the delays
-is equal to or exceeds the RETRY_TIMEOUT value that you specified. The default
+is equal to or exceeds the RETRY\_TIMEOUT value that you specified. The default
 value is 20,000 milliseconds.
 
 When a Lambda function is invoked, Amazon Redshift retries for queries that receive
 errors such as `TooManyRequestsException`,
 `EC2ThrottledException`, and `ServiceException`.
 
-You can set the RETRY_TIMEOUT parameter to 0 milliseconds to prevent any
+You can set the RETRY\_TIMEOUT parameter to 0 milliseconds to prevent any
 retries for a Lambda UDF.
 
-MAX_BATCH_ROWS _count_
+MAX\_BATCH\_ROWS _count_
 
 The maximum number of rows that Amazon Redshift sends in a single batch request
 for a single lambda invocation.
 
-This parameter's minimum value is 1. The maximum value is INT_MAX, or
+This parameter's minimum value is 1. The maximum value is INT\_MAX, or
 2,147,483,647.
 
-This parameter is optional. The default value is INT_MAX, or 2,147,483,647.
+This parameter is optional. The default value is INT\_MAX, or 2,147,483,647.
 
-MAX_BATCH_SIZE _size_ [ KB | MB ]
+MAX\_BATCH\_SIZE _size_ [ KB | MB ]
 
 The maximum size of the data payload that Amazon Redshift sends in a single batch
 request for a single lambda invocation.
@@ -250,7 +250,7 @@ exfunc_sum
 (1 row)
 ```
 
-The following example creates a table called t_sum with two columns, c1 and c2, of
+The following example creates a table called t\_sum with two columns, c1 and c2, of
 the integer data type and inserts two rows of data. Then the external function is
 called by passing the column names of this table. The two table rows are sent in a
 batch request in request payload as a single Lambda invocation.
@@ -266,9 +266,9 @@ SELECT exfunc_sum(c1,c2) FROM t_sum;
 (2 rows)
 ```
 
-### Scalar Lambda UDF example using the RETRY_TIMEOUT attribute
+### Scalar Lambda UDF example using the RETRY\_TIMEOUT attribute
 
-In the following section, you can find an example of how to use the RETRY_TIMEOUT
+In the following section, you can find an example of how to use the RETRY\_TIMEOUT
 attribute in Lambda UDFs.
 
 AWS Lambda functions have concurrency limits that you can set for each function.
@@ -279,8 +279,8 @@ post [Managing AWS Lambda Function Concurrency](https://aws.amazon.com/blogs/com
 When the number of requests being served by a Lambda UDF exceeds the concurrency
 limits, the new requests receive the `TooManyRequestsException` error. The
 Lambda UDF retries on this error until the sum of all the delays between the requests
-sent to the Lambda function is equal to or exceeds the RETRY_TIMEOUT value that you
-set. The default RETRY_TIMEOUT value is 20,000 milliseconds.
+sent to the Lambda function is equal to or exceeds the RETRY\_TIMEOUT value that you
+set. The default RETRY\_TIMEOUT value is 20,000 milliseconds.
 
 The following example uses a Lambda function named `exfunc_sleep_3`.
 This function takes in the request payload, iterates over each row, and converts the
@@ -295,7 +295,7 @@ the data payload. In the case of a batch request, multiple rows can appear in th
 data payload.
 
 The concurrency limit for this function is specifically set to 1 in reserved
-concurrency to demonstrate the use of the RETRY_TIMEOUT attribute. When the attribute
+concurrency to demonstrate the use of the RETRY\_TIMEOUT attribute. When the attribute
 is set to 1, the Lambda function can only serve one request at a time.
 
 ```
@@ -320,7 +320,7 @@ def lambda_handler(event, context):
     return ret_json
 ```
 
-Following, two additional examples illustrate the RETRY_TIMEOUT attribute. They
+Following, two additional examples illustrate the RETRY\_TIMEOUT attribute. They
 each invoke a single Lambda UDF. While invoking the Lambda UDF, each example runs the
 same SQL query to invoke the Lambda UDF from two concurrent database sessions at the
 same time. When first query that invokes the Lambda UDF is being served by the UDF,
@@ -328,10 +328,10 @@ the second query receives the `TooManyRequestsException` error. This
 result occurs because you specifically set the reserved concurrency in the UDF to 1.
 For information on how to set reserved concurrency for Lambda functions, see [Configuring reserved concurrency](../../../lambda/latest/dg/configuration-concurrency.md#configuration-concurrency-reservedconfiguration-concurrency-reserved "../../../lambda/latest/dg/configuration-concurrency.md#configuration-concurrency-reservedconfiguration-concurrency-reserved").
 
-The first example, following, sets the RETRY_TIMEOUT attribute for the Lambda UDF
+The first example, following, sets the RETRY\_TIMEOUT attribute for the Lambda UDF
 to 0 milliseconds. If the Lambda request receives any exceptions from the Lambda
 function, Amazon Redshift doesn't make any retries. This result occurs because the
-RETRY_TIMEOUT attribute is set to 0.
+RETRY\_TIMEOUT attribute is set to 0.
 
 ```
 CREATE OR REPLACE EXTERNAL FUNCTION exfunc_upper(varchar)
@@ -342,7 +342,7 @@ IAM_ROLE 'arn:aws:iam::123456789012:role/Redshift-Exfunc-Test'
 RETRY_TIMEOUT 0;
 ```
 
-With the RETRY_TIMEOUT set to 0, you can run the following two queries from
+With the RETRY\_TIMEOUT set to 0, you can run the following two queries from
 separate database sessions to see different results.
 
 The first SQL query that uses the Lambda UDF runs successfully.
@@ -371,7 +371,7 @@ process:   padbmaster [pid=26384]
 -----------------------------------------------
 ```
 
-The second example, following, sets the RETRY_TIMEOUT attribute for the Lambda UDF
+The second example, following, sets the RETRY\_TIMEOUT attribute for the Lambda UDF
 to 3,000 milliseconds. Even if the second query is run concurrently, the Lambda UDF
 retries until the total delays is 3,000 milliseconds. Thus, both queries run
 successfully.
@@ -385,7 +385,7 @@ IAM_ROLE 'arn:aws:iam::123456789012:role/Redshift-Exfunc-Test'
 RETRY_TIMEOUT 3000;
 ```
 
-With the RETRY_TIMEOUT set to 3,000 milliseconds, you can run the following two
+With the RETRY\_TIMEOUT set to 3,000 milliseconds, you can run the following two
 queries from separate database sessions to see the same results.
 
 The first SQL query that runs the Lambda UDF runs successfully.
@@ -494,7 +494,7 @@ SELECT exfunc_multiplication(8, 9, 2);
 (1 row)
 ```
 
-The following example creates a table named t_multi with three columns, c1, c2,
+The following example creates a table named t\_multi with three columns, c1, c2,
 and c3, of the integer data type. The external function is called by passing the
 column names of this table. The data is inserted in such a way to cause integer
 overflow to show how the error is propagated.

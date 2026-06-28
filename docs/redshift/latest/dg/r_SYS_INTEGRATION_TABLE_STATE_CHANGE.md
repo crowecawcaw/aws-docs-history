@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_INTEGRATION_TABLE_STATE_CHANGE
+# SYS\_INTEGRATION\_TABLE\_STATE\_CHANGE
 
-SYS_INTEGRATION_TABLE_STATE_CHANGE displays details about table state change logs for
+SYS\_INTEGRATION\_TABLE\_STATE\_CHANGE displays details about table state change logs for
 integrations.
 
 A superuser can see all rows in this table.
@@ -14,16 +14,16 @@ integrations](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md").
 
 ## Table columns
 
-| Column name                      | Data type      | Description                                                                                                                                   |
-| -------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| integration_id                   | character(128) | The identifier associated with the<br>integration.                                                                                            |
-| database_name                    | character(128) | The name of the Amazon Redshift database.                                                                                                     |
-| schema_name                      | character(128) | The name of the Amazon Redshift schema.                                                                                                       |
-| table_name                       | character(128) | The name of the table.                                                                                                                        |
-| new_state                        | character(128) | The state of the table. Possible values are<br>`Synced`, `ResyncRequired`,<br>`ResyncInitiated`, `Deleted`,<br>`Failed`, and `ResyncDeleted`. |
-| table_last_replicated_checkpoint | character(128) | The current synced log coordinates.                                                                                                           |
-| state_change_reason              | character(256) | The reason for the last state transition.                                                                                                     |
-| record_time                      | timestamp      | The time (UTC) when this record was<br>updated.                                                                                               |
+| Column name                         | Data type      | Description                                                                                                                                   |
+| ----------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| integration\_id                     | character(128) | The identifier associated with the<br>integration.                                                                                            |
+| database\_name                      | character(128) | The name of the Amazon Redshift database.                                                                                                     |
+| schema\_name                        | character(128) | The name of the Amazon Redshift schema.                                                                                                       |
+| table\_name                         | character(128) | The name of the table.                                                                                                                        |
+| new\_state                          | character(128) | The state of the table. Possible values are<br>`Synced`, `ResyncRequired`,<br>`ResyncInitiated`, `Deleted`,<br>`Failed`, and `ResyncDeleted`. |
+| table\_last\_replicated\_checkpoint | character(128) | The current synced log coordinates.                                                                                                           |
+| state\_change\_reason               | character(256) | The reason for the last state transition.                                                                                                     |
+| record\_time                        | timestamp      | The time (UTC) when this record was<br>updated.                                                                                               |
 
 ## Sample queries
 

@@ -177,26 +177,29 @@ For more information about creating a bucket, see
 
 2. Create a folder.
 
-   1. Choose the name of the new bucket.
-   2. Choose the **Create Folder** button.
-   3. Name the new folder `load`.
+    1. Choose the name of the new bucket.
+    2. Choose the **Create Folder** button.
+    3. Name the new folder `load`.
 
-   ###### Note
 
-   The bucket that you created is not in a sandbox. In this
-   exercise, you add objects to a real bucket. You're charged
-   a nominal amount for the time that you store the objects in the
-   bucket. For more information about Amazon S3 pricing, go to the
-   [Amazon S3
-   pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/") page.
+    ###### Note
+
+    The bucket that you created is not in a sandbox. In this
+     exercise, you add objects to a real bucket. You're charged
+     a nominal amount for the time that you store the objects in the
+     bucket. For more information about Amazon S3 pricing, go to the
+     [Amazon S3
+     pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/") page.
 
 3. Upload the data files to the new Amazon S3 bucket.
 
-   1. Choose the name of the data folder.
-   2. In the Upload wizard, choose **Add
-      files**.
+    1. Choose the name of the data folder.
+    2. In the Upload wizard, choose **Add
+     files**.
 
-   Follow the Amazon S3 console instructions to upload all of the files you downloaded and extracted, 3. Choose **Upload**.
+
+    Follow the Amazon S3 console instructions to upload all of the files you downloaded and extracted,
+    3. Choose **Upload**.
 
 ###### User Credentials
 
@@ -564,7 +567,7 @@ Execution time: 1.46s
 1 statement(s) failed.
 ```
 
-To get more information about the error, query the STL_LOAD_ERRORS table. The
+To get more information about the error, query the STL\_LOAD\_ERRORS table. The
 following query uses the SUBSTRING function to shorten columns for readability
 and uses LIMIT 10 to reduce the number of rows returned. You can adjust the
 values in `substring(filename,22,25)` to allow for the length of your
@@ -692,7 +695,7 @@ In this step, you use the FIXEDWIDTH, MAXERROR, ACCEPTINVCHARS, and MANIFEST
 options to load the CUSTOMER table.
 
 The sample data for this exercise contains characters that cause errors when
-COPY attempts to load them. You use the MAXERRORS option and the STL_LOAD_ERRORS
+COPY attempts to load them. You use the MAXERRORS option and the STL\_LOAD\_ERRORS
 system table to troubleshoot the load errors and then use the ACCEPTINVCHARS and
 MANIFEST options to eliminate the errors.
 
@@ -773,7 +776,7 @@ Load into table 'customer' completed, 7 record(s) could not be loaded.  Check 's
 ```
 
 The warning indicates that COPY encountered seven errors. To check the errors,
-query the STL_LOAD_ERRORS table, as shown in the following example.
+query the STL\_LOAD\_ERRORS table, as shown in the following example.
 
 ```
 select query, substring(filename,22,25) as filename,line_number as line,
@@ -785,7 +788,7 @@ order by query desc, filename
 limit 7;
 ```
 
-The results of the STL_LOAD_ERRORS query should look similar to the
+The results of the STL\_LOAD\_ERRORS query should look similar to the
 following.
 
 ```
@@ -805,8 +808,10 @@ By examining the results, you can see that there are two messages in the
 `error_reasons` column:
 
 - ```
-  Invalid digit, Value '#', Pos 0, Type: Integ
+
   ```
+
+Invalid digit, Value '#', Pos 0, Type: Integ
 
 ````
 
@@ -866,7 +871,7 @@ column's data type, it skips the row and returns an error. For information
 about invalid UTF-8 characters, see [Multibyte character load errors](multi-byte-character-load-errors.md "multi-byte-character-load-errors.md").
 
 You could use the MAXERRORS option to ignore errors and continue loading, then
-query STL_LOAD_ERRORS to locate the invalid characters, and then fix the data
+query STL\_LOAD\_ERRORS to locate the invalid characters, and then fix the data
 files. However, MAXERRORS is best used for troubleshooting load problems and
 should generally not be used in a production environment.
 
@@ -879,7 +884,7 @@ multibyte characters with a replacement string of equal length. For example, a
 4-byte character would be replaced with `'????'`.
 
 COPY returns the number of rows that contained invalid UTF-8 characters. It
-also adds an entry to the STL_REPLACEMENTS system table for each affected row,
+also adds an entry to the STL\_REPLACEMENTS system table for each affected row,
 up to a maximum of 100 rows per node slice. Additional invalid UTF-8 characters
 are also replaced, but those replacement events are not recorded.
 
@@ -1145,7 +1150,7 @@ You loaded data using the following formats:
 - CSV
 - Fixed-width
 
-You used the STL_LOAD_ERRORS system table to troubleshoot load errors, and then used
+You used the STL\_LOAD\_ERRORS system table to troubleshoot load errors, and then used
 the REGION, MANIFEST, MAXERROR, ACCEPTINVCHARS, DATEFORMAT, and NULL AS options to
 resolve the errors.
 

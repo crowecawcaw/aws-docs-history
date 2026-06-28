@@ -49,14 +49,14 @@ associated with the connected database. For more information, see [SHOW TABLES](
 Use SHOW COLUMNS to view a list of the columns from a shared table in the datashare
 associated with the connected database. For more information, see [SHOW COLUMNS](r_SHOW_COLUMNS.md "r_SHOW_COLUMNS.md").
 
-Use SVV_ALL_SCHEMAS to view a list of the shared schemas in the datashare associated
-with the connected database. For more information, see [SVV_ALL_SCHEMAS](r_SVV_ALL_SCHEMAS.md "r_SVV_ALL_SCHEMAS.md").
+Use SVV\_ALL\_SCHEMAS to view a list of the shared schemas in the datashare associated
+with the connected database. For more information, see [SVV\_ALL\_SCHEMAS](r_SVV_ALL_SCHEMAS.md "r_SVV_ALL_SCHEMAS.md").
 
-Use SVV_ALL_TABLES to view a list of the shared tables in the datashare associated
-with the connected database. For more information, see [SVV_ALL_TABLES](r_SVV_ALL_TABLES.md "r_SVV_ALL_TABLES.md").
+Use SVV\_ALL\_TABLES to view a list of the shared tables in the datashare associated
+with the connected database. For more information, see [SVV\_ALL\_TABLES](r_SVV_ALL_TABLES.md "r_SVV_ALL_TABLES.md").
 
-Use SVV_ALL_COLUMNS to view a list of the shared columns in the datashare associated
-with the connected database. For more information, see [SVV_ALL_COLUMNS](r_SVV_ALL_COLUMNS.md "r_SVV_ALL_COLUMNS.md").
+Use SVV\_ALL\_COLUMNS to view a list of the shared columns in the datashare associated
+with the connected database. For more information, see [SVV\_ALL\_COLUMNS](r_SVV_ALL_COLUMNS.md "r_SVV_ALL_COLUMNS.md").
 
 ## Integrating Amazon Redshift data sharing with business intelligence tools
 

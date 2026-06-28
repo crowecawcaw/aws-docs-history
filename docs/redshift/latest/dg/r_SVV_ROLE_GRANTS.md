@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_ROLE_GRANTS
+# SVV\_ROLE\_GRANTS
 
-Use SVV_ROLE_GRANTS to view a list of roles that are explicitly granted roles in the cluster.
+Use SVV\_ROLE\_GRANTS to view a list of roles that are explicitly granted roles in the cluster.
 
-SVV_ROLE_GRANTS is visible to the following users:
+SVV\_ROLE\_GRANTS is visible to the following users:
 
 - Superusers
 - Users with the ACCESS SYSTEM TABLE permission
@@ -15,16 +15,16 @@ SVV_ROLE_GRANTS is visible to the following users:
 
 ## Table columns
 
-| Column name       | Data type | Description                    |
-| ----------------- | --------- | ------------------------------ |
-| role_id           | integer   | The ID of the role.            |
-| role_name         | text      | The name of the role.          |
-| granted_role_id   | integer   | The ID for the granted role.   |
-| granted_role_name | text      | The name for the granted role. |
+| Column name         | Data type | Description                    |
+| ------------------- | --------- | ------------------------------ |
+| role\_id            | integer   | The ID of the role.            |
+| role\_name          | text      | The name of the role.          |
+| granted\_role\_id   | integer   | The ID for the granted role.   |
+| granted\_role\_name | text      | The name for the granted role. |
 
 ## Sample query
 
-The following example returns the output of SVV_ROLE_GRANTS.
+The following example returns the output of SVV\_ROLE\_GRANTS.
 
 ```
 GRANT ROLE role1 TO ROLE role2;

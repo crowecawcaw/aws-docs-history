@@ -27,7 +27,7 @@ AS query_definition;
 
 ## Parameters
 
-_schema_name.view_name_
+_schema\_name.view\_name_
 
 The schema that’s attached to your AWS Glue database, followed by the name of
 the view.
@@ -35,14 +35,14 @@ the view.
 PROTECTED
 
 Specifies that the CREATE EXTERNAL VIEW command should only complete if the
-query within the query_definition can successfully complete.
+query within the query\_definition can successfully complete.
 
 IF NOT EXISTS
 
 Creates the view if the view doesn’t already exist.
 
-catalog_name.schema_name.view_name | awsdatacatalog.dbname.view_name |
-external_schema_name.view_name
+catalog\_name.schema\_name.view\_name | awsdatacatalog.dbname.view\_name |
+external\_schema\_name.view\_name
 
 The notation of the schema to use when creating the view. You can specify to
 use the AWS Glue Data Catalog, a Glue database that you created, or an external schema
@@ -50,14 +50,14 @@ that you created. See [CREATE DATABASE](r_CREATE_DATABASE.md "r_CREATE_DATABASE.
 [CREATE EXTERNAL
 SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md") for more information.
 
-_query_definition_
+_query\_definition_
 
 The definition of the SQL query that Amazon Redshift runs to alter the view.
 
 ## Examples
 
 The following example creates a Data Catalog view named
-sample_schema.glue_data_catalog_view.
+sample\_schema.glue\_data\_catalog\_view.
 
 ```
 CREATE EXTERNAL PROTECTED VIEW sample_schema.glue_data_catalog_view IF NOT EXISTS

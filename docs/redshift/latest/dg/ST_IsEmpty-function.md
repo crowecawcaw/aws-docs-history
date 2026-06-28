@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_IsEmpty
+# ST\_IsEmpty
 
-ST_IsEmpty returns true if the input geometry is empty. A geometry is not empty if it
+ST\_IsEmpty returns true if the input geometry is empty. A geometry is not empty if it
 contains at least one nonempty point.
 
-ST_IsEmpty returns true if the input geometry has at least one nonempty point.
+ST\_IsEmpty returns true if the input geometry has at least one nonempty point.
 
 ## Syntax
 

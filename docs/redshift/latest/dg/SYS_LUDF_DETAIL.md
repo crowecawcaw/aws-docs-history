@@ -2,36 +2,36 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_LUDF_DETAIL
+# SYS\_LUDF\_DETAIL
 
-SYS_LUDF_DETAIL records information and metrics for Lambda User Defined Functions (LUDFs) that were used in a particular query.
+SYS\_LUDF\_DETAIL records information and metrics for Lambda User Defined Functions (LUDFs) that were used in a particular query.
 
-SYS_LUDF_DETAIL is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_LUDF\_DETAIL is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name          | Data type | Description                                                                                                                                                                                          |
-| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user_id              | integer   | The identifier of the user who submitted the query calling the function.                                                                                                                             |
-| transaction_id       | bigint    | The transaction identifier.                                                                                                                                                                          |
-| query_id             | bigint    | User query identifier.                                                                                                                                                                               |
-| function_oid         | bigint    | Object id of the function in the catalog.                                                                                                                                                            |
-| function_position    | integer   | Numerical position of this function in the step. For example, if there are multiple calls of the same function in the SELECT list of a query, they can be identified using these positional numbers. |
-| stream_id            | integer   | The stream identifier the function call was performed in.                                                                                                                                            |
-| segment_id           | integer   | The segment identifier the function call was performed in.                                                                                                                                           |
-| step_id              | integer   | The step identifier the function call performed in.                                                                                                                                                  |
-| lambda_function_name | char(256) | Name of the lambda function.                                                                                                                                                                         |
-| start_time           | timestamp | The time the calls started at.                                                                                                                                                                       |
-| end_time             | timestamp | The time the calls ended at.                                                                                                                                                                         |
-| total_duration       | bigint    | The total duration of the calls in microseconds.                                                                                                                                                     |
-| invocations          | integer   | The number of concurrent or external invocations.                                                                                                                                                    |
-| total_rows           | bigint    | The number of rows passed/returned to/from the call.                                                                                                                                                 |
-| input_bytes          | bigint    | The number of bytes passed to the call.                                                                                                                                                              |
-| output_bytes         | bigint    | The number of bytes the call produced.                                                                                                                                                               |
+| Column name            | Data type | Description                                                                                                                                                                                          |
+| ---------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user\_id               | integer   | The identifier of the user who submitted the query calling the function.                                                                                                                             |
+| transaction\_id        | bigint    | The transaction identifier.                                                                                                                                                                          |
+| query\_id              | bigint    | User query identifier.                                                                                                                                                                               |
+| function\_oid          | bigint    | Object id of the function in the catalog.                                                                                                                                                            |
+| function\_position     | integer   | Numerical position of this function in the step. For example, if there are multiple calls of the same function in the SELECT list of a query, they can be identified using these positional numbers. |
+| stream\_id             | integer   | The stream identifier the function call was performed in.                                                                                                                                            |
+| segment\_id            | integer   | The segment identifier the function call was performed in.                                                                                                                                           |
+| step\_id               | integer   | The step identifier the function call performed in.                                                                                                                                                  |
+| lambda\_function\_name | char(256) | Name of the lambda function.                                                                                                                                                                         |
+| start\_time            | timestamp | The time the calls started at.                                                                                                                                                                       |
+| end\_time              | timestamp | The time the calls ended at.                                                                                                                                                                         |
+| total\_duration        | bigint    | The total duration of the calls in microseconds.                                                                                                                                                     |
+| invocations            | integer   | The number of concurrent or external invocations.                                                                                                                                                    |
+| total\_rows            | bigint    | The number of rows passed/returned to/from the call.                                                                                                                                                 |
+| input\_bytes           | bigint    | The number of bytes passed to the call.                                                                                                                                                              |
+| output\_bytes          | bigint    | The number of bytes the call produced.                                                                                                                                                               |
 
 ## Sample queries
 
-The following example uses a Lambda UDF in a query, and then shows how to query the SYS_LUDF_DETAIL view to see the function execution details.
+The following example uses a Lambda UDF in a query, and then shows how to query the SYS\_LUDF\_DETAIL view to see the function execution details.
 
 ```
 `SET SESSION AUTHORIZATION regular_user;

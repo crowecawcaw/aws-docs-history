@@ -18,7 +18,7 @@ as $$
 $$ language sql;
 ```
 
-The following query calls the new f_sql_greater function to query the SALES table and
+The following query calls the new f\_sql\_greater function to query the SALES table and
 return either COMMISSION or 20 percent of PRICEPAID, whichever is greater.
 
 ```

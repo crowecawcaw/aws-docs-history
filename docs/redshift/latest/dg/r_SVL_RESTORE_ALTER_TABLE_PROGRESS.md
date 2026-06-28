@@ -2,24 +2,24 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVL_RESTORE_ALTER_TABLE_PROGRESS
+# SVL\_RESTORE\_ALTER\_TABLE\_PROGRESS
 
-Use SVL_RESTORE_ALTER_TABLE_PROGRESS to monitor the migration progress
+Use SVL\_RESTORE\_ALTER\_TABLE\_PROGRESS to monitor the migration progress
 of each table in the cluster during a classic resize to RG or RA3 nodes.
 It captures the historic throughput of data migration during the resize
 operation. For more information about classic resize to RG or RA3 nodes, go to
 [Classic resize](../mgmt/managing-cluster-operations.md#classic-resize-faster "../mgmt/managing-cluster-operations.md#classic-resize-faster").
 
-SVL_RESTORE_ALTER_TABLE_PROGRESS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL\_RESTORE\_ALTER\_TABLE\_PROGRESS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS_RESTORE_LOG](SYS_RESTORE_LOG.md "SYS_RESTORE_LOG.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_RESTORE\_LOG](SYS_RESTORE_LOG.md "SYS_RESTORE_LOG.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
 
 ###### Note
 
 Rows with a progress of `100.00%` or `ABORTED`
 are deleted after 7 days. Rows for tables dropped during or after a classic
-resize can still appear in SVL_RESTORE_ALTER_TABLE_PROGRESS.
+resize can still appear in SVL\_RESTORE\_ALTER\_TABLE\_PROGRESS.
 
 ## Table columns
 

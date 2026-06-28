@@ -23,11 +23,11 @@ _IF EXISTS_
 
 A clause that indicates if the specified policy already exists.
 
-_policy_name_
+_policy\_name_
 
 The name of the policy.
 
-database_name
+database\_name
 
 The name of the database from where the policy to be dropped. The database can be the connected database or a database that supports Amazon Redshift federated permissions.
 

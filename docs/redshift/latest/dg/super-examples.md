@@ -12,7 +12,7 @@ then query semi-structured data objects in a variety of use cases.
 
 We recommend that you set the `enable_case_sensitive_super_attribute` configuration
 option to true before working with the SUPER data type. For more information, see
-[enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md").
+[enable\_case\_sensitive\_super\_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md").
 
 ## Loading semi-structured data
 
@@ -354,7 +354,7 @@ The following statements
 ## Using `enable_case_sensitive_super_attribute` with semi-structured data
 
 The following examples show how the
-[enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md")
+[enable\_case\_sensitive\_super\_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md")
 configuration option affects querying semi-structured data. For more information,
 see [Accessing JSON fields with uppercase and mixed-case field names or attributes](super-configurations.md#upper-mixed-case "super-configurations.md#upper-mixed-case").
 

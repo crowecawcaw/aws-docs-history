@@ -2,28 +2,28 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_COPY_REPLACEMENTS
+# SYS\_COPY\_REPLACEMENTS
 
 Displays a log that records when invalid UTF-8 characters were replaced by the [COPY](r_COPY.md "r_COPY.md") command with the ACCEPTINVCHARS option. A
-log entry is added to SYS_COPY_REPLACEMENTS for each of the first 100 rows on each node
+log entry is added to SYS\_COPY\_REPLACEMENTS for each of the first 100 rows on each node
 slice that required at least one replacement.
 
 You can use this view to see information about serverless workgroups and provisioned
 clusters.
 
-SYS_COPY_REPLACEMENTS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_COPY\_REPLACEMENTS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name | Data type       | Description                                                                                                                                                                                    |
-| ----------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user_id     | integer         | ID of the user who generated the query.                                                                                                                                                        |
-| query_id    | bigint          | The query ID. The column used to join other system<br>tables and views.                                                                                                                        |
-| table_id    | integer         | The table ID.                                                                                                                                                                                  |
-| file_name   | character(256)  | The complete path to the input file for the COPY<br>command.                                                                                                                                   |
-| column_name | character(127)  | The first field that contains an invalid UTF-8<br>character.                                                                                                                                   |
-| line_number | bigint          | The line number in the input data file that<br>containes an invalid UTF-8 character. -1 indicates that the line<br>number is not available, such as when copying from a columnar data<br>file. |
-| raw_line    | character(1024) | The raw load data that contains an invalid UTF-8<br>character.                                                                                                                                 |
+| Column name  | Data type       | Description                                                                                                                                                                                    |
+| ------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user\_id     | integer         | ID of the user who generated the query.                                                                                                                                                        |
+| query\_id    | bigint          | The query ID. The column used to join other system<br>tables and views.                                                                                                                        |
+| table\_id    | integer         | The table ID.                                                                                                                                                                                  |
+| file\_name   | character(256)  | The complete path to the input file for the COPY<br>command.                                                                                                                                   |
+| column\_name | character(127)  | The first field that contains an invalid UTF-8<br>character.                                                                                                                                   |
+| line\_number | bigint          | The line number in the input data file that<br>containes an invalid UTF-8 character. -1 indicates that the line<br>number is not available, such as when copying from a columnar data<br>file. |
+| raw\_line    | character(1024) | The raw load data that contains an invalid UTF-8<br>character.                                                                                                                                 |
 
 ## Sample queries
 

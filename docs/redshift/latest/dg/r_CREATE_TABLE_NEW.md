@@ -72,7 +72,7 @@ schema. (You can't specify a name for this schema.) This temporary schema
 becomes the first schema in the search path, so the temporary table takes
 precedence over the permanent table unless you qualify the table name with the
 schema name to access the permanent table. For more information about schemas
-and precedence, see [search_path](r_search_path.md "r_search_path.md").
+and precedence, see [search\_path](r_search_path.md "r_search_path.md").
 
 ###### Note
 
@@ -92,7 +92,7 @@ compared.
 This clause is useful when scripting, so the script doesn’t fail if CREATE
 TABLE tries to create a table that already exists.
 
-_table_name_
+_table\_name_
 
 Name of the table to be created.
 
@@ -142,7 +142,7 @@ the same database if they are created in separate sessions because the tables
 are assigned to different schemas. For more information about valid names, see
 [Names and identifiers](r_names.md "r_names.md").
 
-_column_name_
+_column\_name_
 
 Name of a column to be created in the new table. The maximum length for the
 column name is 127 bytes; longer names are truncated to 127 bytes. You can use
@@ -156,7 +156,7 @@ If you are creating a "wide table," take care that your list of columns
 doesn't exceed row-width boundaries for intermediate results during
 loads and query processing. For more information, see [Usage notes](#r_CREATE_TABLE_usage "#r_CREATE_TABLE_usage").
 
-_data_type_
+_data\_type_
 
 Data type of the column being created. For CHAR and VARCHAR columns, you can
 use the MAX keyword instead of declaring a maximum length. MAX sets the maximum
@@ -166,21 +166,21 @@ bytes.
 
 For information about the data types that Amazon Redshift supports, see [Data types](c_Supported_data_types.md "c_Supported_data_types.md").
 
-DEFAULT _default_expr_
+DEFAULT _default\_expr_
 
 Clause that assigns a default data value for the column. The data type of
-_default_expr_ must match the data type of the column.
+_default\_expr_ must match the data type of the column.
 The DEFAULT value must be a variable-free expression. Subqueries,
 cross-references to other columns in the current table, and user-defined
 functions aren't allowed.
 
-The _default_expr_ expression is used in any INSERT
+The _default\_expr_ expression is used in any INSERT
 operation that doesn't specify a value for the column. If no default value
 is specified, the default value for the column is null.
 
 If a COPY operation with a defined column list omits a column that has a
 DEFAULT value, the COPY command inserts the value of
-_default_expr_.
+_default\_expr_.
 
 IDENTITY(_seed_, _step_)
 
@@ -212,7 +212,7 @@ _step_. For information about how values are generated,
 see [IDENTITY](#identity-clause "#identity-clause") .
 
 Also, during INSERT, UPDATE, or COPY you can provide a value without
-EXPLICIT_IDS. Amazon Redshift uses that value to insert into the identity column instead
+EXPLICIT\_IDS. Amazon Redshift uses that value to insert into the identity column instead
 of using the system-generated value. The value can be a duplicate, a value less
 than the seed, or a value between step values. Amazon Redshift doesn't check the
 uniqueness of values in the column. Providing a value doesn't affect the
@@ -295,7 +295,7 @@ DISTKEY
 Keyword that specifies that the column is the distribution key for the
 table. Only one column in a table can be the distribution key. You can use the
 DISTKEY keyword after a column name or as part of the table definition by using
-the DISTKEY (_column_name_) syntax. Either method has the
+the DISTKEY (_column\_name_) syntax. Either method has the
 same effect. For more information, see the DISTSTYLE parameter later in this
 topic.
 
@@ -310,7 +310,7 @@ data is loaded into the table, the data is sorted by one or more columns that
 are designated as sort keys. You can use the SORTKEY keyword after a column
 name to specify a single-column sort key, or you can specify one or more
 columns as sort key columns for the table by using the SORTKEY
-(_column_name_ [, ...]) syntax. Only compound sort keys
+(_column\_name_ [, ...]) syntax. Only compound sort keys
 are created with this syntax.
 
 You
@@ -320,7 +320,7 @@ The data type of a sort key column can be: BOOLEAN, REAL, DOUBLE PRECISION,
 SMALLINT, INTEGER, BIGINT, DECIMAL, DATE, TIME, TIMETZ, TIMESTAMP, or
 TIMESTAMPTZ, CHAR, or VARCHAR.
 
-COLLATE { CASE_SENSITIVE | CS | CASE_INSENSITIVE | CI }
+COLLATE { CASE\_SENSITIVE | CS | CASE\_INSENSITIVE | CI }
 
 A clause that specifies whether string search or comparison on the column is
 case sensitive or case insensitive. The default value is the same as the
@@ -331,10 +331,10 @@ VARCHAR, and string values within SUPER columns. For details on
 case-insensitive querying of SUPER data, see
 [Case-insensitive querying](query-super.md#case-insensitive-super-queries "query-super.md#case-insensitive-super-queries").
 
-To check the current collation of a database, use the [DB_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
+To check the current collation of a database, use the [DB\_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
 
-CASE_SENSITIVE and CS are interchangeable and yield the same results.
-Similarly, CASE_INSENSITIVE and CI are interchangeable and yield the
+CASE\_SENSITIVE and CS are interchangeable and yield the same results.
+Similarly, CASE\_INSENSITIVE and CI are interchangeable and yield the
 same results.
 
 NOT NULL | NULL
@@ -348,7 +348,7 @@ UNIQUE
 Keyword that specifies that the column can contain only unique values. The
 behavior of the unique table constraint is the same as that for column
 constraints, with the additional capability to span multiple columns. To define
-a unique table constraint, use the UNIQUE ( _column_name_ [,
+a unique table constraint, use the UNIQUE ( _column\_name_ [,
 ... ] ) syntax.
 
 ###### Important
@@ -361,7 +361,7 @@ PRIMARY KEY
 Keyword that specifies that the column is the primary key for the table.
 Only one column can be defined as the primary key by using a column definition.
 To define a table constraint with a multiple-column primary key, use the
-PRIMARY KEY ( _column_name_ [, ... ] ) syntax.
+PRIMARY KEY ( _column\_name_ [, ... ] ) syntax.
 
 Identifying a column as the primary key provides metadata about the design
 of the schema. A primary key implies that other tables can rely on this set of
@@ -377,7 +377,7 @@ PRIMARY KEY columns are also defined as NOT NULL.
 Primary key constraints are informational only. They aren't enforced
 by the system, but they are used by the planner.
 
-References _reftable_ [ ( *refcolumn* )
+References _reftable_ [ ( _refcolumn_ )
 ]
 
 Clause that specifies a foreign key constraint, which implies that the
@@ -390,7 +390,7 @@ of a unique or primary key constraint in the referenced table.
 Foreign key constraints are informational only. They aren't
 enforced by the system, but they are used by the planner.
 
-LIKE _parent_table_ [ { INCLUDING | EXCLUDING } DEFAULTS ]
+LIKE _parent\_table_ [ { INCLUDING | EXCLUDING } DEFAULTS ]
 
 A clause that specifies an existing table from which the new table
 automatically copies column names, data types, and NOT NULL constraints. The
@@ -444,7 +444,7 @@ Possible distribution styles are as follows:
   The change in distribution style occurs in the background with minimal
   impact to user queries.
 
-To view the distribution style applied to a table, query the PG_CLASS
+To view the distribution style applied to a table, query the PG\_CLASS
 system catalog table. For more information, see [Viewing distribution styles](viewing-distribution-styles.md "viewing-distribution-styles.md").
 
 - EVEN: The data in the table is spread evenly across the nodes in a
@@ -466,15 +466,15 @@ system catalog table. For more information, see [Viewing distribution styles](vi
   KEY distribution isn't appropriate, but performance improvements
   must be weighed against maintenance costs.
 
-DISTKEY ( _column_name_ )
+DISTKEY ( _column\_name_ )
 
 Constraint that specifies the column to be used as the distribution key for
 the table. You can use the DISTKEY keyword after a column name or as part of
-the table definition, by using the DISTKEY (_column_name_)
+the table definition, by using the DISTKEY (_column\_name_)
 syntax. Either method has the same effect. For more information, see the
 DISTSTYLE parameter earlier in this topic.
 
-[COMPOUND | INTERLEAVED ] SORTKEY ( _column_name_ [,...]) |
+[COMPOUND | INTERLEAVED ] SORTKEY ( _column\_name_ [,...]) |
 [ SORTKEY AUTO ]
 
 Specifies one or more sort keys for the table. When data is loaded into the
@@ -506,13 +506,13 @@ distribution keys. With one exception, if a table has a distribution
 key that has never been used in a JOIN, then the key might be changed
 if Amazon Redshift determines there is a better key.
 
-To view the sort key of a table, query the SVV_TABLE_INFO system
-catalog view. For more information, see [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To
+To view the sort key of a table, query the SVV\_TABLE\_INFO system
+catalog view. For more information, see [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To
 view the Amazon Redshift Advisor recommendations for tables, query the
-SVV_ALTER_TABLE_RECOMMENDATIONS system catalog view. For more
-information, see [SVV_ALTER_TABLE_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the
-actions taken by Amazon Redshift, query the SVL_AUTO_WORKER_ACTION system catalog
-view. For more information, see [SVL_AUTO_WORKER_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
+SVV\_ALTER\_TABLE\_RECOMMENDATIONS system catalog view. For more
+information, see [SVV\_ALTER\_TABLE\_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the
+actions taken by Amazon Redshift, query the SVL\_AUTO\_WORKER\_ACTION system catalog
+view. For more information, see [SVL\_AUTO\_WORKER\_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
 
 COMPOUND
 
@@ -550,7 +550,7 @@ determines that a new encoding type can improve query performance, Amazon Redshi
 change the encoding type of the table columns. ENCODE AUTO is the default if
 you don't specify an encoding type on any column in the table.
 
-UNIQUE ( _column_name_ [,...] )
+UNIQUE ( _column\_name_ [,...] )
 
 Constraint that specifies that a group of one or more columns of a table can
 contain only unique values. The behavior of the unique table constraint is the
@@ -565,7 +565,7 @@ constraint defined for the table.
 Unique constraints are informational and aren't enforced by the
 system.
 
-PRIMARY KEY ( _column_name_ [,...] )
+PRIMARY KEY ( _column\_name_ [,...] )
 
 Constraint that specifies that a column or a number of columns of a table
 can contain only unique (nonduplicate) non-null values. Identifying a set of
@@ -581,8 +581,8 @@ columns named by any unique constraint defined for the same table.
 Primary key constraints are informational only. They aren't
 enforced by the system, but they are used by the planner.
 
-FOREIGN KEY ( _column_name_ [, ... ] ) REFERENCES
-_reftable_ [ ( *refcolumn* ) ]
+FOREIGN KEY ( _column\_name_ [, ... ] ) REFERENCES
+_reftable_ [ ( _refcolumn_ ) ]
 
 Constraint that specifies a foreign key constraint, which requires that a
 group of one or more columns of the new table must only contain values that
@@ -641,7 +641,7 @@ If set at the column level, SORTKEY must be a single column. If SORTKEY
 is set at the table level, one or more columns can make up a compound or
 interleaved composite sort key.
 
-COLLATE CASE_SENSITIVE | COLLATE CASE_INSENSITIVE
+COLLATE CASE\_SENSITIVE | COLLATE CASE\_INSENSITIVE
 
 Amazon Redshift doesn't support altering case sensitivity configuration for
 a column. When you append a new column to the table, Amazon Redshift uses the
@@ -670,7 +670,7 @@ FOREIGN KEY
 There is no difference in effect whether FOREIGN KEY is set at the column
 level or at the table level. At the column level, the syntax is simply
 `REFERENCES`
-_reftable_ [ ( *refcolumn* )].
+_reftable_ [ ( _refcolumn_ )].
 
 ### Distribution of incoming data
 

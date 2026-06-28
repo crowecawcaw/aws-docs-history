@@ -8,7 +8,7 @@ Returns the length of the specified string as the number of characters.
 
 ## Syntax
 
-LEN is a synonym of [LENGTH function](r_LENGTH.md "r_LENGTH.md"), [CHAR_LENGTH function](r_CHAR_LENGTH.md "r_CHAR_LENGTH.md"), [CHARACTER_LENGTH function](r_CHARACTER_LENGTH.md "r_CHARACTER_LENGTH.md"), and [TEXTLEN function](r_TEXTLEN.md "r_TEXTLEN.md").
+LEN is a synonym of [LENGTH function](r_LENGTH.md "r_LENGTH.md"), [CHAR\_LENGTH function](r_CHAR_LENGTH.md "r_CHAR_LENGTH.md"), [CHARACTER\_LENGTH function](r_CHARACTER_LENGTH.md "r_CHARACTER_LENGTH.md"), and [TEXTLEN function](r_TEXTLEN.md "r_TEXTLEN.md").
 
 ```
 LEN(*expression*)
@@ -30,7 +30,7 @@ input string.
 If the input string is a character string, the LEN function returns the actual number of characters in multi-byte
 strings, not the number of bytes. For example, a `VARCHAR(12)` column is required to
 store three four-byte Chinese characters. The LEN function will return `3` for that
-same string. To get the length of a string in bytes, use the [OCTET_LENGTH](r_OCTET_LENGTH.md "r_OCTET_LENGTH.md") function.
+same string. To get the length of a string in bytes, use the [OCTET\_LENGTH](r_OCTET_LENGTH.md "r_OCTET_LENGTH.md") function.
 
 ## Usage notes
 
@@ -54,7 +54,7 @@ LEN('français');`
 +--------------+-----+`
 ```
 
-To return the number of bytes and the number of characters in the string `français` without using the OCTET_LENGTH function,
+To return the number of bytes and the number of characters in the string `français` without using the OCTET\_LENGTH function,
 use the following example. For more information, see the [CAST function](r_CAST_function.md "r_CAST_function.md").
 
 ```

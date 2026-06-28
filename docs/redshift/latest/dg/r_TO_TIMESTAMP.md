@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# TO_TIMESTAMP function
+# TO\_TIMESTAMP function
 
-TO_TIMESTAMP converts a TIMESTAMP string to TIMESTAMPTZ. For a list of additional date and time functions for Amazon Redshift,
+TO\_TIMESTAMP converts a TIMESTAMP string to TIMESTAMPTZ. For a list of additional date and time functions for Amazon Redshift,
 see [Date and time functions](Date_functions_header.md "Date_functions_header.md").
 
 ## Syntax
@@ -31,11 +31,11 @@ include a time zone (`TZ`, `tz`, or
 `OF`) are not supported as input. For valid timestamp
 formats, see [Datetime format strings](r_FORMAT_strings.md "r_FORMAT_strings.md").
 
-_is_strict_
+_is\_strict_
 
 An optional Boolean value that specifies whether an error is returned if an input timestamp value is out of range.
-When _is_strict_ is set to TRUE, an error is returned if there is an out of range value.
-When _is_strict_ is set to FALSE, which is the default, then overflow values are accepted.
+When _is\_strict_ is set to TRUE, an error is returned if there is an out of range value.
+When _is\_strict_ is set to FALSE, which is the default, then overflow values are accepted.
 
 ## Return type
 
@@ -43,7 +43,7 @@ TIMESTAMPTZ
 
 ## Examples
 
-The following example demonstrates using the TO_TIMESTAMP function to convert a
+The following example demonstrates using the TO\_TIMESTAMP function to convert a
 TIMESTAMP string to a TIMESTAMPTZ.
 
 ```
@@ -54,7 +54,7 @@ TIMESTAMP string to a TIMESTAMPTZ.
 2021-04-05 19:27:53.281812 | 2021-04-05 19:27:53+00`
 ```
 
-It's possible to pass TO_TIMESTAMP part of a date. The remaining date parts are set to default values. The time is included in the output:
+It's possible to pass TO\_TIMESTAMP part of a date. The remaining date parts are set to default values. The time is included in the output:
 
 ```
 `SELECT TO_TIMESTAMP('2017','YYYY');`

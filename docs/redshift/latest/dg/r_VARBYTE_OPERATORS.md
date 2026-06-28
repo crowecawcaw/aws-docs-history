@@ -11,7 +11,7 @@ If one or both inputs is null, the result is null.
 ## Supported operators
 
 | Operator | Description           | Return type |
-| -------- | --------------------- | ----------- | ------------- | --------- |
+| -------- | --------------------- | ----------- |
 | <        | Less than             | `BOOLEAN`   |
 | <=       | Less than or equal    | `BOOLEAN`   |
 | =        | Equal                 | `BOOLEAN`   |
@@ -78,7 +78,7 @@ To concatenate two binary values using the `+` operator, use the following examp
 +--------+`
 ```
 
-To negate each bit of the input binary value using the FROM_VARBYTE function, use the following example. The string `'a'` evaluates to `01100001`. For more information, see [FROM_VARBYTE](r_FROM_VARBYTE.md "r_FROM_VARBYTE.md").
+To negate each bit of the input binary value using the FROM\_VARBYTE function, use the following example. The string `'a'` evaluates to `01100001`. For more information, see [FROM\_VARBYTE](r_FROM_VARBYTE.md "r_FROM_VARBYTE.md").
 
 ```
 `SELECT FROM_VARBYTE(~'a'::VARBYTE, 'binary');`

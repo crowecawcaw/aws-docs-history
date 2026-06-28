@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_ALL_SCHEMAS
+# SVV\_ALL\_SCHEMAS
 
-Use SVV_ALL_SCHEMAS to view a union of Amazon Redshift schemas as shown in SVV_REDSHIFT_SCHEMAS and the
-consolidated list of all external schemas from all databases. For more information about Amazon Redshift schemas, see [SVV_REDSHIFT_SCHEMAS](r_SVV_REDSHIFT_SCHEMAS.md "r_SVV_REDSHIFT_SCHEMAS.md").
+Use SVV\_ALL\_SCHEMAS to view a union of Amazon Redshift schemas as shown in SVV\_REDSHIFT\_SCHEMAS and the
+consolidated list of all external schemas from all databases. For more information about Amazon Redshift schemas, see [SVV\_REDSHIFT\_SCHEMAS](r_SVV_REDSHIFT_SCHEMAS.md "r_SVV_REDSHIFT_SCHEMAS.md").
 
-SVV_ALL_SCHEMAS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_ALL\_SCHEMAS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For more information about best practices when querying system tables and views, see
 [Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
@@ -20,19 +20,19 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name     | Data type    | Description                                                                                                                |
-| --------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| database_name   | varchar(128) | The name of the database where the schema<br>exists.                                                                       |
-| schema_name     | varchar(128) | The name of the schema.                                                                                                    |
-| schema_owner    | integer      | The user ID of the schema owner.<br>For information about user IDs, see [PG_USER_INFO](pg_user_info.md "pg_user_info.md"). |
-| schema_type     | varchar(128) | The type of the schema. Possible values are<br>external, local, and shared schemas.                                        |
-| schema_acl      | varchar(128) | The string that defines the permissions for the<br>specified user or user group for the schema.                            |
-| source_database | varchar(128) | The name of the source database for external schema.                                                                       |
-| schema_option   | varchar(256) | The options of the schema. This is an external<br>schema attribute.                                                        |
+| Column name      | Data type    | Description                                                                                                                  |
+| ---------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| database\_name   | varchar(128) | The name of the database where the schema<br>exists.                                                                         |
+| schema\_name     | varchar(128) | The name of the schema.                                                                                                      |
+| schema\_owner    | integer      | The user ID of the schema owner.<br>For information about user IDs, see [PG\_USER\_INFO](pg_user_info.md "pg_user_info.md"). |
+| schema\_type     | varchar(128) | The type of the schema. Possible values are<br>external, local, and shared schemas.                                          |
+| schema\_acl      | varchar(128) | The string that defines the permissions for the<br>specified user or user group for the schema.                              |
+| source\_database | varchar(128) | The name of the source database for external schema.                                                                         |
+| schema\_option   | varchar(256) | The options of the schema. This is an external<br>schema attribute.                                                          |
 
 ## Sample query
 
-The following example returns the output of SVV_ALL_SCHEMAS.
+The following example returns the output of SVV\_ALL\_SCHEMAS.
 
 ```
 SELECT *

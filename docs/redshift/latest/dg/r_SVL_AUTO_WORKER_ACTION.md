@@ -2,22 +2,22 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVL_AUTO_WORKER_ACTION
+# SVL\_AUTO\_WORKER\_ACTION
 
 Records automated actions taken by Amazon Redshift on tables defined for automatic optimization.
 
-SVL_AUTO_WORKER_ACTION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL\_AUTO\_WORKER\_ACTION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name    | Data type      | Description                                                                                                                                                                                                                                     |
-| -------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| table_id       | integer        | The table identifier.                                                                                                                                                                                                                           |
-| type           | character(32)  | The type of recommendation. Possible values are<br>distkey and sortkey.                                                                                                                                                                         |
-| status         | character(128) | The completion status of the recommendation.<br>Possible values are Start, Complete, Skipped, Abort, Checkpoint, and Failed.                                                                                                                    |
-| eventtime      | timestamp      | The timestamp of the `status` column.                                                                                                                                                                                                           |
-| sequence       | integer        | The sequence number of a truncated<br>`previous_state` value. When a single<br>`previous_state` contains more than 200 characters,<br>additional rows are logged for that value. Sequence is 0 is the<br>first row, 1 is the second, and so on. |
-| previous_state | character(200) | The previous distribution style and sort keys of the table<br>before applying the recommendation. The value is truncated into 200-character increments.                                                                                         |
+| Column name     | Data type      | Description                                                                                                                                                                                                                                     |
+| --------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| table\_id       | integer        | The table identifier.                                                                                                                                                                                                                           |
+| type            | character(32)  | The type of recommendation. Possible values are<br>distkey and sortkey.                                                                                                                                                                         |
+| status          | character(128) | The completion status of the recommendation.<br>Possible values are Start, Complete, Skipped, Abort, Checkpoint, and Failed.                                                                                                                    |
+| eventtime       | timestamp      | The timestamp of the `status` column.                                                                                                                                                                                                           |
+| sequence        | integer        | The sequence number of a truncated<br>`previous_state` value. When a single<br>`previous_state` contains more than 200 characters,<br>additional rows are logged for that value. Sequence is 0 is the<br>first row, 1 is the second, and so on. |
+| previous\_state | character(200) | The previous distribution style and sort keys of the table<br>before applying the recommendation. The value is truncated into 200-character increments.                                                                                         |
 
 Some examples of values of the `status` column are as follows:
 

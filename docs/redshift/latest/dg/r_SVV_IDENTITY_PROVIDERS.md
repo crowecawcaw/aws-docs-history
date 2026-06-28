@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_IDENTITY_PROVIDERS
+# SVV\_IDENTITY\_PROVIDERS
 
-The SVV_IDENTITY_PROVIDERS view returns the name and additional properties for
+The SVV\_IDENTITY\_PROVIDERS view returns the name and additional properties for
 identity providers. For more information about how to create an identity provider, see
 [CREATE IDENTITY PROVIDER](r_CREATE_IDENTITY_PROVIDER.md "r_CREATE_IDENTITY_PROVIDER.md").
 
-SVV_IDENTITY_PROVIDERS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_IDENTITY\_PROVIDERS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

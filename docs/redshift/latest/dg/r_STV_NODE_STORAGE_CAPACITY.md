@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_NODE_STORAGE_CAPACITY
+# STV\_NODE\_STORAGE\_CAPACITY
 
-The STV_NODE_STORAGE_CAPACITY table shows details of total storage capacity and total used capacity for each node in a cluster.
+The STV\_NODE\_STORAGE\_CAPACITY table shows details of total storage capacity and total used capacity for each node in a cluster.
 It contains a row for each node.
 
-STV_NODE_STORAGE_CAPACITY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_NODE\_STORAGE\_CAPACITY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

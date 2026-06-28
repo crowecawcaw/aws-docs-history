@@ -5,9 +5,9 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # Usage notes
 
 This topic contains usage notes for [CREATE EXTERNAL TABLE](r_CREATE_EXTERNAL_TABLE.md "r_CREATE_EXTERNAL_TABLE.md"). You can't view details for Amazon Redshift Spectrum
-tables using the same resources that you use for standard Amazon Redshift tables, such as [PG_TABLE_DEF](r_PG_TABLE_DEF.md "r_PG_TABLE_DEF.md"), [STV_TBL_PERM](r_STV_TBL_PERM.md "r_STV_TBL_PERM.md"), PG_CLASS, or
-information_schema. If your business intelligence or analytics tool doesn't
-recognize Redshift Spectrum external tables, configure your application to query [SVV_EXTERNAL_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV_EXTERNAL_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md").
+tables using the same resources that you use for standard Amazon Redshift tables, such as [PG\_TABLE\_DEF](r_PG_TABLE_DEF.md "r_PG_TABLE_DEF.md"), [STV\_TBL\_PERM](r_STV_TBL_PERM.md "r_STV_TBL_PERM.md"), PG\_CLASS, or
+information\_schema. If your business intelligence or analytics tool doesn't
+recognize Redshift Spectrum external tables, configure your application to query [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV\_EXTERNAL\_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md").
 
 ## CREATE EXTERNAL TABLE AS
 
@@ -46,16 +46,16 @@ Consider the following when running the CREATE EXTERNAL TABLE AS command:
   the partition key values. By default, Amazon Redshift removes partition columns from the
   output files.
 - The LINES TERMINATED BY 'delimiter' clause isn't supported.
-- The ROW FORMAT SERDE 'serde_name' clause isn't supported.
+- The ROW FORMAT SERDE 'serde\_name' clause isn't supported.
 - The use of manifest files isn't supported. Thus, you can't define
   the LOCATION clause to a manifest file on Amazon S3.
 - Amazon Redshift automatically updates the 'numRows' table property at the end
   of the command.
-- The 'compression_type' table property only accepts
+- The 'compression\_type' table property only accepts
   'none' or 'snappy' for the PARQUET file format.
 - Amazon Redshift doesn't allow the LIMIT clause in the outer SELECT query. Instead,
   you can use a nested LIMIT clause.
-- You can use STL_UNLOAD_LOG to track the files that are written to Amazon S3 by
+- You can use STL\_UNLOAD\_LOG to track the files that are written to Amazon S3 by
   each CREATE EXTERNAL TABLE AS operation.
 
 ## Permissions to create and query external tables
@@ -91,13 +91,13 @@ grant temp on database spectrumdb to group spectrumusers;
 ## Pseudocolumns
 
 By default, Amazon Redshift creates external tables with the pseudocolumns
-_$path_ and _$size_. Select these columns to
+_$path* and *$size_. Select these columns to
 view the path to the data files on Amazon S3 and the size of the data files for each
-row returned by a query. The _$path_ and
-_$size_ column names must be delimited with double quotation
-marks. A \*SELECT \*_ clause doesn't return the pseudocolumns .
+row returned by a query. The _$path* and
+ *$size_ column names must be delimited with double quotation
+marks. A _SELECT \*_ clause doesn't return the pseudocolumns .
 You must explicitly include the _$path* and
- *$size\* column names in your query, as the following example
+ *$size_ column names in your query, as the following example
 shows.
 
 ```
@@ -107,12 +107,12 @@ where saledate = '2008-12-01';
 ```
 
 You can disable creation of pseudocolumns for a session by setting the
-_spectrum_enable_pseudo_columns_ configuration parameter to
+_spectrum\_enable\_pseudo\_columns_ configuration parameter to
 _false_.
 
 ###### Important
 
-Selecting _$size_ or _$path_ incurs
+Selecting _$size* or *$path_ incurs
 charges because Redshift Spectrum scans the data files in Amazon S3 to determine the size of the
 result set. For more information, see [Amazon Redshift Pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
 
@@ -132,6 +132,6 @@ external tables, including:
 - Cast overflow handling in columns containing integer and decimal data. For
   more information, see the external table property
   `numeric_overflow_handling`.
-- Surplus_bytes_handling to specify input handling for surplus bytes in
+- Surplus\_bytes\_handling to specify input handling for surplus bytes in
   columns containing varbyte data. For more information, see the external table
   property `surplus_bytes_handling`.

@@ -6,7 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 Shows a list of parameters for a function/procedure, along with some information about the parameters.
 
-Each output row has columns database_name, schema_name, procedure_name or function_name, parameter_name, ordinal_position, parameter_type (IN/OUT), data_type, character_maximum_length, numeric_precision, numeric_scale, and remarks.
+Each output row has columns database\_name, schema\_name, procedure\_name or function\_name, parameter\_name, ordinal\_position, parameter\_type (IN/OUT), data\_type, character\_maximum\_length, numeric\_precision, numeric\_scale, and remarks.
 
 ## Required permissions
 
@@ -26,15 +26,15 @@ SHOW PARAMETERS OF {FUNCTION| PROCEDURE}
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 The name of the database that contains the function to list.
 
-_schema_name_
+_schema\_name_
 
 The name of the schema that contains the function to list.
 
-_filter_pattern_
+_filter\_pattern_
 
 A valid UTF-8 character expression with a pattern to match parameter names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:
 
@@ -45,7 +45,7 @@ A valid UTF-8 character expression with a pattern to match parameter names. The 
 
 ## Examples
 
-The following example shows parameters of procedure demo_db.demo_schema.f1:
+The following example shows parameters of procedure demo\_db.demo\_schema.f1:
 
 ```
 SHOW PARAMETERS OF PROCEDURE demo_db.demo_schema.f1(VARCHAR, DECIMAL, DECIMAL, DECIMAL);
@@ -60,7 +60,7 @@ SHOW PARAMETERS OF PROCEDURE demo_db.demo_schema.f1(VARCHAR, DECIMAL, DECIMAL, D
  demo_db       | demo_schema | f1             | is_successful    |                7 | OUT            | boolean                     |                          |                   |
 ```
 
-The following example shows parameters of procedure demo_schema.f1 with names starting with 'val':
+The following example shows parameters of procedure demo\_schema.f1 with names starting with 'val':
 
 ```
 SHOW PARAMETERS OF PROCEDURE demo_schema.f1(VARCHAR, DECIMAL, DECIMAL, DECIMAL) like 'val%';
@@ -70,7 +70,7 @@ SHOW PARAMETERS OF PROCEDURE demo_schema.f1(VARCHAR, DECIMAL, DECIMAL, DECIMAL) 
  demo_db       | demo_schema | f1             | value2         |                3 | IN             | numeric   |                          |                18 |             0
 ```
 
-The following example shows parameters of function demo_schema.f2:
+The following example shows parameters of function demo\_schema.f2:
 
 ```
 SHOW PARAMETERS OF FUNCTION demo_schema.f2(INT, VARCHAR, DECIMAL, DATE, TIMESTAMP, BOOLEAN);

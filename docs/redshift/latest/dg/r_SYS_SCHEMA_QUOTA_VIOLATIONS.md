@@ -2,26 +2,26 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_SCHEMA_QUOTA_VIOLATIONS
+# SYS\_SCHEMA\_QUOTA\_VIOLATIONS
 
 Records the occurrence, transaction ID, and other useful information when a schema
-quota is exceeded. This system table is a translation of [STL_SCHEMA_QUOTA_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md").
+quota is exceeded. This system table is a translation of [STL\_SCHEMA\_QUOTA\_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md").
 
-r_SYS_SCHEMA_QUOTA_VIOLATIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+r\_SYS\_SCHEMA\_QUOTA\_VIOLATIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name    | Data type                   | Description                                                     |
-| -------------- | --------------------------- | --------------------------------------------------------------- |
-| owner_id       | integer                     | The ID of the schema owner.                                     |
-| user_id        | integer                     | The ID of the user who generated the<br>entry.                  |
-| transaction_id | bigint                      | The transaction ID associated with the<br>statement.            |
-| session_id     | integer                     | The process ID associated with the<br>statement.                |
-| schema_id      | integer                     | The namespace or schema ID.                                     |
-| schema_name    | character (128)             | The namespace or schema name.                                   |
-| quota          | integer                     | The amount of disk space (in MB) that the schema<br>can use.    |
-| disk_usage     | integer                     | The disk space (in MB) that is currently used by<br>the schema. |
-| record_time    | timestamp without time zone | The time when the violation occurred.                           |
+| Column name     | Data type                   | Description                                                     |
+| --------------- | --------------------------- | --------------------------------------------------------------- |
+| owner\_id       | integer                     | The ID of the schema owner.                                     |
+| user\_id        | integer                     | The ID of the user who generated the<br>entry.                  |
+| transaction\_id | bigint                      | The transaction ID associated with the<br>statement.            |
+| session\_id     | integer                     | The process ID associated with the<br>statement.                |
+| schema\_id      | integer                     | The namespace or schema ID.                                     |
+| schema\_name    | character (128)             | The namespace or schema name.                                   |
+| quota           | integer                     | The amount of disk space (in MB) that the schema<br>can use.    |
+| disk\_usage     | integer                     | The disk space (in MB) that is currently used by<br>the schema. |
+| record\_time    | timestamp without time zone | The time when the violation occurred.                           |
 
 ## Sample queries
 

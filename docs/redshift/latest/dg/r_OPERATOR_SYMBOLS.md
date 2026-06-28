@@ -9,7 +9,7 @@ The following table lists the supported mathematical operators.
 ## Supported operators
 
 | Operator | Description         | Example     | Result    |
-| -------- | ------------------- | ----------- | --------- | ------ | --- | ------ | --- |
+| -------- | ------------------- | ----------- | --------- |
 | +        | addition            | 2 + 3       | 5         |
 | -        | subtraction         | 2<br>• 3    | -1        |
 | \*       | multiplication      | 2 \<br>• 3  | 6         |

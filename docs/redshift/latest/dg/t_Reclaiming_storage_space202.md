@@ -35,12 +35,12 @@ Depending on the load on the system, Amazon Redshift automatically initiates the
 automatic sort lessens the need to run the VACUUM command to keep data in sort key
 order. If you need data fully sorted in sort key order, for example after a large data load, then you
 can still manually run the VACUUM command. To determine whether your table will benefit by
-running VACUUM SORT, monitor the `vacuum_sort_benefit` column in [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md").
+running VACUUM SORT, monitor the `vacuum_sort_benefit` column in [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md").
 
 Amazon Redshift tracks scan queries that use the sort key on each table. Amazon Redshift estimates
 the maximum percentage of improvement in scanning and filtering of data for each table
 (if the table was fully sorted). This estimate is visible in the
-`vacuum_sort_benefit` column in [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). You can use this column, along with the
+`vacuum_sort_benefit` column in [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). You can use this column, along with the
 `unsorted` column, to determine when queries can benefit from manually
 running VACUUM SORT on a table.
 The `unsorted` column reflects the physical sort order of a table.
@@ -97,7 +97,7 @@ Consider these factors when determining how often to run your VACUUM command:
   complete, the more impact it will have on concurrent queries and other database
   operations running on your cluster.
 - VACUUM takes longer for tables that use interleaved sorting. To evaluate
-  whether interleaved tables must be re-sorted, query the [SVV_INTERLEAVED_COLUMNS](r_SVV_INTERLEAVED_COLUMNS.md "r_SVV_INTERLEAVED_COLUMNS.md")
+  whether interleaved tables must be re-sorted, query the [SVV\_INTERLEAVED\_COLUMNS](r_SVV_INTERLEAVED_COLUMNS.md "r_SVV_INTERLEAVED_COLUMNS.md")
   view.
 
 ## Sort stage and merge stage

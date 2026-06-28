@@ -31,11 +31,11 @@ OVER
 A clause that specifies the window partitioning and ordering. The OVER
 clause cannot contain a window frame specification.
 
-PARTITION BY _window_partition_
+PARTITION BY _window\_partition_
 
 Optional. The range of records for each group in the OVER clause.
 
-ORDER BY _window_ordering_
+ORDER BY _window\_ordering_
 
 Optional. An expression that sorts the rows within each partition. If the
 ORDER BY clause is omitted, the ranking behavior is the same.

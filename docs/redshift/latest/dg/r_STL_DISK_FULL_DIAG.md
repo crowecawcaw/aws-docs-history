@@ -2,20 +2,20 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_DISK_FULL_DIAG
+# STL\_DISK\_FULL\_DIAG
 
 Logs information about errors recorded when the disk is full.
 
-STL_DISK_FULL_DIAG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_DISK\_FULL\_DIAG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name | Data type | Description                                                                     |
-| ----------- | --------- | ------------------------------------------------------------------------------- |
-| currenttime | bigint    | The day and time the error was generated in microseconds since January 1, 2000. |
-| node_num    | bigint    | The identifier for the node.                                                    |
-| query_id    | bigint    | The identifier for the query that caused the<br>error.                          |
-| temp_blocks | bigint    | The number of temporary blocks created by the<br>query.                         |
+| Column name  | Data type | Description                                                                     |
+| ------------ | --------- | ------------------------------------------------------------------------------- |
+| currenttime  | bigint    | The day and time the error was generated in microseconds since January 1, 2000. |
+| node\_num    | bigint    | The identifier for the node.                                                    |
+| query\_id    | bigint    | The identifier for the query that caused the<br>error.                          |
+| temp\_blocks | bigint    | The number of temporary blocks created by the<br>query.                         |
 
 ## Sample queries
 

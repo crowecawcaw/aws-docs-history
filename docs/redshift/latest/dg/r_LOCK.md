@@ -25,7 +25,7 @@ operations prevent data reads.
 
 If a lock conflict occurs, Amazon Redshift displays an error message to alert the user who
 started the transaction in conflict. The transaction that received the lock conflict is
-stopped. Every time a lock conflict occurs, Amazon Redshift writes an entry to the [STL_TR_CONFLICT](r_STL_TR_CONFLICT.md "r_STL_TR_CONFLICT.md") table.
+stopped. Every time a lock conflict occurs, Amazon Redshift writes an entry to the [STL\_TR\_CONFLICT](r_STL_TR_CONFLICT.md "r_STL_TR_CONFLICT.md") table.
 
 ## Syntax
 
@@ -39,7 +39,7 @@ TABLE
 
 Optional keyword.
 
-_table_name_
+_table\_name_
 
 Name of the table to lock. You can lock more than one table by using a
 comma-delimited list of table names. You can't lock views.

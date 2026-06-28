@@ -8,7 +8,7 @@ TIMEZONE returns a timestamp for the specified time zone and timestamp value.
 
 For information and examples about how to set time zone, see [timezone](r_timezone_config.md "r_timezone_config.md").
 
-For information and examples about how to convert time zone, see [CONVERT_TIMEZONE](CONVERT_TIMEZONE.md "CONVERT_TIMEZONE.md").
+For information and examples about how to convert time zone, see [CONVERT\_TIMEZONE](CONVERT_TIMEZONE.md "CONVERT_TIMEZONE.md").
 
 ## Syntax
 

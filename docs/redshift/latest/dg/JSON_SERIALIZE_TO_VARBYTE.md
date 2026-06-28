@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# JSON_SERIALIZE_TO_VARBYTE function
+# JSON\_SERIALIZE\_TO\_VARBYTE function
 
-The JSON_SERIALIZE_TO_VARBYTE function converts a `SUPER` value to a JSON string
-similar to JSON_SERIALIZE(), but stored in a `VARBYTE` value instead.
+The JSON\_SERIALIZE\_TO\_VARBYTE function converts a `SUPER` value to a JSON string
+similar to JSON\_SERIALIZE(), but stored in a `VARBYTE` value instead.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ JSON_SERIALIZE_TO_VARBYTE(*super\_expression*)
 
 ## Arguments
 
-_super_expression_
+_super\_expression_
 
 A `SUPER` expression or column.
 

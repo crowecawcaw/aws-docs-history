@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# EXPLAIN_MODEL function
+# EXPLAIN\_MODEL function
 
-The EXPLAIN_MODEL function returns a SUPER data type that contains a model
+The EXPLAIN\_MODEL function returns a SUPER data type that contains a model
 explainability report in a JSON format. The explainability report contains information
 about the Shapley value for all model features.
 
-The EXPLAIN_MODEL function currently supports only the AUTO ON or AUTO OFF XGBoost
+The EXPLAIN\_MODEL function currently supports only the AUTO ON or AUTO OFF XGBoost
 models.
 
 When the explainability report isn't available, the function returns statuses
@@ -39,17 +39,17 @@ EXPLAIN_MODEL (*'schema\_name.model\_name'*)
 
 ## Argument
 
-_schema_name_
+_schema\_name_
 
-The name of the schema. If no schema_name is specified, then the current schema is selected.
+The name of the schema. If no schema\_name is specified, then the current schema is selected.
 
-_model_name_
+_model\_name_
 
 The name of the model. The model name in a schema must be unique.
 
 ## Return type
 
-The EXPLAIN_MODEL function returns a SUPER data type, as shown following.
+The EXPLAIN\_MODEL function returns a SUPER data type, as shown following.
 
 ```
 {"version":"1.0","explanations":{"kernel_shap":{"label0":{"global_shap_values":{"x0":0.05,"x1":0.10,"x2":0.30,"x3":0.15},"expected_value":0.50}}}}
@@ -78,7 +78,7 @@ select explain_model('customer_churn_auto_model');
 (1 row)
 ```
 
-Because the EXPLAIN_MODEL function returns the SUPER data type, you can query the
+Because the EXPLAIN\_MODEL function returns the SUPER data type, you can query the
 explainability report. By doing this, you can extract
 `global_shap_values`, `expected_value`, or feature-specific
 Shapley values.

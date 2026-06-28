@@ -2,14 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# BOOL_AND function
+# BOOL\_AND function
 
-The BOOL_AND function operates on a single Boolean or integer column or
-expression. This function applies similar logic to the BIT_AND and BIT_OR functions. For
+The BOOL\_AND function operates on a single Boolean or integer column or
+expression. This function applies similar logic to the BIT\_AND and BIT\_OR functions. For
 this function, the return type is a Boolean value (`true` or
 `false`).
 
-If all values in a set are true, the BOOL_AND function returns
+If all values in a set are true, the BOOL\_AND function returns
 `true` (`t`). If any value is false, the function returns
 `false` (`f`).
 
@@ -40,7 +40,7 @@ You can use the Boolean functions against either Boolean expressions or integer
 expressions. For example, the following query return results from the standard USERS
 table in the TICKIT database, which has several Boolean columns.
 
-The BOOL_AND function returns
+The BOOL\_AND function returns
 `false` for all five rows. Not all users in each of those states likes
 sports.
 

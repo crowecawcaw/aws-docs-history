@@ -15,7 +15,7 @@ DROP IDENTITY PROVIDER *identity\_provider\_name* [ CASCADE ]
 
 ## Parameters
 
-_identity_provider_name_
+_identity\_provider\_name_
 
 Name of the identity provider to delete.
 
@@ -26,7 +26,7 @@ deleted.
 
 ## Example
 
-The following example deletes the _oauth_provider_ identity
+The following example deletes the _oauth\_provider_ identity
 provider.
 
 ```

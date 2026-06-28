@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# LAST_VALUE window function
+# LAST\_VALUE window function
 
 Given an ordered set of rows,
-The LAST_VALUE function
+The LAST\_VALUE function
 returns the value of the expression with respect to the last row in the frame.
 
-For information about selecting the first row in the frame, see [FIRST_VALUE window function](r_WF_first_value.md "r_WF_first_value.md") .
+For information about selecting the first row in the frame, see [FIRST\_VALUE window function](r_WF_first_value.md "r_WF_first_value.md") .
 
 ## Syntax
 
@@ -41,15 +41,15 @@ OVER
 
 Introduces the window clauses for the function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Defines the window for the function in terms of one or more expressions.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Sorts the rows within each partition. If no PARTITION BY clause is
 specified, ORDER BY sorts the entire table. If you specify an ORDER BY
-clause, you must also specify a _frame_clause_.
+clause, you must also specify a _frame\_clause_.
 
 The results depend on the
 ordering of the data. The results are nondeterministic in the following
@@ -60,7 +60,7 @@ cases:
 - When the expression evaluates to different values that correspond
   to the same value in the ORDER BY list.
 
-_frame_clause_
+_frame\_clause_
 
 If an ORDER BY clause is used for an aggregate function, an explicit
 frame clause is required. The frame clause refines the set of rows in a
@@ -79,7 +79,7 @@ The following examples use the VENUE table from the sample TICKIT data.
 For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
 
 The following example returns the seating capacity for each venue in the VENUE
-table, with the results ordered by capacity (high to low). The LAST_VALUE function
+table, with the results ordered by capacity (high to low). The LAST\_VALUE function
 is used to select the name of the venue that corresponds to the last row in the
 frame: in this case, the row with the least number of seats. The results are
 partitioned by state, so when the VENUESTATE value changes, a new last value is

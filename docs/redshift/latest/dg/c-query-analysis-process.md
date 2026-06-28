@@ -30,11 +30,11 @@ the diagnostic query in [Identifying queries that are top candidates for tuning]
    what type of connection protocol the client uses) so that the query is compiled
    and cached. This approach speeds up subsequent runs of the query. For more
    information, see [Factors affecting query performance](c-query-performance.md "c-query-performance.md").
-6. Check the [STL_ALERT_EVENT_LOG](r_STL_ALERT_EVENT_LOG.md "r_STL_ALERT_EVENT_LOG.md") table to identify and correct possible
+6. Check the [STL\_ALERT\_EVENT\_LOG](r_STL_ALERT_EVENT_LOG.md "r_STL_ALERT_EVENT_LOG.md") table to identify and correct possible
    issues with your query. For more information, see [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
 7. Run the [EXPLAIN](r_EXPLAIN.md "r_EXPLAIN.md") command to get
    the query plan and use it to optimize the query. For more information, see [Analyzing the query plan](c-analyzing-the-query-plan.md "c-analyzing-the-query-plan.md").
-8. Use the [SVL_QUERY_SUMMARY](r_SVL_QUERY_SUMMARY.md "r_SVL_QUERY_SUMMARY.md") and [SVL_QUERY_REPORT](r_SVL_QUERY_REPORT.md "r_SVL_QUERY_REPORT.md")
+8. Use the [SVL\_QUERY\_SUMMARY](r_SVL_QUERY_SUMMARY.md "r_SVL_QUERY_SUMMARY.md") and [SVL\_QUERY\_REPORT](r_SVL_QUERY_REPORT.md "r_SVL_QUERY_REPORT.md")
    views to get summary information and use it to optimize the query. For more
    information, see [Analyzing the query summary](c-analyzing-the-query-summary.md "c-analyzing-the-query-summary.md").
    Sometimes a query that should run quickly is forced to wait until another,

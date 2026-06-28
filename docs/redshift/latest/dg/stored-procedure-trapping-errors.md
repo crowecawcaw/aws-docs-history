@@ -66,9 +66,9 @@ END;
 
 There are several system tables available to help you gather
 information about various types of errors. For more information,
-see [STL_LOAD_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md"),
-[STL_ERROR](r_STL_ERROR.md "r_STL_ERROR.md"),
-and [SYS_STREAM_SCAN_ERRORS](r_SYS_STREAM_SCAN_ERRORS.md "r_SYS_STREAM_SCAN_ERRORS.md"). There are
+see [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md"),
+[STL\_ERROR](r_STL_ERROR.md "r_STL_ERROR.md"),
+and [SYS\_STREAM\_SCAN\_ERRORS](r_SYS_STREAM_SCAN_ERRORS.md "r_SYS_STREAM_SCAN_ERRORS.md"). There are
 also additional system tables you can use to troubleshoot errors. More information about
 these can be found at [System tables and views reference](cm_chap_system-tables.md "cm_chap_system-tables.md").
 
@@ -255,13 +255,13 @@ Flow proceeds like so:
 
 1. An error occurs because an attempt is made to insert an incompatible data type in a column. Control passes to the EXCEPTION block. When the
    exception-handling block is entered, the current transaction is rolled back and a new implicit transaction is created to run the statements in it.
-2. If the statements in CONTINUE_HANDLER run without error, control passes to the statement immediately following the statement
-   causing the exception. (If a statement in CONTINUE_HANDLER raises a new exception, you can handle it with an exception handler within the EXCEPTION block.)
+2. If the statements in CONTINUE\_HANDLER run without error, control passes to the statement immediately following the statement
+   causing the exception. (If a statement in CONTINUE\_HANDLER raises a new exception, you can handle it with an exception handler within the EXCEPTION block.)
    After you call the sample stored procedure, the tables contain the following records:
 
 - If you run `SELECT * FROM tbl_1;`, it returns two records. These contain the values `1` and `2`.
 - If you run `SELECT * FROM tbl_error_logging;`, it returns one record with these values: _Encountered error_, _42703_,
-  and _column "val" does not exist in tbl_1_.
+  and _column "val" does not exist in tbl\_1_.
   The following additional error-handling example uses both an EXIT handler and a CONTINUE handler. It creates two tables: a data table and a logging table. It also creates a stored procedure
   that demonstrates error handling:
 
@@ -304,8 +304,8 @@ After you call the sample stored procedure, the tables contain the following rec
 
 - If you run `SELECT * FROM tbl_1;`, it returns four records, with the values 1, 2, 3, and 100.
 - If you run `SELECT * FROM tbl_error_logging;`, it returns two records. They have these values: _Encountered error_, _42703_,
-  and _column "val" does not exist in tbl_1_.
-  If the table **tbl_error_logging** doesn't exist, it raises an exception.
+  and _column "val" does not exist in tbl\_1_.
+  If the table **tbl\_error\_logging** doesn't exist, it raises an exception.
 
 The following example shows how to use the CONTINUE exception handler with the FOR loop. This sample creates three tables and uses them in a FOR loop within a stored procedure. The FOR loop
 is result set variant, meaning that it iterates over the results of a query:
@@ -345,8 +345,8 @@ CALL sp_exc_handling_loop();
 After you call the sample stored procedure, the tables contain the following records:
 
 - If you run `SELECT * FROM tbl_2;`, it returns two records. These contain the values 1 and 3.
-- If you run `SELECT * FROM tbl_error_logging;`, it returns one record with these values: _Encountered error_, _42703_, and _column "val" does not exist in tbl_2_.
+- If you run `SELECT * FROM tbl_error_logging;`, it returns one record with these values: _Encountered error_, _42703_, and _column "val" does not exist in tbl\_2_.
   Usage notes regarding the CONTINUE handler:
 
-- CONTINUE_HANDLER and EXIT_HANDLER keywords can be used only in NONATOMIC stored procedures.
-- CONTINUE_HANDLER and EXIT_HANDLER keywords are optional. EXIT_HANDLER is the default.
+- CONTINUE\_HANDLER and EXIT\_HANDLER keywords can be used only in NONATOMIC stored procedures.
+- CONTINUE\_HANDLER and EXIT\_HANDLER keywords are optional. EXIT\_HANDLER is the default.

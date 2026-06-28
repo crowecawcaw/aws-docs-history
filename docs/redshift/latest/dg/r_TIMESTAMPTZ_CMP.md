@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# TIMESTAMPTZ_CMP function
+# TIMESTAMPTZ\_CMP function
 
-TIMESTAMPTZ_CMP compares the value of two timestamp with time zone values and returns an
+TIMESTAMPTZ\_CMP compares the value of two timestamp with time zone values and returns an
 integer. If the timestamps are identical, the function returns `0`. If the first
 timestamp is greater chronologically, the function returns `1`. If the second
 timestamp is greater, the function returns `–1`.

@@ -52,8 +52,8 @@ Specifies a positive or negative numeric value specifying a
 quantity and the datetime unit as an input string. If the
 _quoted-string_ contains only a numeric, then
 Amazon Redshift determines the units from the
-_year_to_month_qualifier_ or
-_day_to_second_qualifier_. For example,
+_year\_to\_month\_qualifier_ or
+_day\_to\_second\_qualifier_. For example,
 `'23' MONTH` represents `1 year 11
  months`, `'-2' DAY` represents `-2 days 0
  hours 0 minutes 0.0 seconds`, `'1-2' MONTH`
@@ -62,24 +62,24 @@ represents `1 year 2 months`, and `'13 day 1 hour 1
  hour 1 minute 1.123 seconds`. For more information about
 output formats of an interval, see [Interval styles](#r_interval_data_types-interval-styles "#r_interval_data_types-interval-styles").
 
-_year_to_month_qualifier_
+_year\_to\_month\_qualifier_
 
 Specifies the range of the interval. If you use a qualifier and
 create an interval with time units smaller than the qualifier,
 Amazon Redshift truncates and discards the smaller parts of the interval.
-Valid values for _year_to_month_qualifier_
+Valid values for _year\_to\_month\_qualifier_
 are:
 
 - `YEAR`
 - `MONTH`
 - `YEAR TO MONTH`
 
-_day_to_second_qualifier_
+_day\_to\_second\_qualifier_
 
 Specifies the range of the interval. If you use a qualifier and
 create an interval with time units smaller than the qualifier,
 Amazon Redshift truncates and discards the smaller parts of the interval.
-Valid values for _day_to_second_qualifier_
+Valid values for _day\_to\_second\_qualifier_
 are:
 
 - `DAY`
@@ -105,11 +105,11 @@ select INTERVAL '1 day 1 hour 1 minute 1.123 seconds' MINUTE
 The resulting value is truncated to `'1 day
  01:01:00'`.
 
-_fractional_precision_
+_fractional\_precision_
 
 Optional parameter that specifies the number of fractional
 digits allowed in the interval. The
-_fractional_precision_ argument should only
+_fractional\_precision_ argument should only
 be specified if your interval contains SECOND. For example,
 `SECOND(3)` creates an interval that allows only
 three fractional digits, such as 1.234 seconds. The maximum number
@@ -117,7 +117,7 @@ of fractional digits is six.
 
 The session configuration `interval_forbid_composite_literals`
 determines whether an error is returned when an interval is specified with
-both YEAR TO MONTH and DAY TO SECOND parts. For more information, see [interval_forbid_composite_literals](r_interval_forbid_composite_literals.md "r_interval_forbid_composite_literals.md").
+both YEAR TO MONTH and DAY TO SECOND parts. For more information, see [interval\_forbid\_composite\_literals](r_interval_forbid_composite_literals.md "r_interval_forbid_composite_literals.md").
 
 ## Interval arithmetic
 
@@ -205,9 +205,9 @@ style. Each numeric value can be negative.
 1 day 02:03:04.5678`
 ```
 
-**postgres_verbose output format**
+**postgres\_verbose output format**
 
-postgres_verbose syntax is similar to postgres, but postgres_verbose
+postgres\_verbose syntax is similar to postgres, but postgres\_verbose
 outputs also contain the unit of time.
 
 ```
@@ -228,7 +228,7 @@ outputs also contain the unit of time.
 @ 1 day 2 hours 3 mins 4.56 secs`
 ```
 
-**sql_standard output format**
+**sql\_standard output format**
 
 Interval year to month values are formatted as the following. Specifying
 a negative sign before the interval indicates the interval is a negative

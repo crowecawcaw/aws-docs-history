@@ -23,29 +23,29 @@ SHOW { RLS | MASKING } POLICIES
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 The name of the database to show policies from.
 
-_schema_name_
+_schema\_name_
 
 Schema name of the relation to show attached policies on.
 
-_relation_name_
+_relation\_name_
 
 The name of the relation to show attached policies on.
 
-_user_name_
+_user\_name_
 
 The name of the user for whom the policy is attached on relation.
 
-_role_name_
+_role\_name_
 
 The name of the role for which the policy is attached on relation.
 
-_row_limit_
+_row\_limit_
 
-The maximum number of rows to return. The _row_limit_ can be 0–10,000.
+The maximum number of rows to return. The _row\_limit_ can be 0–10,000.
 
 ###### Note
 
@@ -63,7 +63,7 @@ SHOW RLS POLICIES;
  policy_america | rls_table    | [{"colname":"region","type":"character varying(10)"}]            | (("rls_table"."region" = CAST('USA' AS TEXT)) OR ("rls_table"."region" = CAST('CANADA' AS TEXT)) OR ("rls_table"."region" = CAST('Mexico' AS TEXT))) | t              | admin              | 2025-11-07 14:57:27
 ```
 
-The following command shows masking policies from the database "sales_db.finance-catalog";
+The following command shows masking policies from the database "sales\_db.finance-catalog";
 
 ```
 SHOW MASKING POLICIES FROM DATABASE "sales_db@finance-catalog";
@@ -75,7 +75,7 @@ SHOW MASKING POLICIES FROM DATABASE "sales_db@finance-catalog";
 (2 rows)
 ```
 
-The following command shows RLS policies attached on the relation sales_table;
+The following command shows RLS policies attached on the relation sales\_table;
 
 ```
 SHOW RLS POLICIES ON sales_schema.sales_table;
@@ -86,7 +86,7 @@ SHOW RLS POLICIES ON sales_schema.sales_table;
  policy_america | sales_schema | sales_table   | table         | admin    | sales_analyst_usa         | user         | t            | t         | and
 ```
 
-The following command shows masking policies attached on the relation transaction_table from the database "sales_db.finance-catalog".
+The following command shows masking policies attached on the relation transaction\_table from the database "sales\_db.finance-catalog".
 
 ```
 SHOW MASKING POLICIES ON "sales_db@finance-catalog".sales_schema.transaction_table LIMIT 1;
@@ -96,7 +96,7 @@ SHOW MASKING POLICIES ON "sales_db@finance-catalog".sales_schema.transaction_tab
  hash_username | sales_schema | transaction_table | table         | admin    | transaction_analyst_role | role         |      100 | ["user_name"]     | ["user_name"]
 ```
 
-The following command shows RLS policies attached on the relation sales_table from the database "sales_db.finance-catalog" for the user "IAMR:sales_analyst_usa".
+The following command shows RLS policies attached on the relation sales\_table from the database "sales\_db.finance-catalog" for the user "IAMR:sales\_analyst\_usa".
 
 ```
 SHOW RLS POLICIES ON "sales_db@finance-catalog".sales_schema.sales_table FOR "IAMR:sales_analyst_usa";
@@ -106,7 +106,7 @@ SHOW RLS POLICIES ON "sales_db@finance-catalog".sales_schema.sales_table FOR "IA
  policy_america | sales_schema | sales_table   | table         | admin    | IAMR:sales_analyst_usa | user         | t            | t         | and
 ```
 
-The following command shows RLS policies attached on the relation transaction_table from the database "sales_db.finance-catalog" for the role transaction_analyst_role.
+The following command shows RLS policies attached on the relation transaction\_table from the database "sales\_db.finance-catalog" for the role transaction\_analyst\_role.
 
 ```
 SHOW MASKING POLICIES ON sales_schema.transaction_table FOR ROLE transaction_analyst_role;

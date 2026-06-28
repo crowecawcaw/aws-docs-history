@@ -26,7 +26,7 @@ AUTO REFRESH { YES | NO }
 
 ## Parameters
 
-_mv_name_
+_mv\_name_
 
 The name of the materialized view to alter.
 
@@ -75,8 +75,8 @@ A clause that changes the existing distribution style of a relation to
 
 For more information about DISTSTYLE EVEN, go to [CREATE MATERIALIZED VIEW](materialized-view-create-sql-command.md "materialized-view-create-sql-command.md").
 
-ALTER DISTKEY _column_name_ or ALTER DISTSTYLE KEY DISTKEY
-_column_name_
+ALTER DISTKEY _column\_name_ or ALTER DISTSTYLE KEY DISTKEY
+_column\_name_
 
 A clause that changes the column used as the distribution key of a relation.
 Consider the following:
@@ -125,15 +125,15 @@ redistribution and locks, go to [Amazon Redshift Advisor recommendations](adviso
 
 For more information about DISTSTYLE AUTO, go to [CREATE MATERIALIZED VIEW](materialized-view-create-sql-command.md "materialized-view-create-sql-command.md").
 
-To view the distribution style of a relation, query the SVV_TABLE_INFO
-system catalog view. For more information, go to [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To view the
+To view the distribution style of a relation, query the SVV\_TABLE\_INFO
+system catalog view. For more information, go to [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To view the
 Amazon Redshift Advisor recommendations for relations, query the
-SVV_ALTER_TABLE_RECOMMENDATIONS system catalog view. For more information, go
-to [SVV_ALTER_TABLE_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the actions
-taken by Amazon Redshift, query the SVL_AUTO_WORKER_ACTION system catalog view. For more
-information, go to [SVL_AUTO_WORKER_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
+SVV\_ALTER\_TABLE\_RECOMMENDATIONS system catalog view. For more information, go
+to [SVV\_ALTER\_TABLE\_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the actions
+taken by Amazon Redshift, query the SVL\_AUTO\_WORKER\_ACTION system catalog view. For more
+information, go to [SVL\_AUTO\_WORKER\_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
 
-ALTER [COMPOUND] SORTKEY ( _column_name_ [,...] )
+ALTER [COMPOUND] SORTKEY ( _column\_name_ [,...] )
 
 A clause that changes or adds the sort key used for a relation. ALTER
 SORTKEY isn't supported for temporary tables.
@@ -186,12 +186,12 @@ queries, then Amazon Redshift might change the sort key of your relation in the 
 
 For more information about SORTKEY AUTO, go to [CREATE MATERIALIZED VIEW](materialized-view-create-sql-command.md "materialized-view-create-sql-command.md").
 
-To view the sort key of a relation, query the SVV_TABLE_INFO system catalog
-view. For more information, go to [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To view the Amazon Redshift Advisor recommendations
-for relations, query the SVV_ALTER_TABLE_RECOMMENDATIONS system catalog view.
-For more information, go to [SVV_ALTER_TABLE_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the actions
-taken by Amazon Redshift, query the SVL_AUTO_WORKER_ACTION system catalog view. For more
-information, go to [SVL_AUTO_WORKER_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
+To view the sort key of a relation, query the SVV\_TABLE\_INFO system catalog
+view. For more information, go to [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To view the Amazon Redshift Advisor recommendations
+for relations, query the SVV\_ALTER\_TABLE\_RECOMMENDATIONS system catalog view.
+For more information, go to [SVV\_ALTER\_TABLE\_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the actions
+taken by Amazon Redshift, query the SVL\_AUTO\_WORKER\_ACTION system catalog view. For more
+information, go to [SVL\_AUTO\_WORKER\_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
 
 ALTER SORTKEY NONE
 

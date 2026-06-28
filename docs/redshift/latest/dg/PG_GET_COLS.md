@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_GET_COLS
+# PG\_GET\_COLS
 
 Returns the column metadata for a table or view definition.
 
@@ -25,7 +25,7 @@ VARCHAR
 
 ## Usage notes
 
-The PG_GET_COLS function returns one row for each column in the table or view
+The PG\_GET\_COLS function returns one row for each column in the table or view
 definition. The row contains a comma-separated list with the schema name, relation
 name, column name, data type, and column number.
 The formatting of the result of the SQL depends on the SQL client used.

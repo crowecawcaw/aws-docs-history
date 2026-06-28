@@ -2,29 +2,29 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_UDF_LOG
+# SYS\_UDF\_LOG
 
 Records system-defined error and warning messages generated during user-defined
 function (UDF) execution.
 
-SYS_UDF_LOG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_UDF\_LOG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name   | Data type | Description                            |
-| ------------- | --------- | -------------------------------------- |
-| query_id      | bigint    | The query identifier.                  |
-| function_name | text      | The name of the user-defined function. |
-| record_time   | timestamp | The time that the record was created.  |
-| sequence      | integer   | The sequence of a single log message.  |
-| message       | text      | The log message text.                  |
+| Column name    | Data type | Description                            |
+| -------------- | --------- | -------------------------------------- |
+| query\_id      | bigint    | The query identifier.                  |
+| function\_name | text      | The name of the user-defined function. |
+| record\_time   | timestamp | The time that the record was created.  |
+| sequence       | integer   | The sequence of a single log message.  |
+| message        | text      | The log message text.                  |
 
 ## Sample queries
 
 The following example shows how UDFs handle system-defined errors. The first block
 shows the definition for a UDF function that returns the inverse of an argument.
 When you run the function and provide a 0 as your argument, the function returns an
-error. The last statement returns the error message logged in SYS_UDF_LOG.
+error. The last statement returns the error message logged in SYS\_UDF\_LOG.
 
 ```
 -- Create a function to find the inverse of a number.

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# JSON_SIZE function
+# JSON\_SIZE function
 
-The JSON_SIZE function returns the number of bytes in the
+The JSON\_SIZE function returns the number of bytes in the
 given `SUPER` expression when serialized into a string.
 
 ## Syntax
@@ -16,7 +16,7 @@ JSON_SIZE(*super\_expression*)
 
 ## Arguments
 
-_super_expression_
+_super\_expression_
 
 A `SUPER` constant or expression.
 
@@ -24,17 +24,17 @@ A `SUPER` constant or expression.
 
 `INTEGER`
 
-The JSON_SIZE function returns an `INTEGER` indicating
+The JSON\_SIZE function returns an `INTEGER` indicating
 the number of bytes in the input string. This value is
 different from the number of characters. For example,
 the UTF-8 character ⬤, a black dot, is 3 bytes in size even though it is 1 character.
 
 ## Usage notes
 
-JSON_SIZE(x) is functionally identical to
-OCTET_LENGTH(JSON_SERIALIZE). However, note that JSON_SERIALIZE returns an error when
+JSON\_SIZE(x) is functionally identical to
+OCTET\_LENGTH(JSON\_SERIALIZE). However, note that JSON\_SERIALIZE returns an error when
 the provided `SUPER` expression would exceed the `VARCHAR` limit of the
-system when serialized. JSON_SIZE does not have this limitation.
+system when serialized. JSON\_SIZE does not have this limitation.
 
 ## Examples
 
@@ -52,4 +52,4 @@ a `SUPER` value serialized to a string, use the following example.
 ```
 
 Note that the provided `SUPER` expression is 17 characters long, but
-⬤ is a 3-byte character, so JSON_SIZE returns `19`.
+⬤ is a 3-byte character, so JSON\_SIZE returns `19`.

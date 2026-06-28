@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Collect
+# ST\_Collect
 
-ST_Collect has two variants. One accepts two geometries, and one accepts an aggregate
+ST\_Collect has two variants. One accepts two geometries, and one accepts an aggregate
 expression.
 
-The first variant of ST_Collect creates a geometry from the input geometries.
+The first variant of ST\_Collect creates a geometry from the input geometries.
 The order of the input geometries is preserved.
 This variant works as follows:
 
@@ -15,7 +15,7 @@ This variant works as follows:
 - If both input geometries are linestrings, then a `MULTILINESTRING` with two linestrings is returned.
 - If both input geometries are polygons, then a `MULTIPOLYGON` with two polygons is returned.
 - Otherwise, a `GEOMETRYCOLLECTION` with two input geometries is returned.
-  The second variant of ST_Collect creates a geometry from geometries in a geometry column.
+  The second variant of ST\_Collect creates a geometry from geometries in a geometry column.
   There isn't a determined return order of the geometries.
   Specify the WITHIN GROUP (ORDER BY ...) clause to specify the order of the returned geometries.
   This variant works as follows:
@@ -24,7 +24,7 @@ This variant works as follows:
 - If all non-NULL rows in the aggregate expression are linestrings, then a multilinestring containing all the linestrings in the aggregate expression is returned.
 - If all non-NULL rows in the aggregate expression are polygons, the result is a multipolygon containing all the polygons in the aggregate expression is returned.
 - Otherwise, a `GEOMETRYCOLLECTION` containing all the geometries in the aggregate expression is returned.
-  The ST_Collect returns the geometry of the same dimension as the input geometries. All input geometries must be of the same dimension.
+  The ST\_Collect returns the geometry of the same dimension as the input geometries. All input geometries must be of the same dimension.
 
 ## Syntax
 
@@ -48,12 +48,12 @@ _geom2_
 A value of data type `GEOMETRY` or an expression that
 evaluates to a `GEOMETRY` type.
 
-_aggregate_expression_
+_aggregate\_expression_
 
 A column of data type `GEOMETRY` or an expression that
 evaluates to a `GEOMETRY` type.
 
-[WITHIN GROUP (ORDER BY _sort_expression1_ [ASC | DESC] [, _sort_expression2_ [ASC | DESC] ...])]
+[WITHIN GROUP (ORDER BY _sort\_expression1_ [ASC | DESC] [, _sort\_expression2_ [ASC | DESC] ...])]
 
 An optional clause that specifies the sort order of the aggregated values.
 The ORDER BY clause contains a list of sort expressions.
@@ -70,7 +70,7 @@ the SRID value of the input geometries.
 
 If both _geom1_ or _geom2_ are null, then null is returned.
 
-If all rows of _aggregate_expression_ are null, then null is returned.
+If all rows of _aggregate\_expression_ are null, then null is returned.
 
 If _geom1_ is null, then a copy of _geom2_ is returned.
 Likewise, if _geom2_ is null, then a copy of _geom1_ is returned.
@@ -78,14 +78,14 @@ Likewise, if _geom2_ is null, then a copy of _geom1_ is returned.
 If _geom1_ and _geom2_ have different SRID
 values, then an error is returned.
 
-If two geometries in _aggregate_expression_ have different SRID values, then an error is returned.
+If two geometries in _aggregate\_expression_ have different SRID values, then an error is returned.
 
 If the returned geometry is larger than the maximum size of a `GEOMETRY`, then an error is returned.
 
 If _geom1_ and _geom2_ are of different dimensions,
 then an error is returned.
 
-If two geometries in _aggregate_expression_ are of different dimensions,
+If two geometries in _aggregate\_expression_ are of different dimensions,
 then an error is returned.
 
 ## Examples

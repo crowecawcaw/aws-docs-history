@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# DATE_TRUNC function
+# DATE\_TRUNC function
 
-The DATE_TRUNC function truncates a timestamp expression or literal based on the date
+The DATE\_TRUNC function truncates a timestamp expression or literal based on the date
 part that you specify, such as hour, day, or month.
 
 ## Syntax
@@ -120,7 +120,7 @@ Truncate the input timestamp to the Monday of a week.
 2022-04-25 00:00:00`
 ```
 
-In the following example, the DATE_TRUNC function uses the 'week' date part to return
+In the following example, the DATE\_TRUNC function uses the 'week' date part to return
 the date for the Monday of each week.
 
 ```

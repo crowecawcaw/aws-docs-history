@@ -10,7 +10,7 @@ second string is greater, the function returns `-1`.
 
 For multibyte characters, the comparison is based on the byte encoding.
 
-Synonym of [BTTEXT_PATTERN_CMP function](r_BTTEXT_PATTERN_CMP.md "r_BTTEXT_PATTERN_CMP.md").
+Synonym of [BTTEXT\_PATTERN\_CMP function](r_BTTEXT_PATTERN_CMP.md "r_BTTEXT_PATTERN_CMP.md").
 
 ## Syntax
 

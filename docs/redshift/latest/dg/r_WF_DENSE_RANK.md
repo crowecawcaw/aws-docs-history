@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# DENSE_RANK window function
+# DENSE\_RANK window function
 
-The DENSE_RANK window function determines the rank of a value in a group of values,
+The DENSE\_RANK window function determines the rank of a value in a group of values,
 based on the ORDER BY expression in the OVER clause. If the optional PARTITION BY clause
 is present, the rankings are reset for each group of rows. Rows with equal values for
-the ranking criteria receive the same rank. The DENSE_RANK function differs from RANK in
+the ranking criteria receive the same rank. The DENSE\_RANK function differs from RANK in
 one respect: if two or more rows tie, there is no gap in the sequence of ranked values.
 For example, if two rows are ranked `1`, the next rank is `2`.
 
@@ -32,13 +32,13 @@ The function takes no arguments, but the empty parentheses are required.
 
 OVER
 
-The window clauses for the DENSE_RANK function.
+The window clauses for the DENSE\_RANK function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 (Optional) One or more expressions that define the window.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 (Optional) The expression on which the ranking values are based. If no
 PARTITION BY is specified, ORDER BY uses the entire table. If ORDER BY is
@@ -84,7 +84,7 @@ ORDER BY 2,1;`
 ```
 
 Note the difference in rankings assigned to the same set of rows when the
-DENSE_RANK and RANK functions are used side by side in the same query.
+DENSE\_RANK and RANK functions are used side by side in the same query.
 
 The following example partitions the table by sellerid, orders each partition
 by the quantity, and assigns a dense rank to each row. The
@@ -113,7 +113,7 @@ ORDER BY 2,3,1;`
 +---------+----------+-----+-------+`
 ```
 
-To successfully use the last example, use the following command to insert a row into the WINSALES table. This row has the same buyerid, sellerid, and qtysold as another row. This will cause two rows to tie in the last example and thus will show the difference between the DENSE_RANK and RANK functions.
+To successfully use the last example, use the following command to insert a row into the WINSALES table. This row has the same buyerid, sellerid, and qtysold as another row. This will cause two rows to tie in the last example and thus will show the difference between the DENSE\_RANK and RANK functions.
 
 ```
 `INSERT INTO winsales VALUES(30009, '2/2/2003', 3, 'b', 20, NULL);`

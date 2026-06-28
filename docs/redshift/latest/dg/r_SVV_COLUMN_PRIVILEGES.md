@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_COLUMN_PRIVILEGES
+# SVV\_COLUMN\_PRIVILEGES
 
-Use SVV_COLUMN_PRIVILEGES to view the column permissions that are explicitly granted
+Use SVV\_COLUMN\_PRIVILEGES to view the column permissions that are explicitly granted
 to users, roles, and groups in the current database.
 
-SVV_COLUMN_PRIVILEGES is visible to the following users:
+SVV\_COLUMN\_PRIVILEGES is visible to the following users:
 
 - Superusers
 - Users with the ACCESS SYSTEM TABLE permission
@@ -25,19 +25,19 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                |
-| -------------- | --------- | -------------------------------------------------------------------------- |
-| namespace_name | text      | The name of the namespace where a specified relation exists.               |
-| relation_name  | text      | The name of the relation.                                                  |
-| column_name    | text      | The name of the column.                                                    |
-| privilege_type | text      | The type of the permission. Possible values are<br>SELECT or UPDATE.       |
-| identity_id    | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID. |
-| identity_name  | text      | The name of the identity.                                                  |
-| identity_type  | text      | The type of the identity. Possible values are user, role, group or public. |
+| Column name     | Data type | Description                                                                |
+| --------------- | --------- | -------------------------------------------------------------------------- |
+| namespace\_name | text      | The name of the namespace where a specified relation exists.               |
+| relation\_name  | text      | The name of the relation.                                                  |
+| column\_name    | text      | The name of the column.                                                    |
+| privilege\_type | text      | The type of the permission. Possible values are<br>SELECT or UPDATE.       |
+| identity\_id    | integer   | The ID of the identity. Possible values are user ID, role ID, or group ID. |
+| identity\_name  | text      | The name of the identity.                                                  |
+| identity\_type  | text      | The type of the identity. Possible values are user, role, group or public. |
 
 ## Sample query
 
-The following example displays the result of the SVV_COLUMN_PRIVILEGES.
+The following example displays the result of the SVV\_COLUMN\_PRIVILEGES.
 
 ```
 SELECT namespace_name,relation_name,COLUMN_NAME,privilege_type,identity_name,identity_type

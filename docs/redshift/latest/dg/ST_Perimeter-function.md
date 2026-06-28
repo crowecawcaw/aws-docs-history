@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Perimeter
+# ST\_Perimeter
 
-For an input areal geometry, ST_Perimeter returns the Cartesian perimeter (length of the boundary) of the 2D projection.
+For an input areal geometry, ST\_Perimeter returns the Cartesian perimeter (length of the boundary) of the 2D projection.
 The perimeter units are the same as the units in which the coordinates of
 the input geometry are expressed. The function returns zero (0) for points, multipoints,
 and linear geometries. When the input is a geometry collection, the function returns the
 sum of the perimeters of the geometries in the collection.
 
-For an input geography, ST_Perimeter returns the geodesic perimeter (length of the boundary) of the 2D projection of an input areal geography computed on the spheroid determined by the SRID.
+For an input geography, ST\_Perimeter returns the geodesic perimeter (length of the boundary) of the 2D projection of an input areal geography computed on the spheroid determined by the SRID.
 The unit of perimeter is in meters. The function returns zero (0) for points, multipoints, and linear geographies.
 When the input is a geometry collection, the function returns the sum of the perimeters of the geographies in the collection.
 

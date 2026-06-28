@@ -105,7 +105,7 @@ First, create a simple table called FEEDBACK using the CREATE TABLE command:
 create table feedback(a int);
 ```
 
-Next, use the CREATE VIEW command to create a view called FEEDBACK_VIEW that relies
+Next, use the CREATE VIEW command to create a view called FEEDBACK\_VIEW that relies
 on the table FEEDBACK:
 
 ```
@@ -113,7 +113,7 @@ create view feedback_view as select * from feedback;
 ```
 
 The following example drops the table FEEDBACK and also drops the view
-FEEDBACK_VIEW, because FEEDBACK_VIEW is dependent on the table FEEDBACK:
+FEEDBACK\_VIEW, because FEEDBACK\_VIEW is dependent on the table FEEDBACK:
 
 ```
 drop table feedback cascade;

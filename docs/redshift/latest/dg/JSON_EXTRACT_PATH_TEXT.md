@@ -2,31 +2,31 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# JSON_EXTRACT_PATH_TEXT function
+# JSON\_EXTRACT\_PATH\_TEXT function
 
 ###### Note
 
-JSON_PARSE and its associated functions
+JSON\_PARSE and its associated functions
 parse JSON values as SUPER, which Amazon Redshift parses more efficiently than VARCHAR.
 
-Instead of using JSON_EXTRACT_PATH_TEXT, we recommend that you parse your
-JSON strings using the [JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md") to get a SUPER value.
+Instead of using JSON\_EXTRACT\_PATH\_TEXT, we recommend that you parse your
+JSON strings using the [JSON\_PARSE function](JSON_PARSE.md "JSON_PARSE.md") to get a SUPER value.
 Then, query the element you want using the `value.attribute` syntax.
 For more information on querying array elements
 in SUPER values, go to [Querying semi-structured data](query-super.md "query-super.md").
 
-The JSON_EXTRACT_PATH_TEXT function returns the value for the
+The JSON\_EXTRACT\_PATH\_TEXT function returns the value for the
 key-value pair referenced by a series of path elements in a JSON
 string. The JSON path can be nested up to five levels deep. Path elements are
 case-sensitive. If a path element does not exist in the JSON string,
-JSON_EXTRACT_PATH_TEXT returns `NULL`.
+JSON\_EXTRACT\_PATH\_TEXT returns `NULL`.
 
-If the _null_if_invalid_
+If the _null\_if\_invalid_
 argument is set to `TRUE` and the JSON string is invalid, the function
 returns `NULL` instead of returning an error.
 
-JSON_EXTRACT_PATH_TEXT has a 16MB data-size maximum.
-Thus, if any JSON record is larger than 16MB, processing it with JSON_EXTRACT_PATH_TEXT results in an error.
+JSON\_EXTRACT\_PATH\_TEXT has a 16MB data-size maximum.
+Thus, if any JSON record is larger than 16MB, processing it with JSON\_EXTRACT\_PATH\_TEXT results in an error.
 
 For information about additional JSON functions, see [JSON functions](json-functions.md "json-functions.md"). For more information about working with JSON, see [COPY from JSON format](copy-usage_notes-copy-from-json.md "copy-usage_notes-copy-from-json.md").
 
@@ -38,16 +38,16 @@ JSON_EXTRACT_PATH_TEXT('*json\_string*', '*path\_elem*' [,'*path\_elem*'[, …] 
 
 ## Arguments
 
-_json_string_
+_json\_string_
 
 A properly formatted JSON string.
 
-_path_elem_
+_path\_elem_
 
 A path element in a JSON string. One path element is required. Additional
 path elements can be specified, up to five levels deep.
 
-_null_if_invalid_
+_null\_if\_invalid_
 
 (Optional) A `BOOLEAN` value that specifies whether to return `NULL` if the input JSON
 string is invalid instead of returning an error. To return `NULL` if the JSON
@@ -87,7 +87,7 @@ To return an error because the JSON is invalid, use the following example.
 `ERROR: invalid json object {"f2":{"f3":1},"f4":{"f5":99,"f6":"star"}`
 ```
 
-To set _null_if_invalid_ to
+To set _null\_if\_invalid_ to
 _TRUE_, so the statement returns `NULL` for invalid JSON instead of
 returning an error, use the following example.
 
@@ -206,8 +206,8 @@ SELECT id, JSON_EXTRACT_PATH_TEXT(JSON_SERIALIZE(json_text), 'f2') FROM json_exa
 2 |`
 ```
 
-Consider the following example statements. The provided _path_elem_ is NULL, so
-JSON_EXTRACT_PATH_TEXT returns NULL regardless of the value of any other parameters.
+Consider the following example statements. The provided _path\_elem_ is NULL, so
+JSON\_EXTRACT\_PATH\_TEXT returns NULL regardless of the value of any other parameters.
 
 ```
 --Statement where path_elem is NULL and json_string is valid JSON.
@@ -237,10 +237,10 @@ SELECT json_extract_path_text(NULL, 0, FALSE);
  NULL`
 ```
 
-Consider the following example statements. When _null_if_invalid_ is TRUE,
-JSON_EXTRACT_PATH_TEXT returns NULL when _json_string_ is invalid JSON.
-If _null_if_invalid_ is FALSE or isn’t set, the function returns an
-error when _json_string_ is invalid.
+Consider the following example statements. When _null\_if\_invalid_ is TRUE,
+JSON\_EXTRACT\_PATH\_TEXT returns NULL when _json\_string_ is invalid JSON.
+If _null\_if\_invalid_ is FALSE or isn’t set, the function returns an
+error when _json\_string_ is invalid.
 
 ```
 --Statement with invalid JSON where null_if_invalid is TRUE.
@@ -257,11 +257,11 @@ SELECT json_extract_path_text('invalid_json', 0, FALSE);
 
 ```
 
-Consider the following examples, where _json_string_ is valid JSON,
-and _path_elem_ refers to a JSON `null` value. In this case,
-JSON_EXTRACT_PATH_TEXT returns NULL. Similarly, when _path_elem_ refers to a
-non-existing value, JSON_EXTRACT_PATH_TEXT returns NULL, regardless of
-the value of _null_if_invalid_.
+Consider the following examples, where _json\_string_ is valid JSON,
+and _path\_elem_ refers to a JSON `null` value. In this case,
+JSON\_EXTRACT\_PATH\_TEXT returns NULL. Similarly, when _path\_elem_ refers to a
+non-existing value, JSON\_EXTRACT\_PATH\_TEXT returns NULL, regardless of
+the value of _null\_if\_invalid_.
 
 ```
 --Statement selecting a null value.

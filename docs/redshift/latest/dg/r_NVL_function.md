@@ -83,7 +83,7 @@ string type and a number type in the list.
 `ERROR: invalid input syntax for integer: "Amazon Redshift"`
 ```
 
-For this example, you create a table with START_DATE and END_DATE columns, insert rows that include
+For this example, you create a table with START\_DATE and END\_DATE columns, insert rows that include
 null values, then apply an NVL expression to the two columns.
 
 ```

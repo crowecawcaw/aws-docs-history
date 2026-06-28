@@ -22,15 +22,15 @@ IS '*text*' | NULL
 
 ## Parameters
 
-_object_name_
+_object\_name_
 
 Name of the database object being commented on. You can add a comment to the
 following objects:
 
 - TABLE
-- COLUMN (also takes a _column_name_).
-- CONSTRAINT (also takes a _constraint_name_ and
-  _table_name_).
+- COLUMN (also takes a _column\_name_).
+- CONSTRAINT (also takes a _constraint\_name_ and
+  _table\_name_).
 - DATABASE
 - VIEW
 - SCHEMA
@@ -42,17 +42,17 @@ The _text_ string is data type TEXT. Enclose the comment in
 single quotation marks. Set the value to NULL to remove the comment
 text.
 
-_column_name_
+_column\_name_
 
 Name of the column being commented on. Parameter of COLUMN. Follows a table
 specified in `object_name`.
 
-_constraint_name_
+_constraint\_name_
 
 Name of the constraint that is being commented on. Parameter of
 CONSTRAINT.
 
-_table_name_
+_table\_name_
 
 Name of a table containing the constraint. Parameter of CONSTRAINT.
 
@@ -117,7 +117,7 @@ The following example adds a descriptive comment to the EVENT table.
 comment on table event is 'Contains listings of individual events.';
 ```
 
-To view comments, query the PG_DESCRIPTION system catalog. The following example
+To view comments, query the PG\_DESCRIPTION system catalog. The following example
 returns the description for the EVENT table.
 
 ```

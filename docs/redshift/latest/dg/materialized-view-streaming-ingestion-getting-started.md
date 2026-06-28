@@ -132,7 +132,7 @@ REGION 'us-west-2'
 IAM_ROLE { default | 'iam-role-arn' };
 ```
 
-In this sample, the region specifies the location of the source stream. The IAM_ROLE is a sample. 4. Create a materialized view to consume the stream data. With a statement like the following, if a record can't be parsed, it causes an error. Use a command like this if you don't
+In this sample, the region specifies the location of the source stream. The IAM\_ROLE is a sample. 4. Create a materialized view to consume the stream data. With a statement like the following, if a record can't be parsed, it causes an error. Use a command like this if you don't
 want error records to be skipped.
 
 ```
@@ -146,21 +146,21 @@ lowercase letters. To ingest from streams with uppercase names, you can set
 the configuration `enable_case_sensitive_identifier` to
 `true` at the database level. For more information, see
 [Names and identifiers](r_names.md "r_names.md") and
-[enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
+[enable\_case\_sensitive\_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
 
-To turn on auto refresh, use `AUTO REFRESH YES`. The default behavior is manual refresh. Note when you use CAN_JSON_PARSE, it's possible that records
+To turn on auto refresh, use `AUTO REFRESH YES`. The default behavior is manual refresh. Note when you use CAN\_JSON\_PARSE, it's possible that records
 that can't be parsed are skipped.
 
 Metadata columns include the following:
 
-| Metadata column               | Data type                   | Description                                                                              |
-| ----------------------------- | --------------------------- | ---------------------------------------------------------------------------------------- |
-| approximate_arrival_timestamp | timestamp without time zone | The approximate time that the record was inserted into the Kinesis stream                |
-| partition_key                 | varchar(256)                | The key used by Kinesis to assign the record to a shard                                  |
-| shard_id                      | char(20)                    | The unique identifier of the shard within the stream from which the record was retrieved |
-| sequence_number               | varchar(128)                | The unique identifier of the record from the Kinesis shard                               |
-| refresh_time                  | timestamp without time zone | The time the refresh started                                                             |
-| kinesis_data                  | varbyte                     | The record from the Kinesis stream                                                       |
+| Metadata column                 | Data type                   | Description                                                                              |
+| ------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------- |
+| approximate\_arrival\_timestamp | timestamp without time zone | The approximate time that the record was inserted into the Kinesis stream                |
+| partition\_key                  | varchar(256)                | The key used by Kinesis to assign the record to a shard                                  |
+| shard\_id                       | char(20)                    | The unique identifier of the shard within the stream from which the record was retrieved |
+| sequence\_number                | varchar(128)                | The unique identifier of the record from the Kinesis shard                               |
+| refresh\_time                   | timestamp without time zone | The time the refresh started                                                             |
+| kinesis\_data                   | varbyte                     | The record from the Kinesis stream                                                       |
 
 It's important to note if you have business logic in your materialized view definition that business-logic errors can cause streaming
 ingestion to be blocked in some cases. This might lead to you having to drop and re-create the materialized view. To avoid this, we

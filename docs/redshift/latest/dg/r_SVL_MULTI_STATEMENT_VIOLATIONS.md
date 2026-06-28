@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVL_MULTI_STATEMENT_VIOLATIONS
+# SVL\_MULTI\_STATEMENT\_VIOLATIONS
 
-Use the SVL_MULTI_STATEMENT_VIOLATIONS view to get a complete record of all of the SQL commands run on the system that violates transaction block restrictions.
+Use the SVL\_MULTI\_STATEMENT\_VIOLATIONS view to get a complete record of all of the SQL commands run on the system that violates transaction block restrictions.
 
 Violations occur when you run any of the following SQL commands that Amazon Redshift restricts inside a transaction block or
 multi-statement requests:
@@ -31,9 +31,9 @@ multi-statement requests:
 
 If there are any entries in this view, then change your corresponding applications and SQL scripts. We recommend changing your application code to move the use of these restricted SQL commands outside of the transaction block. If you need further assistance, contact AWS Support.
 
-SVL_MULTI_STATEMENT_VIOLATIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL\_MULTI\_STATEMENT\_VIOLATIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
@@ -45,7 +45,7 @@ We recommend that you use the SYS monitoring view for your queries.
 | cmdname     | character(20)  | The name of the command that cannot run inside a transaction block or multi-statement request. For example, CREATE DATABASE, DROP DATABASE, ALTER TABLE APPEND, CREATE EXTERNAL TABLE, DROP EXTERNAL TABLE, RENAME EXTERNAL TABLE, ALTER EXTERNAL TABLE, CREATE LIBRARY, DROP LIBRARY, REBUILDCAT, INDEXCAT, REINDEX DATABASE, VACUUM, GRANT on external resources, CLUSTER, COPY, CREATE TABLESPACE, and DROP TABLESPACE. |
 | xid         | bigint         | The transaction ID associated with the statement.                                                                                                                                                                                                                                                                                                                                                                          |
 | pid         | integer        | The process ID for the statement.                                                                                                                                                                                                                                                                                                                                                                                          |
-| label       | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY_GROUP command. If the query is<br>not file-based or the QUERY_GROUP parameter is not set, this field<br>is blank.                                                                                                                                                                                                                 |
+| label       | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY\_GROUP command. If the query is<br>not file-based or the QUERY\_GROUP parameter is not set, this field<br>is blank.                                                                                                                                                                                                               |
 | starttime   | timestamp      | The exact time when the statement started<br>executing, with 6 digits of precision for fractional seconds, for<br>example: `2009-06-12 11:29:19.131358`                                                                                                                                                                                                                                                                    |
 | endtime     | timestamp      | The exact time when the statement finished<br>executing, with 6 digits of precision for fractional seconds, for<br>example: `2009-06-12 11:29:19.193640`                                                                                                                                                                                                                                                                   |
 | sequence    | integer        | When a single statement contains more than 200<br>characters, additional rows are logged for that statement. Sequence<br>0 is the first row, 1 is the second, and so on.                                                                                                                                                                                                                                                   |

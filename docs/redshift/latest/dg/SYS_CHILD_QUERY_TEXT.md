@@ -2,19 +2,19 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_CHILD_QUERY_TEXT
+# SYS\_CHILD\_QUERY\_TEXT
 
 Returns the SQL text of a child query.
 
 ## Table columns
 
-| Column name          | Data type      | Description                                                |
-| -------------------- | -------------- | ---------------------------------------------------------- |
-| user_id              | integer        | The identifier of the user who submitted the query.        |
-| query_id             | bigint         | The user query ID                                          |
-| child_query_sequence | integer        | The sequence of the rewritten user query, starting with 1. |
-| sequence             | integer        | The sequence number for this query piece.                  |
-| text                 | character(200) | The first 200 characters of the text of the SQL query.     |
+| Column name            | Data type      | Description                                                |
+| ---------------------- | -------------- | ---------------------------------------------------------- |
+| user\_id               | integer        | The identifier of the user who submitted the query.        |
+| query\_id              | bigint         | The user query ID                                          |
+| child\_query\_sequence | integer        | The sequence of the rewritten user query, starting with 1. |
+| sequence               | integer        | The sequence number for this query piece.                  |
+| text                   | character(200) | The first 200 characters of the text of the SQL query.     |
 
 ## Sample queries
 

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Touches
+# ST\_Touches
 
-ST_Touches returns true if the 2D projections of the two input geometries touch. The two geometries touch
+ST\_Touches returns true if the 2D projections of the two input geometries touch. The two geometries touch
 if they are nonempty, intersect, and have no interior points in common.
 
 ## Syntax

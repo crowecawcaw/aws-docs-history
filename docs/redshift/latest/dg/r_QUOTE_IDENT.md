@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# QUOTE_IDENT function
+# QUOTE\_IDENT function
 
-The QUOTE_IDENT function returns the specified string as a string with a leading double quotation mark and a trailing double quotation mark.
+The QUOTE\_IDENT function returns the specified string as a string with a leading double quotation mark and a trailing double quotation mark.
 The function output can be used as an identifier in a SQL statement. The function appropriately doubles any
 embedded double quotation marks.
 
-QUOTE_IDENT adds double quotation marks only where necessary to create a valid identifier,
+QUOTE\_IDENT adds double quotation marks only where necessary to create a valid identifier,
 when the string contains non-identifier characters or would otherwise be folded to
-lowercase. To always return a single-quoted string, use [QUOTE_LITERAL](r_QUOTE_LITERAL.md "r_QUOTE_LITERAL.md").
+lowercase. To always return a single-quoted string, use [QUOTE\_LITERAL](r_QUOTE_LITERAL.md "r_QUOTE_LITERAL.md").
 
 ## Syntax
 
@@ -26,7 +26,7 @@ A `CHAR` or `VARCHAR` string.
 
 ## Return type
 
-The QUOTE_IDENT function returns the same type of string as the input _string_.
+The QUOTE\_IDENT function returns the same type of string as the input _string_.
 
 ## Examples
 

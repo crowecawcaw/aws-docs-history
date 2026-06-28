@@ -78,9 +78,9 @@ uri '172.10.10.10' port 99
 iam_role 'arn:aws:iam::123456789012:role/MySpectrumRole'
 ```
 
-To view external schemas for your cluster, query the PG_EXTERNAL_SCHEMA catalog table or
-the SVV_EXTERNAL_SCHEMAS view. The following example queries SVV_EXTERNAL_SCHEMAS, which
-joins PG_EXTERNAL_SCHEMA and PG_NAMESPACE.
+To view external schemas for your cluster, query the PG\_EXTERNAL\_SCHEMA catalog table or
+the SVV\_EXTERNAL\_SCHEMAS view. The following example queries SVV\_EXTERNAL\_SCHEMAS, which
+joins PG\_EXTERNAL\_SCHEMA and PG\_NAMESPACE.
 
 ```
 select * from svv_external_schemas
@@ -127,7 +127,7 @@ iam_role 'arn:aws:iam::123456789012:role/mySpectrumRole'
 region 'us-east-1';
 ```
 
-When you query the SVV_EXTERNAL_TABLES system view, you see tables in the Athena
+When you query the SVV\_EXTERNAL\_TABLES system view, you see tables in the Athena
 `sampledb` database and also tables that you created in Amazon
 Redshift.
 

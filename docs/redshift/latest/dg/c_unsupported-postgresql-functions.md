@@ -25,19 +25,19 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 - Advisory lock functions
 - Aggregate functions
 
-  - STRING_AGG()
-  - ARRAY_AGG()
+  - STRING\_AGG()
+  - ARRAY\_AGG()
   - EVERY()
-  - XML_AGG()
+  - XML\_AGG()
   - CORR()
-  - COVAR_POP()
-  - COVAR_SAMP()
-  - REGR_AVGX(), REGR_AVGY()
-  - REGR_COUNT()
-  - REGR_INTERCEPT()
-  - REGR_R2()
-  - REGR_SLOPE()
-  - REGR_SXX(), REGR_SXY(), REGR_SYY()
+  - COVAR\_POP()
+  - COVAR\_SAMP()
+  - REGR\_AVGX(), REGR\_AVGY()
+  - REGR\_COUNT()
+  - REGR\_INTERCEPT()
+  - REGR\_R2()
+  - REGR\_SLOPE()
+  - REGR\_SXX(), REGR\_SXY(), REGR\_SYY()
 
 - Array functions and operators
 - Backup control functions
@@ -46,10 +46,10 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 - Database object size functions
 - Date/Time functions and operators
 
-  - CLOCK_TIMESTAMP()
-  - JUSTIFY_DAYS(), JUSTIFY_HOURS(), JUSTIFY_INTERVAL()
-  - PG_SLEEP()
-  - TRANSACTION_TIMESTAMP()
+  - CLOCK\_TIMESTAMP()
+  - JUSTIFY\_DAYS(), JUSTIFY\_HOURS(), JUSTIFY\_INTERVAL()
+  - PG\_SLEEP()
+  - TRANSACTION\_TIMESTAMP()
 
 - ENUM support functions
 - Geometric functions and operators
@@ -60,12 +60,12 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 
   - DIV()
   - SETSEED()
-  - WIDTH_BUCKET()
+  - WIDTH\_BUCKET()
 
 - Set returning functions
 
-  - GENERATE_SERIES()
-  - GENERATE_SUBSCRIPTS()
+  - GENERATE\_SERIES()
+  - GENERATE\_SUBSCRIPTS()
 
 - Range functions and operators
 - Recovery control functions
@@ -77,29 +77,29 @@ These PostgreSQL functions are not supported in Amazon Redshift.
 - Sequence manipulation functions
 - String functions
 
-  - BIT_LENGTH()
+  - BIT\_LENGTH()
   - OVERLAY()
-  - CONVERT(), CONVERT_FROM(), CONVERT_TO()
+  - CONVERT(), CONVERT\_FROM(), CONVERT\_TO()
   - ENCODE()
   - FORMAT()
-  - QUOTE_NULLABLE()
-  - REGEXP_MATCHES()
-  - REGEXP_SPLIT_TO_ARRAY()
-  - REGEXP_SPLIT_TO_TABLE()
+  - QUOTE\_NULLABLE()
+  - REGEXP\_MATCHES()
+  - REGEXP\_SPLIT\_TO\_ARRAY()
+  - REGEXP\_SPLIT\_TO\_TABLE()
 
 - System catalog information functions
 - System information functions
 
-  - CURRENT_CATALOG CURRENT_QUERY()
-  - INET_CLIENT_ADDR()
-  - INET_CLIENT_PORT()
-  - INET_SERVER_ADDR() INET_SERVER_PORT()
-  - PG_CONF_LOAD_TIME()
-  - PG_IS_OTHER_TEMP_SCHEMA()
-  - PG_LISTENING_CHANNELS()
-  - PG_MY_TEMP_SCHEMA()
-  - PG_POSTMASTER_START_TIME()
-  - PG_TRIGGER_DEPTH()
+  - CURRENT\_CATALOG CURRENT\_QUERY()
+  - INET\_CLIENT\_ADDR()
+  - INET\_CLIENT\_PORT()
+  - INET\_SERVER\_ADDR() INET\_SERVER\_PORT()
+  - PG\_CONF\_LOAD\_TIME()
+  - PG\_IS\_OTHER\_TEMP\_SCHEMA()
+  - PG\_LISTENING\_CHANNELS()
+  - PG\_MY\_TEMP\_SCHEMA()
+  - PG\_POSTMASTER\_START\_TIME()
+  - PG\_TRIGGER\_DEPTH()
   - SHOW VERSION()
 
 - Text search functions and operators

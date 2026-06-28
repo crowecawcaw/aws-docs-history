@@ -12,7 +12,7 @@ using a customer-supplied key. For more information, see [Protecting data using
 server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md").
 
 To unload to Amazon S3 using server-side encryption with an AWS KMS key, use the
-KMS_KEY_ID parameter to provide the key ID as shown in the following
+KMS\_KEY\_ID parameter to provide the key ID as shown in the following
 example.
 
 ```
@@ -73,7 +73,7 @@ master_symmetric_key '`<root_key>`'
 encrypted gzip;
 ```
 
-To load the encrypted data files, add the MASTER_SYMMETRIC_KEY parameter with the
+To load the encrypted data files, add the MASTER\_SYMMETRIC\_KEY parameter with the
 same root key value and include the ENCRYPTED option.
 
 ```

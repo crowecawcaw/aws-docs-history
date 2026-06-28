@@ -23,7 +23,7 @@ The CATEGORY table in the TICKIT database contains the following rows:
 (11 rows)
 ```
 
-Create a CATEGORY_STAGE table with a similar schema to the CATEGORY table but define
+Create a CATEGORY\_STAGE table with a similar schema to the CATEGORY table but define
 default values for the columns:
 
 ```
@@ -35,7 +35,7 @@ catdesc varchar(50) default 'General');
 ```
 
 The following INSERT statement selects all of the rows from the CATEGORY table and
-inserts them into the CATEGORY_STAGE table.
+inserts them into the CATEGORY\_STAGE table.
 
 ```
 insert into category_stage
@@ -44,7 +44,7 @@ insert into category_stage
 
 The parentheses around the query are optional.
 
-This command inserts a new row into the CATEGORY_STAGE table with a value specified
+This command inserts a new row into the CATEGORY\_STAGE table with a value specified
 for each column in order:
 
 ```

@@ -42,9 +42,9 @@ ATTACH RLS POLICY policy_categories ON tickit_category_redshift TO ROLE analyst,
 
 For details on how to set and retrieve customized session context variables, go to
 [SET](r_SET.md "r_SET.md"),
-[SET_CONFIG](r_SET_CONFIG.md "r_SET_CONFIG.md"),
+[SET\_CONFIG](r_SET_CONFIG.md "r_SET_CONFIG.md"),
 [SHOW](r_SHOW.md "r_SHOW.md"),
-[CURRENT_SETTING](r_CURRENT_SETTING.md "r_CURRENT_SETTING.md"), and
+[CURRENT\_SETTING](r_CURRENT_SETTING.md "r_CURRENT_SETTING.md"), and
 [RESET](r_RESET.md "r_RESET.md").
 For more information on modifying the server configuration in general, go to
 [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings").
@@ -109,19 +109,18 @@ about using ALTER TABLE to enable or disable RLS, go to [ALTER TABLE](r_ALTER_TA
 RLS-protected relation "rls_protected_table" cannot be accessed via cross-database query.
 ```
 
-- ALTER RLS POLICY only supports modifying a RLS policy using the USING ( using_predicate_exp )
+- ALTER RLS POLICY only supports modifying a RLS policy using the USING ( using\_predicate\_exp )
   clause. You can't modify a RLS policy with a WITH clause when running
   ALTER RLS POLICY.
 - You can't query relations that have row-level security turned on
   if the values for any of the following configuration options don't
   match the default value of the session:
 
-      + `enable_case_sensitive_super_attribute`
-      + `enable_case_sensitive_identifier`
-      + `downcase_delimited_identifier`
-
-  Consider resetting your session’s configuration options if you attempt to query a relation with row-level security on
-  and see the message "RLS protected relation does not support session level config on case sensitivity being different from its default value."
+  - `enable_case_sensitive_super_attribute`
+  - `enable_case_sensitive_identifier`
+  - `downcase_delimited_identifier`
+    Consider resetting your session’s configuration options if you attempt to query a relation with row-level security on
+    and see the message "RLS protected relation does not support session level config on case sensitivity being different from its default value."
 
 - When your provisioned cluster or serverless namespace has any row-level security policies,
   the following commands are blocked for regular users:

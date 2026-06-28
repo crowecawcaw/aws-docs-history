@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Length
+# ST\_Length
 
-For a linear geometry, ST_Length returns the Cartesian length of a 2D projection. The length units
+For a linear geometry, ST\_Length returns the Cartesian length of a 2D projection. The length units
 are the same as the units in which the coordinates of the input geometry are expressed. The
 function returns zero (0) for points, multipoints, and areal geometries. When the input is
 a geometry collection, the function returns the sum of the lengths of the geometries in the
 collection.
 
-For a geography, ST_Length returns the geodesic length of the 2D projection of an input linear geography computed on the spheroid determined by the SRID.
+For a geography, ST\_Length returns the geodesic length of the 2D projection of an input linear geography computed on the spheroid determined by the SRID.
 The unit of length is in meters. The function returns zero (0) for points, multipoints, and areal geographies.
 When the input is a geometry collection, the function returns the sum of the lengths of the geographies in the collection.
 

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# NEXT_DAY function
+# NEXT\_DAY function
 
-NEXT_DAY returns the date of the first instance of the specified day that is later than
+NEXT\_DAY returns the date of the first instance of the specified day that is later than
 the given date.
 
 If the _day_ value is the same day of the week as the given date, the

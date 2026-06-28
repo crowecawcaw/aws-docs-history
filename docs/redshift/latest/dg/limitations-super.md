@@ -15,6 +15,8 @@ semi-structured data.
 - The maximum nesting depth for arrays and structures of the SUPER data type is 1,000.
 - Any string literal stored in a single SUPER object is limited to 16,000,000 bytes.
 - Otherwise, an individual value within a SUPER object is limited to the maximum length of the corresponding Amazon Redshift type.
+- When you use the COPY command to load data into a SUPER column from a row-based format (TEXT, CSV, JSON, AVRO), the entire row must fit within the COPY scanner buffer, which is 64 MB by default. The 64 MB scanner limit does not apply to columnar formats (PARQUET, ORC). In all cases, each SUPER object is limited to 16 MB regardless of source format.
+- The TRUNCATECOLUMNS option of the COPY command, where supported, applies only to VARCHAR columns and doesn't truncate string values in SUPER columns.
 - You can't perform partial update or transform operations on SUPER columns.
 - You can't use the SUPER data type and its alias in right joins or full outer joins.
 - The SUPER data type doesn't support XML as inbound or outbound serialization format.

@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# VAR_SAMP and VAR_POP window functions
+# VAR\_SAMP and VAR\_POP window functions
 
-The VAR_SAMP and VAR_POP window functions return the sample and population variance
-of a set of numeric values (integer, decimal, or floating-point). See also [VAR_SAMP and VAR_POP functions](r_VARIANCE_functions.md "r_VARIANCE_functions.md").
+The VAR\_SAMP and VAR\_POP window functions return the sample and population variance
+of a set of numeric values (integer, decimal, or floating-point). See also [VAR\_SAMP and VAR\_POP functions](r_VARIANCE_functions.md "r_VARIANCE_functions.md").
 
-VAR_SAMP and VARIANCE are synonyms for the same function.
+VAR\_SAMP and VARIANCE are synonyms for the same function.
 
 ## Syntax
 
@@ -38,16 +38,16 @@ Specifies the window clauses for the aggregation functions. The OVER
 clause distinguishes window aggregation functions from normal set
 aggregation functions.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Defines the window for the function in terms of one or more expressions.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Sorts the rows within each partition. If no PARTITION BY is specified,
 ORDER BY uses the entire table.
 
-_frame_clause_
+_frame\_clause_
 
 If an ORDER BY clause is used for an aggregate function, an explicit
 frame clause is required. The frame clause refines the set of rows in a

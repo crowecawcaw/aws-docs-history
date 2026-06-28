@@ -21,32 +21,32 @@ REMOVE DUPLICATES ]
 
 ## Parameters
 
-_target_table_
+_target\_table_
 
 The temporary or permanent table that the MERGE statement merges
 into.
 
-_source_table_
+_source\_table_
 
 The temporary or permanent table supplying the rows to merge into
-_target_table_. _source_table_ can
+_target\_table_. _source\_table_ can
 also be a Spectrum table.
 
 _alias_
 
-The temporary alternative name for _source_table_.
+The temporary alternative name for _source\_table_.
 
 This parameter is optional. Preceding _alias_ with AS is
 also optional.
 
-_match_condition_
+_match\_condition_
 
 Specifies equal predicates between the source table column and target table
 column that are used to determine whether the rows in
-_source_table_ can be matched with rows in
-_target_table_. If the condition is met, MERGE runs
-_matched_clause_ for that row. Otherwise MERGE runs
-_not_matched_clause_ for that row.
+_source\_table_ can be matched with rows in
+_target\_table_. If the condition is met, MERGE runs
+_matched\_clause_ for that row. Otherwise MERGE runs
+_not\_matched\_clause_ for that row.
 
 WHEN MATCHED
 
@@ -56,12 +56,12 @@ or a DELETE action.
 
 UPDATE
 
-Updates the matched row in _target_table_. Only values
-in the _col_name_ you specify are updated.
+Updates the matched row in _target\_table_. Only values
+in the _col\_name_ you specify are updated.
 
 DELETE
 
-Deletes the matched row in _target_table_.
+Deletes the matched row in _target\_table_.
 
 WHEN NOT MATCHED
 
@@ -71,15 +71,15 @@ clause.
 
 INSERT
 
-Inserts into _target_table_ rows from
-_source_table_ that don't match any rows in
-_target_table_, according to
-_match_condition_. The target
-_col_name_ can be listed in any order. If you don’t
-provide any _col_name_ values, the default order is all the
+Inserts into _target\_table_ rows from
+_source\_table_ that don't match any rows in
+_target\_table_, according to
+_match\_condition_. The target
+_col\_name_ can be listed in any order. If you don’t
+provide any _col\_name_ values, the default order is all the
 table’s columns in their declared order.
 
-_col_name_
+_col\_name_
 
 One or more column names that you want to modify. Don't include the table
 name when specifying the target column.
@@ -87,14 +87,14 @@ name when specifying the target column.
 _expr_
 
 The expression defining the new value for
-_col_name_.
+_col\_name_.
 
 REMOVE DUPLICATES
 
 Specifies that the MERGE command runs in simplified mode. Simplified mode
 has the following requirements:
 
-- _target_table_ and _source_table_
+- _target\_table_ and _source\_table_
   must have the same number of columns, compatible column types, and the same column order.
 - Omit the WHEN clause and the UPDATE and INSERT clauses from your
   MERGE command.
@@ -102,37 +102,37 @@ has the following requirements:
 
 In simplified mode, MERGE does the following:
 
-- Rows in _target_table_ that have a match in
-  _source_table_ are updated to match the values in
-  _source_table_.
-- Rows in _source_table_ that don't have a match in
-  _target_table_ are inserted into
-  _target_table_.
-- When multiple rows in _target_table_ match the
-  same row in _source_table_, the duplicate rows are
+- Rows in _target\_table_ that have a match in
+  _source\_table_ are updated to match the values in
+  _source\_table_.
+- Rows in _source\_table_ that don't have a match in
+  _target\_table_ are inserted into
+  _target\_table_.
+- When multiple rows in _target\_table_ match the
+  same row in _source\_table_, the duplicate rows are
   removed. Amazon Redshift keeps one row and updates it. Duplicate rows that don’t
-  match a row in _source_table_ remain unchanged.
+  match a row in _source\_table_ remain unchanged.
 
 Using REMOVE DUPLICATES gives better performance than using WHEN MATCHED and
 WHEN NOT MATCHED. We recommend using REMOVE DUPLICATES if
-_target_table_ and _source_table_ are
+_target\_table_ and _source\_table_ are
 compatible and you don't need to preserve duplicate rows in
-_target_table_.
+_target\_table_.
 
 ## Usage notes
 
 - To run MERGE statements, you must be the owner of both
-  _source_table_ and _target_table_, or
+  _source\_table_ and _target\_table_, or
   have the SELECT permission for those tables. Additionally, you must have UPDATE,
-  DELETE, and INSERT permissions for _target_table_ depending on
+  DELETE, and INSERT permissions for _target\_table_ depending on
   the operations included in your MERGE statement.
-- _target_table_ can't be a system table, catalog table, or
+- _target\_table_ can't be a system table, catalog table, or
   external table.
-- _source_table_ and _target_table_ can't be
+- _source\_table_ and _target\_table_ can't be
   the same table.
 - You can't use the WITH clause in a MERGE statement.
-- Rows in _target_table_ can't match multiple rows in
-  _source_table_.
+- Rows in _target\_table_ can't match multiple rows in
+  _source\_table_.
 
 Consider the following example:
 
@@ -157,10 +157,10 @@ ERROR: Found multiple matches to update the same tuple.
 In both MERGE statements, the operation fails because there are multiple rows
 in the `source` table with an ID value of `1`.
 
-- _match_condition_ and _expr_ can't partially
+- _match\_condition_ and _expr_ can't partially
   reference SUPER type columns. For example, if your SUPER type object is an array
   or a structure, you can't use individual elements of that column for
-  _match_condition_ or _expr_, but you can
+  _match\_condition_ or _expr_, but you can
   use the entire column.
 
 Consider the following example:
@@ -180,13 +180,13 @@ ERROR: Partial reference of SUPER column is not supported in MERGE statement.
 
 For more information on the SUPER type, see [SUPER type](r_SUPER_type.md "r_SUPER_type.md").
 
-- If _source_table_ is large, defining the join columns from
-  both _target_table_ and _source_table_ as
+- If _source\_table_ is large, defining the join columns from
+  both _target\_table_ and _source\_table_ as
   the distribution keys can improve performance.
 - To use the REMOVE DUPLICATES clause, you need SELECT, INSERT, and DELETE
-  permissions for _target_table_.
-- _source_table_ can be a view or subquery. Following is an
-  example of a MERGE statement where _source_table_ is a subquery
+  permissions for _target\_table_.
+- _source\_table_ can be a view or subquery. Following is an
+  example of a MERGE statement where _source\_table_ is a subquery
   that removes duplicate rows.
 
 ```
@@ -199,8 +199,8 @@ WHEN NOT MATCHED THEN INSERT VALUES (my_source.id, my_source.name);
 
 - The target cannot be a data source of any subquery of the same MERGE statement.
   For example, the following SQL command returns an error like **`ERROR:
-Source view/subquery in Merge statement cannot reference target
-table.`** because the subquery references `target` instead
+ Source view/subquery in Merge statement cannot reference target
+ table.`** because the subquery references `target` instead
   of `source`.
 
 ```
@@ -324,8 +324,8 @@ id | name
 ```
 
 The following example shows the simplified syntax of a MERGE command that uses the
-REMOVE DUPLICATES clause, removing duplicate rows from _target_table_
-if they have matching rows in _source_table_.
+REMOVE DUPLICATES clause, removing duplicate rows from _target\_table_
+if they have matching rows in _source\_table_.
 
 ```
 CREATE TABLE target (id INT, name CHAR(10));
@@ -348,9 +348,9 @@ id | name
 ```
 
 After MERGE runs, there's only one row with an ID value of 23 in
-_target_table_. Because there was no row in
-_source_table_ with the ID value 30, the two duplicate rows with
-ID values of 30 remain in _target_table_.
+_target\_table_. Because there was no row in
+_source\_table_ with the ID value 30, the two duplicate rows with
+ID values of 30 remain in _target\_table_.
 
 ## See also
 

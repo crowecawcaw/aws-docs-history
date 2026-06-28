@@ -39,7 +39,7 @@ ALL
 Fetches all remaining rows. (Same as FORWARD ALL.) ALL isn't supported
 for single-node clusters.
 
-FORWARD [ *count* | ALL ]
+FORWARD [ _count_ | ALL ]
 
 Fetches the next _count_ rows, or all remaining rows.
 `FORWARD 0` fetches the current row. For single-node clusters,

@@ -34,7 +34,7 @@ The following example creates a table then starts a transaction where data is
 inserted into the table. The ROLLBACK command then rolls back the data insertion to
 leave the table empty.
 
-The following command creates an example table called MOVIE_GROSS:
+The following command creates an example table called MOVIE\_GROSS:
 
 ```
 create table movie_gross( name varchar(30), gross bigint );

@@ -13,7 +13,7 @@ date.
 ## Usage notes
 
 To check if automatic rewriting of queries is used for a query, you can inspect the
-query plan or STL_EXPLAIN. The following shows a SELECT statement and the EXPLAIN
+query plan or STL\_EXPLAIN. The following shows a SELECT statement and the EXPLAIN
 output of the original query plan.
 
 ```
@@ -56,7 +56,7 @@ of the materialized view.
 You can use automatic query rewriting of materialized views that are created on cluster version 1.0.20949 or later.
 
 You can stop automatic query rewriting at the session level by using SET
-mv_enable_aqmv_for_session to FALSE.
+mv\_enable\_aqmv\_for\_session to FALSE.
 
 ## How automatic query rewriting of materialized views works
 
@@ -103,7 +103,7 @@ Following are limitations for using automatic query rewriting of materialized vi
   - Queries with outer joins or a SELECT DISTINCT clause
 
 - If a query isn't automatically rewritten, check whether you have the SELECT permission on
-  the specified materialized view and the [mv_enable_aqmv_for_session](r_mv_enable_aqmv_for_session.md "r_mv_enable_aqmv_for_session.md") option is set to TRUE.
+  the specified materialized view and the [mv\_enable\_aqmv\_for\_session](r_mv_enable_aqmv_for_session.md "r_mv_enable_aqmv_for_session.md") option is set to TRUE.
 
 You can also check if your materialized views are eligible for automatic rewriting
-of queries by inspecting STV_MV_INFO. For more information, see [STV_MV_INFO](r_STV_MV_INFO.md "r_STV_MV_INFO.md").
+of queries by inspecting STV\_MV\_INFO. For more information, see [STV\_MV\_INFO](r_STV_MV_INFO.md "r_STV_MV_INFO.md").

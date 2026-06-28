@@ -38,7 +38,7 @@ following operators, in this order of precedence:
   shift right bitwise operators
 - ||: concatenation
 
-_(compound_expression)_
+_(compound\_expression)_
 
 Compound expressions can be nested using parentheses.
 

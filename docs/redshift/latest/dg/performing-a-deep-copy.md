@@ -65,7 +65,7 @@ view and grant all of a table's access privileges, you must be one of the follow
 3. Use an INSERT INTO … SELECT statement to populate the copy with data from the
    original table.
 4. Check for permissions granted on the old table.
-   You can see these permissions in the SVV_RELATION_PRIVILEGES system view.
+   You can see these permissions in the SVV\_RELATION\_PRIVILEGES system view.
 5. If necessary, grant the permissions of the old table to the new table.
 6. Grant usage permission to every group and user that has privileges in the original table.
    This step isn't necessary if your deep copy table is in the `public` schema,
@@ -73,7 +73,7 @@ view and grant all of a table's access privileges, you must be one of the follow
 7. Drop the original table.
 8. Use an ALTER TABLE statement to rename the copy to the original table name.
    The following example performs a deep copy on the SAMPLE table using a duplicate of SAMPLE
-   named sample_copy.
+   named sample\_copy.
 
 ```
 --Create a copy of the original table in the sample_namespace namespace using the original CREATE TABLE DDL.
@@ -107,7 +107,7 @@ alter table sample_namespace.sample_copy rename to sample;
 2. Use an INSERT INTO … SELECT statement to copy the rows from the current table to
    the new table.
 3. Check for permissions granted on the old table.
-   You can see these permissions in the SVV_RELATION_PRIVILEGES system view.
+   You can see these permissions in the SVV\_RELATION\_PRIVILEGES system view.
 4. If necessary, grant the permissions of the old table to the new table.
 5. Grant usage permission to every group and user that has privileges in the original table.
    This step isn't necessary if your deep copy table is in the `public` schema,

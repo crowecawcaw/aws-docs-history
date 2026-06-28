@@ -42,7 +42,7 @@ hll_cardinality | country
 
 The following example returns a single HLLSKETCH type that represents the combination
 of individual sketches from a subquery. The sketches are combined by using the
-HLL_COMBINE aggregate function.
+HLL\_COMBINE aggregate function.
 
 ```
 SELECT hll_combine(sketch)
@@ -93,7 +93,7 @@ The output looks similar to the following.
 -- +-----------------------------------------+
 ```
 
-When a new sketch is created, you can use the HLL_CARDINALITY function to get the
+When a new sketch is created, you can use the HLL\_CARDINALITY function to get the
 collective distinct values, as shown following.
 
 ```

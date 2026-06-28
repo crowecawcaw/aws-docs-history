@@ -20,7 +20,7 @@ _string_
 
 A string column, expression, or string literal to be trimmed.
 
-_trim_chars_
+_trim\_chars_
 
 A string column, expression, or string literal that represents the characters to be trimmed
 from the beginning of _string_. If not specified, a space is used as the trim character.
@@ -54,7 +54,7 @@ limit 10;`
  10 | 2008-06-17 09:44:54 | 6-17 09:44:54`
 ```
 
-LTRIM removes any of the characters in _trim_chars_ when they
+LTRIM removes any of the characters in _trim\_chars_ when they
 appear at the beginning of _string_. The following example trims
 the characters 'C', 'D', and 'G' when they appear at the beginning of VENUENAME, which is a VARCHAR column.
 

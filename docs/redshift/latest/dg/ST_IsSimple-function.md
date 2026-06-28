@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_IsSimple
+# ST\_IsSimple
 
-ST_IsSimple returns true if the 2D projection of the input geometry is simple.
+ST\_IsSimple returns true if the 2D projection of the input geometry is simple.
 For more information about the definition of a simple geometry, see
 [Geometric simplicity](spatial-terminology.md#spatial-terminology-simplicity "spatial-terminology.md#spatial-terminology-simplicity").
 

@@ -23,7 +23,7 @@ Consider the following best practices when working with semi-structured data.
 
 - We recommend that you set the `enable_case_sensitive_super_attribute` configuration option to
   true when working with SUPER data. For more information, see
-  [enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md").
+  [enable\_case\_sensitive\_super\_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md").
 - Use the COPY command to load data from Amazon S3 buckets into Amazon Redshift SUPER columns.
 - Use PartiQL dynamic typing and lax semantics to run ad hoc queries on SUPER data values without having to impose a schema before querying.
   For information on dynamic typing, see [Dynamic typing](query-super.md#dynamic-typing-lax-processing "query-super.md#dynamic-typing-lax-processing").
@@ -60,7 +60,7 @@ flexible semi-structured SUPER data type, Amazon Redshift can receive and ingest
 into columns with the SUPER data type. For example, you can ingest the JSON value `[10.5, “first”]`
 into a SUPER data type column by using the COPY command. The column would hold a
 SUPER value of `[10.5, ‘first’]`. You can also ingest JSON using
-[JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md"). Both COPY and
+[JSON\_PARSE function](JSON_PARSE.md "JSON_PARSE.md"). Both COPY and
 `json_parse` ingest JSON using strict parsing semantics by default. You can also construct
 SUPER values including arrays and structures, using the database data themselves.
 

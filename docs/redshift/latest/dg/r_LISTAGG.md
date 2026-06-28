@@ -24,7 +24,7 @@ expression before concatenating. Trailing spaces are ignored. For example, the s
 `'a'` and `'a '` are treated as duplicates. LISTAGG
 uses the first value encountered. For more information, see [Significance of trailing blanks](r_Character_types.md#r_Character_types-significance-of-trailing-blanks "r_Character_types.md#r_Character_types-significance-of-trailing-blanks").
 
-_aggregate_expression_
+_aggregate\_expression_
 
 Any valid expression, such as a column name, that provides the values to
 aggregate. NULL values and empty strings are ignored.
@@ -34,7 +34,7 @@ _delimiter_
 The string constant to separate the concatenated values. The
 default is NULL.
 
-_WITHIN GROUP (ORDER BY order_list)_
+_WITHIN GROUP (ORDER BY order\_list)_
 
 A clause that specifies the sort order of the aggregated
 values.
@@ -77,7 +77,7 @@ LISTAGG(dateid) AS dates
 FROM sales;
 ```
 
-- You can't use the LISTAGG, PERCENTILE_CONT, and MEDIAN aggregate functions with other
+- You can't use the LISTAGG, PERCENTILE\_CONT, and MEDIAN aggregate functions with other
   distinct aggregate functions.
 
 ## Examples

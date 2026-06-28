@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_EndPoint
+# ST\_EndPoint
 
-ST_EndPoint returns the last point of an input linestring.
+ST\_EndPoint returns the last point of an input linestring.
 The spatial reference system identifier (SRID) value of the result is the same as that of the input geometry.
 The dimension of the returned geometry is the same as that of the input geometry.
 

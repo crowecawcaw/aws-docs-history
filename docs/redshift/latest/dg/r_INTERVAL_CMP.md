@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# INTERVAL_CMP function
+# INTERVAL\_CMP function
 
-INTERVAL_CMP compares two intervals and returns `1` if the first interval is
+INTERVAL\_CMP compares two intervals and returns `1` if the first interval is
 greater, `-1` if the second interval is greater, and `0` if the
 intervals are equal. For more information, see [Examples of interval literals without qualifier syntax](r_interval_literals.md "r_interval_literals.md").
 

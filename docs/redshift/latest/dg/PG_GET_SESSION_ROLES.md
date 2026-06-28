@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_GET_SESSION_ROLES
+# PG\_GET\_SESSION\_ROLES
 
 Returns session roles of the currently logged in user.
 Session roles of a user are the groups defined by an identity provider (IdP) for the logged in user.
@@ -20,7 +20,7 @@ in the _Amazon Redshift Management Guide_.
 
 To view the roles defined in the Amazon Redshift catalog, query
 
-the system view [SVV_ROLES](r_SVV_ROLES.md "r_SVV_ROLES.md").
+the system view [SVV\_ROLES](r_SVV_ROLES.md "r_SVV_ROLES.md").
 
 ## Syntax
 

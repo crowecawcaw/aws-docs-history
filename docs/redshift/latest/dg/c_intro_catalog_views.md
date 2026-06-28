@@ -6,16 +6,16 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [PG_ATTRIBUTE_INFO](r_PG_ATTRIBUTE_INFO.md "r_PG_ATTRIBUTE_INFO.md")
-- [PG_CLASS_INFO](r_PG_CLASS_INFO.md "r_PG_CLASS_INFO.md")
-- [PG_DATABASE_INFO](r_PG_DATABASE_INFO.md "r_PG_DATABASE_INFO.md")
-- [PG_DEFAULT_ACL](r_PG_DEFAULT_ACL.md "r_PG_DEFAULT_ACL.md")
-- [PG_EXTERNAL_SCHEMA](r_PG_EXTERNAL_SCHEMA.md "r_PG_EXTERNAL_SCHEMA.md")
-- [PG_LIBRARY](r_PG_LIBRARY.md "r_PG_LIBRARY.md")
-- [PG_PROC_INFO](r_PG_PROC_INFO.md "r_PG_PROC_INFO.md")
-- [PG_STATISTIC_INDICATOR](r_PG_STATISTIC_INDICATOR.md "r_PG_STATISTIC_INDICATOR.md")
-- [PG_TABLE_DEF](r_PG_TABLE_DEF.md "r_PG_TABLE_DEF.md")
-- [PG_USER_INFO](pg_user_info.md "pg_user_info.md")
+- [PG\_ATTRIBUTE\_INFO](r_PG_ATTRIBUTE_INFO.md "r_PG_ATTRIBUTE_INFO.md")
+- [PG\_CLASS\_INFO](r_PG_CLASS_INFO.md "r_PG_CLASS_INFO.md")
+- [PG\_DATABASE\_INFO](r_PG_DATABASE_INFO.md "r_PG_DATABASE_INFO.md")
+- [PG\_DEFAULT\_ACL](r_PG_DEFAULT_ACL.md "r_PG_DEFAULT_ACL.md")
+- [PG\_EXTERNAL\_SCHEMA](r_PG_EXTERNAL_SCHEMA.md "r_PG_EXTERNAL_SCHEMA.md")
+- [PG\_LIBRARY](r_PG_LIBRARY.md "r_PG_LIBRARY.md")
+- [PG\_PROC\_INFO](r_PG_PROC_INFO.md "r_PG_PROC_INFO.md")
+- [PG\_STATISTIC\_INDICATOR](r_PG_STATISTIC_INDICATOR.md "r_PG_STATISTIC_INDICATOR.md")
+- [PG\_TABLE\_DEF](r_PG_TABLE_DEF.md "r_PG_TABLE_DEF.md")
+- [PG\_USER\_INFO](pg_user_info.md "pg_user_info.md")
 - [Querying the catalog tables](c_join_PG.md "c_join_PG.md")
   The system catalogs store schema metadata, such as information about tables and columns.
   System catalog tables have a PG prefix.

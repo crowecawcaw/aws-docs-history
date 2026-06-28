@@ -74,7 +74,6 @@ By default, VACUUM FULL skips the sort phase for any table that is already
 at least 95 percent sorted. If VACUUM is able to skip the sort phase, it
 performs a DELETE ONLY and reclaims space in the delete phase such that at
 least 95 percent of the remaining rows aren't marked for deletion.
-
  
 
 If the sort threshold isn't met (for example, if 90 percent of rows are
@@ -119,7 +118,7 @@ re-sorting rows to optimize query performance isn't a requirement.
 By default, VACUUM DELETE ONLY reclaims space such that at least 95 percent
 of the remaining rows aren't marked for deletion. To change the default
 delete threshold for a single table, include the table name and the
-TO *threshold* PERCENT parameter when you
+TO _threshold_ PERCENT parameter when you
 run VACUUM. 
 
 Some operations, such as `ALTER TABLE APPEND`, can cause tables
@@ -152,7 +151,7 @@ that are already sorted by automatic table sort are left intact. This command
 doesn't merge the newly sorted data with the sorted region. It also doesn't
 reclaim all space that is marked for deletion. When this command completes, the
 table might not appear fully sorted, as indicated by the `unsorted`
-field in SVV_TABLE_INFO.
+field in SVV\_TABLE\_INFO.
 
 We recommend that you use VACUUM RECLUSTER for large tables with frequent
 ingestion and queries that access only the most recent data.
@@ -163,7 +162,7 @@ RECLUSTER is used, a table name is required.
 VACUUM RECLUSTER isn't supported on tables with interleaved sort keys
 and tables with ALL distribution style.
 
-_table_name_
+_table\_name_
 
 The name of a table to vacuum. If you don't specify a table name, the
 vacuum operation applies to all tables in the current database. You can specify
@@ -177,7 +176,7 @@ TO _threshold_ PERCENT
 
 A clause that specifies the threshold above which VACUUM skips the sort
 phase and the target threshold for reclaiming space in the delete phase. The
-*sort threshold* is the percentage of total rows that are
+_sort threshold_ is the percentage of total rows that are
 already in sort order for the specified table prior to vacuuming.  The
 _delete threshold_ is the minimum percentage of total
 rows not marked for deletion after vacuuming.
@@ -215,7 +214,7 @@ system is light, such as during maintenance operations.
 
 Consider the following when using the BOOST option:
 
-- When BOOST is specified, the _table_name_ value is
+- When BOOST is specified, the _table\_name_ value is
   required.
 - BOOST isn't supported with REINDEX.
 - BOOST is ignored with DELETE ONLY.

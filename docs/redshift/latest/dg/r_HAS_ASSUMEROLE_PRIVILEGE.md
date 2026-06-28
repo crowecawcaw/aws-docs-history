@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# HAS_ASSUMEROLE_PRIVILEGE
+# HAS\_ASSUMEROLE\_PRIVILEGE
 
 Returns Boolean `true` (`t`) if the specified user has the
 specified IAM role with the privilege to run the specified command. The function
@@ -24,11 +24,11 @@ The name of the user to check for IAM role privileges. The default is
 to check the current user. Superusers and users can use this function.
 However, users can only view their own privileges.
 
-_iam_role_arn_
+_iam\_role\_arn_
 
 The IAM role that has been granted the command privileges.
 
-_cmd_type_
+_cmd\_type_
 
 The command for which access has been granted. Valid values are the
 following:

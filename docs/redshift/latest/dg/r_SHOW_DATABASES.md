@@ -48,7 +48,7 @@ Filters the list of databases to those that match the expression that you
 specify. This parameter supports patterns that use the wildcard characters %
 (percent) and \_ (underscore).
 
-IAM_ROLE default | 'SESSION' |
+IAM\_ROLE default | 'SESSION' |
 'arn:aws:iam::<account-id>:role/<role-name>'
 
 If you specify an IAM role that is associated with the cluster when running
@@ -69,10 +69,10 @@ Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses
 for authentication and authorization. As a minimum, the IAM role must have
 permission to perform a LIST operation on the Amazon S3 bucket to be accessed and a
 GET operation on the Amazon S3 objects the bucket contains. To learn more about
-databases created from the AWS Glue Data Catalog for datashares and using IAM_ROLE, see
+databases created from the AWS Glue Data Catalog for datashares and using IAM\_ROLE, see
 [Working with Lake Formation-managed datashares as a consumer](lake-formation-getting-started-consumer.md "lake-formation-getting-started-consumer.md").
 
-The following shows the syntax for the IAM_ROLE parameter string for a
+The following shows the syntax for the IAM\_ROLE parameter string for a
 single ARN.
 
 ```
@@ -131,11 +131,11 @@ IAM_ROLE 'arn:aws:iam::`<aws-account-id>`:role/`<role-1-name>`,arn:aws:iam::`<aw
 
 ```
 
-LIMIT _row_limit_
+LIMIT _row\_limit_
 
 Clause to LIMIT the number of rows returned. Where
-_row_limit_ is the maximum number of rows to return. The
-_row_limit_ can be 0–10,000.
+_row\_limit_ is the maximum number of rows to return. The
+_row\_limit_ can be 0–10,000.
 
 ## Examples
 

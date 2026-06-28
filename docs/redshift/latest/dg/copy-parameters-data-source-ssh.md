@@ -58,18 +58,18 @@ FROM
 
 The source of the data to be loaded.
 
-'s3://_copy_from_ssh_manifest_file_'
+'s3://_copy\_from\_ssh\_manifest\_file_'
 
 The COPY command can connect to multiple hosts using SSH, and can
 create multiple SSH connections to each host. COPY runs a command
 through each host connection, and then loads the output from the commands
 in parallel into the table. The
-_s3://copy_from_ssh_manifest_file_ argument
+_s3://copy\_from\_ssh\_manifest\_file_ argument
 specifies the Amazon S3 object key for the manifest file that provides the
 information COPY uses to open SSH connections and run the remote
 commands.
 
-The _s3://copy_from_ssh_manifest_file_ argument
+The _s3://copy\_from\_ssh\_manifest\_file_ argument
 must explicitly reference a single file; it can't be a key prefix. The
 following shows an example:
 
@@ -122,7 +122,7 @@ command
 The command to be run by the host to generate text
 output or binary output in gzip, lzop, bzip2, or zstd format. The
 command can be any command that the user
-_"host_user_name"_ has permission to run.
+_"host\_user\_name"_ has permission to run.
 The command can be as simple as printing a file, or it can query
 a database or launch a script. The output (text file, gzip
 binary file, lzop binary file, or bzip2 binary file) must be in
@@ -184,7 +184,7 @@ SSH
 
 A clause that specifies that data is to be loaded from a remote host
 using the SSH protocol. If you specify SSH, you must also provide a
-manifest file using the [s3://copy_from_ssh_manifest_file](#copy-ssh-manifest "#copy-ssh-manifest") argument.
+manifest file using the [s3://copy\_from\_ssh\_manifest\_file](#copy-ssh-manifest "#copy-ssh-manifest") argument.
 
 ###### Note
 

@@ -14,7 +14,7 @@ For example, a bounding box of the polygon `POLYGON((0 0,1 0,0 2,0 0))` is the r
 as its bottom-left and top-right corners.
 Amazon Redshift precomputes and stores a bounding box inside a geometry to speed up geometric predicates and spatial joins.
 For example if the bounding boxes of two geometries don't intersect, then these two geometries can't intersect,
-and they can't be in the result set of a spatial join using the ST_Intersects predicate.
+and they can't be in the result set of a spatial join using the ST\_Intersects predicate.
 
 You can use spatial functions to add ([AddBBox](AddBBox-function.md "AddBBox-function.md")), drop ([DropBBox](DropBBox-function.md "DropBBox-function.md")), and determine support ([SupportsBBox](SupportsBBox-function.md "SupportsBBox-function.md")) for a
 bounding box.
@@ -30,7 +30,7 @@ UPDATE my_table SET geom = AddBBox(geom) WHERE SupportsBBox(geom) = false;
 After you update existing geometries, we recommend you run the VACUUM command on the updated table. For more information, see
 [VACUUM](r_VACUUM_command.md "r_VACUUM_command.md").
 
-To set whether geometries are encoded with a bounding box during a session, see [default_geometry_encoding](r_default_geometry_encoding.md "r_default_geometry_encoding.md").
+To set whether geometries are encoded with a bounding box during a session, see [default\_geometry\_encoding](r_default_geometry_encoding.md "r_default_geometry_encoding.md").
 
 ## Geometric validity
 
@@ -233,12 +233,12 @@ With `0` being the coarsest and `15` being the finest.
 
 Amazon Redshift provides the following H3 spatial functions:
 
-- [H3_Boundary](H3_Boundary-function.md "H3_Boundary-function.md")
-- [H3_Center](H3_Center-function.md "H3_Center-function.md")
-- [H3_FromLongLat](H3_FromLongLat-function.md "H3_FromLongLat-function.md")
-- [H3_FromPoint](H3_FromPoint-function.md "H3_FromPoint-function.md")
-- [H3_IsValid](H3_IsValid-function.md "H3_IsValid-function.md")
-- [H3_Polyfill](H3_Polyfill-function.md "H3_Polyfill-function.md")
-- [H3_Resolution](H3_Resolution-function.md "H3_Resolution-function.md")
-- [H3_ToChildren](H3_ToChildren-function.md "H3_ToChildren-function.md")
-- [H3_ToParent](H3_ToParent-function.md "H3_ToParent-function.md")
+- [H3\_Boundary](H3_Boundary-function.md "H3_Boundary-function.md")
+- [H3\_Center](H3_Center-function.md "H3_Center-function.md")
+- [H3\_FromLongLat](H3_FromLongLat-function.md "H3_FromLongLat-function.md")
+- [H3\_FromPoint](H3_FromPoint-function.md "H3_FromPoint-function.md")
+- [H3\_IsValid](H3_IsValid-function.md "H3_IsValid-function.md")
+- [H3\_Polyfill](H3_Polyfill-function.md "H3_Polyfill-function.md")
+- [H3\_Resolution](H3_Resolution-function.md "H3_Resolution-function.md")
+- [H3\_ToChildren](H3_ToChildren-function.md "H3_ToChildren-function.md")
+- [H3\_ToParent](H3_ToParent-function.md "H3_ToParent-function.md")

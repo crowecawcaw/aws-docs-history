@@ -22,17 +22,17 @@ COPY supports columnar formatted data with the following considerations:
   - [ACCEPTINVCHARS](copy-parameters-data-conversion.md#copy-acceptinvchars "copy-parameters-data-conversion.md#copy-acceptinvchars") when copying from an ORC or Parquet file.
   - [FILLRECORD](copy-parameters-data-conversion.md#copy-fillrecord "copy-parameters-data-conversion.md#copy-fillrecord")
   - [FROM](copy-parameters-data-source-s3.md#copy-parameters-from "copy-parameters-data-source-s3.md#copy-parameters-from")
-  - [IAM_ROLE](copy-parameters-authorization.md#copy-iam-role "copy-parameters-authorization.md#copy-iam-role")
+  - [IAM\_ROLE](copy-parameters-authorization.md#copy-iam-role "copy-parameters-authorization.md#copy-iam-role")
   - [CREDENTIALS](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials")
   - [STATUPDATE](copy-parameters-data-load.md#copy-statupdate "copy-parameters-data-load.md#copy-statupdate")
   - [MANIFEST](copy-parameters-data-source-s3.md#copy-manifest "copy-parameters-data-source-s3.md#copy-manifest")
-  - [EXPLICIT_IDS](copy-parameters-data-conversion.md#copy-explicit-ids "copy-parameters-data-conversion.md#copy-explicit-ids")
+  - [EXPLICIT\_IDS](copy-parameters-data-conversion.md#copy-explicit-ids "copy-parameters-data-conversion.md#copy-explicit-ids")
 
 - If COPY encounters an error while loading, the command fails. ACCEPTANYDATE
 
 and MAXERROR aren't supported for columnar data types.
 
-- Error messages are sent to the SQL client. Some errors are logged in STL_LOAD_ERRORS and STL_ERROR.
+- Error messages are sent to the SQL client. Some errors are logged in STL\_LOAD\_ERRORS and STL\_ERROR.
 - COPY inserts values into the target table's columns in the same order as the
   columns occur in the columnar data files. The number of columns in the target
   table and the number of columns in the data file must match.

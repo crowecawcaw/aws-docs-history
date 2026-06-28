@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeoHash
+# ST\_GeoHash
 
-ST_GeoHash returns the `geohash` representation of the input point with the specified precision.
+ST\_GeoHash returns the `geohash` representation of the input point with the specified precision.
 The default precision value is 20.
 For more information about the definition of geohash, see [Geohash](https://en.wikipedia.org/wiki/Geohash "https://en.wikipedia.org/wiki/Geohash") in Wikipedia.
 

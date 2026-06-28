@@ -25,7 +25,7 @@ DECLARE *cursor\_name* CURSOR FOR *query*
 
 ## Parameters
 
-_cursor_name_
+_cursor\_name_
 
 Name of the new cursor.
 
@@ -87,8 +87,8 @@ type. Maximum result set sizes are in megabytes.
 | RA3 LARGE single node      | 8,000                               |
 | Amazon Redshift Serverless | 150,000                             |
 
-To view the active cursor configuration for a cluster, query the [STV_CURSOR_CONFIGURATION](r_STV_CURSOR_CONFIGURATION.md "r_STV_CURSOR_CONFIGURATION.md")
-system table as a superuser. To view the state of active cursors, query the [STV_ACTIVE_CURSORS](r_STV_ACTIVE_CURSORS.md "r_STV_ACTIVE_CURSORS.md") system table.
+To view the active cursor configuration for a cluster, query the [STV\_CURSOR\_CONFIGURATION](r_STV_CURSOR_CONFIGURATION.md "r_STV_CURSOR_CONFIGURATION.md")
+system table as a superuser. To view the state of active cursors, query the [STV\_ACTIVE\_CURSORS](r_STV_ACTIVE_CURSORS.md "r_STV_ACTIVE_CURSORS.md") system table.
 Only the rows for a user's own cursors are visible to the user, but a superuser can
 view all cursors.
 

@@ -36,11 +36,11 @@ Amazon Redshift:
 - Network address types
 - Numeric types SERIAL, BIGSERIAL, SMALLSERIAL, and MONEY
 - Object identifier types
-- pg_lsn type
+- pg\_lsn type
 - Pseudotypes
 - Range types
 - Text search types
-- TXID_SNAPSHOT
+- TXID\_SNAPSHOT
 - UUID
 - XML type
   The following table shows the mapping of an Amazon Redshift data type to a corresponding Amazon RDS MySQL or Aurora MySQL data type.

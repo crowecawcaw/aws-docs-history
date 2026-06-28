@@ -82,11 +82,11 @@ select count(*) from encodingvenue
 (1 row)
 ```
 
-5. Query the [STV_BLOCKLIST](r_STV_BLOCKLIST.md "r_STV_BLOCKLIST.md") system table to compare the number
+5. Query the [STV\_BLOCKLIST](r_STV_BLOCKLIST.md "r_STV_BLOCKLIST.md") system table to compare the number
    of 1 MB disk blocks used by each column.
 
 The MAX aggregate function returns the highest block number for each
-column. The STV_BLOCKLIST table includes details for three system-generated
+column. The STV\_BLOCKLIST table includes details for three system-generated
 columns. This example uses `col < 6` in the WHERE clause to
 exclude the system-generated columns.
 
@@ -124,7 +124,7 @@ results.
 
 If you have data in an existing table, you can use the [ANALYZE COMPRESSION](r_ANALYZE_COMPRESSION.md "r_ANALYZE_COMPRESSION.md") command
 to view the suggested encodings for the table. For example, the following example
-shows the recommended encoding for a copy of the VENUE table, CARTESIAN_VENUE, that
+shows the recommended encoding for a copy of the VENUE table, CARTESIAN\_VENUE, that
 contains 38 million rows. Notice that ANALYZE COMPRESSION recommends LZO encoding
 for the VENUENAME column. ANALYZE COMPRESSION chooses optimal compression based on
 multiple factors, which include percent of reduction. In this specific case,
@@ -164,13 +164,13 @@ start_date date encode delta32k);
 The following table shows the column encodings that were chosen for the CUSTOMER
 table and gives an explanation for the choices:
 
-| Column     | Data type    | Encoding | Explanation                                                                                                                                                                                                                                                                        |
-| ---------- | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CUSTKEY    | int          | delta    | CUSTKEY consists of unique, consecutive integer values. Because<br>the differences are one byte, DELTA is a good choice.                                                                                                                                                           |
-| CUSTNAME   | varchar(30)  | raw      | CUSTNAME has a large domain with few repeated values. Any<br>compression encoding would probably be ineffective.                                                                                                                                                                   |
-| GENDER     | varchar(7)   | text255  | GENDER is very small domain with many repeated values. Text255<br>works well with VARCHAR columns in which the same words<br>recur.                                                                                                                                                |
-| ADDRESS    | varchar(200) | text255  | ADDRESS is a large domain, but contains many repeated words, such<br>as Street, Avenue, North, South, and so on. Text 255 and text 32k<br>are useful for compressing VARCHAR columns in which the same words<br>recur. The column length is short, so text255 is a good<br>choice. |
-| CITY       | varchar(30)  | text255  | CITY is a large domain, with some repeated values. Certain city<br>names are used much more commonly than others. Text255 is a good<br>choice for the same reasons as ADDRESS.                                                                                                     |
-| STATE      | char(2)      | raw      | In the United States, STATE is a precise domain of 50<br>two-character values. Bytedict encoding would yield some<br>compression, but because the column size is only two characters,<br>compression might not be worth the overhead of uncompressing the<br>data.                 |
-| ZIPCODE    | char(5)      | bytedict | ZIPCODE is a known domain of fewer than 50,000 unique values.<br>Certain zip codes occur much more commonly than others. Bytedict<br>encoding is very effective when a column contains a limited number<br>of unique values.                                                       |
-| START_DATE | date         | delta32k | Delta encodings are very useful for date time columns, especially<br>if the rows are loaded in date order.                                                                                                                                                                         |
+| Column      | Data type    | Encoding | Explanation                                                                                                                                                                                                                                                                        |
+| ----------- | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CUSTKEY     | int          | delta    | CUSTKEY consists of unique, consecutive integer values. Because<br>the differences are one byte, DELTA is a good choice.                                                                                                                                                           |
+| CUSTNAME    | varchar(30)  | raw      | CUSTNAME has a large domain with few repeated values. Any<br>compression encoding would probably be ineffective.                                                                                                                                                                   |
+| GENDER      | varchar(7)   | text255  | GENDER is very small domain with many repeated values. Text255<br>works well with VARCHAR columns in which the same words<br>recur.                                                                                                                                                |
+| ADDRESS     | varchar(200) | text255  | ADDRESS is a large domain, but contains many repeated words, such<br>as Street, Avenue, North, South, and so on. Text 255 and text 32k<br>are useful for compressing VARCHAR columns in which the same words<br>recur. The column length is short, so text255 is a good<br>choice. |
+| CITY        | varchar(30)  | text255  | CITY is a large domain, with some repeated values. Certain city<br>names are used much more commonly than others. Text255 is a good<br>choice for the same reasons as ADDRESS.                                                                                                     |
+| STATE       | char(2)      | raw      | In the United States, STATE is a precise domain of 50<br>two-character values. Bytedict encoding would yield some<br>compression, but because the column size is only two characters,<br>compression might not be worth the overhead of uncompressing the<br>data.                 |
+| ZIPCODE     | char(5)      | bytedict | ZIPCODE is a known domain of fewer than 50,000 unique values.<br>Certain zip codes occur much more commonly than others. Bytedict<br>encoding is very effective when a column contains a limited number<br>of unique values.                                                       |
+| START\_DATE | date         | delta32k | Delta encodings are very useful for date time columns, especially<br>if the rows are loaded in date order.                                                                                                                                                                         |

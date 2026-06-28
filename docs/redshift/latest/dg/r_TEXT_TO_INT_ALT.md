@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# TEXT_TO_INT_ALT
+# TEXT\_TO\_INT\_ALT
 
-TEXT_TO_INT_ALT converts a character string to an integer using Teradata-style formatting. Fraction digits in the result are truncated.
+TEXT\_TO\_INT\_ALT converts a character string to an integer using Teradata-style formatting. Fraction digits in the result are truncated.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ A string literal that defines the format of the input expression. For more infor
 
 ## Return type
 
-TEXT_TO_INT_ALT returns an INTEGER value.
+TEXT\_TO\_INT\_ALT returns an INTEGER value.
 
 The fractional portion of the cast result is truncated.
 

@@ -7,18 +7,18 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 The following Amazon Redshift system tables can be helpful in troubleshooting data load
 issues:
 
-- Query [STL_LOAD_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md")
+- Query [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md")
   to discover the errors that occurred during specific loads.
-- Query [STL_FILE_SCAN](r_STL_FILE_SCAN.md "r_STL_FILE_SCAN.md") to
+- Query [STL\_FILE\_SCAN](r_STL_FILE_SCAN.md "r_STL_FILE_SCAN.md") to
   view load times for specific files or to see if a specific file was even
   read.
-- Query [STL_S3CLIENT_ERROR](r_STL_S3CLIENT_ERROR.md "r_STL_S3CLIENT_ERROR.md") to find details for errors
+- Query [STL\_S3CLIENT\_ERROR](r_STL_S3CLIENT_ERROR.md "r_STL_S3CLIENT_ERROR.md") to find details for errors
   encountered while transferring data from Amazon S3.
 
 ###### To find and diagnose load errors
 
 1. Create a view or define a query that returns details about load errors. The
-   following example joins the STL_LOAD_ERRORS table to the STV_TBL_PERM table to
+   following example joins the STL\_LOAD\_ERRORS table to the STV\_TBL\_PERM table to
    match table IDs with actual table names.
 
 ```
@@ -32,7 +32,7 @@ where sl.tbl = sp.id);
 
 2. Set the MAXERRORS option in your COPY command to a large enough value to
    enable COPY to return useful information about your data. If the COPY
-   encounters errors, an error message directs you to consult the STL_LOAD_ERRORS
+   encounters errors, an error message directs you to consult the STL\_LOAD\_ERRORS
    table for details.
 3. Query the LOADVIEW view to see error details. For example:
 

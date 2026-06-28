@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_IAM_PRIVILEGES
+# SVV\_IAM\_PRIVILEGES
 
-Use SVV_IAM_PRIVILEGES to view explicitly granted IAM privileges on users, roles and groups.
+Use SVV\_IAM\_PRIVILEGES to view explicitly granted IAM privileges on users, roles and groups.
 
-SVV_IAM_PRIVILEGES is visible to the following users:
+SVV\_IAM\_PRIVILEGES is visible to the following users:
 
 - Superusers
 - Users with the ACCESS SYSTEM TABLE permission
@@ -15,17 +15,17 @@ SVV_IAM_PRIVILEGES is visible to the following users:
 
 ## Table columns
 
-| Column name   | Data type | Description                                                                            |
-| ------------- | --------- | -------------------------------------------------------------------------------------- |
-| iam_arn       | text      | Name of the namespace.                                                                 |
-| command_type  | text      | Privilege types. Possible values are COPY, UNLOAD, CREATE MODEL, or EXTERNAL FUNCTION. |
-| identity_id   | integer   | Identity ID. Possible values are user ID, role ID, or group ID.                        |
-| identity_name | text      | Identity name.                                                                         |
-| identity_type | text      | Identity type. Possible values are user, role, group, or public.                       |
+| Column name    | Data type | Description                                                                            |
+| -------------- | --------- | -------------------------------------------------------------------------------------- |
+| iam\_arn       | text      | Name of the namespace.                                                                 |
+| command\_type  | text      | Privilege types. Possible values are COPY, UNLOAD, CREATE MODEL, or EXTERNAL FUNCTION. |
+| identity\_id   | integer   | Identity ID. Possible values are user ID, role ID, or group ID.                        |
+| identity\_name | text      | Identity name.                                                                         |
+| identity\_type | text      | Identity type. Possible values are user, role, group, or public.                       |
 
 ## Sample queries
 
-The following example shows the results of SVV_IAM_PRIVILEGES.
+The following example shows the results of SVV\_IAM\_PRIVILEGES.
 
 ```
 

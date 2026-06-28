@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# IS_BIGINT function
+# IS\_BIGINT function
 
-Checks whether a value is a `BIGINT`. The IS_BIGINT function returns `true` for numbers
+Checks whether a value is a `BIGINT`. The IS\_BIGINT function returns `true` for numbers
 of scale 0 in the 64-bit range. Otherwise, the function returns `false` for all other
 values, including null and floating point numbers.
 
-The IS_BIGINT function is a superset of IS_INTEGER.
+The IS\_BIGINT function is a superset of IS\_INTEGER.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ IS_BIGINT(*super\_expression*)
 
 ## Arguments
 
-_super_expression_
+_super\_expression_
 
 A `SUPER` expression or column.
 
@@ -29,7 +29,7 @@ A `SUPER` expression or column.
 
 ## Examples
 
-To check if `5` is a `BIGINT` using the IS_BIGINT function, use the following example.
+To check if `5` is a `BIGINT` using the IS\_BIGINT function, use the following example.
 
 ```
 `CREATE TABLE t(s SUPER);

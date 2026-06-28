@@ -17,9 +17,9 @@ information about the sample data set is found at [Sample database](c_sampledb.m
 **Sample merge data source**
 
 The examples in this section need a sample data source that includes both updates and
-inserts. For the examples, we will create a sample table named SALES_UPDATE that uses
+inserts. For the examples, we will create a sample table named SALES\_UPDATE that uses
 data from the SALES table. We'll populate the new table with random data that represents
-new sales activity for December. We will use the SALES_UPDATE sample table to create the
+new sales activity for December. We will use the SALES\_UPDATE sample table to create the
 staging table in the examples that follow.
 
 ```
@@ -50,7 +50,7 @@ and mod(sellerid, 4) = 0;
 **Example of a merge that replaces existing
 rows based on matching keys**
 
-The following script uses the SALES_UPDATE table to perform a merge operation on the
+The following script uses the SALES\_UPDATE table to perform a merge operation on the
 SALES table with new data for December sales activity. This example replaces rows in the
 SALES table that have updates. For this example, we will update the qtysold and pricepaid columns,
 but leave commission and saletime unchanged.
@@ -92,7 +92,7 @@ The following example performs a merge operation to update SALES with new data f
 December sales activity. We need sample data that includes both updates and inserts,
 along with rows that have not changed. For this example, we want to update the QTYSOLD
 and PRICEPAID columns but leave COMMISSION and SALETIME unchanged. The following script
-uses the SALES_UPDATE table to perform a merge operation on the SALES table.
+uses the SALES\_UPDATE table to perform a merge operation on the SALES table.
 
 ```
 -- Create a staging table and populate it with rows from SALES_UPDATE for Dec

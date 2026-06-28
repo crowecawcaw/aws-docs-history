@@ -7,7 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Shows a list of schemas in a database, along with some schema attributes.
 
 Each output row consists of database name, schema name, schema owner, schema type, schema ACL, source database, and schema option.
-For more information about these attributes, see [SVV_ALL_SCHEMAS](r_SVV_ALL_SCHEMAS.md "r_SVV_ALL_SCHEMAS.md").
+For more information about these attributes, see [SVV\_ALL\_SCHEMAS](r_SVV_ALL_SCHEMAS.md "r_SVV_ALL_SCHEMAS.md").
 
 If more than 10,000 schemas can result from the SHOW SCHEMAS command, then an error is returned.
 
@@ -27,7 +27,7 @@ SHOW SCHEMAS FROM DATABASE *database\_name* [LIKE '*filter\_pattern*'] [LIMIT *r
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 The name of the database that contains the tables to list.
 
@@ -36,7 +36,7 @@ the database name, and ensure the system configuration
 `data_catalog_auto_mount` is set to `true`. For more
 information, see [ALTER SYSTEM](r_ALTER_SYSTEM.md "r_ALTER_SYSTEM.md").
 
-_filter_pattern_
+_filter\_pattern_
 
 A valid UTF-8 character expression with a pattern to match schema names. The
 LIKE option performs a case-sensitive match that supports the following
@@ -47,13 +47,13 @@ pattern-matching metacharacters:
 | `%`           | Matches any sequence of zero or more<br>characters. |
 | `_`           | Matches any single character.                       |
 
-If _filter_pattern_ does not contain metacharacters, then
+If _filter\_pattern_ does not contain metacharacters, then
 the pattern only represents the string itself; in that case LIKE acts the same
 as the equals operator.
 
-_row_limit_
+_row\_limit_
 
-The maximum number of rows to return. The _row_limit_ can
+The maximum number of rows to return. The _row\_limit_ can
 be 0–10,000.
 
 ## Examples

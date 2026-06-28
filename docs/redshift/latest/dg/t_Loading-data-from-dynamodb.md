@@ -66,11 +66,11 @@ The values for _authorization_ provide the AWS authorization your
 cluster needs to access the Amazon DynamoDB table. The permission must include SCAN and
 DESCRIBE for the Amazon DynamoDB table that is being loaded. For more information about
 required permissions, see [IAM permissions for COPY, UNLOAD, and CREATE LIBRARY](copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions "copy-usage_notes-access-permissions.md#copy-usage_notes-iam-permissions"). The preferred method for
-authentication is to specify the IAM_ROLE parameter and provide the Amazon Resource Name
+authentication is to specify the IAM\_ROLE parameter and provide the Amazon Resource Name
 (ARN) for an IAM role with the necessary permissions.
 For more information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
 
-To authenticate using the IAM_ROLE parameter,
+To authenticate using the IAM\_ROLE parameter,
 `<aws-account-id>` and
 `<role-name>` as shown in the following syntax.
 

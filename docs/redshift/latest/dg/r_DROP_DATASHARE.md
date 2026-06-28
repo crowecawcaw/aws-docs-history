@@ -24,7 +24,7 @@ DROP DATASHARE *datashare\_name*;
 
 ## Parameters
 
-_datashare_name_
+_datashare\_name_
 
 The name of the datashare to be dropped.
 

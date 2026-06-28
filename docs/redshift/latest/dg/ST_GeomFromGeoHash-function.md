@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeomFromGeoHash
+# ST\_GeomFromGeoHash
 
-ST_GeomFromGeoHash constructs a geometry object from the geohash representation of an input geometry.
-ST_GeomFromGeoHash returns a two-dimensional (2D) geometry with the spatial reference identifier (SRID) of zero (0).
+ST\_GeomFromGeoHash constructs a geometry object from the geohash representation of an input geometry.
+ST\_GeomFromGeoHash returns a two-dimensional (2D) geometry with the spatial reference identifier (SRID) of zero (0).
 For more information about the geohash format, see [Geohash](https://en.wikipedia.org/wiki/Geohash "https://en.wikipedia.org/wiki/Geohash") in Wikipedia.
 
 ## Syntax
@@ -20,7 +20,7 @@ ST_GeomFromGeoHash(*geohash\_string*, *precision*)
 
 ## Arguments
 
-_geohash_string_
+_geohash\_string_
 
 A value of data type `VARCHAR` or an expression that evaluates to a `VARCHAR` type,
 that is a geohash representation of a geometry.
@@ -29,15 +29,15 @@ _precision_
 
 A value of data type `INTEGER` that represents the precision of the geohash.
 The value is the number of characters of the geohash to be used as precision. If the value is not specified, less than zero,
-or greater than the _geohash_string_ length. then the _geohash_string_ length is used.
+or greater than the _geohash\_string_ length. then the _geohash\_string_ length is used.
 
 ## Return type
 
 `GEOMETRY`
 
-If _geohash_string_ is null, then null is returned.
+If _geohash\_string_ is null, then null is returned.
 
-If _geohash_string_ is not valid, then an error is returned.
+If _geohash\_string_ is not valid, then an error is returned.
 
 ## Examples
 

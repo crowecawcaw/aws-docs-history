@@ -7,7 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 The COPY command is atomic and transactional. In other words, even when the COPY
 command reads data from multiple files, the entire process is treated as a single
 transaction. If COPY encounters an error reading a file, it automatically retries until
-the process times out (see [statement_timeout](r_statement_timeout.md "r_statement_timeout.md")) or if data can't be download from Amazon S3 for a
+the process times out (see [statement\_timeout](r_statement_timeout.md "r_statement_timeout.md")) or if data can't be download from Amazon S3 for a
 prolonged period of time (between 15 and 30 minutes), ensuring that each file is loaded
 only once. If the COPY command fails, the entire transaction is canceled and all changes
 are rolled back. For more information about handling load errors, see [Troubleshooting data loads](t_Troubleshooting_load_errors.md "t_Troubleshooting_load_errors.md").

@@ -61,9 +61,9 @@ For stored procedures, the only permission that you can grant is EXECUTE.
 You can't run GRANT (on an external resource) within a transaction block (BEGIN ...
 END). For more information about transactions, see [Isolation levels in Amazon Redshift](c_serial_isolation.md "c_serial_isolation.md").
 
-To see which permissions users have been granted for a database, use [HAS_DATABASE_PRIVILEGE](r_HAS_DATABASE_PRIVILEGE.md "r_HAS_DATABASE_PRIVILEGE.md"). To see
-which permissions users have been granted for a schema, use [HAS_SCHEMA_PRIVILEGE](r_HAS_SCHEMA_PRIVILEGE.md "r_HAS_SCHEMA_PRIVILEGE.md"). To see which
-permissions users have been granted for a table, use [HAS_TABLE_PRIVILEGE](r_HAS_TABLE_PRIVILEGE.md "r_HAS_TABLE_PRIVILEGE.md").
+To see which permissions users have been granted for a database, use [HAS\_DATABASE\_PRIVILEGE](r_HAS_DATABASE_PRIVILEGE.md "r_HAS_DATABASE_PRIVILEGE.md"). To see
+which permissions users have been granted for a schema, use [HAS\_SCHEMA\_PRIVILEGE](r_HAS_SCHEMA_PRIVILEGE.md "r_HAS_SCHEMA_PRIVILEGE.md"). To see which
+permissions users have been granted for a table, use [HAS\_TABLE\_PRIVILEGE](r_HAS_TABLE_PRIVILEGE.md "r_HAS_TABLE_PRIVILEGE.md").
 
 ## Syntax
 
@@ -211,8 +211,8 @@ Scoped permissions let you grant permissions to a user or role on
 all objects of a type within a database or schema. Users and roles with scoped permissions have the specified
 permissions on all current and future objects within the database or schema.
 
-You can view the scope of database-level scoped permissions in [SVV_DATABASE_PRIVILEGES](r_SVV_DATABASE_PRIVILEGES.md "r_SVV_DATABASE_PRIVILEGES.md").
-You can view the scope of schema-level scoped permissions in [SVV_SCHEMA_PRIVILEGES](r_SVV_SCHEMA_PRIVILEGES.md "r_SVV_SCHEMA_PRIVILEGES.md").
+You can view the scope of database-level scoped permissions in [SVV\_DATABASE\_PRIVILEGES](r_SVV_DATABASE_PRIVILEGES.md "r_SVV_DATABASE_PRIVILEGES.md").
+You can view the scope of schema-level scoped permissions in [SVV\_SCHEMA\_PRIVILEGES](r_SVV_SCHEMA_PRIVILEGES.md "r_SVV_SCHEMA_PRIVILEGES.md").
 
 For more information about scoped permissions, see [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").
 
@@ -436,39 +436,39 @@ commands to users, roles, or groups with a specified role. The user, role, or
 group assumes that role when running the specified command. To begin using the
 ASSUMEROLE permission, see [Usage notes for granting the ASSUMEROLE permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole "r_GRANT-usage-notes.md#r_GRANT-usage-notes-assumerole").
 
-ON [ TABLE ] _table_name_
+ON [ TABLE ] _table\_name_
 
 Grants the specified permissions on a table or a view. The TABLE keyword is
 optional. You can list multiple tables and views in one statement.
 
-ON ALL TABLES IN SCHEMA _schema_name_
+ON ALL TABLES IN SCHEMA _schema\_name_
 
 Grants the specified permissions on all tables and views in the referenced
 schema.
 
-( _column_name_ [,...] ) ON TABLE
-_table_name_
+( _column\_name_ [,...] ) ON TABLE
+_table\_name_
 
 Grants the specified permissions to users, groups, or PUBLIC on the
 specified columns of the Amazon Redshift table or view.
 
-( _column_list_ ) ON EXTERNAL TABLE
-_schema_name.table_name_
+( _column\_list_ ) ON EXTERNAL TABLE
+_schema\_name.table\_name_
 
 Grants the specified permissions to an IAM role on the specified columns of
 the Lake Formation table in the referenced schema.
 
-ON EXTERNAL TABLE _schema_name.table_name_
+ON EXTERNAL TABLE _schema\_name.table\_name_
 
 Grants the specified permissions to an IAM role on the specified Lake Formation tables
 in the referenced schema.
 
-ON EXTERNAL SCHEMA _schema_name_
+ON EXTERNAL SCHEMA _schema\_name_
 
 Grants the specified permissions to an IAM role on the referenced
 schema.
 
-ON _iam_role_
+ON _iam\_role_
 
 Grants the specified permissions to an IAM role.
 
@@ -476,7 +476,7 @@ TO _username_
 
 Indicates the user receiving the permissions.
 
-TO IAM_ROLE _iam_role_
+TO IAM\_ROLE _iam\_role_
 
 Indicates the IAM role receiving the permissions.
 
@@ -486,11 +486,11 @@ Indicates that the user receiving the permissions can in turn grant the same
 permissions to others. WITH GRANT OPTION can't be granted to a group or to
 PUBLIC.
 
-ROLE _role_name_
+ROLE _role\_name_
 
 Grants the permissions to a role.
 
-GROUP _group_name_
+GROUP _group\_name_
 
 Grants the permissions to a user group. Can be a comma-separated list to
 specify multiple user groups.
@@ -546,7 +546,7 @@ any users to create temporary tables, revoke the TEMP permission from the
 PUBLIC group. Then explicitly grant the permission to create temporary
 tables to specific users or groups of users.
 
-ON DATABASE _db_name_
+ON DATABASE _db\_name_
 
 Grants the specified permissions on a database.
 
@@ -563,7 +563,7 @@ need to grant actions separately on the objects in the external schema. The
 corresponding catalog permissions control granular permissions on the external
 schema objects.
 
-ON SCHEMA _schema_name_
+ON SCHEMA _schema\_name_
 
 Grants the specified permissions on a schema.
 
@@ -574,26 +574,26 @@ need access. Only the owner of an external schema or a superuser is permitted
 to create external tables in the external schema. To transfer ownership of an
 external schema, use [ALTER SCHEMA](r_ALTER_SCHEMA.md "r_ALTER_SCHEMA.md") to change the owner.
 
-EXECUTE ON ALL FUNCTIONS IN SCHEMA _schema_name_
+EXECUTE ON ALL FUNCTIONS IN SCHEMA _schema\_name_
 
 Grants the specified permissions on all functions in the referenced
 schema.
 
-Amazon Redshift doesn't support GRANT or REVOKE statements for pg_proc builtin
-entries defined in pg_catalog namespace.
+Amazon Redshift doesn't support GRANT or REVOKE statements for pg\_proc builtin
+entries defined in pg\_catalog namespace.
 
-EXECUTE ON PROCEDURE _procedure_name_
+EXECUTE ON PROCEDURE _procedure\_name_
 
 Grants the EXECUTE permission on a specific stored procedure. Because stored
 procedure names can be overloaded, you must include the argument list for the
 procedure. For more information, see [Naming stored procedures](stored-procedure-naming.md "stored-procedure-naming.md").
 
-EXECUTE ON ALL PROCEDURES IN SCHEMA _schema_name_
+EXECUTE ON ALL PROCEDURES IN SCHEMA _schema\_name_
 
 Grants the specified permissions on all stored procedures in the referenced
 schema.
 
-USAGE ON LANGUAGE _language_name_
+USAGE ON LANGUAGE _language\_name_
 
 Grants the USAGE permission on a language.
 
@@ -618,7 +618,7 @@ running the [CREATE PROCEDURE](r_CREATE_PROCEDURE.md "r_CREATE_PROCEDURE.md") co
 For Python UDFs, use `plpythonu`. For SQL UDFs, use
 `sql`. For stored procedures, use `plpgsql`.
 
-ON COPY JOB _job_name_
+ON COPY JOB _job\_name_
 
 Grants the specified permissions on a copy job.
 
@@ -644,7 +644,7 @@ consumer can be the same or a different AWS account, with the same or a
 different cluster namespace as specified by a globally unique identifier
 (GUID).
 
-ON DATASHARE _datashare_name_
+ON DATASHARE _datashare\_name_
 
 Grants the specified permissions on the referenced datashare. For
 information about consumer access control granularity, see [Data sharing at different levels in Amazon Redshift](datashare-overview.md#granularity "datashare-overview.md#granularity").
@@ -669,12 +669,12 @@ that you are granting usage of the datashare to a Lake Formation account. Omitti
 parameter means you're granting usage to an account that owns the
 cluster.
 
-ON DATABASE _shared_database_name> [, ...]_
+ON DATABASE _shared\_database\_name> [, ...]_
 
 Grants the specified usage permissions on the specified database that is
 created in the specified datashare.
 
-ON SCHEMA _shared_schema_
+ON SCHEMA _shared\_schema_
 
 Grants the specified permissions on the specified schema that is created in
 the specified datashare.
@@ -688,7 +688,7 @@ CREATE MODEL
 
 Grants the CREATE MODEL permission to specific users or user groups.
 
-ON MODEL _model_name_
+ON MODEL _model\_name_
 
 Grants the EXECUTE permission on a specific model.
 
@@ -706,7 +706,7 @@ user's permissions consist of the sum of permissions granted to PUBLIC,
 permissions granted to any groups that the user belongs to, and any permissions
 granted to the user individually.
 
-TO { { _user_name_ [ WITH ADMIN OPTION ] } | role }[,
+TO { { _user\_name_ [ WITH ADMIN OPTION ] } | role }[,
 ...]
 
 Grants the specified role to a specified user with the WITH ADMIN OPTION,
@@ -726,7 +726,7 @@ IGNORE RLS TO ROLE _rolename_
 Grants the permission to bypass row-level security policies for a query to a
 role.
 
-TO { RLS | MASKING } POLICY _policy_name_
+TO { RLS | MASKING } POLICY _policy\_name_
 Indicates the security policy receiving the permissions.
 TO RLS POLICY indicates a row-level security policy. TO MASKING POLICY indicates
 a dynamic data masking policy.

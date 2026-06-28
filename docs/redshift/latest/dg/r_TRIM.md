@@ -20,7 +20,7 @@ BOTH | LEADING | TRAILING
 use LEADING to remove leading characters only, and use TRAILING to remove trailing characters only.
 If this parameter is omitted, both leading and trailing characters are trimmed.
 
-_trim_chars_
+_trim\_chars_
 
 (Optional) The characters to be trimmed from the string. If this
 parameter is omitted, blanks are trimmed.
@@ -92,7 +92,7 @@ To remove the trailing double quotation marks from the string
 +-------+`
 ```
 
-TRIM removes any of the characters in _trim_chars_ when they
+TRIM removes any of the characters in _trim\_chars_ when they
 appear at the beginning or end of _string_. The following example trims
 the characters 'C', 'D', and 'G' when they appear at the beginning or end of VENUENAME, which
 is a `VARCHAR` column. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").

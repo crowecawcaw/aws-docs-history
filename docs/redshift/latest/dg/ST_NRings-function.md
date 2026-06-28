@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_NRings
+# ST\_NRings
 
-ST_NRings returns the number of rings in an input geometry.
+ST\_NRings returns the number of rings in an input geometry.
 
 ## Syntax
 
@@ -26,11 +26,11 @@ If _geom_ is null, then null is returned.
 
 The values returned are as follows.
 
-| Returned value                        | Geometry subtype                                                                                  |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| 0                                     | Returned if \*geom<br>• is a `POINT`, `LINESTRING`,<br>`MULTIPOINT`, or `MULTILINESTRING` subtype |
-| The number of rings.                  | Returned if \*geom<br>• is a `POLYGON` or `MULTIPOLYGON`<br>subtype                               |
-| The number of rings in all components | Returned if \*geom<br>• is a `GEOMETRYCOLLECTION` subtype                                         |
+| Returned value                        | Geometry subtype                                                                                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 0                                     | Returned if *geom<br>• is a `POINT`, `LINESTRING`,<br>`MULTIPOINT`, or `MULTILINESTRING` subtype |
+| The number of rings.                  | Returned if *geom<br>• is a `POLYGON` or `MULTIPOLYGON`<br>subtype                               |
+| The number of rings in all components | Returned if *geom<br>• is a `GEOMETRYCOLLECTION` subtype                                         |
 
 ## Examples
 

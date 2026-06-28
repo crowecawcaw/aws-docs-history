@@ -157,8 +157,8 @@ Scoped permissions let you grant permissions to a user or role on
 all objects of a type within a database or schema. Users and roles with scoped permissions have the specified
 permissions on all current and future objects within the database or schema.
 
-You can view the scope of database-level scoped permissions in [SVV_DATABASE_PRIVILEGES](r_SVV_DATABASE_PRIVILEGES.md "r_SVV_DATABASE_PRIVILEGES.md").
-You can view the scope of schema-level scoped permissions in [SVV_SCHEMA_PRIVILEGES](r_SVV_SCHEMA_PRIVILEGES.md "r_SVV_SCHEMA_PRIVILEGES.md").
+You can view the scope of database-level scoped permissions in [SVV\_DATABASE\_PRIVILEGES](r_SVV_DATABASE_PRIVILEGES.md "r_SVV_DATABASE_PRIVILEGES.md").
+You can view the scope of schema-level scoped permissions in [SVV\_SCHEMA\_PRIVILEGES](r_SVV_SCHEMA_PRIVILEGES.md "r_SVV_SCHEMA_PRIVILEGES.md").
 
 For more information about scoped permissions, see [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").
 
@@ -372,47 +372,47 @@ ASSUMEROLE
 Revokes the permission to run COPY, UNLOAD, EXTERNAL FUNCTION, or CREATE
 MODEL commands from users, roles, or groups with a specified role.
 
-ON [ TABLE ] _table_name_
+ON [ TABLE ] _table\_name_
 
 Revokes the specified permissions on a table or a view. The TABLE keyword is
 optional.
 
-ON ALL TABLES IN SCHEMA _schema_name_
+ON ALL TABLES IN SCHEMA _schema\_name_
 
 Revokes the specified permissions on all tables in the referenced
 schema.
 
-( _column_name_ [,...] ) ON TABLE
-_table_name_
+( _column\_name_ [,...] ) ON TABLE
+_table\_name_
 
 Revokes the specified permissions from users, groups, or PUBLIC on the
 specified columns of the Amazon Redshift table or view.
 
-( _column_list_ ) ON EXTERNAL TABLE
-_schema_name.table_name_
+( _column\_list_ ) ON EXTERNAL TABLE
+_schema\_name.table\_name_
 
 Revokes the specified permissions from an IAM role on the specified columns
 of the Lake Formation table in the referenced schema.
 
-ON EXTERNAL TABLE _schema_name.table_name_
+ON EXTERNAL TABLE _schema\_name.table\_name_
 
 Revokes the specified permissions from an IAM role on the specified Lake Formation
 tables in the referenced schema.
 
-ON EXTERNAL SCHEMA _schema_name_
+ON EXTERNAL SCHEMA _schema\_name_
 
 Revokes the specified permissions from an IAM role on the referenced
 schema.
 
-FROM IAM_ROLE _iam_role_
+FROM IAM\_ROLE _iam\_role_
 
 Indicates the IAM role losing the permissions.
 
-ROLE _role_name_
+ROLE _role\_name_
 
 Revokes the permissions from the specified role.
 
-GROUP _group_name_
+GROUP _group\_name_
 
 Revokes the permissions from the specified user group.
 
@@ -456,7 +456,7 @@ any users to create temporary tables, revoke the TEMP permission from the
 PUBLIC group and then explicitly grant the permission to create temporary
 tables to specific users or groups of users.
 
-ON DATABASE _db_name_
+ON DATABASE _db\_name_
 
 Revokes the permissions on the specified database.
 
@@ -471,7 +471,7 @@ revoked separately (such as the EXECUTE permission on functions).
 By default, all users have CREATE and USAGE permissions on the PUBLIC
 schema.
 
-ON SCHEMA _schema_name_
+ON SCHEMA _schema\_name_
 
 Revokes the permissions on the specified schema. You can use schema
 permissions to control the creation of tables; the CREATE permission for a
@@ -482,18 +482,18 @@ RESTRICT
 Revokes only those permissions that the user directly granted. This behavior
 is the default.
 
-EXECUTE ON PROCEDURE _procedure_name_
+EXECUTE ON PROCEDURE _procedure\_name_
 
 Revokes the EXECUTE permission on a specific stored procedure. Because
 stored procedure names can be overloaded, you must include the argument list
 for the procedure. For more information, see [Naming stored procedures](stored-procedure-naming.md "stored-procedure-naming.md").
 
-EXECUTE ON ALL PROCEDURES IN SCHEMA _procedure_name_
+EXECUTE ON ALL PROCEDURES IN SCHEMA _procedure\_name_
 
 Revokes the specified permissions on all procedures in the referenced
 schema.
 
-USAGE ON LANGUAGE _language_name_
+USAGE ON LANGUAGE _language\_name_
 
 Revokes the USAGE permission on a language. For Python user-defined
 functions (UDFs), use `plpythonu`. For SQL UDFs, use
@@ -520,7 +520,7 @@ To revoke usage for stored procedures, first revoke usage from PUBLIC. Then
 grant usage on `plpgsql` only to the specific users or groups
 permitted to create stored procedures. For more information, see [Security and privileges for stored procedures](stored-procedure-security-and-privileges.md "stored-procedure-security-and-privileges.md").
 
-ON COPY JOB _job_name_
+ON COPY JOB _job\_name_
 
 Revokes the specified permissions on a copy job.
 
@@ -544,7 +544,7 @@ Revokes permissions for users and user groups to add consumers to a
 datashare. Revoking this permissionis required to stop the particular consumer
 from accessing the datashare from its clusters.
 
-ON DATASHARE _datashare_name_
+ON DATASHARE _datashare\_name_
 
 Grants the specified permissions on the referenced datashare.
 
@@ -552,7 +552,7 @@ FROM username
 
 Indicates the user losing the permissions.
 
-FROM GROUP _group_name_
+FROM GROUP _group\_name_
 
 Indicates the user group losing the permissions.
 
@@ -586,12 +586,12 @@ indicates that you are revoking usage of the datashare from a Lake Formation acc
 Omitting the account number means that you're revoking from the account
 that owns the cluster.
 
-ON DATABASE _shared_database_name> [, ...]_
+ON DATABASE _shared\_database\_name> [, ...]_
 
 Revokes the specified usage permissions on the specified database that was
 created in the specified datashare.
 
-ON SCHEMA _shared_schema_
+ON SCHEMA _shared\_schema_
 
 Revokes the specified permissions on the specified schema that was created
 in the specified datashare.
@@ -606,7 +606,7 @@ CREATE MODEL
 Revokes the CREATE MODEL permission to create machine learning models in the
 specified database.
 
-ON MODEL _model_name_
+ON MODEL _model\_name_
 
 Revokes the EXECUTE permission for a specific model.
 
@@ -635,7 +635,7 @@ IGNORE RLS FROM ROLE _rolename_
 Revokes the permission to bypass row-level security policies for a query from a
 role.
 
-FROM { RLS | MASKING } POLICY _policy_name_
+FROM { RLS | MASKING } POLICY _policy\_name_
 Indicates the security policy losing the permissions.
 TO RLS POLICY indicates a row-level security policy. TO MASKING POLICY indicates
 a dynamic data masking policy.

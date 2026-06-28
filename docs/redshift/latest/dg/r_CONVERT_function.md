@@ -87,7 +87,7 @@ FROM sales order by salesid limit 10;`
 
 ```
 
-For information about converting a timestamp from one time zone to another, see the [CONVERT_TIMEZONE function](CONVERT_TIMEZONE.md "CONVERT_TIMEZONE.md"). For additional date and time functions, see [Date and time functions](Date_functions_header.md "Date_functions_header.md").
+For information about converting a timestamp from one time zone to another, see the [CONVERT\_TIMEZONE function](CONVERT_TIMEZONE.md "CONVERT_TIMEZONE.md"). For additional date and time functions, see [Date and time functions](Date_functions_header.md "Date_functions_header.md").
 
 The following example converts variable character data into a datetime object.
 

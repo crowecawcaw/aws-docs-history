@@ -352,7 +352,7 @@ The following example assumes that when the VENUE table was created that at leas
 column (such as the `venueid` column) was specified to be an IDENTITY column.
 This command overrides the default IDENTITY behavior of autogenerating values for an
 IDENTITY column and instead loads the explicit values from the venue.txt file.
-Amazon Redshift does not check if duplicate IDENTITY values are loaded into the table when using the EXLICIT_IDS option.
+Amazon Redshift does not check if duplicate IDENTITY values are loaded into the table when using the EXLICIT\_IDS option.
 
 ```
 copy venue
@@ -404,7 +404,7 @@ c1
 ## Load data from a file with default values
 
 The following example uses a variation of the VENUE table in the TICKIT database.
-Consider a VENUE_NEW table defined with the following statement:
+Consider a VENUE\_NEW table defined with the following statement:
 
 ```
 create table venue_new(
@@ -415,7 +415,7 @@ venuestate char(2),
 venueseats integer not null default '1000');
 ```
 
-Consider a venue_noseats.txt data file that contains no values for the VENUESEATS
+Consider a venue\_noseats.txt data file that contains no values for the VENUESEATS
 column, as shown in the following example:
 
 ```
@@ -509,7 +509,7 @@ delimiter '|' explicit_ids;
 ```
 
 This statement fails because it doesn't include the IDENTITY column (VENUEID is
-missing from the column list) yet includes an EXPLICIT_IDS parameter:
+missing from the column list) yet includes an EXPLICIT\_IDS parameter:
 
 ```
 copy venue(venuename, venuecity, venuestate)
@@ -518,7 +518,7 @@ iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 delimiter '|' explicit_ids;
 ```
 
-This statement fails because it doesn't include an EXPLICIT_IDS parameter:
+This statement fails because it doesn't include an EXPLICIT\_IDS parameter:
 
 ```
 copy venue(venueid, venuename, venuecity, venuestate)
@@ -1195,7 +1195,7 @@ SELECT * FROM svl_spatial_simplify WHERE query = pg_last_copy_id();
 
 ```
 
-Using SIMPLIFY AUTO _max_tolerance_ with the tolerance lower
+Using SIMPLIFY AUTO _max\_tolerance_ with the tolerance lower
 than the automatically calculated ones probably results in an ingestion error. In
 this case, use MAXERROR to ignore errors.
 

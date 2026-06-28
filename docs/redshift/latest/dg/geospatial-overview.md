@@ -27,7 +27,7 @@ World Geodetic System (WGS) 84. For more information about SRIDs, see
 [Spatial reference system](https://en.wikipedia.org/wiki/Spatial_reference_system "https://en.wikipedia.org/wiki/Spatial_reference_system")
 in Wikipedia.
 
-You can use the ST_Transform function to transform the coordinates from various spatial
+You can use the ST\_Transform function to transform the coordinates from various spatial
 reference systems. After the transformation of the coordinates is done, you can also use a
 simple cast between the two, as long as the input `GEOMETRY` is encoded with the
 geographic SRID. This cast simply copies coordinates without any further transformation. For
@@ -53,7 +53,7 @@ are located.
 
 Calculations on the `GEOGRAPHY` data type are mostly used for realistic round
 earth calculations such as the precise area of a country without distortion. But they are far
-more expensive to compute. Therefore, ST_Transform can transform your coordinates to an
+more expensive to compute. Therefore, ST\_Transform can transform your coordinates to an
 appropriate local projected coordinate system and do the calculation on the
 `GEOMETRY` data type faster.
 

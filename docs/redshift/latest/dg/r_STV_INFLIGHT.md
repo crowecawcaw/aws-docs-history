@@ -2,47 +2,47 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_INFLIGHT
+# STV\_INFLIGHT
 
-Use the STV_INFLIGHT table to determine what queries are currently running on the
+Use the STV\_INFLIGHT table to determine what queries are currently running on the
 cluster. If you're troubleshooting, it's helpful for checking the status of long-running queries.
 
-STV_INFLIGHT does not show leader-node only queries. For more information, see
-[Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md"). STV_INFLIGHT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_INFLIGHT does not show leader-node only queries. For more information, see
+[Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md"). STV\_INFLIGHT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
 
-## Troubleshooting with STV_INFLIGHT
+## Troubleshooting with STV\_INFLIGHT
 
-If you use STV_INFLIGHT to troubleshoot performance for a query, or a collection of queries, note the following:
+If you use STV\_INFLIGHT to troubleshoot performance for a query, or a collection of queries, note the following:
 
 - Long-running open transactions generally increase load. These open transactions can result
   in longer running times for other queries.
 - Long-running COPY and ETL jobs can affect other queries running on the cluster, if they're
   taking a lot of compute resources. In most cases, moving these long-running jobs to times of low use increases performance for reporting or
   analytics workloads.
-- There are views that provide related information to STV_INFLIGHT. These include [STL_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md"), which captures the query text for SQL commands, and [SVV_QUERY_INFLIGHT](r_SVV_QUERY_INFLIGHT.md "r_SVV_QUERY_INFLIGHT.md"), which joins STV_INFLIGHT to STL_QUERYTEXT. You can also use [STV_RECENTS](r_STV_RECENTS.md "r_STV_RECENTS.md") with STV_INFLIGHT for troubleshooting. For example, STV_RECENTS can indicate if specific queries are
-  in a _Running_ or _Done_ state. Combining this information with results from STV_INFLIGHT can give you more information about a query's
+- There are views that provide related information to STV\_INFLIGHT. These include [STL\_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md"), which captures the query text for SQL commands, and [SVV\_QUERY\_INFLIGHT](r_SVV_QUERY_INFLIGHT.md "r_SVV_QUERY_INFLIGHT.md"), which joins STV\_INFLIGHT to STL\_QUERYTEXT. You can also use [STV\_RECENTS](r_STV_RECENTS.md "r_STV_RECENTS.md") with STV\_INFLIGHT for troubleshooting. For example, STV\_RECENTS can indicate if specific queries are
+  in a _Running_ or _Done_ state. Combining this information with results from STV\_INFLIGHT can give you more information about a query's
   properties and compute-resource impact.
 
 You can also monitor running queries using the Amazon Redshift console.
 
 ## Table columns
 
-| Column name                | Data type      | Description                                                                                                                                                                                                                                                     |
-| -------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid                     | integer        | ID of user who generated entry.                                                                                                                                                                                                                                 |
-| slice                      | integer        | Slice where the query is running.                                                                                                                                                                                                                               |
-| query                      | integer        | Query ID. Can be used to join various other system<br>tables and views.                                                                                                                                                                                         |
-| label                      | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY_GROUP command. If the query is<br>not file-based or the QUERY_GROUP parameter is not set, this field<br>is blank.                                                      |
-| xid                        | bigint         | Transaction ID.                                                                                                                                                                                                                                                 |
-| pid                        | integer        | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session. You can use this column to<br>join to the [STL_ERROR](r_STL_ERROR.md "r_STL_ERROR.md") table. |
-| starttime                  | timestamp      | Time that the query started.                                                                                                                                                                                                                                    |
-| text                       | character(100) | Query text, truncated to 100 characters if the<br>statement exceeds that limit.                                                                                                                                                                                 |
-| suspended                  | integer        | Whether the query is suspended or not. 0 = false;<br>1 = true.                                                                                                                                                                                                  |
-| insert_pristine            | integer        | Whether write queries are/were able to run while<br>the current query is/was running. 1 = no write queries allowed. 0 =<br>write queries allowed. This column is intended for use in debugging.                                                                 |
-| concurrency_scaling_status | integer        | Indicates whether the query ran on the main<br>cluster or on a concurrency scaling cluster,<br>Possible values are as follows:<br>0<br>• Ran on the main cluster<br>1<br>• Ran on a concurrency scaling cluster                                                 |
+| Column name                  | Data type      | Description                                                                                                                                                                                                                                                      |
+| ---------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid                       | integer        | ID of user who generated entry.                                                                                                                                                                                                                                  |
+| slice                        | integer        | Slice where the query is running.                                                                                                                                                                                                                                |
+| query                        | integer        | Query ID. Can be used to join various other system<br>tables and views.                                                                                                                                                                                          |
+| label                        | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY\_GROUP command. If the query is<br>not file-based or the QUERY\_GROUP parameter is not set, this field<br>is blank.                                                     |
+| xid                          | bigint         | Transaction ID.                                                                                                                                                                                                                                                  |
+| pid                          | integer        | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session. You can use this column to<br>join to the [STL\_ERROR](r_STL_ERROR.md "r_STL_ERROR.md") table. |
+| starttime                    | timestamp      | Time that the query started.                                                                                                                                                                                                                                     |
+| text                         | character(100) | Query text, truncated to 100 characters if the<br>statement exceeds that limit.                                                                                                                                                                                  |
+| suspended                    | integer        | Whether the query is suspended or not. 0 = false;<br>1 = true.                                                                                                                                                                                                   |
+| insert\_pristine             | integer        | Whether write queries are/were able to run while<br>the current query is/was running. 1 = no write queries allowed. 0 =<br>write queries allowed. This column is intended for use in debugging.                                                                  |
+| concurrency\_scaling\_status | integer        | Indicates whether the query ran on the main<br>cluster or on a concurrency scaling cluster,<br>Possible values are as follows:<br>0<br>• Ran on the main cluster<br>1<br>• Ran on a concurrency scaling cluster                                                  |
 
 ## Sample queries
 
@@ -54,7 +54,7 @@ select * from stv_inflight;
 ```
 
 The sample output below shows two queries currently running, including the
-STV_INFLIGHT query itself and a query that was run from a script called
+STV\_INFLIGHT query itself and a query that was run from a script called
 `avgwait.sql`:
 
 ```
@@ -69,7 +69,7 @@ slice|query|querylabel | pid |        starttime         |      querytext
 (2 rows)
 ```
 
-The following query selects several columns, including concurrency_scaling_status. This column indicates whether
+The following query selects several columns, including concurrency\_scaling\_status. This column indicates whether
 queries are being sent to the concurrency-scaling cluster. If the value is `1` for some results, it's an indication that
 concurrency-scaling compute resources are being used. For more information, see [Concurrency scaling](concurrency-scaling.md "concurrency-scaling.md").
 

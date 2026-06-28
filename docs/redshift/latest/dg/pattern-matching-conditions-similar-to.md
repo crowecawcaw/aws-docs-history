@@ -50,7 +50,7 @@ _pattern_
 A valid UTF-8 character expression representing a SQL standard
 regular expression pattern.
 
-_escape_char_
+_escape\_char_
 
 A character expression that will escape metacharacters in the
 pattern. The default is two backslashes ('\\').
@@ -65,16 +65,16 @@ _expression_.
 SIMILAR TO supports the following pattern-matching metacharacters:
 
 | Operator | Description                                                                                |
-| -------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| -------- | ------------------------------------------------------------------------------------------ |
 | `%`      | Matches any sequence of zero or more<br>characters.                                        |
 | `_`      | Matches any single character.                                                              |
 | `        | `                                                                                          | Denotes alternation (either of two<br>alternatives). |
 | `*`      | Repeat the previous item zero or more<br>times.                                            |
 | `+`      | Repeat the previous item one or more<br>times.                                             |
 | `?`      | Repeat the previous item zero or one<br>time.                                              |
-| `{m}`    | Repeat the previous item exactly<br>\*m<br>• times.                                        |
+| `{m}`    | Repeat the previous item exactly<br>*m<br>• times.                                         |
 | `{m,}`   | Repeat the previous item _m_<br>or more times.                                             |
-| `{m,n}`  | Repeat the previous item at least<br>*m<br>• and not more than *n\*<br>times.              |
+| `{m,n}`  | Repeat the previous item at least<br>*m<br>• and not more than _n_<br>times.               |
 | `()`     | Parentheses group items into a single logical<br>item.                                     |
 | `[...]`  | A bracket expression specifies a character<br>class, just as in POSIX regular expressions. |
 
@@ -84,14 +84,14 @@ The following table shows examples of pattern matching using SIMILAR
 TO:
 
 | Expression                                                          | Returns |
-| ------------------------------------------------------------------- | ------- | ----- |
+| ------------------------------------------------------------------- | ------- |
 | `'abc' SIMILAR TO 'abc'`                                            | True    |
 | `'abc' SIMILAR TO '_b_'`                                            | True    |
 | `'abc' SIMILAR TO '_A_'`                                            | False   |
 | `'abc' SIMILAR TO '%(b                                              | d)%'`   | True  |
 | `'abc' SIMILAR TO '(b                                               | c)%'`   | False |
 | `'AbcAbcdefgefg12efgefg12' SIMILAR TO<br>'((Ab)?c)+d((efg)+(12))+'` | True    |
-| `'aaaaaab11111xy' SIMILAR TO 'a{6}\_<br>[0-9]{5}(x                  | y){2}'` | True  |
+| `'aaaaaab11111xy' SIMILAR TO 'a{6}_<br>[0-9]{5}(x                   | y){2}'` | True  |
 | `'$0.87' SIMILAR TO '$[0-9]+(.[0-9][0-9])?'`                        | True    |
 
 The following example finds cities whose names contain "E" or "H":

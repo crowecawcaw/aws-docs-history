@@ -14,7 +14,7 @@ Regions.
 
 In addition to auditing, producers and consumers track datashare usage at various
 granularities, such as account, cluster, and object levels. For more information about
-tracking usage and auditing views, see [SVL_DATASHARE_CHANGE_LOG](r_SVL_DATASHARE_CHANGE_LOG.md "r_SVL_DATASHARE_CHANGE_LOG.md") and [SVL_DATASHARE_USAGE_PRODUCER](r_SVL_DATASHARE_USAGE_PRODUCER.md "r_SVL_DATASHARE_USAGE_PRODUCER.md").
+tracking usage and auditing views, see [SVL\_DATASHARE\_CHANGE\_LOG](r_SVL_DATASHARE_CHANGE_LOG.md "r_SVL_DATASHARE_CHANGE_LOG.md") and [SVL\_DATASHARE\_USAGE\_PRODUCER](r_SVL_DATASHARE_USAGE_PRODUCER.md "r_SVL_DATASHARE_USAGE_PRODUCER.md").
 
 You can monitor datashares by querying system views.
 
@@ -38,8 +38,8 @@ information for outbound datashares:
     * [SVV\_DATASHARE\_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md")
 
 2. The consumer administrators look at the datashares for which they're granted
-   use and review the contents of each datashare by viewing inbound datashares using
-   [SVV_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md").
+use and review the contents of each datashare by viewing inbound datashares using
+[SVV\_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md").
 
 To consume shared data, each consumer administrator creates an Amazon Redshift database
 from the datashare. The administrator then assigns permissions to appropriate users

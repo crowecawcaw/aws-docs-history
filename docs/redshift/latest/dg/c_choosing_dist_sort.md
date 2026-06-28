@@ -22,12 +22,12 @@ Amazon Redshift changes the distribution style to EVEN. The change in distributi
 style occurs in the background with minimal impact to user queries.
 
 To view actions that Amazon Redshift automatically performed to alter a table distribution key, see
-[SVL_AUTO_WORKER_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
+[SVL\_AUTO\_WORKER\_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
 To view current recommendations regarding altering a table distribution key, see
-[SVV_ALTER_TABLE_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md").
+[SVV\_ALTER\_TABLE\_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md").
 
 To view the distribution
-style applied to a table, query the PG_CLASS_INFO system catalog view. For more
+style applied to a table, query the PG\_CLASS\_INFO system catalog view. For more
 information, see [Viewing distribution styles](viewing-distribution-styles.md "viewing-distribution-styles.md"). If you don't specify a
 distribution style with the CREATE TABLE statement, Amazon Redshift applies AUTO distribution.
 

@@ -22,8 +22,8 @@ For more information, see the following:
 - [REVOKE](r_REVOKE.md "r_REVOKE.md")
 - [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md")
 - [Enabling mTLS authentication for an existing external schema](materialized-view-streaming-ingestion-mtls.md#materialized-view-streaming-ingestion-mtls-alter "materialized-view-streaming-ingestion-mtls.md#materialized-view-streaming-ingestion-mtls-alter")
-  To view details for external schemas, query the SVV_EXTERNAL_SCHEMAS system view. For more
-  information, see [SVV_EXTERNAL_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md").
+  To view details for external schemas, query the SVV\_EXTERNAL\_SCHEMAS system view. For more
+  information, see [SVV\_EXTERNAL\_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md").
 
 ## Syntax
 
@@ -68,7 +68,7 @@ IAM_ROLE 'arn:aws:iam::012345678901:role/testrole';
 
 ## Parameters
 
-IAM_ROLE[ default | 'SESSION' | 'arn:aws:iam::<AWS account-id>:role/<role-name>' ]
+IAM\_ROLE[ default | 'SESSION' | 'arn:aws:iam::<AWS account-id>:role/<role-name>' ]
 
 Use the `default` keyword to have Amazon Redshift use the IAM role that is set as default.
 
@@ -84,13 +84,13 @@ The authentication type defined for streaming ingestion. Streaming ingestion
 with authentication types works with Apache Kafka, Confluent Cloud, and Amazon Managed Streaming for Apache Kafka.
 See [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md") for more information.
 
-AUTHENTICATION_ARN
+AUTHENTICATION\_ARN
 
 The ARN of the AWS Certificate Manager certificate used by Amazon Redshift for mtls authentication
 with Apache Kafka, Confluent Cloud, or Amazon Managed Streaming for Apache Kafka (Amazon MSK). The ARN is available in the ACM console when you choose the
 issued certificate.
 
-SECRET_ARN
+SECRET\_ARN
 
 The Amazon Resource Name (ARN) of a supported
 secret created using AWS Secrets Manager. For information about how to create and retrieve

@@ -99,7 +99,7 @@ SHARE permission on the datashare can add consumers to or remove consumers
 from a datashare. To do so, they use GRANT USAGE or REVOKE USAGE.
 
 To find the namespace of the cluster that you currently see, you can use
-the SELECT CURRENT_NAMESPACE command. To find the namespace of a different
+the SELECT CURRENT\_NAMESPACE command. To find the namespace of a different
 cluster within the same AWS account, go to the Amazon Redshift console cluster
 details page. On that page, find the newly added namespace field.
 
@@ -158,7 +158,7 @@ salesshare |    100       | dev             |                   |  OUTBOUND  | 2
 
 For more information, see [DESC DATASHARE](r_DESC_DATASHARE.md "r_DESC_DATASHARE.md") and [SHOW DATASHARES](r_SHOW_DATASHARES.md "r_SHOW_DATASHARES.md").
 
-You can also use [SVV_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md"), [SVV_DATASHARE_CONSUMERS](r_SVV_DATASHARE_CONSUMERS.md "r_SVV_DATASHARE_CONSUMERS.md"), and [SVV_DATASHARE_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md") to view the datashares, the objects within the datashare, and the
+You can also use [SVV\_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md"), [SVV\_DATASHARE\_CONSUMERS](r_SVV_DATASHARE_CONSUMERS.md "r_SVV_DATASHARE_CONSUMERS.md"), and [SVV\_DATASHARE\_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md") to view the datashares, the objects within the datashare, and the
 datashare consumers. 7. Drop datashares. For more information, see [DROP DATASHARE](r_DROP_DATASHARE.md "r_DROP_DATASHARE.md").
 
 You can delete the datashare objects at any point using [DROP DATASHARE](r_DROP_DATASHARE.md "r_DROP_DATASHARE.md"). Cluster
@@ -221,8 +221,8 @@ DESC DATASHARE salesshare OF NAMESPACE '13b8833d-17c6-4f16-8fe4-1a018f5ed00d';
  123456789012      | 13b8833d-17c6-4f16-8fe4-1a018f5ed00d | INBOUND    | salesshare | view        | public.sales_data_summary_view  |
 ```
 
-Only cluster superusers can do this. You can also use SVV_DATASHARES to
-view the datashares and SVV_DATASHARE_OBJECTS to view the objects within the
+Only cluster superusers can do this. You can also use SVV\_DATASHARES to
+view the datashares and SVV\_DATASHARE\_OBJECTS to view the objects within the
 datashare.
 
 The following example displays the inbound datashares in a consumer
@@ -253,7 +253,7 @@ CREATE DATABASE sales_db WITH PERMISSIONS FROM DATASHARE salesshare OF NAMESPACE
 ```
 
 You can see databases that you created from the datashare by querying the
-[SVV_REDSHIFT_DATABASES](r_SVV_REDSHIFT_DATABASES.md "r_SVV_REDSHIFT_DATABASES.md") view. You can connect to these
+[SVV\_REDSHIFT\_DATABASES](r_SVV_REDSHIFT_DATABASES.md "r_SVV_REDSHIFT_DATABASES.md") view. You can connect to these
 databases directly, or you can connect to a local database on your consumer
 cluster and perform a cross-database query to query the data from the
 datashare databases. You can't create a datashare on top of database
@@ -309,8 +309,8 @@ GRANT SELECT ON sales_db.public.tickit_sales_redshift to Bob;
 Users and roles with permissions on consumer databases and schemas on
 consumer clusters can explore and navigate the metadata of any shared
 objects. They can also explore and navigate local objects in a consumer
-cluster. To do this, they use JDBC or ODBC drivers or SVV_ALL and
-SVV_REDSHIFT views.
+cluster. To do this, they use JDBC or ODBC drivers or SVV\_ALL and
+SVV\_REDSHIFT views.
 
 Producer clusters might have many schemas in the database, tables, and
 views within each schema. The users on the consumer side can see only the

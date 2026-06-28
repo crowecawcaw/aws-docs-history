@@ -7,7 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Drops a procedure. To drop a procedure, both the procedure name and input argument data
 types (signature), are required. Optionally, you can include the full argument data types,
 including OUT arguments. To find the signature for a procedure, use the [SHOW PROCEDURE](r_SHOW_PROCEDURE.md "r_SHOW_PROCEDURE.md") command. For more
-information about procedure signatures, see [PG_PROC_INFO](r_PG_PROC_INFO.md "r_PG_PROC_INFO.md").
+information about procedure signatures, see [PG\_PROC\_INFO](r_PG_PROC_INFO.md "r_PG_PROC_INFO.md").
 
 ## Required privileges
 
@@ -26,7 +26,7 @@ DROP PROCEDURE sp_name ( [ [ argname ] [ argmode ] argtype [, ...] ] )
 
 ## Parameters
 
-_sp_name_
+_sp\_name_
 
 The name of the procedure to be removed.
 

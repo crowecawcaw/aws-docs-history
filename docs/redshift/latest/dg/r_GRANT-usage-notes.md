@@ -129,7 +129,7 @@ explicitly note an exception.
   you can't create a materialized view on only those columns. However, you
   can grant SELECT privilege to columns of a materialized view, similar to
   regular views.
-- To look up grants of column-level privileges, use the [PG_ATTRIBUTE_INFO](r_PG_ATTRIBUTE_INFO.md "r_PG_ATTRIBUTE_INFO.md") view.
+- To look up grants of column-level privileges, use the [PG\_ATTRIBUTE\_INFO](r_PG_ATTRIBUTE_INFO.md "r_PG_ATTRIBUTE_INFO.md") view.
 
 ## Usage notes for granting the ASSUMEROLE permission
 
@@ -176,10 +176,10 @@ ERROR:  User awsuser does not have ASSUMEROLE permission on IAM role "arn:aws:ia
 ```
 
 To list users that have been granted access to IAM roles and commands through
-the ASSUMEROLE permission, see [HAS_ASSUMEROLE_PRIVILEGE](r_HAS_ASSUMEROLE_PRIVILEGE.md "r_HAS_ASSUMEROLE_PRIVILEGE.md"). To list IAM roles and command
-permissions that have been granted to a user that you specify, see [PG_GET_IAM_ROLE_BY_USER](PG_GET_IAM_ROLE_BY_USER.md "PG_GET_IAM_ROLE_BY_USER.md"). To
+the ASSUMEROLE permission, see [HAS\_ASSUMEROLE\_PRIVILEGE](r_HAS_ASSUMEROLE_PRIVILEGE.md "r_HAS_ASSUMEROLE_PRIVILEGE.md"). To list IAM roles and command
+permissions that have been granted to a user that you specify, see [PG\_GET\_IAM\_ROLE\_BY\_USER](PG_GET_IAM_ROLE_BY_USER.md "PG_GET_IAM_ROLE_BY_USER.md"). To
 list users, roles, and groups that have been granted access to an IAM role that you
-specify, see [PG_GET_GRANTEE_BY_IAM_ROLE](PG_GET_GRANTEE_BY_IAMROLE.md "PG_GET_GRANTEE_BY_IAMROLE.md").
+specify, see [PG\_GET\_GRANTEE\_BY\_IAM\_ROLE](PG_GET_GRANTEE_BY_IAMROLE.md "PG_GET_GRANTEE_BY_IAMROLE.md").
 
 ## Usage notes for granting machine learning permissions
 

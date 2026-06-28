@@ -2,23 +2,23 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_ALERT_EVENT_LOG
+# STL\_ALERT\_EVENT\_LOG
 
 Records an alert when the query optimizer identifies conditions that might indicate
-performance issues. Use the STL_ALERT_EVENT_LOG view to identify opportunities to
+performance issues. Use the STL\_ALERT\_EVENT\_LOG view to identify opportunities to
 improve query performance.
 
 A query consists of multiple segments, and each segment consists of one or more steps.
 For more information, see [Query processing](c-query-processing.md "c-query-processing.md").
 
-STL_ALERT_EVENT_LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_ALERT\_EVENT\_LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 
-STL_ALERT_EVENT_LOG only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
+STL\_ALERT\_EVENT\_LOG only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
 or on serverless namespaces.
 To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS_QUERY_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md")
+[SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md")
 . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
@@ -34,13 +34,13 @@ To access explain plans for queries run on both main clusters, concurrency scali
 | xid         | bigint          | Transaction ID associated with the statement.                                                                                                                                |
 | event       | character(1024) | Description of the alert event.                                                                                                                                              |
 | solution    | character(1024) | Recommended solution.                                                                                                                                                        |
-| event_time  | timestamp       | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
+| event\_time | timestamp       | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
 
 ## Usage notes
 
-You can use the STL_ALERT_EVENT_LOG to identify potential issues in your queries,
+You can use the STL\_ALERT\_EVENT\_LOG to identify potential issues in your queries,
 then follow the practices in [Query performance tuning](c-optimizing-query-performance.md "c-optimizing-query-performance.md") to optimize your database
-design and rewrite your queries. STL_ALERT_EVENT_LOG records the following alerts:
+design and rewrite your queries. STL\_ALERT\_EVENT\_LOG records the following alerts:
 
 - **Missing statistics**
 
@@ -57,7 +57,7 @@ ensure that all participating tables are joined efficiently.
 
 The ratio of rows returned to rows scanned is less than 0.05. Rows scanned
 is the value of `rows_pre_user_filter` and rows returned is the
-value of rows in the [STL_SCAN](r_STL_SCAN.md "r_STL_SCAN.md")
+value of rows in the [STL\_SCAN](r_STL_SCAN.md "r_STL_SCAN.md")
 system view. Indicates that the query is scanning an unusually large number
 of rows to determine the result set. This can be caused by missing or
 incorrect sort keys. For more information, see [Sort keys](t_Sorting_data.md "t_Sorting_data.md").
@@ -80,7 +80,7 @@ information, see [Data distribution for query optimization](t_Distributing_data.
 
 - **Serial execution**
 
-A DS_DIST_ALL_INNER redistribution style was indicated in the query plan,
+A DS\_DIST\_ALL\_INNER redistribution style was indicated in the query plan,
 which forces serial execution because the entire inner table was
 redistributed to a single node. For more information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md").
 

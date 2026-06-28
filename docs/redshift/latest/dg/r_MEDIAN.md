@@ -10,7 +10,7 @@ ignored.
 MEDIAN is an inverse distribution function that assumes a continuous distribution
 model.
 
-MEDIAN is a special case of [PERCENTILE_CONT](r_PERCENTILE_CONT.md "r_PERCENTILE_CONT.md").
+MEDIAN is a special case of [PERCENTILE\_CONT](r_PERCENTILE_CONT.md "r_PERCENTILE_CONT.md").
 
 ## Syntax
 
@@ -20,15 +20,15 @@ MEDIAN(*median\_expression*)
 
 ## Arguments
 
-_median_expression_
+_median\_expression_
 
 The target column or expression that the function operates on.
 
 ## Data types
 
 The return type is determined by the data type of
-_median_expression_. The following table shows the return type
-for each _median_expression_ data type.
+_median\_expression_. The following table shows the return type
+for each _median\_expression_ data type.
 
 | Input type                                   | Return type   |
 | -------------------------------------------- | ------------- |
@@ -40,17 +40,17 @@ for each _median_expression_ data type.
 
 ## Usage notes
 
-If the _median_expression_ argument is a `DECIMAL` data type
+If the _median\_expression_ argument is a `DECIMAL` data type
 defined with the maximum precision of 38 digits, it is possible that MEDIAN will
 return either an inaccurate result or an error. If the return value of the MEDIAN
 function exceeds 38 digits, the result is truncated to fit, which causes a loss of
 precision. If, during interpolation, an intermediate result exceeds the maximum
 precision, a numeric overflow occurs and the function returns an error. To avoid
 these conditions, we recommend either using a data type with lower precision or
-casting the _median_expression_ argument to a lower precision.
+casting the _median\_expression_ argument to a lower precision.
 
 If a statement includes multiple calls to sort-based aggregate functions (LISTAGG,
-PERCENTILE_CONT, or MEDIAN), they must all use the same ORDER BY values. Note that
+PERCENTILE\_CONT, or MEDIAN), they must all use the same ORDER BY values. Note that
 MEDIAN applies an implicit order by on the expression value.
 
 For example, the following statement returns an error.
@@ -87,7 +87,7 @@ GROUP BY salesid, pricepaid;`
 The following examples use the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
 
 The following example shows that MEDIAN produces the same results as
-PERCENTILE_CONT(0.5).
+PERCENTILE\_CONT(0.5).
 
 ```
 `SELECT TOP 10 DISTINCT sellerid, qtysold,

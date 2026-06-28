@@ -12,8 +12,8 @@ When using dynamic data masking, consider the following:
   created by a secadmin would see results with masking policies attached to the
   analyst role.
 - To prevent the EXPLAIN command from potentially exposing sensitive masking
-  policy filters, only users with the SYS_EXPLAIN_DDM permission can see masking
-  policies applied in EXPLAIN outputs. Users don't have the SYS_EXPLAIN_DDM
+  policy filters, only users with the SYS\_EXPLAIN\_DDM permission can see masking
+  policies applied in EXPLAIN outputs. Users don't have the SYS\_EXPLAIN\_DDM
   permission by default.
 
 The following is the syntax for granting the permission to a role.
@@ -31,12 +31,11 @@ For more information about the EXPLAIN command, see [EXPLAIN](r_EXPLAIN.md "r_EX
 - DDM policies must be applied ahead of any predicate operations, or
   projections. Masking polices can include the following:
 
-      + Low cost constant operations such as converting a value to null
-      + Moderate cost operations such as HMAC hashing
-      + High cost operations such as calls to external Lambda user defined
-       functions
-
-  As such, we recommend that you use simple masking expressions when possible.
+  - Low cost constant operations such as converting a value to null
+  - Moderate cost operations such as HMAC hashing
+  - High cost operations such as calls to external Lambda user defined
+    functions
+    As such, we recommend that you use simple masking expressions when possible.
 
 - You can use DDM policies for roles with row-level security policies, but note
   that RLS policies are applied before DDM. A dynamic data masking expression won't
@@ -58,15 +57,14 @@ For more information about the EXPLAIN command, see [EXPLAIN](r_EXPLAIN.md "r_EX
 - DDM policies can contain lookup tables. Lookup tables can be present in the
   USING clause. The following relation types can’t be used as lookup tables:
 
-      + System tables and catalogs
-      + External tables
-      + Datasharing tables
-      + Views, materialized views, and late-binding views
-      + Cross-DB relations
-      + Temporary tables
-      + Correlated queries
-
-  Following is an example of attaching a masking policy to a lookup table.
+  - System tables and catalogs
+  - External tables
+  - Datasharing tables
+  - Views, materialized views, and late-binding views
+  - Cross-DB relations
+  - Temporary tables
+  - Correlated queries
+    Following is an example of attaching a masking policy to a lookup table.
 
 ```
 --Create a masking policy referencing a lookup table
@@ -119,14 +117,13 @@ more information, see [ALTER TABLE](r_ALTER_TABLE.md "r_ALTER_TABLE.md").
   any of the following configuration options don't match the default value of the
   session:
 
-      + `enable_case_sensitive_super_attribute`
-      + `enable_case_sensitive_identifier`
-      + `downcase_delimited_identifier`
-
-  Consider resetting your session’s configuration options if you attempt to query
-  a relation with a DDM policy attached and see the message "DDM protected relation
-  does not support session level config on case sensitivity being different from its
-  default value."
+  - `enable_case_sensitive_super_attribute`
+  - `enable_case_sensitive_identifier`
+  - `downcase_delimited_identifier`
+    Consider resetting your session’s configuration options if you attempt to query
+    a relation with a DDM policy attached and see the message "DDM protected relation
+    does not support session level config on case sensitivity being different from its
+    default value."
 
 - When your provisioned cluster or serverless namespace has any dynamic data
   masking policies, the following commands are blocked for regular users:
@@ -180,9 +177,9 @@ TO ROLE analyst, ROLE dbadmin;
 
 For details on how to set and retrieve customized session
 context variables, go to [SET](r_SET.md "r_SET.md"),
-[SET_CONFIG](r_SET_CONFIG.md "r_SET_CONFIG.md"),
+[SET\_CONFIG](r_SET_CONFIG.md "r_SET_CONFIG.md"),
 [SHOW](r_SHOW.md "r_SHOW.md"),
-[CURRENT_SETTING](r_CURRENT_SETTING.md "r_CURRENT_SETTING.md"), and
+[CURRENT\_SETTING](r_CURRENT_SETTING.md "r_CURRENT_SETTING.md"), and
 [RESET](r_RESET.md "r_RESET.md").
 For more information on modifying the server configuration in general, go to
 [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings").

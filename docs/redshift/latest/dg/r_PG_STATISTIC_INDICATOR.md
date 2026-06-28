@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_STATISTIC_INDICATOR
+# PG\_STATISTIC\_INDICATOR
 
 Stores information about the number of rows inserted or deleted since the last
-ANALYZE. The PG_STATISTIC_INDICATOR table is updated frequently following DML
+ANALYZE. The PG\_STATISTIC\_INDICATOR table is updated frequently following DML
 operations, so statistics are approximate.
 
-PG_STATISTIC_INDICATOR is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+PG\_STATISTIC\_INDICATOR is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

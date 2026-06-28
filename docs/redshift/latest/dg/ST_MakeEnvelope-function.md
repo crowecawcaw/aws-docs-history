@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_MakeEnvelope
+# ST\_MakeEnvelope
 
-ST_MakeEnvelope returns a geometry as follows:
+ST\_MakeEnvelope returns a geometry as follows:
 
 - If the input coordinates specify a point, then the returned geometry is a point.
 - If the input coordinates specify a line, then the returned geometry is a linestring.

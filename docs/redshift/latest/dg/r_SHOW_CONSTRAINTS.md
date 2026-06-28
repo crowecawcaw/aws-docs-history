@@ -25,15 +25,15 @@ FROM TABLE
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 The name of the database containing the target table
 
-_schema_name_
+_schema\_name_
 
 The name of the schema containing the target table
 
-_table_name_
+_table\_name_
 
 The name of the target table
 
@@ -41,13 +41,13 @@ EXPORTED
 
 When EXPORTED is specified, then list all foreign keys from other tables that reference the target table.
 
-_row_limit_
+_row\_limit_
 
-The maximum number of rows to return. The _row_limit_ can be 0–10,000.
+The maximum number of rows to return. The _row\_limit_ can be 0–10,000.
 
 ## Examples
 
-The following example shows primary key constraints from table demo_db.demo_schema.pk1:
+The following example shows primary key constraints from table demo\_db.demo\_schema.pk1:
 
 ```
 SHOW CONSTRAINTS PRIMARY KEYS FROM TABLE demo_db.demo_schema.pk1;
@@ -58,7 +58,7 @@ SHOW CONSTRAINTS PRIMARY KEYS FROM TABLE demo_db.demo_schema.pk1;
  demo_db       | demo_schema | pk1        | pk1_pkey | c           |       3
 ```
 
-The following example shows foreign key constraints from table demo_schema.fk2:
+The following example shows foreign key constraints from table demo\_schema.fk2:
 
 ```
 SHOW CONSTRAINTS FOREIGN KEYS FROM TABLE demo_schema.fk2;
@@ -69,7 +69,7 @@ SHOW CONSTRAINTS FOREIGN KEYS FROM TABLE demo_schema.fk2;
  demo_db          | demo_schema    | pk1           | c              | demo_db          | demo_schema    | fk2           | c              |       3 | fk2_i_fkey | pk1_pkey |             |             |
 ```
 
-The following example shows exported foreign key constraints from table demo_schema.pk1:
+The following example shows exported foreign key constraints from table demo\_schema.pk1:
 
 ```
 SHOW CONSTRAINTS FOREIGN KEYS EXPORTED FROM TABLE demo_schema.pk1;

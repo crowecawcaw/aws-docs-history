@@ -24,7 +24,7 @@ With SQL, the administrator grants usage on the datashare to a
 specific namespace in the account. You can find the namespace ID as part
 of the ARN in the cluster details page, in the Amazon Redshift Serverless
 namespace details page, or by running the command `SELECT
- current_namespace;`. For more information, see [CURRENT_NAMESPACE](r_CURRENT_NAMESPACE.md "r_CURRENT_NAMESPACE.md").
+ current_namespace;`. For more information, see [CURRENT\_NAMESPACE](r_CURRENT_NAMESPACE.md "r_CURRENT_NAMESPACE.md").
 
 ```
 GRANT USAGE ON DATASHARE my_datashare TO NAMESPACE '86b5169f-012a-234b-9fbb-e2e24359e9a8';

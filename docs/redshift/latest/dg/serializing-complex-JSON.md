@@ -15,7 +15,7 @@ JSON, Ion, and Parquet formats. Use the session configuration parameter
 `json_serialization_enable` to configure the serialization behavior. When
 set, complex JSON data types are serialized to VARCHAR(65535). The nested JSON can be
 accessed with [JSON functions](json-functions.md "json-functions.md"). For more
-information, see [json_serialization_enable](r_json_serialization_enable.md "r_json_serialization_enable.md").
+information, see [json\_serialization\_enable](r_json_serialization_enable.md "r_json_serialization_enable.md").
 
 For example, without setting `json_serialization_enable`, the following queries that access nested columns directly fail.
 
@@ -77,7 +77,7 @@ configuration. When both `json_serialization_enable` and
 `json_serialization_parse_nested_strings` are set, valid JSON values
 are serialized inline without escape characters. When the value is not valid JSON,
 it is escaped as if the `json_serialization_parse_nested_strings`
-configuration value was not set. For more information, see [json_serialization_parse_nested_strings](r_json_serialization_parse_nested_strings.md "r_json_serialization_parse_nested_strings.md").
+configuration value was not set. For more information, see [json\_serialization\_parse\_nested\_strings](r_json_serialization_parse_nested_strings.md "r_json_serialization_parse_nested_strings.md").
 
 For example, assume the data from the previous example contained JSON as a
 `structs` complex type in the `name` VARCHAR(20) field:

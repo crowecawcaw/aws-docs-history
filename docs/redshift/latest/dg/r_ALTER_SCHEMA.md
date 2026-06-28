@@ -9,9 +9,9 @@ change the owner of a schema. For example, rename an existing schema to preserve
 copy of that schema when you plan to create a new version of that schema. For more
 information about schemas, see [CREATE SCHEMA](r_CREATE_SCHEMA.md "r_CREATE_SCHEMA.md").
 
-To view the configured schema quotas, see [SVV_SCHEMA_QUOTA_STATE](r_SVV_SCHEMA_QUOTA_STATE.md "r_SVV_SCHEMA_QUOTA_STATE.md").
+To view the configured schema quotas, see [SVV\_SCHEMA\_QUOTA\_STATE](r_SVV_SCHEMA_QUOTA_STATE.md "r_SVV_SCHEMA_QUOTA_STATE.md").
 
-To view the records where schema quotas were exceeded, see [STL_SCHEMA_QUOTA_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md").
+To view the records where schema quotas were exceeded, see [STL\_SCHEMA\_QUOTA\_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md").
 
 ## Required privileges
 
@@ -37,7 +37,7 @@ QUOTA { quota [MB | GB | TB] | UNLIMITED }
 
 ## Parameters
 
-_schema_name_
+_schema\_name_
 
 The name of the database schema to be altered.
 
@@ -45,7 +45,7 @@ RENAME TO
 
 A clause that renames the schema.
 
-_new_name_
+_new\_name_
 
 The new name of the schema. For more information about valid names, see
 [Names and identifiers](r_names.md "r_names.md").
@@ -54,7 +54,7 @@ OWNER TO
 
 A clause that changes the owner of the schema.
 
-_new_owner_
+_new\_owner_
 
 The new owner of the schema.
 
@@ -69,14 +69,14 @@ For more information about configuring schema quotas, see [CREATE SCHEMA](r_CREA
 
 ## Examples
 
-The following example renames the SALES schema to US_SALES.
+The following example renames the SALES schema to US\_SALES.
 
 ```
 alter schema sales
 rename to us_sales;
 ```
 
-The following example gives ownership of the US_SALES schema to the user
+The following example gives ownership of the US\_SALES schema to the user
 DWUSER.
 
 ```

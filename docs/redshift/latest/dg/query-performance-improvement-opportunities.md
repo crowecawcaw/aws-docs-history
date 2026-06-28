@@ -27,7 +27,7 @@ If table statistics are missing or out of date, you might see the
 following:
 
 - A warning message in EXPLAIN command results.
-- A missing statistics alert event in STL_ALERT_EVENT_LOG. For more
+- A missing statistics alert event in STL\_ALERT\_EVENT\_LOG. For more
   information, see [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
 
 To fix this issue, run [ANALYZE](r_ANALYZE.md "r_ANALYZE.md").
@@ -35,7 +35,7 @@ To fix this issue, run [ANALYZE](r_ANALYZE.md "r_ANALYZE.md").
 ## Nested loop
 
 If a nested loop is present, you might see a nested loop alert event in
-STL_ALERT_EVENT_LOG. You can also identify this type of event by running the query at
+STL\_ALERT\_EVENT\_LOG. You can also identify this type of event by running the query at
 [Identifying queries with nested loops](identify-queries-with-nested-loops.md "identify-queries-with-nested-loops.md"). For more information, see
 [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
 
@@ -51,13 +51,13 @@ If a hash join is present, you might see the following:
 - Hash and hash join operations in the query plan. For more information, see
   [Analyzing the query plan](c-analyzing-the-query-plan.md "c-analyzing-the-query-plan.md").
 - An HJOIN step in the segment with the highest maxtime value in
-  SVL_QUERY_SUMMARY. For more information, see [Using the SVL_QUERY_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
+  SVL\_QUERY\_SUMMARY. For more information, see [Using the SVL\_QUERY\_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
 
 To fix this issue, you can take a couple of approaches:
 
 - Rewrite the query to use a merge join if possible. You can do this by
   specifying join columns that are both distribution keys and sort keys.
-- If the HJOIN step in SVL_QUERY_SUMMARY has a very high value in the rows
+- If the HJOIN step in SVL\_QUERY\_SUMMARY has a very high value in the rows
   field compared to the rows value in the final RETURN step in the query, check
   whether you can rewrite the query to join on a unique column. When a query does
   not join on a unique column, such as a primary key, that increases the number
@@ -66,7 +66,7 @@ To fix this issue, you can take a couple of approaches:
 ## Ghost rows or uncommitted rows
 
 If ghost rows or uncommitted rows are present, you might see an alert event in
-STL_ALERT_EVENT_LOG that indicates excessive ghost rows. For more information, see
+STL\_ALERT\_EVENT\_LOG that indicates excessive ghost rows. For more information, see
 [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
 
 To fix this issue, you can take a couple of approaches:
@@ -80,7 +80,7 @@ To fix this issue, you can take a couple of approaches:
 ## Unsorted or missorted rows
 
 If unsorted or missorted rows are present, you might see a very selective filter
-alert event in STL_ALERT_EVENT_LOG. For more information, see [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
+alert event in STL\_ALERT\_EVENT\_LOG. For more information, see [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
 
 You can also check to see if any of the tables in your query have large unsorted
 areas by running the query in [Identifying tables with data skew or unsorted rows](identify-tables-with-data-skew-or-unsorted-rows.md "identify-tables-with-data-skew-or-unsorted-rows.md").
@@ -99,11 +99,11 @@ To fix this issue, you can take a couple of approaches:
 If data distribution is suboptimal, you might see the following:
 
 - A serial execution, large broadcast, or large distribution alert event
-  appears in STL_ALERT_EVENT_LOG. For more information, see [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
+  appears in STL\_ALERT\_EVENT\_LOG. For more information, see [Reviewing query alerts](c-reviewing-query-alerts.md "c-reviewing-query-alerts.md").
 - Slices are not processing approximately the same number of rows for a given
-  step. For more information, see [Using the SVL_QUERY_REPORT view](using-SVL-Query-Report.md "using-SVL-Query-Report.md").
+  step. For more information, see [Using the SVL\_QUERY\_REPORT view](using-SVL-Query-Report.md "using-SVL-Query-Report.md").
 - Slices are not taking approximately the same amount of time for a given
-  step. For more information, see [Using the SVL_QUERY_REPORT view](using-SVL-Query-Report.md "using-SVL-Query-Report.md").
+  step. For more information, see [Using the SVL\_QUERY\_REPORT view](using-SVL-Query-Report.md "using-SVL-Query-Report.md").
 
 If none of the preceding is true, you can also see if any of the tables in your
 query have data skew by running the query in [Identifying tables with data skew or unsorted rows](identify-tables-with-data-skew-or-unsorted-rows.md "identify-tables-with-data-skew-or-unsorted-rows.md").
@@ -116,8 +116,8 @@ information, see [Data distribution for query optimization](t_Distributing_data.
 ## Insufficient memory allocated to the query
 
 If insufficient memory is allocated to your query, you might see a step in
-SVL_QUERY_SUMMARY that has an `is_diskbased` value of true. For more
-information, see [Using the SVL_QUERY_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
+SVL\_QUERY\_SUMMARY that has an `is_diskbased` value of true. For more
+information, see [Using the SVL\_QUERY\_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
 
 To fix this issue, allocate more memory to the query by temporarily increasing the
 number of query slots it uses. Workload Management (WLM) reserves slots in a query
@@ -125,13 +125,13 @@ queue equivalent to the concurrency level set for the queue. For example, a queu
 with a concurrency level of 5 has 5 slots. Memory assigned to the queue is allocated
 equally to each slot. Assigning several slots to one query gives that query access to
 the memory for all of those slots. For more information on how to temporarily
-increase the slots for a query, see [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md").
+increase the slots for a query, see [wlm\_query\_slot\_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md").
 
 ## Suboptimal WHERE clause
 
 If your WHERE clause causes excessive table scans, you might see a SCAN step in
-the segment with the highest `maxtime` value in SVL_QUERY_SUMMARY. For
-more information, see [Using the SVL_QUERY_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
+the segment with the highest `maxtime` value in SVL\_QUERY\_SUMMARY. For
+more information, see [Using the SVL\_QUERY\_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
 
 To fix this issue, add a WHERE clause to the query based on the primary sort
 column of the largest table. This approach helps minimize scanning time. For more
@@ -140,9 +140,9 @@ information, see [Amazon Redshift best practices for designing tables](c_designi
 ## Insufficiently restrictive predicate
 
 If your query has an insufficiently restrictive predicate, you might see a SCAN
-step in the segment with the highest `maxtime` value in SVL_QUERY_SUMMARY
+step in the segment with the highest `maxtime` value in SVL\_QUERY\_SUMMARY
 that has a very high `rows` value compared to the `rows` value
-in the final RETURN step in the query. For more information, see [Using the SVL_QUERY_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
+in the final RETURN step in the query. For more information, see [Using the SVL\_QUERY\_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
 
 To fix this issue, try adding a predicate to the query or making the existing
 predicate more restrictive to narrow the output.
@@ -153,15 +153,15 @@ If your query returns a very large result set, consider rewriting the query to u
 [UNLOAD](r_UNLOAD.md "r_UNLOAD.md") to write the results to Amazon S3.
 This approach improves the performance of the RETURN step by taking advantage of
 parallel processing. For more information on checking for a very large result set,
-see [Using the SVL_QUERY_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
+see [Using the SVL\_QUERY\_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
 
 ## Large SELECT list
 
 If your query has an unusually large SELECT list, you might see a
 `bytes` value that is high relative to the `rows` value for
-any step (in comparison to other steps) in SVL_QUERY_SUMMARY. This high
+any step (in comparison to other steps) in SVL\_QUERY\_SUMMARY. This high
 `bytes` value can be an indicator that you are selecting a lot of
-columns. For more information, see [Using the SVL_QUERY_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
+columns. For more information, see [Using the SVL\_QUERY\_SUMMARY view](using-SVL-Query-Summary.md "using-SVL-Query-Summary.md").
 
 To fix this issue, review the columns you are selecting and see if any can be
 removed.

@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_AsBinary
+# ST\_AsBinary
 
-ST_AsBinary returns the hexadecimal well-known binary (WKB) representation of an input geometry.
-For 3DZ, 3DM, and 4D geometries, ST_AsBinary uses the Open Geospatial Consortium (OGC) standard value for the geometry type.
+ST\_AsBinary returns the hexadecimal well-known binary (WKB) representation of an input geometry.
+For 3DZ, 3DM, and 4D geometries, ST\_AsBinary uses the Open Geospatial Consortium (OGC) standard value for the geometry type.
 
 ## Syntax
 

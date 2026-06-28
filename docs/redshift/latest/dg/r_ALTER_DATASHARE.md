@@ -45,7 +45,7 @@ ALTER DATASHARE datashare_name {
 
 ## Parameters
 
-_datashare_name_
+_datashare\_name_
 
 The name of the datashare to be altered.
 
@@ -63,7 +63,7 @@ SCHEMA _schema_ [, ...]
 
 The name of the schema to add to the datashare.
 
-FUNCTION _schema_._sql_udf_ (argtype,...)
+FUNCTION _schema_._sql\_udf_ (argtype,...)
 [, ...]
 
 The name of the user-defined SQL function with argument types to add to the

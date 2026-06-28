@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Centroid
+# ST\_Centroid
 
-ST_Centroid returns a point that represents a centroid of a geometry as follows:
+ST\_Centroid returns a point that represents a centroid of a geometry as follows:
 
 - For `POINT` geometries, it returns the point whose coordinates are the average of the coordinates of the points in the geometry.
 - For `LINESTRING` geometries, it returns the point whose coordinates are the weighted average of the midpoints

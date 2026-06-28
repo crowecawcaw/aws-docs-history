@@ -2,14 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PERCENTILE_CONT window function
+# PERCENTILE\_CONT window function
 
-PERCENTILE_CONT is an inverse distribution function that assumes a continuous
+PERCENTILE\_CONT is an inverse distribution function that assumes a continuous
 distribution model. It takes a percentile value and a sort specification, and returns an
 interpolated value that would fall into the given percentile value with respect to the
 sort specification.
 
-PERCENTILE_CONT computes a linear interpolation between values after ordering them.
+PERCENTILE\_CONT computes a linear interpolation between values after ordering them.
 Using the percentile value `(P)` and the number of not null rows
 `(N)` in the aggregation group, the function computes the row number after
 ordering the rows according to the sort specification. This row number `(RN)`
@@ -28,7 +28,7 @@ Otherwise the result is as follows:
  expression for row at CRN)`.
 
 You can specify only the PARTITION clause in the OVER clause. If PARTITION is
-specified, for each row, PERCENTILE_CONT returns the value that would fall into the
+specified, for each row, PERCENTILE\_CONT returns the value that would fall into the
 specified percentile among a set of values within a given partition.
 
 ## Syntax
@@ -78,8 +78,8 @@ expression data type.
 ## Usage notes
 
 If the ORDER BY expression is a DECIMAL data type defined with the maximum
-precision of 38 digits, it is possible that PERCENTILE_CONT will return either an
-inaccurate result or an error. If the return value of the PERCENTILE_CONT function
+precision of 38 digits, it is possible that PERCENTILE\_CONT will return either an
+inaccurate result or an error. If the return value of the PERCENTILE\_CONT function
 exceeds 38 digits, the result is truncated to fit, which causes a loss of precision.
 If, during interpolation, an intermediate result exceeds the maximum precision, a
 numeric overflow occurs and the function returns an error. To avoid these conditions,
@@ -91,7 +91,7 @@ For example, a SUM function with a DECIMAL argument returns a default precision 
 example, a SUM of a DECIMAL(5,2) column returns a DECIMAL(38,2) data type.
 
 The following example uses a SUM function in the ORDER BY clause of a
-PERCENTILE_CONT function. The data type of the PRICEPAID column is DECIMAL (8,2), so
+PERCENTILE\_CONT function. The data type of the PRICEPAID column is DECIMAL (8,2), so
 the SUM function returns DECIMAL(38,2).
 
 ```
@@ -158,7 +158,7 @@ over(partition by sellerid) as median from winsales;
 
 ```
 
-The following example calculates the PERCENTILE_CONT and PERCENTILE_DISC of the
+The following example calculates the PERCENTILE\_CONT and PERCENTILE\_DISC of the
 ticket sales for sellers in Washington state.
 
 ```

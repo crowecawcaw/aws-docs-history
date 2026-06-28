@@ -2,17 +2,17 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# CURRENT_DATE function
+# CURRENT\_DATE function
 
-CURRENT_DATE returns a date in the current session time zone (UTC by default) in the
+CURRENT\_DATE returns a date in the current session time zone (UTC by default) in the
 default format: YYYY-MM-DD.
 
 ###### Note
 
-CURRENT_DATE returns the start date for the current transaction, not for the start of
+CURRENT\_DATE returns the start date for the current transaction, not for the start of
 the current statement. Consider the scenario where you start a transaction containing
-multiple statements on 10/01/08 23:59, and the statement containing CURRENT_DATE runs at 10/02/08 00:00.
-CURRENT_DATE returns `10/01/08`, not `10/02/08`.
+multiple statements on 10/01/08 23:59, and the statement containing CURRENT\_DATE runs at 10/02/08 00:00.
+CURRENT\_DATE returns `10/01/08`, not `10/02/08`.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ The following example returns the current date (in the AWS Region where the func
 2008-10-01`
 ```
 
-The following example creates a table, inserts a row where the default of column `todays_date` is CURRENT_DATE, and then selects all the rows in the table.
+The following example creates a table, inserts a row where the default of column `todays_date` is CURRENT\_DATE, and then selects all the rows in the table.
 
 ```
 

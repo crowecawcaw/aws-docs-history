@@ -39,7 +39,7 @@ VALUES ( { *expression* | DEFAULT } [, ...] )
 
 ## Parameters
 
-_table_name_
+_table\_name_
 
 A temporary or persistent table. Only the owner of the table or a user with
 INSERT privilege on the table can insert rows. If you use the

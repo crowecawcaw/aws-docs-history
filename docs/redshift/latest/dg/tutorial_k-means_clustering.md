@@ -400,7 +400,7 @@ For more information about Amazon Redshift ML, see the following documentation:
 
 - [Costs for using Amazon Redshift ML](cost.md "cost.md")
 - [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
-- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+- [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
 
 For more information about machine learning, see the following documentation:
 

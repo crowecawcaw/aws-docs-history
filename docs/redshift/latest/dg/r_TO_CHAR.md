@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# TO_CHAR
+# TO\_CHAR
 
-TO_CHAR converts a timestamp or numeric expression to a character-string data
+TO\_CHAR converts a timestamp or numeric expression to a character-string data
 format.
 
 ## Syntax
@@ -15,20 +15,20 @@ TO_CHAR (*timestamp\_expression* | *numeric\_expression* , '*format*')
 
 ## Arguments
 
-_timestamp_expression_
+_timestamp\_expression_
 
 An expression that results in a TIMESTAMP or TIMESTAMPTZ type value or a
 value that can implicitly be coerced to a timestamp.
 
-_numeric_expression_
+_numeric\_expression_
 
 An expression that results in a numeric data type value or a value that
 can implicitly be coerced to a numeric type. For more information, see [Numeric types](r_Numeric_types201.md "r_Numeric_types201.md").
-TO_CHAR inserts a space to the left of the numeral string.
+TO\_CHAR inserts a space to the left of the numeral string.
 
 ###### Note
 
-TO_CHAR does not support 128-bit DECIMAL values.
+TO\_CHAR does not support 128-bit DECIMAL values.
 
 _format_
 
@@ -241,7 +241,7 @@ The following example displays the ordinal number suffix for a number.
 
 The following example subtracts the commission from the price paid in the sales
 table. The difference is then rounded up and converted to a roman numeral, shown in
-the to_char column:
+the to\_char column:
 
 ```
 `select salesid, pricepaid, commission, (pricepaid - commission)
@@ -263,7 +263,7 @@ order by salesid limit 10;`
 ```
 
 The following example adds the currency symbol to the difference values shown in
-the to_char column:
+the to\_char column:
 
 ```
 `select salesid, pricepaid, commission, (pricepaid - commission)

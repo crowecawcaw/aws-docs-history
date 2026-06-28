@@ -25,7 +25,7 @@ product).
 FROM *table\_reference* [, ...]
 ```
 
-where _table_reference_ is one of the following:
+where _table\_reference_ is one of the following:
 
 ```
 *with\_subquery\_table\_name* [ *table\_alias* ]
@@ -52,7 +52,7 @@ UNNEST ( *column\_reference* ) WITH OFFSET
   [AS] *table\_alias* ( *unnested\_column\_name*, [*offset\_column\_name*] )
 ```
 
-The optional _table_alias_ can be used to give temporary names to tables and complex table references and, if desired, their columns as well, like the following:
+The optional _table\_alias_ can be used to give temporary names to tables and complex table references and, if desired, their columns as well, like the following:
 
 ```
 [ AS ] *alias* [ ( column_alias [, ...] ) ]
@@ -60,11 +60,11 @@ The optional _table_alias_ can be used to give temporary names to tables and com
 
 ## Parameters
 
-_with_subquery_table_name_
+_with\_subquery\_table\_name_
 
 A table defined by a subquery in the [WITH clause](r_WITH_clause.md "r_WITH_clause.md").
 
-_table_name_
+_table\_name_
 
 Name of a table or view.
 
@@ -81,7 +81,7 @@ select * from sales s, listing l
 where s.listid=l.listid
 ```
 
-_column_alias_
+_column\_alias_
 
 Temporary alternative name for a column in a table or view.
 
@@ -112,7 +112,7 @@ If a NATURAL join is specified but no identically named pairs of
 columns exist in the tables to be joined, the query defaults to a
 cross-join.
 
-_join_type_
+_join\_type_
 
 Specify one of the following types of join:
 
@@ -136,7 +136,7 @@ tables. The left table is the first-listed table, and the right table is the
 second-listed table. The non-matching rows contain NULL values to fill the gaps in
 the output columns.
 
-ON _join_condition_
+ON _join\_condition_
 
 Type of join specification where the joining columns are stated as a
 condition that follows the ON keyword. For example:
@@ -146,7 +146,7 @@ sales join listing
 on sales.listid=listing.listid and sales.eventid=listing.eventid
 ```
 
-USING ( _join_column_ [, ...] )
+USING ( _join\_column_ [, ...] )
 
 Type of join specification where the joining columns are listed in
 parentheses. If multiple joining columns are specified, they are delimited
@@ -180,7 +180,7 @@ as results of an aggregation. For example, the counts of items in various catego
 _Object unpivoting with UNPIVOT (SUPER)_ – You can perform object unpivoting, where _expression_ is a SUPER expression referring to another FROM clause item. For
 more information, see [Object unpivoting](query-super.md#unpivoting "query-super.md#unpivoting"). It also has examples that show how to query semi-structured data, such as data that's JSON-formatted.
 
-_super_expression_
+_super\_expression_
 
 A valid SUPER expression. Amazon Redshift returns one row for each
 value in the specified attribute. For more
@@ -188,11 +188,11 @@ information on the SUPER data type, see [SUPER type](r_SUPER_type.md "r_SUPER_ty
 For more information about unnested SUPER values, see
 [Unnesting queries](query-super.md#unnest "query-super.md#unnest").
 
-_attribute_name_
+_attribute\_name_
 
 The name of an attribute in the SUPER expression.
 
-_index_alias_
+_index\_alias_
 
 Alias for the index that signifies the value's
 position in the SUPER expression.
@@ -203,7 +203,7 @@ Expands a nested structure, typically a SUPER array, into columns containing the
 SUPER data, see [Querying semi-structured data](query-super.md "query-super.md").
 For examples, see [UNNEST examples](r_FROM_clause-unnest-examples.md "r_FROM_clause-unnest-examples.md").
 
-_unnested_column_name_
+_unnested\_column\_name_
 
 The name of the column that contains the unnested elements.
 
@@ -217,7 +217,7 @@ For more information on unnesting
 SUPER data, see [Querying semi-structured data](query-super.md "query-super.md").
 For examples, see [UNNEST examples](r_FROM_clause-unnest-examples.md "r_FROM_clause-unnest-examples.md").
 
-_offset_column_name_
+_offset\_column\_name_
 
 A custom name for the offset column that lets you
 explicitly define how the index column will appear

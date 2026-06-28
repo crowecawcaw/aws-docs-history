@@ -8,17 +8,17 @@ Superusers, users with the `sys:operator` role,
 and users with the ACCESS SYSTEM TABLE permission can
 access the following DDM-related system views.
 
-- [SVV_MASKING_POLICY](r_SVV_MASKING_POLICY.md "r_SVV_MASKING_POLICY.md")
+- [SVV\_MASKING\_POLICY](r_SVV_MASKING_POLICY.md "r_SVV_MASKING_POLICY.md")
 
-Use SVV_MASKING_POLICY to view all masking policies created on the cluster or workgroup.
+Use SVV\_MASKING\_POLICY to view all masking policies created on the cluster or workgroup.
 
-- [SVV_ATTACHED_MASKING_POLICY](r_SVV_ATTACHED_MASKING_POLICY.md "r_SVV_ATTACHED_MASKING_POLICY.md")
+- [SVV\_ATTACHED\_MASKING\_POLICY](r_SVV_ATTACHED_MASKING_POLICY.md "r_SVV_ATTACHED_MASKING_POLICY.md")
 
-Use SVV_ATTACHED_MASKING_POLICY to view all the relations and users or roles with policies attached on the currently connected database.
+Use SVV\_ATTACHED\_MASKING\_POLICY to view all the relations and users or roles with policies attached on the currently connected database.
 
-- [SYS_APPLIED_MASKING_POLICY_LOG](SYS_APPLIED_MASKING_POLICY_LOG.md "SYS_APPLIED_MASKING_POLICY_LOG.md")
+- [SYS\_APPLIED\_MASKING\_POLICY\_LOG](SYS_APPLIED_MASKING_POLICY_LOG.md "SYS_APPLIED_MASKING_POLICY_LOG.md")
 
-Use SYS_APPLIED_MASKING_POLICY_LOG to trace the
+Use SYS\_APPLIED\_MASKING\_POLICY\_LOG to trace the
 application of masking policies on queries
 that reference DDM-protected relations.
 Following are some examples of the information that

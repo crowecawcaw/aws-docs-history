@@ -278,7 +278,7 @@ Customer need Lake Formation `CREATE_CATALOG` permissions to enable AWS Glue Dat
 federated permissions.
 
 1. If the account belongs to an existing Lake Formation customer, the Lake Formation
-   administrator must explicitly grant CREATE_CATALOG permission to each cluster creator. Use the
+   administrator must explicitly grant CREATE\_CATALOG permission to each cluster creator. Use the
    following sample CLI command:
 
 ```

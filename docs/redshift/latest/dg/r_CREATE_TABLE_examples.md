@@ -189,7 +189,7 @@ This table also inherits the DISTKEY and SORTKEY attributes of its parent table:
 
 ## Create a table with an IDENTITY column
 
-The following example creates a table named VENUE_IDENT, which has an IDENTITY
+The following example creates a table named VENUE\_IDENT, which has an IDENTITY
 column named VENUEID. This column starts with 0 and increments by 1 for each record.
 VENUEID is also declared as the primary key of the table.
 

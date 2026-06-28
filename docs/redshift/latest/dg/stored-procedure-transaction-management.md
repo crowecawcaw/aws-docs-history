@@ -480,8 +480,8 @@ from svl_statementtext where pid = pg_backend_pid() order by xid , starttime , s
 ```
 
 This example shows how to work with cursor loops.
-Table test_table_a has three values.
-The objective is to iterate through the three values and insert them into table test_table_b.
+Table test\_table\_a has three values.
+The objective is to iterate through the three values and insert them into table test\_table\_b.
 If a NONATOMIC stored procedure is created in the following way, it will throw the error cursor "cur1" does not exist after executing INSERT statement in the first loop.
 This is because the auto commit of the INSERT closes the open cursor.
 

@@ -41,18 +41,18 @@ CREATE DATABASE *database\_name*
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 Name of the new database. For more information about valid names, see [Names and identifiers](r_names.md "r_names.md").
 
-FROM INTEGRATION '<integration_id>' [ DATABASE '<source\_database>'
+FROM INTEGRATION '<integration\_id>' [ DATABASE '<source\_database>'
 ]
 
 Specifies whether to create the database using a zero-ETL integration identifier. You
-can retrieve the `integration_id` from SVV_INTEGRATION system view.
+can retrieve the `integration_id` from SVV\_INTEGRATION system view.
 For Aurora PostgreSQL zero-ETL integrations, you also need to specify
 `source_database` name, which can also be retrieved from
-SVV_INTEGRATION.
+SVV\_INTEGRATION.
 
 For an example, see [Create databases to receive results of zero-ETL integrations](#r_CREATE_DATABASE-integration "#r_CREATE_DATABASE-integration"). For more information about
 creating databases with zero-ETL integrations, see [Creating
@@ -70,16 +70,16 @@ ingestion when invalid characters are detected for the VARCHAR data type. When
 invalid characters are encountered, the invalid character is replaced with a
 default `?` character.
 
-QUERY_ALL_STATES [=] { TRUE | FALSE }
+QUERY\_ALL\_STATES [=] { TRUE | FALSE }
 
-The QUERY_ALL_STATES clause sets whether zero-ETL integration tables can be queried in
+The QUERY\_ALL\_STATES clause sets whether zero-ETL integration tables can be queried in
 all states (`Synced`, `Failed`,
 `ResyncRequired`, and `ResyncInitiated`). By default,
 a zero-ETL integration table can only be queried in `Synced` state.
 
-REFRESH_INTERVAL <interval>
+REFRESH\_INTERVAL <interval>
 
-The REFRESH_INTERVAL clause sets the approximate time interval, in seconds,
+The REFRESH\_INTERVAL clause sets the approximate time interval, in seconds,
 to refresh data from the zero-ETL source to the target database. The value can
 be set 0–432,000 seconds (5 days) for zero-ETL integrations whose source type is
 Aurora MySQL, Aurora PostgreSQL, or RDS for MySQL. For Amazon DynamoDB zero-ETL integrations, the value
@@ -98,22 +98,22 @@ beyond the limit. When `TRUE`, the values are truncated to fit into
 the column and the values of overflowing JSON attributes are truncated to fit
 into the SUPER column.
 
-HISTORY_MODE [=] {TRUE | FALSE}
+HISTORY\_MODE [=] {TRUE | FALSE}
 
 A clause that specifies whether Amazon Redshift will set history mode for all new
 tables in the specified database. This option is only applicable for databases
 created for zero-ETL integration.
 
-The HISTORY_MODE clause can be set to `TRUE` or
+The HISTORY\_MODE clause can be set to `TRUE` or
 `FALSE`. The default is `FALSE`. For information about
-HISTORY_MODE, see [History mode](../mgmt/zero-etl-history-mode.md "../mgmt/zero-etl-history-mode.md")
+HISTORY\_MODE, see [History mode](../mgmt/zero-etl-history-mode.md "../mgmt/zero-etl-history-mode.md")
 in the _Amazon Redshift Management Guide_.
 
 WITH
 
 Optional keyword.
 
-OWNER [=] db_owner
+OWNER [=] db\_owner
 
 Specifies username of database owner.
 
@@ -125,7 +125,7 @@ keyword to permit the maximum number of concurrent connections.
 
 A limit on the number of connections for each user might also apply. For more
 information, see [CREATE USER](r_CREATE_USER.md "r_CREATE_USER.md").
-The default is UNLIMITED. To view current connections, query the [STV_SESSIONS](r_STV_SESSIONS.md "r_STV_SESSIONS.md") system
+The default is UNLIMITED. To view current connections, query the [STV\_SESSIONS](r_STV_SESSIONS.md "r_STV_SESSIONS.md") system
 view.
 
 ###### Note
@@ -134,17 +134,17 @@ If both user and database connection limits apply, an unused connection
 slot must be available that is within both limits when a user attempts to
 connect.
 
-COLLATE { CASE_SENSITIVE | CS | CASE_INSENSITIVE | CI }
+COLLATE { CASE\_SENSITIVE | CS | CASE\_INSENSITIVE | CI }
 
 A clause that specifies whether string search or comparison is
 case sensitive or case insensitive. The default is case sensitive.
 
 COLLATE is not supported when you create a database from a datashare.
 
-CASE_SENSITIVE and CS are interchangeable and yield the same results.
-Similarly, CASE_INSENSITIVE and CI are interchangeable and yield the same results.
+CASE\_SENSITIVE and CS are interchangeable and yield the same results.
+Similarly, CASE\_INSENSITIVE and CI are interchangeable and yield the same results.
 
-To check the current collation of a database, use the [DB_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
+To check the current collation of a database, use the [DB\_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
 
 ISOLATION LEVEL { SNAPSHOT | SERIALIZABLE }
 
@@ -173,7 +173,7 @@ uses the FROM ARN parameter.
 Specifies whether to create the database using a schema to help access
 objects in the AWS Glue Data Catalog.
 
-IAM_ROLE { default | 'SESSION' |
+IAM\_ROLE { default | 'SESSION' |
 'arn:aws:iam::`<AWS account-id>`:role/`<role-name>`'
 }
 
@@ -199,10 +199,10 @@ Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses
 for authentication and authorization. As a minimum, the IAM role must have
 permission to perform a LIST operation on the Amazon S3 bucket to be accessed and a
 GET operation on the Amazon S3 objects the bucket contains. To learn more about
-using IAM_ROLE when creating a database using AWS Glue Data Catalog for datashares, see
+using IAM\_ROLE when creating a database using AWS Glue Data Catalog for datashares, see
 [Working with Lake Formation-managed datashares as a consumer](lake-formation-getting-started-consumer.md "lake-formation-getting-started-consumer.md").
 
-The following shows the syntax for the IAM_ROLE parameter string for a
+The following shows the syntax for the IAM\_ROLE parameter string for a
 single ARN.
 
 ```
@@ -283,7 +283,7 @@ FROM DATASHARE
 
 A keyword that indicates where the datashare is located.
 
-_datashare_name_
+_datashare\_name_
 
 The name of the datashare that the consumer database is created
 on.
@@ -295,12 +295,12 @@ object-level permissions to access individual database objects. Without this
 clause, users or roles granted the USAGE permission on the database will
 automatically have access to all database objects in the database.
 
-NAMESPACE _namespace_guid_
+NAMESPACE _namespace\_guid_
 
 A value that specifies the producer namespace that the datashare belongs
 to.
 
-ACCOUNT _account_id_
+ACCOUNT _account\_id_
 
 A value that specifies the producer account that the datashare belongs
 to.
@@ -325,7 +325,7 @@ DATABASE command.
 CREATE DATABASE sampledb FROM ARN <glue-database-arn> WITH NO DATA CATALOG SCHEMA;
 ```
 
-Optionally, you can also supply a value into the IAM_ROLE parameter. For more
+Optionally, you can also supply a value into the IAM\_ROLE parameter. For more
 information about the parameter and accepted values, see [Parameters](r_CREATE_DATABASE.md#r_CREATE_DATABASE-parameters "r_CREATE_DATABASE.md#r_CREATE_DATABASE-parameters").
 
 The following are examples that demonstrate how to create a database from an ARN
@@ -354,7 +354,7 @@ To create a database using a zero-ETL integration identity, specify the
 CREATE DATABASE `destination_db_name` FROM INTEGRATION '`integration_id`';
 ```
 
-For example, first, retrieve the integration ids from SVV_INTEGRATION;
+For example, first, retrieve the integration ids from SVV\_INTEGRATION;
 
 ```
 SELECT integration_id FROM SVV_INTEGRATION;
@@ -380,8 +380,8 @@ interval to 7,200 seconds for data from a zero-ETL integration source:
 CREATE DATABASE myacct_mysql FROM INTEGRATION 'a1b2c3d4-5678-90ab-cdef-EXAMPLE11111' SET REFRESH_INTERVAL 7200;
 ```
 
-Query the SVV_INTEGRATION catalog view for information about a zero-ETL integration, such as,
-integration_id, target_database, source, refresh_interval, and more.
+Query the SVV\_INTEGRATION catalog view for information about a zero-ETL integration, such as,
+integration\_id, target\_database, source, refresh\_interval, and more.
 
 ```
 SELECT * FROM svv_integration;
@@ -412,7 +412,7 @@ continues to use important tuning or optimization methods, such as distribution 
 sort keys, or range restricted scan.
 
 The COLLATE clause specifies the default collation for all CHAR and VARCHAR columns
-in the database. If CASE_INSENSITIVE is specified, all CHAR or VARCHAR columns use
+in the database. If CASE\_INSENSITIVE is specified, all CHAR or VARCHAR columns use
 case-insensitive collation. For information about collation, see [Collation sequences](c_collation_sequences.md "c_collation_sequences.md").
 
 Data inserted or ingested in case-insensitive columns will keep its original case.
@@ -429,8 +429,8 @@ The following SQL operations support applicable collation semantics:
 - Aggregate functions that use string comparison, such as MIN and MAX and
   LISTAGG
 - Window functions, such as PARTITION BY clauses and ORDER BY clauses
-- Scalar functions greatest() and least(), STRPOS(), REGEXP_COUNT(),
-  REGEXP_REPLACE(), REGEXP_INSTR(), REGEXP_SUBSTR()
+- Scalar functions greatest() and least(), STRPOS(), REGEXP\_COUNT(),
+  REGEXP\_REPLACE(), REGEXP\_INSTR(), REGEXP\_SUBSTR()
 - Distinct clause
 - UNION, INTERSECT and EXCEPT
 - IN LIST
@@ -539,7 +539,7 @@ create database tickit
 with owner dwuser;
 ```
 
-To view details about databases, query the PG_DATABASE_INFO catalog table.
+To view details about databases, query the PG\_DATABASE\_INFO catalog table.
 
 ```
 select datname, datdba, datconnlimit
@@ -560,7 +560,7 @@ SNAPSHOT isolation level.
 CREATE DATABASE sampledb ISOLATION LEVEL SNAPSHOT;
 ```
 
-The following example creates the database sales_db from the datashare
+The following example creates the database sales\_db from the datashare
 salesshare.
 
 ```

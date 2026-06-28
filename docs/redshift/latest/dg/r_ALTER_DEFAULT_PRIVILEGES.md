@@ -17,7 +17,7 @@ Default permissions apply only to new objects. Running ALTER DEFAULT PRIVILEGES 
 change permissions on existing objects. To grant permissions on all current and future
 objects created by any user within a database or schema, see [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").
 
-To view information about the default privileges for database users, query the [PG_DEFAULT_ACL](r_PG_DEFAULT_ACL.md "r_PG_DEFAULT_ACL.md") system catalog table.
+To view information about the default privileges for database users, query the [PG\_DEFAULT\_ACL](r_PG_DEFAULT_ACL.md "r_PG_DEFAULT_ACL.md") system catalog table.
 
 For more information about privileges, see [GRANT](r_GRANT.md "r_GRANT.md").
 
@@ -79,17 +79,17 @@ REVOKE { EXECUTE | ALL [ PRIVILEGES ] }
 
 ## Parameters
 
-FOR USER _target_user_
+FOR USER _target\_user_
 
 Optional. The name of the user for which default privileges are defined.
 Only a superuser can specify default privileges for other users. The default
 value is the current user.
 
-IN SCHEMA _schema_name_
+IN SCHEMA _schema\_name_
 
 Optional. If an IN SCHEMA clause appears, the specified default privileges
 are applied to new objects created in the specified
-_schema_name_. In this case, the user or user group that
+_schema\_name_. In this case, the user or user group that
 is the target of ALTER DEFAULT PRIVILEGES must have CREATE privilege for the
 specified schema. Default privileges that are specific to a schema are added to
 existing global default privileges. By default, default privileges are applied
@@ -108,8 +108,8 @@ A clause that indicates that the user receiving the privileges can in turn
 grant the same privileges to others. You can't grant WITH GRANT OPTION to
 a group or to PUBLIC.
 
-TO _user_name_ | ROLE _role_name_ | GROUP
-_group_name_
+TO _user\_name_ | ROLE _role\_name_ | GROUP
+_group\_name_
 
 The name of the user, role, or user group to which the specified default
 privileges are applied.
@@ -127,8 +127,8 @@ A clause that revokes only the option to grant a specified privilege to
 other users and doesn't revoke the privilege itself. You can't revoke
 GRANT OPTION from a group or from PUBLIC.
 
-FROM _user_name_ | ROLE _role_name_ |
-GROUP _group_name_
+FROM _user\_name_ | ROLE _role\_name_ |
+GROUP _group\_name_
 
 The name of the user, role, or user group from which the specified
 privileges are revoked by default.

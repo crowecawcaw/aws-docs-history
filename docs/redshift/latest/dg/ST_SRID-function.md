@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_SRID
+# ST\_SRID
 
-ST_SRID returns the spatial reference system identifier (SRID) of an input geometry.
+ST\_SRID returns the spatial reference system identifier (SRID) of an input geometry.
 
 For more information about an SRID, see
 [Querying spatial data in Amazon Redshift](geospatial-overview.md "geospatial-overview.md").

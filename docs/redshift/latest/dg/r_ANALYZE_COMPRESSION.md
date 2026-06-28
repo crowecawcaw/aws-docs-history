@@ -19,19 +19,19 @@ ANALYZE COMPRESSION
 
 ## Parameters
 
-_table_name_
+_table\_name_
 
 You can analyze compression for specific tables, including temporary tables.
 You can qualify the table with its schema name. You can optionally specify a
-_table_name_ to analyze a single table. If you don't
-specify a _table_name_, all of the tables in the currently
+_table\_name_ to analyze a single table. If you don't
+specify a _table\_name_, all of the tables in the currently
 connected database are analyzed. You can't specify more than one
-_table_name_ with a single ANALYZE COMPRESSION
+_table\_name_ with a single ANALYZE COMPRESSION
 statement.
 
-_column_name_
+_column\_name_
 
-If you specify a _table_name_, you can also specify one
+If you specify a _table\_name_, you can also specify one
 or more columns in the table (as a column-separated list within
 parentheses).
 

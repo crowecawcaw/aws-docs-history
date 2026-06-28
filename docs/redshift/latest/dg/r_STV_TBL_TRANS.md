@@ -2,29 +2,29 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_TBL_TRANS
+# STV\_TBL\_TRANS
 
-Use the STV_TBL_TRANS table to find out information about the transient database
+Use the STV\_TBL\_TRANS table to find out information about the transient database
 tables that are currently in memory.
 
 Transient tables are typically temporary row sets that are used as intermediate
-results while a query runs. STV_TBL_TRANS differs from [STV_TBL_PERM](r_STV_TBL_PERM.md "r_STV_TBL_PERM.md") in that STV_TBL_PERM contains information about
+results while a query runs. STV\_TBL\_TRANS differs from [STV\_TBL\_PERM](r_STV_TBL_PERM.md "r_STV_TBL_PERM.md") in that STV\_TBL\_PERM contains information about
 permanent database tables.
 
-STV_TBL_TRANS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_TBL\_TRANS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                                                                                    |
-| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| slice          | integer   | Node slice allocated to the table.                                                                                                             |
-| id             | integer   | Table ID.                                                                                                                                      |
-| rows           | bigint    | Number of data rows in the table.                                                                                                              |
-| size           | bigint    | Number of bytes allocated to the table.                                                                                                        |
-| query_id       | bigint    | Query ID.                                                                                                                                      |
-| ref_cnt        | integer   | Number of references.                                                                                                                          |
-| from_suspended | integer   | Whether or not this table was created during a<br>query that is now suspended.                                                                 |
-| prep_swap      | integer   | Whether or not this transient table is prepared to<br>swap to disk if needed. (The swap will only occur in situations<br>where memory is low.) |
+| Column name     | Data type | Description                                                                                                                                    |
+| --------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| slice           | integer   | Node slice allocated to the table.                                                                                                             |
+| id              | integer   | Table ID.                                                                                                                                      |
+| rows            | bigint    | Number of data rows in the table.                                                                                                              |
+| size            | bigint    | Number of bytes allocated to the table.                                                                                                        |
+| query\_id       | bigint    | Query ID.                                                                                                                                      |
+| ref\_cnt        | integer   | Number of references.                                                                                                                          |
+| from\_suspended | integer   | Whether or not this table was created during a<br>query that is now suspended.                                                                 |
+| prep\_swap      | integer   | Whether or not this transient table is prepared to<br>swap to disk if needed. (The swap will only occur in situations<br>where memory is low.) |
 
 ## Sample queries
 

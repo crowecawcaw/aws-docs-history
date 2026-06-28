@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ARRAY_UNION function
+# ARRAY\_UNION function
 
 Combines two arrays and returns a single array containing all unique values, removing any duplicates. The function is NULL-safe, meaning it treats NULLs are treated as known objects. The order of elements in the result is not guaranteed.
 
@@ -24,11 +24,11 @@ A SUPER expression that specifies the second array.
 
 ## Return type
 
-The ARRAY_UNION function returns a SUPER type.
+The ARRAY\_UNION function returns a SUPER type.
 
 ## Example
 
-The following examples show the ARRAY_UNION function.
+The following examples show the ARRAY\_UNION function.
 
 ```
 SELECT ARRAY_UNION(ARRAY('a','b','b'), ARRAY('b','c','c'));
@@ -50,7 +50,7 @@ SELECT ARRAY_UNION(ARRAY('b','a','b'), ARRAY(NULL,'b',NULL));
 
 ## See also
 
-- [ARRAY_CONCAT function](r_array_concat.md "r_array_concat.md")
-- [ARRAY_DISTINCT function](array_distinct.md "array_distinct.md")
-- [ARRAY_INTERSECTION function](array_intersection.md "array_intersection.md")
-- [ARRAY_EXCEPT function](array_except.md "array_except.md")
+- [ARRAY\_CONCAT function](r_array_concat.md "r_array_concat.md")
+- [ARRAY\_DISTINCT function](array_distinct.md "array_distinct.md")
+- [ARRAY\_INTERSECTION function](array_intersection.md "array_intersection.md")
+- [ARRAY\_EXCEPT function](array_except.md "array_except.md")

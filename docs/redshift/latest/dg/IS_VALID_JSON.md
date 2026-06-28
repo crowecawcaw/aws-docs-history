@@ -2,20 +2,20 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# IS_VALID_JSON function
+# IS\_VALID\_JSON function
 
 ###### Note
 
-CAN_JSON_PARSE and its associated functions
+CAN\_JSON\_PARSE and its associated functions
 parse JSON values as SUPER, which Amazon Redshift parses more efficiently than VARCHAR.
 
-Instead of using IS_VALID_JSON, we recommend that you validate your JSON strings using the
-[CAN_JSON_PARSE function](CAN_JSON_PARSE.md "CAN_JSON_PARSE.md").
+Instead of using IS\_VALID\_JSON, we recommend that you validate your JSON strings using the
+[CAN\_JSON\_PARSE function](CAN_JSON_PARSE.md "CAN_JSON_PARSE.md").
 
-The IS_VALID_JSON function validates a JSON string. The function returns Boolean
+The IS\_VALID\_JSON function validates a JSON string. The function returns Boolean
 `true` if the string is properly formed JSON or
 `false` if the string is malformed. To validate a JSON
-array, use [IS_VALID_JSON_ARRAY function](IS_VALID_JSON_ARRAY.md "IS_VALID_JSON_ARRAY.md")
+array, use [IS\_VALID\_JSON\_ARRAY function](IS_VALID_JSON_ARRAY.md "IS_VALID_JSON_ARRAY.md")
 
 For more information, see [JSON functions](json-functions.md "json-functions.md").
 
@@ -27,7 +27,7 @@ IS_VALID_JSON('*json\_string*')
 
 ## Arguments
 
-_json_string_
+_json\_string_
 
 A string or expression that evaluates to a JSON string.
 

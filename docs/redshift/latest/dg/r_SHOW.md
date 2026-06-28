@@ -23,7 +23,7 @@ SHOW *variable\_name*
 
 ## Parameters
 
-_parameter_name_
+_parameter\_name_
 
 Displays the current value of the specified parameter.
 
@@ -31,13 +31,13 @@ ALL
 
 Displays the current values of all of the parameters.
 
-_variable_name_
+_variable\_name_
 
 Displays the current value of the specified variable.
 
 ## Examples
 
-The following example displays the value for the query_group parameter:
+The following example displays the value for the query\_group parameter:
 
 ```
 show query_group;

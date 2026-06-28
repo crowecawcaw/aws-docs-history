@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Within
+# ST\_Within
 
-ST_Within returns true if the 2D projection of the first input geometry is within the 2D projection of the second input geometry.
+ST\_Within returns true if the 2D projection of the first input geometry is within the 2D projection of the second input geometry.
 
 For example, geometry `A` is within geometry `B` if every point
 in `A` is a point in `B` and their interiors have nonempty
 intersection.
 
-ST_Within(`A`, `B`) is equivalent to ST_Contains(`B`, `A`).
+ST\_Within(`A`, `B`) is equivalent to ST\_Contains(`B`, `A`).
 
 ## Syntax
 

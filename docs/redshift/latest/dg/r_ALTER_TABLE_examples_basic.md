@@ -8,7 +8,7 @@ The following examples demonstrate basic usage of the ALTER TABLE command.
 
 ## Rename a table or view
 
-The following command renames the USERS table to USERS_BKUP:
+The following command renames the USERS table to USERS\_BKUP:
 
 ```
 alter table users
@@ -130,7 +130,7 @@ alter table t1 alter column c3 encode runlength;
 The following examples show how to change the DISTSTYLE and DISTKEY of a
 table.
 
-Create a table with an EVEN distribution style. The SVV_TABLE_INFO view shows that
+Create a table with an EVEN distribution style. The SVV\_TABLE\_INFO view shows that
 the DISTSTYLE is EVEN.
 
 ```
@@ -149,7 +149,7 @@ select "table", "diststyle" from svv_table_info;`
  inventory | EVEN`
 ```
 
-Alter the table DISTKEY to `inv_warehouse_sk`. The SVV_TABLE_INFO view
+Alter the table DISTKEY to `inv_warehouse_sk`. The SVV\_TABLE\_INFO view
 shows the `inv_warehouse_sk` column as the resulting distribution key.
 
 ```
@@ -161,7 +161,7 @@ select "table", "diststyle" from svv_table_info;`
  inventory | KEY(inv_warehouse_sk)`
 ```
 
-Alter the table DISTKEY to `inv_item_sk`. The SVV_TABLE_INFO view shows
+Alter the table DISTKEY to `inv_item_sk`. The SVV\_TABLE\_INFO view shows
 the `inv_item_sk` column as the resulting distribution key.
 
 ```
@@ -177,7 +177,7 @@ select "table", "diststyle" from svv_table_info;`
 
 The following examples show how to change a table to DISTSTYLE ALL.
 
-Create a table with an EVEN distribution style. The SVV_TABLE_INFO view shows that
+Create a table with an EVEN distribution style. The SVV\_TABLE\_INFO view shows that
 the DISTSTYLE is EVEN.
 
 ```
@@ -196,7 +196,7 @@ select "table", "diststyle" from svv_table_info;`
  inventory | EVEN`
 ```
 
-Alter the table DISTSTYLE to ALL. The SVV_TABLE_INFO view shows the changed
+Alter the table DISTSTYLE to ALL. The SVV\_TABLE\_INFO view shows the changed
 DISTSYTLE.
 
 ```

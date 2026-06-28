@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeomFromWKB
+# ST\_GeomFromWKB
 
-ST_GeomFromWKB constructs a geometry object from a hexadecimal well-known binary (WKB) representation of an input geometry.
+ST\_GeomFromWKB constructs a geometry object from a hexadecimal well-known binary (WKB) representation of an input geometry.
 
-ST_GeomFromWKB accepts 3DZ, 3DM, and 4D geometries written in WKB hexadecimal format.
+ST\_GeomFromWKB accepts 3DZ, 3DM, and 4D geometries written in WKB hexadecimal format.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ ST_GeomFromWKB(*wkb\_string*, *srid*)
 
 ## Arguments
 
-_wkb_string_
+_wkb\_string_
 
 A value of data type `VARCHAR` that is a hexadecimal WKB representation of a geometry.
 
@@ -34,11 +34,11 @@ Otherwise, the SRID value of the returned geometry is set to 0.
 
 `GEOMETRY`
 
-If _wkb_string_ or _srid_ is null, then null is returned.
+If _wkb\_string_ or _srid_ is null, then null is returned.
 
 If _srid_ is negative, then null is returned.
 
-If _wkb_string_ is not valid, then an error is returned.
+If _wkb\_string_ is not valid, then an error is returned.
 
 If _srid_ is not valid, then an error is returned.
 

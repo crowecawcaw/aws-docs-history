@@ -14,4 +14,4 @@ To perform the following actions, use the following commands:
 - To grant system permissions to a role, use the [GRANT](r_GRANT.md "r_GRANT.md") command.
 - To revoke system permissions from a role, use the [REVOKE](r_REVOKE.md "r_REVOKE.md") command.
   To view a list of roles in your cluster or workgroup, see
-  [SVV_ROLES](r_SVV_ROLES.md "r_SVV_ROLES.md").
+  [SVV\_ROLES](r_SVV_ROLES.md "r_SVV_ROLES.md").

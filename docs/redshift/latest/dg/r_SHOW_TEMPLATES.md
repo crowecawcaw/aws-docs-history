@@ -8,7 +8,7 @@ Shows a list of templates in a schema, along with their attributes.
 
 Each output row consists of template name, template id, template type, template owner, database name, schema name, create time, last modified time, and last modified by.
 
-For complete template details, including template parameters, see [SYS_REDSHIFT_TEMPLATE](SYS_REDSHIFT_TEMPLATE.md "SYS_REDSHIFT_TEMPLATE.md").
+For complete template details, including template parameters, see [SYS\_REDSHIFT\_TEMPLATE](SYS_REDSHIFT_TEMPLATE.md "SYS_REDSHIFT_TEMPLATE.md").
 
 ## Required permissions
 
@@ -25,15 +25,15 @@ SHOW TEMPLATES FROM SCHEMA [*database\_name*.]*schema\_name* [LIKE '*filter\_pat
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 (Optional) The name of the database containing the templates to list. If not provided, uses the current database.
 
-_schema_name_
+_schema\_name_
 
 The name of the schema that contains the templates to list.
 
-_filter_pattern_
+_filter\_pattern_
 
 (Optional) A valid UTF-8 character expression with a pattern to match template names. The
 LIKE option performs a case-sensitive match that supports the following
@@ -44,11 +44,11 @@ pattern-matching metacharacters:
 | `%`           | Matches any sequence of zero or more<br>characters. |
 | `_`           | Matches any single character.                       |
 
-If _filter_pattern_ does not contain metacharacters, then
+If _filter\_pattern_ does not contain metacharacters, then
 the pattern only represents the string itself; in that case LIKE acts the same
 as the equals operator.
 
-_row_limit_
+_row\_limit_
 
 The maximum number of rows to return. Valid range is 0 to the template limit on the cluster (default is 1000).
 

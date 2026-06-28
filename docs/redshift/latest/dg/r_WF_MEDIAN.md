@@ -19,7 +19,7 @@ OVER ( [ PARTITION BY *partition\_expression* ] )
 
 ## Arguments
 
-_median_expression_
+_median\_expression_
 
 An expression, such as a column name, that provides the values for which
 to determine the median. The expression must have either a numeric or
@@ -30,7 +30,7 @@ OVER
 A clause that specifies the window partitioning. The OVER clause cannot
 contain a window ordering or window frame specification.
 
-PARTITION BY _partition_expression_
+PARTITION BY _partition\_expression_
 
 Optional. An expression that sets the range of records for each group in
 the OVER clause.
@@ -38,8 +38,8 @@ the OVER clause.
 ## Data types
 
 The return type is determined by the data type of
-_median_expression_. The following table shows the return type
-for each _median_expression_ data type.
+_median\_expression_. The following table shows the return type
+for each _median\_expression_ data type.
 
 | Input Type                         | Return Type |
 | ---------------------------------- | ----------- |
@@ -49,21 +49,21 @@ for each _median_expression_ data type.
 
 ## Usage notes
 
-If the _median_expression_ argument is a DECIMAL data type
+If the _median\_expression_ argument is a DECIMAL data type
 defined with the maximum precision of 38 digits, it is possible that MEDIAN will
 return either an inaccurate result or an error. If the return value of the MEDIAN
 function exceeds 38 digits, the result is truncated to fit, which causes a loss of
 precision. If, during interpolation, an intermediate result exceeds the maximum
 precision, a numeric overflow occurs and the function returns an error. To avoid
 these conditions, we recommend either using a data type with lower precision or
-casting the _median_expression_ argument to a lower precision.
+casting the _median\_expression_ argument to a lower precision.
 
 For example, a SUM function with a DECIMAL argument returns a default precision of
 38 digits. The scale of the result is the same as the scale of the argument. So, for
 example, a SUM of a DECIMAL(5,2) column returns a DECIMAL(38,2) data type.
 
 The following example uses a SUM function in the
-_median_expression_ argument of a MEDIAN function. The data
+_median\_expression_ argument of a MEDIAN function. The data
 type of the PRICEPAID column is DECIMAL (8,2), so the SUM function returns
 DECIMAL(38,2).
 

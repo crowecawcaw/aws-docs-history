@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_LAST_COPY_ID
+# PG\_LAST\_COPY\_ID
 
 Returns the query ID of the most recently completed COPY command in the current
-session. If no COPY commands have been run in the current session, PG_LAST_COPY_ID
+session. If no COPY commands have been run in the current session, PG\_LAST\_COPY\_ID
 returns -1.
 
-The value for PG_LAST_COPY_ID is updated when the COPY command begins the load
+The value for PG\_LAST\_COPY\_ID is updated when the COPY command begins the load
 process. If the COPY fails because of invalid load data, the COPY ID is updated, so you
-can use PG_LAST_COPY_ID when you query STL_LOAD_ERRORS table. If the COPY transaction is
+can use PG\_LAST\_COPY\_ID when you query STL\_LOAD\_ERRORS table. If the COPY transaction is
 rolled back, the COPY ID is not updated.
 
 The COPY ID is not updated if the COPY command fails because of an error that occurs
@@ -43,7 +43,7 @@ pg_last_copy_id
 (1 row)
 ```
 
-The following query joins STL_LOAD_ERRORS to STL_LOADERROR_DETAIL to view the
+The following query joins STL\_LOAD\_ERRORS to STL\_LOADERROR\_DETAIL to view the
 details errors that occurred during the most recent load in the current
 session:
 

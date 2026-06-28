@@ -15,12 +15,12 @@ STRTOL(*num\_string*, *base*)
 
 ## Arguments
 
-_num_string_
+_num\_string_
 
 String expression of a number to be converted. If
-_num_string_ is empty ( `''` ) or begins
+_num\_string_ is empty ( `''` ) or begins
 with the null character (`'\0'`), the converted value is `0`. If
-_num_string_ is a column containing a NULL value,
+_num\_string_ is a column containing a NULL value,
 STRTOL returns `NULL`. The string can begin with any amount of white space,
 optionally followed by a single plus '`+`' or minus
 '`-`' sign to indicate positive or negative. The default is
@@ -35,7 +35,7 @@ _base_
 
 BIGINT
 
-If _num_string_ is null, the function returns `NULL`.
+If _num\_string_ is null, the function returns `NULL`.
 
 ## Examples
 

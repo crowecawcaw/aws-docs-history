@@ -15,7 +15,7 @@ DESC IDENTITY PROVIDER *identity\_provider\_name*
 
 ## Parameters
 
-_identity_provider_name_
+_identity\_provider\_name_
 
 The name of the identity provider.
 

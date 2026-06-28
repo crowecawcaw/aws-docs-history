@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# HAS_TABLE_PRIVILEGE
+# HAS\_TABLE\_PRIVILEGE
 
 Returns `true` if the user has the specified privilege for the specified
 table and returns `false` otherwise.
@@ -59,7 +59,7 @@ false`
 ```
 
 The following query lists table privileges, including select, insert, update, and
-delete, using output from the pg_tables and pg_user catalog tables. This is a sample
+delete, using output from the pg\_tables and pg\_user catalog tables. This is a sample
 only. You might have to specify a schema name and table names from your database. For more information, see
 [Querying the catalog tables](c_join_PG.md "c_join_PG.md").
 

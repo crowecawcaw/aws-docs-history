@@ -19,16 +19,16 @@ USING ( using_predicate_exp );
 
 ## Parameters
 
-_policy_name_
+_policy\_name_
 
 The name of the policy.
 
-database_name
+database\_name
 
 The name of the database from where the policy is created. The database can be
 the connected database or a database that supports Amazon Redshift federated permissions.
 
-USING ( _using_predicate_exp_ )
+USING ( _using\_predicate\_exp_ )
 
 Specifies a filter that is applied to the WHERE clause of the query.
 Amazon Redshift applies a policy predicate before the query-level user predicates. For
@@ -37,7 +37,7 @@ to see only records with the price greater than $10.
 
 The expression has access to the variables declared in the WITH clause of
 the CREATE RLS POLICY statement that was used to create the policy with name
-policy_name.
+policy\_name.
 
 For the usage of ALTER RLS POLICY on Amazon Redshift Federated Permissions Catalog, see [Managing access control with Amazon Redshift federated permissions](federated-permissions-managing-access.md "federated-permissions-managing-access.md").
 

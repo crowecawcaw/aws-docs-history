@@ -24,7 +24,7 @@ ALTER PROCEDURE *sp\_name* [ ( [ [ argname ] [ argmode ] argtype [, ...] ] ) ]
 
 ## Parameters
 
-_sp_name_
+_sp\_name_
 
 The name of the procedure to be altered. Either specify just the name of the
 procedure in the current search path, or use the format
@@ -37,11 +37,11 @@ data types are required, which are used to identify the stored procedure.
 Alternatively, you can provide the full signature used to create the procedure
 including the input and output parameters with their modes.
 
-_new_name_
+_new\_name_
 
 A new name for the stored procedure.
 
-_new_owner_ | CURRENT_USER | SESSION_USER
+_new\_owner_ | CURRENT\_USER | SESSION\_USER
 
 A new owner for the stored procedure.
 

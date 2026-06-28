@@ -32,7 +32,7 @@ FORMAT [AS]
 (Optional) Identifies data format keywords. The FORMAT arguments are
 described following.
 
-CSV [ QUOTE [AS] _'quote_character'_ ]
+CSV [ QUOTE [AS] _'quote\_character'_ ]
 
 Enables use of CSV format in the input data. To automatically escape
 delimiters, newline characters, and carriage returns, enclose the field in the
@@ -51,7 +51,7 @@ such as a tab, the delimiter isn't treated as white space.
 
 CSV can't be used with FIXEDWIDTH, REMOVEQUOTES, or ESCAPE.
 
-QUOTE [AS] _'quote_character'_
+QUOTE [AS] _'quote\_character'_
 
 Optional. Specifies the character to be used as the quotation mark character
 when using the CSV parameter. The default is a double quotation mark (
@@ -60,7 +60,7 @@ than double quotation mark, you don't need to escape double quotation
 marks within the field. The QUOTE parameter can be used only with the
 CSV parameter. The AS keyword is optional.
 
-DELIMITER [AS] ['*delimiter\_char*']
+DELIMITER [AS] ['_delimiter\_char_']
 
 Specifies characters that are used to separate fields in the
 input file, such as a pipe character ( `|` ), a comma ( `,` ), a tab ( `\t` ), or multiple characters such as `|~|`.
@@ -71,11 +71,11 @@ The default delimiter is a pipe character ( `|` ), unless the CSV parameter is u
 The AS keyword is optional.
 DELIMITER can't be used with FIXEDWIDTH.
 
-FIXEDWIDTH '_fixedwidth_spec_'
+FIXEDWIDTH '_fixedwidth\_spec_'
 
 Loads the data from a file where each column width is a fixed length, rather
 than columns being separated by a delimiter. The
-_fixedwidth_spec_ is a string that specifies a
+_fixedwidth\_spec_ is a string that specifies a
 user-defined column label and column width. The column label can be either a
 text string or an integer, depending on what the user chooses. The column label
 has no relation to the column name. The order of the label/width pairs must
@@ -85,13 +85,13 @@ expressed in bytes, so be sure that the column width that you specify
 accommodates the binary length of multibyte characters when preparing the file
 to be loaded. For more information, see [Character types](r_Character_types.md "r_Character_types.md").
 
-The format for _fixedwidth_spec_ is shown following:
+The format for _fixedwidth\_spec_ is shown following:
 
 ```
 '*colLabel1:colWidth1,colLabel:colWidth2, ...*'
 ```
 
-SHAPEFILE [ SIMPLIFY [AUTO] [*'tolerance'*] ]
+SHAPEFILE [ SIMPLIFY [AUTO] [_'tolerance'_] ]
 
 Enables use of SHAPEFILE format in the input data.
 By default, the first column of the shapefile is either a `GEOMETRY` or `IDENTITY` column.
@@ -103,12 +103,12 @@ To use `GEOGRAPHY` objects with `COPY FROM SHAPEFILE`, first ingest into a `GEOM
 and then cast the objects to `GEOGRAPHY` objects.
 .
 
-SIMPLIFY [*tolerance*]
+SIMPLIFY [_tolerance_]
 
 (Optional) Simplifies all geometries during the ingestion process
 using the Ramer-Douglas-Peucker algorithm and the given tolerance.
 
-SIMPLIFY AUTO [*tolerance*]
+SIMPLIFY AUTO [_tolerance_]
 
 (Optional) Simplifies only geometries that are larger than the
 maximum geometry size. This simplification uses the
@@ -121,7 +121,7 @@ optional.
 For examples of loading shapefiles, see
 [Loading a shapefile into Amazon Redshift](r_COPY_command_examples.md#copy-example-spatial-copy-shapefile "r_COPY_command_examples.md#copy-example-spatial-copy-shapefile").
 
-AVRO [AS] '_avro_option_'
+AVRO [AS] '_avro\_option_'
 
 Specifies that the source data is in Avro format.
 
@@ -139,7 +139,7 @@ that defines the structure of the data. The Avro schema type must be
 uncompressed codec as well as the `deflate` and `snappy`
 compression codecs. For more information about Avro, go to [Apache Avro](https://avro.apache.org/ "https://avro.apache.org/").
 
-Valid values for _avro_option_ are as follows:
+Valid values for _avro\_option_ are as follows:
 
 - `'auto'`
 - `'auto ignorecase'`
@@ -229,7 +229,7 @@ If your input data contains a very large number of pipe characters, it is
 possible for row size to exceed 4 MB even if the data block is less than 4
 MB.
 
-JSON [AS] '_json_option_'
+JSON [AS] '_json\_option_'
 
 The source data is in JSON format.
 
@@ -241,7 +241,7 @@ JSON format is supported for COPY from these services and protocols:
 
 JSON isn't supported for COPY from DynamoDB.
 
-Valid values for _json_option_ are as follows :
+Valid values for _json\_option_ are as follows :
 
 - `'auto'`
 - `'auto ignorecase'`
@@ -272,7 +272,7 @@ target table. It does so by matching _object keys_, or
 names, in the source name-value pairs to the names of columns in the target
 table.
 
-Refer to the following details about each _json_option_
+Refer to the following details about each _json\_option_
 value:
 
 'auto'
@@ -289,7 +289,7 @@ in Amazon Redshift tables are always lowercase, so when you use the
 `'auto ignorecase'` option, the corresponding JSON field
 names can be lowercase, uppercase, or mixed-case.
 
-'s3://_jsonpaths_file_'
+'s3://_jsonpaths\_file_'
 
 With this option, COPY uses the named JSONPaths file to map the
 data elements in the JSON source data to the columns in the target
@@ -374,8 +374,8 @@ usable JSON structure, or between valid JSON objects or arrays, COPY returns an 
 for each instance. These errors count toward the MAXERROR error count. When the error
 count equals or exceeds MAXERROR, COPY fails.
 
-For each error, Amazon Redshift records a row in the STL_LOAD_ERRORS system table. The
-LINE_NUMBER column records the last line of the JSON object that caused the error.
+For each error, Amazon Redshift records a row in the STL\_LOAD\_ERRORS system table. The
+LINE\_NUMBER column records the last line of the JSON object that caused the error.
 
 If IGNOREHEADER is specified, COPY ignores the specified number of lines in the
 JSON data. Newline characters in the JSON data are always counted for IGNOREHEADER
@@ -445,7 +445,7 @@ load `my_data.jsonpaths` as a data file.
 
 If the key name is any string other than `"jsonpaths"`, the COPY
 command doesn't return an error, but it ignores
-_jsonpaths_file_ and uses the `'auto'` argument
+_jsonpaths\_file_ and uses the `'auto'` argument
 instead.
 
 If any of the following occurs, the COPY command fails:

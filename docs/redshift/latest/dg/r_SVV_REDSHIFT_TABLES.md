@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_REDSHIFT_TABLES
+# SVV\_REDSHIFT\_TABLES
 
-Use SVV_REDSHIFT_TABLES to view a list of all tables that a user has access to. This
+Use SVV\_REDSHIFT\_TABLES to view a list of all tables that a user has access to. This
 set of tables includes the tables on the cluster and the tables from datashares provided
 by remote clusters.
 
-SVV_REDSHIFT_TABLES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_REDSHIFT\_TABLES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For more information about best practices when querying system tables and views, see
 [Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
@@ -21,19 +21,19 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name   | Data type    | Description                                                                                    |
-| ------------- | ------------ | ---------------------------------------------------------------------------------------------- |
-| database_name | varchar(128) | The name of the database where a specified table<br>exists.                                    |
-| schema_name   | varchar(128) | The name the schema for the table.                                                             |
-| table_name    | varchar(128) | The name of the table.                                                                         |
-| table_type    | varchar(128) | The type of table. Possible values are views and<br>tables.                                    |
-| table_acl     | varchar(128) | The string that defines the permissions for the<br>specified user or user group for the table. |
-| remarks       | varchar(128) | Remarks.                                                                                       |
-| table_owner   | varchar(128) | The owner of the table.                                                                        |
+| Column name    | Data type    | Description                                                                                    |
+| -------------- | ------------ | ---------------------------------------------------------------------------------------------- |
+| database\_name | varchar(128) | The name of the database where a specified table<br>exists.                                    |
+| schema\_name   | varchar(128) | The name the schema for the table.                                                             |
+| table\_name    | varchar(128) | The name of the table.                                                                         |
+| table\_type    | varchar(128) | The type of table. Possible values are views and<br>tables.                                    |
+| table\_acl     | varchar(128) | The string that defines the permissions for the<br>specified user or user group for the table. |
+| remarks        | varchar(128) | Remarks.                                                                                       |
+| table\_owner   | varchar(128) | The owner of the table.                                                                        |
 
 ## Sample query
 
-The following example returns the output of SVV_REDSHIFT_TABLES.
+The following example returns the output of SVV\_REDSHIFT\_TABLES.
 
 ```
 `SELECT *
@@ -53,4 +53,4 @@ TABLE_NAME;`
  tickit_db | public | tickit_venue_redshift | TABLE | |`
 ```
 
-If the table_acl value is null, no access privileges have been explicitly granted to the corresponding table.
+If the table\_acl value is null, no access privileges have been explicitly granted to the corresponding table.

@@ -61,7 +61,7 @@ GRANT ROLE operator to sample_user;
 
 If you’re using roles to control metadata security, you have access to all of the system
 views and functions that come with role-based access control. For example, you can
-query the [SVV_ROLES](r_SVV_ROLES.md "r_SVV_ROLES.md") view to see all roles.
+query the [SVV\_ROLES](r_SVV_ROLES.md "r_SVV_ROLES.md") view to see all roles.
 To see if a user is a member of a role or group, use the
-[USER_IS_MEMBER_OF](r_USER_IS_MEMBER_OF.md "r_USER_IS_MEMBER_OF.md") function. For a full list of SVV views, see [SVV metadata views](svv_views.md "svv_views.md"). For a list of system information functions,
+[USER\_IS\_MEMBER\_OF](r_USER_IS_MEMBER_OF.md "r_USER_IS_MEMBER_OF.md") function. For a full list of SVV views, see [SVV metadata views](svv_views.md "svv_views.md"). For a list of system information functions,
 see [System information functions](r_System_information_functions.md "r_System_information_functions.md").

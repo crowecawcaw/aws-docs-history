@@ -12,16 +12,16 @@ You can perform the following actions:
 - To change the owner of a schema, use the [ALTER SCHEMA](r_ALTER_SCHEMA.md "r_ALTER_SCHEMA.md") command.
 - To delete a schema and its objects, use the [DROP SCHEMA](r_DROP_SCHEMA.md "r_DROP_SCHEMA.md") command.
 - To create a table within a schema, create the table with the format
-  _schema_name.table_name_.
-  To view a list of all schemas, query the PG_NAMESPACE system catalog table:
+  _schema\_name.table\_name_.
+  To view a list of all schemas, query the PG\_NAMESPACE system catalog table:
 
 ```
 select * from pg_namespace;
 ```
 
-To view a list of tables that belong to a schema, query the PG_TABLE_DEF system
+To view a list of tables that belong to a schema, query the PG\_TABLE\_DEF system
 catalog table. For example, the following query returns a list of tables in the
-PG_CATALOG schema.
+PG\_CATALOG schema.
 
 ```
 select distinct(tablename) from pg_table_def

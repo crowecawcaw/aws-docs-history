@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# OCTET_LENGTH function
+# OCTET\_LENGTH function
 
 Returns the length of the specified string as the number of bytes.
 
@@ -22,13 +22,13 @@ A `CHAR` string, a `VARCHAR` string, a `VARBYTE` expression, or an expression th
 
 INTEGER
 
-The OCTET_LENGTH function returns an integer indicating the number of bytes in the
+The OCTET\_LENGTH function returns an integer indicating the number of bytes in the
 input string.
 
 If the input string is a character string, the [LEN](r_LEN.md "r_LEN.md") function
 returns the actual number of characters in multi-byte strings, not the number of
 bytes. For example, a `VARCHAR(12)` column is required to
-store three four-byte Chinese characters. The OCTET_LENGTH function will return `12` for that string, and the LEN function will return `3` for that
+store three four-byte Chinese characters. The OCTET\_LENGTH function will return `12` for that string, and the LEN function will return `3` for that
 same string.
 
 ## Usage notes

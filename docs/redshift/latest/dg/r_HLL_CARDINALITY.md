@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# HLL_CARDINALITY function
+# HLL\_CARDINALITY function
 
-The HLL_CARDINALITY function returns the cardinality of the input HLLSKETCH data
+The HLL\_CARDINALITY function returns the cardinality of the input HLLSKETCH data
 type.
 
 ## Syntax
@@ -15,13 +15,13 @@ HLL_CARDINALITY (*hllsketch\_expression*)
 
 ## Argument
 
-_hllsketch_expression_
+_hllsketch\_expression_
 
 Any valid expression that evaluates to an HLLSKETCH type, such as a column name. The input value is the HLLSKETCH data type.
 
 ## Return type
 
-The HLL_CARDINALITY function returns a BIGINT or INT8 value.
+The HLL\_CARDINALITY function returns a BIGINT or INT8 value.
 
 ## Examples
 

@@ -21,29 +21,29 @@ USING ( using_predicate_exp )
 
 ## Parameters
 
-_policy_name_
+_policy\_name_
 
 The name of the policy.
 
-database_name
+database\_name
 
 The database name of where the policy will be created. Policy can be created on the connected database or on a database that supports Amazon Redshift federated permissions.
 
-WITH (_column_name data_type [, ...]_)
+WITH (_column\_name data\_type [, ...]_)
 
-Specifies the _column_name_ and
-_data_type_ referenced to the columns of tables to which
+Specifies the _column\_name_ and
+_data\_type_ referenced to the columns of tables to which
 the policy is attached.
 
 You can omit the WITH clause only when the RLS policy doesn't reference
 any columns of tables to which the policy is attached.
 
-AS _relation_alias_
+AS _relation\_alias_
 
 Specifies an optional alias for the table that the RLS policy will be
 attached to.
 
-USING ( _using_predicate_exp_ )
+USING ( _using\_predicate\_exp_ )
 
 Specifies a filter that is applied to the WHERE clause of the query.
 Amazon Redshift applies a policy predicate before the query-level user predicates. For
@@ -67,7 +67,7 @@ When working with the CREATE RLS POLICY statement, observe the following:
 
 ## Examples
 
-The following example creates an RLS policy called policy_concerts.
+The following example creates an RLS policy called policy\_concerts.
 This policy applies to a VARCHAR(10) column called catgroup and
 and sets the USING filter to only return rows where the value of catgroup is
 `'Concerts'`.

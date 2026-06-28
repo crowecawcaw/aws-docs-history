@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeomFromEWKB
+# ST\_GeomFromEWKB
 
-ST_GeomFromEWKB constructs a geometry object from the extended well-known binary (EWKB) representation of an input geometry.
+ST\_GeomFromEWKB constructs a geometry object from the extended well-known binary (EWKB) representation of an input geometry.
 
-ST_GeomFromEWKB accepts 3DZ, 3DM, and 4D geometries written in WKB and EWKB hexadecimal format.
+ST\_GeomFromEWKB accepts 3DZ, 3DM, and 4D geometries written in WKB and EWKB hexadecimal format.
 
 ## Syntax
 
@@ -16,7 +16,7 @@ ST_GeomFromEWKB(*ewkb\_string*)
 
 ## Arguments
 
-_ewkb_string_
+_ewkb\_string_
 
 A value of data type `VARCHAR` that is a hexadecimal EWKB representation of a geometry.
 
@@ -24,9 +24,9 @@ A value of data type `VARCHAR` that is a hexadecimal EWKB representation of a ge
 
 `GEOMETRY`
 
-If _ewkb_string_ is null, then null is returned.
+If _ewkb\_string_ is null, then null is returned.
 
-If _ewkb_string_ is not valid, then an error is returned.
+If _ewkb\_string_ is not valid, then an error is returned.
 
 ## Examples
 

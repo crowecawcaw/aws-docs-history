@@ -5,11 +5,11 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # Optimizing storage for narrow tables
 
 If you have a table with very few columns but a very large number of rows, the three
-hidden metadata identity columns (INSERT_XID, DELETE_XID, ROW_ID) will consume a
+hidden metadata identity columns (INSERT\_XID, DELETE\_XID, ROW\_ID) will consume a
 disproportionate amount of the disk space for the table.
 
 In order to optimize compression of the hidden columns, load the table in a single
 COPY transaction where possible. If you load the table with multiple separate COPY
-commands, the INSERT_XID column will not compress well. You must perform a vacuum
+commands, the INSERT\_XID column will not compress well. You must perform a vacuum
 operation if you use multiple COPY commands, but it will not improve compression of
-INSERT_XID.
+INSERT\_XID.

@@ -37,7 +37,7 @@ SESSION
 Specifies that the setting is valid for the current session. Default
 value.
 
-_variable_name_
+_variable\_name_
 
 Specifies the name of the context variable set for the session.
 
@@ -61,7 +61,7 @@ multiplies this number by (231-1) for use with the
 SEED before making multiple RANDOM calls, RANDOM generates numbers in a
 predictable sequence.
 
-_parameter_name_
+_parameter\_name_
 
 Name of the parameter to set. See [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings") for information about
 parameters.
@@ -88,9 +88,9 @@ set datestyle to 'SQL,DMY';
 **Setting a query group for workload management**
 
 If query groups are listed in a queue definition as part of the cluster's WLM
-configuration, you can set the QUERY_GROUP parameter to a listed query group name.
-Subsequent queries are assigned to the associated query queue. The QUERY_GROUP setting
-remains in effect for the duration of the session or until a RESET QUERY_GROUP command
+configuration, you can set the QUERY\_GROUP parameter to a listed query group name.
+Subsequent queries are assigned to the associated query queue. The QUERY\_GROUP setting
+remains in effect for the duration of the session or until a RESET QUERY\_GROUP command
 is encountered.
 
 This example runs two queries as part of the query group 'priority', then resets the
@@ -139,10 +139,10 @@ to Redshift configuration with IAM Identity Center, see [ALTER SYSTEM](r_ALTER_S
 
 **Setting a label for a group of queries**
 
-The QUERY_GROUP parameter defines a label for one or more queries that are run in the
+The QUERY\_GROUP parameter defines a label for one or more queries that are run in the
 same session after a SET command. In turn, this label is logged when queries are run and
-can be used to constrain results returned from the STL_QUERY and STV_INFLIGHT system
-tables and the SVL_QLOG view.
+can be used to constrain results returned from the STL\_QUERY and STV\_INFLIGHT system
+tables and the SVL\_QLOG view.
 
 ```
 show query_group;

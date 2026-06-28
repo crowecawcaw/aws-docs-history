@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_LengthSphere
+# ST\_LengthSphere
 
-ST_LengthSphere returns the length of a linear geometry in meters.
-For point, multipoint, and areal geometries, ST_LengthSphere returns 0.
-For geometry collections, ST_LengthSphere returns the total length of the linear geometries in the collection in meters.
+ST\_LengthSphere returns the length of a linear geometry in meters.
+For point, multipoint, and areal geometries, ST\_LengthSphere returns 0.
+For geometry collections, ST\_LengthSphere returns the total length of the linear geometries in the collection in meters.
 
-ST_LengthSphere interprets the coordinates of each point of the input geometry as longitude and latitude in degrees.
+ST\_LengthSphere interprets the coordinates of each point of the input geometry as longitude and latitude in degrees.
 For 3DZ, 3DM, or 4D geometries, only the first two coordinates are used.
 
 ## Syntax

@@ -47,7 +47,7 @@ Here, _encoding-type_ is taken from the keyword table in the
 following section.
 
 For example, the following statement creates a two-column table, PRODUCT. When data is
-loaded into the table, the PRODUCT_ID column is not compressed, but the PRODUCT_NAME
+loaded into the table, the PRODUCT\_ID column is not compressed, but the PRODUCT\_NAME
 column is compressed, using the byte dictionary encoding (BYTEDICT).
 
 ```

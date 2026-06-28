@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# downcase_delimited_identifier
+# downcase\_delimited\_identifier
 
 ## Values (default in bold)
 
@@ -60,7 +60,7 @@ SELECT * FROM t;
 ```
 
 - We recommend that regular users querying tables with dynamic data masking or row-level security policies attached
-  have the default downcase_delimited_identifier setting. For more information, see
+  have the default downcase\_delimited\_identifier setting. For more information, see
   For information on row-level security, see
   [Row-level security](t_rls.md "t_rls.md").
   For information on dynamic data masking, see

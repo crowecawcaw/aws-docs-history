@@ -27,15 +27,15 @@ If _geom_ is null, then null is returned.
 
 The values returned are as follows.
 
-| Returned string value for 2D, 3DZ, 4D geometries | Returned string value for 3DM geometries | Geometry subtype                                          |
-| ------------------------------------------------ | ---------------------------------------- | --------------------------------------------------------- |
-| `POINT`                                          | `POINTM`                                 | Returned if \*geom<br>• is a `POINT` subtype              |
-| `LINESTRING`                                     | `LINESTRINGM`                            | Returned if \*geom<br>• is a `LINESTRING` subtype         |
-| `POLYGON`                                        | `POLYGONM`                               | Returned if \*geom<br>• is a `POLYGON` subtype            |
-| `MULTIPOINT`                                     | `MULTIPOINTM`                            | Returned if \*geom<br>• is a `MULTIPOINT` subtype         |
-| `MULTILINESTRING`                                | `MULTILINESTRINGM`                       | Returned if \*geom<br>• is a `MULTILINESTRING` subtype    |
-| `MULTIPOLYGON`                                   | `MULTIPOLYGONM`                          | Returned if \*geom<br>• is a `MULTIPOLYGON` subtype       |
-| `GEOMETRYCOLLECTION`                             | `GEOMETRYCOLLECTIONM`                    | Returned if \*geom<br>• is a `GEOMETRYCOLLECTION` subtype |
+| Returned string value for 2D, 3DZ, 4D geometries | Returned string value for 3DM geometries | Geometry subtype                                         |
+| ------------------------------------------------ | ---------------------------------------- | -------------------------------------------------------- |
+| `POINT`                                          | `POINTM`                                 | Returned if *geom<br>• is a `POINT` subtype              |
+| `LINESTRING`                                     | `LINESTRINGM`                            | Returned if *geom<br>• is a `LINESTRING` subtype         |
+| `POLYGON`                                        | `POLYGONM`                               | Returned if *geom<br>• is a `POLYGON` subtype            |
+| `MULTIPOINT`                                     | `MULTIPOINTM`                            | Returned if *geom<br>• is a `MULTIPOINT` subtype         |
+| `MULTILINESTRING`                                | `MULTILINESTRINGM`                       | Returned if *geom<br>• is a `MULTILINESTRING` subtype    |
+| `MULTIPOLYGON`                                   | `MULTIPOLYGONM`                          | Returned if *geom<br>• is a `MULTIPOLYGON` subtype       |
+| `GEOMETRYCOLLECTION`                             | `GEOMETRYCOLLECTIONM`                    | Returned if *geom<br>• is a `GEOMETRYCOLLECTION` subtype |
 
 ## Examples
 

@@ -45,6 +45,6 @@ select ARRAY(1,'abc',true,3.14);
 
 ## See also
 
-- [ARRAY_CONCAT function](r_array_concat.md "r_array_concat.md")
-- [SPLIT_TO_ARRAY function](split_to_array.md "split_to_array.md")
-- [ARRAY_FLATTEN function](array_flatten.md "array_flatten.md")
+- [ARRAY\_CONCAT function](r_array_concat.md "r_array_concat.md")
+- [SPLIT\_TO\_ARRAY function](split_to_array.md "split_to_array.md")
+- [ARRAY\_FLATTEN function](array_flatten.md "array_flatten.md")

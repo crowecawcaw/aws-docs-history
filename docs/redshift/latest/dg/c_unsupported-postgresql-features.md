@@ -20,15 +20,14 @@ often subtle differences.
 - Tablespaces
 - Constraints
 
-      + Unique
-      + Foreign key
-      + Primary key
-      + Check constraints
-      + Exclusion constraints
-
-  Unique, primary key, and foreign key constraints are permitted, but they are
-  informational only. They are not enforced by the system, but they are used by
-  the query planner.
+  - Unique
+  - Foreign key
+  - Primary key
+  - Check constraints
+  - Exclusion constraints
+    Unique, primary key, and foreign key constraints are permitted, but they are
+    informational only. They are not enforced by the system, but they are used by
+    the query planner.
 
 - Inheritance
 - PostgreSQL system columns

@@ -2,28 +2,28 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_MV_DEPS
+# STV\_MV\_DEPS
 
-The STV_MV_DEPS table shows the dependencies of materialized views on other
+The STV\_MV\_DEPS table shows the dependencies of materialized views on other
 materialized views within Amazon Redshift.
 
 For more information about materialized views, see [Materialized views in Amazon Redshift](materialized-view-overview.md "materialized-view-overview.md").
 
-STV_MV_DEPS is visible to all users. Superusers can see all rows; regular users can
+STV\_MV\_DEPS is visible to all users. Superusers can see all rows; regular users can
 only list materialized views residing in schemas they have access to. For more
 information, see [Visibility
 of data insystem tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name       | Data type | Description                                                                   |
-| ----------------- | --------- | ----------------------------------------------------------------------------- |
-| db_name           | char(128) | The database that contains the specified<br>materialized view.                |
-| schema            | char(128) | The schema of the materialized view.                                          |
-| name              | char(128) | The name of the materialized view.                                            |
-| ref_schema        | char(128) | The materialized view schema on which this<br>materialized view depends.      |
-| ref_name          | char(128) | The name of the materialized view on which this<br>materialized view depends. |
-| ref_database_name | char(128) | The name of the database on which this<br>materialized view depends.          |
+| Column name         | Data type | Description                                                                   |
+| ------------------- | --------- | ----------------------------------------------------------------------------- |
+| db\_name            | char(128) | The database that contains the specified<br>materialized view.                |
+| schema              | char(128) | The schema of the materialized view.                                          |
+| name                | char(128) | The name of the materialized view.                                            |
+| ref\_schema         | char(128) | The materialized view schema on which this<br>materialized view depends.      |
+| ref\_name           | char(128) | The name of the materialized view on which this<br>materialized view depends. |
+| ref\_database\_name | char(128) | The name of the database on which this<br>materialized view depends.          |
 
 ## Sample query
 

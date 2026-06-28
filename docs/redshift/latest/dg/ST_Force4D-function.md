@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Force4D
+# ST\_Force4D
 
-ST_Force4D returns a 4D geometry of the input geometry.
+ST\_Force4D returns a 4D geometry of the input geometry.
 For 2D geometries, the `z` and `m` coordinates of the nonempty points in the output geometry are all set to `0`.
 For 3DM geometries, the `z` coordinates of the nonempty points in the output geometry are all set to `0`.
 For 3DZ geometries, the `m` coordinates of the nonempty points in the output geometry are all set to `0`.

@@ -16,51 +16,51 @@ run, specifically queries that use joins and aggregations. Compare runtimes for
 various design options. When you compare runtimes, don't count the first time
 the query is run, because the first runtime includes the compilation time.
 
-**DS_DIST_NONE**
+**DS\_DIST\_NONE**
 
 No redistribution is required, because corresponding slices are
 collocated on the compute nodes. You typically have only one
-DS_DIST_NONE step, the join between the fact table and one dimension
+DS\_DIST\_NONE step, the join between the fact table and one dimension
 table.
 
-**DS_DIST_ALL_NONE**
+**DS\_DIST\_ALL\_NONE**
 
 No redistribution is required, because the inner join table used
 DISTSTYLE ALL. The entire table is located on every node.
 
-**DS_DIST_INNER**
+**DS\_DIST\_INNER**
 
 The inner table is redistributed.
 
-**DS_DIST_OUTER**
+**DS\_DIST\_OUTER**
 
 The outer table is redistributed.
 
-**DS_BCAST_INNER**
+**DS\_BCAST\_INNER**
 
 A copy of the entire inner table is broadcast to all the compute
 nodes.
 
-**DS_DIST_ALL_INNER**
+**DS\_DIST\_ALL\_INNER**
 
 The entire inner table is redistributed to a single slice because the
 outer table uses DISTSTYLE ALL.
 
-**DS_DIST_BOTH**
+**DS\_DIST\_BOTH**
 
 Both tables are redistributed.
 
-**DS_DIST_ERR**
+**DS\_DIST\_ERR**
 
 When the table doesn't have a distribution style selected.
 
-DS_DIST_NONE and DS_DIST_ALL_NONE are good. They indicate that no distribution was
+DS\_DIST\_NONE and DS\_DIST\_ALL\_NONE are good. They indicate that no distribution was
 required for that step because all of the joins are collocated.
 
-DS_DIST_INNER means that the step probably has a relatively high cost because the
-inner table is being redistributed to the nodes. DS_DIST_INNER indicates that the
+DS\_DIST\_INNER means that the step probably has a relatively high cost because the
+inner table is being redistributed to the nodes. DS\_DIST\_INNER indicates that the
 outer table is already properly distributed on the join key. Set the inner
-table's distribution key to the join key to convert this to DS_DIST_NONE. In
+table's distribution key to the join key to convert this to DS\_DIST\_NONE. In
 some cases, distributing the inner table on the join key isn't possible because
 the outer table isn't distributed on the join key. If this is the case,
 evaluate whether to use ALL distribution for the inner table. If the table isn't
@@ -69,7 +69,7 @@ redistribution cost, change the distribution style to ALL and test again. ALL
 distribution causes increased load times, so when you retest, include the load time
 in your evaluation factors.
 
-DS_DIST_ALL_INNER is not good. It means that the entire inner table is
+DS\_DIST\_ALL\_INNER is not good. It means that the entire inner table is
 redistributed to a single slice because the outer table uses DISTSTYLE ALL, so that
 a copy of the entire outer table is located on each node. This results in
 inefficient serial runtime of the join on a single node, instead taking advantage of
@@ -77,7 +77,7 @@ parallel runtime using all of the nodes. DISTSTYLE ALL is meant to be used only 
 the inner join table. Instead, specify a distribution key or use even distribution
 for the outer table.
 
-DS_BCAST_INNER and DS_DIST_BOTH are not good. Usually these redistributions occur
+DS\_BCAST\_INNER and DS\_DIST\_BOTH are not good. Usually these redistributions occur
 because the tables are not joined on their distribution keys. If the fact table does
 not already have a distribution key, specify the joining column as the distribution
 key for both tables. If the fact table already has a distribution key on another
@@ -86,8 +86,8 @@ improve overall performance. If changing the distribution key of the outer table
 isn't an optimal choice, you can achieve collocation by specifying DISTSTYLE
 ALL for the inner table.
 
-The following example shows a portion of a query plan with DS_BCAST_INNER and
-DS_DIST_NONE labels.
+The following example shows a portion of a query plan with DS\_BCAST\_INNER and
+DS\_DIST\_NONE labels.
 
 ```
 ->  XN Hash Join DS_BCAST_INNER  (cost=112.50..3272334142.59 rows=170771 width=84)
@@ -101,7 +101,7 @@ DS_DIST_NONE labels.
 ```
 
 After changing the dimension tables to use DISTSTYLE ALL, the query plan for the
-same query shows DS_DIST_ALL_NONE in place of DS_BCAST_INNER. Also, there is a
+same query shows DS\_DIST\_ALL\_NONE in place of DS\_BCAST\_INNER. Also, there is a
 dramatic change in the relative cost for the join steps. The total cost is `14142.59` compared to `3272334142.59` in the previous query.
 
 ```

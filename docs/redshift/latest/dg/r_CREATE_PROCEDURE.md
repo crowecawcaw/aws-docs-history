@@ -52,7 +52,7 @@ If you define a procedure with the same name as an existing procedure, but a
 different signature, you create a new procedure. In other words, the procedure
 name is overloaded. For more information, see [Overloading procedure names](stored-procedure-naming.md#stored-procedure-overloading-name "stored-procedure-naming.md#stored-procedure-overloading-name").
 
-_sp_procedure_name_
+_sp\_procedure\_name_
 
 The name of the procedure. If you specify a schema name (such as
 `myschema.myprocedure`), the procedure is created in
@@ -98,7 +98,7 @@ argument data type can be `refcursor`.
 
 You can specify a maximum of 32 input arguments and 32 output arguments.
 
-AS $$ _procedure_body_ $$
+AS $$ *procedure\_body* $$
 
 A construct that encloses the procedure to be run. The literal keywords AS
 $$ and $$ are required.
@@ -131,7 +131,7 @@ This syntax is also useful for nested dollar quoting. For more information
 about dollar quoting, see "Dollar-quoted String Constants" under
 [Lexical Structure](https://www.postgresql.org/docs/9.0/sql-syntax-lexical.html "https://www.postgresql.org/docs/9.0/sql-syntax-lexical.html") in the PostgreSQL documentation.
 
-_procedure_body_
+_procedure\_body_
 
 A set of valid PL/pgSQL statements. PL/pgSQL statements augment SQL commands
 with procedural constructs, including looping and conditional expressions, to
@@ -158,7 +158,7 @@ following:
 - When you nest stored procedure calls, all the procedures must be
   created in the same transaction mode.
 - The `SECURITY DEFINER` option and `SET
-configuration_parameter` option are not supported when creating
+ configuration_parameter` option are not supported when creating
   a procedure in NONATOMIC mode.
 - Any cursor that is opened (explicitly or implicitly) is closed
   automatically when an implicit commit is processed. Therefore, you must
@@ -185,7 +185,7 @@ procedure at run time, not necessarily the user that initially defined the
 procedure. The user calling the procedure needs execute privilege on the
 procedure, but doesn't need any privileges on the underlying objects.
 
-SET configuration_parameter { TO value | = value }
+SET configuration\_parameter { TO value | = value }
 
 These options are not supported when `NONATOMIC` is
 specified.
@@ -198,7 +198,7 @@ procedure exits.
 ## Usage notes
 
 If a stored procedure was created using the SECURITY DEFINER option, when invoking
-the CURRENT_USER function from within the stored procedure, Amazon Redshift returns the user
+the CURRENT\_USER function from within the stored procedure, Amazon Redshift returns the user
 name of the owner of the stored procedure.
 
 ## Examples

@@ -15,4 +15,4 @@ following:
   other database as the data was at the beginning of the transaction. This approach
   helps to provide query transactional consistency across databases. Amazon Redshift supports
   transactional consistency for cross-database queries.
-- To get metadata across databases, use SVV_ALL\* and SVV_REDSHIFT\* metadata views. You can't use the three-part notation or external schemas to query cross-database metadata tables or views under information_schema and pg_catalog.
+- To get metadata across databases, use SVV\_ALL\* and SVV\_REDSHIFT\* metadata views. You can't use the three-part notation or external schemas to query cross-database metadata tables or views under information\_schema and pg\_catalog.

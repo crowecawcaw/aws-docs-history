@@ -30,14 +30,14 @@ VERBOSE
 A clause that returns progress information messages about the ANALYZE
 operation. This option is useful when you don't specify a table.
 
-_table_name_
+_table\_name_
 
 You can analyze specific tables, including temporary tables. You can qualify
-the table with its schema name. You can optionally specify a table_name to
+the table with its schema name. You can optionally specify a table\_name to
 analyze a single table. You can't specify more than one
-_table_name_ with a single ANALYZE
-_table_name_ statement. If you don't specify a
-_table_name_ value, all of the tables in the currently
+_table\_name_ with a single ANALYZE
+_table\_name_ statement. If you don't specify a
+_table\_name_ value, all of the tables in the currently
 connected database are analyzed, including the persistent tables in the system
 catalog. Amazon Redshift skips analyzing a table if the percentage of rows that have
 changed since the last ANALYZE is lower than the analyze threshold. For more
@@ -46,9 +46,9 @@ information, see [Analyze threshold](#r_ANALYZE-threshold "#r_ANALYZE-threshold"
 You don't need to analyze Amazon Redshift system tables (STL and STV
 tables).
 
-_column_name_
+_column\_name_
 
-If you specify a _table_name_, you can also specify one
+If you specify a _table\_name_, you can also specify one
 or more columns in the table (as a column-separated list within parentheses).
 If a column list is specified, only the listed columns are analyzed.
 
@@ -95,7 +95,7 @@ tables.
 
 To reduce processing time and improve overall system performance, Amazon Redshift skips
 ANALYZE for a table if the percentage of rows that have changed since the last
-ANALYZE command run is lower than the analyze threshold specified by the [analyze_threshold_percent](r_analyze_threshold_percent.md "r_analyze_threshold_percent.md") parameter. By default, `analyze_threshold_percent` is 10. To change
+ANALYZE command run is lower than the analyze threshold specified by the [analyze\_threshold\_percent](r_analyze_threshold_percent.md "r_analyze_threshold_percent.md") parameter. By default, `analyze_threshold_percent` is 10. To change
 `analyze_threshold_percent` for the current session, run the [SET](r_SET.md "r_SET.md") command. The following example changes
 `analyze_threshold_percent` to 20 percent.
 
@@ -122,7 +122,7 @@ ANALYZE SKIP
 To analyze all tables even if no rows have changed, set
 `analyze_threshold_percent` to 0.
 
-To view the results of ANALYZE operations, query the [STL_ANALYZE](r_STL_ANALYZE.md "r_STL_ANALYZE.md") system table.
+To view the results of ANALYZE operations, query the [STL\_ANALYZE](r_STL_ANALYZE.md "r_STL_ANALYZE.md") system table.
 
 For more information about analyzing tables, see [Analyzing tables](t_Analyzing_tables.md "t_Analyzing_tables.md").
 

@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# OBJECT_TRANSFORM function
+# OBJECT\_TRANSFORM function
 
 Transforms a SUPER object.
 
@@ -58,15 +58,15 @@ text, and Boolean types are resolvable to SUPER.
 
 ## Usage notes
 
-OBJECT_TRANSFORM returns a SUPER type object containing the path values
+OBJECT\_TRANSFORM returns a SUPER type object containing the path values
 from _input_ that were specified in KEEP and the
 _path_ and _value_ pairs
 that were specified in SET.
 
-If both KEEP and SET are empty, OBJECT_TRANSFORM returns
+If both KEEP and SET are empty, OBJECT\_TRANSFORM returns
 _input_.
 
-If _input_ isn’t a SUPER type _object_, OBJECT_TRANSFORM
+If _input_ isn’t a SUPER type _object_, OBJECT\_TRANSFORM
 returns _input_, regardless of any KEEP or SET values.
 
 ## Example

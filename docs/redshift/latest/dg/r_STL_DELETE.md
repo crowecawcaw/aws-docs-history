@@ -2,18 +2,18 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_DELETE
+# STL\_DELETE
 
 Analyzes delete execution steps for queries.
 
-STL_DELETE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_DELETE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 
-STL_DELETE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
+STL\_DELETE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
 or on serverless namespaces.
 To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS_QUERY_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md")
+[SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md")
 . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
@@ -33,7 +33,7 @@ To access explain plans for queries run on both main clusters, concurrency scali
 
 ## Sample queries
 
-In order to create a row in STL_DELETE, the following example inserts a row into
+In order to create a row in STL\_DELETE, the following example inserts a row into
 the EVENT table and then deletes it.
 
 First, insert a row into the EVENT table and verify that it was inserted.
@@ -96,7 +96,7 @@ order by eventid;
 (9 rows)
 ```
 
-Then query stl_delete to see the execution steps for the deletion. In this
+Then query stl\_delete to see the execution steps for the deletion. In this
 example, the query returned over 300 rows, so the output below is shortened for
 display purposes.
 

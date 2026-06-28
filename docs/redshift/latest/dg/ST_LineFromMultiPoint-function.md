@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_LineFromMultiPoint
+# ST\_LineFromMultiPoint
 
-ST_LineFromMultiPoint returns a linestring from an input multipoint geometry. The
+ST\_LineFromMultiPoint returns a linestring from an input multipoint geometry. The
 order of the points is preserved. The spatial reference system identifier (SRID) of the
 returned geometry is the same as that of the input geometry.
 The dimension of the returned geometry is the same as that of the input geometry.

@@ -5,18 +5,18 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 # Logging errors and warnings in Python UDFs
 
 You can use the Python logging module to create user-defined error and warning messages
-in your UDFs. Following query execution, you can query the [SVL_UDF_LOG](r_SVL_UDF_LOG.md "r_SVL_UDF_LOG.md") system view to retrieve logged messages.
+in your UDFs. Following query execution, you can query the [SVL\_UDF\_LOG](r_SVL_UDF_LOG.md "r_SVL_UDF_LOG.md") system view to retrieve logged messages.
 
 ###### Note
 
 UDF logging consumes cluster resources and might affect system performance. We
 recommend implementing logging only for development and troubleshooting.
 
-During query execution, the log handler writes messages to the SVL_UDF_LOG system view,
+During query execution, the log handler writes messages to the SVL\_UDF\_LOG system view,
 along with the corresponding function name, node, and slice. The log handler writes one row
-to the SVL_UDF_LOG per message, per slice. Messages are truncated to 4096 bytes. The UDF
+to the SVL\_UDF\_LOG per message, per slice. Messages are truncated to 4096 bytes. The UDF
 log is limited to 500 rows per slice. When the log is full, the log handler discards older
-messages and adds a warning message to SVL_UDF_LOG.
+messages and adds a warning message to SVL\_UDF\_LOG.
 
 ###### Note
 
@@ -36,7 +36,7 @@ logger.setLevel(logging.INFO)
 For more information about using the Python logging module, see [Logging facility for
 Python](https://docs.python.org/2.7/library/logging.html "https://docs.python.org/2.7/library/logging.html") in the Python documentation.
 
-The following example creates a function named f_pyerror that imports the Python logging
+The following example creates a function named f\_pyerror that imports the Python logging
 module, instantiates the logger, and logs an error.
 
 ```
@@ -54,7 +54,7 @@ $$ language plpythonu;
 
 ```
 
-The following example queries SVL_UDF_LOG to view the message logged in the previous
+The following example queries SVL\_UDF\_LOG to view the message logged in the previous
 example.
 
 ```

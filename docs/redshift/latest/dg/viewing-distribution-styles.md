@@ -4,10 +4,10 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # Viewing distribution styles
 
-To view the distribution style of a table, query the PG_CLASS_INFO view or the
-SVV_TABLE_INFO view.
+To view the distribution style of a table, query the PG\_CLASS\_INFO view or the
+SVV\_TABLE\_INFO view.
 
-The RELEFFECTIVEDISTSTYLE column in PG_CLASS_INFO indicates the current
+The RELEFFECTIVEDISTSTYLE column in PG\_CLASS\_INFO indicates the current
 distribution style for the table. If the table uses automatic distribution,
 RELEFFECTIVEDISTSTYLE is 10, 11, or 12, which indicates whether the effective
 distribution style is AUTO (ALL), AUTO (EVEN), or AUTO (KEY). If the table uses
@@ -25,12 +25,12 @@ The following table gives the distribution style for each value in RELEFFECTIVED
 | 11                    | AUTO (EVEN)                |
 | 12                    | AUTO (KEY)                 |
 
-The DISTSTYLE column in SVV_TABLE_INFO indicates the current
+The DISTSTYLE column in SVV\_TABLE\_INFO indicates the current
 distribution style for the table. If the table uses automatic distribution,
 DISTSTYLE is AUTO (ALL), AUTO (EVEN), or AUTO (KEY).
 
 The following example creates four tables using the three distribution styles and automatic distribution,
-then queries SVV_TABLE_INFO to view the distribution styles.
+then queries SVV\_TABLE\_INFO to view the distribution styles.
 
 ```
 

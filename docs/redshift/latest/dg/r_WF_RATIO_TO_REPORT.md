@@ -2,14 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# RATIO_TO_REPORT window function
+# RATIO\_TO\_REPORT window function
 
 Calculates the ratio of a value to the sum of the values in a window or partition.
 The ratio to report value is determined using the formula:
 
-`value of` _ratio_expression_
+`value of` _ratio\_expression_
 `argument for the current row / sum of`
-_ratio_expression_
+_ratio\_expression_
 `argument for the window or partition`
 
 The following dataset illustrates use of this formula:
@@ -23,8 +23,8 @@ Row#	Value	Calculation	RATIO_TO_REPORT
 5	3100	(3100)/(13900)	0.2230
 ```
 
-The return value range is 0 to 1, inclusive. If _ratio_expression_
-is NULL, then the return value is `NULL`. If a value in _partition_expression_ is unique, then function will return `1` for that value.
+The return value range is 0 to 1, inclusive. If _ratio\_expression_
+is NULL, then the return value is `NULL`. If a value in _partition\_expression_ is unique, then function will return `1` for that value.
 
 ## Syntax
 
@@ -35,21 +35,21 @@ OVER ( [ PARTITION BY *partition\_expression* ] )
 
 ## Arguments
 
-_ratio_expression_
+_ratio\_expression_
 
 An expression, such as a column name, that provides the value for which
 to determine the ratio. The expression must have either a numeric data type
 or be implicitly convertible to one.
 
 You cannot use any other analytic function in
-_ratio_expression_.
+_ratio\_expression_.
 
 OVER
 
 A clause that specifies the window partitioning. The OVER clause cannot
 contain a window ordering or window frame specification.
 
-PARTITION BY _partition_expression_
+PARTITION BY _partition\_expression_
 
 Optional. An expression that sets the range of records for each group in
 the OVER clause.

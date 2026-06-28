@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# H3_ToChildren
+# H3\_ToChildren
 
-H3_ToChildren returns a list of child H3 cell IDs at a specified resolution for a given H3 index.
+H3\_ToChildren returns a list of child H3 cell IDs at a specified resolution for a given H3 index.
 For information about H3 indexing, see [H3](spatial-terminology.md#spatial-terminology-h3 "spatial-terminology.md#spatial-terminology-h3").
 
 ## Syntax

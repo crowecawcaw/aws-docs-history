@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# MURMUR3_32_HASH
+# MURMUR3\_32\_HASH
 
-The MURMUR3_32_HASH function computes the 32-bit Murmur3A non-cryptographic hash for
+The MURMUR3\_32\_HASH function computes the 32-bit Murmur3A non-cryptographic hash for
 all common data types including numeric and string types.
 
 ## Syntax
@@ -18,7 +18,7 @@ MURMUR3_32_HASH(value [, seed])
 _value_
 
 The input value to hash. Amazon Redshift hashes the binary representation of the input value. This
-behavior is similar to [FNV_HASH function](r_FNV_HASH.md "r_FNV_HASH.md"), but the value is
+behavior is similar to [FNV\_HASH function](r_FNV_HASH.md "r_FNV_HASH.md"), but the value is
 converted to the binary representation specified
 by the [Apache Iceberg 32-bit Murmur3 hash specification](https://iceberg.apache.org/spec/#appendix-b-32-bit-hash-requirements "https://iceberg.apache.org/spec/#appendix-b-32-bit-hash-requirements").
 

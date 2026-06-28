@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_TABLE_DEF
+# PG\_TABLE\_DEF
 
 Stores information about table columns.
 
-PG_TABLE_DEF only returns information about tables that are visible to the user. If
-PG_TABLE_DEF does not return the expected results, verify that the [search_path](r_search_path.md "r_search_path.md") parameter is set correctly
+PG\_TABLE\_DEF only returns information about tables that are visible to the user. If
+PG\_TABLE\_DEF does not return the expected results, verify that the [search\_path](r_search_path.md "r_search_path.md") parameter is set correctly
 to include the relevant schemas.
 
-You can use [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md") to
+You can use [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md") to
 view more comprehensive information about a table, including data distribution skew, key
 distribution skew, table size, and statistics.
 
@@ -30,7 +30,7 @@ distribution skew, table size, and statistics.
 ## Example
 
 The following example shows the compound sort key columns for the
-LINEORDER_COMPOUND table.
+LINEORDER\_COMPOUND table.
 
 ```
 select "column", type, encoding, distkey, sortkey, "notnull"
@@ -49,7 +49,7 @@ lo_orderdate | integer | delta    | false   |       5 | true
 ```
 
 The following example shows the interleaved sort key columns for the
-LINEORDER_INTERLEAVED table.
+LINEORDER\_INTERLEAVED table.
 
 ```
 select "column", type, encoding, distkey, sortkey, "notnull"
@@ -67,11 +67,11 @@ lo_orderdate | integer | delta    | false   |      -5 | true
 (5 rows)
 ```
 
-PG_TABLE_DEF will only return information for tables in schemas that are included
-in the search path. For more information, see [search_path](r_search_path.md "r_search_path.md").
+PG\_TABLE\_DEF will only return information for tables in schemas that are included
+in the search path. For more information, see [search\_path](r_search_path.md "r_search_path.md").
 
 For example, suppose you create a new schema and a new table, then query
-PG_TABLE_DEF.
+PG\_TABLE\_DEF.
 
 ```
 create schema demo;

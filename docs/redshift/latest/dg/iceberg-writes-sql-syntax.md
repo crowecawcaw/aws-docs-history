@@ -419,7 +419,7 @@ In this case, y1 can be 40 or 50. The result is nondeterministic. You can set th
 configuration parameter
 `error_on_nondeterministic_update` to true to force query error when
 such case happens. This is consistent with the existing RMS table
-`UPDATE` behavior. For more, refer to [error_on_nondeterministic_update](r_error_on_nondeterministic_update.md "r_error_on_nondeterministic_update.md").
+`UPDATE` behavior. For more, refer to [error\_on\_nondeterministic\_update](r_error_on_nondeterministic_update.md "r_error_on_nondeterministic_update.md").
 
 ## MERGE
 

@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# LAST_DAY function
+# LAST\_DAY function
 
-LAST_DAY returns the date of the last day of the month that contains
+LAST\_DAY returns the date of the last day of the month that contains
 _date_. The return type is always DATE, regardless of the data type
 of the _date_ argument.
 
-For more information about retrieving specific date parts, see [DATE_TRUNC function](r_DATE_TRUNC.md "r_DATE_TRUNC.md").
+For more information about retrieving specific date parts, see [DATE\_TRUNC function](r_DATE_TRUNC.md "r_DATE_TRUNC.md").
 
 ## Syntax
 

@@ -26,14 +26,14 @@ CANCEL *process\_id* [ '*message*' ]
 
 ## Parameters
 
-_process_id_
+_process\_id_
 
 To cancel a query running in an Amazon Redshift cluster, use the `pid`
-(Process ID) from [STV_RECENTS](r_STV_RECENTS.md "r_STV_RECENTS.md")
+(Process ID) from [STV\_RECENTS](r_STV_RECENTS.md "r_STV_RECENTS.md")
 that corresponds to the query that you want to cancel.
 
 To cancel a query running in an Amazon Redshift Serverless workgroup, use the
-`session_id` from [SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md") that corresponds to the query that you
+`session_id` from [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md") that corresponds to the query that you
 want to cancel.
 
 '_message_'
@@ -50,10 +50,10 @@ specify the query's _process ID_ (PID) or _Session
 ID_. You can only cancel queries currently being run by your user.
 Superusers can cancel all queries.
 
-If queries in multiple sessions hold locks on the same table, you can use the [PG_TERMINATE_BACKEND](PG_TERMINATE_BACKEND.md "PG_TERMINATE_BACKEND.md") function to
+If queries in multiple sessions hold locks on the same table, you can use the [PG\_TERMINATE\_BACKEND](PG_TERMINATE_BACKEND.md "PG_TERMINATE_BACKEND.md") function to
 terminate one of the sessions. Doing this forces any currently running transactions in
 the terminated session to release all locks and roll back the transaction. To view
-currently held locks, query the [STV_LOCKS](r_STV_LOCKS.md "r_STV_LOCKS.md") system table.
+currently held locks, query the [STV\_LOCKS](r_STV_LOCKS.md "r_STV_LOCKS.md") system table.
 
 Following certain internal events, Amazon Redshift might restart an active session and assign a
 new PID. If the PID has changed, you might receive the following error message.
@@ -62,7 +62,7 @@ new PID. If the PID has changed, you might receive the following error message.
 Session <PID> does not exist. The session PID might have changed. Check the stl_restarted_sessions system table for details.
 ```
 
-To find the new PID, query the [STL_RESTARTED_SESSIONS](r_STL_RESTARTED_SESSIONS.md "r_STL_RESTARTED_SESSIONS.md") system table and filter on the
+To find the new PID, query the [STL\_RESTARTED\_SESSIONS](r_STL_RESTARTED_SESSIONS.md "r_STL_RESTARTED_SESSIONS.md") system table and filter on the
 `oldpid` column.
 
 ```

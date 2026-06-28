@@ -249,7 +249,7 @@ GRANT USAGE ON SCHEMA demo_ml TO GROUP marketing_analyst_grp;
 
 To let other users use your machine learning inference function, grant the EXECUTE
 permission. The following example uses the EXECUTE permission to grant the
-marketing_analyst_grp GROUP the permission to use the model.
+marketing\_analyst\_grp GROUP the permission to use the model.
 
 ```
 GRANT EXECUTE ON MODEL demo_ml.customer_churn_auto_model TO GROUP marketing_analyst_grp;
@@ -281,7 +281,7 @@ external regulators.
 
 When you specify the AUTO ON or AUTO OFF option when using the CREATE MODEL
 statement, after the model training job finishes, SageMaker AI creates the explanation output.
-You can use the EXPLAIN_MODEL function to query the explainability report in a JSON
+You can use the EXPLAIN\_MODEL function to query the explainability report in a JSON
 format. For more information, see [Machine learning functions](ml-function.md "ml-function.md").
 
 ## Amazon Redshift ML probability metrics

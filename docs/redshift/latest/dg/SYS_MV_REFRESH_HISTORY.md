@@ -2,33 +2,33 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_MV_REFRESH_HISTORY
+# SYS\_MV\_REFRESH\_HISTORY
 
 The results include information about the refresh history of all materialized views.
 The results include the refresh type, such as manual or auto, and the status of the most
 recent refresh.
 
-SYS_MV_REFRESH_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_MV\_REFRESH\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name        | Data type | Description                                                                                                                                                                         |
-| ------------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user_id            | integer   | The identifier of the user who submitted the<br>refresh.                                                                                                                            |
-| session_id         | integer   | The process identifier for the process running the<br>materialized view refresh.                                                                                                    |
-| transaction_id     | bigint    | The transaction identifier.                                                                                                                                                         |
-| database_name      | char(128) | The database that contains the materialized<br>view.                                                                                                                                |
-| schema_name        | char(128) | The schema of the materialized view.                                                                                                                                                |
-| mv_id              | bigint    | Object ID of the materialized view.                                                                                                                                                 |
-| mv_name            | char(128) | The materialized view name.                                                                                                                                                         |
-| refresh_type       | char(32)  | The type of refresh, such as manual or<br>auto.                                                                                                                                     |
-| status             | text      | The status of the refresh. For detailed<br>information about statuses, see the status column for [SVL_MV_REFRESH_STATUS](r_SVL_MV_REFRESH_STATUS.md "r_SVL_MV_REFRESH_STATUS.md").  |
-| start_time         | timestamp | The start time of the refresh.                                                                                                                                                      |
-| end_time           | timestamp | The end time of the refresh.                                                                                                                                                        |
-| duration           | bigint    | The amount of time in microseconds it took to<br>refresh the materialized view.                                                                                                     |
-| consumer_account   | char(12)  | The AWS account ID of the consumer cluster that initiated the refresh. This field is populated when the refresh is initiated from a consumer cluster in a data sharing setup.       |
-| consumer_region    | char(32)  | The AWS Region of the consumer cluster that initiated the refresh. This field is populated when the refresh is initiated from a consumer cluster in a data sharing setup.           |
-| consumer_namespace | char(36)  | The namespace identifier of the consumer cluster that initiated the refresh. This field is populated when the refresh is initiated from a consumer cluster in a data sharing setup. |
+| Column name         | Data type | Description                                                                                                                                                                           |
+| ------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user\_id            | integer   | The identifier of the user who submitted the<br>refresh.                                                                                                                              |
+| session\_id         | integer   | The process identifier for the process running the<br>materialized view refresh.                                                                                                      |
+| transaction\_id     | bigint    | The transaction identifier.                                                                                                                                                           |
+| database\_name      | char(128) | The database that contains the materialized<br>view.                                                                                                                                  |
+| schema\_name        | char(128) | The schema of the materialized view.                                                                                                                                                  |
+| mv\_id              | bigint    | Object ID of the materialized view.                                                                                                                                                   |
+| mv\_name            | char(128) | The materialized view name.                                                                                                                                                           |
+| refresh\_type       | char(32)  | The type of refresh, such as manual or<br>auto.                                                                                                                                       |
+| status              | text      | The status of the refresh. For detailed<br>information about statuses, see the status column for [SVL\_MV\_REFRESH\_STATUS](r_SVL_MV_REFRESH_STATUS.md "r_SVL_MV_REFRESH_STATUS.md"). |
+| start\_time         | timestamp | The start time of the refresh.                                                                                                                                                        |
+| end\_time           | timestamp | The end time of the refresh.                                                                                                                                                          |
+| duration            | bigint    | The amount of time in microseconds it took to<br>refresh the materialized view.                                                                                                       |
+| consumer\_account   | char(12)  | The AWS account ID of the consumer cluster that initiated the refresh. This field is populated when the refresh is initiated from a consumer cluster in a data sharing setup.         |
+| consumer\_region    | char(32)  | The AWS Region of the consumer cluster that initiated the refresh. This field is populated when the refresh is initiated from a consumer cluster in a data sharing setup.             |
+| consumer\_namespace | char(36)  | The namespace identifier of the consumer cluster that initiated the refresh. This field is populated when the refresh is initiated from a consumer cluster in a data sharing setup.   |
 
 ## Sample queries
 

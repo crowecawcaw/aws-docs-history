@@ -6,16 +6,16 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 For a given expression, replaces all occurrences of specified characters with
 specified substitutes. Existing characters are mapped to replacement characters by their
-positions in the _characters_to_replace_ and
-_characters_to_substitute_ arguments. If more characters are
-specified in the _characters_to_replace_ argument than in the
-_characters_to_substitute_ argument, the extra characters from the
-_characters_to_replace_ argument are omitted in the return
+positions in the _characters\_to\_replace_ and
+_characters\_to\_substitute_ arguments. If more characters are
+specified in the _characters\_to\_replace_ argument than in the
+_characters\_to\_substitute_ argument, the extra characters from the
+_characters\_to\_replace_ argument are omitted in the return
 value.
 
 TRANSLATE is similar to the [REPLACE function](r_REPLACE.md "r_REPLACE.md") and
-the [REGEXP_REPLACE function](REGEXP_REPLACE.md "REGEXP_REPLACE.md"), except that REPLACE
-substitutes one entire string with another string and REGEXP_REPLACE lets you search a
+the [REGEXP\_REPLACE function](REGEXP_REPLACE.md "REGEXP_REPLACE.md"), except that REPLACE
+substitutes one entire string with another string and REGEXP\_REPLACE lets you search a
 string for a regular expression pattern, while TRANSLATE makes multiple single-character
 substitutions.
 
@@ -33,11 +33,11 @@ _expression_
 
 The expression to be translated.
 
-_characters_to_replace_
+_characters\_to\_replace_
 
 A string containing the characters to be replaced.
 
-_characters_to_substitute_
+_characters\_to\_substitute_
 
 A string containing the characters to substitute.
 

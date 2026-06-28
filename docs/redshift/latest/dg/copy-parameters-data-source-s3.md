@@ -60,11 +60,11 @@ FROM
 
 The source of the data to be loaded. For more information about the encoding of the Amazon S3 file, see [Data conversion parameters](copy-parameters-data-conversion.md "copy-parameters-data-conversion.md").
 
-'s3://_copy_from_s3_objectpath_'
+'s3://_copy\_from\_s3\_objectpath_'
 
 Specifies the path to the Amazon S3 objects that contain the
 data—for example, `'s3://amzn-s3-demo-bucket/custdata.txt'`.
-The _s3://copy_from_s3_objectpath_ parameter can
+The _s3://copy\_from\_s3\_objectpath_ parameter can
 reference a single file or a set of objects or folders that have the
 same key prefix. For example, the name `custdata.txt` is a
 key prefix that refers to a number of physical files:
@@ -78,7 +78,7 @@ multiple folders, all of the files in the folders are loaded. If a key
 prefix matches a file as well as a folder, such as
 `custfolder.log`, COPY attempts to load the file also.
 If a key prefix might result in COPY attempting to load unwanted
-files, use a manifest file. For more information, see [copy_from_s3_manifest_file](#copy-manifest-file "#copy-manifest-file"), following.
+files, use a manifest file. For more information, see [copy\_from\_s3\_manifest\_file](#copy-manifest-file "#copy-manifest-file"), following.
 
 ###### Important
 
@@ -88,11 +88,11 @@ the data is located.
 
 For more information, see [Loading data from Amazon S3](t_Loading-data-from-S3.md "t_Loading-data-from-S3.md").
 
-'s3://_copy_from_s3_manifest_file_'
+'s3://_copy\_from\_s3\_manifest\_file_'
 
 Specifies the Amazon S3 object key for a manifest file that lists the
 data files to be loaded. The
-*'s3://*copy_from_s3_manifest_file'\*\*
+_'s3://*copy\_from\_s3\_manifest\_file'*_
 argument must explicitly reference a single file—for example,
 `'s3://amzn-s3-demo-bucket/manifest.txt'`. It can't reference a
 key prefix.
@@ -175,7 +175,7 @@ MANIFEST
 Specifies that a manifest is used to identify the data files to be
 loaded from Amazon S3. If the MANIFEST parameter is used, COPY loads data
 from the files listed in the manifest referenced by
-_'s3://copy_from_s3_manifest_file'_. If the
+_'s3://copy\_from\_s3\_manifest\_file'_. If the
 manifest file isn't found, or isn't properly formed, COPY fails. For
 more information, see [Using a manifest to specify data files](loading-data-files-using-manifest.md "loading-data-files-using-manifest.md").
 
@@ -188,7 +188,7 @@ encryption (SSE-KMS or SSE-S3). COPY reads server-side encrypted files
 automatically.
 
 If you specify the ENCRYPTED parameter, you must also specify the
-[MASTER_SYMMETRIC_KEY](#copy-master-symmetric-key "#copy-master-symmetric-key") parameter or include
+[MASTER\_SYMMETRIC\_KEY](#copy-master-symmetric-key "#copy-master-symmetric-key") parameter or include
 the `master_symmetric_key` value in the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials") string.
 
 If the encrypted files are in compressed format, add the GZIP,
@@ -197,11 +197,11 @@ LZOP, BZIP2, or ZSTD parameter.
 Manifest files and JSONPaths files must not be encrypted, even if
 the ENCRYPTED option is specified.
 
-MASTER_SYMMETRIC_KEY '_root_key_'
+MASTER\_SYMMETRIC\_KEY '_root\_key_'
 
 The root symmetric key that was used to encrypt data files on
-Amazon S3. If MASTER_SYMMETRIC_KEY is specified, the [ENCRYPTED](#copy-encrypted "#copy-encrypted") parameter must also be specified.
-MASTER_SYMMETRIC_KEY can't be used with the CREDENTIALS parameter. For
+Amazon S3. If MASTER\_SYMMETRIC\_KEY is specified, the [ENCRYPTED](#copy-encrypted "#copy-encrypted") parameter must also be specified.
+MASTER\_SYMMETRIC\_KEY can't be used with the CREDENTIALS parameter. For
 more information, see [Loading encrypted data files from Amazon S3](c_loading-encrypted-files.md "c_loading-encrypted-files.md").
 
 If the encrypted files are in compressed format, add the GZIP,
@@ -214,7 +214,7 @@ is required for COPY from an Amazon S3 bucket or an DynamoDB table when the
 AWS resource that contains the data isn't in the same Region as
 the Amazon Redshift cluster.
 
-The value for _aws_region_ must match a Region
+The value for _aws\_region_ must match a Region
 listed in the [Amazon Redshift regions and endpoints](../../../general/latest/gr/rande.md#redshift_region "../../../general/latest/gr/rande.md#redshift_region") table.
 
 If the REGION parameter is specified, all resources, including a

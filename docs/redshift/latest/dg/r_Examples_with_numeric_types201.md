@@ -68,7 +68,7 @@ column.
 
 In this case, the value `350.10` is out of range. The number
 of digits for values in DECIMAL columns is equal to the column's
-precision minus its scale (4 minus 2 for the RENTAL_RATE column). In other
+precision minus its scale (4 minus 2 for the RENTAL\_RATE column). In other
 words, the allowed range for a `DECIMAL(4,2)` column is
 `-99.99` through `99.99`.
 

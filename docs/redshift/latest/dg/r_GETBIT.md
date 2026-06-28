@@ -14,7 +14,7 @@ GETBIT(*binary\_value*, *index*)
 
 ## Arguments
 
-_binary_value_
+_binary\_value_
 
 A binary value of data type `VARBYTE`.
 

@@ -11,7 +11,7 @@ group the appropriate access to the data they need
 for their work. You can grant or revoke permissions at the group level, and those changes
 will apply to all members of the group, except for superusers.
 
-To view all user groups, query the PG_GROUP system catalog table:
+To view all user groups, query the PG\_GROUP system catalog table:
 
 ```
 select * from pg_group;

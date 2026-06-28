@@ -15,11 +15,11 @@ SHOW VIEW [*schema\_name*.]*view\_name*
 
 ## Parameters
 
-_schema_name_
+_schema\_name_
 
 (Optional) The name of the related schema.
 
-_view_name_
+_view\_name_
 
 The name of the view to show.
 

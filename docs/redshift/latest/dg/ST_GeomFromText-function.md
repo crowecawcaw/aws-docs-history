@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeomFromText
+# ST\_GeomFromText
 
-ST_GeomFromText constructs a geometry object from a well-known text (WKT) representation of an input geometry.
+ST\_GeomFromText constructs a geometry object from a well-known text (WKT) representation of an input geometry.
 
-ST_GeomFromText accepts 3DZ, 3DM, and 4D where the geometry type is prefixed with Z, M, or ZM, respectively.
+ST\_GeomFromText accepts 3DZ, 3DM, and 4D where the geometry type is prefixed with Z, M, or ZM, respectively.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ ST_GeomFromText(*wkt\_string*, *srid*)
 
 ## Arguments
 
-_wkt_string_
+_wkt\_string_
 
 A value of data type `VARCHAR` that is a WKT representation of a geometry.
 
@@ -44,11 +44,11 @@ SRID value. Otherwise, the SRID value of the returned geometry is set to zero
 
 `GEOMETRY`
 
-If _wkt_string_ or _srid_ is null, then null is returned.
+If _wkt\_string_ or _srid_ is null, then null is returned.
 
 If _srid_ is negative, then null is returned.
 
-If _wkt_string_ is not valid, then an error is returned.
+If _wkt\_string_ is not valid, then an error is returned.
 
 If _srid_ is not valid, then an error is returned.
 

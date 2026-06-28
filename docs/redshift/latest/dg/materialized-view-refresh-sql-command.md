@@ -25,7 +25,7 @@ REFRESH MATERIALIZED VIEW *mv\_name* [ RESTRICT | CASCADE ]
 
 ## Parameters
 
-_mv_name_
+_mv\_name_
 
 The name of the materialized view to be refreshed.
 
@@ -58,12 +58,12 @@ Amazon Redshift.
   operation runs after a data manipulation language (DML) statement in the same
   transaction, then changes of that DML statement aren't visible to refresh.
 - For a full refresh of a materialized view, `REFRESH MATERIALIZED
-VIEW` sees all base table rows visible to the refresh transaction,
+ VIEW` sees all base table rows visible to the refresh transaction,
   according to usual Amazon Redshift transaction semantics.
 - Depending on the input argument type, Amazon Redshift still supports
   incremental refresh for materialized views for the following functions with
-  specific input argument types: DATE (timestamp), DATE_PART (date, time, interval,
-  time-tz), DATE_TRUNC (timestamp, interval).
+  specific input argument types: DATE (timestamp), DATE\_PART (date, time, interval,
+  time-tz), DATE\_TRUNC (timestamp, interval).
 - Incremental refresh is supported on a materialized view where the base table is
   in a datashare.
 - Refresh of shared materialized views from remote datasharing clusters is not supported for
@@ -80,7 +80,7 @@ features eligible for incremental refresh. For example:
   allowed to run. When this vacuum operation happens, any dependent materialized
   views are marked for recomputation upon the next refresh (even if they are
   incremental). For information about VACUUM, see [VACUUM](r_VACUUM_command.md "r_VACUUM_command.md"). For more information about events and state
-  changes, see [STL_MV_STATE](r_STL_MV_STATE.md "r_STL_MV_STATE.md").
+  changes, see [STL\_MV\_STATE](r_STL_MV_STATE.md "r_STL_MV_STATE.md").
 - Some user-initiated operations on base tables force a materialized view to be
   fully recomputed next time that a REFRESH operation is run. Examples of such
   operations are a manually invoked VACUUM, a classic resize, an ALTER DISTKEY
@@ -88,7 +88,7 @@ features eligible for incremental refresh. For example:
   operations in some cases can also result in a materialized view being fully
   recomputed the next time a REFRESH operation is run. For example, an auto-vacuum
   delete operation can cause a full recompute. For more information about events and
-  state changes, see [STL_MV_STATE](r_STL_MV_STATE.md "r_STL_MV_STATE.md").
+  state changes, see [STL\_MV\_STATE](r_STL_MV_STATE.md "r_STL_MV_STATE.md").
 
 ## Cascading refresh
 
@@ -130,7 +130,7 @@ are defined with a query using any of the following SQL elements:
 - UNION ALL when it occurs in a subquery and an aggregate function, or a GROUP BY
   clause is present in the query, or the target materialized view contains a
   sortkey.
-- Aggregate functions: MEDIAN, PERCENTILE_CONT, LISTAGG, STDDEV_SAMP, STDDEV_POP,
+- Aggregate functions: MEDIAN, PERCENTILE\_CONT, LISTAGG, STDDEV\_SAMP, STDDEV\_POP,
   APPROXIMATE COUNT, APPROXIMATE PERCENTILE, and bitwise aggregate functions.
 
 ###### Note
@@ -146,11 +146,10 @@ The COUNT, SUM, MIN, MAX, and AVG aggregate functions are supported.
 - External tables referencing the following formats in the query that defines the
   materialized view.
 
-      + Delta Lake
-      + Hudi
-
-  Incremental refresh is supported for materialized views defined using formats
-  other than those listed above. For more information, see [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
+  - Delta Lake
+  - Hudi
+    Incremental refresh is supported for materialized views defined using formats
+    other than those listed above. For more information, see [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md "materialized-view-external-table.md").
 
 - Mutable functions, such as date-time functions, RANDOM and non-STABLE
   user-defined functions.

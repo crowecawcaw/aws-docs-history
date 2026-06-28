@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# FROM_VARBYTE function
+# FROM\_VARBYTE function
 
-FROM_VARBYTE converts a binary value to a character string in the specified format.
+FROM\_VARBYTE converts a binary value to a character string in the specified format.
 
 ## Syntax
 
@@ -14,7 +14,7 @@ FROM_VARBYTE(*binary\_value*, *format*)
 
 ## Arguments
 
-_binary_value_
+_binary\_value_
 
 A binary value of data type `VARBYTE`.
 

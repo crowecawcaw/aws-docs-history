@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Covers
+# ST\_Covers
 
-ST_Covers returns true if the 2D projection of the first input geometry covers the 2D projection of the second input geometry.
+ST\_Covers returns true if the 2D projection of the first input geometry covers the 2D projection of the second input geometry.
 Geometry `A` covers geometry `B` if both are nonempty and every point
 in `B` is a point in `A`.
 
-ST_Covers(`A`, `B`) is equivalent to ST_CoveredBy(`B`, `A`).
+ST\_Covers(`A`, `B`) is equivalent to ST\_CoveredBy(`B`, `A`).
 
 ## Syntax
 

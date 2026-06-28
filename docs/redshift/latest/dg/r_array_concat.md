@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ARRAY_CONCAT function
+# ARRAY\_CONCAT function
 
 Concatenates two arrays to create an array that contains
 all the elements in the first array followed by all the elements in the second array.
@@ -26,7 +26,7 @@ The value that specifies the second of the two arrays to concatenate.
 
 ## Return type
 
-The ARRAY_CONCAT function returns a SUPER data value.
+The ARRAY\_CONCAT function returns a SUPER data value.
 
 ## Example
 
@@ -50,7 +50,7 @@ SELECT ARRAY_CONCAT(ARRAY(10001,10002),ARRAY('ab','cd'));
 
 ## See also
 
-- [ARRAY_UNION function](array_union.md "array_union.md")
-- [ARRAY_FLATTEN function](array_flatten.md "array_flatten.md")
-- [SPLIT_TO_ARRAY function](split_to_array.md "split_to_array.md")
-- [ARRAY_DISTINCT function](array_distinct.md "array_distinct.md")
+- [ARRAY\_UNION function](array_union.md "array_union.md")
+- [ARRAY\_FLATTEN function](array_flatten.md "array_flatten.md")
+- [SPLIT\_TO\_ARRAY function](split_to_array.md "split_to_array.md")
+- [ARRAY\_DISTINCT function](array_distinct.md "array_distinct.md")

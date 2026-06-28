@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_DATABASE_PRIVILEGES
+# SVV\_DATABASE\_PRIVILEGES
 
-Use SVV_DATABASE_PRIVILEGES to view the database permissions that are explicitly
+Use SVV\_DATABASE\_PRIVILEGES to view the database permissions that are explicitly
 granted to users, roles, and groups in your Amazon Redshift cluster.
 
-SVV_DATABASE_PRIVILEGES is visible to the following users:
+SVV\_DATABASE\_PRIVILEGES is visible to the following users:
 
 - Superusers
 - Users with the ACCESS SYSTEM TABLE permission
@@ -25,19 +25,19 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name     | Data type | Description                                                                                                                                                                                                                                                                                 |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| database_name   | text      | The name of the database.                                                                                                                                                                                                                                                                   |
-| privilege_type  | text      | The type of the permission. For permissions with a privilege_scope<br>of database, possible values are USAGE, CREATE, TEMPORARY,<br>TEMP, and ALTER. For privilege_scope values<br>other than database, possible values include any permission type available on the permission's<br>scope. |
-| identity_id     | integer   | The ID of the identity. Possible values are user<br>ID, role ID, or group ID.                                                                                                                                                                                                               |
-| identity_name   | text      | The name of the identity.                                                                                                                                                                                                                                                                   |
-| identity_type   | text      | The type of the identity. Possible values are<br>user, role, group, or public.                                                                                                                                                                                                              |
-| admin_option    | boolean   | A value that indicates whether the user can grant<br>the permission to other users and roles. It is always false for the<br>role and group identity type.                                                                                                                                   |
-| privilege_scope | text      | The scope of the permission specified<br>in privilege_type. Possible values are as follows:<br>• DATABASE<br>• SCHEMAS<br>• TABLES<br>• FUNCTIONS<br>• LANGUAGES<br>For information on scoped permissions, go to [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").   |
+| Column name      | Data type | Description                                                                                                                                                                                                                                                                                   |
+| ---------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| database\_name   | text      | The name of the database.                                                                                                                                                                                                                                                                     |
+| privilege\_type  | text      | The type of the permission. For permissions with a privilege\_scope<br>of database, possible values are USAGE, CREATE, TEMPORARY,<br>TEMP, and ALTER. For privilege\_scope values<br>other than database, possible values include any permission type available on the permission's<br>scope. |
+| identity\_id     | integer   | The ID of the identity. Possible values are user<br>ID, role ID, or group ID.                                                                                                                                                                                                                 |
+| identity\_name   | text      | The name of the identity.                                                                                                                                                                                                                                                                     |
+| identity\_type   | text      | The type of the identity. Possible values are<br>user, role, group, or public.                                                                                                                                                                                                                |
+| admin\_option    | boolean   | A value that indicates whether the user can grant<br>the permission to other users and roles. It is always false for the<br>role and group identity type.                                                                                                                                     |
+| privilege\_scope | text      | The scope of the permission specified<br>in privilege\_type. Possible values are as follows:<br>• DATABASE<br>• SCHEMAS<br>• TABLES<br>• FUNCTIONS<br>• LANGUAGES<br>For information on scoped permissions, go to [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").    |
 
 ## Sample query
 
-The following example displays the result of the SVV_DATABASE_PRIVILEGES.
+The following example displays the result of the SVV\_DATABASE\_PRIVILEGES.
 
 ```
 SELECT database_name,privilege_type,identity_name,identity_type,admin_option FROM svv_database_privileges

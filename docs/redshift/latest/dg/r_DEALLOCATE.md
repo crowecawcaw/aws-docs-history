@@ -18,7 +18,7 @@ PREPARE
 
 This keyword is optional and is ignored.
 
-_plan_name_
+_plan\_name_
 
 The name of the prepared statement to deallocate.
 

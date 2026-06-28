@@ -2,14 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PERCENTILE_CONT function
+# PERCENTILE\_CONT function
 
-PERCENTILE_CONT is an inverse distribution function that assumes a continuous
+PERCENTILE\_CONT is an inverse distribution function that assumes a continuous
 distribution model. It takes a percentile value and a sort specification, and returns an
 interpolated value that would fall into the given percentile value with respect to the
 sort specification.
 
-PERCENTILE_CONT computes a linear interpolation between values after ordering them.
+PERCENTILE\_CONT computes a linear interpolation between values after ordering them.
 Using the percentile value `(P)` and the number of not null rows
 `(N)` in the aggregation group, the function computes the row number after
 ordering the rows according to the sort specification. This row number `(RN)`
@@ -63,8 +63,8 @@ expression data type.
 ## Usage notes
 
 If the ORDER BY expression is a DECIMAL data type defined with the maximum
-precision of 38 digits, it is possible that PERCENTILE_CONT will return either an
-inaccurate result or an error. If the return value of the PERCENTILE_CONT function
+precision of 38 digits, it is possible that PERCENTILE\_CONT will return either an
+inaccurate result or an error. If the return value of the PERCENTILE\_CONT function
 exceeds 38 digits, the result is truncated to fit, which causes a loss of precision..
 If, during interpolation, an intermediate result exceeds the maximum precision, a
 numeric overflow occurs and the function returns an error. To avoid these conditions,
@@ -72,7 +72,7 @@ we recommend either using a data type with lower precision or casting the ORDER 
 expression to a lower precision.
 
 If a statement includes multiple calls to sort-based aggregate functions (LISTAGG,
-PERCENTILE_CONT, or MEDIAN), they must all use the same ORDER BY values. Note that
+PERCENTILE\_CONT, or MEDIAN), they must all use the same ORDER BY values. Note that
 MEDIAN applies an implicit order by on the expression value.
 
 For example, the following statement returns an error.
@@ -108,7 +108,7 @@ GROUP BY salesid, pricepaid;`
 
 The following examples use the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
 
-The following example shows that PERCENTILE_CONT(0.5) produces the same results as MEDIAN.
+The following example shows that PERCENTILE\_CONT(0.5) produces the same results as MEDIAN.
 
 ```
 `SELECT TOP 10 DISTINCT sellerid, qtysold,
@@ -133,7 +133,7 @@ GROUP BY sellerid, qtysold;`
 +----------+---------+-----------------+--------+`
 ```
 
-The following example finds PERCENTILE_CONT(0.5) and PERCENTILE_CONT(0.75) for the quantity sold for each sellerid in the SALES table.
+The following example finds PERCENTILE\_CONT(0.5) and PERCENTILE\_CONT(0.75) for the quantity sold for each sellerid in the SALES table.
 
 ```
 `SELECT sellerid,

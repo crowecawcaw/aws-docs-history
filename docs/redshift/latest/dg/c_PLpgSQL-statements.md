@@ -316,7 +316,7 @@ clauses. If a match is found, then the corresponding
 `statements` run, and then control passes to the next
 statement after END CASE. Subsequent WHEN expressions aren't evaluated. If no match is
 found, the ELSE `statements` run. However, if ELSE isn't
-present, then a CASE_NOT_FOUND exception is raised.
+present, then a CASE\_NOT\_FOUND exception is raised.
 
 The following shows an example.
 
@@ -352,7 +352,7 @@ evaluated in turn, until one is found that yields true. Then the corresponding
 statements run, and then control passes to the next statement after END CASE. Subsequent
 WHEN `expressions` aren't evaluated. If no true result is
 found, the ELSE `statements` are run. However, if ELSE
-isn't present, then a CASE_NOT_FOUND exception is raised.
+isn't present, then a CASE\_NOT\_FOUND exception is raised.
 
 The following shows an example.
 

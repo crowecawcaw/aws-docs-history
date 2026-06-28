@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# TEXT_TO_NUMERIC_ALT
+# TEXT\_TO\_NUMERIC\_ALT
 
-TEXT_TO_NUMERIC_ALT performs a Teradata-style cast operation to convert a character string to a numeric data
+TEXT\_TO\_NUMERIC\_ALT performs a Teradata-style cast operation to convert a character string to a numeric data
 format.
 
 ## Syntax
@@ -34,7 +34,7 @@ result. The default is 0.
 
 ## Return type
 
-TEXT_TO_NUMERIC_ALT returns a DECIMAL number.
+TEXT\_TO\_NUMERIC\_ALT returns a DECIMAL number.
 
 Amazon Redshift returns an error if the conversion to the _format_
 phrase that you specify isn't successful.

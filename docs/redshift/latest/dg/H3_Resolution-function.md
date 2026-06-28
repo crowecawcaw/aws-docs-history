@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# H3_Resolution
+# H3\_Resolution
 
-H3_Resolution returns the resolution of an H3 cell ID from an input index. Resolution is an integer from 0 (coarsest) to 15 (finest).
+H3\_Resolution returns the resolution of an H3 cell ID from an input index. Resolution is an integer from 0 (coarsest) to 15 (finest).
 For information about H3 indexing, see [H3](spatial-terminology.md#spatial-terminology-h3 "spatial-terminology.md#spatial-terminology-h3").
 
 ## Syntax

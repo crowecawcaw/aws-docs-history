@@ -33,8 +33,8 @@ grant role sales_rw to test_user;
 
 ```
 
-To see the list of users that have been granted roles in the cluster, query the SVV_USER_GRANTS table. To see the list
-of roles that have been granted roles in the cluster, query the SVV_ROLE_GRANTS table.
+To see the list of users that have been granted roles in the cluster, query the SVV\_USER\_GRANTS table. To see the list
+of roles that have been granted roles in the cluster, query the SVV\_ROLE\_GRANTS table.
 
 ```
 select * from svv_user_grants;
@@ -71,12 +71,12 @@ current login session. For information about setting and resetting Amazon Redshi
 [SET](r_SET.md "r_SET.md") and [RESET](r_RESET.md "r_RESET.md") in the SQL Command Reference.
 
 The query group labels that you specify must be included in the current WLM
-configuration; otherwise, the _SET query_group_ command has no effect
+configuration; otherwise, the _SET query\_group_ command has no effect
 on query queues.
 
 The label defined in the TO clause is captured in the query logs so that you can use
-the label for troubleshooting. For information about the query_group configuration
-parameter, see [query_group](r_query_group.md "r_query_group.md") in the
+the label for troubleshooting. For information about the query\_group configuration
+parameter, see [query\_group](r_query_group.md "r_query_group.md") in the
 Configuration Reference.
 
 The following example runs two queries as part of the query group 'priority' and then
@@ -105,7 +105,7 @@ vacuum;
 reset query_group;
 ```
 
-To view a list of superusers, query the PG_USER system catalog table.
+To view a list of superusers, query the PG\_USER system catalog table.
 
 ```
 select * from pg_user where usesuper = 'true';

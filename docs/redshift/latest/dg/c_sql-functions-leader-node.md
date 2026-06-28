@@ -10,7 +10,7 @@ run exclusively on the leader node.
 The leader node distributes SQL to the compute nodes whenever a query references
 user-created tables or system tables (tables with an STL or STV prefix and system views
 with an SVL or SVV prefix). A query that references only catalog tables (tables with a
-PG prefix, such as PG_TABLE_DEF, which reside on the leader node) or that does not
+PG prefix, such as PG\_TABLE\_DEF, which reside on the leader node) or that does not
 reference any tables, runs exclusively on the leader node.
 
 Some Amazon Redshift SQL functions are supported only on the leader node and are not
@@ -28,9 +28,9 @@ exclusively on the leader node.
 The following examples use the sample TICKIT database. For more information on the
 sample database, go to [Sample database](c_sampledb.md "c_sampledb.md").
 
-**CURRENT_SCHEMA**
+**CURRENT\_SCHEMA**
 
-The CURRENT_SCHEMA function is a leader-node only function. In this example, the
+The CURRENT\_SCHEMA function is a leader-node only function. In this example, the
 query does not reference a table, so it runs exclusively on the leader node.
 
 ```

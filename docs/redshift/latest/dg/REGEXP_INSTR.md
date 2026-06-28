@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# REGEXP_INSTR function
+# REGEXP\_INSTR function
 
 Searches a string for a regular expression pattern and returns an integer that
 indicates the beginning position or ending position of the matched substring. If no
-match is found, then the function returns `0`. REGEXP_INSTR is similar to the [POSITION](r_POSITION.md "r_POSITION.md") function, but lets you search a string for a
+match is found, then the function returns `0`. REGEXP\_INSTR is similar to the [POSITION](r_POSITION.md "r_POSITION.md") function, but lets you search a string for a
 regular expression pattern. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md "pattern-matching-conditions-posix.md") and
 [Regular expression](https://en.wikipedia.org/wiki/Regular_expression "https://en.wikipedia.org/wiki/Regular_expression") in Wikipedia.
 
@@ -18,7 +18,7 @@ REGEXP_INSTR( *source\_string*, *pattern* [, *position* [, *occurrence*] [, *opt
 
 ## Arguments
 
-_source_string_
+_source\_string_
 
 A string expression, such as a column name, to be searched.
 
@@ -30,20 +30,20 @@ A UTF-8 string literal that represents a regular expression pattern. For more in
 _position_
 
 (Optional) A positive `INTEGER` that indicates the position within
-_source_string_ to begin searching. The position is
+_source\_string_ to begin searching. The position is
 based on the number of characters, not bytes, so that multibyte characters
 are counted as single characters. The default is `1`. If
 _position_ is less than `1`, the search begins at the
-first character of _source_string_. If
+first character of _source\_string_. If
 _position_ is greater than the number of characters in
-_source_string_, the result is `0`.
+_source\_string_, the result is `0`.
 
 _occurrence_
 
 (Optional) A positive `INTEGER` that indicates which occurrence of the pattern to use.
-REGEXP_INSTR skips the first `*occurrence*-1` matches. The
+REGEXP\_INSTR skips the first `*occurrence*-1` matches. The
 default is `1`. If _occurrence_ is less than `1` or greater
-than the number of characters in _source_string_, the
+than the number of characters in _source\_string_, the
 search is ignored and the result is `0`.
 
 _option_
@@ -64,10 +64,10 @@ pattern. The possible values are the following:
 - e – Extract a substring using a subexpression.
 
 If _pattern_ includes a subexpression,
-REGEXP_INSTR matches a substring using the first subexpression in
-_pattern_. REGEXP_INSTR considers only the first
+REGEXP\_INSTR matches a substring using the first subexpression in
+_pattern_. REGEXP\_INSTR considers only the first
 subexpression; additional subexpressions are ignored. If the pattern
-doesn't have a subexpression, REGEXP_INSTR ignores the 'e' parameter.
+doesn't have a subexpression, REGEXP\_INSTR ignores the 'e' parameter.
 
 - p – Interpret the pattern with Perl Compatible Regular Expression (PCRE) dialect.
   For more information about PCRE, see

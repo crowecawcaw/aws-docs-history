@@ -47,7 +47,7 @@ because it makes an additional pass to analyze the interleaved sort keys. The so
 merge operation can take longer for interleaved tables because the interleaved sort
 might have to rearrange more rows than a compound sort.
 
-To view the sort keys for a table, query the [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md") system view.
+To view the sort keys for a table, query the [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md") system view.
 
 ###### Topics
 

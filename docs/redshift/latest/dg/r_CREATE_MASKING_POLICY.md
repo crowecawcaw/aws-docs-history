@@ -23,16 +23,16 @@ CREATE MASKING POLICY
 
 ## Parameters
 
-_policy_name_
+_policy\_name_
 
 The name of the masking policy. The masking policy can't have the same name
 as another masking policy that already exists in the database.
 
-database_name
+database\_name
 
 The name of the database where the policy will be created. Policy can be created on the connected database or on Amazon Redshift Federated Permissions Catalog.
 
-_input_columns_
+_input\_columns_
 
 A tuple of column names in the format (col1 type, col2 type ...).
 
@@ -40,7 +40,7 @@ Column names are used as the input for the masking expression. Column names
 don't have to match the names of the columns being masked, but the input and
 output data types must match.
 
-_masking_expression_
+_masking\_expression_
 
 The SQL expression used to transform the target columns. It can be written
 using data manipulation functions such as String manipulation functions, or in

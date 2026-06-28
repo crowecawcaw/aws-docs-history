@@ -31,4 +31,4 @@ The workload manager uses the following process to manage the transition:
 
 If the WLM dynamic properties are changed during the transition process, WLM
 immediately begins to transition to the new configuration, starting from the current
-state. To view the status of the transition, query the [STV_WLM_SERVICE_CLASS_CONFIG](r_STV_WLM_SERVICE_CLASS_CONFIG.md "r_STV_WLM_SERVICE_CLASS_CONFIG.md") system table.
+state. To view the status of the transition, query the [STV\_WLM\_SERVICE\_CLASS\_CONFIG](r_STV_WLM_SERVICE_CLASS_CONFIG.md "r_STV_WLM_SERVICE_CLASS_CONFIG.md") system table.

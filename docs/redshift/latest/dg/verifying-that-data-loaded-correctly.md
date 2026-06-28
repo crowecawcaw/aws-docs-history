@@ -4,7 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # Verifying that the data loaded correctly
 
-After the load operation is complete, query the [STL_LOAD_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md") system table to verify that the expected files
+After the load operation is complete, query the [STL\_LOAD\_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md") system table to verify that the expected files
 were loaded. Run the COPY command and load verification within the same transaction
 so that if there is problem with the load you can roll back the entire
 transaction.

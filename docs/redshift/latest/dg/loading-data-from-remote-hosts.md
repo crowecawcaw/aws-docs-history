@@ -276,7 +276,7 @@ command
 
 The command that will be run by the host to generate text or binary
 (gzip, lzop, or bzip2) output. The command can be any command that the user
-_"host_user_name"_ has permission to run. The command
+_"host\_user\_name"_ has permission to run. The command
 can be as simple as printing a file, or it could query a database or launch
 a script. The output (text file, gzip binary file, lzop binary file, or
 bzip2 binary file) must be in a form the Amazon Redshift COPY command can ingest.

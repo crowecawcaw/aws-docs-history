@@ -33,7 +33,7 @@ root key by specifying the ENCRYPTED option and providing the key value. For
 more information, see [Uploading encrypted data to Amazon S3](t_uploading-encrypted-data.md "t_uploading-encrypted-data.md").
 
 To load client-side encrypted data files, provide the root key value using
-the MASTER_SYMMETRIC_KEY parameter and include the ENCRYPTED option.
+the MASTER\_SYMMETRIC\_KEY parameter and include the ENCRYPTED option.
 
 ```
 COPY customer FROM 's3://amzn-s3-demo-bucket/encrypted/customer'

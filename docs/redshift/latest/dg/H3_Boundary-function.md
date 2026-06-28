@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# H3_Boundary
+# H3\_Boundary
 
-H3_Boundary returns the boundary of an H3 cell ID from an input index.
+H3\_Boundary returns the boundary of an H3 cell ID from an input index.
 For information about H3 indexing, see [H3](spatial-terminology.md#spatial-terminology-h3 "spatial-terminology.md#spatial-terminology-h3").
 
 ## Syntax
@@ -29,7 +29,7 @@ If _index_ is not valid, then an error is returned.
 ## Examples
 
 The following SQL inputs a `VARCHAR` that represents the index of an H3 cell, and returns a POLYGON with SRID 0 that represents the boundary of the input H3 cell.
-The output of H3_Boundary is input to ST_AwEWKT to display in extended well-known text (EWKT) representation.
+The output of H3\_Boundary is input to ST\_AwEWKT to display in extended well-known text (EWKT) representation.
 
 ```
 SELECT ST_AsEWKT(H3_Boundary('8025fffffffffff'));
@@ -44,7 +44,7 @@ SELECT ST_AsEWKT(H3_Boundary('8025fffffffffff'));
 ```
 
 The following SQL inputs a `BIGINT` that represents the index of an H3 cell, and returns a POLYGON with SRID 0 that represents the boundary of the input H3 cell.
-The output of H3_Boundary is input to ST_AwEWKT to display in extended well-known text (EWKT) representation.
+The output of H3\_Boundary is input to ST\_AwEWKT to display in extended well-known text (EWKT) representation.
 
 ```
 SELECT ST_AsEWKT(H3_Boundary(577129255373111295));

@@ -73,7 +73,7 @@ results. If a match is found in the result cache, Amazon Redshift uses the cache
 doesn't run the query. Result caching is transparent to the user.
 
 Result caching is turned on by default. To turn off result caching for the current
-session, set the [enable_result_cache_for_session](r_enable_result_cache_for_session.md "r_enable_result_cache_for_session.md") parameter to
+session, set the [enable\_result\_cache\_for\_session](r_enable_result_cache_for_session.md "r_enable_result_cache_for_session.md") parameter to
 `off`.
 
 Amazon Redshift uses cached results for a new query when all of the following are
@@ -94,9 +94,9 @@ some large query result sets. Amazon Redshift determines whether to cache query 
 on a number of factors. These factors include the number of entries in the cache and
 the instance type of your Amazon Redshift cluster.
 
-To determine whether a query used the result cache, query the [SVL_QLOG](r_SVL_QLOG.md "r_SVL_QLOG.md") system view. If a query used
-the result cache, the source_query column returns the query ID of the source query.
-If result caching wasn't used, the source_query column value is NULL.
+To determine whether a query used the result cache, query the [SVL\_QLOG](r_SVL_QLOG.md "r_SVL_QLOG.md") system view. If a query used
+the result cache, the source\_query column returns the query ID of the source query.
+If result caching wasn't used, the source\_query column value is NULL.
 
 The following example shows that queries submitted by userid 104 and userid 102
 use the result cache from queries run by userid 100.

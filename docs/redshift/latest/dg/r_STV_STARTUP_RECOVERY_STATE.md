@@ -2,21 +2,21 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_STARTUP_RECOVERY_STATE
+# STV\_STARTUP\_RECOVERY\_STATE
 
 Records the state of tables that are temporarily locked during cluster restart
 operations. Amazon Redshift places a temporary lock on tables while they are being processed to
 resolve stale transactions following a cluster restart.
 
-STV_STARTUP_RECOVERY_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_STARTUP\_RECOVERY\_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
 | Column name | Data type      | Description  |
 | ----------- | -------------- | ------------ |
-| db_id       | integer        | Database ID. |
-| table_id    | integer        | Table ID.    |
-| table_name  | character(137) | Table name.  |
+| db\_id      | integer        | Database ID. |
+| table\_id   | integer        | Table ID.    |
+| table\_name | character(137) | Table name.  |
 
 ## Sample queries
 

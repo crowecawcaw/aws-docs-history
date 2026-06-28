@@ -2,26 +2,26 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_TRANSACTION_HISTORY
+# SYS\_TRANSACTION\_HISTORY
 
-Use SYS_TRANSACTION_HISTORY to see details of a transaction when tracking a
+Use SYS\_TRANSACTION\_HISTORY to see details of a transaction when tracking a
 query.
 
-SYS_TRANSACTION_HISTORY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_TRANSACTION\_HISTORY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name            | Data type | Description                                                                                                |
-| ---------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
-| user_id                | integer   | ID of the user who generated the entry.                                                                    |
-| transaction_id         | bigint    | The ID of the transaction.                                                                                 |
-| isolation_level        | text      | The isolation level of the transaction. Possible<br>values are `Serializable` and `Snapshot<br>Isolation`. |
-| status                 | text      | The status of the transaction. Possible statuses<br>are `committed` and `rolledback`.                      |
-| transaction_start_time | timestamp | The start time of the transaction.                                                                         |
-| commit_start_time      | timestamp | The start time of the commit.                                                                              |
-| commit_end_time        | timestamp | The end time of the commit.                                                                                |
-| blocks_committed       | bigint    | The number of blocks that had to be written as<br>part of this commit.                                     |
-| undo_transaction_id    | bigint    | The ID of the undo transaction if any transactions<br>have been undone. Otherwise, this value is -1.       |
+| Column name              | Data type | Description                                                                                                |
+| ------------------------ | --------- | ---------------------------------------------------------------------------------------------------------- |
+| user\_id                 | integer   | ID of the user who generated the entry.                                                                    |
+| transaction\_id          | bigint    | The ID of the transaction.                                                                                 |
+| isolation\_level         | text      | The isolation level of the transaction. Possible<br>values are `Serializable` and `Snapshot<br>Isolation`. |
+| status                   | text      | The status of the transaction. Possible statuses<br>are `committed` and `rolledback`.                      |
+| transaction\_start\_time | timestamp | The start time of the transaction.                                                                         |
+| commit\_start\_time      | timestamp | The start time of the commit.                                                                              |
+| commit\_end\_time        | timestamp | The end time of the commit.                                                                                |
+| blocks\_committed        | bigint    | The number of blocks that had to be written as<br>part of this commit.                                     |
+| undo\_transaction\_id    | bigint    | The ID of the undo transaction if any transactions<br>have been undone. Otherwise, this value is -1.       |
 
 ## Sample queries
 

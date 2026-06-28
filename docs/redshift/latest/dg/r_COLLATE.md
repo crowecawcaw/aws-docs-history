@@ -22,18 +22,18 @@ _string_
 
 A string column or expression that you want to override.
 
-_'case_sensitive'_ | _'cs'_ | _'case_insensitive'_ | _'ci'_
+_'case\_sensitive'_ | _'cs'_ | _'case\_insensitive'_ | _'ci'_
 
 A string constant of a collation name. Amazon Redshift only
 supports the following values for this parameter:
 
-- _case_sensitive_
+- _case\_sensitive_
 - _cs_
-- _case_insensitive_
+- _case\_insensitive_
 - _ci_
 
-_case_sensitive_ and _cs_ are interchangeable and yield the same results.
-Similarly, _case_insensitive_ and _ci_ are interchangeable and yield the same results.
+_case\_sensitive_ and _cs_ are interchangeable and yield the same results.
+Similarly, _case\_insensitive_ and _ci_ are interchangeable and yield the same results.
 
 ## Return type
 

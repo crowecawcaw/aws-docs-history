@@ -11,15 +11,15 @@ The following example grants the SELECT privilege on the SALES table to the user
 `grant select on table sales to fred;`
 ```
 
-The following example grants the SELECT privilege on all tables in the QA_TICKIT
+The following example grants the SELECT privilege on all tables in the QA\_TICKIT
 schema to the user `fred`.
 
 ```
 `grant select on all tables in schema qa_tickit to fred;`
 ```
 
-The following example grants all schema privileges on the schema QA_TICKIT to the
-user group QA_USERS. Schema privileges are CREATE and USAGE. USAGE grants users access
+The following example grants all schema privileges on the schema QA\_TICKIT to the
+user group QA\_USERS. Schema privileges are CREATE and USAGE. USAGE grants users access
 to the objects in the schema, but doesn't grant privileges such as INSERT or SELECT
 on those objects. Grant privileges on each object separately.
 
@@ -28,22 +28,22 @@ on those objects. Grant privileges on each object separately.
 grant all on schema qa_tickit to group qa_users;`
 ```
 
-The following example grants all privileges on the SALES table in the QA_TICKIT
-schema to all users in the group QA_USERS.
+The following example grants all privileges on the SALES table in the QA\_TICKIT
+schema to all users in the group QA\_USERS.
 
 ```
 `grant all on table qa_tickit.sales to group qa_users;`
 ```
 
-The following example grants all privileges on the SALES table in the QA_TICKIT
-schema to all users in the groups QA_USERS and RO_USERS.
+The following example grants all privileges on the SALES table in the QA\_TICKIT
+schema to all users in the groups QA\_USERS and RO\_USERS.
 
 ```
 `grant all on table qa_tickit.sales to group qa_users, group ro_users;`
 ```
 
-The following example grants the DROP privilege on the SALES table in the QA_TICKIT
-schema to all users in the group QA_USERS.
+The following example grants the DROP privilege on the SALES table in the QA\_TICKIT
+schema to all users in the group QA\_USERS.
 
 ```
 `grant drop on table qa_tickit.sales to group qa_users;>`
@@ -77,8 +77,8 @@ select count(*) from qa_tickit.test;`
 ```
 
 The following sequence of commands shows how access to a view doesn't imply
-access to its underlying tables. The user called VIEW_USER can't select from the
-DATE table, although this user has been granted all privileges on VIEW_DATE.
+access to its underlying tables. The user called VIEW\_USER can't select from the
+DATE table, although this user has been granted all privileges on VIEW\_DATE.
 
 ```
 `create user view_user password 'Abcd1234';
@@ -152,7 +152,7 @@ GRANT USAGE ON DATABASE sales_db TO Bob;
 
 In the following example, a consumer-side admin grants the GRANT USAGE permission
 on the `sales_schema` schema to the `Analyst_role` role.
-`sales_schema` is an external schema that points to sales_db.
+`sales_schema` is an external schema that points to sales\_db.
 
 ```
 GRANT USAGE ON SCHEMA sales_schema TO ROLE Analyst_role;
@@ -280,15 +280,15 @@ to reg_user1 for create model;
 
 ## Examples of granting the ROLE privileges
 
-The following example grants sample_role1 to user1.
+The following example grants sample\_role1 to user1.
 
 ```
 CREATE ROLE sample_role1;
 GRANT ROLE sample_role1 TO user1;
 ```
 
-The following example grants sample_role1 to user1 with the WITH ADMIN OPTION,
-sets the current session for user1, and user1 grants sample_role1 to user2.
+The following example grants sample\_role1 to user1 with the WITH ADMIN OPTION,
+sets the current session for user1, and user1 grants sample\_role1 to user2.
 
 ```
 GRANT ROLE sample_role1 TO user1 WITH ADMIN OPTION;
@@ -296,14 +296,14 @@ SET SESSION AUTHORIZATION user1;
 GRANT ROLE sample_role1 TO user2;
 ```
 
-The following example grants sample_role1 to sample_role2.
+The following example grants sample\_role1 to sample\_role2.
 
 ```
 GRANT ROLE sample_role1 TO ROLE sample_role2;
 ```
 
-The following example grants sample_role2 to sample_role3 and sample_role4. Then
-it attempts to grants sample_role3 to sample_role1.
+The following example grants sample\_role2 to sample\_role3 and sample\_role4. Then
+it attempts to grants sample\_role3 to sample\_role1.
 
 ```
 GRANT ROLE sample_role2 TO ROLE sample_role3;
@@ -312,7 +312,7 @@ ERROR: cannot grant this role, a circular dependency was detected between these 
 ```
 
 The following example grants the CREATE USER system privileges to
-sample_role1.
+sample\_role1.
 
 ```
 GRANT CREATE USER TO ROLE sample_role1;
@@ -325,8 +325,8 @@ user1.
 GRANT ROLE sys:dba TO user1;
 ```
 
-The following example attempts to grant sample_role3 in a circular dependency to
-sample_role2.
+The following example attempts to grant sample\_role3 in a circular dependency to
+sample\_role2.
 
 ```
 CREATE ROLE sample_role3;

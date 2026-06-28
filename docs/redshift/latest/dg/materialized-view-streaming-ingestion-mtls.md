@@ -76,11 +76,10 @@ VPC. If your VPC doesn't have either an IGW or a NGW, do the following:
     * Attach a Secrets Manager VPC endpoint to your VPC.For information about using Secrets Manager with mTLS for streaming ingestion, see [Using mTLS for streaming ingestion with AWS Secrets Manager](#materialized-view-streaming-ingestion-mtls-secrets-manager "#materialized-view-streaming-ingestion-mtls-secrets-manager") following.
 
 3. Get the bootstrap broker URI for the Amazon MSK, Apache Kafka, or Confluent Cloud cluster.
-   For information about getting the bootstrap broker URI for Amazon MSK, see
-   [Getting the bootstrap brokers for
-   an Amazon MSK cluster](../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md "../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md") in the _Amazon Managed Streaming for Apache Kafka Developer Guide_.
-4. Run a SQL command such as the following example to create an external schema that maps the
-   cluster to a Redshift external schema, using `mtls`.
+For information about getting the bootstrap broker URI for Amazon MSK, see
+[Getting the bootstrap brokers for
+an Amazon MSK cluster](../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md "../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md") in the _Amazon Managed Streaming for Apache Kafka Developer Guide_. 4. Run a SQL command such as the following example to create an external schema that maps the
+cluster to a Redshift external schema, using `mtls`.
 
 Amazon MSK
 
@@ -175,10 +174,10 @@ SECRET_ARN 'arn:aws:secretsmanager:us-east-1:012345678910:secret:myMTLSSecret';
 
 Important parameters:
 
-- IAM_ROLE – The IAM role associated with the cluster, for streaming ingestion.
+- IAM\_ROLE – The IAM role associated with the cluster, for streaming ingestion.
 - URI – The bootstrap broker URI for the cluster. Note that
   for Amazon MSK, port 9094 is specified for communicating with brokers for TLS encryption.
-- SECRET_ARN – The ARN of the secret from Secrets Manager, containing the certificate to use for mTLS.
+- SECRET\_ARN – The ARN of the secret from Secrets Manager, containing the certificate to use for mTLS.
 
 ## Enabling mTLS authentication for an existing external schema
 

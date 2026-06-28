@@ -13,7 +13,7 @@ sharing with writes:
 - ALTER SCHEMA RENAME TO
 - { CREATE | DROP } SCHEMA
 - { CREATE | DROP | SHOW } TABLE
-- CREATE TABLE table_name AS
+- CREATE TABLE table\_name AS
 - BEGIN | START TRANSACTION
 - END | COMMIT | ROLLBACK
 - TRUNCATE
@@ -36,5 +36,5 @@ sharing with writes:
   The following permission statements are supported for data sharing with
   writes:
 
-- { GRANT | REVOKE } privilege_name ON OBJECT_TYPE object_name TO consumer_user
+- { GRANT | REVOKE } privilege\_name ON OBJECT\_TYPE object\_name TO consumer\_user
 - SHOW GRANTS. For more information, see [SHOW GRANTS](r_SHOW_GRANTS.md "r_SHOW_GRANTS.md").

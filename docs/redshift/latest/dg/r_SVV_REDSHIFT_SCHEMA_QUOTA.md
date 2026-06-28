@@ -2,23 +2,23 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_REDSHIFT_SCHEMA_QUOTA
+# SVV\_REDSHIFT\_SCHEMA\_QUOTA
 
 Displays the quota and the current disk usage for each schema in a database.
 
-SVV_REDSHIFT_SCHEMA_QUOTA is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_REDSHIFT\_SCHEMA\_QUOTA is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 This view is available when querying provisioned clusters or Redshift Serverless workgroups.
 
 ## Table columns
 
-| Column name   | Data type      | Description                                                     |
-| ------------- | -------------- | --------------------------------------------------------------- |
-| database_name | character(128) | The database that contains the schema.                          |
-| schema_name   | character(128) | The name of the schema.                                         |
-| schema_owner  | integer        | The internal user ID of the schema owner.                       |
-| quota         | integer        | The amount of disk space (in MB) that the schema<br>can use.    |
-| disk_usage    | integer        | The disk space (in MB) that is currently used by<br>the schema. |
+| Column name    | Data type      | Description                                                     |
+| -------------- | -------------- | --------------------------------------------------------------- |
+| database\_name | character(128) | The database that contains the schema.                          |
+| schema\_name   | character(128) | The name of the schema.                                         |
+| schema\_owner  | integer        | The internal user ID of the schema owner.                       |
+| quota          | integer        | The amount of disk space (in MB) that the schema<br>can use.    |
+| disk\_usage    | integer        | The disk space (in MB) that is currently used by<br>the schema. |
 
 ## Sample query
 

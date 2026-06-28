@@ -24,23 +24,23 @@ ALTER FUNCTION function_name ( { [ py_arg_name py_arg_data_type | sql_arg_data_t
 
 ## Parameters
 
-_function_name_
+_function\_name_
 
 The name of the function to be altered. Either specify the name of the
 function in the current search path, or use the format
 `schema_name.function_name` to use a specific schema.
 
-_py_arg_name py_arg_data_type | sql_arg_data_type_
+_py\_arg\_name py\_arg\_data\_type | sql\_arg\_data\_type_
 
 Optional. A list of input argument names and data types for the Python
 user-defined function, or a list of input argument data types for the SQL
 user-defined function.
 
-_new_name_
+_new\_name_
 
 A new name for the user-defined function.
 
-_new_owner_ | CURRENT_USER | SESSION_USER
+_new\_owner_ | CURRENT\_USER | SESSION\_USER
 
 A new owner for the user-defined function.
 

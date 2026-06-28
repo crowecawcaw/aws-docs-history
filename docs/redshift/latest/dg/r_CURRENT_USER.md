@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# CURRENT_USER
+# CURRENT\_USER
 
 Returns the user name of the current "effective" user of the database, as applicable
 to checking permissions. Usually, this user name will be the same as the session user;
@@ -10,7 +10,7 @@ however, this can occasionally be changed by superusers.
 
 ###### Note
 
-Do not use trailing parentheses when calling CURRENT_USER.
+Do not use trailing parentheses when calling CURRENT\_USER.
 
 ## Syntax
 
@@ -20,11 +20,11 @@ current_user
 
 ## Return type
 
-CURRENT_USER returns a NAME data type and can be cast as a CHAR or VARCHAR string.
+CURRENT\_USER returns a NAME data type and can be cast as a CHAR or VARCHAR string.
 
 ## Usage notes
 
-If a stored procedure was created using the SECURITY DEFINER option of the CREATE_PROCEDURE command, when invoking the CURRENT_USER function from within the stored procedure, Amazon Redshift returns the user name of the owner of the stored procedure.
+If a stored procedure was created using the SECURITY DEFINER option of the CREATE\_PROCEDURE command, when invoking the CURRENT\_USER function from within the stored procedure, Amazon Redshift returns the user name of the owner of the stored procedure.
 
 ## Example
 

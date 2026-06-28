@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_ConvexHull
+# ST\_ConvexHull
 
-ST_ConvexHull returns a geometry that represents the convex hull of the nonempty
+ST\_ConvexHull returns a geometry that represents the convex hull of the nonempty
 points contained in the input geometry.
 
 For empty input, the resulting geometry is the same as the input geometry.
@@ -38,7 +38,7 @@ The values returned are as follows.
 
 | Number of points on the convex hull | Geometry subtype                                                                                                                                                                            |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0                                   | A copy of \*geom<br>• is returned.                                                                                                                                                          |
+| 0                                   | A copy of *geom<br>• is returned.                                                                                                                                                           |
 | 1                                   | A `POINT` subtype is returned.                                                                                                                                                              |
 | 2                                   | A `LINESTRING` subtype is returned. The two points of the returned linestring are<br>lexicographically ordered.                                                                             |
 | 3 or greater                        | A `POLYGON` subtype with no interior rings is returned.<br>The polygon is clockwise oriented, and the first point of the exterior ring is the lexicographically smallest point of the ring. |

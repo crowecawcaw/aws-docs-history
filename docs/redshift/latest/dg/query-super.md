@@ -219,30 +219,30 @@ WHERE c_orders[0].o_orderstatus = 'shipped';
 ```
 
 The equality sign in this sample query evaluates to `true` when the value of
-c_orders[0].o_orderstatus
+c\_orders[0].o\_orderstatus
 is the string ‘shipped’. In all other cases, the equality sign evaluates to `false`,
 including the cases where the arguments of the equality are different types.
 For example, if the order status is an integer, its row won't be selected.
 
 ### Dynamic and static typing
 
-Without using dynamic typing, you can't determine whether c_orders[0].o_orderstatus
+Without using dynamic typing, you can't determine whether c\_orders[0].o\_orderstatus
 is a string, an integer, or a structure. You can only determine that
-c_orders[0].o_orderstatus is a SUPER data type, which can be an Amazon Redshift scalar, an array,
-or a structure. The static type of c_orders[0].o_orderstatus is a SUPER data type.
+c\_orders[0].o\_orderstatus is a SUPER data type, which can be an Amazon Redshift scalar, an array,
+or a structure. The static type of c\_orders[0].o\_orderstatus is a SUPER data type.
 Conventionally, a type is implicitly a static type in SQL.
 
 Amazon Redshift uses dynamic typing to the processing of schemaless data. When the query
-evaluates the data, c_orders[0].o_orderstatus turns out to be a specific type. For
-example, evaluating c_orders[0].o_orderstatus on the first record
-of customer_orders_lineitem may result into an integer. Evaluating on the second record
+evaluates the data, c\_orders[0].o\_orderstatus turns out to be a specific type. For
+example, evaluating c\_orders[0].o\_orderstatus on the first record
+of customer\_orders\_lineitem may result into an integer. Evaluating on the second record
 may result into a string. These are the dynamic types of the expression.
 
 When using an SQL operator or function with dot and bracket expressions that have
 dynamic types, Amazon Redshift produces results similar to using standard SQL operator or
 function with the respective static types. In this example, when the dynamic type of the
 path expression is a string, the comparison with the string ‘P’ is meaningful. Whenever
-the dynamic type of c_orders[0].o_orderstatus is any other data type except being a
+the dynamic type of c\_orders[0].o\_orderstatus is any other data type except being a
 string, the equality returns false. Other functions return null when mistyped arguments
 are used.
 
@@ -266,9 +266,9 @@ FROM customer_orders_lineitem
 WHERE c_orders[0].o_orderstatus <= 'P';
 ```
 
-In this example, if c_orders[0].o_orderstatus is a string, Amazon Redshift returns true if it
+In this example, if c\_orders[0].o\_orderstatus is a string, Amazon Redshift returns true if it
 is alphabetically equal to or smaller than ‘P’. Amazon Redshift returns false if it is
-alphabetically larger than 'P'. However, if c_orders[0].o_orderstatus is not a string,
+alphabetically larger than 'P'. However, if c\_orders[0].o\_orderstatus is not a string,
 Amazon Redshift returns null since Amazon Redshift can't compare values of different types, as shown
 in the following query:
 
@@ -394,7 +394,7 @@ SELECT c.c_orders.something FROM customer_orders_lineitem c;
 ```
 
 Array navigation returns null if the SUPER value is not an array or the array index is
-out of bounds. The following query returns null because c_orders[1][1] is out of bounds.
+out of bounds. The following query returns null because c\_orders[1][1] is out of bounds.
 
 ```
 SELECT c.c_orders[1][1] FROM customer_orders_lineitem c;
@@ -403,7 +403,7 @@ SELECT c.c_orders[1][1] FROM customer_orders_lineitem c;
 Lax semantics is especially useful when using dynamic typing to cast a SUPER value.
 Casting a SUPER value to the wrong type returns null instead of an error if the cast is
 invalid. For example, the following query returns null because it can't cast the
-string value 'Good' of the object attribute o_orderstatus to INTEGER. Amazon Redshift returns
+string value 'Good' of the object attribute o\_orderstatus to INTEGER. Amazon Redshift returns
 an error for a VARCHAR to INTEGER cast but not for a SUPER cast.
 
 ```

@@ -2,24 +2,24 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_PROCEDURE_MESSAGES
+# SYS\_PROCEDURE\_MESSAGES
 
-SYS_PROCEDURE_MESSAGES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_PROCEDURE\_MESSAGES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name    | Data type  | Description                                                                                               |
-| -------------- | ---------- | --------------------------------------------------------------------------------------------------------- |
-| transaction_id | bigint     | The transaction identifier.                                                                               |
-| query_id       | integer    | The query identifier of the stored procedure<br>call.                                                     |
-| record_time    | timestamp  | The time in UTC when the message was<br>generated.                                                        |
-| log_level      | char(10)   | The log level of the generated message. Possible<br>values are LOG, INFO, NOTICE, WARNING, and EXCEPTION. |
-| message        | char(1024) | The text of the generated message.                                                                        |
-| line_number    | integer    | The line number of the generated message.                                                                 |
+| Column name     | Data type  | Description                                                                                               |
+| --------------- | ---------- | --------------------------------------------------------------------------------------------------------- |
+| transaction\_id | bigint     | The transaction identifier.                                                                               |
+| query\_id       | integer    | The query identifier of the stored procedure<br>call.                                                     |
+| record\_time    | timestamp  | The time in UTC when the message was<br>generated.                                                        |
+| log\_level      | char(10)   | The log level of the generated message. Possible<br>values are LOG, INFO, NOTICE, WARNING, and EXCEPTION. |
+| message         | char(1024) | The text of the generated message.                                                                        |
+| line\_number    | integer    | The line number of the generated message.                                                                 |
 
 ## Sample queries
 
-The following query shows sample output of SYS_PROCEDURE_MESSAGES.
+The following query shows sample output of SYS\_PROCEDURE\_MESSAGES.
 
 ```
 select transaction_id, query_id, record_time, log_level, trim(message), line_number from sys_procedure_messages;

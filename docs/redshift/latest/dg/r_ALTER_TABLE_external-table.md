@@ -32,7 +32,7 @@ alter table spectrum.sales
 set file format parquet;
 ```
 
-The following example adds one partition for the table SPECTRUM.SALES_PART.
+The following example adds one partition for the table SPECTRUM.SALES\_PART.
 
 ```
 alter table spectrum.sales_part
@@ -40,7 +40,7 @@ add if not exists partition(saledate='2008-01-01')
 location 's3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-01/';
 ```
 
-The following example adds three partitions for the table SPECTRUM.SALES_PART.
+The following example adds three partitions for the table SPECTRUM.SALES\_PART.
 
 ```
 alter table spectrum.sales_part add if not exists
@@ -52,7 +52,7 @@ partition(saledate='2008-03-01')
 location 's3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-03/';
 ```
 
-The following example alters SPECTRUM.SALES_PART to drop the partition with
+The following example alters SPECTRUM.SALES\_PART to drop the partition with
 `saledate='2008-01-01''`.
 
 ```

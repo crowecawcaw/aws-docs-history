@@ -28,13 +28,13 @@ the WLM queue assignment rules:
 The following table shows a WLM configuration with the superuser queue and four
 user-defined queues.
 
-| Queue     | Concurrency | User Roles | User Groups | Query Groups |
-| --------- | ----------- | ---------- | ----------- | ------------ |
-| Superuser | 1           |            |             | superuser    |
-| 1         | 5           | test_db_rw | UG_1        |              |
-| 2         | 5           |            |             | QG_B         |
-| 3         | 5           |            | UG_2        | QG_C         |
-| Default   | 5           |            |             |              |
+| Queue     | Concurrency | User Roles   | User Groups | Query Groups |
+| --------- | ----------- | ------------ | ----------- | ------------ |
+| Superuser | 1           |              |             | superuser    |
+| 1         | 5           | test\_db\_rw | UG\_1       |              |
+| 2         | 5           |              |             | QG\_B        |
+| 3         | 5           |              | UG\_2       | QG\_C        |
+| Default   | 5           |              |             |              |
 
 The following illustration shows how queries are assigned to the queues in the
 previous table according to user groups and query groups. For information about how

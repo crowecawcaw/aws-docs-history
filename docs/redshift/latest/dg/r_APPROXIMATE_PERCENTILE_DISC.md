@@ -2,16 +2,16 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# APPROXIMATE PERCENTILE_DISC function
+# APPROXIMATE PERCENTILE\_DISC function
 
-APPROXIMATE PERCENTILE_DISC is an inverse distribution function that assumes a
+APPROXIMATE PERCENTILE\_DISC is an inverse distribution function that assumes a
 discrete distribution model. It takes a percentile value and a sort specification and
 returns an element from the given set. Approximation enables the function to run much
 faster, with a low relative error of around 0.5 percent.
 
-For a given _percentile_ value, APPROXIMATE PERCENTILE_DISC uses a
+For a given _percentile_ value, APPROXIMATE PERCENTILE\_DISC uses a
 quantile summary algorithm to approximate the discrete percentile of the expression in
-the ORDER BY clause. APPROXIMATE PERCENTILE_DISC returns the value with the smallest
+the ORDER BY clause. APPROXIMATE PERCENTILE\_DISC returns the value with the smallest
 cumulative distribution value (with respect to the same sort specification) that is
 greater than or equal to _percentile_.
 
@@ -40,7 +40,7 @@ The same data type as the ORDER BY expression in the WITHIN GROUP clause.
 
 ## Usage notes
 
-If the APPROXIMATE PERCENTILE_DISC statement includes a GROUP BY clause, the
+If the APPROXIMATE PERCENTILE\_DISC statement includes a GROUP BY clause, the
 result set is limited. The limit varies based on node type and the number of nodes.
 If the limit is exceeded, the function fails and returns the following error.
 
@@ -48,7 +48,7 @@ If the limit is exceeded, the function fails and returns the following error.
 GROUP BY limit for approximate percentile_disc exceeded.
 ```
 
-If you need to evaluate more groups than the limit permits, consider using [PERCENTILE_CONT function](r_PERCENTILE_CONT.md "r_PERCENTILE_CONT.md").
+If you need to evaluate more groups than the limit permits, consider using [PERCENTILE\_CONT function](r_PERCENTILE_CONT.md "r_PERCENTILE_CONT.md").
 
 ## Examples
 

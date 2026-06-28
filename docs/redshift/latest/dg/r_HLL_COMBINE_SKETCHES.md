@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# HLL_COMBINE_SKETCHES function
+# HLL\_COMBINE\_SKETCHES function
 
-The HLL_COMBINE_SKETCHES is a scalar function that takes as input two HLLSKETCH values and combines them into a single HLLSKETCH.
+The HLL\_COMBINE\_SKETCHES is a scalar function that takes as input two HLLSKETCH values and combines them into a single HLLSKETCH.
 
 The combination of two or more HyperLogLog sketches is a new HLLSKETCH that encapsulates information about the union of the distinct values that each input sketch represents.
 
@@ -16,13 +16,13 @@ HLL_COMBINE_SKETCHES (*hllsketch\_expression1*, *hllsketch\_expression2*)
 
 ## Argument
 
-_hllsketch_expression1_ and _hllsketch_expression2_
+_hllsketch\_expression1_ and _hllsketch\_expression2_
 
 Any valid expression that evaluates to an HLLSKETCH type, such as a column name.
 
 ## Return type
 
-The HLL_COMBINE_SKETCHES function returns an HLLSKETCH type.
+The HLL\_COMBINE\_SKETCHES function returns an HLLSKETCH type.
 
 ## Examples
 

@@ -4,4 +4,4 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # USER
 
-Synonym for CURRENT_USER. See [CURRENT_USER](r_CURRENT_USER.md "r_CURRENT_USER.md").
+Synonym for CURRENT\_USER. See [CURRENT\_USER](r_CURRENT_USER.md "r_CURRENT_USER.md").

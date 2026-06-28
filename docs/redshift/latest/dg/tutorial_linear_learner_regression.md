@@ -250,10 +250,10 @@ output.
 +-----+--------------------+
 ```
 
-2. Use the following query to run the EXPLAIN_MODEL operation on your
+2. Use the following query to run the EXPLAIN\_MODEL operation on your
    prediction function. The operation will return a model explainability
-   report. For more information about the EXPLAIN_MODEL operation, see the
-   [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md") in the Amazon Redshift Database Developer Guide.
+   report. For more information about the EXPLAIN\_MODEL operation, see the
+   [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md") in the Amazon Redshift Database Developer Guide.
 
 ```
 SELECT
@@ -261,7 +261,7 @@ SELECT
 ```
 
 The following information is an example of the model explainability
-report produced by the previous EXPLAIN_MODEL operation. The values for each
+report produced by the previous EXPLAIN\_MODEL operation. The values for each
 of the inputs are Shapley values. The Shapley values represent the effect
 each input has on the prediction of your model, with higher-valued inputs
 having more impact on the prediction. In this example, the higher-valued
@@ -331,7 +331,7 @@ For more information about Amazon Redshift ML, see the following documentation:
 
 - [Costs for using Amazon Redshift ML](cost.md "cost.md")
 - [CREATE MODEL operation](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
-- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+- [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
 
 For more information about machine learning, see the following documentation:
 

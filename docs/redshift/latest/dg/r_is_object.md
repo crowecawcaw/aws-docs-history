@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# IS_OBJECT function
+# IS\_OBJECT function
 
-Checks whether a variable is an object. The IS_OBJECT function returns `true` for
+Checks whether a variable is an object. The IS\_OBJECT function returns `true` for
 objects, including empty objects. The function returns `false` for any other values,
 including null.
 
@@ -17,7 +17,7 @@ IS_OBJECT(*super\_expression*)
 
 ## Arguments
 
-_super_expression_
+_super\_expression_
 
 A `SUPER` expression or column.
 
@@ -27,7 +27,7 @@ A `SUPER` expression or column.
 
 ## Examples
 
-To check if `{"name": "Joe"}` is an object using the IS_OBJECT function, use the following example.
+To check if `{"name": "Joe"}` is an object using the IS\_OBJECT function, use the following example.
 
 ```
 `CREATE TABLE t(s super);

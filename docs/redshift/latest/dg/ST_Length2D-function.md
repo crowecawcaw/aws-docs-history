@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Length2D
+# ST\_Length2D
 
-ST_Length2D is an alias for ST_Length.
-For more information, see [ST_Length](ST_Length-function.md "ST_Length-function.md").
+ST\_Length2D is an alias for ST\_Length.
+For more information, see [ST\_Length](ST_Length-function.md "ST_Length-function.md").

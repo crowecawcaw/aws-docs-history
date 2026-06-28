@@ -50,10 +50,10 @@ In this illustration, the query optimizer runs the query plan as follows:
    table for the inner table in the join.
 2. In `Stream 1`, the query runs `Segment 2` with a sequential scan
    operation to scan the `sales` table. It continues with `Segment
-2` with a hash join to join tables where the join columns are not both
+ 2` with a hash join to join tables where the join columns are not both
    distribution keys and sort keys. It again continues with `Segment 2`
    with a hash aggregate to aggregate results. Then the query runs `Segment
-3` with a hash aggregate operation to perform unsorted grouped aggregate
+ 3` with a hash aggregate operation to perform unsorted grouped aggregate
    functions, and a sort operation to evaluate the ORDER BY clause and other sort
    operations.
 3. In `Stream 2`, the query runs a network operation in `Segment 4` and

@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ARRAY_SORT function
+# ARRAY\_SORT function
 
 Creates a sorted version of the input array in either ascending or descending order. You can specify where NULL values should appear in the result.
 The function is NULL-safe, meaning it treats NULLs are treated as known objects.
@@ -19,7 +19,7 @@ _array_
 
 A SUPER expression that specifies the array to be sorted.
 
-_sort_ascending_
+_sort\_ascending_
 
 A boolean value that specifies whether to sort the array in ascending or descending order:
 
@@ -28,7 +28,7 @@ A boolean value that specifies whether to sort the array in ascending or descend
 
 The default is TRUE.
 
-_nulls_first_
+_nulls\_first_
 
 A boolean value that specifies the NULL positioning:
 
@@ -37,7 +37,7 @@ A boolean value that specifies the NULL positioning:
 
 ## Return type
 
-The ARRAY_SORT function returns a SUPER type.
+The ARRAY\_SORT function returns a SUPER type.
 
 ## Note
 
@@ -53,7 +53,7 @@ Within each type category, elements are sorted according to their natural orderi
 
 ## Example
 
-The following examples show the ARRAY_SORT function.
+The following examples show the ARRAY\_SORT function.
 
 ```
 -- Ascending order (default)
@@ -80,6 +80,6 @@ SELECT ARRAY_SORT(ARRAY('b', 'a', 0, NULL, 1, false), False, False);
 
 ## See also
 
-- [ARRAY_DISTINCT function](array_distinct.md "array_distinct.md")
-- [ARRAY_FLATTEN function](array_flatten.md "array_flatten.md")
+- [ARRAY\_DISTINCT function](array_distinct.md "array_distinct.md")
+- [ARRAY\_FLATTEN function](array_flatten.md "array_flatten.md")
 - [SUBARRAY function](r_subarray.md "r_subarray.md")

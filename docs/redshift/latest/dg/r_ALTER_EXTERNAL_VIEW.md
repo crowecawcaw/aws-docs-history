@@ -18,13 +18,13 @@ ALTER EXTERNAL VIEW *schema\_name.view\_name*
 
 ## Parameters
 
-_schema_name.view_name_
+_schema\_name.view\_name_
 
 The schema that’s attached to your AWS Glue database, followed by the name of
 the view.
 
-catalog_name.schema_name.view_name | awsdatacatalog.dbname.view_name |
-external_schema_name.view_name
+catalog\_name.schema\_name.view\_name | awsdatacatalog.dbname.view\_name |
+external\_schema\_name.view\_name
 
 The notation of the schema to use when altering the view. You can specify to
 use the AWS Glue Data Catalog, a Glue database that you created, or an external schema
@@ -39,7 +39,7 @@ objects referenced in the table are inconsistent with other SQL engines. If
 Lake Formation updates the view, the view is considered stale for the other SQL engines
 until those engines are updated as well.
 
-_AS query_definition_
+_AS query\_definition_
 
 The definition of the SQL query that Amazon Redshift runs to alter the view.
 
@@ -51,7 +51,7 @@ to mark them as `PROTECTED`.
 ## Examples
 
 The following example alters a Data Catalog view named
-sample_schema.glue_data_catalog_view.
+sample\_schema.glue\_data\_catalog\_view.
 
 ```
 ALTER EXTERNAL VIEW sample_schema.glue_data_catalog_view

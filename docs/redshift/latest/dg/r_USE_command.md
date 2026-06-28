@@ -401,7 +401,7 @@ dev=# SHOW USE;
 
 ```
 
-Note that the search_path gets reset when USE is reset.
+Note that the search\_path gets reset when USE is reset.
 
 ```
 

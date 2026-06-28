@@ -40,4 +40,4 @@ workgroup is active.
 
 For more information, see
 [Billing for Amazon Redshift Serverless](../mgmt/serverless-billing.md "../mgmt/serverless-billing.md")  
- in the _Amazon Redshift Management Guide_.
+in the _Amazon Redshift Management Guide_.

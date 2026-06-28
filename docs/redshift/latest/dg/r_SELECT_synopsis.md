@@ -34,7 +34,7 @@ SELECT
 
 - [WITH clause](r_WITH_clause.md "r_WITH_clause.md")
 - [SELECT list](r_SELECT_list.md "r_SELECT_list.md")
-- [EXCLUDE column_list](r_EXCLUDE_list.md "r_EXCLUDE_list.md")
+- [EXCLUDE column\_list](r_EXCLUDE_list.md "r_EXCLUDE_list.md")
 - [FROM clause](r_FROM_clause30.md "r_FROM_clause30.md")
 - [WHERE clause](r_WHERE_clause.md "r_WHERE_clause.md")
 - [GROUP BY clause](r_GROUP_BY_clause.md "r_GROUP_BY_clause.md")

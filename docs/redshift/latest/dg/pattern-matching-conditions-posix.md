@@ -73,20 +73,20 @@ _expression_.
 POSIX pattern matching supports the following metacharacters:
 
 | POSIX   | Description                                                                                                                                                                                                         |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ---------------------- |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | .       | Matches any single character.                                                                                                                                                                                       |
 | `*`     | Matches zero or more occurrences.                                                                                                                                                                                   |
 | `+`     | Matches one or more occurrences.                                                                                                                                                                                    |
 | `?`     | Matches zero or one occurrence.                                                                                                                                                                                     |
-| `       | `                                                                                                                                                                                                                   | Specifies alternative matches; for example,<br>``E | H``means`E` or<br>`H`. |
+| `       | `                                                                                                                                                                                                                   | Specifies alternative matches; for example,<br>``E | H`` means `E` or<br>`H`. |
 | `^`     | Matches the beginning-of-line character.                                                                                                                                                                            |
 | `$`     | Matches the end-of-line character.                                                                                                                                                                                  |
 | `$`     | Matches the end of the string.                                                                                                                                                                                      |
 | [ ]     | Brackets specify a matching list, that should<br>match one expression in the list. A caret (`^`) precedes<br>a nonmatching list, which matches any character except for the<br>expressions represented in the list. |
 | `( )`   | Parentheses group items into a single logical<br>item.                                                                                                                                                              |
-| `{m}`   | Repeat the previous item exactly<br>\*m<br>• times.                                                                                                                                                                 |
+| `{m}`   | Repeat the previous item exactly<br>*m<br>• times.                                                                                                                                                                  |
 | `{m,}`  | Repeat the previous item _m_<br>or more times.                                                                                                                                                                      |
-| `{m,n}` | Repeat the previous item at least<br>*m<br>• and not more than *n\*<br>times.                                                                                                                                       |
+| `{m,n}` | Repeat the previous item at least<br>*m<br>• and not more than _n_<br>times.                                                                                                                                        |
 | `[: :]` | Matches any character within a POSIX character<br>class. In the following character classes, Amazon Redshift supports only<br>ASCII characters: `[:alnum:]`, `[:alpha:]`,<br>`[:lower:]`, `[:upper:]`               |
 
 Amazon Redshift supports the following POSIX character classes.
@@ -123,12 +123,12 @@ The following table shows examples of pattern matching using POSIX
 operators:
 
 | Expression                                                 | Returns |
-| ---------------------------------------------------------- | ------- | ---- |
+| ---------------------------------------------------------- | ------- |
 | `'abc' ~ 'abc'`                                            | True    |
 | `'abc' ~ 'a'`                                              | True    |
 | `'abc' ~ 'A'`                                              | False   |
-| `'abc' ~ '.\*(b                                            | d).\*'` | True |
-| `'abc' ~ '(b                                               | c).\*'` | True |
+| `'abc' ~ '.*(b                                             | d).*'`  | True |
+| `'abc' ~ '(b                                               | c).*'`  | True |
 | `'AbcAbcdefgefg12efgefg12' ~<br>'((Ab)?c)+d((efg)+(12))+'` | True    |
 | `'aaaaaab11111xy' ~<br>'a{6}.[1]{5}(x                      | y){2}'` | True |
 | `'$0.87' ~ '\\$[0-9]+(\\.[0-9][0-9])?'`                    | True    |

@@ -17,7 +17,7 @@ OVER ( [ PARTITION BY *window\_partition* ] ORDER BY *window\_ordering* )
 
 ## Arguments
 
-_value_expr_
+_value\_expr_
 
 The target column or expression that the function operates on.
 
@@ -51,18 +51,18 @@ OVER
 Specifies the window partitioning and ordering. The OVER clause cannot
 contain a window frame specification.
 
-PARTITION BY _window_partition_
+PARTITION BY _window\_partition_
 
 An optional argument that sets the range of records for each group in the
 OVER clause.
 
-ORDER BY _window_ordering_
+ORDER BY _window\_ordering_
 
 Sorts the rows within each partition.
 
 The LAG window function supports expressions that use any of the Amazon Redshift data
 types. The return type is the same as the type of the
-_value_expr_.
+_value\_expr_.
 
 ## Examples
 

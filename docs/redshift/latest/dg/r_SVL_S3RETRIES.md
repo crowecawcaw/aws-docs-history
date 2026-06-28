@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVL_S3RETRIES
+# SVL\_S3RETRIES
 
-Use the SVL_S3RETRIES view to get information about why a data lake query on Amazon S3 that uses Amazon Redshift Spectrum has failed.
+Use the SVL\_S3RETRIES view to get information about why a data lake query on Amazon S3 that uses Amazon Redshift Spectrum has failed.
 
-SVL_S3RETRIES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL\_S3RETRIES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### RG provisioned clusters
 
@@ -16,18 +16,18 @@ For Amazon S3 client retry and error details on RG provisioned clusters, use `ST
 
 ## Table columns
 
-| Column name        | Data type                   | Description                                                                                                                                                                                |
-| ------------------ | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| query              | integer                     | The query ID.                                                                                                                                                                              |
-| segment            | integer                     | Segment number.<br>A query consists of multiple segments, and each segment<br>consists of one or more steps. Query segments can run in<br>parallel. Each segment runs in a single process. |
-| node               | integer                     | The node number.                                                                                                                                                                           |
-| slice              | integer                     | The data slice that a particular segment ran<br>against.                                                                                                                                   |
-| eventtime          | timestamp without time zone | Time in UTC that the step started<br>executing.                                                                                                                                            |
-| retries            | integer                     | The number of retries for the query.                                                                                                                                                       |
-| successful_fetches | integer                     | The number of times data was returned.                                                                                                                                                     |
-| file_size          | bigint                      | This size of the file in bytes.                                                                                                                                                            |
-| location           | text                        | The location of the table.                                                                                                                                                                 |
-| message            | text                        | The error message.                                                                                                                                                                         |
+| Column name         | Data type                   | Description                                                                                                                                                                                |
+| ------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| query               | integer                     | The query ID.                                                                                                                                                                              |
+| segment             | integer                     | Segment number.<br>A query consists of multiple segments, and each segment<br>consists of one or more steps. Query segments can run in<br>parallel. Each segment runs in a single process. |
+| node                | integer                     | The node number.                                                                                                                                                                           |
+| slice               | integer                     | The data slice that a particular segment ran<br>against.                                                                                                                                   |
+| eventtime           | timestamp without time zone | Time in UTC that the step started<br>executing.                                                                                                                                            |
+| retries             | integer                     | The number of retries for the query.                                                                                                                                                       |
+| successful\_fetches | integer                     | The number of times data was returned.                                                                                                                                                     |
+| file\_size          | bigint                      | This size of the file in bytes.                                                                                                                                                            |
+| location            | text                        | The location of the table.                                                                                                                                                                 |
+| message             | text                        | The error message.                                                                                                                                                                         |
 
 ## Sample query
 

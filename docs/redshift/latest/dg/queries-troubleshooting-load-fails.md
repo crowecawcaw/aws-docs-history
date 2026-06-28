@@ -26,5 +26,5 @@ data transfer costs. You also have higher latency.
 
 ###### COPY command fails
 
-Query STL_LOAD_ERRORS to discover the errors that occurred during specific loads.
-For more information, see [STL_LOAD_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md").
+Query STL\_LOAD\_ERRORS to discover the errors that occurred during specific loads.
+For more information, see [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md").

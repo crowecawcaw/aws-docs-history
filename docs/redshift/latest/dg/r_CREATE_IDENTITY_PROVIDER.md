@@ -24,22 +24,22 @@ NAMESPACE *namespace\_name*
 
 ## Parameters
 
-_identity_provider_name_
+_identity\_provider\_name_
 
 Name of the new identity provider. For more information about valid names,
 see [Names and identifiers](r_names.md "r_names.md").
 
-_type_name_
+_type\_name_
 
 The identity provider to interface with. Azure and AWSIDC are currently the only
 supported identity providers.
 
-_namespace_name_
+_namespace\_name_
 
 The namespace. This is a unique, shorthand identifier for the identity
 provider directory.
 
-_parameter_string_
+_parameter\_string_
 
 A string containing a properly formatted JSON object that contains
 parameters and values required for the identity provider.
@@ -49,13 +49,13 @@ _arn_
 The Amazon resource name (ARN) for an IAM Identity Center managed application. This
 parameter is applicable only when the identity-provider type is AWSIDC.
 
-_iam_role_
+_iam\_role_
 
 The IAM role that provides permissions to make the connection to IAM Identity Center.
 This parameter is applicable only when the identity-provider type is
 AWSIDC.
 
-_auto_create_roles_
+_auto\_create\_roles_
 
 Enables or disables the auto-create role feature.
 If the value is TRUE, Amazon Redshift enables the
@@ -79,7 +79,7 @@ To exclude groups, specify `EXCLUDE`. The default is empty, which
 means do not exclude any groups if `AUTO_CREATE_ROLES` is
 on.
 
-_filter_pattern_
+_filter\_pattern_
 
 A valid UTF-8 character expression with a pattern to match group names. The
 LIKE option performs a case-sensitive match that supports the following
@@ -90,11 +90,11 @@ pattern-matching metacharacters:
 | `%`           | Matches any sequence of zero or more<br>characters. |
 | `_`           | Matches any single character.                       |
 
-If _filter_pattern_ does not contain metacharacters, then
+If _filter\_pattern_ does not contain metacharacters, then
 the pattern only represents the string itself; in that case LIKE acts the same
 as the equals operator.
 
-_filter_pattern_ supports the following characters:
+_filter\_pattern_ supports the following characters:
 
 - Uppercase and lowercase alphabetic characters (A-Z and a-z)
 - Numerals (0-9)
@@ -107,7 +107,7 @@ _ % ^ * + ? { } , $
 ## Examples
 
 The following example creates an identity provider named
-_oauth_standard_, with a TYPE _azure_, to
+_oauth\_standard_, with a TYPE _azure_, to
 establish communication with Microsoft Azure Active Directory (AD).
 
 ```

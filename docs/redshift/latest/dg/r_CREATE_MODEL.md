@@ -127,44 +127,44 @@ IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>' }
 
 ## Parameters
 
-model_name
+model\_name
 
 The name of the model. The model name in a schema must be unique.
 
-FROM { _table_name_ | ( _select_query_ )
-| _'job_name'_}
+FROM { _table\_name_ | ( _select\_query_ )
+| _'job\_name'_}
 
-The table_name or the query that specifies the training data. They can
+The table\_name or the query that specifies the training data. They can
 either be an existing table in the system, or an Amazon Redshift-compatible SELECT
 query enclosed with parentheses, that is (). There must be at least two columns
 in the query result.
 
-TARGET _column_name_
+TARGET _column\_name_
 
 The name of the column that becomes the prediction target. The column must
 exist in the FROM clause.
 
-FUNCTION _function_name_ ( _data_type_ [,
+FUNCTION _function\_name_ ( _data\_type_ [,
 ...] )
 
 The name of the function to be created and the data types of the input
 arguments. You can provide the schema name of a schema in your database instead
 of a function name.
 
-RETURNS _data_type_
+RETURNS _data\_type_
 
 The data type to be returned from the model's function. The returned
 `SUPER` data type is applicable only to BYOM with remote
 inference.
 
 SAGEMAKER
-'_endpoint_name_'[:'*model\_name*']
+'_endpoint\_name_'[:'_model\_name_']
 
 The name of the Amazon SageMaker AI endpoint. If the endpoint name points to a
 multimodel endpoint, add the name of the model to use. The endpoint must be
 hosted in the same AWS Region as the Amazon Redshift cluster.
 
-IAM_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>'
+IAM\_ROLE { default | 'arn:aws:iam::<account-id>:role/<role-name>'
 }
 
 Use the default keyword to have Amazon Redshift use the IAM
@@ -179,7 +179,7 @@ algorithm, and hyper-parameters selection. Specifying on when creating a
 Forecast model indicates to use an AutoPredictor, where Amazon Forecast applies the
 optimal combinations of algorithms to each time series in your dataset.
 
-_MODEL_TYPE { XGBOOST | MLP | LINEAR_LEARNER | KMEANS | FORECAST
+_MODEL\_TYPE { XGBOOST | MLP | LINEAR\_LEARNER | KMEANS | FORECAST
 }_
 
 (Optional) Specifies the model type. You can specify if you want to train a
@@ -189,8 +189,8 @@ supports. If you don't specify the parameter, then all supported model
 types are searched during training for the best model. You can also create a
 forecast model in Redshift ML to create accurate time-series forecasts.
 
-_PROBLEM_TYPE ( REGRESSION | BINARY_CLASSIFICATION |
-MULTICLASS_CLASSIFICATION )_
+_PROBLEM\_TYPE ( REGRESSION | BINARY\_CLASSIFICATION |
+MULTICLASS\_CLASSIFICATION )_
 
 (Optional) Specifies the problem type. If you know the problem type, you can
 restrict Amazon Redshift to only search of the best model of that specific model type.
@@ -268,29 +268,29 @@ Specifies whether the default XGBoost parameters are used or overridden by
 user-specified values. The values must be enclosed with single quotes.
 Following are examples of parameters for XGBoost and their defaults.
 
-| Parameter name   | Parameter value | Default value                           | Notes                        |
-| ---------------- | --------------- | --------------------------------------- | ---------------------------- |
-| num_class        | Integer         | Required for Multiclass classification. | N/A                          |
-| num_round        | Integer         | 100                                     | N/A                          |
-| tree_method      | String          | Auto                                    | N/A                          |
-| max_depth        | Integer         | 6                                       | [0 , 10]                     |
-| min_child_weight | Float           | 1                                       | MinValue: 0, MaxValue: 120   |
-| subsample        | Float           | 1                                       | MinValue: 0.5, MaxValue: 1   |
-| gamma            | Float           | 0                                       | MinValue: 0, MaxValue: 5     |
-| alpha            | Float           | 0                                       | MinValue: 0, MaxValue: 1000  |
-| eta              | Float           | 0.3                                     | MinValue: 0.1, MaxValue: 0.5 |
-| colsample_byleve | Float           | 1                                       | MinValue: 0.1, MaxValue: 1   |
-| colsample_bynode | Float           | 1                                       | MinValue: 0.1, MaxValue: 1   |
-| colsample_bytree | Float           | 1                                       | MinValue: 0.5, MaxValue: 1   |
-| lambda           | Float           | 1                                       | MinValue: 0, MaxValue: 1000  |
-| max_delta_step   | Integer         | 0                                       | [0, 10]                      |
+| Parameter name     | Parameter value | Default value                           | Notes                        |
+| ------------------ | --------------- | --------------------------------------- | ---------------------------- |
+| num\_class         | Integer         | Required for Multiclass classification. | N/A                          |
+| num\_round         | Integer         | 100                                     | N/A                          |
+| tree\_method       | String          | Auto                                    | N/A                          |
+| max\_depth         | Integer         | 6                                       | [0 , 10]                     |
+| min\_child\_weight | Float           | 1                                       | MinValue: 0, MaxValue: 120   |
+| subsample          | Float           | 1                                       | MinValue: 0.5, MaxValue: 1   |
+| gamma              | Float           | 0                                       | MinValue: 0, MaxValue: 5     |
+| alpha              | Float           | 0                                       | MinValue: 0, MaxValue: 1000  |
+| eta                | Float           | 0.3                                     | MinValue: 0.1, MaxValue: 0.5 |
+| colsample\_byleve  | Float           | 1                                       | MinValue: 0.1, MaxValue: 1   |
+| colsample\_bynode  | Float           | 1                                       | MinValue: 0.1, MaxValue: 1   |
+| colsample\_bytree  | Float           | 1                                       | MinValue: 0.5, MaxValue: 1   |
+| lambda             | Float           | 1                                       | MinValue: 0, MaxValue: 1000  |
+| max\_delta\_step   | Integer         | 0                                       | [0, 10]                      |
 
-SETTINGS ( S3_BUCKET _'amzn-s3-demo-bucket'_, | TAGS
-'string', | KMS_KEY_ID _'kms_string'_ , | S3_GARBAGE_COLLECT on
-/ off, | MAX_CELLS integer , | MAX_RUNTIME (,...) , | HORIZON integer, | FREQUENCY
-forecast_frequency, | PERCENTILES array of strings )
+SETTINGS ( S3\_BUCKET _'amzn-s3-demo-bucket'_, | TAGS
+'string', | KMS\_KEY\_ID _'kms\_string'_ , | S3\_GARBAGE\_COLLECT on
+/ off, | MAX\_CELLS integer , | MAX\_RUNTIME (,...) , | HORIZON integer, | FREQUENCY
+forecast\_frequency, | PERCENTILES array of strings )
 
-S3_BUCKET clause specifies the Amazon S3 location that is used to store
+S3\_BUCKET clause specifies the Amazon S3 location that is used to store
 intermediate results.
 
 (Optional) The TAGS parameter is a comma-separated list of key-value pairs
@@ -299,22 +299,22 @@ you organize resources and allocate costs. Values in the pair are optional, so
 you can create tags by using the format `key=value` or just by
 creating a key. For more information about tags in Amazon Redshift, see [Tagging overview](../mgmt/amazon-redshift-tagging.md "../mgmt/amazon-redshift-tagging.md").
 
-(Optional) KMS_KEY_ID specifies if Amazon Redshift uses server-side encryption with
+(Optional) KMS\_KEY\_ID specifies if Amazon Redshift uses server-side encryption with
 an AWS KMS key to protect data at rest. Data in transit is protected with Secure
 Sockets Layer (SSL).
 
-(Optional) S3_GARBAGE_COLLECT { ON | OFF } specifies whether Amazon Redshift
+(Optional) S3\_GARBAGE\_COLLECT { ON | OFF } specifies whether Amazon Redshift
 performs garbage collection on the resulting datasets used to train models and
 the models. If set to OFF, the resulting datasets used to train models and the
 models remains in Amazon S3 and can be used for other purposes. If set to ON,
 Amazon Redshift deletes the artifacts in Amazon S3 after the training completes. The
 default is ON.
 
-(Optional) MAX_CELLS specifies the number of cells in the training data.
+(Optional) MAX\_CELLS specifies the number of cells in the training data.
 This value is the product of the number of records (in the training query or
 table) times the number of columns. The default is 1,000,000.
 
-(Optional) MAX_RUNTIME specifies the maximum amount of time to train.
+(Optional) MAX\_RUNTIME specifies the maximum amount of time to train.
 Training jobs often complete sooner depending on dataset size. This specifies
 the maximum amount of time the training should take. The default is 5,400 (90
 minutes).
@@ -332,7 +332,7 @@ forecast types used to train a predictor. Forecast types can be quantiles from
 0.01 to 0.99, in increments of 0.01 or higher. You can also specify the mean
 forecast with mean. You can specify a maximum of five forecast types.
 
-MAX_BATCH_ROWS _integer_
+MAX\_BATCH\_ROWS _integer_
 
 (Optional) The maximum number of rows that Amazon Redshift sends in a single batch
 request for a single SageMaker AI invocation. It is supported only for BYOM with remote

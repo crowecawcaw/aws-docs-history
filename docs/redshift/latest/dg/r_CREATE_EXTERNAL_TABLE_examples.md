@@ -75,7 +75,7 @@ LOCATION 'S3://amzn-s3-demo-bucket/cetas/partitioned_lineitem/'
 AS SELECT l_orderkey, l_shipmode, l_shipdate, l_partkey FROM local_table;
 ```
 
-For a list of existing databases in the external data catalog, query the [SVV_EXTERNAL_DATABASES](r_SVV_EXTERNAL_DATABASES.md "r_SVV_EXTERNAL_DATABASES.md") system
+For a list of existing databases in the external data catalog, query the [SVV\_EXTERNAL\_DATABASES](r_SVV_EXTERNAL_DATABASES.md "r_SVV_EXTERNAL_DATABASES.md") system
 view.
 
 ```
@@ -91,9 +91,9 @@ eskind | databasename | esoptions
 
 ```
 
-To view details of external tables, query the [SVV_EXTERNAL_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV_EXTERNAL_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md") system views.
+To view details of external tables, query the [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV\_EXTERNAL\_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md") system views.
 
-The following example queries the SVV_EXTERNAL_TABLES view.
+The following example queries the SVV\_EXTERNAL\_TABLES view.
 
 ```
 select schemaname, tablename, location from svv_external_tables;
@@ -106,7 +106,7 @@ spectrum   | sales                | s3://redshift-downloads/tickit/spectrum/sale
 spectrum   | sales_part           | s3://redshift-downloads/tickit/spectrum/sales_partition
 ```
 
-The following example queries the SVV_EXTERNAL_COLUMNS view.
+The following example queries the SVV\_EXTERNAL\_COLUMNS view.
 
 ```
 select * from svv_external_columns where schemaname like 'spectrum%' and tablename ='sales';
@@ -259,7 +259,7 @@ eventid | sum
    5638 | 22551.00
 ```
 
-To view external table partitions, query the [SVV_EXTERNAL_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md "r_SVV_EXTERNAL_PARTITIONS.md")
+To view external table partitions, query the [SVV\_EXTERNAL\_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md "r_SVV_EXTERNAL_PARTITIONS.md")
 system view.
 
 ```
@@ -384,7 +384,7 @@ LOCATION '`s3://amzn-s3-demo-bucket/prefix`'
 
 ## Data handling examples
 
-The following examples access the file: [spi_global_rankings.csv](https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv "https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv"). You can upload the `spi_global_rankings.csv` file to
+The following examples access the file: [spi\_global\_rankings.csv](https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv "https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv"). You can upload the `spi_global_rankings.csv` file to
 an Amazon S3 bucket to try these examples.
 
 The following example creates the external schema

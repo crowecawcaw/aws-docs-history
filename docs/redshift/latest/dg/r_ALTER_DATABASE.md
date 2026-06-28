@@ -39,7 +39,7 @@ ALTER DATABASE database_name
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 Name of the database to alter. Typically, you alter a database that you are
 not currently connected to; in any case, the changes take effect only in
@@ -55,12 +55,12 @@ RENAME TO
 
 Renames the specified database. For more information about valid names, see
 [Names and identifiers](r_names.md "r_names.md"). You can't rename the
-dev, padb_harvest, template0, template1, or sys:internal databases, and you
+dev, padb\_harvest, template0, template1, or sys:internal databases, and you
 can't rename the current database. Only the database owner or a
 [superuser](r_superusers.md#def_superusers "r_superusers.md#def_superusers") can rename a database; non-superuser owners must also have
 the CREATEDB privilege.
 
-_new_name_
+_new\_name_
 
 New database name.
 
@@ -70,7 +70,7 @@ Changes the owner of the specified database. You can change the owner of the
 current database or some other database. Only a superuser can change the
 owner.
 
-_new_owner_
+_new\_owner_
 
 New database owner. The new owner must be an existing database user with
 write privileges. For more information about user privileges, see [GRANT](r_GRANT.md "r_GRANT.md").
@@ -83,7 +83,7 @@ keyword to permit the maximum number of concurrent connections.
 
 A limit on the number of connections for each user might also apply. For more
 information, see [CREATE USER](r_CREATE_USER.md "r_CREATE_USER.md").
-The default is UNLIMITED. To view current connections, query the [STV_SESSIONS](r_STV_SESSIONS.md "r_STV_SESSIONS.md") system
+The default is UNLIMITED. To view current connections, query the [STV\_SESSIONS](r_STV_SESSIONS.md "r_STV_SESSIONS.md") system
 view.
 
 ###### Note
@@ -92,7 +92,7 @@ If both user and database connection limits apply, an unused connection
 slot must be available that is within both limits when a user attempts to
 connect.
 
-COLLATE { CASE_SENSITIVE | CS | CASE_INSENSITIVE | CI }
+COLLATE { CASE\_SENSITIVE | CS | CASE\_INSENSITIVE | CI }
 
 A clause that specifies whether string search or comparison is
 case-sensitive or case-insensitive.
@@ -103,10 +103,10 @@ You must have ALTER permission for the current database to change case
 sensitivity. Superusers or database owners with the CREATE DATABASE permission
 can also change database case sensitivity.
 
-CASE_SENSITIVE and CS are interchangeable and yield the same results.
-Similarly, CASE_INSENSITIVE and CI are interchangeable and yield the same results.
+CASE\_SENSITIVE and CS are interchangeable and yield the same results.
+Similarly, CASE\_INSENSITIVE and CI are interchangeable and yield the same results.
 
-To check the current collation of a database, use the [DB_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
+To check the current collation of a database, use the [DB\_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
 
 ISOLATION LEVEL { SNAPSHOT | SERIALIZABLE }
 
@@ -145,11 +145,11 @@ database.
 
 For more information, see [Zero-ETL integrations](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md") in the
 _Amazon Redshift Management Guide_. For more information about integration
-states, see [SVV_INTEGRATION_TABLE_STATE](r_SVV_INTEGRATION_TABLE_STATE.md "r_SVV_INTEGRATION_TABLE_STATE.md") and [SVV_INTEGRATION](r_SVV_INTEGRATION.md "r_SVV_INTEGRATION.md").
+states, see [SVV\_INTEGRATION\_TABLE\_STATE](r_SVV_INTEGRATION_TABLE_STATE.md "r_SVV_INTEGRATION_TABLE_STATE.md") and [SVV\_INTEGRATION](r_SVV_INTEGRATION.md "r_SVV_INTEGRATION.md").
 
-QUERY_ALL_STATES [=] { TRUE | FALSE }
+QUERY\_ALL\_STATES [=] { TRUE | FALSE }
 
-The QUERY_ALL_STATES clause sets whether zero-ETL integration tables can be queried in
+The QUERY\_ALL\_STATES clause sets whether zero-ETL integration tables can be queried in
 all states (`Synced`, `Failed`,
 `ResyncRequired`, and `ResyncInitiated`). By default,
 a zero-ETL integration table can only be queried in `Synced` state.
@@ -161,9 +161,9 @@ ingestion when invalid characters are detected for the VARCHAR data type. When
 invalid characters are encountered, the invalid character is replaced with a
 default `?` character.
 
-REFRESH_INTERVAL <interval>
+REFRESH\_INTERVAL <interval>
 
-The REFRESH_INTERVAL clause sets the approximate time interval, in seconds,
+The REFRESH\_INTERVAL clause sets the approximate time interval, in seconds,
 to refresh data from the zero-ETL source to the target database. The
 `interval` can be set 0–432,000 seconds (5 days) for
 zero-ETL integrations whose source type is Aurora MySQL, Aurora PostgreSQL, or RDS for MySQL. For
@@ -180,17 +180,17 @@ The TRUNCATECOLUMNS clause sets whether zero-ETL integration tables continue wit
 ingestion when the values for the VARCHAR column or SUPER column attributes are beyond the limit. When
 `TRUE`, the values are truncated to fit into the column and the values of overflowing JSON attributes are truncated to fit into the SUPER column.
 
-HISTORY_MODE [=] {TRUE | FALSE} [ FOR { {ALL} TABLES [IN SCHEMA schema [, ...]]
+HISTORY\_MODE [=] {TRUE | FALSE} [ FOR { {ALL} TABLES [IN SCHEMA schema [, ...]]
 | TABLE schema.table [, ...]} ]
 
 A clause that specifies whether Amazon Redshift will set history mode for all tables or
 tables in the specified schema that participate in zero-ETL integration. This option is
 only applicable for databases created for zero-ETL integration.
 
-The HISTORY_MODE clause can be set to `TRUE` or
+The HISTORY\_MODE clause can be set to `TRUE` or
 `FALSE`. The default is `FALSE`. Switching history
 mode on and off is only applicable to tables that are in the
-`Synced` state. For information about HISTORY_MODE, see [History mode](../mgmt/zero-etl-history-mode.md "../mgmt/zero-etl-history-mode.md") in the _Amazon Redshift Management Guide_.
+`Synced` state. For information about HISTORY\_MODE, see [History mode](../mgmt/zero-etl-history-mode.md "../mgmt/zero-etl-history-mode.md") in the _Amazon Redshift Management Guide_.
 
 ## Usage notes
 
@@ -199,7 +199,7 @@ reconnect to the altered database to see the effect of the change.
 
 ## Examples
 
-The following example renames a database named TICKIT_SANDBOX to TICKIT_TEST:
+The following example renames a database named TICKIT\_SANDBOX to TICKIT\_TEST:
 
 ```
 alter database tickit_sandbox rename to tickit_test;

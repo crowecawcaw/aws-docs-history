@@ -2,25 +2,25 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION
+# SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION
 
-Use SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION to view the usage periods in which
+Use SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION to view the usage periods in which
 Amazon Redshift ran automatic optimization tasks using extra compute resources. For more
 information on automatic optimization, see [Automatic database optimization](c_autonomics.md "c_autonomics.md"). For more information on automatic
 optimizations run using extra compute resources, see [Allocating extra compute resources for automatic database optimization](t_extra-compute-autonomics.md "t_extra-compute-autonomics.md").
 
-SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION is available only for provisioned clusters.
+SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION is available only for provisioned clusters.
 
-SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name     | Data type                   | Description                                                                                                                                    |
-| --------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| start_time      | timestamp without time zone | The time that the extra compute optimization<br>period starts.                                                                                 |
-| end_time        | timestamp without time zone | The time that the extra compute optimization<br>period ends.                                                                                   |
-| query_count     | bigint                      | The number of automatic optimization queries run<br>during the usage period.                                                                   |
-| compute_seconds | numeric(27,0)               | The number of seconds<br>in the usage period that Amazon Redshift spent running automatic<br>optimization tasks using extra compute resources. |
+| Column name      | Data type                   | Description                                                                                                                                    |
+| ---------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| start\_time      | timestamp without time zone | The time that the extra compute optimization<br>period starts.                                                                                 |
+| end\_time        | timestamp without time zone | The time that the extra compute optimization<br>period ends.                                                                                   |
+| query\_count     | bigint                      | The number of automatic optimization queries run<br>during the usage period.                                                                   |
+| compute\_seconds | numeric(27,0)               | The number of seconds<br>in the usage period that Amazon Redshift spent running automatic<br>optimization tasks using extra compute resources. |
 
 ## Examples
 

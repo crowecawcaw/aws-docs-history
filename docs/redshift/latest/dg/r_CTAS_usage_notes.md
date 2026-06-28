@@ -107,7 +107,7 @@ explain create table sales5_groupby as select listid, dateid, sum(qtysold) from 
 
 ```
 
-To view the distribution key and sort key for each table, query the PG_TABLE_DEF
+To view the distribution key and sort key for each table, query the PG\_TABLE\_DEF
 system catalog table, as shown following.
 
 ```
@@ -146,13 +146,13 @@ select * from pg_table_def where tablename like 'sales%';
 The following table summarizes the results. For simplicity, we omit cost, rows,
 and width details from the explain plan.
 
-| Table              | CTAS SELECT statement                                                       | Explain plan top node                | Dist key    | Sort key |
-| ------------------ | --------------------------------------------------------------------------- | ------------------------------------ | ----------- | -------- |
-| S1_SIMPLE          | `select listid, dateid, qtysold from sales`                                 | `XN Seq Scan on sales ...`           | LISTID      | DATEID   |
-| S2_LIMIT           | `select listid, dateid, qtysold from sales limit<br>100`                    | `XN Limit ...`                       | None (EVEN) | None     |
-| S3_ORDER_BY_LISTID | `select listid, dateid, qtysold from sales order by<br>listid`              | `XN Sort ...`<br>`Sort Key: listid`  | LISTID      | LISTID   |
-| S4_ORDER_BY_QTY    | `select listid, dateid, qtysold from sales order by<br>qtysold`             | `XN Sort ...`<br>`Sort Key: qtysold` | LISTID      | QTYSOLD  |
-| S5_GROUP_BY        | `select listid, dateid, sum(qtysold) from sales group by<br>listid, dateid` | `XN HashAggregate ...`               | None (EVEN) | None     |
+| Table                 | CTAS SELECT statement                                                       | Explain plan top node                | Dist key    | Sort key |
+| --------------------- | --------------------------------------------------------------------------- | ------------------------------------ | ----------- | -------- |
+| S1\_SIMPLE            | `select listid, dateid, qtysold from sales`                                 | `XN Seq Scan on sales ...`           | LISTID      | DATEID   |
+| S2\_LIMIT             | `select listid, dateid, qtysold from sales limit<br>100`                    | `XN Limit ...`                       | None (EVEN) | None     |
+| S3\_ORDER\_BY\_LISTID | `select listid, dateid, qtysold from sales order by<br>listid`              | `XN Sort ...`<br>`Sort Key: listid`  | LISTID      | LISTID   |
+| S4\_ORDER\_BY\_QTY    | `select listid, dateid, qtysold from sales order by<br>qtysold`             | `XN Sort ...`<br>`Sort Key: qtysold` | LISTID      | QTYSOLD  |
+| S5\_GROUP\_BY         | `select listid, dateid, sum(qtysold) from sales group by<br>listid, dateid` | `XN HashAggregate ...`               | None (EVEN) | None     |
 
 You can explicitly specify distribution style and sort key in the CTAS statement.
 For example, the following statement creates a table using EVEN distribution and

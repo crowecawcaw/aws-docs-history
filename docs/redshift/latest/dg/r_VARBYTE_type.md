@@ -43,7 +43,7 @@ Amazon Redshift supports casting between VARBYTE and the following data types:
 - INTEGER
 - BIGINT
   When casting with CHAR and VARCHAR the UTF-8 format is used. For more
-  information about the UTF-8 format, see [TO_VARBYTE](r_TO_VARBYTE.md "r_TO_VARBYTE.md"). When casting from SMALLINT, INTEGER, and
+  information about the UTF-8 format, see [TO\_VARBYTE](r_TO_VARBYTE.md "r_TO_VARBYTE.md"). When casting from SMALLINT, INTEGER, and
   BIGINT the number of bytes of the original data type is maintained. That is two
   bytes for SMALLINT, four bytes for INTEGER, and eight bytes for BIGINT.
 
@@ -120,12 +120,12 @@ Amazon Redshift features that support the VARBYTE data type include:
 - [CONCAT](r_CONCAT.md "r_CONCAT.md")
 - [LEN](r_LEN.md "r_LEN.md")
 - [LENGTH function](r_LENGTH.md "r_LENGTH.md")
-- [OCTET_LENGTH](r_OCTET_LENGTH.md "r_OCTET_LENGTH.md")
+- [OCTET\_LENGTH](r_OCTET_LENGTH.md "r_OCTET_LENGTH.md")
 - [SUBSTRING function](r_SUBSTRING.md "r_SUBSTRING.md")
-- [FROM_HEX](r_FROM_HEX.md "r_FROM_HEX.md")
-- [TO_HEX](r_TO_HEX.md "r_TO_HEX.md")
-- [FROM_VARBYTE](r_FROM_VARBYTE.md "r_FROM_VARBYTE.md")
-- [TO_VARBYTE](r_TO_VARBYTE.md "r_TO_VARBYTE.md")
+- [FROM\_HEX](r_FROM_HEX.md "r_FROM_HEX.md")
+- [TO\_HEX](r_TO_HEX.md "r_TO_HEX.md")
+- [FROM\_VARBYTE](r_FROM_VARBYTE.md "r_FROM_VARBYTE.md")
+- [TO\_VARBYTE](r_TO_VARBYTE.md "r_TO_VARBYTE.md")
 - [GETBIT](r_GETBIT.md "r_GETBIT.md")
 - [Loading a column of the VARBYTE data type](copy-usage-varbyte.md "copy-usage-varbyte.md")
 - [Unloading a column of the VARBYTE data

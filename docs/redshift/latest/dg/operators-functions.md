@@ -67,19 +67,19 @@ eliminates the scale of the input decimal.
 Amazon Redshift supports the following array composition and utility functions:
 
 - ARRAY. For more information, see [ARRAY function](r_array.md "r_array.md").
-- ARRAY_CONCAT. For more information, see [ARRAY_CONCAT function](r_array_concat.md "r_array_concat.md").
-- ARRAY_CONTAINS. For more information, see [ARRAY_CONTAINS function](array_contains.md "array_contains.md").
-- ARRAY_DISTINCT. For more information, see [ARRAY_DISTINCT function](array_distinct.md "array_distinct.md").
-- ARRAY_EXCEPT. For more information, see [ARRAY_EXCEPT function](array_except.md "array_except.md").
-- ARRAY_FLATTEN. For more information, see [ARRAY_FLATTEN function](array_flatten.md "array_flatten.md").
-- ARRAY_INTERSECTION. For more information, see [ARRAY_INTERSECTION function](array_intersection.md "array_intersection.md").
-- ARRAY_POSITION. For more information, see [ARRAY_POSITION function](array_position.md "array_position.md").
-- ARRAY_POSITIONS. For more information, see [ARRAY_POSITIONS function](array_positions.md "array_positions.md").
-- ARRAY_SORT. For more information, see [ARRAY_SORT function](array_sort.md "array_sort.md").
-- ARRAY_UNION. For more information, see [ARRAY_UNION function](array_union.md "array_union.md").
-- ARRAYS_OVERLAP. For more information, see [ARRAYS_OVERLAP function](arrays_overlap.md "arrays_overlap.md").
-- GET_ARRAY_LENGTH. For more information, see [GET_ARRAY_LENGTH function](get_array_length.md "get_array_length.md").
-- SPLIT_TO_ARRAY. For more information, see [SPLIT_TO_ARRAY function](split_to_array.md "split_to_array.md").
+- ARRAY\_CONCAT. For more information, see [ARRAY\_CONCAT function](r_array_concat.md "r_array_concat.md").
+- ARRAY\_CONTAINS. For more information, see [ARRAY\_CONTAINS function](array_contains.md "array_contains.md").
+- ARRAY\_DISTINCT. For more information, see [ARRAY\_DISTINCT function](array_distinct.md "array_distinct.md").
+- ARRAY\_EXCEPT. For more information, see [ARRAY\_EXCEPT function](array_except.md "array_except.md").
+- ARRAY\_FLATTEN. For more information, see [ARRAY\_FLATTEN function](array_flatten.md "array_flatten.md").
+- ARRAY\_INTERSECTION. For more information, see [ARRAY\_INTERSECTION function](array_intersection.md "array_intersection.md").
+- ARRAY\_POSITION. For more information, see [ARRAY\_POSITION function](array_position.md "array_position.md").
+- ARRAY\_POSITIONS. For more information, see [ARRAY\_POSITIONS function](array_positions.md "array_positions.md").
+- ARRAY\_SORT. For more information, see [ARRAY\_SORT function](array_sort.md "array_sort.md").
+- ARRAY\_UNION. For more information, see [ARRAY\_UNION function](array_union.md "array_union.md").
+- ARRAYS\_OVERLAP. For more information, see [ARRAYS\_OVERLAP function](arrays_overlap.md "arrays_overlap.md").
+- GET\_ARRAY\_LENGTH. For more information, see [GET\_ARRAY\_LENGTH function](get_array_length.md "get_array_length.md").
+- SPLIT\_TO\_ARRAY. For more information, see [SPLIT\_TO\_ARRAY function](split_to_array.md "split_to_array.md").
 - SUBARRAY. For more information, see [SUBARRAY function](r_subarray.md "r_subarray.md").
 
 You can construct SUPER arrays from values in Amazon Redshift data types using the ARRAY
@@ -98,7 +98,7 @@ SELECT ARRAY(1, c.c_custkey, NULL, c.c_name, 'abc') FROM customer_orders_lineite
 (5 rows)
 ```
 
-The following example uses array concatenation with the ARRAY_CONCAT function:
+The following example uses array concatenation with the ARRAY\_CONCAT function:
 
 ```
 SELECT ARRAY_CONCAT(JSON_PARSE('[10001,10002]'),JSON_PARSE('[10003,10004]'));
@@ -122,7 +122,7 @@ SELECT SUBARRAY(ARRAY('a', 'b', 'c', 'd', 'e', 'f'), 2, 3);
 ```
 
 The following example merges multiple levels of arrays into a single array using
-ARRAY_FLATTEN:
+ARRAY\_FLATTEN:
 
 ```
 SELECT x, ARRAY_FLATTEN(x) FROM (SELECT ARRAY(1, ARRAY(2, ARRAY(3, ARRAY()))) AS x);
@@ -133,8 +133,8 @@ SELECT x, ARRAY_FLATTEN(x) FROM (SELECT ARRAY(1, ARRAY(2, ARRAY(3, ARRAY()))) AS
 (1 row)
 ```
 
-Array functions ARRAY_CONCAT and ARRAY_FLATTEN use dynamic typing rules. They return
-a null instead of an error if the input isn't an array. The GET_ARRAY_LENGTH function
+Array functions ARRAY\_CONCAT and ARRAY\_FLATTEN use dynamic typing rules. They return
+a null instead of an error if the input isn't an array. The GET\_ARRAY\_LENGTH function
 returns the length of a SUPER array given an object or array path.
 
 ```
@@ -146,7 +146,7 @@ WHERE GET_ARRAY_LENGTH(c_orders) = (
     );
 ```
 
-The following example splits a string to an array of strings using SPLIT_TO_ARRAY.
+The following example splits a string to an array of strings using SPLIT\_TO\_ARRAY.
 The function uses a delimiter as an optional parameter. If no delimiter is absent, then
 the default is a comma.
 
@@ -175,21 +175,21 @@ collation of `{"attribute": "a"} = {"attribute": "A"}` returns true, while
 ## Information functions
 
 SUPER data columns support inspection functions that return the dynamic type and other
-type information about the SUPER value. The most common example is the JSON_TYPEOF
+type information about the SUPER value. The most common example is the JSON\_TYPEOF
 scalar function that returns a VARCHAR with values boolean, number, string, object,
 array, or null, depending on the dynamic type of the SUPER value. Amazon Redshift supports the
 following boolean functions for SUPER data columns:
 
-- [IS_ARRAY function](r_is_array.md "r_is_array.md")
-- [IS_BIGINT function](r_is_bigint.md "r_is_bigint.md")
-- [IS_CHAR function](r_is_char.md "r_is_char.md")
-- [IS_DECIMAL function](r_is_decimal.md "r_is_decimal.md")
-- [IS_FLOAT function](r_is_float.md "r_is_float.md")
-- [IS_INTEGER function](r_is_integer.md "r_is_integer.md")
-- [IS_OBJECT function](r_is_object.md "r_is_object.md")
-- [IS_SCALAR function](r_is_scalar.md "r_is_scalar.md")
-- [IS_SMALLINT function](r_is_smallint.md "r_is_smallint.md")
-- [IS_VARCHAR function](r_is_varchar.md "r_is_varchar.md")
+- [IS\_ARRAY function](r_is_array.md "r_is_array.md")
+- [IS\_BIGINT function](r_is_bigint.md "r_is_bigint.md")
+- [IS\_CHAR function](r_is_char.md "r_is_char.md")
+- [IS\_DECIMAL function](r_is_decimal.md "r_is_decimal.md")
+- [IS\_FLOAT function](r_is_float.md "r_is_float.md")
+- [IS\_INTEGER function](r_is_integer.md "r_is_integer.md")
+- [IS\_OBJECT function](r_is_object.md "r_is_object.md")
+- [IS\_SCALAR function](r_is_scalar.md "r_is_scalar.md")
+- [IS\_SMALLINT function](r_is_smallint.md "r_is_smallint.md")
+- [IS\_VARCHAR function](r_is_varchar.md "r_is_varchar.md")
 
 For more information on SUPER type information functions, see
 [SUPER type information functions](c_Type_Info_Functions.md "c_Type_Info_Functions.md").
@@ -198,11 +198,11 @@ For more information on SUPER type information functions, see
 
 Following are the SQL object functions that Amazon Redshift supports to create and operate on SUPER type objects:
 
-- [GET_NUMBER_ATTRIBUTES function](get_number_attributes.md "get_number_attributes.md")
-- [LOWER_ATTRIBUTE_NAMES function](r_lower_attribute_names.md "r_lower_attribute_names.md")
+- [GET\_NUMBER\_ATTRIBUTES function](get_number_attributes.md "get_number_attributes.md")
+- [LOWER\_ATTRIBUTE\_NAMES function](r_lower_attribute_names.md "r_lower_attribute_names.md")
 - [OBJECT function](r_object_function.md "r_object_function.md")
-- [OBJECT_TRANSFORM function](r_object_transform_function.md "r_object_transform_function.md")
-- [UPPER_ATTRIBUTE_NAMES function](r_upper_attribute_names.md "r_upper_attribute_names.md")
+- [OBJECT\_TRANSFORM function](r_object_transform_function.md "r_object_transform_function.md")
+- [UPPER\_ATTRIBUTE\_NAMES function](r_upper_attribute_names.md "r_upper_attribute_names.md")
 
 For more information on object functions, see
 [Object functions](Object_Functions.md "Object_Functions.md").

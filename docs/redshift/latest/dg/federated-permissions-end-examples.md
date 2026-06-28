@@ -10,7 +10,7 @@ You must be a `superuser` or have the [sys:secadmin](r_roles-default.md "r_roles
 
 ## Prerequisites
 
-The examples assume that the below "IAMR:role_name" roles are already present in the account, if not please create them. Moreover, the Redshift data warehouse is registered with AWS Glue Data Catalog with name "catalog_name" and has a database of "db_name".
+The examples assume that the below "IAMR:role\_name" roles are already present in the account, if not please create them. Moreover, the Redshift data warehouse is registered with AWS Glue Data Catalog with name "catalog\_name" and has a database of "db\_name".
 
 ## On catalog instance grant sys:secadmin Role to corresponding IAM Role
 

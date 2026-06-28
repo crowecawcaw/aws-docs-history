@@ -37,7 +37,7 @@ Amazon Redshift:
   Python drivers, you can view catalog data in the following ways:
 
   - SQL [SHOW](r_SHOW.md "r_SHOW.md") commands.
-  - Querying information_schema tables and views.
+  - Querying information\_schema tables and views.
   - Querying [SVV metadata
     views](svv_views.md "svv_views.md").
 

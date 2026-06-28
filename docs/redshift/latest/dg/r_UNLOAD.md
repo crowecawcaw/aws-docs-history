@@ -6,7 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **_Client-side encryption for COPY and UNLOAD commands will<br>no longer be open to new customers starting April 30, 2025.<br>If you used client-side encryption with COPY and UNLOAD commands<br>in the 12 months before April 30, 2025, you can continue to use<br>client side encryption with COPY or UNLOAD commands until<br>April 30, 2026. After April 30, 2026, you won't be able to<br>use client-side encryption for COPY and UNLOAD.<br>We recommend that you switch to using server-side encryption<br>for COPY and UNLOAD as soon as possible. If you're already using<br>server-side encryption for COPY and UNLOAD, there's no change and<br>you can continue to use it without altering your queries.<br>For more information on encryption for COPY and UNLOAD,<br>see the ENCRYPTED parameter below._** |
+| _**Client-side encryption for COPY and UNLOAD commands will<br>no longer be open to new customers starting April 30, 2025.<br>If you used client-side encryption with COPY and UNLOAD commands<br>in the 12 months before April 30, 2025, you can continue to use<br>client side encryption with COPY or UNLOAD commands until<br>April 30, 2026. After April 30, 2026, you won't be able to<br>use client-side encryption for COPY and UNLOAD.<br>We recommend that you switch to using server-side encryption<br>for COPY and UNLOAD as soon as possible. If you're already using<br>server-side encryption for COPY and UNLOAD, there's no change and<br>you can continue to use it without altering your queries.<br>For more information on encryption for COPY and UNLOAD,<br>see the ENCRYPTED parameter below.**_ |
 
 Unloads the result of a query to one or more text, JSON, or Apache Parquet files on Amazon S3, using
 Amazon S3 server-side encryption (SSE-S3). You can also specify server-side encryption with an
@@ -143,16 +143,16 @@ UNLOAD command uses the same parameters the COPY command uses for
 authorization. For more information, see [Authorization parameters](copy-parameters-authorization.md "copy-parameters-authorization.md") in the COPY command syntax
 reference.
 
-IAM_ROLE { default | 'arn:aws:iam::`<AWS account-id-1>`:role/`<role-name>`'
+IAM\_ROLE { default | 'arn:aws:iam::`<AWS account-id-1>`:role/`<role-name>`'
 
 Use the default keyword to have Amazon Redshift use the IAM role that is
 set as default and associated with the cluster when the UNLOAD command
 runs.
 
 Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses
-for authentication and authorization. If you specify IAM_ROLE, you can't
-use ACCESS_KEY_ID and SECRET_ACCESS_KEY, SESSION_TOKEN, or CREDENTIALS.
-The IAM_ROLE can be chained. For more information, see
+for authentication and authorization. If you specify IAM\_ROLE, you can't
+use ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY, SESSION\_TOKEN, or CREDENTIALS.
+The IAM\_ROLE can be chained. For more information, see
 [Chaining IAM roles](../mgmt/authorizing-redshift-service.md#authorizing-redshift-service-chaining-roles "../mgmt/authorizing-redshift-service.md#authorizing-redshift-service-chaining-roles") in the _Amazon Redshift Management Guide_.
 
 [ FORMAT [AS] ] CSV | PARQUET | JSON
@@ -181,7 +181,7 @@ You can't use PARQUET with DELIMITER, FIXEDWIDTH, ADDQUOTES, ESCAPE, NULL
 AS, HEADER, GZIP, BZIP2, or ZSTD. PARQUET with ENCRYPTED is only supported with
 server-side encryption with an AWS Key Management Service key (SSE-KMS). You can't use JSON with DELIMITER, HEADER, FIXEDWIDTH, ADDQUOTES, ESCAPE, or NULL AS.
 
-PARTITION BY ( _column_name_ [, ... ] ) [INCLUDE]
+PARTITION BY ( _column\_name_ [, ... ] ) [INCLUDE]
 
 Specifies the partition keys for the unload operation. UNLOAD automatically
 partitions output files into partition folders based on the partition key
@@ -190,7 +190,7 @@ belongs to the partition year 2019 and the month September has the following
 prefix:
 `s3://amzn-s3-demo-bucket/my_prefix/year=2019/month=September/000.parquet`.
 
-The value for _column_name_ must be a column in the query
+The value for _column\_name_ must be a column in the query
 results being unloaded.
 
 If you specify PARTITION BY with the INCLUDE option, partition columns
@@ -233,7 +233,7 @@ Text transformation options, such as CSV, DELIMITER, ADDQUOTES, and ESCAPE,
 also apply to the header line. You can't use HEADER with
 FIXEDWIDTH.
 
-DELIMITER AS '_delimiter_character_'
+DELIMITER AS '_delimiter\_character_'
 
 Specifies a single ASCII character that is used to separate fields in the
 output file, such as a pipe character ( | ), a comma ( , ), or a tab ( \t ).
@@ -245,15 +245,15 @@ character, you need to specify the ESCAPE option to escape the delimiter, or
 use ADDQUOTES to enclose the data in double quotation marks. Alternatively,
 specify a delimiter that isn't contained in the data.
 
-FIXEDWIDTH '_fixedwidth_spec_'
+FIXEDWIDTH '_fixedwidth\_spec_'
 
 Unloads the data to a file where each column width is a fixed length, rather
-than separated by a delimiter. The _fixedwidth_spec_ is a
+than separated by a delimiter. The _fixedwidth\_spec_ is a
 string that specifies the number of columns and the width of the columns. The
 AS keyword is optional. Because FIXEDWIDTH doesn't truncate data, the
 specification for each column in the UNLOAD statement needs to be at least as
 long as the length of the longest entry for that column. The format for
-_fixedwidth_spec_ is shown below:
+_fixedwidth\_spec_ is shown below:
 
 ```
 '*colID1:colWidth1,colID2:colWidth2, ...*'
@@ -270,9 +270,9 @@ ENCRYPTED parameter, UNLOAD automatically creates encrypted files using Amazon S
 server-side encryption with AWS-managed encryption keys (SSE-S3).
 
 For ENCRYPTED, you might want to unload to Amazon S3 using server-side encryption
-with an AWS KMS key (SSE-KMS). If so, use the [KMS_KEY_ID](#unload-parameters-kms-key-id "#unload-parameters-kms-key-id") parameter to provide the key ID.
+with an AWS KMS key (SSE-KMS). If so, use the [KMS\_KEY\_ID](#unload-parameters-kms-key-id "#unload-parameters-kms-key-id") parameter to provide the key ID.
 You can't use the [Using the CREDENTIALS parameter](copy-parameters-authorization.md#copy-credentials "copy-parameters-authorization.md#copy-credentials") parameter with the
-KMS_KEY_ID parameter. If you run an UNLOAD command for data using KMS_KEY_ID,
+KMS\_KEY\_ID parameter. If you run an UNLOAD command for data using KMS\_KEY\_ID,
 you can then do a COPY operation for the same data without specifying a key.
 
 If ENCRYPTED AUTO is used, the UNLOAD command fetches the default AWS KMS
@@ -281,16 +281,16 @@ Amazon S3 with the AWS KMS key. If the bucket doesn't have the default AWS KMS
 encryption key, UNLOAD automatically creates encrypted files using Amazon Redshift
 server-side encryption with AWS-managed encryption keys (SSE-S3). You
 
-can't use this option with KMS_KEY_ID, MASTER_SYMMETRIC_KEY, or
-CREDENTIALS that contains master_symmetric_key.
+can't use this option with KMS\_KEY\_ID, MASTER\_SYMMETRIC\_KEY, or
+CREDENTIALS that contains master\_symmetric\_key.
 
-KMS_KEY_ID '_key-id_'
+KMS\_KEY\_ID '_key-id_'
 
 Specifies the key ID for an AWS Key Management Service (AWS KMS) key to be used to encrypt data
 files on Amazon S3. For more information, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md")
-If you specify KMS_KEY_ID, you must specify the [ENCRYPTED](#unload-parameters-encrypted "#unload-parameters-encrypted") parameter also. If you specify
-KMS_KEY_ID, you can't authenticate using the CREDENTIALS parameter.
-Instead, use either [Using the IAM_ROLE parameter](copy-parameters-authorization.md#copy-iam-role "copy-parameters-authorization.md#copy-iam-role") or [Using the ACCESS_KEY_ID and SECRET_ACCESS_KEY parameters](copy-parameters-authorization.md#copy-access-key-id "copy-parameters-authorization.md#copy-access-key-id").
+If you specify KMS\_KEY\_ID, you must specify the [ENCRYPTED](#unload-parameters-encrypted "#unload-parameters-encrypted") parameter also. If you specify
+KMS\_KEY\_ID, you can't authenticate using the CREDENTIALS parameter.
+Instead, use either [Using the IAM\_ROLE parameter](copy-parameters-authorization.md#copy-iam-role "copy-parameters-authorization.md#copy-iam-role") or [Using the ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY parameters](copy-parameters-authorization.md#copy-access-key-id "copy-parameters-authorization.md#copy-access-key-id").
 
 BZIP2
 
@@ -432,7 +432,7 @@ Specifies the AWS Region where the target Amazon S3 bucket is located. REGION is
 required for UNLOAD to an Amazon S3 bucket that isn't in the same AWS Region as
 the Amazon Redshift database.
 
-The value for _aws_region_ must match an AWS Region
+The value for _aws\_region_ must match an AWS Region
 listed in the [Amazon Redshift
 regions and endpoints](../../../general/latest/gr/rande.md#redshift_region "../../../general/latest/gr/rande.md#redshift_region") table in the _AWS General Reference_.
 

@@ -27,7 +27,7 @@ An interleaved sort is more effective with large tables. Sorting is applied on
 each slice. Thus, an interleaved sort is most effective when a table is large enough
 to require multiple 1 MB blocks per slice. Here, the query processor can skip a
 significant proportion of the blocks using restrictive predicates. To view the
-number of blocks a table uses, query the [STV_BLOCKLIST](r_STV_BLOCKLIST.md "r_STV_BLOCKLIST.md") system view.
+number of blocks a table uses, query the [STV\_BLOCKLIST](r_STV_BLOCKLIST.md "r_STV_BLOCKLIST.md") system view.
 
 When sorting on a single column, an interleaved sort might give better
 performance than a compound sort if the column values have a long common prefix. For
@@ -59,7 +59,7 @@ becomes too large, performance might be affected. To re-analyze the sort keys an
 restore performance, run the VACUUM command with the REINDEX key word. Because it
 must take an extra analysis pass over the data, VACUUM REINDEX can take longer than
 a standard VACUUM for interleaved tables. To view information about key distribution
-skew and last reindex time, query the [SVV_INTERLEAVED_COLUMNS](r_SVV_INTERLEAVED_COLUMNS.md "r_SVV_INTERLEAVED_COLUMNS.md") system view.
+skew and last reindex time, query the [SVV\_INTERLEAVED\_COLUMNS](r_SVV_INTERLEAVED_COLUMNS.md "r_SVV_INTERLEAVED_COLUMNS.md") system view.
 
 For more information about how to determine how often to run VACUUM and when to
 run a VACUUM REINDEX, see [Decide whether to reindex](vacuum-managing-vacuum-times.md#r_vacuum-decide-whether-to-reindex "vacuum-managing-vacuum-times.md#r_vacuum-decide-whether-to-reindex").

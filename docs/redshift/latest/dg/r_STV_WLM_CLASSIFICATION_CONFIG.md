@@ -2,21 +2,21 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_WLM_CLASSIFICATION_CONFIG
+# STV\_WLM\_CLASSIFICATION\_CONFIG
 
 Contains the current classification rules for WLM.
 
-STV_WLM_CLASSIFICATION_CONFIG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_WLM\_CLASSIFICATION\_CONFIG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name          | Data type      | Description                                                                                                                                                                                            |
-| -------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| id                   | integer        | Service class ID. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids "cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids"). |
-| condition            | character(128) | Query conditions.                                                                                                                                                                                      |
-| action_seq           | integer        | Reserved for system use.                                                                                                                                                                               |
-| action               | character(64)  | Reserved for system use.                                                                                                                                                                               |
-| action_service_class | integer        | The service class where the action takes<br>place.                                                                                                                                                     |
+| Column name            | Data type      | Description                                                                                                                                                                                            |
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| id                     | integer        | Service class ID. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids "cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids"). |
+| condition              | character(128) | Query conditions.                                                                                                                                                                                      |
+| action\_seq            | integer        | Reserved for system use.                                                                                                                                                                               |
+| action                 | character(64)  | Reserved for system use.                                                                                                                                                                               |
+| action\_service\_class | integer        | The service class where the action takes<br>place.                                                                                                                                                     |
 
 ## Sample query
 

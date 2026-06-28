@@ -2,14 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Area
+# ST\_Area
 
-For an input geometry, ST_Area returns the Cartesian area of the 2D projection. The area units are the same
+For an input geometry, ST\_Area returns the Cartesian area of the 2D projection. The area units are the same
 as the units in which the coordinates of the input geometry are expressed. For points,
 linestrings, multipoints, and multilinestrings, the function returns 0. For geometry
 collections, it returns the sum of the areas of the geometries in the collection.
 
-For an input geography, ST_Area returns the geodesic area of the 2D projection of an input areal geography computed on the spheroid determined by the SRID.
+For an input geography, ST\_Area returns the geodesic area of the 2D projection of an input areal geography computed on the spheroid determined by the SRID.
 The unit of length is in square meters. The function returns zero (0) for points, multipoints, and linear geographies.
 When the input is a geometry collection, the function returns the sum of the areas of the areal geographies in the collection.
 

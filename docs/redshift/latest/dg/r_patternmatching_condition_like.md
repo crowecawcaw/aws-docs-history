@@ -46,7 +46,7 @@ _pattern_
 
 A valid UTF-8 character expression with the pattern to be matched.
 
-_escape_char_
+_escape\_char_
 
 A character expression that will escape metacharacters characters
 in the pattern. The default is two backslashes ('\\').

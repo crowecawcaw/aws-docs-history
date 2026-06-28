@@ -99,7 +99,7 @@ duration
 The following example finds the difference, in number of quarters, between a literal
 value in the past and today's date. This example assumes that the current date is
 June 5, 2008. You can name date parts in full or abbreviate them. The default column
-name for the DATEDIFF function is DATE_DIFF.
+name for the DATEDIFF function is DATE\_DIFF.
 
 ```
 select datediff(qtr, '1998-07-01', current_date);
@@ -150,7 +150,7 @@ avgwait
 
 ## Examples with a TIME column
 
-The following example table TIME_TEST has a column TIME_VAL (type TIME) with three
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three
 values inserted.
 
 ```
@@ -163,7 +163,7 @@ time_val
 00:58:00
 ```
 
-The following example finds the difference in number of hours between the TIME_VAL
+The following example finds the difference in number of hours between the TIME\_VAL
 column and a time literal.
 
 ```
@@ -189,7 +189,7 @@ nummins
 
 ## Examples with a TIMETZ column
 
-The following example table TIMETZ_TEST has a column TIMETZ_VAL (type TIMETZ) with three
+The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with three
 values inserted.
 
 ```
@@ -203,7 +203,7 @@ timetz_val
 ```
 
 The following example finds the differences in number of hours, between a TIMETZ literal
-and timetz_val.
+and timetz\_val.
 
 ```
 select datediff(hours, timetz '20:00:00 PST', timetz_val) as numhours from timetz_test;

@@ -63,16 +63,16 @@ reference.
 The following table lists the categories of conditionally safe functions and
 which arguments must be constant for the function to be considered safe.
 
-| Function category   | Functions                                                                                                                               | Argument that must be constant |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| DATE_TRUNC          | DATE_TRUNC(datepart, timestamp),<br>DATE_TRUNC(datepart, timestamptz)                                                                   | datepart (first argument)      |
-| EXTRACT / DATE_PART | EXTRACT(field FROM source),<br>DATE_PART(field, source) for timestamp, timestamptz, date,<br>time, timetz, interval, and datetime types | field (first argument)         |
-| DATEDIFF            | DATEDIFF(datepart, start, end) for timestamp and time<br>types                                                                          | datepart (first argument)      |
-| TO_CHAR             | TO_CHAR(timestamp, format),<br>TO_CHAR(timestamptz, format)                                                                             | format (second argument)       |
-| CONVERT_TIMEZONE    | CONVERT_TIMEZONE(source_tz, target_tz, timestamp),<br>CONVERT_TIMEZONE(target_tz, timestamp)                                            | timezone arguments             |
-| LEFT / RIGHT        | LEFT(string, length), RIGHT(string, length)                                                                                             | length (second argument)       |
-| SUBSTRING           | SUBSTRING(string, start, length) for text, bytea, and<br>varbyte types                                                                  | length (third argument)        |
-| SPLIT_PART          | SPLIT_PART(string, delimiter, part)                                                                                                     | part (third argument)          |
+| Function category    | Functions                                                                                                                                | Argument that must be constant |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| DATE\_TRUNC          | DATE\_TRUNC(datepart, timestamp),<br>DATE\_TRUNC(datepart, timestamptz)                                                                  | datepart (first argument)      |
+| EXTRACT / DATE\_PART | EXTRACT(field FROM source),<br>DATE\_PART(field, source) for timestamp, timestamptz, date,<br>time, timetz, interval, and datetime types | field (first argument)         |
+| DATEDIFF             | DATEDIFF(datepart, start, end) for timestamp and time<br>types                                                                           | datepart (first argument)      |
+| TO\_CHAR             | TO\_CHAR(timestamp, format),<br>TO\_CHAR(timestamptz, format)                                                                            | format (second argument)       |
+| CONVERT\_TIMEZONE    | CONVERT\_TIMEZONE(source\_tz, target\_tz, timestamp),<br>CONVERT\_TIMEZONE(target\_tz, timestamp)                                        | timezone arguments             |
+| LEFT / RIGHT         | LEFT(string, length), RIGHT(string, length)                                                                                              | length (second argument)       |
+| SUBSTRING            | SUBSTRING(string, start, length) for text, bytea, and<br>varbyte types                                                                   | length (third argument)        |
+| SPLIT\_PART          | SPLIT\_PART(string, delimiter, part)                                                                                                     | part (third argument)          |
 
 Use the following SELECT statement to check which functions are conditionally
 safe and which argument positions must be constant.
@@ -96,7 +96,7 @@ true:
 
 - The tables or views in the policy haven't been modified.
 - The policy doesn't use a function that must be evaluated each time
-  it's run, such as GETDATE or CURRENT_USER.
+  it's run, such as GETDATE or CURRENT\_USER.
 
 For better performance, avoid using policy predicates that don't satisfy the
 preceding conditions.
@@ -110,8 +110,8 @@ multiple tables.
 
 ## Using constant arguments for better pushdown
 
-When using functions such as DATE_TRUNC, EXTRACT, DATEDIFF, TO_CHAR,
-CONVERT_TIMEZONE, LEFT, RIGHT, SUBSTRING, or SPLIT_PART in queries on
+When using functions such as DATE\_TRUNC, EXTRACT, DATEDIFF, TO\_CHAR,
+CONVERT\_TIMEZONE, LEFT, RIGHT, SUBSTRING, or SPLIT\_PART in queries on
 RLS-protected tables, use constant literal arguments instead of column references
 for the arguments that control error behavior. This allows Amazon Redshift to classify
 these functions as safe and push predicates down to base table scans, which can

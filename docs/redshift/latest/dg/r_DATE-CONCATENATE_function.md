@@ -41,7 +41,7 @@ TIMESTAMPTZ if input is _date_ + _timetz_.
 
 ### Example setup
 
-To set up the TIME_TEST and TIMETZ_TEST tables used in the examples, use the following command.
+To set up the TIME\_TEST and TIMETZ\_TEST tables used in the examples, use the following command.
 
 ```
 create table time_test(time_val time);
@@ -61,7 +61,7 @@ insert into timetz_test values
 
 ### Examples with a time column
 
-The following example table TIME_TEST has a column TIME_VAL (type TIME) with three
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three
 values inserted.
 
 ```
@@ -74,7 +74,7 @@ values inserted.
 00:58:00`
 ```
 
-The following example concatenates a date literal and a TIME_VAL column.
+The following example concatenates a date literal and a TIME\_VAL column.
 
 ```
 `select date '2000-01-02' + time_val as ts from time_test;`
@@ -108,7 +108,7 @@ The following example concatenates a time literal and a date literal.
 
 ### Examples with a TIMETZ column
 
-The following example table TIMETZ_TEST has a column TIMETZ_VAL (type TIMETZ) with
+The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with
 three values inserted.
 
 ```
@@ -121,7 +121,7 @@ three values inserted.
 05:58:00+00`
 ```
 
-The following example concatenates a date literal and a TIMETZ_VAL column.
+The following example concatenates a date literal and a TIMETZ\_VAL column.
 
 ```
 `select date '2000-01-01' + timetz_val as ts from timetz_test;`
@@ -132,7 +132,7 @@ The following example concatenates a date literal and a TIMETZ_VAL column.
 2000-01-01 05:58:00+00`
 ```
 
-The following example concatenates a TIMETZ_VAL column and a date literal.
+The following example concatenates a TIMETZ\_VAL column and a date literal.
 
 ```
 `select timetz_val + date '2000-01-01' as ts from timetz_test;`

@@ -13,7 +13,7 @@ delimiter to separate columns.
 
 To load a fixed-width data file into an existing table, USE the FIXEDWIDTH
 parameter in the COPY command. Your table specifications must match the value of
-fixedwidth_spec in order for the data to load correctly.
+fixedwidth\_spec in order for the data to load correctly.
 
 To load fixed-width data from a file to a table, issue the following
 command:
@@ -24,7 +24,7 @@ IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
 FIXEDWIDTH '*fixedwidth\_spec*';
 ```
 
-The _fixedwidth_spec_ parameter is a string that contains an
+The _fixedwidth\_spec_ parameter is a string that contains an
 identifier for each column and the width of each column, separated by a colon. The
 `column:width` pairs are delimited by commas. The
 identifier can be anything that you choose: numbers, letters, or a combination of

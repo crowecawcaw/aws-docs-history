@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_EXTERNAL_SCHEMA
+# PG\_EXTERNAL\_SCHEMA
 
 Stores information about external schemas.
 
-PG_EXTERNAL_SCHEMA is visible to all users. Superusers can see all rows; regular users
+PG\_EXTERNAL\_SCHEMA is visible to all users. Superusers can see all rows; regular users
 can see only metadata to which they have access. For more information, see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md").
 
 ## Table columns

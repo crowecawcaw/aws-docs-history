@@ -2,30 +2,30 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_S3CLIENT_ERROR
+# STL\_S3CLIENT\_ERROR
 
 Records errors encountered by a slice while loading a file from Amazon S3.
 
-Use the STL_S3CLIENT_ERROR to find details for errors encountered while transferring
+Use the STL\_S3CLIENT\_ERROR to find details for errors encountered while transferring
 data from Amazon S3 as part of a COPY command.
 
-STL_S3CLIENT_ERROR is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_S3CLIENT\_ERROR is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name  | Data type       | Description                                                                                                                                                         |
-| ------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid       | integer         | ID of the user who generated the entry.                                                                                                                             |
-| query        | integer         | Query ID. The query column can be used to join other system tables and views. The query ID -1 is for internal use.                                                  |
-| sliceid      | integer         | Number that identifies the slice where the query was running.                                                                                                       |
-| recordtime   | timestamp       | Time the record is logged.                                                                                                                                          |
-| pid          | integer         | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session.   |
-| http_method  | character(64)   | HTTP method name corresponding to the Amazon S3<br>request.                                                                                                         |
-| bucket       | character(64)   | Amazon S3 bucket name.                                                                                                                                              |
-| key          | character(256)  | Key corresponding to the Amazon S3 object.                                                                                                                          |
-| error        | character(1024) | Error message.                                                                                                                                                      |
-| is_partial   | integer         | Value that, if true (1), indicates the input file<br>is split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.       |
-| start_offset | bigint          | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes).<br>If the file isn't split, this value is 0. |
+| Column name   | Data type       | Description                                                                                                                                                         |
+| ------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid        | integer         | ID of the user who generated the entry.                                                                                                                             |
+| query         | integer         | Query ID. The query column can be used to join other system tables and views. The query ID -1 is for internal use.                                                  |
+| sliceid       | integer         | Number that identifies the slice where the query was running.                                                                                                       |
+| recordtime    | timestamp       | Time the record is logged.                                                                                                                                          |
+| pid           | integer         | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session.   |
+| http\_method  | character(64)   | HTTP method name corresponding to the Amazon S3<br>request.                                                                                                         |
+| bucket        | character(64)   | Amazon S3 bucket name.                                                                                                                                              |
+| key           | character(256)  | Key corresponding to the Amazon S3 object.                                                                                                                          |
+| error         | character(1024) | Error message.                                                                                                                                                      |
+| is\_partial   | integer         | Value that, if true (1), indicates the input file<br>is split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.       |
+| start\_offset | bigint          | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes).<br>If the file isn't split, this value is 0. |
 
 ## Usage notes
 

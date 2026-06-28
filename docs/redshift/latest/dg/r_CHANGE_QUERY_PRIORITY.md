@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# CHANGE_QUERY_PRIORITY
+# CHANGE\_QUERY\_PRIORITY
 
-CHANGE_QUERY_PRIORITY enables superusers to modify the priority of a query that is either running or waiting in workload management (WLM).
+CHANGE\_QUERY\_PRIORITY enables superusers to modify the priority of a query that is either running or waiting in workload management (WLM).
 
 This function enables superusers to immediately change the priority of any query in the system.
 Only one query, user, or session can run with the priority `CRITICAL`.
@@ -17,7 +17,7 @@ CHANGE_QUERY_PRIORITY(*query\_id*, *priority*)
 
 ## Arguments
 
-_query_id_
+_query\_id_
 
 The query identifier of the query whose priority is changed. Requires an `INTEGER` value.
 
@@ -34,7 +34,7 @@ None
 
 ## Examples
 
-To show the column `query_priority` in the STV_WLM_QUERY_STATE system table, use the following example.
+To show the column `query_priority` in the STV\_WLM\_QUERY\_STATE system table, use the following example.
 
 ```
 `SELECT query, service_class, query_priority, state

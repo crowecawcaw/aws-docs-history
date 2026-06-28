@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# REGEXP_SUBSTR function
+# REGEXP\_SUBSTR function
 
 Returns characters from a string by searching it for a regular expression
-pattern. REGEXP_SUBSTR is similar to the [SUBSTRING function](r_SUBSTRING.md "r_SUBSTRING.md") function, but lets you search a string for a regular
+pattern. REGEXP\_SUBSTR is similar to the [SUBSTRING function](r_SUBSTRING.md "r_SUBSTRING.md") function, but lets you search a string for a regular
 expression pattern. If the function can't match the regular expression to any characters
 in the string, it returns an empty string. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md "pattern-matching-conditions-posix.md") and
 [Regular expression](https://en.wikipedia.org/wiki/Regular_expression "https://en.wikipedia.org/wiki/Regular_expression") in Wikipedia.
@@ -18,7 +18,7 @@ REGEXP_SUBSTR( *source\_string*, *pattern* [, *position* [, *occurrence* [, *par
 
 ## Arguments
 
-_source_string_
+_source\_string_
 
 A string expression to be searched.
 
@@ -30,21 +30,21 @@ A UTF-8 string literal that represents a regular expression pattern. For more in
 _position_
 
 A positive integer that indicates the position within
-_source_string_ to begin searching. The position is
+_source\_string_ to begin searching. The position is
 based on the number of characters, not bytes, so that multi-byte characters
 are counted as single characters. The default is 1. If
 _position_ is less than 1, the search begins at the
-first character of _source_string_. If
+first character of _source\_string_. If
 _position_ is greater than the number of characters in
-_source_string_, the result is an empty string
+_source\_string_, the result is an empty string
 ("").
 
 _occurrence_
 
 A positive integer that indicates which occurrence of the pattern to use.
-REGEXP_SUBSTR skips the first _occurrence_ -1 matches.
+REGEXP\_SUBSTR skips the first _occurrence_ -1 matches.
 The default is 1. If _occurrence_ is less than 1 or
-greater than the number of characters in _source_string_,
+greater than the number of characters in _source\_string_,
 the search is ignored and the result is empty.
 
 _parameters_
@@ -58,17 +58,17 @@ pattern. The possible values are the following:
 - e – Extract a substring using a subexpression.
 
 If _pattern_ includes a subexpression,
-REGEXP_SUBSTR matches a substring using the first subexpression in
+REGEXP\_SUBSTR matches a substring using the first subexpression in
 _pattern_. A subexpression is an expression
 within the pattern that is bracketed with parentheses.
 For example, for the pattern `'This is a (\\w+)'` matches
 the first expression with the string `'This is a '` followed by a word.
-Instead of returning _pattern_, REGEXP_SUBSTR with the `e`
+Instead of returning _pattern_, REGEXP\_SUBSTR with the `e`
 parameter returns only the string inside the subexpression.
 
-REGEXP_SUBSTR considers only the
+REGEXP\_SUBSTR considers only the
 first subexpression; additional subexpressions are ignored. If the
-pattern doesn't have a subexpression, REGEXP_SUBSTR ignores the 'e'
+pattern doesn't have a subexpression, REGEXP\_SUBSTR ignores the 'e'
 parameter.
 
 - p – Interpret the pattern with Perl Compatible Regular Expression (PCRE) dialect.

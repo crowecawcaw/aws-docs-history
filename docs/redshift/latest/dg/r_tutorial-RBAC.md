@@ -41,7 +41,7 @@ To set up for this tutorial, you create a database admin role and attach it to a
 
 Run all queries in the Amazon Redshift [query editor v2](../mgmt/query-editor-v2-using.md "../mgmt/query-editor-v2-using.md").
 
-1. To create the administrator role db_admin, use the following example.
+1. To create the administrator role db\_admin, use the following example.
 
 ```
 CREATE ROLE db_admin;
@@ -53,7 +53,7 @@ CREATE ROLE db_admin;
 CREATE USER dbadmin PASSWORD 'Test12345';
 ```
 
-3. To grant the system defined role named sys:dba to the db_admin role, use the following example. When granted the sys:dba role, the dbadmin user can create schemas and tables. For more information, see [Amazon Redshift system-defined roles](r_roles-default.md "r_roles-default.md").
+3. To grant the system defined role named sys:dba to the db\_admin role, use the following example. When granted the sys:dba role, the dbadmin user can create schemas and tables. For more information, see [Amazon Redshift system-defined roles](r_roles-default.md "r_roles-default.md").
 
 ## Step 2: Set up schemas
 
@@ -168,7 +168,7 @@ INSERT INTO marketing.sale(SELECT * FROM marketing);
 In this step, you create a read-only role and a salesanalyst user for the read-only role. The sales analyst only needs read-only access to the tables in the sales schema to accomplish their assigned task of finding the events that resulted in the largest commissions.
 
 1. Connect to the database as the dbadmin user.
-2. To create the sales_ro role, use the following example.
+2. To create the sales\_ro role, use the following example.
 
 ```
 CREATE ROLE sales_ro;
@@ -180,14 +180,14 @@ CREATE ROLE sales_ro;
 CREATE USER salesanalyst PASSWORD 'Test12345';
 ```
 
-4. To grant the sales_ro role usage and select access to objects of the sales schema, use the following example.
+4. To grant the sales\_ro role usage and select access to objects of the sales schema, use the following example.
 
 ```
 GRANT USAGE ON SCHEMA sales TO ROLE sales_ro;
 GRANT SELECT ON ALL TABLES IN SCHEMA sales TO ROLE sales_ro;
 ```
 
-5. To grant the salesanalyst user the sales_ro role, use the following example.
+5. To grant the salesanalyst user the sales\_ro role, use the following example.
 
 ```
 GRANT ROLE sales_ro TO salesanalyst;
@@ -244,7 +244,7 @@ ORDER BY 2 DESC LIMIT 10;`
 +---------+---------+-------+--------+--------------------+---------------------+`
 ```
 
-4. To attempt to update the eventname for eventid 1, run the following example. This example will result in a permission denied error because the salesanalyst user only has SELECT permissions on the events table in the sales schema. To update the events table, you must grant the sales_ro role permissions to UPDATE. For more information about granting permissions to update a table, see the UPDATE parameter for [GRANT](r_GRANT.md "r_GRANT.md"). For more information about the UPDATE command, see [UPDATE](r_UPDATE.md "r_UPDATE.md").
+4. To attempt to update the eventname for eventid 1, run the following example. This example will result in a permission denied error because the salesanalyst user only has SELECT permissions on the events table in the sales schema. To update the events table, you must grant the sales\_ro role permissions to UPDATE. For more information about granting permissions to update a table, see the UPDATE parameter for [GRANT](r_GRANT.md "r_GRANT.md"). For more information about the UPDATE command, see [UPDATE](r_UPDATE.md "r_UPDATE.md").
 
 ```
 `UPDATE sales.events
@@ -254,7 +254,7 @@ WHERE eventid = 1;`
 `ERROR: permission denied for relation events`
 ```
 
-5. To attempt to select all from the events table in the marketing schema, use the following example. This example will result in a permission denied error because the salesanalyst user only has SELECT permissions for the events table in the sales schema. To select data from the events table in the marketing schema, you must grant the sales_ro role SELECT permissions on the events table in the marketing schema.
+5. To attempt to select all from the events table in the marketing schema, use the following example. This example will result in a permission denied error because the salesanalyst user only has SELECT permissions for the events table in the sales schema. To select data from the events table in the marketing schema, you must grant the sales\_ro role SELECT permissions on the events table in the marketing schema.
 
 ```
 `SELECT * FROM marketing.events;`
@@ -267,7 +267,7 @@ WHERE eventid = 1;`
 In this step, the sales engineer who is responsible for building the extract, transform, and load (ETL) pipeline for data processing in the sales schema will be given read-only access, but will later be given read and write access to perform their tasks.
 
 1. Connect to the database as the dbadmin user.
-2. To create the sales_rw role in the sales schema, use the following example.
+2. To create the sales\_rw role in the sales schema, use the following example.
 
 ```
 CREATE ROLE sales_rw;
@@ -279,13 +279,13 @@ CREATE ROLE sales_rw;
 CREATE USER salesengineer PASSWORD 'Test12345';
 ```
 
-4. To grant the sales_rw role usage and select access to objects of the sales schema by assigning the sales_ro role to it, use the following example. For more information on how roles inherit permissions in Amazon Redshift, see [Role hierarchy](t_role_hierarchy.md "t_role_hierarchy.md").
+4. To grant the sales\_rw role usage and select access to objects of the sales schema by assigning the sales\_ro role to it, use the following example. For more information on how roles inherit permissions in Amazon Redshift, see [Role hierarchy](t_role_hierarchy.md "t_role_hierarchy.md").
 
 ```
 GRANT ROLE sales_ro TO ROLE sales_rw;
 ```
 
-5. To assign the sales_rw role to the salesengineer user, use the following example.
+5. To assign the sales\_rw role to the salesengineer user, use the following example.
 
 ```
 GRANT ROLE sales_rw TO salesengineer;
@@ -308,7 +308,7 @@ In this step, the salesengineer user attempts to update the events table before 
 +---------+---------+-------+--------+-----------------+---------------------+`
 ```
 
-3. To attempt to select all from the events table in the marketing schema, use the following example. The salesengineer user doesn’t have permissions for tables in the marketing schema, so this query will result in a permission denied error. To select data from the events table in the marketing schema, you must grant the sales_rw role SELECT permissions on the events table in the marketing schema.
+3. To attempt to select all from the events table in the marketing schema, use the following example. The salesengineer user doesn’t have permissions for tables in the marketing schema, so this query will result in a permission denied error. To select data from the events table in the marketing schema, you must grant the sales\_rw role SELECT permissions on the events table in the marketing schema.
 
 ```
 `SELECT * FROM marketing.events;`
@@ -316,7 +316,7 @@ In this step, the salesengineer user attempts to update the events table before 
 `ERROR: permission denied for schema marketing`
 ```
 
-4. To attempt to update the eventname for eventid 1, run the following example. This example will result in a permission denied error because the salesengineer user only has select permissions on the events table in the sales schema. To update the events table, you must grant the sales_rw role permissions to UPDATE.
+4. To attempt to update the eventname for eventid 1, run the following example. This example will result in a permission denied error because the salesengineer user only has select permissions on the events table in the sales schema. To update the events table, you must grant the sales\_rw role permissions to UPDATE.
 
 ```
 `UPDATE sales.events
@@ -328,10 +328,10 @@ WHERE eventid = 1;`
 
 ## Step 7: Grant update and insert permissions to the read-write role
 
-In this step, you grant update and insert permissions to the sales_rw role.
+In this step, you grant update and insert permissions to the sales\_rw role.
 
 1. Connect to the database as the dbadmin user.
-2. To grant UPDATE, INSERT, and DELETE permissions to the sales_rw role, use the following example.
+2. To grant UPDATE, INSERT, and DELETE permissions to the sales\_rw role, use the following example.
 
 ```
 `GRANT UPDATE, INSERT, ON ALL TABLES IN SCHEMA sales TO role sales_rw;`
@@ -362,7 +362,7 @@ WHERE eventid = 1;
 +---------+---------+-------+--------+---------------+---------------------+`
 ```
 
-4. To analyze the updated events table in the sales schema, use the following example. This example will result in a permission denied error because the salesengineer user does not have the necessary permissions and isn’t the owner of the events table in the sales schema. To analyze the events table, you must grant the sales_rw role permissions to ANALYZE using the GRANT command. For more information about the ANALYZE command, see [ANALYZE](r_ANALYZE.md "r_ANALYZE.md").
+4. To analyze the updated events table in the sales schema, use the following example. This example will result in a permission denied error because the salesengineer user does not have the necessary permissions and isn’t the owner of the events table in the sales schema. To analyze the events table, you must grant the sales\_rw role permissions to ANALYZE using the GRANT command. For more information about the ANALYZE command, see [ANALYZE](r_ANALYZE.md "r_ANALYZE.md").
 
 ```
 `ANALYZE sales.events;`
@@ -370,7 +370,7 @@ WHERE eventid = 1;
                `ERROR: skipping "events" --- only table or database owner can analyze`
 ```
 
-5. To vacuum the updated events table, use the following example. This example will result in a permission denied error because the salesengineer user does not have the necessary permissions and isn’t the owner of the events table in the sales schema. To vacuum the events table, you must grant the sales_rw role permissions to VACUUM using the GRANT command. For more information about the VACUUM command, see [VACUUM](r_VACUUM_command.md "r_VACUUM_command.md").
+5. To vacuum the updated events table, use the following example. This example will result in a permission denied error because the salesengineer user does not have the necessary permissions and isn’t the owner of the events table in the sales schema. To vacuum the events table, you must grant the sales\_rw role permissions to VACUUM using the GRANT command. For more information about the VACUUM command, see [VACUUM](r_VACUUM_command.md "r_VACUUM_command.md").
 
 ```
 `VACUUM sales.events;`
@@ -412,7 +412,7 @@ VACUUM marketing.events;
 In this step, the salesengineer user attempts to truncate the events table in the sales schema, but only succeeds when granted truncate permissions by the dbadmin user.
 
 1. Connect to the database as the salesengineer user.
-2. To try to delete all of the rows from the events table in the sales schema, use the following example. This example will result in an error because the salesengineer user does not have the necessary permissions and isn’t the owner of the events table in the sales schema. To truncate the events table, you must grant the sales_rw role permissions to TRUNCATE using the GRANT command. For more information about the TRUNCATE command, see [TRUNCATE](r_TRUNCATE.md "r_TRUNCATE.md").
+2. To try to delete all of the rows from the events table in the sales schema, use the following example. This example will result in an error because the salesengineer user does not have the necessary permissions and isn’t the owner of the events table in the sales schema. To truncate the events table, you must grant the sales\_rw role permissions to TRUNCATE using the GRANT command. For more information about the TRUNCATE command, see [TRUNCATE](r_TRUNCATE.md "r_TRUNCATE.md").
 
 ```
 `TRUNCATE sales.events;`
@@ -421,7 +421,7 @@ In this step, the salesengineer user attempts to truncate the events table in th
 ```
 
 3. Connect to the database as the dbadmin user.
-4. To grant truncate table privileges to the sales_rw role, use the following example.
+4. To grant truncate table privileges to the sales\_rw role, use the following example.
 
 ```
 GRANT TRUNCATE TABLE TO role sales_rw;
@@ -496,12 +496,12 @@ GRANT ROLE marketing_rw TO marketingengineer;
 
 ## System functions for RBAC (optional)
 
-Amazon Redshift has two functions to provide system information about user membership and role membership in additional groups or roles: role_is_member_of and user_is_member_of. These functions are available to superusers and regular users. Superusers can check all role memberships. Regular users can only check membership for roles that they have been granted access to.
+Amazon Redshift has two functions to provide system information about user membership and role membership in additional groups or roles: role\_is\_member\_of and user\_is\_member\_of. These functions are available to superusers and regular users. Superusers can check all role memberships. Regular users can only check membership for roles that they have been granted access to.
 
-To use the role_is_member_of function
+To use the role\_is\_member\_of function
 
 1. Connect to the database as the salesengineer user.
-2. To check if the sales_rw role is a member of the sales_ro role, use the following example.
+2. To check if the sales\_rw role is a member of the sales\_ro role, use the following example.
 
 ```
 `SELECT role_is_member_of('sales_rw', 'sales_ro');`
@@ -513,7 +513,7 @@ To use the role_is_member_of function
 +-------------------+`
 ```
 
-3. To check if the sales_ro role is a member of the sales_rw role, use the following example.
+3. To check if the sales\_ro role is a member of the sales\_rw role, use the following example.
 
 ```
 `SELECT role_is_member_of('sales_ro', 'sales_rw');`
@@ -525,7 +525,7 @@ To use the role_is_member_of function
 +-------------------+`
 ```
 
-To use the user_is_member_of function
+To use the user\_is\_member\_of function
 
 1. Connect to the database as the salesengineer user.
 2. The following example attempts to check the user membership for the salesanalyst user. This query results in an error because salesengineer does not have access to salesanalyst. To run this command successfully, connect to the database as the salesanalyst user and use the example.

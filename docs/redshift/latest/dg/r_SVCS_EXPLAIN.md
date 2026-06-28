@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVCS_EXPLAIN
+# SVCS\_EXPLAIN
 
 Displays the EXPLAIN plan for a query that has been submitted for execution.
 
@@ -11,7 +11,7 @@ Displays the EXPLAIN plan for a query that has been submitted for execution.
 System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
 The views are similar to the tables with the prefix STL except that the STL tables provide information only for queries run on the main cluster.
 
-SVCS_EXPLAIN is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS\_EXPLAIN is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
@@ -43,7 +43,7 @@ from sales, listing where sales.listid = listing.listid;
 (6 rows)
 ```
 
-If you run this query and its query ID is 10, you can use the SVCS_EXPLAIN table to
+If you run this query and its query ID is 10, you can use the SVCS\_EXPLAIN table to
 see the same kind of information that the EXPLAIN command returns:
 
 ```

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# NTH_VALUE window function
+# NTH\_VALUE window function
 
-The NTH_VALUE window function returns the expression value of the specified row of
+The NTH\_VALUE window function returns the expression value of the specified row of
 the window frame relative to the first row of the window.
 
 ## Syntax
@@ -47,16 +47,16 @@ OVER
 
 Specifies the window partitioning, ordering, and window frame.
 
-PARTITION BY _window_partition_
+PARTITION BY _window\_partition_
 
 Sets the range of records for each group in the OVER clause.
 
-ORDER BY _window_ordering_
+ORDER BY _window\_ordering_
 
 Sorts the rows within each partition. If ORDER BY is omitted, the default
 frame consists of all rows in the partition.
 
-_frame_clause_
+_frame\_clause_
 
 If an ORDER BY clause is used for an aggregate function, an explicit
 frame clause is required. The frame clause refines the set of rows in a
@@ -64,7 +64,7 @@ function's window, including or excluding sets of rows in the ordered
 result. The frame clause consists of the ROWS keyword and associated
 specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis "c_Window_functions.md#r_Window_function_synopsis").
 
-The NTH_VALUE window function supports expressions that use any of the Amazon Redshift
+The NTH\_VALUE window function supports expressions that use any of the Amazon Redshift
 data types. The return type is the same as the type of the _expr_.
 
 ## Examples

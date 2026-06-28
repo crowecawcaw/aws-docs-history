@@ -11,10 +11,10 @@ Bit-wise aggregate functions compute bit operations to perform aggregation of in
 - [Using NULLs in bit-wise aggregations](#c_bitwise_aggregate_functions-nulls-in-bit-wise-aggregations "#c_bitwise_aggregate_functions-nulls-in-bit-wise-aggregations")
 - [DISTINCT support for bit-wise aggregations](#distinct-support-for-bit-wise-aggregations "#distinct-support-for-bit-wise-aggregations")
 - [Overview examples for bit-wise functions](#r_bitwise_example "#r_bitwise_example")
-- [BIT_AND function](r_BIT_AND.md "r_BIT_AND.md")
-- [BIT_OR function](r_BIT_OR.md "r_BIT_OR.md")
-- [BOOL_AND function](r_BOOL_AND.md "r_BOOL_AND.md")
-- [BOOL_OR function](r_BOOL_OR.md "r_BOOL_OR.md")
+- [BIT\_AND function](r_BIT_AND.md "r_BIT_AND.md")
+- [BIT\_OR function](r_BIT_OR.md "r_BIT_OR.md")
+- [BOOL\_AND function](r_BOOL_AND.md "r_BOOL_AND.md")
+- [BOOL\_OR function](r_BOOL_OR.md "r_BOOL_OR.md")
 
 ## Using NULLs in bit-wise aggregations
 

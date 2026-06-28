@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_DistanceSphere
+# ST\_DistanceSphere
 
-ST_DistanceSphere returns the distance between two point geometries lying on a
+ST\_DistanceSphere returns the distance between two point geometries lying on a
 sphere.
 
 ## Syntax

@@ -17,7 +17,7 @@ HLL (*aggregate\_expression*)
 
 ## Argument
 
-_aggregate_expression_
+_aggregate\_expression_
 
 Any valid expression that provides the value to an aggregate, such as a
 column name. This function supports any data type as input except HLLSKETCH,

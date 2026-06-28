@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# TRY_CAST function
+# TRY\_CAST function
 
-Compared to the CAST function, TRY_CAST
+Compared to the CAST function, TRY\_CAST
 first attempts to cast the expression to the specified type.
 If casting fails because of conversion errors, the operation
 returns null. If a conversion isn’t explicitly permitted,
@@ -36,7 +36,7 @@ see the usage notes below.
 
 ## Return type
 
-TRY_CAST returns a value of the data type specified by the
+TRY\_CAST returns a value of the data type specified by the
 _type_ argument. If the conversion fails,
 the operation returns null.
 
@@ -44,7 +44,7 @@ the operation returns null.
 
 Following is the list of source data type
 and target data type pairs that Amazon Redshift supports for
-TRY_CAST.
+TRY\_CAST.
 
 _BOOL_
 
@@ -123,7 +123,7 @@ SELECT TRY_CAST('123' AS INT);
 ```
 
 The following example returns null.
-Converting a STRING to an INTEGER is permitted so TRY_CAST doesn't
+Converting a STRING to an INTEGER is permitted so TRY\_CAST doesn't
 return an error, but 'foo' isn't an integer so the function
 returns null.
 
@@ -138,9 +138,9 @@ a BOOLEAN to a TIMESTAMP isn't permitted.
 SELECT TRY_CAST(true as timestamp);
 ```
 
-Because TRY_CAST returns null instead of immediately
+Because TRY\_CAST returns null instead of immediately
 returning an error if conversion fails, you can use
-TRY_CAST to filter out invalid data. Consider the following
+TRY\_CAST to filter out invalid data. Consider the following
 example, where an invalid row is filtered out because of a
 conversion failure in the age column for Akua Mansa.
 

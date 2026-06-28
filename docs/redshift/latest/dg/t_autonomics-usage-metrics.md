@@ -12,10 +12,10 @@ serverless workgroups, see the resource management section in
 
 The following system tables hold usage metrics about autonomics:
 
-- [SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION](SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION.md "SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION.md") ‐
-  Use SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION to see the amount of time that Amazon Redshift
+- [SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION](SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION.md "SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION.md") ‐
+  Use SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION to see the amount of time that Amazon Redshift
   runs provisioned cluster autonomics operations in a given usage period.
-- [SYS_AUTOMATIC_OPTIMIZATION](SYS_AUTOMATIC_OPTIMIZATION.md "SYS_AUTOMATIC_OPTIMIZATION.md") ‐
-  Use SYS_AUTOMATIC_OPTIMIZATION to see detailed information on autonomics operations for both provisioned clusters and serverless workgroups.
-- [SYS_SERVERLESS_USAGE](SYS_SERVERLESS_USAGE.md "SYS_SERVERLESS_USAGE.md") ‐
-  Use SYS_SERVERLESS_USAGE to see the amount of time that Amazon Redshift runs serverless workgroup autonomics operations in a given usage period.
+- [SYS\_AUTOMATIC\_OPTIMIZATION](SYS_AUTOMATIC_OPTIMIZATION.md "SYS_AUTOMATIC_OPTIMIZATION.md") ‐
+  Use SYS\_AUTOMATIC\_OPTIMIZATION to see detailed information on autonomics operations for both provisioned clusters and serverless workgroups.
+- [SYS\_SERVERLESS\_USAGE](SYS_SERVERLESS_USAGE.md "SYS_SERVERLESS_USAGE.md") ‐
+  Use SYS\_SERVERLESS\_USAGE to see the amount of time that Amazon Redshift runs serverless workgroup autonomics operations in a given usage period.

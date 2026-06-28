@@ -2,28 +2,28 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_SESSION_HISTORY
+# SYS\_SESSION\_HISTORY
 
-Use the SYS_SESSION_HISTORY to view information about the current active sessions and
+Use the SYS\_SESSION\_HISTORY to view information about the current active sessions and
 session history.
 
-SYS_SESSION_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_SESSION\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name     | Data type | Description                                                                                                                      |
-| --------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| user_id         | char(50)  | The identifier of the user who generated the<br>entry.                                                                           |
-| session_id      | integer   | The ID of the session associated with the<br>statement.                                                                          |
-| database_name   | char(50)  | The name of the database.                                                                                                        |
-| status          | char      | The status of the session. Possible values are<br>`active`, `timed out`, and<br>`closed`.                                        |
-| session_timeout | integer   | The maximum time in seconds that a session remains<br>inactive or idle before timing out. 0 indicates that no timeout is<br>set. |
-| start_time      | timestamp | The timestamp that the connection was<br>established.                                                                            |
-| end_time        | timestamp | The timestamp that the connected stopped.                                                                                        |
+| Column name      | Data type | Description                                                                                                                      |
+| ---------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| user\_id         | char(50)  | The identifier of the user who generated the<br>entry.                                                                           |
+| session\_id      | integer   | The ID of the session associated with the<br>statement.                                                                          |
+| database\_name   | char(50)  | The name of the database.                                                                                                        |
+| status           | char      | The status of the session. Possible values are<br>`active`, `timed out`, and<br>`closed`.                                        |
+| session\_timeout | integer   | The maximum time in seconds that a session remains<br>inactive or idle before timing out. 0 indicates that no timeout is<br>set. |
+| start\_time      | timestamp | The timestamp that the connection was<br>established.                                                                            |
+| end\_time        | timestamp | The timestamp that the connected stopped.                                                                                        |
 
 ### Example
 
-The following is a sample output of SYS_SESSION_HISTORY.
+The following is a sample output of SYS\_SESSION\_HISTORY.
 
 ```
 select * from sys_session_history;

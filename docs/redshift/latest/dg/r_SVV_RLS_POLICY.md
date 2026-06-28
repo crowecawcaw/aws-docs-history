@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_RLS_POLICY
+# SVV\_RLS\_POLICY
 
-Use SVV_RLS_POLICY to view a list of all row-level security policies created on the Amazon Redshift cluster.
+Use SVV\_RLS\_POLICY to view a list of all row-level security policies created on the Amazon Redshift cluster.
 
-SVV_RLS_POLICY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_RLS\_POLICY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 For more information about best practices when querying system tables and views, see
 [Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
@@ -32,7 +32,7 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Sample query
 
-The following example displays the result of the SVV_RLS_POLICY.
+The following example displays the result of the SVV\_RLS\_POLICY.
 
 ```
 -- Create some policies.

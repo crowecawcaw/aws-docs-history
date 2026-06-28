@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVCS_PLAN_INFO
+# SVCS\_PLAN\_INFO
 
-Use the SVCS_PLAN_INFO table to look at the EXPLAIN output for a query in terms of a
+Use the SVCS\_PLAN\_INFO table to look at the EXPLAIN output for a query in terms of a
 set of rows. This is an alternative way to look at query plans.
 
 ###### Note
@@ -12,28 +12,28 @@ set of rows. This is an alternative way to look at query plans.
 System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
 The views are similar to the tables with the prefix STL except that the STL tables provide information only for queries run on the main cluster.
 
-SVCS_PLAN_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS\_PLAN\_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name | Data type        | Description                                                                                                                                                                                             |
-| ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid      | integer          | ID of the user who generated the entry.                                                                                                                                                                 |
-| query       | integer          | Query ID. The query column can be used to join other system tables and views.                                                                                                                           |
-| nodeid      | integer          | Plan node identifier, where a node maps to one or<br>more steps in the execution of the query.                                                                                                          |
-| segment     | integer          | Number that identifies the query segment.                                                                                                                                                               |
-| step        | integer          | Number that identifies the query step.                                                                                                                                                                  |
-| locus       | integer          | Location where the step runs. 0 if on a<br>compute node and 1 if on the leader node.                                                                                                                    |
-| plannode    | integer          | Enumerated value of the plan node. See the<br>following table for enums for plannode. (The PLANNODE column in<br>[SVCS_EXPLAIN](r_SVCS_EXPLAIN.md "r_SVCS_EXPLAIN.md")<br>contains the plan node text.) |
-| startupcost | double precision | The estimated relative cost of returning the first<br>row for this step.                                                                                                                                |
-| totalcost   | double precision | The estimated relative cost of executing the<br>step.                                                                                                                                                   |
-| rows        | bigint           | The estimated number of rows that will be produced<br>by the step.                                                                                                                                      |
-| bytes       | bigint           | The estimated number of bytes that will be<br>produced by the step.                                                                                                                                     |
+| Column name | Data type        | Description                                                                                                                                                                                              |
+| ----------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid      | integer          | ID of the user who generated the entry.                                                                                                                                                                  |
+| query       | integer          | Query ID. The query column can be used to join other system tables and views.                                                                                                                            |
+| nodeid      | integer          | Plan node identifier, where a node maps to one or<br>more steps in the execution of the query.                                                                                                           |
+| segment     | integer          | Number that identifies the query segment.                                                                                                                                                                |
+| step        | integer          | Number that identifies the query step.                                                                                                                                                                   |
+| locus       | integer          | Location where the step runs. 0 if on a<br>compute node and 1 if on the leader node.                                                                                                                     |
+| plannode    | integer          | Enumerated value of the plan node. See the<br>following table for enums for plannode. (The PLANNODE column in<br>[SVCS\_EXPLAIN](r_SVCS_EXPLAIN.md "r_SVCS_EXPLAIN.md")<br>contains the plan node text.) |
+| startupcost | double precision | The estimated relative cost of returning the first<br>row for this step.                                                                                                                                 |
+| totalcost   | double precision | The estimated relative cost of executing the<br>step.                                                                                                                                                    |
+| rows        | bigint           | The estimated number of rows that will be produced<br>by the step.                                                                                                                                       |
+| bytes       | bigint           | The estimated number of bytes that will be<br>produced by the step.                                                                                                                                      |
 
 ## Sample queries
 
 The following examples compare the query plans for a simple SELECT query returned
-by using the EXPLAIN command and by querying the SVCS_PLAN_INFO table.
+by using the EXPLAIN command and by querying the SVCS\_PLAN\_INFO table.
 
 ```
 explain select * from category;

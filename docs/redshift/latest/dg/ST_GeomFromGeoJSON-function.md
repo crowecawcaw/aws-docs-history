@@ -2,15 +2,15 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_GeomFromGeoJSON
+# ST\_GeomFromGeoJSON
 
-ST_GeomFromGeoJSON constructs a geometry object from the GeoJSON representation of an input geometry.
+ST\_GeomFromGeoJSON constructs a geometry object from the GeoJSON representation of an input geometry.
 For more information about the GeoJSON format, see [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON "https://en.wikipedia.org/wiki/GeoJSON") in Wikipedia.
 
 If there is at least one point with three or more coordinates, the resulting geometry is 3DZ,
 where the Z component is zero for the points that have only two coordinates.
 If all points in the input GeoJSON contain two coordinates or are empty,
-ST_GeomFromGeoJSON returns a 2D geometry.
+ST\_GeomFromGeoJSON returns a 2D geometry.
 The returned geometry always has the spatial reference identifier (SRID) of 4326.
 
 ## Syntax
@@ -21,7 +21,7 @@ ST_GeomFromGeoJSON(*geojson\_string*)
 
 ## Arguments
 
-_geojson_string_
+_geojson\_string_
 
 A value of data type `VARCHAR` or `SUPER`, or an expression that evaluates to a `VARCHAR` type,
 that is a GeoJSON representation of a geometry.
@@ -30,9 +30,9 @@ that is a GeoJSON representation of a geometry.
 
 `GEOMETRY`
 
-If _geojson_string_ is null, then null is returned.
+If _geojson\_string_ is null, then null is returned.
 
-If _geojson_string_ is not valid, then an error is returned.
+If _geojson\_string_ is not valid, then an error is returned.
 
 ## Examples
 

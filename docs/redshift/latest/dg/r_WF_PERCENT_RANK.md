@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PERCENT_RANK window function
+# PERCENT\_RANK window function
 
 Calculates the percent rank of a given row. The percent rank is determined using this
 formula:
@@ -25,7 +25,7 @@ Row#	Value	Rank	Calculation	PERCENT_RANK
 ```
 
 The return value range is 0 to 1, inclusive. The first row in any set has a
-PERCENT_RANK of 0.
+PERCENT\_RANK of 0.
 
 ## Syntax
 
@@ -48,12 +48,12 @@ OVER
 A clause that specifies the window partitioning. The OVER clause cannot
 contain a window frame specification.
 
-PARTITION BY _partition_expression_
+PARTITION BY _partition\_expression_
 
 Optional. An expression that sets the range of records for each group in
 the OVER clause.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Optional. The expression on which to calculate percent rank. The
 expression must have either a numeric data type or be implicitly convertible

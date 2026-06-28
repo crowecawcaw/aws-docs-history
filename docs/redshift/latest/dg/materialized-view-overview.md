@@ -40,7 +40,7 @@ or GROUP BY options. For example, take a materialized view that joins customer i
 rows). This is an expensive query to compute on demand repeatedly. You can use different
 GROUP BY options for the materialized views created on top of this materialized view and
 join with other tables. Doing this saves compute time otherwise used to run the expensive
-underlying join every time. The [STV_MV_DEPS](r_STV_MV_DEPS.md "r_STV_MV_DEPS.md") table shows the dependencies of a materialized view on other materialized views.
+underlying join every time. The [STV\_MV\_DEPS](r_STV_MV_DEPS.md "r_STV_MV_DEPS.md") table shows the dependencies of a materialized view on other materialized views.
 
 When you create a materialized view, Amazon Redshift runs the user-specified SQL statement to
 gather the data from the base table or tables and stores the result set. The following
@@ -90,10 +90,10 @@ command topics:
 - [DROP MATERIALIZED VIEW](materialized-view-drop-sql-command.md "materialized-view-drop-sql-command.md")
   For information about system tables and views to monitor materialized views, see the following topics:
 
-- [STV_MV_INFO](r_STV_MV_INFO.md "r_STV_MV_INFO.md")
-- [STL_MV_STATE](r_STL_MV_STATE.md "r_STL_MV_STATE.md")
-- [SVL_MV_REFRESH_STATUS](r_SVL_MV_REFRESH_STATUS.md "r_SVL_MV_REFRESH_STATUS.md")
-- [STV_MV_DEPS](r_STV_MV_DEPS.md "r_STV_MV_DEPS.md")
+- [STV\_MV\_INFO](r_STV_MV_INFO.md "r_STV_MV_INFO.md")
+- [STL\_MV\_STATE](r_STL_MV_STATE.md "r_STL_MV_STATE.md")
+- [SVL\_MV\_REFRESH\_STATUS](r_SVL_MV_REFRESH_STATUS.md "r_SVL_MV_REFRESH_STATUS.md")
+- [STV\_MV\_DEPS](r_STV_MV_DEPS.md "r_STV_MV_DEPS.md")
 
 ###### Topics
 

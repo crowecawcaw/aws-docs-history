@@ -2,21 +2,21 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVL_COMPILE
+# SVL\_COMPILE
 
 Records compile time and location for each query segment of queries.
 
-SVL_COMPILE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL\_COMPILE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 
-SVL_COMPILE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
+SVL\_COMPILE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
 or on serverless namespaces.
 To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md")
+[SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md")
 . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
-For information about SVCS_COMPILE, see [SVCS_COMPILE](r_SVCS_COMPILE.md "r_SVCS_COMPILE.md").
+For information about SVCS\_COMPILE, see [SVCS\_COMPILE](r_SVCS_COMPILE.md "r_SVCS_COMPILE.md").
 
 ## Table columns
 

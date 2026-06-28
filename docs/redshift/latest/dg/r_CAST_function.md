@@ -149,7 +149,7 @@ from date order by dateid limit 10;`
 ```
 
 In a case like the previous sample, you can gain additional control over output
-formatting by using [TO_CHAR](r_TO_CHAR.md "r_TO_CHAR.md").
+formatting by using [TO\_CHAR](r_TO_CHAR.md "r_TO_CHAR.md").
 
 In this example, an integer is cast as a character string:
 

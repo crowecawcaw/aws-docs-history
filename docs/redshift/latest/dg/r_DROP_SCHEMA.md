@@ -70,7 +70,7 @@ contains any objects. This action is the default.
 
 ## Example
 
-The following example deletes a schema named S_SALES. This example uses RESTRICT as a
+The following example deletes a schema named S\_SALES. This example uses RESTRICT as a
 safety mechanism so that the schema isn't deleted if it contains any objects. In
 this case, you need to delete the schema objects before deleting the schema.
 
@@ -78,21 +78,21 @@ this case, you need to delete the schema objects before deleting the schema.
 drop schema s_sales restrict;
 ```
 
-The following example deletes a schema named S_SALES and all objects that depend on
+The following example deletes a schema named S\_SALES and all objects that depend on
 that schema.
 
 ```
 drop schema s_sales cascade;
 ```
 
-The following example either drops the S_SALES schema if it exists, or does nothing
+The following example either drops the S\_SALES schema if it exists, or does nothing
 and returns a message if it doesn't.
 
 ```
 drop schema if exists s_sales;
 ```
 
-The following example deletes an external schema named S_SPECTRUM and the external
+The following example deletes an external schema named S\_SPECTRUM and the external
 database associated with it. This example uses RESTRICT so that the schema and database
 aren't deleted if they contain any objects. In this case, you need to delete the
 dependent objects before deleting the schema and the database.

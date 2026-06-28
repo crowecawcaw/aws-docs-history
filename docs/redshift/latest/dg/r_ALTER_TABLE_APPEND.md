@@ -61,21 +61,21 @@ view is configured for [Streaming ingestion to a materialized view](materialized
 
 ## Parameters
 
-_target_table_name_
+_target\_table\_name_
 
 The name of the table to which rows are appended. Either specify just the
-name of the table or use the format _schema_name.table_name_
+name of the table or use the format _schema\_name.table\_name_
 to use a specific schema. The target table must be an existing permanent
 table.
 
-FROM _source_table_name_
+FROM _source\_table\_name_
 
 The name of the table that provides the rows to be appended. Either specify
 just the name of the table or use the format
-_schema_name.table_name_ to use a specific schema. The
+_schema\_name.table\_name_ to use a specific schema. The
 source table must be an existing permanent table.
 
-FROM _source_materialized_view_name_
+FROM _source\_materialized\_view\_name_
 
 The name of a materialized view that provides the rows to be appended.
 Appending from a materialized view works only in the case where your
@@ -134,15 +134,14 @@ You can't use IGNOREEXTRA with FILLTARGET.
 - ALTER TABLE APPEND operations hold exclusive locks when run on Amazon Redshift streaming materialized views
   connected to any of the following:
 
-      + An Amazon Kinesis data stream
-      + An Amazon Managed Streaming for Apache Kafka topic
-      + A supported external stream, such as a Confluent Cloud Kafka topic
-
-  For more information, see [Streaming ingestion to a materialized view](materialized-view-streaming-ingestion.md "materialized-view-streaming-ingestion.md").
+  - An Amazon Kinesis data stream
+  - An Amazon Managed Streaming for Apache Kafka topic
+  - A supported external stream, such as a Confluent Cloud Kafka topic
+    For more information, see [Streaming ingestion to a materialized view](materialized-view-streaming-ingestion.md "materialized-view-streaming-ingestion.md").
 
 ## ALTER TABLE APPEND examples
 
-Suppose your organization maintains a table, SALES_MONTHLY, to capture current sales
+Suppose your organization maintains a table, SALES\_MONTHLY, to capture current sales
 transactions. You want to move data from the transaction table to the SALES table, every
 month.
 
@@ -156,7 +155,7 @@ truncate sales_monthly;
 However, you can perform the same operation much more efficiently by using an ALTER
 TABLE APPEND command.
 
-First, query the [PG_TABLE_DEF](r_PG_TABLE_DEF.md "r_PG_TABLE_DEF.md")
+First, query the [PG\_TABLE\_DEF](r_PG_TABLE_DEF.md "r_PG_TABLE_DEF.md")
 system catalog table to verify that both tables have the same columns with identical
 column attributes.
 
@@ -211,7 +210,7 @@ Now run the following ALTER TABLE APPEND command.
 alter table sales append from sales_monthly;
 ```
 
-Look at the size of each table again. The SALES_MONTHLY table now has 0 rows, and the
+Look at the size of each table again. The SALES\_MONTHLY table now has 0 rows, and the
 SALES table has grown by 2000 rows.
 
 ```
@@ -230,7 +229,7 @@ select count(*) from sales;
 
 If the source table has more columns than the target table, specify the IGNOREEXTRA
 parameter. The following example uses the IGNOREEXTRA parameter to ignore extra columns
-in the SALES_LISTING table when appending to the SALES table.
+in the SALES\_LISTING table when appending to the SALES table.
 
 ```
 alter table sales append from sales_listing ignoreextra;
@@ -238,7 +237,7 @@ alter table sales append from sales_listing ignoreextra;
 
 If the target table has more columns than the source table, specify the FILLTARGET
 parameter. The following example uses the FILLTARGET parameter to populate columns in
-the SALES_REPORT table that don't exist in the SALES_MONTH table.
+the SALES\_REPORT table that don't exist in the SALES\_MONTH table.
 
 ```
 alter table sales_report append from sales_month filltarget;

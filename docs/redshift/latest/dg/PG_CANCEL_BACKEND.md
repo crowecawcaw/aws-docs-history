@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# PG_CANCEL_BACKEND
+# PG\_CANCEL\_BACKEND
 
-Cancels a query. PG_CANCEL_BACKEND is functionally equivalent to the [CANCEL](r_CANCEL.md "r_CANCEL.md") command. You can cancel queries
+Cancels a query. PG\_CANCEL\_BACKEND is functionally equivalent to the [CANCEL](r_CANCEL.md "r_CANCEL.md") command. You can cancel queries
 currently being run by your user. Superusers can cancel any query.
 
 ## Syntax
@@ -28,12 +28,12 @@ None
 ## Usage notes
 
 If queries in multiple sessions hold locks on the same table, you can use the
-[PG_TERMINATE_BACKEND](PG_TERMINATE_BACKEND.md "PG_TERMINATE_BACKEND.md")
+[PG\_TERMINATE\_BACKEND](PG_TERMINATE_BACKEND.md "PG_TERMINATE_BACKEND.md")
 function to terminate one of the sessions, which forces any currently running
 transactions in the terminated session to release all locks and roll back the
 transaction. Query the PG\_\_LOCKS catalog table to view currently held locks. If you
 cannot cancel a query because it is in transaction block (BEGIN … END), you can
-terminate the session in which the query is running by using the PG_TERMINATE_BACKEND
+terminate the session in which the query is running by using the PG\_TERMINATE\_BACKEND
 function.
 
 ## Examples

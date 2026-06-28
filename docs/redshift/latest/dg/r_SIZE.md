@@ -14,7 +14,7 @@ SIZE(*super\_expression*)
 
 ## Arguments
 
-_super_expression_
+_super\_expression_
 
 A `SUPER` type constant or expression.
 

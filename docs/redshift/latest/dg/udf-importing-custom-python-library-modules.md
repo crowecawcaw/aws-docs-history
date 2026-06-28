@@ -16,7 +16,7 @@ drop the existing library before installing the new library.
 
 You must be a superuser or have `USAGE ON LANGUAGE plpythonu` privilege to
 install custom libraries; however, any user with sufficient privileges to create
-functions can use the installed libraries. You can query the [PG_LIBRARY](r_PG_LIBRARY.md "r_PG_LIBRARY.md") system catalog to view
+functions can use the installed libraries. You can query the [PG\_LIBRARY](r_PG_LIBRARY.md "r_PG_LIBRARY.md") system catalog to view
 information about the libraries installed on your cluster.
 
 ## Importing a custom Python module into your cluster

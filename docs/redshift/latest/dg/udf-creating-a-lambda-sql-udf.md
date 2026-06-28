@@ -78,7 +78,7 @@ grant usage on language exfunc to PUBLIC;
 ```
 
 The following example revokes usage on exfunc from PUBLIC and then grants usage to
-the user group lambda_udf_devs.
+the user group lambda\_udf\_devs.
 
 ```
 revoke usage on language exfunc from PUBLIC;
@@ -90,8 +90,8 @@ default, permission to run new Lambda UDFs is granted to PUBLIC. To restrict usa
 revoke this permission from PUBLIC for the function. Then, grant the privilege to
 specific users or groups.
 
-The following example revokes execution on the function exfunc_sum from PUBLIC.
-Then, it grants usage to the user group lambda_udf_devs.
+The following example revokes execution on the function exfunc\_sum from PUBLIC.
+Then, it grants usage to the user group lambda\_udf\_devs.
 
 ```
 revoke execute on function exfunc_sum(int, int) from PUBLIC;
@@ -110,7 +110,7 @@ see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/U
 
 If there is an existing IAM role with permissions to invoke Lambda functions
 attached to your cluster, then you can substitute your role Amazon Resource Name (ARN)
-in the IAM_ROLE parameter for the command. Following sections describe the steps for
+in the IAM\_ROLE parameter for the command. Following sections describe the steps for
 using an IAM role in the CREATE EXTERNAL FUNCTION command.
 
 ### Creating an IAM role for Lambda
@@ -196,16 +196,16 @@ to.
 The following table shows the list of input fields that the designated Lambda
 functions that you can expect for the JSON payload.
 
-| Field name        | Description                                                                             | Value range                                                                                                                                                                                                                 |
-| ----------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| request_id        | A universally unique identifier (UUID) that uniquely identifies each invoke<br>request. | A valid UUID.                                                                                                                                                                                                               |
-| cluster           | The full Amazon Resource Name (ARN) of the<br>cluster.                                  | A valid cluster ARN.                                                                                                                                                                                                        |
-| user              | The name of the user that makes the call.                                               | A valid user name.                                                                                                                                                                                                          |
-| database          | The name of the database that the query is running on.                                  | A valid database name.                                                                                                                                                                                                      |
-| external_function | The fully qualified name of the external function that makes the call.                  | A valid fully qualified function name.                                                                                                                                                                                      |
-| query_id          | The query ID of the query that is making the call.                                      | A valid query ID.                                                                                                                                                                                                           |
-| num_records       | The number of arguments in the payload.                                                 | A value of 1<br>• 2^64.                                                                                                                                                                                                     |
-| arguments         | The data payload in the specified format.                                               | The data in array format must be a JSON array. Each element is a record that is an array if the number of arguments is larger than 1. By using an array, Amazon Redshift preserves the order of the records in the payload. |
+| Field name         | Description                                                                             | Value range                                                                                                                                                                                                                 |
+| ------------------ | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| request\_id        | A universally unique identifier (UUID) that uniquely identifies each invoke<br>request. | A valid UUID.                                                                                                                                                                                                               |
+| cluster            | The full Amazon Resource Name (ARN) of the<br>cluster.                                  | A valid cluster ARN.                                                                                                                                                                                                        |
+| user               | The name of the user that makes the call.                                               | A valid user name.                                                                                                                                                                                                          |
+| database           | The name of the database that the query is running on.                                  | A valid database name.                                                                                                                                                                                                      |
+| external\_function | The fully qualified name of the external function that makes the call.                  | A valid fully qualified function name.                                                                                                                                                                                      |
+| query\_id          | The query ID of the query that is making the call.                                      | A valid query ID.                                                                                                                                                                                                           |
+| num\_records       | The number of arguments in the payload.                                                 | A value of 1<br>• 2^64.                                                                                                                                                                                                     |
+| arguments          | The data payload in the specified format.                                               | The data in array format must be a JSON array. Each element is a record that is an array if the number of arguments is larger than 1. By using an array, Amazon Redshift preserves the order of the records in the payload. |
 
 The order of the JSON array determines the order of batch processing. The Lambda
 function must process the arguments iteratively and produce the exact number of
@@ -231,12 +231,12 @@ records. The following is an example of a payload.
 
 The return output of the Lambda function contains the following fields.
 
-| Field name  | Description                                                                                                          | Value range                       |
-| ----------- | -------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| success     | The indication of success or failure for the<br>function.                                                            | A value of `"true"` or `"false"`. |
-| error_msg   | The error message if the success value is<br>`"false"` (if the function fails); otherwise, this field is<br>ignored. | A valid message.                  |
-| num_records | The number of records in the payload.                                                                                | A value of 1<br>• 2^64.           |
-| results     | The results of the call in the specified format.                                                                     | N/A                               |
+| Field name   | Description                                                                                                          | Value range                       |
+| ------------ | -------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| success      | The indication of success or failure for the<br>function.                                                            | A value of `"true"` or `"false"`. |
+| error\_msg   | The error message if the success value is<br>`"false"` (if the function fails); otherwise, this field is<br>ignored. | A valid message.                  |
+| num\_records | The number of records in the payload.                                                                                | A value of 1<br>• 2^64.           |
+| results      | The results of the call in the specified format.                                                                     | N/A                               |
 
 The following is an example of the Lambda function output.
 

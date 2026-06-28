@@ -19,11 +19,11 @@ DROP MASKING POLICY { policy_name | database_name.policy_name };
 
 ## Parameters
 
-_policy_name_
+_policy\_name_
 
 The name of the masking policy to drop.
 
-database_name
+database\_name
 
 The name of the database from where the policy to be dropped. The database can be the connected database or a database that supports Amazon Redshift federated permissions.
 

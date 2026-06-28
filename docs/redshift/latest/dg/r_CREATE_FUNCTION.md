@@ -54,7 +54,7 @@ If you define a function with the same name as an existing function but a
 different signature, you create a new function. In other words, the function
 name is overloaded. For more information, see [Overloading function names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
 
-_f_function_name_
+_f\_function\_name_
 
 The name of the function. If you specify a schema name (such as
 `myschema.myfunction`), the function is created using the
@@ -71,12 +71,12 @@ You can define more than one function with the same function name if the
 data types for the input arguments are different. In other words, the function
 name is overloaded. For more information, see [Overloading function names](udf-naming-udfs.md#udf-naming-overloading-function-names "udf-naming-udfs.md#udf-naming-overloading-function-names").
 
-_py_arg_name py_arg_data_type | sql_arg_data_type_
+_py\_arg\_name py\_arg\_data\_type | sql\_arg\_data\_type_
 
 For a Python UDF, a list of input argument names and data types. For a SQL
 UDF, a list of data types, without argument names. In a Python UDF, refer to
 arguments using the argument names. In a SQL UDF, refer to arguments using $1,
-$2, and so on, based on the order of the arguments in the argument list.
+ $2, and so on, based on the order of the arguments in the argument list.
 
 For a SQL UDF, the input and return data types can be any standard Amazon
 Redshift data type. For a Python UDF, the input and return data types can be
@@ -90,7 +90,7 @@ list. For more information, see [Python UDF data types](udf-data-types.md "udf-d
 
 You can specify a maximum of 32 arguments.
 
-RETURNS _data_type_
+RETURNS _data\_type_
 
 The data type of the value returned by the function. The RETURNS data type
 can be any standard Amazon Redshift data type. In addition, Python UDFs can use a data
@@ -136,7 +136,7 @@ Given the same arguments, the function always returns the same result,
 forever. When a query calls an `IMMUTABLE` function with constant
 arguments, the optimizer pre-evaluates the function.
 
-AS $$ _statement_ $$
+AS $$ *statement* $$
 
 A construct that encloses the statement to be run. The literal keywords
 `AS $$` and `$$` are required.
@@ -168,14 +168,14 @@ $test$ `my statement` $test$
 For more information about dollar quoting, see "Dollar-quoted String
 Constants" under [Lexical Structure](https://www.postgresql.org/docs/9.4/static/sql-syntax-lexical.html "https://www.postgresql.org/docs/9.4/static/sql-syntax-lexical.html") in the PostgreSQL documentation.
 
-_python_program_
+_python\_program_
 
 A valid executable Python program that returns a value. The statement that
 you pass in with the function must conform to indentation requirements as
 specified in the [Style Guide for
 Python Code](https://www.python.org/dev/peps/pep-0008/#indentation "https://www.python.org/dev/peps/pep-0008/#indentation") on the Python website. For more information, see [Python language support for UDFs](udf-python-language-support.md "udf-python-language-support.md").
 
-_SQL_clause_
+_SQL\_clause_
 
 A SQL SELECT clause.
 

@@ -77,7 +77,7 @@ Follow this general process to load data from Amazon S3, when your data is uncom
 2. Run a COPY command to load the table.
 3. Verify that the data was loaded correctly.
 
-For examples of COPY commands, see [COPY examples](r_COPY_command_examples.md "r_COPY_command_examples.md"). For information about data loaded into Amazon Redshift, check the [STL_LOAD_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md") and [STL_LOAD_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md") system tables.
+For examples of COPY commands, see [COPY examples](r_COPY_command_examples.md "r_COPY_command_examples.md"). For information about data loaded into Amazon Redshift, check the [STL\_LOAD\_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md") and [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md") system tables.
 
 For more information about nodes and the slices contained in each, see [About
 clusters and nodes](../mgmt/working-with-clusters.md#rs-about-clusters-and-nodes "../mgmt/working-with-clusters.md#rs-about-clusters-and-nodes") in the _Amazon Redshift Management Guide_.

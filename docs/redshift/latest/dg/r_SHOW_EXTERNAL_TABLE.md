@@ -18,16 +18,16 @@ SHOW EXTERNAL TABLE [*external\_database*].*external\_schema*.*table\_name* [ PA
 
 ## Parameters
 
-_external_database_
+_external\_database_
 
 The name of the associated external database. This parameter is
 optional.
 
-_external_schema_
+_external\_schema_
 
 The name of the associated external schema.
 
-_table_name_
+_table\_name_
 
 The name of the table to show.
 

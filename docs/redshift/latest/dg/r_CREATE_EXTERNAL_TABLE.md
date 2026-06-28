@@ -14,7 +14,7 @@ metastore. Use the [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREAT
 defined in the external catalog and make the external tables available for use in Amazon Redshift. If
 the external table exists in an AWS Glue or AWS Lake Formation catalog or Hive metastore, you don't
 need to create the table using CREATE EXTERNAL TABLE. To view external tables, query the
-[SVV_EXTERNAL_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") system
+[SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") system
 view.
 
 By running the CREATE EXTERNAL TABLE AS command, you can create an external table based
@@ -77,7 +77,7 @@ LOCATION { 's3://*bucket/folder*/' }
 
 ## Parameters
 
-_external_schema.table_name_
+_external\_schema.table\_name_
 
 The name of the table to be created, qualified by an external schema name.
 External tables must be created in an external schema. For more information,
@@ -108,8 +108,8 @@ The table name must be a unique name for the specified schema.
 
 For more information about valid names, see [Names and identifiers](r_names.md "r_names.md").
 
-( _column_name_
-_data_type_ )
+( _column\_name_
+_data\_type_ )
 
 The name and data type of each column being created.
 
@@ -135,7 +135,7 @@ and query processing. For more information, see [Usage notes](r_CREATE_TABLE_NEW
 For a CREATE EXTERNAL TABLE AS command, a column list is not required,
 because columns are derived from the query.
 
-_data_type_
+_data\_type_
 
 The following [Data types](c_Supported_data_types.md "c_Supported_data_types.md") are supported:
 
@@ -197,7 +197,7 @@ see [Storage and ranges](r_Character_types.md#r_Character_types-storage-and-rang
 
 For best performance, we recommend specifying the smallest column size that
 fits your data. To find the maximum size in bytes for values in a column, use
-the [OCTET_LENGTH](r_OCTET_LENGTH.md "r_OCTET_LENGTH.md") function. The following
+the [OCTET\_LENGTH](r_OCTET_LENGTH.md "r_OCTET_LENGTH.md") function. The following
 example returns the maximum size of values in the email column.
 
 ```
@@ -208,14 +208,14 @@ max
  62
 ```
 
-PARTITIONED BY (_col_name_
-_data_type_ [, … ] )
+PARTITIONED BY (_col\_name_
+_data\_type_ [, … ] )
 
 A clause that defines a partitioned table with one or more partition
 columns. A separate data directory is used for each specified combination,
 which can improve query performance in some circumstances. Partitioned columns
 don't exist within the table data itself. If you use a value for
-_col_name_ that is the same as a table column, you get an
+_col\_name_ that is the same as a table column, you get an
 error.
 
 After creating a partitioned table, alter the table using an [ALTER TABLE](r_ALTER_TABLE.md "r_ALTER_TABLE.md") … ADD PARTITION
@@ -238,7 +238,7 @@ external catalog. Amazon Redshift also automatically writes corresponding data t
 partitions in Amazon S3 based on the partition key or keys defined in the
 table.
 
-To view partitions, query the [SVV_EXTERNAL_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md "r_SVV_EXTERNAL_PARTITIONS.md") system view.
+To view partitions, query the [SVV\_EXTERNAL\_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md "r_SVV_EXTERNAL_PARTITIONS.md") system view.
 
 ###### Note
 
@@ -267,13 +267,13 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY '\007'
 If ROW FORMAT is omitted, the default format is DELIMITED FIELDS TERMINATED
 BY '\A' (start of heading) and LINES TERMINATED BY '\n' (newline).
 
-ROW FORMAT SERDE '_serde_name_'
-[WITH SERDEPROPERTIES ( '_property_name_' =
-'_property_value_' [, ...] ) ]
+ROW FORMAT SERDE '_serde\_name_'
+[WITH SERDEPROPERTIES ( '_property\_name_' =
+'_property\_value_' [, ...] ) ]
 
 A clause that specifies the SERDE format for the underlying data.
 
-'_serde_name_'
+'_serde\_name_'
 
 The name of the SerDe. You can specify the following
 formats:
@@ -319,8 +319,8 @@ the corresponding element in the ION format data. For more
 information, see [Amazon Ion](https://amzn.github.io/ion-docs/ "https://amzn.github.io/ion-docs/"). You also need to specify the input and
 output formats.
 
-WITH SERDEPROPERTIES ( '_property_name_' =
-'_property_value_' [, ...] ) ]
+WITH SERDEPROPERTIES ( '_property\_name_' =
+'_property\_value_' [, ...] ) ]
 
 Optionally, specify property names and values, separated by
 commas.
@@ -328,7 +328,7 @@ commas.
 If ROW FORMAT is omitted, the default format is DELIMITED FIELDS TERMINATED
 BY '\A' (start of heading) and LINES TERMINATED BY '\n' (newline).
 
-STORED AS _file_format_
+STORED AS _file\_format_
 
 The file format for data files.
 
@@ -341,8 +341,8 @@ Valid formats are as follows:
 - TEXTFILE (for text files, including JSON files).
 - ORC
 - AVRO
-- INPUTFORMAT '_input_format_classname_' OUTPUTFORMAT
-  '_output_format_classname_'
+- INPUTFORMAT '_input\_format\_classname_' OUTPUTFORMAT
+  '_output\_format\_classname_'
 
 The CREATE EXTERNAL TABLE AS command only supports two file formats,
 TEXTFILE and PARQUET.
@@ -355,7 +355,7 @@ example shows.
 ```
 
 LOCATION { 's3://_bucket/folder_/' |
-'s3://_bucket/manifest_file_'}
+'s3://_bucket/manifest\_file_'}
 
 The path to the Amazon S3 bucket or folder that contains the data files or a
 manifest file that contains a list of Amazon S3 object paths. The buckets must
@@ -416,7 +416,7 @@ parameter. The manifest file is compatible with a manifest file for [COPY from A
 Keys that aren't used are ignored.
 
 TABLE PROPERTIES (
-'_property_name_'='_property_value_' [,
+'_property\_name_'='_property\_value_' [,
 ...] )
 
 A clause that sets the table definition for table properties.
@@ -425,7 +425,7 @@ A clause that sets the table definition for table properties.
 
 Table properties are case-sensitive.
 
-'compression_type'='_value_'
+'compression\_type'='_value_'
 
 A property that sets the type of compression to use if the file
 name doesn't contain an extension. If you set this property and
@@ -438,24 +438,24 @@ follows:
 - none
 - snappy
 
-'data_cleansing_enabled'='true / false’
+'data\_cleansing\_enabled'='true / false’
 
 This property sets whether data handling is on for the table. When
-'data_cleansing_enabled' is set to true, data handling is on
-for the table. When 'data_cleansing_enabled' is set to
+'data\_cleansing\_enabled' is set to true, data handling is on
+for the table. When 'data\_cleansing\_enabled' is set to
 false, data handling is off for the table. Following is a list of the
 table–level data handling properties controlled by this
 property:
 
-- column_count_mismatch_handling
-- invalid_char_handling
-- numeric_overflow_handling
-- replacement_char
-- surplus_char_handling
+- column\_count\_mismatch\_handling
+- invalid\_char\_handling
+- numeric\_overflow\_handling
+- replacement\_char
+- surplus\_char\_handling
 
 For examples, see [Data handling examples](r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling "r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling").
 
-'invalid_char_handling'='_value_'
+'invalid\_char\_handling'='_value_'
 
 Specifies the action to perform when query results contain invalid
 UTF-8 character values. You can specify the following actions:
@@ -469,11 +469,11 @@ FAIL
 Cancels queries that return data containing invalid UTF-8
 values.
 
-SET_TO_NULL
+SET\_TO\_NULL
 
 Replaces invalid UTF-8 values with null.
 
-DROP_ROW
+DROP\_ROW
 
 Replaces each value in the row with null.
 
@@ -483,12 +483,12 @@ Replaces the invalid character with the replacement
 character you specify using
 `replacement_char`.
 
-'replacement_char'='_character_’
+'replacement\_char'='_character_’
 
 Specifies the replacement character to use when you set
 `invalid_char_handling` to `REPLACE`.
 
-'numeric_overflow_handling'='value’
+'numeric\_overflow\_handling'='value’
 
 Specifies the action to perform when ORC data contains an integer
 (for example, BIGINT or int64) that is larger than the column
@@ -504,15 +504,15 @@ FAIL
 Cancel the query when the data includes invalid
 characters.
 
-SET_TO_NULL
+SET\_TO\_NULL
 
 Set invalid characters to null.
 
-DROP_ROW
+DROP\_ROW
 
 Set each value in the row to null.
 
-'surplus_bytes_handling'='_value_'
+'surplus\_bytes\_handling'='_value_'
 
 Specifies how to handle data being loaded that exceeds the length
 of the data type defined for columns containing VARBYTE data. By
@@ -522,7 +522,7 @@ of the column.
 You can specify the following actions to perform when the query
 returns data that exceeds the length of the data type:
 
-SET_TO_NULL
+SET\_TO\_NULL
 
 Replaces data that exceeds the column width with
 null.
@@ -536,7 +536,7 @@ FAIL
 Cancels queries that return data exceeding the column
 width.
 
-DROP_ROW
+DROP\_ROW
 
 Drop all rows that contain data exceeding column
 width.
@@ -546,7 +546,7 @@ TRUNCATE
 Removes the characters that exceed the maximum number of
 characters defined for the column.
 
-'surplus_char_handling'='_value_'
+'surplus\_char\_handling'='_value_'
 
 Specifies how to handle data being loaded that exceeds the length
 of the data type defined for columns containing VARCHAR, CHAR, or
@@ -556,7 +556,7 @@ exceeds the width of the column.
 You can specify the following actions to perform when the query
 returns data that exceeds the column width:
 
-SET_TO_NULL
+SET\_TO\_NULL
 
 Replaces data that exceeds the column width with
 null.
@@ -570,7 +570,7 @@ FAIL
 Cancels queries that return data exceeding the column
 width.
 
-DROP_ROW
+DROP\_ROW
 
 Replaces each value in the row with null.
 
@@ -579,7 +579,7 @@ TRUNCATE
 Removes the characters that exceed the maximum number of
 characters defined for the column.
 
-'column_count_mismatch_handling'='value’
+'column\_count\_mismatch\_handling'='value’
 
 Identifies if the file contains less or more values for a row than
 the number of columns specified in the external table definition. This
@@ -595,17 +595,17 @@ FAIL
 Fail the query if the column count mismatch is
 detected.
 
-SET_TO_NULL
+SET\_TO\_NULL
 
 Fill missing values with NULL and ignore the additional
 values in each row.
 
-DROP_ROW
+DROP\_ROW
 
 Drop all rows that contain column count mismatch error
 from the scan.
 
-'numRows'='_row_count_'
+'numRows'='_row\_count_'
 
 A property that sets the numRows value for the table definition. To
 explicitly update an external table's statistics, set the numRows
@@ -616,7 +616,7 @@ aren't set for an external table, Amazon Redshift generates a query
 execution plan based on an assumption that external tables are the
 larger tables and local tables are the smaller tables.
 
-'skip.header.line.count'='_line_count_'
+'skip.header.line.count'='_line\_count_'
 
 A property that sets number of rows to skip at the beginning of
 each source file.
@@ -627,7 +627,7 @@ A property that specifies Spectrum should return a
 `NULL` value when there is an exact match with the text
 supplied in a field.
 
-'orc.schema.resolution'='mapping_type'
+'orc.schema.resolution'='mapping\_type'
 
 A property that sets the column mapping type for tables that use
 ORC data format. This property is ignored for other data
@@ -680,7 +680,7 @@ one of the following:
 - _kms-key_ that you specify to encrypt
   data.
 
-_select_statement_
+_select\_statement_
 
 A statement that inserts one or more rows into the external table
 by defining any query. All rows that the query produces are written to

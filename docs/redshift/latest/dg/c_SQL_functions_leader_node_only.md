@@ -10,7 +10,7 @@ exclusively on the leader node.
 The leader node distributes SQL to the compute nodes when a query references
 user-created tables or system tables (tables with an STL or STV prefix and system views
 with an SVL or SVV prefix). A query that references only catalog tables (tables with a PG
-prefix, such as PG_TABLE_DEF) or that does not reference any tables, runs exclusively on
+prefix, such as PG\_TABLE\_DEF) or that does not reference any tables, runs exclusively on
 the leader node.
 
 Some Amazon Redshift SQL functions are supported only on the leader node and are not supported
@@ -28,11 +28,11 @@ compute nodes:
 
 System information functions
 
-- CURRENT_SCHEMA
-- CURRENT_SCHEMAS
-- HAS_DATABASE_PRIVILEGE
-- HAS_SCHEMA_PRIVILEGE
-- HAS_TABLE_PRIVILEGE
+- CURRENT\_SCHEMA
+- CURRENT\_SCHEMAS
+- HAS\_DATABASE\_PRIVILEGE
+- HAS\_SCHEMA\_PRIVILEGE
+- HAS\_TABLE\_PRIVILEGE
   String functions
 
 - SUBSTR
@@ -45,15 +45,15 @@ System information functions
 Date functions
 
 - AGE
-- CURRENT_TIME
-- CURRENT_TIMESTAMP
+- CURRENT\_TIME
+- CURRENT\_TIMESTAMP
 - LOCALTIME
 - ISFINITE
 - NOW
   String functions
 
 - GETBIT
-- GET_BYTE
-- SET_BIT
-- SET_BYTE
-- TO_ASCII
+- GET\_BYTE
+- SET\_BIT
+- SET\_BYTE
+- TO\_ASCII

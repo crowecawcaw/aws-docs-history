@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# enable_case_sensitive_identifier
+# enable\_case\_sensitive\_identifier
 
 ## Values (default in bold)
 
@@ -134,7 +134,7 @@ SELECT * FROM t;
 ```
 
 - We recommend that regular users querying tables with dynamic data masking or row-level security policies attached
-  have the default enable_case_sensitive_identifier setting. For information on row-level security, see
+  have the default enable\_case\_sensitive\_identifier setting. For information on row-level security, see
   [Row-level security](t_rls.md "t_rls.md").
   For information on dynamic data masking, see
   [Dynamic data masking](t_ddm.md "t_ddm.md").

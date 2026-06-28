@@ -66,12 +66,11 @@ The following are limitations for using Amazon Redshift concurrency scaling:
 - It doesn’t support COPY or UNLOAD queries that access an external resource when restrictive IAM policy permissions are in place. This includes permissions applied either to the
   resource, like an Amazon S3 bucket or DynamoDB table, or to the source. IAM sources can include the following:
 
-      + `aws:sourceVpc` – A source VPC.
-      + `aws:sourceVpce` – A source VPC endpoint.
-      + `aws:sourceIp` – A source IP address.
-
-  In some cases, you might need to remove permissions that restrict either the resource or the source, so that COPY and UNLOAD queries
-  accessing the resource are sent to the concurrency-scaling cluster.
+  - `aws:sourceVpc` – A source VPC.
+  - `aws:sourceVpce` – A source VPC endpoint.
+  - `aws:sourceIp` – A source IP address.
+    In some cases, you might need to remove permissions that restrict either the resource or the source, so that COPY and UNLOAD queries
+    accessing the resource are sent to the concurrency-scaling cluster.
 
 For more information about resource policies, see [Policy types](../../../IAM/latest/UserGuide/access_policies.md#access_policy-types "../../../IAM/latest/UserGuide/access_policies.md#access_policy-types") in the AWS Identity and Access Management user guide
 and [Controlling access from VPC endpoints with bucket policies](../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md "../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md").
@@ -169,7 +168,7 @@ see [Implementing automatic WLM](automatic-wlm.md "automatic-wlm.md") or [Implem
 
 The default number of concurrency scaling clusters is one.
 The number of concurrency scaling clusters that can be used is controlled by
-[max_concurrency_scaling_clusters](r_max_concurrency_scaling_clusters.md "r_max_concurrency_scaling_clusters.md").
+[max\_concurrency\_scaling\_clusters](r_max_concurrency_scaling_clusters.md "r_max_concurrency_scaling_clusters.md").
 
 ## Monitoring concurrency scaling
 
@@ -184,7 +183,7 @@ cluster by navigating to **Cluster** in the Amazon Redshift console and
 choosing a cluster. Then choose the **Query monitoring** tab and **Workload concurrency** to
 view information about running queries and queued queries.
 
-To find execution times, query the STL_QUERY table and filter on the
+To find execution times, query the STL\_QUERY table and filter on the
 `concurrency_scaling_status` column. The following query compares the
 queue time and execution time for queries run on the concurrency scaling cluster and
 queries run on the main cluster.
@@ -222,16 +221,16 @@ tables about queries on both the main and concurrency scaling clusters.
 The following views have similar information as the corresponding STL views or SVL
 views:
 
-- [SVCS_ALERT_EVENT_LOG](r_SVCS_ALERT_EVENT_LOG.md "r_SVCS_ALERT_EVENT_LOG.md")
-- [SVCS_COMPILE](r_SVCS_COMPILE.md "r_SVCS_COMPILE.md")
-- [SVCS_EXPLAIN](r_SVCS_EXPLAIN.md "r_SVCS_EXPLAIN.md")
-- [SVCS_PLAN_INFO](r_SVCS_PLAN_INFO.md "r_SVCS_PLAN_INFO.md")
-- [SVCS_QUERY_SUMMARY](r_SVCS_QUERY_SUMMARY.md "r_SVCS_QUERY_SUMMARY.md")
-- [SVCS_STREAM_SEGS](r_SVCS_STREAM_SEGS.md "r_SVCS_STREAM_SEGS.md")
+- [SVCS\_ALERT\_EVENT\_LOG](r_SVCS_ALERT_EVENT_LOG.md "r_SVCS_ALERT_EVENT_LOG.md")
+- [SVCS\_COMPILE](r_SVCS_COMPILE.md "r_SVCS_COMPILE.md")
+- [SVCS\_EXPLAIN](r_SVCS_EXPLAIN.md "r_SVCS_EXPLAIN.md")
+- [SVCS\_PLAN\_INFO](r_SVCS_PLAN_INFO.md "r_SVCS_PLAN_INFO.md")
+- [SVCS\_QUERY\_SUMMARY](r_SVCS_QUERY_SUMMARY.md "r_SVCS_QUERY_SUMMARY.md")
+- [SVCS\_STREAM\_SEGS](r_SVCS_STREAM_SEGS.md "r_SVCS_STREAM_SEGS.md")
 
 The following views are specific to concurrency scaling.
 
-- [SVCS_CONCURRENCY_SCALING_USAGE](r_SVCS_CONCURRENCY_SCALING_USAGE.md "r_SVCS_CONCURRENCY_SCALING_USAGE.md")
+- [SVCS\_CONCURRENCY\_SCALING\_USAGE](r_SVCS_CONCURRENCY_SCALING_USAGE.md "r_SVCS_CONCURRENCY_SCALING_USAGE.md")
 
 For more information about concurrency scaling, see the following topics in the
 _Amazon Redshift Management Guide_.

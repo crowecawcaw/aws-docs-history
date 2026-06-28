@@ -16,7 +16,7 @@ SHOW PROCEDURE sp_name [( [ [ argname ] [ argmode ] argtype [, ...] ] )]
 
 ## Parameters
 
-_sp_name_
+_sp\_name_
 
 The name of the procedure to show.
 

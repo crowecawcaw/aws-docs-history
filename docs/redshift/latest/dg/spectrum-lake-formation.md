@@ -67,11 +67,10 @@ To set this up, you perform the following tasks:
 
 - Create a data filter in Lake Formation with the following information:
 
-      + A column specification with a list of columns to include or exclude from query results.
-      + A row filter expression that specifies the rows to include in the query results.
-
-  For more information about how to create a data filter, see
-  [Data filters in Lake Formation](../../../lake-formation/latest/dg/data-filters-about.md "../../../lake-formation/latest/dg/data-filters-about.md") in the _AWS Lake Formation Developer Guide_.
+  - A column specification with a list of columns to include or exclude from query results.
+  - A row filter expression that specifies the rows to include in the query results.
+    For more information about how to create a data filter, see
+    [Data filters in Lake Formation](../../../lake-formation/latest/dg/data-filters-about.md "../../../lake-formation/latest/dg/data-filters-about.md") in the _AWS Lake Formation Developer Guide_.
 
 - Create an external table in Amazon Redshift that references a table in your Lake Formation enabled Data Catalog.
   For details on how to query a Lake Formation table using Redshift Spectrum, see

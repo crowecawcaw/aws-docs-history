@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_INTEGRATION_TABLE_ACTIVITY
+# SYS\_INTEGRATION\_TABLE\_ACTIVITY
 
-SYS_INTEGRATION_TABLE_ACTIVITY displays details of insert, delete, and update activity of zero-ETL integrations.
+SYS\_INTEGRATION\_TABLE\_ACTIVITY displays details of insert, delete, and update activity of zero-ETL integrations.
 There is one row added for each completed ingestion.
 
 A superuser can see all rows in this table.
@@ -13,20 +13,20 @@ For more information, see [zero-ETL integrations](../mgmt/zero-etl-using.md "../
 
 ## Table columns
 
-| Column name     | Data type      | Description                                     |
-| --------------- | -------------- | ----------------------------------------------- |
-| integration_id  | character(128) | The identifier associated with the integration. |
-| checkpoint_name | character(128) | The name of the checkpoint.                     |
-| target_database | character(128) | The name of the Amazon Redshift database.       |
-| schema_name     | character(128) | The name of the Amazon Redshift schema.         |
-| table_name      | character(128) | The name of the table.                          |
-| table_id        | integer        | The identifier of the table.                    |
-| record_time     | timestamp      | The time (UTC) when this change completed.      |
-| transaction_id  | bigint         | The transaction identifier.                     |
-| inserted_rows   | bigint         | The number of rows inserted by the ingestion.   |
-| deleted_rows    | bigint         | The number of rows deleted by the ingestion.    |
-| updated_rows    | bigint         | The number of rows updated by the ingestion.    |
-| bytes_ingested  | bigint         | The number of bytes ingested.                   |
+| Column name      | Data type      | Description                                     |
+| ---------------- | -------------- | ----------------------------------------------- |
+| integration\_id  | character(128) | The identifier associated with the integration. |
+| checkpoint\_name | character(128) | The name of the checkpoint.                     |
+| target\_database | character(128) | The name of the Amazon Redshift database.       |
+| schema\_name     | character(128) | The name of the Amazon Redshift schema.         |
+| table\_name      | character(128) | The name of the table.                          |
+| table\_id        | integer        | The identifier of the table.                    |
+| record\_time     | timestamp      | The time (UTC) when this change completed.      |
+| transaction\_id  | bigint         | The transaction identifier.                     |
+| inserted\_rows   | bigint         | The number of rows inserted by the ingestion.   |
+| deleted\_rows    | bigint         | The number of rows deleted by the ingestion.    |
+| updated\_rows    | bigint         | The number of rows updated by the ingestion.    |
+| bytes\_ingested  | bigint         | The number of bytes ingested.                   |
 
 ## Sample queries
 

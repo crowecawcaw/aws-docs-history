@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_FUNCTION_PRIVILEGES
+# SVV\_FUNCTION\_PRIVILEGES
 
-Use SVV_FUNCTION_PRIVILEGES to view the function permissions that are explicitly
+Use SVV\_FUNCTION\_PRIVILEGES to view the function permissions that are explicitly
 granted to users, roles, and groups in the current database.
 
-SVV_FUNCTION_PRIVILEGES is visible to the following users:
+SVV\_FUNCTION\_PRIVILEGES is visible to the following users:
 
 - Superusers
 - Users with the ACCESS SYSTEM TABLE permission
@@ -25,20 +25,20 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                                                                                               |
-| -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| namespace_name | text      | The name of the namespace where a specified<br>function exists.                                                                                           |
-| function_name  | text      | The name of the function.                                                                                                                                 |
-| argument_types | text      | The string that represents the type of input<br>argument for a function.                                                                                  |
-| privilege_type | text      | The type of the permission. Possible value is<br>EXECUTE.                                                                                                 |
-| identity_id    | integer   | The ID of the identity. Possible values are user<br>ID, role ID, or group ID.                                                                             |
-| identity_name  | text      | The name of the identity.                                                                                                                                 |
-| identity_type  | text      | The type of the identity. Possible values are<br>user, role, group, or public.                                                                            |
-| admin_option   | boolean   | A value that indicates whether the user can grant<br>the permission to other users and roles. It is always false for the<br>role and group identity type. |
+| Column name     | Data type | Description                                                                                                                                               |
+| --------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| namespace\_name | text      | The name of the namespace where a specified<br>function exists.                                                                                           |
+| function\_name  | text      | The name of the function.                                                                                                                                 |
+| argument\_types | text      | The string that represents the type of input<br>argument for a function.                                                                                  |
+| privilege\_type | text      | The type of the permission. Possible value is<br>EXECUTE.                                                                                                 |
+| identity\_id    | integer   | The ID of the identity. Possible values are user<br>ID, role ID, or group ID.                                                                             |
+| identity\_name  | text      | The name of the identity.                                                                                                                                 |
+| identity\_type  | text      | The type of the identity. Possible values are<br>user, role, group, or public.                                                                            |
+| admin\_option   | boolean   | A value that indicates whether the user can grant<br>the permission to other users and roles. It is always false for the<br>role and group identity type. |
 
 ## Sample query
 
-The following example displays the result of the SVV_FUNCTION_PRIVILEGES.
+The following example displays the result of the SVV\_FUNCTION\_PRIVILEGES.
 
 ```
 SELECT namespace_name,function_name,argument_types,privilege_type,identity_name,identity_type,admin_option FROM svv_function_privileges

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_Angle
+# ST\_Angle
 
-ST_Angle returns the angle in radians between points measured clockwise as follows:
+ST\_Angle returns the angle in radians between points measured clockwise as follows:
 
 - If three points are input,
   then the returned angle P1-P2-P3 is measured as if the angle was obtained by rotating from P1 to P3 around P2 clockwise.
@@ -13,7 +13,7 @@ ST_Angle returns the angle in radians between points measured clockwise as follo
   If the input is a degenerate case (that is, P1 equals P2, or P3 equals P4), then null is returned.
   The return value is in radians and in the range [0, 2π).
 
-ST_Angle operates on 2D projections of the input geometries.
+ST\_Angle operates on 2D projections of the input geometries.
 
 ## Syntax
 

@@ -66,9 +66,9 @@ If you specify a view name that begins with '# ', the view is created as a
 temporary view that is visible only in the current session.
 
 For more information about valid names, see [Names and identifiers](r_names.md "r_names.md"). You can't create tables or views in the
-system databases template0, template1, padb_harvest, or sys:internal.
+system databases template0, template1, padb\_harvest, or sys:internal.
 
-_column_name_
+_column\_name_
 
 Optional list of names to be used for the columns in the view. If no column
 names are given, the column names are derived from the query. The maximum
@@ -88,7 +88,7 @@ a view even if the referenced objects don't exist. Because there is no
 dependency, you can drop or alter a referenced object without affecting the
 view. Amazon Redshift doesn't check for dependencies until the view is queried.
 Recursive common table expressions (rCTE) are not supported with late-binding
-views. To view details about late-binding views, run the [PG_GET_LATE_BINDING_VIEW_COLS](PG_GET_LATE_BINDING_VIEW_COLS.md "PG_GET_LATE_BINDING_VIEW_COLS.md") function.
+views. To view details about late-binding views, run the [PG\_GET\_LATE\_BINDING\_VIEW\_COLS](PG_GET_LATE_BINDING_VIEW_COLS.md "PG_GET_LATE_BINDING_VIEW_COLS.md") function.
 
 When you include the WITH NO SCHEMA BINDING clause, tables and views
 referenced in the SELECT statement must be qualified with a schema name. The

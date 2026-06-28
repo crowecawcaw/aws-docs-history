@@ -9,7 +9,7 @@ sharing. You can add new objects to or remove them from the datashare. You can
 also grant or revoke access to datashares as a whole for the consumer clusters,
 AWS accounts, or AWS Regions. When permissions are revoked, consumer clusters
 immediately lose access to the shared objects and stop seeing them in the list of
-INBOUND datashares in SVV_DATASHARES.
+INBOUND datashares in SVV\_DATASHARES.
 
 The following example creates the datashare `salesshare`, adds the
 schema `public`, and adds the table

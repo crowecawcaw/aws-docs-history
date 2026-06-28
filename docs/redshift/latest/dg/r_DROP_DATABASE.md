@@ -17,10 +17,10 @@ DROP DATABASE *database\_name* [ FORCE ]
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 Name of the database to be dropped. You can't drop the dev,
-padb_harvest, template0, template1, or sys:internal databases, and you
+padb\_harvest, template0, template1, or sys:internal databases, and you
 can't drop the current database.
 
 To drop an external database, drop the external schema. For more
@@ -67,7 +67,7 @@ datashare.
 
 ## Examples
 
-The following example drops a database named TICKIT_TEST:
+The following example drops a database named TICKIT\_TEST:
 
 ```
 drop database tickit_test;

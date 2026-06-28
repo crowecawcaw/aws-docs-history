@@ -33,13 +33,13 @@ _name_
 
 The name of the function to be removed.
 
-_arg_name_
+_arg\_name_
 
 The name of an input argument. DROP FUNCTION ignores argument names, because
 only the argument data types are needed to determine the function's
 identity.
 
-_arg_type_
+_arg\_type_
 
 The data type of the input argument. You can supply a comma-separated list
 with a maximum of 32 data types.

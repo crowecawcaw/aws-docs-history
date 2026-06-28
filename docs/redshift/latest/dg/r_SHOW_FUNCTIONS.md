@@ -6,7 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 Shows a list of functions in a schema, along with information about the listed objects.
 
-Each output row has columns database_name, schema_name, function_name, number_of_arguments, argument_list, return_type, remarks.
+Each output row has columns database\_name, schema\_name, function\_name, number\_of\_arguments, argument\_list, return\_type, remarks.
 
 If more than 10,000 rows would results from SHOW FUNCTIONS, then the command raises an error.
 
@@ -28,15 +28,15 @@ SHOW FUNCTIONS FROM SCHEMA
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 The name of the database that contains the functions to list.
 
-_schema_name_
+_schema\_name_
 
 The name of the schema that contains the functions to list.
 
-_filter_pattern_
+_filter\_pattern_
 
 A valid UTF-8 character expression with a pattern to match function names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:
 
@@ -45,15 +45,15 @@ A valid UTF-8 character expression with a pattern to match function names. The L
 | %             | Matches any sequence of zero or more characters |
 | \_            | Matches any single character                    |
 
-Note that the filter_pattern only matches the function name.
+Note that the filter\_pattern only matches the function name.
 
-_row_limit_
+_row\_limit_
 
-The maximum number of rows to return. The _row_limit_ can be 0–10,000.
+The maximum number of rows to return. The _row\_limit_ can be 0–10,000.
 
 ## Examples
 
-The following example shows functions from schema demo_db.demo_schema:
+The following example shows functions from schema demo\_db.demo\_schema:
 
 ```
 SHOW FUNCTIONS FROM SCHEMA demo_db.demo_schema;
@@ -64,7 +64,7 @@ SHOW FUNCTIONS FROM SCHEMA demo_db.demo_schema;
  demo_db       | demo_schema | f_days_between       |                   2 | date, date                                                                      | integer           |
 ```
 
-The following example shows functions from schema demo_schema with names ending in 'discount':
+The following example shows functions from schema demo\_schema with names ending in 'discount':
 
 ```
 SHOW FUNCTIONS FROM SCHEMA demo_schema like '%discount';

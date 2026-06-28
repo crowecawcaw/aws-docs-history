@@ -27,65 +27,65 @@ TO { user_name | ROLE role_name | PUBLIC }
 
 ## Parameters
 
-_policy_name_
+_policy\_name_
 
 The name of the masking policy to attach.
 
-database_name
+database\_name
 
 The name of the database where the policy and the relation are created. The policy and the
 relation needs to be on the same database. The database can be the connected database or a
 database that supports Amazon Redshift federated permissions.
 
-schema_name
+schema\_name
 
 The name of the schema the relation belongs to.
 
-_relation_name_
+_relation\_name_
 
 The name of the relation to attach the masking policy to.
 
-_output_column_names_
+_output\_column\_names_
 
 The names of the columns that the masking policy will apply to.
 
-_output_paths_
+_output\_paths_
 
 The full path of the SUPER object that the masking policy will apply to,
 including the column name. For example, for a relation with a SUPER type column
-named `person`, _output_path_ might be
+named `person`, _output\_path_ might be
 `person.name.first_name`.
 
-_input_column_names_
+_input\_column\_names_
 
 The names of the columns that the masking policy will take as input. This
 parameter is optional. If not specified, the masking policy uses
-_output_column_names_ as inputs.
+_output\_column\_names_ as inputs.
 
-_input_paths_
+_input\_paths_
 
 The full path of the SUPER object that the masking policy will take as
 input. This parameter is optional. If not specified, the masking policy uses
-_output_path_ for inputs.
+_output\_path_ for inputs.
 
-_user_name_
+_user\_name_
 
 The name of the user to whom the masking policy will attach. You can't
 attach two policies to the same combination of user and column or role and
 column. You can attach a policy to a user and another policy to the user's
 role. In this case, the policy with the higher priority applies.
 
-You can only set one of user_name, role_name, and PUBLIC in a single ATTACH
+You can only set one of user\_name, role\_name, and PUBLIC in a single ATTACH
 MASKING POLICY command.
 
-_role_name_
+_role\_name_
 
 The name of the role to which the masking policy will attach. You can't
 attach two policies to the same column/role pair. You can attach a policy to a
 user and another policy to the user's role. In this case, the policy with the
 higher priority applies.
 
-You can only set one of user_name, role_name, and PUBLIC in a single ATTACH
+You can only set one of user\_name, role\_name, and PUBLIC in a single ATTACH
 MASKING POLICY command.
 
 _PUBLIC_
@@ -94,7 +94,7 @@ Attaches the masking policy to all users accessing the table. You must give
 other masking policies attached to specific column/user or column/role pairs a
 higher priority than the PUBLIC policy for them to apply.
 
-You can only set one of user_name, role_name, and PUBLIC in a single ATTACH
+You can only set one of user\_name, role\_name, and PUBLIC in a single ATTACH
 MASKING POLICY command.
 
 _priority_

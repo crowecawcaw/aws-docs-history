@@ -65,7 +65,7 @@ length
 (2 rows)
 ```
 
-A value of `Augusta` in the CITY_NAME column, which is a CHAR
+A value of `Augusta` in the CITY\_NAME column, which is a CHAR
 column, would always return a length of 7 characters, regardless of any
 trailing blanks in the input string.
 

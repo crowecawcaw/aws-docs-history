@@ -45,11 +45,11 @@ START WITH name = 'John'
 
 ## Parameters
 
-_start_with_conditions_
+_start\_with\_conditions_
 
 Conditions that specify the root row(s) of the hierarchy
 
-_connect_by_conditions_
+_connect\_by\_conditions_
 
 Conditions that specify the relationship between parent rows and child rows of the hierarchy. At least one condition
 must be qualified with the unary operator used to refer to the parent row.

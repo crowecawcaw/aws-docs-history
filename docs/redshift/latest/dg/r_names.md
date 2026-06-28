@@ -11,7 +11,7 @@ of identifiers, standard identifiers and quoted or delimited identifiers. Identi
 must consist of only UTF-8 printable characters. ASCII letters in standard and
 delimited identifiers are case-insensitive and are folded to lowercase in the
 database. In query results, column names are returned as lowercase by default. To
-return column names in uppercase, set the [describe_field_name_in_uppercase](r_describe_field_name_in_uppercase.md "r_describe_field_name_in_uppercase.md") configuration parameter to
+return column names in uppercase, set the [describe\_field\_name\_in\_uppercase](r_describe_field_name_in_uppercase.md "r_describe_field_name_in_uppercase.md") configuration parameter to
 `true`.
 
 ## Standard identifiers
@@ -48,7 +48,7 @@ both uppercase and lowercase letters. To use case-sensitive identifiers, you can
 set the configuration `enable_case_sensitive_identifier` to
 `true`. You can set this configuration for the cluster or for a
 session. For more information, see [Default parameter values](../mgmt/working-with-parameter-groups.md#default-param-group-values "../mgmt/working-with-parameter-groups.md#default-param-group-values")
-in the _Amazon Redshift Management Guide_ and [enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
+in the _Amazon Redshift Management Guide_ and [enable\_case\_sensitive\_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
 
 ## System column names
 

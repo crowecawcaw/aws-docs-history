@@ -15,7 +15,7 @@ CREATE GROUP *group\_name*
 
 ## Parameters
 
-_group_name_
+_group\_name_
 
 Name of the new user group. Group names beginning with two underscores are
 reserved for Amazon Redshift internal use. For more information about valid names, see
@@ -35,7 +35,7 @@ Name of the user to add to the group.
 
 ## Examples
 
-The following example creates a user group named ADMIN_GROUP with a two users, ADMIN1
+The following example creates a user group named ADMIN\_GROUP with a two users, ADMIN1
 and ADMIN2.
 
 ```

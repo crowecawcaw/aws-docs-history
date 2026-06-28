@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# wlm_query_slot_count
+# wlm\_query\_slot\_count
 
 ## Values (default in bold)
 
@@ -20,28 +20,28 @@ equally to each slot. For more information, see [Workload management](cm-c-imple
 
 ###### Note
 
-If the value of wlm_query_slot_count is larger than the number of available slots
+If the value of wlm\_query\_slot\_count is larger than the number of available slots
 (concurrency level) for the service class, the query fails. If you encounter an
-error, decrease wlm_query_slot_count to an allowable value.
+error, decrease wlm\_query\_slot\_count to an allowable value.
 
 For operations where performance is heavily affected by the amount of memory
-allocated, such as vacuuming, increasing the value of wlm_query_slot_count can improve
+allocated, such as vacuuming, increasing the value of wlm\_query\_slot\_count can improve
 performance. In particular, for slow vacuum commands, inspect the corresponding record
-in the SVV_VACUUM_SUMMARY view. If you see high values (close to or higher than 100) for
-sort_partitions and merge_increments in the SVV_VACUUM_SUMMARY view, consider increasing
-the value for wlm_query_slot_count the next time you run Vacuum against that
+in the SVV\_VACUUM\_SUMMARY view. If you see high values (close to or higher than 100) for
+sort\_partitions and merge\_increments in the SVV\_VACUUM\_SUMMARY view, consider increasing
+the value for wlm\_query\_slot\_count the next time you run Vacuum against that
 table.
 
-Increasing the value of wlm_query_slot_count limits the number of concurrent queries
+Increasing the value of wlm\_query\_slot\_count limits the number of concurrent queries
 that can be run. For example, suppose that the service class has a concurrency level of
-5 and wlm_query_slot_count is set to 3. While a query is running within the session with
-wlm_query_slot_count set to 3, a maximum of 2 more concurrent queries can be run within
+5 and wlm\_query\_slot\_count is set to 3. While a query is running within the session with
+wlm\_query\_slot\_count set to 3, a maximum of 2 more concurrent queries can be run within
 the same service class. Subsequent queries wait in the queue until currently running
 queries complete and slots are freed.
 
 ## Examples
 
-Use the SET command to set the value of wlm_query_slot_count for the duration of the
+Use the SET command to set the value of wlm\_query\_slot\_count for the duration of the
 current session.
 
 ```

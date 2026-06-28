@@ -173,13 +173,13 @@ aws redshift create-usage-limit \
 The `--period` and `--breach-action` parameters accept the same values as other usage limits.
 For more information, see
 [Setting a usage limit](../mgmt/rs-mgmt-set-limit-cluster.md "../mgmt/rs-mgmt-set-limit-cluster.md")  
- in the _Amazon Redshift Management Guide_.
+in the _Amazon Redshift Management Guide_.
 
 ### Cost control for extra compute autonomics on serverless workgroups
 
 Amazon Redshift Serverless provides capabilities to set usage limits for serverless workgroups, see
 [Setting usage limits, including setting RPU limits](../mgmt/serverless-workgroup-max-rpu.md "../mgmt/serverless-workgroup-max-rpu.md")  
- in the _Amazon Redshift Management Guide_. Usage for extra compute autonomics in Amazon Redshift Serverless is included
+in the _Amazon Redshift Management Guide_. Usage for extra compute autonomics in Amazon Redshift Serverless is included
 in the overall serverless usage, including user queries.
 
 You can see how many RPU-seconds that your serverless workgroup is using for extra compute
@@ -192,8 +192,8 @@ autonomics using the Amazon Redshift Serverless console. To do this:
 
 For more information, see
 [Amazon Redshift Serverless console](../mgmt/serverless-console.md "../mgmt/serverless-console.md")  
- in the _Amazon Redshift Management Guide_.
+in the _Amazon Redshift Management Guide_.
 
-You can also check the [SYS_SERVERLESS_USAGE](SYS_SERVERLESS_USAGE.md "SYS_SERVERLESS_USAGE.md") system view
+You can also check the [SYS\_SERVERLESS\_USAGE](SYS_SERVERLESS_USAGE.md "SYS_SERVERLESS_USAGE.md") system view
 to find the `charged_extra_compute_for_automatic_optimization_seconds`, which records accumulated
 compute unit (RPU) seconds charged for automatic optimizations.

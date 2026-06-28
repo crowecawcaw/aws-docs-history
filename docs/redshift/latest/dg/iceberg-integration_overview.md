@@ -62,7 +62,7 @@ of the syntax must be 127 characters or less.
   - Tables with row-level security or dynamic data masking policies attached.
   - Database objects with uppercase or mixed-case names. Tables containing uppercase
     or mixed-case columns aren’t registered. This applies even when
-    [enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md") is disabled.
+    [enable\_case\_sensitive\_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md") is disabled.
 
 - Amazon Redshift database permissions, such as roles granted by role-based access control, don’t transfer
   to catalogs in the AWS Glue Data Catalog. Use AWS Lake Formation to configure permissions for the AWS Glue Data Catalog. For more information on using Lake Formation

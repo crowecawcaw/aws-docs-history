@@ -128,7 +128,7 @@ IAM_ROLE default SETTINGS (
 The SELECT query in the preceding example creates the training data. The TARGET
 clause specifies which column is the machine learning label that the CREATE MODEL operation uses to
 learn how to predict. The target column “churn” indicates whether the customer still
-has an active membership or has suspended the membership. The S3_BUCKET field is the
+has an active membership or has suspended the membership. The S3\_BUCKET field is the
 name of the Amazon S3 bucket that you previously created. The Amazon S3 bucket is used to share
 training data and artifacts between Amazon Redshift and Amazon SageMaker AI. The remaining columns are
 the features that are used for the prediction.
@@ -325,7 +325,7 @@ For more information about Amazon Redshift ML, see the following documentation:
 
 - [Costs for using Amazon RedshiftML](cost.md "cost.md")
 - [CREATE MODEL command](r_CREATE_MODEL.md "r_CREATE_MODEL.md")
-- [EXPLAIN_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
+- [EXPLAIN\_MODEL function](r_explain_model_function.md "r_explain_model_function.md")
 
 For more information about machine learning, see the following documentation:
 

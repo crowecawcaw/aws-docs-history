@@ -29,7 +29,7 @@ node, Amazon Redshift issues subqueries with a predicate pushed down and retriev
 then distributes the result rows among the compute nodes for further processing.
 
 Details about queries sent to the Amazon Aurora PostgreSQL database or Amazon RDS for PostgreSQL database are logged in the system view
-[SVL_FEDERATED_QUERY](r_SVL_FEDERATED_QUERY.md "r_SVL_FEDERATED_QUERY.md").
+[SVL\_FEDERATED\_QUERY](r_SVL_FEDERATED_QUERY.md "r_SVL_FEDERATED_QUERY.md").
 
 ###### Topics
 

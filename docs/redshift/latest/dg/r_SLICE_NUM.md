@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SLICE_NUM Function
+# SLICE\_NUM Function
 
 Returns an integer corresponding to the slice number in the cluster where the data
-for a row is located. SLICE_NUM takes no parameters.
+for a row is located. SLICE\_NUM takes no parameters.
 
 ## Syntax
 
@@ -15,7 +15,7 @@ SLICE_NUM()
 
 ## Return type
 
-The SLICE_NUM function returns an integer.
+The SLICE\_NUM function returns an integer.
 
 ## Examples
 

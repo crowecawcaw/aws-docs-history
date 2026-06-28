@@ -11,7 +11,7 @@ tables.
 
 SVCS views provide details about queries on both the main and
 concurrency scaling clusters. SVL views provide information only for queries run on the main cluster,
-with the exception of SVL_STATEMENTTEXT. SVL_STATEMENTTEXT can contain information
+with the exception of SVL\_STATEMENTTEXT. SVL\_STATEMENTTEXT can contain information
 for queries run on concurrency scaling clusters as well as the main cluster.
 
 ###### Topics

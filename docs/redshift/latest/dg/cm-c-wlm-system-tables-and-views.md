@@ -20,18 +20,18 @@ system tables. Query the following system tables to do the following:
 - View the status of a query that is currently being tracked by the workload
   manager.
 
-| Table Name                                                                                               | Description                                                                                                  |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [STL_WLM_ERROR](r_STL_WLM_ERROR.md "r_STL_WLM_ERROR.md")                                                 | Contains a log of WLM-related error events.                                                                  |
-| [STL_WLM_QUERY](r_STL_WLM_QUERY.md "r_STL_WLM_QUERY.md")                                                 | Lists queries that are being tracked by WLM.                                                                 |
-| [STV_WLM_CLASSIFICATION_CONFIG](r_STV_WLM_CLASSIFICATION_CONFIG.md "r_STV_WLM_CLASSIFICATION_CONFIG.md") | Shows the current classification rules for WLM.                                                              |
-| [STV_WLM_QUERY_QUEUE_STATE](r_STV_WLM_QUERY_QUEUE_STATE.md "r_STV_WLM_QUERY_QUEUE_STATE.md")             | Records the current state of the query queues.                                                               |
-| [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md")                               | Provides a snapshot of the current state of queries that are<br>being tracked by WLM.                        |
-| [STV_WLM_QUERY_TASK_STATE](r_STV_WLM_QUERY_TASK_STATE.md "r_STV_WLM_QUERY_TASK_STATE.md")                | Contains the current state of query tasks.                                                                   |
-| [STV_WLM_SERVICE_CLASS_CONFIG](r_STV_WLM_SERVICE_CLASS_CONFIG.md "r_STV_WLM_SERVICE_CLASS_CONFIG.md")    | Records the service class configurations for WLM.                                                            |
-| [STV_WLM_SERVICE_CLASS_STATE](r_STV_WLM_SERVICE_CLASS_STATE.md "r_STV_WLM_SERVICE_CLASS_STATE.md")       | Contains the current state of the service classes.                                                           |
-| [STL_WLM_RULE_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md")                               | Records details about actions resulting from WLM query monitoring rules associated with user-defined queues. |
-| [STV_WLM_QMR_CONFIG](r_STV_WLM_QMR_CONFIG.md "r_STV_WLM_QMR_CONFIG.md")                                  | Records the configuration for WLM query monitoring rules (QMR).                                              |
+| Table Name                                                                                                  | Description                                                                                                  |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| [STL\_WLM\_ERROR](r_STL_WLM_ERROR.md "r_STL_WLM_ERROR.md")                                                  | Contains a log of WLM-related error events.                                                                  |
+| [STL\_WLM\_QUERY](r_STL_WLM_QUERY.md "r_STL_WLM_QUERY.md")                                                  | Lists queries that are being tracked by WLM.                                                                 |
+| [STV\_WLM\_CLASSIFICATION\_CONFIG](r_STV_WLM_CLASSIFICATION_CONFIG.md "r_STV_WLM_CLASSIFICATION_CONFIG.md") | Shows the current classification rules for WLM.                                                              |
+| [STV\_WLM\_QUERY\_QUEUE\_STATE](r_STV_WLM_QUERY_QUEUE_STATE.md "r_STV_WLM_QUERY_QUEUE_STATE.md")            | Records the current state of the query queues.                                                               |
+| [STV\_WLM\_QUERY\_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md")                               | Provides a snapshot of the current state of queries that are<br>being tracked by WLM.                        |
+| [STV\_WLM\_QUERY\_TASK\_STATE](r_STV_WLM_QUERY_TASK_STATE.md "r_STV_WLM_QUERY_TASK_STATE.md")               | Contains the current state of query tasks.                                                                   |
+| [STV\_WLM\_SERVICE\_CLASS\_CONFIG](r_STV_WLM_SERVICE_CLASS_CONFIG.md "r_STV_WLM_SERVICE_CLASS_CONFIG.md")   | Records the service class configurations for WLM.                                                            |
+| [STV\_WLM\_SERVICE\_CLASS\_STATE](r_STV_WLM_SERVICE_CLASS_STATE.md "r_STV_WLM_SERVICE_CLASS_STATE.md")      | Contains the current state of the service classes.                                                           |
+| [STL\_WLM\_RULE\_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md")                               | Records details about actions resulting from WLM query monitoring rules associated with user-defined queues. |
+| [STV\_WLM\_QMR\_CONFIG](r_STV_WLM_QMR_CONFIG.md "r_STV_WLM_QMR_CONFIG.md")                                  | Records the configuration for WLM query monitoring rules (QMR).                                              |
 
 You use the task ID to track a query in the system tables. The following example shows
 how to obtain the task ID of the most recently submitted user query:
@@ -76,4 +76,4 @@ The following table lists the IDs assigned to service classes.
 | 6–13    | Used by manual WLM queues that are defined in the WLM<br>configuration. |
 | 14      | Used by short query acceleration.                                       |
 | 15      | Reserved for maintenance activities run by Amazon Redshift.             |
-| 100–107 | Used by automatic WLM queue when<br>\*_auto_wlm_<br>• is true.          |
+| 100–107 | Used by automatic WLM queue when<br>*_auto\_wlm_<br>• is true.          |

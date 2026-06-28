@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# CURRENT_SCHEMAS
+# CURRENT\_SCHEMAS
 
 Returns an array of the names of any schemas in the current search path. The current
-search path is defined in the search_path parameter.
+search path is defined in the search\_path parameter.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ current_schemas(*include\_implicit*)
 
 ## Argument
 
-_include_implicit_
+_include\_implicit_
 
 If true, specifies that the search path should include any implicitly
 included system schemas. Valid values are `true` and

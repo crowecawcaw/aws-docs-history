@@ -2,27 +2,27 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_TRANSACTIONS
+# SVV\_TRANSACTIONS
 
 Records information about transactions that currently hold locks on tables in the
-database. Use the SVV_TRANSACTIONS view to identify open transactions and lock
+database. Use the SVV\_TRANSACTIONS view to identify open transactions and lock
 contention issues. For more information about locks, see [Managing concurrent write operations](c_Concurrent_writes.md "c_Concurrent_writes.md") and [LOCK](r_LOCK.md "r_LOCK.md").
 
-SVV_TRANSACTIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_TRANSACTIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name          | Data type | Description                                                                                                                                                                       |
-| -------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| txn_owner            | text      | Name of the owner of the transaction.                                                                                                                                             |
-| txn_db               | text      | Name of the database associated with the<br>transaction.                                                                                                                          |
-| xid                  | bigint    | Transaction ID.                                                                                                                                                                   |
-| pid                  | integer   | Process ID associated with the lock.                                                                                                                                              |
-| txn_start            | timestamp | Start time of the transaction.                                                                                                                                                    |
-| lock_mode            | text      | Name of the lock mode held or requested by this<br>process. If `lock_mode` is `ExclusiveLock` and<br>`granted` is true (`t`), then this<br>transaction ID is an open transaction. |
-| lockable_object_type | text      | Type of object requesting or holding the lock,<br>either `relation` if it is a table or<br>`transactionid` if it is a transaction.                                                |
-| relation             | integer   | Table ID for the table (relation) acquiring the<br>lock. This value is NULL if `lockable_object_type` is<br>`transactionid`.                                                      |
-| granted              | boolean   | Value that indicates whether that the lock has<br>been granted (`t`) or is pending (`f`)<br>.                                                                                     |
+| Column name            | Data type | Description                                                                                                                                                                       |
+| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| txn\_owner             | text      | Name of the owner of the transaction.                                                                                                                                             |
+| txn\_db                | text      | Name of the database associated with the<br>transaction.                                                                                                                          |
+| xid                    | bigint    | Transaction ID.                                                                                                                                                                   |
+| pid                    | integer   | Process ID associated with the lock.                                                                                                                                              |
+| txn\_start             | timestamp | Start time of the transaction.                                                                                                                                                    |
+| lock\_mode             | text      | Name of the lock mode held or requested by this<br>process. If `lock_mode` is `ExclusiveLock` and<br>`granted` is true (`t`), then this<br>transaction ID is an open transaction. |
+| lockable\_object\_type | text      | Type of object requesting or holding the lock,<br>either `relation` if it is a table or<br>`transactionid` if it is a transaction.                                                |
+| relation               | integer   | Table ID for the table (relation) acquiring the<br>lock. This value is NULL if `lockable_object_type` is<br>`transactionid`.                                                      |
+| granted                | boolean   | Value that indicates whether that the lock has<br>been granted (`t`) or is pending (`f`)<br>.                                                                                     |
 
 ## Sample queries
 

@@ -25,7 +25,7 @@ Redshift Spectrum, you might need to change your AWS Identity and Access Managem
 [Upgrading to the AWS Glue Data
 Catalog](../../../athena/latest/ug/glue-athena.md#glue-upgrade "../../../athena/latest/ug/glue-athena.md#glue-upgrade") in the _Athena User Guide_.
 
-To view details for external schemas, query the [SVV_EXTERNAL_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md") system view.
+To view details for external schemas, query the [SVV\_EXTERNAL\_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md") system view.
 
 ## Syntax
 
@@ -119,7 +119,7 @@ rather than terminating with an error. This clause is useful when scripting, so
 the script doesn't fail if CREATE EXTERNAL SCHEMA tries to create a schema
 that already exists.
 
-local_schema_name
+local\_schema\_name
 
 The name of the new external schema. For more information about valid names,
 see [Names and identifiers](r_names.md "r_names.md").
@@ -157,24 +157,24 @@ FROM REDSHIFT
 
 A keyword that indicates that the database is located in Amazon Redshift.
 
-DATABASE '_redshift_database_name_' SCHEMA
-'_redshift_schema_name_'
+DATABASE '_redshift\_database\_name_' SCHEMA
+'_redshift\_schema\_name_'
 
 The name of the Amazon Redshift database.
 
-The _redshift_schema_name_ indicates the schema in
-Amazon Redshift. The default _redshift_schema_name_ is
+The _redshift\_schema\_name_ indicates the schema in
+Amazon Redshift. The default _redshift\_schema\_name_ is
 `public`.
 
-DATABASE '_federated_database_name_'
+DATABASE '_federated\_database\_name_'
 
 A keyword that indicates the name of the external database in a supported
 PostgreSQL or MySQL database engine.
 
-[SCHEMA '*schema\_name*']
+[SCHEMA '_schema\_name_']
 
-The _schema_name_ indicates the schema in a supported
-PostgreSQL database engine. The default _schema_name_ is
+The _schema\_name_ indicates the schema in a supported
+PostgreSQL database engine. The default _schema\_name_ is
 `public`.
 
 You can't specify a SCHEMA when you set up a federated query to a
@@ -186,14 +186,14 @@ If the external database is defined in an Athena data catalog or the
 AWS Glue Data Catalog, the AWS Region in which the database is located. This parameter
 is required if the database is defined in an external Data Catalog.
 
-URI [ 'hive_metastore_uri' [ PORT port\_number ] | 'hostname' [ PORT port\_number
+URI [ 'hive\_metastore\_uri' [ PORT port\_number ] | 'hostname' [ PORT port\_number
 ] | 'Kafka bootstrap URI' ]
 
-The hostname URI and port_number of a supported PostgreSQL or MySQL database
+The hostname URI and port\_number of a supported PostgreSQL or MySQL database
 engine. The _hostname_ is the head node of the replica set.
 The endpoint must be reachable (routable) from the Amazon Redshift cluster.
 The default
-PostgreSQL port_number is 5432. The default MySQL port_number is 3306.
+PostgreSQL port\_number is 5432. The default MySQL port\_number is 3306.
 
 ###### Note
 
@@ -218,7 +218,7 @@ Including the bootstrap-broker URI provides the ability to connect to an
 Amazon MSK or Confluent Cloud cluster and receive streamed data. For more
 information and to see an example, see [Getting started with streaming ingestion from Amazon Managed Streaming for Apache Kafka](materialized-view-streaming-ingestion-getting-started-MSK.md "materialized-view-streaming-ingestion-getting-started-MSK.md").
 
-IAM_ROLE [ default | 'SESSION' |
+IAM\_ROLE [ default | 'SESSION' |
 'arn:aws:iam::`<AWS account-id>`:role/`<role-name>`'
 ]
 
@@ -239,7 +239,7 @@ for authentication and authorization. As a minimum, the IAM role must have
 permission to perform a LIST operation on the Amazon S3 bucket to be accessed and a
 GET operation on the Amazon S3 objects the bucket contains.
 
-The following shows the syntax for the IAM_ROLE parameter string for a
+The following shows the syntax for the IAM\_ROLE parameter string for a
 single ARN.
 
 ```
@@ -296,14 +296,14 @@ The following shows the syntax for chaining three roles.
 IAM_ROLE 'arn:aws:iam::`<aws-account-id>`:role/`<role-1-name>`,arn:aws:iam::`<aws-account-id>`:role/`<role-2-name>`,arn:aws:iam::`<aws-account-id>`:role/`<role-3-name>`'
 ```
 
-SECRET_ARN '_ssm-secret-arn_'
+SECRET\_ARN '_ssm-secret-arn_'
 
 The Amazon Resource Name (ARN) of a supported PostgreSQL or MySQL database
 engine secret created using AWS Secrets Manager. For information about how to create and
 retrieve an ARN for a secret, see [Manage secrets with AWS Secrets Manager](../../../secretsmanager/latest/userguide/manage_create-basic-secret.md "../../../secretsmanager/latest/userguide/manage_create-basic-secret.md") in the
 _AWS Secrets Manager User Guide_, and [Retrieving the Amazon Resource Name (ARN) of the secret in Amazon Redshift](../mgmt/redshift-secrets-manager-integration-retrieving-secret.md "../mgmt/redshift-secrets-manager-integration-retrieving-secret.md")..
 
-CATALOG_ROLE [ 'SESSION' | *catalog-role-arn-string*]
+CATALOG\_ROLE [ 'SESSION' | _catalog-role-arn-string_]
 
 Use `'SESSION'` to connect to your Amazon Redshift cluster using a federated
 identity for authentication and authorization to the data catalog. For more
@@ -315,11 +315,11 @@ if the schema is created in DATA CATALOG.
 Use the Amazon Resource Name ARN for an IAM role that your cluster uses
 for authentication and authorization for the data catalog.
 
-If CATALOG_ROLE isn't specified, Amazon Redshift uses the specified IAM_ROLE. The
+If CATALOG\_ROLE isn't specified, Amazon Redshift uses the specified IAM\_ROLE. The
 catalog role must have permission to access the Data Catalog in AWS Glue or Athena. For
 more information, see [IAM policies for Amazon Redshift Spectrum](c-spectrum-iam-policies.md "c-spectrum-iam-policies.md").
 
-The following shows the syntax for the CATALOG_ROLE parameter string for a
+The following shows the syntax for the CATALOG\_ROLE parameter string for a
 single ARN.
 
 ```
@@ -356,7 +356,7 @@ METASTORE.
 To use CREATE EXTERNAL DATABASE IF NOT EXISTS with a Data Catalog enabled for
 AWS Lake Formation, you need `CREATE_DATABASE` permission on the Data Catalog.
 
-CATALOG_ID '_Amazon Web Services account ID containing Glue or Lake
+CATALOG\_ID '_Amazon Web Services account ID containing Glue or Lake
 Formation database_'
 
 The account id where the data catalog database is stored.
@@ -394,16 +394,16 @@ types are the following:
   Redshift and the server is Amazon MSK. For more information about configuring
   streaming ingestion with mTLS, see [Authentication with mTLS for Redshift streaming ingestion from Apache Kafka sources](materialized-view-streaming-ingestion-mtls.md "materialized-view-streaming-ingestion-mtls.md").
 
-AUTHENTICATION_ARN
+AUTHENTICATION\_ARN
 
 The ARN of the AWS Certificate Manager certificate used by Amazon Redshift for mtls authentication
 with Amazon MSK. The ARN is available in the ACM console when you choose the
 issued certificate.
 
-CLUSTER_ARN
+CLUSTER\_ARN
 
-For streaming ingestion, the CLUSTER_ARN is the cluster identifier for the
-Amazon Managed Streaming for Apache Kafka cluster you're streaming from. When using CLUSTER_ARN, it requires an
+For streaming ingestion, the CLUSTER\_ARN is the cluster identifier for the
+Amazon Managed Streaming for Apache Kafka cluster you're streaming from. When using CLUSTER\_ARN, it requires an
 IAM role policy that includes the `kafka:GetBootstrapBrokers`
 permission. This option is provided for backward compatibility. Currently, we
 recommend using the bootstrap-broker URI option to connect to Amazon Managed Streaming for Apache Kafka
@@ -427,9 +427,9 @@ To unregister the schema, use the [DROP SCHEMA](r_DROP_SCHEMA.md "r_DROP_SCHEMA.
 
 To view details for external schemas, query the following system views:
 
-- [SVV_EXTERNAL_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md")
-- [SVV_EXTERNAL_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md")
-- [SVV_EXTERNAL_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md")
+- [SVV\_EXTERNAL\_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md")
+- [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md")
+- [SVV\_EXTERNAL\_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md")
 
 ## Examples
 
@@ -493,7 +493,7 @@ SECRET_ARN 'arn:aws:secretsmanager:us-east-2:123456789012:secret:development/MyT
 
 ```
 
-The following example creates an external schema to refer to the sales_db imported on
+The following example creates an external schema to refer to the sales\_db imported on
 the consumer cluster.
 
 ```

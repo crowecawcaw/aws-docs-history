@@ -55,7 +55,7 @@ Whenever adding data to a nonempty table significantly changes the size of the t
 you can explicitly update statistics. You do so either by running an ANALYZE command or
 by using the STATUPDATE ON option with the COPY command. To view details about the
 number of rows that have been inserted or deleted since the last ANALYZE, query the
-[PG_STATISTIC_INDICATOR](r_PG_STATISTIC_INDICATOR.md "r_PG_STATISTIC_INDICATOR.md")
+[PG\_STATISTIC\_INDICATOR](r_PG_STATISTIC_INDICATOR.md "r_PG_STATISTIC_INDICATOR.md")
 system catalog table.
 
 You can specify the scope of the [ANALYZE](r_ANALYZE.md "r_ANALYZE.md") command to one of the following:
@@ -82,7 +82,7 @@ columns that are frequently used in the following:
 - Query predicates
 
 To reduce processing time and improve overall system performance, Amazon Redshift skips ANALYZE
-for any table that has a low percentage of changed rows, as determined by the [analyze_threshold_percent](r_analyze_threshold_percent.md "r_analyze_threshold_percent.md")
+for any table that has a low percentage of changed rows, as determined by the [analyze\_threshold\_percent](r_analyze_threshold_percent.md "r_analyze_threshold_percent.md")
 parameter. By default, the analyze threshold is set to 10 percent. You can change the
 analyze threshold for the current session by running a [SET](r_SET.md "r_SET.md") command.
 
@@ -151,7 +151,7 @@ runtimes. However, the next time you run ANALYZE using PREDICATE COLUMNS, the ne
 predicate columns are included.
 
 To view details for predicate columns, use the following SQL to create a view named
-PREDICATE_COLUMNS.
+PREDICATE\_COLUMNS.
 
 ```
 CREATE VIEW predicate_columns AS
@@ -186,7 +186,7 @@ where l.listtime > '2008-12-01'
 group by l.eventid, s.buyerid;
 ```
 
-When you query the PREDICATE_COLUMNS view, as shown in the following example, you see
+When you query the PREDICATE\_COLUMNS view, as shown in the following example, you see
 that LISTID, EVENTID, and LISTTIME are marked as predicate columns.
 
 ```
@@ -243,10 +243,10 @@ padb_fetch_sample: select * from *table\_name*
 
 ```
 
-Query STL_ANALYZE to view the history of analyze operations. If Amazon Redshift analyzes a table
+Query STL\_ANALYZE to view the history of analyze operations. If Amazon Redshift analyzes a table
 using automatic analyze, the `is_background` column is set to `t`
 (true). Otherwise, it is set to `f` (false). The following example joins
-STV_TBL_PERM to show the table name and runtime details.
+STV\_TBL\_PERM to show the table name and runtime details.
 
 ```
 `select distinct a.xid, trim(t.name) as name, a.status, a.rows, a.modified_rows, a.starttime, a.endtime

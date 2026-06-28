@@ -69,16 +69,16 @@ FROM
 
 Alternatively, you can configure `enable_case_sensitive_identifier` to TRUE and wrap the uppercase and mixed-case
 attribute names with double quotation marks. For more information, see
-[enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
+[enable\_case\_sensitive\_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
 
 ## Parsing options for SUPER
 
-When you use the JSON_PARSE function to parse JSON strings into SUPER values, certain restrictions apply:
+When you use the JSON\_PARSE function to parse JSON strings into SUPER values, certain restrictions apply:
 
-- The same attribute name cannot appear in the same object, but can appear in a nested object. The `json_parse_dedup_attributes` configuration option allows JSON_PARSE to keep only the last occurrence of duplicate attributes instead of returning an error.
-- Individual string literals in SUPER object have a size limit of 16,000,000 bytes. The `json_parse_truncate_strings` configuration option allows JSON_PARSE() to automatically truncate strings that are longer than this limit without returning an error. This behavior affects string values only and not attribute names.
+- The same attribute name cannot appear in the same object, but can appear in a nested object. The `json_parse_dedup_attributes` configuration option allows JSON\_PARSE to keep only the last occurrence of duplicate attributes instead of returning an error.
+- Individual string literals in SUPER object have a size limit of 16,000,000 bytes. The `json_parse_truncate_strings` configuration option allows JSON\_PARSE() to automatically truncate strings that are longer than this limit without returning an error. This behavior affects string values only and not attribute names.
 
-For more information about the JSON_PARSE function, see [JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md").
+For more information about the JSON\_PARSE function, see [JSON\_PARSE function](JSON_PARSE.md "JSON_PARSE.md").
 
 The following example shows how to set the `json_parse_dedup_attributes` configuration option to the default behavior of returning an error for duplicate attributes.
 

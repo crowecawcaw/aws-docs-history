@@ -44,7 +44,7 @@ The default date format is YYYY-MM-DD. The default timestamp without time zone
 (TIMESTAMP) format is YYYY-MM-DD HH:MI:SS. The default timestamp with time zone
 (TIMESTAMPTZ) format is YYYY-MM-DD HH:MI:SSOF, where OF is the offset from UTC (for
 example, -8:00. You can't include a time zone specifier (TZ, tz, or OF) in the
-timeformat_string. The seconds (SS) field also supports fractional seconds up to a
+timeformat\_string. The seconds (SS) field also supports fractional seconds up to a
 microsecond level of detail. To load TIMESTAMPTZ data that is in a format different from
 the default format, specify 'auto'.
 

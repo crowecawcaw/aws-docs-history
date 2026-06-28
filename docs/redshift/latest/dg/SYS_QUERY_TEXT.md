@@ -2,27 +2,27 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_QUERY_TEXT
+# SYS\_QUERY\_TEXT
 
-Use SYS_QUERY_TEXT to view the query text of all queries. Each row represents the
+Use SYS\_QUERY\_TEXT to view the query text of all queries. Each row represents the
 query text of queries up to 4000 characters starting with sequence number 0. When the
 query statement contains more than 4000 characters, additional rows are logged for the
 statement by incrementing the sequence number for each row. This view logs all user
 query text such as DDL, utility, Amazon Redshift queries, and leader-node only queries.
 
-SYS_QUERY_TEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_QUERY\_TEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name    | Data type        | Description                                                                                                                                                                  |
-| -------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user_id        | integer          | The identifier of the user who submitted the<br>query.                                                                                                                       |
-| query_id       | bigint           | The query identifier.                                                                                                                                                        |
-| transaction_id | bigint           | The identifier of the transaction associated with<br>the statement.                                                                                                          |
-| session_id     | integer          | The process identifier of the session running the<br>query.                                                                                                                  |
-| start_time     | timestamp        | The time when the query starts.                                                                                                                                              |
-| sequence       | integer          | When a single statement contains more than 4000<br>characters, additional rows are logged for the statement. Sequence 0<br>is the first row, 1 is the second row, and so on. |
-| text           | character (4000) | The text of the SQL query that is in<br>4000-character increments. This field might contain special<br>characters, such as backslash (\) and newline (\n).                   |
+| Column name     | Data type        | Description                                                                                                                                                                  |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user\_id        | integer          | The identifier of the user who submitted the<br>query.                                                                                                                       |
+| query\_id       | bigint           | The query identifier.                                                                                                                                                        |
+| transaction\_id | bigint           | The identifier of the transaction associated with<br>the statement.                                                                                                          |
+| session\_id     | integer          | The process identifier of the session running the<br>query.                                                                                                                  |
+| start\_time     | timestamp        | The time when the query starts.                                                                                                                                              |
+| sequence        | integer          | When a single statement contains more than 4000<br>characters, additional rows are logged for the statement. Sequence 0<br>is the first row, 1 is the second row, and so on. |
+| text            | character (4000) | The text of the SQL query that is in<br>4000-character increments. This field might contain special<br>characters, such as backslash (\) and newline (\n).                   |
 
 ## Sample queries
 

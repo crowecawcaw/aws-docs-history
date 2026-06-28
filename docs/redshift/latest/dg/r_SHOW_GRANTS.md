@@ -59,23 +59,23 @@ SHOW GRANTS FOR
 
 ## Parameters
 
-_database_name_
+_database\_name_
 
 The name of the database to show grants on.
 
-_function_name_
+_function\_name_
 
 The name of the function to show grants on.
 
-template_name
+template\_name
 
 The name of the template to show grants on.
 
-_schema_name_
+_schema\_name_
 
 The name of the schema to show grants on.
 
-_table_name_
+_table\_name_
 
 The name of the table to show grants on.
 
@@ -83,7 +83,7 @@ FOR _username_
 
 Indicates showing grants for a user.
 
-FOR ROLE _role_name_
+FOR ROLE _role\_name_
 
 Indicates showing grants for a role.
 
@@ -91,9 +91,9 @@ FOR PUBLIC
 
 Indicates showing grants for PUBLIC.
 
-_row_limit_
+_row\_limit_
 
-The maximum number of rows to return. The _row_limit_ can
+The maximum number of rows to return. The _row\_limit_ can
 be 0–10,000.
 
 ## Examples

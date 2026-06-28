@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SET_CONFIG
+# SET\_CONFIG
 
 Sets a configuration parameter to a new setting.
 
@@ -26,15 +26,15 @@ _parameter_
 
 Parameter to set.
 
-_variable_name_
+_variable\_name_
 
 The name of the variable to set.
 
-_new_value_
+_new\_value_
 
 New value of the parameter.
 
-_is_local_
+_is\_local_
 
 If true, parameter value applies only to the current transaction. Valid
 values are `true` or `1` and `false` or

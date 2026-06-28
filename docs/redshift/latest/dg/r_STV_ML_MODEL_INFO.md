@@ -2,23 +2,23 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_ML_MODEL_INFO
+# STV\_ML\_MODEL\_INFO
 
 State information about the current state of the machine learning
 model.
 
-STV_ML_MODEL_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_ML\_MODEL\_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name    | Data type | Description                                                                                                                                                                                                                              |
-| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| schema_name    | char(128) | The namespace of the model.                                                                                                                                                                                                              |
-| user_name      | char(128) | The owner of the model.                                                                                                                                                                                                                  |
-| model_name     | char(128) | The name of the model.                                                                                                                                                                                                                   |
-| life_cycle     | char(20)  | The lifecycle status of the model.                                                                                                                                                                                                       |
-| is_refreshable | integer   | The state of the model whether it is refreshable<br>if original tables and columns in the training query still exist and<br>the user still has the permissions to them. Possible values are: 1<br>(refreshable) and 0 (not refreshable). |
-| model_state    | char(128) | The current state of the model.                                                                                                                                                                                                          |
+| Column name     | Data type | Description                                                                                                                                                                                                                              |
+| --------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| schema\_name    | char(128) | The namespace of the model.                                                                                                                                                                                                              |
+| user\_name      | char(128) | The owner of the model.                                                                                                                                                                                                                  |
+| model\_name     | char(128) | The name of the model.                                                                                                                                                                                                                   |
+| life\_cycle     | char(20)  | The lifecycle status of the model.                                                                                                                                                                                                       |
+| is\_refreshable | integer   | The state of the model whether it is refreshable<br>if original tables and columns in the training query still exist and<br>the user still has the permissions to them. Possible values are: 1<br>(refreshable) and 0 (not refreshable). |
+| model\_state    | char(128) | The current state of the model.                                                                                                                                                                                                          |
 
 ## Sample query
 

@@ -2,27 +2,27 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_SESSIONS
+# STV\_SESSIONS
 
-Use the STV_SESSIONS table to view information about the active user sessions for
+Use the STV\_SESSIONS table to view information about the active user sessions for
 Amazon Redshift.
 
-To view the session history, use the [STL_SESSIONS](r_STL_SESSIONS.md "r_STL_SESSIONS.md") table, rather than STV_SESSIONS.
+To view the session history, use the [STL\_SESSIONS](r_STL_SESSIONS.md "r_STL_SESSIONS.md") table, rather than STV\_SESSIONS.
 
-STV_SESSIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_SESSIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS_SESSION_HISTORY](SYS_SESSION_HISTORY.md "SYS_SESSION_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_SESSION\_HISTORY](SYS_SESSION_HISTORY.md "SYS_SESSION_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name | Data type     | Description                                                                                                                      |
-| ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| starttime   | timestamp     | Time that the session started.                                                                                                   |
-| process     | integer       | Process ID for the session.                                                                                                      |
-| user_name   | character(50) | User associated with the session.                                                                                                |
-| db_name     | character(50) | Name of the database associated with the<br>session.                                                                             |
-| timeout_sec | int           | The maximum time in seconds that a session remains<br>inactive or idle before timing out. 0 indicates that no timeout is<br>set. |
+| Column name  | Data type     | Description                                                                                                                      |
+| ------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| starttime    | timestamp     | Time that the session started.                                                                                                   |
+| process      | integer       | Process ID for the session.                                                                                                      |
+| user\_name   | character(50) | User associated with the session.                                                                                                |
+| db\_name     | character(50) | Name of the database associated with the<br>session.                                                                             |
+| timeout\_sec | int           | The maximum time in seconds that a session remains<br>inactive or idle before timing out. 0 indicates that no timeout is<br>set. |
 
 ## Sample queries
 

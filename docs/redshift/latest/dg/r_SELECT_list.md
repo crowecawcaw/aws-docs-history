@@ -65,7 +65,7 @@ example:
 avg(datediff(day, listtime, saletime))
 ```
 
-AS _column_alias_
+AS _column\_alias_
 
 A temporary name for the column that is used in the final result set. The
 AS keyword is optional. For example:
@@ -96,7 +96,7 @@ inlines the previously defined aliases. If there is a column with the
 same name defined in the `FROM` clause as the previously
 aliased expression, the column in the `FROM` clause takes
 priority. For example, in the above query if there is a column named
-'probability' in table raw_data, the 'probability' in the second
+'probability' in table raw\_data, the 'probability' in the second
 expression in the target list refers to that column instead of the alias
 name 'probability'.
 

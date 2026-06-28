@@ -83,4 +83,4 @@ Consider the following when using Amazon Redshift with Iceberg tables:
   assumes metadata files are immutable based on the [Iceberg
   specification](https://iceberg.apache.org/spec/#file-system-operations "https://iceberg.apache.org/spec/#file-system-operations"). Metadata file immutability is a requirement for data
   integrity in Amazon Redshift.
-- Federated identity – Federated identity is not supported when writing to Apache Iceberg tables. This includes using the SESSION keyword for the IAM_ROLE parameter when creating external schemas. For more information about IAM_ROLE parameters, see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md").
+- Federated identity – Federated identity is not supported when writing to Apache Iceberg tables. This includes using the SESSION keyword for the IAM\_ROLE parameter when creating external schemas. For more information about IAM\_ROLE parameters, see [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md").

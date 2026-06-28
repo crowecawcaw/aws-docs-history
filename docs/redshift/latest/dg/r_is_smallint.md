@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# IS_SMALLINT function
+# IS\_SMALLINT function
 
-Checks whether a variable is a `SMALLINT`. The IS_SMALLINT function returns `true` for
+Checks whether a variable is a `SMALLINT`. The IS\_SMALLINT function returns `true` for
 numbers of scale 0 in the 16-bit range. The function returns `false` for any other values,
 including null and floating point numbers.
 
@@ -17,7 +17,7 @@ IS_SMALLINT(*super\_expression*)
 
 ## Arguments
 
-_super_expression_
+_super\_expression_
 
 A `SUPER` expression or column.
 
@@ -27,7 +27,7 @@ A `SUPER` expression or column.
 
 ## Examples
 
-To check if `5` is a `SMALLINT` using the IS_SMALLINT function, use the following example.
+To check if `5` is a `SMALLINT` using the IS\_SMALLINT function, use the following example.
 
 ```
 `CREATE TABLE t(s SUPER);

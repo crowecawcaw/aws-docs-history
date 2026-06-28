@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_LineInterpolatePoint
+# ST\_LineInterpolatePoint
 
-ST_LineInterpolatePoint returns a point along a line at a fractional distance from the start of the line.
+ST\_LineInterpolatePoint returns a point along a line at a fractional distance from the start of the line.
 
-To determine point equality, ST_LineInterpolatePoint operates on the 2D projection of
+To determine point equality, ST\_LineInterpolatePoint operates on the 2D projection of
 the input geometry. If the input geometry is empty, a copy of it is returned in the same
 dimension as the input. For 3DZ, 3DM, and 4D geometries, the `z` or
 `m` coordinate is the average of the `z` or `m`

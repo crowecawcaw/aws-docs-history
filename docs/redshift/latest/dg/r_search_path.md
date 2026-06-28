@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# search_path
+# search\_path
 
 ## Values (default in bold)
 
-**'$user', public,** _schema_names_
+**'$user', public,** _schema\_names_
 
 A comma-separated list of existing schema names. If **'$user'** is present, then the schema having the same name as
 `SESSION_USER` is substituted, otherwise it is ignored.
@@ -26,18 +26,18 @@ a function) is referenced by a simple name with no schema component:
   first in the search path is used.
 - An object that isn't in any of the schemas in the search path can only be
   referenced by specifying its containing schema with a qualified (dotted) name.
-- The system catalog schema, pg_catalog, is always searched. If it is mentioned
+- The system catalog schema, pg\_catalog, is always searched. If it is mentioned
   in the path, it is searched in the specified order. If not, it is searched before
   any of the path items.
-- The current session's temporary-table schema, pg_temp_nnn, is always searched
-  if it exists. It can be explicitly listed in the path by using the alias pg_temp.
-  If it is not listed in the path, it is searched first (even before pg_catalog).
+- The current session's temporary-table schema, pg\_temp\_nnn, is always searched
+  if it exists. It can be explicitly listed in the path by using the alias pg\_temp.
+  If it is not listed in the path, it is searched first (even before pg\_catalog).
   However, the temporary schema is only searched for relation names (tables, views).
   It is not searched for function names.
 
 ## Example
 
-The following example creates the schema ENTERPRISE and sets the search_path to the
+The following example creates the schema ENTERPRISE and sets the search\_path to the
 new schema.
 
 ```
@@ -51,7 +51,7 @@ show search_path;
 (1 row)
 ```
 
-The following example adds the schema ENTERPRISE to the default search_path.
+The following example adds the schema ENTERPRISE to the default search\_path.
 
 ```
 set search_path to '$user', public, enterprise;

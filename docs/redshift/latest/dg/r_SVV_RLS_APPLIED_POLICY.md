@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_RLS_APPLIED_POLICY
+# SVV\_RLS\_APPLIED\_POLICY
 
-Use SVV_RLS_APPLIED_POLICY to trace the application of RLS policies on queries that reference RLS-protected relations.
+Use SVV\_RLS\_APPLIED\_POLICY to trace the application of RLS policies on queries that reference RLS-protected relations.
 
-SVV_RLS_APPLIED_POLICY is visible to the following users:
+SVV\_RLS\_APPLIED\_POLICY is visible to the following users:
 
 - Superusers
 - Users with the `sys:operator` role
@@ -32,7 +32,7 @@ SVV_RLS_APPLIED_POLICY is visible to the following users:
 
 ## Sample query
 
-The following example displays the result of the SVV_RLS_APPLIED_POLICY. To query the SVV_RLS_APPLIED_POLICY, you must have the ACCESS SYSTEM TABLE permission.
+The following example displays the result of the SVV\_RLS\_APPLIED\_POLICY. To query the SVV\_RLS\_APPLIED\_POLICY, you must have the ACCESS SYSTEM TABLE permission.
 
 ```
 -- Check what RLS policies were applied to the run query.

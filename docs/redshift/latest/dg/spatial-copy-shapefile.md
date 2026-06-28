@@ -55,8 +55,8 @@ simplified, along with the calculated tolerance. When you specify `SIMPLIFY
  *tolerance*`, this view contains a record for each COPY
 operation. Otherwise, it contains a record for each simplified geometry. For more
 information, see
-[SYS_SPATIAL_SIMPLIFY](SYS_SPATIAL_SIMPLIFY.md "SYS_SPATIAL_SIMPLIFY.md") or
-[SVL_SPATIAL_SIMPLIFY](r_SVL_SPATIAL_SIMPLIFY.md "r_SVL_SPATIAL_SIMPLIFY.md").
+[SYS\_SPATIAL\_SIMPLIFY](SYS_SPATIAL_SIMPLIFY.md "SYS_SPATIAL_SIMPLIFY.md") or
+[SVL\_SPATIAL\_SIMPLIFY](r_SVL_SPATIAL_SIMPLIFY.md "r_SVL_SPATIAL_SIMPLIFY.md").
 
 For examples of loading a shapefile, see
 [Loading a shapefile into Amazon Redshift](r_COPY_command_examples.md#copy-example-spatial-copy-shapefile "r_COPY_command_examples.md#copy-example-spatial-copy-shapefile").

@@ -2,27 +2,27 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_REDSHIFT_TEMPLATE
+# SYS\_REDSHIFT\_TEMPLATE
 
-Use SYS_REDSHIFT_TEMPLATE to view details of Redshift TEMPLATES.
+Use SYS\_REDSHIFT\_TEMPLATE to view details of Redshift TEMPLATES.
 
 This view contains the TEMPLATES that have been created.
 
-SYS_REDSHIFT_TEMPLATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_REDSHIFT\_TEMPLATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name         | Data type      | Description                                                                                    |
-| ------------------- | -------------- | ---------------------------------------------------------------------------------------------- |
-| database_name       | character(128) | The Redshift Database in which the template is created.                                        |
-| schema_name         | character(128) | The Redshift Schema in which the template is created.                                          |
-| template_name       | character(128) | The name of the template.                                                                      |
-| template_type       | integer        | An integer indicating the Redshift command type associated with the template. 1 = COPY command |
-| create_time         | timestamp      | Timestamp when the template was created.                                                       |
-| last_modified_time  | timestamp      | Timestamp when the template was last modified.                                                 |
-| owner_id            | integer        | User ID of the user who owns the template.                                                     |
-| last_modified_by    | integer        | User ID of the user who last modified the template.                                            |
-| template_parameters | text           | A JSON string containing the template parameters and their values.                             |
+| Column name          | Data type      | Description                                                                                    |
+| -------------------- | -------------- | ---------------------------------------------------------------------------------------------- |
+| database\_name       | character(128) | The Redshift Database in which the template is created.                                        |
+| schema\_name         | character(128) | The Redshift Schema in which the template is created.                                          |
+| template\_name       | character(128) | The name of the template.                                                                      |
+| template\_type       | integer        | An integer indicating the Redshift command type associated with the template. 1 = COPY command |
+| create\_time         | timestamp      | Timestamp when the template was created.                                                       |
+| last\_modified\_time | timestamp      | Timestamp when the template was last modified.                                                 |
+| owner\_id            | integer        | User ID of the user who owns the template.                                                     |
+| last\_modified\_by   | integer        | User ID of the user who last modified the template.                                            |
+| template\_parameters | text           | A JSON string containing the template parameters and their values.                             |
 
 ## Sample queries
 

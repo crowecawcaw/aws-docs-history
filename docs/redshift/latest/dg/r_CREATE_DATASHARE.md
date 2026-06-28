@@ -32,7 +32,7 @@ CREATE DATASHARE *datashare\_name*
 
 ## Parameters
 
-_datashare_name_
+_datashare\_name_
 
 The name of the datashare. The datashare name must be unique in the cluster
 namespace.

@@ -93,10 +93,10 @@ ALTER TABLE *tablename* ALTER DISTSTYLE ALL, ALTER SORTKEY (*column\_list*);
 
 ## Parameters
 
-_table_name_
+_table\_name_
 
 The name of the table to alter. Either specify just the name of the table,
-or use the format _schema_name.table_name_ to use a specific
+or use the format _schema\_name.table\_name_ to use a specific
 schema. External tables must be qualified by an external schema name. You can
 also specify a view name if you're using the ALTER TABLE statement to rename a
 view or change its owner. The maximum length for the table name is 127 bytes;
@@ -104,10 +104,10 @@ longer names are truncated to 127 bytes. You can use UTF-8 multibyte characters
 up to a maximum of four bytes. For more information about valid names, see
 [Names and identifiers](r_names.md "r_names.md").
 
-ADD _table_constraint_
+ADD _table\_constraint_
 
 A clause that adds the specified constraint to the table. For descriptions
-of valid _table_constraint_ values, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md").
+of valid _table\_constraint_ values, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md").
 
 ###### Note
 
@@ -115,7 +115,7 @@ You can't add a primary-key constraint to a nullable column. If the
 column was originally created with the NOT NULL constraint, you can add the
 primary-key constraint.
 
-DROP CONSTRAINT _constraint_name_
+DROP CONSTRAINT _constraint\_name_
 
 A clause that drops the named constraint from the table. To drop a
 constraint, specify the constraint name, not the constraint type. To view table
@@ -137,15 +137,15 @@ A clause that removes the specified constraint and anything dependent on
 that constraint. CASCADE is an option for DROP CONSTRAINT. CASCADE can't
 be used with RESTRICT.
 
-OWNER TO _new_owner_
+OWNER TO _new\_owner_
 
 A clause that changes the owner of the table (or view) to the
-_new_owner_ value.
+_new\_owner_ value.
 
-RENAME TO _new_name_
+RENAME TO _new\_name_
 
 A clause that renames a table (or view) to the value specified in
-_new_name_. The maximum table name length is 127 bytes;
+_new\_name_. The maximum table name length is 127 bytes;
 longer names are truncated to 127 bytes.
 
 You can't rename a permanent table to a name that begins with '#'. A
@@ -153,8 +153,8 @@ table name beginning with '#' indicates a temporary table.
 
 You can't rename an external table.
 
-ALTER COLUMN _column_name_ TYPE
-_updated_varchar_data_type_size_
+ALTER COLUMN _column\_name_ TYPE
+_updated\_varchar\_data\_type\_size_
 
 A clause that changes the size of a column defined as a VARCHAR data type.
 This clause only supports altering the size of a VARCHAR data type. Consider
@@ -169,8 +169,8 @@ the following limitations:
 - You can't alter columns within a transaction block (BEGIN ...
   END). For more information about transactions, see [Isolation levels in Amazon Redshift](c_serial_isolation.md "c_serial_isolation.md").
 
-ALTER COLUMN _column_name_ ENCODE
-_new_encode_type_
+ALTER COLUMN _column\_name_ ENCODE
+_new\_encode\_type_
 
 A clause that changes the compression encoding of a column. If you specify
 compression encoding for a column, the table is no longer set to ENCODE
@@ -187,9 +187,9 @@ Consider the following limitations:
 - You can't alter the encoding for a column in a table with an
   interleaved sortkey.
 
-ALTER COLUMN _column_name_ ENCODE
-_encode_type_, ALTER COLUMN _column_name_
-ENCODE _encode_type_, .....;
+ALTER COLUMN _column\_name_ ENCODE
+_encode\_type_, ALTER COLUMN _column\_name_
+ENCODE _encode\_type_, .....;
 
 A clause that changes the compression encoding of multiple columns in a
 single command. For information on compression encoding, see [Column compression to reduce the size of stored data](t_Compressing_data_on_disk.md "t_Compressing_data_on_disk.md").
@@ -246,8 +246,8 @@ A clause that changes the existing distribution style of a table to
 
 For more information about DISTSTYLE EVEN, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md").
 
-ALTER DISTKEY _column_name_ or ALTER DISTSTYLE KEY DISTKEY
-_column_name_
+ALTER DISTKEY _column\_name_ or ALTER DISTSTYLE KEY DISTKEY
+_column\_name_
 
 A clause that changes the column used as the distribution key of a table.
 Consider the following:
@@ -296,14 +296,14 @@ locks, see [Amazon Redshift Advisor recommendations](advisor-recommendations.md#
 
 For more information about DISTSTYLE AUTO, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md").
 
-To view the distribution style of a table, query the SVV_TABLE_INFO system
-catalog view. For more information, see [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To view the Amazon Redshift Advisor recommendations
-for tables, query the SVV_ALTER_TABLE_RECOMMENDATIONS system catalog view. For
-more information, see [SVV_ALTER_TABLE_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the actions
-taken by Amazon Redshift, query the SVL_AUTO_WORKER_ACTION system catalog view. For more
-information, see [SVL_AUTO_WORKER_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
+To view the distribution style of a table, query the SVV\_TABLE\_INFO system
+catalog view. For more information, see [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To view the Amazon Redshift Advisor recommendations
+for tables, query the SVV\_ALTER\_TABLE\_RECOMMENDATIONS system catalog view. For
+more information, see [SVV\_ALTER\_TABLE\_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the actions
+taken by Amazon Redshift, query the SVL\_AUTO\_WORKER\_ACTION system catalog view. For more
+information, see [SVL\_AUTO\_WORKER\_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
 
-ALTER [COMPOUND] SORTKEY ( _column_name_ [,...] )
+ALTER [COMPOUND] SORTKEY ( _column\_name_ [,...] )
 
 A clause that changes or adds the sort key used for a table. ALTER SORTKEY
 isn't supported for temporary tables.
@@ -354,12 +354,12 @@ queries, then Amazon Redshift might change the sort key of your table in the fut
 
 For more information about SORTKEY AUTO, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md").
 
-To view the sort key of a table, query the SVV_TABLE_INFO system catalog
-view. For more information, see [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To view the Amazon Redshift Advisor recommendations
-for tables, query the SVV_ALTER_TABLE_RECOMMENDATIONS system catalog view. For
-more information, see [SVV_ALTER_TABLE_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the actions
-taken by Amazon Redshift, query the SVL_AUTO_WORKER_ACTION system catalog view. For more
-information, see [SVL_AUTO_WORKER_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
+To view the sort key of a table, query the SVV\_TABLE\_INFO system catalog
+view. For more information, see [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md"). To view the Amazon Redshift Advisor recommendations
+for tables, query the SVV\_ALTER\_TABLE\_RECOMMENDATIONS system catalog view. For
+more information, see [SVV\_ALTER\_TABLE\_RECOMMENDATIONS](r_SVV_ALTER_TABLE_RECOMMENDATIONS.md "r_SVV_ALTER_TABLE_RECOMMENDATIONS.md"). To view the actions
+taken by Amazon Redshift, query the SVL\_AUTO\_WORKER\_ACTION system catalog view. For more
+information, see [SVL\_AUTO\_WORKER\_ACTION](r_SVL_AUTO_WORKER_ACTION.md "r_SVL_AUTO_WORKER_ACTION.md").
 
 ALTER SORTKEY NONE
 
@@ -389,17 +389,17 @@ table:
 - Using the COMPUPDATE option of the COPY command. For more information,
   see [Data load operations](copy-parameters-data-load.md "copy-parameters-data-load.md").
 
-To view the encoding of a table, query the SVV_TABLE_INFO system catalog
-view. For more information, see [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md").
+To view the encoding of a table, query the SVV\_TABLE\_INFO system catalog
+view. For more information, see [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md").
 
-RENAME COLUMN _column_name_ TO _new_name_
+RENAME COLUMN _column\_name_ TO _new\_name_
 
 A clause that renames a column to the value specified in
-_new_name_. The maximum column name length is 127 bytes;
+_new\_name_. The maximum column name length is 127 bytes;
 longer names are truncated to 127 bytes. For more information about valid
 names, see [Names and identifiers](r_names.md "r_names.md").
 
-ADD [ COLUMN ] _column_name_
+ADD [ COLUMN ] _column\_name_
 
 A clause that adds a column with the specified name to the table. You can
 add only one column in each ALTER TABLE statement.
@@ -433,7 +433,7 @@ table:
 
 For more information, see [CREATE EXTERNAL TABLE](r_CREATE_EXTERNAL_TABLE.md "r_CREATE_EXTERNAL_TABLE.md").
 
-_column_type_
+_column\_type_
 
 The data type of the column being added. For CHAR and VARCHAR columns, you
 can use the MAX keyword instead of declaring a maximum length. MAX sets the
@@ -443,21 +443,21 @@ bytes.
 
 For information about the data types that Amazon Redshift supports, see [Data types](c_Supported_data_types.md "c_Supported_data_types.md").
 
-DEFAULT _default_expr_
+DEFAULT _default\_expr_
 
 A clause that assigns a default data value for the column. The data type of
-_default_expr_ must match the data type of the column.
+_default\_expr_ must match the data type of the column.
 The DEFAULT value must be a variable-free expression. Subqueries,
 cross-references to other columns in the current table, and user-defined
 functions aren't allowed.
 
-The _default_expr_ is used in any INSERT operation that
+The _default\_expr_ is used in any INSERT operation that
 doesn't specify a value for the column. If no default value is specified,
 the default value for the column is null.
 
 If a COPY operation encounters a null field on a column that has a DEFAULT
 value and a NOT NULL constraint, the COPY command inserts the value of the
-_default_expr_.
+_default\_expr_.
 
 DEFAULT isn't supported for external tables.
 
@@ -517,18 +517,18 @@ values.
 
 NOT NULL and NULL aren't supported for external tables.
 
-COLLATE { CASE_SENSITIVE | CS | CASE_INSENSITIVE | CI }
+COLLATE { CASE\_SENSITIVE | CS | CASE\_INSENSITIVE | CI }
 
 A clause that specifies whether string search or comparison on the column is
 case sensitive or case insensitive. The default value is the same as the
 current case sensitivity configuration of the database.
 
-To check the current collation of a database, use the [DB_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
+To check the current collation of a database, use the [DB\_COLLATION](r_DB_COLLATION.md "r_DB_COLLATION.md") function.
 
-CASE_SENSITIVE and CS are interchangeable and yield the same results.
-Similarly, CASE_INSENSITIVE and CI are interchangeable and yield the same results.
+CASE\_SENSITIVE and CS are interchangeable and yield the same results.
+Similarly, CASE\_INSENSITIVE and CI are interchangeable and yield the same results.
 
-DROP [ COLUMN ] _column_name_
+DROP [ COLUMN ] _column\_name_
 
 The name of the column to delete from the table.
 
@@ -578,7 +578,7 @@ RESTRICT and CASCADE are ignored for external tables.
 The following options apply only to external tables.
 
 SET LOCATION { 's3://_bucket/folder_/' |
-'s3://_bucket/manifest_file_' }
+'s3://_bucket/manifest\_file_' }
 
 The path to the Amazon S3 folder that contains the data files or a manifest file
 that contains a list of Amazon S3 object paths. The buckets must be in the same
@@ -599,7 +599,7 @@ Valid formats are as follows:
 - TEXTFILE
 
 SET TABLE PROPERTIES (
-'_property_name_'='_property_value_')
+'_property\_name_'='_property\_value_')
 
 A clause that sets the table definition for table properties for an external
 table.
@@ -608,7 +608,7 @@ table.
 
 Table properties are case-sensitive.
 
-'numRows'='_row_count_'
+'numRows'='_row\_count_'
 
 A property that sets the numRows value for the table definition. To
 explicitly update an external table's statistics, set the numRows
@@ -620,22 +620,22 @@ execution plan. This plan is based on an assumption that external
 tables are the larger tables and local tables are the smaller
 tables.
 
-'skip.header.line.count'='_line_count_'
+'skip.header.line.count'='_line\_count_'
 
 A property that sets number of rows to skip at the beginning of
 each source file.
 
 PARTITION (
-_partition_column_=_partition_value_ [,
+_partition\_column_=_partition\_value_ [,
 ...] SET LOCATION { 's3://_bucket_/_folder_'
-| 's3://_bucket_/_manifest_file_' }
+| 's3://_bucket_/_manifest\_file_' }
 
 A clause that sets a new location for one or more partition columns.
 
 ADD [ IF NOT EXISTS ] PARTITION (
-_partition_column_=_partition_value_ [,
+_partition\_column_=_partition\_value_ [,
 ...] ) LOCATION { 's3://_bucket_/_folder_' |
-'s3://_bucket_/_manifest_file_' } [, ...
+'s3://_bucket_/_manifest\_file_' } [, ...
 ]
 
 A clause that adds one or more partitions. You can specify multiple
@@ -653,7 +653,7 @@ an error. This clause is useful when scripting, so the script doesn’t fail if
 ALTER TABLE tries to add a partition that already exists.
 
 DROP PARTITION
-(_partition_column_=_partition_value_ [,
+(_partition\_column_=_partition\_value_ [,
 ...] )
 
 A clause that drops the specified partition. Dropping a partition alters

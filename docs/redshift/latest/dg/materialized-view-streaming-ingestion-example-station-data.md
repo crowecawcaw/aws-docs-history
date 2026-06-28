@@ -4,7 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # Ingesting streaming data using Kinesis
 
-This procedure demonstrates how to ingest data from a Kinesis stream named _ev_station_data_, which contains
+This procedure demonstrates how to ingest data from a Kinesis stream named _ev\_station\_data_, which contains
 consumption data from different EV charging stations, in JSON format. The schema is well defined. The example
 shows how to store the data as raw JSON and also how to convert the JSON data to Amazon Redshift data types as it's ingested.
 

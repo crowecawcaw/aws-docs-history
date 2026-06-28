@@ -24,7 +24,7 @@ Specifies that the setting is valid for the current transaction. Omitting
 this parameter specifies that the setting is valid for the current
 session.
 
-_user_name_
+_user\_name_
 
 Name of the user to set. The user name may be written as an identifier or a
 string literal.

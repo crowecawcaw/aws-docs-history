@@ -101,36 +101,36 @@ This section describes the parameters and settings for the `CREATE EXTERNAL
 
 ### CREATE EXTERNAL MODEL parameters
 
-model_name
+model\_name
 
 The name for the external model. The model name in a schema must be
 unique.
 
-FUNCTION _function_name (data_type [,...] )_
+FUNCTION _function\_name (data\_type [,...] )_
 
 The name for the inference function that `CREATE EXTERNAL
  MODEL` creates. You use the inference function to send requests to
 Amazon Bedrock and retrieve ML-generated text.
 
-IAM_ROLE _{ default |
+IAM\_ROLE _{ default |
 'arn:aws:iam::<account-id>:role/<role-name>' }_
 
 The IAM role that Amazon Redshift uses to access Amazon Bedrock. For information about the
 IAM role, see [Creating or updating an IAM role for Amazon Redshift ML integration with Amazon Bedrock](machine-learning-br.md#machine-learning-br-iam "machine-learning-br.md#machine-learning-br-iam").
 
-MODEL_TYPE BEDROCK
+MODEL\_TYPE BEDROCK
 
 Specifies the model type. The only valid value is
 `BEDROCK`.
 
-SETTINGS ( MODEL_ID model_id [,...] )
+SETTINGS ( MODEL\_ID model\_id [,...] )
 
 Specifies the external model settings. See the section following for
 details.
 
 ### CREATE EXTERNAL MODEL settings
 
-MODEL_ID model_id
+MODEL\_ID model\_id
 
 The identifier for the external model, for example,
 `anthropic.claude-v2`. For information about Amazon Bedrock model IDs,
@@ -149,7 +149,7 @@ Specifies a static prompt that Amazon Redshift adds to the end of every inferenc
 request. Only supported with a `REQUEST_TYPE` of
 `UNIFIED`.
 
-REQUEST_TYPE { RAW | UNIFIED }
+REQUEST\_TYPE { RAW | UNIFIED }
 
 Specifies the format of the request sent to Amazon Bedrock. Valid values include
 the following:
@@ -167,7 +167,7 @@ the following:
 For more information, see the [Converse API documentation](../../../bedrock/latest/APIReference/API_runtime_Converse.md "../../../bedrock/latest/APIReference/API_runtime_Converse.md") in the _Amazon Bedrock API
 documentation_.
 
-RESPONSE_TYPE { VARCHAR | SUPER }
+RESPONSE\_TYPE { VARCHAR | SUPER }
 
 Specifies the format of the response. If the `REQUEST_TYPE` is
 `RAW`, the `RESPONSE_TYPE` is requred and the only
@@ -198,11 +198,11 @@ Amazon Bedrock.
 
 ### CREATE EXTERNAL MODEL inference function parameters for `REQUEST_TYPE` of `UNIFIED`
 
-input_text
+input\_text
 
 The text that Amazon Redshift sends to Amazon Bedrock.
 
-inference_config
+inference\_config
 
 A super value that contains optional parameters that Amazon Redshift sends to Amazon Bedrock.
 These can include the following:

@@ -33,14 +33,14 @@ rather than terminating with an error.
 This clause is useful when scripting, so the script doesn’t fail if CREATE
 SCHEMA tries to create a schema that already exists.
 
-_schema_name_
+_schema\_name_
 
 Name of the new schema. The schema name can't be `PUBLIC`.
 For more information about valid names, see [Names and identifiers](r_names.md "r_names.md").
 
 ###### Note
 
-The list of schemas in the [search_path](r_search_path.md "r_search_path.md") configuration parameter determines the
+The list of schemas in the [search\_path](r_search_path.md "r_search_path.md") configuration parameter determines the
 precedence of identically named objects when they are referenced without
 schema names.
 
@@ -52,7 +52,7 @@ _username_
 
 Name of the schema owner.
 
-_schema_element_
+_schema\_element_
 
 Definition for one or more objects to be created within the schema.
 
@@ -65,9 +65,9 @@ tables with ALL distribution on each compute node. The schema quota
 doesn't take into account temporary tables created as part of a temporary
 namespace or schema.
 
-To view the configured schema quotas, see [SVV_SCHEMA_QUOTA_STATE](r_SVV_SCHEMA_QUOTA_STATE.md "r_SVV_SCHEMA_QUOTA_STATE.md").
+To view the configured schema quotas, see [SVV\_SCHEMA\_QUOTA\_STATE](r_SVV_SCHEMA_QUOTA_STATE.md "r_SVV_SCHEMA_QUOTA_STATE.md").
 
-To view the records where schema quotas were exceeded, see [STL_SCHEMA_QUOTA_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md").
+To view the records where schema quotas were exceeded, see [STL\_SCHEMA\_QUOTA\_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md").
 
 Amazon Redshift converts the selected value to megabytes. Gigabytes is the default unit
 of measurement when you don't specify a value.
@@ -114,21 +114,21 @@ Amazon Redshift enforces the following limits for schemas.
 
 ## Examples
 
-The following example creates a schema named US_SALES and gives ownership to the user
+The following example creates a schema named US\_SALES and gives ownership to the user
 DWUSER.
 
 ```
 create schema us_sales authorization dwuser;
 ```
 
-The following example creates a schema named US_SALES, gives ownership to the user
+The following example creates a schema named US\_SALES, gives ownership to the user
 DWUSER, and sets the quota to 50 GB.
 
 ```
 create schema us_sales authorization dwuser QUOTA 50 GB;
 ```
 
-To view the new schema, query the PG_NAMESPACE catalog table as shown
+To view the new schema, query the PG\_NAMESPACE catalog table as shown
 following.
 
 ```
@@ -143,7 +143,7 @@ and pg_user.usename ='dwuser';
 (1 row)
 ```
 
-The following example either creates the US_SALES schema, or does nothing and returns
+The following example either creates the US\_SALES schema, or does nothing and returns
 a message if it already exists.
 
 ```

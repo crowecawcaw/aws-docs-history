@@ -48,7 +48,7 @@ tool. If you do not already have these set up, go to [Amazon Redshift Getting St
 - [Section 1: Understanding the default queue processing behavior](#tutorial-wlm-understanding-default-processing "#tutorial-wlm-understanding-default-processing")
 - [Section 2: Modifying the WLM query queue configuration](#tutorial-wlm-modifying-wlm-configuration "#tutorial-wlm-modifying-wlm-configuration")
 - [Section 3: Routing queries to queues based on user groups and query groups](#tutorial-wlm-routing-queries-to-queues "#tutorial-wlm-routing-queries-to-queues")
-- [Section 4: Using wlm_query_slot_count to temporarily override the concurrency level in a queue](#tutorial-wlm-query-slot-count "#tutorial-wlm-query-slot-count")
+- [Section 4: Using wlm\_query\_slot\_count to temporarily override the concurrency level in a queue](#tutorial-wlm-query-slot-count "#tutorial-wlm-query-slot-count")
 - [Section 5: Cleaning up your resources](#tutorial-wlm-cleaning-up-resources "#tutorial-wlm-cleaning-up-resources")
 
 ## Section 1: Understanding the default queue processing behavior
@@ -58,37 +58,37 @@ queue processing in Amazon Redshift. In this section, you create two database vi
 return information from several system tables. Then you run some test queries to see
 how queries are routed by default. For more information about system tables, see [System tables and views reference](cm_chap_system-tables.md "cm_chap_system-tables.md").
 
-### Step 1: Create the WLM_QUEUE_STATE_VW view
+### Step 1: Create the WLM\_QUEUE\_STATE\_VW view
 
-In this step, you create a view called WLM_QUEUE_STATE_VW. This view returns
+In this step, you create a view called WLM\_QUEUE\_STATE\_VW. This view returns
 information from the following system tables.
 
-- [STV_WLM_CLASSIFICATION_CONFIG](r_STV_WLM_CLASSIFICATION_CONFIG.md "r_STV_WLM_CLASSIFICATION_CONFIG.md")
-- [STV_WLM_SERVICE_CLASS_CONFIG](r_STV_WLM_SERVICE_CLASS_CONFIG.md "r_STV_WLM_SERVICE_CLASS_CONFIG.md")
-- [STV_WLM_SERVICE_CLASS_STATE](r_STV_WLM_SERVICE_CLASS_STATE.md "r_STV_WLM_SERVICE_CLASS_STATE.md")
+- [STV\_WLM\_CLASSIFICATION\_CONFIG](r_STV_WLM_CLASSIFICATION_CONFIG.md "r_STV_WLM_CLASSIFICATION_CONFIG.md")
+- [STV\_WLM\_SERVICE\_CLASS\_CONFIG](r_STV_WLM_SERVICE_CLASS_CONFIG.md "r_STV_WLM_SERVICE_CLASS_CONFIG.md")
+- [STV\_WLM\_SERVICE\_CLASS\_STATE](r_STV_WLM_SERVICE_CLASS_STATE.md "r_STV_WLM_SERVICE_CLASS_STATE.md")
 
 You use this view throughout the tutorial to monitor what happens to queues
 after you change the WLM configuration. The following table describes the data that
-the WLM_QUEUE_STATE_VW view returns.
+the WLM\_QUEUE\_STATE\_VW view returns.
 
-| Column             | Description                                                                                                                                |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| queue              | The number associated with the row that represents a queue. Queue<br>number determines the order of the queues in the database.            |
-| description        | A value that describes whether the queue is available only to<br>certain user groups, to certain query groups, or all types of<br>queries. |
-| slots              | The number of slots allocated to the queue.                                                                                                |
-| mem                | The amount of memory, in MB per slot, allocated to the<br>queue.                                                                           |
-| max_execution_time | The amount of time a query is allowed to run before it is<br>terminated.                                                                   |
-| user\_\*           | A value that indicates whether wildcard characters are allowed in<br>the WLM configuration to match user groups.                           |
-| query\_\*          | A value that indicates whether wildcard characters are allowed in<br>the WLM configuration to match query groups.                          |
-| queued             | The number of queries that are waiting in the queue to be<br>processed.                                                                    |
-| executing          | The number of queries that are currently running.                                                                                          |
-| executed           | The number of queries that have been run.                                                                                                  |
+| Column               | Description                                                                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| queue                | The number associated with the row that represents a queue. Queue<br>number determines the order of the queues in the database.            |
+| description          | A value that describes whether the queue is available only to<br>certain user groups, to certain query groups, or all types of<br>queries. |
+| slots                | The number of slots allocated to the queue.                                                                                                |
+| mem                  | The amount of memory, in MB per slot, allocated to the<br>queue.                                                                           |
+| max\_execution\_time | The amount of time a query is allowed to run before it is<br>terminated.                                                                   |
+| user\_\*             | A value that indicates whether wildcard characters are allowed in<br>the WLM configuration to match user groups.                           |
+| query\_\*            | A value that indicates whether wildcard characters are allowed in<br>the WLM configuration to match query groups.                          |
+| queued               | The number of queries that are waiting in the queue to be<br>processed.                                                                    |
+| executing            | The number of queries that are currently running.                                                                                          |
+| executed             | The number of queries that have been run.                                                                                                  |
 
-#### To create the WLM_QUEUE_STATE_VW view
+#### To create the WLM\_QUEUE\_STATE\_VW view
 
 1. Open [Amazon Redshift RSQL](../mgmt/rsql-query-tool.md "../mgmt/rsql-query-tool.md") and connect to your TICKIT sample database. If you do not
    have this database, see [Prerequisites](#tutorial-wlm-prereq "#tutorial-wlm-prereq").
-2. Run the following query to create the WLM_QUEUE_STATE_VW view.
+2. Run the following query to create the WLM\_QUEUE\_STATE\_VW view.
 
 ```
 create view WLM_QUEUE_STATE_VW as
@@ -129,28 +129,28 @@ query | description                               | slots | mem | max_time | use
     1 | (querytype:any)                           |     5 | 836 |        0 |  false | false   |      0 |         1 |      160
 ```
 
-### Step 2: Create the WLM_QUERY_STATE_VW view
+### Step 2: Create the WLM\_QUERY\_STATE\_VW view
 
-In this step, you create a view called WLM_QUERY_STATE_VW. This view returns
-information from the [STV_WLM_QUERY_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
+In this step, you create a view called WLM\_QUERY\_STATE\_VW. This view returns
+information from the [STV\_WLM\_QUERY\_STATE](r_STV_WLM_QUERY_STATE.md "r_STV_WLM_QUERY_STATE.md") system table.
 
 You use this view throughout the tutorial to monitor the queries that are
-running. The following table describes the data that the WLM_QUERY_STATE_VW view
+running. The following table describes the data that the WLM\_QUERY\_STATE\_VW view
 returns.
 
-| Column     | Description                                                          |
-| ---------- | -------------------------------------------------------------------- |
-| query      | The query ID.                                                        |
-| queue      | The queue number.                                                    |
-| slot_count | The number of slots allocated to the query.                          |
-| start_time | The time that the query started.                                     |
-| state      | The state of the query, such as executing.                           |
-| queue_time | The number of microseconds that the query has spent in the<br>queue. |
-| exec_time  | The number of microseconds that the query has been<br>running.       |
+| Column      | Description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| query       | The query ID.                                                        |
+| queue       | The queue number.                                                    |
+| slot\_count | The number of slots allocated to the query.                          |
+| start\_time | The time that the query started.                                     |
+| state       | The state of the query, such as executing.                           |
+| queue\_time | The number of microseconds that the query has spent in the<br>queue. |
+| exec\_time  | The number of microseconds that the query has been<br>running.       |
 
-#### To create the WLM_QUERY_STATE_VW view
+#### To create the WLM\_QUERY\_STATE\_VW view
 
-1. In RSQL, run the following query to create the WLM_QUERY_STATE_VW
+1. In RSQL, run the following query to create the WLM\_QUERY\_STATE\_VW
    view.
 
 ```
@@ -211,8 +211,8 @@ this view always returns at least one result. Compare this result with
 the result that occurs after starting the long-running query in the next
 step. 3. In RSQL window 2, run a query from the TICKIT sample database. This
 query should run for approximately a minute so that you have time to
-explore the results of the WLM_QUEUE_STATE_VW view and the
-WLM_QUERY_STATE_VW view that you created earlier. In some cases, you
+explore the results of the WLM\_QUEUE\_STATE\_VW view and the
+WLM\_QUERY\_STATE\_VW view that you created earlier. In some cases, you
 might find that the query doesn't run long enough for you to query both
 views. In these cases, you can increase the value of the filter on
 `l.listid` to make it run longer.
@@ -225,7 +225,7 @@ leader node. When result caching is enabled, subsequent queries run
 much faster. To prevent the query from running to quickly, disable
 result caching for the current session.
 
-To turn off result caching for the current session, set the [enable_result_cache_for_session](r_enable_result_cache_for_session.md "r_enable_result_cache_for_session.md") parameter to
+To turn off result caching for the current session, set the [enable\_result\_cache\_for\_session](r_enable_result_cache_for_session.md "r_enable_result_cache_for_session.md") parameter to
 `off`, as shown following.
 
 ```
@@ -238,7 +238,7 @@ In RSQL window 2, run the following query.
 select avg(l.priceperticket*s.qtysold) from listing l, sales s where l.listid < 100000;
 ```
 
-4. In RSQL window 1, query WLM_QUEUE_STATE_VW and WLM_QUERY_STATE_VW and
+4. In RSQL window 1, query WLM\_QUEUE\_STATE\_VW and WLM\_QUERY\_STATE\_VW and
    compare the results to your earlier results.
 
 ```
@@ -263,18 +263,18 @@ query | queue | slot_count | start_time          | state     | queue_time | exec
 Note the following differences between your previous queries and the results
 in this step:
 
-- There are two rows now in WLM_QUERY_STATE_VW. One result is the
+- There are two rows now in WLM\_QUERY\_STATE\_VW. One result is the
   self-referential query for running a SELECT operation on this view. The
   second result is the long-running query from the previous step.
-- The executing column in WLM_QUEUE_STATE_VW has increased from 1 to 2.
+- The executing column in WLM\_QUEUE\_STATE\_VW has increased from 1 to 2.
   This column entry means that there are two queries running in the
   queue.
 - The executed column is incremented each time you run a query in the
   queue.
 
-The WLM_QUEUE_STATE_VW view is useful for getting an overall view of the
+The WLM\_QUEUE\_STATE\_VW view is useful for getting an overall view of the
 queues and how many queries are being processed in each queue. The
-WLM_QUERY_STATE_VW view is useful for getting a more detailed view of the
+WLM\_QUERY\_STATE\_VW view is useful for getting a more detailed view of the
 individual queries that are currently running.
 
 ## Section 2: Modifying the WLM query queue configuration
@@ -356,7 +356,7 @@ First, verify that the database has the WLM configuration that you expect.
 #### To view the query queue configuration
 
 1. Open RSQL and run the following query. The query uses the
-   WLM_QUEUE_STATE_VW view you created in [Step 1: Create the WLM_QUEUE_STATE_VW view](#tutorial-wlm-create-queue-state-view "#tutorial-wlm-create-queue-state-view"). If you
+   WLM\_QUEUE\_STATE\_VW view you created in [Step 1: Create the WLM\_QUEUE\_STATE\_VW view](#tutorial-wlm-create-queue-state-view "#tutorial-wlm-create-queue-state-view"). If you
    already had a session connected to the database prior to the cluster
    reboot, you need to reconnect.
 
@@ -375,7 +375,7 @@ query | description                               | slots | mem | max_time | use
     3 | (querytype:any)                           |     5 | 250 |        0 |  false | false   |      0 |         1 |        0
 ```
 
-Compare these results to the results you received in [Step 1: Create the WLM_QUEUE_STATE_VW view](#tutorial-wlm-create-queue-state-view "#tutorial-wlm-create-queue-state-view"). Notice that
+Compare these results to the results you received in [Step 1: Create the WLM\_QUEUE\_STATE\_VW view](#tutorial-wlm-create-queue-state-view "#tutorial-wlm-create-queue-state-view"). Notice that
 there are now two additional queues. Queue 1 is now the queue for the
 test query group, and queue 2 is the queue for the admin user
 group.
@@ -581,37 +581,37 @@ query | queue | slot_count | start_time          | state     | queue_time | exec
 reset query_group;
 ```
 
-## Section 4: Using wlm_query_slot_count to temporarily override the concurrency level in a queue
+## Section 4: Using wlm\_query\_slot\_count to temporarily override the concurrency level in a queue
 
 Sometimes, users might temporarily need more resources for a particular query. If so,
-they can use the wlm_query_slot_count configuration setting to temporarily override the
+they can use the wlm\_query\_slot\_count configuration setting to temporarily override the
 way slots are allocated in a query queue. _Slots_ are units of memory
 and CPU that are used to process queries. You might override the slot count when you
 have occasional queries that take a lot of resources in the cluster, such as when you
 perform a VACUUM operation in the database.
 
-You might find that users often need to set wlm_query_slot_count for certain types of
+You might find that users often need to set wlm\_query\_slot\_count for certain types of
 queries. If so, consider adjusting the WLM configuration and giving users a queue that
 better suits the needs of their queries. For more information about temporarily
-overriding the concurrency level by using slot count, see [wlm_query_slot_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md").
+overriding the concurrency level by using slot count, see [wlm\_query\_slot\_count](r_wlm_query_slot_count.md "r_wlm_query_slot_count.md").
 
-### Step 1: Override the concurrency level using wlm_query_slot_count
+### Step 1: Override the concurrency level using wlm\_query\_slot\_count
 
 For the purposes of this tutorial, we run the same long-running SELECT query.
-We run it as the `adminwlm` user using wlm_query_slot_count to
+We run it as the `adminwlm` user using wlm\_query\_slot\_count to
 increase the number of slots available for the query.
 
-#### To override the concurrency level using wlm_query_slot_count
+#### To override the concurrency level using wlm\_query\_slot\_count
 
 1. Increase the limit on the query to make sure that you have enough time
-   to query the WLM_QUERY_STATE_VW view and see a result.
+   to query the WLM\_QUERY\_STATE\_VW view and see a result.
 
 ```
 set wlm_query_slot_count to 3;
 select avg(l.priceperticket*s.qtysold) from listing l, sales s where l.listid <40000;
 ```
 
-2. Now, query WLM_QUERY_STATE_VW with the admin user to see how
+2. Now, query WLM\_QUERY\_STATE\_VW with the admin user to see how
    the query is running.
 
 ```
@@ -646,7 +646,7 @@ query | description                               | slots | mem | max_time | use
     3 | (querytype:any)                           |     5 | 250 |        0 |  false | false   |      0 |         1 |       25
 ```
 
-The wlm_query_slot_count configuration setting is valid for the
+The wlm\_query\_slot\_count configuration setting is valid for the
 current session only. If that session expires, or another user runs a
 query, the WLM configuration is used. 4. Reset the slot count and rerun the test.
 

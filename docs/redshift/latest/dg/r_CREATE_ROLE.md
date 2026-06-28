@@ -6,7 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 Creates a new custom role that is a collection of permissions. For a list of Amazon Redshift
 system-defined roles, see [Amazon Redshift system-defined roles](r_roles-default.md "r_roles-default.md").
-Query [SVV_ROLES](r_SVV_ROLES.md "r_SVV_ROLES.md") to view the currently created roles
+Query [SVV\_ROLES](r_SVV_ROLES.md "r_SVV_ROLES.md") to view the currently created roles
 in your cluster or workgroup.
 
 There is a quota of the number of roles that can be created. For more information, see
@@ -28,7 +28,7 @@ CREATE ROLE *role\_name*
 
 ## Parameters
 
-_role_name_
+_role\_name_
 
 The name of the role. The role name must be unique and can't be the
 same as any user names. A role name can't be a reserved word.
@@ -37,7 +37,7 @@ A superuser or regular user with the CREATE ROLE privilege can create roles.
 A user that is not a superuser but that has been granted USAGE to the role WITH
 GRANT OPTION and ALTER privilege can grant this role to anyone.
 
-EXTERNALID _external_id_
+EXTERNALID _external\_id_
 
 The identifier for the role, which is associated with an identity provider.
 For more information, see [Native

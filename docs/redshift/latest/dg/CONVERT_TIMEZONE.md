@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# CONVERT_TIMEZONE function
+# CONVERT\_TIMEZONE function
 
-CONVERT_TIMEZONE converts a timestamp from one time zone to another. The function automatically adjusts for daylight saving time.
+CONVERT\_TIMEZONE converts a timestamp from one time zone to another. The function automatically adjusts for daylight saving time.
 
 ## Syntax
 
@@ -14,12 +14,12 @@ CONVERT_TIMEZONE( ['*source\_timezone*',] '*target\_timezone*', '*timestamp*')
 
 ## Arguments
 
-_source_timezone_
+_source\_timezone_
 
 (Optional) The time zone of the current timestamp. The default is UTC. For
 more information, see [Time zone usage notes](#CONVERT_TIMEZONE-usage-notes "#CONVERT_TIMEZONE-usage-notes").
 
-_target_timezone_
+_target\_timezone_
 
 The time zone for the new timestamp. For more information, see [Time zone usage notes](#CONVERT_TIMEZONE-usage-notes "#CONVERT_TIMEZONE-usage-notes").
 
@@ -33,7 +33,7 @@ TIMESTAMP
 
 ## Time zone usage notes
 
-_source_timezone_ or _target_timezone_
+_source\_timezone_ or _target\_timezone_
 can be specified as a time zone name (such as 'Africa/Kampala' or 'Singapore') or as a
 time zone abbreviation (such as 'UTC' or 'PDT'). You don't have to convert time zone names to names or abbreviations
 to abbreviations. For example, you can choose a timestamp from the source time zone name 'Singapore' and
@@ -67,10 +67,10 @@ pg_timezone_names
 Run the SQL statement to obtain the entire list and find a time zone name.
 Approximately 600 rows are returned.
 Even though some of the returned time zone names are capitalized initialisms or
-acronyms (for example; GB, PRC, ROK), the CONVERT_TIMEZONE function treats them as time
+acronyms (for example; GB, PRC, ROK), the CONVERT\_TIMEZONE function treats them as time
 zone names, not time zone abbreviations.
 
-If you specify a time zone using a time zone name, CONVERT_TIMEZONE automatically
+If you specify a time zone using a time zone name, CONVERT\_TIMEZONE automatically
 adjusts for daylight saving time (DST), or any other local seasonal protocol, such as
 Summer Time, Standard Time, or Winter Time, that is in force for that time zone
 during the date and time specified by '_timestamp_'. For example,
@@ -104,7 +104,7 @@ Run the SQL statement to obtain the entire list and find an abbreviation based o
 Approximately 200 rows are returned.
 
 Time zone abbreviations represent a fixed offset from UTC. If you specify a time
-zone using a time zone abbreviation, CONVERT_TIMEZONE uses the fixed offset from UTC
+zone using a time zone abbreviation, CONVERT\_TIMEZONE uses the fixed offset from UTC
 and doesn't adjust for any local seasonal protocol.
 
 ### Using POSIX-style format
@@ -191,7 +191,7 @@ PST:
 ```
 
 The following example converts a timestamp to US Eastern Standard Time because the
-target time zone uses a time zone name (America/New_York) and the timestamp is within
+target time zone uses a time zone name (America/New\_York) and the timestamp is within
 the standard time
 period.
 
@@ -205,7 +205,7 @@ period.
 ```
 
 The following example converts the timestamp to US Eastern Daylight Time because the
-target time zone uses a time zone name (America/New_York) and the timestamp is within
+target time zone uses a time zone name (America/New\_York) and the timestamp is within
 the daylight time
 period.
 

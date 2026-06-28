@@ -19,22 +19,22 @@ options:
 - [Key-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-key-based")
   Use one of the following to provide authorization for the COPY command:
 
-- [Using the IAM_ROLE parameter](#copy-iam-role "#copy-iam-role") parameter
-- [Using the ACCESS_KEY_ID and SECRET_ACCESS_KEY parameters](#copy-access-key-id "#copy-access-key-id") parameters
+- [Using the IAM\_ROLE parameter](#copy-iam-role "#copy-iam-role") parameter
+- [Using the ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY parameters](#copy-access-key-id "#copy-access-key-id") parameters
 - [Using the CREDENTIALS parameter](#copy-credentials "#copy-credentials") clause
 
-## Using the IAM_ROLE parameter
+## Using the IAM\_ROLE parameter
 
-### IAM_ROLE
+### IAM\_ROLE
 
 Use the default keyword to have Amazon Redshift use the IAM role that is set as
 default and associated with the cluster when the COPY command runs.
 
 Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses for
-authentication and authorization. If you specify IAM_ROLE, you can't use
-ACCESS_KEY_ID and SECRET_ACCESS_KEY, SESSION_TOKEN, or CREDENTIALS.
+authentication and authorization. If you specify IAM\_ROLE, you can't use
+ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY, SESSION\_TOKEN, or CREDENTIALS.
 
-The following shows the syntax for the IAM_ROLE parameter.
+The following shows the syntax for the IAM\_ROLE parameter.
 
 ```
 IAM_ROLE { default | 'arn:aws:iam::`<AWS account-id>`:role/`<role-name>`' }
@@ -42,24 +42,24 @@ IAM_ROLE { default | 'arn:aws:iam::`<AWS account-id>`:role/`<role-name>`' }
 
 For more information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
 
-## Using the ACCESS_KEY_ID and SECRET_ACCESS_KEY parameters
+## Using the ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY parameters
 
-### ACCESS_KEY_ID, SECRET_ACCESS_KEY
+### ACCESS\_KEY\_ID, SECRET\_ACCESS\_KEY
 
 This authorization method is not recommended.
 
 ###### Note
 
 Instead of providing access credentials as plain text, we strongly
-recommend using role-based authentication by specifying the IAM_ROLE
+recommend using role-based authentication by specifying the IAM\_ROLE
 parameter. For more information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
 
-### SESSION_TOKEN
+### SESSION\_TOKEN
 
 The session token for use with temporary access credentials. When
-SESSION_TOKEN is specified, you must also use ACCESS_KEY_ID and
-SECRET_ACCESS_KEY to provide temporary access key credentials. If you specify
-SESSION_TOKEN you can't use IAM_ROLE or CREDENTIALS. For more information, see
+SESSION\_TOKEN is specified, you must also use ACCESS\_KEY\_ID and
+SECRET\_ACCESS\_KEY to provide temporary access key credentials. If you specify
+SESSION\_TOKEN you can't use IAM\_ROLE or CREDENTIALS. For more information, see
 [Temporary security credentials](copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials "copy-usage_notes-access-permissions.md#r_copy-temporary-security-credentials") in the
 IAM User Guide.
 
@@ -70,8 +70,8 @@ using role-based authentication. When you authorize using an IAM role, Amazon Re
 automatically creates temporary user credentials for each session. For more
 information, see [Role-based access control](copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based "copy-usage_notes-access-permissions.md#copy-usage_notes-access-role-based").
 
-The following shows the syntax for the SESSION_TOKEN parameter with the
-ACCESS_KEY_ID and SECRET_ACCESS_KEY parameters.
+The following shows the syntax for the SESSION\_TOKEN parameter with the
+ACCESS\_KEY\_ID and SECRET\_ACCESS\_KEY parameters.
 
 ```
 ACCESS_KEY_ID '`<access-key-id>`'
@@ -79,7 +79,7 @@ SECRET_ACCESS_KEY '`<secret-access-key>`'
 SESSION_TOKEN '`<temporary-token>`';
 ```
 
-If you specify SESSION_TOKEN you can't use CREDENTIALS or IAM_ROLE.
+If you specify SESSION\_TOKEN you can't use CREDENTIALS or IAM\_ROLE.
 
 ## Using the CREDENTIALS parameter
 
@@ -87,8 +87,8 @@ If you specify SESSION_TOKEN you can't use CREDENTIALS or IAM_ROLE.
 
 A clause that indicates the method your cluster will use when accessing
 other AWS resources that contain data files or manifest files. You can't use
-the CREDENTIALS parameter with IAM_ROLE or ACCESS_KEY_ID and
-SECRET_ACCESS_KEY.
+the CREDENTIALS parameter with IAM\_ROLE or ACCESS\_KEY\_ID and
+SECRET\_ACCESS\_KEY.
 
 The following shows the syntax for the CREDENTIALS parameter.
 
@@ -98,7 +98,7 @@ The following shows the syntax for the CREDENTIALS parameter.
 
 ###### Note
 
-For increased flexibility, we recommend using the [IAM_ROLE](#copy-iam-role-iam "#copy-iam-role-iam")
+For increased flexibility, we recommend using the [IAM\_ROLE](#copy-iam-role-iam "#copy-iam-role-iam")
 parameter instead of the CREDENTIALS parameter.
 
 Optionally, if the [ENCRYPTED](copy-parameters-data-source-s3.md#copy-encrypted "copy-parameters-data-source-s3.md#copy-encrypted") parameter is used, the

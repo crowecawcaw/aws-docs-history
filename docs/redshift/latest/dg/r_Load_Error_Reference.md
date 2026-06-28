@@ -4,7 +4,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 # Load error reference
 
-If any errors occur while loading data from a file, query the [STL_LOAD_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md") table to identify
+If any errors occur while loading data from a file, query the [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md") table to identify
 the error and determine the possible explanation. The following table lists all error
 codes that might occur during data loads:
 

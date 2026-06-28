@@ -39,7 +39,7 @@ PRIORITY 30;
 The PRIORITY clause determines which masking policy applies to a user
 session when multiple policies are attached to the same column. For example, if
 the user in the preceding example has another masking policy attached to the same credit card column with a
-priority of 20, science_role's policy is the one that applies, as it
+priority of 20, science\_role's policy is the one that applies, as it
 has the higher priority of 30.
 
 - To detach a DDM policy on a table from one or more users or roles, use the [DETACH MASKING POLICY](r_DETACH_MASKING_POLICY.md "r_DETACH_MASKING_POLICY.md") command.

@@ -2,41 +2,41 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_LOAD_COMMITS
+# STL\_LOAD\_COMMITS
 
 Returns information to track or troubleshoot a data load.
 
 This view records the progress of each data file as it is loaded into a database
 table.
 
-STL_LOAD_COMMITS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_LOAD\_COMMITS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 
-STL_LOAD_COMMITS only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
+STL\_LOAD\_COMMITS only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
 or on serverless namespaces.
 To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS_LOAD_DETAIL](SYS_LOAD_DETAIL.md "SYS_LOAD_DETAIL.md")
+[SYS\_LOAD\_DETAIL](SYS_LOAD_DETAIL.md "SYS_LOAD_DETAIL.md")
 . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
 
-| Column name   | Data type      | Description                                                                                                                                                                                                                                                      |
-| ------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid        | integer        | ID of the user who generated the entry.                                                                                                                                                                                                                          |
-| query         | integer        | Query ID. The query column can be used to join other system tables and views.                                                                                                                                                                                    |
-| slice         | integer        | Slice loaded for this entry.                                                                                                                                                                                                                                     |
-| name          | character(256) | System-defined value.                                                                                                                                                                                                                                            |
-| filename      | character(256) | Name of file being tracked.                                                                                                                                                                                                                                      |
-| byte_offset   | integer        | This information is for internal use only.                                                                                                                                                                                                                       |
-| lines_scanned | integer        | Number of lines scanned from the load file. This<br>number may not match the number of rows that are actually loaded.<br>For example, the load may scan but tolerate a number of bad records,<br>based on the MAXERROR option in the COPY command.               |
-| errors        | integer        | This information is for internal use only.                                                                                                                                                                                                                       |
-| curtime       | timestamp      | Time that this entry was last updated.                                                                                                                                                                                                                           |
-| status        | integer        | This information is for internal use only.                                                                                                                                                                                                                       |
-| file_format   | character(16)  | Format of the load file. Possible values are as<br>follows:<br>• Avro<br>• JSON<br>• ORC<br>• Parquet<br>• Text                                                                                                                                                  |
-| is_partial    | integer        | Value that if true (1) indicates the input file is<br>split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.                                                                                                      |
-| start_offset  | bigint         | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes). Each file split is<br>logged as a separate record with the corresponding start_offset value.<br>If the file isn't split, this value is 0. |
-| copy_job_id   | bigint         | The copy job identifier. A `0` indicates no job identifier.                                                                                                                                                                                                      |
+| Column name    | Data type      | Description                                                                                                                                                                                                                                                       |
+| -------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid         | integer        | ID of the user who generated the entry.                                                                                                                                                                                                                           |
+| query          | integer        | Query ID. The query column can be used to join other system tables and views.                                                                                                                                                                                     |
+| slice          | integer        | Slice loaded for this entry.                                                                                                                                                                                                                                      |
+| name           | character(256) | System-defined value.                                                                                                                                                                                                                                             |
+| filename       | character(256) | Name of file being tracked.                                                                                                                                                                                                                                       |
+| byte\_offset   | integer        | This information is for internal use only.                                                                                                                                                                                                                        |
+| lines\_scanned | integer        | Number of lines scanned from the load file. This<br>number may not match the number of rows that are actually loaded.<br>For example, the load may scan but tolerate a number of bad records,<br>based on the MAXERROR option in the COPY command.                |
+| errors         | integer        | This information is for internal use only.                                                                                                                                                                                                                        |
+| curtime        | timestamp      | Time that this entry was last updated.                                                                                                                                                                                                                            |
+| status         | integer        | This information is for internal use only.                                                                                                                                                                                                                        |
+| file\_format   | character(16)  | Format of the load file. Possible values are as<br>follows:<br>• Avro<br>• JSON<br>• ORC<br>• Parquet<br>• Text                                                                                                                                                   |
+| is\_partial    | integer        | Value that if true (1) indicates the input file is<br>split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.                                                                                                       |
+| start\_offset  | bigint         | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes). Each file split is<br>logged as a separate record with the corresponding start\_offset value.<br>If the file isn't split, this value is 0. |
+| copy\_job\_id  | bigint         | The copy job identifier. A `0` indicates no job identifier.                                                                                                                                                                                                       |
 
 ## Sample queries
 
@@ -83,9 +83,9 @@ where filename like '%tickit%' order by query;
 
 The fact that a record is written to the log file for this system view does not
 mean that the load committed successfully as part of its containing transaction. To
-verify load commits, query the STL_UTILITYTEXT view and look for the COMMIT record
+verify load commits, query the STL\_UTILITYTEXT view and look for the COMMIT record
 that corresponds with a COPY transaction. For example, this query joins
-STL_LOAD_COMMITS and STL_QUERY based on a subquery against STL_UTILITYTEXT:
+STL\_LOAD\_COMMITS and STL\_QUERY based on a subquery against STL\_UTILITYTEXT:
 
 ```
 select l.query,rtrim(l.filename),q.xid
@@ -124,7 +124,7 @@ and exists
 (25 rows)
 ```
 
-The following examples highlight is_partial and start_offset column values.
+The following examples highlight is\_partial and start\_offset column values.
 
 ```
 -- Single large file copy without scan range

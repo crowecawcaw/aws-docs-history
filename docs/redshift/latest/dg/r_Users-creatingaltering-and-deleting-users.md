@@ -11,7 +11,7 @@ individual database).
 - To create a superuser, use the [CREATE USER](r_CREATE_USER.md "r_CREATE_USER.md") command with the CREATEUSER option.
 - To remove an existing user, use the [DROP USER](r_DROP_USER.md "r_DROP_USER.md") command.
 - To change a user, for example changing a password, use the [ALTER USER](r_ALTER_USER.md "r_ALTER_USER.md") command.
-- To view a list of users, query the PG_USER catalog table.
+- To view a list of users, query the PG\_USER catalog table.
 
 ```
 select * from pg_user;

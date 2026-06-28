@@ -66,7 +66,7 @@ DESC DATASHARE salesshare OF NAMESPACE '13b8833d-17c6-4f16-8fe4-1a018f5ed00d';
 ```
 
 Only cluster superusers can do this. You can also use
-SVV_DATASHARES to view the datashares and SVV_DATASHARE_OBJECTS to
+SVV\_DATASHARES to view the datashares and SVV\_DATASHARE\_OBJECTS to
 view the objects within the datashare.
 
 The following example displays the inbound datashares in a
@@ -98,7 +98,7 @@ CREATE DATABASE sales_db WITH PERMISSIONS FROM DATASHARE salesshare OF NAMESPACE
 ```
 
 You can see databases that you created from the datashare by
-querying the [SVV_REDSHIFT_DATABASES](r_SVV_REDSHIFT_DATABASES.md "r_SVV_REDSHIFT_DATABASES.md") view. You can connect
+querying the [SVV\_REDSHIFT\_DATABASES](r_SVV_REDSHIFT_DATABASES.md "r_SVV_REDSHIFT_DATABASES.md") view. You can connect
 to these databases directly, or you can connect to a local database
 on your consumer cluster and perform a cross-database query to
 query the data from the datashare databases.

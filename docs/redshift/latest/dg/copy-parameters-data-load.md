@@ -65,7 +65,7 @@ on an analysis of sample data. For more information, see [Loading tables with au
 When COMPUPDATE is OFF (or FALSE), automatic compression is disabled. Column encodings aren't changed.
 
 For information about the system table to analyze compression, see
-[STL_ANALYZE_COMPRESSION](r_STL_ANALYZE_COMPRESSION.md "r_STL_ANALYZE_COMPRESSION.md").
+[STL\_ANALYZE\_COMPRESSION](r_STL_ANALYZE_COMPRESSION.md "r_STL_ANALYZE_COMPRESSION.md").
 
 IGNOREALLERRORS
 
@@ -73,9 +73,9 @@ You can specify this option to ignore all errors that occur during the load oper
 
 You can't specify the IGNOREALLERRORS option if you specify the MAXERROR option. You can't specify the IGNOREALLERRORS option for columnar formats including ORC and Parquet.
 
-MAXERROR [AS] _error_count_
+MAXERROR [AS] _error\_count_
 
-If the load returns the _error_count_ number of errors or
+If the load returns the _error\_count_ number of errors or
 greater, the load fails. If the load returns fewer errors, it continues and
 returns an INFO message that states the number of rows that could not be
 loaded. Use this parameter to allow loads to continue when certain rows fail to

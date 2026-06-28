@@ -24,7 +24,7 @@ ALL
 
 Returns all the models that the user can use and their schemas.
 
-_model_name_
+_model\_name_
 
 The name of the model. The model name in a schema must be unique.
 
@@ -46,8 +46,8 @@ The SHOW MODEL command returns the following:
 
   - The specified TARGET column.
   - The model type, AUTO or XGBoost.
-  - The problem type, such as REGRESSION, BINARY_CLASSIFICATION,
-    MULTICLASS_CLASSIFICATION. This parameter is specific to AUTO.
+  - The problem type, such as REGRESSION, BINARY\_CLASSIFICATION,
+    MULTICLASS\_CLASSIFICATION. This parameter is specific to AUTO.
   - The name of the Amazon SageMaker AI training job or the Amazon SageMaker AI Autopilot job that
     created the model. You can use this job name to find more information about
     the model on Amazon SageMaker AI.
@@ -72,8 +72,8 @@ The SHOW MODEL command returns the following:
   hyperparameters provided and their values.
 
 You can also view some of the information provided by SHOW MODEL in other catalog
-tables, such as pg_proc. Amazon Redshift returns information about the prediction function that
-is registered in pg_proc catalog table. This information includes the input argument
+tables, such as pg\_proc. Amazon Redshift returns information about the prediction function that
+is registered in pg\_proc catalog table. This information includes the input argument
 names and their types for the prediction function. Amazon Redshift returns the same information
 in the SHOW MODEL command.
 
@@ -93,7 +93,7 @@ Schema Name |  Model Name
  public     | customer_churn
 ```
 
-The owner of the customer_churn can see the following output. A user with only the
+The owner of the customer\_churn can see the following output. A user with only the
 EXECUTE privilege can't see the IAM role, the Amazon S3 bucket, and the estimated cost
 of the mode.
 

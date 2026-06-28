@@ -33,7 +33,7 @@ information:
 The query plan output by EXPLAIN is a simplified, high-level view of query execution.
 It doesn't illustrate the details of parallel query processing. To see detailed
 information, run the query itself, and then get query summary information from the
-SVL_QUERY_SUMMARY or SVL_QUERY_REPORT view. For more information about using these
+SVL\_QUERY\_SUMMARY or SVL\_QUERY\_REPORT view. For more information about using these
 views, see [Analyzing the query summary](c-analyzing-the-query-summary.md "c-analyzing-the-query-summary.md").
 
 The following example shows the EXPLAIN output for a simple GROUP BY query on the
@@ -118,7 +118,7 @@ outer joins. The merge join is not used for full joins. This operator is
 used when joining tables where the join columns are both distribution keys
 _and_ sort keys, and when less than 20 percent of the
 joining tables are unsorted. It reads two sorted tables in order and finds
-the matching rows. To view the percent of unsorted rows, query the [SVV_TABLE_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md") system
+the matching rows. To view the percent of unsorted rows, query the [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md") system
 table.
 
 - Spatial Join
@@ -228,7 +228,7 @@ The following query joins EVENT and CATEGORY on the CATID column. CATID is
 the distribution and sort key for CATEGORY but not for EVENT. A hash join is
 performed with EVENT as the outer table and CATEGORY as the inner table.
 Because CATEGORY is the smaller table, the planner broadcasts a copy of it to
-the compute nodes during query processing by using DS_BCAST_INNER. The join
+the compute nodes during query processing by using DS\_BCAST\_INNER. The join
 cost in this example accounts for most of the cumulative cost of the
 plan.
 
@@ -257,7 +257,7 @@ fully completed.
 The following query also uses SELECT \*, but it joins SALES and LISTING on
 the LISTID column, where LISTID has been set as both the distribution and sort
 key for both tables. A merge join is chosen, and no redistribution of data is
-required for the join (DS_DIST_NONE).
+required for the join (DS\_DIST\_NONE).
 
 ```
 explain select * from sales, listing where sales.listid = listing.listid;
@@ -344,34 +344,34 @@ which is outer.
 Use the following attributes in query plans to identify how data is moved to
 facilitate a query:
 
-- DS_BCAST_INNER
+- DS\_BCAST\_INNER
 
 A copy of the entire inner table is broadcast to all compute
 nodes.
 
-- DS_DIST_ALL_NONE
+- DS\_DIST\_ALL\_NONE
 
 No redistribution is required, because the inner table has already been
 distributed to every node using DISTSTYLE ALL.
 
-- DS_DIST_NONE
+- DS\_DIST\_NONE
 
 No tables are redistributed. Collocated joins are possible because
 corresponding slices are joined without moving data between nodes.
 
-- DS_DIST_INNER
+- DS\_DIST\_INNER
 
 The inner table is redistributed.
 
-- DS_DIST_OUTER
+- DS\_DIST\_OUTER
 
 The outer table is redistributed.
 
-- DS_DIST_ALL_INNER
+- DS\_DIST\_ALL\_INNER
 
 The entire inner table is redistributed to a single slice because the
 outer table uses DISTSTYLE ALL.
 
-- DS_DIST_BOTH
+- DS\_DIST\_BOTH
 
 Both tables are redistributed.

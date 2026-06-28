@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# H3_Center
+# H3\_Center
 
-H3_Center returns the centroid of an H3 cell ID from an input index.
+H3\_Center returns the centroid of an H3 cell ID from an input index.
 For information about H3 indexing, see [H3](spatial-terminology.md#spatial-terminology-h3 "spatial-terminology.md#spatial-terminology-h3").
 
 ## Syntax
@@ -57,7 +57,7 @@ SELECT H3_Center(577129255373111295);
 ```
 
 The following SQL inputs a `VARCHAR` that represents the index of an H3 cell, and returns a POINT with SRID 0 that represents the centroid of the input H3 cell.
-The output of H3_Center is input to ST_AwEWKT to display in extended well-known text (EWKT) representation.
+The output of H3\_Center is input to ST\_AwEWKT to display in extended well-known text (EWKT) representation.
 
 ```
 SELECT ST_AsEWKT(H3_Center('8075fffffffffff'));

@@ -127,10 +127,10 @@ amzn-s3-demo-bucket/tickit/venue_manifest
 ```
 
 You can programmatically get a list of the files that were written to Amazon S3 by
-calling an Amazon S3 list operation after the UNLOAD completes. You can also query STL_UNLOAD_LOG.
+calling an Amazon S3 list operation after the UNLOAD completes. You can also query STL\_UNLOAD\_LOG.
 
 The following query returns the pathname for files that were created by an UNLOAD.
-The [PG_LAST_QUERY_ID](PG_LAST_QUERY_ID.md "PG_LAST_QUERY_ID.md") function
+The [PG\_LAST\_QUERY\_ID](PG_LAST_QUERY_ID.md "PG_LAST_QUERY_ID.md") function
 returns the most recent query.
 
 ```

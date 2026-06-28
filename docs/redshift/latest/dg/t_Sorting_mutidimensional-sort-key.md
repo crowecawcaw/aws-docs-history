@@ -21,7 +21,7 @@ But, if the data is stored on disk in a predicate order, then fewer blocks need 
 Using a multidimensional data layout sort key is beneficial in this case.
 
 To view whether a query is using a multidimensional data layout key, see the
-`step_attribute` column of the [SYS_QUERY_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md") view. When the value is
+`step_attribute` column of the [SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md") view. When the value is
 `multi-dimensional` then multidimensional data layout was used for
 the query.
 

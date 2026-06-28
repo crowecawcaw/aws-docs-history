@@ -38,7 +38,7 @@ To delete all the rows from a table, [TRUNCATE](r_TRUNCATE.md "r_TRUNCATE.md") t
 than DELETE and doesn't require a VACUUM and ANALYZE. However, be aware
 that TRUNCATE commits the transaction in which it is run.
 
-_table_name_
+_table\_name_
 
 A temporary or persistent table. Only the owner of the table or a user with
 DELETE privilege on the table may delete rows from the table.
@@ -54,7 +54,7 @@ After deleting a large number of rows from a table:
 - Analyze the table to update statistics for the query
   planner.
 
-_materialized_view_name_
+_materialized\_view\_name_
 
 A materialized view. The DELETE statement works on a materialized view used
 for [Streaming ingestion to a materialized view](materialized-view-streaming-ingestion.md "materialized-view-streaming-ingestion.md"). Only the owner of
@@ -68,7 +68,7 @@ DELETE has IGNORE RLS granted, it runs successfully. For more information, see
 [RLS policy ownership and
 management](t_rls_ownership.md "t_rls_ownership.md").
 
-USING _table_name_, ...
+USING _table\_name_, ...
 
 The USING keyword is used to introduce a table list when additional tables
 are referenced in the WHERE clause condition. For example, the following
@@ -105,11 +105,10 @@ deleted.
 - DELETE operations hold exclusive locks when run on Amazon Redshift streaming materialized views
   connected to any of the following:
 
-      + An Amazon Kinesis data stream
-      + An Amazon Managed Streaming for Apache Kafka topic
-      + A supported external stream, such as a Confluent Cloud Kafka topic
-
-  For more information, see [Streaming ingestion to a materialized view](materialized-view-streaming-ingestion.md "materialized-view-streaming-ingestion.md").
+  - An Amazon Kinesis data stream
+  - An Amazon Managed Streaming for Apache Kafka topic
+  - A supported external stream, such as a Confluent Cloud Kafka topic
+    For more information, see [Streaming ingestion to a materialized view](materialized-view-streaming-ingestion.md "materialized-view-streaming-ingestion.md").
 
 ## Examples
 

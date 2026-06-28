@@ -160,8 +160,8 @@ type within a database or schema. Datashares with scoped permissions have
 the specified permissions on all current and future objects within the
 database or schema.
 
-You can view the scope of database-level scoped permissions in [SVV_DATABASE_PRIVILEGES](r_SVV_DATABASE_PRIVILEGES.md "r_SVV_DATABASE_PRIVILEGES.md"). You can view the scope of
-schema-level scoped permissions in [SVV_SCHEMA_PRIVILEGES](r_SVV_SCHEMA_PRIVILEGES.md "r_SVV_SCHEMA_PRIVILEGES.md").
+You can view the scope of database-level scoped permissions in [SVV\_DATABASE\_PRIVILEGES](r_SVV_DATABASE_PRIVILEGES.md "r_SVV_DATABASE_PRIVILEGES.md"). You can view the scope of
+schema-level scoped permissions in [SVV\_SCHEMA\_PRIVILEGES](r_SVV_SCHEMA_PRIVILEGES.md "r_SVV_SCHEMA_PRIVILEGES.md").
 
 The following is the syntax for granting scoped permissions to
 datashares. For more information about scoped permissions, see [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").

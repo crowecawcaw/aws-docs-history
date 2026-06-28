@@ -31,9 +31,9 @@ can set the following priorities (listed from highest to lowest priority):
 
 An additional priority, `CRITICAL`, which is a higher priority than
 `HIGHEST`, is available to superusers. To set this priority, you can use
-the functions [CHANGE_QUERY_PRIORITY](r_CHANGE_QUERY_PRIORITY.md "r_CHANGE_QUERY_PRIORITY.md"), [CHANGE_SESSION_PRIORITY](r_CHANGE_SESSION_PRIORITY.md "r_CHANGE_SESSION_PRIORITY.md"). and [CHANGE_USER_PRIORITY](r_CHANGE_USER_PRIORITY.md "r_CHANGE_USER_PRIORITY.md"). To grant a
+the functions [CHANGE\_QUERY\_PRIORITY](r_CHANGE_QUERY_PRIORITY.md "r_CHANGE_QUERY_PRIORITY.md"), [CHANGE\_SESSION\_PRIORITY](r_CHANGE_SESSION_PRIORITY.md "r_CHANGE_SESSION_PRIORITY.md"). and [CHANGE\_USER\_PRIORITY](r_CHANGE_USER_PRIORITY.md "r_CHANGE_USER_PRIORITY.md"). To grant a
 database user permission to use these functions, you can create a stored procedure and
-grant permission to a user. For an example, see [CHANGE_SESSION_PRIORITY](r_CHANGE_SESSION_PRIORITY.md "r_CHANGE_SESSION_PRIORITY.md").
+grant permission to a user. For an example, see [CHANGE\_SESSION\_PRIORITY](r_CHANGE_SESSION_PRIORITY.md "r_CHANGE_SESSION_PRIORITY.md").
 
 ###### Note
 
@@ -164,7 +164,7 @@ Another example is to define a rule to change the query priority to `lowest` for
 
 ## Monitoring query priority
 
-To display priority for waiting and running queries, view the `query_priority` column in the stv_wlm_query_state system table.
+To display priority for waiting and running queries, view the `query_priority` column in the stv\_wlm\_query\_state system table.
 
 ```
 
@@ -181,7 +181,7 @@ query    | service_cl | wlm_start_time             | state            | queue_ti
 
 ```
 
-To list query priority for completed queries, see the `query_priority` column in the stl_wlm_query system table.
+To list query priority for completed queries, see the `query_priority` column in the stl\_wlm\_query system table.
 
 ```
 select query, service_class as svclass, service_class_start_time as starttime, query_priority

@@ -32,6 +32,6 @@ DROP LIBRARY *library\_name*
 
 ## Parameters
 
-_library_name_
+_library\_name_
 
 The name of the library.

@@ -96,12 +96,12 @@ In this case, only user 1 can commit successfully.
 
 When using isolation levels in Amazon Redshift, consider the following:
 
-- Query the STV_DB_ISOLATION_LEVEL catalog view to view which isolation level
+- Query the STV\_DB\_ISOLATION\_LEVEL catalog view to view which isolation level
   your database is using. For more information, see
-  [STV_DB_ISOLATION_LEVEL](r_STV_DB_ISOLATION_LEVEL.md "r_STV_DB_ISOLATION_LEVEL.md").
-- Query the PG_DATABASE_INFO view to see how many concurrent transactions are
+  [STV\_DB\_ISOLATION\_LEVEL](r_STV_DB_ISOLATION_LEVEL.md "r_STV_DB_ISOLATION_LEVEL.md").
+- Query the PG\_DATABASE\_INFO view to see how many concurrent transactions are
   supported for your database. For more information, see
-  [PG_DATABASE_INFO](r_PG_DATABASE_INFO.md "r_PG_DATABASE_INFO.md").
+  [PG\_DATABASE\_INFO](r_PG_DATABASE_INFO.md "r_PG_DATABASE_INFO.md").
 - System catalog tables (PG) and other Amazon Redshift system tables aren't locked
   in a transaction. Therefore, changes to database objects that arise
   from DDL and TRUNCATE operations are visible on commit to any
@@ -109,7 +109,7 @@ When using isolation levels in Amazon Redshift, consider the following:
 
 For example, suppose that table A exists in the database when
 two concurrent transactions, T1 and T2, start. Suppose that T2
-returns a list of tables by selecting from the PG_TABLES catalog
+returns a list of tables by selecting from the PG\_TABLES catalog
 table. Then T1 drops table A and commits, and then T2 lists the
 tables again. Table A is now no longer listed. If T2 tries to
 query the dropped table, Amazon Redshift returns a "relation does not

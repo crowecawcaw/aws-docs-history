@@ -68,5 +68,5 @@ salesshare |    100       | dev             |                   |  OUTBOUND  | 2
 
 For more information, see [DESC DATASHARE](r_DESC_DATASHARE.md "r_DESC_DATASHARE.md") and [SHOW DATASHARES](r_SHOW_DATASHARES.md "r_SHOW_DATASHARES.md").
 
-You can also use [SVV_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md"), [SVV_DATASHARE_CONSUMERS](r_SVV_DATASHARE_CONSUMERS.md "r_SVV_DATASHARE_CONSUMERS.md"), and [SVV_DATASHARE_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md") to view the datashares, the
+You can also use [SVV\_DATASHARES](r_SVV_DATASHARES.md "r_SVV_DATASHARES.md"), [SVV\_DATASHARE\_CONSUMERS](r_SVV_DATASHARE_CONSUMERS.md "r_SVV_DATASHARE_CONSUMERS.md"), and [SVV\_DATASHARE\_OBJECTS](r_SVV_DATASHARE_OBJECTS.md "r_SVV_DATASHARE_OBJECTS.md") to view the datashares, the
 objects within the datashare, and the datashare consumers.

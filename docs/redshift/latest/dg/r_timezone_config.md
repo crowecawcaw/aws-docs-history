@@ -32,7 +32,7 @@ session.
 
 When you set the time zone using the `SET timezone` (one word) command
 with either `TO` or `=`, you can specify
-_time_zone_ as a time zone name, a POSIX-style format offset, or
+_time\_zone_ as a time zone name, a POSIX-style format offset, or
 an ISO-8601 format offset, as shown following.
 
 ```
@@ -41,7 +41,7 @@ SET timezone { TO | = } *time\_zone*
 
 When you set the time zone using the SET time zone command
 _without_
-`TO` or `=`, you can specify _time_zone_ using
+`TO` or `=`, you can specify _time\_zone_ using
 an INTERVAL and also a time zone name, a POSIX-style format offset, or an ISO-8601
 format offset, as shown following.
 
@@ -65,14 +65,14 @@ time zone abbreviations.
 For more details on time zone formats, see the following.
 
 **Time zone name** – The full time zone name,
-such as America/New_York. Full time zone names can include daylight savings rules. Note
+such as America/New\_York. Full time zone names can include daylight savings rules. Note
 that Amazon Redshift uses the [IANA Time
 Zone Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones") as the authoritative source of time zone specification.
 
 The following are examples of time zone names:
 
 - Etc/Greenwich
-- America/New_York
+- America/New\_York
 - CST6CDT
 - GB
 

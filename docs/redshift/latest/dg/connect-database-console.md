@@ -35,23 +35,19 @@ If there is no local connection, do one of the following:
 - On the **Connect to database** window, do one of the
   following:
 
-      + If you choose **Create a new connection**, choose
-       **AWS Secrets Manager** to use a stored secret to
-       authenticate access for the connection.
+  - If you choose **Create a new connection**, choose
+    **AWS Secrets Manager** to use a stored secret to
+    authenticate access for the connection.
 
+  Or, choose **Temporary credentials** to use database
+  credentials to authenticate access for the connection. Specify values for
+  **Database name** and **Database
+  user**.
 
-      Or, choose **Temporary credentials** to use database
-       credentials to authenticate access for the connection. Specify values for
-       **Database name** and **Database
-       user**.
+  Choose **Connect**.
+  - Choose **Use a recent connection** to connect to
+    another database that you have the necessary permissions.
 
-
-      Choose **Connect**.
-      + Choose **Use a recent connection** to connect to
-       another database that you have the necessary permissions.
-
-
-      Amazon Redshift automatically makes the connection.
-
+  Amazon Redshift automatically makes the connection.
   After a database connection is established, you can start creating datashares,
   querying datashares, or creating databases from datashares.

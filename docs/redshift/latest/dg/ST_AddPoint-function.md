@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_AddPoint
+# ST\_AddPoint
 
-ST_AddPoint returns a linestring geometry that is the same as the input geometry with a point added.
+ST\_AddPoint returns a linestring geometry that is the same as the input geometry with a point added.
 If an index is provided, then the point is added at the index position.
 If the index is -1 or not provided, then the point is appended to the linestring.
 

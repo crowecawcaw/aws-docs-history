@@ -2,10 +2,10 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# DATE_PART function
+# DATE\_PART function
 
-DATE_PART extracts date part values from an expression. DATE_PART is a synonym of the
-PGDATE_PART function.
+DATE\_PART extracts date part values from an expression. DATE\_PART is a synonym of the
+PGDATE\_PART function.
 
 ## Syntax
 
@@ -33,7 +33,7 @@ DOUBLE
 
 ## Examples
 
-The default column name for the DATE_PART function is `pgdate_part`.
+The default column name for the DATE\_PART function is `pgdate_part`.
 
 For more information about the data used in some of these examples, see
 [Sample database](c_sampledb.md "c_sampledb.md").
@@ -122,7 +122,7 @@ The following example finds the month from a date literal.
  5`
 ```
 
-The following example applies the DATE_PART function to a column in a table.
+The following example applies the DATE\_PART function to a column in a table.
 
 ```
 `SELECT date_part(w, listtime) AS weeks, listtime
@@ -139,7 +139,7 @@ You can name date parts in full or abbreviate them; in this case, _w_
 stands for weeks.
 
 The day of week date part returns an integer from 0-6, starting with Sunday. Use
-DATE_PART with dow (DAYOFWEEK) to view events on a Saturday.
+DATE\_PART with dow (DAYOFWEEK) to view events on a Saturday.
 
 ```
 `SELECT date_part(dow, starttime) AS dow, starttime

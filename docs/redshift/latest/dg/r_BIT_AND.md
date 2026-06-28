@@ -2,13 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# BIT_AND function
+# BIT\_AND function
 
-The BIT_AND function runs bit-wise AND operations on all of the values in a single
+The BIT\_AND function runs bit-wise AND operations on all of the values in a single
 integer column or expression. This function aggregates each bit of each binary value
 that corresponds to each integer value in the expression.
 
-The BIT_AND function returns a result of `0` if none of the bits is set to
+The BIT\_AND function returns a result of `0` if none of the bits is set to
 1 across all of the values. If one or more bits is set to 1 across all values, the
 function returns an integer value. This integer is the number that corresponds to the
 binary value for the those bits.
@@ -23,10 +23,10 @@ These integers are represented in binary form as follows:
 | 10      | 1010         |
 | 22      | 10110        |
 
-A BIT_AND operation on this dataset finds that all bits are set to `1`
+A BIT\_AND operation on this dataset finds that all bits are set to `1`
 in the second-to-last position only. The result is a binary value of
 `00000010`, which represents the integer value `2`. Therefore,
-the BIT_AND function returns `2`.
+the BIT\_AND function returns `2`.
 
 ## Syntax
 
@@ -53,7 +53,7 @@ For more information, see [DISTINCT support for bit-wise aggregations](c_bitwise
 
 Given that meaningful business information is stored in integer columns, you can
 use bit-wise functions to extract and aggregate that information. The following query
-applies the BIT_AND function to the LIKES column in a table called USERLIKES and
+applies the BIT\_AND function to the LIKES column in a table called USERLIKES and
 groups the results by the CITY column.
 
 ```

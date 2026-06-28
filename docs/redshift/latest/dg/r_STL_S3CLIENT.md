@@ -2,40 +2,40 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_S3CLIENT
+# STL\_S3CLIENT
 
 Records transfer time and other performance metrics.
 
-Use the STL_S3CLIENT table to find the time spent transferring data from Amazon S3.
+Use the STL\_S3CLIENT table to find the time spent transferring data from Amazon S3.
 
-STL_S3CLIENT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_S3CLIENT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name         | Data type      | Description                                                                                                                                                         |
-| ------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid              | integer        | ID of the user who generated the entry.                                                                                                                             |
-| query               | integer        | Query ID. The query column can be used to join other system tables and views.                                                                                       |
-| slice               | integer        | Number that identifies the slice where the query was running.                                                                                                       |
-| recordtime          | timestamp      | Time the record is logged.                                                                                                                                          |
-| pid                 | integer        | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session.   |
-| http_method         | character(64)  | HTTP method name corresponding to the Amazon S3<br>request.                                                                                                         |
-| bucket              | character(64)  | S3 bucket name.                                                                                                                                                     |
-| key                 | character(256) | Key corresponding to the Amazon S3 object.                                                                                                                          |
-| transfer_size       | bigint         | Number of bytes transferred.                                                                                                                                        |
-| data_size           | bigint         | Number of bytes of data. This value is the same as<br>transfer_size for uncompressed data. If compression was used, this<br>is the size of the uncompressed data.   |
-| start_time          | bigint         | Time when the transfer began (in<br>microseconds since January 1, 2000).                                                                                            |
-| end_time            | bigint         | Time when the transfer ended (in<br>microseconds since January 1, 2000).                                                                                            |
-| transfer_time       | bigint         | Time taken by the transfer (in microseconds).                                                                                                                       |
-| compression_time    | bigint         | Portion of the transfer time that was spent<br>uncompressing data (in microseconds).                                                                                |
-| connect_time        | bigint         | Time from the start until the connect to the<br>remote server was completed (in microseconds).                                                                      |
-| app_connect_time    | bigint         | Time from the start until the SSL<br>connect/handshake with the remote host was completed (in<br>microseconds).                                                     |
-| retries             | bigint         | Number of times the transfer was retried.                                                                                                                           |
-| request_id          | char(32)       | Request ID from Amazon S3 HTTP response header                                                                                                                      |
-| extended_request_id | char(128)      | Extended request ID from Amazon S3 HTTP header response<br>(x-amz-id-2).                                                                                            |
-| ip_address          | char(64)       | IP address of the server (ip V4 or V6).                                                                                                                             |
-| is_partial          | integer        | Value that if true (1) indicates the input file is<br>split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.         |
-| start_offset        | bigint         | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes).<br>If the file isn't split, this value is 0. |
+| Column name           | Data type      | Description                                                                                                                                                         |
+| --------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid                | integer        | ID of the user who generated the entry.                                                                                                                             |
+| query                 | integer        | Query ID. The query column can be used to join other system tables and views.                                                                                       |
+| slice                 | integer        | Number that identifies the slice where the query was running.                                                                                                       |
+| recordtime            | timestamp      | Time the record is logged.                                                                                                                                          |
+| pid                   | integer        | Process ID. All of the queries in a session are<br>run in the same process, so this value remains constant if you run a<br>series of queries in the same session.   |
+| http\_method          | character(64)  | HTTP method name corresponding to the Amazon S3<br>request.                                                                                                         |
+| bucket                | character(64)  | S3 bucket name.                                                                                                                                                     |
+| key                   | character(256) | Key corresponding to the Amazon S3 object.                                                                                                                          |
+| transfer\_size        | bigint         | Number of bytes transferred.                                                                                                                                        |
+| data\_size            | bigint         | Number of bytes of data. This value is the same as<br>transfer\_size for uncompressed data. If compression was used, this<br>is the size of the uncompressed data.  |
+| start\_time           | bigint         | Time when the transfer began (in<br>microseconds since January 1, 2000).                                                                                            |
+| end\_time             | bigint         | Time when the transfer ended (in<br>microseconds since January 1, 2000).                                                                                            |
+| transfer\_time        | bigint         | Time taken by the transfer (in microseconds).                                                                                                                       |
+| compression\_time     | bigint         | Portion of the transfer time that was spent<br>uncompressing data (in microseconds).                                                                                |
+| connect\_time         | bigint         | Time from the start until the connect to the<br>remote server was completed (in microseconds).                                                                      |
+| app\_connect\_time    | bigint         | Time from the start until the SSL<br>connect/handshake with the remote host was completed (in<br>microseconds).                                                     |
+| retries               | bigint         | Number of times the transfer was retried.                                                                                                                           |
+| request\_id           | char(32)       | Request ID from Amazon S3 HTTP response header                                                                                                                      |
+| extended\_request\_id | char(128)      | Extended request ID from Amazon S3 HTTP header response<br>(x-amz-id-2).                                                                                            |
+| ip\_address           | char(64)       | IP address of the server (ip V4 or V6).                                                                                                                             |
+| is\_partial           | integer        | Value that if true (1) indicates the input file is<br>split into ranges during a COPY operation. If this value is false<br>(0), the input file isn't split.         |
+| start\_offset         | bigint         | Value that, if the input file is split during a<br>COPY operation, indicates the offset value of the split (in bytes).<br>If the file isn't split, this value is 0. |
 
 ## Sample query
 

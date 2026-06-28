@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_USER_GRANTS
+# SVV\_USER\_GRANTS
 
-Use SVV_USER_GRANTS to view the list of users that are explicitly granted roles in the cluster.
+Use SVV\_USER\_GRANTS to view the list of users that are explicitly granted roles in the cluster.
 
-SVV_USER_GRANTS is visible to the following users:
+SVV\_USER\_GRANTS is visible to the following users:
 
 - Superusers
 - Users with the ACCESS SYSTEM TABLE permission
@@ -15,13 +15,13 @@ SVV_USER_GRANTS is visible to the following users:
 
 ## Table columns
 
-| Column name  | Data type | Description                                                                             |
-| ------------ | --------- | --------------------------------------------------------------------------------------- |
-| user_id      | integer   | The user ID for the user.                                                               |
-| user_name    | text      | The name of the user.                                                                   |
-| role_id      | integer   | The role ID for the granted role.                                                       |
-| role_name    | text      | The role name for the granted role.                                                     |
-| admin_option | boolean   | A value that indicates whether the user can grant the role to other<br>users and roles. |
+| Column name   | Data type | Description                                                                             |
+| ------------- | --------- | --------------------------------------------------------------------------------------- |
+| user\_id      | integer   | The user ID for the user.                                                               |
+| user\_name    | text      | The name of the user.                                                                   |
+| role\_id      | integer   | The role ID for the granted role.                                                       |
+| role\_name    | text      | The role name for the granted role.                                                     |
+| admin\_option | boolean   | A value that indicates whether the user can grant the role to other<br>users and roles. |
 
 ## Sample queries
 

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVV_SYSTEM_PRIVILEGES
+# SVV\_SYSTEM\_PRIVILEGES
 
-SVV_SYSTEM_PRIVILEGES is visible to the following users:
+SVV\_SYSTEM\_PRIVILEGES is visible to the following users:
 
 - Superusers
 - Users with the ACCESS SYSTEM TABLE permission
@@ -22,12 +22,12 @@ For more information, see [Best practices for discovering metadata](../mgmt/best
 
 ## Table columns
 
-| Column name      | Data type | Description                                                     |
-| ---------------- | --------- | --------------------------------------------------------------- |
-| system_privilege | text      | The name of the system permission.                              |
-| identity_id      | integer   | The ID of the identity. Possible values are user ID or role ID. |
-| identity_name    | text      | The name of the identity.                                       |
-| identity_type    | text      | The type of the identity. Possible values are user or role.     |
+| Column name       | Data type | Description                                                     |
+| ----------------- | --------- | --------------------------------------------------------------- |
+| system\_privilege | text      | The name of the system permission.                              |
+| identity\_id      | integer   | The ID of the identity. Possible values are user ID or role ID. |
+| identity\_name    | text      | The name of the identity.                                       |
+| identity\_type    | text      | The type of the identity. Possible values are user or role.     |
 
 ## Sample query
 

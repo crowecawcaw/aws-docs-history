@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ROLE_IS_MEMBER_OF
+# ROLE\_IS\_MEMBER\_OF
 
 Returns true if the role is a member of another role. Superusers can check the
 membership of all roles. Regular users who have the ACCESS SYSTEM TABLE permission can
@@ -28,11 +28,11 @@ role_is_member_of( *role\_name*,  *granted\_role\_name*)
 
 ## Arguments
 
-_role_name_
+_role\_name_
 
 The name of the role.
 
-_granted_role_name_
+_granted\_role\_name_
 
 The name of the granted role.
 

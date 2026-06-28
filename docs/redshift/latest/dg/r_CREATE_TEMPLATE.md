@@ -36,7 +36,7 @@ If a template of the same name already exists in the specified database and sche
 the existing template is replaced. You can only replace a template with a new template that defines the same operation type, for example, COPY.
 You must have the necessary privileges to replace a template.
 
-_database_name_
+_database\_name_
 
 (Optional) The name of the database where the template will be created. If not specified, the template is created in the current database.
 
@@ -45,7 +45,7 @@ and the statement returns an error. You can't create templates in
 the system databases `template0`, `template1`,
 `padb_harvest` , or `sys:internal`.
 
-_schema_name_
+_schema\_name_
 
 (Optional) The name of the schema where the template will be created. If not specified, the template is created in the current schema.
 
@@ -53,7 +53,7 @@ If a schema name is given, the new template is created in that schema (assuming
 the creator has access to the schema). The template name must be a unique name for
 that schema.
 
-_template_name_
+_template\_name_
 
 The name of the template to be created. Optionally, the template name can be qualified
 with the database and schema name. In the following example, the database name is `demo_database`,
@@ -67,7 +67,7 @@ COPY
 
 Specifies the Redshift command type for which the template is created. Currently, only the COPY command is supported.
 
-[ [ FORMAT ] [ AS ] _data_format_ ]
+[ [ FORMAT ] [ AS ] _data\_format_ ]
 
 This is an optional parameter. This specifies the data format for COPY operations.
 
@@ -127,7 +127,7 @@ Use [SHOW TEMPLATE](r_SHOW_TEMPLATE.md "r_SHOW_TEMPLATE.md") to get the definiti
 `CREATE OR REPLACE TEMPLATE dev.test_schema.demo_template FOR COPY AS FORMAT AS JSON 'auto' NULL '' MAXERROR 100;`
 ```
 
-Query the [SYS_REDSHIFT_TEMPLATE](SYS_REDSHIFT_TEMPLATE.md "SYS_REDSHIFT_TEMPLATE.md") system view to get more details about a template.
+Query the [SYS\_REDSHIFT\_TEMPLATE](SYS_REDSHIFT_TEMPLATE.md "SYS_REDSHIFT_TEMPLATE.md") system view to get more details about a template.
 
 ```
 `SELECT * FROM SYS_REDSHIFT_TEMPLATE;`

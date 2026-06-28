@@ -2,12 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# FIRST_VALUE window function
+# FIRST\_VALUE window function
 
-Given an ordered set of rows, FIRST_VALUE returns the value of the specified
+Given an ordered set of rows, FIRST\_VALUE returns the value of the specified
 expression with respect to the first row in the window frame.
 
-For information about selecting the last row in the frame, see [LAST_VALUE window function](r_WF_last_value.md "r_WF_last_value.md") .
+For information about selecting the last row in the frame, see [LAST\_VALUE window function](r_WF_last_value.md "r_WF_last_value.md") .
 
 ## Syntax
 
@@ -27,7 +27,7 @@ The target column or expression that the function operates on.
 
 IGNORE NULLS
 
-When this option is used with FIRST_VALUE, the function returns the first
+When this option is used with FIRST\_VALUE, the function returns the first
 value in the frame that is not NULL (or NULL if all values are NULL).
 
 RESPECT NULLS
@@ -40,17 +40,17 @@ OVER
 
 Introduces the window clauses for the function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Defines the window for the function in terms of one or more expressions.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Sorts the rows within each partition. If no PARTITION BY clause is
 specified, ORDER BY sorts the entire table. If you specify an ORDER BY
-clause, you must also specify a _frame_clause_.
+clause, you must also specify a _frame\_clause_.
 
-The results of the FIRST_VALUE function depends on the
+The results of the FIRST\_VALUE function depends on the
 ordering of the data. The results are nondeterministic in the following
 cases:
 
@@ -59,7 +59,7 @@ cases:
 - When the expression evaluates to different values that correspond
   to the same value in the ORDER BY list.
 
-_frame_clause_
+_frame\_clause_
 
 If an ORDER BY clause is used for an aggregate function, an explicit
 frame clause is required. The frame clause refines the set of rows in a
@@ -78,7 +78,7 @@ The following examples use the VENUE table from the sample TICKIT data.
 For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
 
 The following example returns the seating capacity for each venue in the VENUE
-table, with the results ordered by capacity (high to low). The FIRST_VALUE function
+table, with the results ordered by capacity (high to low). The FIRST\_VALUE function
 is used to select the name of the venue that corresponds to the first row in the
 frame: in this case, the row with the highest number of seats. The results are
 partitioned by state, so when the VENUESTATE value changes, a new first value is
@@ -126,7 +126,7 @@ addition of a new row to the VENUE table:
 ```
 
 This new row contains a NULL value for the VENUENAME column. Now repeat the
-FIRST_VALUE query that was shown earlier in this section:
+FIRST\_VALUE query that was shown earlier in this section:
 
 ```
 `select venuestate, venueseats, venuename,
@@ -145,7 +145,7 @@ CA | 69843 | Monster Park | NULL
 ```
 
 Because the new row contains the highest VENUESEATS value (`90000`) and
-its VENUENAME is NULL, the FIRST_VALUE function returns NULL for the `CA`
+its VENUENAME is NULL, the FIRST\_VALUE function returns NULL for the `CA`
 partition. To ignore rows like this in the function evaluation, add the IGNORE NULLS
 option to the function argument:
 

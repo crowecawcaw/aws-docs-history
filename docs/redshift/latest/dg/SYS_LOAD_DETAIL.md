@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SYS_LOAD_DETAIL
+# SYS\_LOAD\_DETAIL
 
 Returns information to track or troubleshoot a data load.
 
@@ -13,19 +13,19 @@ This view is visible to all users. Superusers can see all rows; regular users ca
 
 ## Table columns
 
-| Column name        | Data type                      | Description                                                                                                                                                                                                                                        |
-| ------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user_id            | integer                        | ID of the user who generated the entry.                                                                                                                                                                                                            |
-| query_id           | integer                        | Query ID.                                                                                                                                                                                                                                          |
-| file_name          | character(256)                 | File name to be loaded.                                                                                                                                                                                                                            |
-| bytes_scanned      | integer                        | The number of bytes scanned from the file in Amazon S3.                                                                                                                                                                                            |
-| lines_scanned      | integer                        | Number of lines scanned from the load file. This<br>number may not match the number of rows that are actually loaded.<br>For example, the load may scan but tolerate a number of bad records,<br>based on the MAXERROR option in the COPY command. |
-| record_time        | timestamp                      | Time that this entry was last updated.                                                                                                                                                                                                             |
-| splits_scanned     | Number of splits of this file. | Number of splits of this file.                                                                                                                                                                                                                     |
-| start_time         | timestamp                      | Time that this file processing started.                                                                                                                                                                                                            |
-| end_time           | timestamp                      | Time that this file processing finished.                                                                                                                                                                                                           |
-| file_etag          | character(256)                 | The ETag of the file in Amazon S3.                                                                                                                                                                                                                 |
-| file_last_modified | timestamp                      | The last modified timestamp of the file in Amazon S3.                                                                                                                                                                                              |
+| Column name          | Data type                      | Description                                                                                                                                                                                                                                        |
+| -------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user\_id             | integer                        | ID of the user who generated the entry.                                                                                                                                                                                                            |
+| query\_id            | integer                        | Query ID.                                                                                                                                                                                                                                          |
+| file\_name           | character(256)                 | File name to be loaded.                                                                                                                                                                                                                            |
+| bytes\_scanned       | integer                        | The number of bytes scanned from the file in Amazon S3.                                                                                                                                                                                            |
+| lines\_scanned       | integer                        | Number of lines scanned from the load file. This<br>number may not match the number of rows that are actually loaded.<br>For example, the load may scan but tolerate a number of bad records,<br>based on the MAXERROR option in the COPY command. |
+| record\_time         | timestamp                      | Time that this entry was last updated.                                                                                                                                                                                                             |
+| splits\_scanned      | Number of splits of this file. | Number of splits of this file.                                                                                                                                                                                                                     |
+| start\_time          | timestamp                      | Time that this file processing started.                                                                                                                                                                                                            |
+| end\_time            | timestamp                      | Time that this file processing finished.                                                                                                                                                                                                           |
+| file\_etag           | character(256)                 | The ETag of the file in Amazon S3.                                                                                                                                                                                                                 |
+| file\_last\_modified | timestamp                      | The last modified timestamp of the file in Amazon S3.                                                                                                                                                                                              |
 
 ## Sample queries
 
@@ -70,9 +70,9 @@ where file_name like '%tickit%' order by query_id;
 
 The fact that a record is written to the log file for this system view does not
 mean that the load committed successfully as part of its containing transaction. To
-verify load commits, query the STL_UTILITYTEXT view and look for the COMMIT record
+verify load commits, query the STL\_UTILITYTEXT view and look for the COMMIT record
 that corresponds with a COPY transaction. For example, this query joins
-SYS_LOAD_DETAIL and STL_QUERY based on a subquery against STL_UTILITYTEXT:
+SYS\_LOAD\_DETAIL and STL\_QUERY based on a subquery against STL\_UTILITYTEXT:
 
 ```
 select l.query_id,rtrim(l.file_name),q.transaction_id

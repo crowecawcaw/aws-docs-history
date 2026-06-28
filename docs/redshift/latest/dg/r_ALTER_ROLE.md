@@ -32,11 +32,11 @@ RENAME TO
 
 A new name for the role.
 
-OWNER TO _user_name_
+OWNER TO _user\_name_
 
 A new owner for the role.
 
-EXTERNALID TO _external_id_
+EXTERNALID TO _external\_id_
 
 A new external ID for the role, which is associated with an identity
 provider. For more information, see [Native

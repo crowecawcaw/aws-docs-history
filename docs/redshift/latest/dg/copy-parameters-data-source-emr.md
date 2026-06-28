@@ -41,7 +41,7 @@ FROM
 
 The source of the data to be loaded.
 
-'emr://_emr_cluster_id_/_hdfs_file_path_'
+'emr://_emr\_cluster\_id_/_hdfs\_file\_path_'
 
 The unique identifier for the Amazon EMR cluster and the HDFS file path
 that references the data files for the COPY command. The HDFS data file
@@ -56,7 +56,7 @@ the COPY operation completes, you might have unexpected results, or
 the COPY operation might fail.
 
 You can use the wildcard characters asterisk (\*) and question mark (?)
-as part of the _hdfs_file_path_ argument to specify
+as part of the _hdfs\_file\_path_ argument to specify
 multiple files to be loaded. For example,
 `'emr://j-SAMPLE2B500FC/myoutput/part*'` identifies the
 files `part-0000`, `part-0001`, and so on. If the

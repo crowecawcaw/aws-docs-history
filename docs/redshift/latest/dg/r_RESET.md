@@ -24,7 +24,7 @@ RESET { *variable\_name* | ALL }
 
 ## Parameters
 
-_parameter_name_
+_parameter\_name_
 
 Name of the parameter to reset. See [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings") for more documentation
 about parameters.

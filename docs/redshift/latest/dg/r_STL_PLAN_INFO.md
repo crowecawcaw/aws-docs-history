@@ -2,41 +2,41 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_PLAN_INFO
+# STL\_PLAN\_INFO
 
-Use the STL_PLAN_INFO view to look at the EXPLAIN output for a query in terms of a set
+Use the STL\_PLAN\_INFO view to look at the EXPLAIN output for a query in terms of a set
 of rows. This is an alternative way to look at query plans.
 
-STL_PLAN_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_PLAN\_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ###### Note
 
-STL_PLAN_INFO only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
+STL\_PLAN\_INFO only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
 or on serverless namespaces.
 To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS_QUERY_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md")
+[SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md")
 . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
 
-| Column name | Data type        | Description                                                                                                                                                                                          |
-| ----------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid      | integer          | ID of the user who generated the entry.                                                                                                                                                              |
-| query       | integer          | Query ID. The query column can be used to join other system tables and views.                                                                                                                        |
-| nodeid      | integer          | Plan node identifier, where a node maps to one or<br>more steps in the execution of the query.                                                                                                       |
-| segment     | integer          | Number that identifies the query segment.                                                                                                                                                            |
-| step        | integer          | Number that identifies the query step.                                                                                                                                                               |
-| locus       | integer          | Location where the step runs. 0 if on a<br>compute node and 1 if on the leader node.                                                                                                                 |
-| plannode    | integer          | Enumerated value of the plan node. See the<br>following table for enums for plannode. (The PLANNODE column in<br>[STL_EXPLAIN](r_STL_EXPLAIN.md "r_STL_EXPLAIN.md")<br>contains the plan node text.) |
-| startupcost | double precision | The estimated relative cost of returning the first<br>row for this step.                                                                                                                             |
-| totalcost   | double precision | The estimated relative cost of executing the<br>step.                                                                                                                                                |
-| rows        | bigint           | The estimated number of rows that will be produced<br>by the step.                                                                                                                                   |
-| bytes       | bigint           | The estimated number of bytes that will be<br>produced by the step.                                                                                                                                  |
+| Column name | Data type        | Description                                                                                                                                                                                           |
+| ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userid      | integer          | ID of the user who generated the entry.                                                                                                                                                               |
+| query       | integer          | Query ID. The query column can be used to join other system tables and views.                                                                                                                         |
+| nodeid      | integer          | Plan node identifier, where a node maps to one or<br>more steps in the execution of the query.                                                                                                        |
+| segment     | integer          | Number that identifies the query segment.                                                                                                                                                             |
+| step        | integer          | Number that identifies the query step.                                                                                                                                                                |
+| locus       | integer          | Location where the step runs. 0 if on a<br>compute node and 1 if on the leader node.                                                                                                                  |
+| plannode    | integer          | Enumerated value of the plan node. See the<br>following table for enums for plannode. (The PLANNODE column in<br>[STL\_EXPLAIN](r_STL_EXPLAIN.md "r_STL_EXPLAIN.md")<br>contains the plan node text.) |
+| startupcost | double precision | The estimated relative cost of returning the first<br>row for this step.                                                                                                                              |
+| totalcost   | double precision | The estimated relative cost of executing the<br>step.                                                                                                                                                 |
+| rows        | bigint           | The estimated number of rows that will be produced<br>by the step.                                                                                                                                    |
+| bytes       | bigint           | The estimated number of bytes that will be<br>produced by the step.                                                                                                                                   |
 
 ## Sample queries
 
 The following examples compare the query plans for a simple SELECT query returned
-by using the EXPLAIN command and by querying the STL_PLAN_INFO view.
+by using the EXPLAIN command and by querying the STL\_PLAN\_INFO view.
 
 ```
 explain select * from category;

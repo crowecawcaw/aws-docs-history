@@ -2,11 +2,11 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STL_UTILITYTEXT
+# STL\_UTILITYTEXT
 
 Captures the text of non-SELECT SQL commands run on the database.
 
-Query the STL_UTILITYTEXT view to capture the following subset of SQL statements that
+Query the STL\_UTILITYTEXT view to capture the following subset of SQL statements that
 were run on the system:
 
 - ABORT, BEGIN, COMMIT, END, ROLLBACK
@@ -23,32 +23,32 @@ were run on the system:
 - SET
 - SHOW
 - TRUNCATE
-  See also [STL_DDLTEXT](r_STL_DDLTEXT.md "r_STL_DDLTEXT.md"), [STL_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md"), and [SVL_STATEMENTTEXT](r_SVL_STATEMENTTEXT.md "r_SVL_STATEMENTTEXT.md").
+  See also [STL\_DDLTEXT](r_STL_DDLTEXT.md "r_STL_DDLTEXT.md"), [STL\_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md"), and [SVL\_STATEMENTTEXT](r_SVL_STATEMENTTEXT.md "r_SVL_STATEMENTTEXT.md").
 
 Use the STARTTIME and ENDTIME columns to find out which statements were logged during
 a given time period. Long blocks of SQL text are broken into lines 200 characters long;
 the SEQUENCE column identifies fragments of text that belong to a single
 statement.
 
-The STL_UTILITYTEXT system table supports both MANUAL and AUTO REFRESH operations of materialized views. To identify AUTO REFRESH on materialized views, find the column `label`. All AUTO REFRESH queries have a label with the value `maintenance`.
+The STL\_UTILITYTEXT system table supports both MANUAL and AUTO REFRESH operations of materialized views. To identify AUTO REFRESH on materialized views, find the column `label`. All AUTO REFRESH queries have a label with the value `maintenance`.
 
-STL_UTILITYTEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_UTILITYTEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS_QUERY_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
 We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
 
-| Column name | Data type      | Description                                                                                                                                                                                                |
-| ----------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid      | integer        | ID of the user who generated the entry.                                                                                                                                                                    |
-| xid         | bigint         | Transaction ID.                                                                                                                                                                                            |
-| pid         | integer        | Process ID associated with the query statement.                                                                                                                                                            |
-| label       | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY_GROUP command. If the query is<br>not file-based or the QUERY_GROUP parameter is not set, this field<br>is blank. |
-| starttime   | timestamp      | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                               |
-| endtime     | timestamp      | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                              |
-| sequence    | integer        | When a single statement contains more than 200<br>characters, additional rows are logged for that statement. Sequence<br>0 is the first row, 1 is the second, and so on.                                   |
-| text        | character(200) | SQL text, in 200-character increments. This field might contain special characters such as backslash (`\\`) and newline (`\n`).                                                                            |
+| Column name | Data type      | Description                                                                                                                                                                                                  |
+| ----------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| userid      | integer        | ID of the user who generated the entry.                                                                                                                                                                      |
+| xid         | bigint         | Transaction ID.                                                                                                                                                                                              |
+| pid         | integer        | Process ID associated with the query statement.                                                                                                                                                              |
+| label       | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY\_GROUP command. If the query is<br>not file-based or the QUERY\_GROUP parameter is not set, this field<br>is blank. |
+| starttime   | timestamp      | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                                 |
+| endtime     | timestamp      | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                                |
+| sequence    | integer        | When a single statement contains more than 200<br>characters, additional rows are logged for that statement. Sequence<br>0 is the first row, 1 is the second, and so on.                                     |
+| text        | character(200) | SQL text, in 200-character increments. This field might contain special characters such as backslash (`\\`) and newline (`\n`).                                                                              |
 
 ## Sample queries
 
@@ -71,7 +71,7 @@ starttime          | sequence |              rtrim
 
 ### Reconstructing Stored SQL
 
-To reconstruct the SQL stored in the `text` column of STL_UTILITYTEXT,
+To reconstruct the SQL stored in the `text` column of STL\_UTILITYTEXT,
 run a SELECT statement to create SQL from 1 or more parts in the
 `text` column. Before running the reconstructed SQL, replace
 any (`\n`) special characters with a new line. The result of the
@@ -82,14 +82,14 @@ SELECT LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END) WI
 FROM stl_utilitytext GROUP BY xid order by xid;
 ```
 
-For example, the following query sets the query_group to a string of zeros. The query itself is longer than 200 characters and is stored in parts in STL_UTILITYTEXT.
+For example, the following query sets the query\_group to a string of zeros. The query itself is longer than 200 characters and is stored in parts in STL\_UTILITYTEXT.
 
 ```
 set query_group to '00000000000000000000000000000000000000000000000000000000000000000000000000000000
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000                  000000';
 ```
 
-In this example, the query is stored in 2 parts (rows) in the `text` column of STL_UTILITYTEXT.
+In this example, the query is stored in 2 parts (rows) in the `text` column of STL\_UTILITYTEXT.
 
 ```
 select query, sequence, text
@@ -105,7 +105,7 @@ from stl_utilitytext where query=pg_last_query_id() order by query desc, sequenc
  2019-07-23 22:55:34.926198 |        1 |                   000000';
 ```
 
-To reconstruct the SQL stored in STL_UTILITYTEXT, run the following SQL.
+To reconstruct the SQL stored in STL\_UTILITYTEXT, run the following SQL.
 
 ```
 select LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END, '') within group (order by sequence) AS query_statement

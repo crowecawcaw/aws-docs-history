@@ -2,29 +2,29 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# STV_LOCKS
+# STV\_LOCKS
 
-Use the STV_LOCKS table to view any current updates on tables in the database.
+Use the STV\_LOCKS table to view any current updates on tables in the database.
 
 Amazon Redshift locks tables to prevent two users from updating the same table at the same
-time. While the STV_LOCKS table shows all current table updates, query the [STL_TR_CONFLICT](r_STL_TR_CONFLICT.md "r_STL_TR_CONFLICT.md") table to see a log
-of lock conflicts. Use the [SVV_TRANSACTIONS](r_SVV_TRANSACTIONS.md "r_SVV_TRANSACTIONS.md") view to identify open transactions and lock
+time. While the STV\_LOCKS table shows all current table updates, query the [STL\_TR\_CONFLICT](r_STL_TR_CONFLICT.md "r_STL_TR_CONFLICT.md") table to see a log
+of lock conflicts. Use the [SVV\_TRANSACTIONS](r_SVV_TRANSACTIONS.md "r_SVV_TRANSACTIONS.md") view to identify open transactions and lock
 contention issues.
 
-STV_LOCKS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_LOCKS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 
-| Column name         | Data type      | Description                                                    |
-| ------------------- | -------------- | -------------------------------------------------------------- |
-| table_id            | bigint         | Table ID for the table acquiring the lock.                     |
-| last_commit         | timestamp      | Timestamp for the last commit in the table.                    |
-| last_update         | timestamp      | Timestamp for the last update for the table.                   |
-| lock_owner          | bigint         | Transaction ID associated with the lock.                       |
-| lock_owner_pid      | bigint         | Process ID associated with the lock.                           |
-| lock_owner_start_ts | timestamp      | Timestamp for the transaction start time.                      |
-| lock_owner_end_ts   | timestamp      | Timestamp for the transaction end time.                        |
-| lock_status         | character (22) | Status of the process either waiting for or<br>holding a lock. |
+| Column name            | Data type      | Description                                                    |
+| ---------------------- | -------------- | -------------------------------------------------------------- |
+| table\_id              | bigint         | Table ID for the table acquiring the lock.                     |
+| last\_commit           | timestamp      | Timestamp for the last commit in the table.                    |
+| last\_update           | timestamp      | Timestamp for the last update for the table.                   |
+| lock\_owner            | bigint         | Transaction ID associated with the lock.                       |
+| lock\_owner\_pid       | bigint         | Process ID associated with the lock.                           |
+| lock\_owner\_start\_ts | timestamp      | Timestamp for the transaction start time.                      |
+| lock\_owner\_end\_ts   | timestamp      | Timestamp for the transaction end time.                        |
+| lock\_status           | character (22) | Status of the process either waiting for or<br>holding a lock. |
 
 ## Sample query
 

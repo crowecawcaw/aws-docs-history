@@ -39,11 +39,11 @@ encounter client-side out-of-memory errors. For more information, see [Setting t
 
 If there is a potential deadlock, try the following:
 
-- View the [STV_LOCKS](r_STV_LOCKS.md "r_STV_LOCKS.md") and [STL_TR_CONFLICT](r_STL_TR_CONFLICT.md "r_STL_TR_CONFLICT.md") system tables
+- View the [STV\_LOCKS](r_STV_LOCKS.md "r_STV_LOCKS.md") and [STL\_TR\_CONFLICT](r_STL_TR_CONFLICT.md "r_STL_TR_CONFLICT.md") system tables
   to find conflicts involving updates to more than one table.
-- Use the [PG_CANCEL_BACKEND](PG_CANCEL_BACKEND.md "PG_CANCEL_BACKEND.md")
+- Use the [PG\_CANCEL\_BACKEND](PG_CANCEL_BACKEND.md "PG_CANCEL_BACKEND.md")
   function to cancel one or more conflicting queries.
-- Use the [PG_TERMINATE_BACKEND](PG_TERMINATE_BACKEND.md "PG_TERMINATE_BACKEND.md") function to terminate a session, which
+- Use the [PG\_TERMINATE\_BACKEND](PG_TERMINATE_BACKEND.md "PG_TERMINATE_BACKEND.md") function to terminate a session, which
   forces any currently running transactions in the terminated session to release all
   locks and roll back the transaction.
 - Schedule concurrent write operations carefully. For more information, see [Managing concurrent write operations](c_Concurrent_writes.md "c_Concurrent_writes.md").

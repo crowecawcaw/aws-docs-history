@@ -2,7 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# SVCS_STREAM_SEGS
+# SVCS\_STREAM\_SEGS
 
 Lists the relationship between streams and concurrent segments.
 
@@ -11,7 +11,7 @@ Lists the relationship between streams and concurrent segments.
 System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
 The views are similar to the tables with the prefix STL except that the STL tables provide information only for queries run on the main cluster.
 
-SVCS_STREAM_SEGS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS\_STREAM\_SEGS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 
 ## Table columns
 

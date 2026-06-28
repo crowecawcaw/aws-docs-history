@@ -23,12 +23,12 @@ The following restrictions apply when using the COPY command to load DEFAULT val
 into a table:
 
 - If an [IDENTITY](r_CREATE_TABLE_NEW.md#identity-clause "r_CREATE_TABLE_NEW.md#identity-clause") column is included in the column list,
-  the EXPLICIT_IDS option must also be specified in the [COPY](r_COPY.md "r_COPY.md") command, or the COPY command will fail. Similarly, if
-  an IDENTITY column is omitted from the column list, and the EXPLICIT_IDS option is
+  the EXPLICIT\_IDS option must also be specified in the [COPY](r_COPY.md "r_COPY.md") command, or the COPY command will fail. Similarly, if
+  an IDENTITY column is omitted from the column list, and the EXPLICIT\_IDS option is
   specified, the COPY operation will fail.
 - Because the evaluated DEFAULT expression for a given column is the same for all
   loaded rows, a DEFAULT expression that uses a RANDOM() function will assign to
   same value to all the rows.
-- DEFAULT expressions that contain CURRENT_DATE or SYSDATE are set to the
+- DEFAULT expressions that contain CURRENT\_DATE or SYSDATE are set to the
   timestamp of the current transaction.
   For an example, see "Load data from a file with default values" in [COPY examples](r_COPY_command_examples.md "r_COPY_command_examples.md").

@@ -2,9 +2,9 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# ST_AsGeoJSON
+# ST\_AsGeoJSON
 
-ST_AsGeoJSON returns the GeoJSON representation of an input geometry or geography. For more
+ST\_AsGeoJSON returns the GeoJSON representation of an input geometry or geography. For more
 information about GeoJSON, see [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON "https://en.wikipedia.org/wiki/GeoJSON") in Wikipedia.
 
 For 3DZ and 4D geometries, the output geometry is a 3DZ projection of the input 3DZ or 4D geometry.
@@ -12,7 +12,7 @@ That is, the `x`, `y`, and `z` coordinates are present in the output.
 For 3DM geometries, the output geometry is a 2D projection of the input 3DM geometry.
 That is, only `x` and `y` coordinates are present in the output.
 
-For input geographies, ST_AsGeoJSON returns the GeoJSON representation of an input geography.
+For input geographies, ST\_AsGeoJSON returns the GeoJSON representation of an input geography.
 The coordinates of the geography are displayed using the specified precision.
 
 ## Syntax

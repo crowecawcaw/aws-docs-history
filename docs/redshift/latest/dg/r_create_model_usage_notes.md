@@ -9,7 +9,7 @@ When using CREATE MODEL, consider the following:
 - The CREATE MODEL statement operates in an asynchronous mode and returns upon
   the export of training data to Amazon S3. The remaining steps of training in Amazon SageMaker AI
   occur in the background. While training is in progress, the corresponding
-  inference function is visible but can't be run. You can query [STV_ML_MODEL_INFO](r_STV_ML_MODEL_INFO.md "r_STV_ML_MODEL_INFO.md") to see the
+  inference function is visible but can't be run. You can query [STV\_ML\_MODEL\_INFO](r_STV_ML_MODEL_INFO.md "r_STV_ML_MODEL_INFO.md") to see the
   state of training.
 - The training can run for up to 90 minutes in the background, by default in the
   Auto model and can be extended. To cancel the training, simply run the [DROP MODEL](r_DROP_MODEL.md "r_DROP_MODEL.md") command.
@@ -19,12 +19,12 @@ When using CREATE MODEL, consider the following:
 - During the model training, Amazon Redshift and SageMaker AI store intermediate artifacts in
   the Amazon S3 bucket that you provide. By default, Amazon Redshift performs garbage collection
   at the end of the CREATE MODEL operation. Amazon Redshift removes those objects from
-  Amazon S3. To retain those artifacts on Amazon S3, set the S3_GARBAGE COLLECT OFF
+  Amazon S3. To retain those artifacts on Amazon S3, set the S3\_GARBAGE COLLECT OFF
   option.
 - You must use at least 500 rows in the training data provided in the FROM
   clause.
-- You can only specify up to 256 feature (input) columns in the FROM { table_name
-  | ( select_query ) } clause when using the CREATE MODEL statement.
+- You can only specify up to 256 feature (input) columns in the FROM { table\_name
+  | ( select\_query ) } clause when using the CREATE MODEL statement.
 - For AUTO ON, the column types that you can use as the training set are
   SMALLINT, INTEGER, BIGINT, DECIMAL, REAL, DOUBLE, BOOLEAN, CHAR, VARCHAR, DATE,
   TIME, TIMETZ, TIMESTAMP, and TIMESTAMPTZ. For AUTO OFF, the column types that you
@@ -37,7 +37,7 @@ When using CREATE MODEL, consider the following:
 
   - Add as many relevant columns in the CREATE MODEL command as possible when
     you specify the training data in the FROM clause.
-  - Use a larger value for MAX_RUNTIME and MAX_CELLS. Larger values for this
+  - Use a larger value for MAX\_RUNTIME and MAX\_CELLS. Larger values for this
     parameter increase the cost of training a model.
 
 - The CREATE MODEL statement execution returns as soon as the training data is

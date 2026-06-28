@@ -32,35 +32,35 @@ SUBSTRING(*binary\_expression*, *start\_byte* )
 
 ## Arguments
 
-_character_string_
+_character\_string_
 
 The string to be searched. Non-character data types are treated like a
 string.
 
-_start_position_
+_start\_position_
 
 The position within the string to begin the extraction, starting at 1.
-The _start_position_ is based on the number of
+The _start\_position_ is based on the number of
 characters, not bytes, so that multi-byte characters are counted as single
 characters. This number can be negative.
 
-_number_characters_
+_number\_characters_
 
 The number of characters to extract (the length of the substring). The
-_number_characters_ is based on the number of
+_number\_characters_ is based on the number of
 characters, not bytes, so that multi-byte characters are counted as single
 characters. This number cannot be negative.
 
-_binary_expression_
+_binary\_expression_
 
-The binary_expression of data type VARBYTE to be searched.
+The binary\_expression of data type VARBYTE to be searched.
 
-_start_byte_
+_start\_byte_
 
 The position within the binary expression to begin the extraction, starting at 1.
 This number can be negative.
 
-_number_bytes_
+_number\_bytes_
 
 The number of bytes to extract, that is, the length of the substring.
 This number can't be negative.
@@ -71,7 +71,7 @@ VARCHAR or VARBYTE depending on the input.
 
 ## Usage Notes
 
-Following are some examples of how you can use _start_position_ and _number_characters_ to extract substrings from various positions in a string.
+Following are some examples of how you can use _start\_position_ and _number\_characters_ to extract substrings from various positions in a string.
 
 The following example returns a four-character string beginning with the sixth
 character.
@@ -84,10 +84,10 @@ pill
 (1 row)
 ```
 
-If the _start_position_ +
-_number_characters_ exceeds the length of the
+If the _start\_position_ +
+_number\_characters_ exceeds the length of the
 _string_, SUBSTRING returns a substring starting from the
-_start_position_ until the end of the string. For example:
+_start\_position_ until the end of the string. For example:
 
 ```
 select substring('caterpillar',6,8);
@@ -176,8 +176,8 @@ You can't use SUBSTRING to predictably extract the prefix of a string that might
 contain multi-byte characters because you need to specify the length of a multi-byte
 string based on the number of bytes, not the number of characters. To extract the
 beginning segment of a string based on the length in bytes, you can CAST the string
-as VARCHAR(_byte_length_) to truncate the string,
-where _byte_length_ is the required length. The
+as VARCHAR(_byte\_length_) to truncate the string,
+where _byte\_length_ is the required length. The
 following example extracts the first 5 bytes from the string `'Fourscore and
  seven'`.
 

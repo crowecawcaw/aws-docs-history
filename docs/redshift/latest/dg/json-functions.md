@@ -6,21 +6,21 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 ###### Topics
 
-- [JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md")
-- [CAN_JSON_PARSE function](CAN_JSON_PARSE.md "CAN_JSON_PARSE.md")
-- [JSON_SERIALIZE function](JSON_SERIALIZE.md "JSON_SERIALIZE.md")
-- [JSON_SERIALIZE_TO_VARBYTE function](JSON_SERIALIZE_TO_VARBYTE.md "JSON_SERIALIZE_TO_VARBYTE.md")
+- [JSON\_PARSE function](JSON_PARSE.md "JSON_PARSE.md")
+- [CAN\_JSON\_PARSE function](CAN_JSON_PARSE.md "CAN_JSON_PARSE.md")
+- [JSON\_SERIALIZE function](JSON_SERIALIZE.md "JSON_SERIALIZE.md")
+- [JSON\_SERIALIZE\_TO\_VARBYTE function](JSON_SERIALIZE_TO_VARBYTE.md "JSON_SERIALIZE_TO_VARBYTE.md")
 - [Text-based JSON functions](text-json-functions.md "text-json-functions.md")
 
 ###### Note
 
 We recommend that you use the following functions for working with JSON:
 
-- [JSON_PARSE function](JSON_PARSE.md "JSON_PARSE.md")
-- [CAN_JSON_PARSE function](CAN_JSON_PARSE.md "CAN_JSON_PARSE.md")
-- [JSON_SERIALIZE function](JSON_SERIALIZE.md "JSON_SERIALIZE.md")
-- [JSON_SERIALIZE_TO_VARBYTE function](JSON_SERIALIZE_TO_VARBYTE.md "JSON_SERIALIZE_TO_VARBYTE.md")
-  With JSON_PARSE, you only need to convert JSON text to a SUPER type value once at ingestion,
+- [JSON\_PARSE function](JSON_PARSE.md "JSON_PARSE.md")
+- [CAN\_JSON\_PARSE function](CAN_JSON_PARSE.md "CAN_JSON_PARSE.md")
+- [JSON\_SERIALIZE function](JSON_SERIALIZE.md "JSON_SERIALIZE.md")
+- [JSON\_SERIALIZE\_TO\_VARBYTE function](JSON_SERIALIZE_TO_VARBYTE.md "JSON_SERIALIZE_TO_VARBYTE.md")
+  With JSON\_PARSE, you only need to convert JSON text to a SUPER type value once at ingestion,
   after which you can operate on the SUPER values. Amazon Redshift parses SUPER values more efficiently
   than VARCHAR, which is the output for the text-based JSON functions.
   For more information on working with the SUPER data type, go to

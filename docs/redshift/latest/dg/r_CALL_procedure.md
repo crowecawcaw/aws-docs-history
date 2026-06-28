@@ -20,7 +20,7 @@ CALL sp_name ( [ argument ] [, ...] )
 
 ## Parameters
 
-_sp_name_
+_sp\_name_
 
 The name of the procedure to run.
 
@@ -52,7 +52,7 @@ nonconstant variable. OUT arguments aren't allowed. This behavior occurs because
 a variable is needed to hold the output of the inner call.
 
 The relationship between inner and outer procedures is logged in the
-`from_sp_call` column of [SVL_STORED_PROC_CALL](r_SVL_STORED_PROC_CALL.md "r_SVL_STORED_PROC_CALL.md").
+`from_sp_call` column of [SVL\_STORED\_PROC\_CALL](r_SVL_STORED_PROC_CALL.md "r_SVL_STORED_PROC_CALL.md").
 
 The following example shows passing variables to a nested procedure call through
 INOUT arguments.

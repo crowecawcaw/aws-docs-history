@@ -87,7 +87,7 @@ date_part
 
 ## Examples with TIME
 
-The following example table TIME_TEST has a column TIME_VAL (type TIME) with three
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three
 values inserted.
 
 ```
@@ -100,7 +100,7 @@ time_val
 00:58:00
 ```
 
-The following example extracts the minutes from each time_val.
+The following example extracts the minutes from each time\_val.
 
 ```
 select extract(minute from time_val) as minutes from time_test;
@@ -112,7 +112,7 @@ minutes
          58
 ```
 
-The following example extracts the hours from each time_val.
+The following example extracts the hours from each time\_val.
 
 ```
 select extract(hour from time_val) as hours from time_test;
@@ -136,7 +136,7 @@ select extract(ms from time '18:25:33.123456');
 
 ## Examples with TIMETZ
 
-The following example table TIMETZ_TEST has a column TIMETZ_VAL (type TIMETZ) with
+The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with
 three values inserted.
 
 ```
@@ -149,7 +149,7 @@ timetz_val
 05:58:00+00
 ```
 
-The following example extracts the hours from each timetz_val.
+The following example extracts the hours from each timetz\_val.
 
 ```
 select extract(hour from timetz_val) as hours from time_test;

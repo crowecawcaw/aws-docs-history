@@ -35,14 +35,14 @@ function named FIBONACCI in a future release.
 You can create a UDF with the same name and signature as an existing Amazon Redshift
 built-in SQL function without the function name being overloaded if the UDF and the
 built-in function exist in different schemas. Because built-in functions exist in the
-system catalog schema, pg_catalog, you can create a UDF with the same name in another
+system catalog schema, pg\_catalog, you can create a UDF with the same name in another
 schema, such as public or a user-defined schema. In some cases, you might call a
 function that is not explicitly qualified with a schema name. If so, Amazon Redshift searches
-the pg_catalog schema first by default. Thus, a built-in function runs before a new UDF
+the pg\_catalog schema first by default. Thus, a built-in function runs before a new UDF
 with the same name.
 
-You can change this behavior by setting the search path to place pg_catalog at the
+You can change this behavior by setting the search path to place pg\_catalog at the
 end. If you do so, your UDFs take precedence over built-in functions, but the practice
 can cause unexpected results. Adopting a unique naming strategy, such as using the
 reserved prefix `f_`, is a more reliable practice. For more information, see
-[SET](r_SET.md "r_SET.md") and [search_path](r_search_path.md "r_search_path.md").
+[SET](r_SET.md "r_SET.md") and [search\_path](r_search_path.md "r_search_path.md").

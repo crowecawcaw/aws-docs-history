@@ -83,8 +83,8 @@ following occurs during AWS Glue Data Catalog registration:
 
   - The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift
     IdC Application of type Lakehouse. The updated catalog can be checked by querying the
-    svv_identity_providers. For more information about the svv_identity_providers,
-    see [svv_identity_providers](r_SVV_IDENTITY_PROVIDERS.md "r_SVV_IDENTITY_PROVIDERS.md").
+    svv\_identity\_providers. For more information about the svv\_identity\_providers,
+    see [svv\_identity\_providers](r_SVV_IDENTITY_PROVIDERS.md "r_SVV_IDENTITY_PROVIDERS.md").
   - AWS IAM Identity Center federated users who previously had access to the Redshift cluster,
     must be explicitly granted CONNECT privileges by the Admins to access the cluster. For more
     information about granting CONNECT privileges, see [Connect privileges](federated-permissions-prereqs.md#federated-permissions-prereqs-connect "federated-permissions-prereqs.md#federated-permissions-prereqs-connect").
@@ -135,8 +135,8 @@ the following occurs during Glue Data Catalog registration:
 
   - The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift
     IdC Application of type Lakehouse. The updated catalog can be checked by querying the
-    svv_identity_providers. For more information about the svv_identity_providers,
-    see [svv_identity_providers](r_SVV_IDENTITY_PROVIDERS.md "r_SVV_IDENTITY_PROVIDERS.md").
+    svv\_identity\_providers. For more information about the svv\_identity\_providers,
+    see [svv\_identity\_providers](r_SVV_IDENTITY_PROVIDERS.md "r_SVV_IDENTITY_PROVIDERS.md").
   - AWS IAM Identity Center federated users who previously had access to the Redshift cluster,
     must be explicitly granted CONNECT privileges by the Admins to access the cluster. For more
     information about granting CONNECT privileges, see [Connect privileges](federated-permissions-prereqs.md#federated-permissions-prereqs-connect "federated-permissions-prereqs.md#federated-permissions-prereqs-connect").
@@ -192,8 +192,8 @@ of type other than Lakehouse, the following occurs during AWS Glue Data Catalog 
 
   - The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift
     IdC Application of type Lakehouse. The updated catalog can be checked by querying the
-    svv_identity_providers. For more information about the svv_identity_providers,
-    see [svv_identity_providers](r_SVV_IDENTITY_PROVIDERS.md "r_SVV_IDENTITY_PROVIDERS.md").
+    svv\_identity\_providers. For more information about the svv\_identity\_providers,
+    see [svv\_identity\_providers](r_SVV_IDENTITY_PROVIDERS.md "r_SVV_IDENTITY_PROVIDERS.md").
   - AWS IAM Identity Center federated users who previously had access to the Redshift cluster,
     must be explicitly granted CONNECT privileges by the Admins to access the cluster. For more
     information about granting CONNECT privileges, see [Connect privileges](federated-permissions-prereqs.md#federated-permissions-prereqs-connect "federated-permissions-prereqs.md#federated-permissions-prereqs-connect").
@@ -303,7 +303,7 @@ username
 
 Name of the user. Cannot be a federated users, like IAM user or AWS IdC user.
 
-IAM_ROLE 'arn:aws:iam::<account-id>:role/<role-name>'
+IAM\_ROLE 'arn:aws:iam::<account-id>:role/<role-name>'
 
 Use the Amazon Resource Name (ARN) for an IAM role that your cluster uses for authentication
 and authorization when user `username` runs queries on Redshift
