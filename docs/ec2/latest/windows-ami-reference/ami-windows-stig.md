@@ -48,21 +48,21 @@ the EC2 console, or you can search for an AMI in the CLI or in PowerShell, as fo
 
 ###### Name patterns for STIG Hardened Windows AMIs
 
-- Windows_Server-2025-English-STIG-Full-`YYYY.MM.DD`
-- Windows_Server-2025-English-STIG-Core-`YYYY.MM.DD`
-- Windows_Server-2022-English-STIG-Full-`YYYY.MM.DD`
-- Windows_Server-2022-English-STIG-Core-`YYYY.MM.DD`
-- Windows_Server-2019-English-STIG-Full-`YYYY.MM.DD`
-- Windows_Server-2019-English-STIG-Core-`YYYY.MM.DD`
-- Windows_Server-2016-English-STIG-Full-`YYYY.MM.DD`
-- Windows_Server-2016-English-STIG-Core-`YYYY.MM.DD`
+- Windows\_Server-2025-English-STIG-Full-`YYYY.MM.DD`
+- Windows\_Server-2025-English-STIG-Core-`YYYY.MM.DD`
+- Windows\_Server-2022-English-STIG-Full-`YYYY.MM.DD`
+- Windows\_Server-2022-English-STIG-Core-`YYYY.MM.DD`
+- Windows\_Server-2019-English-STIG-Full-`YYYY.MM.DD`
+- Windows\_Server-2019-English-STIG-Core-`YYYY.MM.DD`
+- Windows\_Server-2016-English-STIG-Full-`YYYY.MM.DD`
+- Windows\_Server-2016-English-STIG-Core-`YYYY.MM.DD`
 
 ###### Name patterns for NitroTPM STIG Hardened Windows AMIs
 
-- TPM-Windows_Server-2025-English-STIG-Full-`YYYY.MM.DD`
-- TPM-Windows_Server-2025-English-STIG-Core-`YYYY.MM.DD`
-- TPM-Windows_Server-2022-English-STIG-Full-`YYYY.MM.DD`
-- TPM-Windows_Server-2022-English-STIG-Core-`YYYY.MM.DD`
+- TPM-Windows\_Server-2025-English-STIG-Full-`YYYY.MM.DD`
+- TPM-Windows\_Server-2025-English-STIG-Core-`YYYY.MM.DD`
+- TPM-Windows\_Server-2022-English-STIG-Full-`YYYY.MM.DD`
+- TPM-Windows\_Server-2022-English-STIG-Core-`YYYY.MM.DD`
 
 Console
 You can select an AMI from the **Community AMIs** tab when you
