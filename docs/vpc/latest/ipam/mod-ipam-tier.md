@@ -39,8 +39,7 @@ to the Advanced Tier. An active IP address is defined as an IP address or a pref
     * You cannot view a breakdown of the active IP count by IP type (public/private) or class (IPv4/IPv6).
     * IPAM only counts IPs from ENIs owned by monitored accounts. The count may be inaccurate for shared subnets. IP addresses are excluded if the subnet owner or ENI owner is not covered by IPAM.
 
-5. Choose the **IPAM tier** you want to use for the IPAM.
-6. Choose **Save changes**.
+5. Choose the **IPAM tier** you want to use for the IPAM. 6. Choose **Save changes**.
 
 Command line
 The commands in this section link to the _AWS CLI Command Reference_.

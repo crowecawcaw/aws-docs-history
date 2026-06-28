@@ -476,7 +476,7 @@ The value cannot be larger than the netmask length of the IPAM pool. The least s
   Organization, you can provision smaller prefixes to multiple IPAM pools, say
   `/27` (using `-- netmask-length 27`), rather than
   provisioning the entire `/24` CIDR (using `-- netmask-length
-24`) as is shown in this tutorial.
+ 24`) as is shown in this tutorial.
 - This step must be done by the member account using the AWS CLI.
 
 ###### To create a public IPv4 pool using the AWS CLI

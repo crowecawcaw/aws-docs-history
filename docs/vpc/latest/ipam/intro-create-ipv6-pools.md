@@ -34,26 +34,16 @@ pool hierarchy:
 
 - IPAM operating in AWS Region 1 and AWS Region 2
 
-      + Scope
+  - Scope
 
+    - Regional pool in AWS Region 1 (2001:db8::/52)
 
+      - Development pool (2001:db8::/54)
 
-
-      	- Regional pool in AWS Region 1 (2001:db8::/52)
-
-
-
-
-      		* Development pool (2001:db8::/54)
-
-
-
-
-      			+ Allocation for a VPC (2001:db8::/56)
-
-  In the preceding example, the CIDRs that are used are examples only. They illustrate that
-  the Development pool within the Regional pool is provisioned with a portion of the Regional
-  pool CIDR.
+        - Allocation for a VPC (2001:db8::/56)
+          In the preceding example, the CIDRs that are used are examples only. They illustrate that
+          the Development pool within the Regional pool is provisioned with a portion of the Regional
+          pool CIDR.
 
 ###### Contents
 

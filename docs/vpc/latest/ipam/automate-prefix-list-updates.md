@@ -114,8 +114,7 @@ You can create a prefix list resolver without any CIDR selection rules, but it w
     		- **Operation**: Equals/Not equals
     		- **Value**: The value on which to match the condition
 
-8. Choose **Next**.
-9. Choose **Validate and create**.
+8. Choose **Next**. 9. Choose **Validate and create**.
 
 Command line
 The commands in this section link to the _AWS CLI Command Reference_. The

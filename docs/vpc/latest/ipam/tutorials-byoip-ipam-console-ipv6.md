@@ -160,9 +160,8 @@ allocation rules for this pool:
      automatically imported into the pool will not be allowed to allocate space from
      the pool unless they are in this locale.
 
-12. (Optional) Choose **Tags** for the pool.
-13. When you’ve finished configuring your pool, choose **Create
-    pool**.
+12. (Optional) Choose **Tags** for the pool. 13. When you’ve finished configuring your pool, choose **Create
+pool**.
 
 Ensure that this CIDR has been provisioned before you continue. You can see the state of provisioning in the **CIDRs** tab in the pool details page.
 

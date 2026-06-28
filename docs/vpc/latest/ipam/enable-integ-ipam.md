@@ -52,13 +52,12 @@ When integrating with AWS Organizations:
 - The user associated with the AWS Organizations management account must use an IAM role
   that has the following IAM policy actions attached:
 
-      + `ec2:EnableIpamOrganizationAdminAccount`
-      + `organizations:EnableAwsServiceAccess`
-      + `organizations:RegisterDelegatedAdministrator`
-      + `iam:CreateServiceLinkedRole`
-
-  For more information on creating IAM roles, see [Creating a role to delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md")
-  in the _IAM User Guide_.
+  - `ec2:EnableIpamOrganizationAdminAccount`
+  - `organizations:EnableAwsServiceAccess`
+  - `organizations:RegisterDelegatedAdministrator`
+  - `iam:CreateServiceLinkedRole`
+    For more information on creating IAM roles, see [Creating a role to delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md")
+    in the _IAM User Guide_.
 
 - The user associated with the AWS Organizations management account may use an
   IAM role that has the following IAM policy actions attached to list your

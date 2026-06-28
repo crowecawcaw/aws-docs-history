@@ -25,32 +25,18 @@ later.
 
 - **IPAM operating in AWS Region 1 and AWS Region 2**
 
-      + Private scope
+  - Private scope
 
+    - Top-level IPAM pool
 
+      - Regional IPAM pool in **AWS Region
+        2**
 
+        - Development pool
 
-      	- Top-level IPAM pool
-
-
-
-
-      		* Regional IPAM pool in **AWS Region
-      		 2**
-
-
-
-
-
-      			+ Development pool
-
-
-
-
-      				- Allocation for a VPC in **AWS Region 2**
-
-  You can only create one IPAM. For more information about increasing quotas related to
-  IPAM, see [Quotas for your IPAM](quotas-ipam.md "quotas-ipam.md").
+          - Allocation for a VPC in **AWS Region 2**
+            You can only create one IPAM. For more information about increasing quotas related to
+            IPAM, see [Quotas for your IPAM](quotas-ipam.md "quotas-ipam.md").
 
 AWS Management Console
 

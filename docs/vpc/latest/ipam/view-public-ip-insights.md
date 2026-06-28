@@ -55,49 +55,42 @@ You can view insights into the following public IPv4 address types:
 - **Amazon-owned IPv4 contiguous IPs usage**: A table that shows contiguous public IPv4 address usage over time and related Amazon-owned IPv4 IPAM pools.
 - **Public IP addresses**: A table of public IPv4 addresses and their attributes.
 
-      + **IP address**: The public IPv4 address.
-      + **Associated**: Whether or not the address is associated with an EC2 instance, network interface, or AWS resource.
+  - **IP address**: The public IPv4 address.
+  - **Associated**: Whether or not the address is associated with an EC2 instance, network interface, or AWS resource.
 
+    - **Associated**: The public IPv4 address is associated with an EC2 instance, network interface, or AWS resource.
+    - **Unassociated**: The public IPv4 address is not associated to any resource and is idle in your AWS account.
 
+  - **Address type**: The IP address type.
 
+    - **Amazon-owned EIP**: The public IPv4 address is an Elastic IP address.
+    - **BYOIP**: The public IPv4 address was brought to AWS using BYOIP.
+    - **EC2 public IP**: The public IPv4 address was assigned automatically to an EC2 instance.
+    - **Service managed BYOIP**: The public IPv4 address was brought to AWS using Bring your own IP (BYOIP).
+    - **Service managed IP**: The public IPv4 address was provisioned and is managed by an AWS service.
 
-      	- **Associated**: The public IPv4 address is associated with an EC2 instance, network interface, or AWS resource.
-      	- **Unassociated**: The public IPv4 address is not associated to any resource and is idle in your AWS account.
-      + **Address type**: The IP address type.
+  - **Service**: The service that the IP address is associated with.
 
+    - **AGA**: An AWS Global Accelerator. If a [custom routing accelerator](../../../global-accelerator/latest/dg/work-with-custom-routing-accelerators.md "../../../global-accelerator/latest/dg/work-with-custom-routing-accelerators.md") is used, its public IPs are not listed. To view these public IPs, see [Viewing your custom routing accelerators](../../../global-accelerator/latest/dg/about-custom-routing-accelerators.md#about-custom-routing-accelerators.viewing "../../../global-accelerator/latest/dg/about-custom-routing-accelerators.md#about-custom-routing-accelerators.viewing").
+    - **Database Migration Service**: An AWS Database Migration Service (DMS) replication instance.
+    - **Redshift**: An Amazon Redshift cluster.
+    - **RDS**: An Amazon Relational Database Service (RDS) instance.
+    - **Load balancer (EC2)**: An Application Load Balancer or a Network Load Balancer.
+    - **NAT gateway (VPC)**: An Amazon VPC public NAT gateway.
+    - **Site-to-Site VPN**: An AWS Site-to-Site VPN virtual private gateway.
+    - **Other**: Other service that is not currently identifiable.
 
-
-
-      	- **Amazon-owned EIP**: The public IPv4 address is an Elastic IP address.
-      	- **BYOIP**: The public IPv4 address was brought to AWS using BYOIP.
-      	- **EC2 public IP**: The public IPv4 address was assigned automatically to an EC2 instance.
-      	- **Service managed BYOIP**: The public IPv4 address was brought to AWS using Bring your own IP (BYOIP).
-      	- **Service managed IP**: The public IPv4 address was provisioned and is managed by an AWS service.
-      + **Service**: The service that the IP address is associated with.
-
-
-
-
-      	- **AGA**: An AWS Global Accelerator. If a [custom routing accelerator](../../../global-accelerator/latest/dg/work-with-custom-routing-accelerators.md "../../../global-accelerator/latest/dg/work-with-custom-routing-accelerators.md") is used, its public IPs are not listed. To view these public IPs, see [Viewing your custom routing accelerators](../../../global-accelerator/latest/dg/about-custom-routing-accelerators.md#about-custom-routing-accelerators.viewing "../../../global-accelerator/latest/dg/about-custom-routing-accelerators.md#about-custom-routing-accelerators.viewing").
-      	- **Database Migration Service**: An AWS Database Migration Service (DMS) replication instance.
-      	- **Redshift**: An Amazon Redshift cluster.
-      	- **RDS**: An Amazon Relational Database Service (RDS) instance.
-      	- **Load balancer (EC2)**: An Application Load Balancer or a Network Load Balancer.
-      	- **NAT gateway (VPC)**: An Amazon VPC public NAT gateway.
-      	- **Site-to-Site VPN**: An AWS Site-to-Site VPN virtual private gateway.
-      	- **Other**: Other service that is not currently identifiable.
-      + **Name (EIP ID)**: If this public IPv4 address is an Elastic IP address allocation, this is the name and ID of the EIP allocation.
-      + **Network interface ID**: If this public IPv4 address is associated with a network interface, this is the ID of the network interface.
-      + **Instance ID**: If this public IPv4 address is associated with an EC2 instance, this is the instance ID.
-      + **Security groups**: If this public IPv4 address is associated with an EC2 instance, this is the name and ID of the security group assigned to the instance.
-      + **Public IPv4 pool**: If this is an Elastic IP address from an IP address pool owned and managed by Amazon, the value is "-". If this is an Elastic IP address from an IP address range which you own and have brought to Amazon (using BYOIP), the value is the public IPv4 pool ID.
-      + **Network border group**: If the IP address is advertised, this is the AWS Region from which the IP address is advertised.
-      + **Owner ID**:The AWS account number of resource owner.
-      + **Sample time**: The last successful resource discovery time.
-      + **Resource discovery ID**: ID of the resource discovery that has discovered this public IPv4 address.
-      + **Service resource**: Resource ARN or ID.
-
-  If an Elastic IP address is allocated to your account but is not associated with a network interface, a banner appears informing you that you have unassociated EIPs in your account and you should release them.
+  - **Name (EIP ID)**: If this public IPv4 address is an Elastic IP address allocation, this is the name and ID of the EIP allocation.
+  - **Network interface ID**: If this public IPv4 address is associated with a network interface, this is the ID of the network interface.
+  - **Instance ID**: If this public IPv4 address is associated with an EC2 instance, this is the instance ID.
+  - **Security groups**: If this public IPv4 address is associated with an EC2 instance, this is the name and ID of the security group assigned to the instance.
+  - **Public IPv4 pool**: If this is an Elastic IP address from an IP address pool owned and managed by Amazon, the value is "-". If this is an Elastic IP address from an IP address range which you own and have brought to Amazon (using BYOIP), the value is the public IPv4 pool ID.
+  - **Network border group**: If the IP address is advertised, this is the AWS Region from which the IP address is advertised.
+  - **Owner ID**:The AWS account number of resource owner.
+  - **Sample time**: The last successful resource discovery time.
+  - **Resource discovery ID**: ID of the resource discovery that has discovered this public IPv4 address.
+  - **Service resource**: Resource ARN or ID.
+    If an Elastic IP address is allocated to your account but is not associated with a network interface, a banner appears informing you that you have unassociated EIPs in your account and you should release them.
 
 ###### Important
 

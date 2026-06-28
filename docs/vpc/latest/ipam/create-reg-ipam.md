@@ -16,33 +16,20 @@ pool:
 
 - IPAM operating in AWS Region 1 and AWS Region 2
 
-      + Private scope
+  - Private scope
 
+    - Top-level pool (10.0.0.0/8)
 
+      - **Regional pool in AWS Region 1
+        (10.0.0.0/16)**
 
+        - Development pool for non-production VPCs
+          (10.0.0.0/24)
 
-      	- Top-level pool (10.0.0.0/8)
-
-
-
-
-      		* **Regional pool in AWS Region 1
-      		 (10.0.0.0/16)**
-
-
-
-
-      			+ Development pool for non-production VPCs
-      			 (10.0.0.0/24)
-
-
-
-
-      				- Allocation for a VPC (10.0.0.0/25)
-
-  In the preceding example, the CIDRs that are used are examples only. They illustrate that
-  each pool within the top-level pool is provisioned with a portion of the top-level
-  CIDR.
+          - Allocation for a VPC (10.0.0.0/25)
+            In the preceding example, the CIDRs that are used are examples only. They illustrate that
+            each pool within the top-level pool is provisioned with a portion of the top-level
+            CIDR.
 
 AWS Management Console
 

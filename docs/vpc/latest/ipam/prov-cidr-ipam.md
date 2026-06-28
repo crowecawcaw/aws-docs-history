@@ -56,10 +56,9 @@ AWS Management Console
     * If you are provisioning CIDRs to a pool within a pool, then the CIDR space you want to
      provision must be available in the pool.
 
-7. Choose **Provision**.
-8. You can view the CIDR in IPAM by choosing **Pools**
-   in the navigation pane, choosing a pool, and viewing the CIDRs tab for
-   the pool.
+7. Choose **Provision**. 8. You can view the CIDR in IPAM by choosing **Pools**
+in the navigation pane, choosing a pool, and viewing the CIDRs tab for
+the pool.
 
 Command line
 The commands in this section link to the _AWS CLI Command Reference_.

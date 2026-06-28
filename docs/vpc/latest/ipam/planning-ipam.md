@@ -33,31 +33,18 @@ completing the steps in this section:
 
 - IPAM operating in AWS Region 1 and AWS Region 2
 
-      + Private scope
+  - Private scope
 
+    - Top-level pool
 
+      - Regional pool in AWS Region 1
 
+        - Development pool
 
-      	- Top-level pool
-
-
-
-
-      		* Regional pool in AWS Region 1
-
-
-
-
-      			+ Development pool
-
-
-
-
-      				- Allocation for a VPC
-
-  This structure serves as an example of how you might want to use IPAM, but you can use IPAM
-  to suit the needs of your organization. For more information on best practices, see [Amazon VPC
-  IP Address Manager Best Practices](https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-vpc-ip-address-manager-best-practices/ "https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-vpc-ip-address-manager-best-practices/").
+          - Allocation for a VPC
+            This structure serves as an example of how you might want to use IPAM, but you can use IPAM
+            to suit the needs of your organization. For more information on best practices, see [Amazon VPC
+            IP Address Manager Best Practices](https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-vpc-ip-address-manager-best-practices/ "https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-vpc-ip-address-manager-best-practices/").
 
 If you are creating a single IPAM pool, complete the steps in [Create a top-level IPv4 pool](create-top-ipam.md "create-top-ipam.md") and then skip to [Allocate CIDRs from an IPAM pool](allocate-cidrs-ipam.md "allocate-cidrs-ipam.md").
 

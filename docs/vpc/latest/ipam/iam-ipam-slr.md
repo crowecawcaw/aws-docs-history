@@ -93,6 +93,6 @@ to delete the service-linked role using the AWS CLI:
    [Delete an IPAM](delete-ipam.md "delete-ipam.md").
 2. Disable the IPAM account with [disable-ipam-organization-admin-account](../../../cli/latest/reference/ec2/disable-ipam-organization-admin-account.md "../../../cli/latest/reference/ec2/disable-ipam-organization-admin-account.md").
 3. Disable the IPAM service with [disable-aws-service-access](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/servicecatalog/disable-aws-organizations-access.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/servicecatalog/disable-aws-organizations-access.html") using the `--service-principal
-ipam.amazonaws.com` option.
+ ipam.amazonaws.com` option.
 4. Delete the service-linked role: [delete-service-linked-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-service-linked-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-service-linked-role.html"). When you delete the service-linked role, the IPAM managed policy is also deleted. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr "../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr") in the
    _IAM User Guide_.

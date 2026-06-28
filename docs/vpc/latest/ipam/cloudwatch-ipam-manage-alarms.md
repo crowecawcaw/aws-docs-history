@@ -1,6 +1,6 @@
 # Manage alarms from IPAM console
 
-You can create and manage Amazon CloudWatch alarms directly from the IPAM console. Alarms for [IPAM metrics](cloudwatch-ipam-ip-address-usage.md "cloudwatch-ipam-ip-address-usage.md") or [IPAM resource utilization metrics](cloudwatch-ipam-res-util.md "cloudwatch-ipam-res-util.md") that are in an INSUFFICIENT_DATA or ALARM state will appear as warning bars at the top of the console and as visual indicators in the left navigation next to **Monitoring**.
+You can create and manage Amazon CloudWatch alarms directly from the IPAM console. Alarms for [IPAM metrics](cloudwatch-ipam-ip-address-usage.md "cloudwatch-ipam-ip-address-usage.md") or [IPAM resource utilization metrics](cloudwatch-ipam-res-util.md "cloudwatch-ipam-res-util.md") that are in an INSUFFICIENT\_DATA or ALARM state will appear as warning bars at the top of the console and as visual indicators in the left navigation next to **Monitoring**.
 
 To manage alarms for specific resources, choose **Resources**, then choose a VPC, subnet, or pool. When the resource details page opens, choose the **Alarms** tab.
 
@@ -16,7 +16,7 @@ The **Alarms** tab provides a detailed summary of the CloudWatch alarms in the `
 
   - **ALARM**: Metric is outside defined threshold.
   - **OK**: Metric is within defined threshold.
-  - **INSUFFICIENT_DATA**: Not enough data to determine alarm
+  - **INSUFFICIENT\_DATA**: Not enough data to determine alarm
     state.
 
 - **Metric**: The specific CloudWatch metric being monitored by the alarm.
@@ -24,7 +24,6 @@ The **Alarms** tab provides a detailed summary of the CloudWatch alarms in the `
 - **Time last updated**: Date and time when the alarm state was last changed or evaluated.
 - **Actions enabled**: Indicates whether CloudWatch actions are enabled for the alarm:
 
-      + **Yes**: Alarm can trigger configured actions when conditions are met.
-      + **No**: Alarm is monitoring but not executing actions.
-
-  In addition, if you're viewing the utilization graphs on the **Monitoring** tab for a VPC, subnet, or pool, you can choose the option to create an alarm for the resource utilization. You're then redirected to the CloudWatch console with the resource and metric details pre-populated. From there, you can configure an alarm threshold to, for example, be notified when utilization reaches a specific percentage.
+  - **Yes**: Alarm can trigger configured actions when conditions are met.
+  - **No**: Alarm is monitoring but not executing actions.
+    In addition, if you're viewing the utilization graphs on the **Monitoring** tab for a VPC, subnet, or pool, you can choose the option to create an alarm for the resource utilization. You're then redirected to the CloudWatch console with the resource and metric details pre-populated. From there, you can configure an alarm threshold to, for example, be notified when utilization reaches a specific percentage.

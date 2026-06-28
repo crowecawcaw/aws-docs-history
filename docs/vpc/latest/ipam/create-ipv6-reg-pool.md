@@ -11,26 +11,16 @@ instructions in this guide. At this step, you are creating the IPv6 regional IPA
 
 - IPAM operating in AWS Region 1 and AWS Region 2
 
-      + Scope
+  - Scope
 
+    - **Regional pool in AWS Region 1 (2001:db8::/52)**
 
+      - Development pool (2001:db8::/54)
 
-
-      	- **Regional pool in AWS Region 1 (2001:db8::/52)**
-
-
-
-
-      		* Development pool (2001:db8::/54)
-
-
-
-
-      			+ Allocation for a VPC (2001:db8::/56)
-
-  In the preceding example, the CIDRs that are used are examples only. They illustrate that
-  each pool within the IPv6 regional pool is provisioned with a portion of the IPv6 regional
-  CIDR.
+        - Allocation for a VPC (2001:db8::/56)
+          In the preceding example, the CIDRs that are used are examples only. They illustrate that
+          each pool within the IPv6 regional pool is provisioned with a portion of the IPv6 regional
+          CIDR.
 
 When you create an IPAM pool, you can configure rules for the allocations that are made within the IPAM pool.
 
@@ -156,35 +146,33 @@ To provision a CIDR, do one of the following:
 
 13. Choose optional allocation rules for this pool:
 
-    - **Minimum netmask length**: The minimum netmask length required
-      for CIDR allocations in this IPAM pool to be compliant and the
-      largest size CIDR block that can be allocated from the pool. The
-      minimum netmask length must be less than the maximum netmask
-      length. Possible netmask lengths for IPv6 addresses are 0 - 128.
-    - **Default netmask length**: A default netmask length for
-      allocations added to this pool. For example, if the CIDR that's
-      provisioned to this pool is `2001:db8::/52`
-      and you enter 56 here, any new
-      allocations in this pool will default to a netmask length of
-      /56.
-    - **Maximum netmask length**: The maximum netmask length that will
-      be required for CIDR allocations in this pool. This value
-      dictates the smallest size CIDR block that can be allocated from
-      the pool. For example, if you enter /56 here, the smallest
-      netmask length that can be allocated for CIDRs from this pool is
-      /56.
-    - **Tagging requirements**: The tags that are required for
-      resources to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the
-      allocation tagging rules are changed on the pool, the resource may be marked as noncompliant.
-    - **Locale**: The locale that will be required for
-      resources that use CIDRs from this pool. Automatically imported resources
-      that do not have this locale will be marked noncompliant. Resources that are not
-      automatically imported into the pool will not be allowed to allocate space from
-      the pool unless they are in this locale.
+    * **Minimum netmask length**: The minimum netmask length required
+     for CIDR allocations in this IPAM pool to be compliant and the
+     largest size CIDR block that can be allocated from the pool. The
+     minimum netmask length must be less than the maximum netmask
+     length. Possible netmask lengths for IPv6 addresses are 0 - 128.
+    * **Default netmask length**: A default netmask length for
+     allocations added to this pool. For example, if the CIDR that's
+     provisioned to this pool is `2001:db8::/52`
+     and you enter 56 here, any new
+     allocations in this pool will default to a netmask length of
+     /56.
+    * **Maximum netmask length**: The maximum netmask length that will
+     be required for CIDR allocations in this pool. This value
+     dictates the smallest size CIDR block that can be allocated from
+     the pool. For example, if you enter /56 here, the smallest
+     netmask length that can be allocated for CIDRs from this pool is
+     /56.
+    * **Tagging requirements**: The tags that are required for
+     resources to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the
+     allocation tagging rules are changed on the pool, the resource may be marked as noncompliant.
+    * **Locale**: The locale that will be required for
+     resources that use CIDRs from this pool. Automatically imported resources
+     that do not have this locale will be marked noncompliant. Resources that are not
+     automatically imported into the pool will not be allowed to allocate space from
+     the pool unless they are in this locale.
 
-14. (Optional) Choose **Tags** for the pool.
-15. Choose **Create pool**.
-16. See [Create a development IPv6 address pool in your IPAM](create-ipv6-dev-pool.md "create-ipv6-dev-pool.md").
+14. (Optional) Choose **Tags** for the pool. 15. Choose **Create pool**. 16. See [Create a development IPv6 address pool in your IPAM](create-ipv6-dev-pool.md "create-ipv6-dev-pool.md").
 
 Command line
 The commands in this section link to the _AWS CLI Command Reference_.

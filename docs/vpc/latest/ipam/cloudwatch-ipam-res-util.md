@@ -15,13 +15,12 @@ For each resource type and address family combination, IPAM uses three rules to 
   IP utilization of resources that may not be captured within the high or low
   utilization group.
 
-      + Up to 50 VPCs containing a CIDR allocated from an IPAM pool (prioritized by total size of CIDR blocks).
-      + Up to 50 subnets whose VPC contains a CIDR allocated from an IPAM pool (prioritized by total size of CIDR blocks).
-      + Up to 50 public IPv4 pools containing a CIDR allocated from an IPAM pool (prioritized by total size of CIDR blocks).
-
-  After applying each rule, the metrics are aggregated and published under the same
-  metric name for each resource type. See below for detailed information on the metric
-  names and their dimensions.
+  - Up to 50 VPCs containing a CIDR allocated from an IPAM pool (prioritized by total size of CIDR blocks).
+  - Up to 50 subnets whose VPC contains a CIDR allocated from an IPAM pool (prioritized by total size of CIDR blocks).
+  - Up to 50 public IPv4 pools containing a CIDR allocated from an IPAM pool (prioritized by total size of CIDR blocks).
+    After applying each rule, the metrics are aggregated and published under the same
+    metric name for each resource type. See below for detailed information on the metric
+    names and their dimensions.
 
 ###### Important
 
