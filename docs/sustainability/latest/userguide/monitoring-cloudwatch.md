@@ -6,10 +6,10 @@ information and gain a better perspective on how your web application or service
 alarms that watch for certain thresholds, and send notifications or take actions when those thresholds are met. For
 more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 
-| AWS Sustainability Metrics | Dimension                                                               | Value |
-| -------------------------- | ----------------------------------------------------------------------- | ----- |
-| Namespace                  | AWS/Usage                                                               |
-| Metric name                | CallCount                                                               |
-| Service                    | AWS Sustainability                                                      |
-| Type                       | API                                                                     |
-| Resource                   | GetEstimatedCarbonEmissionsDimensionValues, GetEstimatedCarbonEmissions |
+AWS Sustainability Metrics| Dimension | Value |
+| --- | --- |
+| Namespace | AWS/Usage |
+| Metric name | CallCount |
+| Service | AWS Sustainability |
+| Type | API |
+| Resource | GetEstimatedCarbonEmissionsDimensionValues, GetEstimatedCarbonEmissions |

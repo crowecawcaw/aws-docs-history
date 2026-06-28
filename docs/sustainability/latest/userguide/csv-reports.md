@@ -11,6 +11,6 @@ You can download csv reports in the **Reports** page. There are two preset repor
 2. You will be prompted to select a timeframe for the report. If you intend to make year over year comparisons, please select all months in a given year to ensure it is comparable.
    You can also create a custom report by clicking **Download custom report** on the top right of the **Reports** page. You can configure which fields to include in the report, the granularity, and any filters you want to apply.
 
-The columns available to select vary depending on the parameters you have set up for your report. For example, if you choose to aggregate data at the yearly granularity, the column usage_year will be available, but not usage_month or usage_quarter. If you want the most granularity, aggregate by month.
+The columns available to select vary depending on the parameters you have set up for your report. For example, if you choose to aggregate data at the yearly granularity, the column usage\_year will be available, but not usage\_month or usage\_quarter. If you want the most granularity, aggregate by month.
 
 If you want to see the carbon per usage account under a given payer account, you can use the AWS Sustainability API or create a Data Export.
