@@ -160,49 +160,49 @@ Create an automation that deletes an object from a specified Amazon S3 bucket.
 Create an automation that retrieves a single object from a specified Amazon S3 bucket. Later, you will configure this automation with a file viewer component
 to display the object.
 
-1.  In the left-hand **Automations** panel, choose **+ Add**.
-2.  Choose **+ Add automation**.
-3.  In the right-hand panel, choose **Properties**.
-4.  Update the automation name by choosing the pencil icon. Enter `viewFile`
-    and press **Enter**.
-5.  Add an automation parameter, used to pass data to an automation, by performing the following steps:
+1. In the left-hand **Automations** panel, choose **+ Add**.
+2. Choose **+ Add automation**.
+3. In the right-hand panel, choose **Properties**.
+4. Update the automation name by choosing the pencil icon. Enter `viewFile`
+   and press **Enter**.
+5. Add an automation parameter, used to pass data to an automation, by performing the following steps:
 
-    1. On the right-hand **Properties** menu, in **Automation
-       parameters**, choose **+ Add**.
-    2. Choose the pencil icon to edit the automation parameter. Update the parameter name to
-       `fileName` and press **Enter**.
+   1. On the right-hand **Properties** menu, in **Automation
+      parameters**, choose **+ Add**.
+   2. Choose the pencil icon to edit the automation parameter. Update the parameter name to
+      `fileName` and press **Enter**.
 
-6.  Add a **Get object** action by performing the following steps:
+6. Add a **Get object** action by performing the following steps:
 
-    1. In the right-hand panel, choose **Actions**.
-    2. Choose **Get object** to add an action. The action should be named `GetObject1`.
+   1. In the right-hand panel, choose **Actions**.
+   2. Choose **Get object** to add an action. The action should be named `GetObject1`.
 
-7.  Configure the action by performing the following steps:
+7. Configure the action by performing the following steps:
 
-    1. Choose the action from the canvas to open the right-hand **Properties** menu.
-    2. For **Connector**, choose the Amazon S3 connector that you created from the prerequisites.
-    3. For **Configuration**, enter the following text, replacing `bucket_name` with the bucket you created in
-       the prerequisites:
+   1. Choose the action from the canvas to open the right-hand **Properties** menu.
+   2. For **Connector**, choose the Amazon S3 connector that you created from the prerequisites.
+   3. For **Configuration**, enter the following text, replacing `bucket_name` with the bucket you created in
+      the prerequisites:
 
-    ```
-    {
-      "Bucket": "`bucket_name`",
-      "Key": params.fileName
-    }
-    ```
+   ```
+   {
+     "Bucket": "`bucket_name`",
+     "Key": params.fileName
+   }
+   ```
 
-8.  By default, automations don't create outputs. Configure the automation to create an automation
-    output by performing the following steps:
+8. By default, automations don't create outputs. Configure the automation to create an automation
+   output by performing the following steps:
 
-    1. In the left-hand navigation, choose the **viewFile** automation.
-    2. On the right-hand **Properties** menu, in **Automation
-       output**, choose **+ Add output**.
-    3. For **Output**, enter `{{results.GetObject1.Body.transformToWebStream()}}`. This expression
-       returns the contents of the action.
+   1. In the left-hand navigation, choose the **viewFile** automation.
+   2. On the right-hand **Properties** menu, in **Automation
+      output**, choose **+ Add output**.
+   3. For **Output**, enter `{{results.GetObject1.Body.transformToWebStream()}}`. This expression
+      returns the contents of the action.
 
-    ###### Note
+   ###### Note
 
-    You can read the response of `S3 GetObject` in the following ways:
+   You can read the response of `S3 GetObject` in the following ways:
 
         * `transformToWebStream`: Returns a stream, which must be consumed to retrieve the
          data. If used as an automation output, the automation handles this, and the output can be
@@ -233,44 +233,43 @@ the list. To do that, you will do the following:
 
 ###### To add components to the **FileList** page
 
-1.  Choose the **Pages** tab at the top of the canvas.
-2.  In the left-hand **Pages** panel, choose the **FileList** page.
-3.  On the right-hand **Components** page, find the **Table**
-    component and drag it to the center of the canvas.
-4.  Choose the table component that you just added to the page.
-5.  On the right-hand **Properties** menu, choose the **Source**
-    dropdown and select **Automation**.
-6.  Choose the **Automation** dropdown and select the **getFiles** automation. The table will use the output
-    of the **getFiles** automation as its content.
-7.  Add a column to be filled with the name of the file.
+1. Choose the **Pages** tab at the top of the canvas.
+2. In the left-hand **Pages** panel, choose the **FileList** page.
+3. On the right-hand **Components** page, find the **Table**
+   component and drag it to the center of the canvas.
+4. Choose the table component that you just added to the page.
+5. On the right-hand **Properties** menu, choose the **Source**
+   dropdown and select **Automation**.
+6. Choose the **Automation** dropdown and select the **getFiles** automation. The table will use the output
+   of the **getFiles** automation as its content.
+7. Add a column to be filled with the name of the file.
 
-    1. On the right-hand **Properties** menu, next to **Columns**,
-       choose **+ Add**.
-    2. Choose the arrow icon to the right of the **Column1** column that was just added.
-    3. For **Column label**, rename the column to `Filename`.
-    4. For **Value**, enter `{{currentRow.Key}}`.
-    5. Choose the arrow icon at the top of the panel to return to the main **Properties** panel.
+   1. On the right-hand **Properties** menu, next to **Columns**,
+      choose **+ Add**.
+   2. Choose the arrow icon to the right of the **Column1** column that was just added.
+   3. For **Column label**, rename the column to `Filename`.
+   4. For **Value**, enter `{{currentRow.Key}}`.
+   5. Choose the arrow icon at the top of the panel to return to the main **Properties** panel.
 
-8.  Add a table action to delete the file in a row.
+8. Add a table action to delete the file in a row.
 
-    1. On the right-hand **Properties** menu, next to **Actions**,
-       choose **+ Add**.
-    2. In **Actions**, rename **Button** to `Delete`.
-    3. Choose the arrow icon to the right of the **Delete** action that was just renamed.
-    4. In **On click**, choose **+ Add action** and choose **Invoke automation**.
-    5. Choose the action that was added to configure it.
-    6. For **Action name**, enter `DeleteRecord`.
-    7. In **Invoke automation**, select `deleteFile`.
-    8. In the parameter text box, enter `{{currentRow.Key}}`.
-    9. For **Value**, enter `{{currentRow.Key}}`.
+   1. On the right-hand **Properties** menu, next to **Actions**,
+      choose **+ Add**.
+   2. In **Actions**, rename **Button** to `Delete`.
+   3. Choose the arrow icon to the right of the **Delete** action that was just renamed.
+   4. In **On click**, choose **+ Add action** and choose **Invoke automation**.
+   5. Choose the action that was added to configure it.
+   6. For **Action name**, enter `DeleteRecord`.
+   7. In **Invoke automation**, select `deleteFile`.
+   8. In the parameter text box, enter `{{currentRow.Key}}`.
+   9. For **Value**, enter `{{currentRow.Key}}`.
 
-9.  In the right-hand panel, choose **Components** to view the components menu. There are two choices for showing files:
+9. In the right-hand panel, choose **Components** to view the components menu. There are two choices for showing files:
 
-        * An **Image viewer** to view files with a
-         `.png`, `.jpeg`, or `.jpg` extension.
-        * A **PDF viewer** component to view PDF files.
-
-    In this tutorial, you will add and configure the **PDF viewer** component.
+   - An **Image viewer** to view files with a
+     `.png`, `.jpeg`, or `.jpg` extension.
+   - A **PDF viewer** component to view PDF files.
+     In this tutorial, you will add and configure the **PDF viewer** component.
 
 10. Add the **PDF viewer** component.
 
@@ -290,23 +289,23 @@ the list. To do that, you will do the following:
 The **UploadFile** page will contain a file selector that can be used to select and upload a file to the configured Amazon S3 bucket. You will
 add the **S3 upload** component to the page, which users can use to select and upload a file.
 
-1.  In the left-hand **Pages** panel, choose the **UploadFile** page.
-2.  On the right-hand **Components** page, find the **S3
-    upload** component and drag it to the center of the canvas.
-3.  Choose the S3 upload component that you just added to the page.
-4.  On the right-hand **Properties** menu, configure the component:
+1. In the left-hand **Pages** panel, choose the **UploadFile** page.
+2. On the right-hand **Components** page, find the **S3
+   upload** component and drag it to the center of the canvas.
+3. Choose the S3 upload component that you just added to the page.
+4. On the right-hand **Properties** menu, configure the component:
 
-    1. In the **Connector** dropdown, select the Amazon S3 connector that was created in the
-       prerequisites.
-    2. For **Bucket**, enter the name of your Amazon S3 bucket.
-    3. For **File name**,
-       enter `{{ui.s3Upload1.files[0]?.nameWithExtension}}`.
-    4. For **Max file size**, enter `5` in the text box, and
-       ensure that `MB` is selected in the dropdown.
-    5. In the **Triggers** section, add actions that run after successful or
-       unsuccessful uploads by performing the following steps:
+   1. In the **Connector** dropdown, select the Amazon S3 connector that was created in the
+      prerequisites.
+   2. For **Bucket**, enter the name of your Amazon S3 bucket.
+   3. For **File name**,
+      enter `{{ui.s3Upload1.files[0]?.nameWithExtension}}`.
+   4. For **Max file size**, enter `5` in the text box, and
+      ensure that `MB` is selected in the dropdown.
+   5. In the **Triggers** section, add actions that run after successful or
+      unsuccessful uploads by performing the following steps:
 
-    To add an action that runs after successful uploads:
+   To add an action that runs after successful uploads:
 
         1. In **On success**, choose **+ Add action** and select **Navigate**.
         2. Choose the action that was added to configure it.
@@ -314,7 +313,7 @@ add the **S3 upload** component to the page, which users can use to select and u
         4. For **Navigate to**, choose `FileList`.
         5. Choose the arrow icon at the top of the panel to return to the main **Properties** panel.
 
-    To add an action that runs after unsuccessful uploads:
+   To add an action that runs after unsuccessful uploads:
 
         1. In **On failure**, choose **+ Add action** and select **Navigate**.
         2. Choose the action that was added to configure it.

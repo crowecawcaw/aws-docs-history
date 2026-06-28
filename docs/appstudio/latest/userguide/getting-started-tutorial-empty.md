@@ -308,7 +308,7 @@ record in the entity with the form inputs.
 7. Choose **Navigate**.
 8. In the right-side properties panel, change the **Action name** to
    something descriptive, such as `Navigate to
-MeetingRequestsDashboard`.
+ MeetingRequestsDashboard`.
 9. Change the **Navigation type** to page. In the **Navigate
    to** dropdown, choose `MeetingRequestsDashboard`.
 
@@ -390,19 +390,18 @@ Production environment. For more information about the different application env
 
 Now that you've created your first app, here are some next steps:
 
-1.  Keep building the tutorial app. Now that you have data, some pages, and an automation
-    configured, you can add additional pages and add components to learn more about building
-    apps.
-2.  To learn more about building apps, see the [Builder documentation](builder-documentation.md "builder-documentation.md"). Specifically, the following topics might be useful to
-    explore:
+1. Keep building the tutorial app. Now that you have data, some pages, and an automation
+   configured, you can add additional pages and add components to learn more about building
+   apps.
+2. To learn more about building apps, see the [Builder documentation](builder-documentation.md "builder-documentation.md"). Specifically, the following topics might be useful to
+   explore:
 
-        * [Automation actions reference](automations-actions-reference.md "automations-actions-reference.md")
-        * [Components reference](components-reference.md "components-reference.md")
-        * [Interacting with Amazon Simple Storage Service with components and automations](automations-s3.md "automations-s3.md")
-        * [Security considerations and mitigations](security-considerations-and-mitigations.md "security-considerations-and-mitigations.md")
+   - [Automation actions reference](automations-actions-reference.md "automations-actions-reference.md")
+   - [Components reference](components-reference.md "components-reference.md")
+   - [Interacting with Amazon Simple Storage Service with components and automations](automations-s3.md "automations-s3.md")
+   - [Security considerations and mitigations](security-considerations-and-mitigations.md "security-considerations-and-mitigations.md")
+     In addition, the following topics contain more information about concepts discussed in the
+     tutorial:
 
-    In addition, the following topics contain more information about concepts discussed in the
-    tutorial:
-
-        * [Previewing, publishing, and sharing applications](applications-preview-publish-share.md "applications-preview-publish-share.md")
-        * [Creating an entity in an App Studio app](data-entities-create.md "data-entities-create.md")
+   - [Previewing, publishing, and sharing applications](applications-preview-publish-share.md "applications-preview-publish-share.md")
+   - [Creating an entity in an App Studio app](data-entities-create.md "data-entities-create.md")

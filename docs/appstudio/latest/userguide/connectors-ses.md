@@ -118,8 +118,8 @@ choose **Add new tag** to add the following tag to provide App Studio access:
     * **Value:** `true`
 
 9. Choose **Create role** and make note of the generated Amazon Resource Name (ARN), you will need it when
-   [creating
-   the Amazon SES connector in App Studio](#connectors-ses-create-connector "#connectors-ses-create-connector").
+[creating
+the Amazon SES connector in App Studio](#connectors-ses-create-connector "#connectors-ses-create-connector").
 
 ## Step 3: Create Amazon SES connector
 

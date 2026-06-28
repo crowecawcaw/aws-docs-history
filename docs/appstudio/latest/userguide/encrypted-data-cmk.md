@@ -15,33 +15,33 @@ managed data entities, see [Managed data entities in AWS App Studio](managed-dat
 
 ###### To use encrypted managed data storage tables
 
-1.  If necessary, create the managed data entities in an application in App Studio. For more information, see
-    [Creating an entity with an App Studio managed data source](data-entities-create.md#data-entities-create-managed-data-source "data-entities-create.md#data-entities-create-managed-data-source").
-2.  Add a policy statement with permissions to encrypt and decrypt table data with your CMK to the `AppStudioManagedStorageDDBAccess` IAM role by
-    performing the following steps:
+1. If necessary, create the managed data entities in an application in App Studio. For more information, see
+   [Creating an entity with an App Studio managed data source](data-entities-create.md#data-entities-create-managed-data-source "data-entities-create.md#data-entities-create-managed-data-source").
+2. Add a policy statement with permissions to encrypt and decrypt table data with your CMK to the `AppStudioManagedStorageDDBAccess` IAM role by
+   performing the following steps:
 
-    1. Open the IAM console at
-       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+   1. Open the IAM console at
+      [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 
-    ###### Important
+   ###### Important
 
-    You must use the same account used to create your App Studio instance. 2. In the navigation pane of the IAM console, choose **Roles**. 3. Choose `AppStudioManagedStorageDDBAccess`. 4. In **Permissions policies**, choose **Add permissions** and then choose **Create inline policy**. 5. Choose **JSON** and replace the contents with the following policy, replacing the following:
+   You must use the same account used to create your App Studio instance. 2. In the navigation pane of the IAM console, choose **Roles**. 3. Choose `AppStudioManagedStorageDDBAccess`. 4. In **Permissions policies**, choose **Add permissions** and then choose **Create inline policy**. 5. Choose **JSON** and replace the contents with the following policy, replacing the following:
 
         * Replace `111122223333` with the AWS account number of the account used to set up the App Studio instance, listed as
          **AWS account ID** in the account settings in your App Studio instance.
         * Replace `CMK_id` with CMK ID. To find it, see
          [Find the key ID and key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md").
 
-3.  Encrypt the DynamoDB tables that are used by your App Studio managed data entities by performing the following steps:
+3. Encrypt the DynamoDB tables that are used by your App Studio managed data entities by performing the following steps:
 
-    1. Open the Amazon DynamoDB console at [https://console.aws.amazon.com/dynamodbv2/](https://console.aws.amazon.com/dynamodbv2/ "https://console.aws.amazon.com/dynamodbv2/").
-    2. Choose the table you want to encrypt. You can find the table name in the **Connection** tab of the corresponding entity in App Studio.
-    3. Choose **Additional settings**.
-    4. In **Encryption**, choose **Manage encryption**.
-    5. Choose **Stored in your account, and owned and managed by you** and select your CMK.
+   1. Open the Amazon DynamoDB console at [https://console.aws.amazon.com/dynamodbv2/](https://console.aws.amazon.com/dynamodbv2/ "https://console.aws.amazon.com/dynamodbv2/").
+   2. Choose the table you want to encrypt. You can find the table name in the **Connection** tab of the corresponding entity in App Studio.
+   3. Choose **Additional settings**.
+   4. In **Encryption**, choose **Manage encryption**.
+   5. Choose **Stored in your account, and owned and managed by you** and select your CMK.
 
-4.  Test your changes by republishing your app and ensuring that reading and writing data works in both the Testing and Production environments, and using
-    this table in another entity works as expected.
+4. Test your changes by republishing your app and ensuring that reading and writing data works in both the Testing and Production environments, and using
+   this table in another entity works as expected.
 
 ###### Note
 

@@ -29,8 +29,7 @@ _Amazon Redshift User Guide_. 3. Once provisioning is complete, choose **Query D
      connections** to `10`. This is the limit on the number of query editor sessions that can connect to a Amazon Redshift database.
      It does not apply to other clients such as App Studio applications.
 
-5. Create your data tables under the `public` schema. `INSERT` any initial data into these tables.
-6. Run the following commands in query editor:
+5. Create your data tables under the `public` schema. `INSERT` any initial data into these tables. 6. Run the following commands in query editor:
 
 The following command creates a database user and connects it with an IAM role named `AppBuilderDataAccessRole` that is used by
 App Studio. You will create
@@ -205,7 +204,7 @@ choose **Add new tag** to add the following tag to provide App Studio access:
     * **Value:** `true`
 
 9. Choose **Create role** and make note of the generated Amazon Resource Name (ARN), you will need it when [creating
-   the Amazon Redshift connector in App Studio](#connectors-redshift-create-connector "#connectors-redshift-create-connector").
+the Amazon Redshift connector in App Studio](#connectors-redshift-create-connector "#connectors-redshift-create-connector").
 
 ## Step 3: Create Amazon Redshift connector
 

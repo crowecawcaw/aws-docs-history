@@ -240,8 +240,8 @@ choose **Add new tag** to add the following tag to provide App Studio access:
     * **Value:** `true`
 
 8. Choose **Create role** and make note of the generated Amazon Resource Name (ARN), you
-   will need it when [creating
-   the DynamoDB connector in App Studio](#connectors-dynamodb-create-connector "#connectors-dynamodb-create-connector").
+will need it when [creating
+the DynamoDB connector in App Studio](#connectors-dynamodb-create-connector "#connectors-dynamodb-create-connector").
 
 ## Create DynamoDB connector
 

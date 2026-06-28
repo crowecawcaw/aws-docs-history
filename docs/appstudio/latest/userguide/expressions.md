@@ -176,7 +176,7 @@ The following list contains examples of accessing table data in expressions:
 - `{{currentRow.`firstName` + ' ' + currentRow.`lastNamecolumnMapping`}}`: Concatenate values from
   multiple columns to create a new column in a table.
 - `{{ { "Blocked": "🔴", "Delayed": "🟡", "On track": "🟢" }[currentRow.`statuscolumnMapping`] + " " + 
-currentRow.`statuscolumnMapping`}}`:
+ currentRow.`statuscolumnMapping`}}`:
   Customize the display value of a field within a table based on the stored status value.
 - `{{currentRow.`colName`}}`, `{{currentRow["`First Name`"]}}`, `{{currentRow}}`,
   or `{{ui.`tableName`.selectedRows[0]}}`: Pass the referenced row's context within a row action.
@@ -207,8 +207,8 @@ You can use JavaScript to manipulate automation parameters. See the following ex
 - `{{Math.min(params.`numberOfProducts`, `100`)}}`: Restrict the value of a parameter to a
   maximum value (in this case, `100`).
 - `{{ DateTime.fromISO(params.`startDate`).plus({ days: 7 }).toISO() }}`: If the
-  `params.`startDate``parameter is`"2023-06-15T10:30:00.000Z"`, this 
-expression will evaluate to `"2023-06-22T10:30:00.000Z"`, which is the date one week after the start date.
+  `params.`startDate`` parameter is `"2023-06-15T10:30:00.000Z"`, this
+  expression will evaluate to `"2023-06-22T10:30:00.000Z"`, which is the date one week after the start date.
 
 ### Accessing automation results from a previous action
 
@@ -249,9 +249,9 @@ access it within the `results` namespace. The following list contains some examp
   this expression splits the string at the @ symbol and returns the part before the @ symbol, effectively extracting the
   username portion of the email address.
 - `{{new Date(params.`timestamp` * 1000)}}`: This expression takes a Unix timestamp parameter
-  (`params.`timestamp``) and converts it to a JavaScript Date object. It assumes that the 
-timestamp is in seconds, so it 
-multiplies it by 1000 to convert it to milliseconds, which is the format expected by the `Date` constructor. This can
+  (`params.`timestamp``) and converts it to a JavaScript Date object. It assumes that the
+  timestamp is in seconds, so it
+  multiplies it by 1000 to convert it to milliseconds, which is the format expected by the `Date` constructor. This can
   be useful for working with date and time values in automations.
 - `{{results.`stepName`.Body}}`: For an `Amazon S3 GetObject` automation action
   named `stepName`, this

@@ -55,7 +55,7 @@ data you want to display.
 - Secondary value: you can enter a static text label, such as
   `"Goal"` or `"Projected Revenue"`.
 - Value: you can enter a static string, such as `"since last
-month"` or `"Total Quantity"`.
+ month"` or `"Total Quantity"`.
 
 ##### Examples: Expressions
 
@@ -70,14 +70,14 @@ month"` or `"Total Quantity"`.
   the component with the ID `componentName`.
 - `{{ui.componentName.value + ' items'}}`: Concatenates the value of the
   component with the ID `componentName` and the string `'
-items'`.
+ items'`.
 - `{{ui.ordersTable.data?.[0]?.orderNumber}}`: Retrieves the order number
   from the first row of data in the `ordersTable` component.
 - `{{ui.salesMetrics.data?.[0]?.totalRevenue * 1.15}}`: Calculates the
   projected revenue by increasing the total revenue from the first row of data in the
   `salesMetrics` component by 15%.
 - `{{ui.customerProfile.data?.[0]?.firstName + ' ' +
-ui.customerProfile.data?.lastName}}`: Concatenates the first and last name from the
+ ui.customerProfile.data?.lastName}}`: Concatenates the first and last name from the
   data in the `customerProfile` component.
 - `{{new Date(ui.orderDetails.data?.orderDate).toLocaleDateString()}}`:
   Formats the order date from the `orderDetails` component to a more readable date
@@ -608,7 +608,7 @@ Examples:
 - `{{new Date(currentRow.orderDate).toLocaleDateString()}}` Creates a new
   column displaying the order date in a more readable format.
 - `{{currentRow.firstName + ' ' + currentRow.lastName + ' (' + currentRow.email +
-')' }}` Creates a new column displaying the full name and email address for each
+ ')' }}` Creates a new column displaying the full name and email address for each
   row.
 
 ##### Examples: Customizing column display values:
@@ -620,9 +620,9 @@ transformations to the displayed data.
 Examples:
 
 - `{{ currentRow.rating >= 4 ? '⭐️'.repeat(currentRow.rating) : currentRow.rating
-}}` Displays star emojis based on the rating value for each row.
+ }}` Displays star emojis based on the rating value for each row.
 - `{{ currentRow.category.toLowerCase().replace(/\b\w/g, c => c.toUpperCase())
-}}` Displays the category value with each word capitalized for each row.
+ }}` Displays the category value with each word capitalized for each row.
 - `{{ currentRow.status === 'Active' ? '🟢 Active' : '🔴 Inactive' }}`:
   Displays a colored circle emoji and text based on the status value for each row.
 
@@ -830,13 +830,13 @@ indicate the trend status.
 
 - **Trend value**:
   `{{ui.inventoryMetrics.data?.[0]?.currentInventory -
-ui.inventoryMetrics.data?.[1]?.currentInventory}}`
+ ui.inventoryMetrics.data?.[1]?.currentInventory}}`
 - **Positive trend**:
   `{{ui.inventoryMetrics.data?.[0]?.currentInventory >
-ui.inventoryMetrics.data?.[1]?.currentInventory}}`
+ ui.inventoryMetrics.data?.[1]?.currentInventory}}`
 - **Negative trend**:
   `{{ui.inventoryMetrics.data?.[0]?.currentInventory <
-ui.inventoryMetrics.data?.[1]?.currentInventory}}`
+ ui.inventoryMetrics.data?.[1]?.currentInventory}}`
 - **Color Bbar**: Enabled
 
 ##### Example: Customer satisfaction trend
@@ -899,7 +899,7 @@ in the data.
 Breakdown:
 
 - `ui.`metric1``: References the **Metrics** component with the ID
-`metric1`.
+  `metric1`.
 - `data`: Refers to the information or data set connected to that
   component.
 - `?.[0]`: Means the first item or entry in that data set.
@@ -1728,13 +1728,13 @@ The **Date Range** component provides the following expression fields:
 ##### Example: Calculating date difference
 
 - `{(new Date(ui.dateRangeID.endDate) - new Date(ui.dateRangeID.startDate)) / (1000
-- 60 _ 60 _ 24)}}` Calculates the number of days between the start and end
+- 60 * 60 * 24)}}` Calculates the number of days between the start and end
   dates.
 
 ##### Example: Conditional visibility based on date range
 
 - `{{new Date(ui.dateRangeID.startDate) < new Date("2023-01-01") || new
-Date(ui.dateRangeID.endDate) > new Date("2023-12-31")}}` Checks if the selected date
+ Date(ui.dateRangeID.endDate) > new Date("2023-12-31")}}` Checks if the selected date
   range is outside of the year 2023.
 
 ##### Example: Disabled dates based on current row data
@@ -1744,7 +1744,7 @@ Date(ui.dateRangeID.endDate) > new Date("2023-12-31")}}` Checks if the selected 
 - `{{new Date(currentRow.dateColumn) < new Date("2023-01-01")}}` Disables
   dates before January 1, 2023 based on the "dateColumn" in the current row.
 - `{{new Date(currentRow.dateColumn).getDay() === 0 || new
-Date(currentRow.dateColumn).getDay() === 6}}` Disables weekends based on the
+ Date(currentRow.dateColumn).getDay() === 6}}` Disables weekends based on the
   "dateColumn" in the current row.
 
 ##### Custom validation
@@ -1870,10 +1870,10 @@ The **S3 upload** component provides the following expression fields:
 ##### Example: Triggering actions
 
 - `{{ui.`s3uploadID`.files.length > 0 ? 'Upload Successful' : 'No files
-uploaded'}}`: Displays a success message if at least one file has been
+ uploaded'}}`: Displays a success message if at least one file has been
   uploaded.
 - `{{ui.`s3uploadID`.files.some(f => f.type.startsWith('video/')) ?
-triggerVideoProcessing() : null}}`: Triggers a video processing automation if any
+ triggerVideoProcessing() : null}}`: Triggers a video processing automation if any
   video files have been uploaded.
 - `{{ui.`s3uploadID`.files.map(f => f.url)}}`: Retrieves the URLs of the
   uploaded files, which can be used to display or further process the files.

@@ -74,8 +74,8 @@ choose **Add new tag** to add the following tag to provide App Studio access:
     * **Value:** `true`
 
 8. Choose **Create role** and make note of the generated Amazon Resource Name (ARN), you
-   will need it when [creating
-   the Lambda connector in App Studio](#connectors-lambda-create-connector "#connectors-lambda-create-connector").
+will need it when [creating
+the Lambda connector in App Studio](#connectors-lambda-create-connector "#connectors-lambda-create-connector").
 
 ## Step 3: Create Lambda connector
 

@@ -191,7 +191,7 @@ choose **Add new tag** to add the following tag to provide App Studio access:
     * **Value:** `true`
 
 8. Choose **Create role** and make note of the generated Amazon Resource Name (ARN), you
-   will need it to create the Amazon S3 connector in App Studio in the next step.
+will need it to create the Amazon S3 connector in App Studio in the next step.
 
 ## Step 3: Create Amazon S3 connector
 

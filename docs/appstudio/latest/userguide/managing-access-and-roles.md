@@ -74,7 +74,7 @@ for the group's members. 3. In the navigation pane, choose **Roles** in the **Ma
     	+ **App User**: App Users can access and use published apps, but cannot access your App Studio instance to build apps or manage resources.
 
 6. Choose **Assign** to add the group to App Studio and provide its members with
-   the configured role.
+the configured role.
 
 ## Changing a group's role
 
