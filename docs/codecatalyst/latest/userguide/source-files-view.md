@@ -25,8 +25,8 @@ Files are indicated by a paper icon, while folders are indicated by a folder ico
      from the list.
 
 5. To view the contents of a specific file, choose it from the list. The contents of the file
-   will be displayed in the branch. To view the contents of the file in a different branch, choose
-   the branch you want from the branch selector.
+will be displayed in the branch. To view the contents of the file in a different branch, choose
+the branch you want from the branch selector.
 
 ###### Tip
 

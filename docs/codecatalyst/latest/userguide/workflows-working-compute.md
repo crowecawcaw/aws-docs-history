@@ -132,7 +132,7 @@ actions do not currently support Windows.
 The processor architecture. The following architectures are
 available:
 
-- x86_64
+- x86\_64
 - Arm64
 
 **Machine type**

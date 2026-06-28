@@ -25,31 +25,30 @@ To view logging for events that occur on behalf of CodeCatalyst in connected AWS
 or to view logging for events for space or project resources in the connected
 billing account, you can use AWS CloudTrail. For more information, see [Monitoring API calls by AWS accounts using AWS CloudTrail logging](ipa-logging-connections.md "ipa-logging-connections.md").
 
-1.  Open a terminal or command line and run the **aws codecatalyst
-    list-event-logs** command, specifying:
+1. Open a terminal or command line and run the **aws codecatalyst
+   list-event-logs** command, specifying:
 
-        * The name of the space with the `--space-name`
-         option.
-        * The date and time when you want to start reviewing events, in coordinated
-         universal time (UTC) timestamp format as specified in [RFC
-         3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6 "https://www.rfc-editor.org/rfc/rfc3339#section-5.6"), with the `--start-time`
-         option.
-        * The date and time when you want to stop reviewing events, in coordinated
-         universal time (UTC) timestamp format as specified in [RFC
-         3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6 "https://www.rfc-editor.org/rfc/rfc3339#section-5.6"), with the `--end-time` option.
-        * (Optional) The maximum number of results to return in a single response,
-         with the `--max-results` option. If the number of
-         results is larger than the number you specify, the response will include a
-         `nextToken` element which you can use to return the next
-         results.
-        * (Optional) Limit the results to a specific event type you want returned,
-         with the `--event-name` option.
-
-    This example returns logged events in the space named
-    `ExampleCorp` from the time period
-    `2022-11-30` to `2022-12-01`,
-    and that a maximum of `2` events be returned in the
-    response.
+   - The name of the space with the `--space-name`
+     option.
+   - The date and time when you want to start reviewing events, in coordinated
+     universal time (UTC) timestamp format as specified in [RFC
+     3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6 "https://www.rfc-editor.org/rfc/rfc3339#section-5.6"), with the `--start-time`
+     option.
+   - The date and time when you want to stop reviewing events, in coordinated
+     universal time (UTC) timestamp format as specified in [RFC
+     3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6 "https://www.rfc-editor.org/rfc/rfc3339#section-5.6"), with the `--end-time` option.
+   - (Optional) The maximum number of results to return in a single response,
+     with the `--max-results` option. If the number of
+     results is larger than the number you specify, the response will include a
+     `nextToken` element which you can use to return the next
+     results.
+   - (Optional) Limit the results to a specific event type you want returned,
+     with the `--event-name` option.
+     This example returns logged events in the space named
+     `ExampleCorp` from the time period
+     `2022-11-30` to `2022-12-01`,
+     and that a maximum of `2` events be returned in the
+     response.
 
 ```
 aws codecatalyst list-event-logs --space-name `ExampleCorp` --start-time `2022-11-30` --end-time `2022-12-01` --event-name `list-event-logs` --max-results `2`

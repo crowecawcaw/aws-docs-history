@@ -156,7 +156,7 @@ progress. You can also assign an issue to a specific project member.
 2. Choose **Create issue**.
 3. In **Issue title**, provide a name for the issue. Optionally, provide
    a description of the issue. In this example, use `make a change in the
-`src/mysfit_data.json` file.`
+ `src/mysfit_data.json` file.`
 4. Choose the priority, estimate, status, and labels. Under
    **assignee**, choose **+Add me** to assign the issue to
    yourself.
@@ -321,8 +321,8 @@ generated and started when you created your project. 2. Observe the list of work
      [Clean up resources](#getting-started-template-project-clean-up "#getting-started-template-project-clean-up").
 
 3. Choose the **ApplicationDeploymentPipeline** workflow associated with
-   the `main` branch, at the bottom. This workflow was run using the source code
-   on the `main` branch.
+the `main` branch, at the bottom. This workflow was run using the source code
+on the `main` branch.
 
 A workflow diagram appears. The diagram shows several blocks, each representing a task
 or _action_. Most actions are arranged vertically, with the actions at
@@ -346,22 +346,20 @@ The main blocks are:
      deploys the application's frontend components into the AWS cloud.
 
 4. Choose the **Definition** tab (near the top). The [workflow definition file](workflow-reference.md "workflow-reference.md") appears on the right. The
-   file has the following noteworthy sections:
+file has the following noteworthy sections:
 
-   - A `Triggers` section, at the top. This section indicates that the
+    * A `Triggers` section, at the top. This section indicates that the
      workflow must start whenever code is pushed to the source repository's
      `main` branch. Pushes to other branches (such as `test`) will
      not start this workflow. The workflow runs using the files on the `main`
      branch.
-   - An `Actions` section, under `Triggers`. This section defines
+    * An `Actions` section, under `Triggers`. This section defines
      the actions that you see in the workflow diagram.
 
 5. Choose the **Latest state** tab (near the top), and choose any action
-   in the workflow diagram.
-6. On the right, choose the **Configuration** tab to see the
-   configuration settings used by the action during the latest run. Each configuration
-   setting has a matching property in the workflow definition file.
-7. Leave the console open and go to the next procedure.
+in the workflow diagram. 6. On the right, choose the **Configuration** tab to see the
+configuration settings used by the action during the latest run. Each configuration
+setting has a matching property in the workflow definition file. 7. Leave the console open and go to the next procedure.
 
 ###### To review the build logs and test reports
 
@@ -372,7 +370,7 @@ The main blocks are:
    ) to change to a "success" icon (
    ![Workflow success.](images/flows/run-success.png)
    ).
-4. Choose the **build_backend** action.
+4. Choose the **build\_backend** action.
 5. Choose the **Logs** tab, and expand a couple of sections to view the
    log messages for these steps. You can see messages related to the backend setup.
 6. Choose the **Reports** tab, and then choose the

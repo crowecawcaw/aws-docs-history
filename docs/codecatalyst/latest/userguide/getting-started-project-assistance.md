@@ -85,9 +85,9 @@ see [Best practices when using Amazon Q to create projects or add functionality 
 3. On the space dashboard, choose **Create with Amazon Q**.
 4. In the Amazon Q prompt text input field, provide instructions by writing a brief description
    about the project you want to build. For example, `“I want to create a project in Python that has a 
-presentation layer responsible for how the data is presented, an application layer that contains the 
-core logic and functionality of the application, and a data layer that manages the storage and 
-retrieval of the data.”`
+ presentation layer responsible for how the data is presented, an application layer that contains the 
+ core logic and functionality of the application, and a data layer that manages the storage and 
+ retrieval of the data.”`
 
 (Optional) Under **Try examples**, you can use a prewritten prompt by choosing
 a blueprint. For example, if you choose React app, the following prompt is provided : `“I want to 
@@ -158,9 +158,9 @@ based on your requirements.
 3. Choose **Add with Amazon Q**.
 4. In the Amazon Q prompt text input field, provide instructions by writing a brief description
    about the project you want to build. For example, `“I want to create a project in Python that has a 
-presentation layer responsible for how the data is presented, an application layer that contains the 
-core logic and functionality of the application, and a data layer that manages the storage and 
-retrieval of the data.”`
+ presentation layer responsible for how the data is presented, an application layer that contains the 
+ core logic and functionality of the application, and a data layer that manages the storage and 
+ retrieval of the data.”`
 
 (Optional) Under **Try examples**, you can use a prewritten prompt by choosing
 a blueprint. For example, if you choose React app, the following prompt is provided : `“I want to 
@@ -458,7 +458,7 @@ descriptions that relate to that code base.
 2. Choose **Create issue**.
 3. Give the issue a title that explains what you want to do in plain language. For example, for
    this issue, enter a title of `Create another mysfit named
-Quokkapus`. In **Description**, provide the
+ Quokkapus`. In **Description**, provide the
    following details:
 
 ```
@@ -636,7 +636,7 @@ achieved more quickly.
 2. Choose **Create issue**.
 3. Give the issue a title that explains what you want to do in plain language. For example, for
    this issue, enter a title of `Change the get_all_mysfits() API to return 
-mysfits sorted by the Good/Evil attribute`. In **Description**, provide the
+ mysfits sorted by the Good/Evil attribute`. In **Description**, provide the
    following details:
 
 ```

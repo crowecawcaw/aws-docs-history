@@ -81,17 +81,15 @@ Do one of the following depending on the third-party repository provider you wan
      source code created by the blueprint.
 
 7. Under **Configure blueprint**, configure the blueprint parameters. Depending
-   on the blueprint, you may have the option to name the source repository.
-8. Review the differences between the current blueprint version and your updated version. The
-   difference displayed in a pull request shows the changes between the current version and the
-   latest version, which is the desired version at the time the pull request was created. If no
-   changes display, the versions might be identical, or you might have chosen the same version for
-   both the current version and the desired version.
-9. When you’re satisfied that the pull request contains the code and changes that you want
-   reviewed, choose **Add blueprint**. After you create the pull request,
-   you can add comments. Comments can be added to the pull request or to individual lines in files
-   as well as to the overall pull request. You can add links to resourcesuch as filesby using the
-   `@` sign, followed by the name of the file.
+on the blueprint, you may have the option to name the source repository. 8. Review the differences between the current blueprint version and your updated version. The
+difference displayed in a pull request shows the changes between the current version and the
+latest version, which is the desired version at the time the pull request was created. If no
+changes display, the versions might be identical, or you might have chosen the same version for
+both the current version and the desired version. 9. When you’re satisfied that the pull request contains the code and changes that you want
+reviewed, choose **Add blueprint**. After you create the pull request,
+you can add comments. Comments can be added to the pull request or to individual lines in files
+as well as to the overall pull request. You can add links to resourcesuch as filesby using the
+`@` sign, followed by the name of the file.
 
 ###### Note
 

@@ -12,9 +12,9 @@ latest versions of Git and other software.
 If you use Dev Environments, you do not have to install Git. A recent version of Git is
 included in your Dev Environment.
 
-| Version compatibility information for CodeCatalyst | Component | Version |
-| -------------------------------------------------- | --------- | ------- |
-| Git                                                | latest    |
+Version compatibility information for CodeCatalyst| Component | Version |
+| --- | --- |
+| Git | latest |
 
 ## Install Git
 

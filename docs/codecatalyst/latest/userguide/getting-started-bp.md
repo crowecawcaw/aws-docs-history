@@ -80,25 +80,25 @@ Do one of the following depending on the third-party repository provider you wan
 
 7. Under **Blueprint details**, do the following:
 
-   1. In the **Blueprint display name** text input field, enter a name that will appear in your space's
-      blueprints catalog.
-   2. In the **Description** text input field, enter a description for your custom blueprint.
-   3. In the **Author name** text input field, enter an author name for your custom blueprint.
-   4. (Optional) Choose the **Advanced settings**.
+    1. In the **Blueprint display name** text input field, enter a name that will appear in your space's
+     blueprints catalog.
+    2. In the **Description** text input field, enter a description for your custom blueprint.
+    3. In the **Author name** text input field, enter an author name for your custom blueprint.
+    4. (Optional) Choose the **Advanced settings**.
 
-      1. Choose **+ Add** to add tags that are added to the `package.json` file.
-      2. Choose the **License** dropdown menu, and then choose a license for your custom blueprint.
-      3. In the **Blueprint package name** text input field, enter a name to identify your blueprint package.
-      4. By default, a release workflow is generated using a publishing blueprint within your project called **Blueprint
-         Builder**. The workflow publishes the latest blueprint version to your space when you push changes since publishing
-         permissions are enabled by the release workflow. To turn off the workflow generation, uncheck the **Release
-         workflow** checkbox.
+
+    	1. Choose **+ Add** to add tags that are added to the `package.json` file.
+    	2. Choose the **License** dropdown menu, and then choose a license for your custom blueprint.
+    	3. In the **Blueprint package name** text input field, enter a name to identify your blueprint package.
+    	4. By default, a release workflow is generated using a publishing blueprint within your project called **Blueprint
+    	 Builder**. The workflow publishes the latest blueprint version to your space when you push changes since publishing
+    	 permissions are enabled by the release workflow. To turn off the workflow generation, uncheck the **Release
+    	 workflow** checkbox.
 
 8. (Optional) A blueprint project comes with predefined code to support the publishing of the
-   blueprint to the space's blueprints catalog. To view definition files with updates based on the project
-   parameter selections you made, choose **View code** or **View
-   workflow** from **Generate blueprint preview**.
-9. Choose **Create blueprint**.
+blueprint to the space's blueprints catalog. To view definition files with updates based on the project
+parameter selections you made, choose **View code** or **View
+workflow** from **Generate blueprint preview**. 9. Choose **Create blueprint**.
 
 If you didn't turn off the workflow generation for your custom blueprint, the workflow automatically begins to run when your blueprint
 is created. When the workflow run is complete, your custom blueprint is available to be added to your space's blueprints catalog by default.

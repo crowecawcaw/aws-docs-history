@@ -40,7 +40,7 @@ To add your account connection and IAM roles to your deploy environment
    **Connection name**, the accounts that have been added to
    the environment, if any, are listed.
 6. Choose **Associate AWS account**. The **Associate
-   AWS account with <environment_name>** page displays.
+   AWS account with <environment\_name>** page displays.
 7. Under **Connection**, choose the name of the account
    connection with the IAM roles that you want to add. Choose
    **Associate**.

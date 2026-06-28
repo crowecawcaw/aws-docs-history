@@ -73,7 +73,7 @@ more information, see [Specifying the action version to use](workflows-action-ve
 Default: `aws/kubernetes-deploy@v1`.
 
 Corresponding UI: Workflow
-diagram/DeployToKubernetesCluster_nn/**aws/kubernetes-deploy@v1**
+diagram/DeployToKubernetesCluster\_nn/**aws/kubernetes-deploy@v1**
 label
 
 ## DependsOn

@@ -82,7 +82,7 @@ more information, see [Specifying the action version to use](workflows-action-ve
 Default: `aws/ecs-render-task-definition@v1`.
 
 Corresponding UI: Workflow
-diagram/ECSRenderTaskDefinition_nn/**aws/ecs-render-task-definition@v1**
+diagram/ECSRenderTaskDefinition\_nn/**aws/ecs-render-task-definition@v1**
 label
 
 ## DependsOn
@@ -274,8 +274,8 @@ overwrites it. You can include variables in the image name.
 Examples:
 
 If you specify `MyDockerImage:${WorkflowSource.CommitId}`, the action adds
-`MyDockerImage:`commit-id``to the task definition file,
- where`commit-id` is a commit ID generated at runtime by the
+`MyDockerImage:`commit-id`` to the task definition file,
+where `commit-id` is a commit ID generated at runtime by the
 workflow.
 
 If you specify `my-ecr-repo/image-repo:$(date +%m-%d-%y-%H-%m-%s)`, the action

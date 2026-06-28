@@ -38,8 +38,8 @@ add is private, complete these steps:
      channel.
 
 9. In CodeCatalyst's **Channel ID** field, enter the Slack channel ID. To find
-   the ID, go to Slack, and in the navigation pane, right-click the channel and choose
-   **Open channel details**.
+the ID, go to Slack, and in the navigation pane, right-click the channel and choose
+**Open channel details**.
 
 The channel ID is displayed at the bottom of the dialog box. 10. In **Channel name**, enter a name. We recommend using the Slack
 channel name. 11. In **Select notification events**, choose the type of event you want

@@ -82,7 +82,7 @@ as Node.js 16.
 Default: `aws/cdk-bootstrap@v2`.
 
 Corresponding UI: Workflow
-diagram/CDKBootstrapAction_nn/**aws/cdk-bootstrap@v2**
+diagram/CDKBootstrapAction\_nn/**aws/cdk-bootstrap@v2**
 label
 
 ## DependsOn

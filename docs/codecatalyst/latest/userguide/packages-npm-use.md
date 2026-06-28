@@ -26,35 +26,34 @@ to your CodeCatalyst package repository. For more information about npm, see the
 
 ###### To connect `npm` to your CodeCatalyst package repository
 
-1.  Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2.  Navigate to your project.
-3.  In the navigation pane, choose **Packages**.
-4.  Choose your package repository from the list.
-5.  Choose **Connect to repository**.
-6.  In **Configuration details**, in **Package manager client**, choose **npm client**.
-7.  Choose your operating system to view the corresponding configuration steps.
-8.  A personal access token (PAT) is required to authenticate npm with CodeCatalyst. If
-    you already have a token, you can use it. If not, you can create one using the
-    following steps.
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Navigate to your project.
+3. In the navigation pane, choose **Packages**.
+4. Choose your package repository from the list.
+5. Choose **Connect to repository**.
+6. In **Configuration details**, in **Package manager client**, choose **npm client**.
+7. Choose your operating system to view the corresponding configuration steps.
+8. A personal access token (PAT) is required to authenticate npm with CodeCatalyst. If
+   you already have a token, you can use it. If not, you can create one using the
+   following steps.
 
-    1. **(Optional):** Update the
-       **PAT name** and **Expiration date**.
-    2. Choose **Create token**.
-    3. Copy and store your PAT in a safe location.
+   1. **(Optional):** Update the
+      **PAT name** and **Expiration date**.
+   2. Choose **Create token**.
+   3. Copy and store your PAT in a safe location.
 
-    ###### Warning
+   ###### Warning
 
-    You will not be able to see or copy your PAT again after you close the dialog box.
-    Credentials should be short lived to minimize the length of time an attacker can use the credentials after misappropriating them.
+   You will not be able to see or copy your PAT again after you close the dialog box.
+   Credentials should be short lived to minimize the length of time an attacker can use the credentials after misappropriating them.
 
-9.  Run the following commands from your project's root directory to configure npm with your package repository. The commands will do the following:
+9. Run the following commands from your project's root directory to configure npm with your package repository. The commands will do the following:
 
-        * Create a project-level `.npmrc` file if your project does not have one.
-        * Add the package repository endpoint information to your project-level
-         `.npmrc` file.
-        * Add your credentials (PAT) to your user-level `.npmrc` file.
-
-    Replace the following values.
+   - Create a project-level `.npmrc` file if your project does not have one.
+   - Add the package repository endpoint information to your project-level
+     `.npmrc` file.
+   - Add your credentials (PAT) to your user-level `.npmrc` file.
+     Replace the following values.
 
 ###### Note
 

@@ -2,7 +2,7 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 
 # Adding the 'GitHub Actions' action
 
-A **_GitHub Actions_** action is a _CodeCatalyst action_ that
+A _**GitHub Actions**_ action is a _CodeCatalyst action_ that
 wraps a GitHub Action and makes it compatible with CodeCatalyst workflows.
 
 For more information, see [Integrating with GitHub Actions](integrations-github-actions.md "integrations-github-actions.md").

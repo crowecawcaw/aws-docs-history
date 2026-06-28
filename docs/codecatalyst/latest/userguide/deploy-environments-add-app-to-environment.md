@@ -73,9 +73,8 @@ To change the role:
     	 sufficient for all actions that share the environment.
 
 10. (Optional) Choose **Validate** to validate the workflow's
-    YAML code before committing.
-11. Choose **Commit**, enter a commit message, and choose
-    **Commit** again.
+YAML code before committing. 11. Choose **Commit**, enter a commit message, and choose
+**Commit** again.
 
 YAML
 

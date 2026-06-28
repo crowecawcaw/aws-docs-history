@@ -70,158 +70,145 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
 
 ###### To link a GitHub repository, Bitbucket repository, GitLab project repository, or Jira project to a CodeCatalyst project from the extension details page
 
-1.  Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2.  Navigate to your CodeCatalyst space.
-3.  Do one of the following to view a list of the installed extensions for your space space:
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Navigate to your CodeCatalyst space.
+3. Do one of the following to view a list of the installed extensions for your space space:
 
-    1. Choose **Settings**, and then choose **Installed extensions**.
-    2. Choose the **Catalog** icon
+   1. Choose **Settings**, and then choose **Installed extensions**.
+   2. Choose the **Catalog** icon
 
-    ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](images/integrations/marketplace-icon.png)
-    in the top menu.
+   ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](images/integrations/marketplace-icon.png)
+   in the top menu.
 
-4.  Choose **Configure** for one of the following extensions: **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**,
-    or **Jira Software**.
-5.  Do one of the following depending on the third-party extension you chose to configure:
+4. Choose **Configure** for one of the following extensions: **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**,
+   or **Jira Software**.
+5. Do one of the following depending on the third-party extension you chose to configure:
 
-    - **GitHub repositories**: Link a GitHub repository.
+   - **GitHub repositories**: Link a GitHub repository.
 
-          1. In the **Linked GitHub repositories** tab, choose **Link GitHub repository**.
-          2. From the **GitHub account** dropdown, choose the GitHub account that contains the repository that you want to link.
-          3. From the **GitHub repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
+     1. In the **Linked GitHub repositories** tab, choose **Link GitHub repository**.
+     2. From the **GitHub account** dropdown, choose the GitHub account that contains the repository that you want to link.
+     3. From the **GitHub repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
 
+     ###### Tip
 
-          ###### Tip
+     If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space. 4. (Optional) If you don't see a GitHub repository in the list of repositories, it might not have been configured for repository access in the Amazon CodeCatalyst
+     application in GitHub. You can configure which GitHub repositories can be used in CodeCatalyst in the connected account.
 
-          If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space.
-          4. (Optional) If you don't see a GitHub repository in the list of repositories, it might not have been configured for repository access in the Amazon CodeCatalyst
-           application in GitHub. You can configure which GitHub repositories can be used in CodeCatalyst in the connected account.
-
-
-          	1. Navigate to your [GitHub](https://github.com/ "https://github.com/") account, choose **Settings**, and then choose **Applications**.
-          	2. In the **Installed GitHub Apps** tab, choose **Configure** for the Amazon CodeCatalyst application.
-          	3. Do one of the following to configure access of GitHub repositories you want to link in CodeCatalyst:
+           1. Navigate to your [GitHub](https://github.com/ "https://github.com/") account, choose **Settings**, and then choose **Applications**.
+           2. In the **Installed GitHub Apps** tab, choose **Configure** for the Amazon CodeCatalyst application.
+           3. Do one of the following to configure access of GitHub repositories you want to link in CodeCatalyst:
 
 
 
 
-          		+ To provide access to all current and future repositories, choose **All repositories**.
-          		+ To provide access to specific repositories, choose **Only select repositories**, choose the **Select
-          		 repositories** dropdown, and then choose a repository you want to allow to link in CodeCatalyst.
-          5. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the GitHub repository to.
-          6. Choose **Link**.
+           	+ To provide access to all current and future repositories, choose **All repositories**.
+           	+ To provide access to specific repositories, choose **Only select repositories**, choose the **Select
+           	 repositories** dropdown, and then choose a repository you want to allow to link in CodeCatalyst.
 
-      If you no longer want to use a GitHub repository in CodeCatalyst, you can unlink it from a CodeCatalyst
-      project. When a repository is unlinked, events in that repository will not start workflow
-      runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
-      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+     5. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the GitHub repository to. 6. Choose **Link**.
+     If you no longer want to use a GitHub repository in CodeCatalyst, you can unlink it from a CodeCatalyst
+     project. When a repository is unlinked, events in that repository will not start workflow
+     runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
+     [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
-    - **Bitbucket repositories**: Link a Bitbucket repository.
+   - **Bitbucket repositories**: Link a Bitbucket repository.
 
-          1. In the **Linked Bitbucket repositories** tab, choose **Link Bitbucket repository**.
-          2. From the **Bitbucket workspace** dropdown, choose the Bitbucket workspace that contains the repository that you want to link.
-          3. From the **Bitbucket repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
+     1. In the **Linked Bitbucket repositories** tab, choose **Link Bitbucket repository**.
+     2. From the **Bitbucket workspace** dropdown, choose the Bitbucket workspace that contains the repository that you want to link.
+     3. From the **Bitbucket repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
 
+     ###### Tip
 
-          ###### Tip
+     If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space. 4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the Bitbucket repository to. 5. Choose **Link**.
+     If you no longer want to use a Bitbucket repository in CodeCatalyst, you can unlink it from a CodeCatalyst
+     project. When a repository is unlinked, events in that repository will not start workflow
+     runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
+     [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
-          If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space.
-          4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the Bitbucket repository to.
-          5. Choose **Link**.
+   - **GitLab repositories**: Link a GitLab project repository.
 
-      If you no longer want to use a Bitbucket repository in CodeCatalyst, you can unlink it from a CodeCatalyst
-      project. When a repository is unlinked, events in that repository will not start workflow
-      runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
-      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+     1. In the **Linked GitLab project repositories** tab, choose **Link GitLab project repository**.
+     2. From the **GitLab user** dropdown, choose the GitLab user that contains the project repository that you want to link.
+     3. From the **GitLab project repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
 
-    - **GitLab repositories**: Link a GitLab project repository.
+     ###### Tip
 
-          1. In the **Linked GitLab project repositories** tab, choose **Link GitLab project repository**.
-          2. From the **GitLab user** dropdown, choose the GitLab user that contains the project repository that you want to link.
-          3. From the **GitLab project repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
+     If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space. 4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the GitLab project repository to. 5. Choose **Link**.
+     If you no longer want to use a GitLab project repository in CodeCatalyst, you can unlink it from a CodeCatalyst
+     project. When a project repository is unlinked, events in that project repository will not start workflow
+     runs, and you will not be able to use that project repository with CodeCatalyst Dev Environments. For more information, see
+     [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
+   - **Jira Software**: Link a Jira project.
 
-          ###### Tip
+     1. In the **Linked Jira projects** tab, choose **Link Jira project**.
+     2. From the **Jira site** dropdown menu, choose the Jira site that contains the project that you want to link.
+     3. From the **Jira project** dropdown menu, choose the project you want to link to a CodeCatalyst project.
+     4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link to a Jira project.
+     5. Choose **Link**.
+        Once a Jira project is linked to a CodeCatalyst project, access to CodeCatalyst issues is disabled entirely,
+        and **Issues** in the CodeCatalyst navigation pane will be replaced with a
+        **Jira issues** item that links to the Jira project.
 
-          If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space.
-          4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the GitLab project repository to.
-          5. Choose **Link**.
+   ![CodeCatalyst issues replaced with linked Jira issues in navigation pane.](images/integrations/jira-issues-nav.png)
 
-      If you no longer want to use a GitLab project repository in CodeCatalyst, you can unlink it from a CodeCatalyst
-      project. When a project repository is unlinked, events in that project repository will not start workflow
-      runs, and you will not be able to use that project repository with CodeCatalyst Dev Environments. For more information, see
-      [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
-
-    - **Jira Software**: Link a Jira project.
-
-          1. In the **Linked Jira projects** tab, choose **Link Jira project**.
-          2. From the **Jira site** dropdown menu, choose the Jira site that contains the project that you want to link.
-          3. From the **Jira project** dropdown menu, choose the project you want to link to a CodeCatalyst project.
-          4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link to a Jira project.
-          5. Choose **Link**.
-
-      Once a Jira project is linked to a CodeCatalyst project, access to CodeCatalyst issues is disabled entirely,
-      and **Issues** in the CodeCatalyst navigation pane will be replaced with a
-      **Jira issues** item that links to the Jira project.
-
-    ![CodeCatalyst issues replaced with linked Jira issues in navigation pane.](images/integrations/jira-issues-nav.png)
-
-    If you no longer want to use a Jira project in CodeCatalyst, you can unlink it from your CodeCatalyst
-    project. When a Jira project is unlinked, Jira issues will not be available in the CodeCatalyst
-    project, and CodeCatalyst **Issues** will be the issue provider again. For more information,
-    see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
+   If you no longer want to use a Jira project in CodeCatalyst, you can unlink it from your CodeCatalyst
+   project. When a Jira project is unlinked, Jira issues will not be available in the CodeCatalyst
+   project, and CodeCatalyst **Issues** will be the issue provider again. For more information,
+   see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md "extensions-unlink.md").
 
 ###### To link a GitHub repository, Bitbucket repository, or GitLab project repository to a CodeCatalyst project from the source repositories page in a project
 
-1.  Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2.  Navigate to your CodeCatalyst project.
-3.  In the navigation pane, choose **Code**, and then choose **Source repositories**.
-4.  Choose **Add repository**, and then choose **Link repository**.
-5.  From the **Repository provider** dropdown menu, choose one of the following third-party repository providers:
-    **GitHub**, **Bitbucket**, **GitLab**.
-6.  Do one of the following depending on the third-party repository provider you chose to link:
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
+2. Navigate to your CodeCatalyst project.
+3. In the navigation pane, choose **Code**, and then choose **Source repositories**.
+4. Choose **Add repository**, and then choose **Link repository**.
+5. From the **Repository provider** dropdown menu, choose one of the following third-party repository providers:
+   **GitHub**, **Bitbucket**, **GitLab**.
+6. Do one of the following depending on the third-party repository provider you chose to link:
 
-    - **GitHub repositories**: Link a GitHub repository.
+   - **GitHub repositories**: Link a GitHub repository.
 
-      1. From the **GitHub account** dropdown menu, choose the GitHub account that contains the repository that you want to link.
-      2. From the **GitHub repository** dropdown menu, choose the GitHub repository you want to link your CodeCatalyst project.
+     1. From the **GitHub account** dropdown menu, choose the GitHub account that contains the repository that you want to link.
+     2. From the **GitHub repository** dropdown menu, choose the GitHub repository you want to link your CodeCatalyst project.
 
-      ###### Tip
+     ###### Tip
 
-      If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the Amazon CodeCatalyst. 3. (Optional) If you don't see a GitHub repository in the list of repositories, it might not have been configured for repository access in the Amazon CodeCatalyst
-      application in GitHub. You can configure which GitHub repositories can be used in CodeCatalyst in the connected account.
+     If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the Amazon CodeCatalyst. 3. (Optional) If you don't see a GitHub repository in the list of repositories, it might not have been configured for repository access in the Amazon CodeCatalyst
+     application in GitHub. You can configure which GitHub repositories can be used in CodeCatalyst in the connected account.
 
-          1. Navigate to your [GitHub](https://github.com/ "https://github.com/") account, choose **Settings**, and then choose **Applications**.
-          2. In the **Installed GitHub Apps** tab, choose **Configure** for the Amazon CodeCatalyst application.
-          3. Do one of the following to configure access of GitHub repositories you want to link in CodeCatalyst:
-
-
+           1. Navigate to your [GitHub](https://github.com/ "https://github.com/") account, choose **Settings**, and then choose **Applications**.
+           2. In the **Installed GitHub Apps** tab, choose **Configure** for the Amazon CodeCatalyst application.
+           3. Do one of the following to configure access of GitHub repositories you want to link in CodeCatalyst:
 
 
-          	+ To provide access to all current and future repositories, choose **All repositories**.
-          	+ To provide access to specific repositories, choose **Only select repositories**, choose the **Select
-          	 repositories** dropdown, and then choose a repository you want to allow to link in CodeCatalyst.
 
-    - **Bitbucket repositories**: Link a Bitbucket repository.
 
-      1. From the **Bitbucket workspace** dropdown menu, choose the Bitbucket workspace that contains the repository that you want to link.
-      2. From the **Bitbucket repository** dropdown menu, choose the Bitbucket repository you want to link your CodeCatalyst project.
+           	+ To provide access to all current and future repositories, choose **All repositories**.
+           	+ To provide access to specific repositories, choose **Only select repositories**, choose the **Select
+           	 repositories** dropdown, and then choose a repository you want to allow to link in CodeCatalyst.
 
-      ###### Tip
+   - **Bitbucket repositories**: Link a Bitbucket repository.
 
-      If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the Amazon CodeCatalyst.
+     1. From the **Bitbucket workspace** dropdown menu, choose the Bitbucket workspace that contains the repository that you want to link.
+     2. From the **Bitbucket repository** dropdown menu, choose the Bitbucket repository you want to link your CodeCatalyst project.
 
-    - **GitLab repositories**: Link a GitLab project repository.
+     ###### Tip
 
-      1. From the **GitLab user** dropdown menu, choose the GitLab user that contains the project repository that you want to link.
-      2. From the **GitLab project repository** dropdown menu, choose the GitLab project repository you want to link your CodeCatalyst project.
+     If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the Amazon CodeCatalyst.
 
-      ###### Tip
+   - **GitLab repositories**: Link a GitLab project repository.
 
-      If the name of the project repository is greyed out, you can't link that project repository because it has already been linked to another project in
-      the Amazon CodeCatalyst.
+     1. From the **GitLab user** dropdown menu, choose the GitLab user that contains the project repository that you want to link.
+     2. From the **GitLab project repository** dropdown menu, choose the GitLab project repository you want to link your CodeCatalyst project.
 
-7.  Choose **Link**.
+     ###### Tip
+
+     If the name of the project repository is greyed out, you can't link that project repository because it has already been linked to another project in
+     the Amazon CodeCatalyst.
+
+7. Choose **Link**.
 
 If you no longer want to use a GitHub repository, Bitbucket repository, or GitLab project repository in CodeCatalyst, you can unlink it from a CodeCatalyst
 project. When a repository is unlinked, events in that repository will not start workflow

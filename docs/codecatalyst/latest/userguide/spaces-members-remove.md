@@ -55,6 +55,6 @@ On the **Remove member** dialog box, do one of the following.
      **Remove**.
 
 6. Refresh the **Members** tab. The user is automatically added to the
-   list of project members in any project where the user had membership through project
-   roles. If the **Space administrator** role was the user's only role, then
-   the user is removed from the space entirely.
+list of project members in any project where the user had membership through project
+roles. If the **Space administrator** role was the user's only role, then
+the user is removed from the space entirely.

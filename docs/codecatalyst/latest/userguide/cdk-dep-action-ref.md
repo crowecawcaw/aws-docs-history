@@ -88,7 +88,7 @@ as Node.js 16.
 Default: `aws/cdk-deploy@v2`.
 
 Corresponding UI: Workflow
-diagram/CDKDeploy_nn/**aws/cdk-deploy@v2**
+diagram/CDKDeploy\_nn/**aws/cdk-deploy@v2**
 label
 
 ## DependsOn

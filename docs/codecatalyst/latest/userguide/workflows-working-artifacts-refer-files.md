@@ -71,6 +71,5 @@ directory if:
      `WorkflowSource`.
 
 8. (Optional) Choose **Validate** to validate the
-   workflow's YAML code before committing.
-9. Choose **Commit**, enter a commit message, and
-   choose **Commit** again.
+workflow's YAML code before committing. 9. Choose **Commit**, enter a commit message, and
+choose **Commit** again.

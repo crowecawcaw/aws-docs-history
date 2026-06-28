@@ -365,41 +365,41 @@ list.
 The Amazon ECS service runs the tasks (and associated Docker containers) of the Apache
 placeholder application, and later, the Hello World application.
 
-1.  As `CodeCatalystECSUser`, switch to the Amazon Elastic Container Service console if you haven't done so
-    already.
-2.  Choose the cluster you created earlier,
-    `codecatalyst-ecs-cluster`.
-3.  In the **Services** tab, choose **Create**.
-4.  In the **Create** page, do the following:
+1. As `CodeCatalystECSUser`, switch to the Amazon Elastic Container Service console if you haven't done so
+   already.
+2. Choose the cluster you created earlier,
+   `codecatalyst-ecs-cluster`.
+3. In the **Services** tab, choose **Create**.
+4. In the **Create** page, do the following:
 
-    1. Keep all default settings except for those listed next.
-    2. For **Launch type**, choose **FARGATE**.
-    3. Under **Task definition**, in the **Family**
-       drop-down list, choose:
+   1. Keep all default settings except for those listed next.
+   2. For **Launch type**, choose **FARGATE**.
+   3. Under **Task definition**, in the **Family**
+      drop-down list, choose:
 
-    `codecatalyst-ecs-task-def` 4. For **Service name**, enter:
+   `codecatalyst-ecs-task-def` 4. For **Service name**, enter:
 
-    ```
-    `codecatalyst-ecs-service`
-    ```
-    5. For **Desired tasks**, enter:
+   ```
+   `codecatalyst-ecs-service`
+   ```
+   5. For **Desired tasks**, enter:
 
-    ```
-    `3`
-    ```
+   ```
+   `3`
+   ```
 
-    In this tutorial, each task launches a single Docker container. 6. Expand the **Networking** section. 7. For **VPC**, choose any VPC. 8. For **Subnets**, choose any subnet.
+   In this tutorial, each task launches a single Docker container. 6. Expand the **Networking** section. 7. For **VPC**, choose any VPC. 8. For **Subnets**, choose any subnet.
 
-    ###### Note
+   ###### Note
 
-    Only specify one subnet. That's all that is needed for this tutorial.
+   Only specify one subnet. That's all that is needed for this tutorial.
 
-    ###### Note
+   ###### Note
 
-    If you don’t have a VPC and subnet, create them. See [Create a VPC](../../../vpc/latest/userguide/working-with-vpcs.md#Create-VPC "../../../vpc/latest/userguide/working-with-vpcs.md#Create-VPC"),
-    and [Create a subnet in
-    your VPC](../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet "../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet") in the _Amazon VPC User Guide_. 9. For **Security group**, choose **Create a new security
-    group**, and then do the following:
+   If you don’t have a VPC and subnet, create them. See [Create a VPC](../../../vpc/latest/userguide/working-with-vpcs.md#Create-VPC "../../../vpc/latest/userguide/working-with-vpcs.md#Create-VPC"),
+   and [Create a subnet in
+   your VPC](../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet "../../../vpc/latest/userguide/working-with-vpcs.md#AddaSubnet") in the _Amazon VPC User Guide_. 9. For **Security group**, choose **Create a new security
+   group**, and then do the following:
 
         1. For **Security group name**, enter:
 
@@ -418,12 +418,12 @@ placeholder application, and later, the Hello World application.
         3. Choose **Add rule**. For **Type**,
          choose **HTTP**, and for **Source**, choose
          **Anywhere**.
-    10. At the bottom, choose **Create**.
-    11. Wait while the service is created. This may take a few minutes.
 
-5.  Choose the **Tasks** tab, and then choose the refresh button. Verify
-    that all three tasks have their **Last Status** column set to
-    **Running**.
+   10. At the bottom, choose **Create**. 11. Wait while the service is created. This may take a few minutes.
+
+5. Choose the **Tasks** tab, and then choose the refresh button. Verify
+   that all three tasks have their **Last Status** column set to
+   **Running**.
 
 ###### (Optional) To verify that your Apache placeholder application is running
 
@@ -1406,18 +1406,19 @@ change. 7. Watch the deployment progress:
 
 8. Verify that your application was updated, as follows:
 
-   1. Open the Amazon ECS classic console at
-      [https://console.aws.amazon.com/ecs/](https://console.aws.amazon.com/ecs/ "https://console.aws.amazon.com/ecs/").
-   2. Choose your cluster, `codecatalyst-ecs-cluster`.
-   3. Choose the **Tasks** tab.
-   4. Choose any one of the three tasks.
-   5. In the **Public IP** field, choose **open
-      address**.
+    1. Open the Amazon ECS classic console at
+     [https://console.aws.amazon.com/ecs/](https://console.aws.amazon.com/ecs/ "https://console.aws.amazon.com/ecs/").
+    2. Choose your cluster, `codecatalyst-ecs-cluster`.
+    3. Choose the **Tasks** tab.
+    4. Choose any one of the three tasks.
+    5. In the **Public IP** field, choose **open
+     address**.
 
-   A `Tutorial complete!` page appears.
+
+    A `Tutorial complete!` page appears.
 
 9. (Optional) In AWS, switch to the Amazon ECR console and verify that the new Docker image
-   was tagged with the commit ID from step 6.
+was tagged with the commit ID from step 6.
 
 ## Clean up
 

@@ -25,6 +25,5 @@ from the NuGet documentation.
 
 - SemVer 2.0.0 build metadata is removed:
 
-      + `1.0.7+r3456` is treated as `1.0.7`
-
-  **Package asset name normalization:** CodeCatalyst constructs the NuGet package asset name from the normalized package name and package version.
+  - `1.0.7+r3456` is treated as `1.0.7`
+    **Package asset name normalization:** CodeCatalyst constructs the NuGet package asset name from the normalized package name and package version.

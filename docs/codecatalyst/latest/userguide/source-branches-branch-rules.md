@@ -60,12 +60,12 @@ users with the Project administrator role to delete that branch.
 The following table lists the actions and the default settings for roles allowed to
 perform these actions on a branch.
 
-| Branch actions and roles                                                    | **Branch action**                  | Roles allowed to perform this action when no branch rules are<br>applied |
-| --------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------ |
+Branch actions and roles| **Branch action** | Roles allowed to perform this action when no branch rules are<br>applied |
+| --- | --- |
 | Merge to the branch (this includes merging a pull request to the<br>branch) | Project administrator, Contributor |
-| Push to the branch                                                          | Project administrator, Contributor |
-| Delete the branch                                                           | Project administrator, Contributor |
-| Delete the branch (default branch)                                          | Not allowed                        |
+| Push to the branch | Project administrator, Contributor |
+| Delete the branch | Project administrator, Contributor |
+| Delete the branch (default branch) | Not allowed |
 
 You cannot delete branch rules, but you can update them to allow actions from all the
 roles that would be allowed to perform this action on a branch, which effectively

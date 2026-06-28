@@ -125,67 +125,58 @@ Do one of the following depending on the third-party extension you chose to conf
 
 - **GitHub repositories**: Connect to a GitHub account.
 
-      1. Choose **Connect GitHub account** to go to the external site for GitHub.
-      2. Sign in to your GitHub account using your GitHub credentials, and then choose the
-       account where you want to install Amazon CodeCatalyst.
+  1.  Choose **Connect GitHub account** to go to the external site for GitHub.
+  2.  Sign in to your GitHub account using your GitHub credentials, and then choose the
+      account where you want to install Amazon CodeCatalyst.
 
+  ###### Tip
 
-      ###### Tip
-
-      If you have previously connected a GitHub account to the space, you will not be
-       prompted to reauthorize. You will instead see a dialog box asking you where you would
-       like to install the extension if you are a member or collaborator in more than one
-       GitHub space, or the configuration page for the Amazon CodeCatalyst application if you only
-       belong to one GitHub space. Configure the application for the repository access
-       that you want to allow, and then choose **Save**. If the
-       **Save** button is not active, make a change to the configuration,
-       and then try again.
-      3. Choose whether you want to allow CodeCatalyst to access all current and future repositories,
-       or choose the specific GitHub repositories you want to use in CodeCatalyst.
-       The
-       default option is to include all GitHub repositories in the GitHub account, including
-       future repositories that will be accessed by
-       CodeCatalyst.
-      4. Review the permissions given to CodeCatalyst, and then choose
-       **Install**.
-
+  If you have previously connected a GitHub account to the space, you will not be
+  prompted to reauthorize. You will instead see a dialog box asking you where you would
+  like to install the extension if you are a member or collaborator in more than one
+  GitHub space, or the configuration page for the Amazon CodeCatalyst application if you only
+  belong to one GitHub space. Configure the application for the repository access
+  that you want to allow, and then choose **Save**. If the
+  **Save** button is not active, make a change to the configuration,
+  and then try again. 3. Choose whether you want to allow CodeCatalyst to access all current and future repositories,
+  or choose the specific GitHub repositories you want to use in CodeCatalyst.
+  The
+  default option is to include all GitHub repositories in the GitHub account, including
+  future repositories that will be accessed by
+  CodeCatalyst. 4. Review the permissions given to CodeCatalyst, and then choose
+  **Install**.
   After connecting your GitHub account to CodeCatalyst, you're taken to the **GitHub repositories** extension details
   page, where you can view and manage connected GitHub accounts and linked GitHub repositories.
 
 - **Bitbucket repositories**: Connect to a Bitbucket workspace.
 
-      1. Choose **Connect Bitbucket workspace** to go to the external site for Bitbucket.
-      2. Sign into your Bitbucket workspace using your Bitbucket credentials and review the permissions given to CodeCatalyst.
-      3. From the **Authorize for workspace** dropdown menu, choose the Bitbucket workspace you want to
-       provide CodeCatalyst access to, and then choose **Grant access**.
+  1.  Choose **Connect Bitbucket workspace** to go to the external site for Bitbucket.
+  2.  Sign into your Bitbucket workspace using your Bitbucket credentials and review the permissions given to CodeCatalyst.
+  3.  From the **Authorize for workspace** dropdown menu, choose the Bitbucket workspace you want to
+      provide CodeCatalyst access to, and then choose **Grant access**.
 
+  ###### Tip
 
-      ###### Tip
-
-      If you have previously connected a Bitbucket workspace to the space, you will not be prompted
-       to reauthorize. You will instead see a dialog asking you where you would like to
-       install the extension if you're a member or collaborator in more than one Bitbucket
-       workspace, or the configuration page for the Amazon CodeCatalyst application if you only
-       belong to one Bitbucket workspace. Configure the application for the workspace access
-       you want to allow, and then choose **Grant access**. If the
-       **Grant access** button is not active, make a change to the configuration,
-       and then try again.
-
+  If you have previously connected a Bitbucket workspace to the space, you will not be prompted
+  to reauthorize. You will instead see a dialog asking you where you would like to
+  install the extension if you're a member or collaborator in more than one Bitbucket
+  workspace, or the configuration page for the Amazon CodeCatalyst application if you only
+  belong to one Bitbucket workspace. Configure the application for the workspace access
+  you want to allow, and then choose **Grant access**. If the
+  **Grant access** button is not active, make a change to the configuration,
+  and then try again.
   After connecting your Bitbucket workspace to CodeCatalyst, you're taken to the **Bitbucket repositories** extension details
   page, where you can view and manage connected Bitbucket workspaces and linked Bitbucket repositories.
 
 - **GitLab repositories**: Connect to a GitLab user.
 
-      1. Choose **Connect GitLab user** to go to the external site for GitLab.
-      2. Sign in to your GitLab user using your GitLab credentials and review the permissions given to CodeCatalyst.
+  1.  Choose **Connect GitLab user** to go to the external site for GitLab.
+  2.  Sign in to your GitLab user using your GitLab credentials and review the permissions given to CodeCatalyst.
 
+  ###### Tip
 
-      ###### Tip
-
-      If you have previously connected a GitLab user to the space, you will not be
-       prompted to reauthorize. You will instead be navigated back to the CodeCatalyst console.
-      3. Choose **Authorize AWS Connector for GitLab**.
-
+  If you have previously connected a GitLab user to the space, you will not be
+  prompted to reauthorize. You will instead be navigated back to the CodeCatalyst console. 3. Choose **Authorize AWS Connector for GitLab**.
   After connecting your GitLab user to CodeCatalyst, you're taken to the **GitLab repositories** extension details
   page, where you can view and manage connected GitLab user and linked GitLab project repositories.
 
@@ -275,15 +266,12 @@ Do one of the following depending on the third-party repository provider you wan
      source code created by the blueprint.
 
 7. Under **Project resources**, configure the blueprint parameters. Depending
-   on the blueprint, you may have the option to name the source repository name.
-8. (Optional) To view definition files with updates based on the project parameter selections
-   you made, choose **View code** or **View workflow** from
-   **Generate project preview**.
-9. (Optional) Choose **View details** from the blueprint's card to view
-   specific details about the blueprint, such as an overview of the blueprint's architecture,
-   required connections and permissions, and the kind of resources the blueprint
-   creates.
-10. Choose **Create project**.
+on the blueprint, you may have the option to name the source repository name. 8. (Optional) To view definition files with updates based on the project parameter selections
+you made, choose **View code** or **View workflow** from
+**Generate project preview**. 9. (Optional) Choose **View details** from the blueprint's card to view
+specific details about the blueprint, such as an overview of the blueprint's architecture,
+required connections and permissions, and the kind of resources the blueprint
+creates. 10. Choose **Create project**.
 
 ## Best practices when using Amazon Q to create projects or add functionality with blueprints
 

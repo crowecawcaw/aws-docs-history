@@ -55,7 +55,7 @@ information, see [Specifying the action version to use](workflows-action-version
 Default: `aws/approval@v1`.
 
 Corresponding UI: Workflow
-diagram/Approval_nn/**aws/approval@v1**
+diagram/Approval\_nn/**aws/approval@v1**
 label
 
 ## DependsOn

@@ -60,39 +60,42 @@ the workflow is not yet committed. 8. Choose **Visual**. 9. Build the workflow:
      more information, see [Configuring the queuing behavior of runs](workflows-configure-runs.md "workflows-configure-runs.md") and [Configuring compute and runtime images](workflows-working-compute.md "workflows-working-compute.md").
 
 10. (Optional) Choose **Validate** to validate the
-    workflow's YAML code before committing.
-11. Choose **Commit**, and on the **Commit
-    workflow** dialog box, do the following:
+workflow's YAML code before committing. 11. Choose **Commit**, and on the **Commit
+workflow** dialog box, do the following:
 
-    1.  For **Workflow file name**, leave the default
-        name or enter your own. The file will be stored in a
-        `~/.codecatalyst/workflows/` folder in
-        the chosen source repository and branch. You can preface the
-        file name with a folder or subfolder. Examples:
+    1. For **Workflow file name**, leave the default
+     name or enter your own. The file will be stored in a
+     `~/.codecatalyst/workflows/` folder in
+     the chosen source repository and branch. You can preface the
+     file name with a folder or subfolder. Examples:
 
-        - Specifying `my-workflow` (no
-          folder) stores the file as
-          `~/.codecatalyst/workflows/my-workflow.yaml`
-        - Specifying
-          `folder/subfolder/my-workflow`
-          stores the file as
-          `~/.codecatalyst/workflows/folder/subfolder/my-workflow.yaml`
 
-    2.  For **Commit message**, leave the default
-        message or enter your own.
-    3.  For **Repository** and
-        **Branch**, choose the source repository
-        and branch for the workflow definition file. These fields should
-        be set to the repository and branch that you specified earlier
-        in the **Create workflow** dialog box. You can
-        change the repository and branch now, if you'd like.
+
+
+    	* Specifying `my-workflow` (no
+    	 folder) stores the file as
+    	 `~/.codecatalyst/workflows/my-workflow.yaml`
+    	* Specifying
+    	 `folder/subfolder/my-workflow`
+    	 stores the file as
+    	 `~/.codecatalyst/workflows/folder/subfolder/my-workflow.yaml`
+    2. For **Commit message**, leave the default
+     message or enter your own.
+    3. For **Repository** and
+     **Branch**, choose the source repository
+     and branch for the workflow definition file. These fields should
+     be set to the repository and branch that you specified earlier
+     in the **Create workflow** dialog box. You can
+     change the repository and branch now, if you'd like.
+
 
     ###### Note
 
     After committing your workflow definition file, it cannot
-    be associated with another repository or branch, so make
-    sure to choose them carefully. 4. Choose **Commit** to commit the workflow
-    definition file.
+     be associated with another repository or branch, so make
+     sure to choose them carefully.
+    4. Choose **Commit** to commit the workflow
+     definition file.
 
 YAML
 
@@ -125,36 +128,39 @@ the workflow is not yet committed. 8. Choose **YAML**. 9. Build the workflow:
      more information, see [Configuring the queuing behavior of runs](workflows-configure-runs.md "workflows-configure-runs.md") and [Configuring compute and runtime images](workflows-working-compute.md "workflows-working-compute.md").
 
 10. (Optional) Choose **Validate** to validate the
-    workflow's YAML code before committing.
-11. Choose **Commit**, and on the **Commit
-    workflow** dialog box, do the following:
+workflow's YAML code before committing. 11. Choose **Commit**, and on the **Commit
+workflow** dialog box, do the following:
 
-    1.  For **Workflow file name**, leave the default
-        name or enter your own. The file will be stored in a
-        `~/.codecatalyst/workflows/` folder in
-        the chosen source repository and branch. You can preface the
-        file name with a folder or subfolder. Examples:
+    1. For **Workflow file name**, leave the default
+     name or enter your own. The file will be stored in a
+     `~/.codecatalyst/workflows/` folder in
+     the chosen source repository and branch. You can preface the
+     file name with a folder or subfolder. Examples:
 
-        - Specifying `my-workflow` (no
-          folder) stores the file as
-          `~/.codecatalyst/workflows/my-workflow.yaml`
-        - Specifying
-          `folder/subfolder/my-workflow`
-          stores the file as
-          `~/.codecatalyst/workflows/folder/subfolder/my-workflow.yaml`
 
-    2.  For **Commit message**, leave the default
-        message or enter your own.
-    3.  For **Repository** and
-        **Branch**, choose the source repository
-        and branch for the workflow definition file. These fields should
-        be set to the repository and branch that you specified earlier
-        in the **Create workflow** dialog box. You can
-        change the repository and branch now, if you'd like.
+
+
+    	* Specifying `my-workflow` (no
+    	 folder) stores the file as
+    	 `~/.codecatalyst/workflows/my-workflow.yaml`
+    	* Specifying
+    	 `folder/subfolder/my-workflow`
+    	 stores the file as
+    	 `~/.codecatalyst/workflows/folder/subfolder/my-workflow.yaml`
+    2. For **Commit message**, leave the default
+     message or enter your own.
+    3. For **Repository** and
+     **Branch**, choose the source repository
+     and branch for the workflow definition file. These fields should
+     be set to the repository and branch that you specified earlier
+     in the **Create workflow** dialog box. You can
+     change the repository and branch now, if you'd like.
+
 
     ###### Note
 
     After committing your workflow definition file, it cannot
-    be associated with another repository or branch, so make
-    sure to choose them carefully. 4. Choose **Commit** to commit the workflow
-    definition file.
+     be associated with another repository or branch, so make
+     sure to choose them carefully.
+    4. Choose **Commit** to commit the workflow
+     definition file.

@@ -18,7 +18,7 @@ mention.
 6. Type `@`project_name`` to mention
    a project.
 7. Type `@`issue_name`` or
-`@`issue_number`` to mention
+ `@`issue_number`` to mention
    another issue.
 8. Type `@`file_name`` to mention
    specific files or code in a source repository.

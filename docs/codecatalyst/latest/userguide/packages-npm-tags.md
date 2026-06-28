@@ -31,10 +31,10 @@ client. For example, a repository named `R` has an upstream repository named `U`
 The following table shows the tags for a package named `web-helper` that's present in both
 repositories.
 
-| Repository | Package name | Package tags                            |
-| ---------- | ------------ | --------------------------------------- |
-| R          | `web-helper` | \*latest<br>• (alias for version 1.0.0) |
-| U          | `web-helper` | \*alpha<br>• (alias for version 1.0.1)  |
+| Repository | Package name | Package tags                           |
+| ---------- | ------------ | -------------------------------------- |
+| R          | `web-helper` | *latest<br>• (alias for version 1.0.0) |
+| U          | `web-helper` | *alpha<br>• (alias for version 1.0.1)  |
 
 In this case, when the npm client fetches the tags for the `web-helper`
 package from repository `R`, it receives both the _latest_ and
@@ -44,10 +44,10 @@ When the same tag is present on the same package in both the upstream and local
 repository, CodeCatalyst uses the tag that was _last updated_. For example, suppose that the tags on _webhelper_ have been
 modified to look like the following.
 
-| Repository | Package name | Package tags                            | Last updated    |
-| ---------- | ------------ | --------------------------------------- | --------------- |
-| R          | `web-helper` | \*latest<br>• (alias for version 1.0.0) | January 1, 2023 |
-| U          | `web-helper` | \*latest<br>• (alias for version 1.0.1) | June 1, 2023    |
+| Repository | Package name | Package tags                           | Last updated    |
+| ---------- | ------------ | -------------------------------------- | --------------- |
+| R          | `web-helper` | *latest<br>• (alias for version 1.0.0) | January 1, 2023 |
+| U          | `web-helper` | *latest<br>• (alias for version 1.0.1) | June 1, 2023    |
 
 In this case, when the npm client fetches the tags for package
 _web-helper_ from repository `R`, the _latest_ tag

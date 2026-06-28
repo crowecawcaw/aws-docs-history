@@ -282,7 +282,7 @@ A `Hello World` message appears. Node.js ran the application using the
 `lodash` package that you downloaded to your Dev Environment in a previous
 step.
 
-###### To ignore the 'node_modules' directory and commit 'Hello World'
+###### To ignore the 'node\_modules' directory and commit 'Hello World'
 
 1. Ignore the `node_modules` directory. Enter:
 
@@ -531,51 +531,51 @@ git push
 
 ###### To test that 'Hello World' cannot pull version 4.17.21 of 'lodash'
 
-1.  Run the workflow with the version mismatch:
+1. Run the workflow with the version mismatch:
 
-    1. Switch to the CodeCatalyst console.
-    2. In the navigation pane, choose **CI/CD**, and then choose
-       **Workflows**.
-    3. Next to `codecatalyst-package-workflow`, choose
-       **Actions**, and then choose **Run.**
+   1. Switch to the CodeCatalyst console.
+   2. In the navigation pane, choose **CI/CD**, and then choose
+      **Workflows**.
+   3. Next to `codecatalyst-package-workflow`, choose
+      **Actions**, and then choose **Run.**
 
-    npm looks in `package.json` for dependencies and sees that
-    version 4.17.21 of `lodash` is required by 'Hello World'. npm looks for the
-    dependency in the following locations, in the following order:
+   npm looks in `package.json` for dependencies and sees that
+   version 4.17.21 of `lodash` is required by 'Hello World'. npm looks for the
+   dependency in the following locations, in the following order:
 
         * In the Docker image running the action. It can't find it here.
         * In the CodeCatalyst package repository. It can't find it here.
         * In the gateway repository. It can't find it here.
         * In npmjs.com. It finds it here.
 
-    After npm finds version 4.17.21 in npmjs.com, it tries to import it into the
-    gateway repository, but because you set up the gateway to block imports of
-    `lodash`, the import does not occur.
+   After npm finds version 4.17.21 in npmjs.com, it tries to import it into the
+   gateway repository, but because you set up the gateway to block imports of
+   `lodash`, the import does not occur.
 
-    Because the import does not occur, the workflow fails.
+   Because the import does not occur, the workflow fails.
 
-2.  Verify that the workflow failed:
+2. Verify that the workflow failed:
 
-    1. In the green notification at the top, on the right, choose the link to the run.
-       The link looks similar to `View Run-2345`.
-    2. In the workflow diagram, choose the **RunHelloWorldApp**
-       box.
-    3. Expand the `npm install` log message.
+   1. In the green notification at the top, on the right, choose the link to the run.
+      The link looks similar to `View Run-2345`.
+   2. In the workflow diagram, choose the **RunHelloWorldApp**
+      box.
+   3. Expand the `npm install` log message.
 
-    The following message appears:
+   The following message appears:
 
-    ```
-    [Container] 2024/04/25 17:20:34.995591 Running command npm install
-    npm ERR! code ETARGET
-    npm ERR! notarget No matching version found for lodash@4.17.21.
-    npm ERR! notarget In most cases you or one of your dependencies are requesting
-    npm ERR! notarget a package version that doesn't exist.
+   ```
+   [Container] 2024/04/25 17:20:34.995591 Running command npm install
+   npm ERR! code ETARGET
+   npm ERR! notarget No matching version found for lodash@4.17.21.
+   npm ERR! notarget In most cases you or one of your dependencies are requesting
+   npm ERR! notarget a package version that doesn't exist.
 
-    npm ERR! A complete log of this run can be found in: /tmp/.npm/_logs/2024-05-08T22_03_26_493Z-debug-0.log
-    ```
+   npm ERR! A complete log of this run can be found in: /tmp/.npm/_logs/2024-05-08T22_03_26_493Z-debug-0.log
+   ```
 
-    The error indicates that version 4.17.21 couldn't be found. This is expected
-    because you blocked it.
+   The error indicates that version 4.17.21 couldn't be found. This is expected
+   because you blocked it.
 
 ###### To unblock imports from npmjs.com
 

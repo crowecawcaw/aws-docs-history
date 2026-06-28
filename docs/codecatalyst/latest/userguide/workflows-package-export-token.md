@@ -6,10 +6,10 @@ You can use a token provided by the workflow action to manually configure a pack
 manager to authenticate with CodeCatalyst package repositories. CodeCatalyst makes this token
 available as an environment variable for you to reference in your actions.
 
-| Environment variable                  | Value                                         |
-| ------------------------------------- | --------------------------------------------- |
-| CATALYST_MACHINE_RESOURCE_NAME        | The user identity of the authorization token. |
-| CATALYST_PACKAGES_AUTHORIZATION_TOKEN | The value of the authorization token.         |
+| Environment variable                     | Value                                         |
+| ---------------------------------------- | --------------------------------------------- |
+| CATALYST\_MACHINE\_RESOURCE\_NAME        | The user identity of the authorization token. |
+| CATALYST\_PACKAGES\_AUTHORIZATION\_TOKEN | The value of the authorization token.         |
 
 ###### Note
 

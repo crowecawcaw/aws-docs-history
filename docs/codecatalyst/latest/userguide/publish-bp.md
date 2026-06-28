@@ -142,34 +142,38 @@ to an existing project of another space.
 yarn
 ```
 
-4.  Use the `--space` tag to publish a preview or normal version to a specified space. For example:
+4. Use the `--space` tag to publish a preview or normal version to a specified space. For example:
 
-        * ```
-        yarn blueprint:preview --space my-awesome-space # publishes under a "preview" version tag to 'my-awesome-space'
-        ```
+   - ```
 
-        Example output:
+     ```
 
+   yarn blueprint:preview --space my-awesome-space # publishes under a "preview" version tag to 'my-awesome-space'
 
+   ```
 
-        ```
-        Enable version 0.0.1-preview.0 at: https://codecatalyst.aws/spaces/my-awesome-space/blueprints
-        Blueprint applied to [NEW]: https://codecatalyst.aws/spaces/my-awesome-space/blueprints/%40amazon-codecatalyst%2Fmyspace.my-blueprint/publishers/1524817d-a69b-4abe-89a0-0e4a9a6c53b2/versions/0.0.1-preview.0/projects/create
-        ```
-        * ```
-        yarn blueprint:release --space my-awesome-space # publishes normal version to 'my-awesome-space'
-        ```
-
-        Example output:
+   Example output:
 
 
 
-        ```
-        Enable version 0.0.1 at: https://codecatalyst.aws/spaces/my-awesome-space/blueprints
-        Blueprint applied to [NEW]: https://codecatalyst.aws/spaces/my-awesome-space/blueprints/%40amazon-codecatalyst%2Fmyspace.my-blueprint/publishers/1524817d-a69b-4abe-89a0-0e4a9a6c53b2/versions/0.0.1/projects/create
-        ```
+   ```
 
-    Use the `--project` to add a preview version of a custom blueprint to an existing project in a specified space. For example:
+   Enable version 0.0.1-preview.0 at: https://codecatalyst.aws/spaces/my-awesome-space/blueprints
+   Blueprint applied to [NEW]: https://codecatalyst.aws/spaces/my-awesome-space/blueprints/%40amazon-codecatalyst%2Fmyspace.my-blueprint/publishers/1524817d-a69b-4abe-89a0-0e4a9a6c53b2/versions/0.0.1-preview.0/projects/create
+
+   ````
+   * ```
+   yarn blueprint:release --space my-awesome-space # publishes normal version to 'my-awesome-space'
+   ````
+
+   Example output:
+
+   ```
+   Enable version 0.0.1 at: https://codecatalyst.aws/spaces/my-awesome-space/blueprints
+   Blueprint applied to [NEW]: https://codecatalyst.aws/spaces/my-awesome-space/blueprints/%40amazon-codecatalyst%2Fmyspace.my-blueprint/publishers/1524817d-a69b-4abe-89a0-0e4a9a6c53b2/versions/0.0.1/projects/create
+   ```
+
+Use the `--project` to add a preview version of a custom blueprint to an existing project in a specified space. For example:
 
 ```
 yarn blueprint:preview --space my-awesome-space --project my-project # previews blueprint application to an existing project

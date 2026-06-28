@@ -88,7 +88,7 @@ more information, see [Specifying the action version to use](workflows-action-ve
 Default: `aws/lambda-invoke@v1`.
 
 Corresponding UI: Workflow
-diagram/LambdaInvoke_nn/**aws/lambda-invoke@v1**
+diagram/LambdaInvoke\_nn/**aws/lambda-invoke@v1**
 label
 
 ## DependsOn

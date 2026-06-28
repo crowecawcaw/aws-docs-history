@@ -151,8 +151,8 @@ results.
 
 A workflow diagram showing the label of your source repository
 (**WorkflowSource**) and the build action (for example,
-**Build_f0**). 2. In the workflow run diagram, choose the build action (for example,
-**Build_f0**). 3. Review the contents of the **Logs**,
+**Build\_f0**). 2. In the workflow run diagram, choose the build action (for example,
+**Build\_f0**). 3. Review the contents of the **Logs**,
 **Reports**, **Configuration**, and
 **Variables** tabs. These tabs show you the results of your
 build action.

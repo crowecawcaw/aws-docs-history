@@ -38,8 +38,8 @@ The **Deploy to Kubernetes cluster** works as follows:
    `kubectl` utility is necessary to run the `kubectl apply` command,
    next.
 2. The action runs the `kubectl apply -f
-`my-manifest.yaml``command, which carries out the
-instructions in`my-manifest.yaml` to deploy your application as
+ `my-manifest.yaml`` command, which carries out the
+   instructions in `my-manifest.yaml` to deploy your application as
    a set of containers and pods into the configured cluster. For more information on this
    command, see the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply "https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply") topic in the _Kubernetes Reference
    Documentation_.

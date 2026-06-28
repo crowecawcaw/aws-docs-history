@@ -130,11 +130,13 @@ enumerate the entirety of the `Options` interface, and the options are merged on
 Additional configuration tests:
 
 - ```
-  #wizard-config-typescript-test.json
-  {
-    language: "Typescript",
-  }
+
   ```
+
+#wizard-config-typescript-test.json
+{
+language: "Typescript",
+}
 
 ````
 * ```

@@ -74,5 +74,4 @@ For instructions on adding [third-party actions](workflows-actions.md#workflows-
      name in the action catalog.
 
 10. (Optional) Choose **Validate** to make sure the YAML code is
-    valid.
-11. Choose **Commit** to commit your changes.
+valid. 11. Choose **Commit** to commit your changes.

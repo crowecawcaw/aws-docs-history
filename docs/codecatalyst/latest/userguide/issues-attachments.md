@@ -59,9 +59,7 @@ types:
     For example, `text/html; charset=UTF-8`.
 
 3. To download an attachment, choose the ellipses menu next to the attachment
-   you want to download and choose **Download**.
-4. To copy an attachment's URL, choose the ellipses menu next to the
-   attachment of which you want to copy the URL and choose **Copy
-   URL**.
-5. To remove an attachment, choose the ellipses menu next to the attachment
-   you want to remove and choose **Delete**.
+you want to download and choose **Download**. 4. To copy an attachment's URL, choose the ellipses menu next to the
+attachment of which you want to copy the URL and choose **Copy
+URL**. 5. To remove an attachment, choose the ellipses menu next to the attachment
+you want to remove and choose **Delete**.

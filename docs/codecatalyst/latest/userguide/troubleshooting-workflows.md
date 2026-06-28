@@ -194,15 +194,12 @@ to display the information on the screen. 2. Do one of the following:
     * Refresh the AWS access portal page if it's already loaded.
 
 3. Sign in with the `codecatalyst-eks-user`'s username and
-   password, if you're not already signed in.
-4. Choose **AWS account**, and then choose the name of the
-   AWS account to which you assigned the `codecatalyst-eks-user`
-   user and permission set.
-5. Next to the permission set name
-   (`codecatalyst-eks-permission-set`), choose **Command
-   line or programmatic access**.
-6. Copy the commands in the middle of the page. They look similar to the
-   following:
+password, if you're not already signed in. 4. Choose **AWS account**, and then choose the name of the
+AWS account to which you assigned the `codecatalyst-eks-user`
+user and permission set. 5. Next to the permission set name
+(`codecatalyst-eks-permission-set`), choose **Command
+line or programmatic access**. 6. Copy the commands in the middle of the page. They look similar to the
+following:
 
 ```
 export AWS_ACCESS_KEY_ID="AKIAIOSFODNN7EXAMPLE"

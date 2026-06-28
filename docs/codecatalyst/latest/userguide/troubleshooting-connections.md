@@ -46,15 +46,15 @@ role, connection, and environment fields manually in the workflow YAML. View the
 workflow action, and note whether the error messages are as follows:
 
 - **`The role is not available for use with the connection associated
-with the environment.`**
+ with the environment.`**
 - **`Action did not succeed. Status: FAILED; The provided value for
-account connection or environment is not valid. Verify the connection is
-associated with your space and the environment is associated with your
-project.`**
+ account connection or environment is not valid. Verify the connection is
+ associated with your space and the environment is associated with your
+ project.`**
 - **`Action did not succeed. Status: FAILED; The provided value for
-IAM role is not valid. Verify the name exists, the IAM role is added to
-your account connection, and the connection is already associated with your
-Amazon CodeCatalyst space`**
+ IAM role is not valid. Verify the name exists, the IAM role is added to
+ your account connection, and the connection is already associated with your
+ Amazon CodeCatalyst space`**
 
 **Possible fixes:** Make sure that the workflow YAML
 fields have accurate values for [Environment](build-action-ref.md#build.environment "build-action-ref.md#build.environment"),

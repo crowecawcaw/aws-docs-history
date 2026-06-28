@@ -207,104 +207,104 @@ AWS services. The following instructions provide a quick way to configure the ke
 token, but if you want detailed instructions, see [Configuring the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") in the
 _AWS Command Line Interface User Guide_.
 
-1.  Create an IAM Identity Center user, as follows:
+1. Create an IAM Identity Center user, as follows:
 
-    1. Sign in to the AWS Management Console and open the AWS IAM Identity Center console at [https://console.aws.amazon.com/singlesignon/](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/").
+   1. Sign in to the AWS Management Console and open the AWS IAM Identity Center console at [https://console.aws.amazon.com/singlesignon/](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/").
 
-    (You might need to choose **Enable** if you've never signed in to
-    IAM Identity Center before.)
+   (You might need to choose **Enable** if you've never signed in to
+   IAM Identity Center before.)
 
-    ###### Note
+   ###### Note
 
-    Make sure you sign in using the AWS account that is connected to your CodeCatalyst
-    space. You can verify which account is connected by navigating to your
-    space and choosing the **AWS accounts** tab. For more
-    information, see [Creating a space](spaces-create.md "spaces-create.md"). 2. In the navigation pane, choose **Users**, and then choose
-    **Add user**. 3. In **Username**, enter:
+   Make sure you sign in using the AWS account that is connected to your CodeCatalyst
+   space. You can verify which account is connected by navigating to your
+   space and choosing the **AWS accounts** tab. For more
+   information, see [Creating a space](spaces-create.md "spaces-create.md"). 2. In the navigation pane, choose **Users**, and then choose
+   **Add user**. 3. In **Username**, enter:
 
-    ```
-    `codecatalyst-eks-user`
-    ```
-    4. Under **Password**, choose **Generate a one-time password
-       that you can share with this user**.
-    5. In **Email address** and **Confirm email
-       address**, enter an email address that doesn't already exist in
-       IAM Identity Center.
-    6. In **First name**, enter:
+   ```
+   `codecatalyst-eks-user`
+   ```
+   4. Under **Password**, choose **Generate a one-time password
+      that you can share with this user**.
+   5. In **Email address** and **Confirm email
+      address**, enter an email address that doesn't already exist in
+      IAM Identity Center.
+   6. In **First name**, enter:
 
-    ```
-    `codecatalyst-eks-user`
-    ```
-    7. In **Last name**, enter:
+   ```
+   `codecatalyst-eks-user`
+   ```
+   7. In **Last name**, enter:
 
-    ```
-    `codecatalyst-eks-user`
-    ```
-    8. In **Display name**, keep:
+   ```
+   `codecatalyst-eks-user`
+   ```
+   8. In **Display name**, keep:
 
-    ```
-    `codecatalyst-eks-user codecatalyst-eks-user`
-    ```
-    9. Choose **Next**.
-    10. On the **Add user to groups** page, choose
-        **Next**.
-    11. On the **Review and add user** page, review the information and
-        choose **Add user**.
+   ```
+   `codecatalyst-eks-user codecatalyst-eks-user`
+   ```
+   9. Choose **Next**.
+   10. On the **Add user to groups** page, choose
+       **Next**.
+   11. On the **Review and add user** page, review the information and
+       choose **Add user**.
 
-    A **One-time password** dialog box appears. 12. Choose **Copy** and then paste the sign-in information to a text
-    file. The sign-in information consists of the AWS access portal URL, a user name,
-    and a one-time password. 13. Choose **Close**.
+   A **One-time password** dialog box appears. 12. Choose **Copy** and then paste the sign-in information to a text
+   file. The sign-in information consists of the AWS access portal URL, a user name,
+   and a one-time password. 13. Choose **Close**.
 
-2.  Create a permission set, as follows:
+2. Create a permission set, as follows:
 
-    1. In the navigation pane, choose **Permission sets**, and then
-       choose **Create permission set**.
-    2. Choose **Predefined permission set** and then select
-       **AdministratorAccess**. This policy provides full permissions to
-       all AWS services.
-    3. Choose **Next**.
-    4. In **Permission set name**, remove
-       `AdministratorAccess` and enter:
+   1. In the navigation pane, choose **Permission sets**, and then
+      choose **Create permission set**.
+   2. Choose **Predefined permission set** and then select
+      **AdministratorAccess**. This policy provides full permissions to
+      all AWS services.
+   3. Choose **Next**.
+   4. In **Permission set name**, remove
+      `AdministratorAccess` and enter:
 
-    ```
-    `codecatalyst-eks-permission-set`
-    ```
-    5. Choose **Next**.
-    6. On the **Review and create** page, review the information and
-       choose **Create**.
+   ```
+   `codecatalyst-eks-permission-set`
+   ```
+   5. Choose **Next**.
+   6. On the **Review and create** page, review the information and
+      choose **Create**.
 
-3.  Assign the permission set to `codecatalyst-eks-user`, as follows:
+3. Assign the permission set to `codecatalyst-eks-user`, as follows:
 
-    1. In the navigation pane, choose **AWS accounts**, and then
-       select the check box next to the AWS account that you're currently signed in
-       to.
-    2. Choose **Assign users or groups**.
-    3. Choose the **Users** tab.
-    4. Select the check box next to `codecatalyst-eks-user`.
-    5. Choose **Next**.
-    6. Select the check box next to
-       `codecatalyst-eks-permission-set`.
-    7. Choose **Next**.
-    8. Review the information and choose **Submit**.
+   1. In the navigation pane, choose **AWS accounts**, and then
+      select the check box next to the AWS account that you're currently signed in
+      to.
+   2. Choose **Assign users or groups**.
+   3. Choose the **Users** tab.
+   4. Select the check box next to `codecatalyst-eks-user`.
+   5. Choose **Next**.
+   6. Select the check box next to
+      `codecatalyst-eks-permission-set`.
+   7. Choose **Next**.
+   8. Review the information and choose **Submit**.
 
-    You have now assigned `codecatalyst-eks-user` and
-    `codecatalyst-eks-permission-set` to your AWS account, binding them
-    together.
+   You have now assigned `codecatalyst-eks-user` and
+   `codecatalyst-eks-permission-set` to your AWS account, binding them
+   together.
 
-4.  Obtain `codecatalyst-eks-user`'s access keys and session token, as
-    follows:
+4. Obtain `codecatalyst-eks-user`'s access keys and session token, as
+   follows:
 
-    1. Make sure you have the AWS access portal URL and the username and one-time
-       password for `codecatalyst-eks-user`. You should have copied this
-       information to a text editor earlier.
+   1. Make sure you have the AWS access portal URL and the username and one-time
+      password for `codecatalyst-eks-user`. You should have copied this
+      information to a text editor earlier.
 
-    ###### Note
+   ###### Note
 
-    If you do not have this information, go to the
-    `codecatalyst-eks-user` details page in IAM Identity Center, choose
-    **Reset password**, **Generate a one-time password
-    [...]**, and **Reset password** again to display the
-    information on the screen. 2. Sign out of AWS. 3. Paste the AWS access portal URL into your browser's address bar. 4. Sign in with:
+   If you do not have this information, go to the
+   `codecatalyst-eks-user` details page in IAM Identity Center, choose
+   **Reset password**, **Generate a one-time password
+   [...]**, and **Reset password** again to display the
+   information on the screen. 2. Sign out of AWS. 3. Paste the AWS access portal URL into your browser's address bar. 4. Sign in with:
 
         * **Username**:
 
@@ -317,48 +317,49 @@ _AWS Command Line Interface User Guide_.
 
 
         `one-time-password`
-    5. In **Set new password**, enter a new password and choose
-       **Set new password**.
 
-    An **AWS account** box appears on the screen. 6. Choose **AWS account**, and then choose the name of the
-    AWS account to which you assigned the `codecatalyst-eks-user` user and
-    permission set. 7. Next to `codecatalyst-eks-permission-set`, choose **Command
-    line or programmatic access**. 8. Copy the commands in the middle of the page. They look similar to the
-    following:
+   5. In **Set new password**, enter a new password and choose
+   **Set new password**.
 
-    ```
-    export AWS_ACCESS_KEY_ID="AKIAIOSFODNN7EXAMPLE"
-    export AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
-    export AWS_SESSION_TOKEN="`session-token`"
-    ```
+   An **AWS account** box appears on the screen. 6. Choose **AWS account**, and then choose the name of the
+   AWS account to which you assigned the `codecatalyst-eks-user` user and
+   permission set. 7. Next to `codecatalyst-eks-permission-set`, choose **Command
+   line or programmatic access**. 8. Copy the commands in the middle of the page. They look similar to the
+   following:
 
-    ...where `session-token` is a long random string.
+   ```
+   export AWS_ACCESS_KEY_ID="AKIAIOSFODNN7EXAMPLE"
+   export AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+   export AWS_SESSION_TOKEN="`session-token`"
+   ```
 
-5.  Add the access keys and session token to the AWS CLI, as follows:
+   ...where `session-token` is a long random string.
 
-    1. Return to your CodeCatalyst Dev Environment.
-    2. At the terminal prompt, paste the commands you copied. Press Enter.
+5. Add the access keys and session token to the AWS CLI, as follows:
 
-    You have now configured the AWS CLI with access keys and a session token. You can
-    now use AWS CLI to complete the tasks required by this tutorial.
+   1. Return to your CodeCatalyst Dev Environment.
+   2. At the terminal prompt, paste the commands you copied. Press Enter.
 
-    ###### Important
+   You have now configured the AWS CLI with access keys and a session token. You can
+   now use AWS CLI to complete the tasks required by this tutorial.
 
-    If at any time during this tutorial you see messages similar to:
+   ###### Important
 
-    `Unable to locate credentials. You can configure credentials by running
- "aws configure".`
+   If at any time during this tutorial you see messages similar to:
 
-    Or:
+   `Unable to locate credentials. You can configure credentials by running
+  "aws configure".`
 
-    `ExpiredToken: The security token included in the request is
- expired`
+   Or:
 
-    ...it's because your AWS CLI session has expired. In this case, do
-    _not_ run the `aws configure` command. Instead, use
-    the instructions in step 4 of this procedure that starts with `Obtain
- codecatalyst-eks-user's access key and session token` to refresh your
-    session.
+   `ExpiredToken: The security token included in the request is
+  expired`
+
+   ...it's because your AWS CLI session has expired. In this case, do
+   _not_ run the `aws configure` command. Instead, use
+   the instructions in step 4 of this procedure that starts with `Obtain
+  codecatalyst-eks-user's access key and session token` to refresh your
+   session.
 
 ## Step 2: Create an Amazon EKS cluster
 
@@ -701,14 +702,14 @@ To create the build and deploy roles, complete the following series of procedure
 ###### 1. To create a trust policy for both roles
 
 1. Go to your Dev Environment.
-2. In the `Cloud9-`long-string``directory,
-create a file called`codecatalyst-eks-trust-policy.json` with the
+2. In the `Cloud9-`long-string`` directory,
+   create a file called `codecatalyst-eks-trust-policy.json` with the
    following contents:
 
 ###### 2. To create the build policy for the build role
 
-- In the `Cloud9-`long-string``directory,
-create a file called`codecatalyst-eks-build-policy.json` with the
+- In the `Cloud9-`long-string`` directory,
+  create a file called `codecatalyst-eks-build-policy.json` with the
   following contents:
 
 JSON
@@ -742,8 +743,8 @@ is available.
 
 ###### 3. To create the deploy policy for the deploy role
 
-- In the `Cloud9-`long-string``directory,
-create a file called`codecatalyst-eks-deploy-policy.json` with the
+- In the `Cloud9-`long-string`` directory,
+  create a file called `codecatalyst-eks-deploy-policy.json` with the
   following contents:
 
 JSON
@@ -1261,7 +1262,7 @@ git pull
 4. Open
    `codecatalyst-eks-source-repository/public-html/index.html`.
 5. On line 14, change the `Hello, World!` text to `Tutorial
-complete!`.
+ complete!`.
 6. Add, commit, and push:
 
 ```
@@ -1288,18 +1289,19 @@ started. 8. Watch the deployment progress:
 
 9. Verify that your application was updated, as follows:
 
-   1. Open the Amazon EC2 console at
-      [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-   2. On the left, near the bottom, choose **Load Balancers**.
-   3. Select the load balancer that was created as part of your Kubernetes deployment.
-   4. Copy and paste the **DNS name** value into your browser's address
-      bar.
+    1. Open the Amazon EC2 console at
+     [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+    2. On the left, near the bottom, choose **Load Balancers**.
+    3. Select the load balancer that was created as part of your Kubernetes deployment.
+    4. Copy and paste the **DNS name** value into your browser's address
+     bar.
 
-   The 'Tutorial Complete!' webpage appears in your browser, indicating that you
-   successfully deployed a new revision of your application.
+
+    The 'Tutorial Complete!' webpage appears in your browser, indicating that you
+     successfully deployed a new revision of your application.
 
 10. (Optional) In AWS, switch to the Amazon ECR console and verify that the new Docker image
-    was tagged with the commit ID from step 7 of this procedure.
+was tagged with the commit ID from step 7 of this procedure.
 
 ## Clean up
 
@@ -1308,22 +1310,22 @@ storage and compute resources used by this tutorial.
 
 ###### To clean up
 
-1.  Delete your cluster:
+1. Delete your cluster:
 
-    1. In the Dev Environment terminal, enter:
+   1. In the Dev Environment terminal, enter:
 
-    ```
-    eksctl delete cluster --region=`us-west-2` --name=`codecatalyst-eks-cluster`
-    ```
+   ```
+   eksctl delete cluster --region=`us-west-2` --name=`codecatalyst-eks-cluster`
+   ```
 
-    Where:
+   Where:
 
         * `us-west-2` is replaced with your Region.
         * `codecatalyst-eks-cluster` is replaced with the
          name of the cluster you created.
 
-    After 5-10 minutes, the cluster and associated resources are deleted, including
-    but not limited to CloudFormation stacks, nodes groups (in Amazon EC2), and load balancers.###### Important
+   After 5-10 minutes, the cluster and associated resources are deleted, including
+   but not limited to CloudFormation stacks, nodes groups (in Amazon EC2), and load balancers.###### Important
 
 If the `eksctl delete cluster` command doesn't work, you may need to
 refresh your AWS credentials or your `kubectl` credentials. If you're not
@@ -1351,11 +1353,11 @@ AWS credentials, see [How do I fix "Unable to locate credentials" and "ExpiredTo
 
 3. In the CodeCatalyst console, clean up as follows:
 
-   1. Delete `codecatalyst-eks-workflow`.
-   2. Delete `codecatalyst-eks-environment`.
-   3. Delete `codecatalyst-eks-source-repository`.
-   4. Delete your Dev Environment.
-   5. Delete `codecatalyst-eks-project`.
+    1. Delete `codecatalyst-eks-workflow`.
+    2. Delete `codecatalyst-eks-environment`.
+    3. Delete `codecatalyst-eks-source-repository`.
+    4. Delete your Dev Environment.
+    5. Delete `codecatalyst-eks-project`.
 
 In this tutorial, you learned how to deploy an application to an Amazon EKS service using a
 CodeCatalyst workflow and a **Deploy to Kubernetes cluster** action.

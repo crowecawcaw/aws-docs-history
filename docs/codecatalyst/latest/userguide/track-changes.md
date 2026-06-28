@@ -53,5 +53,5 @@ For each commit, you can view the following:
     Software Composition Analysis (SCA) results are not displayed.
 
 6. (Optional) To view more information about the changes related to a specific
-   commit, including the latest deployment and detailed code coverage and unit test
-   information, choose **View details** for that commit.
+commit, including the latest deployment and detailed code coverage and unit test
+information, choose **View details** for that commit.

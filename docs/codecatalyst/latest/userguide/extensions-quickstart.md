@@ -111,103 +111,88 @@ Bitbucket workspace, GitLab project repository, or Jira site to your CodeCatalys
 
   - **GitHub repositories**: Connect to a GitHub account.
 
-        1. In the **Connected GitHub accounts** tab, choose **Connect GitHub account** to go to
-         the external site for GitHub.
-        2. Sign in to your GitHub account using your GitHub credentials, and then choose the
-         account where you want to install Amazon CodeCatalyst.
+    1. In the **Connected GitHub accounts** tab, choose **Connect GitHub account** to go to
+       the external site for GitHub.
+    2. Sign in to your GitHub account using your GitHub credentials, and then choose the
+       account where you want to install Amazon CodeCatalyst.
 
+    ###### Tip
 
-        ###### Tip
-
-        If you have previously connected a GitHub account to the space, you will not be
-         prompted to reauthorize. You will instead see a dialog box asking you where you would
-         like to install the extension if you are a member or collaborator in more than one
-         GitHub organization, or the configuration page for the Amazon CodeCatalyst application if you only
-         belong to one GitHub organization. Configure the application for the repository access
-         that you want to allow, and then choose **Save**. If the
-         **Save** button is not active, make a change to the configuration,
-         and then try again.
-        3. Choose whether you want to allow CodeCatalyst to access all current and future repositories,
-         or choose the specific GitHub repositories you want to use in CodeCatalyst. The default
-         option is to include all GitHub repositories in the GitHub account, including
-         future repositories that will be accessed by CodeCatalyst.
-        4. Review the permissions given to CodeCatalyst, and then choose
-         **Install**.
-
+    If you have previously connected a GitHub account to the space, you will not be
+    prompted to reauthorize. You will instead see a dialog box asking you where you would
+    like to install the extension if you are a member or collaborator in more than one
+    GitHub organization, or the configuration page for the Amazon CodeCatalyst application if you only
+    belong to one GitHub organization. Configure the application for the repository access
+    that you want to allow, and then choose **Save**. If the
+    **Save** button is not active, make a change to the configuration,
+    and then try again. 3. Choose whether you want to allow CodeCatalyst to access all current and future repositories,
+    or choose the specific GitHub repositories you want to use in CodeCatalyst. The default
+    option is to include all GitHub repositories in the GitHub account, including
+    future repositories that will be accessed by CodeCatalyst. 4. Review the permissions given to CodeCatalyst, and then choose
+    **Install**.
     After connecting your GitHub account to CodeCatalyst, you're taken to the **GitHub repositories** extension details
     page, where you can view and manage connected GitHub accounts and linked GitHub repositories.
 
   - **Bitbucket repositories**: Connect to a Bitbucket workspace.
 
-        1. In the **Connected Bitbucket workspaces** tab, choose **Connect Bitbucket workspace** to go to
-         the external site for Bitbucket.
-        2. Sign into your Bitbucket workspace using your Bitbucket credentials and review the permissions given to CodeCatalyst.
-        3. From the **Authorize for workspace** dropdown menu, choose the Bitbucket workspace you want to
-         provide CodeCatalyst access to, and then choose **Grant access**.
+    1. In the **Connected Bitbucket workspaces** tab, choose **Connect Bitbucket workspace** to go to
+       the external site for Bitbucket.
+    2. Sign into your Bitbucket workspace using your Bitbucket credentials and review the permissions given to CodeCatalyst.
+    3. From the **Authorize for workspace** dropdown menu, choose the Bitbucket workspace you want to
+       provide CodeCatalyst access to, and then choose **Grant access**.
 
+    ###### Tip
 
-        ###### Tip
-
-        If you have previously connected a Bitbucket workspace to the space, you will not be prompted
-         to reauthorize. You will instead see a dialog asking you where you would like to
-         install the extension if you're a member or collaborator in more than one Bitbucket
-         workspace, or the configuration page for the Amazon CodeCatalyst application if you only
-         belong to one Bitbucket workspace. Configure the application for the workspace access
-         you want to allow, and then choose **Grant access**. If the
-         **Grant access** button is not active, make a change to the configuration,
-         and then try again.
-
+    If you have previously connected a Bitbucket workspace to the space, you will not be prompted
+    to reauthorize. You will instead see a dialog asking you where you would like to
+    install the extension if you're a member or collaborator in more than one Bitbucket
+    workspace, or the configuration page for the Amazon CodeCatalyst application if you only
+    belong to one Bitbucket workspace. Configure the application for the workspace access
+    you want to allow, and then choose **Grant access**. If the
+    **Grant access** button is not active, make a change to the configuration,
+    and then try again.
     After connecting your Bitbucket workspace to CodeCatalyst, you're taken to the **Bitbucket repositories** extension details
     page, where you can view and manage connected Bitbucket workspaces and linked Bitbucket repositories.
 
   - **GitLab repositories**: Connect to a GitLab user.
 
-        1. Choose **Connect GitLab user** to go to
-         the external site for GitLab.
-        2. Sign in to your GitLab user using your GitLab credentials and review the permissions given to CodeCatalyst.
+    1. Choose **Connect GitLab user** to go to
+       the external site for GitLab.
+    2. Sign in to your GitLab user using your GitLab credentials and review the permissions given to CodeCatalyst.
 
+    ###### Tip
 
-        ###### Tip
-
-        If you have previously connected a GitLab user to the space, you will not be
-         prompted to reauthorize. You will instead be navigated back to the CodeCatalyst console.
-        3. Choose **Authorize AWS Connector for GitLab**.
-
+    If you have previously connected a GitLab user to the space, you will not be
+    prompted to reauthorize. You will instead be navigated back to the CodeCatalyst console. 3. Choose **Authorize AWS Connector for GitLab**.
     After connecting your GitLab user to CodeCatalyst, you're taken to the **GitLab repositories** extension details
     page, where you can view and manage connected GitLab user and linked GitLab project repositories.
 
   - **Jira Software**: Connect a Jira site.
 
-        1. In the **Connected Jira sites** tab, choose **Connect Jira site** to go to the external
-         site for Atlassian Marketplace.
-        2. Choose **Get it now** to get started with installing CodeCatalyst on your Jira site.
+    1. In the **Connected Jira sites** tab, choose **Connect Jira site** to go to the external
+       site for Atlassian Marketplace.
+    2. Choose **Get it now** to get started with installing CodeCatalyst on your Jira site.
+
+    ###### Note
+
+    If you previously installed CodeCatalyst to your Jira site, you will be notified. Choose **Get
+    started** to be taken to the final step. 3. Depending on your role, do one of the following:
+
+          1. If you are a Jira site administrator, from the site dropdown menu, choose the Jira site to install the CodeCatalyst application, and
+           then choose **Install app**.
 
 
-        ###### Note
+          ###### Note
 
-        If you previously installed CodeCatalyst to your Jira site, you will be notified. Choose **Get
-         started** to be taken to the final step.
-        3. Depending on your role, do one of the following:
+          If you have one Jira site, this step won't appear, and you'll automatically be directed to the next step.
+          2. 1. If you aren't a Jira administrator, from the site dropdown menu, choose the Jira site to install the CodeCatalyst
+          	 application, and then choose **Request app**. For more information on installing Jira apps, see
+          	 [Who can install apps?](https://www.atlassian.com/licensing/marketplace#who-can-install-apps "https://www.atlassian.com/licensing/marketplace#who-can-install-apps").
+          	2. Enter the reason you need to install CodeCatalyst into the input text field or keep the default text, and then choose
+          	 **Submit request**.
 
-
-
-
-        	1. If you are a Jira site administrator, from the site dropdown menu, choose the Jira site to install the CodeCatalyst application, and
-        	 then choose **Install app**.
-
-
-        	###### Note
-
-        	If you have one Jira site, this step won't appear, and you'll automatically be directed to the next step.
-        	2. 1. If you aren't a Jira administrator, from the site dropdown menu, choose the Jira site to install the CodeCatalyst
-        		 application, and then choose **Request app**. For more information on installing Jira apps, see
-        		 [Who can install apps?](https://www.atlassian.com/licensing/marketplace#who-can-install-apps "https://www.atlassian.com/licensing/marketplace#who-can-install-apps").
-        		2. Enter the reason you need to install CodeCatalyst into the input text field or keep the default text, and then choose
-        		 **Submit request**.
-        4. Review the actions performed by CodeCatalyst when the application is installed, and then choose **Get it
-         now**.
-        5. After the application is installed, choose **Return to CodeCatalyst** to return to CodeCatalyst.
-
+    4. Review the actions performed by CodeCatalyst when the application is installed, and then choose **Get it
+    now**. 5. After the application is installed, choose **Return to CodeCatalyst** to return to CodeCatalyst.
     After connecting your Jira site to CodeCatalyst, you can view the connected site in the
     **Connected Jira sites** tab of the **Jira Software** extension
     details page.
@@ -223,31 +208,27 @@ Jira issues in CodeCatalyst is to link them to the CodeCatalyst project in which
 
   - **GitHub repositories**: Link a GitHub repository.
 
-        1. In the **Linked GitHub repositories** tab, choose **Link GitHub repository**.
-        2. From the **GitHub account** dropdown, choose the GitHub account that contains the repository that you want to link.
-        3. From the **GitHub repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
+    1. In the **Linked GitHub repositories** tab, choose **Link GitHub repository**.
+    2. From the **GitHub account** dropdown, choose the GitHub account that contains the repository that you want to link.
+    3. From the **GitHub repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
 
+    ###### Tip
 
-        ###### Tip
+    If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space. 4. (Optional) If you don't see a GitHub repository in the list of repositories, it might not have been configured for repository access in the Amazon CodeCatalyst
+    application in GitHub. You can configure which GitHub repositories can be used in CodeCatalyst in the connected account.
 
-        If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space.
-        4. (Optional) If you don't see a GitHub repository in the list of repositories, it might not have been configured for repository access in the Amazon CodeCatalyst
-         application in GitHub. You can configure which GitHub repositories can be used in CodeCatalyst in the connected account.
-
-
-        	1. Navigate to your [GitHub](https://github.com/ "https://github.com/") account, choose **Settings**, and then choose **Applications**.
-        	2. In the **Installed GitHub Apps** tab, choose **Configure** for the Amazon CodeCatalyst application.
-        	3. Do one of the following to configure access of GitHub repositories you want to link in CodeCatalyst:
+          1. Navigate to your [GitHub](https://github.com/ "https://github.com/") account, choose **Settings**, and then choose **Applications**.
+          2. In the **Installed GitHub Apps** tab, choose **Configure** for the Amazon CodeCatalyst application.
+          3. Do one of the following to configure access of GitHub repositories you want to link in CodeCatalyst:
 
 
 
 
-        		- To provide access to all current and future repositories, choose **All repositories**.
-        		- To provide access to specific repositories, choose **Only select repositories**, choose the **Select
-        		 repositories** dropdown, and then choose a repository you want to allow to link in CodeCatalyst.
-        5. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the GitHub repository to.
-        6. Choose **Link**.
+          	- To provide access to all current and future repositories, choose **All repositories**.
+          	- To provide access to specific repositories, choose **Only select repositories**, choose the **Select
+          	 repositories** dropdown, and then choose a repository you want to allow to link in CodeCatalyst.
 
+    5. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the GitHub repository to. 6. Choose **Link**.
     If you no longer want to use a GitHub repository in CodeCatalyst, you can unlink it from a CodeCatalyst
     project. When a repository is unlinked, events in that repository will not start workflow
     runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
@@ -255,17 +236,13 @@ Jira issues in CodeCatalyst is to link them to the CodeCatalyst project in which
 
   - **Bitbucket repositories**: Link a Bitbucket repository.
 
-        1. In the **Linked Bitbucket repositories** tab, choose **Link Bitbucket repository**.
-        2. From the **Bitbucket workspace** dropdown, choose the Bitbucket workspace that contains the repository that you want to link.
-        3. From the **Bitbucket repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
+    1. In the **Linked Bitbucket repositories** tab, choose **Link Bitbucket repository**.
+    2. From the **Bitbucket workspace** dropdown, choose the Bitbucket workspace that contains the repository that you want to link.
+    3. From the **Bitbucket repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
 
+    ###### Tip
 
-        ###### Tip
-
-        If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space.
-        4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the Bitbucket repository to.
-        5. Choose **Link**.
-
+    If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space. 4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the Bitbucket repository to. 5. Choose **Link**.
     If you no longer want to use a Bitbucket repository in CodeCatalyst, you can unlink it from a CodeCatalyst
     project. When a repository is unlinked, events in that repository will not start workflow
     runs, and you will not be able to use that repository with CodeCatalyst Dev Environments. For more information, see
@@ -273,17 +250,13 @@ Jira issues in CodeCatalyst is to link them to the CodeCatalyst project in which
 
   - **GitLab repositories**: Link a GitLab project repository.
 
-        1. In the **Linked GitLab project repositories** tab, choose **Link GitLab project repository**.
-        2. From the **GitLab user** dropdown, choose the GitLab user that contains the repository that you want to link.
-        3. From the **GitLab project repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
+    1. In the **Linked GitLab project repositories** tab, choose **Link GitLab project repository**.
+    2. From the **GitLab user** dropdown, choose the GitLab user that contains the repository that you want to link.
+    3. From the **GitLab project repository** dropdown, choose the repository you want to link to a CodeCatalyst project.
 
+    ###### Tip
 
-        ###### Tip
-
-        If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space.
-        4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the GitLab project repository to.
-        5. Choose **Link**.
-
+    If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the space. 4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link the GitLab project repository to. 5. Choose **Link**.
     If you no longer want to use a GitLab project repository in CodeCatalyst, you can unlink it from a CodeCatalyst
     project. When a project repository is unlinked, events in that project repository will not start workflow
     runs, and you will not be able to use that project repository with CodeCatalyst Dev Environments. For more information, see
@@ -291,15 +264,14 @@ Jira issues in CodeCatalyst is to link them to the CodeCatalyst project in which
 
   - **Jira Software**: Link a Jira project.
 
-        1. In the **Linked Jira projects** tab, choose **Link Jira project**.
-        2. From the **Jira site** dropdown menu, choose the Jira site that contains the project that you want to link.
-        3. From the **Jira project** dropdown menu, choose the project you want to link to a CodeCatalyst project.
-        4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link to a Jira project.
-        5. Choose **Link**.
-
-    Once a Jira project is linked to a CodeCatalyst project, access to CodeCatalyst issues is disabled entirely,
-    and **Issues** in the CodeCatalyst navigation pane will be replaced with a
-    **Jira issues** item that links to the Jira project.
+    1. In the **Linked Jira projects** tab, choose **Link Jira project**.
+    2. From the **Jira site** dropdown menu, choose the Jira site that contains the project that you want to link.
+    3. From the **Jira project** dropdown menu, choose the project you want to link to a CodeCatalyst project.
+    4. From the **CodeCatalyst project** dropdown menu, choose the CodeCatalyst project you want to link to a Jira project.
+    5. Choose **Link**.
+       Once a Jira project is linked to a CodeCatalyst project, access to CodeCatalyst issues is disabled entirely,
+       and **Issues** in the CodeCatalyst navigation pane will be replaced with a
+       **Jira issues** item that links to the Jira project.
 
   ![CodeCatalyst issues replaced with linked Jira issues in navigation pane.](images/integrations/jira-issues-nav.png)
 

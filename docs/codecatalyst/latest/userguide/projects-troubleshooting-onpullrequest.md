@@ -12,7 +12,7 @@ Failed at codeguru_codereview: The action failed during runtime. View the action
 **Solution:** One possible cause of this action failure
 might be due to missing permissions in the IAM role policy, where your version of the
 service role used by CodeCatalyst in the connected AWS account is missing required
-permissions for the **codeguru_codereview** action to run successfully.
+permissions for the **codeguru\_codereview** action to run successfully.
 To fix this problem, either the service role must be updated with the required
 permissions, or you must change the service role used for the workflow to one that has
 the required permissions for Amazon CodeGuru and Amazon CodeGuru Reviewer. Using the following steps,
@@ -46,7 +46,7 @@ workflow YAML.
 4. Choose the workflow titled **OnPullRequest**. Choose the
    **Definition** tab.
 5. In the workflow YAML, in the `Role:` field under the
-   **codeguru_codereview** action, make a note of the role
+   **codeguru\_codereview** action, make a note of the role
    name. This is the role with the policy that you will modify in IAM. The
    following example shows the role name.
 

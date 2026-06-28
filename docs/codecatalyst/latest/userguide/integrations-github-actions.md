@@ -14,7 +14,7 @@ There are two ways to add a GitHub Action to a CodeCatalyst workflow:
 - If the GitHub Action that you want to use is not available in the CodeCatalyst console, you
   can add it using a **GitHub Actions** action.
 
-A **_GitHub Actions_** action is a _CodeCatalyst action_ that
+A _**GitHub Actions**_ action is a _CodeCatalyst action_ that
 wraps a GitHub Action and makes it compatible with CodeCatalyst workflows.
 
 Here is an example of a **GitHub Actions** action wrapping the [Super-Linter](https://github.com/marketplace/actions/super-linter "https://github.com/marketplace/actions/super-linter") GitHub

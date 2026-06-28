@@ -106,7 +106,7 @@ environment: EnvironmentDefinition{
   usage.
 - **Usage** - Displays validation message on `@validation*` failure.
 - **Example** - `@validationMessage Must contain only upper and lowercase
-letters, numbers, and underscores`.
+ letters, numbers, and underscores`.
 - **Recommendation** - Use with `@validationMessage`. Validation message is empty by
   default.
 

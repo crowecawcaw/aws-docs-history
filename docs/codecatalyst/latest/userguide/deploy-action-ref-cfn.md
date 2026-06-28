@@ -83,7 +83,7 @@ more information, see [Specifying the action version to use](workflows-action-ve
 Default: `aws/cfn-deploy@v1`.
 
 Corresponding UI: Workflow
-diagram/DeployCloudFormationStack_nn/**aws/cfn-deploy@v1**
+diagram/DeployCloudFormationStack\_nn/**aws/cfn-deploy@v1**
 label
 
 ## DependsOn

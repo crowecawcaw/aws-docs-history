@@ -95,8 +95,8 @@ Notes:
 Once the push is complete, verify that all files, branches, and tags have
 been successfully migrated to the new repository provider. You can do this
 by browsing your repository online or by cloning it to another location and
-checking it locally. 5. \***\*Update Remote URLs
-(Optional)\*\***
+checking it locally. 5. ****Update Remote URLs
+(Optional)****
 
 If you plan to continue working with the migrated repository locally, you
 may want to update the remote URL to point to the new provider’s repository

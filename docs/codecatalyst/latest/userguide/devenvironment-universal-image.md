@@ -105,34 +105,34 @@ section describes how to subscribe to CodeCatalyst universal image updates.
 The following table lists the available runtimes for
 `universal-image:4.0`.
 
-| `universal-image:4.0` runtime versions | Runtime name | Version               | Specific major and latest minor version |
-| -------------------------------------- | ------------ | --------------------- | --------------------------------------- |
-| aws cli                                | 2.11         | `aws-cli: 2.x`        |
-| docker compose                         | 2.17         | `docker-compose: 2.x` |
-| dotnet                                 | 8.0          | `dotnet: 8.x`         |
-| golang                                 | 1.22         | `golang: 1.x`         |
-| java                                   | corretto21   | `java: corretto21.x`  |
-| nodejs                                 | 20.6         | `nodejs: 20.x`        |
-| php                                    | 8.2          | `php: 8.x`            |
-| python                                 | 3.9          | `python: 3.x`         |
-| 3.12                                   |
-| ruby                                   | 3.3          | `ruby: 3.x`           |
-| terraform                              | 1.5          | `terraform: 1.x`      |
+`universal-image:4.0` runtime versions| Runtime name | Version | Specific major and latest minor version |
+| --- | --- | --- |
+| aws cli | 2.11 | `aws-cli: 2.x` |
+| docker compose | 2.17 | `docker-compose: 2.x` |
+| dotnet | 8.0 | `dotnet: 8.x` |
+| golang | 1.22 | `golang: 1.x` |
+| java | corretto21 | `java: corretto21.x` |
+| nodejs | 20.6 | `nodejs: 20.x` |
+| php | 8.2 | `php: 8.x` |
+| python | 3.9 | `python: 3.x` |
+| 3.12 |
+| ruby | 3.3 | `ruby: 3.x` |
+| terraform | 1.5 | `terraform: 1.x` |
 
 ## Universal image 5.0 runtime versions
 
 The following table lists the available runtimes for
 `universal-image:5.0`.
 
-| `universal-image:5.0` runtime versions | Runtime name | Version               | Specific major and latest minor version |
-| -------------------------------------- | ------------ | --------------------- | --------------------------------------- |
-| aws cli                                | 2.25         | `aws-cli: 2.x`        |
-| docker compose                         | 2.34         | `docker-compose: 2.x` |
-| dotnet                                 | 8.0          | `dotnet: 8.x`         |
-| golang                                 | 1.24         | `golang: 1.x`         |
-| java                                   | corretto21   | `java: corretto21.x`  |
-| nodejs                                 | 22.0         | `nodejs: 22.x`        |
-| php                                    | 8.3.16       | `php: 8.x`            |
-| python                                 | 3.12         | `python: 3.x`         |
-| ruby                                   | 3.4.2        | `ruby: 3.x`           |
-| terraform                              | 1.10.5       | `terraform: 1.x`      |
+`universal-image:5.0` runtime versions| Runtime name | Version | Specific major and latest minor version |
+| --- | --- | --- |
+| aws cli | 2.25 | `aws-cli: 2.x` |
+| docker compose | 2.34 | `docker-compose: 2.x` |
+| dotnet | 8.0 | `dotnet: 8.x` |
+| golang | 1.24 | `golang: 1.x` |
+| java | corretto21 | `java: corretto21.x` |
+| nodejs | 22.0 | `nodejs: 22.x` |
+| php | 8.3.16 | `php: 8.x` |
+| python | 3.12 | `python: 3.x` |
+| ruby | 3.4.2 | `ruby: 3.x` |
+| terraform | 1.10.5 | `terraform: 1.x` |

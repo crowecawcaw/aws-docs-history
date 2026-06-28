@@ -8,6 +8,6 @@ variables_.
 
 For information about referencing these variables in a workflow, see [Using predefined variables](workflows-using-predefined-variables.md "workflows-using-predefined-variables.md").
 
-| Key             | Value                                                                                                                                                                                                                                                    |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| task-definition | The name given to the task definition file that was updated by the<br>\*_Render Amazon ECS task definition_<br>• action. The name follows the<br>format<br>`task-definition-*random-string*.json`.<br>Example: `task-definition--259-0a2r7gxlTF5Xr.json` |
+| Key             | Value                                                                                                                                                                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| task-definition | The name given to the task definition file that was updated by the<br>*_Render Amazon ECS task definition_<br>• action. The name follows the<br>format<br>`task-definition-*random-string*.json`.<br>Example: `task-definition--259-0a2r7gxlTF5Xr.json` |

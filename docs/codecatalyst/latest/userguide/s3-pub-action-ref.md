@@ -76,7 +76,7 @@ more information, see [Specifying the action version to use](workflows-action-ve
 Default: `aws/s3-publish@v1`.
 
 Corresponding UI: Workflow
-diagram/S3Publish_nn/**aws/s3-publish@v1**
+diagram/S3Publish\_nn/**aws/s3-publish@v1**
 label
 
 ## DependsOn

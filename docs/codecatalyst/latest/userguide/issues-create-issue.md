@@ -44,8 +44,8 @@ of the checkbox. 9. (Optional) Add an existing label or create a new label and a
      to create in the search field and press enter.
 
 10. (Optional) Add an assignee by choosing **+ Add an assignee**.
-    You can quickly add yourself as the assignee by choosing **+ Add
-    me**.
+You can quickly add yourself as the assignee by choosing **+ Add
+me**.
 
 ###### Tip
 
@@ -66,12 +66,12 @@ custom field. Issues can have multiple custom fields.
      value.
 
 12. Choose **Create issue**. A notification appears in the lower
-    right corner: If the issue was created successfully, a confirmation message
-    appears saying the issue was successfully created. If the issue was not created
-    successfully, an error message with the reason for the failure appears. You can
-    then choose **Retry** to edit and retry creating the issue, or
-    choose **Discard** to discard the issue. Both options will
-    dismiss the notification.
+right corner: If the issue was created successfully, a confirmation message
+appears saying the issue was successfully created. If the issue was not created
+successfully, an error message with the reason for the failure appears. You can
+then choose **Retry** to edit and retry creating the issue, or
+choose **Discard** to discard the issue. Both options will
+dismiss the notification.
 
 ###### Note
 

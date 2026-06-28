@@ -241,25 +241,25 @@ workflow in step 5.
 
 ###### To create a stack role
 
-1.  Sign in to AWS using the account where you want to deploy your stack.
-2.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-3.  Create the stack role as follows:
+1. Sign in to AWS using the account where you want to deploy your stack.
+2. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+3. Create the stack role as follows:
 
-    1. In the navigation pane, choose **Roles**.
-    2. Choose **Create role**.
-    3. Choose **AWS service**.
-    4. In the **Use case** section, choose
-       **CloudFormation** from the drop-down list.
-    5. Select the **CloudFormation** radio button.
-    6. At the bottom, choose **Next**.
-    7. Using the search box, find the following permissions policies, and then select
-       their respective check boxes.
+   1. In the navigation pane, choose **Roles**.
+   2. Choose **Create role**.
+   3. Choose **AWS service**.
+   4. In the **Use case** section, choose
+      **CloudFormation** from the drop-down list.
+   5. Select the **CloudFormation** radio button.
+   6. At the bottom, choose **Next**.
+   7. Using the search box, find the following permissions policies, and then select
+      their respective check boxes.
 
-    ###### Note
+   ###### Note
 
-    If you search for a policy and it doesn't appear, make sure to choose
-    **Clear filters** and try again.
+   If you search for a policy and it doesn't appear, make sure to choose
+   **Clear filters** and try again.
 
         * **CloudWatchFullAccess**
         * **AWSCloudFormationFullAccess**
@@ -269,26 +269,26 @@ workflow in step 5.
         * **AmazonS3FullAccess**
         * **AmazonEC2ContainerRegistryFullAccess**
 
-    The first policy allows access to CloudWatch to enable stack rollbacks when an alarm
-    occurs.
+   The first policy allows access to CloudWatch to enable stack rollbacks when an alarm
+   occurs.
 
-    The remaining policies allow AWS SAM to access the services and resources in the
-    stack that will be deployed in this tutorial. For more information, see [Permissions](../../../serverless-application-model/latest/developerguide/sam-permissions.md "../../../serverless-application-model/latest/developerguide/sam-permissions.md") in the _AWS Serverless Application Model Developer Guide_. 8. Choose **Next**. 9. For **Role name**, enter:
+   The remaining policies allow AWS SAM to access the services and resources in the
+   stack that will be deployed in this tutorial. For more information, see [Permissions](../../../serverless-application-model/latest/developerguide/sam-permissions.md "../../../serverless-application-model/latest/developerguide/sam-permissions.md") in the _AWS Serverless Application Model Developer Guide_. 8. Choose **Next**. 9. For **Role name**, enter:
 
-    ```
-    `codecatalyst-stack-role`
-    ```
-    10. Choose **Create role**.
+   ```
+   `codecatalyst-stack-role`
+   ```
+   10. Choose **Create role**.
 
-4.  Obtain the stack role's ARN, as follows:
+4. Obtain the stack role's ARN, as follows:
 
-    1. In the navigation pane, choose **Roles**.
-    2. In the search box, enter the name of the role you just created
-       (`codecatalyst-stack-role`).
-    3. Choose the role from the list.
-    4. In the **Summary** section, copy the **ARN**
-       value. You need it later.You have now created the stack role with the appropriate permissions, and you have
-       obtained its ARN.
+   1. In the navigation pane, choose **Roles**.
+   2. In the search box, enter the name of the role you just created
+      (`codecatalyst-stack-role`).
+   3. Choose the role from the list.
+   4. In the **Summary** section, copy the **ARN**
+      value. You need it later.You have now created the stack role with the appropriate permissions, and you have
+      obtained its ARN.
 
 ## Step 3: Add AWS roles to CodeCatalyst
 
@@ -972,7 +972,7 @@ uses the default traffic shifting configuration specified in the Lambda console.
    2. Choose the `app.js` file.
    3. Choose **Edit**.
    4. On line 23, change `hello world` to `Tutorial
-complete!`.
+  complete!`.
    5. Choose **Commit**, and then choose **Commit**
       again.
 
@@ -984,7 +984,7 @@ complete!`.
    1. Choose `hello-world\tests\unit\test-handler.js`.
    2. Choose **Edit**.
    3. On line 19, change `hello world` to `Tutorial
-complete!`.
+  complete!`.
    4. Choose **Commit**, and then choose **Commit**
       again.
 

@@ -56,23 +56,23 @@ The March 2024 images are the latest images provided by CodeCatalyst. There is o
 
 The following table shows the tools installed on each March 2024 image.
 
-| March 2024 image tools | Tool       | CodeCatalyst Amazon EC2 for Linux x86_64 -<br>`CodeCatalystLinux_x86_64:2024_03` | CodeCatalyst Lambda for Linux x86_64 -<br>`CodeCatalystLinuxLambda_x86_64:2024_03` | CodeCatalyst Amazon EC2 for Linux Arm64 -<br>`CodeCatalystLinux_Arm64:2024_03` | CodeCatalyst Lambda for Linux Arm64 -<br>`CodeCatalystLinuxLambda_Arm64:2024_03` |
-| ---------------------- | ---------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
-| AWS CLI                | 2.15.17    | 2.15.17                                                                          | 2.15.17                                                                            | 2.15.17                                                                        |
-| AWS Copilot CLI        | 1.32.1     | 1.32.1                                                                           | 1.32.1                                                                             | 1.32.1                                                                         |
-| Docker                 | 24.0.9     | N/A                                                                              | 24.0.9                                                                             | N/A                                                                            |
-| Docker Compose         | 2.23.3     | N/A                                                                              | 2.23.3                                                                             | N/A                                                                            |
-| Git                    | 2.43.0     | 2.43.0                                                                           | 2.43.0                                                                             | 2.43.0                                                                         |
-| Go                     | 1.21.5     | 1.21.5                                                                           | 1.21.5                                                                             | 1.21.5                                                                         |
-| Gradle                 | 8.5        | 8.5                                                                              | 8.5                                                                                | 8.5                                                                            |
-| Java                   | Corretto17 | Corretto17                                                                       | Corretto17                                                                         | Corretto17                                                                     |
-| Maven                  | 3.9.6      | 3.9.6                                                                            | 3.9.6                                                                              | 3.9.6                                                                          |
-| Node.js                | 18.19.0    | 18.19.0                                                                          | 18.19.0                                                                            | 18.19.0                                                                        |
-| npm                    | 10.2.3     | 10.2.3                                                                           | 10.2.3                                                                             | 10.2.3                                                                         |
-| Python                 | 3.9.18     | 3.9.18                                                                           | 3.9.18                                                                             | 3.9.18                                                                         |
-| Python3                | 3.11.6     | 3.11.6                                                                           | 3.11.6                                                                             | 3.11.6                                                                         |
-| pip                    | 22.3.1     | 22.3.1                                                                           | 22.3.1                                                                             | 22.3.1                                                                         |
-| .NET                   | 8.0.100    | 8.0.100                                                                          | 8.0.100                                                                            | 8.0.100                                                                        |
+March 2024 image tools| Tool | CodeCatalyst Amazon EC2 for Linux x86\_64 -<br>`CodeCatalystLinux_x86_64:2024_03` | CodeCatalyst Lambda for Linux x86\_64 -<br>`CodeCatalystLinuxLambda_x86_64:2024_03` | CodeCatalyst Amazon EC2 for Linux Arm64 -<br>`CodeCatalystLinux_Arm64:2024_03` | CodeCatalyst Lambda for Linux Arm64 -<br>`CodeCatalystLinuxLambda_Arm64:2024_03` |
+| --- | --- | --- | --- | --- |
+| AWS CLI | 2.15.17 | 2.15.17 | 2.15.17 | 2.15.17 |
+| AWS Copilot CLI | 1.32.1 | 1.32.1 | 1.32.1 | 1.32.1 |
+| Docker | 24.0.9 | N/A | 24.0.9 | N/A |
+| Docker Compose | 2.23.3 | N/A | 2.23.3 | N/A |
+| Git | 2.43.0 | 2.43.0 | 2.43.0 | 2.43.0 |
+| Go | 1.21.5 | 1.21.5 | 1.21.5 | 1.21.5 |
+| Gradle | 8.5 | 8.5 | 8.5 | 8.5 |
+| Java | Corretto17 | Corretto17 | Corretto17 | Corretto17 |
+| Maven | 3.9.6 | 3.9.6 | 3.9.6 | 3.9.6 |
+| Node.js | 18.19.0 | 18.19.0 | 18.19.0 | 18.19.0 |
+| npm | 10.2.3 | 10.2.3 | 10.2.3 | 10.2.3 |
+| Python | 3.9.18 | 3.9.18 | 3.9.18 | 3.9.18 |
+| Python3 | 3.11.6 | 3.11.6 | 3.11.6 | 3.11.6 |
+| pip | 22.3.1 | 22.3.1 | 22.3.1 | 22.3.1 |
+| .NET | 8.0.100 | 8.0.100 | 8.0.100 | 8.0.100 |
 
 ### November 2022 images
 
@@ -82,23 +82,23 @@ a November 2022 Windows image available with the build action if you've configur
 
 The following table shows the tools installed on each November 2022 image.
 
-| November 2022 image tools | Tool       | CodeCatalyst Amazon EC2 for Linux x86_64 -<br>`CodeCatalystLinux_x86_64:2022_11` | CodeCatalyst Lambda for Linux x86_64 -<br>`CodeCatalystLinuxLambda_x86_64:2022_11` | CodeCatalyst Amazon EC2 for Linux Arm64 -<br>`CodeCatalystLinux_Arm64:2022_11` | CodeCatalyst Lambda for Linux Arm64 -<br>`CodeCatalystLinuxLambda_Arm64:2022_11` | CodeCatalyst Amazon EC2 for Windows x86_64 -<br>`CodeCatalystWindows_x86_64:2022_11` |
-| ------------------------- | ---------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| AWS CLI                   | 2.15.17    | 2.15.17                                                                          | 2.15.17                                                                            | 2.15.17                                                                        | 2.13.19                                                                          |
-| AWS Copilot CLI           | 0.6.0      | 0.6.0                                                                            | N/A                                                                                | N/A                                                                            | 1.30.1                                                                           |
-| Docker                    | 23.01      | N/A                                                                              | 23.0.1                                                                             | N/A                                                                            | N/A                                                                              |
-| Docker Compose            | 2.16.0     | N/A                                                                              | 2.16.0                                                                             | N/A                                                                            | N/A                                                                              |
-| Git                       | 2.40.0     | 2.40.0                                                                           | 2.39.2                                                                             | 2.39.2                                                                         | 2.42.0                                                                           |
-| Go                        | 1.20.2     | 1.20.2                                                                           | 1.20.1                                                                             | 1.20.1                                                                         | 1.19                                                                             |
-| Gradle                    | 8.0.2      | 8.0.2                                                                            | 8.0.1                                                                              | 8.0.1                                                                          | 8.3                                                                              |
-| Java                      | Corretto17 | Corretto17                                                                       | Corretto17                                                                         | Corretto17                                                                     | Corretto17                                                                       |
-| Maven                     | 3.9.4      | 3.9.4                                                                            | 3.9.0                                                                              | 3.9.0                                                                          | 3.9.4                                                                            |
-| Node.js                   | 16.20.2    | 16.20.2                                                                          | 16.19.1                                                                            | 16.14.2                                                                        | 16.20.0                                                                          |
-| npm                       | 8.19.4     | 8.19.4                                                                           | 8.19.3                                                                             | 8.5.0                                                                          | 8.19.4                                                                           |
-| Python                    | 3.9.15     | 2.7.18                                                                           | 3.11.2                                                                             | 2.7.18                                                                         | 3.9.13                                                                           |
-| Python3                   | N/A        | 3.9.15                                                                           | N/A                                                                                | 3.11.2                                                                         | N/A                                                                              |
-| pip                       | 22.2.2     | 22.2.2                                                                           | 23.0.1                                                                             | 23.0.1                                                                         | 22.0.4                                                                           |
-| .NET                      | 6.0.407    | 6.0.407                                                                          | 6.0.406                                                                            | 6.0.406                                                                        | 6.0.414                                                                          |
+November 2022 image tools| Tool | CodeCatalyst Amazon EC2 for Linux x86\_64 -<br>`CodeCatalystLinux_x86_64:2022_11` | CodeCatalyst Lambda for Linux x86\_64 -<br>`CodeCatalystLinuxLambda_x86_64:2022_11` | CodeCatalyst Amazon EC2 for Linux Arm64 -<br>`CodeCatalystLinux_Arm64:2022_11` | CodeCatalyst Lambda for Linux Arm64 -<br>`CodeCatalystLinuxLambda_Arm64:2022_11` | CodeCatalyst Amazon EC2 for Windows x86\_64 -<br>`CodeCatalystWindows_x86_64:2022_11` |
+| --- | --- | --- | --- | --- | --- |
+| AWS CLI | 2.15.17 | 2.15.17 | 2.15.17 | 2.15.17 | 2.13.19 |
+| AWS Copilot CLI | 0.6.0 | 0.6.0 | N/A | N/A | 1.30.1 |
+| Docker | 23.01 | N/A | 23.0.1 | N/A | N/A |
+| Docker Compose | 2.16.0 | N/A | 2.16.0 | N/A | N/A |
+| Git | 2.40.0 | 2.40.0 | 2.39.2 | 2.39.2 | 2.42.0 |
+| Go | 1.20.2 | 1.20.2 | 1.20.1 | 1.20.1 | 1.19 |
+| Gradle | 8.0.2 | 8.0.2 | 8.0.1 | 8.0.1 | 8.3 |
+| Java | Corretto17 | Corretto17 | Corretto17 | Corretto17 | Corretto17 |
+| Maven | 3.9.4 | 3.9.4 | 3.9.0 | 3.9.0 | 3.9.4 |
+| Node.js | 16.20.2 | 16.20.2 | 16.19.1 | 16.14.2 | 16.20.0 |
+| npm | 8.19.4 | 8.19.4 | 8.19.3 | 8.5.0 | 8.19.4 |
+| Python | 3.9.15 | 2.7.18 | 3.11.2 | 2.7.18 | 3.9.13 |
+| Python3 | N/A | 3.9.15 | N/A | 3.11.2 | N/A |
+| pip | 22.2.2 | 22.2.2 | 23.0.1 | 23.0.1 | 22.0.4 |
+| .NET | 6.0.407 | 6.0.407 | 6.0.406 | 6.0.406 | 6.0.414 |
 
 ## What if an active image doesn't include the tools I need?
 
@@ -263,9 +263,8 @@ Specify one of the following:
      registry.
 
 9. (Optional) Choose **Validate** to validate the
-   workflow's YAML code before committing.
-10. Choose **Commit**, enter a commit message, and
-    choose **Commit** again.
+workflow's YAML code before committing. 10. Choose **Commit**, enter a commit message, and
+choose **Commit** again.
 
 YAML
 

@@ -108,15 +108,12 @@ Do one of the following depending on the third-party repository provider you wan
      source code created by the blueprint.
 
 7. Under **Project resources**, configure the blueprint parameters. Depending
-   on the blueprint, you may have the option to name the source repository name.
-8. (Optional) To view definition files with updates based on the project parameter selections
-   you made, choose **View code** or **View workflow** from
-   **Generate project preview**.
-9. (Optional) Choose **View details** from the blueprint's card to view
-   specific details about the blueprint, such as an overview of the blueprint's architecture,
-   required connections and permissions, and the kind of resources the blueprint
-   creates.
-10. Choose **Create project**.
+on the blueprint, you may have the option to name the source repository name. 8. (Optional) To view definition files with updates based on the project parameter selections
+you made, choose **View code** or **View workflow** from
+**Generate project preview**. 9. (Optional) Choose **View details** from the blueprint's card to view
+specific details about the blueprint, such as an overview of the blueprint's architecture,
+required connections and permissions, and the kind of resources the blueprint
+creates. 10. Choose **Create project**.
 
 The project overview page opens as soon as you create a project or accept an
 invitation to a project and complete the sign-in process. The project overview page for

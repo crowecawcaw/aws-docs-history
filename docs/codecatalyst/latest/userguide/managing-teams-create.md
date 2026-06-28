@@ -54,16 +54,17 @@ members of the team.
     * **Power user** - For details, see [Power user role](ipa-role-types.md#ipa-role-power-user "ipa-role-types.md#ipa-role-power-user").
 
 6. In **Team membership**, choose one of the following to choose the
-   method for adding members to the team.
+method for adding members to the team.
 
-   - Choose **Add members directly** to manage users individually.
+    * Choose **Add members directly** to manage users individually.
      This includes adding AWS Builder ID users for a space or adding SSO users for a
      space that supports identity federation.
-   - Choose **Use SSO Groups** to choose SSO groups that you have
+    * Choose **Use SSO Groups** to choose SSO groups that you have
      already set up in IAM Identity Center.
 
-   In **SSO Groups** , choose the box next to the groups that you
-   want to add. You can add up to five SSO groups.
+
+    In **SSO Groups** , choose the box next to the groups that you
+     want to add. You can add up to five SSO groups.
 
 ###### Note
 

@@ -78,7 +78,7 @@ more information, see [Specifying the action version to use](workflows-action-ve
 Default: `aws/ecs-deploy@v1`.
 
 Corresponding UI: Workflow
-diagram/ECSDeployAction_nn/**aws/ecs-deploy@v1**
+diagram/ECSDeployAction\_nn/**aws/ecs-deploy@v1**
 label
 
 ## DependsOn

@@ -39,17 +39,16 @@ For detailed steps, see one of the following procedures:
 
 ###### To display the app URL in the "AWS CDK deploy" action
 
-1.  If you're using the **AWS CDK deploy** action, add a
-    `CfnOutput` construct (which is a key-value pair) in your AWS CDK application
-    code:
+1. If you're using the **AWS CDK deploy** action, add a
+   `CfnOutput` construct (which is a key-value pair) in your AWS CDK application
+   code:
 
-        * The key name must contain `appurl`, or `endpointurl`, with or
-         without a joining dash (`-`), underscore (`_`), or space
-         (). The string is case-insensitive.
-        * The value must be the `http` or `https` URL of your deployed
-         application.
-
-    For example, your AWS CDK code might look like this:
+   - The key name must contain `appurl`, or `endpointurl`, with or
+     without a joining dash (`-`), underscore (`_`), or space
+     (). The string is case-insensitive.
+   - The value must be the `http` or `https` URL of your deployed
+     application.
+     For example, your AWS CDK code might look like this:
 
 ```
 import { Duration, Stack, StackProps, CfnOutput, RemovalPolicy} from 'aws-cdk-lib';
@@ -78,17 +77,16 @@ CfnOutputProps](../../../cdk/api/v2/docs/aws-cdk-lib.CfnOutputProps.md "../../..
 
 ###### To display the app URL in the "Deploy CloudFormation stack" action
 
-1.  If you're using the **Deploy CloudFormation stack** action, add an output to the
-    `Outputs` section in your CloudFormation template or AWS SAM template with these
-    characteristics:
+1. If you're using the **Deploy CloudFormation stack** action, add an output to the
+   `Outputs` section in your CloudFormation template or AWS SAM template with these
+   characteristics:
 
-        * The key (also called the logical ID) must contain `appurl`, or
-         `endpointurl`, with or without a joining dash (`-`), underscore
-         (`_`), or space (). The string is case-insensitive.
-        * The value must be the `http` or `https` URL of your deployed
-         application.
-
-    For example, your CloudFormation template might look like this:
+   - The key (also called the logical ID) must contain `appurl`, or
+     `endpointurl`, with or without a joining dash (`-`), underscore
+     (`_`), or space (). The string is case-insensitive.
+   - The value must be the `http` or `https` URL of your deployed
+     application.
+     For example, your CloudFormation template might look like this:
 
 ```
 "Outputs" : {
@@ -110,17 +108,16 @@ the _AWS CloudFormation User Guide_. 2. Save and commit your code. 3. Proceed to
 If you're using another action to deploy your application, such as the build action or
 **GitHub Actions**, do the following to have the app URL displayed.
 
-1.  Define an environment variable in the `Inputs` or `Steps` section
-    of the action in the workflow definition file. The variable must have these
-    characteristics:
+1. Define an environment variable in the `Inputs` or `Steps` section
+   of the action in the workflow definition file. The variable must have these
+   characteristics:
 
-        * The `name` must contain `appurl`, or `endpointurl`,
-         with or without a joining dash (`-`), underscore (`_`), or space
-         (). The string is case-insensitive.
-        * The value must be the `http` or `https` URL of your deployed
-         application.
-
-    For example, a build action might look like this:
+   - The `name` must contain `appurl`, or `endpointurl`,
+     with or without a joining dash (`-`), underscore (`_`), or space
+     (). The string is case-insensitive.
+   - The value must be the `http` or `https` URL of your deployed
+     application.
+     For example, a build action might look like this:
 
 ```
 Build-action:

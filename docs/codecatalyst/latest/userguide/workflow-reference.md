@@ -82,7 +82,7 @@ code.
   `[` , `]` , &, `*` , `#`
   , `?` , `|` , `-` , < , >,
   `=` , `!` , `%` , `@` ,
-  `:` , ```and`,`
+  `:` , ``` and `,`
 
 If you don't include the quotes, the special characters listed previously
 may be interpreted in an unexpected way.
@@ -114,7 +114,7 @@ Permitted:
     example, `'my string \n my string'`, returns the string
     `my string \n my string`.
   - Use double quotes to parse the escape code. For example, `"my
-string \n my new line"`, returns:
+   string \n my new line"`, returns:
 
   ```
   my string
